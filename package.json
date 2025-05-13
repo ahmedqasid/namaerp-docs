@@ -7,14 +7,15 @@
   "scripts": {
     "docs:build": "vuepress build docs",
     "docs:clean-dev": "vuepress dev docs --clean-cache",
-    "docs:dev": "vuepress dev docs",
+    "docs:dev": "vuepress dev docs --port 6789",
     "docs:update-package": "npx vp-update"
   },
   "devDependencies": {
-    "@vuepress/bundler-vite": "2.0.0-rc.20",
-    "@vuepress/theme-default": "2.0.0-rc.88",
+    "@vuepress/bundler-vite": "2.0.0-rc.23",
+    "@vuepress/plugin-rtl": "^2.0.0-rc.103",
+    "@vuepress/theme-default": "2.0.0-rc.103",
     "sass-embedded": "^1.86.0",
     "vue": "^3.5.13",
-    "vuepress": "2.0.0-rc.20"
+    "vuepress": "2.0.0-rc.23"
   }
 }
