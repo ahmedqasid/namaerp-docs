@@ -28,7 +28,8 @@ export default defineUserConfig({
         selectLanguageName: 'العربية',
       },
     },
-    sidebar: {'/': [{text: "Examples", collapsible: true, children: ['/ar/examples/entity-flow-examples']}]},
+    sidebar: {'/': [{text: "Examples", collapsible: true, children: ['/ar/examples/entity-flow-examples']},
+        {text: "Technical Guide", collapsible: true, children: ['/ar/guide/tempo']}]},
     navbar: ['/', '/get-started'],
   }),
   plugins: [
