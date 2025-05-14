@@ -6,6 +6,9 @@ actions:
   - text: Tempo Language - لغة تمبو
     link: ./tempo.html
     type: primary
+  - text: Nama ERP Requirements - متطلبات نما
+    link: ./nama-erp-minimum-requirements.html
+    type: primary
 
 ---
 # ملفات المساعدة باللغة العربية
