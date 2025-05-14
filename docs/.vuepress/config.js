@@ -20,7 +20,6 @@ export default defineUserConfig({
   description: 'Nama ERP Documentation',
 
   theme: defaultTheme({
-    logo: 'https://vuejs.press/images/hero.png',
     locales: {
       '/': {
         selectLanguageName: 'English',
@@ -29,6 +28,7 @@ export default defineUserConfig({
         selectLanguageName: 'العربية',
       },
     },
+    sidebar: {'/': [{text: "Examples", collapsible: true, children: ['/ar/examples/entity-flow-examples']}]},
     navbar: ['/', '/get-started'],
   }),
   plugins: [
