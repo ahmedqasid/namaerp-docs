@@ -12,7 +12,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Arabic Guides",
         collapsible: true,
-        children: [ "/ar/guide/ea-fields-values-calculator.md", "/ar/guide/tempo.md" ]
+        children: [ "/ar/guide/ea-fields-values-calculator.md", "/ar/guide/excel-and-sql-import-by-entity-flow.md", "/ar/guide/tempo.md" ]
       } ]
     }, {
       text: "English Guides",
