@@ -1,16 +1,10 @@
----
-home: true
-title: Home
-actions:
-  - text: System Minimum Requirements
-    link: ./system-minimum-requirements.html
-    type: primary
-  - text: System Utils
-    link: ./utils.html
-    type: primary
-  - text: System Utils
-    link: ./oracle-jdbc-connection.html
-    type: primary
----
-
-
+# English Guides
+  - [Attendance Machine Formula Guide](/guide/attendance-machine-formula.md)
+  - [Criteria Based Validation](/guide/criteria-based-validation.md)
+  - [Nama Properties](/guide/nama-properties.md)
+  - [ORACLE JDBC Integration Connection in context.xml for integration purposes](/guide/oracle-jdbc-connection.md)
+  - [Scheduled Tasks](/guide/scheduled-tasks.md)
+  - [Layout Names:](/guide/screen-modifier.md)
+  - [Hidden Shortcuts](/guide/shortcuts.md)
+  - [System Minimum Requirements](/guide/system-minimum-requirements.md)
+  - [Utility Links](/guide/utils.md)

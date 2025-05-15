@@ -1,7 +1,8 @@
-import { defaultTheme } from '@vuepress/theme-default'
-import { defineUserConfig } from 'vuepress'
-import { viteBundler } from '@vuepress/bundler-vite'
+import {defaultTheme} from '@vuepress/theme-default'
+import {defineUserConfig} from 'vuepress'
+import {viteBundler} from '@vuepress/bundler-vite'
 import {rtlPlugin} from "@vuepress/plugin-rtl";
+import {SIDEBAR_CONFIG} from "./sidebar.js";
 
 export default defineUserConfig({
   locales: {
@@ -28,9 +29,8 @@ export default defineUserConfig({
         selectLanguageName: 'العربية',
       },
     },
-    sidebar: {'/': [{text: "Examples", collapsible: true, children: ['/ar/examples/entity-flow-examples']},
-        {text: "Technical Guide", collapsible: true, children: ['/ar/guide/tempo']}]},
-    navbar: ['/', '/get-started'],
+    sidebar: SIDEBAR_CONFIG,
+    navbar: ['/', '/ar/'],
   }),
   plugins: [
     rtlPlugin({

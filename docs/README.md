@@ -1,20 +1,17 @@
----
-home: true
-title: Home
-actions:
-  - text: Entity Flow Examples
-    link: /ar/examples/entity-flow-examples
-    type: primary
-  - text: System Minimum Requirements
-    link: ./guide/system-minimum-requirements
-    type: primary
-  - text: System Utils
-    link: ./guide/utils
-    type: primary
-  - text: Oracle JDBC Connection
-    link: ./guide/oracle-jdbc-connection
-    type: primary
-
----
-
-
+# Home
+  - [Arabic Guides](/ar)
+    - [Arabic Examples](/ar/examples)
+      - [أمثلة لمسارات كيان](/ar/examples/entity-flow-examples.md)
+    - [Arabic Guides](/ar/guide)
+      - [Entity Flow Fields Expressions:](/ar/guide/ea-fields-values-calculator.md)
+      - [Tempo Manual](/ar/guide/tempo.md)
+  - [English Guides](/guide)
+    - [Attendance Machine Formula Guide](/guide/attendance-machine-formula.md)
+    - [Criteria Based Validation](/guide/criteria-based-validation.md)
+    - [Nama Properties](/guide/nama-properties.md)
+    - [ORACLE JDBC Integration Connection in context.xml for integration purposes](/guide/oracle-jdbc-connection.md)
+    - [Scheduled Tasks](/guide/scheduled-tasks.md)
+    - [Layout Names:](/guide/screen-modifier.md)
+    - [Hidden Shortcuts](/guide/shortcuts.md)
+    - [System Minimum Requirements](/guide/system-minimum-requirements.md)
+    - [Utility Links](/guide/utils.md)

@@ -1,16 +1,3 @@
----
-home: true
-title: Home
-heroImage: https://vuejs.press/images/hero.png
-actions:
-  - text: Tempo Language - لغة تمبو
-    link: ./tempo.html
-    type: primary
-  - text: Nama ERP Requirements - متطلبات نما
-    link: ./nama-erp-minimum-requirements.html
-    type: primary
-
----
-# ملفات المساعدة باللغة العربية
-
-هذه هي الوثائق باللغة العربية.
+# Arabic Guides
+  - [Entity Flow Fields Expressions:](/ar/guide/ea-fields-values-calculator.md)
+  - [Tempo Manual](/ar/guide/tempo.md)

@@ -1,15 +1,6 @@
----
-home: true
-title: Home
-heroImage: https://vuejs.press/images/hero.png
-actions:
-  - text: Examples - أمثلة
-    link: ./examples/
-    type: primary
-
-  - text: Technical Guide - ملفات المساعدة الفنية
-    link: ./guide/
-    type: primary
-
----
-# مرحباً بك
+# Arabic Guides
+  - [Arabic Examples](/ar/examples)
+    - [أمثلة لمسارات كيان](/ar/examples/entity-flow-examples.md)
+  - [Arabic Guides](/ar/guide)
+    - [Entity Flow Fields Expressions:](/ar/guide/ea-fields-values-calculator.md)
+    - [Tempo Manual](/ar/guide/tempo.md)

@@ -1,7 +1,8 @@
-## Nama ERP is a web-based application
-### It can be hosted on-premise or on-cloud
+# System Minimum Requirements
 
-#### If you will host Nama ERP on-premise, here are the minimum and recommended hardware and software specifications:
+Nama ERP is a web-based application, It can be hosted on-premise or on-cloud
+
+If you will host Nama ERP on-premise, here are the minimum and recommended hardware and software specifications:
 
 
 | **Spec**                     | **Minimum**                                                                                                                                                     | **Recommended**                                                 |
@@ -18,3 +19,4 @@
 #### Namasoft Provides Cloud ERP Hosting. The data centers we use are mainly in Europe (Germany, France, and Finland). Please request a quote from our sales team.
 
 #### You can also install on your own cloud server, but make sure that the server is not a "shared host". Nama ERP can be installed on Virtual Private Servers (VMs) or dedicated servers.
+
