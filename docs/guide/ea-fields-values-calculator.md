@@ -3,10 +3,12 @@
 ```ini
 altCode=mask(code,XXX.XXX.XXX)
 ```
-  - X هنا تعبر عن حرف في الكود الاصلي
-  - أي حرف سوي X سيتم إضافته الى الناتج 
+<RTLBlock>
 
+- X هنا تعبر عن حرف في الكود الاصلي
+- أي حرف سوي X سيتم إضافته الى الناتج 
 
+</RTLBlock>
 ### Example 1:
 
 
@@ -22,8 +24,10 @@ If the item code is ABC155713 , mask(code,XXX-XXX@XXX), the alternative code wil
 ```ini
 n1=totalize(details,details.price.unitPrice)
 ```
+<RTLBlock>
 
 - لتجميع القيم بأحد الحقول يمكن استخدام الدالة "totalize"، حيث في هذا المثال سيقوم النظام بحساب مجموع القيم الموجودة بالحقل "details.price.unitPrice" بالجريد "details".
+</RTLBlock>
 
 ```ini
 n1=totalizeif(details,details.price.unitPrice,select case when {details.item.item.section.code}  = ‘SEC001’ then 1 else 0 end)
@@ -246,7 +250,7 @@ description2=$createOTP6
 description3=$createOTP7
 ```
 
-You can find more about importing using this system at [Excel and SQL importing using entity flows](./excel-and-sql-import-by-entity-flow.md)
+You can find more about importing using this system at [Excel and SQL importing using entity flows](excel-and-sql-import-by-entity-flow.md)
 
 
 

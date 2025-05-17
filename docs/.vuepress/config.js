@@ -30,7 +30,7 @@ export default defineUserConfig({
       },
     },
     sidebar: SIDEBAR_CONFIG,
-    navbar: ['/', '/ar/'],
+    navbar: ['/', '/guide/','/examples/'],
   }),
   plugins: [
     slimsearchPlugin({indexContent: true, indexOptions: {}})

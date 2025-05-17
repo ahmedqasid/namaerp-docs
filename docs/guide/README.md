@@ -1,10 +1,13 @@
-# English Guides
+# Guides
   - [Attendance Machine Formula Guide](/guide/attendance-machine-formula.md)
   - [Criteria Based Validation](/guide/criteria-based-validation.md)
+  - [Field Values Calculator](/guide/ea-fields-values-calculator.md)
+  - [Import by Entity Flow From Excel Sheets or SQL Statement](/guide/excel-and-sql-import-by-entity-flow.md)
   - [Nama Properties](/guide/nama-properties.md)
   - [ORACLE JDBC Integration Connection in context.xml for integration purposes](/guide/oracle-jdbc-connection.md)
   - [Scheduled Tasks](/guide/scheduled-tasks.md)
   - [Layout Names:](/guide/screen-modifier.md)
   - [Hidden Shortcuts](/guide/shortcuts.md)
   - [System Minimum Requirements](/guide/system-minimum-requirements.md)
+  - [Tempo Manual](/guide/tempo.md)
   - [Utility Links](/guide/utils.md)

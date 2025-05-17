@@ -3,21 +3,13 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     collapsible: true,
     children: [ {
-      text: "Arabic Guides",
+      text: "Examples",
       collapsible: true,
-      children: [ {
-        text: "Arabic Examples",
-        collapsible: true,
-        children: [ "/ar/examples/entity-flow-examples.md" ]
-      }, {
-        text: "Arabic Guides",
-        collapsible: true,
-        children: [ "/ar/guide/ea-fields-values-calculator.md", "/ar/guide/excel-and-sql-import-by-entity-flow.md", "/ar/guide/tempo.md" ]
-      } ]
+      children: [ "/examples/entity-flow-examples.md" ]
     }, {
-      text: "English Guides",
+      text: "Guides",
       collapsible: true,
-      children: [ "/guide/attendance-machine-formula.md", "/guide/criteria-based-validation.md", "/guide/nama-properties.md", "/guide/oracle-jdbc-connection.md", "/guide/scheduled-tasks.md", "/guide/screen-modifier.md", "/guide/shortcuts.md", "/guide/system-minimum-requirements.md", "/guide/utils.md" ]
+      children: [ "/guide/attendance-machine-formula.md", "/guide/criteria-based-validation.md", "/guide/ea-fields-values-calculator.md", "/guide/excel-and-sql-import-by-entity-flow.md", "/guide/nama-properties.md", "/guide/oracle-jdbc-connection.md", "/guide/scheduled-tasks.md", "/guide/screen-modifier.md", "/guide/shortcuts.md", "/guide/system-minimum-requirements.md", "/guide/tempo.md", "/guide/utils.md" ]
     } ]
   } ]
 }
