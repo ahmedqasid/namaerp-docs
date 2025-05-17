@@ -1,8 +1,8 @@
 import {defaultTheme} from '@vuepress/theme-default'
 import {defineUserConfig} from 'vuepress'
 import {viteBundler} from '@vuepress/bundler-vite'
-import {rtlPlugin} from "@vuepress/plugin-rtl";
 import {SIDEBAR_CONFIG} from "./sidebar.js";
+import {slimsearchPlugin} from "@vuepress/plugin-slimsearch";
 
 export default defineUserConfig({
   locales: {
@@ -33,9 +33,7 @@ export default defineUserConfig({
     navbar: ['/', '/ar/'],
   }),
   plugins: [
-    rtlPlugin({
-      locales: ['/ar/'],
-    }),
+    slimsearchPlugin({indexContent: true, indexOptions: {}})
   ],
   bundler: viteBundler(),
 })

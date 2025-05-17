@@ -1,0 +1,11 @@
+import {defineClientConfig} from 'vuepress/client'
+
+export default defineClientConfig({
+    enhance({app, router, siteData}) {
+        router.afterEach((to) => {
+            // console.log(to.meta._pageChunk.data.frontmatter.lang)
+            const isRtl = to.path.startsWith('/ar/') || to.meta._pageChunk?.data?.frontmatter?.lang === 'ar'
+            document.documentElement.setAttribute('dir', isRtl ? 'rtl' : 'ltr')
+        })
+    }
+})
