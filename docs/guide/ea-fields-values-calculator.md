@@ -1,21 +1,27 @@
+---
+lang: ar
+---
+<ltr>
+
 # Field Values Calculator
+</ltr>
 
 ```ini
 altCode=mask(code,XXX.XXX.XXX)
 ```
-<RTLBlock>
+  - X هنا تعبر عن حرف في الكود الاصلي
+  - أي حرف سوي X سيتم إضافته الى الناتج 
 
-- X هنا تعبر عن حرف في الكود الاصلي
-- أي حرف سوي X سيتم إضافته الى الناتج 
+<ltr>
 
-</RTLBlock>
 ### Example 1:
-
 
 If the item code is 111222333 , mask(code,XXX-XXX*XXX), the alternative code will be 111-222*333
 Example2:
 
 If the item code is ABC155713 , mask(code,XXX-XXX@XXX), the alternative code will be ABC-155@713
+
+</ltr>
 
 ```
 111222333 - XX.XXXX.XX => 11.1222.333
@@ -24,10 +30,8 @@ If the item code is ABC155713 , mask(code,XXX-XXX@XXX), the alternative code wil
 ```ini
 n1=totalize(details,details.price.unitPrice)
 ```
-<RTLBlock>
 
 - لتجميع القيم بأحد الحقول يمكن استخدام الدالة "totalize"، حيث في هذا المثال سيقوم النظام بحساب مجموع القيم الموجودة بالحقل "details.price.unitPrice" بالجريد "details".
-</RTLBlock>
 
 ```ini
 n1=totalizeif(details,details.price.unitPrice,select case when {details.item.item.section.code}  = ‘SEC001’ then 1 else 0 end)
@@ -159,20 +163,27 @@ description1=remarks.$right_2 → returns the last two letters of the remarks fi
 description1=remarks.$mid_3_4 → returns 4 letters starting from the third one of the remarks fields
 details=[clear]
 ```
+<ltr>
+
 - Clears all lines in the details grid
+
 ```ini
 details=[5]
 ```
 - Makes the grid details size 5 lines
+
 ```ini
 details=[lines]
 ```
 - Makes the grid details size the same as the lines grid size
+
 ```ini
 details1=[addLines(details2)]
 ```
+
 - Add new empty lines to the existing lines in grid details one, the new added lines will be exactly the size of the grid details2. This is very useful if you want to merge two grids in a single grid while creating entity from entity.
 - Always use it in conjunction with `addedLinesOnly(details1.n1=details2.n5)`
+
 ```ini
 details=[addLines(5)]
 ```
@@ -181,6 +192,7 @@ details=[addLines(5)]
 details1=addedLinesOnly(details1.n1=details2.n5)
 ```
 - The statement inside the parentheses will be run only for the newly added lines created by  `details1=[addLines(details2)]`
+
 - يتم استخدام الأمرين السابقين لإنشاء جدول جديد من جدولين. لمزيد من التعرف على هذين الأمرين، يمكن الرجوع للسؤال التالي:
 - كيف يمكن عمل مستند صرف مخزني من خلال دمج سطور قطع الغيار و الخدمات في سند أمر الصيانة؟ أو كيف يمكن إنشاء جدول بدمج جدولين آخرين؟
 ```ini
@@ -217,17 +229,30 @@ description1=code.$encrypt1
 description2=description1.$decrypt1
 ref1=sql(select entityType,id from SalesInvoice where code = {description1.$decrypt1})
 ```
+<rtl>
+
 - في التقارير يمكن استعمال التالي:
+
+</rtl>
+
 
 ```groovy
 NamaRep.encrypt1($F{code})
 NamaRep.decrypt1($F{description1})
 ```
+<rtl>
+
 encrypt1 -> تقوم بالتشفير
+
 decrypt1 -> تقوم بفك التشفير
+
 يوجد دالتان اخريان يمكن استعمالهم ولهم كلمة سر مختلفة
-encryptX - decryptX
-encrypt2 - decrypt2
+
+</rtl>
+
+`encryptX - decryptX`
+
+`encrypt2 - decrypt2`
 
 - if a line starts with #, the line is considered a comment and not parsed at all
 
@@ -253,6 +278,7 @@ description3=$createOTP7
 You can find more about importing using this system at [Excel and SQL importing using entity flows](excel-and-sql-import-by-entity-flow.md)
 
 
+</ltr>
 
 
 
