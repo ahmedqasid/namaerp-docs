@@ -13,9 +13,16 @@
   "devDependencies": {
     "@vuepress/bundler-vite": "2.0.0-rc.23",
     "@vuepress/plugin-rtl": "^2.0.0-rc.103",
+    "@vuepress/plugin-search": "^2.0.0-rc.104",
     "@vuepress/theme-default": "2.0.0-rc.103",
     "sass-embedded": "^1.86.0",
     "vue": "^3.5.13",
     "vuepress": "2.0.0-rc.23"
+  },
+  "dependencies": {
+    "@docsearch/css": "^3.9.0",
+    "@docsearch/js": "^3.9.0",
+    "instantsearch.js": "^4.78.3",
+    "typesense-instantsearch-adapter": "^2.9.0"
   }
 }
