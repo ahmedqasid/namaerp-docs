@@ -1,7 +1,5 @@
 <template>
   <div class="utility-link-builder">
-    <h4>{{ className }} </h4>
-
     <div
         v-for="(param, index) in paramInputs"
         :key="index"
@@ -16,13 +14,10 @@
       />
     </div>
 
-    <p><strong>Generated URL:</strong>
+    <p>
+      <code>{{ generatedUrl }}</code>
       <button @click="copyUrl">Copy</button>
     </p>
-    <div class="code-block">
-
-      <code>{{ generatedUrl }}</code>
-    </div>
   </div>
 </template>
 
@@ -36,7 +31,8 @@ const props = defineProps({
   },
   params: {
     type: Array, // array of { title: string, default: string }
-    required: true,
+    required: false,
+    default: () => [],
   },
 })
 
@@ -58,8 +54,9 @@ onMounted(() => {
 })
 
 const generatedUrl = computed(() => {
-  const values = paramInputs.value.map(p => p.value)
-  const query = `${props.className}-${values.join(',')}`
+  const values = paramInputs.value.map(p => p.value);
+  const sep =props.params.length > 0 ? '-' : ''
+  const query = `${props.className+sep+values.join(',')}`
   return `${serverBaseUrl.value.replace(/\/$/, '')}/utils?${query}`
 })
 

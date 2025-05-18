@@ -13,15 +13,18 @@ className="com.namasoft.erp.gui.server.RecommitFromFile"
 />
 
 ## ReApply Sales Contracts System Entries:
-<UtilityLinkBuilder
-className="com.namasoft.modules.realstate.domain.utils.RESysEntryMigratorUtility"
-:params="[]"
-/>
+
+<UtilityLinkBuilder 
+className="com.namasoft.modules.realstate.domain.utils.RESysEntryMigratorUtility"/>
 
 ## ReApply Rent Contracts System Entries:
-[http://localhost:8080/erp/test?util=com.namasoft.modules.realstate.domain.utils.UpdateREReservationEntryUtil](http://localhost:8080/erp/test?util=com.namasoft.modules.realstate.domain.utils.UpdateREReservationEntryUtil)
+<UtilityLinkBuilder
+className="com.namasoft.modules.realstate.domain.utils.UpdateREReservationEntryUtil"/>
 
 ## Re-Replicate From File: (For admin)
+<UtilityLinkBuilder
+className="com.namasoft.modules.realstate.domain.utils.UpdateREReservationEntryUtil"/>
+
 [http://localhost:8080/erp/test?util=com.namasoft.erp.gui.server.ReplicateFromFile-c:/rc/recommit.txt,c:/rc/done.txt,c:/rc/error.txt&gui=true](http://localhost:8080/erp/test?util=com.namasoft.erp.gui.server.ReplicateFromFile-c:/rc/recommit.txt,c:/rc/done.txt,c:/rc/error.txt&gui=true)
 
 ## Delete From File:
@@ -57,7 +60,7 @@ className="com.namasoft.modules.realstate.domain.utils.RESysEntryMigratorUtility
 [http://localhost:8080/erp/test?util=com.namasoft.modules.humanresource.domain.entities.utils.VacationsSysEntryMigratorForAllEmps-file=e:/rc/processed-employees.txt,date=20201010](http://localhost:8080/erp/test?util=com.namasoft.modules.humanresource.domain.entities.utils.VacationsSysEntryMigratorForAllEmps-file=e:/rc/processed-employees.txt,date=20201010)
 > [!NOTE]
 > This will put the processed employee ids in e:/rc/processed-employees.txt,
-and the date with format yyyyMMdd 
+> and the date with format yyyyMMdd 
 
 ## To Process an employee with code:
 [http://localhost:8080/erp/test?util=com.namasoft.modules.humanresource.domain.entities.utils.VacationsSysEntryMigratorForAllEmps-codes=E001-E002-E003](http://localhost:8080/erp/test?util=com.namasoft.modules.humanresource.domain.entities.utils.VacationsSysEntryMigratorForAllEmps-codes=E001-E002-E003)
