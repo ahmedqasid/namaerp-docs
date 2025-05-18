@@ -53,37 +53,46 @@ Column1, column2 from Table
 - Also, you can use column index as follows: sql.rows.c1 , sql.rows.c2, and so on
 ***
 
-## عند استيراد ملف العملاء والذي يحتوي على موقع جغرافي contactInfo.address.region ، مطلوب ملئ الحقول التالية بناء على الموقع جغرافي : 
+<rtl>
 
-```sql
+- عند استيراد ملف العملاء والذي يحتوي على موقع جغرافي contactInfo.address.region ، مطلوب ملئ الحقول التالية بناء على الموقع جغرافي :
+</rtl>
 
-contactInfo.address.country , contactInfo.address.city , contactInfo.address.state , contactInfo.address.area
+`contactInfo.address.country , contactInfo.address.city , contactInfo.address.state , contactInfo.address.area`
 
-```
+<rtl>
 
 - وبالمثل في عنوان الشحن والدفع
 
 - يمكنك استعمال التالي في مسار كيان EAFieldValuesCalculator لنسخ المسميات باللغة العربية
 
-```sql
+</rtl>
+
+```ini
 contactInfo.address.country=contactInfo.address.region.$countryAr
 contactInfo.address.city=contactInfo.address.region.$cityAr
 contactInfo.address.state=contactInfo.address.region.$stateAr
 contactInfo.address.area=contactInfo.address.region.$areaAr
 ```
 
-- لنسخ المسميات باللغة الإنجليزية
+<rtl>
 
-```sql
+- لنسخ المسميات باللغة الإنجليزية
+</rtl>
+
+```ini
 contactInfo.address.country=contactInfo.address.region.$countryEn
 contactInfo.address.city=contactInfo.address.region.$cityEn
 contactInfo.address.state=contactInfo.address.region.$stateEn
 contactInfo.address.area=contactInfo.address.region.$areaEn
 ```
+<rtl>
 
 - لنسخ المسميات حسب اللغة الحالية للمدخول
 
-```sql
+</rtl>
+
+```ini
 contactInfo.address.country=contactInfo.address.region.$country
 contactInfo.address.city=contactInfo.address.region.$city
 contactInfo.address.state=contactInfo.address.region.$state
@@ -91,4 +100,7 @@ contactInfo.address.area=contactInfo.address.region.$area
 
 ```
 
+<rtl>
+
 - بالطبع يمكنك تغيير contactInfo إلى أي حقل آخر
+</rtl>

@@ -1,153 +1,58 @@
----
----
+# Email By Parameterized Reports In Task Scheduler
 
-# Scheduled Tasks
-
-## Task Type1: Parameterized Report Task
-
-### Task Type: Action
-### Action Name: com.namasoft.reporting.ParamterizedReporTask
-
-### Parameters
-
-- #### First Parameter: SQL query that returns the parameter values.
-- #### Second Parameter: List of parameter names (used by the report).
-
-### Column Naming Conventions
-
-| Purpose             | Column Name Format                                |
-| ------------------- | ------------------------------------------------- |
-| Entity as parameter | `parameterName#type`                              |
-| Entity ID           | `parameterName#id`                                |
-| Email subject line  | `subject`                                         |
-| Email recipients    | `sendto` (can also be `sendto#type`, `sendto#id`) |
-
-### Example 1
-#### Use Case: Send report to supervisor with message about residency end
-- ##### First Parameter:
-
+- Create a task schedule
+  - Task Type is Action
+  - Action name is `com.namasoft.reporting.ParamterizedReporTask`
+  - First Parameter should be the query that returns the parameter values
+  - Second parameter should be the parameter names
+  - You can return entities by two columns: parameterName#type, paramerterName#id
+  - You can return subject of email by column named subject
+  - You can specify send to by a column named sendto
+  
+- Example 1:
+  First Parameter:
 ```sql
-SELECT 
-  CASE 
-    WHEN DATEDIFF(day, GETDATE(), residencyEnd) < 1 
-      THEN N'الاقامة انتهت منذ ' 
-      ELSE N'باقي علي انتهاء الاقامة ' 
-  END + CAST(ABS(DATEDIFF(day, GETDATE(), residencyEnd)) AS NVARCHAR(100)) + N' يوم' AS subject,
-  'Employee' AS sendto#type,
-  supervisor_id AS sendto#id,
-  'Employee' AS employee#type,
-  id AS employee#id
-FROM Employee 
-WHERE DATEDIFF(day, GETDATE(), residencyEnd) < 30 
-ORDER BY 2
-
+select case when DATEDIFF(day,GETDATE(),residencyEnd)<1  then N'الاقامة انتهت منذ ' else N'باقي علي انتهاء الاقامة ' end + cast(ABS(DATEDIFF(day,GETDATE(),residencyEnd)) as nvarchar(100)) +N' يوم' as subject, 'Employee' as sendto#type,supervisor_id as sendto#id,'Employee' as empoyee#type,id as employee#id
+from Employee where DATEDIFF(day,GETDATE(),residencyEnd) < 30 order by 2
 ```
-- ##### Second Parameter:
+ - Second Parameter: subject,sendto#type,sendto#id,employee#type,employee#id
+  - This will run the specified report, fill in the parameter named employee and send the email to the direct supervisor
+- Example 2:
 ```sql
-subject,sendto#type,sendto#id,employee#type,employee#id
-```
-### Example 2
-#### Use Case: Email report directly to employee
-- ##### First Parameter:
-
-```sql
-SELECT 
-  CASE 
-    WHEN DATEDIFF(day, GETDATE(), residencyEnd) < 1 
-      THEN N'الاقامة انتهت منذ ' 
-      ELSE N'باقي علي انتهاء الاقامة ' 
-  END + CAST(ABS(DATEDIFF(day, GETDATE(), residencyEnd)) AS NVARCHAR(100)) + N' يوم' AS subject,
-  contactInfoEmail AS sendto,
-  'Employee' AS employee#type,
-  id AS employee#id
-FROM Employee 
-WHERE DATEDIFF(day, GETDATE(), residencyEnd) < 30 
-ORDER BY 2
-
+select case when DATEDIFF(day,GETDATE(),residencyEnd)<1  then N'الاقامة انتهت منذ ' else N'باقي علي انتهاء الاقامة ' end + cast(ABS(DATEDIFF(day,GETDATE(),residencyEnd)) as nvarchar(100)) +N' يوم' as subject,contactInfoEmail as sendto, 'Employee' as empoyee#type,id as employee#id
+from Employee where DATEDIFF(day,GETDATE(),residencyEnd) < 30 order by 2
 ```
 
-## Task Type2: Notification by SQL Task
+- This will run the specified report, fill in the parameter named employee and send the email to the email address of the employee
 
-### Task Type: Action
-### Action Name: com.namasoft.infra.domainbase.utils.notifications.NotificationByQueryTask
-
-### Parameters
-
-- #### 1- First Parameter: SQL query to generate dynamic values.
-- #### 2- Second Parameter: Parameter names used by the notification/report.
-- #### 3- Third Parameter: Output type (choose one or more):
-
-    #####  mail → email only
-    
-    ##### notification → in-app notification only
-    
-    #####       mail,notification → both
-    
-    #####        (empty) → default to mail
-
-### Column Naming Conventions
-
-#### Same as in Report Task.
-
-### Example 1
-#### Use Case:  Send notification to supervisor with parameterized report data
-- ##### First Parameter:
-
-```sql
-SELECT 
-  CASE 
-    WHEN DATEDIFF(day, GETDATE(), residencyEnd) < 1 
-      THEN N'الاقامة انتهت منذ ' 
-      ELSE N'باقي علي انتهاء الاقامة ' 
-  END + CAST(ABS(DATEDIFF(day, GETDATE(), residencyEnd)) AS NVARCHAR(100)) + N' يوم' AS subject,
-  'Employee' AS sendto#type,
-  supervisor_id AS sendto#id,
-  'Employee' AS employee#type,
-  id AS employee#id
-FROM Employee 
-WHERE DATEDIFF(day, GETDATE(), residencyEnd) < 30 
-ORDER BY 2
-
+## Notification By SQL In Task Scheduler
+- Create a task schedule
+  - Task Type is Action
+  - Action name is `com.namasoft.infra.domainbase.utils.notifications.NotificationByQueryTask`
+  - First Parameter should be the query that returns the parameter values
+  - The second parameter should be the parameter names
+  - Third Parameter: If you want the report to be used as a notification, add “notification" to the third parameter, if you want mail add the word “mail".
+    - The following will summerize it:
 ```
-
-- ##### Second Parameter:
-
-```sql
-subject,sendto#type,sendto#id,employee#type,employee#id
-
+leave the param empty: mail only
+mail: mail only
+notification: notification only
+mail,notification: notification and email
+``` 
+- You can return entities by two columns: parameterName#type, paramerterName#id
+- You can return subject of notification by column named subject
+- You can specify send to by a column named sendto
+- Example:
+  - First Parameter:
+```sql 
+select case when DATEDIFF(day,GETDATE(),residencyEnd)<1  then N'الاقامة انتهت منذ ' else N'باقي علي انتهاء الاقامة ' end + cast(ABS(DATEDIFF(day,GETDATE(),residencyEnd)) as nvarchar(100)) +N' يوم' as subject, 'Employee' as sendto#type,supervisor_id as sendto#id,'Employee' as empoyee#type,id as employee#id
+from Employee where DATEDIFF(day,GETDATE(),residencyEnd) < 30 order by 2
 ```
+- Second Parameter: `subject,sendto#type,sendto#id,employee#type,employee#id`
+This will run the specified report, fill in the parameter named employee and send the email to the direct supervisor
 
-- #### Third Parameter:
-
+Example:
 ```sql
-mail,notification
-```
-
-### Example 2
-#### Use Case:  Notify employees via email
-- ##### First Parameter:
-
-```sql
-SELECT 
-  CASE 
-    WHEN DATEDIFF(day, GETDATE(), residencyEnd) < 1 
-      THEN N'الاقامة انتهت منذ ' 
-      ELSE N'باقي علي انتهاء الاقامة ' 
-  END + CAST(ABS(DATEDIFF(day, GETDATE(), residencyEnd)) AS NVARCHAR(100)) + N' يوم' AS subject,
-  contactInfoEmail AS sendto,
-  'Employee' AS employee#type,
-  id AS employee#id
-FROM Employee 
-WHERE DATEDIFF(day, GETDATE(), residencyEnd) < 30 
-ORDER BY 2
-
-```
-
-## General Utility
-
-### To execute an SQL statement within the task:
-
-```sql
-NamaRep.runSQLQuery(sql, pName1, pValue1, pName2, pValue2, ...)
-
+select case when DATEDIFF(day,GETDATE(),residencyEnd)<1  then N'الاقامة انتهت منذ ' else N'باقي علي انتهاء الاقامة ' end + cast(ABS(DATEDIFF(day,GETDATE(),residencyEnd)) as nvarchar(100)) +N' يوم' as subject,contactInfoEmail as sendto, 'Employee' as empoyee#type,id as employee#id
+from Employee where DATEDIFF(day,GETDATE(),residencyEnd) < 30 order by 2
 ```

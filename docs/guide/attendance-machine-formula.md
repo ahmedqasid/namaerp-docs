@@ -1,23 +1,10 @@
 # Attendance Machine Formula Guide
-
-Sure! Here's the entire content reformatted as **Markdown** for easy reading and documentation:
-
----
-
-#  Attendance Machine Formula Guide
-
-Set the **Attendance Machine Formula** in:
-
-**Human Resources → Settings → Salary Settings → Attendance Machines Settings**
-
----
+- Go to Human Resources → Settings → Salary Settings → Attendance Machines Settings
 
 ##  How to Write a Formula
 
-The formula is based on the machine file columns:
-**Employee, Date, Time, Punch Type**, etc.
-
-Use the `#` character to indicate the **position** of each property.
+- Formula is mainly based on Employee, Date, Time and Punch
+- Use ‘#’ character to indicate where the properties (e.g. Employee,Date.. etc)
 
 Example:
 If the **employee code** is the second column:
@@ -33,12 +20,11 @@ This means "skip the first column, take the second as the employee code."
 ##  Supported Functions
 
 | Function                                     | Description                                                        |
-| -------------------------------------------- | ------------------------------------------------------------------ |
+| -------------------------------------------- |--------------------------------------------------------------------|
 | `empid`                                      | Employee Attendance machine code                                   |
 | `date{format}`                               | Date column with specified format (e.g. `date{dd/MM/YYYY}`)        |
-| `time{format}`                               | Time column with specified format (e.g. `time{hh:mm}`)             |
-| `datetime{format}`                           | Combined date & time column (e.g. `datetime{dd/MM/YYYY hh:mm}`)    |
-| `am_pm{am-pm}`                               | 12-hour AM/PM representation (e.g. `am_pm{ص-م}` or `am_pm{am-pm}`) |
+| `time{format}`                               | Time column with specified format (e.g. `time{HH:mm}`)             |
+| `datetime{format}`                           | Combined date & time column (e.g. `datetime{dd/MM/YYYY HH:mm}`)    |
 | `type{in-out}`                               | Indicates punch type: in (`I`) or out (`O`), e.g. `type{I-O}`      |
 | `indate{format}` / `outdate{format}`         | In/out date used if both exist on one line                         |
 | `intime{format}` / `outtime{format}`         | In/out time used if both exist on one line                         |

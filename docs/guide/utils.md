@@ -1,11 +1,22 @@
 # Utility Links
 
-## Recommit From File: (For admin)
+<ServerBaseURL/>
 
-[http://localhost:8080/erp/test?util=com.namasoft.erp.gui.server.RecommitFromFile-e:/rc/recommit.txt,e:/rc/done.txt,e:/rc/errors.txt&gui=true](http://localhost:8080/erp/test?util=com.namasoft.erp.gui.server.RecommitFromFile-e:/rc/recommit.txt,e:/rc/done.txt,e:/rc/errors.txt&gui=true)
+## Recommit From File: (For admin)
+<UtilityLinkBuilder
+className="com.namasoft.erp.gui.server.RecommitFromFile"
+:params="[
+{ title: 'Recommit File', default: 'e:/rc/recommit.txt' },
+{ title: 'Done File', default: 'e:/rc/done.txt' },
+{ title: 'Errors File', default: 'e:/rc/errors.txt' }
+]"
+/>
 
 ## ReApply Sales Contracts System Entries:
-[http://localhost:8080/erp/test?util=com.namasoft.modules.realstate.domain.utils.RESysEntryMigratorUtility](http://localhost:8080/erp/test?util=com.namasoft.modules.realstate.domain.utils.RESysEntryMigratorUtility)
+<UtilityLinkBuilder
+className="com.namasoft.modules.realstate.domain.utils.RESysEntryMigratorUtility"
+:params="[]"
+/>
 
 ## ReApply Rent Contracts System Entries:
 [http://localhost:8080/erp/test?util=com.namasoft.modules.realstate.domain.utils.UpdateREReservationEntryUtil](http://localhost:8080/erp/test?util=com.namasoft.modules.realstate.domain.utils.UpdateREReservationEntryUtil)

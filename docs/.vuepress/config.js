@@ -11,6 +11,8 @@ export default defineUserConfig({
   theme: defaultTheme({
     sidebar: SIDEBAR_CONFIG,
     navbar: ['/', '/guide/','/examples/'],
+    contributors: false,
+    sidebarDepth: 0,
   }),
   plugins: [
     slimsearchPlugin({indexContent: true, indexOptions: {}})
