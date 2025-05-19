@@ -54,3 +54,216 @@ update EntitySystemEntry set fromType = null,fromId = null where fromid is not n
 ```
 :::
 
+## Insert Into Temp Table Select From With Drop
+```sql
+IF OBJECT_ID('tempdb.dbo.#Items', 'U') IS NOT NULL 
+			  DROP TABLE #Items ; 
+
+select * into #Items from ( 
+select code from InvItem 
+) Items ; 
+select code from #Items
+
+
+```
+
+- TODO: maybe create a widget to create temp tables
+
+## Cancel Current Approval Case of a document
+```sql
+update ApprovalCase set state = 'Approved' where approvedElementId = 0xffff00015c154d8be6000700ff20b6eb
+update PaymentOrder set documentFileStatus = 'Draft'  where id = 0xffff00015c154d8be6000700ff20b6eb
+
+
+```
+
+## Disaster Recovery: Two Application Servers operated on the same database:
+- Find All Duplicate QtyTrans 
+```sql
+with x as(select id,requestId,ROW_NUMBER() over (order by requestid) rn from QtyTrans where requestId in (
+select requestId from QtyTrans group by requestId,originId having count(1) > 1
+)
+)
+select id from x  where rn%2 = 0
+
+
+```
+- Make the request id null:
+```sql
+update QtyTrans set requestid = null where id = 0x-------
+
+```
+- FifoCostTrans
+```sql
+with x as(select id,requestId,ROW_NUMBER() over (order by requestid) rn from FifoCostTrans where requestId in (
+select requestId from FifoCostTrans where originType <> 'StockTransfer'  group by requestId,originId having count(1) > 1 
+)
+)
+select id from x  where rn%2 = 0
+
+```
+
+- Make the request id null:
+```sql
+update FifoCostTrans set requestid = null where id = 0x-------
+
+```
+- FifoCostTrans - transfer
+```sql
+with x as(select id,requestId,ROW_NUMBER() over (order by requestid) rn from FifoCostTrans where requestId in (
+select requestId from FifoCostTrans where originType <> 'StockTransfer'  group by requestId,originId having count(1) > 1 
+)
+)
+select id from x 
+
+```
+- Manually find the repeated requests for transfer and make the request id null:
+```sql
+update FifoCostTrans set requestid = null where id = 0x-------
+
+```
+
+- Ledger Trans:
+```sql
+with x as(select id,requestId,ROW_NUMBER() over (order by requestid) rn,originType,originId from LedgerTrans where requestId in (
+select requestId from LedgerTrans  group by requestId,originId having count(1) > 1
+)
+)
+select id,originType,originId,requestId from x  where rn%2=0
+```
+```sql
+update LedgerTrans set requestid = null where id = 0x-------
+```
+```sql
+delete l from left join Qtytrans h QtyTransLine l on h.id = l.qtytrans_id where h.requestId is null
+go
+delete from QtyTrans where requestId is null
+go
+delete m from FifoCostTrans h left join FifoCostTransLine l on h.id = l.FifoCostTrans_id left join FifoCostMatcher m on m.id = l.inLine or m.id  = l.outLine_id where h.requestId is null
+go
+delete l from FifoCostTrans h left join FifoCostTransLine l on h.id = l.FifoCostTrans_id where h.requestId is null
+go
+delete from FifoCostTrans where requestId is null
+
+```
+## Fetch Contacts in Nama for Grandstream LDAP Phonebook UCM
+
+```sql
+/*First Name	Last Name	Account Number	CallerID Name	Email	Department	Mobile Number 	Home Number	Fax	Phonebook DN*/
+
+with data as (
+select entityType firstName,name1 lastName,iif(telephone1='',mobile,telephone1) accountNumber,name2 CallerID, email,'' Department,mobile,'' Home,'' Fax,'c' Phonebook from Customer where mobile <> '' or telephone1 <> '' 
+and branch_id = 0xFFFF000151A54C5F71000600FF3CC3AF
+union
+select entityType,name1,iif(contactinfotelephone1='',contactinfomobile,contactinfotelephone1),name2, contactinfoemail,'',contactinfomobile,'','','c' from REOwner where contactInfoMobile <> '' or contactInfoTelephone1 <> '' 
+and branch_id = 0xFFFF000151A54C5F71000600FF3CC3AF
+union  
+select entityType,name1,iif(infotelephone1='',infomobile,infotelephone1),name2, infoemail,'',infomobile,'','','c' from CRMLead where infoMobile <> '' or infoTelephone1 <> '' 
+and branch_id = 0xFFFF000151A54C5F71000600FF3CC3AF
+union  
+select entityType,name1,iif(infotelephone1='',infomobile,infotelephone1),name2, infoemail,'',infomobile,'','','c' from CRMPotential where infoMobile <> '' or infoTelephone1 <> '' 
+and branch_id = 0xFFFF000151A54C5F71000600FF3CC3AF
+union  
+select entityType,name1,iif(telephone1='',mobile,telephone1),name2, email,'',mobile,'','','c' from Contact where mobile <> '' or telephone1 <> '' 
+and branch_id = 0xFFFF000151A54C5F71000600FF3CC3AF
+)
+, clean as (
+select firstName,lastName,replace(replace(replace(accountNumber,'-',''),'+','00'),' ','') accountNumber,CallerID,replace(email,',','-') email,Department,mobile,Home,Fax,Phonebook from data
+)
+select * from clean
+--where TRY_PARSE(accountNumber as decimal(20,10)) is   null 
+
+```
+
+## Fix Null preventUsage Field
+```sql
+DECLARE @Queries TABLE (ID INT IDENTITY(1,1),SQLScript VARCHAR(MAX))
+DECLARE @STR_QUERY VARCHAR(MAX);
+DECLARE @StartLoop INT
+DECLARE @EndLoop INT
+
+
+INSERT INTO @Queries
+select 'UPDATE '+case when targetType = 'User' then 'NamaUser' else targetType end +' SET preventUsage = 0 where preventUsage is null ' SQLScript from  (
+		select distinct targetType from EntitySystemEntry
+		) s
+SELECT @EndLoop = MAX(ID), @StartLoop = MIN(ID)
+FROM @Queries
+
+WHILE @StartLoop < = @EndLoop
+BEGIN
+    SELECT @STR_QUERY = SQLScript 
+    FROM @Queries
+    WHERE ID = @StartLoop
+		BEGIN  transaction xx
+		print @STR_QUERY
+		EXEC (@STR_QUERY)
+		commit transaction  xx
+    SET @StartLoop = @StartLoop + 1
+END
+
+```
+
+## Mark All Records as Unrevised
+```sql
+DECLARE @Queries TABLE (ID INT IDENTITY(1,1),SQLScript VARCHAR(MAX))
+DECLARE @STR_QUERY VARCHAR(MAX);
+DECLARE @StartLoop INT
+DECLARE @EndLoop INT
+
+
+INSERT INTO @Queries
+select 'UPDATE '+case when targetType = 'User' then 'NamaUser' else targetType end +' SET primitiveValue = 0 where primitiveValue = 1 ' SQLScript from  (
+		select distinct targetType from EntitySystemEntry
+		) s
+SELECT @EndLoop = MAX(ID), @StartLoop = MIN(ID)
+FROM @Queries
+
+WHILE @StartLoop < = @EndLoop
+BEGIN
+    SELECT @STR_QUERY = SQLScript 
+    FROM @Queries
+    WHERE ID = @StartLoop
+		BEGIN  transaction xx
+		print @STR_QUERY
+		EXEC (@STR_QUERY)
+		commit transaction  xx
+    SET @StartLoop = @StartLoop + 1
+END
+
+
+```
+
+::: tip
+You need to copy the queries and run them in the SQL Server Management Studio.
+:::
+
+## Copy Revised From Entities to Entity System Entry
+```sql
+DECLARE @Queries TABLE (ID INT IDENTITY(1,1),SQLScript VARCHAR(MAX))
+DECLARE @STR_QUERY VARCHAR(MAX);
+DECLARE @StartLoop INT
+DECLARE @EndLoop INT
+
+
+INSERT INTO @Queries
+select 'update e set revised = s.primitiveValue from EntitySystemEntry e inner join ' +case when targetType = 'User' then 'NamaUser' else targetType end + 's on e.targetId = s.id' SQLScript from  (
+		select distinct targetType from EntitySystemEntry
+		) s
+SELECT @EndLoop = MAX(ID), @StartLoop = MIN(ID)
+FROM @Queries
+
+WHILE @StartLoop < = @EndLoop
+BEGIN
+    SELECT @STR_QUERY = SQLScript 
+    FROM @Queries
+    WHERE ID = @StartLoop
+		BEGIN  transaction xx
+		print @STR_QUERY
+		EXEC (@STR_QUERY)
+		commit transaction  xx
+    SET @StartLoop = @StartLoop + 1
+END
+
+
+```

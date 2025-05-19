@@ -84,7 +84,20 @@ update q set quantityPUom_id = i.primBaseUnit_id from SalesInvoiceLine q left jo
 
  update q set quantityPUom_id = i.primBaseUnit_id from StockTransferLine q left join InvItem i on i.id = q.item_id  where i.code = @icode
 ```
+## Query To List Documents That should be recommitted after changing Base Unit in Item:
+```sql
+select distinct h.entityType,h.id,h.code from StockIssue h  left join StockIssueLine q on q.stockIssue_id = h.id left join InvItem i on i.id = q.item_id where q.quantityBaseUom_id <> i.primBaseUnit_id and h.generationType <> 'GeneratedFinal'
+union all
+select distinct h.fromDoc_type,h.fromDoc_id,h.fromDoc_Code from StockIssue h  left join StockIssueLine q on q.stockIssue_id = h.id left join InvItem i on i.id = q.item_id where q.quantityBaseUom_id <> i.primBaseUnit_id and h.generationType = 'GeneratedFinal'
+union all
+select distinct h.entityType,h.id,h.code from StockReceipt h  left join StockReceiptLine q on q.StockReceipt_id = h.id left join InvItem i on i.id = q.item_id where q.quantityBaseUom_id <> i.primBaseUnit_id and h.generationType <> 'GeneratedFinal'
+union all
+select distinct h.fromDoc_type,h.fromDoc_id,h.fromDoc_Code from StockReceipt h  left join StockReceiptLine q on q.StockReceipt_id = h.id left join InvItem i on i.id = q.item_id where q.quantityBaseUom_id <> i.primBaseUnit_id and h.generationType = 'GeneratedFinal'
+union all
+select distinct h.entityType,h.id,h.code from StockTransfer h  left join StockTransferLine q on q.StockTransfer_id = h.id left join InvItem i on i.id = q.item_id where q.quantityBaseUom_id <> i.primBaseUnit_id and h.generationType <> 'GeneratedFinal'
 
+
+```
 ## Find Entities that caused retries on a massive scale of invtransreq records
 ```sql
 select e.lastUpdateDate,r2 .originType,r2.originCode,r2.originId,r.originType retryType,r.originCode retryCode,r.originId retryId
@@ -470,6 +483,37 @@ BEGIN TRANSACTION x;
 delete top (10000) from LedgerTransReq where requestType = 'Delete' and transStatus ='Processed';
 Commit transaction x;
 END;
+
+
+```
+
+## Query that list transaction without a locator on a warehouse with locators:
+```sql
+with x as (
+select distinct h.entityType,h.id,h.code,wl.warehouse_id from StockTransfer h
+ left join StockTransferLine l on h.id = l.stockTransfer_id
+ left join WareLocator wl on wl.warehouse_id = l.warehouse_id
+where wl.id is not null and l.locator_id is null
+union all
+select distinct h.entityType,h.id,h.code,wl.warehouse_id from StockTransfer h
+ left join StockTransferLine l on h.id = l.stockTransfer_id
+ left join WareLocator wl on wl.warehouse_id = l.toWarehouse_id
+where wl.id is not null and l.toLocator_id is null
+union all
+select distinct h.entityType,h.id,h.code,wl.warehouse_id from StockIssue h
+ left join StockIssueLine l on h.id = l.stockIssue_id
+ left join WareLocator wl on wl.warehouse_id = l.warehouse_id
+where wl.id is not null and l.locator_id is null
+union all
+select distinct h.entityType,h.id,h.code,wl.warehouse_id from StockReceipt h
+ left join StockReceiptLine l on h.id = l.stockReceipt_id
+ left join WareLocator wl on wl.warehouse_id = l.warehouse_id
+where wl.id is not null and l.locator_id is null
+union all
+select distinct l.originType,l.originId,l.originCode,wl.warehouse_id from ReservationTransLine l 
+ left join WareLocator wl on wl.warehouse_id = l.warehouse_id
+where wl.id is not null and l.locator_id is null)
+select distinct h.entityType,h.id,h.code from x as h
 
 
 ```

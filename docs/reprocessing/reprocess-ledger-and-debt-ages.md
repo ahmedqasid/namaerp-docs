@@ -239,17 +239,132 @@ update FinancialPaper set lastStatusEntry_id = (select top 1 id from FinancialPa
 
 ```
 
-### Fix FAAdditionDeduction problem - entries always have zero addition/deduction
-```sql
-update d set moneyLocalAmount = moneyRate*moneyValueAmount, addedOrDeductedValue = moneyRate*moneyValueAmount from FAAdditionDeduction d
-update p set addition = d.moneyValueAmount from FAAdditionDeduction d inner join FAPropertiesEntry p  on d.propertiesEntry_id = p.id where d.addition = 1
-update p set deduction = d.moneyValueAmount from FAAdditionDeduction d inner join FAPropertiesEntry p  on d.propertiesEntry_id = p.id where d.addition = 0
-
-```
 
 ### Allow Deleting Zombie Journal Entries After Deleting Closing Entry
 ```sql
 update je set fromDoc_id = null,fromDoc_type = null,fromDoc_code = null,fromDoc_actualCode = null from JournalEntry je left join ClosingEntry ce on ce.id = je.fromDoc_id
 where je.fromDoc_type = 'ClosingEntry' and ce.id is null
+
+```
+
+## Get Accounts Tree
+```sql
+with x AS
+(
+	SELECT acc.id accountId,acc.id parentid
+    FROM Account acc
+	UNION ALL
+    SELECT acc.id accountId,ch1.id parentid
+    FROM Account acc inner join AccountsChart ch1 on ch1.id = acc.chartWhenDebit_id
+	UNION ALL
+	SELECT acc.id accountId,ch2.id parentid
+    FROM Account acc inner join AccountsChart ch1 on ch1.id = acc.chartWhenDebit_id
+	inner join AccountsChart ch2 on ch2.id = ch1.parent_id
+	UNION ALL
+	SELECT acc.id accountId,ch3.id parentid
+    FROM Account acc inner join AccountsChart ch1 on ch1.id = acc.chartWhenDebit_id
+	inner join AccountsChart ch2 on ch2.id = ch1.parent_id
+	inner join AccountsChart ch3 on ch3.id = ch2.parent_id
+	UNION ALL
+	SELECT acc.id accountId,ch4.id parentid
+    FROM Account acc inner join AccountsChart ch1 on ch1.id = acc.chartWhenDebit_id
+	inner join AccountsChart ch2 on ch2.id = ch1.parent_id
+	inner join AccountsChart ch3 on ch3.id = ch2.parent_id
+	inner join AccountsChart ch4 on ch4.id = ch3.parent_id
+	UNION ALL
+	SELECT acc.id accountId,ch5.id parentid
+    FROM Account acc inner join AccountsChart ch1 on ch1.id = acc.chartWhenDebit_id
+	inner join AccountsChart ch2 on ch2.id = ch1.parent_id
+	inner join AccountsChart ch3 on ch3.id = ch2.parent_id
+	inner join AccountsChart ch4 on ch4.id = ch3.parent_id
+	inner join AccountsChart ch5 on ch5.id = ch4.parent_id
+	UNION ALL
+	SELECT acc.id accountId,ch6.id parentid
+    FROM Account acc inner join AccountsChart ch1 on ch1.id = acc.chartWhenDebit_id
+	inner join AccountsChart ch2 on ch2.id = ch1.parent_id
+	inner join AccountsChart ch3 on ch3.id = ch2.parent_id
+	inner join AccountsChart ch4 on ch4.id = ch3.parent_id
+	inner join AccountsChart ch5 on ch5.id = ch4.parent_id
+	inner join AccountsChart ch6 on ch6.id = ch5.parent_id
+	UNION ALL
+	SELECT acc.id accountId,ch7.id parentid
+    FROM Account acc inner join AccountsChart ch1 on ch1.id = acc.chartWhenDebit_id
+	inner join AccountsChart ch2 on ch2.id = ch1.parent_id
+	inner join AccountsChart ch3 on ch3.id = ch2.parent_id
+	inner join AccountsChart ch4 on ch4.id = ch3.parent_id
+	inner join AccountsChart ch5 on ch5.id = ch4.parent_id
+	inner join AccountsChart ch6 on ch6.id = ch5.parent_id
+	inner join AccountsChart ch7 on ch7.id = ch6.parent_id
+	UNION ALL
+	SELECT acc.id accountId,ch8.id parentid
+    FROM Account acc inner join AccountsChart ch1 on ch1.id = acc.chartWhenDebit_id
+	inner join AccountsChart ch2 on ch2.id = ch1.parent_id
+	inner join AccountsChart ch3 on ch3.id = ch2.parent_id
+	inner join AccountsChart ch4 on ch4.id = ch3.parent_id
+	inner join AccountsChart ch5 on ch5.id = ch4.parent_id
+	inner join AccountsChart ch6 on ch6.id = ch5.parent_id
+	inner join AccountsChart ch7 on ch7.id = ch6.parent_id
+	inner join AccountsChart ch8 on ch8.id = ch7.parent_id
+	UNION ALL
+	SELECT acc.id accountId,ch9.id parentid
+    FROM Account acc inner join AccountsChart ch1 on ch1.id = acc.chartWhenDebit_id
+	inner join AccountsChart ch2 on ch2.id = ch1.parent_id
+	inner join AccountsChart ch3 on ch3.id = ch2.parent_id
+	inner join AccountsChart ch4 on ch4.id = ch3.parent_id
+	inner join AccountsChart ch5 on ch5.id = ch4.parent_id
+	inner join AccountsChart ch6 on ch6.id = ch5.parent_id
+	inner join AccountsChart ch7 on ch7.id = ch6.parent_id
+	inner join AccountsChart ch8 on ch8.id = ch7.parent_id
+	inner join AccountsChart ch9 on ch9.id = ch8.parent_id
+	UNION ALL
+	SELECT acc.id accountId,ch8.id parentid
+    FROM Account acc inner join AccountsChart ch1 on ch1.id = acc.chartWhenDebit_id
+	inner join AccountsChart ch2 on ch2.id = ch1.parent_id
+	inner join AccountsChart ch3 on ch3.id = ch2.parent_id
+	inner join AccountsChart ch4 on ch4.id = ch3.parent_id
+	inner join AccountsChart ch5 on ch5.id = ch4.parent_id
+	inner join AccountsChart ch6 on ch6.id = ch5.parent_id
+	inner join AccountsChart ch7 on ch7.id = ch6.parent_id
+	inner join AccountsChart ch8 on ch8.id = ch7.parent_id
+	inner join AccountsChart ch9 on ch9.id = ch8.parent_id
+	inner join AccountsChart ch10 on ch10.id = ch9.parent_id
+	
+)
+SELECT t.nodeCode treeCode,t2.nodeCode accountCode FROM x 
+left join ChartTree t on t.nodeId = x.parentid and t.defaultParentSide = 1
+left join ChartTree t2 on t2.nodeId = x.accountId and t2.defaultParentSide =1
+
+ORDER BY t.nodeCode,t2.nodeCode
+
+```
+
+## Fix Deleting Account Problem
+If you try to delete an account and then you get a database error “Query optimizer ran out of space”, then do the following:
+Run the following query, then copy the lines and paste them in a new window and run it
+
+```sql
+with x as (
+SELECT  obj.name AS FK_NAME,
+   sch.name AS [schema_name],
+   tab1.name AS [table],
+   col1.name AS [column],
+   tab2.name AS [referenced_table],
+   col2.name AS [referenced_column]
+FROM sys.foreign_key_columns fkc
+INNER JOIN sys.objects obj
+   ON obj.object_id = fkc.constraint_object_id
+INNER JOIN sys.tables tab1
+   ON tab1.object_id = fkc.parent_object_id
+INNER JOIN sys.schemas sch
+   ON tab1.schema_id = sch.schema_id
+INNER JOIN sys.columns col1
+   ON col1.column_id = parent_column_id AND col1.object_id = tab1.object_id
+INNER JOIN sys.tables tab2
+   ON tab2.object_id = fkc.referenced_object_id
+INNER JOIN sys.columns col2
+   ON col2.column_id = referenced_column_id AND col2.object_id = tab2.object_id
+)
+select 'alter table '+[table]+' drop constraint '+FK_NAME from x where referenced_table = 'account' and [table] 
+
 
 ```

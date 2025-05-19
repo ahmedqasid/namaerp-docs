@@ -397,3 +397,22 @@ where abs(receiptCost-(materialCost+resourceCost-coalesce(retCost,0)))>1.5 and c
 
 
 ```
+
+## Reprocess Bad Fifo Cost Transactions
+```sql
+with toReproocess as (
+select  distinct l.originType,l.originId,l.valueDate
+ from FifoCostTransLine l 
+left join FifoCostMatcher mi on mi.inLine_id = l.id
+left join FifoCostMatcher mo on mo.outLine_id = l.id
+group by l.originType,l.originId,l.remainingInQty,l.remainingOutQty,l.inQty,l.outQty,l.item_id,l.id,l.valueDate
+having l.remainingInQty <> l.inQty - sum(coalesce(mi.consumedQty,0))
+ or l.remainingOutQty <> l.outQty - sum(coalesce(mo.consumedQty,0))
+ order by l.valueDate desc
+ )
+ update r set r.transstatus = 'Retry',r.costtransstatus = 'Retry' from toReproocess t inner join InvTransReq r on r.originId = t.originId
+
+declare @annualIncome decimal(10,2) = 400000
+
+```
+

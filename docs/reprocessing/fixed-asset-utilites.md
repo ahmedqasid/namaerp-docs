@@ -12,3 +12,11 @@ where od.commitedBefore = 1 and fa.lastDepreciationDate is null
 
 
 ```
+
+## Fix FAAdditionDeduction problem - entries always have zero addition/deduction
+```sql
+update d set moneyLocalAmount = moneyRate*moneyValueAmount, addedOrDeductedValue = moneyRate*moneyValueAmount from FAAdditionDeduction d
+update p set addition = d.moneyValueAmount from FAAdditionDeduction d inner join FAPropertiesEntry p  on d.propertiesEntry_id = p.id where d.addition = 1
+update p set deduction = d.moneyValueAmount from FAAdditionDeduction d inner join FAPropertiesEntry p  on d.propertiesEntry_id = p.id where d.addition = 0
+
+```
