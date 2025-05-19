@@ -1,9 +1,14 @@
 # Utility Links
 ::: danger
-This file contains very dangerous links, please take care before using any of the following utilities 
+This file contains potentially dangerous links. Please proceed with caution when using any of the listed utilities. 
 :::
 
 <ServerBaseURL/>
+::: tip
+- Enter the server URL of the customer you're working with
+- You can also customize the default parameter values using the input fields provided.
+- Use the Copy button to simplify running the utilities.
+:::
 
 ## Recommit From File: (For admin)
 <UtilityLinkBuilder

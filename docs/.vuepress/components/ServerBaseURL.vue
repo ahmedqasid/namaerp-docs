@@ -1,6 +1,6 @@
 <template>
   <div class="server-base-url">
-    <label for="baseUrlInput">Server Base URL:</label>
+    <label for="baseUrlInput">Server URL:</label>
     <input
         id="baseUrlInput"
         v-model="serverUrl"
