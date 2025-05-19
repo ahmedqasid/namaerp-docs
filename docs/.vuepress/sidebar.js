@@ -13,7 +13,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Reprocessing Transactions",
       collapsible: true,
-      children: [ "/reprocessing/reprocess-qty-and-cost.md", "/reprocessing/reprocess-ledger-and-debt-ages.md", "/reprocessing/cost-and-qty-problems.md", "/reprocessing/inventory-utilities.md", "/reprocessing/manufacturing-utilities.md", "/reprocessing/real-estate-utilities.md", "/reprocessing/db-operations.md", "/reprocessing/general-purpose-utility-queries.md", "/reprocessing/replication.md", "/reprocessing/fixed-asset-utilites.md" ]
+      children: [ "/reprocessing/reprocess-qty-and-cost.md", "/reprocessing/reprocess-ledger-and-debt-ages.md", "/reprocessing/cost-and-qty-problems.md", "/reprocessing/inventory-utilities.md", "/reprocessing/manufacturing-utilities.md", "/reprocessing/fixed-asset-utilities.md", "/reprocessing/real-estate-utilities.md", "/reprocessing/db-operations.md", "/reprocessing/general-purpose-utility-queries.md", "/reprocessing/replication.md" ]
     }, {
       text: "Frequently Asked Questions",
       collapsible: true,
