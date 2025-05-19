@@ -21,43 +21,49 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {ref, computed, onMounted} from 'vue'
+import {serverUrl} from "./server-url";
 
+interface Param {
+  title?: string
+  default?: string
+  id?: string
+}
 const props = defineProps({
   className: {
     type: String,
     required: true,
   },
   params: {
-    type: Array, // array of { title: string, default: string }
+    type: Array<Param>,
     required: false,
     default: () => [],
   },
+  gui: {
+    type: Boolean,
+    required: false,
+    default: false,
+  }
 })
 
-const SERVER_KEY = 'serverBaseUrl'
-const DEFAULT_SERVER_URL = 'http://localhost:8080/erp/'
 
-const serverBaseUrl = ref(DEFAULT_SERVER_URL)
 const paramInputs = ref([])
 
 onMounted(() => {
-  const savedBaseUrl = localStorage.getItem(SERVER_KEY)
-  if (savedBaseUrl) {
-    serverBaseUrl.value = savedBaseUrl
-  }
+
   paramInputs.value = props.params.map(p => ({
     title: p.title,
     value: p.default || '',
+    id: p.id,
   }))
 })
 
 const generatedUrl = computed(() => {
-  const values = paramInputs.value.map(p => p.value);
+  const values = paramInputs.value.map(p => (p.id ? p.id + "=" : "") + p.value);
   const sep =props.params.length > 0 ? '-' : ''
   const query = `${props.className+sep+values.join(',')}`
-  return `${serverBaseUrl.value.replace(/\/$/, '')}/utils?${query}`
+  return `${serverUrl.value.replace(/\/$/, '')}/utils?${query}${props.gui ? "&gui=true" : ""}`
 })
 
 function copyUrl() {

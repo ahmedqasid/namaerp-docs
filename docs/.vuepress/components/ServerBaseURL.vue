@@ -3,30 +3,21 @@
     <label for="baseUrlInput">Server Base URL:</label>
     <input
         id="baseUrlInput"
-        v-model="baseUrl"
-        @input="saveToLocalStorage"
+        v-model="serverUrl"
+        @input="updateBaseURL"
         type="text"
         placeholder="http://localhost:8080/erp/"
     />
   </div>
 </template>
 
-<script setup>
-import {onMounted, ref} from 'vue'
+<script setup lang="ts">
+import {serverUrl, updateServerURL} from "./server-url";
 
-const STORAGE_KEY = 'serverBaseUrl'
-const baseUrl = ref('')
-
-onMounted(() => {
-  const saved = localStorage.getItem(STORAGE_KEY)
-  if (saved) {
-    baseUrl.value = saved
-  }
-})
-
-function saveToLocalStorage() {
-  localStorage.setItem(STORAGE_KEY, baseUrl.value)
+function updateBaseURL(){
+  updateServerURL(serverUrl.value)
 }
+
 </script>
 
 <style scoped>

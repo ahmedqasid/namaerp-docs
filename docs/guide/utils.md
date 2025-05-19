@@ -1,4 +1,7 @@
 # Utility Links
+::: danger
+This file contains very dangerous links, please take care before using any of the following utilities 
+:::
 
 <ServerBaseURL/>
 
@@ -6,13 +9,13 @@
 <UtilityLinkBuilder
 className="com.namasoft.erp.gui.server.RecommitFromFile"
 :params="[
-{ title: 'Recommit File', default: 'e:/rc/recommit.txt' },
+{ title: 'Main File', default: 'e:/rc/recommit.txt' },
 { title: 'Done File', default: 'e:/rc/done.txt' },
 { title: 'Errors File', default: 'e:/rc/errors.txt' }
-]"
+]" :gui = "true"
 />
 
-## ReApply Sales Contracts System Entries:
+## ReApply Real Estate Sales Contracts System Entries:
 
 <UtilityLinkBuilder 
 className="com.namasoft.modules.realstate.domain.utils.RESysEntryMigratorUtility"/>
@@ -23,67 +26,172 @@ className="com.namasoft.modules.realstate.domain.utils.UpdateREReservationEntryU
 
 ## Re-Replicate From File: (For admin)
 <UtilityLinkBuilder
-className="com.namasoft.modules.realstate.domain.utils.UpdateREReservationEntryUtil"/>
-
-[http://localhost:8080/erp/test?util=com.namasoft.erp.gui.server.ReplicateFromFile-c:/rc/recommit.txt,c:/rc/done.txt,c:/rc/error.txt&gui=true](http://localhost:8080/erp/test?util=com.namasoft.erp.gui.server.ReplicateFromFile-c:/rc/recommit.txt,c:/rc/done.txt,c:/rc/error.txt&gui=true)
+className="com.namasoft.erp.gui.server.ReplicateFromFile"
+:params="[
+{ title: 'Main File', default: 'e:/rc/recommit.txt' },
+{ title: 'Done File', default: 'e:/rc/done.txt' },
+{ title: 'Errors File', default: 'e:/rc/errors.txt' }
+]" :gui = "true"
+/>
 
 ## Delete From File:
-[http://localhost:8080/erp/test?util=com.namasoft.erp.gui.server.DeleteFromFile-e:/rc/delete.txt,e:/rc/donedelete.txt,e:/rc/deleteerrors.txt&gui=true](http://localhost:8080/erp/test?util=com.namasoft.erp.gui.server.DeleteFromFile-e:/rc/delete.txt,e:/rc/donedelete.txt,e:/rc/deleteerrors.txt&gui=true)
+<UtilityLinkBuilder
+className="com.namasoft.erp.gui.server.DeleteFromFile"
+:params="[
+{ title: 'Main File', default: 'e:/rc/delete.txt' },
+{ title: 'Done File', default: 'e:/rc/done-delete.txt' },
+{ title: 'Errors File', default: 'e:/rc/delete-errors.txt' }
+]" :gui = "true"
+/>
+
 
 ## Regen Ledger from file - Accounting Effects:
-[http://localhost:8080/erp/test?util=com.namasoft.erp.gui.server.RegenAccFromFile-e:/rc/regenledger.txt,e:/rc/regenledgerdone.txt,e:/rc/regenledgererrors.txt&gui=true ](http://localhost:8080/erp/test?util=com.namasoft.erp.gui.server.RegenAccFromFile-e:/rc/regenledger.txt,e:/rc/regenledgerdone.txt,e:/rc/regenledgererrors.txt&gui=true)
+<UtilityLinkBuilder
+className="com.namasoft.erp.gui.server.RegenAccFromFile"
+:params="[
+{ title: 'Main File', default: 'e:/rc/regen-ledger.txt' },
+{ title: 'Done File', default: 'e:/rc/regen-ledger-delete.txt' },
+{ title: 'Errors File', default: 'e:/rc/regen-ledger-errors.txt' }
+]" :gui = "true"
+/>
 
 ## Export To Another Server From File:
-[http://localhost:8080/erp/test?util=com.namasoft.erp.gui.server.ExportToServerFromFileByWS-e:/rc/export.txt,e:/rc/doneexport.txt,e:/rc/errorsexport.txt,http://localhost:7070/&gui=true](http://localhost:8080/erp/test?util=com.namasoft.erp.gui.server.ExportToServerFromFileByWS-e:/rc/export.txt,e:/rc/doneexport.txt,e:/rc/errorsexport.txt,http://localhost:7070/&gui=true)
+<UtilityLinkBuilder
+className="com.namasoft.erp.gui.server.ExportToServerFromFileByWS"
+:params="[
+{ title: 'Main File', default: 'e:/rc/export.txt' },
+{ title: 'Done File', default: 'e:/rc/export-delete.txt' },
+{ title: 'Errors File', default: 'e:/rc/export-errors.txt' },
+{ title: 'Export To Server URL', default: 'http://localhost:7070/' }
+]" :gui = "true"
+/>
+
 
 ## Export To Another Server from File Using Excel Sheets:
-[http://localhost:8080/erp/test?util=com.namasoft.erp.gui.server.ExportToServerFromFileByExcel-e:/rc/export.txt,e:/rc/doneexport.txt,e:/rc/errorsexport.txt,http://localhost:7070&gui=true](http://localhost:8080/erp/test?util=com.namasoft.erp.gui.server.ExportToServerFromFileByExcel-e:/rc/export.txt,e:/rc/doneexport.txt,e:/rc/errorsexport.txt,http://localhost:7070&gui=true)
+<UtilityLinkBuilder
+className="com.namasoft.erp.gui.server.ExportToServerFromFileByExcel"
+:params="[
+{ title: 'Main File', default: 'e:/rc/export.txt' },
+{ title: 'Done File', default: 'e:/rc/export-delete.txt' },
+{ title: 'Errors File', default: 'e:/rc/export-errors.txt' },
+{ title: 'Export To Server URL', default: 'http://localhost:7070/' }
+]" :gui = "true"
+/>
 
 ## Get Not Commited: (can be used with delete, it just compares two files)
-[http://localhost:8080/erp/test?util=com.namasoft.erp.gui.server.CompareTwoFiles-e:/rc/recommit.txt,e:/rc/done.txt&gui=true](http://localhost:8080/erp/test?util=com.namasoft.erp.gui.server.CompareTwoFiles-e:/rc/recommit.txt,e:/rc/done.txt&gui=true)
+<UtilityLinkBuilder
+className="com.namasoft.erp.gui.server.CompareTwoFiles"
+:params="[
+{ title: 'First File', default: 'e:/rc/recommit.txt' },
+{ title: 'Second File', default: 'e:/rc/export-delete.txt' }
+]" :gui = "true"
+/>
 
 ## ReCreate Employee State System Entries:
-[http://localhost:8080/erp/test?util=com.namasoft.modules.humanresource.domain.entities.utils.MigrateEmpStateEntry](http://localhost:8080/erp/test?util=com.namasoft.modules.humanresource.domain.entities.utils.MigrateEmpStateEntry)
+<UtilityLinkBuilder
+className="com.namasoft.modules.humanresource.domain.entities.utils.MigrateEmpStateEntry"
+/>
 
-## ReCreate Employee Vacation System Entries:
-[http://localhost:8080/erp/test?util=com.namasoft.modules.humanresource.domain.entities.utils.VacationsSysEntryMigratorForAllEmps](http://localhost:8080/erp/test?util=com.namasoft.modules.humanresource.domain.entities.utils.VacationsSysEntryMigratorForAllEmps)
+## Employee Vacation System Entries:
+- Recreate All Employees Vacation Sys Entries
+<UtilityLinkBuilder
+className="com.namasoft.modules.humanresource.domain.entities.utils.VacationsSysEntryMigratorForAllEmps"
+/>
 
-## To Process Only Working Employees:
-[http://localhost:8080/erp/test?util=com.namasoft.modules.humanresource.domain.entities.utils.VacationsSysEntryMigratorForWorkingEmps](http://localhost:8080/erp/test?util=com.namasoft.modules.humanresource.domain.entities.utils.VacationsSysEntryMigratorForWorkingEmps)
+- To Process Only Working Employees:
+<UtilityLinkBuilder
+className="com.namasoft.modules.humanresource.domain.entities.utils.VacationsSysEntryMigratorForWorkingEmps"
+/>
 
-## To Allow System To Resume After An Error:
-[http://localhost:8080/erp/test?util=com.namasoft.modules.humanresource.domain.entities.utils.VacationsSysEntryMigratorForAllEmps-e:/rc/processed-employees.txt](http://localhost:8080/erp/test?util=com.namasoft.modules.humanresource.domain.entities.utils.VacationsSysEntryMigratorForAllEmps-e:/rc/processed-employees.txt)
-> [!NOTE]
-> This will put the processed employee ids in e:/rc/processed-employees.txt
+-- To Allow System To Resume After An Error:
+<UtilityLinkBuilder
+className="com.namasoft.modules.humanresource.domain.entities.utils.VacationsSysEntryMigratorForAllEmps"
+:params="[
+{ title: 'Processed Employees File', default: 'e:/rc/processed-employees.txt' }
+]"
+/>
 
-## To Allow The system to resume after an error and determine date to start from
-[http://localhost:8080/erp/test?util=com.namasoft.modules.humanresource.domain.entities.utils.VacationsSysEntryMigratorForAllEmps-file=e:/rc/processed-employees.txt,date=20201010](http://localhost:8080/erp/test?util=com.namasoft.modules.humanresource.domain.entities.utils.VacationsSysEntryMigratorForAllEmps-file=e:/rc/processed-employees.txt,date=20201010)
-> [!NOTE]
-> This will put the processed employee ids in e:/rc/processed-employees.txt,
-> and the date with format yyyyMMdd 
+::: tip
+This will put the processed employee ids in e:/rc/processed-employees.txt
+:::
 
-## To Process an employee with code:
-[http://localhost:8080/erp/test?util=com.namasoft.modules.humanresource.domain.entities.utils.VacationsSysEntryMigratorForAllEmps-codes=E001-E002-E003](http://localhost:8080/erp/test?util=com.namasoft.modules.humanresource.domain.entities.utils.VacationsSysEntryMigratorForAllEmps-codes=E001-E002-E003)
+- To Allow The system to resume after an error and determine date to start from
+  <UtilityLinkBuilder
+  className="com.namasoft.modules.humanresource.domain.entities.utils.VacationsSysEntryMigratorForAllEmps"
+  :params="[
+  { title: 'Processed Employees File', default: 'e:/rc/processed-employees.txt', id:'file' },
+  { title: 'Start From Date', default: 'yyyyMMdd', id:'date' }
+  ]"
+  />
+
+::: tip
+This will put the processed employee ids in e:/rc/processed-employees.txt, and the date with format yyyyMMdd 
+:::
+
+- To Process Specific Employees by Code:
+  <UtilityLinkBuilder
+  className="com.namasoft.modules.humanresource.domain.entities.utils.VacationsSysEntryMigratorForAllEmps"
+  :params="[
+  { title: 'Employee Codes', default: 'E001-E002-E003', id:'codes' }
+  ]"
+  />
 
 ## Recreate Sub Item Status Entries:
-[http://localhost:8080/erp/test?util=com.namasoft.modules.srvcenter.domain.utils.SubItemStatusSysEntryRecalculateUtil-file=c:/namautilfiles/toProcessTypes.txt](http://localhost:8080/erp/test?util=com.namasoft.modules.srvcenter.domain.utils.SubItemStatusSysEntryRecalculateUtil-file=c:/namautilfiles/toProcessTypes.txt)
+<UtilityLinkBuilder
+className="com.namasoft.modules.srvcenter.domain.utils.SubItemStatusSysEntryRecalculateUtil"
+:params="[
+{ title: 'Types To Process File', default: 'e:/rc/toProcessTypes.txt', id:'file' }
+]"
+/>
+
 
 ## Regenerate Approvals Summary
-[http://localhost:8080/erp/test?util=com.namasoft.infra.domainbase.common.approval.RecalcSummaryUtil](http://localhost:8080/erp/test?util=com.namasoft.infra.domainbase.common.approval.RecalcSummaryUtil)
+<UtilityLinkBuilder
+className="com.namasoft.infra.domainbase.common.approval.RecalcSummaryUtil"
+/>
 
 ## Remove Zombie Approvals:
-[http://localhost:8080/erp/test?util=com.namasoft.infra.domainbase.common.approval.FixZombieApprovalUtil](http://localhost:8080/erp/test?util=com.namasoft.infra.domainbase.common.approval.FixZombieApprovalUtil)
+<UtilityLinkBuilder
+className="com.namasoft.infra.domainbase.common.approval.FixZombieApprovalUtil"
+/>
 
 ## Regenerate Inventory Transactions from File:
-[http://localhost:8080/erp/test?util=com.namasoft.modules.supplychain.domain.utils.plugnplay.RegenInvTransReqFromFile-e:/rc/regeninvtrans.txt,e:/rc/doneregeninvtrans.txt](http://localhost:8080/erp/test?util=com.namasoft.modules.supplychain.domain.utils.plugnplay.RegenInvTransReqFromFile-e:/rc/regeninvtrans.txt,e:/rc/doneregeninvtrans.txt)
+<UtilityLinkBuilder
+className="com.namasoft.modules.supplychain.domain.utils.plugnplay.RegenInvTransReqFromFile"
+:params="[
+{ title: 'Main File', default: 'e:/rc/regen-inv-trans.txt' },
+{ title: 'Done File', default: 'e:/rc/regen-inv-done.txt' },
+{ title: 'Errors File', default: 'e:/rc/regen-inv-errors.txt' }
+]"
+/>
 
 ## Reprocess All Fixed Assets Documents:
-[http://localhost:8080/erp/test?util=com.namasoft.modules.fixedassets.domain.utils.SWSUpdatePropertyEntryUtil](http://localhost:8080/erp/test?util=com.namasoft.modules.fixedassets.domain.utils.SWSUpdatePropertyEntryUtil)
+- Recreate all fixed assets entries
+<UtilityLinkBuilder
+className="com.namasoft.modules.fixedassets.domain.utils.SWSUpdatePropertyEntryUtil"
+/>
 
-[http://localhost:8080/erp/test?util=com.namasoft.modules.fixedassets.domain.utils.SWSUpdatePropertyEntryAndRecalcDepreciationUtil](http://localhost:8080/erp/test?util=com.namasoft.modules.fixedassets.domain.utils.SWSUpdatePropertyEntryAndRecalcDepreciationUtil)
+- Recreate all fixed assets entries and recalculate depreciation installment values
+::: danger
+Take care, depreciation values WILL BE CHANGED
+:::
+<UtilityLinkBuilder
+  className="com.namasoft.modules.fixedassets.domain.utils.SWSUpdatePropertyEntryAndRecalcDepreciationUtil"
+/>
 
-[http://localhost:8080/erp/test?util=com.namasoft.modules.fixedassets.domain.utils.SWSUpdatePropertyEntryAndRecalcDepreciationAndRemovePreventedAssetsUtil](http://localhost:8080/erp/test?util=com.namasoft.modules.fixedassets.domain.utils.SWSUpdatePropertyEntryAndRecalcDepreciationAndRemovePreventedAssetsUtil)
+- Recalculate and remove assets that exist in prevent depreciation documents
+  <UtilityLinkBuilder
+  className="com.namasoft.modules.fixedassets.domain.utils.SWSUpdatePropertyEntryAndRecalcDepreciationAndRemovePreventedAssetsUtil"
+  />
 
-## Reprocess Specific Fixed Assets Documents:
-[http://localhost:8080/erp/test?util=com.namasoft.modules.fixedassets.domain.utils.SWSUpdatePropertyEntryUtil-FA001,FA002,FA0003](http://localhost:8080/erp/test?util=com.namasoft.modules.fixedassets.domain.utils.SWSUpdatePropertyEntryUtil-FA001,FA002,FA0003)
+
+- Reprocess Specific Fixed Assets Documents:
+  <UtilityLinkBuilder
+  className="com.namasoft.modules.supplychain.domain.utils.plugnplay.RegenInvTransReqFromFile"
+  :params="[
+  { title: 'Processed Assets File', default: 'e:/rc/processed-assets.txt', id:'file' },
+  { title: 'Asset IDS' , default: 'ffff01,ffff02', id: 'ids' }
+  ]"
+  />
+
 
