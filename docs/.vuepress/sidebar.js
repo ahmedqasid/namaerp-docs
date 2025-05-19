@@ -13,7 +13,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Reprocessing Transactions",
       collapsible: true,
-      children: [ "/reprocessing/reprocess-qty-and-cost.md", "/reprocessing/reprocess-stock-ages.md" ]
+      children: [ "/reprocessing/reprocess-qty-and-cost.md", "/reprocessing/inventory-utilities.md", "/reprocessing/cost-and-qty-problems.md", "/reprocessing/reprocess-ledger-and-debt-ages.md", "/reprocessing/fixed-asset-utilites.md", "/reprocessing/manufacturing-utilities.md", "/reprocessing/replication.md", "/reprocessing/db-operations.md" ]
     } ]
   } ]
 }

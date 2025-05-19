@@ -1,4 +1,8 @@
-# Reprocess All Quantity Transactions (Tomcat must be shutdown)
+# Reprocessing Quantity, Cost, and Stock Ages
+
+<ServerBaseURL/>
+
+## Reprocess All Quantity Transactions (Tomcat must be shutdown)
 
 ```sql
 update FiscalYear set allowCostProcessingWithClosingEntry = 1 where commitedBefore = 1
@@ -87,3 +91,53 @@ go
 delete from StockAgesTrans
 
 ```
+### Partial Reprocess of Average Cost (Fast)
+<UtilityLinkBuilder
+className="com.namasoft.modules.supplychain.domain.utils.FastReprocessCostFromDate"
+:params="[
+{ title: 'Start Date (yyyyMMdd)', default: 'yyyyMMdd' }
+]"
+/>
+
+## Reprocess Stock Ages
+### Method 1:
+- Use Fast Reprocess Util
+  <UtilityLinkBuilder
+  className="com.namasoft.modules.supplychain.domain.utils.plugnplay.StockAgesFastReprocess"
+  :params="[
+  { title: 'Processed Ages File Path', default: 'E:/rc/stock-ages-done.txt' }
+  ]" :gui = "true"
+  />
+::: warning
+  - Make sure to clear the stock-ages-done file before running the utility, The system will ignore all requests mentioned in the file
+  - Make sure that you are on a release after April 21st
+  - There are no currentNetCost errors displayed in the system
+
+:::
+### Method 2:
+- Use Following Query (Slower than method 1)
+```sql
+truncate table StockAgesMatcher
+go
+truncate table StockAgesTask
+go
+truncate table StockAgesTaskUpdater
+go
+truncate table StockAgesTransLine
+go
+delete from StockAgesTrans
+go
+update r set transStatus = 'Retry',reprocessStockAges = 1 , priority = 500
+from InvTransReq r inner join QtyTransLine l on l.requestId = r.id
+inner join InvItem i on i.id = l.item_id
+where i.stockAgesPolicy = 'Yes' and r.transStatus  ='Processed'
+```
+### Method 3:
+Use Process Of Certain Dimensions Util
+
+<UtilityLinkBuilder
+className="com.namasoft.modules.supplychain.domain.utils.plugnplay.StockAgesProcessDimensions"
+:params="[
+{ title: 'CSV List Of StockAgesIdx IDs You Need', default: '0xFFFFFF44444,0xFFFF55566' }
+]" :gui = "true"
+/>

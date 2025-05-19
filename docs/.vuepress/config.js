@@ -12,7 +12,7 @@ export default defineUserConfig({
     sidebar: SIDEBAR_CONFIG,
     navbar: ['/', '/guide/','/examples/'],
     contributors: false,
-    sidebarDepth: 0,
+    sidebarDepth: 2,
   }),
   plugins: [
     slimsearchPlugin({indexContent: true, indexOptions: {}})
