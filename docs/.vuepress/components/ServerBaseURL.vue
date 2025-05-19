@@ -1,5 +1,5 @@
 <template>
-  <div class="server-base-url">
+  <div class="server-base-url" dir="ltr">
     <label for="baseUrlInput">Server URL:</label>
     <input
         id="baseUrlInput"
@@ -26,6 +26,7 @@ function updateBaseURL(){
   padding: 1rem;
   border-left: 4px solid #ccc;
   border-radius: 0.5rem;
+  direction: ltr;
 }
 
 .server-base-url label {

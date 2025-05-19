@@ -4,6 +4,8 @@ import LTRBlock from "./components/LTRBlock.vue";
 import ServerBaseURL from "./components/ServerBaseURL.vue";
 import UtilityLinkBuilder from "./components/UtilityLinkBuilder.vue";
 import NamaURL from "./components/NamaURL.vue";
+import NamaOptionURL from "./components/NamaOptionURL.vue";
+import GlobalConfigOption from "./components/GlobalConfigOption.vue";
 
 export default defineClientConfig({
     enhance({app, router, siteData}) {
@@ -14,6 +16,8 @@ export default defineClientConfig({
         app.component('ServerBaseURL', ServerBaseURL)
         app.component('UtilityLinkBuilder', UtilityLinkBuilder)
         app.component('NamaURL', NamaURL)
+        app.component('NamaOptionURL', NamaOptionURL)
+        app.component('GlobalConfigOption', GlobalConfigOption)
         router.afterEach((to) => {
             // console.log(to.meta._pageChunk.data.frontmatter.lang)
             if(typeof window === 'undefined')
