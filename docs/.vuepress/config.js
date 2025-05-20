@@ -3,6 +3,7 @@ import {defineUserConfig} from 'vuepress'
 import {viteBundler} from '@vuepress/bundler-vite'
 import {SIDEBAR_CONFIG} from "./sidebar.js";
 import fullTextSearchPlugin from "vuepress-plugin-full-text-search2";
+import {markdownContainerPlugin} from "@vuepress/plugin-markdown-container";
 
 export default defineUserConfig({
   title: 'Nama ERP Docs',
@@ -16,7 +17,18 @@ export default defineUserConfig({
   }),
   plugins: [
     // slimsearchPlugin({indexContent: true, indexOptions: {}})
-    fullTextSearchPlugin()
+    fullTextSearchPlugin(),
+    markdownContainerPlugin({
+      type: 'rtl',
+      before: ()=> `<div dir="rtl" class="rtl-block">`,
+      after: () => `</div>`
+    }),
+    markdownContainerPlugin({
+      type: 'ltr',
+      before: ()=> `<div dir="ltr" class="ltr-block">`,
+      after: () => `</div>`
+    })
+
   ],
   bundler: viteBundler(),
 })

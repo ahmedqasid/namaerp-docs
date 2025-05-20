@@ -7,9 +7,3 @@
 <script setup lang="ts">
 </script>
 
-<style scoped>
-.rtl-block {
-  text-align: right;
-  direction: rtl;
-}
-</style>

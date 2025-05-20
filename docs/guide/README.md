@@ -1,6 +1,7 @@
 # Guides
   - [Utility Links](/guide/utils.md)
   - [System Minimum Requirements](/guide/system-minimum-requirements.md)
+  - [Reports Guide (Jasper Reports)](/guide/reports-guide.md)
   - [Keyboard Shortcuts](/guide/shortcuts.md)
   - [Layout Names:](/guide/screen-modifier.md)
   - [Field Values Calculator](/guide/ea-fields-values-calculator.md)

@@ -1,0 +1,9 @@
+.rtl-block {
+    text-align: right;
+    direction: rtl;
+}
+
+.ltr-block {
+    text-align: left;
+    direction: ltr;
+}

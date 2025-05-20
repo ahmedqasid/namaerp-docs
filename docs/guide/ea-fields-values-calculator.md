@@ -1,10 +1,10 @@
 ---
 lang: ar
 ---
-<ltr>
+::: ltr
 
 # Field Values Calculator
-</ltr>
+:::
 
 ```ini
 altCode=mask(code,XXX.XXX.XXX)
@@ -12,7 +12,7 @@ altCode=mask(code,XXX.XXX.XXX)
   - X هنا تعبر عن حرف في الكود الاصلي
   - أي حرف سوي X سيتم إضافته الى الناتج 
 
-<ltr>
+::: ltr
 
 ### Example 1:
 
@@ -21,7 +21,7 @@ Example2:
 
 If the item code is ABC155713 , mask(code,XXX-XXX@XXX), the alternative code will be ABC-155@713
 
-</ltr>
+:::
 
 ```
 111222333 - XX.XXXX.XX => 11.1222.333
@@ -163,7 +163,7 @@ description1=remarks.$right_2 → returns the last two letters of the remarks fi
 description1=remarks.$mid_3_4 → returns 4 letters starting from the third one of the remarks fields
 details=[clear]
 ```
-<ltr>
+::: ltr
 
 - Clears all lines in the details grid
 
@@ -229,18 +229,18 @@ description1=code.$encrypt1
 description2=description1.$decrypt1
 ref1=sql(select entityType,id from SalesInvoice where code = {description1.$decrypt1})
 ```
-<rtl>
+::: rtl
 
 - في التقارير يمكن استعمال التالي:
 
-</rtl>
+:::
 
 
 ```groovy
 NamaRep.encrypt1($F{code})
 NamaRep.decrypt1($F{description1})
 ```
-<rtl>
+::: rtl
 
 encrypt1 -> تقوم بالتشفير
 
@@ -248,7 +248,7 @@ decrypt1 -> تقوم بفك التشفير
 
 يوجد دالتان اخريان يمكن استعمالهم ولهم كلمة سر مختلفة
 
-</rtl>
+:::
 
 `encryptX - decryptX`
 
@@ -278,7 +278,7 @@ description3=$createOTP7
 You can find more about importing using this system at [Excel and SQL importing using entity flows](excel-and-sql-import-by-entity-flow.md)
 
 
-</ltr>
+:::
 
 
 
