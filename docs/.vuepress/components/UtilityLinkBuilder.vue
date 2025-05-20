@@ -63,7 +63,7 @@ const generatedUrl = computed(() => {
   const values = paramInputs.value.map(p => (p.id ? p.id + "=" : "") + p.value);
   const sep =props.params.length > 0 ? '-' : ''
   const query = `${props.className+sep+values.join(',')}`
-  return `${serverUrl.value.replace(/\/$/, '')}/utils?${query}${props.gui ? "&gui=true" : ""}`
+  return `${serverUrl.value.replace(/\/$/, '')}/utils?util=${query}${props.gui ? "&gui=true" : ""}`
 })
 
 function copyUrl() {
