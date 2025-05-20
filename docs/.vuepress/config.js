@@ -2,7 +2,7 @@ import {defaultTheme} from '@vuepress/theme-default'
 import {defineUserConfig} from 'vuepress'
 import {viteBundler} from '@vuepress/bundler-vite'
 import {SIDEBAR_CONFIG} from "./sidebar.js";
-import {slimsearchPlugin} from "@vuepress/plugin-slimsearch";
+import fullTextSearchPlugin from "vuepress-plugin-full-text-search2";
 
 export default defineUserConfig({
   title: 'Nama ERP Docs',
@@ -15,7 +15,8 @@ export default defineUserConfig({
     sidebarDepth: 2,
   }),
   plugins: [
-    slimsearchPlugin({indexContent: true, indexOptions: {}})
+    // slimsearchPlugin({indexContent: true, indexOptions: {}})
+    fullTextSearchPlugin()
   ],
   bundler: viteBundler(),
 })
