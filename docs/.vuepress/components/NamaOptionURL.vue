@@ -1,11 +1,14 @@
 <template>
   <a :href="generatedUrl" target="_blank">{{ linkTitle || optionCode }}</a>
-  <button @click="copyUrl">Copy</button>
+  <button @click="copyUrl" title="Copy URL"><CopyIcon/></button>
+  <ServerBaseURL simple/>
 </template>
 
 <script setup lang="ts">
 import {computed} from 'vue'
 import {serverUrl} from "./server-url";
+import CopyIcon from "./CopyIcon.vue";
+import ServerBaseURL from "./ServerBaseURL.vue";
 
 
 const props = defineProps({

@@ -16,7 +16,8 @@
 
     <p>
       <code>{{ generatedUrl }}</code>
-      <button @click="copyUrl">Copy</button>
+      <button @click="copyUrl" title="Copy Full URL"><CopyIcon/></button>
+      <ServerBaseURL simple/>
     </p>
   </div>
 </template>
@@ -24,6 +25,8 @@
 <script setup lang="ts">
 import {ref, computed, onMounted} from 'vue'
 import {serverUrl} from "./server-url";
+import ServerBaseURL from "./ServerBaseURL.vue";
+import CopyIcon from "./CopyIcon.vue";
 
 interface Param {
   title?: string
@@ -46,7 +49,6 @@ const props = defineProps({
     default: false,
   }
 })
-
 
 const paramInputs = ref([])
 
