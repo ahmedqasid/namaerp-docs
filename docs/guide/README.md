@@ -9,6 +9,7 @@
   - [Attendance Machine Formula Guide](/guide/attendance-machine-formula.md)
   - [Email By Parameterized Reports In Task Scheduler](/guide/scheduled-tasks.md)
   - [Nama Properties](/guide/nama-properties.md)
+  - [Customer Reward Points (Loyalty Points)](/guide/reward-points.md)
   - [ORACLE JDBC Integration Connection in context.xml for integration purposes](/guide/oracle-jdbc-connection.md)
   - [Criteria Based Validation](/guide/criteria-based-validation.md)
   - [Tempo Manual](/guide/tempo.md)
