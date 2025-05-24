@@ -46,3 +46,22 @@ lang: ar
     * وصلاحية "الحفظ والتعديل" موجودة في سطر عام أو لقائمة أنواع،
     * فإن الأولوية تذهب لسطر "الحفظ فقط" لأنه أكثر تحديدًا حسب ترتيب الأولويات.
 :::
+
+<ltr>
+
+## SQL Server Installation problem related to block size on new M2 SSDs (especially on new hetzner servers)
+* Refer to [this article](https://learn.microsoft.com/en-us/troubleshoot/sql/database-engine/database-file-operations/troubleshoot-os-4kb-disk-sector-size?tabs=PowerShell)
+* You will need to completely uninstall 
+* Then run the following command in PowerShell 
+```powershell
+New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\stornvme\Parameters\Device" -Name   "ForcedPhysicalSectorSizeInBytes" -PropertyType MultiString        -Force -Value "* 4095"
+```
+::: warning
+Remember, PowerShell not command prompt
+
+The window should be blue not black
+:::
+* Restart the server
+* Then install SQL Server again
+
+</ltr>
