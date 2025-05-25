@@ -1,2 +1,3 @@
 # Frequently Asked Questions
-  - [General FAQ](/faq/general-faq.md)
+  - [أسئلة عامة](/faq/general-faq.md)
+  - [أسئلة في موديول التوزيع والمخازن والمبيعات والمشتريات](/faq/supply-chain-faq.md)

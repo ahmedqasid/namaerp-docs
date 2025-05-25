@@ -1,3 +1,7 @@
+---
+home: true
+heroImage: hero.svg
+---
 # Home
   - [Guides](/guide)
     - [Utility Links](/guide/utils.md)
@@ -28,4 +32,5 @@
     - [General Purpose Utility Queries](/reprocessing/general-purpose-utility-queries.md)
     - [Replication Utilities](/reprocessing/replication.md)
   - [Frequently Asked Questions](/faq)
-    - [General FAQ](/faq/general-faq.md)
+    - [أسئلة عامة](/faq/general-faq.md)
+    - [أسئلة في موديول التوزيع والمخازن والمبيعات والمشتريات](/faq/supply-chain-faq.md)
