@@ -1,5 +1,5 @@
 <template>
-  <a :href="generatedUrl" target="_blank">{{ linkTitle || optionCode }}</a>
+  <a :href="generatedUrl" target="_blank">{{ linkTitle || optionCode || entityType }}</a>
   <button @click="copyUrl" title="Copy URL"><CopyIcon/></button>
   <ServerBaseURL simple/>
 </template>
@@ -18,21 +18,29 @@ const props = defineProps({
   },
   optionCode: {
     type:String,
-    required: true,
+    required: false,
   },
   entityCode:{
     type: String,
-    required: true,
+    required: false,
   }, linkTitle:{
     type: String,
+    required: false
+  }, newMode: {
+    type: Boolean,
     required: false
   }
 })
 
 const generatedUrl = computed(() => {
-  return `${serverUrl.value.replace(/\/$/, '')}#/edit?code=${props.entityCode}&entity=${props.entityType}&view==EDIT&focusOnField=${props.optionCode}`
+  return `${serverUrl.value.replace(/\/$/, '')}#/edit?${urlPart('code', props.entityCode)}&entity=${props.entityType}&view=${props.newMode ? "NEW" : "EDIT"}&${urlPart('focusOnField', props.optionCode)}`
 })
 
+function urlPart(name: string, part?: string): string {
+  if (part)
+    return `${name}=${part}&`;
+  return '';
+}
 function copyUrl() {
   navigator.clipboard.writeText(generatedUrl.value)
 }

@@ -59,9 +59,25 @@ New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\stornvme\Paramet
 ::: warning
 Remember, PowerShell not command prompt
 
-The window should be blue not black
+The window should be blue, not black
 :::
 * Restart the server
 * Then install SQL Server again
 
 </ltr>
+
+## كيف يمكن إضافة شاشة النقاش إلى شاشة بعينها
+يمكن عمل المطلوب من خلال إعدادات الحقول والشاشات
+<NamaOptionURL entityType="GenericReferenceOverrider" new-mode optionCode="addDiscussionTo.addToPage" link-title="addDiscussionTo"/>
+
+1. يمكنك إضافة النقاش إلى أي شاشة في النظام من خلال جدول "إضافة النقاش إلي" الموجود بإعدادات الحقول والشاشات
+::: tip يمكنك التحكم في الحقول الظاهرة في النقاشات
+يمكنك التحكم في الحقول الظاهرة في شاشة النقاش من خلال تعديل الشاشة - بلوك "تعديل حقول النقاش"
+  - إزالة حقل النقاش
+  - إزالة مرفق 1 - 2 - 3 - 4
+  - إزالة مرجع 1 - 2
+:::
+
+::: warning النقاش يظهر بعد الحفظ وليس قبله
+لا تظهر شاشة النقاشات إلا في السجلات المحفوظة - مع إنشاء جديد قبل الحفظ لا تظهر النقاشات
+:::
