@@ -9,7 +9,7 @@
         placeholder="http://localhost:8080/erp/"
     />
   </div>
-  <div class="server-base-url" v-else>
+  <div class="server-base-url" :class="simpleServerUrlVisible?'':'inline-block'" v-else>
     <button @click="simpleServerUrlVisible=!simpleServerUrlVisible" :title="simpleServerUrlVisible?'Hide Server URL':'Show Server URL' "  class="icon-button">
       <svg v-if="simpleServerUrlVisible" xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z" />
@@ -49,6 +49,9 @@ function updateBaseURL(){
 <style scoped>
 .server-base-url {
   direction: ltr;
+}
+.inline-block {
+  display: inline-block;
 }
 
 .server-base-url label {

@@ -15,7 +15,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <NamaOptionURL entity-code="global" :option-code="optionCode" entity-type="ConfigEntry" :link-title="linkTitle"/>
+  <NamaOptionURL entity-code="modulesupplychain" :option-code="optionCode" entity-type="ConfigEntry" :link-title="linkTitle"/>
 </template>
 
 <style scoped>
