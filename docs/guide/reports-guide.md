@@ -1,8 +1,24 @@
 # Reports Guide (Jasper Reports)
-### Add company logo to a report
+### Add the company logo to a report
 
 - Create a parameter named `loginLegalEntityLogo` with type `java.lang.Object` or `java.io.InputStream`
 - Create an image, image expression should be `$P{loginLegalEntityLogo}`
+
+### Subreports
+
+You can include subreports within a main report. A subreport can either be:
+
+* Another existing report, or
+* An external report file.
+
+To link a subreport, create a parameter with the **same ID** as the subreport. The parameter type should be either `java.io.InputStream` or `java.lang.Object`, depending on how the subreport is being passed.
+
+
+### Extra Resources (e.g., Images)
+
+You can also attach additional resources—such as images—to a report.
+To use a resource within the report, define a parameter with the **same ID** as the resource. The parameter type should be `java.lang.Object`.
+
 
 ### How to Get Day Name of a Date
 ```groovy
@@ -187,6 +203,33 @@ NamaRep.shortenURL(serverurl,signature,url)
 ```
 To find more, visit `{shortenurl()}` section in tempo help
 :::
+
+- Create Link to create entities using Creators inside a report
+  - Example: To create a link that generates a new Receipt Voucher based on an invoice:
+```groovy
+NamaRep.newWithFields("ReceiptVoucher")
+.f("term").value("POTermCode")
+.f("book").value("POBook1")
+.f("remarks").v("Auto Created")
+.f("fromDoc#type").v("SalesInvoice")
+.f("fromDoc#code").v($F{code}).toString()
+```
+- You can also use `NamaRep.creator("ReceiptVoucher")`
+- To generate a link that also includes line-level details (e.g., items), follow these steps:
+  - Create a variable creator link as below:
+    ![Sample File](images/creator-link-sample.png)
+  - Initial Value Expression
+```groovy
+NamaRep.newWithFields("PurchaseOrder").field("term").value("P.Order.Term").root()
+```
+  - Expression
+```groovy
+Expression: $V{creatorLink}.field("details.item.itemCode").value($F{code}).row($V{REPORT_COUNT})
+```
+  - Then create a link and make the expression:
+```groovy
+$V{creatorLink}.toString()
+```
 ### Find employee vacation balances
 ```groovy
 NamaRep.getVacation1RemainderBalance(empIdOrCode)
@@ -229,6 +272,7 @@ NamaRep.approveFromJS(entityType, entityId, nextStepName, concernedLines, nextSt
 NamaRep.isConcernedLine($P{REPORT_PARAMETERS_MAP},$F{lineNumber})
 ```
 
+
 ### Run SQL Statement inside a report
 ```groovy
 NamaRep.runSQLQuery(sql,paramName,paramValue,paramName,paramValue)
@@ -237,9 +281,58 @@ NamaRep.runSQLQuery(sql,paramName,paramValue,paramName,paramValue)
 ```groovy
 NamaRep.htmlToText(text)
 ```
+## Miscellaneous
 
-## Time To String Functions in Reports
+### Time To String Functions in Reports
 - `NamaRep.timeToString`: converts milliseconds to hours:minutes, example 9120000 becomes 02:32
 - `NamaRep.timeToStringNullable`:  same as previous, but 0 is converted to null instead of 00:00
 - `NamaRep.decimalToString`: converts hours to hours:minutes, example 9.5 becomes 09:30 and 9.25 becomes 9:15
 - `NamaRep.decimalToStringNullable`: same as previous, but 0 is converted to null instead of 00:00
+
+### To convert date to Hijri
+
+```groovy
+NamaRep.toHijri($F{date})
+NamaRep.hijriDay($F{date})+"/"+NamaRep.hijriMonth($F{date})+"/"+NamaRep.hijriYear($F{date})
+NamaRep.hijri_yyyyMMdd($F{date})
+```
+
+### To execute query:
+```groovy
+NamaRep.executeQuery("select cast(w.name1 collate Arabic_CI_AI_KS_WS as varchar(250)) from warehouse w where w.id = :wid"
+        ,"wid",$F{wid})
+```
+
+### To Get Configuration Field:
+```groovy
+NamaRep.getValueFromModuleConfig(moduleId,fieldId)
+```
+- Example:
+```groovy
+NamaRep.getValueFromModuleConfig("basic","value.info.useCurrentUserAsSalesMan")
+```
+
+This will get the value of the field: value.info.useCurrentUserAsSalesMan from global config
+
+- Here are the available module names:
+```
+accounting
+basic
+supplychain
+fixedassets
+humanresource
+dms
+project
+ecpa
+manufacturing
+srvcenter
+crm
+contracting
+travel
+realestate
+housing
+auditing
+education
+namapos
+mc
+```
