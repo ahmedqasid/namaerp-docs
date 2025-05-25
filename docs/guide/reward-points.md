@@ -31,3 +31,6 @@ To redeeem {rewardInfo.amount} {rewardInfo.currency.altCode}, please use the fol
 لاسترداد {rewardInfo.amount} {rewardInfo.currency.code}، يرجى استخدام رمز التحقق (OTP) التالي: {otpCode}.
 ```
 
+::: tip The OTP tempo is run against the customer record
+- You can access any information from the customer, like name1, name2, email, and so on.
+:::
