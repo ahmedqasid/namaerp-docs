@@ -16,3 +16,18 @@ Thanks for shopping with us!
 شكرًا لتسوقك معنا.
 ```
 
+### Steps to Notify Customers with the reward points OTP:
+* Create a Notification Definition for any entity (preferably Customer) and check the "Manual" option.
+* In the Reward Points Configuration file, set the "OTP Notification" field to the notification definition you just created.
+
+### Sample SMS/Email Templates
+
+- English Version
+```
+To redeeem {rewardInfo.amount} {rewardInfo.currency.altCode}, please use the following OTP: {otpCode} 
+```
+- Arabic Version
+```
+لاسترداد {rewardInfo.amount} {rewardInfo.currency.code}، يرجى استخدام رمز التحقق (OTP) التالي: {otpCode}.
+```
+
