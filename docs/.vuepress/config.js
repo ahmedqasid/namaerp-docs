@@ -17,6 +17,11 @@ export default defineUserConfig({
     contributors: false,
     sidebarDepth: 2,
     logo: '/hero.svg',
+    repo: 'ahmedqasid/namaerp-docs',
+    docsDir: 'docs',
+    docsBranch: 'master',
+    editLink:true,
+    editLinkText: 'Edit On github',
   }),
   plugins: [
     // slimsearchPlugin({indexContent: true, indexOptions: {}})
