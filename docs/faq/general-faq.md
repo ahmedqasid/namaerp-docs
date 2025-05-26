@@ -94,3 +94,20 @@ https://api.oursms.com/api-a/msgs?username=info@xyz.com&token=ToKenVaLue&src=Sou
 ```
 https://api.oursms.com/api-a/msgs?username=info@xyz.com&token=ToKenVaLue&src=SourceName&dests={to}&body={utf8msg_sp20}&priority=0&delay=0&validity=0&maxParts=0&dlr=0&prevDups=0
 ```
+## عند فتح شاشة الحركات بالصنف تظهر رسالة خطأ 
+`Can not find Field getter method : userQty.measures.clippedHeight1`
+::: details وهذا هو اللوج الكامل
+```
+com.namasoft.infra.domainbase.util.NaMaBusinessLogicExeption: Can not find Field getter method : userQty.measures.clippedHeight1 
+	at com.namasoft.infra.domainbase.metadata.EntityReflection.getFieldValue(EntityReflection.java:292) ~[domain-base-0.0.1-SNAPSHOT.jar:?]
+	at com.namasoft.infra.domainbase.metadata.EntityReflection.getDirectFieldValue(EntityReflection.java:174) ~[domain-base-0.0.1-SNAPSHOT.jar:?]
+	at com.namasoft.commonservices.utils.Lister.objectListToTabularResults(Lister.java:308) ~[service-base-0.0.1-SNAPSHOT.jar:?]
+	at com.namasoft.commonservices.utils.Lister.getQueryListFromDB(Lister.java:232) ~[service-base-0.0.1-SNAPSHOT.jar:?]
+	at com.namasoft.commonservices.utils.Lister.getListFromDB(Lister.java:338) ~[service-base-0.0.1-SNAPSHOT.jar:?]
+	at com.namasoft.commonservices.utils.Lister.list(Lister.java:150) ~[service-base-0.0.1-SNAPSHOT.jar:?]
+	at com.namasoft.commonservices.utils.Lister.list(Lister.java:207) ~[service-base-0.0.1-SNAPSHOT.jar:?]
+	at com.namasoft.commonservices.utils.Lister.listFlat(Lister.java:830) ~[service-base-0.0.1-SNAPSHOT.jar:?]
+```
+سبب المشكلة هو وجود حقل تم إزالته من النظام في عرض القائمة
+الحل أن تقوم بعمل RegenUI من تعديل شاشة
+
