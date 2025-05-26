@@ -336,3 +336,93 @@ education
 namapos
 mc
 ```
+::: rtl
+
+## كيفية التصفية حسب الشركة، أو القطاع، أو أي مُحدد آخر
+
+نفترض أنك ترغب في تصفية البيانات بناءً على منشئ السجل، وصلاحيات التعديل أو العرض، وكذلك حسب الشركة أو القطاع أو الفرع أو غير ذلك من المُحددات ضمن سجل الحساب. للقيام بذلك، اتبع الخطوات التالية:
+
+### 1. إنشاء مُدخل مخفي باسم `SECURITY_CONSTRAINTS`
+
+أنشئ مُدخلًا (Parameter) من النوع `String`، واختر له خيار "Not For Prompting" لكي لا يظهر للمستخدم، وعيِّن له **التعبير (Expression)** الافتراضي التالي:
+
+```groovy
+NamaRep.security()
+    .fieldEntityType("Account")
+    .tableAlias("acc")
+    .capabilities("firstAuthor", "viewCapability", "usageCapability", "updateCapability", "legalEntity", "branch", "sector", "department", "analysisSet")
+```
+
+شرح مكونات التعبير (Expression):
+
+```groovy
+NamaRep.security().fieldEntityType("Account")
+```
+
+هذا الجزء يُخبر النظام بأن التصفية ستُطبق على كيان "الحساب". لذلك، لن يُضاف شرط صلاحية العرض إذا كان لدى المستخدم الصلاحيات الكاملة، أو إذا كنت قد فعّلت خيار تجاهل صلاحية العرض من إعدادات تحسين الأداء.
+
+```groovy
+.tableAlias("acc")
+```
+
+هنا تُحدد الاسم المستعار (alias) لجدول الحسابات داخل الاستعلام، بحيث يعرف النظام أين يطبّق التصفية.
+
+```groovy
+.capabilities(...)
+```
+
+في هذا الجزء، تُحدد أسماء المُحددات التي ترغب في أن تشملها التصفية. على سبيل المثال، إذا كنت ترغب في التصفية فقط حسب الشركة والفرع، استخدم ما يلي:
+
+```groovy
+.capabilities("legalEntity", "branch")
+```
+
+يكفي أن تُدرج أسماء المُحددات فقط دون الحاجة إلى تفاصيل إضافية.
+
+
+### 2. استخدام المُدخل داخل الاستعلام
+
+قم بإدراج المُدخل `SECURITY_CONSTRAINTS` ضمن جملة `WHERE` في الاستعلام الخاص بك، على النحو التالي:
+
+```sql
+SELECT a, b, c 
+FROM Table1 t1 
+LEFT JOIN Table2 t2 ON t2.id = t1.someId 
+WHERE t1.code <> 'abc' AND $P!{SECURITY_CONSTRAINTS}
+```
+
+يمكنك استخدام أي اسم يناسبك بدلًا من `SECURITY_CONSTRAINTS`.
+
+---
+
+### 3. التصفية حسب أكثر من جدول
+
+إذا كنت ترغب في تطبيق التصفية على أكثر من جدول، يمكنك استخدام الصيغة التالية:
+
+```groovy
+NamaRep.security()
+    .fieldEntityType("Account")
+    .tableAlias("Account")
+    .capabilities("firstAuthor", "viewCapability")
++ " AND " +
+NamaRep.security()
+    .fieldEntityType("FiscalYear")
+    .tableAlias("FiscalYear")
+    .capabilities("legalEntity", "branch", "sector")
+```
+
+قم بتكرار هذا الجزء بعدد الجداول المطلوبة، مع استخدام `AND` للفصل بين كل جزء وآخر.
+:::
+
+::: tip Summary In English
+
+**Filtering Data by Legal Entity, Sector, or Other Dimensions**
+
+- This section explains how to apply security-based filtering on reports according to various criteria such as first author, 
+user permissions (view, update), legal entity (company), branch, sector, department, and other analysis sets. 
+- The filtering is done by creating a hidden string parameter that defines the security constraints for a specific entity or table alias in the query.
+- You can specify which capabilities or dimensions to filter on, and then include this parameter as a condition in your SQL or report query.
+- When filtering on multiple tables, combine multiple security constraints with logical AND. T
+- his approach helps enforce data visibility and editing rights dynamically based on user roles and organizational structure.
+
+:::
