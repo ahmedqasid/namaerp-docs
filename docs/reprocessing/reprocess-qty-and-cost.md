@@ -3,7 +3,7 @@
 <ServerBaseURL/>
 
 ## Reprocess All Quantity Transactions (Tomcat must be shutdown)
-
+::: details
 ```sql
 update FiscalYear set allowCostProcessingWithClosingEntry = 1 where commitedBefore = 1
 go
@@ -91,6 +91,7 @@ go
 delete from StockAgesTrans
 
 ```
+:::
 ### Partial Reprocess of Average Cost (Fast)
 <UtilityLinkBuilder
 className="com.namasoft.modules.supplychain.domain.utils.FastReprocessCostFromDate"
@@ -116,6 +117,7 @@ className="com.namasoft.modules.supplychain.domain.utils.FastReprocessCostFromDa
 :::
 ### Method 2:
 - Use Following Query (Slower than method 1)
+::: details
 ```sql
 truncate table StockAgesMatcher
 go
@@ -132,6 +134,7 @@ from InvTransReq r inner join QtyTransLine l on l.requestId = r.id
 inner join InvItem i on i.id = l.item_id
 where i.stockAgesPolicy = 'Yes' and r.transStatus  ='Processed'
 ```
+:::
 ### Method 3:
 Use Process Of Certain Dimensions Util
 

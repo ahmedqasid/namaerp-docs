@@ -1,5 +1,6 @@
 # Queries to Check for (and Fix) Cost And Qty Problems
 ## Check Cost and Ledger are consistent
+::: details
 ```sql
 with Costs as
 (
@@ -14,8 +15,9 @@ select SUM(debitLocalAmount) as ledgerValue,originId,originType from LedgerTrans
 select  c.originType,c.originId,ledgerValue,costValue,abs(ledgerValue-costValue) diff from Costs c left join Acc on acc.originId = c.originId where ABS(c.costValue-acc.ledgerValue)>0.1
 order by diff desc
 ```
-
+:::
 ## Refetch Accounting  Config For a specific term code
+::: details
 ```sql
 update r set transStatus = 'Retry',regenerateLedgerReq = 1, reFetchAccConfig = 1
 from InvTransReq r inner join EntitySystemEntry e on e.targetId = r.originId
@@ -23,20 +25,24 @@ left join DocumentTerm t on t.id = e.term_id
  where r.transStatus = 'Processed' and r.requestType <> 'Delete'
  and t.code = 'term_code_here'
 ```
-## Refetch Accounting  Config in Failed  InvTransReq 
+:::
+## Refetch Accounting  Config in Failed  InvTransReq
+::: details
 ```sql
 update InvTransReq set transStatus = 'Retry',regenerateLedgerReq = 1, reFetchAccConfig = 1 
                    where transStatus = 'Processed' and requestType <> 'Delete'
 ```
-## Refetch Accounting  Config in All Invoices, Expenses, Issues, Receipts, and Transfers 
+:::
+## Refetch Accounting  Config in All Invoices, Expenses, Issues, Receipts, and Transfers
+::: details
 ```sql
 update InvTransReq set transStatus = 'Retry',regenerateLedgerReq = 1, reFetchAccConfig = 1 
                    where transStatus = 'Processed' and requestType <> 'Delete'
 ```
-
+:::
 ## Find and Remove Zombie InvTransReq
 
-- Select Statement to review
+::: details Select Statement to review
 ```sql
 select origintype,origincode from QtyTransLine r left join EntitySystemEntry e on e.targetId = r.originId
 where e.id is null  or e.fileStatus = 'Cancelled'
@@ -51,8 +57,8 @@ select origintype,origincode from CostOutTransLine r left join EntitySystemEntry
 where e.id is null  or e.fileStatus = 'Cancelled'
 
 ```
-
-- Update Query
+:::
+::: details Update Query
 ```sql
 update r set requestType = 'Delete',costTransStatus = 'Retry',qtyTransStatus = 'Retry',transStatus = 'Retry'
  from InvTransReq r inner join QtyTransLine l on l.requestId = r.id
@@ -75,9 +81,9 @@ update r set requestType = 'Delete',costTransStatus = 'Retry',qtyTransStatus = '
 where e.id is null or e.fileStatus = 'Cancelled'
 
 ```
-
+:::
 ## Find Transactions with differences that led to “zero quantity but have cost”
-- Query To Review
+::: details Query To Review
 ```sql
 with x as (
 select item_id,originType,originId,originCode,overdraftSatisCost,overdraftSatisQty,overdraftDetails,strSequence,sum(coalesce(netCost,0)-coalesce(overdraftSatisCost,0)) over(partition by dimensionCost order by strSequence  ROWS UNBOUNDED PRECEDING) currentCost,coalesce(currentNetCost,0) currentNetCost,
@@ -92,8 +98,8 @@ group by dimensionCost,item_id
 )
 select distinct originType,originId,valueDate from minByItem mi left join CostInTransLine cin on cin.strSequence = mi.minStr
 ```
-
-- Query to Reprocess
+:::
+::: details Query to Reprocess
 ```sql
 with x as (
 select item_id,originType,originId,originCode,overdraftSatisCost,overdraftSatisQty,overdraftDetails,strSequence,sum(coalesce(netCost,0)-coalesce(overdraftSatisCost,0)) over(partition by dimensionCost order by strSequence  ROWS UNBOUNDED PRECEDING) currentCost,coalesce(currentNetCost,0) currentNetCost,
@@ -109,8 +115,9 @@ group by dimensionCost,item_id
 , reproceess as (select distinct originType,originId from minByItem mi left join CostInTransLine cin on cin.strSequence = mi.minStr)
 update r set transStatus = 'Retry', costTransStatus = 'Retry' from reproceess rp inner join InvTransReq  r on r.originId = rp.originId
 ```
-
+:::
 ### Find Documents that need to be recommited to fix zero quantity but have cost
+::: details
 ```sql
 with x as (
 select item_id,originType,originId,originCode,overdraftSatisCost,overdraftSatisQty,overdraftDetails,strSequence,sum(coalesce(netCost,0)-coalesce(overdraftSatisCost,0)) over(partition by dimensionCost order by strSequence  ROWS UNBOUNDED PRECEDING) currentCost,coalesce(currentNetCost,0) currentNetCost,
@@ -130,11 +137,11 @@ from x
 where currentCost<>currentNetCost
 order by item_id,strSequence*/
 
-
 ```
+:::
 
 ## Find Inventory Transactions that do not affect on ledger transactions
-
+::: details
 ```sql
 declare @valueDate as date = '20211231';
 declare @invnetoryAccountCode as nvarchar(255) = '1207%' ;
@@ -228,8 +235,9 @@ having abs(abs(sum(coalesce(c.cost,0)))-abs(sum(coalesce(l.total,0))))>1
 order by diff desc
 
 ```
-
+:::
 ## Check Cost and Ledger are consistent (totals)
+::: details
 ```sql
 declare @onDate as date = '20231231'
 declare @inventoryAccountsPrefix as nvarchar(30) = '1106'
@@ -260,8 +268,9 @@ and valueDate<=@onDate
 select costs,acc,costs-acc diff from acc inner join costs on 1 = 1
 
 ```
-
+:::
 # Check Cost and Ledger are consistent per each document
+::: details
 ```sql
 declare @onDate as date = '20231231'
 declare @inventoryAccountsPrefix as nvarchar(30) = '1106'
@@ -312,8 +321,10 @@ order by diff desc
 
 
 ```
+:::
 
 ## ReGenerate Ledger Transactions for Inconsistent Cost-Ledger Requests
+::: details
 ```sql
 with Costs as
 (
@@ -330,8 +341,9 @@ update r set transStatus = 'Retry',regenerateLedgerReq = 1,priority = 3 from Cos
 where ABS(c.costValue-acc.ledgerValue)>0.1 and r.requestType <> 'Delete'
 
 ```
-
+:::
 ## Find items with zero quantity but have cost
+::: details
 ```sql
 with costs as (
 select w.code wcode,w.name1 wname, netCost,c.netQty  netQty ,i.id item,i.code itemCode,b.name1 branch,leg.name1 legal,leg.id legalEntityId 
@@ -361,14 +373,14 @@ group by item,itemCode,legalEntityId
 having sum(netQty) = 0 and abs(sum(netCost)) > 0.01
 order by abs(sum(netCost)) desc
 
-
 ```
-
+:::
 ## Fix Invalid CurrentNetQty fields
 <UtilityLinkBuilder className="com.namasoft.modules.supplychain.domain.utils.UpdateCurrentNetCostAndCurrentNetQty"
 />
 
 ## Production Delivery Cost Problem (Cost Callback)
+::: details
 ```sql
 with delivery as (
 select sum(cin.netCost) receiptCost,po.id from ProductionOrder po inner join ProductDelivery pod on pod.productionOrder_id = po.id inner join StockReceipt sr on sr.fromDoc_id = pod.id
@@ -397,8 +409,10 @@ where abs(receiptCost-(materialCost+resourceCost-coalesce(retCost,0)))>1.5 and c
 
 
 ```
+:::
 
 ## Reprocess Bad Fifo Cost Transactions
+::: details
 ```sql
 with toReproocess as (
 select  distinct l.originType,l.originId,l.valueDate
@@ -415,4 +429,4 @@ having l.remainingInQty <> l.inQty - sum(coalesce(mi.consumedQty,0))
 declare @annualIncome decimal(10,2) = 400000
 
 ```
-
+:::

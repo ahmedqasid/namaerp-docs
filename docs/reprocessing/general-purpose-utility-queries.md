@@ -1,5 +1,6 @@
 # General Purpose Utility Queries
 ## Get All Dates between two dates
+::: details
 ```sql
 with dates as (
 SELECT  TOP (DATEDIFF(DAY, '20160101', '20161231') + 1)
@@ -9,10 +10,11 @@ FROM    sys.all_objects a
 )
 select * from dates
 
-
 ```
+:::
 
 ## Repeat row many times depending on the row quantity
+::: details
 ```sql
 with numbers as (
 SELECT  TOP 1000
@@ -23,8 +25,10 @@ FROM    sys.all_objects a
 select l.quantityPValue,n.n, * from SalesInvoiceLine l left join numbers n on CEILING(l.quantityPValue)>=n.n
 
 ```
+:::
 
 ## Find Missing Document Numbers
+::: details
 ```sql
 with numbers as (
 SELECT  TOP 1000000
@@ -43,10 +47,8 @@ select b.documentType, b.prefix+RIGHT('00000000000'+cast(n.n as nvarchar(10)),b.
 left join DocumentBook b on b.id = maxdoc.book_id
 where docs.num is null and b.prefix like '%%'
 order by b.documentType, missingcode
-
-
 ```
-
+:::
 ## Unlink ALL From Docs
 ::: details Take care before running the query
 ```sql
@@ -55,6 +57,7 @@ update EntitySystemEntry set fromType = null,fromId = null where fromid is not n
 :::
 
 ## Insert Into Temp Table Select From With Drop
+::: details
 ```sql
 IF OBJECT_ID('tempdb.dbo.#Items', 'U') IS NOT NULL 
 			  DROP TABLE #Items ; 
@@ -63,37 +66,39 @@ select * into #Items from (
 select code from InvItem 
 ) Items ; 
 select code from #Items
-
-
 ```
+:::
 
 - TODO: maybe create a widget to create temp tables
 
 ## Cancel Current Approval Case of a document
+::: details
 ```sql
 update ApprovalCase set state = 'Approved' where approvedElementId = 0xffff00015c154d8be6000700ff20b6eb
 update PaymentOrder set documentFileStatus = 'Draft'  where id = 0xffff00015c154d8be6000700ff20b6eb
-
-
 ```
+:::
 
 ## Disaster Recovery: Two Application Servers operated on the same database:
-- Find All Duplicate QtyTrans 
+- Find All Duplicate QtyTrans
+::: details
 ```sql
 with x as(select id,requestId,ROW_NUMBER() over (order by requestid) rn from QtyTrans where requestId in (
 select requestId from QtyTrans group by requestId,originId having count(1) > 1
 )
 )
 select id from x  where rn%2 = 0
-
-
 ```
+:::
 - Make the request id null:
+::: details
 ```sql
 update QtyTrans set requestid = null where id = 0x-------
 
 ```
+:::
 - FifoCostTrans
+::: details
 ```sql
 with x as(select id,requestId,ROW_NUMBER() over (order by requestid) rn from FifoCostTrans where requestId in (
 select requestId from FifoCostTrans where originType <> 'StockTransfer'  group by requestId,originId having count(1) > 1 
@@ -102,13 +107,17 @@ select requestId from FifoCostTrans where originType <> 'StockTransfer'  group b
 select id from x  where rn%2 = 0
 
 ```
+:::
 
 - Make the request id null:
+::: details
 ```sql
 update FifoCostTrans set requestid = null where id = 0x-------
 
 ```
+:::
 - FifoCostTrans - transfer
+::: details
 ```sql
 with x as(select id,requestId,ROW_NUMBER() over (order by requestid) rn from FifoCostTrans where requestId in (
 select requestId from FifoCostTrans where originType <> 'StockTransfer'  group by requestId,originId having count(1) > 1 
@@ -117,13 +126,16 @@ select requestId from FifoCostTrans where originType <> 'StockTransfer'  group b
 select id from x 
 
 ```
+:::
 - Manually find the repeated requests for transfer and make the request id null:
+::: details
 ```sql
 update FifoCostTrans set requestid = null where id = 0x-------
-
 ```
+:::
 
 - Ledger Trans:
+::: details
 ```sql
 with x as(select id,requestId,ROW_NUMBER() over (order by requestid) rn,originType,originId from LedgerTrans where requestId in (
 select requestId from LedgerTrans  group by requestId,originId having count(1) > 1
@@ -131,9 +143,13 @@ select requestId from LedgerTrans  group by requestId,originId having count(1) >
 )
 select id,originType,originId,requestId from x  where rn%2=0
 ```
+:::
+::: details
 ```sql
 update LedgerTrans set requestid = null where id = 0x-------
 ```
+:::
+::: details
 ```sql
 delete l from left join Qtytrans h QtyTransLine l on h.id = l.qtytrans_id where h.requestId is null
 go
@@ -146,8 +162,9 @@ go
 delete from FifoCostTrans where requestId is null
 
 ```
+:::
 ## Fetch Contacts in Nama for Grandstream LDAP Phonebook UCM
-
+::: details
 ```sql
 /*First Name	Last Name	Account Number	CallerID Name	Email	Department	Mobile Number 	Home Number	Fax	Phonebook DN*/
 
@@ -174,8 +191,9 @@ select * from clean
 --where TRY_PARSE(accountNumber as decimal(20,10)) is   null 
 
 ```
-
+:::
 ## Fix Null preventUsage Field
+::: details
 ```sql
 DECLARE @Queries TABLE (ID INT IDENTITY(1,1),SQLScript VARCHAR(MAX))
 DECLARE @STR_QUERY VARCHAR(MAX);
@@ -203,8 +221,9 @@ BEGIN
 END
 
 ```
-
+:::
 ## Mark All Records as Unrevised
+::: details
 ```sql
 DECLARE @Queries TABLE (ID INT IDENTITY(1,1),SQLScript VARCHAR(MAX))
 DECLARE @STR_QUERY VARCHAR(MAX);
@@ -231,14 +250,14 @@ BEGIN
     SET @StartLoop = @StartLoop + 1
 END
 
-
 ```
-
+:::
 ::: tip
 You need to copy the queries and run them in the SQL Server Management Studio.
 :::
 
 ## Copy Revised From Entities to Entity System Entry
+::: details
 ```sql
 DECLARE @Queries TABLE (ID INT IDENTITY(1,1),SQLScript VARCHAR(MAX))
 DECLARE @STR_QUERY VARCHAR(MAX);
@@ -264,6 +283,5 @@ BEGIN
 		commit transaction  xx
     SET @StartLoop = @StartLoop + 1
 END
-
-
 ```
+:::

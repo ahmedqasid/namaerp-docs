@@ -1,17 +1,18 @@
 # Real Estate Utilities
 
 ## Fix System Paid, Collect Requested and Collected by Financial Papers in Contracts
-- First run the following statement and then put the output in recommit file:
+::: details First run the following statement and then put the output in recommit file:
  ```sql
 select distinct paymentDocEntityType,paymentDocId from InstallmentPaymentEntry where refid is null
 
 ```
-- Now Delete all bad entries:
+:::
+::: details Now Delete all bad entries:
 ```sql
 delete  from InstallmentPaymentEntry where refid is null
-
 ```
-- Run The following Query
+:::
+::: details Run The following Query
 ```sql
 with paidValues as (
 select sum(case when effectType = 'SystemPaid' then e.paidValue else 0 end) SystemPaid
@@ -83,4 +84,5 @@ from SalesInvScheduledPayLine l left join paidValues pv on pv.installmentCode = 
 --------------------------------------------------------------------
 go
 ```
+:::
 - Now recommit the files

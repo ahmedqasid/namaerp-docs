@@ -1,5 +1,6 @@
 # Database Related Operations
 ## Enable READ_COMMITED_SNAPSHOT
+::: details
 ```sql
 USE master
 ALTER DATABASE DBNAME
@@ -11,8 +12,9 @@ SET ALLOW_SNAPSHOT_ISOLATION ON;
 ALTER DATABASE DBNAME
 SET MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT ON;
 ```
-
+:::
 ## Find Current Isolation Level
+::: details
 ```sql
 SELECT CASE  
           WHEN transaction_isolation_level = 1 
@@ -36,8 +38,9 @@ WHERE  session_id = @@SPID
   AND  d.database_id = DB_ID();
 
 ```
-
+:::
 ## Monitor or Find Currently Running Queries
+::: details
 ```sql
 SELECT DatabaseName = db_name(req.database_id),sqltext.TEXT,
 req.session_id,
@@ -51,7 +54,9 @@ CROSS APPLY sys.dm_exec_sql_text(sql_handle) AS sqltext
 Order by total_elapsed_time desc
 
 ```
+:::
 ## Find Table Sizes
+::: details
 ```sql
 SELECT t.NAME AS TableName, s.Name AS SchemaName, p.rows AS RowCounts, SUM(a.total_pages) * 8 AS TotalSpaceKB, 
        SUM(a.used_pages) * 8 AS UsedSpaceKB, (SUM(a.total_pages) - SUM(a.used_pages)) * 8 AS UnusedSpaceKB,
@@ -64,13 +69,16 @@ WHERE t.NAME NOT LIKE 'dt%' AND t.is_ms_shipped = 0 AND i.OBJECT_ID > 255
 GROUP BY t.Name, s.Name, p.Rows 
 ORDER BY TotalSpaceKB desc
 ```
+:::
 ## View Users and creation dates
+::: details
 ```sql
 SELECT name, createdate FROM master..syslogins
 
 ```
-
+:::
 ## Externalize all attachments to c:\temp
+::: details
 ```sql
 sp_configure 'show advanced options', 1;  
 GO  
@@ -119,10 +127,10 @@ GO
 RECONFIGURE;  
 GO
 
-
 ```
-
+:::
 ## DROP ALL FOREIGN KEYS
+::: details
 ```sql
 while(exists(select 1 from INFORMATION_SCHEMA.TABLE_CONSTRAINTS where CONSTRAINT_TYPE='FOREIGN KEY'))
 begin
@@ -135,9 +143,9 @@ begin
 end
 
 ```
-
+:::
 ## Repair Database (suspect database)
-
+::: details
 ```sql
 USE master;
 GO
@@ -151,9 +159,9 @@ ALTER DATABASE dbName
 SET MULTI_USER;
 GO
 ```
-
+:::
 ## Allow Deleting Users
-
+::: details
 ```sql
 while(exists(select * from INFORMATION_SCHEMA.TABLE_CONSTRAINTS t left join INFORMATION_SCHEMA.KEY_COLUMN_USAGE k on k.CONSTRAINT_NAME = t.CONSTRAINT_NAME
 where CONSTRAINT_TYPE='FOREIGN KEY' and COLUMN_NAME in ('group_id','FirstAuthor_id','editedBy_id','revisedBy_id','UpdateCapability_id','ViewCapability_id','UsageCapability_id','book_id','term_id','fiscalYear_id','fiscalPeriod_id','sector_id','branch_id','department_id','analysisSet_id','legalentity_id')))
@@ -167,8 +175,9 @@ begin
 end
 
 ```
-
+:::
 ## Allow Deleting Attachments
+::: details
 ```sql
 while(exists(select * from INFORMATION_SCHEMA.TABLE_CONSTRAINTS t left join INFORMATION_SCHEMA.KEY_COLUMN_USAGE k on k.CONSTRAINT_NAME = t.CONSTRAINT_NAME
 where CONSTRAINT_TYPE='FOREIGN KEY' and COLUMN_NAME in ('attachment_id','attachment1_id','attachment2_id','attachment3_id','attachment4_id','attachment5_id')))
@@ -182,8 +191,9 @@ begin
 end
 
 ```
-
+:::
 ## Allow Deleting Dimensions, and Fiscal Years
+::: details
 ```sql
 delete from BusinessRequestStatus where requestType = 'Delete' and transStatus = 'Processed'
 go
@@ -191,8 +201,9 @@ delete from LedgerTransReq where requestType = 'Delete' and transStatus = 'Proce
 go
 delete from InvTransReq where requestType = 'Delete' and transStatus = 'Processed'
 ```
-
+:::
 ## Allow Deleting Approval Cases
+::: details
 ```sql
 while(exists(select * from INFORMATION_SCHEMA.TABLE_CONSTRAINTS t left join INFORMATION_SCHEMA.KEY_COLUMN_USAGE k on k.CONSTRAINT_NAME = t.CONSTRAINT_NAME
 where CONSTRAINT_TYPE='FOREIGN KEY' and COLUMN_NAME in ('currentApprovalCase_id')))
@@ -206,8 +217,9 @@ begin
 end
 
 ```
-
+:::
 ## Allow Deleting Employees
+::: details
 ```sql
 while(exists(SELECT  
     fk.name, OBJECT_NAME(fk.parent_object_id) 'ParentTable', c1.name 'ParentColumn', OBJECT_NAME(fk.referenced_object_id) 'ReferencedTable', c2.name 'ReferencedColumn'
@@ -238,8 +250,9 @@ where OBJECT_NAME(fk.referenced_object_id) = 'Employee'
 end
 
 ```
-
+:::
 ## Allow Deleting Accounts
+::: details
 ```sql
 while(exists(select * from INFORMATION_SCHEMA.TABLE_CONSTRAINTS t left join INFORMATION_SCHEMA.KEY_COLUMN_USAGE k on k.CONSTRAINT_NAME = t.CONSTRAINT_NAME
 where CONSTRAINT_TYPE='FOREIGN KEY' and COLUMN_NAME in ('mainAccount_id','account1_id','account2_id','account3_id','account4_id','account5_id','account6_id','account7_id','account8_id','account9_id','account10_id','account11_id','account12_id','account13_id','account14_id','account15_id','account16_id','account17_id','account18_id','account19_id','account20_id','account_id')))
@@ -253,8 +266,9 @@ begin
 end
 
 ```
-
+:::
 ## Cleanup few tables
+::: details
 ```sql
 --You must specify the following parameters to perform versions and history cleanups
 --BusinessRequests Cleanup will always happen
@@ -326,8 +340,9 @@ end
 
 
 ```
-
+:::
 ## Delete entity version of deleted records
+::: details
 ```sql
 while exists (select top 1 e.id  from EntityVersion e left join EntitySystemEntry ese on ese.targetId = e.ownerId where
 ese.id is null
@@ -340,9 +355,9 @@ Commit transaction x
 end
 
 ```
-
+:::
 ## Keep Only last five versions
-
+::: details
 ```sql
 declare @keepCount as int = 5 --change this number if you want more or less than 5 versions
 while exists (select top 1 e.id  from EntityVersion e where
@@ -357,6 +372,7 @@ end
 
 
 ```
+:::
 
 ::: danger
 ## Shrink database for backup upload (VERY DANGEROUS, TAKE CARE, YOU MUST BACKUP THE DATABASE FIRST)
@@ -407,6 +423,7 @@ ORDER BY
 You can find a better solution in the [installation video](https://youtu.be/EVaF2BtVPUU?t=2382):
 <iframe width="560" height="315" src="https://www.youtube.com/embed/EVaF2BtVPUU?si=NA_qiuje-bvh_joJ&amp;start=2385" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 :::
+::: details
 ```sql
 use DBNAME
 DECLARE @SQLStatement VARCHAR(2000) 
@@ -428,16 +445,18 @@ BACKUP DATABASE DBNAME TO  DISK = @SQLStatement with compression
 
 
 ```
-
+:::
 ## Delete Zombie Aliases
-- Find Zombie Aliases Query
+::: details Find Zombie Aliases Query
 ```sql
 select a.* from Alias a left join EntitySystemEntry e on e.targetid = a.ownerId
 where e.id is null
 ```
+:::
 
-- Delete Zombie Aliases Query
+::: details Delete Zombie Aliases Query
 ```sql
 delete a from Alias a left join EntitySystemEntry e on e.targetid = a.ownerId
 where e.id is null
 ```
+:::

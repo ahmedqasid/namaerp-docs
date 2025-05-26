@@ -1,5 +1,6 @@
 # Inventory Related Utility Queries
 ## Re-Open Stock Taking for updates after editing
+::: details
 ```sql
 declare @startdoccode as nvarchar(50)
 set @startdoccode = 'ST0000001'
@@ -11,26 +12,28 @@ update std set status = 'Started' from StockTakingDetails std inner join StartSt
 
 update StartStockTaking set status = 'Started' where code = @startdoccode
 ```
-
+:::
 ## Allow overdraft for all items at once, and closing it again
 ::: tip
  description5 is used to save current overDraftPolicy
 :::
-- Allow Overdraft:
+::: details Allow Overdraft:
 ```sql
 update InvItem set overDraftPolicy = 'Yes',description5 = 'No' where overDraftPolicy = 'No'
 
 ```
-- Close Overdraft:
+:::
+::: details Close Overdraft:
 ```sql
 update InvItem set overDraftPolicy = 'No',description5 = '' where description5 = 'No'
 ```
+:::
 ::: warning
 Please note that you must evict cache after executing the query (from <NamaURL url="utils?evict=true"/>)
-
 :::
 
 ## Find All Documents with changed base unit
+::: details
 ```sql
 select si.entityType,si.id,si.code from StockIssueLine l left join StockIssue si on si.id = l.stockIssue_id left join InvItem i on i.id = l.item_id 
 where i.primBaseUnit_id <> l.quantityBaseUom_id
@@ -41,8 +44,9 @@ union all
 select si.entityType,si.id,si.code from StockTransferLine l left join StockTransfer si on si.id = l.stockTransfer_id left join InvItem i on i.id = l.item_id 
 where i.primBaseUnit_id <> l.quantityBaseUom_id
 ```
-
+:::
 ## Find Transactions with different qty and cost base unit
+::: details
 ```sql
 select distinct c.originType,c.originId,c.origincode from costouttransline c left join qtytransline q  on c.originlineid = q.originlineid
 where c.totalQty <> q.outBasePValue and q.outBasePValue > 0
@@ -50,8 +54,9 @@ union
 select distinct c.originType,c.originId,c.origincode from costintransline c left join qtytransline q  on c.originlineid = q.originlineid
 where c.totalQty <> q.inBasePValue and q.inBasePValue > 0
 ```
-
+:::
 ## Fix changed Unit for an Item
+::: details
 ```sql
 declare @icode as nvarchar(250)
 set @icode = 'ItmeCode'
@@ -84,7 +89,9 @@ update q set quantityPUom_id = i.primBaseUnit_id from SalesInvoiceLine q left jo
 
  update q set quantityPUom_id = i.primBaseUnit_id from StockTransferLine q left join InvItem i on i.id = q.item_id  where i.code = @icode
 ```
+:::
 ## Query To List Documents That should be recommitted after changing Base Unit in Item:
+::: details
 ```sql
 select distinct h.entityType,h.id,h.code from StockIssue h  left join StockIssueLine q on q.stockIssue_id = h.id left join InvItem i on i.id = q.item_id where q.quantityBaseUom_id <> i.primBaseUnit_id and h.generationType <> 'GeneratedFinal'
 union all
@@ -95,10 +102,10 @@ union all
 select distinct h.fromDoc_type,h.fromDoc_id,h.fromDoc_Code from StockReceipt h  left join StockReceiptLine q on q.StockReceipt_id = h.id left join InvItem i on i.id = q.item_id where q.quantityBaseUom_id <> i.primBaseUnit_id and h.generationType = 'GeneratedFinal'
 union all
 select distinct h.entityType,h.id,h.code from StockTransfer h  left join StockTransferLine q on q.StockTransfer_id = h.id left join InvItem i on i.id = q.item_id where q.quantityBaseUom_id <> i.primBaseUnit_id and h.generationType <> 'GeneratedFinal'
-
-
 ```
+:::
 ## Find Entities that caused retries on a massive scale of invtransreq records
+::: details
 ```sql
 select e.lastUpdateDate,r2 .originType,r2.originCode,r2.originId,r.originType retryType,r.originCode retryCode,r.originId retryId
 from InvTransReq r
@@ -109,9 +116,9 @@ where e.lastUpdateDate between dateadd(day,-2,getdate()) and getdate()
 order by e.lastUpdateDate desc
 
 ```
-
+:::
 ## Find dates where overdraft happened
-
+::: details
 ```sql
 with cost as (
 select item_id,totalQty,totalCost,strSequence,originCreationDate,warehouse_id,locator_id,dimensionQty,dimensionCost,
@@ -137,8 +144,9 @@ left join locator loc on loc.id = c.locator_id
 where qtyToDate < 0
 
 ```
-
+:::
 ## Find incorrect itemdimensionsqty 
+::: details
 ```sql
 with qty as (
 select sum(l.inBasePValue-l.outBasePValue) net,l.item_id,l.warehouse_id,l.locator_id
@@ -159,18 +167,20 @@ full join dim on qty.item_id = dim.item_id and qty.warehouse_id = dim.warehouse_
 where coalesce(qty.net,0) <> coalesce(dim.net,0)
 
 ```
-
+:::
 ## Fix Production/Expiry Date Problem (Healthy, Watania, Liptis)
+::: details
 ```sql
 update itemlot  set productionDate =  q.productionDate from ItemLot left join QtyTransLine q on q.item_id = ItemLot.invItem_id and q.lotId = itemlot.lotId
 where itemlot.expiryDate = itemlot.productionDate and q.expiryDate <> q.productionDate and q. productiondate is not null
-
 ```
+:::
 ::: tip
 Use the entity flow `EAUpdateLotIdDates`, it will give you more control
 :::
 
 ## Zombie QtyTrackingTransactionEntry
+::: details
 ```sql
 delete e from EntitySystemEntry e left join stockissue si on si.id = e.targetId where e.targetType = 'StockIssue' and si.id is null
 go
@@ -179,8 +189,9 @@ left join EntitySystemEntry e on e.targetId = qe.originDocId
 where e.id is null
 
 ```
-
+:::
 ## Cost Revaluatoin Problem Finders
+::: details
 ```sql
 select  i.itemCode,i.originCode  from CostInTransLine i left join CostOutTransLine o on i.originLineId = o.originLineId and o.originId = i.originId where i.originType = 'CostRevaluation' and i.netQty <> o.netQty;
 
@@ -193,8 +204,9 @@ left join CostRevaluation c on c.id = l1.costRevaluation_id
 left join InvItem i on i.id = l1.item_id
 
 ```
-
+:::
 ## Find Reverse Stock Transfers
+::: details
 ```sql
 select co1.originCode,co2.originCode from CostOutTransLine co1 left join CostInTransLine ci1 on ci1.originLineId = co1.originLineId 
 full join CostOutTransLine co2 on co2.dimensionQty = ci1.dimensionQty and co2.overdraftSatisQty >0  and co2.originType = 'StockTransfer' 
@@ -202,9 +214,9 @@ left join CostInTransLine ci2 on ci2.originLineId = co2.originLineId and ci2.dim
 where co1.originType = 'StockTransfer' and co1.overdraftSatisQty >0 and ci1.id is not null and co1.id is not null and co2.id is not null and ci2.id is not null and (co2.overdraftSeqDetails like '%'+CONVERT(varchar(50), ci1.strSequence)+'%' or co1.overdraftSeqDetails like '%'+CONVERT(varchar(50), ci2.strSequence)+'%' );
 
 ```
-
+:::
 ## Find Receipts from Sales Returns as first in transaction
-
+::: details
 ```sql
 with start as(
 select min(strSequence) minStrSequence,dimensionCost  from CostInTransLine c group by dimensionCost
@@ -212,12 +224,11 @@ select min(strSequence) minStrSequence,dimensionCost  from CostInTransLine c gro
 select originCode,i.code,i.name1,netQty,netCost,unitCost from start left join CostInTransLine c on c.strSequence = start.minStrSequence
 left join InvItem i on i.id = c.item_id
 where c.invoiceType = 'SalesReturn'
-
-
 ```
-
+:::
 ## Fill expiry date and lot id (customer started without expiry, and wants to activate it after doing many transaction)
-- Run the following query (note there are 3  extra steps below the query)
+::: details Run the following query (note there are 3  extra steps below the query)
+
 ```sql
 update   l set lotId = '20200919',expiryDate=case when i.hasExpiry = 1 then '20200919' else null end,productionDate=case when i.hasExpiry = 1 then '20200918' else null end
  from StockIssueLine l left join InvItem i on i.id = l.item_id where (i.hasExpiry = 1 and l.expiryDate  is null) or (i.hasLot = 1 and coalesce(l.lotId,'') = '')
@@ -330,7 +341,8 @@ END
 
 
 ```
-- Run the following query if you have manufacturing module
+:::
+::: details Run the following query if you have manufacturing module
 ```sql
 update  l set lotId = '20200919',expiryDate=case when i.hasExpiry = 1 then '20200919' else null end,productionDate=case when i.hasExpiry = 1 then '20200918' else null end
  from MaterialIssueLine l left join InvItem i on i.id = l.item_id where (i.hasExpiry = 1 and l.expiryDate  is null) or (i.hasLot = 1 and coalesce(l.lotId,'') = '')
@@ -339,11 +351,12 @@ update  l set lotId = '20200919',expiryDate=case when i.hasExpiry = 1 then '2020
  from MaterialReturnLine l left join InvItem i on i.id = l.item_id where (i.hasExpiry = 1 and l.expiryDate  is null) or (i.hasLot = 1 and coalesce(l.lotId,'') = '')
 
 ```
-
-- AFTER running the UPDATE query, run the select query:
+:::
+::: details AFTER running the UPDATE query, run the select query:
 ```sql
 select originType,originId,originCode from InvTransReq where requestType <> 'Delete'
 ```
+:::
 - Save the result in e:\rc\regen-inv-trans.txt (you can change the path , but make sure to change it in the utility link below also)
   <UtilityLinkBuilder
   className="com.namasoft.modules.supplychain.domain.utils.plugnplay.RegenInvTransReqFromFile"
@@ -355,6 +368,7 @@ select originType,originId,originCode from InvTransReq where requestType <> 'Del
   />
 - After the utility finishes, reprocess all quantity transactions (tomcat must be down)
 ## Fix null expiry dates from item lot table in sales, and purchases
+::: details
 ```sql
 update l set expiryDate = lo.expiryDate from PurchaseInvoiceLine l inner join ItemLot lo on lo.lotId = l.lotId and lo.invItem_id = l.item_id
 where l.expiryDate is null and lo.expiryDate is not null
@@ -382,7 +396,9 @@ where l.expiryDate is null and lo.expiryDate is not null
 go
 
 ```
+:::
 ## Copy Expiry Date From QtyTransLine to ItemLot and ItemDimensionsQty
+::: details
 ```sql
 update q set expiryDate = lo.expiryDate from ItemDimensionsQty q inner join ItemLot lo on lo.invItem_id = q.item_id and lo.lotId = q.lotId
 where q.expiryDate is null and lo.expiryDate is not null
@@ -405,9 +421,10 @@ where q.expiryDate <> expiry.expiryDate and q.expiryDate is not null
 
 go
 
-
 ```
+:::
 ## Fix Production date less than expiry date
+::: details
 ```sql
 update l set productionDate = dateadd(YEAR,-1,expiryDate) from ItemLot l where productionDate >=expiryDate and expiryDate > '20000101'
 update l set productionDate = dateadd(YEAR,-1,expiryDate) from ItemDimensionsQty l where productionDate >=expiryDate and expiryDate > '20000101'
@@ -422,10 +439,10 @@ update l set productionDate = dateadd(YEAR,-1,expiryDate) from PurchaseOrderLine
 update l set productionDate = dateadd(YEAR,-1,expiryDate) from StockIssueLine l where productionDate >=expiryDate and expiryDate > '20000101'
 update l set productionDate = dateadd(YEAR,-1,expiryDate) from StockReceiptLine l where productionDate >=expiryDate and expiryDate > '20000101'
 update l set productionDate = dateadd(YEAR,-1,expiryDate) from StockTransferLine l where productionDate >=expiryDate and expiryDate > '20000101'
-
-
 ```
+:::
 ## Update Item Codes from InvItem
+::: details
 ```sql
 update  l set itemcode = i.code , itemName1 = i.name1,itemName2 = i.name2
  from StockIssueLine l left join InvItem i on i.id = l.item_id 
@@ -465,8 +482,9 @@ update  l set itemcode = i.code , itemName1 = i.name1,itemName2 = i.name2
 update  l set itemcode = i.code , itemName1 = i.name1,itemName2 = i.name2
  from CostOutTransLine l left join InvItem i on i.id = l.item_id 
 ```
-
+:::
 ## Delete Unnecessary Requests (LedgerTransReq and InvTransReq)
+::: details
 ```sql
 WHILE exists (select top 1 id from InvTransReq where requestType = 'Delete' and transStatus ='Processed')
 BEGIN
@@ -483,11 +501,10 @@ BEGIN TRANSACTION x;
 delete top (10000) from LedgerTransReq where requestType = 'Delete' and transStatus ='Processed';
 Commit transaction x;
 END;
-
-
 ```
-
+:::
 ## Query that list transaction without a locator on a warehouse with locators:
+::: details
 ```sql
 with x as (
 select distinct h.entityType,h.id,h.code,wl.warehouse_id from StockTransfer h
@@ -514,6 +531,5 @@ select distinct l.originType,l.originId,l.originCode,wl.warehouse_id from Reserv
  left join WareLocator wl on wl.warehouse_id = l.warehouse_id
 where wl.id is not null and l.locator_id is null)
 select distinct h.entityType,h.id,h.code from x as h
-
-
 ```
+:::

@@ -3,7 +3,7 @@ home: true
 heroImage: hero.svg
 ---
 # Home
-  - [Guides](/guide)
+  - [Guides](/guide/)
     - [Utility Links](/guide/utils.md)
     - [System Minimum Requirements](/guide/system-minimum-requirements.md)
     - [Reports Guide (Jasper Reports)](/guide/reports-guide.md)
@@ -18,9 +18,9 @@ heroImage: hero.svg
     - [ORACLE JDBC Integration Connection in context.xml for integration purposes](/guide/oracle-jdbc-connection.md)
     - [Criteria Based Validation](/guide/criteria-based-validation.md)
     - [Tempo Manual](/guide/tempo.md)
-  - [Examples](/examples)
+  - [Examples](/examples/)
     - [أمثلة لمسارات كيان](/examples/entity-flow-examples.md)
-  - [Reprocessing Transactions](/reprocessing)
+  - [Reprocessing Transactions](/reprocessing/)
     - [Reprocessing Quantity, Cost, and Stock Ages](/reprocessing/reprocess-qty-and-cost.md)
     - [Accounting Utilities - Ledger and Debt Ages Reprocessing](/reprocessing/reprocess-ledger-and-debt-ages.md)
     - [Queries to Check for (and Fix) Cost And Qty Problems](/reprocessing/cost-and-qty-problems.md)
@@ -31,6 +31,6 @@ heroImage: hero.svg
     - [Database Related Operations](/reprocessing/db-operations.md)
     - [General Purpose Utility Queries](/reprocessing/general-purpose-utility-queries.md)
     - [Replication Utilities](/reprocessing/replication.md)
-  - [Frequently Asked Questions](/faq)
+  - [Frequently Asked Questions](/faq/)
     - [أسئلة عامة](/faq/general-faq.md)
     - [أسئلة في موديول التوزيع والمخازن والمبيعات والمشتريات](/faq/supply-chain-faq.md)

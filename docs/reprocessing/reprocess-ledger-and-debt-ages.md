@@ -1,6 +1,6 @@
 # Accounting Utilities - Ledger and Debt Ages Reprocessing
 ## Reprocess All Ledger Transactions
-
+::: details
 ```sql
 truncate table AccountBalance
 go
@@ -24,8 +24,9 @@ go
 delete from DebtLine
 go
 ```
-
+:::
 ## Reprocess Unmatched Debt Ages Only
+::: details
 ```sql
 with debtAgeReqs as  (
 select distinct lr.id,lr.originCode from  LedgerTransReq lr 
@@ -35,9 +36,9 @@ where requestType <> 'Delete' and transStatus = 'Processed'
 update lr set transStatus = 'Retry',hasDebtAges=1,debtAgesProcessed=0,reqProcessed=1 from
 LedgerTransReq lr inner join debtAgeReqs dar on dar.id = lr.id
 ```
-
+:::
 ## Reprocess Debt Ages
-
+::: details
 ```sql
 truncate table DebtLineMatcher
 go
@@ -54,28 +55,32 @@ where requestType <> 'Delete'  and acc.trackDebtAges = 1 and transStatus = 'Proc
 update lr set transStatus = 'Retry',hasDebtAges=1,debtAgesProcessed=0,priority = 500  from
 LedgerTransReq lr inner join debtAgeReqs dar on dar.id = lr.id
 ```
-
+:::
 ## Delete Zombie AllManualDebtLines
+::: details 
 ```sql
 delete l from AllManualDebtLines l left join EntitySystemEntry e on e.targetId = l.originId
 where e.id is null
 
 ```
-
+:::
 ## Fix Contracting Reprocessing Failure
 - Could not find class com.namasoft.modules.supplychain.domain.entities.ContractingMaterialIssue$ContractingMaterialIssueCostCallback
+::: details
 ```sql
 update InvTransReq set
  costCallbackClass = 'com.namasoft.modules.contracting.domain.entities.ContractingMaterialIssue$ContractingMaterialIssueCostCallback' 
 where costCallbackClass = 'com.namasoft.modules.supplychain.domain.entities.ContractingMaterialIssue$ContractingMaterialIssueCostCallback'
 
 ```
-
+:::
 ## Allow Changing Currency of An Account After Deleting All its transactions
+::: details
 ```sql
 delete b from AccountBalance b left join Account acc on acc.id = b.account_id where b.creditAmount = 0 and b.debitAmount = 0 and b.localCreditAmount = 0 and b.localDebitAmount = 0
 delete b from DimensionsBalance b left join Account acc on acc.id = b.account_id where b.creditAmount = 0 and b.debitAmount = 0 and b.localCreditAmount = 0 and b.localDebitAmount = 0
 ```
+:::
 ::: tip
 You can use `Alt Ctrl X` shortcut, then open More Menu of Account Screen, and click on Change Balances Currency 
 <rtl>تغيير عملة الأرصدة</rtl>
@@ -83,7 +88,8 @@ Then recommit all transactions of the account
 :::
 
 ## Find and Remove zombie ledger transactions
-- Find Zombie Transactions
+::: details Find Zombie Transactions
+
 ```sql
 select distinct r.originType,r.originId from LedgerTransReq r 
 inner join LedgerTrans lr on lr.requestId = r.id
@@ -92,8 +98,8 @@ left join EntitySystemEntry e on e.targetId = r.originId
 where (e.id is null or e.fileStatus = 'Cancelled' or r.requestType = 'Delete') 
 
 ```
-
-- Remove Zombie Transactions
+:::
+::: details Remove Zombie Transactions
 ```sql
 update r set requestType ='Delete',transStatus = 'Retry',reqProcessed=0,debtAgesProcessed=0 from LedgerTransReq r 
 inner join LedgerTrans lr on lr.requestId = r.id
@@ -102,25 +108,26 @@ left join EntitySystemEntry e on e.targetId = r.originId
 where (e.id is null or e.fileStatus = 'Cancelled' or r.requestType = 'Delete') 
 
 ```
-
+:::
 ## Find Unbalanced Transactions (Total Debit <> Total Credit>
+::: details
 ```sql
 select originType,originId,originCode,valueDate,SUM(creditLocalAmount) cr,SUM(debitLocalAmount) dr from LedgerTransLine group by originType,originId,originCode,valueDate
 having ABS(SUM(creditLocalAmount)-SUM(debitLocalAmount))>0.0
 order by valueDate
 
 ```
-
+:::
 ## Find Transactions for deleted subsidiaries
-
+::: details
 ```sql
 select l.originCode,l.originType,l.lineNumber+1,l.subsidiaryCode
 from LedgerTransLine l left join EntitySystemEntry e on e.targetId = l.subsidiaryId where e.id is null and l.subsidiaryId
 
 ```
-
+:::
 ## Find LedgerTransLine Entries Without Matching DimensionsBalance Records
-- Identify Orphaned LedgerTransLine Records (No Matching DimensionsBalance)
+::: details Identify Orphaned LedgerTransLine Records (No Matching DimensionsBalance)
 
 ```sql
 select originType,originId from LedgerTransLine d
@@ -138,12 +145,12 @@ where b.id is null
 
 
 ```
-
+:::
 ::: warning
 You should recommit the result of the previous query
 :::
 
-- Find Mismatch in Ledger vs DimensionsBalance (By Period, Entity, Account)
+::: details Find Mismatch in Ledger vs DimensionsBalance (By Period, Entity, Account)
 ```sql
 with ledger as (
 select sum(l.debitValueAmount) dr,sum(l.creditValueAmount) cr,sum(l.debitValueAmount)  - sum(l.creditValueAmount) dr_cr 
@@ -171,11 +178,12 @@ full join ledger on ledger.fpId = dimbal.fpId
 	and ledger.leId = dimbal.leId
 where coalesce(dimbal.dr_cr,0) <> coalesce(ledger.dr_cr,0)
 ```
-
+:::
 - Fix Incorrect Dimension Balances
 ::: danger
 Please be careful before running the following query
 :::
+::: details
 ```sql
 with dimbal as (
 select
@@ -207,10 +215,11 @@ or coalesce(d.creditAmount,0)  <> b.creditAmount
 or coalesce(d.localDebitAmount,0) <> b.localDebitAmount
 or coalesce(d.localCreditAmount,0) <> b.localCreditAmount 
 ```
+:::
 
 ## Financial Paper Utilities
 ### Fix Financial Paper Entries after delete:
-
+::: details
 ```sql
 update fp set lastStatusEntry_id = null from FinancialPaperStatusEntry e left join EntitySystemEntry est on est.targetId = e.originDocId left join FinancialPaper fp on fp.id = e.financialPaper_id
 where est.id is null or est.fileStatus = 'Cancelled'
@@ -224,13 +233,14 @@ where fp.lastStatusEntry_id is null and fpe.id is not null
 
 
 ```
-
+:::
 ### Fix Cancel of Financial Papers
 ```sql
 update l set cancelValue = fp.valueAmount from FinancialPaperCancelLine l left join FinancialPaper fp on fp.id = l.paper_id where l.cancelValue is null
 ```
 
 ### Fix Financial Paper Bad Last Status Entry:
+::: details
 ```sql
 select code,fp.creationDate from FinancialPaper fp left join FinancialPaperStatusEntry e on e.id = fp.lastStatusEntry_id
 where e.toStatus <> fp.status
@@ -238,16 +248,18 @@ where e.toStatus <> fp.status
 update FinancialPaper set lastStatusEntry_id = (select top 1 id from FinancialPaperStatusEntry e where e.financialPaper_id = 0xFFFF00015134C8B294000000FF5C9560 order by valueDate desc,creationDate desc) where id = 0xFFFF00015134C8B294000000FF5C9560
 
 ```
-
+:::
 
 ### Allow Deleting Zombie Journal Entries After Deleting Closing Entry
+::: details
 ```sql
 update je set fromDoc_id = null,fromDoc_type = null,fromDoc_code = null,fromDoc_actualCode = null from JournalEntry je left join ClosingEntry ce on ce.id = je.fromDoc_id
 where je.fromDoc_type = 'ClosingEntry' and ce.id is null
 
 ```
-
+:::
 ## Get Accounts Tree
+::: details
 ```sql
 with x AS
 (
@@ -337,11 +349,11 @@ left join ChartTree t2 on t2.nodeId = x.accountId and t2.defaultParentSide =1
 ORDER BY t.nodeCode,t2.nodeCode
 
 ```
-
+:::
 ## Fix Deleting Account Problem
 If you try to delete an account and then you get a database error “Query optimizer ran out of space”, then do the following:
 Run the following query, then copy the lines and paste them in a new window and run it
-
+::: details
 ```sql
 with x as (
 SELECT  obj.name AS FK_NAME,
@@ -366,5 +378,5 @@ INNER JOIN sys.columns col2
 )
 select 'alter table '+[table]+' drop constraint '+FK_NAME from x where referenced_table = 'account' and [table] 
 
-
 ```
+:::

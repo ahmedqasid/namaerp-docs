@@ -1,5 +1,6 @@
 # Manufacturing Utilities
 ## Production Delivery Cost Problem (Cost Callback)
+::: details
 ```sql
 with delivery as (
 select sum(cin.netCost) receiptCost,po.id from ProductionOrder po inner join ProductDelivery pod on pod.productionOrder_id = po.id inner join StockReceipt sr on sr.fromDoc_id = pod.id
@@ -27,11 +28,12 @@ left join OrderCloseVoucher cv on cv.productionOrder_id = po.id
 where abs(receiptCost-(materialCost+resourceCost-coalesce(retCost,0)))>1.5 and cv.id is not null
 
 ```
-
+:::
 ## Zombie ProductionMovementSysEntry 
+::: details
 ```sql
 delete e from ProductionMovementSysEntry e left join EntitySystemEntry ese on ese.targetId = e.ownerid
 where ese.id is null
 
 ```
-
+:::
