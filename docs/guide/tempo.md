@@ -164,6 +164,37 @@ To get the last line in a table use the following syntax
 ```
 {loop(details,last)}
 ```
+- To loop from line number upto another line number, use the following syntax:
+```
+{loop(details,startLineNumber,endLineNumber)}
+```
+Ex:
+```
+{loop(details,2,3)}
+```
+This example will loop from line 2 upto 3
+- To loop from line number upto last line number, use the following syntax:
+```
+{loop(details,startLineNumber)}
+```
+This is exactly like:
+```
+{loop(details,startLineNumber,last)}
+```
+Ex:
+```
+{loop(details,5,last)}
+```
+is exactly like   
+```
+{loop(details,5)}
+```
+This example will loop from line 5 upto the last line
+- To loop the last line only, use the following syntax:
+```
+{loop(details,last)}  last line only
+```
+
 ### Manual Counters
 You can declare a manual counter that can be used instead of `@rownumber` variable, or `@@last` and `@@end`.
 There are three statements:
@@ -232,6 +263,37 @@ Ex1: to Write the previous data of the sales invoice in a table
 ::: tip
 Note that `{@rownumber}` is the syntax for the line number. It is corresponding to the cell # written in the row header
 :::
+
+- To fill a table within a loop, use the following syntax:
+```
+{opentable}
+{closetable}
+```
+- To group the displayed data in the header according to a field, use the following syntax:
+```
+{header(Grouping field)}
+{endheader}
+```
+To group the displayed data in the footer according to a field, use the following syntax:
+```
+{footer(Grouping field)}
+{endfooter}
+```
+To have more explanation for the last three syntaxes, look at the following example:
+Ex:
+```
+{loop(details)}
+{header(details.item.item.code)}
+Item {#details.item.item.code}
+{opentable}
+{row}{cell}Quantity{cell}Price{endrow}
+{endheader}
+{row}{cell}{#details.quantity.quantity.primeQty.value}{cell}{#details.price.unitPrice}{endrow}
+{footer(details.item.item.code)}
+{closetable}
+{endfooter}
+{endloop}
+```
 
 ### Drawing a row in a table
 Use the two commands to draw a row `{row}` , `{endrow}`
@@ -649,6 +711,63 @@ Attached our catalog {emailattachment("E:\Media\Prochures\catalog.pdf")}
 ```
 <donothandleimages/>
 ```
+- To create a message, use the following syntax
+```
+{openmsg}
+The contents of the message
+{closemsg}
+```
+- To define the targeted address to be sent in the message
+```
+{sendto}email address (or phone number) {endsendto}
+```
+Ex1
+```
+{sendto}{#email}{endsendto}
+```
+To send a message to the address found in the email field
+
+Ex2
+```
+{sendto}{#phoneNumber}{endsendto}
+```
+To send SMS message to a specific phone number included in the field `{phoneNumber}`
+::: tip
+Note that these keywords (openmsg, sendto) are usually used in the Loops.
+:::
+
+### Example: Sending email messages to all customers
+Suppose that we want to send email messages to all customers that have remaining values of the last month invoices.
+In this case, we will use a scheduled task. The task type should be Notification.
+In Email Template Query , enter the following query:
+
+```sql
+select s.code invoiceCode,s.valueDate, c.code customerCode, c.name2 customerName, s.remaining,c.email
+from SalesInvoice s
+left join customer c on c.id = s.customer_Id
+where remaining > 0 and valueDate between dateadd(month,-1,getDate()) and getdate()
+order by customerCode
+```
+
+In the Email Template, enter the following:
+```
+{loop()}
+{header(customerCode)}
+
+{openmsg}{sendto}{#email}{endsendto}
+{subject}Late Invoices of customer {#customerName}{endsubject}
+Dear {#customerName}{enter}
+Please note that the following invoices are due:
+{opentable}
+{row}{cell}Invoice Code{cell}Invoice Date{cell}Remaining{endrow}
+{endheader}
+{row}{cell}{#invoiceCode}{cell}{#valueDate}{cell}{#remaining}{endrow}
+{footer(customerCode)}
+{closetable}
+{closemsg}
+{endfooter}
+{endloop}
+```
 ## String-manipulation related functions in tempo
 
 - Trim spaces in the beginning and end of a field
@@ -946,3 +1065,211 @@ Ex
 @CLEARLINE@@CLEARLINE@{padleft(20)}Remainig: {round(change,2)}${endpad}
 ```
 This example will clear two lines and display the word "Remaining" followed by the change value.
+
+## Creators
+What does the word creator mean?
+Creator is a keyword in tempo language used to create an entity in NAMA ERP like a sales invoice record.
+
+### Creator syntax
+```
+{creator(entity="EntityName",menu="MenuName",title="Title to be displayed in the link",view="ViewName",newwindow="true or false")}
+{endcreator}
+```
+* entity: The entity to be created (such as sales invoice, customer, purchase order,....etc).
+* menu(optional): The menu name that will contain the created entity if the menu is customized for the customer. It may be a customized menu.
+* title(optional): The title to be displayed in the creator link.
+* view(optional): the screen name if this screen created by a screen modifier.
+* newwindow(optional): If true, the creator will open in a new browser tab
+EX
+```
+{creator(entity="SalesInvoice")}
+{endcreator}
+```
+This example creates a sales invoice record. Values of the invoice fields will be included between these two lines.
+### Entering a field in a created entity
+To enter a field included in a created entity, use the following syntax:
+```
+{f("FieldName")}{v("FieldValue")}
+```
+Ex:
+```
+{f("n1")}{v("10")}
+```
+This example will enter the value "10" in the field "n1".
+
+### Entering dynamic content in a field
+Sometimes, you may need to enter some content in a field like remark field. This content may include some other fields. To do this use the following syntax:
+```
+{creatorvalue} contents to be entered {endvalue}
+```
+Ex1
+```
+{creator(entity="SalesInvoice")}
+{f("code")}{v("SA000001 ")}
+{f("remarks")}{creatorvalue}This document was created from {#entityType} - {#code} on date {#valueDate} {endvalue}
+{endcreator}
+```
+This example will do the following:
+- Open the sales invoice.
+- Enter the value code "SA000001" in the invoice number field to open this record in edit mode.
+- Enter the value (This document was created from SalesInvoice - SA000001 on date 2019-11-26) in the remarks field, where 2019-11-26 is the value date of this sales invoice record.
+###  Entering a value in a specific row in a document details
+  To enter a value in a specific row, you have the following four methods:
+
+- First method: define the row number as the following syntax:
+```
+{f("FieldName")}{v(FieldValue)}{r(number)}
+```
+Ex
+```
+{f("details.item.itemCode")}{v("ITEM005")}{r("2")}
+```
+This example will enter the value "ITEM005" in the item code field in the second row.
+
+- Second Method: to add values in a new line, use the following syntax
+```
+{f("FieldName")}{v(FieldValue)}{r(@@end)}
+```
+Ex
+```
+{f("details.item.itemCode")}{v("ITEM005")}{r("@@end")}
+```
+This example will enter the value "ITEM005" in the following two cases.
+- If the last line is empty, then enter this item code in this last line.
+- If the last line is not empty, then add a new line and enter this item code in it.
+
+
+- Third Method: to add values in the last line whatever it is empty or not, use the following syntax
+```
+{f("FieldName")}{v(FieldValue)}{r(@@last)}
+```
+Ex
+```
+{f("details.item.itemCode")}{v("ITEM005")}{r("@@last")}
+```
+This example will enter the value "ITEM005" in the last line even this last line has values in some of its fields.
+
+- Fourth Method: to add values in the current line in the loop
+```
+{f("FieldName")}{v(FieldValue)}{r(@rownumber)}
+```
+Ex: In this example, deselect the checkbox "Copy Details" in the sales invoice term in order to add the items line by line via the creator.
+```
+{creator(entity="SalesInvoice")}
+{f("code")}{v("SA000001")}
+{loop(details)}
+{f("details.item.itemCode")}{v(details.item.itemCode)}{r(@rownumber)}
+{endloop}
+{endcreator}
+```
+In this example, the system will copy the items codes of the sales invoice SA000001 in the details of the created invoice.
+
+### Use Case
+- Suppose that you want to copy in the created sales invoice record only non-service items of another invoice record. In details, you want to copy the fields (Item Code, n1, n2). The correct syntax for this case will be as follows:
+```
+{creator(entity="SalesInvoice")}
+{f("book")}{v("SIV1")}
+{f("term")}{v("CASH")}
+{loop(details)}
+{if!=(details.item.item.itemType,"Service")}
+{f("details.item.itemCode")}{v(details.item.itemCode)}{r("@@end")}
+{f("details.n1")}{v(details.n1)}{r("@@last")}
+{f("details.n2")}{v(details.n2)}{r("@@last")}
+{endif}
+{endloop}
+{endcreator}
+```
+In this example, don't write `{r(@rownumber)}` because the number will be incorrect because of the gap caused by skipping the service item in the loop.
+Use `@@end` to always add a new line while adding a new item code.
+Use `@@last` to input the value in the last row, without appending a new row.
+
+### Calling System GUI Action (Button or More Menu) from creator
+```
+{callGUIAction("actionId")}
+```
+Here is a list of system action in edit view toolbar:
+```
+save , saveAndContinue , duplicate , accept , approval , revise , unrevise , print , listView , showHelpMsgs , treeView , newRecord , delete , more , refresh , homePage , goToRecord
+```
+
+## Sales and Purchase Prices in Tempo
+- To get the sales price of an item, use the following syntax:
+```
+{itemprice(itemIdOrCode=expression)}
+```
+This function gets the price of the required item.
+This function takes a lot of parameters, because the item price may be restricted by a customer or date or ...etc, in the price list; so the general syntax  for this function as follows:
+```
+{itemprice(itemIdOrCode=expression , customerIdOrCode=expression , uomCodeOrId=expression , qty=expression ,
+classificationIdOrCode=expression , date=expression , legalEntityIdOrCode=expression , sectorIdOrCode=expression ,
+branchIdOrCode=expression , analysisSetIdOrCode=expression , departmentIdOrCode=expression , revisionIdCode=expression ,
+colorCode=expression , sizeCode=expression , priceClassifier1IdOrCode=expression , priceClassifier2IdOrCode=expression , 
+priceClassifier3IdOrCode=expression , priceClassifier4IdOrCode=expression , priceClassifier5IdOrCode=expression ,
+decimalPlaces=expression,fieldToDisplay=InvoiceMoneyField)}
+```
+::: tip
+Note that itemIdOrCode is the only required parameter, and all other parameters are optional.
+Note also, the order of these parameters is not required 
+:::
+
+Ex
+
+```{loop(details)}
+Price of item {details.item.item.name} is {itemprice(itemIdOrCode=details.item.item.code)}
+Price of item {details.item.item.name} for customer CST05 is {itemprice(itemIdOrCode=details.item.item.code,customerIdOrCode="CST05")}
+Price of item {details.item.item.name} for customer CST05 at 01-01-2020 is {itemprice(itemIdOrCode=details.item.item.code,customerIdOrCode="CST05",date="20200101")}
+{endloop
+```
+
+- To get the purchase price of an item, use the following syntax:
+```
+{itempurchaseprice(itemIdOrCode=expression,supplierIdOrCode)}
+```
+This function is very similar to itemprice
+- The full syntax is as follows:
+```
+{itempurchaseprice(itemIdOrCode=expression , supplierIdOrCode=expression , uomCodeOrId=expression , qty=expression ,
+ classificationIdOrCode=expression , date=expression , legalEntityIdOrCode=expression , sectorIdOrCode=expression , 
+ branchIdOrCode=expression , analysisSetIdOrCode=expression , departmentIdOrCode=expression , revisionIdCode=expression , 
+ colorCode=expression , sizeCode=expression , priceClassifier1IdOrCode=expression , priceClassifier2IdOrCode=expression , 
+ priceClassifier3IdOrCode=expression , priceClassifier4IdOrCode=expression , priceClassifier5IdOrCode=expression , 
+ decimalPlaces=expression,fieldToDisplay=InvoiceMoneyField)}
+```
+
+## Utility fields for templates, notifications, and entity flows
+- Discussions: all the following reference the table [DiscussionRecord](https://namasoft.com/dm/#entity:entity/DiscussionRecord&)
+  - discussions: a list of DiscussionRecord linked to the record
+  - firstDiscussion: first DiscussionRecord
+  - lastDiscussion: last DiscussionRecord
+  - preLastDiscussion: The before last DiscussionRecord
+
+Example: 
+```
+The last added discussion was {lastDiscussion.discussion} at {lastDiscussion.onTime} by {link(lastDiscussion.user)} 
+and discussion Ref1 code is {lastDiscussion.ref1.code}
+```
+- `$notificationTarget`: The employee or user that the notification will be sent to
+- `$notifier`: The notification definition file that is causing the notification
+- `$currentUsers`: All users that are currently logged in
+- `currentApprovalCase`: returns the current approval case, you can review the AppovalCase table in the data model for all properties and fields
+- `currentApprovalCase.lastStep.comment`: The Last Approver comment
+- `currentApprovalCase.lastStep.actualResponsible`: The employee
+- `currentApprovalCase.lastStep.decision`: The decision (Approve, Reject, Return, or Escalate)
+- `currentApprovalCase.lastStep.approvalDate`
+- `currentApprovalCase.lastStep.escalatedFrom`: In case this was an escalation, this holds the employee that escalated the original step
+- `currentApprovalCase.lastStep.approvalReason`: The approval reason selected when approving
+  - Review [Approval Case](https://www.namasoft.com/dm/#entity:entity/ApprovalCase&) Table for all details
+- `currentApprovalCase.lastStepDefinition.notificationRemark`: This allows you to use somewhat dynamic notification content based on the current step. This returns the content of the field with the same name in the approval steps
+- `$user` - `$currentUser`: The current user
+- `$loginLegalEntityId` : The ID of the login legal entity
+- `$loginLegalEntity` : The login legal entity
+- `$loginBranchId` : The ID of the login branch
+- `$loginBranch` : The login branch
+- `$loginSectorId` : The ID of the login sector
+- `$loginSector` : The login sector
+- `$loginDepartmentId`: The ID of the login department
+- `$loginDepartment`: The login department
+- `$loginAnalysisSetId` : The ID of the login analysis set
+- `$loginAnalysisSet` : The login analysis set
+- `retrieverFileId` : Allows sending links to customers, the links allow the customer to download their invoice
+- To add an image of any record: http://localhost:8080/erp/file.download?entityType=Employee&recordId={empId}
