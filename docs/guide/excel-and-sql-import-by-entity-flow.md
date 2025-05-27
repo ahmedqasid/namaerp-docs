@@ -1,4 +1,70 @@
-# Import by Entity Flow From Excel Sheets or SQL Statement
+# Importing Data from Excel or Queries
+
+## Importing Data from Excel into Nama ERP
+
+Nama ERP allows you to import data directly from Excel sheets. Here are some key points and best practices to ensure a smooth import process:
+
+### General Guidelines
+
+* **Formula Support**: You can use standard Excel formulas in cells when preparing your data.
+* **Recommended Practice**: It’s best to first export sample data from Nama ERP. Use the exported sheet as a template for formatting and structure.
+
+---
+
+### Special Import Functions
+
+- `evalsql(sql statement)`
+
+This function executes a SQL statement and uses the result as the value of the cell during import.
+
+**Examples**:
+
+```excel
+evalsql(select top 1 id from SalesInvoice order by valueDate desc)
+```
+
+**With Excel formula**:
+
+```excel
+="evalsql(select code from Account where subsidiaryType = '" & U13 & "')"
+```
+
+---
+
+* `findByCode` and `altCode` Columns
+
+If your dataset includes a special-purpose field (e.g., `contactInfo.mobile`) that serves as a unique identifier, you can include a column named `findByCode` containing that value. The system will use it to find the corresponding record **only if a `code` field is not available**.
+
+This same logic also applies to the `altCode` column.
+
+---
+
+### Advanced Excel Import
+
+For a visual walkthrough, watch the following video introduction:
+📺 [Excel Import Tutorial](https://www.youtube.com/watch?v=FlKdarW1vJI)
+
+---
+
+* Working with Numbers in Groovy Scripts
+
+When using Groovy expressions during import:
+
+* Numeric fields (`Long`, `Integer`, `Decimal`) are automatically parsed from cell values.
+* To explicitly parse a cell as a number, prefix the cell name with `$`.
+
+**Examples**:
+
+```groovy
+A + 5 * C
+$A - 10 / $C
+```
+::: tip Note
+Cell references are case-insensitive. For example, `a+2` and `$a` are valid.
+:::
+
+
+## Import by Entity Flow From Excel Sheets or SQL Statement
 
 - `excel.importFrom="attachment"`
 - Loads the excel sheet in attachment, note that you can use any field that returns a valid name of an attachment field. For example you can put attachment1,attachment2,attachment3 in description 1 as a combo, and then use the following `excel.importFrom=description1`

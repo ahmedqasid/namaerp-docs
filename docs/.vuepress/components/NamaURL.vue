@@ -15,11 +15,19 @@ const props = defineProps({
   url: {
     type: String,
     required: true,
+  },
+  removeERPPart: {
+    type: Boolean,
+    required: false,
   }
 })
 
 const generatedUrl = computed(() => {
-  return `${serverUrl.value.replace(/\/$/, '')}/${props.url}`
+  let url = `${serverUrl.value.replace(/\/$/, '')}/`;
+  if (props.removeERPPart) {
+    url = url.replace("/erp/", "/");
+  }
+  return `${url}${props.url}`
 })
 
 function copyUrl() {

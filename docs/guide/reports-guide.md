@@ -4,6 +4,102 @@
 - Create a parameter named `loginLegalEntityLogo` with type `java.lang.Object` or `java.io.InputStream`
 - Create an image, image expression should be `$P{loginLegalEntityLogo}`
 
+- To add any attachment to a report:
+```groovy
+NamaRep.getFile($F{attachmentId})
+//OR
+NamaRep.getAttachment($F{attachmentId})
+```
+
+## System Parameters in Reports
+::: details Here is the list of all system parameters
+```groovy
+loginLanguage: Arabic, or English
+formEntityType: the entity type for the form (Can be used for translation)
+loginLegalEntityId
+loginLegalEntityCode
+loginLegalEntityName1
+loginLegalEntityName2
+loginLegalEntityLogo
+loginLegalEntityLogo2
+loginLegalEntityLogo3
+loginLegalEntityLogo4
+loginLegalEntityLogo5
+reportsFooterNote1
+reportsFooterNote2
+loginSectorId
+loginSectorCode
+loginSectorName1
+loginSectorName2
+loginBranchId
+loginBranchCode
+loginBranchName1
+loginBranchName2
+loginAnalysisSetId
+loginAnalysisSetCode
+loginAnalysisSetName1
+loginAnalysisSetName2
+loginDepartmentId
+loginDepartmentCode
+loginDepartmentName1
+loginDepartmentName2
+loginUserId
+loginUserTreatAsAuthorIds
+loginUserCode
+loginUserName1
+loginUserName2
+loginEmployeeId
+publicLegalEntityId
+publicSectorId
+publicBranchId
+publicDepartmentId
+publicAnalysisSetId
+guiServerURL
+externalServerURL
+loginLanguage
+originalLoginLanguage
+formEntityType
+analysisSetNotUsedInSecurity
+sectorNotUsedInSecurity
+departmentNotUsedInSecurity
+branchNotUsedInSecurity
+legalEntityNotUsedInSecurity
+accessibleAnalysisSetIds
+accessibleDepartmentIds
+accessibleBranchIds
+accessibleLegalEntityIds
+accessibleSectorIds
+concernedLines
+candidateEmployeeId
+candidateEmployeeCode
+candidateEmployeeName1
+candidateEmployeeName2
+approvedRecordId
+approvedRecordType
+approvedRecordCode
+approvalSecret
+approvalStepSeq
+reportCode
+reportName1
+reportName2
+reportId
+namaReportInstance
+currentGUIURL
+currentReplicationSited
+currentReplicationSiteCode
+currentReplicationSiteName1
+currentReplicationSiteName2
+allowedCapabilities
+allowedEntities
+allowedDocuments
+allowedFiles
+notAllowedEntities
+notAllowedDocuments
+notAllowedFiles
+posShiftCode
+runId
+```
+::
 ### Subreports
 
 You can include subreports within a main report. A subreport can either be:
@@ -51,7 +147,8 @@ NamaRep.priceCalculator().item($F{item}).uom($F{UOM}).qty($F{Quantity}).unitPric
   - Reset type `None`
 :::
 - The following is a list of all functions you can use to create a price calculation request
-- The `price()` or `unitPrice()` function must be the last one in the expression 
+- The `price()` or `unitPrice()` function must be the last one in the expression
+::: details Here are all the available functions
 ```groovy
 item($F{itemIdOrCode})
 customer($F{customerIdOrCode})
@@ -86,7 +183,9 @@ qty($F{qty})
 date($F{date})
 unitPriceOnly()
 ```
+:::
 - Assuming the variable you created is named price, here is a list of all expressions you can use to extract price components
+::: details Click to view all the available variables
 ```groovy
 $V{price}.custom.primitiveValue
 $V{price}.discount1.afterValue.primitiveValue
@@ -147,6 +246,7 @@ $V{price}.totalCashShare.primitiveValue
 $V{price}.totalPaymentMethodShare.primitiveValue
 $V{price}.unitPrice.primitiveValue
 ``` 
+:::
 
 ### Links to entities, attachments, and reports
 - Create a link to an entity
@@ -426,3 +526,401 @@ user permissions (view, update), legal entity (company), branch, sector, departm
 - his approach helps enforce data visibility and editing rights dynamically based on user roles and organizational structure.
 
 :::
+
+## To translate a header and sub titles:
+- Suppose that id = "xxx | yyy"
+  - NamaRep.head(id) ⇒ xxx
+  - NamaRep.sub(id) ⇒ yyy
+## Numeric Fields Helpers
+```groovy
+NamaRep.zeroIfNull(fieldOrVariable)
+NamaRep.oneIfZero(fieldOrVariable)
+NamaRep.nullIfZero(fieldOrVariable)
+```
+## How to create report with different pages sizes
+::: rtl
+- كيفية إنشاء تقرير يحتوي على تقارير فرعية بأحجام صفحات مختلفة باستخدام JasperReports
+يمكنك تنفيذ هذا النوع من التقارير بسهولة باستخدام JasperReports من خلال الخطوات التالية:
+
+1. **إنشاء تقرير من نوع Book:**
+
+  * ابدأ بإنشاء تقرير رئيسي من نوع *Book Report*.
+
+2. **كتابة الجملة الشرطية:**
+
+  * أضف جملة SQL بسيطة تتضمن الحقول التي ستُستخدم لتحديد شروط ظهور الأجزاء المختلفة.
+
+3. **إضافة التقارير الفرعية:**
+
+  * من خلال خيار **Add Part to Content**، أضف كل تقرير فرعي (Part) ترغب في إدراجه داخل التقرير الرئيسي.
+
+4. **تحديد شروط الطباعة لكل Part:**
+
+  * استخدم **Print When Expression** لتحديد متى يظهر كل جزء بناءً على الشروط التي حددتها مسبقًا.
+
+5. **تمرير المتغيرات والمدخلات:**
+
+  * يجب تعريف جميع المدخلات المطلوبة مسبقًا، ثم تمريرها لكل جزء بالطريقة نفسها المستخدمة مع التقارير الفرعية التقليدية (*Sub Reports*).
+
+### مثال:
+
+نموذج طباعة يحتوي على جزأين بحجمي صفحات مختلفين: A4 و A3، يتم إظهار كل جزء بناءً على شرط مستخرج من حقل "الملحوظة" في السند. ويتضمن كل جزء تقارير فرعية داخله.
+
+* 📥 [تحميل ملف الإكسيل للاستيراد](https://docs.google.com/spreadsheets/d/1TPjsTwB2fcCIth0JB30AqbmIxPymgEbG/edit?usp=sharing&ouid=106365317117679104835&rtpof=true&sd=true)
+* 📎 [تحميل المرفق للاستيراد](https://drive.google.com/file/d/1r1FraUmyLue9xyOHURnzzKTKoap_hxQQ/view?usp=sharing)
+:::
+Refer to development request [SRDRQ05261](https://namasoft.com/reqs/SRDRQ05261)
+
+## Kill Reports Running for more than n seconds
+Refer to development request [ECPADR00932](https://namasoft.com/reqs/ECPADR00932)
+::: rtl
+* ⏱️ إيقاف التقارير التي تجاوزت وقت تنفيذ معين
+
+عند تشغيل تقارير كبيرة، قد يؤدي الضغط على النظام أحيانًا إلى عدم قدرة المستخدمين الجدد على تسجيل الدخول. وفي بعض الحالات، نضطر إلى إيقاف خدمة **Tomcat** وإعادة تشغيلها لحل المشكلة.
+
+لذا تم إنشاء أداة تقوم بإيقاف أي تقرير تجاوز وقت تنفيذ معين (مثلاً 10 أو 120 ثانية)، دون الحاجة لإعادة تشغيل الخادم. 
+
+---
+
+### 🔧 خطوات التفعيل:
+
+1. **تعديل إعدادات الوقت في ملف `nama.properties`:**
+
+   أضف السطر التالي أو عدله:
+
+   ```ini
+   kill-reports-running-more-than-seconds=120
+   ```
+
+  * الرقم `120` يمثل الحد الأقصى لعدد الثواني المسموح بها لتشغيل التقرير.
+  * يمكنك تغييره لأي قيمة زمنية حسب الحاجة.
+
+---
+
+2. **تشغيل رابط المعالجة اليدوية:**
+
+   بعد حفظ الإعداد، شغّل الرابط التالي:
+<NamaURL url="basic-services/monitorlogin?reload-config-and-kill-running-reports=true" removeERPPart />
+   
+  * هذا الرابط يقوم بإعادة تحميل الإعدادات من ملف `nama.properties`، ثم يقوم بإغلاق جميع التقارير التي تجاوز وقت تنفيذها الحد المحدد.
+
+:::
+
+## Tafqeet 
+- You can use any of the following expressions inside your jasper report:
+```groovy
+NamaRep.tafqeet(currencyCode,number)
+NamaRep.tafqeetArabic(currencyCode,number)
+NamaRep.tafqeetEnglish(currencyCode,number)
+NamaRep.tafqeetFrench(currencyCode,number)
+```
+The configuration for currencies tafqeet can be found in <GlobalConfigOption option-code="value.info.tafqeetInfo.currencyCode" link-title="Tafqeet Info"/>
+
+## Miscellaneous 
+- To use Arabic (hindu) numerals use
+  '٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'
+```groovy
+NamaRep.arNumbers(value)
+```
+- To get saudi riyal symbol for reports, add an image, make the expression 
+```groovy
+NamaRep.sar()
+```
+- To get period between a start date and today, (years, months, days):
+  - Create variable period with reset type none, increment type none
+  - Variable expression should be:
+```groovy
+java.time.Period.between(new java.util.Date($F{FromDate}.getTime()).toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate(), java.time.LocalDate.now())
+```
+  - Use the following in the text field expression you:
+```groovy
+$V{period}.getYears()+"  "+"سنة"+"  "+$V{period}.getMonths()+"  "+"شهر"+"  "+$V{period}.getDays()+"  "+"يوم"
+```
+
+Here’s a clearer and more polished version of your text:
+
+---
+
+### List Parameters (Multi-Selection)
+
+To define a parameter that supports multiple selections, follow these guidelines:
+
+* Set the property `list = true`.
+* If the list is **not** of type `Reference`, you must also specify the `listType` property.
+* To capture the selected values for display purposes, you can define additional parameters:
+
+  * `<parameterName>_csv`: Receives the translated values as a CSV string.
+  * `<parameterName>_codecsv`: Receives the codes of the selected values as a CSV string.
+  * `<parameterName>_name1csv`: Receives the `name1` fields of the selected values as a CSV string.
+  * `<parameterName>_name2csv`: Receives the `name2` fields of the selected values as a CSV string.
+* To prevent the automatic display of the selection grid, set the property `doNotAutoShowList = true`.
+
+::: details Example:
+
+```xml
+<parameter name="MultiEmployee" class="java.util.List">
+    <property name="entityType" value="Employee"/>
+    <property name="arabic" value="الموظفين"/>
+    <property name="english" value="Employees"/>
+    <property name="property" value="code"/>
+    <property name="list" value="true"/>
+    <property name="doNotAutoShowList" value="false"/>
+</parameter>
+
+<parameter name="MultiEmployee_csv" class="java.lang.String" isForPrompting="false"/>
+
+<parameter name="MultiDate" class="java.util.Date">
+    <property name="english" value="Dates"/>
+    <property name="arabic" value="التورايخ"/>
+    <property name="defaultValue" value="$monthStart()"/>
+    <property name="list" value="true"/>
+    <property name="listType" value="java.util.Date"/>
+</parameter>
+
+<parameter name="MultiDate_csv" class="java.lang.String" isForPrompting="false"/>
+```
+:::
+
+## Report Properties
+- preRunUtil
+- questionsChangeUtil
+- comparisonType
+To use or change any of the previous properties, please consult the development team
+
+
+## Parameter Properties
+
+
+#### **Basic Properties**
+
+* **`list`**:
+
+  * `true` or `false`
+  * Indicates whether the parameter allows multiple selections (displayed as a selection grid).
+
+* **`listType`**:
+
+  * Required when using non-reference types (e.g., dates, numbers).
+  * Example: `java.util.Date`, `java.lang.Integer`.
+
+* **`layout`**:
+
+  * Defines how the parameter is displayed.
+  * Options: `alone`, `spanned`, `normal`, `spanned2`.
+
+* **`required`**:
+
+  * `true` or `false`
+  * Marks the parameter as mandatory.
+
+* **`requiredGroup`**:
+
+  * Use the same value for multiple parameters to enforce that at least **one** of them must be filled.
+
+* **`hijri`**:
+
+  * `true` or `false`
+  * Indicates whether the date should be displayed using the Hijri calendar.
+
+---
+
+#### **Suggestions for Text Fields**
+
+* **`suggestionquery`**:
+
+  * SQL query that returns values for suggestion/autocomplete in text input fields.
+
+  * **Two columns**: First for code, second for Arabic display text.
+
+  * **Three columns**: First for code, second for Arabic, third for English.
+
+  **Examples**:
+
+  ```sql
+  SELECT DISTINCT TOP 25 revisionId, revisionName 
+  FROM ItemRevision 
+  WHERE invItem_id = {fItem} 
+    AND (revisionId LIKE '%' + {revision} + '%' OR revisionName LIKE '%' + {revision} + '%')
+  ```
+
+  ```sql
+  SELECT DISTINCT revisionId 
+  FROM ItemDimensionsQty 
+  WHERE item_id = {fromItem} 
+    AND revisionId LIKE '%' + {revisionId} + '%' 
+    AND net <> 0
+  ```
+
+---
+
+#### **Reference Selection**
+
+* **`entityType`**:
+
+  * The entity (table) from which records will be selected.
+
+* **`allowedValues`**:
+
+  * A comma-separated list of allowed values.
+  * Will render any parameter as a combo box
+
+* **`property`**:
+
+  * The field to extract from the selected record (e.g., `code`, `name1`, `name2`, `startDate`).
+
+* **`enumType`**:
+
+  * Defines the enum type to use for allowed values.
+  * Example enums: `EntityTypeDF`, `SubsidiaryType`, `DocumentEntityTypeDF`.
+
+  **Example**:
+
+  ```xml
+  <parameter name="entityType" class="java.lang.String">
+      <property name="enumType" value="EntityTypeDF"/>
+      <property name="allowedValues" value="Employee,Vendor"/>
+  </parameter>
+  ```
+
+---
+
+#### **Comparative and Display Properties**
+
+* **`type`**:
+
+  * Comparison operators: `>` or `<`
+  * For example, `>` will substitute negative infinity if no value is provided.
+
+* **`arabic` / `english`**:
+
+  * Arabic and English display labels.
+
+* **`resource`**:
+
+  * Resource key to use instead of specifying Arabic and English manually.
+
+* **`src`**:
+
+  * Used when you want to reuse a property from another parameter.
+
+* **`ignore`**:
+
+  * If set, the parameter is excluded from prompting (similar to `isForPrompting = false`).
+
+---
+
+#### **Filtering Values**
+
+* **`filter`**:
+
+  * Syntax: `field,operator,value[,relation]`
+  * Multiple filters are separated by semicolons.
+  * Default relation is `AND`.
+
+  **Operators**:
+
+  ```
+  Equal, EqualOrEmpty, NotEqual, NotEqualOrEmpty,
+  GreaterThan, GreaterThanOrEmpty, GreaterThanOrEqual, GreaterThanOrEqualOrEmpty,
+  LessThan, LessThanOrEmpty, LessThanOrEqual, LessThanOrEqualOrEmpty,
+  StartsWith, StartsWithOrEmpty, NotStartsWith, NotStartsWithOrEmpty,
+  EndsWith, EndsWithOrEmpty, NotEndWith, NotEndWithOrEmpty,
+  Contains, ContainsOrEmpty, NotContain, NotContainOrEmpty,
+  OpenBracket, CloseBracket, In
+  ```
+
+  * Use `${parameterId}` to reference the value of another parameter in filters.
+
+  **Examples**:
+
+  ```
+  forType,Equal,Department,AND;isLeaf,Equal,true
+  documentType,Equal,ReceiptVoucher
+  forType,Equal,${subsidiaryType}
+  ```
+
+---
+
+#### **Default Values**
+
+* **`defaultValue`**:
+
+  * String default value based on the parameter type:
+
+    * **Date**: `dd-MM-yyyy`
+    * **Time**: `yyyy-MM-dd'T'HH:mm:ss.SSS`
+    * **Reference**: `id:entityType:code`
+
+::: details  **Functions for dynamic defaults**:
+
+``` 
+$now()
+$today()
+$monthStart()
+$monthEnd()
+$yearStart()
+$yearEnd()
+$currentFiscalPeriod()
+$currentUser()
+$currentEmployee()
+$todayPlusDays(n)
+$todayPlusWeeks(n)
+$todayPlusMonths(n)
+$todayPlusYears(n)
+$quarterStart()
+$quarterEnd()
+$thirdStart()
+$thirdEnd()
+$halveStart()
+$halveEnd()
+$previousMonthStart()
+$previousMonthEnd()
+$nextMonthStart()
+$nextMonthEnd()
+$previousYearStart()
+$previousYearEnd()
+$nextYearStart()
+$nextYearEnd()
+```
+:::
+* **For multi-value parameters (List)**:
+
+  * Use `@A=@X` to separate values.
+  * Format: `id:entityType:code@A=@Xid:entityType:code@A=@X...`
+
+---
+
+#### **Display Control & Validation**
+
+* **`NamaRep.canDisplay($P{param})`**:
+
+  * Use in `printWhenExpression` to conditionally show elements based on parameter value.
+
+* **`no-mirror = true`**:
+
+  * Prevents mirroring of elements or bands.
+
+---
+
+#### **Range Validation Between Parameters**
+
+* **`fromParam`**:
+
+  * Links a "to" parameter to a "from" parameter to enforce range consistency.
+
+* **`fromParamMaxGapInDays`**:
+
+  * Defines the maximum allowed gap in days between two date parameters. Must be used with `fromParam`.
+
+  **Example**:
+
+  ```xml
+  <parameter name="toDate" class="java.util.Date">
+      <property name="arabic" value="إلى تاريخ"/>
+      <property name="english" value="To Date"/>
+      <property name="fromParam" value="fromDate"/>
+      <property name="fromParamMaxGapInDays" value="30"/>
+  </parameter>
+  ```
+
+
