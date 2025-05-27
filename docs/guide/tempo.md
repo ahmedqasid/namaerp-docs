@@ -1,1275 +1,1843 @@
-# Tempo Manual
 
-In this document we will demonstrate the commands of Tempo language that is created by NAMA development team. The target of this language is to give the implementer a facility to write dynamic content that can be sent to customers, employees, or suppliers using Notifications, Emails, SMS, Error message of criteria based validation.
-An example of using Tempo language, if we want to display an error  message that the  employee (Employee Name) cannot can not have a vacation more than five days. In this case we have to find a way to write the employee mentioned in the current record. In this case, the employee of the vacation could be written as {employee.name1} inside the error message, and if we need a hyperlink for this employee we should write {link(employee)}.
+# Tempo Language Manual
 
-Remember that to know a field name in any screen, just use the shortcut (CTRL+ALT+I), and then right-click on field names to display the ids of screen fields (including table names and column names).
+This guide introduces the **Tempo language**, developed by the **NAMA team**, to help implementers create dynamic messages for **customers**, **employees**, and **suppliers**. Tempo is used in various outputs such as **notifications**, **emails**, **SMS messages**, and **validation error messages**.
 
-NAMA introduced a web editor to ease writing, while it will autocomplete the commands by using (Ctrl + Space) as well as checking the syntax of Tempo language. To use this editor, simply go to [Tempo Editor](https://www.namasoft.com/tempo.html), and then write what you want.
-![Tempo Editor Screen Shot](images/tempo-editor.png)
+## What is Tempo?
 
-Tempo language will help the implementer to display what he wants in the messages.
-Following, a manual of Tempo language commands that you may have to know to display something.
-::: tip
-There are two methods of using tempo.
-- To render query results (in dashboards, notification by queries, criteria based validation messages if there is a message query, and other use cases)
-- To render records (entities) in notifications, approval summary, in combination with fields-maps of entity flows similar to `EAFieldsValuesCalculator` and other use cases
-- The main difference between using tempo to render query results and records is the ability to navigate record properties in case of records, this is not possible for query results
-- For example, you can access the code of the customer group in the invoice if in record-mode like this:
+Tempo lets you embed dynamic values in text templates. For example, to display an error message stating that an employee cannot take more than five days of vacation, you can include the employee’s name dynamically:
+
+```tempo
+Employee {employee.name1} cannot take more than five days of vacation.
 ```
-{customer.group.code}
+
+If you want to include a hyperlink to the employee record:
+
+```tempo
+{link(employee)}
 ```
-- If in query-result-mode, `{customer_id.group}` will not work as expected 
+
+---
+
+## How to Discover Field Names
+
+To find field names in any screen:
+
+1. Press `CTRL + ALT + I`
+2. Right-click on any field to see its **internal ID**, **table name**, and **column name**
+
+---
+
+## Using the Tempo Web Editor
+
+NAMA provides a web-based editor for writing and testing Tempo syntax:
+
+* It supports **auto-completion** with `Ctrl + Space`
+* It checks **syntax** as you write
+
+👉 Try it here: [Tempo Editor](https://www.namasoft.com/tempo.html)
+![Tempo Editor](images/tempo-editor.png)
+
+---
+
+## When to Use Tempo
+
+Tempo can be used in two major contexts:
+
+::: tip Two Usage Modes
+
+1. **Query Results**
+   Used in dashboards, notifications by query, or validation messages where a query is involved.
+
+2. **Record Rendering**
+   Used in entity-based messages (e.g., approvals, flows) to directly access record fields.
+
+**Key Difference**:
+Only in record mode can you access nested fields (e.g., `customer.group.code`). In query result mode, such navigation won't work as expected.
 :::
-- To write a comment in a tempo code, use the following syntax:
+
+---
+
+## Tempo Syntax Overview
+
+### 1. Accessing Record Fields
+
+* Use `{fieldName}` to show a field from the current record:
+
+```tempo
+This Employee's Arabic name is {name1}
 ```
-{comment}  The comment   {endcomment}
+
+* For related records (e.g., employee in a vacation request):
+
+```tempo
+This Employee's Arabic name is {employee.name1}
 ```
-Ex:
+
+* For indirect references (e.g., employee in a `subsidiary` field):
+
+```tempo
+This Employee's Arabic name is {subsidiary.$toReal.name1}
 ```
-{comment}  Written by Khaled   {endcomment}
+
+---
+
+### 2. Writing Comments
+
+To add comments in your Tempo code:
+
+```tempo
+{comment} This was written by Khaled {endcomment}
 ```
-- To Prevent Parsing the whole template as a tempo file, add the following to any part of the text (helpful when sending html emails)
-```
+
+---
+
+### 3. Disabling Tempo Parsing
+
+If you want to prevent the whole template or part of it from being parsed:
+
+```html
 <notempo/>
 ```
-- To parse the content of a field as tempo template use {tempo} node
-```
+
+---
+
+### 4. Parsing a Field as Tempo Template
+
+To parse the content of a field (e.g., remarks) as a Tempo template:
+
+```tempo
 {tempo}{customer.remarks}{endtempo}
 ```
-- You can escape curly-brackets by prepending `\` before them
-```
+
+---
+
+### 5. Escaping Curly Brackets
+
+If you need to show `{code}` literally without rendering:
+
+```tempo
 \{code\}
 ```
-This will be rendered as `{code}`, the tempo-engine will not try to render the value of code field
 
-- To make HTML css content easier to handle, you can add the tag `<useCSSFriendlyBrackets/>` to the start of your temp
-  This will change brackets handling, instead of { and } you will use %{ and }%
-  - For example instead of writing `{code}`, you will write `%{code}%`
+---
 
+### 6. CSS-Friendly Brackets
 
-## Write a field that exists in the current record
-Write this field between two brackets `{}` wherever to be displayed in the sentence
+To avoid issues when working with HTML/CSS, enable CSS-friendly brackets:
 
-Ex1. to display the arabic name of an employee, write a sentence like this
-```
-This Employee arabic name is  {name1}
+```html
+<useCSSFriendlyBrackets/>
 ```
 
-Ex2. to display the arabic name of an employee that exists in the vacation document, write a sentence like this 
-```
-This Employee arabic name is  {employee.name1}
+Now you can write:
+
+```tempo
+%{code}%
 ```
 
-Ex3. to display the arabic name of an employee that exists in the sales invoice but is in the subsidiary field , write a sentence like this 
-```
-This Employee arabic name is  {subsidiary.$toReal.name1}
-```
-## Write # character if the editor did not accept field and marks it as incorrect
-Sometimes Tempo editor does mark a syntax to be corrected while it is already correct.
-In this case write the # character to accept this syntax
+Instead of:
 
-Ex1. Writing {`time.$hours}` will be marked as having an error (a red mark will appear next to it)
-
-This syntax will be accepted in NAMA; however, if you want to delete the red mark, you can use # character, and then it could be written as 
+```tempo
+{code}
 ```
+
+---
+
+### 7. Handling Editor Errors
+
+Sometimes the Tempo editor incorrectly flags correct syntax. You can prefix such expressions with `#` to ignore the error:
+
+Incorrect (editor shows error):
+
+```tempo
+{time.$hours}
+```
+
+Corrected:
+
+```tempo
 {#time.$hours}
 ```
 
-## Write Enter command to create a new line
-To create a new line in Tempo language, you must write `{enter}` before the new line, as HTML does not recognize the normal enter (line break).
+---
 
-## Write a link for a field in a sentence
-You have two methods in order to give a link for a specific field like Employee:
-First method to display the field as it is in the hyperlink, Write 
+### 8. Creating Line Breaks
+
+Use `{enter}` to insert a line break in HTML messages:
+
+```tempo
+Line 1{enter}
+Line 2
 ```
-{link(Targeted Field)}
+
+## Creating Hyperlinks in Tempo
+
+### 1. Link to a Field or Record
+
+You can generate clickable links for fields or records using two approaches:
+
+#### **Method 1: Basic Link (Displays Field as Link)**
+
+Use the `link()` function to make the field itself a hyperlink:
+
+```tempo
+{link(targetField)}
 ```
-EX: To give a link for the customer,  Write:
-```
+
+**Example:**
+To create a link for the customer record:
+
+```tempo
 {link(customer)}
 ```
-Second method to display a specific title in the hyperlink , Write:
+
+---
+
+#### **Method 2: Titled Link (Custom Text as Link)**
+
+Use `titledlink()` with custom link content:
+
+```tempo
+{titledlink(targetField)} Your custom link text {endlink}
 ```
-{titledlink(Targeted Field)} Title {endlink}
-```
-EX: To give a link for the customer by the title (Current Customer code is ABC),  Write the following syntax:
-```
+
+**Example:**
+To show a customer link with the title “Current Customer code is ABC”:
+
+```tempo
 {titledlink(customer)} Current Customer code is {code} {endlink}
 ```
-## Write a link relative to the current web-page
 
-If the link will be written in a notification - not for email - , it's preferred to begin with the following command:
-```
-{shortlinks}
-```
-Or 
-```
-{directlinks}
-```
-This way, you are expecting that the targeted user that will use this link, will use it  from the same page of this link, like http://crm.namasoft.com:8080/erp
-However,  `{shortlinks}` and `{directlinks}` will not work with Email as it is outside the site.
+---
 
-Ex1
-```
+### 2. Relative Links for Web Notifications
+
+When creating links for notifications (not emails), use relative paths for optimal behavior:
+
+#### **Use `{shortlinks}` or `{directlinks}`**
+
+* `{shortlinks}`: Generates relative links based on the current web page
+* `{directlinks}`: Also generates relative links but allows for more direct access
+
+> ⚠️ These are **not** suitable for email messages.
+
+**Example 1 – Using `{shortlinks}`**:
+
+```tempo
 {shortlinks}
 The user {#firstAuthor.name2} created the document {#code}
 ```
-Ex2
-```
+
+**Example 2 – Using `{directlinks}`**:
+
+```tempo
 {directlinks}
 The user {#firstAuthor.name2} created the document {link($this)}
 ```
-If you are using a query for the notification, the following will work:
+
+---
+
+### 3. Linking from Query Results
+
+If you're sending a notification based on a query:
+
+```tempo
+{titledlink(entityType, id)} {code} {endlink}
 ```
-{titledlink(entityType,id)}{code}{endlink} 
+
+This links to the record identified by `entityType` and `id`, using the record's code as the visible title.
+
+---
+
+### 4. Open Record in Specific Menu or View
+
+You can customize how a link opens by specifying additional parameters:
+
+```tempo
+{link(record, menu="MenuCode", newindow="true or false", view="ViewName")}
 ```
-## To open a record in a specific menu, use the following syntax:
+
+Or with a custom title:
+
+```tempo
+{titledlink(record, menu="MenuCode", newindow="true or false", view="ViewName")}
+Link Content Here
+{endlink}
 ```
-{link(record,menu="MenuCode",newindow="true or false",view="ViewName")}
+
+**Example:**
+Open an employee record in a new window via a specific menu and view:
+
+```tempo
+{link(employee, menu="NewEmp", newindow="true", view="NewEmpsView")}
 ```
-OR
+
+With a title:
+
+```tempo
+{titledlink(employee, menu="NewEmp", newindow="true", view="NewEmpsView")}
+Employee code {code}, Name {name1}
+{endlink}
 ```
-{titledlink(record,menu="MenuCode",newindow="true or false",view="ViewName")}Link Content Expression{endlink}
-```
-Ex:
-```
-{link(employee,menu="NewEmp",newindow="true" ,view="NewEmpsView")}
-```
-OR
-```
-{titledlink(employee,menu="NewEmp",newindow="true" ,view="NewEmpsView")}Employee code {code} Name {name1} {endlink}
-```
-This example will open the employee in a new window in a customized menu named "NewEmp" by the modified screen (of type copy) named "NewEmpsView".
-### To work on a specific server URL, use the following syntax:
-{appurl("server-url")}
-Ex1:
-```
+
+---
+
+### 5. Using a Specific Base URL for All Links
+
+To force all links to use a certain server address, use the `{appurl()}` tag at the **start** of the template:
+
+```tempo
 {appurl("http://crm7.namasoft.com:8080/erp/")}
 ```
-This will make any links inside the template use http://crm7.namasoft.com:8080/erp/ as the base url for any links AFTER the statement. It should be used at the beginning of the template
 
-## Loops in tempo
-### Writing information within a loop
-- To write a data like the data informed in a document details, you can use the two commands:
-`{loop(details)}` , `{endloop}`
-EX1: to write all data of the fields (Item code, Arabic item name, item quantity, item net value)  in the sales invoice table, use the following sentence:
+This ensures that all subsequent links are based on the provided URL.
+
+## Using Loops in Tempo
+
+### Looping Through Repeated Data (e.g. Document Details)
+
+To display a list of repeated rows (like items in a document), use the `loop` block:
+
+```tempo
+{loop(details)}
+  Loop content here
+{endloop}
 ```
+
+**Example:**
+Display each item's code, Arabic name, quantity, and net value in a sales invoice:
+
+```tempo
 {loop(details)}
 {@rownumber} - {#details.item.item.code} - {#details.item.item.name2} - {#details.quantity.quantity.primeQty.value} - {#details.price.netValue}
 {endloop}
 ```
-### Getting the la last line in details
-To get the last line in a table use the following syntax
-```
-{loop(details,last)}
-```
-- To loop from line number upto another line number, use the following syntax:
-```
-{loop(details,startLineNumber,endLineNumber)}
-```
-Ex:
-```
-{loop(details,2,3)}
-```
-This example will loop from line 2 upto 3
-- To loop from line number upto last line number, use the following syntax:
-```
-{loop(details,startLineNumber)}
-```
-This is exactly like:
-```
-{loop(details,startLineNumber,last)}
-```
-Ex:
-```
-{loop(details,5,last)}
-```
-is exactly like   
-```
-{loop(details,5)}
-```
-This example will loop from line 5 upto the last line
-- To loop the last line only, use the following syntax:
-```
-{loop(details,last)}  last line only
+
+---
+
+### Loop Variants
+
+#### 1. **Last Line Only**
+
+Loop through just the last row:
+
+```tempo
+{loop(details, last)}
+  Last line content
+{endloop}
 ```
 
-### Manual Counters
-You can declare a manual counter that can be used instead of `@rownumber` variable, or `@@last` and `@@end`.
-There are three statements:
+---
+
+#### 2. **Range of Lines**
+
+Loop through a specific range of line numbers:
+
+```tempo
+{loop(details, 2, 3)}
+  From line 2 to 3
+{endloop}
 ```
+
+---
+
+#### 3. **From Specific Line to End**
+
+Loop from a starting line to the last line:
+
+```tempo
+{loop(details, 5)}
+```
+
+> This is equivalent to:
+
+```tempo
+{loop(details, 5, last)}
+```
+
+---
+
+### Manual Counters
+
+You can define and control your own counters for custom row numbering and referencing:
+
+#### Counter Syntax
+
+```tempo
 {incrementcounter(counterName)}
 {decrementcounter(counterName)}
 {countervalue(counterName)}
 ```
-Also, it can be used as follows in the row statement of quick creators:
-```
+
+#### Use in Quick Creators
+
+To use the counter in a row expression:
+
+```tempo
 {r(@@counterName)}
 ```
-- Here is a complete example that creates a stock transfer from MnOrder document, the counter name is c1:
-```
-{creator(entity="StockTransferReq",menu="StockTransDocumentsStockTransferReq",title="Create StockTransferReq",newwindow="true")}
+
+---
+
+### Full Example: Creating Stock Transfer from MnOrder
+
+This example demonstrates:
+
+* A loop over `spareParts`
+* Skipping rows where `spareParts.n1` is true
+* Using a manual counter `c1`
+* Populating a stock transfer creation form
+
+```tempo
+{creator(entity="StockTransferReq", menu="StockTransDocumentsStockTransferReq", title="Create StockTransferReq", newwindow="true")}
+
 {f("book")}{v("STR01")}
 {f("term")}{v("STR02")}
 {f("branch")}{v("MS")}
 {f("warehouse")}{v("W001")}
 {f("toWarehouse")}{v(spareParts.warehouse.code)}
 {f("toLocator")}{v(spareParts.location.code)}
-{loop(spareParts)}
-{ifnot(spareParts.n1)}
-{incrementcounter(c1)}
-{f("details.item.item")}{v(spareParts.sparePart.code)}{r(@@c1)}
-{f("details.quantity.quantity.primeQty.value")}{v(spareParts.quantity)}{r(@@c1)}
-{f("details.quantity.quantity.primeQty.uom")}{v(spareParts.uom.code)}{r(@@c1)}
-{f("details.specificDimensions.warehouse")}{v("W001")}{r(@@c1)}
-{f("details.toWarehouse")}{v(spareParts.warehouse.code)}{r(@@c1)}
-{f("details.toLocator")}{v(spareParts.location.code)}{r(@@c1)}
-{endif}
-{endloop}
-{endcreator}
 
+{loop(spareParts)}
+  {ifnot(spareParts.n1)}
+    {incrementcounter(c1)}
+    {f("details.item.item")}{v(spareParts.sparePart.code)}{r(@@c1)}
+    {f("details.quantity.quantity.primeQty.value")}{v(spareParts.quantity)}{r(@@c1)}
+    {f("details.quantity.quantity.primeQty.uom")}{v(spareParts.uom.code)}{r(@@c1)}
+    {f("details.specificDimensions.warehouse")}{v("W001")}{r(@@c1)}
+    {f("details.toWarehouse")}{v(spareParts.warehouse.code)}{r(@@c1)}
+    {f("details.toLocator")}{v(spareParts.location.code)}{r(@@c1)}
+  {endif}
+{endloop}
+
+{endcreator}
 ```
-## Usage With Approval Notification Templates
-### To notify the user about lines that are applicable to an approval rule, use the following syntaxes:
-```
-The lines that are below the default sales price: {loop($map.approvalRuleLines)} {link($map.approvalRuleLines.item.item)} - {$map.approvalRuleLines.price.unitPrice}
+
+## Using Tempo in Approval Notification Templates
+
+### 1. Displaying Approval-Related Lines
+
+To inform users about specific lines affected by an approval rule (e.g., prices below a threshold), use a `loop` over the approval rule lines:
+
+```tempo
+The lines that are below the default sales price:
+{loop($map.approvalRuleLines)}
+  {link($map.approvalRuleLines.item.item)} - {$map.approvalRuleLines.price.unitPrice}
 {endloop}
 ```
-### To make a link for approval, use one of the following syntaxes:
-```
+
+This will list each line with a link to the item and display the unit price.
+
+---
+
+### 2. Adding Approval Action Links
+
+To include action buttons in your email or SMS templates for approval workflows, use the following placeholders:
+
+```tempo
 {approvelink}
 {rejectlink}
 {returnlink}
 {escalatelink}
 ```
-::: tip
-Note that these four types of links are primarily used in Email Template or SMS template in the approval definition record.
-Note also, these links are usually used together (in the Email text for example)
-:::
-## Tables In Tempo
-### Drawing a table
-To draw a table, write the table content between the two commands `{opentable}`, `{closetable}`
 
-Ex1: to Write the previous data of the sales invoice in a table
-```
-{opentable}
-{row}{cell}#{cell}Item Code{cell}Item Name {cell}Quantity{cell}Net Value{endrow}
-{loop(details)}
-{row}{cell}{@rownumber}{cell}{#details.item.item.code}{cell}{#details.item.item.name2}{cell}{#details.quantity.quantity.primeQty.value}{cell}{#details.price.netValue}{endrow}
-{endloop}
-{closetable}
-```
 ::: tip
-Note that `{@rownumber}` is the syntax for the line number. It is corresponding to the cell # written in the row header
+
+* These action links are mainly used in **email or SMS templates** defined within an **approval rule**.
+* It's common to include multiple action links together in a message (e.g., Approve, Reject, Return).
 :::
 
-- To fill a table within a loop, use the following syntax:
-```
+## Creating Tables in Tempo
+
+Tempo allows you to format tabular data using special syntax blocks. This is useful for presenting structured data like document lines, grouped totals, or summaries in a clean format.
+
+---
+
+### 1. Basic Table Structure
+
+To create a table, wrap your content between `{opentable}` and `{closetable}` tags.
+
+#### **Example – Table of Sales Invoice Details**
+
+```tempo
 {opentable}
+  {row}{cell}#{cell}Item Code{cell}Item Name{cell}Quantity{cell}Net Value{endrow}
+  {loop(details)}
+    {row}
+      {cell}{@rownumber}
+      {cell}{#details.item.item.code}
+      {cell}{#details.item.item.name2}
+      {cell}{#details.quantity.quantity.primeQty.value}
+      {cell}{#details.price.netValue}
+    {endrow}
+  {endloop}
 {closetable}
 ```
-- To group the displayed data in the header according to a field, use the following syntax:
+
+::: tip
+`{@rownumber}` represents the line number and corresponds to the `#` symbol in the header.
+:::
+
+---
+
+### 2. Rows and Cells
+
+#### Drawing Rows
+
+Use `{row}` and `{endrow}` to define a table row.
+
+**Example – Table Header Row:**
+
+```tempo
+{row}{cell}#{cell}Item Code{cell}Item Name{cell}Quantity{cell}Net Value{endrow}
 ```
-{header(Grouping field)}
+
+#### Drawing Cells
+
+Use `{cell}` to create table cells. You may optionally close each cell with `{endcell}`.
+
+**Example:**
+
+```tempo
+{cell}Item Name{endcell}
+```
+
+::: tip
+The `{endcell}` tag is optional and can be omitted for simplicity.
+:::
+
+---
+
+### 3. Grouping Data in Tables
+
+Tempo supports grouping rows with headers and footers using the following syntax:
+
+#### Group Header
+
+```tempo
+{header(groupingField)}
+  Header content here
 {endheader}
 ```
-To group the displayed data in the footer according to a field, use the following syntax:
-```
-{footer(Grouping field)}
+
+#### Group Footer
+
+```tempo
+{footer(groupingField)}
+  Footer content here
 {endfooter}
 ```
-To have more explanation for the last three syntaxes, look at the following example:
-Ex:
-```
+
+#### **Example – Grouped Table by Item Code**
+
+```tempo
 {loop(details)}
-{header(details.item.item.code)}
-Item {#details.item.item.code}
-{opentable}
-{row}{cell}Quantity{cell}Price{endrow}
-{endheader}
-{row}{cell}{#details.quantity.quantity.primeQty.value}{cell}{#details.price.unitPrice}{endrow}
-{footer(details.item.item.code)}
-{closetable}
-{endfooter}
+  {header(details.item.item.code)}
+    Item: {#details.item.item.code}
+    {opentable}
+      {row}{cell}Quantity{cell}Price{endrow}
+  {endheader}
+
+  {row}
+    {cell}{#details.quantity.quantity.primeQty.value}
+    {cell}{#details.price.unitPrice}
+  {endrow}
+
+  {footer(details.item.item.code)}
+    {closetable}
+  {endfooter}
 {endloop}
 ```
 
-### Drawing a row in a table
-Use the two commands to draw a row `{row}` , `{endrow}`
-Ex1 the following sentence is to draw a table header
-```
-{row}{cell}#{cell} Item Code {cell} Item Name {cell} Quantity {cell} Net Value {endrow}
-```
-### Drawing a cell in a table row
-Use the two commands to draw a cell `{cell}` , `{endcell}`
-Ex1
-```
-{cell}  Item Name {endcell}
-```
-::: tip
-Note that {endcell} is optional, you can neglect it.
-:::
+In this example:
 
-## Functions available to tempo
-- Writing the current user
-You can access all current user data using `{$user.PROPERTY_NAME}`
-Example: to get the code of current user `{$user.code}`
+* A new table is created for each unique `item.code`
+* The table opens in the header and closes in the footer
+* Individual item rows are inserted within the loop
+
+## Functions Available in Tempo
+
+### Accessing Current User Data
+
+Use the following syntax to get properties of the currently logged-in user:
+
+```tempo
+{$user.PROPERTY_NAME}
+```
+
+**Example:**
+
+```tempo
+{$user.code}
+```
+
+---
 
 ## Date and Time Functions
-- To format a date expression use the following syn:
-```
-{formatDate(dateExpression,formatExpression)}
-```
-Ex: 
-```
-{formatDate(valueDate,"yyyy-MM-dd")}.
-```
-- Writing the creation date (including time) of a record
-Use the syntax `{$creationDate}`
 
-- Writing the creation date only without time of a record
-Use the syntax `{$creationDate.$toDate}`
-- Get Today's Date
-Use the syntax `{$today}`
-- Get Next and previous Month Date on Same Day as any date field
-```
-{date.$nextMonth}
-{date.$previousMonth}
-```
-- Get Current Date and Time
-Use the syntax `{$now}`
+### General Date Formatting
 
-- Writing the time of the creation date of a record
-  Use the syntax `{$creationDate.$toTime.$toStringNormal}` => 12:50:10
+```tempo
+{formatDate(dateExpression, formatExpression)}
+```
+
+**Example:**
+
+```tempo
+{formatDate(valueDate, "yyyy-MM-dd")}
+```
+
+---
+
+### Record Metadata
+
+* Creation date and time: `{$creationDate}`
+* Creation date only: `{$creationDate.$toDate}`
+* Current date: `{$today}`
+* Current date and time: `{$now}`
+
+---
+
+### Navigating Dates
+
+* Next month: `{date.$nextMonth}`
+* Previous month: `{date.$previousMonth}`
+* Next day: `{valueDate.$nextDay}`
+* Previous day: `{valueDate.$previousDay}`
+* Next year: `{valueDate.$nextYear}`
+* Previous year: `{valueDate.$previousYear}`
+* Start of month: `{valueDate.$monthStart}`
+* End of month: `{valueDate.$monthEnd}`
+
+---
+
+### Extracting Parts of a Date
+
+* Day: `{valueDate.day}`
+* Month: `{valueDate.month}`
+* Year: `{valueDate.year}`
+
+---
+
+### Day Name
+
+* Arabic: `{valueDate.$arDayName}`
+* English: `{valueDate.$enDayName}`
+* Based on current language: `{valueDate.$dayName}`
+
+---
+
+### Hijri and String Formats
+
+* Hijri date: `{valueDate.$asHijriString}`
+* `DD_MM_YYYY`: `{valueDate.$toStringDD_MM_YYYY}`
+* `YYYYMMDD`: `{valueDate.$toStringYYYYMMDD}`
+
+---
+
+### Record Creation Time
+
+* Time only: `{$creationDate.$toTime.$toStringNormal}`
+
 ::: tip
-Note that the syntax $toStringNormal is to convert the time formula to a string
+`$toStringNormal` converts time to a readable format like `12:50:10`
 :::
-- Writing the day of the value date of a record
-  Use the syntax `{valueDate.day}`
 
-- Writing the month of the value date of a record
-Use the syntax `{valueDate.month}`
+---
 
-- Writing the year of the value date of a record
-Use the syntax `{valueDate.year}`
-- Writing the day Arabic name (like السبت) of the value date of a record
-  Use the syntax 
+### Time Field Functions (Record Mode)
 
-```
-{valueDate.$arDayName}
-{#valueDate.$arDayName} 
-{#valueDate.$enDayName}
-{#valueDate.$dayName}
-```
-- Writing the day English name (like saturday) of the value date of a record
-Use the syntax 
-```
-{valueDate.$enDayName}
-```
-- Writing the day name (according to current language) of the value date of a record
-Use the syntax 
-```
-{valueDate.$dayName}
-```
-- Writing the Hijri value date of a record
-Use the syntax 
-```
-{valueDate.$asHijriString}
-```
-- Writing the value in the string format (DD_MM_YYYY) date of a record
-Use the syntax 
-```
-{valueDate.$toStringDD_MM_YYYY}
-```
-- Writing the value in the string format (YYYYMMDD) date of a record
-Use the syntax 
-```
-{valueDate.$toStringYYYYMMDD}
-```
-- Writing the next day of the value date of a record
-Use the syntax 
-```
-{valueDate.$nextDay}
-```
-- Writing the previous day of the value date of a record
-Use the syntax 
-```
-{valueDate.$previousDay}
-```
-- Writing the next month of the value date of a record
-Use the syntax 
-```
-{valueDate.$nextMonth}
-```
-- Writing the previous month of the value date of a record
-Use the syntax 
-```
-{valueDate.$previousMonth}
-```
-- Writing the next year of the value date of a record
-Use the syntax 
-```
-{valueDate.$nextYear}
-```
-- Writing the previous year of the value date of a record
-Use the syntax 
-```
-{valueDate.$previousYear}
-```
-- Writing the start date of the month that including the value date
-Use the syntax 
-```
-{valueDate.$monthStart}
-```
-- Writing the end date of the month that including the value date
-Use the syntax 
-```
-{valueDate.$monthEnd}
-```
-- Writing the hour of time date of the month that including the value date
-Use the syntax 
-```
-{valueDate.$monthEnd}
-```
-
-- Getting specific element from array
-Use the syntax 
-```
-{details.$get(index)}
-```
-::: tip Index is zero based
-For example if you need to fetch the first line of grid called details you will write `{details.$get(0)}`
+::: tip
+Assume the field is called `time`
 :::
-- Remove all spaces from a field
-Use the syntax 
-```
-{description1.$removeAllSpaces}
-```
-- Normalize arabic text inside of a field (replace all similar characters with one of them)
-Use the syntax 
-```
-{description1.$normalizeAr}
-```
-   - Example of what the utility does:
-    If you have the following text
-    `منى ذهبت إلى المدرسة مع فؤاد`
-    It will become
-    `مني ذهبت الي المدرسه مع فواد`
-### Time related functions for record-mode
 
-::: tip For the following examples, we will suppose there is a time field called time
-:::
-- Writing the hour of that time date
-Use the syntax 
-```
-{time.$hours}
-```
+* Hour: `{time.$hours}`
+* Minute: `{time.$minutesOfHour}`
+* Second: `{time.$secondsOfMinute}`
+* Millisecond: `{time.$millisOfSecond}`
 
-- Writing the minute of that time date
-Use the syntax 
-```
-{time.$minutesOfHour}
-```
-- Writing the second of that time date
-Use the syntax 
-```
-{time.$secondsOfMinute}
-```
-- Writing the millis of second of that time date
-Use the syntax 
-```
-{time.$millisOfSecond}
-```
-### Time related functions for query-mode
-- To display the time in a correct form, use the following syntax
-```
+---
+
+### Time Field Functions (Query Mode)
+
+To format a time field from a query:
+
+```tempo
 {time(timeField)}
 ```
-Ex:
-```
+
+**Example:**
+
+```tempo
 {time(fromTime)}
 ```
-Where fromTime is a time field.
 
-The corresponding function that is not usually used in record-mode is $toStringNormal.
-Ex: 
-```
+Or use:
+
+```tempo
 {fromTime.$toStringNormal}
 ```
-If the number is total number of hours, use:
-```
+
+For total hours stored as a decimal:
+
+```tempo
 {decimalToTime(decimalField)}
 ```
 
-### Translations in tempo
+---
 
-- Writing the arabic value of an enumeration field  (like orderStatus- for example)
-Use a syntax like 
+## Array and Text Utilities
+
+### Accessing Array Elements
+
+```tempo
+{details.$get(index)}
 ```
+
+::: tip
+Index is zero-based. To get the first row in `details`, use `{details.$get(0)}`
+:::
+
+---
+
+### Text Utilities
+
+* Remove all spaces:
+
+```tempo
+{description1.$removeAllSpaces}
+```
+
+* Normalize Arabic text (unify similar characters):
+
+```tempo
+{description1.$normalizeAr}
+```
+
+**Example:**
+
+```
+منى ذهبت إلى المدرسة مع فؤاد
+```
+
+Becomes:
+
+```
+مني ذهبت الي المدرسه مع فواد
+```
+### Translations in Tempo
+
+#### Translating Enumeration Fields
+
+* Arabic translation:
+
+```tempo
 {#orderStatus.$arabic}
 ```
-- Writing the arabic value of an enumeration field  (like orderStatus - for example)
-Use a syntax like 
-```
+
+* English translation:
+
+```tempo
 {#orderStatus.$english}
 ```
-- To translate a value of an enumeration field, use the following syntax: 
-```
-{translate(enumuratedField)}
-{translateAr(enumuratedField)}
-{translateEn(enumuratedField)}
-```
-Ex: 
-```
+
+* Auto-translate based on language settings:
+
+```tempo
 {translate(orderStatus)}
 ```
 
-This function will translate the value in the order status field into corresponding value in the second language. I.e. Translate the English value into Arabic, and vice versa.
+* Force Arabic translation:
+
+```tempo
+{translateAr(orderStatus)}
+```
+
+* Force English translation:
+
+```tempo
+{translateEn(orderStatus)}
+```
+
+**Example:**
+
+```tempo
+{translate(orderStatus)}
+```
+
+This translates the `orderStatus` value to the other language (Arabic ↔ English).
 
 ::: tip
-Remember that, you can use also {orderStatus.$english}
+You can also use `{orderStatus.$english}` or `{orderStatus.$arabic}` directly.
 :::
 
-### Number-related functions in tempo
-- Converting a text (like description) to integer ---If possible
-Use a syntax like 
-```
+---
+
+### Number-Related Functions in Tempo
+
+#### Convert Text to Number (if possible)
+
+* Convert to integer:
+
+```tempo
 {#description1.$tryToInt}
 ```
-- Converting a text (like description) to decimal ---If possible
-Use a syntax like 
-```
+
+* Convert to decimal:
+
+```tempo
 {#description1.$tryToDecimal}
 ```
-- Formatting dates and numbers
-```
+
+---
+
+### Formatting Dates and Numbers
+
+Use the `$format` function on dates or numbers with your desired pattern:
+
+```tempo
 {creationDate.$format."yyyy-MM-dd HH:mm:ss"}
-{money.total.$format."###,###.00"} 
+{money.total.$format."###,###.00"}
+```
+## If Statements (Conditionals) in Tempo
+
+Tempo provides flexible conditional logic using `{if}`, `{ifnot}`, and related syntax to control when content is rendered.
+
+---
+
+### Basic Conditions
+
+* **If a field is not empty**:
+
+```tempo
+{if(code)}Content shown if `code` is not empty{endif}
 ```
 
-## If Statements (conditionals) in tempo
+* **If a number is not zero**:
 
-- To check if a field is empty or not
+```tempo
+{if(money.remaining)}Remaining is {#money.remaining}{endif}
 ```
-{if(code)}content here will be rendered if code is not empty {endif}
+
+* **If a boolean is true**:
+
+```tempo
+{if(commitedBefore)}Record is committed before{endif}
 ```
-This syntax means if there is a value in the code field, write the content between if and endif.
-- To check if a number is not zero
+
+* **Negated if condition** (if the field is empty or false):
+
+```tempo
+{ifnot(code)}Code is missing{endif}
+{if!(code)}Code is missing{endif}
 ```
-{if(money.remaining)} Remaining is {#money.remaining}{endif}
-```
-- To check if a boolean is true
-```
-{if(commitedBefore)} Record is committed before{endif}
-```
-- Negated if statement
-  - If you want to render content if a condition is not met use `{ifnot(code)}{endif}` or `{if!(code)}{endif}`
-  This syntax means if there is no value in the code field.
-  Ex
-```
-{ifnot(money.remaining)} No Remaining {endif}
-```
-Writing If statement to check if the text is a number not equal to zero
-Use the syntax like 
-```
+
+* **If a string represents a number that’s not zero**:
+
+```tempo
 {ifnumber(description1)}
 ```
-Here are all syntax of (If statement):
 
-If syntax
-Desc
-{If(string)}
-- If the string is not empty, render the inner values, else do nothing.
-  {if!(string)}
-  {ifnot(string)}
-- If the string is empty, render the inner values, else do nothing.
-  {if=(string1,string2)}
-  {ifequal(string1,string2)}
-  If string1 = string2, render the inner values, else do nothing.
-  {if!=(string1,string2)}
-  {ifnotequal(string1,string2)}
-  If string1 = string2, do nothing, else  render the inner values.
-  {if<(string1,string2)}
-  {ifless(string1,string2)}
-  If string1 is less than string2, render the inner values, else do nothing.
-  {if<=(string1,string2)}
-  {iflessoreq(string1,string2)}
-  If string1 is less than or equal  string2, render the inner values, else do nothing.
-  {if>(string1,string2)}
-  {ifgreater(string1,string2)}
-  If string1 is greater than string2, render the inner values, else do nothing.
-  {if>=(string1,string2)}     {ifgreateroreq(string1,string2)}
-  If string1 is greater than or equal  string2, render the inner values, else do nothing.
-  {ifnumber(N)}
-  If N is not zero render inner values, else do nothing
-  {ifnumber!(N)}
-  {ifnumbernot(N)}
-  If N is zero render inner values, else do nothing
-  {ifnumber=(Number1,Number2)} {ifnumberequal(Number1,Number2)}
-  If Number1 = Number2, render the inner values, else do nothing.
-  {ifnumber!=(Number1,Number2)}   {ifnumbernotequal(Number1,Number2)}
-  If Number1 = Number2, do nothing, else  render the inner values.
-  {ifnumber<(Number1,Number2)}    {ifnumberless(Number1,Number2}}
-  If Number1 is  less than Number2, render the inner values, else do nothing.
-  {ifnumber<=(Number1,Number2)}   {ifnumberlessoreq(Number1,Number2)}
-  If first Number1 is less than or equal  Number2, render the inner values, else do nothing.
-  {ifnumber>(Number1,Number2)}
-  {ifnumbergreater(Number1,Number2)}
-  If Number1 is  greater than Number2, render the inner values, else do nothing.
-  {ifnumber>=(Number1,Number2)}
-  {ifnumbergreateroreq(Number1,Number2)}
-  If first Number1 greater than or equal Number2, render the inner values, else do nothing.
-  {if=(code,"a")}case 1 {else if=(code,"b")}case 2{else if<(n1,5)} case 3{else}nothig applicable{endif}
-  You can use if else syntax with any if condition
-  You can write it as else if= or elseif=
-  You can prepend else infront of any if condition (with space or without)
-  If you use {else} it will be applied if all conditions fails
-  Make sure that the simple else expression is the last one
-  If you want you can use {endelse} to close else expressions, but it's optional and we do not recommend it
+---
+
+### Full Syntax Reference
+
+| Syntax                                | Description                     |
+| ------------------------------------- | ------------------------------- |
+| `{if(value)}`                         | Renders if `value` is not empty |
+| `{if!(value)}`, `{ifnot(value)}`      | Renders if `value` is empty     |
+| `{if=(a,b)}`, `{ifequal(a,b)}`        | Renders if `a == b`             |
+| `{if!=(a,b)}`, `{ifnotequal(a,b)}`    | Renders if `a != b`             |
+| `{if<(a,b)}`, `{ifless(a,b)}`         | Renders if `a < b`              |
+| `{if<=(a,b)}`, `{iflessoreq(a,b)}`    | Renders if `a <= b`             |
+| `{if>(a,b)}`, `{ifgreater(a,b)}`      | Renders if `a > b`              |
+| `{if>=(a,b)}`, `{ifgreateroreq(a,b)}` | Renders if `a >= b`             |
+
+---
+
+### Number-Specific Conditions
+
+| Syntax                                            | Description                      |
+| ------------------------------------------------- | -------------------------------- |
+| `{ifnumber(n)}`                                   | Renders if `n` is not zero       |
+| `{ifnumber!(n)}`, `{ifnumbernot(n)}`              | Renders if `n` is zero           |
+| `{ifnumber=(a,b)}`, `{ifnumberequal(a,b)}`        | Renders if numbers are equal     |
+| `{ifnumber!=(a,b)}`, `{ifnumbernotequal(a,b)}`    | Renders if numbers are not equal |
+| `{ifnumber<(a,b)}`, `{ifnumberless(a,b)}`         | Renders if `a < b`               |
+| `{ifnumber<=(a,b)}`, `{ifnumberlessoreq(a,b)}`    | Renders if `a <= b`              |
+| `{ifnumber>(a,b)}`, `{ifnumbergreater(a,b)}`      | Renders if `a > b`               |
+| `{ifnumber>=(a,b)}`, `{ifnumbergreateroreq(a,b)}` | Renders if `a >= b`              |
+
+---
+
+### Using `else` and `else if`
+
+You can chain multiple conditions using `else if=`, `elseif=`, or `else`.
+
+```tempo
+{if=(code,"a")}Case A
+{else if=(code,"b")}Case B
+{else if<(n1,5)}Case C
+{else}No match found
+{endif}
+```
+
+::: tip
+
+* `else` must come last.
+* `endelse` is optional and not recommended.
+* You can prepend `else` to any `if` condition.
+:::
+
+This structure allows full control over conditional content rendering within Tempo templates.
 
 ## Tafqeet in Tempo
-This function converts the amount value from numbers into alphabetical characters based on tafqeet configuration in global configuration.
-This function takes the syntax 
-```
-{tafqeet("Number","currency")}
+
+The `tafqeet` function converts numeric values into words, using the currency formatting defined in the global configuration.
+
+### Syntax
+
+```tempo
+{tafqeet("Number", "CurrencyCode")}
 ```
 
-Ex1: 
-```
-{tafqeet("500","EGP")}
-```
-This function will display `five hundred Egyptian Pounds` - in English interface
-And will display `خمسمائة جنيه مصري` - in Arabic interface
+---
 
-Ex2: 
+### Examples
+
+#### Example 1: Hardcoded Values
+
+```tempo
+{tafqeet("500", "EGP")}
 ```
-{tafqeet(money.netValue,money.currency.Code)}
+
+* On English interface → `five hundred Egyptian Pounds`
+* On Arabic interface → `خمسمائة جنيه مصري`
+
+#### Example 2: Using Field Values
+
+```tempo
+{tafqeet(money.netValue, money.currency.code)}
 ```
-This sentence will work as the previous, but with the amount of the field (money.netValue), and with currency code mentioned for this currency in the "global Configurations" file.
+
+This converts the value of `money.netValue` using the currency code defined in the `money` object.
+
+---
+
+### Notes
+
 ::: tip
-Note that if -  for example -  the code is "جم", and the "altcode" is "EGP" in the "global Configurations" file, and you want to display the amount by EGP, use the following sentence
-{tafqeet(money.netValue,money.currency.altCode)}
+If the global configuration defines:
+
+* `code = جم`
+* `altCode = EGP`
+
+And you want the conversion in English regardless of the interface language, use:
+
+```tempo
+{tafqeet(money.netValue, money.currency.altCode)}
+```
+
 :::
 
-tafqeetAr
-Behaves exactly like tafqeet, but will always convert to Arabic alphabetical characters.
+---
 
-tafqeetEn
-Behaves exactly like tafqeet, but will always convert to English alphabetical characters.
+### Force Language with `tafqeetAr` or `tafqeetEn`
 
-## Executing entity flows by links through tempo
-- To execute an entity flow via a link, (sent by Email for example), use the following syntax:
+* Always render in **Arabic**:
+
+```tempo
+{tafqeetAr(money.netValue, money.currency.code)}
 ```
-{flow(record, flowCode="EntityFlowName")}
+
+* Always render in **English**:
+
+```tempo
+{tafqeetEn(money.netValue, money.currency.code)}
 ```
-Ex: 
+## Executing Entity Flows via Tempo Links
+
+To trigger an entity flow from a Tempo template (e.g. in an email), use the following syntax:
+
+```tempo
+{flow(record, flowCode="EntityFlowCode")}
 ```
+
+**Example:**
+
+```tempo
 {flow(employee, flowCode="CreateJobOffer")}
 ```
-This example will execute the entity flow "CreateJobOffer" for the employee field.
 
-## Email-related functions
-- To specify the subject of an email, use one of the following two methods:
-- First method: Start the first line with the keyword subject:  and write whatever you want after it. The system will consider this method only if it is the first line.
-```
-subject:Required subject to be sent
-```
-Ex:
-```
+This executes the `CreateJobOffer` flow for the current `employee` record.
+
+---
+
+## Email-Related Functions
+
+### 1. Setting the Email Subject
+
+#### Method 1: Using `subject:` at the Start of the First Line
+
+```tempo
 subject:The employee {name2} was updated by {$user.name2}
 ```
-- Second  method: Put the subject between `{subject}` and `{endsubject}`
-Ex:
+
+> Must be placed at the very beginning of the email body.
+
+#### Method 2: Using `{subject}` Block
+
+```tempo
+{subject}The employee {name2} was updated by {$user.name2}{endsubject}
 ```
-{subject} The employee {name2} was updated by {$user.name2} {endsubject}
-```
-- To add an attachment to the email:
-```
+
+---
+
+### 2. Adding Attachments
+
+Use one or more `emailattachment` tags for fields or server paths:
+
+```tempo
 {emailattachment(attachmentField)}
-{emailattachment("attachmentPathOnTheServer")}
+{emailattachment("C:\Path\To\File.pdf")}
 ```
-Ex: To Send Attachments of an employee:
-```
+
+**Example:**
+
+```tempo
 subject:Attachments of employee {code} - {name1}
-Dear Sir, Please note that the employee {name1} was changed. The email contains all files attached to the employee
+Dear Sir,  
+Please note that the employee {name1} was changed. The email contains all files attached to the employee.  
 {emailattachment(attachment)}{emailattachment(attachment1)}{emailattachment(attachment2)}{emailattachment(attachment3)}{emailattachment(attachment4)}{emailattachment(attachment5)}{emailattachment(mainFile)}
 ```
-Another Example:
-```
+
+**Another Example:**
+
+```tempo
 Attached our catalog {emailattachment("E:\Media\Prochures\catalog.pdf")}
 ```
-::: tip
+
+::: tip 
+
 <rtl>
-يفضل ان يتم وضع جملة المرفقات في نهاية الايميل
-يفضل ان لا يتم وضع مسافات او سطور بين جمل المرفقات - حيث ان هذه السطور ستبقى في الايميل
-اذا كان المرفق فارغا فسيتم تجاهله
+* يُفضّل وضع جمل المرفقات في نهاية الرسالة.
+* تجنب ترك سطور فارغة أو مسافات بينها لتفادي ظهورها غير المرغوب فيه في البريد.
+* المرفقات الفارغة يتم تجاهلها تلقائيًا.
+
 </rtl>
+
 :::
 
-- To send the email as is without trying to attach images , add the following to any part of the text (helpful when sending html emails)
-```
+---
+
+### 3. Prevent Auto-Attaching Images
+
+For HTML emails that shouldn't attach images automatically, include:
+
+```html
 <donothandleimages/>
 ```
-- To create a message, use the following syntax
-```
+
+---
+
+### 4. Creating and Sending Messages
+
+#### Message Body Block
+
+```tempo
 {openmsg}
-The contents of the message
+Message content here
 {closemsg}
 ```
-- To define the targeted address to be sent in the message
+
+#### Define Recipient Address
+
+```tempo
+{sendto}email-or-phone{endsendto}
 ```
-{sendto}email address (or phone number) {endsendto}
-```
-Ex1
-```
+
+**Examples:**
+
+* Send to a customer's email:
+
+```tempo
 {sendto}{#email}{endsendto}
 ```
-To send a message to the address found in the email field
 
-Ex2
-```
+* Send an SMS to a phone number:
+
+```tempo
 {sendto}{#phoneNumber}{endsendto}
 ```
-To send SMS message to a specific phone number included in the field `{phoneNumber}`
+
 ::: tip
-Note that these keywords (openmsg, sendto) are usually used in the Loops.
+Typically used inside `{loop}` blocks to send individualized messages.
 :::
 
-### Example: Sending email messages to all customers
-Suppose that we want to send email messages to all customers that have remaining values of the last month invoices.
-In this case, we will use a scheduled task. The task type should be Notification.
-In Email Template Query , enter the following query:
+---
+
+### Example: Send Email Notifications to Customers with Overdue Invoices
+
+**Step 1: Email Template Query**
 
 ```sql
-select s.code invoiceCode,s.valueDate, c.code customerCode, c.name2 customerName, s.remaining,c.email
+select s.code invoiceCode, s.valueDate, c.code customerCode, c.name2 customerName, s.remaining, c.email
 from SalesInvoice s
 left join customer c on c.id = s.customer_Id
-where remaining > 0 and valueDate between dateadd(month,-1,getDate()) and getdate()
+where remaining > 0 and valueDate between dateadd(month,-1,getdate()) and getdate()
 order by customerCode
 ```
 
-In the Email Template, enter the following:
-```
-{loop()}
-{header(customerCode)}
+**Step 2: Email Template Content**
 
-{openmsg}{sendto}{#email}{endsendto}
-{subject}Late Invoices of customer {#customerName}{endsubject}
-Dear {#customerName}{enter}
-Please note that the following invoices are due:
-{opentable}
-{row}{cell}Invoice Code{cell}Invoice Date{cell}Remaining{endrow}
-{endheader}
-{row}{cell}{#invoiceCode}{cell}{#valueDate}{cell}{#remaining}{endrow}
-{footer(customerCode)}
-{closetable}
-{closemsg}
-{endfooter}
+```tempo
+{loop()}
+  {header(customerCode)}
+
+  {openmsg}
+  {sendto}{#email}{endsendto}
+  {subject}Late Invoices of customer {#customerName}{endsubject}
+
+  Dear {#customerName}{enter}
+  Please note that the following invoices are due:
+
+  {opentable}
+  {row}{cell}Invoice Code{cell}Invoice Date{cell}Remaining{endrow}
+  {endheader}
+
+  {row}{cell}{#invoiceCode}{cell}{#valueDate}{cell}{#remaining}{endrow}
+
+  {footer(customerCode)}
+  {closetable}
+  {closemsg}
+  {endfooter}
 {endloop}
 ```
-## String-manipulation related functions in tempo
+## String Manipulation Functions in Tempo
 
-- Trim spaces in the beginning and end of a field
-  Use the syntax
-```
+### Trimming and Replacements
+
+* **Trim spaces at the beginning and end:**
+
+```tempo
 {description1.$trim}
 ```
-- Convert arabic numbers to english
-  Use the syntax
-```
+
+* **Convert Arabic numerals to English:**
+
+```tempo
 {mobile.$replaceArNumerals}
 ```
-- Parsing Json String
-  Use the syntax
-```
+
+---
+
+### Parsing and Conversions
+
+* **Parse JSON string to a map:**
+
+```tempo
 {text1.$parseJSONToMap}
 ```
-- Convert text separated by comma to list
-  Use the syntax
-```
+
+* **Convert comma-separated text into a list:**
+
+```tempo
 {remarks.$parseCSVToList}
 ```
-- To extract a number of characters from a string (starting from the left), use the following syntax:
-```
-{left(String,Length)}
-```
-Ex: 
-```
-{left(code,3)}
-```
-This example will extract the first three characters from the field Code (Starting from left)
 
-- To extract a number of characters from a string (starting from right), use the following syntax:
-```
-{right(String,Length)}
-```
-Ex: 
-```
-{right(code,3)}
-```
-This example will extract the last three characters from the field Code (Starting from right)
+---
 
-- To extract some characters from a string (starting from a specific index to a specific index), use the following syntax:
-```
-{substring(targetedString,startIndex, endIndex)}
-```
-Ex: 
-```
-{substring("NamaSoft",3,5)}
-```
-This example will return "maS"
+### Substring Functions
 
-Ex: 
-```
-{substring(code,3,5)}
-```
-This example will return "maS" if the code value is "NamaSoft"
-- Padding: To lengthen or shorten a text by a specific length, use the following expressions:
-```
-{leftpad(length)}Whatever you want here{endpad}
-{rightpad(length)}Whatever you want here{endpad}
+* **Extract characters from the left:**
+
+```tempo
+{left(string, length)}
 ```
 
-Ex: 
-```
-{leftpad(10)}123{endpad}
-```
-This example will put 7 spaces at the left of the text as the text length is 3 characters
-Result `       123`
-Ex: 
-```
-{rightpad(10)}123{endpad}
-```
-This example will put 7 spaces at the right of the text as the text length is 3 characters
-Result `123       `
+**Example:**
 
-Ex: 
-```
-{leftpad(5)}123456789{endpad}
-```
-This example will shorten the length of the number to be 5 digits from the left.
-
-Result `12345`
-
-Ex: 
-```
-{rightpad(5)}123456789{endpad}
-```
-This example will shorten the length of the number to be 5 digits from the right.
-Result `56789`
-
-## Numeric fields related functions
-
-- Rounding Numbers
-    - Use the syntax `{n1.$round0}`
-      Will convert 19.9 to 20 , 19.3 to 19
-    - Use the syntax `{n1.$round1}`
-      Will convert 15.86 to 15.9 , 10.33 to 10.3
-    - `{n1.$round2}, {n1.$round3},{n1.$round4}, {n1.$round5}`
-      The number after round indicates the decimals to keep
-- To round a number expression by a specific number of decimal places, use the following syn:
-```  
-{round(numberExpression,fractionalDecimalPlacesExpression)}
-```
-Ex: 
-```
-{round(n1,"2")}
-```
-This example will round fraction of field n1 2 decimal places
-Ex: 
-```
-{round(money.value,money.currency.fractionalDecimalPlaces)}
-```
-This example will round the fraction of the field (money.value) to the fraction fractional Decimal Places of its currency.
-
-To format a number expression use the following syn:
-```
-{formatNumber(numberExpression,formatExpression)}
-```
-Ex: 
-```
-{formatNumber(n1,"###,###.00")}
-```
-## URL Shortening in tempo
-
-- URL Shortening is very helpful with SMS messages, instead of 200 character long links, you get a 30 or 40 characters links depending on the domain name.
-- First, you will need to install a YOURLS server on a server which supports php. 
-- Then you will need a signature. 
-  - Alternatively you can rent from namasoft URL shortening service using our servers.
-- Then you can use the following to obtain short links:
-```
-{shortenurl(server="https://namasoft.com/s/",signature="SIGNATURE_HERE")}{link($this,plainLink=true)}{endshortenurl}
+```tempo
+{left(code, 3)} → "Nam" if code is "NamaSoft"
 ```
 
-## Dynamic Report Links in notifications and dashboards
+* **Extract characters from the right:**
 
-Suppose we have a report with code 1000 that takes two parameters: entityType (String), and document (Reference).
-- To add link to that report in a notification definition:
-```
-{reportlink(reportCode="1000",runType="launch",newwindow="true")}{paramname("entityType")}{paramvalue(ref1.entityType)}{paramname("document")}{paramvalue(ref1)}{endreportlink}
-```
-To add link to that report in a dashboard :
-```
-{reportlink(reportCode="1000",runType="launch",plainLink=true)}{paramname("entityType")}{paramvalue(entityType)}{paramname("document")}{paramvalue(id,entityType)}{endreportlink}
-```
-- Here are all the available nodes:
-```
-{paramname(expression)}
-{paramvalue(expression)}
-{paramrefvalue(entityType=expression,id=expression,code=expression,name1=expression,name2=expression)}
-```
-Code, name1,nam2 are all optional
-```
-{parammultivalue}expressions here like {code} and {name1}{endmutlivalue}
+```tempo
+{right(string, length)}
 ```
 
-## CRM Questionnaire Sending in Emails and URLS
-- Send an email to a third party from a questionnaire notification with the survey as the content of the email:
+**Example:**
+
+```tempo
+{right(code, 3)} → "oft" if code is "NamaSoft"
 ```
-Dear Sir, {enter}
+
+* **Extract substring from a specific range:**
+
+```tempo
+{substring(string, startIndex, endIndex)}
+```
+
+**Example:**
+
+```tempo
+{substring("NamaSoft", 3, 5)} → "maS"
+```
+
+---
+
+### Padding (Truncating or Adding Spaces)
+
+* **Left pad or truncate:**
+
+```tempo
+{leftpad(length)}YourTextHere{endpad}
+```
+
+* **Right pad or truncate:**
+
+```tempo
+{rightpad(length)}YourTextHere{endpad}
+```
+
+**Examples:**
+
+```tempo
+{leftpad(10)}123{endpad}     → "       123"
+{rightpad(10)}123{endpad}    → "123       "
+{leftpad(5)}123456789{endpad}→ "12345"
+{rightpad(5)}123456789{endpad}→ "56789"
+```
+
+---
+
+## Numeric Field Functions
+
+### Fixed-Decimal Rounding
+
+* **Round to 0–5 decimal places:**
+
+```tempo
+{n1.$round0}
+{n1.$round1}
+{n1.$round2}
+{n1.$round3}
+{n1.$round4}
+{n1.$round5}
+```
+
+**Examples:**
+
+```tempo
+{n1.$round0} → 20 if n1 = 19.9  
+{n1.$round2} → 10.33 remains 10.33
+```
+
+---
+
+### Dynamic Rounding
+
+```tempo
+{round(numberExpression, decimalPlacesExpression)}
+```
+
+**Examples:**
+
+```tempo
+{round(n1, "2")}
+{round(money.value, money.currency.fractionalDecimalPlaces)}
+```
+
+---
+
+### Number Formatting
+
+```tempo
+{formatNumber(numberExpression, formatExpression)}
+```
+
+**Example:**
+
+```tempo
+{formatNumber(n1, "###,###.00")} → 1,234.50
+```
+## URL Shortening in Tempo
+
+URL shortening is particularly useful for SMS messages, where long links are not practical.
+
+* To use this feature, you need a [YOURLS](https://yourls.org) server or subscribe to Namasoft's shortening service.
+* You also need an API **signature** from the YOURLS server.
+
+### Syntax
+
+```tempo
+{shortenurl(server="https://your-shortener.com/", signature="SIGNATURE_HERE")}
+  {link($this, plainLink=true)}
+{endshortenurl}
+```
+
+**Example using Namasoft shortening service:**
+
+```tempo
+{shortenurl(server="https://namasoft.com/s/", signature="SIGNATURE_HERE")}
+  {link($this, plainLink=true)}
+{endshortenurl}
+```
+
+---
+
+## Dynamic Report Links in Notifications and Dashboards
+
+You can add dynamic links to reports from notifications or dashboards. This is useful for generating contextual reports based on specific parameters.
+
+### Notification Example
+
+```tempo
+{reportlink(reportCode="1000", runType="launch", newwindow="true")}
+  {paramname("entityType")}{paramvalue(ref1.entityType)}
+  {paramname("document")}{paramvalue(ref1)}
+{endreportlink}
+```
+
+### Dashboard Example
+
+```tempo
+{reportlink(reportCode="1000", runType="launch", plainLink=true)}
+  {paramname("entityType")}{paramvalue(entityType)}
+  {paramname("document")}{paramvalue(id, entityType)}
+{endreportlink}
+```
+
+---
+
+### Supported Nodes
+
+* **Parameter by Name:**
+
+```tempo
+{paramname("paramName")}{paramvalue("paramValue")}
+```
+
+* **Reference Parameters (with optional display fields):**
+
+```tempo
+{paramrefvalue(entityType=..., id=..., code=..., name1=..., name2=...)}
+```
+
+* **Multi-value Parameters:**
+
+```tempo
+{parammultivalue}{code} {name1}{endmutlivalue}
+```
+
+---
+
+## CRM Questionnaire Sending
+
+### 1. Embed Survey in Email
+
+```tempo
+Dear Sir,{enter}
 We would love you to answer the following survey.{enter}
-{$renderQuestionsForMailEmbedded} {enter}
+{$renderQuestionsForMailEmbedded}{enter}
 Thanks and Best Regards
 ```
-- Send an email to a third party from a questionnaire notification with the survey as a link:
-```
-Dear Sir, {enter}
-We would love you to answer a quick survey on the following <a href='{$questionsURL}' >URL</a>.{enter}
+
+### 2. Send Survey as Link
+
+```tempo
+Dear Sir,{enter}
+We would love you to answer a quick survey on the following <a href='{$questionsURL}'>URL</a>.{enter}
 Thanks and Best Regards
 ```
 ## Sending HTTP Requests from Tempo
 
-- The following should be used with the EASendHttpRequestByTempo entity flow
-  The following is an example for sending http requests to a url for each line in details
-  Example 1:
-  
-```{loop(details)}
-{httprequest}
-{requesturl}https://namasoft.com/api/v3.0/item{endurl}
-{requestmethod}POST{endmethod}
-{contenttype}application/json{endcontenttype}
-{charset}utf8{endcharset}
-{headername}api-key{endheadername}
-{headervalue}xxHjjk889523{endheadervalue}
-{paramname}company_name{endparamname}
-{paramvalue}{legalEntity.name2}{endparamvalue}
-{bodypartname}user_whatsapp_number{endbodypartname}
-{bodypartvalue}{details.ref1.$toReal.contactInfo.mobile}{endbodypartvalue}
-{bodypartname}ordernumber{endbodypartname}
-{bodypartvalue}{details.ref2.$toReal.code}{endbodypartvalue}
-{bodypart("complexObject")}
-{bodypartname}property1{endbodypartname}
-{bodypartvalue}abc{endbodypartname}
-{bodypartname}property2{endbodypartname}
-{bodypartvalue}abcd{endbodypartname}
-{endbodypart}
-{requestdescription1}optional description that can be viewed in the list view{enddescription1}
-{requestdescription2}Add row number {@rownumber} to use as extra info{enddescription2}
-{requestrelatedtoid1}{id}{endrelatedto1}
-{requestrelatedtoid2}{customer.id}{endrelatedto2}
-{endrequest}
-{endloop}
-```
-Example 2:
-```
+You can send HTTP requests from within Tempo using the `EASendHttpRequestByTempo` entity flow. This is useful for integrating external APIs (e.g., WhatsApp, SMS, ERPs) directly from records or looped data like document lines.
+
+---
+
+### Example 1: Structured Body with Named Parameters
+
+This example sends a POST request for each line in `details`, with body parts defined individually:
+
+```tempo
 {loop(details)}
-{httprequest}
+  {httprequest}
     {requesturl}https://namasoft.com/api/v3.0/item{endurl}
     {requestmethod}POST{endmethod}
     {contenttype}application/json{endcontenttype}
     {charset}utf8{endcharset}
+
     {headername}api-key{endheadername}
     {headervalue}xxHjjk889523{endheadervalue}
+
     {paramname}company_name{endparamname}
     {paramvalue}{legalEntity.name2}{endparamvalue}
-    {requestbody}
-        \{
-        "user_whatsapp_number":"{details.ref1.$toReal.contactInfo.mobile}"
-        ,"ordernumber":"{details.ref2.$toReal.code}"
-        \}
-    {endbody}
-{endrequest}
+
+    {bodypartname}user_whatsapp_number{endbodypartname}
+    {bodypartvalue}{details.ref1.$toReal.contactInfo.mobile}{endbodypartvalue}
+
+    {bodypartname}ordernumber{endbodypartname}
+    {bodypartvalue}{details.ref2.$toReal.code}{endbodypartvalue}
+
+    {bodypart("complexObject")}
+      {bodypartname}property1{endbodypartname}
+      {bodypartvalue}abc{endbodypartvalue}
+      {bodypartname}property2{endbodypartname}
+      {bodypartvalue}abcd{endbodypartvalue}
+    {endbodypart}
+
+    {requestdescription1}optional description that can be viewed in the list view{enddescription1}
+    {requestdescription2}Add row number {@rownumber} to use as extra info{enddescription2}
+
+    {requestrelatedtoid1}{id}{endrelatedto1}
+    {requestrelatedtoid2}{customer.id}{endrelatedto2}
+  {endrequest}
 {endloop}
 ```
 
-## Nama POS Pole-display configuration using tempo
-- Nama ERP is a web-based application. But we have a standalone desktop application for Points Of Sales.
+---
 
-- Nama POS provides the ability to to work offline because it has it's own database.
+### Example 2: Custom JSON Body String
 
-- Nama POS keeps pos-db synchronized with Nama ERP db automatically
+This version uses a manually written JSON string in the request body:
 
-- Nama POS provides integrations with payment terminals, and it has an embedded credit-card processor for mobile phones 
- in the captain order mobile application
-- Captain Order mobile app provides access to Nama POS functionality on android and iOS devices
-- We will discuss configuring simple text-based POS Pole Displays using tempo
-### POS Pole Display Setup
-  In order to handle a pole display in Point of sale system, you have to define its properties from the screen "Pos Pole Display Specs", and define the following properties:
-  Define the communication method
-  From the two fields "Communication Type", and "Printer Name Or Port Number", you can define how Nama POS will communicate with the pole display.
-  To link the pole display properties to a specific Machine, enter its code in the field "Pos Pole Display Specs" of the required machine record.
+```tempo
+{loop(details)}
+  {httprequest}
+    {requesturl}https://namasoft.com/api/v3.0/item{endurl}
+    {requestmethod}POST{endmethod}
+    {contenttype}application/json{endcontenttype}
+    {charset}utf8{endcharset}
 
-* Displaying information via templates
+    {headername}api-key{endheadername}
+    {headervalue}xxHjjk889523{endheadervalue}
 
-To display your required information in the pole display machine, you will use the template methodology, as Nama supports a template for each event while creating POS invoices. These templates are defined in the "Pos Pole Display Specs" screen.
+    {paramname}company_name{endparamname}
+    {paramvalue}{legalEntity.name2}{endparamvalue}
 
-In order to support required information in the templates, NAMA has developed the following functions
+    {requestbody}
+      \{
+        "user_whatsapp_number":"{details.ref1.$toReal.contactInfo.mobile}",
+        "ordernumber":"{details.ref2.$toReal.code}"
+      \}
+    {endbody}
+  {endrequest}
+{endloop}
 ```
+
+---
+
+Both examples demonstrate sending a request per row in `details`, with the flexibility to include headers, parameters, individual body fields, or full custom JSON.
+
+## Nama POS Pole Display Configuration Using Tempo
+
+Nama ERP is a web-based system, but its **Nama POS** module includes a dedicated **desktop application** for Points of Sale (POS), offering both online and offline capabilities:
+
+* POS operates offline using a local POS database.
+* It automatically syncs with the Nama ERP central database.
+* Integrates with payment terminals, including an embedded credit-card processor for mobile phones.
+* POS functionality is available on Android and iOS via the **Captain Order** mobile app.
+
+---
+
+## POS Pole Display Setup
+
+To configure a pole display for Nama POS, follow these steps:
+
+1. Go to the **"Pos Pole Display Specs"** screen.
+2. Set:
+
+  * **Communication Type**: e.g., Serial, USB.
+  * **Printer Name or Port Number**: to define the connection interface.
+3. Link the pole display configuration to a machine by setting the **"Pos Pole Display Specs"** field in the machine record.
+
+---
+
+## Displaying Data on the Pole Display
+
+Nama POS allows defining **template-based messages** for different events in the sales process. Templates are configured in the **"Pos Pole Display Specs"** screen.
+
+### Supported Functions
+
+* **Clear Line:**
+
+```tempo
 @CLEARLINE@
 ```
-This function will clear one line from the data displayed in the pole display.
-Ex
-```
+
+Use it to clear one line on the pole display.
+
+**Example:**
+
+```tempo
 @CLEARLINE@@CLEARLINE@ Welcome
 ```
-This sentence will clear two lines from the pole display and display the word Welcome.
-```
+
+Clears two lines, then displays: `Welcome`.
+
+* **Last Modified Line:**
+
+```tempo
 {lastModifiedLine}
 ```
-This function could be used rather than lastline in order to get information from the last line
-Ex
-```
+
+Use this to get the most recently added invoice line.
+
+**Example:**
+
+```tempo
 {lastModifiedLine.qty.value}
 ```
-This sentence will get the quantity of the item in the invoice last line
-#### Idle Template
-Via this template, you can define the information that will be displayed before creating a new invoice.
-Ex
-```
+
+Gets the quantity of the last added item.
+
+---
+
+## Pole Display Templates
+
+### Idle Template
+
+Displayed when the POS is idle, before any invoice is created.
+
+```tempo
 @CLEARLINE@@CLEARLINE@**** Welcome to Register {name2}
 ```
-This example will clear two lines and display the sentence(****Welcome to Register) followed by the current register name.
 
-#### Line Adding Template
-Via this template, you can define the information that will be displayed while adding a new line.
-Ex
-```
-@CLEARLINE@@CLEARLINE@{padleft(20)}Item: {lastModifiedLine.item.name2}{endpad}{padleft(20)}Qty: {lastModifiedLine.qty.uom.name2} - {round(lastModifiedLine.qty.value,0)}{endpad}
-```
-This example will clear two lines and display the item name of the last line followed by the word "Qty:",  its unit, and then its quantity.
+Clears both lines and shows a welcome message with the register's name.
 
-#### Total Template
-Via this template, you can define the information that will be displayed upon opening the Tender screen
-Ex
-```
-@CLEARLINE@@CLEARLINE@{padleft(20)}Total: {round(netPrice,2)}${endpad}
-```
-This example will clear two lines and display the word "Total" followed by the total invoice value.
+---
 
+### Line Adding Template
 
-#### Remaining Template
-Via this template, you can define the information that will be displayed after entering the total value paid by the customer including the change value.
-Ex
-```
-@CLEARLINE@@CLEARLINE@{padleft(20)}Remainig: {round(change,2)}${endpad}
-```
-This example will clear two lines and display the word "Remaining" followed by the change value.
+Displayed when a new item is added to the invoice.
 
-## Creators
-What does the word creator mean?
-Creator is a keyword in tempo language used to create an entity in NAMA ERP like a sales invoice record.
-
-### Creator syntax
+```tempo
+@CLEARLINE@@CLEARLINE@
+{padleft(20)}Item: {lastModifiedLine.item.name2}{endpad}
+{padleft(20)}Qty: {lastModifiedLine.qty.uom.name2} - {round(lastModifiedLine.qty.value,0)}{endpad}
 ```
-{creator(entity="EntityName",menu="MenuName",title="Title to be displayed in the link",view="ViewName",newwindow="true or false")}
+
+Shows item name and quantity info, padded for alignment.
+
+---
+
+### Total Template
+
+Displayed when the Tender screen is opened (before payment).
+
+```tempo
+@CLEARLINE@@CLEARLINE@
+{padleft(20)}Total: {round(netPrice,2)}${endpad}
+```
+
+Displays the invoice total amount.
+
+---
+
+### Remaining Template
+
+Displayed after the customer pays and change is calculated.
+
+```tempo
+@CLEARLINE@@CLEARLINE@
+{padleft(20)}Remaining: {round(change,2)}${endpad}
+```
+
+Displays the remaining change to be returned to the customer.
+
+---
+
+These templates provide a flexible way to control real-time messaging on POS displays using Tempo syntax.
+
+## Creators in Tempo
+
+In Tempo, a **creator** is used to generate and populate a new entity record (like a sales invoice, customer, etc.) directly from templates.
+
+---
+
+### Basic Creator Syntax
+
+```tempo
+{creator(entity="EntityName", menu="MenuName", title="Link Title", view="ViewName", newwindow="true/false")}
+  ...field assignments...
 {endcreator}
 ```
-* entity: The entity to be created (such as sales invoice, customer, purchase order,....etc).
-* menu(optional): The menu name that will contain the created entity if the menu is customized for the customer. It may be a customized menu.
-* title(optional): The title to be displayed in the creator link.
-* view(optional): the screen name if this screen created by a screen modifier.
-* newwindow(optional): If true, the creator will open in a new browser tab
-EX
-```
+
+* `entity`: Name of the entity to create.
+* `menu` *(optional)*: Target menu name (if customized).
+* `title` *(optional)*: Title shown in the creator link.
+* `view` *(optional)*: Custom screen view name.
+* `newwindow` *(optional)*: Whether to open in a new tab.
+
+**Example:**
+
+```tempo
 {creator(entity="SalesInvoice")}
 {endcreator}
 ```
-This example creates a sales invoice record. Values of the invoice fields will be included between these two lines.
-### Entering a field in a created entity
-To enter a field included in a created entity, use the following syntax:
-```
-{f("FieldName")}{v("FieldValue")}
-```
-Ex:
-```
+
+---
+
+### Setting Field Values
+
+Use `{f("FieldName")}` and `{v("Value")}` to assign a value.
+
+**Example:**
+
+```tempo
 {f("n1")}{v("10")}
 ```
-This example will enter the value "10" in the field "n1".
 
-### Entering dynamic content in a field
-Sometimes, you may need to enter some content in a field like remark field. This content may include some other fields. To do this use the following syntax:
-```
-{creatorvalue} contents to be entered {endvalue}
-```
-Ex1
-```
+---
+
+### Dynamic Field Content
+
+Use `{creatorvalue}...{endvalue}` to embed dynamic or computed text.
+
+**Example:**
+
+```tempo
 {creator(entity="SalesInvoice")}
-{f("code")}{v("SA000001 ")}
-{f("remarks")}{creatorvalue}This document was created from {#entityType} - {#code} on date {#valueDate} {endvalue}
-{endcreator}
+  {f("code")}{v("SA000001")}
+  {f("remarks")}
+    {creatorvalue}
+      This document was created from {#entityType} - {#code} on date {#valueDate}
+    {endvalue}
+  {endcreator}
 ```
-This example will do the following:
-- Open the sales invoice.
-- Enter the value code "SA000001" in the invoice number field to open this record in edit mode.
-- Enter the value (This document was created from SalesInvoice - SA000001 on date 2019-11-26) in the remarks field, where 2019-11-26 is the value date of this sales invoice record.
-###  Entering a value in a specific row in a document details
-  To enter a value in a specific row, you have the following four methods:
 
-- First method: define the row number as the following syntax:
-```
-{f("FieldName")}{v(FieldValue)}{r(number)}
-```
-Ex
-```
+---
+
+### Assigning Detail Line Values
+
+You can insert data into specific rows in detail tables:
+
+#### Method 1: By row number
+
+```tempo
 {f("details.item.itemCode")}{v("ITEM005")}{r("2")}
 ```
-This example will enter the value "ITEM005" in the item code field in the second row.
 
-- Second Method: to add values in a new line, use the following syntax
-```
-{f("FieldName")}{v(FieldValue)}{r(@@end)}
-```
-Ex
-```
+#### Method 2: Append to new row if needed (`@@end`)
+
+```tempo
 {f("details.item.itemCode")}{v("ITEM005")}{r("@@end")}
 ```
-This example will enter the value "ITEM005" in the following two cases.
-- If the last line is empty, then enter this item code in this last line.
-- If the last line is not empty, then add a new line and enter this item code in it.
 
+#### Method 3: Always use last row (`@@last`)
 
-- Third Method: to add values in the last line whatever it is empty or not, use the following syntax
-```
-{f("FieldName")}{v(FieldValue)}{r(@@last)}
-```
-Ex
-```
+```tempo
 {f("details.item.itemCode")}{v("ITEM005")}{r("@@last")}
 ```
-This example will enter the value "ITEM005" in the last line even this last line has values in some of its fields.
 
-- Fourth Method: to add values in the current line in the loop
-```
-{f("FieldName")}{v(FieldValue)}{r(@rownumber)}
-```
-Ex: In this example, deselect the checkbox "Copy Details" in the sales invoice term in order to add the items line by line via the creator.
-```
-{creator(entity="SalesInvoice")}
-{f("code")}{v("SA000001")}
-{loop(details)}
+#### Method 4: Use current loop row number
+
+```tempo
 {f("details.item.itemCode")}{v(details.item.itemCode)}{r(@rownumber)}
-{endloop}
-{endcreator}
 ```
-In this example, the system will copy the items codes of the sales invoice SA000001 in the details of the created invoice.
 
-### Use Case
-- Suppose that you want to copy in the created sales invoice record only non-service items of another invoice record. In details, you want to copy the fields (Item Code, n1, n2). The correct syntax for this case will be as follows:
-```
+**Looping Example:**
+
+```tempo
 {creator(entity="SalesInvoice")}
-{f("book")}{v("SIV1")}
-{f("term")}{v("CASH")}
-{loop(details)}
-{if!=(details.item.item.itemType,"Service")}
-{f("details.item.itemCode")}{v(details.item.itemCode)}{r("@@end")}
-{f("details.n1")}{v(details.n1)}{r("@@last")}
-{f("details.n2")}{v(details.n2)}{r("@@last")}
-{endif}
-{endloop}
+  {f("code")}{v("SA000001")}
+  {loop(details)}
+    {f("details.item.itemCode")}{v(details.item.itemCode)}{r(@rownumber)}
+  {endloop}
 {endcreator}
 ```
-In this example, don't write `{r(@rownumber)}` because the number will be incorrect because of the gap caused by skipping the service item in the loop.
-Use `@@end` to always add a new line while adding a new item code.
-Use `@@last` to input the value in the last row, without appending a new row.
 
-### Calling System GUI Action (Button or More Menu) from creator
+---
+
+### Use Case Example: Copying Only Non-Service Items
+
+```tempo
+{creator(entity="SalesInvoice")}
+  {f("book")}{v("SIV1")}
+  {f("term")}{v("CASH")}
+
+  {loop(details)}
+    {if!=(details.item.item.itemType, "Service")}
+      {f("details.item.itemCode")}{v(details.item.itemCode)}{r("@@end")}
+      {f("details.n1")}{v(details.n1)}{r("@@last")}
+      {f("details.n2")}{v(details.n2)}{r("@@last")}
+    {endif}
+  {endloop}
+
+{endcreator}
 ```
+
+* `@@end` ensures a new line is added for each item.
+* `@@last` ensures related fields are filled in the correct last row.
+
+---
+
+### Calling System GUI Actions from Creator
+
+You can invoke UI actions (e.g., Save, Print, Delete):
+
+```tempo
 {callGUIAction("actionId")}
 ```
-Here is a list of system action in edit view toolbar:
+
+**Available `actionId` values:**
+
 ```
-save , saveAndContinue , duplicate , accept , approval , revise , unrevise , print , listView , showHelpMsgs , treeView , newRecord , delete , more , refresh , homePage , goToRecord
+save, saveAndContinue, duplicate, accept, approval, revise, unrevise,
+print, listView, showHelpMsgs, treeView, newRecord, delete,
+more, refresh, homePage, goToRecord
 ```
 
 ## Sales and Purchase Prices in Tempo
-- To get the sales price of an item, use the following syntax:
-```
+
+### Getting the Sales Price of an Item
+
+Use the `itemprice` function:
+
+```tempo
 {itemprice(itemIdOrCode=expression)}
 ```
-This function gets the price of the required item.
-This function takes a lot of parameters, because the item price may be restricted by a customer or date or ...etc, in the price list; so the general syntax  for this function as follows:
+
+This function returns the sales price for an item. Only `itemIdOrCode` is required. All other parameters are optional and can appear in any order.
+
+#### Full Syntax
+
+```tempo
+{itemprice(
+  itemIdOrCode=...,
+  customerIdOrCode=...,
+  uomCodeOrId=...,
+  qty=...,
+  classificationIdOrCode=...,
+  date=...,
+  legalEntityIdOrCode=...,
+  sectorIdOrCode=...,
+  branchIdOrCode=...,
+  analysisSetIdOrCode=...,
+  departmentIdOrCode=...,
+  revisionIdCode=...,
+  colorCode=...,
+  sizeCode=...,
+  priceClassifier1IdOrCode=...,
+  priceClassifier2IdOrCode=...,
+  priceClassifier3IdOrCode=...,
+  priceClassifier4IdOrCode=...,
+  priceClassifier5IdOrCode=...,
+  decimalPlaces=...,
+  fieldToDisplay=...
+)}
 ```
-{itemprice(itemIdOrCode=expression , customerIdOrCode=expression , uomCodeOrId=expression , qty=expression ,
-classificationIdOrCode=expression , date=expression , legalEntityIdOrCode=expression , sectorIdOrCode=expression ,
-branchIdOrCode=expression , analysisSetIdOrCode=expression , departmentIdOrCode=expression , revisionIdCode=expression ,
-colorCode=expression , sizeCode=expression , priceClassifier1IdOrCode=expression , priceClassifier2IdOrCode=expression , 
-priceClassifier3IdOrCode=expression , priceClassifier4IdOrCode=expression , priceClassifier5IdOrCode=expression ,
-decimalPlaces=expression,fieldToDisplay=InvoiceMoneyField)}
-```
+
 ::: tip
-Note that itemIdOrCode is the only required parameter, and all other parameters are optional.
-Note also, the order of these parameters is not required 
+You can pass either the ID or the code for any parameter.
 :::
 
-Ex
+#### Examples
 
-```{loop(details)}
-Price of item {details.item.item.name} is {itemprice(itemIdOrCode=details.item.item.code)}
-Price of item {details.item.item.name} for customer CST05 is {itemprice(itemIdOrCode=details.item.item.code,customerIdOrCode="CST05")}
-Price of item {details.item.item.name} for customer CST05 at 01-01-2020 is {itemprice(itemIdOrCode=details.item.item.code,customerIdOrCode="CST05",date="20200101")}
-{endloop
-```
-
-- To get the purchase price of an item, use the following syntax:
-```
-{itempurchaseprice(itemIdOrCode=expression,supplierIdOrCode)}
-```
-This function is very similar to itemprice
-- The full syntax is as follows:
-```
-{itempurchaseprice(itemIdOrCode=expression , supplierIdOrCode=expression , uomCodeOrId=expression , qty=expression ,
- classificationIdOrCode=expression , date=expression , legalEntityIdOrCode=expression , sectorIdOrCode=expression , 
- branchIdOrCode=expression , analysisSetIdOrCode=expression , departmentIdOrCode=expression , revisionIdCode=expression , 
- colorCode=expression , sizeCode=expression , priceClassifier1IdOrCode=expression , priceClassifier2IdOrCode=expression , 
- priceClassifier3IdOrCode=expression , priceClassifier4IdOrCode=expression , priceClassifier5IdOrCode=expression , 
- decimalPlaces=expression,fieldToDisplay=InvoiceMoneyField)}
+```tempo
+{loop(details)}
+  Price of item {details.item.item.name} is {itemprice(itemIdOrCode=details.item.item.code)}
+  Price for customer CST05: {itemprice(itemIdOrCode=details.item.item.code, customerIdOrCode="CST05")}
+  Price for customer CST05 on 2020-01-01: {itemprice(itemIdOrCode=details.item.item.code, customerIdOrCode="CST05", date="20200101")}
+{endloop}
 ```
 
-## Utility fields for templates, notifications, and entity flows
-- Discussions: all the following reference the table [DiscussionRecord](https://namasoft.com/dm/#entity:entity/DiscussionRecord&)
-  - discussions: a list of DiscussionRecord linked to the record
-  - firstDiscussion: first DiscussionRecord
-  - lastDiscussion: last DiscussionRecord
-  - preLastDiscussion: The before last DiscussionRecord
+---
 
-Example: 
+### Getting the Purchase Price of an Item
+
+Use the `itempurchaseprice` function:
+
+```tempo
+{itempurchaseprice(itemIdOrCode=..., supplierIdOrCode=...)}
 ```
-The last added discussion was {lastDiscussion.discussion} at {lastDiscussion.onTime} by {link(lastDiscussion.user)} 
-and discussion Ref1 code is {lastDiscussion.ref1.code}
+
+#### Full Syntax
+
+```tempo
+{itempurchaseprice(
+  itemIdOrCode=...,
+  supplierIdOrCode=...,
+  uomCodeOrId=...,
+  qty=...,
+  classificationIdOrCode=...,
+  date=...,
+  legalEntityIdOrCode=...,
+  sectorIdOrCode=...,
+  branchIdOrCode=...,
+  analysisSetIdOrCode=...,
+  departmentIdOrCode=...,
+  revisionIdCode=...,
+  colorCode=...,
+  sizeCode=...,
+  priceClassifier1IdOrCode=...,
+  priceClassifier2IdOrCode=...,
+  priceClassifier3IdOrCode=...,
+  priceClassifier4IdOrCode=...,
+  priceClassifier5IdOrCode=...,
+  decimalPlaces=...,
+  fieldToDisplay=...
+)}
 ```
-- `$notificationTarget`: The employee or user that the notification will be sent to
-- `$notifier`: The notification definition file that is causing the notification
-- `$currentUsers`: All users that are currently logged in
-- `currentApprovalCase`: returns the current approval case, you can review the AppovalCase table in the data model for all properties and fields
-- `currentApprovalCase.lastStep.comment`: The Last Approver comment
-- `currentApprovalCase.lastStep.actualResponsible`: The employee
-- `currentApprovalCase.lastStep.decision`: The decision (Approve, Reject, Return, or Escalate)
-- `currentApprovalCase.lastStep.approvalDate`
-- `currentApprovalCase.lastStep.escalatedFrom`: In case this was an escalation, this holds the employee that escalated the original step
-- `currentApprovalCase.lastStep.approvalReason`: The approval reason selected when approving
-  - Review [Approval Case](https://www.namasoft.com/dm/#entity:entity/ApprovalCase&) Table for all details
-- `currentApprovalCase.lastStepDefinition.notificationRemark`: This allows you to use somewhat dynamic notification content based on the current step. This returns the content of the field with the same name in the approval steps
-- `$user` - `$currentUser`: The current user
-- `$loginLegalEntityId` : The ID of the login legal entity
-- `$loginLegalEntity` : The login legal entity
-- `$loginBranchId` : The ID of the login branch
-- `$loginBranch` : The login branch
-- `$loginSectorId` : The ID of the login sector
-- `$loginSector` : The login sector
-- `$loginDepartmentId`: The ID of the login department
-- `$loginDepartment`: The login department
-- `$loginAnalysisSetId` : The ID of the login analysis set
-- `$loginAnalysisSet` : The login analysis set
-- `retrieverFileId` : Allows sending links to customers, the links allow the customer to download their invoice
-- To add an image of any record: http://localhost:8080/erp/file.download?entityType=Employee&recordId={empId}
+
+---
+
+## Utility Fields for Templates, Notifications, and Entity Flows
+
+### Discussions
+
+* `discussions`: All related discussions
+* `firstDiscussion`: First discussion
+* `lastDiscussion`: Most recent discussion
+* `preLastDiscussion`: One before last
+
+**Example:**
+
+```tempo
+The last added discussion was {lastDiscussion.discussion} at {lastDiscussion.onTime} by {link(lastDiscussion.user)}.  
+Ref1 code: {lastDiscussion.ref1.code}
+```
+
+---
+
+### Notification and System Variables
+
+* `$notificationTarget`: The employee/user receiving the notification
+* `$notifier`: The notification definition that triggered the message
+* `$currentUsers`: All currently logged-in users
+* `$user`, `$currentUser`: The current user
+* `$loginLegalEntity`, `$loginLegalEntityId`
+* `$loginBranch`, `$loginBranchId`
+* `$loginSector`, `$loginSectorId`
+* `$loginDepartment`, `$loginDepartmentId`
+* `$loginAnalysisSet`, `$loginAnalysisSetId`
+
+---
+
+### Approval-Specific Fields
+
+* `currentApprovalCase`: The current approval context
+* `currentApprovalCase.lastStep.comment`
+* `currentApprovalCase.lastStep.actualResponsible`
+* `currentApprovalCase.lastStep.decision`
+* `currentApprovalCase.lastStep.approvalDate`
+* `currentApprovalCase.lastStep.escalatedFrom`
+* `currentApprovalCase.lastStep.approvalReason`
+* `currentApprovalCase.lastStepDefinition.notificationRemark`
+
+Refer to [Approval Case Entity](https://www.namasoft.com/dm/#entity:entity/ApprovalCase&) for more.
+
+---
+
+### Other Utilities
+
+* `retrieverFileId`: Use this to generate customer-accessible file download links
+
+**Example image URL for employee:**
+
+```
+http://localhost:8080/erp/file.download?entityType=Employee&recordId={empId}
+```
