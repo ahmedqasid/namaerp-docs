@@ -69,8 +69,4 @@ It clarifies that you must set both the type and the code together using `ref()`
 
 </ltr>
 
-::: warning
-Testing deploy of docs webhook
-:::
-
 </rtl>
