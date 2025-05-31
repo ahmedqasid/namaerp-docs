@@ -7,6 +7,8 @@
   - [Field Values Calculator](/guide/ea-fields-values-calculator.md)
   - [Importing Data from Excel or Queries](/guide/excel-and-sql-import-by-entity-flow.md)
   - [Tempo Language Manual](/guide/tempo.md)
+  - [Sending Invoices and Documents to Customers](/guide/invoice-retriever.md)
+  - [Field Filter with Criteria](/guide/field-filter-with-criteria.md)
   - [تعديل الترجمات في نظام نما](/guide/translations.md)
   - [Criteria Based Validation](/guide/criteria-based-validation.md)
   - [Attendance Machine Formula Guide](/guide/attendance-machine-formula.md)
