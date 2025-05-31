@@ -2,10 +2,6 @@
 
 # أسئلة عن مسار الكيان EAFieldsValuesCalculator
 
-السؤال والإجابة بعد إعادة الصياغة لإضافتها إلى قسم الأسئلة الشائعة (FAQ) في توثيق نظام نما ERP:
-
----
-
 ## كيف يمكن تثبيت قيمة في حقل مرجع عام عند الحفظ داخل مسار كيان؟ حاولت استخدام:
 
 ```groovy
@@ -61,6 +57,17 @@ details.ref1.id='0xFFFF00018C21ED75F9000100FF1573C6'
 ```
 
 لكن هذه الطريقة معقدة ولا يُنصح باستخدامها ما لم يكن هناك ضرورة قصوى. الأفضل دائمًا استخدام `ref` أو `sql` لسهولة القراءة وضمان عمل المرجع بطريقة سليمة.
+
+<ltr>
+
+::: tip Summary in English
+This question explains how to correctly assign a value to a generic reference field (`ref`) in an entity flow, 
+especially when the reference can point to multiple entity types. 
+
+It clarifies that you must set both the type and the code together using `ref()` or `sql()` instead of assigning them separately.
+:::
+
+</ltr>
 
 
 </rtl>
