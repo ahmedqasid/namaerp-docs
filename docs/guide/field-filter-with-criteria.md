@@ -29,7 +29,7 @@ For example:
 
 > If your filter requires dynamic logic such as loops or conditions, use **Tempo Language** instead of a criteria definition.
 
-![Field Filter Screenshot](images/field-filer.png)
+![Field Filter Screenshot](images/field-filter.png)
 
 ---
 
