@@ -10,9 +10,7 @@ function checkForErrors() {
     rc=$?
     if [[ $rc != 0 ]] ; then
       echo 'There are build errors';
-      ./notify.sh NOTOK $RELEASE_NAME
-      touch /var/tmp/namabuilderrors.txt
-      exit
+      exit 1
     fi
 }
 git_pull
