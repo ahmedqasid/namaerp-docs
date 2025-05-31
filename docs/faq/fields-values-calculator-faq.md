@@ -9,21 +9,21 @@
 ## كيف يمكن تثبيت قيمة في حقل مرجع عام عند الحفظ داخل مسار كيان؟ حاولت استخدام:
 
 ```groovy
-details.ref3 = 'MCI0001'
+details.ref1='MCI0001'
 ```
 
 مع العلم أنني حددت النوع المطلوب في إعدادات الحقول والشاشات، لكن القيمة لا تُحفظ. كما جرّبت تعيين النوع والكود معًا هكذا:
 
 ```groovy
-details.ref3.entityType = 'PurchaseElement'
-details.ref3 = 'MCI0001'
+details.ref1.entityType='PurchaseElement'
+details.ref1='MCI0001'
 ```
 
 أو على سطرين:
 
 ```groovy
-details.ref3.entityType = 'PurchaseElement'
-details.ref3.code = 'MCI0001'
+details.ref1.entityType='PurchaseElement'
+details.ref1.code='MCI0001'
 ```
 
 لكن عند فتح المرجع في النظام، لا يتم عرضه بشكل صحيح. ما الطريقة الصحيحة لتعيين هذا النوع من الحقول؟
@@ -37,27 +37,27 @@ details.ref3.code = 'MCI0001'
 الطريقة الموصى بها هي استخدام دالة `ref` بهذا الشكل:
 
 ```groovy
-details.ref3 = ref('PurchaseElement', 'MCI0001')
+details.ref1=ref('PurchaseElement', 'MCI0001')
 ```
 
 كما يمكن استخدام استعلام SQL يُرجع النوع والكود أو المعرف، مثل:
 
 ```groovy
-details.ref3 = sql(select 'PurchaseElement', 'MCI0001')
+details.ref1=sql(select 'PurchaseElement', 'MCI0001')
 ```
 
 أو:
 
 ```groovy
-details.ref3 = sql(select entityType, id from PurchaseElement where code = 'MCI0001')
+details.ref1=sql(select entityType, id from PurchaseElement where code = 'MCI0001')
 ```
 
 وإذا كنت مضطرًا لاستخدام الطريقة التي تعتمد على تحديد النوع والكود يدويًا، فيجب أيضًا تعيين المعرف (id) حتى يتعرف النظام على المرجع بشكل صحيح:
 
 ```groovy
-details.ref3.entityType='PurchaseElement'
-details.ref3.code='MCI0001'
-details.ref3.id='0xFFFF00018C21ED75F9000100FF1573C6'
+details.ref1.entityType='PurchaseElement'
+details.ref1.code='MCI0001'
+details.ref1.id='0xFFFF00018C21ED75F9000100FF1573C6'
 ```
 
 لكن هذه الطريقة معقدة ولا يُنصح باستخدامها ما لم يكن هناك ضرورة قصوى. الأفضل دائمًا استخدام `ref` أو `sql` لسهولة القراءة وضمان عمل المرجع بطريقة سليمة.
