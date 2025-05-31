@@ -71,3 +71,4 @@ Use this **Tempo** code in the `Dynamic Filter` field of the field filter:
     code,Equal,{fromDoc.$toReal.details.customer.code},OR;
   {endif}
 {endloop}
+```
