@@ -1,6 +1,4 @@
----
-lang: ar
----
+<rtl>
 
 # أسئلة في موديول التوزيع والمخازن والمبيعات والمشتريات 
 
@@ -120,3 +118,5 @@ select {details.item.item.defaultDetailData.maxQuantity}
 <SupplyChainOption option-code="value.itemRelationToWarehouseMustBeSpecified" link-title="يجب تحديد علاقة الأصناف بالمخازن" />
 فإن النظام **لن يسمح بالحفظ أو تنفيذ الحركات** إلا إذا كانت هناك علاقة **"سماح بالتعامل"** محددة مسبقًا بين الصنف والمخزن.
 :::
+
+</rtl>
