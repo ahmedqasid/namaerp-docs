@@ -139,6 +139,8 @@
 
 :::
 
+<ltr>
+
 ::: tip Summary in English
 
 **Question**:
@@ -158,5 +160,7 @@ How can I create a report that shows the balance of a specific account for each 
 This setup allows independent filtering of account balances and sales totals per branch.
 
 :::
+
+</ltr>
 
 </rtl>
