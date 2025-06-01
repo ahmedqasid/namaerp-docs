@@ -25,10 +25,10 @@ To enable this feature, configure the appropriate settings from the **Global Con
 ::: tip
 💡 Use Chrome's Inspect Tool to accurately copy the value.
 :::
-  ![Sender Field Screenshot](images/taqneyat-sender.png)
+  ![Sender Field Screenshot](images/taqnyat-sender.png)
 * **Password (Bearer Token)**:
   Go to **Developers > Application**, click the ➕ icon, provide a name, then click the ✔️ mark. Copy the resulting **Bearer Token**.
-  ![Bearer Token Screenshot](images/taqneyat-bearer-token.png)
+  ![Bearer Token Screenshot](images/taqnyat-bearer-token.png)
 
 ---
 
