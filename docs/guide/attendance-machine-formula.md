@@ -98,7 +98,7 @@ machineName = x#x#x#empid#date{dd/MM/YYYY}#time{hh:mm}#am_pm{ص-م}#sep{' '}#ign
 
 #### machineName is used here to tell that this formula is used with files from certain machine in case you have more than one attendance machine.
 
-#### Note : the following functions must be used at the end of formula `{sep,alternatingpunch ,addhours,igonreLinesFromTop,igonreLinesFromEnd}` in order not to affect the properties columns while parsing the machine file
+#### Note: the following functions must be used at the end of formula `{sep,alternatingpunch ,addhours,igonreLinesFromTop,igonreLinesFromEnd}` in order not to affect the properties columns while parsing the machine file
 
 
 
