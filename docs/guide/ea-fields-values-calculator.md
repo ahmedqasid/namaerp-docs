@@ -1,6 +1,6 @@
----
-lang: ar
----
+
+<rtl>
+
 ::: ltr
 
 # Field Values Calculator
@@ -280,7 +280,7 @@ You can find more about importing using this system at [Excel and SQL importing 
 
 :::
 
-
+</rtl>
 
 
 
