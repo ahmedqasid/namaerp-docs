@@ -61,12 +61,75 @@ details.ref1.id='0xFFFF00018C21ED75F9000100FF1573C6'
 <ltr>
 
 ::: tip Summary in English
-This question explains how to correctly assign a value to a generic reference field (`ref`) in an entity flow, 
-especially when the reference can point to multiple entity types. 
+This question explains how to correctly assign a value to a generic reference field (`ref`) in an entity flow,
+especially when the reference can point to multiple entity types.
 
 It clarifies that you must set both the type and the code together using `ref()` or `sql()` instead of assigning them separately.
 :::
 
 </ltr>
+
+## تصحيح مضاعفة التأثير المحاسبي الناتج عن استخدام الحقل الخطأ
+
+في أحد السيناريوهات ضمن مستند "فاتورة مشروع" (`CPAProjectInvoice`)، تم إعداد مسار كيان لحساب العمولة في كل سطر من سطور المستند، من خلال:
+
+* نسخ قيمة `n2` من المشروع الموجود في السطر إلى الحقل `details.n3`
+* حساب نسبة العمولة عن طريق ضرب هذه القيمة في الحقل `totalActualValue` الموجود في رأس المستند، ثم تخزين الناتج في `details.n4`:
+
+```
+details.n3=details.project.n2
+details.n4=sql(select {details.n3} * {totalActualValue} / 100)
+```
+
+ثم تم استخدام قيمة `details.n4` لإضافة تأثير محاسبي عبر المسار `EAAddAccountingEffect` بالشكل التالي:
+
+```
+details.n4=DrEffect,CrEffect
+```
+
+### سبب المشكلة
+
+القيمة في `totalActualValue` تمثل مجموع الحقل `details.price.actualValue` لجميع السطور. وعند ضربها في كل سطر على حدة، أدى ذلك إلى مضاعفة قيمة التأثير المحاسبي النهائي.
+
+### الحل الصحيح
+
+بدلاً من استخدام `totalActualValue` من الرأس، يجب استخدام قيمة `actualVal` الخاصة بكل سطر على حدة لحساب العمولة بدقة، كالتالي:
+
+```
+details.n4=sql(select {details.n3} * {details.price.actualVal} / 100)
+```
+
+### المسار المصحح الكامل
+
+::: details Copy and use in Direct Import Menu Item
+
+```json
+{
+    "targetType": "CPAProjectInvoice",
+    "targetAction": "UpdateCalculatedFields",
+    "details": [
+        {
+            "className": "com.namasoft.infor.domainbase.util.actions.EAFieldsValuesCalculator",
+            "title1": "First",
+            "parameter1": "details.n3=details.project.n2\ndetails.n4=sql(select {details.n3} *{details.price.actualVal}/100)",
+            "targetAction": "UpdateCalculatedFields",
+            "description": "Sets fields from one field to another.\nParameter 1: fields Map. Format as follows:\nwarehouse=book.ref1\nname1=code\nField Value can be another field id, \"quoted string\",sql(select max(n1) from InvItem where id <> {id})\ncustomer.runCommand=\"edit\"\ncustomer.runCommand=\"save\"\n"
+        },
+        {
+            "className": "com.namasoft.modules.accounting.domain.utils.actions.EAAddAccountingEffect",
+            "title1": "Effects: fieldId=DebitEffectAccSideCode,CreditEffectAccSideCode eg:\nn1=N1EffectDR,N1EffectCR\nlines.n2=DetailsN2EffectDR,DetailsN2EffectCR",
+            "parameter1": "details.n4=DrEffect,CrEffect",
+            "title2": "Apply When Query (Return 0 or 1), example:\nselect case when {lines.ref1.entityType} in ('Branch','Department') then 1 else 0 end\nThis example will make the effect happen only for lines ref1 being a branch or a department",
+            "targetAction": "Automatic",
+            "description": "Add Extra Effect to Any Document File existing ledger request."
+        }
+    ]
+}
+```
+
+:::
+
+بهذا التعديل، يتم احتساب التأثير المحاسبي بدقة لكل سطر على حدة دون مضاعفة.
+
 
 </rtl>
