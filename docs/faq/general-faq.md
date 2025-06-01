@@ -111,4 +111,37 @@ com.namasoft.infra.domainbase.util.NaMaBusinessLogicExeption: Can not find Field
 سبب المشكلة هو وجود حقل تم إزالته من النظام في عرض القائمة
 الحل أن تقوم بعمل RegenUI من تعديل شاشة
 
+## عند فتح شاشة تغيير الترجمة أو أي ملف آخر تظهر رسالة الخطأ `لم يمكن تنفيذ العملية`
+
+::: details  تفاصيل الخطأ من السجل (Log)
+
+```log
+org.hibernate.query.sqm.PathElementException: Could not resolve attribute 'valueDate' of 'com.namasoft.modules.basic.domain.entities.TranslationOverRider'
+	at org.hibernate.query.sqm.SqmPathSource.getSubPathSource(SqmPathSource.java:95) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	...
+	at com.namasoft.infra.domainbase.persistence.util.PersistenceUtility.getJoin(PersistenceUtility.java:138) ~[domain-base-0.0.1-SNAPSHOT.jar:?]
+	at com.namasoft.infra.domainbase.persistence.util.PersistenceUtility.getPath(PersistenceUtility.java:109) ~[domain-base-0.0.1-SNAPSHOT.jar:?]
+	at com.namasoft.infra.domainbase.persistence.repos.SearchQueryUtils.convertColumnsToSelectionsAndAddJoins(SearchQueryUtils.java:117) ~[domain-base-0.0.1-SNAPSHOT.jar:?]
+	at com.namasoft.infra.domainbase.persistence.repos.GenericRepoImpl.countTabularResults(GenericRepoImpl.java:389) ~[domain-base-0.0.1-SNAPSHOT.jar:?]
+	at com.namasoft.infra.domainbase.persistence.repos.GenericRepoImpl.tabularListPage(GenericRepoImpl.java:304) ~[domain-base-0.0.1-SNAPSHOT.jar:?]
+	at com.namasoft.infra.domainbase.persistence.repos.DecoratedGenericRepo.tabularListPage(DecoratedGenericRepo.java:151) ~[domain-base-0.0.1-SNAPSHOT.jar:?]
+	at com.namasoft.infra.domainbase.persistence.repos.Persister.tabularListPage(Persister.java:456) ~[domain-base-0.0.1-SNAPSHOT.jar:?]
+	at com.namasoft.commonservices.utils.Lister.getPropertyListFromDB(Lister.java:523) ~[service-base-0.0.1-SNAPSHOT.jar:?]
+	at com.namasoft.commonservices.utils.Lister.getListFromDB(Lister.java:336) ~[service-base-0.0.1-SNAPSHOT.jar:?]
+	at com.namasoft.commonservices.utils.Lister.list(Lister.java:150) ~[service-base-0.0.1-SNAPSHOT.jar:?]
+```
+
+:::
+
+### التفسير
+
+غالبًا ما يحدث هذا الخطأ عندما يتم تعديل شاشة من النوع "لكل الشاشات" أو "كل الملفات"، ويتم فيها إضافة العمود `valueDate` ضمن الأعمدة المعروضة في جدول القائمة.
+
+لكن الحقل `valueDate` (التاريخ الفعلي) موجود فقط في السندات (مثل فواتير أو إيصالات)، وليس موجودًا في الملفات (مثل ملفات تغيير الترجمة).
+لذلك، عند محاولة تحميل قائمة تحتوي على هذا العمود لملف لا يدعمه، تحدث المشكلة.
+
+### الحل
+
+قم بإزالة العمود `valueDate` من الأعمدة الظاهرة في هذا التعديل العام (لكل الشاشات أو كل الملفات) أو قم بتحديد نوع الشاشة بدقة بحيث لا يتم تطبيق هذا التعديل على ملفات لا تحتوي على هذا الحقل.
+
 </rtl>
