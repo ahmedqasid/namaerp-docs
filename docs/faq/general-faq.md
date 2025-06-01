@@ -106,6 +106,8 @@ com.namasoft.infra.domainbase.util.NaMaBusinessLogicExeption: Can not find Field
 	at com.namasoft.commonservices.utils.Lister.list(Lister.java:207) ~[service-base-0.0.1-SNAPSHOT.jar:?]
 	at com.namasoft.commonservices.utils.Lister.listFlat(Lister.java:830) ~[service-base-0.0.1-SNAPSHOT.jar:?]
 ```
+:::
+
 سبب المشكلة هو وجود حقل تم إزالته من النظام في عرض القائمة
 الحل أن تقوم بعمل RegenUI من تعديل شاشة
 
