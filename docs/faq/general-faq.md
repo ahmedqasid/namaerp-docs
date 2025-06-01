@@ -1,6 +1,4 @@
----
-lang: ar
----
+<rtl>
 
 # أسئلة عامة 
 <ServerBaseURL/>
@@ -111,3 +109,4 @@ com.namasoft.infra.domainbase.util.NaMaBusinessLogicExeption: Can not find Field
 سبب المشكلة هو وجود حقل تم إزالته من النظام في عرض القائمة
 الحل أن تقوم بعمل RegenUI من تعديل شاشة
 
+</rtl>

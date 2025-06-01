@@ -26,8 +26,8 @@ export default defineClientConfig({
             // console.log(to.meta._pageChunk.data.frontmatter.lang)
             if(typeof window === 'undefined')
                 return;
-            const isRtl = to.path.startsWith('/ar/') || to.meta._pageChunk?.data?.frontmatter?.lang === 'ar'
-            document.documentElement.setAttribute('dir', isRtl ? 'rtl' : 'ltr')
+            // const isRtl = to.path.startsWith('/ar/') || to.meta._pageChunk?.data?.frontmatter?.lang === 'ar'
+            // document.documentElement.setAttribute('dir', isRtl ? 'rtl' : 'ltr')
         })
     }
 })

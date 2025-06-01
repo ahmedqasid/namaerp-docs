@@ -1,6 +1,5 @@
----
-lang: ar
----
+<rtl>
+
 # أمثلة لمسارات كيان
 
 ### إنشاء مسار كيان ليقوم بتغيير معدل الموارد في سندات الموارد في النظام (يقوم بمحاكاة أن المستخدم ضغط علي الاوبشن "اعادة حساب المعدل مع الحفظ" في سند الموارد
@@ -148,3 +147,5 @@ code=mlsql(select REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLAC
 ```sql
 select {pendingEntry.fromDoc.entityType},{fromDoc.id} 
 ```
+
+</rtl>
