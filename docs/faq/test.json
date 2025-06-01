@@ -1,0 +1,10 @@
+{
+  "mainTable": "SalesInvoice",
+  "allowAllMainTableFieldsForUse": true,
+  "fields": [
+    {
+      "fieldId": "money.netValue",
+      "sqlAggregationType": "Sum"
+    }
+  ]
+}

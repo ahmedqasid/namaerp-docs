@@ -5,7 +5,7 @@ export const SIDEBAR_CONFIG = {
     children: [ {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/utils.md", "/guide/system-minimum-requirements.md", "/guide/reports-guide.md", "/guide/shortcuts.md", "/guide/screen-modifier.md", "/guide/ea-fields-values-calculator.md", "/guide/excel-and-sql-import-by-entity-flow.md", "/guide/tempo.md", "/guide/invoice-retriever.md", "/guide/field-filter-with-criteria.md", "/guide/translations.md", "/guide/criteria-based-validation.md", "/guide/attendance-machine-formula.md", "/guide/scheduled-tasks.md", "/guide/nama-properties.md", "/guide/reward-points.md", "/guide/oracle-jdbc-connection.md" ]
+      children: [ "/guide/utils.md", "/guide/system-minimum-requirements.md", "/guide/reports-guide.md", "/guide/shortcuts.md", "/guide/screen-modifier.md", "/guide/ea-fields-values-calculator.md", "/guide/excel-and-sql-import-by-entity-flow.md", "/guide/tempo.md", "/guide/invoice-retriever.md", "/guide/sms-and-whatsap.md", "/guide/field-filter-with-criteria.md", "/guide/translations.md", "/guide/criteria-based-validation.md", "/guide/attendance-machine-formula.md", "/guide/scheduled-tasks.md", "/guide/nama-properties.md", "/guide/reward-points.md", "/guide/oracle-jdbc-connection.md" ]
     }, {
       text: "Examples",
       collapsible: true,
@@ -17,7 +17,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Frequently Asked Questions",
       collapsible: true,
-      children: [ "/faq/general-faq.md", "/faq/fields-values-calculator-faq.md", "/faq/supply-chain-faq.md" ]
+      children: [ "/faq/general-faq.md", "/faq/fields-values-calculator-faq.md", "/faq/supply-chain-faq.md", "/faq/report-wizard-faq.md" ]
     } ]
   } ]
 }

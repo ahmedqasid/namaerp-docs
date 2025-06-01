@@ -8,6 +8,7 @@
   - [Importing Data from Excel or Queries](/guide/excel-and-sql-import-by-entity-flow.md)
   - [Tempo Language Manual](/guide/tempo.md)
   - [Sending Invoices and Documents to Customers](/guide/invoice-retriever.md)
+  - [SMS and WhatsApp Configuration in Nama ERP](/guide/sms-and-whatsap.md)
   - [Field Filter with Criteria](/guide/field-filter-with-criteria.md)
   - [تعديل الترجمات في نظام نما](/guide/translations.md)
   - [Criteria Based Validation](/guide/criteria-based-validation.md)
