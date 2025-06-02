@@ -53,4 +53,31 @@
 * من "المزيد"، اختر **Simple Export For Docs**.
 * انسخ المحتوى والصقه داخل المقالة.
 
+
+## روابط الخيارات والأدوات
+
+لتسهيل تشغيل الأدوات والخيارات المختلفة داخل النظام، ستجد في كثير من المقالات روابط تشغيل على الشكل التالي:
+
+<UtilityLinkBuilder
+  className="com.namasoft.erp.gui.server.RecommitFromFile"
+  :params="[
+    { title: 'Main File', default: 'e:/rc/recommit.txt' },
+    { title: 'Done File', default: 'e:/rc/done.txt' },
+    { title: 'Errors File', default: 'e:/rc/errors.txt' }
+  ]"
+  :gui="true"
+/>
+
+عند عرض الرابط، ستجد زرين بجواره:
+
+### الزر الأول:
+
+<CopyIcon/>  
+زر النسخ — يسمح لك بنسخ الرابط كما هو واستعماله مباشرة في متصفحك أو داخل أدوات النظام.
+
+### الزر الثاني:
+
+<svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="width: 24px; height: 24px;stroke-width: 2;"><path d="M17.94 17.94A10.93 10.93 0 0112 20c-7 0-11-8-11-8a21.55 21.55 0 014.22-5.89M9.88 9.88A3 3 0 0114.12 14.12M3 3l18 18" /></svg>
+زر التعديل — عند الضغط عليه يظهر حقل نصي يمكنك من خلاله تعديل **رابط السيرفر** قبل تشغيل الأداة، مما يسهل عليك نسخ الرابط الكامل بعد التعديل أو الانتقال إليه مباشرة.
+
 </rtl>
