@@ -401,7 +401,7 @@ $V{creatorLink}.toString()
 
 ### Optional: Specify Menu Code or View Name
 
-```groovy
+```groovy {2,3}
 NamaRep.newWithFields("ReceiptVoucher")
   .viewName("NormalReceipts")
   .menuCode("NormalReceiptMenu")
