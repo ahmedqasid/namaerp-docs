@@ -172,4 +172,8 @@ org.hibernate.query.sqm.PathElementException: Could not resolve attribute 'value
 ننصح بإبقاء هذا الخيار غير مفعّل في جميع السنوات المالية، إلا في حالات خاصة وبموافقة الإدارة المالية.
 :::
 
+::: tip ملحوظة هامة
+يرجى أن تقوم بعمل Refresh Critical Errors من صفحة أدوات النظام Utilities بعد تصحيح هذه الأخطأء
+:::
+
 </rtl>
