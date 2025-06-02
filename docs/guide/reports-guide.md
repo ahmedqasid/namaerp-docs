@@ -247,89 +247,169 @@ $V{price}.totalPaymentMethodShare.primitiveValue
 $V{price}.unitPrice.primitiveValue
 ``` 
 :::
+Here's a clean and organized version in English, suitable for your VuePress documentation site:
 
-### Links to entities, attachments, and reports
-- Create a link to an entity
+---
+
+## Links to Entities, Attachments, and Reports
+
+### Entity Links
+
+* Create a simple link to an entity:
+
+  ```groovy
+  NamaRep.link(entityType, id)
+  ```
+
+* Create a link to an entity using menu code and view name:
+
+  ```groovy
+  NamaRep.link()
+    .entityType($F{entityType})
+    .id($F{id})
+    .viewName("theViewName")
+    .menuCode("abcMenu")
+    .toString();
+  ```
+
+### Attachment Links
+
+* Create a link to an attachment (file):
+
+  ```groovy
+  NamaRep.attachmentLink(id)
+  ```
+
+### Report Links
+
+* Create a link to another report:
+
+  ```groovy
+  NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP}, "ReportCode")
+    .p("p1 id").v(value expression)
+    .p("p2 id").v(value expression)
+    .toString()
+  ```
+
+* Copy all shared parameters from the current report:
+
+  ```groovy
+  NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP}, "code").copyParams()
+  ```
+
+### Add Reference Parameters
+
+Use any of the following expressions to pass references:
+
 ```groovy
-NamaRep.link(entityType,id)
+v($F{id}, $F{entity}, $F{code}, $F{name1}, $F{name2})
+v($F{id}, $F{entity}, $F{code})
+ref($F{entityType}, $F{id})
+refCode($F{entityType}, $F{code})
 ```
-- Create a link to an entity with menu code and view name
+
+### Report Link Examples
+
 ```groovy
-NamaRep.link().entityType($F{entityType}).id($F{id}).viewName("theViewName").menuCode("abcMenu").toString();
+NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP}, "Statement")
+  .copyParams()
+  .p("fromAccount").v($F{accountId}, $F{accountEntityType}, $F{accountCode})
+  .p("toAccount").v($F{accountId}, "Account", $F{accountCode})
+  .toString()
 ```
-- Create a link to a file (attachment)
+
 ```groovy
-NamaRep.attachmentLink(id)
+NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP}, "SalesProfitSummary")
+  .copyParams($P{REPORT_PARAMETERS_MAP})
+  .p("SalesInvoice").ref("SalesInvoice", $F{SSIid})
+  .p("cust").refCode("Customer", "Customer501")
+  .p("fromDate").v("23-04-2014")
+  .p("showDetails").v("true")
+  .toString()
 ```
-- Create a link to another report
+
 ```groovy
-NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP},"ReportCode").p("p1 id").v(value expression).p("p2 id").v(value expression).toString()
+NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP}, "SubsidiaryAccountStatement")
+  .p("subsidiaryType").v($F{CustomerEntityType})
+  .p("fromSubsidiary").v($F{customerId}, $F{CustomerEntityType}, $F{customerCode})
+  .p("toSubsidiary").v($F{customerId}, $F{CustomerEntityType}, $F{customerCode})
+  .p("accuontType").v("mainAccount")
+  .toString()
 ```
-- To copy all common parameters from the current report to the required report:
+
+### Public Report Links (No Authentication)
+
+To share a report link externally (e.g. to a customer) without requiring login:
+
 ```groovy
-NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP},"code").copyParams()
+NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP}, "ARG000046-report")
+  .p("Code_Equals").ref($F{entityType}, $F{id})
+  .toNoAuthResultLink()
 ```
-- To add reference value, use any line from the following sample:
+
+::: tip URL Shortening in Reports
+You can shorten report URLs using:
+
 ```groovy
-v($F{id},$F{entity},$F{code},$F{name1},$F{name2})
-v($F{id},$F{entity},$F{code})
-ref($F{entityType},$F{id})
-refCode($F{entityType},$F{code})
+NamaRep.shortenURL(serverurl, signature, url)
 ```
-- Examples for report links
-```groovy
-NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP},"Statement").copyParams().p("fromAccount").v($F{accountId},$F{accountEntityType},$F{accountCode})
-        .p("toAccount").v($F{accountId},"Account",$F{accountCode}).toString()
-```
-```groovy
-NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP},"SalesProfitSummary").copyParams($P{REPORT_PARAMETERS_MAP})
-        .p("SalesInvoice").ref("SalesInvoice",$F{SSIid}).p("cust").refCode("Customer","Customer501")
-        .p("fromDate").v("23-04-2014").p("showDetails").v("true").toString()
-```
-```groovy
-NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP},"SubsidiaryAccountStatement").p("subsidiaryType").v($F{CustomerEntityType})
-        .p("fromSubsidiary").v($F{customerId},$F{CustomerEntityType},$F{customerCode})
-        .p("toSubsidiary").v($F{customerId},$F{CustomerEntityType},$F{customerCode}).p("accuontType").v("mainAccount").toString()
-```
-#### Share links to reports for outside parties
-If you want to share report links to third parties who do not have username and password to access Nama ERP, 
-```groovy
-NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP},"ARG000046-report").p("Code_Equals").ref($F{entityType},$F{id}).toNoAuthResultLink()
-```
-::: tip You can shorten URLs in reports
-Use the following sample
-```groovy
-NamaRep.shortenURL(serverurl,signature,url)
-```
-To find more, visit `{shortenurl()}` section in tempo help
+
+See `{shortenurl()}` section in the Tempo help for more info.
 :::
 
-- Create Link to create entities using Creators inside a report
-  - Example: To create a link that generates a new Receipt Voucher based on an invoice:
+---
+
+## Creating Entities from Reports (Creators)
+
+* Example: create a Receipt Voucher from an Invoice:
+
+  ```groovy
+  NamaRep.newWithFields("ReceiptVoucher")
+    .f("term").value("POTermCode")
+    .f("book").value("POBook1")
+    .f("remarks").v("Auto Created")
+    .f("fromDoc#type").v("SalesInvoice")
+    .f("fromDoc#code").v($F{code})
+    .toString()
+  ```
+
+* You can also use:
+
 ```groovy
-NamaRep.newWithFields("ReceiptVoucher")
-.f("term").value("POTermCode")
-.f("book").value("POBook1")
-.f("remarks").v("Auto Created")
-.f("fromDoc#type").v("SalesInvoice")
-.f("fromDoc#code").v($F{code}).toString()
+NamaRep.creator("ReceiptVoucher")
 ```
-- You can also use `NamaRep.creator("ReceiptVoucher")`
-- To generate a link that also includes line-level details (e.g., items), follow these steps:
-  - Create a variable creator link as below:
-    ![Sample File](images/creator-link-sample.png)
-  - Initial Value Expression
+
+### Creating with Line-Level Details
+
+1. Create a variable called `creatorLink` with initial value expression:
+
 ```groovy
 NamaRep.newWithFields("PurchaseOrder").field("term").value("P.Order.Term").root()
 ```
-  - Expression
+
+2. For line-level expression:
+
 ```groovy
-Expression: $V{creatorLink}.field("details.item.itemCode").value($F{code}).row($V{REPORT_COUNT})
+$V{creatorLink}.field("details.item.itemCode").value($F{code}).row($V{REPORT_COUNT})
 ```
-  - Then create a link and make the expression:
+
+3. To generate the full link:
+
 ```groovy
 $V{creatorLink}.toString()
 ```
+
+### Optional: Specify Menu Code or View Name
+
+```groovy
+NamaRep.newWithFields("ReceiptVoucher")
+  .viewName("NormalReceipts")
+  .menuCode("NormalReceiptMenu")
+  .f("term").value("POTermCode")
+  .f("book").value("POBook1")
+  .toString()
+```
+
 ### Find employee vacation balances
 ```groovy
 NamaRep.getVacation1RemainderBalance(empIdOrCode)
