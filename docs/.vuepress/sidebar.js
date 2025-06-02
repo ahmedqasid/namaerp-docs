@@ -17,7 +17,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Frequently Asked Questions",
       collapsible: true,
-      children: [ "/faq/general-faq.md", "/faq/fields-values-calculator-faq.md", "/faq/supply-chain-faq.md", "/faq/report-wizard-faq.md" ]
+      children: [ "/faq/general-faq.md", "/faq/fields-values-calculator-faq.md", "/faq/supply-chain-faq.md", "/faq/report-wizard-faq.md", "/faq/field-filter-faq.md" ]
     } ]
   } ]
 }
