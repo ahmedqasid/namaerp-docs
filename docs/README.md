@@ -4,6 +4,7 @@ heroImage: hero.svg
 ---
 # Home
   - [Guides](/guide/)
+    - [بعض المعلومات عن استعمال هذا الموقع](/guide/docs-quick-guide.md)
     - [Utility Links](/guide/utils.md)
     - [System Minimum Requirements](/guide/system-minimum-requirements.md)
     - [Reports Guide (Jasper Reports)](/guide/reports-guide.md)
