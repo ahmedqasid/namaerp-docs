@@ -17,4 +17,5 @@
   - [Email By Parameterized Reports In Task Scheduler](/guide/scheduled-tasks.md)
   - [Nama Properties](/guide/nama-properties.md)
   - [Customer Reward Points (Loyalty Points)](/guide/reward-points.md)
+  - [دليل استعمال النقاط الفنية في نقاط البيع](/guide/nama-pos.md)
   - [ORACLE JDBC Integration Connection in context.xml for integration purposes](/guide/oracle-jdbc-connection.md)

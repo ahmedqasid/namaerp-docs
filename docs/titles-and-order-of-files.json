@@ -20,6 +20,7 @@
     "/guide/scheduled-tasks.md",
     "/guide/nama-properties.md",
     "/guide/reward-points.md",
+    "/guide/nama-pos.md",
     "/guide/oracle-jdbc-connection.md",
     "/examples",
     "/examples/entity-flow-examples.md",
@@ -39,6 +40,7 @@
     "/faq/general-faq.md",
     "/faq/fields-values-calculator-faq.md",
     "/faq/supply-chain-faq.md",
+    "/faq/human-resources-faq.md",
     "/faq/report-wizard-faq.md",
     "/faq/approvals-faq.md",
     "/faq/field-filter-faq.md"
