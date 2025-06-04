@@ -17,7 +17,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Frequently Asked Questions",
       collapsible: true,
-      children: [ "/faq/general-faq.md", "/faq/fields-values-calculator-faq.md", "/faq/supply-chain-faq.md", "/faq/human-resources-faq.md", "/faq/report-faq.md", "/faq/report-wizard-faq.md", "/faq/approvals-faq.md", "/faq/field-filter-faq.md" ]
+      children: [ "/faq/general-faq.md", "/faq/entity-flow-faq.md", "/faq/supply-chain-faq.md", "/faq/human-resources-faq.md", "/faq/report-faq.md", "/faq/report-wizard-faq.md", "/faq/approvals-faq.md", "/faq/field-filter-faq.md" ]
     } ]
   } ]
 }

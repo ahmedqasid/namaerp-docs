@@ -38,55 +38,27 @@ $line.amount.value.amount=n1
 [Gen production order req from transfer req.xlsx](https://drive.google.com/file/d/1EL8HmxkM5via_44KfWgNa4IaeRLFyKvQ/view?usp=sharing)
 
 اسم العنصر: `EAGenerateEntityFromEntityAction`
-
-    Parameter 1:
-
+::: details JSON code for Import Into Current Record
+```json
+{
+  "details" : [ {
+    "className" : "com.namasoft.infor.domainbase.util.actions.EAGenerateEntityFromEntityAction",
+    "title1" : "Target Type",
+    "parameter1" : "ProductionOrderRequest",
+    "title2" : "Finder SQL. eg: select id from CreditNote where ref5Id={id}",
+    "parameter2" : "select {currentLine.ref1.id}",
+    "title3" : "Field Map. eg: \ncode=code\nfromDoc=$this\nref5=$this",
+    "parameter3" : "book=\"طلب امر انتاج'\nfromDoc=$this\ninvItem=$line.item.item\nbom=$line.item.item.code\nrouting=$line.item.item.code\nquantity.value=$line.quantity.quantity.primeQty.value\nquantity.uom=$line.quantity.quantity.primeQty.uom\nswitchSource=$target.bom(\ncomponents=[details]\ncomponents.operationSeq=details.operationSeq\ncomponents.item=details.item\ncomponents.quantity.quantity.primeQty.value=details.quantity.quantity.primeQty.value\ncomponents.quantity.quantity.primeQty.uom=details.quantity.quantity.primeQty.uom\ncomponents.finalQty.value=details.finalQty.value\ncomponents.finalQty.uom=details.finalQty.uom\ncomponents.materialClassification=details.materialClassification\ncomponents.specificDimensions.warehouse=details.specificDimensions.warehouse\ncomponents.issueType=details.issueType\ncomponents.remarks=details.remarks\n)endSwitchSource\nswitchSource=$target.routing(\nroutings=[details]\nroutings.operationSeq=details.operationSeq\nroutings.operation=details.operation\nroutings.workCenter=details.workCenter\nroutings.autoCharge=details.autoCharge\nroutings.description=details.description\nroutings.permittedPercentage=details.permittedPercentage\n)endSwitchSource\n",
+    "title5" : "Inverse Copy (Copy Fields from Generated to Generator). \nExample:\nref5=$this\ndescription5=n1",
+    "parameter5" : "$line.ref1=$this",
+    "title6" : "Run Entity Flow Per Each Line. eg: details",
+    "parameter6" : "details",
+    "targetAction" : "PostCommit",
+    "description" : "Creates Entity from another entity, should be used in combination with DeleteRelatedEntityAction"
+  } ]
+}
 ```
-ProductionOrderRequest
-```
-
-    Parameter 2:
-```sql
-select {currentLine.ref1.id}
-```
-    Parameter 3:
-```ini
-book="طلب امر انتاج'
-fromDoc=$this
-invItem=$line.item.item
-bom=$line.item.item.code
-routing=$line.item.item.code
-quantity.value=$line.quantity.quantity.primeQty.value
-quantity.uom=$line.quantity.quantity.primeQty.uom
-switchSource=$target.bom(
-components=[details]
-components.operationSeq=details.operationSeq
-components.item=details.item
-components.quantity.quantity.primeQty.value=details.quantity.quantity.primeQty.value
-components.quantity.quantity.primeQty.uom=details.quantity.quantity.primeQty.uom
-components.finalQty.value=details.finalQty.value
-components.finalQty.uom=details.finalQty.uom
-components.materialClassification=details.materialClassification
-components.specificDimensions.warehouse=details.specificDimensions.warehouse
-components.issueType=details.issueType
-components.remarks=details.remarks
-)endSwitchSource
-switchSource=$target.routing(
-routings=[details]
-routings.operationSeq=details.operationSeq
-routings.operation=details.operation
-routings.workCenter=details.workCenter
-routings.autoCharge=details.autoCharge
-routings.description=details.description
-routings.permittedPercentage=details.permittedPercentage
-)endSwitchSource
-```
-    Parameter 5: (Inverse Copy Map)
-```
-$line.ref1=$this
-Parameter 6:
-details
-```
+:::
 ### اعادة حساب بيانات الحضور و الانصراف لاخر شهرين لمن لهم سجل حضور و انصراف
 
 قم باستيراد الملف التالي و عدل عليه إن تطلب الأمر

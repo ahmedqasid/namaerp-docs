@@ -1,6 +1,6 @@
 # Frequently Asked Questions
   - [أسئلة عامة](/faq/general-faq.md)
-  - [أسئلة عن مسار الكيان EAFieldsValuesCalculator](/faq/fields-values-calculator-faq.md)
+  - [أسئلة شائعة عن مسارات الكيان](/faq/entity-flow-faq.md)
   - [أسئلة في موديول التوزيع والمخازن والمبيعات والمشتريات](/faq/supply-chain-faq.md)
   - [أسئلة شائعة في موديول الرواتب والموارد البشرية](/faq/human-resources-faq.md)
   - [أسئلة شائعة عن تصميم التقارير](/faq/report-faq.md)
