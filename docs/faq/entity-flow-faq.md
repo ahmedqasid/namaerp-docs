@@ -165,4 +165,53 @@ details.n4=sql(select {details.n3} * {details.price.actualVal} / 100)
 
 إذا لم يكن هناك موافقات أو قيود على حذف الفاتورة، يمكن ربط مسار الحذف بنقطة `PreValidateOnDelete` بحيث يتم تنفيذ المسار **قبل** محاولة الحذف الفعلي. لكن في هذه الحالة، لا يزال هناك احتمال أن النظام يمنع الحذف بسبب وجود المستند المرتبط.
 
+
+## إضافة قيد خاص بالمصاريف البنكية في سند القبض بدون استخدام طريقة دفع
+
+### السيناريو
+
+يرغب العميل في تسجيل قيمة **المصاريف البنكية** داخل سند القبض، ولكن **دون استخدام طريقة دفع**، ويريد بدلاً من ذلك إدخال القيمة يدويًا في حقل رقمي مخصص (مثل `n1`).
+
+### التوصية
+
+من الأفضل دائمًا استخدام **طريقة دفع** لتسجيل المصاريف البنكية، حيث توفر مرونة أعلى في التوزيع والنسب وربطها بحسابات بطريقة نظامية ومباشرة.
+
+لكن في حال الإصرار على عدم استخدام طريقة دفع، يمكن تحقيق ذلك عبر **مسار كيان (Entity Flow)** باستخدام الإجراء:
+
+### EAAddAccountingEffect
+
+#### مثال لمسار كيان لإضافة تأثير محاسبي بناءً على الحقل `n1`:
+
+```json
+{
+  "targetType": "ReceiptVoucher",
+  "details": [
+    {
+      "className": "com.namasoft.modules.accounting.domain.utils.actions.EAAddAccountingEffect",
+      "title1": "Effects: fieldId=DebitEffectAccSideCode,CreditEffectAccSideCode eg:\nn1=N1EffectDR,N1EffectCR\nlines.n2=DetailsN2EffectDR,DetailsN2EffectCR",
+      "parameter1": "n1=BankExpensesDebit,BankExpensesCredit",
+      "title2": "Apply When Query (Return 0 or 1), example:\nselect case when {lines.ref1.entityType} in ('Branch','Department') then 1 else 0 end\nThis example will make the effect happen only for lines ref1 being a branch or a department",
+      "title3": "ShortenLedger (true,false)",
+      "parameter3": "true",
+      "title4": "Currency Field  (optional)",
+      "parameter4": "amount.value.currency",
+      "title5": "Rate Field (optional)",
+      "parameter5": "amount.rate",
+      "targetAction": "Automatic",
+      "description": "Add Extra Effect to Any Document File existing ledger request."
+    }
+  ]
+}
+```
+
+### شرح المدخلات:
+
+* `parameter1`: يربط الحقل `n1` بالقيد المحاسبي (مدين ودائن) باستخدام رموز تأثير مثل `BankExpensesDebit` و`BankExpensesCredit`.
+* `parameter3`: عند ضبطه على `true` يجعل النظام يختصر اليومية ولا يعرض التفاصيل إذا لم تتطلب.
+* `parameter4` و `parameter5`: تُستخدم لضبط العملة ومعدل التحويل عند الحاجة.
+
+::: tip
+💡 يمكن تغيير اسم الحقل `n1` والرموز `BankExpensesDebit` و `BankExpensesCredit` حسب الإعدادات الفعلية في النظام.
+:::
+
 </rtl>
