@@ -145,6 +145,8 @@ details.n4=sql(select {details.n3} * {details.price.actualVal} / 100)
 
 #### مثال لمسار كيان يحذف سند الصرف المرتبط:
 
+::: details JSON for direct import
+
 ```json
 {
   "details" : [ {
@@ -159,7 +161,11 @@ details.n4=sql(select {details.n3} * {details.price.actualVal} / 100)
 }
 ```
 
-> ⚠️ **ملاحظة**: هذا المسار لن يعمل تلقائيًا عند حذف الفاتورة إلا إذا لم يكن هناك قيد يمنع حذف الفاتورة (مثل وجود موافقات أو علاقات أخرى). لذا يُفضل استخدام هذا المسار في زر يدوي فقط.
+:::
+
+::: warning
+  هذا المسار لن يعمل تلقائيًا عند حذف الفاتورة إلا إذا لم يكن هناك قيد يمنع حذف الفاتورة (مثل وجود موافقات أو علاقات أخرى). لذا يُفضل استخدام هذا المسار في زر يدوي فقط.
+:::
 
 ### الحل المقترح 2: تغيير نقطة التنفيذ في مسار الكيان
 
@@ -181,7 +187,7 @@ details.n4=sql(select {details.n3} * {details.price.actualVal} / 100)
 ### EAAddAccountingEffect
 
 #### مثال لمسار كيان لإضافة تأثير محاسبي بناءً على الحقل `n1`:
-
+::: details JSON for direct import
 ```json
 {
   "targetType": "ReceiptVoucher",
@@ -203,6 +209,7 @@ details.n4=sql(select {details.n3} * {details.price.actualVal} / 100)
   ]
 }
 ```
+:::
 
 ### شرح المدخلات:
 
