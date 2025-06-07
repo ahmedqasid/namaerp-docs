@@ -2,6 +2,7 @@
   - [بعض المعلومات عن استعمال هذا الموقع](/guide/docs-quick-guide.md)
   - [Utility Links](/guide/utils.md)
   - [System Minimum Requirements](/guide/system-minimum-requirements.md)
+  - [Nama ERP Installation Guide](/guide/installation-guide.md)
   - [Reports Guide (Jasper Reports)](/guide/reports-guide.md)
   - [Keyboard Shortcuts](/guide/shortcuts.md)
   - [Layout Names:](/guide/screen-modifier.md)
