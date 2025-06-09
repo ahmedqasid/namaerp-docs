@@ -124,3 +124,24 @@ To upgrade Nama ERP manually:
 
 This tool will automatically download and apply the latest Nama ERP updates.
 
+### How to Allow Downloading Releases from Utils Page?
+
+To enable the system to download and install updates from the **utils** page (i.e., support self-upgrade functionality), the Tomcat service must run under the **Local System Account**.
+
+::: tip
+ This configuration is typically set automatically during the Nama ERP installation. If auto-upgrade stops functioning, follow these steps to restore it
+:::
+
+1. Open the **Tomcat Service Configuration Utility**:
+
+    * Navigate to:
+      `C:\Program Files\Apache Software Foundation\Tomcat 10\bin\tomcatw.exe`
+    * Or search in the Windows Start Menu for: **Configure Tomcat**
+
+2. In the configuration window, go to the **Log On** tab.
+
+3. Select the radio option **Local System account**.
+
+4. Save the configuration and restart the Tomcat service.
+
+![Configure Tomcat Service Logon as](images/installation-configure-logon-to-enable-auto-upgrade.png)

@@ -119,4 +119,29 @@ select {details.item.item.defaultDetailData.maxQuantity}
 فإن النظام **لن يسمح بالحفظ أو تنفيذ الحركات** إلا إذا كانت هناك علاقة **"سماح بالتعامل"** محددة مسبقًا بين الصنف والمخزن.
 :::
 
+## مثال على استعلام لحساب تكلفة توريد المبيعات من تكلفة صرف المبيعات المرتبط بالفاتورة
+
+بشكل افتراضي، يقوم نظام **Nama ERP** بحساب تكلفة توريد المبيعات تلقائيًا باستخدام **متوسط تكلفة الصنف لحظة التوريد**.
+لكن في بعض السيناريوهات، قد ترغب في ربط تكلفة التوريد بشكل مباشر بتكلفة الصنف التي تم صرفها فعليًا في **فاتورة المبيعات** نفسها.
+
+يمكنك تنفيذ ذلك باستخدام الاستعلام التالي داخل جدول **مصادر تكلفة التوريد غير المكلف** ضمن إعدادات موديول التوزيع (**Supply Chain Configuration**):
+
+```sql
+select top 1 l.unitCost 
+from SalesReturn sr
+inner join CostOutTransLine l on l.invoiceId = sr.fromDoc_id
+where l.item_id = {item_id}
+  and l.revisionId = coalesce({dimensions.specificDimensions.revisionId}, '')
+  and l.color = coalesce({dimensions.specificDimensions.color}, '')
+  and l.size = coalesce({dimensions.specificDimensions.size}, '')
+  and sr.id = {invoiceId}
+```
+
+::: tip
+لكي يتم تفعيل استخدام هذا الاستعلام في حساب تكلفة التوريد، يجب تفعيل الخيار التالي في إعدادات سلسلة التوريد 
+<SupplyChainOption option-code="value.ignoreCurrentAvgForUnCostedReceipt" link-title="تجاهل متوسط التكلفة الحالية للتوريدات الغير مكلفة" />
+
+يقوم هذا الخيار بإجبار النظام على تجاهل متوسط التكلفة الحالي عند وجود مصدر مخصص لحساب التكلفة، مثل الاستعلام الموضح أعلاه.
+:::
+
 </rtl>

@@ -216,10 +216,103 @@ SELECT
   "actionDescription": "Creates attendance doc per period from select"
 }
 ```
+:::
 
+
+::: tip
+
+* تقوم المهمة المجدولة تلقائيًا باستيراد بيانات الحضور والانصراف **من اليوم الأول حتى نهاية الشهر**.
+* **كود السند** الناتج يتضمن السنة والشهر الحالي ليسهل التعرف عليه وتعديله لاحقًا.
+* في حال وجود عدد كبير من الموظفين، يُفضّل تعديل المهمة المجدولة لتقوم بالاستيراد **لكل أسبوع** بدلًا من كل شهر، لتقليل الحمل وتسريع الأداء.
+* لإعادة استيراد بيانات شهر سابق، يمكن استخدام المسار الموضح أدناه.
 :::
 
 ---
+
+## 🔁 إعادة استيراد البيانات في مستند حضور وانصراف
+
+### لماذا قد نحتاج إلى إعادة الاستيراد؟
+
+إذا تم إنشاء سند الحضور والانصراف لشهر معين، ولكن لم تُسجل بعض الأيام (مثلًا: آخر يومين بسبب عطل في الماكينة)، **فلن يتم تعديل السند القديم تلقائيًا** عند استئناف تسجيل البصمات في الشهر الجديد.
+
+### ما هو الحل؟
+
+يمكنك إنشاء **مسار كيان (Entity Flow)** باسم `ReImportTimeAttendance` يقوم بإعادة جلب البيانات من قاعدة بيانات ماكينة الحضور (مثل ZK) وإدخالها في السند الحالي يدويًا.
+
+---
+
+### ⚙️ تعريف مسار كيان إعادة الاستيراد
+
+::: details JSON for an entity flow that re-imports time attendance
+
+```json
+{
+  "code": "ReImportTimeAttendance",
+  "name1": "إعادة استيراد بيانات الحضور والانصراف",
+  "name2": "Re-import Time Attendance Data",
+  "targetType": "TimeAttendance",
+  "details": [
+    {
+      "className": "com.namasoft.modules.humanresource.utils.actions.EATimeAttendanceFromDBImportIntoDocument",
+      "title1": "Query. eg: SELECT  USERID ,CHECKTIME [(yyyy-MM-dd HH:mm:ss)],CHECKTYPE...",
+      "parameter1": "SELECT e.attendanceMachineCode USERID,CHECKTIME [(yyyy-MM-dd HH:mm:ss)]\nFROM [C.NAMASOFT.COM].[namazk].dbo.CHECKINOUT atm ...",
+      "title2": "Format Formula. eg: empid#datetime{}#type{I-O}#exact#addhours{2}",
+      "parameter2": "empid#datetime{yyyy-MM-dd HH:mm:ss}#alternatingPunch",
+      "title3": "Data Pre-processor (groovy)",
+      "title4": "Ignore unfound employees",
+      "targetAction": "Manual",
+      "description": "Imports attendance into current document"
+    }
+  ]
+}
+```
+
+:::
+
+#### شرح العناصر المهمة:
+
+* `parameter1`: الاستعلام المخصص لجلب البصمات من قاعدة البيانات بناءً على الشهر والسنة المحددين.
+* `parameter2`: الصيغة التي يتم بها تحويل البيانات إلى تنسيق قابل للإدخال في السند (`empid`, `datetime`, `alternatingPunch`).
+* `className`: يشير إلى الفئة البرمجية داخل النظام التي تنفذ هذا الاستيراد.
+
+---
+
+### 🖥️ تعديل شاشة مستند الحضور والانصراف
+
+لإظهار زر "إعادة استيراد البيانات" داخل الشاشة:
+
+::: details Screen Modifier To Add re-import time attendance entity flow to time attendance screen
+
+```json
+{
+  "applicableFor": "EntityType",
+  "forType": "TimeAttendance",
+  "actionLines": [
+    {
+      "inPage": "1",
+      "notificationOrder": 2,
+      "showButtonInEditScreen": true,
+      "showInMoreMenuListScreen": true,
+      "showInMoreMenuEditScreen": true,
+      "entityFlow": "ReImportTimeAttendance",
+      "arTitle": "اعادة استيراد البيانات",
+      "enTitle": "اعادة استيراد البيانات"
+    }
+  ]
+}
+```
+
+:::
+
+### ملاحظات:
+
+* يتم عرض الزر في **شاشة التحرير** وكذلك في **قائمة المزيد** داخل شاشة السند.
+* يمكن استخدام الزر الأول لإعادة استيراد البيانات.
+
+---
+
+إذا أردت تنسيق هذه المعلومات على شكل صفحة توثيق VuePress أو ملف Markdown، أخبرني وسأقوم بترتيبها بذلك الشكل أيضًا.
+
 
 ### إنشاء مهمة مجدولة لحساب بيانات الحضور والانصراف
 
@@ -237,6 +330,57 @@ SELECT
   "title1": "Select Statement",
   "parameter1": "with data as (select employee_id, cast(min(coalesce(fromDate,toDate)) as date) fromDate, GETDATE() toDate, max(jo.startDate) joStartDate from TimeAttendanceLine l left join Employee e on e.id = l.employee_id left join JobOffer jo on jo.id = e.jobOfferId where jo.id is not null and coalesce(fromDate,toDate) between DATEADD(month,-2,GETDATE()) and GETDATE() group by employee_id union select employee_id, cast(min(coalesce(fromDate,toDate)) as date) fromDate, GETDATE() toDate, max(jo.startDate) joStartDate from ElectronicAttendance l left join Employee e on e.id = l.employee_id left join JobOffer jo on jo.id = e.jobOfferId where jo.id is not null and coalesce(fromDate,toDate) between DATEADD(month,-2,GETDATE()) and GETDATE() group by employee_id) select employee_id, case when min(fromDate)>max(joStartDate) then min(fromDate) else max(joStartDate) end fromDate, case when max(toDate)>max(joStartDate) then max(toDate) else max(joStartDate) end toDate from data group by employee_id",
   "actionDescription": "Creates EmpAttendanceSysEntry Automatically."
+}
+```
+
+:::
+
+### إعادة حساب بيانات الحضور والانصراف من خلال مستند حضور وانصراف
+
+قد تحتاج في بعض الحالات إلى إعادة حساب بيانات الحضور والانصراف لفترة زمنية تم تسجيلها مسبقًا داخل مستند حضور وانصراف، خاصة بعد القيام بعملية إعادة استيراد لبيانات البصمات من أجهزة الحضور.
+لتحقيق ذلك، يمكن استخدام مسار كيان يعتمد على الكائن `EAEmpAttendanceSysEntryCalculator` والذي يتولى إعادة إنشاء الإدخالات في جدول نظام الحضور والانصراف (EmpAttendanceSysLine).
+
+::: details JSON for re-calculate Employee Attendance System Lines from a Time Attendance Document
+
+```json
+{
+  "code": "RecalcAttendance",
+  "targetType": "TimeAttendance",
+  "targetAction": "Manual",
+  "details": [
+    {
+      "className": "com.namasoft.modules.humanresource.utils.actions.EAEmpAttendanceSysEntryCalculator",
+      "title1": "Select Statement. The first column must be employee id or code, the second is optional and it should return start date, the third is optional and it should return end date\nExample:- \nwith dates as (\nselect cast(DATEADD(month, DATEDIFF(month, 0, GETDATE()), 0) as date) mstart,cast(DATEADD(s,-1,DATEADD(mm, DATEDIFF(m,0,GETDATE())+1,0)) as date) mend\n)\nselect distinct l.employee_id,mstart,mend from TimeAttendanceLine l left join dates on 1 = 1 where fromDate >=dates.mstart and l.toDate<=mend",
+      "parameter1": "select employee_id,cast(min(coalesce(fromDate,toDate)) as date) fromDate,cast(max(coalesce(toDate,fromDate)) as date) toDate from TimeAttendanceLine l\nwhere l.timeAttendance_id = {id} and coalesce(fromDate,toDate) is not null\ngroup by employee_id",
+      "targetAction": "Manual",
+      "description": "Creates EmpAttendanceSysEntry Automatically."
+    }
+  ]
+}
+```
+
+:::
+
+لإتاحة هذا المسار ضمن واجهة المستخدم، يجب تعديل شاشة مستند حضور وانصراف وإضافة المسار إلى قائمة الإجراءات.
+
+::: details Screen Modifier To Add re-calculate Employee Attendance System Line entity flow to time attendance screen
+
+```json
+{
+  "applicableFor": "EntityType",
+  "forType": "TimeAttendance",
+  "actionLines": [
+    {
+      "inPage": "1",
+      "notificationOrder": 2,
+      "showButtonInEditScreen": true,
+      "showInMoreMenuListScreen": true,
+      "showInMoreMenuEditScreen": true,
+      "entityFlow": "RecalcAttendance",
+      "arTitle": "اعادة حساب بيانات الحضور و الانصراف",
+      "enTitle": "اعادة حساب بيانات الحضور و الانصراف"
+    }
+  ]
 }
 ```
 
