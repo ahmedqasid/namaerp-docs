@@ -1,64 +1,268 @@
 <rtl>
 
-# الربط مع ماكينات الحضور والانصراف 
-يدعم النظام طريقتين للربط مع ماكينات الحضور والانصراف
-الطريقة الأولى من خلال تطبيق مخصص يتم وضعه على الأجهزة التي تقرأ البصمات من الماكينات
-والطريقة الثانية من خلال ربط خادم سيكول سيرفر الحاص بالماكينات مع سيكول سيرفر الخاص بنظام نما
-## الطريقة الأولى: تطبيق attcron
-- هذا التطبيق بحاجة لترخيص منفصل - يرجى التواصل مع فريق المبيعات أو الدعم الفني للحصول على الترخيص
+# الربط مع ماكينات الحضور والانصراف
 
-هو تطبيق مخصص يتم تنصيبه على الأجهزة التي بها برامج استيراد البيانات من ماكينات الحضور و الانصرف
-وظيفته الاساسية هيا جلب البيانات من قاعدة بيانات البرنامج المحلية او من خلال واجهة البرمجة الخاصة ببرنامج الماكينة API
-وارسالها بشكل دوري إلى النظام
-يتميز هذا التطبيق بأنه ليس بحاجة لوجود static ip في كل الفروع التي بها ماكينات 
-ولكن بالطبع يجب وجود static ip او اي طريقة تسمح للتطبيق بالوصول إلى خادم Nama ERP الريسي
-خطوات التشغيل:
-- قم بانشاء ملف API Credentials في نظام Nama ERP واحتفظ ب Client ID and Client Secret
-- قم بانشاء ملف "إعدادات ماكينة الحضور" جديد وحدد له كود مناسب واسم واختر به نوع الاتصال
-- CRON Expression وبه تستطيع تحديد متى يتم قراءة البيانات وارسالا إلى النظام
-  - مثال: `5 */1 * * *` سيقوم بقراءة البيانات كل ساعة عند الدقيقة الخامسة
-  - يمكنك الاستعانة بالموع التالي لعمل cron xpression المناسب لما تريده: https://crontab.guru/
-- المهمة المجدولة المراد تشغيلها بعد سحب البيانات من الماكينة: وهذه التي ستقوم بجلب البيانات من جدول لوج البصمات إلى ملف الحضور والانصراف
-  - لنسخ البيانات من لوج الماكينة إلى ملف الحضور و الانصراف قم بعمل مهمة مجدولة تستورد البيانات من الجدول إلى الحضورو والانصراف
-  - لتسهيل انشاء المهمة تم اضافة زر باسم Create Scheduled Task 
-- نوع الاتصال به 3 قيم
-  - ZkBiotime ويسمح بنقل بيانات البصمة من برنامج ZK BioTime 
-  - يتطلب الربط مع zk bio time التالي:
-    - رابط الماكينة
-    - اسم المستخدم
-    - كلمة المرور
-  - SQL Server ويسمح بنقل البيانات من أي ماكينة تدعم سيكول سيرفر 
-  - يتطلب الربط مع SQL Server التالي:
-    - رابط الماكينة: وهو عنوان خادم SQL Server - غالبا سيكون localhost
-    - Database Port الخاص بالسيكول سيرفر - غالبا سيكون 1433
-    - اسم المستخدم بسيكول سيرفر - غالبا سيكون sa
-    - كلمة المرور الخاصة بسيكول سيرفر
-    - SQL Query وهنا يمكنك اافةالاستعلام الذي سيقوم بقراءة البيانات من قاعدة بيانات الماكين عندما يقوم النظام بقراء البيانات بشكل دوري
-    - Read For Period Query ويستعمل هذا الاستعلام لقراءة البيانات الخاصة بفتر محددة تقوم بتحديدها عند الضغط على زر Read Attendance For Period في تطبيق Attendance CRON على الماكينة
-    - Mapping Lines: مجموعة سطور تمكنك من ربط أعمدة الاستعلام بما يقابها من البيانات التي يحتاجها النظام
-      - وبه 3 أعمدة
-      - Response Field: وبه الحقول التي يدعمها النظام والقيم المسوح بها فيه هي `EmployeeCode, firstName, lastName, department, punchTime, punchState, punchStateDisplay, verifyType, verifyTypeDisplay, gpsLocation, areaAlias, terminalSN, uploadTime`
-      - Column Index: رقم العمود المقابل للحقل 
-      - Column Alias: بديل ل Column Index ويمكنك به كتابة اسم العمود في جملة ال SQL
-    - وجد زر اسم Default Queries  يقوم بوضع استعلامات افتراضية لماكينات ZK كمثال ويمكنك التعديل عليه
-  - Access يسمح بنقل البيانات من قاعدة بيانات على ملف Microsoft Access
-  - البيانات المطلوبة به مشابهة تماما ل SQL Server فيما عدا استبدال اسم المستخدم وكلمة المرورو ورابط الماكينة بحقل واحد وو مسار الملف (ملف قاعدة البيانات على الجهاز الذي سيتم تنصيب attendance cron عليه)
-- بعد عمل هذه الخطوات يتوجب علينا الأن تنصيب برنامج ttendancce cron على الماكينة
-  - اذهب الى الماكينة وقم بتنصيب JDK 21 و apache tomcat 10
-  - واجعل startup type فيه Automatic
-  - بعدها قم بتحميل ملف تنصيب attendance cron من الرابط التالي:
-  - https://namasoft.com/bin/nama-attcron-upgrader.jar
-  - ضع الملف في مجلد التومكاتن وقم بتشغيله
-  - سيتم تحميل التطبيق الأن 
-  - بعدها قم بالدخول الى localhost:8080/attcron
-  - ستظهر لك صفحة مطلوب بها البيانات التالية:
-    - Nama Server Address وبه قم بإدخال عنوان خادم نما
-    - Client Id and Client Secret وبهما قم بإدخال البيانات التي احتفظت بها سابقا
-    - Attendance Machine Config Code وضع به كود الماكينة الذي اخترته عند انشائها
-  - التطبيق الأن جاهز لارسال البيانات إلى النظام
+يدعم النظام طريقتين للربط مع ماكينات الحضور والانصراف:
+
+1. الطريقة الأولى من خلال تطبيق مخصص يتم وضعه على الأجهزة التي تقرأ البصمات من الماكينات.
+2. الطريقة الثانية من خلال ربط خادم SQL Server الخاص بالماكينات مع SQL Server الخاص بنظام نما.
+
+## الطريقة الأولى: تطبيق attcron
+
+::: tip
+هذا التطبيق بحاجة لترخيص منفصل – يرجى التواصل مع فريق المبيعات أو الدعم الفني للحصول على الترخيص.
+:::
+
+هو تطبيق مخصص يتم تنصيبه على الأجهزة التي بها برامج استيراد البيانات من ماكينات الحضور والانصراف.
+وظيفته الأساسية هي جلب البيانات من قاعدة بيانات البرنامج المحلية أو من خلال واجهة البرمجة الخاصة ببرنامج الماكينة (API)، وإرسالها بشكل دوري إلى النظام.
+
+### مميزات التطبيق
+
+* لا يحتاج إلى static IP في كل الفروع التي تحتوي على ماكينات.
+* لكن يجب وجود static IP أو أي طريقة تسمح للتطبيق بالوصول إلى خادم Nama ERP الرئيسي.
+
+### خطوات التشغيل
+
+* قم بإنشاء ملف API Credentials في نظام Nama ERP واحتفظ بـ **Client ID** و **Client Secret**.
+
+* قم بإنشاء ملف "إعدادات ماكينة الحضور" جديد، وحدد له:
+
+  * كود مناسب
+  * اسم
+  * نوع الاتصال
+
+* حدد **CRON Expression** لتحديد توقيت قراءة البيانات وإرسالها إلى النظام:
+
+  * مثال: `5 */1 * * *` سيقوم بقراءة البيانات كل ساعة عند الدقيقة الخامسة.
+  * يمكنك استخدام الموقع التالي لمساعدتك: [https://crontab.guru](https://crontab.guru)
+
+* حدد المهمة المجدولة التي سيتم تشغيلها بعد سحب البيانات من الماكينة:
+
+  * هذه المهمة تقوم بجلب البيانات من جدول لوج البصمات إلى ملف الحضور والانصراف.
+  * لتسهيل إنشاء المهمة، تم إضافة زر باسم **Create Scheduled Task**.
+
+### نوع الاتصال (Connection Type)
+
+نوع الاتصال يحتوي على ثلاث خيارات:
+
+#### ZkBiotime
+
+* يسمح بنقل بيانات البصمة من برنامج ZK BioTime.
+* يتطلب:
+
+  * رابط الماكينة
+  * اسم المستخدم
+  * كلمة المرور
+
+#### SQL Server
+
+* يسمح بنقل البيانات من أي ماكينة تدعم SQL Server.
+
+* الإعدادات المطلوبة:
+
+  * **رابط الماكينة**: عنوان خادم SQL Server – غالبًا يكون `localhost`
+  * **Database Port**: منفذ الاتصال – غالبًا `1433`
+  * **اسم المستخدم**: مثل `sa`
+  * **كلمة المرور**
+  * **SQL Query**: الاستعلام الذي سيتم استخدامه لقراءة البيانات من قاعدة بيانات الماكينة بشكل دوري
+  * **Read For Period Query**: استعلام يستخدم لقراءة بيانات فترة معينة عند الضغط على زر "Read Attendance For Period" في تطبيق attcron
+  * **Mapping Lines**: ربط أعمدة نتيجة الاستعلام بما يحتاجه النظام
+
+    يحتوي على ثلاثة أعمدة:
+
+    * **Response Field**: اسم الحقل المطلوب في النظام
+      القيم الممكنة:
+      `EmployeeCode`, `firstName`, `lastName`, `department`, `punchTime`, `punchState`, `punchStateDisplay`, `verifyType`, `verifyTypeDisplay`, `gpsLocation`, `areaAlias`, `terminalSN`, `uploadTime`
+    * **Column Index**: رقم العمود في نتيجة الاستعلام
+    * **Column Alias**: اسم العمود البديل لاستخدامه في جملة SQL
+
+* يوجد زر باسم **Default Queries** يقوم بإدراج استعلامات افتراضية مناسبة لماكينات ZK.
+
+#### Access
+
+* يسمح بنقل البيانات من قاعدة بيانات Microsoft Access.
+* نفس الإعدادات مثل SQL Server، باستثناء:
+
+  * لا حاجة لاسم مستخدم وكلمة مرور ورابط الخادم.
+  * بدلاً من ذلك يتم تحديد **مسار ملف قاعدة البيانات** الموجود على الجهاز الذي سيتم تنصيب عليه تطبيق attcron.
+
+### خطوات تنصيب برنامج Attendance Cron على الجهاز
+
+1. اذهب إلى الجهاز الذي سيتم تشغيل التطبيق عليه، وقم بتنصيب:
+
+  * **JDK 21**
+  * **Apache Tomcat 10**
+
+2. اضبط Tomcat بحيث يكون `Startup Type = Automatic`.
+
+3. قم بتحميل ملف تنصيب Attendance Cron من الرابط التالي:
+
+   [https://namasoft.com/bin/nama-attcron-upgrader.jar](https://namasoft.com/bin/nama-attcron-upgrader.jar)
+
+4. ضع الملف في مجلد Tomcat، ثم قم بتشغيله.
+
+5. بعد تشغيل الملف سيتم تحميل التطبيق.
+
+6. افتح المتصفح وادخل إلى العنوان:
+
+   `http://localhost:8080/attcron`
+
+7. ستظهر لك صفحة تطلب منك إدخال البيانات التالية:
+
+  * **Nama Server Address**: أدخل عنوان خادم Nama.
+  * **Client Id and Client Secret**: أدخل بيانات الاتصال التي أنشأتها سابقًا.
+  * **Attendance Machine Config Code**: أدخل كود الماكينة الذي حددته عند إنشاء الإعدادات.
+
+بعد إكمال هذه البيانات، يصبح التطبيق جاهزًا لإرسال بيانات الحضور والانصراف إلى النظام.
+
 ## الطريقة الثانية: من خلال الربط مع قاعدة بيانات SQL Server بشكل مباشر
-سنعطي المثال هاهنا عن الربط مع ماكينات ZK 
-ولكن الطريقة يمكن تفعيلها مع أي ماركة ماكينات تدعم تخزين بياناتها في قاعدة بيانات SQL Server
-يتم تنصيب برنامج الحضور والانصراف الخاص بماكينة  (zk) على أحد خوادم المنشأة مع ملاحظة أنه لا ينبغي أن يتم تنصيب هذا البرنامج مع نفس الخادم الخاص بنظام نما سوفت حيث يفضل أن يكون خادم نما خاص بمدير النظام وأخصائيي الدعم الفني حتى لا يكون نظام نما عرضة لأي خطأ من جانب أي من المستخدمين الغير مؤهلين للتعامل مع نظام نما.
+
+سنعرض المثال هنا باستخدام ماكينات ZK، ولكن يمكن تفعيل هذه الطريقة مع أي ماكينة تدعم تخزين بياناتها في قاعدة بيانات SQL Server.
+
+يتم تنصيب برنامج الحضور والانصراف الخاص بالماكينة (ZK) على أحد خوادم المنشأة.
+**يُفضل عدم تنصيب هذا البرنامج على نفس الخادم الخاص بنظام نما**، حيث يُفضل أن يكون خادم نما خاصًا بمدير النظام وأخصائيي الدعم الفني لتجنب تعريض النظام لأي أخطاء ناتجة عن المستخدمين غير المؤهلين.
+
+![ZK Program screenshot](images/attendance-machine-integration-zk.png)
+
+من خلال إعدادات **Database Options**، يتم التأكد من ضبط البرنامج للعمل على **SQL Server**.
+
+### إذا كان البرنامج مثبتًا على نفس خادم Nama ERP:
+
+في هذه الحالة، تكون قاعدة بيانات برنامج ZK على نفس قاعدة بيانات SQL Server الخاصة بنظام نما، وبالتالي يكون الاتصال بين النظامين مباشرًا ولا يحتاج إلى إعدادات متقدمة.
+
+### إذا كان البرنامج مثبتًا على خادم مختلف:
+
+اتبع الخطوات التالية:
+
+* احصل على **IP Address** أو اسم الكمبيوتر الذي توجد عليه قاعدة البيانات الخاصة بماكينة الحضور.
+* أنشئ مستخدمًا جديدًا في SQL Server الخاص بماكينة الحضور، بصلاحيات مناسبة، مثلاً: `Nama`.
+* على خادم Nama ERP، أنشئ **Linked Server** جديدًا، كما يلي:
+
+![SQL Server Linked-Server Example](images/attendance-machine-integration-linked-server.png)
+
+* ضمن تبويب **Security**، اضبط الإعدادات كما في الصورة التالية:
+
+![SQL Server Linked Server Login Info](images/attendance-machine-integration-linked-server-login-info.png)
+
+* بعد الضغط على (OK)، يمكن اختبار الاتصال مع قاعدة بيانات الحضور كما يلي:
+
+![SQL Server Linked Server Connection Test](images/attendance-machine-integration-linked-server-connection-test.png)
+
+---
+
+### كيفية استيراد بيانات حضور وانصراف عن طريق مهمة مجدولة
+
+* أنشئ سجلًا جديدًا في "المهام المجدولة" من النوع "إجراء".
+
+يمكن تحديد التوقيت الذي يتم فيه تنفيذ المهمة بسهولة من النافذة الرئيسية، حسب نظام دوام الموظفين.
+
+في نافذة "إجراء"، اضبط الإعدادات التالية:
+
+* **اسم العنصر**:
+  `com.namasoft.modules.humanresource.utils.actions.EATimeAttendanceFromDBImporter`
+
+* **مدخل 1 (SQL Query):**
+
+```sql
+SELECT e.attendanceMachineCode USERID, CHECKTIME [(yyyy-MM-dd HH:mm:ss)]
+FROM [OMAR-PC].[TATimeAttendance].dbo.CHECKINOUT atm
+LEFT JOIN [OMAR-PC].[TATimeAttendance].dbo.USERINFO ui ON ui.USERID = atm.USERID
+LEFT JOIN Employee e ON RIGHT('00000000'+e.attendanceMachineCode,8) COLLATE Arabic_CI_AS = RIGHT('00000000'+CAST(ui.BADGENUMBER AS nvarchar(50)),8) COLLATE Arabic_CI_AS
+WHERE e.id IS NOT NULL
+  AND MONTH(atm.CHECKTIME) = MONTH(GETDATE())
+  AND YEAR(atm.CHECKTIME) = YEAR(GETDATE())
+ORDER BY 1, 2
+```
+
+> حيث:
+>
+> * `OMAR-PC`: اسم الكمبيوتر المثبت عليه برنامج ZK
+> * `TATimeAttendance`: اسم قاعدة البيانات
+> * `CHECKINOUT`: جدول الدخول والخروج
+> * `attendanceMachineCode`: كود الموظف المرتبط بالبصمة
+
+* **مدخل 2 (صيغة الإدخال):**
+
+```
+empid#datetime{yyyy-MM-dd HH:mm:ss}#alternatingPunch
+```
+
+* **مدخل 3 (معلومات الدفتر والفترة المالية):**
+
+```sql
+SELECT
+  'TA' + CAST(YEAR(GETDATE()) * 100 + MONTH(GETDATE()) AS nvarchar(8)) code,
+  'TAB' book,
+  YEAR(GETDATE()) * 100 + MONTH(GETDATE()) fiscalPeriod,
+  CAST(DATEADD(MONTH, DATEDIFF(MONTH, 0, GETDATE()), 0) AS date) valueDate,
+  (SELECT id FROM legalEntity WHERE code = '03') legalEntity
+```
+
+::: details JSON for Direct Import
+
+```json
+{
+  "scheduleType": "Action",
+  "className": "com.namasoft.modules.humanresource.utils.actions.EATimeAttendanceFromDBImporter",
+  "title1": "Query. eg: SELECT USERID ,CHECKTIME [(yyyy-MM-dd HH:mm:ss)]...",
+  "parameter1": "SELECT e.attendanceMachineCode USERID, CHECKTIME [(yyyy-MM-dd HH:mm:ss)] FROM [C.NAMASOFT.COM].[namazk].dbo.CHECKINOUT atm LEFT JOIN [C.NAMASOFT.COM].[namazk].dbo.USERINFO ui ON ui.USERID = atm.USERID LEFT JOIN Employee e ON RIGHT('00000000'+e.attendanceMachineCode,8) COLLATE Arabic_CI_AS = RIGHT('00000000'+CAST(ui.BADGENUMBER AS nvarchar(50)),8) COLLATE Arabic_CI_AS LEFT JOIN Sector s ON s.id = e.sector_id WHERE e.id IS NOT NULL AND MONTH(atm.CHECKTIME) = MONTH(GETDATE()) AND YEAR(atm.CHECKTIME) = YEAR(GETDATE()) ORDER BY 1,2",
+  "title2": "Format Formula. eg: empid#datetime{}#type{I-O}#exact#addhours{2}",
+  "parameter2": "empid#datetime{yyyy-MM-dd HH:mm:ss}#alternatingPunch",
+  "title3": "Document Initialization Query",
+  "parameter3": "SELECT 'TA'+CAST(YEAR(GETDATE())*100+ MONTH(GETDATE()) AS nvarchar(8)) code,'TAB' book,YEAR(GETDATE())*100+ MONTH(GETDATE()) fiscalPeriod,CAST(DATEADD(MONTH, DATEDIFF(MONTH, 0, GETDATE()), 0) AS date) valueDate,(SELECT id FROM legalEntity WHERE code = '1') legalEntity",
+  "title4": "Save as draft(true,false)",
+  "title5": "Data Pre-processor (groovy)",
+  "title6": "Ignore Unfound Employees",
+  "actionDescription": "Creates attendance doc per period from select"
+}
+```
+
+:::
+
+---
+
+### إنشاء مهمة مجدولة لحساب بيانات الحضور والانصراف
+
+الخطوات السابقة تقوم بجلب بيانات البصمة إلى جدول `TimeAttendance`.
+
+لحساب التأخير، الانصراف المبكر، الوقت الإضافي، وغيرها، يُستخدم جدول `EmpAttendanceSysLine`.
+يتم ملء هذا الجدول تلقائيًا عند إصدار الراتب، لكن يمكن احتسابه مسبقًا لتجهيز تقارير للموظفين ومدرائهم.
+
+::: details JSON for Direct Import
+
+```json
+{
+  "scheduleType": "Action",
+  "className": "com.namasoft.modules.humanresource.utils.actions.EAEmpAttendanceSysEntryCalculator",
+  "title1": "Select Statement",
+  "parameter1": "with data as (select employee_id, cast(min(coalesce(fromDate,toDate)) as date) fromDate, GETDATE() toDate, max(jo.startDate) joStartDate from TimeAttendanceLine l left join Employee e on e.id = l.employee_id left join JobOffer jo on jo.id = e.jobOfferId where jo.id is not null and coalesce(fromDate,toDate) between DATEADD(month,-2,GETDATE()) and GETDATE() group by employee_id union select employee_id, cast(min(coalesce(fromDate,toDate)) as date) fromDate, GETDATE() toDate, max(jo.startDate) joStartDate from ElectronicAttendance l left join Employee e on e.id = l.employee_id left join JobOffer jo on jo.id = e.jobOfferId where jo.id is not null and coalesce(fromDate,toDate) between DATEADD(month,-2,GETDATE()) and GETDATE() group by employee_id) select employee_id, case when min(fromDate)>max(joStartDate) then min(fromDate) else max(joStartDate) end fromDate, case when max(toDate)>max(joStartDate) then max(toDate) else max(joStartDate) end toDate from data group by employee_id",
+  "actionDescription": "Creates EmpAttendanceSysEntry Automatically."
+}
+```
+
+:::
+
+---
+
+### إرسال البيانات إلى الموظفين على هيئة تقرير
+
+لإرسال تقرير الحضور والانصراف للموظفين، يمكنك استخدام التقرير النظامي `SYSR-HRS001` داخل مهمة مجدولة.
+
+::: details JSON for Direct Import
+
+```json
+{
+  "scheduleType": "ParameterizedReport",
+  "reportDefinition": "SYSR-HRS001",
+  "repOutputFormat": "PDF",
+  "emailSubjectTemplate": "تفاصيل الحضور و الانصراف عن الفترة من {fromDate} الي {toDate}",
+  "emailSubjectQuery": "select convert(nvarchar(20),DATEADD(MONTH, DATEDIFF(MONTH, 0, GETDATE())-1, 25),103) fromDate, convert(nvarchar(20),getdate(),103) toDate",
+  "query": "select distinct DATEADD(MONTH, DATEDIFF(MONTH, 0, GETDATE())-1, 25) fromDate, getdate() toDate, 'Employee' [FEmployee#type], employee_id [FEmployee#id], 'Employee' [TEmployee#type], employee_id [TEmployee#id], email as sendto from NaMaUser where preventLogin = 0 and email <> '' and employee_id is not null",
+  "attachmentNameTemplate": "namasoft-time-attendance",
+  "sendAsMail": true
+}
+```
+
+:::
 
 </rtl>
