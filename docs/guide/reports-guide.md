@@ -1002,5 +1002,59 @@ $nextYearEnd()
       <property name="fromParamMaxGapInDays" value="30"/>
   </parameter>
   ```
+## How to Add Extra Font for PDF Printing in Jasper Reports
+
+Nama ERP supports **Times New Roman** by default for Arabic text in Jasper reports.
+If you need to use a different Arabic-supporting font (like Cairo, Amiri, Droid Arabic Naskh, etc.), follow these steps:
+
+---
+
+### 1. Add the Font in Jaspersoft Studio
+
+* Open **Jaspersoft Studio**.
+* Go to `Window > Preferences`.
+* In the Preferences window, navigate to:
+  `Jaspersoft Studio > Fonts`.
+* Click the **Add** button.
+
+---
+
+### 2. Configure Font Properties
+
+In the **Font Family** dialog:
+
+* Choose the `.ttf` or `.otf` font file(s) for the font you want to add.
+* Check ✅ **Embed this font in PDF documents**.
+* Set **PDF Encoding** to: `Identity-H`.
+
+![Jasper Reports Font Family Dialog for Arabic Fonts](images/jasper-reports-font-family.png)
+
+* Click **Finish**.
+
+---
+
+### 3. Export Font as JAR
+
+* After adding the font, click **Export**.
+* Save the generated `.jar` file.
+
+---
+
+### 4. Deploy Font JAR in Tomcat
+
+* Copy the exported `.jar` file to:
+  `tomcat/lib` folder on the server where Nama ERP is deployed.
+* Restart the **Tomcat** service.
+
+---
+
+### 5. Use the Font in Your Reports
+
+Now, in Jaspersoft Studio and inside Nama ERP:
+
+* You can assign the new font family to text fields in your `.jrxml` or compiled `.jasper` files.
+* When the report is printed to PDF, the font will be embedded and rendered properly, including Arabic characters.
+
+This process allows proper Arabic rendering and styling beyond the default Times New Roman font.
 
 
