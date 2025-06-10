@@ -24,6 +24,7 @@ heroImage: hero.svg
     - [Email By Parameterized Reports In Task Scheduler](/guide/scheduled-tasks.md)
     - [Nama Properties](/guide/nama-properties.md)
     - [Customer Reward Points (Loyalty Points)](/guide/reward-points.md)
+    - [Electronic Receipt (Egypt Tax eInvoice) تفعيل الإيصال الإلكتروني - الفاتورة الإلكترونية - مصر](/guide/electronic-receipt-egypt-tax-eInvoice.md)
     - [دليل استعمال النقاط الفنية في نقاط البيع](/guide/nama-pos.md)
     - [ORACLE JDBC Integration Connection in context.xml for integration purposes](/guide/oracle-jdbc-connection.md)
   - [Examples](/examples/)
