@@ -14,6 +14,8 @@
     "/guide/entity-flows/ea-fields-values-calculator.md",
     "/guide/entity-flows/excel-and-sql-import-by-entity-flow.md",
     "/guide/entity-flows/ea-gen-entity-from-entity.md",
+    "/guide/einvoices",
+    "/guide/einvoices/zatca-guide.md",
     "/guide/tempo.md",
     "/guide/invoice-retriever.md",
     "/guide/sms-and-whatsap.md",
@@ -56,6 +58,7 @@
     "/": "Home",
     "/guide": "Guides",
     "/guide/entity-flows": "Entity Flows",
+    "/guide/einvoices": "الربط مع الهيئات الحكومية لإرسال الفواتير الإلكترونية",
     "/examples": "Examples",
     "/reprocessing": "Reprocessing Transactions",
     "/faq": "Frequently Asked Questions"

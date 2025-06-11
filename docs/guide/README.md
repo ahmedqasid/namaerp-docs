@@ -11,6 +11,8 @@
     - [Field Values Calculator](/guide/entity-flows/ea-fields-values-calculator.md)
     - [Importing Data from Excel or Queries](/guide/entity-flows/excel-and-sql-import-by-entity-flow.md)
     - [EAGenerateEntityFromEntityAction](/guide/entity-flows/ea-gen-entity-from-entity.md)
+  - [الربط مع الهيئات الحكومية لإرسال الفواتير الإلكترونية](/guide/einvoices/)
+    - [الربط مع هيئة الزكاة والدخل بالسعودية](/guide/einvoices/zatca-guide.md)
   - [Tempo Language Manual](/guide/tempo.md)
   - [Sending Invoices and Documents to Customers](/guide/invoice-retriever.md)
   - [SMS and WhatsApp Configuration in Nama ERP](/guide/sms-and-whatsap.md)
