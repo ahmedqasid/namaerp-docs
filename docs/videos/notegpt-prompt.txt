@@ -1,0 +1,10 @@
+Create a full VuePress 2-compatible Markdown page that documents the content of this video in complete detail.
+
+ * **Do not summarize** or omit any part of the video — include all explanations, steps, examples, and instructions as they appear.
+
+ * For each section or topic discussed, include a **clear heading** and a **timestamped link** back to the relevant point in the video (use YouTube timestamp links).
+
+ * Format the page properly using VuePress 2 syntax and Markdown best practices, lists, and tip blocks where appropriate.
+
+ * Do not add commentary or interpretation — focus on accurately reflecting the structure and content of the original video.
+   The goal is to create a **detailed, reference-quality** guide for users who prefer reading over watching the video.

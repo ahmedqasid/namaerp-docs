@@ -54,7 +54,14 @@
     "/faq/report-wizard-faq.md",
     "/faq/approvals-faq.md",
     "/faq/mobile-apps-faq.md",
-    "/faq/field-filter-faq.md"
+    "/faq/field-filter-faq.md",
+    "/videos",
+    "/videos/report-wizard-webinar-1.md",
+    "/videos/report-wizard-webinar-2.md",
+    "/videos/report-wizard-webinar-3.md",
+    "/videos/report-wizard-webinar-4.md",
+    "/videos/report-wizard-webinar-5.md",
+    "/videos/report-wizard-webinar-6.md"
   ],
   "folderTitles": {
     "/": "Home",
@@ -63,6 +70,7 @@
     "/guide/einvoices": "الربط مع الهيئات الحكومية لإرسال الفواتير الإلكترونية",
     "/examples": "Examples",
     "/reprocessing": "Reprocessing Transactions",
-    "/faq": "Frequently Asked Questions"
+    "/faq": "Frequently Asked Questions",
+    "/videos": "Video Tutorials"
   }
 }
