@@ -1,9 +1,6 @@
 <rtl>
 
 # الربط مع هيئة الزكاة والدخل بالسعودية
-لربط اي شركة في أي دولة مع الجهة المختصة بالفواتير الإلكترونية ليدها يجب عليك أولا طلب تفعيل ترخيص الفاتورة الإلكترونية (Tax e-Invoice) إذا لم يكن مضاف بالفعل للعميل الحالي
-
-بعد الموافقة على الترخيص قم بعمل `reload config`
 
 ## تجهيز سيرفر العميل للربط مع هيئة الزكاة والدخل 
 
@@ -74,7 +71,51 @@ if ($userValue) {
   - وكذلك `قطاع` - `إدارة` - `مجموعة تحليلية`
 
  حساب أكواد أنواع الضرائب: لتحديد المصدر الذي يتم إرسال السياسة الضريبية منه وبه القيم التالية:
-
+- 
+ {
+ "translations": [
+ {
+ "lineID": "",
+ "arabic": "إعدادات مصلحة الضرائب",
+ "english": "Electronic Tax Authority Configuration"
+ },
+ {
+ "lineID": "TermTaxPlan",
+ "arabic": "سياسة الضريبة في التوجيه (رأس المستند)",
+ "english": "Term Config Tax Plan (Header)"
+ },
+ {
+ "lineID": "TermTaxPlanLine",
+ "arabic": "سياسة الضريبة في التوجيه (سطور المستند)",
+ "english": "Term Config Tax Plan (Details)"
+ },
+ {
+ "lineID": "ItemTaxPlan",
+ "arabic": "سياسة الضريبة في الصنف (رأس المستند)",
+ "english": "Item Tax Plan (Header)"
+ },
+ {
+ "lineID": "ItemTaxPlanLine",
+ "arabic": "سياسة الضريبة في الصنف (سطور المستند)",
+ "english": "Item Tax Plan (Details)"
+ },
+ {
+ "lineID": "ReceiverTaxPlan",
+ "arabic": "سياسة الضريبة بالعميل (رأس المستند)",
+ "english": "Customer Tax Plan (Header)"
+ },
+ {
+ "lineID": "ReceiverTaxPlanLine",
+ "arabic": "سياسة الضريبة بالعميل (سطور المستند)",
+ "english": "Customer Tax Plan (Details)"
+ },
+ {
+ "lineID": "LikeTaxPlan",
+ "arabic": "مثل السياسة الضريبية في الفواتير",
+ "english": "Like Invoice Tax Plan"
+ }
+ ]
+ }
 
 
 </rtl>

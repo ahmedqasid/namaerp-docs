@@ -12,8 +12,8 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "الربط مع الهيئات الحكومية لإرسال الفواتير الإلكترونية",
         collapsible: true,
-        children: [ "/guide/einvoices/zatca-guide.md" ]
-      }, "/guide/tempo.md", "/guide/invoice-retriever.md", "/guide/sms-and-whatsap.md", "/guide/field-filter-with-criteria.md", "/guide/translations.md", "/guide/criteria-based-validation.md", "/guide/attendance-machine-formula.md", "/guide/attendance-machines-integration.md", "/guide/scheduled-tasks.md", "/guide/nama-properties.md", "/guide/reward-points.md", "/guide/electronic-receipt-egypt-tax-eInvoice.md", "/guide/nama-pos.md", "/guide/oracle-jdbc-connection.md" ]
+        children: [ "/guide/einvoices/e-invoices-guide.md", "/guide/einvoices/zatca-guide.md", "/guide/einvoices/electronic-receipt-egypt-tax-eInvoice.md" ]
+      }, "/guide/tempo.md", "/guide/invoice-retriever.md", "/guide/sms-and-whatsap.md", "/guide/field-filter-with-criteria.md", "/guide/translations.md", "/guide/criteria-based-validation.md", "/guide/attendance-machine-formula.md", "/guide/attendance-machines-integration.md", "/guide/scheduled-tasks.md", "/guide/nama-properties.md", "/guide/reward-points.md", "/guide/nama-pos.md", "/guide/oracle-jdbc-connection.md" ]
     }, {
       text: "Examples",
       collapsible: true,
