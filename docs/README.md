@@ -54,4 +54,5 @@ heroImage: hero.svg
     - [أسئلة شائعة عن تصميم التقارير](/faq/report-faq.md)
     - [أسئلة شائعة حول أداة إنشاء التقارير](/faq/report-wizard-faq.md)
     - [أسئلة شائعة عن الموافقات](/faq/approvals-faq.md)
+    - [أسئلة شائعة حول تطبيقات الهواتف المحمولة في نظام Nama ERP](/faq/mobile-apps-faq.md)
     - [أسئلة شائعة حول فلترة الحقول](/faq/field-filter-faq.md)
