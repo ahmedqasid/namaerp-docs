@@ -1,4 +1,5 @@
 # Video Tutorials
+  - [توثيق فيديو تنصيب Nama ERP والبرامج المساعدة](/videos/installation-video.md)
   - [فيديو (1) شرح أداة انشاء التقار](/videos/report-wizard-webinar-1.md)
   - [شرح تفصيلي لجروبنج (Grouping) ومصادر البيانات وترتيب التقارير في Nama ERP](/videos/report-wizard-webinar-2.md)
   - [توثيق كامل لإنشاء تقارير الكروس تاب، كشف الحساب، وحركة المخزون باستخدام أداة إنشاء التقارير](/videos/report-wizard-webinar-3.md)

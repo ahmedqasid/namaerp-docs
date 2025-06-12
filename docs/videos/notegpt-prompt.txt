@@ -7,4 +7,7 @@ Create a full VuePress 2-compatible Markdown page that documents the content of 
  * Format the page properly using VuePress 2 syntax and Markdown best practices, lists, and tip blocks where appropriate.
 
  * Do not add commentary or interpretation — focus on accurately reflecting the structure and content of the original video.
+
+ * Do not add front-matter
+
    The goal is to create a **detailed, reference-quality** guide for users who prefer reading over watching the video.

@@ -57,6 +57,7 @@ heroImage: hero.svg
     - [أسئلة شائعة حول تطبيقات الهواتف المحمولة في نظام Nama ERP](/faq/mobile-apps-faq.md)
     - [أسئلة شائعة حول فلترة الحقول](/faq/field-filter-faq.md)
   - [Video Tutorials](/videos/)
+    - [توثيق فيديو تنصيب Nama ERP والبرامج المساعدة](/videos/installation-video.md)
     - [فيديو (1) شرح أداة انشاء التقار](/videos/report-wizard-webinar-1.md)
     - [شرح تفصيلي لجروبنج (Grouping) ومصادر البيانات وترتيب التقارير في Nama ERP](/videos/report-wizard-webinar-2.md)
     - [توثيق كامل لإنشاء تقارير الكروس تاب، كشف الحساب، وحركة المخزون باستخدام أداة إنشاء التقارير](/videos/report-wizard-webinar-3.md)
