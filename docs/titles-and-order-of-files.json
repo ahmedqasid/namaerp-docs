@@ -57,12 +57,14 @@
     "/faq/field-filter-faq.md",
     "/videos",
     "/videos/installation-video.md",
-    "/videos/report-wizard-webinar-1.md",
-    "/videos/report-wizard-webinar-2.md",
-    "/videos/report-wizard-webinar-3.md",
-    "/videos/report-wizard-webinar-4.md",
-    "/videos/report-wizard-webinar-5.md",
-    "/videos/report-wizard-webinar-6.md"
+    "/videos/manufacturing-actual-overhead.md",
+    "/videos/report-wizard-videos",
+    "/videos/report-wizard-videos/report-wizard-webinar-1.md",
+    "/videos/report-wizard-videos/report-wizard-webinar-2.md",
+    "/videos/report-wizard-videos/report-wizard-webinar-3.md",
+    "/videos/report-wizard-videos/report-wizard-webinar-4.md",
+    "/videos/report-wizard-videos/report-wizard-webinar-5.md",
+    "/videos/report-wizard-videos/report-wizard-webinar-6.md"
   ],
   "folderTitles": {
     "/": "Home",
@@ -72,6 +74,7 @@
     "/examples": "Examples",
     "/reprocessing": "Reprocessing Transactions",
     "/faq": "Frequently Asked Questions",
-    "/videos": "Video Tutorials"
+    "/videos": "Video Tutorials",
+    "/videos/report-wizard-videos": "Report Wizard Videos"
   }
 }

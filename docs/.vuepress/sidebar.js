@@ -29,7 +29,11 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/installation-video.md", "/videos/report-wizard-webinar-1.md", "/videos/report-wizard-webinar-2.md", "/videos/report-wizard-webinar-3.md", "/videos/report-wizard-webinar-4.md", "/videos/report-wizard-webinar-5.md", "/videos/report-wizard-webinar-6.md" ]
+      children: [ "/videos/installation-video.md", "/videos/manufacturing-actual-overhead.md", {
+        text: "Report Wizard Videos",
+        collapsible: true,
+        children: [ "/videos/report-wizard-videos/report-wizard-webinar-1.md", "/videos/report-wizard-videos/report-wizard-webinar-2.md", "/videos/report-wizard-videos/report-wizard-webinar-3.md", "/videos/report-wizard-videos/report-wizard-webinar-4.md", "/videos/report-wizard-videos/report-wizard-webinar-5.md", "/videos/report-wizard-videos/report-wizard-webinar-6.md" ]
+      } ]
     } ]
   } ]
 }
