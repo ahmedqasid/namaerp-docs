@@ -24,11 +24,11 @@ Thanks for shopping with us!
 
 - English Version
 ```
-To redeeem {rewardInfo.amount} {rewardInfo.currency.altCode}, please use the following OTP: {otpCode} 
+To redeeem {rewardInfo.amount} {rewardInfo.currency.altCode} ({rewardInfo.redeemedPoints} points), please use the following OTP: {otpCode} 
 ```
 - Arabic Version
 ```
-لاسترداد {rewardInfo.amount} {rewardInfo.currency.code}، يرجى استخدام رمز التحقق (OTP) التالي: {otpCode}.
+لاسترداد {rewardInfo.amount} ({rewardInfo.redeemedPoints} نقطة) {rewardInfo.currency.code}، يرجى استخدام رمز التحقق (OTP) التالي: {otpCode}.
 ```
 
 ::: tip The OTP tempo is run against the customer record
