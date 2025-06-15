@@ -33,6 +33,10 @@ export const SIDEBAR_CONFIG = {
         text: "Report Wizard Videos",
         collapsible: true,
         children: [ "/videos/report-wizard-videos/report-wizard-webinar-1.md", "/videos/report-wizard-videos/report-wizard-webinar-2.md", "/videos/report-wizard-videos/report-wizard-webinar-3.md", "/videos/report-wizard-videos/report-wizard-webinar-4.md", "/videos/report-wizard-videos/report-wizard-webinar-5.md", "/videos/report-wizard-videos/report-wizard-webinar-6.md" ]
+      }, {
+        text: "supply-chain-videos",
+        collapsible: true,
+        children: [ "/videos/supply-chain-videos/cost-video-1.md", "/videos/supply-chain-videos/cost-video-2.md", "/videos/supply-chain-videos/cost-video-3.md" ]
       } ]
     } ]
   } ]

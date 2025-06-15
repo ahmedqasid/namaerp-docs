@@ -66,3 +66,7 @@ heroImage: hero.svg
       - [توثيق فيديو تدريب تقرير فاتورة المبيعات وميزات الجيو الجديدة](/videos/report-wizard-videos/report-wizard-webinar-4.md)
       - [شرح إنشاء نموذج طباعة شاشة مستند تصفية](/videos/report-wizard-videos/report-wizard-webinar-5.md)
       - [توثيق شامل لمحتوى الفيديو حول إعداد تقارير الريبورت ويزرد وإدارة الصلاحيات](/videos/report-wizard-videos/report-wizard-webinar-6.md)
+    - [supply-chain-videos](/videos/supply-chain-videos/)
+      - [فيديو طريقة عمل التكاليف - 1](/videos/supply-chain-videos/cost-video-1.md)
+      - [فيديو طريقة عمل التكاليف - 2](/videos/supply-chain-videos/cost-video-2.md)
+      - [فيديو طريقة عمل التكاليف - 3](/videos/supply-chain-videos/cost-video-3.md)
