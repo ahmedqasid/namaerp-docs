@@ -1,5 +1,6 @@
 # Frequently Asked Questions
   - [أسئلة عامة](/faq/general-faq.md)
+  - [أسئلة عامة عن GUI Post Actions](/faq/gui-post-actions-faq.md)
   - [أسئلة شائعة عن مسارات الكيان](/faq/entity-flow-faq.md)
   - [أسئلة في موديول التوزيع والمخازن والمبيعات والمشتريات](/faq/supply-chain-faq.md)
   - [أسئلة شائعة في موديول الرواتب والموارد البشرية](/faq/human-resources-faq.md)

@@ -1,5 +1,9 @@
 <rtl>
 
+::: warnining In Progress
+This document is still in progress, not yet finished
+:::
+
 # Electronic Receipt (Egypt Tax eInvoice) تفعيل الإيصال الإلكتروني - الفاتورة الإلكترونية - مصر
 
 ## طريقة تفعيل الإيصال الإلكتروني عبر جهاز الكومبيوتر

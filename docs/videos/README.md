@@ -1,5 +1,9 @@
 # Video Tutorials
   - [توثيق فيديو تنصيب Nama ERP والبرامج المساعدة](/videos/installation-video.md)
+  - [Supply Chain Videos](/videos/supply-chain-videos/)
+    - [فيديو طريقة عمل التكاليف - 1](/videos/supply-chain-videos/cost-video-1.md)
+    - [فيديو طريقة عمل التكاليف - 2](/videos/supply-chain-videos/cost-video-2.md)
+    - [فيديو طريقة عمل التكاليف - 3](/videos/supply-chain-videos/cost-video-3.md)
   - [توثيق شرح التكاليف غير المباشرة والفعلي في نظام تصنيع](/videos/manufacturing-actual-overhead.md)
   - [Report Wizard Videos](/videos/report-wizard-videos/)
     - [فيديو (1) شرح أداة انشاء التقار](/videos/report-wizard-videos/report-wizard-webinar-1.md)
@@ -8,7 +12,3 @@
     - [توثيق فيديو تدريب تقرير فاتورة المبيعات وميزات الجيو الجديدة](/videos/report-wizard-videos/report-wizard-webinar-4.md)
     - [شرح إنشاء نموذج طباعة شاشة مستند تصفية](/videos/report-wizard-videos/report-wizard-webinar-5.md)
     - [توثيق شامل لمحتوى الفيديو حول إعداد تقارير الريبورت ويزرد وإدارة الصلاحيات](/videos/report-wizard-videos/report-wizard-webinar-6.md)
-  - [supply-chain-videos](/videos/supply-chain-videos/)
-    - [فيديو طريقة عمل التكاليف - 1](/videos/supply-chain-videos/cost-video-1.md)
-    - [فيديو طريقة عمل التكاليف - 2](/videos/supply-chain-videos/cost-video-2.md)
-    - [فيديو طريقة عمل التكاليف - 3](/videos/supply-chain-videos/cost-video-3.md)

@@ -47,6 +47,7 @@
     "/reprocessing/replication.md",
     "/faq",
     "/faq/general-faq.md",
+    "/faq/gui-post-actions-faq.md",
     "/faq/entity-flow-faq.md",
     "/faq/supply-chain-faq.md",
     "/faq/human-resources-faq.md",
@@ -57,6 +58,10 @@
     "/faq/field-filter-faq.md",
     "/videos",
     "/videos/installation-video.md",
+    "/videos/supply-chain-videos",
+    "/videos/supply-chain-videos/cost-video-1.md",
+    "/videos/supply-chain-videos/cost-video-2.md",
+    "/videos/supply-chain-videos/cost-video-3.md",
     "/videos/manufacturing-actual-overhead.md",
     "/videos/report-wizard-videos",
     "/videos/report-wizard-videos/report-wizard-webinar-1.md",
@@ -65,6 +70,7 @@
     "/videos/report-wizard-videos/report-wizard-webinar-4.md",
     "/videos/report-wizard-videos/report-wizard-webinar-5.md",
     "/videos/report-wizard-videos/report-wizard-webinar-6.md"
+
   ],
   "folderTitles": {
     "/": "Home",
@@ -75,6 +81,7 @@
     "/reprocessing": "Reprocessing Transactions",
     "/faq": "Frequently Asked Questions",
     "/videos": "Video Tutorials",
+    "/videos/supply-chain-videos":"Supply Chain Videos",
     "/videos/report-wizard-videos": "Report Wizard Videos"
   }
 }
