@@ -252,7 +252,7 @@ where l.item_id = {item_id}
 
 ### استعلام SQL لحساب تكلفة كل صنف مركب في الفاتورة
 
-\::: details SQL Query to Calculate cost of a sales invoice
+::: details SQL Query to Calculate cost of a sales invoice
 
 ```sql
 select 
@@ -269,14 +269,14 @@ where s.code = 'Salla2025229014'
 group by l.itemCode, l.item_id
 ```
 
-\:::
+:::
 
 ---
 
 ### ملاحظة إضافية:
 
 لو أردت فقط **إجمالي تكلفة الفاتورة بالكامل** بدون تفاصيل الأصناف، يمكنك تعديل الاستعلام السابق بهذا الشكل:
-
+::: details SQL Query to Calculate total cost of a sales invoice
 ```sql
 select 
   sum(co.totalCost) as total_invoice_cost
@@ -288,8 +288,7 @@ left join CostOutTransLine co on co.originLineId = sil.id
 where s.code = 'Salla2025229014'
   and l.masterRowId is null
 ```
-
-وبهذا الشكل تضمن احتساب التكلفة الحقيقية حتى في حالة الأصناف المركبة التي يتم صرف مكوناتها فقط من المخزون.
+:::
 
 
 </rtl>
