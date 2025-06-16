@@ -9,7 +9,7 @@ export const SIDEBAR_CONFIG = {
         text: "Entity Flows",
         collapsible: true,
         children: [ "/guide/entity-flows/introduction-to-entity-flows.md", "/guide/entity-flows/ea-fields-values-calculator.md", "/guide/entity-flows/excel-and-sql-import-by-entity-flow.md", "/guide/entity-flows/ea-gen-entity-from-entity.md" ]
-      }, {
+      }, "/guide/report-wizard-guide.md", {
         text: "الربط مع الهيئات الحكومية لإرسال الفواتير الإلكترونية",
         collapsible: true,
         children: [ "/guide/einvoices/e-invoices-guide.md", "/guide/einvoices/zatca-guide.md", "/guide/einvoices/electronic-receipt-egypt-tax-eInvoice.md" ]

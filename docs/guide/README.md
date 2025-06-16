@@ -11,6 +11,7 @@
     - [Field Values Calculator](/guide/entity-flows/ea-fields-values-calculator.md)
     - [Importing Data from Excel or Queries](/guide/entity-flows/excel-and-sql-import-by-entity-flow.md)
     - [EAGenerateEntityFromEntityAction](/guide/entity-flows/ea-gen-entity-from-entity.md)
+  - [دليل استخدام أداة إنشاء التقارير ونماذج الطباعة](/guide/report-wizard-guide.md)
   - [الربط مع الهيئات الحكومية لإرسال الفواتير الإلكترونية](/guide/einvoices/)
     - [دليل ربط Nama ERP بأنظمة الفاتورة الإلكترونية](/guide/einvoices/e-invoices-guide.md)
     - [الربط مع هيئة الزكاة والدخل بالسعودية](/guide/einvoices/zatca-guide.md)
