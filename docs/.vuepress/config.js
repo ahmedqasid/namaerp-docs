@@ -4,6 +4,8 @@ import {viteBundler} from '@vuepress/bundler-vite'
 import {SIDEBAR_CONFIG} from "./sidebar.js";
 import fullTextSearchPlugin from "vuepress-plugin-full-text-search2";
 import {markdownContainerPlugin} from "@vuepress/plugin-markdown-container";
+import {sitemapPlugin} from "@vuepress/plugin-sitemap";
+import {seoPlugin} from "@vuepress/plugin-seo";
 
 export default defineUserConfig({
   title: 'Nama ERP Docs',
@@ -36,7 +38,8 @@ export default defineUserConfig({
       before: ()=> `<div dir="ltr" class="ltr-block">`,
       after: () => `</div>`
     })
-
+    , sitemapPlugin({hostname: "https://docs.namasoft.com/"}),
+    seoPlugin({hostname: "https://docs.namasoft.com/"})
   ],
   bundler: viteBundler(),
 })
