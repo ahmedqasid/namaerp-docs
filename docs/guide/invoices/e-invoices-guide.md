@@ -1,6 +1,6 @@
 <rtl>
 
-::: warnining In Progress
+::: warning In Progress
 This document is still in progress, not yet finished
 :::
 

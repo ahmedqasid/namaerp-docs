@@ -212,5 +212,84 @@ where l.item_id = {item_id}
 * الأولوية تبدأ من ملف العميل وتنتهي بإعدادات Supply Chain.
 * يكفي تحديد القيمة في أول موقع ضمن الترتيب ليتم اعتمادها تلقائيًا في التسعير داخل الفاتورة.
 
+### ❓ كيف يمكن حساب تكلفة فاتورة تحتوي على أصناف مركبة (مثل البكجات) يتم صرف مكوناتها من المخزون وليس الصنف نفسه؟
+
+عند التعامل مع فاتورة تحتوي على أصناف مركبة مثل:
+
+> `بكج 6 عطور نيش بلاك + نيش جولد + دريمز بالاس + ان ذا موود + هيستورى نوت + نيش ان بزنس`
+
+فإن عملية الصرف المخزني لا تتم على الصنف المركب نفسه، بل تتم على مكوناته الفرعية، مثل:
+
+* عطر نيش بلاك `NESH BLACK`
+* عطر نيش جولد `NESH GOLD`
+* عطر دريمز بالاس `DREAMS PALACE`
+* وغيرها...
+
+وبالتالي، لا يظهر الصنف الرئيسي (البكج) في سند الصرف المخزني، بل يتم صرف كل مكون من مكوناته كأصناف مستقلة. لحساب التكلفة الحقيقية لهذه الفاتورة، يجب احتساب تكلفة المكونات المستخدمة في كل صنف مركب، وليس الصنف المركب نفسه.
+
+---
+
+### كيفية الربط بين الصنف المركب ومكوناته؟
+
+يتم ربط كل مكون بالصنف المركب عبر الحقل `masterRowId` الموجود في جدول `SalesInvoiceLine`:
+
+* السطر الخاص بالصنف المركب (مثل "بكج العطور") يحتوي على `masterRowId = NULL`
+* أما السطور الخاصة بالمكونات (مثل "NESH BLACK") تحتوي على `masterRowId = <ID الخاص بالسطر الرئيسي>`
+
+---
+
+### خطوات حساب التكلفة:
+
+1. **ابدأ من جدول فواتير المبيعات** لتحديد الفاتورة المطلوبة.
+2. **اجلب كل سطر رئيسي** في الفاتورة (الذي `masterRowId IS NULL`).
+3. **ابحث عن السطور الفرعية** المرتبطة به عبر `SalesInvoiceLine.masterRowId`.
+4. **ابحث عن سطر الصرف المخزني** المقابل لكل مكون أو للسطر الأصلي إن لم توجد مكونات.
+5. **اربط بسجل التكلفة** (`CostOutTransLine`) عبر `originLineId`.
+6. **استخدم الدالة `coalesce(sub.id, l.id)`** لاختيار المكون إذا وُجد، أو السطر الرئيسي إذا لم يكن له مكونات.
+7. **استبعد السطور التي لها `masterRowId`** عند التجميع، لأن تكلفة المكونات ستُحتسب بالفعل.
+
+---
+
+### استعلام SQL لحساب تكلفة كل صنف مركب في الفاتورة
+
+\::: details SQL Query to Calculate cost of a sales invoice
+
+```sql
+select 
+  l.itemCode,
+  l.item_id,
+  sum(co.totalCost) as cost
+from SalesInvoice s
+left join SalesInvoiceLine l on l.salesInvoice_id = s.id
+left join SalesInvoiceLine sub on sub.masterRowId = l.id
+left join StockIssueLine sil on sil.sourceLineId = coalesce(sub.id, l.id)
+left join CostOutTransLine co on co.originLineId = sil.id
+where s.code = 'Salla2025229014'
+  and l.masterRowId is null
+group by l.itemCode, l.item_id
+```
+
+\:::
+
+---
+
+### ملاحظة إضافية:
+
+لو أردت فقط **إجمالي تكلفة الفاتورة بالكامل** بدون تفاصيل الأصناف، يمكنك تعديل الاستعلام السابق بهذا الشكل:
+
+```sql
+select 
+  sum(co.totalCost) as total_invoice_cost
+from SalesInvoice s
+left join SalesInvoiceLine l on l.salesInvoice_id = s.id
+left join SalesInvoiceLine sub on sub.masterRowId = l.id
+left join StockIssueLine sil on sil.sourceLineId = coalesce(sub.id, l.id)
+left join CostOutTransLine co on co.originLineId = sil.id
+where s.code = 'Salla2025229014'
+  and l.masterRowId is null
+```
+
+وبهذا الشكل تضمن احتساب التكلفة الحقيقية حتى في حالة الأصناف المركبة التي يتم صرف مكوناتها فقط من المخزون.
+
 
 </rtl>
