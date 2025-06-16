@@ -24,6 +24,7 @@
     "vuepress-plugin-full-text-search2": "^0.5.1"
   },
   "dependencies": {
-    "gray-matter": "^4.0.3"
+    "gray-matter": "^4.0.3",
+    "transliteration": "^2.3.5"
   }
 }

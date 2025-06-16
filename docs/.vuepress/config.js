@@ -6,6 +6,7 @@ import fullTextSearchPlugin from "vuepress-plugin-full-text-search2";
 import {markdownContainerPlugin} from "@vuepress/plugin-markdown-container";
 import {sitemapPlugin} from "@vuepress/plugin-sitemap";
 import {seoPlugin} from "@vuepress/plugin-seo";
+import {transliterate} from 'transliteration'
 
 export default defineUserConfig({
   title: 'Nama ERP Docs',
@@ -42,4 +43,10 @@ export default defineUserConfig({
     seoPlugin({hostname: "https://docs.namasoft.com/"})
   ],
   bundler: viteBundler(),
+  markdown: {
+    slugify: (str) => {
+      return transliterate(str).replace(/\s+/g, '-') // replace spaces with dash
+          .replace(/[^a-zA-Z0-9\-]/g, '');
+    }
+  }
 })
