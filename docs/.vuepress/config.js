@@ -2,11 +2,12 @@ import {defaultTheme} from '@vuepress/theme-default'
 import {defineUserConfig} from 'vuepress'
 import {viteBundler} from '@vuepress/bundler-vite'
 import {SIDEBAR_CONFIG} from "./sidebar.js";
-import fullTextSearchPlugin from "vuepress-plugin-full-text-search2";
+
 import {markdownContainerPlugin} from "@vuepress/plugin-markdown-container";
 import {sitemapPlugin} from "@vuepress/plugin-sitemap";
 import {seoPlugin} from "@vuepress/plugin-seo";
 import {transliterate} from 'transliteration'
+import fullTextSearchPlugin from "./full-text-search/index.js";
 
 export default defineUserConfig({
   title: 'Nama ERP Docs',
@@ -18,7 +19,7 @@ export default defineUserConfig({
     sidebar: SIDEBAR_CONFIG,
     navbar: ['/', '/guide/','/examples/'],
     contributors: false,
-    sidebarDepth: 2,
+    sidebarDepth: 0,
     logo: '/hero.svg',
     repo: 'ahmedqasid/namaerp-docs',
     docsDir: 'docs',
