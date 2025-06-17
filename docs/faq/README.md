@@ -11,3 +11,4 @@
   - [أسئلة شائعة عن الموافقات](/faq/approvals-faq.md)
   - [أسئلة شائعة حول تطبيقات الهواتف المحمولة في نظام Nama ERP](/faq/mobile-apps-faq.md)
   - [أسئلة شائعة حول فلترة الحقول](/faq/field-filter-faq.md)
+  - [Database Related Errors FAQ](/faq/database-error-related-faq.md)
