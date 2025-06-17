@@ -13,6 +13,7 @@
     - [EAGenerateEntityFromEntityAction](/guide/entity-flows/ea-gen-entity-from-entity.md)
   - [دليل استخدام أداة إنشاء التقارير ونماذج الطباعة](/guide/report-wizard-guide.md)
   - [الفواتير والضرائب والخصومات](/guide/invoices/)
+    - [ربط سندات الدفع بالفواتير](/guide/invoices/payment-entries.md)
     - [دليل استعمال وتشغيل الضرائب والخصومات بنظام Nama ERP وتأثيرها على حساب قيم الفواتير](/guide/invoices/taxes-and-discounts-guide.md)
     - [دليل ربط Nama ERP بأنظمة الفاتورة الإلكترونية](/guide/invoices/e-invoices-guide.md)
     - [الربط مع هيئة الزكاة والدخل بالسعودية](/guide/invoices/zatca-guide.md)
