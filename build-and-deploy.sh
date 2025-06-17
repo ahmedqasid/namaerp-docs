@@ -15,7 +15,7 @@ function checkForErrors() {
 }
 git_pull
 checkForErrors
-npm i --legacy-peer-deps
+npm i
 npm run docs:build
 checkForErrors
 mkdir /var/www/docs
