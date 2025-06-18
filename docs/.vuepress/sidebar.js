@@ -25,7 +25,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Frequently Asked Questions",
       collapsible: true,
-      children: [ "/faq/general-faq.md", "/faq/notification-fq.md", "/faq/gui-post-actions-faq.md", "/faq/entity-flow-faq.md", "/faq/supply-chain-faq.md", "/faq/manufacturing-faq.md", "/faq/pos-faq.md", "/faq/human-resources-faq.md", "/faq/report-faq.md", "/faq/report-wizard-faq.md", "/faq/approvals-faq.md", "/faq/mobile-apps-faq.md", "/faq/field-filter-faq.md", "/faq/database-error-related-faq.md" ]
+      children: [ "/faq/general-faq.md", "/faq/screen-modifier-faq.md", "/faq/notification-fq.md", "/faq/gui-post-actions-faq.md", "/faq/entity-flow-faq.md", "/faq/invoices-faq.md", "/faq/supply-chain-faq.md", "/faq/manufacturing-faq.md", "/faq/pos-faq.md", "/faq/human-resources-faq.md", "/faq/report-faq.md", "/faq/report-wizard-faq.md", "/faq/approvals-faq.md", "/faq/mobile-apps-faq.md", "/faq/field-filter-faq.md", "/faq/database-error-related-faq.md" ]
     }, {
       text: "Video Tutorials",
       collapsible: true,

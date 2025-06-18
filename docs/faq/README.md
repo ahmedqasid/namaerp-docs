@@ -1,8 +1,10 @@
 # Frequently Asked Questions
   - [أسئلة عامة](/faq/general-faq.md)
+  - [أسئلة شائعة حول تعديل الشاشات](/faq/screen-modifier-faq.md)
   - [أسئلة شائعة عن التنبيهات والرسائل](/faq/notification-fq.md)
   - [أسئلة عامة عن GUI Post Actions](/faq/gui-post-actions-faq.md)
   - [أسئلة شائعة عن مسارات الكيان](/faq/entity-flow-faq.md)
+  - [أسئلة شائعة حول الفواتير والدفع](/faq/invoices-faq.md)
   - [أسئلة في موديول التوزيع والمخازن والمبيعات والمشتريات](/faq/supply-chain-faq.md)
   - [أسئلة شائعة حول موديول التصنيع في نظام Nama ERP](/faq/manufacturing-faq.md)
   - [أسئلة شائعة حول نقاط البيع](/faq/pos-faq.md)
