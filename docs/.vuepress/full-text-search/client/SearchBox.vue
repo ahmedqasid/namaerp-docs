@@ -66,19 +66,38 @@ declare const __SEARCH_LOCALES__: SearchBoxLocales;
 const defaultLocales = __SEARCH_LOCALES__;
 
 
-function doSearch(text: string) {
-  let theme = document.documentElement.dataset.theme ;
-  if (window.find && window.getSelection) {
-    document.designMode = "on";
-    var sel = window.getSelection();
-    sel.collapse(document.body, 0);
-
-    while (window.find(text)) {
-      document.execCommand("HiliteColor", false, theme === "dark"?"#5e9cff":"yellow");
-      sel.collapseToEnd();
-    }
-    document.designMode = "off";
+function doSearch(text) {
+  const theme = document.documentElement.dataset.theme;
+  const color = theme === "dark" ? "#5e9cff" : "yellow";
+  const regex = new RegExp(text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+  const walker = document.createTreeWalker(
+      document.body,
+      NodeFilter.SHOW_TEXT,
+      {acceptNode: n => regex.test(n.data) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP}
+  );
+  const nodes = [];
+  let node;
+  while (node = walker.nextNode()) {
+    nodes.push(node);
+    regex.lastIndex = 0;
   }
+  nodes.forEach(n => {
+    const frag = document.createDocumentFragment();
+    let last = 0, match;
+    regex.lastIndex = 0;
+    while (match = regex.exec(n.data)) {
+      const details = n.parentElement.closest('details');
+      if (details) details.open = true;
+      frag.appendChild(document.createTextNode(n.data.slice(last, match.index)));
+      const span = document.createElement('span');
+      span.textContent = match[0];
+      span.style.backgroundColor = color;
+      frag.appendChild(span);
+      last = regex.lastIndex;
+    }
+    frag.appendChild(document.createTextNode(n.data.slice(last)));
+    n.parentNode.replaceChild(frag, n);
+  });
 }
 
 export default defineComponent({
