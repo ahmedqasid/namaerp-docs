@@ -67,17 +67,23 @@ const defaultLocales = __SEARCH_LOCALES__;
 
 
 function doSearch(text) {
+  document.querySelectorAll('span[data-highlight]').forEach(span => {
+    span.replaceWith(...span.childNodes);
+  });
   const theme = document.documentElement.dataset.theme;
   const color = theme === "dark" ? "#5e9cff" : "yellow";
   const regex = new RegExp(text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
   const walker = document.createTreeWalker(
       document.body,
       NodeFilter.SHOW_TEXT,
-      {acceptNode: n => regex.test(n.data) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP}
+      {
+        acceptNode: n =>
+            regex.test(n.data) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP
+      }
   );
   const nodes = [];
   let node;
-  while (node = walker.nextNode()) {
+  while ((node = walker.nextNode())) {
     nodes.push(node);
     regex.lastIndex = 0;
   }
@@ -85,13 +91,14 @@ function doSearch(text) {
     const frag = document.createDocumentFragment();
     let last = 0, match;
     regex.lastIndex = 0;
-    while (match = regex.exec(n.data)) {
+    while ((match = regex.exec(n.data))) {
       const details = n.parentElement.closest('details');
       if (details) details.open = true;
       frag.appendChild(document.createTextNode(n.data.slice(last, match.index)));
       const span = document.createElement('span');
       span.textContent = match[0];
       span.style.backgroundColor = color;
+      span.setAttribute('data-highlight', 'true');
       frag.appendChild(span);
       last = regex.lastIndex;
     }

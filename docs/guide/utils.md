@@ -192,7 +192,7 @@ Take care, depreciation values WILL BE CHANGED
 
 - Reprocess Specific Fixed Assets Documents:
   <UtilityLinkBuilder
-  className="com.namasoft.modules.supplychain.domain.utils.plugnplay.RegenInvTransReqFromFile"
+  className="com.namasoft.modules.fixedassets.domain.utils.SWSUpdatePropertyEntryUtil"
   :params="[
   { title: 'Processed Assets File', default: 'e:/rc/processed-assets.txt', id:'file' },
   { title: 'Asset IDS' , default: 'ffff01,ffff02', id: 'ids' }

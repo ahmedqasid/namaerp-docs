@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import {ref, computed, onMounted} from 'vue'
+import {computed, onMounted, ref} from 'vue'
 import {serverUrl} from "./server-url";
 import ServerBaseURL from "./ServerBaseURL.vue";
 import CopyIcon from "./CopyIcon.vue";
@@ -62,11 +62,14 @@ onMounted(() => {
 })
 
 const generatedUrl = computed(() => {
-  const values = paramInputs.value.map(p => (p.id ? p.id + "=" : "") + p.value);
-  const sep =props.params.length > 0 ? '-' : ''
-  const query = `${props.className+sep+values.join(',')}`
-  return `${serverUrl.value.replace(/\/$/, '')}/utils?util=${query}${props.gui ? "&gui=true" : ""}`
-})
+  const values = paramInputs.value
+      .filter(p => p.id && p.value?.toString().trim())
+      .map(p => `${p.id}=${p.value}`);
+  const sep = props.params.length > 0 ? '-' : '';
+  const query = `${props.className}${sep}${values.join(',')}`;
+  const guiPart = props.gui ? "&gui=true" : "";
+  return `${serverUrl.value.replace(/\/$/, '')}/utils?util=${query}${guiPart}`;
+});
 
 function copyUrl() {
   navigator.clipboard.writeText(generatedUrl.value)
