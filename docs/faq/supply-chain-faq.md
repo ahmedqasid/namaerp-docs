@@ -273,7 +273,7 @@ group by l.itemCode, l.item_id
 
 ---
 
-### ملاحظة إضافية:
+- ملاحظة إضافية:
 
 لو أردت فقط **إجمالي تكلفة الفاتورة بالكامل** بدون تفاصيل الأصناف، يمكنك تعديل الاستعلام السابق بهذا الشكل:
 ::: details SQL Query to Calculate total cost of a sales invoice
