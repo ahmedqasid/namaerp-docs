@@ -267,7 +267,27 @@ end
 
 ```
 :::
-## Cleanup few tables
+## Cleanup Utility for Recycle Bin, Action History, Notifications, and Pending Tasks
+
+This SQL script performs cleanup operations on several tables. The operations are **safe by default**—nothing is deleted unless you explicitly set the parameters.
+
+### Cleanup Targets
+
+* **Recycle Bin** (`EntityVersion` orphan records)
+* **Action History** (`ActionsHistory`)
+* **Entity Versions** (`EntityVersion`)
+* **User Notifications** (`UserNotification`)
+* **Inventory and Ledger Requests** (`InvTransReq`, `LedgerTransReq`)
+* **Business Requests** (`BusinessRequestStatus`)
+* **Pending Tasks** (`PendingTask`)
+
+### Usage Notes
+
+* **All deletions are batch processed in chunks of 1000 rows**
+* **Date parameters must be in the format** `yyyyMMdd`
+* **All deletions require the appropriate date or flag to be set**
+* **Recycle bin cleanup only happens when** `@clean_recycle_bin = 1`
+
 ::: details
 ```sql
 --You must specify the following parameters to perform versions and history cleanups
