@@ -1,7 +1,7 @@
 # Nama ERP REST API
 
 Nama ERP provides a complete REST API for performing CRUD operations on all system entities.
-
+For a fast introduction, watch this video: [Nama ERP Rest API Introduction](https://youtu.be/lUxZMIoxxUY)
 ## API Browser
 
 You can explore all available APIs using the **API Browser** page:
