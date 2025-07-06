@@ -36,6 +36,8 @@ heroImage: hero.svg
     - [Customer Reward Points (Loyalty Points)](/guide/reward-points.md)
     - [دليل استعمال النقاط الفنية في نقاط البيع](/guide/nama-pos.md)
     - [ORACLE JDBC Integration Connection in context.xml for integration purposes](/guide/oracle-jdbc-connection.md)
+    - [Nama ERP REST API](/guide/nama-erp-api.md)
+    - [Criteria from Text Parser](/guide/text-criteria-guide.md)
   - [Examples](/examples/)
     - [أمثلة لمسارات كيان](/examples/entity-flow-examples.md)
   - [Reprocessing Transactions](/reprocessing/)
