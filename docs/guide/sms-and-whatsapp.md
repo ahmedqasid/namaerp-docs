@@ -42,7 +42,7 @@ To enable this feature, configure the appropriate settings from the **Global Con
 * **Correction Query** (to ensure correct phone format):
 
   ```sql
-  select case when {to} like '2%' then {to} else '2'+{to} end
+  select case when {to} like '2%' then {to} else concat('2',{to}) end
   ```
 
 ::: tip
