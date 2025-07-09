@@ -100,5 +100,32 @@ ___محتويات الفاتورة ___
 
 بهذا الشكل، سيتم إرسال كل تفاصيل سطور الفاتورة ضمن الرسالة النصية، وليس فقط السطر الأول.
 
+## كيف يمكنني عرض اسم الشخص الذي وافق على المستند داخل قالب التنبيه في Nama ERP؟
+
+**جواب:**
+لعرض اسم الشخص الذي وافق على المستند في قالب التنبيه، يمكنك استخدام المتغير `currentApprovalCase.lastStep.actualResponsible`.
+
+إذا كنت تريد عرض الاسم كرابط إلى ملف المستخدم، استخدم الصيغة التالية:
+
+```tempo
+تمت الموافقة على السجل {link($this)} من قبل {link(currentApprovalCase.lastStep.actualResponsible)}
+```
+
+أما إذا كنت تريد عرض الاسم كنص فقط بدون رابط، فاستخدم:
+
+```tempo
+تمت الموافقة على السجل {code} من قبل {currentApprovalCase.lastStep.actualResponsible.name1}
+```
+
+* يمكنك إضافة شرط للتأكد من وجود خطوة موافقة قبل عرض الاسم، كالتالي:
+
+```tempo
+{if(currentApprovalCase.lastStep)}
+تمت الموافقة على السجل {code} من قبل {currentApprovalCase.lastStep.actualResponsible.name1}
+{else}
+لم يتم الموافقة بعد على السجل {code}
+{endif}
+```
+
 
 </rtl>
