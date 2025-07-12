@@ -51,6 +51,7 @@ heroImage: hero.svg
     - [Database Related Operations](/reprocessing/db-operations.md)
     - [General Purpose Utility Queries](/reprocessing/general-purpose-utility-queries.md)
     - [Replication Utilities](/reprocessing/replication.md)
+    - [Suggesting Indexes for Large Detail Tables](/reprocessing/suggest-index-creation.md)
   - [Frequently Asked Questions](/faq/)
     - [أسئلة عامة](/faq/general-faq.md)
     - [أسئلة شائعة حول تعديل الشاشات](/faq/screen-modifier-faq.md)

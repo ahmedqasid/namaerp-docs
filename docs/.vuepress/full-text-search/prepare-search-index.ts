@@ -100,7 +100,7 @@ function extractPageContents(page: Page): PageContent[] {
         ignoreElement ||
         name === "script" ||
         name === "style" ||
-        (name === "div" && attribute.class === "line-numbers")
+        (name === "div" && (attribute.class === "line-numbers" || attribute.class === "ignore-in-full-text-search"))
       ) {
         ignoreElement++;
         return;
