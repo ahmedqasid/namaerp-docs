@@ -7,6 +7,6 @@
   - [Fixed Assets Module Utilities](/reprocessing/fixed-asset-utilities.md)
   - [Real Estate Utilities](/reprocessing/real-estate-utilities.md)
   - [Database Related Operations](/reprocessing/db-operations.md)
+  - [Suggest Indexes for Large Detail Tables](/reprocessing/suggest-index-creation.md)
   - [General Purpose Utility Queries](/reprocessing/general-purpose-utility-queries.md)
   - [Replication Utilities](/reprocessing/replication.md)
-  - [Suggesting Indexes for Large Detail Tables](/reprocessing/suggest-index-creation.md)

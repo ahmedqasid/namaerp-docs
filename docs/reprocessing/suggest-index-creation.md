@@ -1,4 +1,4 @@
-# Suggesting Indexes for Large Detail Tables
+# Suggest Indexes for Large Detail Tables
 
 This article provides guidance on identifying large detail tables in your database that are missing essential indexes on their foreign key columns, which may lead to performance issues when selecting records.
 
