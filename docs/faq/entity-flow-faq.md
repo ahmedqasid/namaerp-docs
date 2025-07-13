@@ -259,7 +259,7 @@ details.specificDimensions.warehouse=sql(select case when {details.item.item.sec
 
 الصيغة المصححة:
 
-```tempo
+```nm-field-values
 details.specificDimensions.warehouse=mlsql(
   select case 
     when {details.item.item.section.code} = '1' 
@@ -271,5 +271,18 @@ details.specificDimensions.warehouse=mlsql(
 
 بهذا الشكل، يتم ضمان أن الجملة تعيد دائمًا قيمة واحدة منطقية يمكن لـ SQL Server التعامل معها، كما يتم التأكد من أن الاستعلام لا يفشل في حالة عدم وجود سطور مطابقة في الجدول.
 
+## أريد إحضار آخر سعر شراء للصنف في حقل `details.n2`
+
+الطريقة الأسهل لتحقيق المطلوب هي استعمال الصيغة التالية:
+
+```nm-field-values
+details.n2=sql(select top 1 cast(l.unitPrice as decimal(20,2)) lastPrice from PurchaseInvoiceLine l where l.item_id = {details.item.item.id} order by l.valueDate desc)
+```
+
+إذا أردت إحضار آخر سعر شراء في تاريخ يسبق تاريخ السند الحالي:
+
+```nm-field-values
+details.n2=sql(select top 1 cast(l.unitPrice as decimal(20,2)) lastPrice from PurchaseInvoiceLine l where l.item_id = {details.item.item.id} and l.valueDate <= {valueDate} order by l.valueDate desc)
+```
 
 </rtl>
