@@ -238,4 +238,38 @@ details.n1=tempo({itemprice(itemIdOrCode=details.item.item)})
 
 يُرجى التأكد من إضافة هذا المسار إلى نوع المستند "توريد مخزني"، وتفعيله مع الإجراء المناسب مثل ما قبل تحديث الحقول المحسوبة.
 
+##  أحاول إنشاء مسار كيان يقوم بحساب حقل المخزن تلقائيًا، لكن الكود الذي كتبته لم يعمل. ما السبب؟
+
+**ج:** عند استخدامك للجملة التالية:
+
+```fvc
+details.specificDimensions.warehouse=sql(select case when {details.item.item.section.code} = '1' then 'W-MG' else  warehouse_id end from SrvJOrderMaterialLine where SrvCJobOrder_id = {ref1.$toReal.id} and {details.item.item.id} = material_id)
+```
+
+حدثت مشكلتان:
+
+1. **نوع القيمة غير واضح:**
+   في عبارة `case when`، قمت بإرجاع معرف (`'W-MG'`) في أحد الفروع، وفي الفرع الآخر قمت بإرجاع حقل `warehouse_id` مباشرةً. هذا تسبب في صعوبة على SQL Server في تحديد نوع القيمة المطلوبة (هل هو نص أم معرف؟). هذا الخلط يؤدي إلى فشل التنفيذ.
+
+2. **غياب نتائج من الجدول:**
+   في حالة عدم وجود أي سطر في جدول `SrvJOrderMaterialLine` يحقق شروط الفلترة، فإن الاستعلام بأكمله لن يعيد أي قيمة، وبالتالي لن يتم تعيين أي مخزن للسطر.
+
+**الحل:**
+استخدم صيغة `sub-query` بشكل صحيح داخل فرع `else` في `case when` لضمان أن الاستعلام دائمًا يرجع قيمة (حتى لو كانت `null`) بدلًا من أن لا يرجع شيئًا على الإطلاق.
+
+الصيغة المصححة:
+
+```tempo
+details.specificDimensions.warehouse=mlsql(
+  select case 
+    when {details.item.item.section.code} = '1' 
+    then 0xffff00019247e58188000000ff09aee9 
+    else (select warehouse_id from SrvJOrderMaterialLine where SrvCJobOrder_id = {ref1.$toReal.id} and {details.item.item.id} = material_id) 
+  end
+)endmlsql
+```
+
+بهذا الشكل، يتم ضمان أن الجملة تعيد دائمًا قيمة واحدة منطقية يمكن لـ SQL Server التعامل معها، كما يتم التأكد من أن الاستعلام لا يفشل في حالة عدم وجود سطور مطابقة في الجدول.
+
+
 </rtl>
