@@ -17,7 +17,7 @@ export default defineUserConfig({
   ],
   theme: defaultTheme({
     sidebar: SIDEBAR_CONFIG,
-    navbar: ['/', '/guide/','/examples/'],
+    navbar: ['/', {text: 'Namasoft.com', link: "https://namasoft.com"}, {text: 'Data Model', link: "https://dm.namasoft.com"}],
     contributors: false,
     sidebarDepth: 0,
     logo: '/hero.svg',
