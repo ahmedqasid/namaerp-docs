@@ -2,7 +2,7 @@ export const SIDEBAR_CONFIG = {
   "/" : [ {
     text: "Home",
     collapsible: true,
-    children: [ {
+    children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
       children: [ "/guide/docs-quick-guide.md", "/guide/utils.md", "/guide/system-minimum-requirements.md", "/guide/installation-guide.md", "/guide/reports-guide.md", "/guide/shortcuts.md", "/guide/screen-modifier.md", {

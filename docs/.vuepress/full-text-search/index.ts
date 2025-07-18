@@ -14,6 +14,22 @@ export interface FullTextSearchPluginOptions {
   locales?: LocaleConfig<{
     placeholder: string;
   }>;
+  /**
+   * List of CSS class names to create separate search indices for
+   */
+  searchIndexClassNames?: string[];
+  /**
+   * Default search index to use
+   */
+  defaultSearchIndex?: string;
+  /**
+   * Default selected index in the dropdown
+   */
+  defaultSelectedIndex?: string;
+  /**
+   * Display titles for search indices
+   */
+  searchIndexTitles?: { [className: string]: string };
 }
 
 export const fullTextSearchPlugin = fullTextSearchPluginFunction;
@@ -40,7 +56,13 @@ function fullTextSearchPluginFunction(
     ),
 
     onPrepared(app) {
-      prepareSearchIndex({ app });
+      const config = {
+        searchIndexClassNames: (options as FullTextSearchPluginOptions).searchIndexClassNames || ['default'],
+        defaultSearchIndex: (options as FullTextSearchPluginOptions).defaultSearchIndex,
+        defaultSelectedIndex: (options as FullTextSearchPluginOptions).defaultSelectedIndex,
+        searchIndexTitles: (options as FullTextSearchPluginOptions).searchIndexTitles || {}
+      };
+      prepareSearchIndex({ app, config });
     },
 
     onWatched: (app, watchers) => {
@@ -48,14 +70,20 @@ function fullTextSearchPluginFunction(
         cwd: app.dir.temp(),
         ignoreInitial: true,
       });
+      const config = {
+        searchIndexClassNames: (options as FullTextSearchPluginOptions).searchIndexClassNames || ['default'],
+        defaultSearchIndex: (options as FullTextSearchPluginOptions).defaultSearchIndex,
+        defaultSelectedIndex: (options as FullTextSearchPluginOptions).defaultSelectedIndex,
+        searchIndexTitles: (options as FullTextSearchPluginOptions).searchIndexTitles || {}
+      };
       searchIndexWatcher.on("add", () => {
-        prepareSearchIndex({ app });
+        prepareSearchIndex({ app, config });
       });
       searchIndexWatcher.on("change", () => {
-        prepareSearchIndex({ app });
+        prepareSearchIndex({ app, config });
       });
       searchIndexWatcher.on("unlink", () => {
-        prepareSearchIndex({ app });
+        prepareSearchIndex({ app, config });
       });
       watchers.push(searchIndexWatcher);
     },

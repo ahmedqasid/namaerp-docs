@@ -1,19 +1,31 @@
 <template>
   <div class="search-box" role="search">
-    <input
-        ref="input"
-        v-model="query"
-        aria-label="Search"
-        :class="{ focused: focused }"
-        :placeholder="locale.placeholder ?? 'Search'"
-        autocomplete="off"
-        spellcheck="false"
-        @focus="() => (focused = true)"
-        @blur="() => (focused = false)"
-        @keyup.enter="go(focusIndex)"
-        @keyup.up="onUp"
-        @keyup.down="onDown"
-    />
+    <div class="search-controls">
+      <select 
+        v-if="searchIndexClassNames && searchIndexClassNames.length > 1"
+        v-model="currentSearchIndex"
+        class="search-index-selector"
+        @change="onIndexChange"
+      >
+        <option v-for="indexName in searchIndexClassNames" :key="indexName" :value="indexName">
+          {{ searchIndexTitles[indexName] || indexName }}
+        </option>
+      </select>
+      <input
+          ref="input"
+          v-model="query"
+          aria-label="Search"
+          :class="{ focused: focused }"
+          :placeholder="locale.placeholder ?? 'Search'"
+          autocomplete="off"
+          spellcheck="false"
+          @focus="() => (focused = true)"
+          @blur="() => (focused = false)"
+          @keyup.enter="go(focusIndex)"
+          @keyup.up="onUp"
+          @keyup.down="onDown"
+      />
+    </div>
     <ul v-if="activeSuggestion" class="suggestions" @mouseleave="unfocus" ref="el">
       <li
           v-for="(s, i) in suggestions"
@@ -55,7 +67,7 @@ import type {LocaleConfig} from "@vuepress/shared";
 import {PropType, watch} from "vue";
 import {defineComponent, ref, computed, toRefs} from "vue";
 import {useRouter} from "vue-router";
-import {useSuggestions} from "./engine";
+import {useSuggestions, useSearchIndexManager} from "./engine";
 
 type SearchBoxLocales = LocaleConfig<{
   placeholder: string;
@@ -123,6 +135,7 @@ export default defineComponent({
     const focusIndex = ref(-1);
     const el = ref<HTMLElement | null>(null);
     const suggestions = useSuggestions(query);
+    const { currentSearchIndex, searchIndexClassNames, searchIndexTitles, setSearchIndex } = useSearchIndexManager();
     watch(focusIndex, (newIndex) => {
       if (newIndex < 0)
         return;
@@ -192,6 +205,11 @@ export default defineComponent({
       }
     }
 
+    /** Handle index change */
+    function onIndexChange() {
+      setSearchIndex(currentSearchIndex.value);
+    }
+
     return {
       query,
       focused,
@@ -205,6 +223,10 @@ export default defineComponent({
       go,
       locale,
       el,
+      currentSearchIndex,
+      searchIndexClassNames,
+      searchIndexTitles,
+      onIndexChange,
     };
   },
 });
@@ -227,6 +249,28 @@ export default defineComponent({
 
 .search-box {
   position: relative;
+}
+
+.search-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-index-selector {
+  height: 2rem;
+  color: var(--search-text-color);
+  border: 1px solid var(--search-border-color);
+  border-radius: 0.3rem;
+  font-size: 0.8rem;
+  padding: 0 0.5rem;
+  outline: none;
+  background: var(--search-bg-color);
+  min-width: 80px;
+}
+
+.search-index-selector:focus {
+  border-color: var(--search-accent-color);
 }
 
 .search-box input {

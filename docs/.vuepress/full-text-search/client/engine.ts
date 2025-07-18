@@ -1,11 +1,16 @@
 import {
   searchIndex as searchIndexRaw,
+  searchIndices as searchIndicesRaw,
+  searchIndexClassNames,
+  searchIndexTitles,
+  defaultSearchIndex,
+  defaultSelectedIndex,
   UPD_NAME,
   // @ts-expect-error -- generated from prepare-search-index
 } from "@internal/vuepress-plugin-full-text-search2-search-index";
 import {computed, ref, watch} from "vue";
 import type {Ref} from "vue";
-import type {PageContent, PageIndex} from "../types";
+import type {PageContent, PageIndex, SearchIndices} from "../types";
 import {normalizeArabic} from "../nama-specific-utils";
 
 type Word = {
@@ -24,11 +29,34 @@ type Suggestion = {
 };
 type SearchIndex = PageIndex[];
 type SearchIndexRef = Ref<SearchIndex>;
+type SearchIndicesRef = Ref<SearchIndices>;
 
 const searchIndex: SearchIndexRef = ref(searchIndexRaw);
+const searchIndices: SearchIndicesRef = ref(searchIndicesRaw || {[defaultSearchIndex || 'default']: searchIndexRaw});
+
+// Initialize current search index with localStorage support (client-side only)
+const getInitialSearchIndex = () => {
+  // Check if we're in browser environment
+  if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+    try {
+      const stored = localStorage.getItem('vuepress-search-index');
+      if (stored && (searchIndexClassNames || ['default']).includes(stored)) {
+        return stored;
+      }
+    } catch (e) {
+      // localStorage might be disabled, fall back to default
+    }
+  }
+  return defaultSelectedIndex || defaultSearchIndex || 'default';
+};
+
+const currentSearchIndex = ref(getInitialSearchIndex());
+
 const pathToPage = computed(() => {
   const map = new Map<string, PageIndex>();
-  for (const page of searchIndex.value) {
+  const currentIndex = searchIndices.value[currentSearchIndex.value] || searchIndex.value;
+
+  for (const page of currentIndex) {
     map.set(page.path, page);
   }
   return map;
@@ -51,7 +79,7 @@ if (
 export function useSuggestions(query: Ref<string>): Ref<Suggestion[]> {
   const suggestions = ref([] as Suggestion[]);
   let id: NodeJS.Timeout | null = null;
-  watch(query, () => {
+  watch([query, currentSearchIndex], () => {
     if (id) {
       clearTimeout(id);
     }
@@ -68,15 +96,22 @@ export function useSuggestions(query: Ref<string>): Ref<Suggestion[]> {
     }
     const suggestionResults = new Map<string, Suggestion[]>();
     const suggestionSubTitles = new Set<string>();
-    for (const page of searchIndex.value) {
-      for (const suggest of extractSuggestions(page, queryStr)) {
-        suggestionSubTitles.add(suggest.parentPageTitle);
-        let list = suggestionResults.get(suggest.parentPageTitle);
-        if (!list) {
-          list = [];
-          suggestionResults.set(suggest.parentPageTitle, list);
+    for (let valueKey in searchIndices.value) {
+      if (currentSearchIndex.value && !['default', valueKey].includes(currentSearchIndex.value))
+        continue;
+      const currentIndex = searchIndices.value[valueKey];
+      if (!currentIndex)
+        continue;
+      for (const page of currentIndex) {
+        for (const suggest of extractSuggestions(page, queryStr)) {
+          suggestionSubTitles.add(suggest.parentPageTitle);
+          let list = suggestionResults.get(suggest.parentPageTitle);
+          if (!list) {
+            list = [];
+            suggestionResults.set(suggest.parentPageTitle, list);
+          }
+          list.push(suggest);
         }
-        list.push(suggest);
       }
     }
     const sortedSuggestionSubTitles = [...suggestionSubTitles].sort((a, b) => {
@@ -94,6 +129,34 @@ export function useSuggestions(query: Ref<string>): Ref<Suggestion[]> {
           a.priority - b.priority,
       );
   }
+}
+
+/** Export search index management functions */
+export function useSearchIndexManager() {
+  const indexClassNames = searchIndexClassNames || ['default'];
+  const indexTitles = searchIndexTitles || {'default': 'All Content'};
+
+  // Watch for changes and persist to localStorage
+  watch(currentSearchIndex, (newIndex) => {
+    if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+      try {
+        localStorage.setItem('vuepress-search-index', newIndex);
+      } catch (e) {
+        // localStorage might be disabled, ignore
+      }
+    }
+  });
+
+  return {
+    currentSearchIndex,
+    searchIndexClassNames: indexClassNames,
+    searchIndexTitles: indexTitles,
+    setSearchIndex: (indexName: string) => {
+      if (indexClassNames.includes(indexName)) {
+        currentSearchIndex.value = indexName;
+      }
+    }
+  };
 }
 
 /**

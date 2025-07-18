@@ -10,3 +10,14 @@ export type PageContent = {
   slug: string;
   content: string;
 };
+
+export type SearchIndices = {
+  [indexName: string]: PageIndex[];
+};
+
+export type SearchIndexConfig = {
+  searchIndexClassNames: string[];
+  defaultSearchIndex?: string;
+  defaultSelectedIndex?: string;
+  searchIndexTitles?: { [className: string]: string };
+};

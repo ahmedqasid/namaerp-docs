@@ -3,6 +3,7 @@ home: true
 heroImage: hero.svg
 ---
 # Home
+  - [Search](/full-search.md)
   - [Guides](/guide/)
     - [بعض المعلومات عن استعمال هذا الموقع](/guide/docs-quick-guide.md)
     - [Utility Links](/guide/utils.md)
