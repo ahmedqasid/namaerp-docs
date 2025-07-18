@@ -99,7 +99,8 @@ export async function prepareSearchIndex({
 export const searchIndices = ${JSON.stringify(searchIndices, null, 2)};
 export const searchIndexClassNames = ${JSON.stringify(['default', ...(searchConfig.searchIndexClassNames).filter(cn=>cn!==`default`)], null, 2)};
 export const searchIndexTitles = ${JSON.stringify(indexTitles, null, 2)};
-export const defaultSearchIndex = ${JSON.stringify('default', null, 2)} export const defaultSelectedIndex = ${JSON.stringify(searchConfig.defaultSelectedIndex || 'default', null, 2)};
+export const defaultSearchIndex = ${JSON.stringify('default', null, 2)};
+export const defaultSelectedIndex = ${JSON.stringify(searchConfig.defaultSelectedIndex || 'default', null, 2)};
 export const UPD_NAME = 'update-vuepress-plugin-full-text-search2-search-index';
 
 // Legacy support
