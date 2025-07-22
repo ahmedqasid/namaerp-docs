@@ -27,30 +27,32 @@ This action automatically deletes related entities from the database when trigge
 
 ### Parameter 1: Target Type
 - **What it is**: The type of entity you want to delete
-- **Format**: Entity type name (e.g., "CreditNote", "Invoice", "Payment")
-- **Example**: `CreditNote`
+- **Format**: Entity type name from your system's entity definitions
+- **Note**: Must match an existing entity type in the system
 
 ### Parameter 2: Finder SQL
 - **What it is**: SQL query to find the entity to delete
 - **Must return**: The ID of the entity to delete as the first column
 - **Placeholders**: Use `{id}` to reference the source entity's ID
-- **Example**: `select id from CreditNote where ref5Id={id}`
+- **Template**: `select id from [TableName] where [foreignKeyColumn]={id}`
 
 ## SQL Query Examples
 
-### Delete a Credit Note linked to an Invoice
+**Important**: The following are template examples. You must verify that the table names and column names exist in your system before using them.
+
+### Template for deleting related entities
 ```sql
-select id from CreditNote where invoiceId={id}
+select id from [TableName] where [foreignKeyColumn]={id}
 ```
 
-### Delete Payment linked to a specific field
+### Template with additional conditions
 ```sql
-select id from Payment where ref5Id={id} and status='GENERATED'
+select id from [TableName] where [foreignKeyColumn]={id} and [statusColumn]='GENERATED'
 ```
 
-### Delete multiple entities (first one found will be deleted)
+### Template with ordering (when multiple records exist)
 ```sql
-select id from TempDocument where sourceId={id} order by createdDate desc
+select id from [TableName] where [foreignKeyColumn]={id} order by [dateColumn] desc
 ```
 
 ## Important Safety Notes
@@ -71,15 +73,17 @@ select id from TempDocument where sourceId={id} order by createdDate desc
 
 ## Common Use Cases
 
-### Scenario 1: Cleanup Auto-Generated Credit Notes
-When an invoice is cancelled, delete any automatically generated credit notes:
-- **Target Type**: `CreditNote`
-- **SQL**: `select id from CreditNote where invoiceId={id} and source='AUTO_GENERATED'`
+### General Pattern: Cleanup Auto-Generated Entities
+When a main entity changes state, delete related entities that were automatically created:
+- **Target Type**: `[RelatedEntityType]`
+- **SQL**: `select id from [RelatedTable] where [foreignKey]={id} and [sourceColumn]='AUTO_GENERATED'`
 
-### Scenario 2: Remove Temporary Documents
+### General Pattern: Remove Draft/Temporary Records
 When a main document is finalized, remove temporary working copies:
-- **Target Type**: `TempDocument` 
-- **SQL**: `select id from TempDocument where parentId={id} and status='DRAFT'`
+- **Target Type**: `[TempEntityType]` 
+- **SQL**: `select id from [TempTable] where [parentKey]={id} and [statusColumn]='DRAFT'`
+
+**Note**: Replace bracketed placeholders with actual table names, entity types, and column names from your system.
 
 ## Testing Your Configuration
 
