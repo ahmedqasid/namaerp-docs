@@ -3,7 +3,12 @@ title: EAReverseLedgerTrans
 module: accounting
 ---
 
+
+<div class='entity-flows'>
+
 # EAReverseLedgerTrans
+
+**This document was generated using AI Tools**
 
 **Description:** No description available
 
@@ -20,4 +25,7 @@ Another example: details.n4
 **Module:** accounting
 
 **ℹ️ Note:** This action is forced automatic
+
+
+</div>
 

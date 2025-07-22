@@ -3,7 +3,12 @@ title: EAUniCreteGenItems
 module: supplychain
 ---
 
+
+<div class='entity-flows'>
+
 # EAUniCreteGenItems
+
+**This document was generated using AI Tools**
 
 **Description:** No description available
 
@@ -15,4 +20,7 @@ module: supplychain
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAUniCreteGenItems`
 
 **Module:** supplychain
+
+
+</div>
 

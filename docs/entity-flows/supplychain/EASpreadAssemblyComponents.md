@@ -3,7 +3,12 @@ title: EASpreadAssemblyComponents
 module: supplychain
 ---
 
+
+<div class='entity-flows'>
+
 # EASpreadAssemblyComponents
+
+**This document was generated using AI Tools**
 
 **Description:** Collect Lot, Box, Size, Color, or Revision in Supply Chain Documents
 
@@ -13,4 +18,7 @@ module: supplychain
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EASpreadAssemblyComponents`
 
 **Module:** supplychain
+
+
+</div>
 

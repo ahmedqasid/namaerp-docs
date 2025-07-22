@@ -3,7 +3,12 @@ title: EASetFieldByTemplate
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EASetFieldByTemplate
+
+**This document was generated using AI Tools**
 
 **Description:** Sets a field based on a tenmplate
 
@@ -14,4 +19,7 @@ module: core
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EASetFieldByTemplate`
 
 **Module:** core
+
+
+</div>
 

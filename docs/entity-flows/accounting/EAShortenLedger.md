@@ -3,7 +3,12 @@ title: EAShortenLedger
 module: accounting
 ---
 
+
+<div class='entity-flows'>
+
 # EAShortenLedger
+
+**This document was generated using AI Tools**
 
 **Description:** Shortens the ledger transaction lines
 
@@ -12,4 +17,7 @@ module: accounting
 **Module:** accounting
 
 **ℹ️ Note:** This action is forced automatic
+
+
+</div>
 

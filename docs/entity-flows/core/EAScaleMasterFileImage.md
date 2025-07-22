@@ -3,7 +3,12 @@ title: EAScaleMasterFileImage
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EAScaleMasterFileImage
+
+**This document was generated using AI Tools**
 
 **Description:** Scale Master File Image To Specific Dimension
 
@@ -14,4 +19,7 @@ module: core
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAScaleMasterFileImage`
 
 **Module:** core
+
+
+</div>
 

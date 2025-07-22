@@ -3,7 +3,12 @@ title: EARecommitFromQuery
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EARecommitFromQuery
+
+**This document was generated using AI Tools**
 
 **Description:** Recommit all records returned by the query
 
@@ -18,4 +23,7 @@ module: core
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EARecommitFromQuery`
 
 **Module:** core
+
+
+</div>
 

@@ -3,7 +3,12 @@ title: EAExecuteUpdateQueryOnDifferentDatasource
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EAExecuteUpdateQueryOnDifferentDatasource
+
+**This document was generated using AI Tools**
 
 **Description:** Execute update query specified in first parameter on the database defined in paramater 1
 
@@ -16,4 +21,7 @@ module: core
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAExecuteUpdateQueryOnDifferentDatasource`
 
 **Module:** core
+
+
+</div>
 

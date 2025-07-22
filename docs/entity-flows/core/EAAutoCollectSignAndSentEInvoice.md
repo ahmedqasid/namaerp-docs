@@ -3,7 +3,12 @@ title: EAAutoCollectSignAndSentEInvoice
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EAAutoCollectSignAndSentEInvoice
+
+**This document was generated using AI Tools**
 
 **Description:** No description available
 
@@ -18,4 +23,7 @@ module: core
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAAutoCollectSignAndSentEInvoice`
 
 **Module:** core
+
+
+</div>
 

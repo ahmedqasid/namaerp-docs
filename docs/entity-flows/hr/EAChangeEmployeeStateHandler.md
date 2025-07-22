@@ -3,7 +3,12 @@ title: EAChangeEmployeeStateHandler
 module: hr
 ---
 
+
+<div class='entity-flows'>
+
 # EAChangeEmployeeStateHandler
+
+**This document was generated using AI Tools**
 
 **Description:** Change Employee State From Query Based On Vacation Documents
 
@@ -14,4 +19,7 @@ module: hr
 **Full Class Name:** `com.namasoft.modules.humanresource.utils.actions.EAChangeEmployeeStateHandler`
 
 **Module:** hr
+
+
+</div>
 

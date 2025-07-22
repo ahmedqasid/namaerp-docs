@@ -3,7 +3,12 @@ title: EAEcommerceReadAbandonedCarts
 module: magento
 ---
 
+
+<div class='entity-flows'>
+
 # EAEcommerceReadAbandonedCarts
+
+**This document was generated using AI Tools**
 
 **Description:** No description available
 
@@ -14,4 +19,7 @@ module: magento
 **Full Class Name:** `com.namasoft.modules.magento.utils.EAEcommerceReadAbandonedCarts`
 
 **Module:** magento
+
+
+</div>
 

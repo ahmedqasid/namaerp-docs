@@ -3,7 +3,12 @@ title: EAPreventRepeatedItems
 module: supplychain
 ---
 
+
+<div class='entity-flows'>
+
 # EAPreventRepeatedItems
+
+**This document was generated using AI Tools**
 
 **Description:** Prevents saving any Supply Chain Documents if any item is repeated, you can consider sizes, revisions, ... etc using parameters
 
@@ -20,4 +25,7 @@ module: supplychain
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAPreventRepeatedItems`
 
 **Module:** supplychain
+
+
+</div>
 

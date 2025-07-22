@@ -3,7 +3,12 @@ title: EADeleteFromAnotherServer
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EADeleteFromAnotherServer
+
+**This document was generated using AI Tools**
 
 **Description:** No description available
 
@@ -16,4 +21,7 @@ module: core
 **Full Class Name:** `com.namasoft.commonservices.utils.EADeleteFromAnotherServer`
 
 **Module:** core
+
+
+</div>
 

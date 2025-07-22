@@ -3,7 +3,12 @@ title: EAKWSendIPSEvents
 module: frm
 ---
 
+
+<div class='entity-flows'>
+
 # EAKWSendIPSEvents
+
+**This document was generated using AI Tools**
 
 **Description:** No description available
 
@@ -19,4 +24,7 @@ module: frm
 **Full Class Name:** `com.namasoft.modules.frm.common.EAKWSendIPSEvents`
 
 **Module:** frm
+
+
+</div>
 

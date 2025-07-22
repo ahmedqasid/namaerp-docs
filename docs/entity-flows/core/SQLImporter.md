@@ -3,7 +3,12 @@ title: SQLImporter
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # SQLImporter
+
+**This document was generated using AI Tools**
 
 **Description:** Import data from SQL Queries
 
@@ -29,4 +34,7 @@ having sum(coalesce(q.net,0))<i.dfMinQuantity
 **Module:** core
 
 **⚠️ Warning:** This action prevents simultaneous runs
+
+
+</div>
 

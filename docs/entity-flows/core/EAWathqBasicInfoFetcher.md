@@ -3,7 +3,12 @@ title: EAWathqBasicInfoFetcher
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EAWathqBasicInfoFetcher
+
+**This document was generated using AI Tools**
 
 **Description:** Fetches Basic commercial Information from wathq.sa using CRNationalNumber field.
 We copy the fields: name1
@@ -20,4 +25,7 @@ description1=$map.crNumber
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAWathqBasicInfoFetcher`
 
 **Module:** core
+
+
+</div>
 

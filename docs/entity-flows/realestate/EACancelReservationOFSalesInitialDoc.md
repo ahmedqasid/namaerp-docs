@@ -3,7 +3,12 @@ title: EACancelReservationOFSalesInitialDoc
 module: realestate
 ---
 
+
+<div class='entity-flows'>
+
 # EACancelReservationOFSalesInitialDoc
+
+**This document was generated using AI Tools**
 
 **Description:** Cancel Reservation of initial sales contracts by query
 
@@ -13,4 +18,7 @@ module: realestate
 **Full Class Name:** `com.namasoft.modules.realestate.domain.entities.EACancelReservationOFSalesInitialDoc`
 
 **Module:** realestate
+
+
+</div>
 

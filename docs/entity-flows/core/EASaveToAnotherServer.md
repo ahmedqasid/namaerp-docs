@@ -3,7 +3,12 @@ title: EASaveToAnotherServer
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EASaveToAnotherServer
+
+**This document was generated using AI Tools**
 
 **Description:** No description available
 
@@ -26,4 +31,7 @@ name1=sql(select case when {group.code} = '11' then '' else {group.name1} end))
 **Full Class Name:** `com.namasoft.commonservices.utils.EASaveToAnotherServer`
 
 **Module:** core
+
+
+</div>
 

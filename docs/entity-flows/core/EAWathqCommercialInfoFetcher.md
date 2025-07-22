@@ -3,7 +3,12 @@ title: EAWathqCommercialInfoFetcher
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EAWathqCommercialInfoFetcher
+
+**This document was generated using AI Tools**
 
 **Description:** Fetches Full Commercial Information from wathq.sa using CRNationalNumber field.
 We copy the fields: name1,contactInfo.email,contactInfo.mobile,contactInfo.telephone1,contactInfo.website
@@ -21,4 +26,7 @@ name2=$map.headquarterCityName
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAWathqCommercialInfoFetcher`
 
 **Module:** core
+
+
+</div>
 

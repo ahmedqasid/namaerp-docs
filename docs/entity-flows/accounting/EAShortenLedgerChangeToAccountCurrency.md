@@ -3,7 +3,12 @@ title: EAShortenLedgerChangeToAccountCurrency
 module: accounting
 ---
 
+
+<div class='entity-flows'>
+
 # EAShortenLedgerChangeToAccountCurrency
+
+**This document was generated using AI Tools**
 
 **Description:** Makes the ledger lines use the same currency as the account
 
@@ -12,4 +17,7 @@ module: accounting
 **Module:** accounting
 
 **ℹ️ Note:** This action is forced automatic
+
+
+</div>
 

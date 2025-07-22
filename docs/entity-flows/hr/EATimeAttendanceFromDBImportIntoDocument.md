@@ -3,7 +3,12 @@ title: EATimeAttendanceFromDBImportIntoDocument
 module: hr
 ---
 
+
+<div class='entity-flows'>
+
 # EATimeAttendanceFromDBImportIntoDocument
+
+**This document was generated using AI Tools**
 
 **Description:** Imports attendance into current document
 
@@ -20,4 +25,7 @@ module: hr
 **Module:** hr
 
 **⚠️ Warning:** This action prevents simultaneous runs
+
+
+</div>
 

@@ -3,7 +3,12 @@ title: EAAutoExtendExpiredRentContracts
 module: realestate
 ---
 
+
+<div class='entity-flows'>
+
 # EAAutoExtendExpiredRentContracts
+
+**This document was generated using AI Tools**
 
 **Description:** No description available
 
@@ -19,4 +24,7 @@ select entityType,id from REOpeningRentContract where commitedBefore = 1 and can
 **Full Class Name:** `com.namasoft.modules.realstate.domain.utils.plugnplay.EAAutoExtendExpiredRentContracts`
 
 **Module:** realestate
+
+
+</div>
 

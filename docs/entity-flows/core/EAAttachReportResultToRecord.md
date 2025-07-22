@@ -3,7 +3,12 @@ title: EAAttachReportResultToRecord
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EAAttachReportResultToRecord
+
+**This document was generated using AI Tools**
 
 **Description:** Run a report and attach the report result as an attachment to the current record
 
@@ -16,4 +21,7 @@ module: core
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAAttachReportResultToRecord`
 
 **Module:** core
+
+
+</div>
 

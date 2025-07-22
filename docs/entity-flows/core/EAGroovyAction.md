@@ -3,7 +3,12 @@ title: EAGroovyAction
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EAGroovyAction
+
+**This document was generated using AI Tools**
 
 **Description:** Runs a Groovy Script
 
@@ -13,4 +18,7 @@ module: core
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAGroovyAction`
 
 **Module:** core
+
+
+</div>
 

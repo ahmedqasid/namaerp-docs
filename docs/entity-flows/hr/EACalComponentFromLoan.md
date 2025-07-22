@@ -3,7 +3,12 @@ title: EACalComponentFromLoan
 module: hr
 ---
 
+
+<div class='entity-flows'>
+
 # EACalComponentFromLoan
+
+**This document was generated using AI Tools**
 
 **Description:** Calculates a component value using loan value
 
@@ -15,4 +20,7 @@ module: hr
 **Full Class Name:** `com.namasoft.modules.humanresource.utils.actions.EACalComponentFromLoan`
 
 **Module:** hr
+
+
+</div>
 

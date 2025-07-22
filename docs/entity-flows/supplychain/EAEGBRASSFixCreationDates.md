@@ -3,7 +3,12 @@ title: EAEGBRASSFixCreationDates
 module: supplychain
 ---
 
+
+<div class='entity-flows'>
+
 # EAEGBRASSFixCreationDates
+
+**This document was generated using AI Tools**
 
 **Description:** Fix Creation Date all records returned by the query
 
@@ -18,4 +23,7 @@ module: supplychain
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAEGBRASSFixCreationDates`
 
 **Module:** supplychain
+
+
+</div>
 

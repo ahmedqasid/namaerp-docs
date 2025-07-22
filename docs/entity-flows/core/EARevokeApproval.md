@@ -3,7 +3,12 @@ title: EARevokeApproval
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EARevokeApproval
+
+**This document was generated using AI Tools**
 
 **Description:** Revokes approval of record or records in fields or by SQL
 
@@ -14,4 +19,7 @@ module: core
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EARevokeApproval`
 
 **Module:** core
+
+
+</div>
 

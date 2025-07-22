@@ -3,7 +3,12 @@ title: EAUpdateRemarksInExtractFromContractTermDescription
 module: contracting
 ---
 
+
+<div class='entity-flows'>
+
 # EAUpdateRemarksInExtractFromContractTermDescription
+
+**This document was generated using AI Tools**
 
 **Description:** No description available
 
@@ -18,4 +23,7 @@ module: contracting
 **Full Class Name:** `com.namasoft.modules.contracting.domain.utils.EAUpdateRemarksInExtractFromContractTermDescription`
 
 **Module:** contracting
+
+
+</div>
 

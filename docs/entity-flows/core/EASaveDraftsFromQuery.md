@@ -3,7 +3,12 @@ title: EASaveDraftsFromQuery
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EASaveDraftsFromQuery
+
+**This document was generated using AI Tools**
 
 **Description:** Saves all draft records returned by the query, if one fails it will move on to the next
 
@@ -13,4 +18,7 @@ module: core
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EASaveDraftsFromQuery`
 
 **Module:** core
+
+
+</div>
 

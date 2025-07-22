@@ -3,7 +3,12 @@ title: EAReplaceItemSizeInSystem
 module: supplychain
 ---
 
+
+<div class='entity-flows'>
+
 # EAReplaceItemSizeInSystem
+
+**This document was generated using AI Tools**
 
 **Description:** Updates size in all system tables from document lines
 
@@ -19,4 +24,7 @@ module: supplychain
 **Full Class Name:** `com.namasoft.modules.supplychain.plugnplay.EAReplaceItemSizeInSystem`
 
 **Module:** supplychain
+
+
+</div>
 

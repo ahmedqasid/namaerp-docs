@@ -3,7 +3,12 @@ title: EARegenInvTransReqFromQuery
 module: supplychain
 ---
 
+
+<div class='entity-flows'>
+
 # EARegenInvTransReqFromQuery
+
+**This document was generated using AI Tools**
 
 **Description:** RegenInvTransReq all records returned by the query
 
@@ -18,4 +23,7 @@ module: supplychain
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EARegenInvTransReqFromQuery`
 
 **Module:** supplychain
+
+
+</div>
 

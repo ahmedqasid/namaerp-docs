@@ -3,7 +3,12 @@ title: EARunManualNotificationFromQuery
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EARunManualNotificationFromQuery
+
+**This document was generated using AI Tools**
 
 **Description:** Run Manual Notification On  all records returned by the query
 
@@ -19,4 +24,7 @@ module: core
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EARunManualNotificationFromQuery`
 
 **Module:** core
+
+
+</div>
 

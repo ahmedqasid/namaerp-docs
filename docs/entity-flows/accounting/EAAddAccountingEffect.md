@@ -3,7 +3,12 @@ title: EAAddAccountingEffect
 module: accounting
 ---
 
+
+<div class='entity-flows'>
+
 # EAAddAccountingEffect
+
+**This document was generated using AI Tools**
 
 **Description:** Add Extra Effect to Any Document File existing ledger request.
 
@@ -24,4 +29,7 @@ This example will make the effect happen only for lines ref1 being a branch or a
 **Module:** accounting
 
 **ℹ️ Note:** This action is forced automatic
+
+
+</div>
 

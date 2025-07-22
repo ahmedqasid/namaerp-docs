@@ -3,7 +3,12 @@ title: EASCPreventChangingFromDocFields
 module: supplychain
 ---
 
+
+<div class='entity-flows'>
+
 # EASCPreventChangingFromDocFields
+
+**This document was generated using AI Tools**
 
 **Description:** Prevents changing fields in header or details, can also prevent adding new lines, or removing existing ones between any SC Document and its from doc
 
@@ -20,4 +25,7 @@ details.n1
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EASCPreventChangingFromDocFields`
 
 **Module:** supplychain
+
+
+</div>
 

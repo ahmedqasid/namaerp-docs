@@ -3,7 +3,12 @@ title: EASendCustomerToDatanuum
 module: supplychain
 ---
 
+
+<div class='entity-flows'>
+
 # EASendCustomerToDatanuum
+
+**This document was generated using AI Tools**
 
 **Description:** No description available
 
@@ -13,4 +18,7 @@ module: supplychain
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.datanuum.EASendCustomerToDatanuum`
 
 **Module:** supplychain
+
+
+</div>
 

@@ -3,7 +3,12 @@ title: EADeleteFromQuery
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EADeleteFromQuery
+
+**This document was generated using AI Tools**
 
 **Description:** Delete all records returned by the query
 
@@ -18,4 +23,7 @@ module: core
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EADeleteFromQuery`
 
 **Module:** core
+
+
+</div>
 

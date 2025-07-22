@@ -3,7 +3,12 @@ title: EAEmpAttendanceSysEntryCalculator
 module: hr
 ---
 
+
+<div class='entity-flows'>
+
 # EAEmpAttendanceSysEntryCalculator
+
+**This document was generated using AI Tools**
 
 **Description:** Creates EmpAttendanceSysEntry Automatically.
 
@@ -21,4 +26,7 @@ select distinct l.employee_id,mstart,mend from TimeAttendanceLine l left join da
 **Module:** hr
 
 **⚠️ Warning:** This action prevents simultaneous runs
+
+
+</div>
 

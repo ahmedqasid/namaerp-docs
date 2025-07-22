@@ -3,7 +3,12 @@ title: EAWordTemplate
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EAWordTemplate
+
+**This document was generated using AI Tools**
 
 **Description:** Renders a template inside a document file. The document file should be in attachment field of the entity flow.
 The file will be available save to the field specified in first parameter
@@ -17,4 +22,7 @@ The file will be available save to the field specified in first parameter
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAWordTemplate`
 
 **Module:** core
+
+
+</div>
 

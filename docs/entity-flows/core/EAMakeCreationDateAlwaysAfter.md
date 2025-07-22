@@ -3,7 +3,12 @@ title: EAMakeCreationDateAlwaysAfter
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EAMakeCreationDateAlwaysAfter
+
+**This document was generated using AI Tools**
 
 **Description:** Make Creation Date = Value Date and time always after specified hour
 
@@ -13,4 +18,7 @@ module: core
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAMakeCreationDateAlwaysAfter`
 
 **Module:** core
+
+
+</div>
 

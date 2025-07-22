@@ -3,7 +3,12 @@ title: EADetailsRemover
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EADetailsRemover
+
+**This document was generated using AI Tools**
 
 **Description:** Removes lines matching criteria or query
 
@@ -15,4 +20,7 @@ module: core
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EADetailsRemover`
 
 **Module:** core
+
+
+</div>
 

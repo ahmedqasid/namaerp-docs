@@ -3,7 +3,12 @@ title: EAGenerateDraftEntityFromEntityAction
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EAGenerateDraftEntityFromEntityAction
+
+**This document was generated using AI Tools**
 
 **Description:** Creates Entity from another entity, should be used in combination with DeleteRelatedEntityAction
 
@@ -28,4 +33,7 @@ description5=n1
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAGenerateDraftEntityFromEntityAction`
 
 **Module:** core
+
+
+</div>
 

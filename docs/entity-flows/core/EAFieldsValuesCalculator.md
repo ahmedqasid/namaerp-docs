@@ -3,7 +3,12 @@ title: EAFieldsValuesCalculator
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EAFieldsValuesCalculator
+
+**This document was generated using AI Tools**
 
 **Description:** Sets fields from one field to another.
 Parameter 1: fields Map. Format as follows:
@@ -24,4 +29,7 @@ customer.runCommand="save"
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAFieldsValuesCalculator`
 
 **Module:** core
+
+
+</div>
 

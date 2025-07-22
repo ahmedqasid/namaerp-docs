@@ -3,7 +3,12 @@ title: EACreateAccommodationInvoice
 module: hms
 ---
 
+
+<div class='entity-flows'>
+
 # EACreateAccommodationInvoice
+
+**This document was generated using AI Tools**
 
 **Description:** No description available
 
@@ -13,4 +18,7 @@ module: hms
 **Full Class Name:** `com.namasoft.modules.hms.domain.utils.EACreateAccommodationInvoice`
 
 **Module:** hms
+
+
+</div>
 

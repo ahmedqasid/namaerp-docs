@@ -3,7 +3,12 @@ title: EAClearLedgerLines
 module: accounting
 ---
 
+
+<div class='entity-flows'>
+
 # EAClearLedgerLines
+
+**This document was generated using AI Tools**
 
 **Description:** Removes all ledger trans lines
 
@@ -12,4 +17,7 @@ module: accounting
 **Module:** accounting
 
 **ℹ️ Note:** This action is forced automatic
+
+
+</div>
 

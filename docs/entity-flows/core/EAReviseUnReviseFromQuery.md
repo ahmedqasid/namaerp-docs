@@ -3,7 +3,12 @@ title: EAReviseUnReviseFromQuery
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EAReviseUnReviseFromQuery
+
+**This document was generated using AI Tools**
 
 **Description:** Revise/Unrevise all records returned by the query
 
@@ -14,4 +19,7 @@ module: core
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAReviseUnReviseFromQuery`
 
 **Module:** core
+
+
+</div>
 

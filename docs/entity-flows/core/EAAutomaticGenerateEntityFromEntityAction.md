@@ -3,7 +3,12 @@ title: EAAutomaticGenerateEntityFromEntityAction
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EAAutomaticGenerateEntityFromEntityAction
+
+**This document was generated using AI Tools**
 
 **Description:** Creates Entity from another entity, should be used in combination with DeleteRelatedEntityAction
 
@@ -30,4 +35,7 @@ description5=n1
 **Module:** core
 
 **ℹ️ Note:** This action is forced automatic
+
+
+</div>
 

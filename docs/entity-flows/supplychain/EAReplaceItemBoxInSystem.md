@@ -3,7 +3,12 @@ title: EAReplaceItemBoxInSystem
 module: supplychain
 ---
 
+
+<div class='entity-flows'>
+
 # EAReplaceItemBoxInSystem
+
+**This document was generated using AI Tools**
 
 **Description:** Updates box in all system tables from document lines
 
@@ -19,4 +24,7 @@ module: supplychain
 **Full Class Name:** `com.namasoft.modules.supplychain.plugnplay.EAReplaceItemBoxInSystem`
 
 **Module:** supplychain
+
+
+</div>
 

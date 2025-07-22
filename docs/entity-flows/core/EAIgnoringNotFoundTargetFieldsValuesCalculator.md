@@ -3,7 +3,12 @@ title: EAIgnoringNotFoundTargetFieldsValuesCalculator
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EAIgnoringNotFoundTargetFieldsValuesCalculator
+
+**This document was generated using AI Tools**
 
 **Description:** Sets fields from one field to another.
 Parameter 1: fields Map. Format as follows:
@@ -24,4 +29,7 @@ customer.runCommand="save"
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAIgnoringNotFoundTargetFieldsValuesCalculator`
 
 **Module:** core
+
+
+</div>
 

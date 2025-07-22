@@ -3,7 +3,12 @@ title: EAWathqAddressFetcher
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EAWathqAddressFetcher
+
+**This document was generated using AI Tools**
 
 **Description:** Fetches Address Information from wathq.sa using CRNationalNumber field.
 We copy the fields: contactInfo.address.address1,contactInfo.address.address2,contactInfo.address.mapLocation,contactInfo.address.postalCode,contactInfo.address.city,contactInfo.address.street,contactInfo.address.buildingNumber,contactInfo.address.district,contactInfo.address.landPlotNumber
@@ -20,4 +25,7 @@ description1=$map.street
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAWathqAddressFetcher`
 
 **Module:** core
+
+
+</div>
 

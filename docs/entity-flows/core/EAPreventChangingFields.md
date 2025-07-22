@@ -3,7 +3,12 @@ title: EAPreventChangingFields
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EAPreventChangingFields
+
+**This document was generated using AI Tools**
 
 **Description:** Prevents changing fields in header or details, can also prevent adding new lines, or removing existing ones
 
@@ -20,4 +25,7 @@ details.n1
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAPreventChangingFields`
 
 **Module:** core
+
+
+</div>
 

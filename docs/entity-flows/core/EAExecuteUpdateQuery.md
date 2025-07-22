@@ -3,7 +3,12 @@ title: EAExecuteUpdateQuery
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EAExecuteUpdateQuery
+
+**This document was generated using AI Tools**
 
 **Description:** Execute update query specified in first parameter
 
@@ -14,4 +19,7 @@ module: core
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAExecuteUpdateQuery`
 
 **Module:** core
+
+
+</div>
 

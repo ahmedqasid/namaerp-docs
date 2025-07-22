@@ -3,7 +3,12 @@ title: EAJsonRecordExporter
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EAJsonRecordExporter
+
+**This document was generated using AI Tools**
 
 **Description:** No description available
 
@@ -20,4 +25,7 @@ name1=arabic_name
 **Full Class Name:** `com.namasoft.modules.basic.util.EAJsonRecordExporter`
 
 **Module:** core
+
+
+</div>
 

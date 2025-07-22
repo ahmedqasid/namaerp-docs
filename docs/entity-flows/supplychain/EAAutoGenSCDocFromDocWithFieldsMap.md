@@ -3,7 +3,12 @@ title: EAAutoGenSCDocFromDocWithFieldsMap
 module: supplychain
 ---
 
+
+<div class='entity-flows'>
+
 # EAAutoGenSCDocFromDocWithFieldsMap
+
+**This document was generated using AI Tools**
 
 **Description:** No description available
 
@@ -33,4 +38,7 @@ select case when {details.item.item.code} in ('a','b','c') then 1 else 0 end
 **Module:** supplychain
 
 **ℹ️ Note:** This action is forced automatic
+
+
+</div>
 

@@ -3,7 +3,12 @@ title: EAGenSCDocFromDocWithFieldsMap
 module: supplychain
 ---
 
+
+<div class='entity-flows'>
+
 # EAGenSCDocFromDocWithFieldsMap
+
+**This document was generated using AI Tools**
 
 **Description:** No description available
 
@@ -31,4 +36,7 @@ select case when {details.item.item.code} in ('a','b','c') then 1 else 0 end
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAGenSCDocFromDocWithFieldsMap`
 
 **Module:** supplychain
+
+
+</div>
 

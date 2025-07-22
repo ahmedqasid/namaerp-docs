@@ -3,7 +3,12 @@ title: EAGuessSourceLineIdByItem
 module: supplychain
 ---
 
+
+<div class='entity-flows'>
+
 # EAGuessSourceLineIdByItem
+
+**This document was generated using AI Tools**
 
 **Description:** Guesses Source Line Id By Item for Lines that are not linked to a valid line in origin doc or from doc
 
@@ -27,4 +32,7 @@ module: supplychain
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAGuessSourceLineIdByItem`
 
 **Module:** supplychain
+
+
+</div>
 

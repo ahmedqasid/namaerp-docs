@@ -3,7 +3,12 @@ title: EASalesRecalculateFreeAndRelatedItems
 module: magento
 ---
 
+
+<div class='entity-flows'>
+
 # EASalesRecalculateFreeAndRelatedItems
+
+**This document was generated using AI Tools**
 
 **Description:** No description available
 
@@ -15,4 +20,7 @@ module: magento
 **Full Class Name:** `com.namasoft.modules.magento.utils.EASalesRecalculateFreeAndRelatedItems`
 
 **Module:** magento
+
+
+</div>
 

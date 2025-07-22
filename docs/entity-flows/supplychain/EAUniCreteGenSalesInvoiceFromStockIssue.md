@@ -3,7 +3,12 @@ title: EAUniCreteGenSalesInvoiceFromStockIssue
 module: supplychain
 ---
 
+
+<div class='entity-flows'>
+
 # EAUniCreteGenSalesInvoiceFromStockIssue
+
+**This document was generated using AI Tools**
 
 **Description:** Creates a sales document from any document based on first 
 
@@ -17,4 +22,7 @@ module: supplychain
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAUniCreteGenSalesInvoiceFromStockIssue`
 
 **Module:** supplychain
+
+
+</div>
 

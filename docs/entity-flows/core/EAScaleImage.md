@@ -3,7 +3,12 @@ title: EAScaleImage
 module: core
 ---
 
+
+<div class='entity-flows'>
+
 # EAScaleImage
+
+**This document was generated using AI Tools**
 
 **Description:** Scale Any Image in Attachment Field To Specific Dimension
 
@@ -16,4 +21,7 @@ module: core
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAScaleImage`
 
 **Module:** core
+
+
+</div>
 

@@ -3,7 +3,12 @@ title: EAPreventQtyMoreThan
 module: supplychain
 ---
 
+
+<div class='entity-flows'>
+
 # EAPreventQtyMoreThan
+
+**This document was generated using AI Tools**
 
 **Description:** No description available
 
@@ -13,4 +18,7 @@ module: supplychain
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAPreventQtyMoreThan`
 
 **Module:** supplychain
+
+
+</div>
 

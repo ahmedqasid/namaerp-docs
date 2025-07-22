@@ -3,7 +3,12 @@ title: EAGenJournalEntry
 module: accounting
 ---
 
+
+<div class='entity-flows'>
+
 # EAGenJournalEntry
+
+**This document was generated using AI Tools**
 
 **Description:** Generates Journal Entry from Any Document File
 
@@ -24,4 +29,7 @@ This example will make the effect happen only for lines ref1 being a branch or a
 **Full Class Name:** `com.namasoft.modules.accounting.domain.utils.actions.EAGenJournalEntry`
 
 **Module:** accounting
+
+
+</div>
 
