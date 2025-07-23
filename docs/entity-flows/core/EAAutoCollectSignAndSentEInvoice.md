@@ -30,7 +30,7 @@ This action automates the complete e-invoice submission process for tax authorit
 
 ### Parameter 1: Submission Document Book (Required)
 - **What it is**: The document book to use for creating submission documents
-- **Format**: Document book code/name
+- **Format**: Document book code or ID
 - **Purpose**: Determines numbering and classification of submission documents
 
 ### Parameter 2: Tax Payer Configuration (Required)
