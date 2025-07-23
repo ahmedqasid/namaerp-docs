@@ -71,6 +71,8 @@
     "/faq/mobile-apps-faq.md",
     "/faq/field-filter-faq.md",
     "/faq/database-error-related-faq.md",
+    "/entity-flows",
+    "/entity-flows/core",
     "/videos",
     "/videos/installation-video.md",
     "/videos/supply-chain-videos",
@@ -97,6 +99,22 @@
     "/faq": "Frequently Asked Questions",
     "/videos": "Video Tutorials",
     "/videos/supply-chain-videos":"Supply Chain Videos",
-    "/videos/report-wizard-videos": "Report Wizard Videos"
+    "/videos/report-wizard-videos": "Report Wizard Videos",
+    "/entity-flows": "AI Generated Entity Flows Documentation",
+    "/entity-flows/accounting": "Accounting Module",
+    "/entity-flows/ai": "AI Module",
+    "/entity-flows/contracting": "Contracting Module",
+    "/entity-flows/core": "Core",
+    "/entity-flows/crm": "CRM Module",
+    "/entity-flows/egtax": "EGTax Reader Module",
+    "/entity-flows/frm": "Freight Management System Module",
+    "/entity-flows/hms": "Hospital Management System Module",
+    "/entity-flows/hr": "HR Module",
+    "/entity-flows/magento": "e-commerce Integration Module",
+    "/entity-flows/manufacturing": "Manufacturing Module",
+    "/entity-flows/namapos": "POS Module",
+    "/entity-flows/realestate": "Real Estate Module",
+    "/entity-flows/srvcenter": "Service Center Module",
+    "/entity-flows/supplychain": "Supply Chain Module"
   }
 }
