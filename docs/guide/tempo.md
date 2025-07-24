@@ -1616,6 +1616,51 @@ This function returns the sales price for an item. Only `itemIdOrCode` is requir
 You can pass either the ID or the code for any parameter.
 :::
 
+#### Available fields for fieldToDisplay
+ 
+- unitPrice
+- price
+- netValue
+- discount1.afterValue
+- discount1.percentage
+- discount1.value
+- discount2.afterValue
+- discount2.percentage
+- discount2.value
+- discount3.afterValue
+- discount3.percentage
+- discount3.value
+- discount4.afterValue
+- discount4.percentage
+- discount4.value
+- discount5.afterValue
+- discount5.percentage
+- discount5.value
+- discount6.afterValue
+- discount6.percentage
+- discount6.value
+- discount7.afterValue
+- discount7.percentage
+- discount7.value
+- discount8.afterValue
+- discount8.percentage
+- discount8.value
+- headerDicount.afterValue
+- headerDicount.percentage
+- headerDicount.value
+- tax1.afterValue
+- tax1.maxNormalPercent
+- tax1.value
+- tax2.afterValue
+- tax2.maxNormalPercent
+- tax2.value
+- tax3.afterValue
+- tax3.maxNormalPercent
+- tax3.value
+- tax4.afterValue
+- tax4.maxNormalPercent
+- tax4.value
+ 
 #### Examples
 
 ```tempo
