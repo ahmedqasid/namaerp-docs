@@ -8,16 +8,16 @@ module: magento
 
 # EAEcommerceGuessItemBySKU
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
 **Parameters:**
 - Site Code
 
-**Full Class Name:** `com.namasoft.modules.magento.utils.EAEcommerceGuessItemBySKU`
-
 **Module:** magento
+
+**Full Class Name:** `com.namasoft.modules.magento.utils.EAEcommerceGuessItemBySKU`
 
 
 </div>

@@ -8,15 +8,15 @@ module: supplychain
 
 # EASupplyChainMergeStockTakingElectronicDocLines
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Merge lines of the same item code, date, lot, serials and so on
 
 **Parameters:**
 
-**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EASupplyChainMergeStockTakingElectronicDocLines`
-
 **Module:** supplychain
+
+**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EASupplyChainMergeStockTakingElectronicDocLines`
 
 
 </div>

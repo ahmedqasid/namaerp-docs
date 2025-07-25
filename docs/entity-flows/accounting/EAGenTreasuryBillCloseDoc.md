@@ -8,13 +8,13 @@ module: accounting
 
 # EAGenTreasuryBillCloseDoc
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
-**Full Class Name:** `com.namasoft.modules.accounting.domain.utils.actions.EAGenTreasuryBillCloseDoc`
-
 **Module:** accounting
+
+**Full Class Name:** `com.namasoft.modules.accounting.domain.utils.actions.EAGenTreasuryBillCloseDoc`
 
 
 </div>

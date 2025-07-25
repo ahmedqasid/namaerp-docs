@@ -8,13 +8,13 @@ module: hr
 
 # TimeAttendanceRemoveEmptyTimeLines
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Removes any line with empty fromTime and toTime
 
-**Full Class Name:** `com.namasoft.modules.humanresource.utils.TimeAttendanceRemoveEmptyTimeLines`
-
 **Module:** hr
+
+**Full Class Name:** `com.namasoft.modules.humanresource.utils.TimeAttendanceRemoveEmptyTimeLines`
 
 
 </div>

@@ -8,16 +8,16 @@ module: core
 
 # EAGroovyAction
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Runs a Groovy Script
 
 **Parameters:**
 - Groovy Script
 
-**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAGroovyAction`
-
 **Module:** core
+
+**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAGroovyAction`
 
 
 </div>

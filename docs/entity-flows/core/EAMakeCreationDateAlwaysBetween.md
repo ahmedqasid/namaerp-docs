@@ -8,7 +8,7 @@ module: core
 
 # EAMakeCreationDateAlwaysBetween
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Make Creation Date = Value Date and time always between specified hours
 
@@ -17,9 +17,9 @@ module: core
 - Start Hour (e.g: 10,13
 - End Hour (e.g: 11,18
 
-**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAMakeCreationDateAlwaysBetween`
-
 **Module:** core
+
+**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAMakeCreationDateAlwaysBetween`
 
 
 </div>

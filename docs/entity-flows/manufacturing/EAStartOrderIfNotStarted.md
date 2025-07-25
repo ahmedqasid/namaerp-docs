@@ -8,13 +8,13 @@ module: manufacturing
 
 # EAStartOrderIfNotStarted
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
-**Full Class Name:** `com.namasoft.modules.manufacturing.domain.utils.plugnplay.EAStartOrderIfNotStarted`
-
 **Module:** manufacturing
+
+**Full Class Name:** `com.namasoft.modules.manufacturing.domain.utils.plugnplay.EAStartOrderIfNotStarted`
 
 
 </div>

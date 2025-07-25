@@ -8,7 +8,7 @@ module: core
 
 # EASaveRecordsFromQuery
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Save all records returned by the query
 
@@ -20,9 +20,16 @@ module: core
 - Do In New Transaction - Continue on Errors (true,false)
 - Run Update Query After Selecting Entities, and Before Save
 
+**Module:** core
+
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EASaveRecordsFromQuery`
 
-**Module:** core
+**Related Actions:**
+- [EARunManualNotificationFromQuery](EARunManualNotificationFromQuery.md)
+- [EARegenAccFromQuery](EARegenAccFromQuery.md)
+- [EARegenInvTransReqFromQuery](../supplychain/EARegenInvTransReqFromQuery.md)
+- [EAEGBRASSFixCreationDates](../supplychain/EAEGBRASSFixCreationDates.md)
+- [EADeleteFromQuery](EADeleteFromQuery.md)
 
 
 </div>

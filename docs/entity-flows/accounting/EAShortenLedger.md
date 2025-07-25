@@ -8,15 +8,15 @@ module: accounting
 
 # EAShortenLedger
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Shortens the ledger transaction lines
 
-**Full Class Name:** `com.namasoft.modules.accounting.domain.utils.actions.EAShortenLedger`
-
 **Module:** accounting
 
-**ℹ️ Note:** This action is forced automatic
+**Full Class Name:** `com.namasoft.modules.accounting.domain.utils.actions.EAShortenLedger`
+
+**ℹ️ Note:** This action is an automatic action, it selects the appropriate events to execute itself
 
 
 </div>

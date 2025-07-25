@@ -8,7 +8,7 @@ module: hr
 
 # EALiptisSetComponentFromAnotherWithMax
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
@@ -16,9 +16,9 @@ module: hr
 - Target Component Type
 - Components To Normalize(csv). eg: basic,insurance
 
-**Full Class Name:** `com.namasoft.modules.humanresource.utils.clientscripts.EALiptisSetComponentFromAnotherWithMax`
-
 **Module:** hr
+
+**Full Class Name:** `com.namasoft.modules.humanresource.utils.clientscripts.EALiptisSetComponentFromAnotherWithMax`
 
 
 </div>

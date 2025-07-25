@@ -8,7 +8,7 @@ module: supplychain
 
 # EAGenSCDocFromDocWithFieldsMap
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
@@ -33,9 +33,9 @@ select case when {details.item.item.code} in ('a','b','c') then 1 else 0 end
 - Group Lines By
 - Query to list all docs that should be deleted if not handled by the entity flow (For Group Lines By)
 
-**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAGenSCDocFromDocWithFieldsMap`
-
 **Module:** supplychain
+
+**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAGenSCDocFromDocWithFieldsMap`
 
 
 </div>

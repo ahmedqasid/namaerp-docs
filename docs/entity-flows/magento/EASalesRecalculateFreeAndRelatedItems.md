@@ -8,7 +8,7 @@ module: magento
 
 # EASalesRecalculateFreeAndRelatedItems
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
@@ -17,9 +17,9 @@ module: magento
 - Recalc Discounts (Default true)
 - Recalc Free and Related Items (Default true)
 
-**Full Class Name:** `com.namasoft.modules.magento.utils.EASalesRecalculateFreeAndRelatedItems`
-
 **Module:** magento
+
+**Full Class Name:** `com.namasoft.modules.magento.utils.EASalesRecalculateFreeAndRelatedItems`
 
 
 </div>

@@ -8,15 +8,15 @@ module: supplychain
 
 # EACollectStockDocsIfEmpty
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
 **Parameters:**
 
-**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EACollectStockDocsIfEmpty`
-
 **Module:** supplychain
+
+**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EACollectStockDocsIfEmpty`
 
 
 </div>

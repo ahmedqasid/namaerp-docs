@@ -8,7 +8,7 @@ module: core
 
 # EAScaleImage
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Scale Any Image in Attachment Field To Specific Dimension
 
@@ -18,9 +18,9 @@ module: core
 - Attachment Field ID
 - Allowed Extensions, eg: jpg,png,bmp
 
-**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAScaleImage`
-
 **Module:** core
+
+**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAScaleImage`
 
 
 </div>

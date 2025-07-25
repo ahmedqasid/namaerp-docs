@@ -8,13 +8,13 @@ module: contracting
 
 # EAUpdateExtractsEffectsOnPaymentDocs
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
-**Full Class Name:** `com.namasoft.modules.contracting.domain.utils.EAUpdateExtractsEffectsOnPaymentDocs`
-
 **Module:** contracting
+
+**Full Class Name:** `com.namasoft.modules.contracting.domain.utils.EAUpdateExtractsEffectsOnPaymentDocs`
 
 
 </div>

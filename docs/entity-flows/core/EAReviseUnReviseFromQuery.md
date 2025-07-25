@@ -8,7 +8,7 @@ module: core
 
 # EAReviseUnReviseFromQuery
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Revise/Unrevise all records returned by the query
 
@@ -16,9 +16,9 @@ module: core
 - Query eg. select entityType,id from SalesInvoice where datediff(day,lastUpdateDate,getdate())>2 and primitiveValue = 0 
 - Revise Or Unrevise (true or false, default is true)
 
-**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAReviseUnReviseFromQuery`
-
 **Module:** core
+
+**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAReviseUnReviseFromQuery`
 
 
 </div>

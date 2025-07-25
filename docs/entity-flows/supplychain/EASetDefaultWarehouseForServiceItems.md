@@ -8,16 +8,16 @@ module: supplychain
 
 # EASetDefaultWarehouseForServiceItems
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
 **Parameters:**
 - Warehouse code
 
-**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EASetDefaultWarehouseForServiceItems`
-
 **Module:** supplychain
+
+**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EASetDefaultWarehouseForServiceItems`
 
 
 </div>

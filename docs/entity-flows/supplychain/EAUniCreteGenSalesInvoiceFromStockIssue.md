@@ -8,7 +8,7 @@ module: supplychain
 
 # EAUniCreteGenSalesInvoiceFromStockIssue
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Creates a sales document from any document based on first 
 
@@ -19,9 +19,9 @@ module: supplychain
 - Fields Map
 - Inverse Fields Map
 
-**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAUniCreteGenSalesInvoiceFromStockIssue`
-
 **Module:** supplychain
+
+**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAUniCreteGenSalesInvoiceFromStockIssue`
 
 
 </div>

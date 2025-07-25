@@ -8,15 +8,15 @@ module: accounting
 
 # EASortLedger
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Sort the ledger transaction lines
 
-**Full Class Name:** `com.namasoft.modules.accounting.domain.utils.actions.EASortLedger`
-
 **Module:** accounting
 
-**ℹ️ Note:** This action is forced automatic
+**Full Class Name:** `com.namasoft.modules.accounting.domain.utils.actions.EASortLedger`
+
+**ℹ️ Note:** This action is an automatic action, it selects the appropriate events to execute itself
 
 
 </div>

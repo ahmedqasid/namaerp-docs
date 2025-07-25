@@ -8,15 +8,15 @@ module: srvcenter
 
 # EAUseReceiptPaperForEngineOrChassisItems
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
-**Full Class Name:** `com.namasoft.modules.srvcenter.domain.utils.EAUseReceiptPaperForEngineOrChassisItems`
-
 **Module:** srvcenter
 
-**ℹ️ Note:** This action is forced automatic
+**Full Class Name:** `com.namasoft.modules.srvcenter.domain.utils.EAUseReceiptPaperForEngineOrChassisItems`
+
+**ℹ️ Note:** This action is an automatic action, it selects the appropriate events to execute itself
 
 
 </div>

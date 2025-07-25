@@ -8,7 +8,7 @@ module: supplychain
 
 # EAEGBRASSFixCreationDates
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Fix Creation Date all records returned by the query
 
@@ -20,9 +20,16 @@ module: supplychain
 - Do In New Transaction - Continue on Errors (true,false)
 - Run Update Query After Selecting Entities, and Before Fix Creation Date
 
+**Module:** supplychain
+
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAEGBRASSFixCreationDates`
 
-**Module:** supplychain
+**Related Actions:**
+- [EARunManualNotificationFromQuery](../core/EARunManualNotificationFromQuery.md)
+- [EARegenAccFromQuery](../core/EARegenAccFromQuery.md)
+- [EARegenInvTransReqFromQuery](EARegenInvTransReqFromQuery.md)
+- [EASaveRecordsFromQuery](../core/EASaveRecordsFromQuery.md)
+- [EADeleteFromQuery](../core/EADeleteFromQuery.md)
 
 
 </div>

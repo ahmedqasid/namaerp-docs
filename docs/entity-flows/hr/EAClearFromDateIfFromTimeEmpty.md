@@ -8,13 +8,13 @@ module: hr
 
 # EAClearFromDateIfFromTimeEmpty
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
-**Full Class Name:** `com.namasoft.modules.humanresource.utils.actions.EAClearFromDateIfFromTimeEmpty`
-
 **Module:** hr
+
+**Full Class Name:** `com.namasoft.modules.humanresource.utils.actions.EAClearFromDateIfFromTimeEmpty`
 
 
 </div>

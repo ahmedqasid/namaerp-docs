@@ -8,16 +8,16 @@ module: egtax
 
 # EAReadRecentTaxEInvoices
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
 **Parameters:**
 - Tax Payer Configuration Code
 
-**Full Class Name:** `com.namasoft.modules.egtax.util.actions.EAReadRecentTaxEInvoices`
-
 **Module:** egtax
+
+**Full Class Name:** `com.namasoft.modules.egtax.util.actions.EAReadRecentTaxEInvoices`
 
 
 </div>

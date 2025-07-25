@@ -8,7 +8,7 @@ module: supplychain
 
 # EASCPreventChangingFromDocFields
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Prevents changing fields in header or details, can also prevent adding new lines, or removing existing ones between any SC Document and its from doc
 
@@ -22,9 +22,9 @@ details.n1
 - SQL Query to enable or disable ADDED LINES VALIDATION for current line.
 - SQL Query to enable or disable DELETED LINES VALIDATION for current line.
 
-**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EASCPreventChangingFromDocFields`
-
 **Module:** supplychain
+
+**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EASCPreventChangingFromDocFields`
 
 
 </div>

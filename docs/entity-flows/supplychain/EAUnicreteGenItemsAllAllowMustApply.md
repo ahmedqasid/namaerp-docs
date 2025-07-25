@@ -8,7 +8,7 @@ module: supplychain
 
 # EAUnicreteGenItemsAllAllowMustApply
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
@@ -17,9 +17,9 @@ module: supplychain
 - Log Into field (remarks)
 - Mark Items That should be deleted(description5),Delete Unneeded Items
 
-**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAUnicreteGenItemsAllAllowMustApply`
-
 **Module:** supplychain
+
+**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAUnicreteGenItemsAllAllowMustApply`
 
 
 </div>

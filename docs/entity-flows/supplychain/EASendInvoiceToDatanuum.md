@@ -8,16 +8,16 @@ module: supplychain
 
 # EASendInvoiceToDatanuum
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
 **Parameters:**
 - Reward Points Config Code Or ID
 
-**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.datanuum.EASendInvoiceToDatanuum`
-
 **Module:** supplychain
+
+**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.datanuum.EASendInvoiceToDatanuum`
 
 
 </div>

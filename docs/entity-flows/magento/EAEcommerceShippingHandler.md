@@ -8,7 +8,7 @@ module: magento
 
 # EAEcommerceShippingHandler
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
@@ -24,9 +24,9 @@ module: magento
 - Send Warehouse From Line
 - Send Warehouse From Header
 
-**Full Class Name:** `com.namasoft.modules.magento.utils.EAEcommerceShippingHandler`
-
 **Module:** magento
+
+**Full Class Name:** `com.namasoft.modules.magento.utils.EAEcommerceShippingHandler`
 
 
 </div>

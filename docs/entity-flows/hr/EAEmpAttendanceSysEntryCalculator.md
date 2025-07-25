@@ -8,7 +8,7 @@ module: hr
 
 # EAEmpAttendanceSysEntryCalculator
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Creates EmpAttendanceSysEntry Automatically.
 
@@ -21,9 +21,9 @@ select cast(DATEADD(month, DATEDIFF(month, 0, GETDATE()), 0) as date) mstart,cas
 select distinct l.employee_id,mstart,mend from TimeAttendanceLine l left join dates on 1 = 1 where fromDate >=dates.mstart and l.toDate<=mend
 - Ignore manual attendance(true or false)
 
-**Full Class Name:** `com.namasoft.modules.humanresource.utils.actions.EAEmpAttendanceSysEntryCalculator`
-
 **Module:** hr
+
+**Full Class Name:** `com.namasoft.modules.humanresource.utils.actions.EAEmpAttendanceSysEntryCalculator`
 
 **⚠️ Warning:** This action prevents simultaneous runs
 

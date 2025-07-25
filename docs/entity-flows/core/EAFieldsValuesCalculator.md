@@ -8,7 +8,7 @@ module: core
 
 # EAFieldsValuesCalculator
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Sets fields from one field to another.
 Parameter 1: fields Map. Format as follows:
@@ -26,9 +26,9 @@ customer.runCommand="save"
 - Fourth
 - Fifth
 
-**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAFieldsValuesCalculator`
-
 **Module:** core
+
+**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAFieldsValuesCalculator`
 
 
 </div>

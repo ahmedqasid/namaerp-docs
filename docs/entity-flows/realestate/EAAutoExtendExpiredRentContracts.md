@@ -8,7 +8,7 @@ module: realestate
 
 # EAAutoExtendExpiredRentContracts
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
@@ -21,9 +21,9 @@ select entityType,id from RERentContract where commitedBefore = 1 and cancelled 
 union all
 select entityType,id from REOpeningRentContract where commitedBefore = 1 and cancelled = 0 and DATEDIFF(day,toDate,GETDATE())>=0
 
-**Full Class Name:** `com.namasoft.modules.realstate.domain.utils.plugnplay.EAAutoExtendExpiredRentContracts`
-
 **Module:** realestate
+
+**Full Class Name:** `com.namasoft.modules.realstate.domain.utils.plugnplay.EAAutoExtendExpiredRentContracts`
 
 
 </div>

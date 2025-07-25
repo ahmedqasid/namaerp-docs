@@ -8,16 +8,16 @@ module: core
 
 # EAMakeCreationDateAlwaysAfter
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Make Creation Date = Value Date and time always after specified hour
 
 **Parameters:**
 - Hour (e.g: 10,13,23
 
-**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAMakeCreationDateAlwaysAfter`
-
 **Module:** core
+
+**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAMakeCreationDateAlwaysAfter`
 
 
 </div>

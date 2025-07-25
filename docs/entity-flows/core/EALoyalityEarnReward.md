@@ -8,16 +8,16 @@ module: core
 
 # EALoyalityEarnReward
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
 **Parameters:**
 - Reward Points Config
 
-**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EALoyalityEarnReward`
-
 **Module:** core
+
+**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EALoyalityEarnReward`
 
 
 </div>

@@ -8,7 +8,7 @@ module: supplychain
 
 # EACollectLot
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Collect Lot, Box, Size, Color, or Revision in Supply Chain Documents
 
@@ -17,9 +17,9 @@ module: supplychain
 - Clear Existing Data(true,false)
 - Do Not Collect If Quantity Less Than
 
-**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EACollectLot`
-
 **Module:** supplychain
+
+**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EACollectLot`
 
 
 </div>

@@ -8,13 +8,13 @@ module: supplychain
 
 # EAUnZipSerialsInLines
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Unzip line serial - line for each serial
 
-**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAUnZipSerialsInLines`
-
 **Module:** supplychain
+
+**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAUnZipSerialsInLines`
 
 
 </div>

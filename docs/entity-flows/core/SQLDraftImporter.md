@@ -8,7 +8,7 @@ module: core
 
 # SQLDraftImporter
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Import data from SQL Queries
 
@@ -29,9 +29,13 @@ having sum(coalesce(q.net,0))<i.dfMinQuantity
 - SQL Statement 3
 - SQL Statement 4
 
+**Module:** core
+
 **Full Class Name:** `com.namasoft.modules.commonbasic.importer.SQLDraftImporter`
 
-**Module:** core
+**Related Actions:**
+- [SQLDraftImporterFromDifferentDataSource](SQLDraftImporterFromDifferentDataSource.md)
+- [SQLImporterFromDifferentDataSource](SQLImporterFromDifferentDataSource.md)
 
 **⚠️ Warning:** This action prevents simultaneous runs
 

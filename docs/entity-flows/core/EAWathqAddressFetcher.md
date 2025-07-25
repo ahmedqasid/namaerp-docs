@@ -8,7 +8,7 @@ module: core
 
 # EAWathqAddressFetcher
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Fetches Address Information from wathq.sa using CRNationalNumber field.
 We copy the fields: contactInfo.address.address1,contactInfo.address.address2,contactInfo.address.mapLocation,contactInfo.address.postalCode,contactInfo.address.city,contactInfo.address.street,contactInfo.address.buildingNumber,contactInfo.address.district,contactInfo.address.landPlotNumber
@@ -22,9 +22,13 @@ description1=$map.street
 -  Log Response (true,false), use to inspect responses from server
 -  Multi Call On Same Data (true,false), allow the user to call wathq on same commercial info more than one time
 
+**Module:** core
+
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAWathqAddressFetcher`
 
-**Module:** core
+**Related Actions:**
+- [EAWathqBasicInfoFetcher](EAWathqBasicInfoFetcher.md)
+- [EAWathqCommercialInfoFetcher](EAWathqCommercialInfoFetcher.md)
 
 
 </div>

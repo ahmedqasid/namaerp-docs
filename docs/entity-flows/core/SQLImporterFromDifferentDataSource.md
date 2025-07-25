@@ -8,7 +8,7 @@ module: core
 
 # SQLImporterFromDifferentDataSource
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Import data from SQL Queries
 
@@ -29,9 +29,13 @@ group by i.id,i.dfMinQuantity,primBaseUnit_id,i.code
 having sum(coalesce(q.net,0))<i.dfMinQuantity
 - SQL Statement 3
 
+**Module:** core
+
 **Full Class Name:** `com.namasoft.modules.commonbasic.importer.SQLImporterFromDifferentDataSource`
 
-**Module:** core
+**Related Actions:**
+- [SQLDraftImporterFromDifferentDataSource](SQLDraftImporterFromDifferentDataSource.md)
+- [SQLDraftImporter](SQLDraftImporter.md)
 
 **⚠️ Warning:** This action prevents simultaneous runs
 

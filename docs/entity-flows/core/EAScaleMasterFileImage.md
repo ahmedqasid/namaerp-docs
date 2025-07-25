@@ -8,7 +8,7 @@ module: core
 
 # EAScaleMasterFileImage
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Scale Master File Image To Specific Dimension
 
@@ -16,9 +16,9 @@ module: core
 - Scaled Width
 - Scaled Height
 
-**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAScaleMasterFileImage`
-
 **Module:** core
+
+**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAScaleMasterFileImage`
 
 
 </div>

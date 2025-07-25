@@ -8,13 +8,13 @@ module: hr
 
 # EACopySalaryStructureToUpdateEmpInfo
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Copies NEW element lines only from salary structure to the update employee info
 
-**Full Class Name:** `com.namasoft.modules.humanresource.utils.actions.EACopySalaryStructureToUpdateEmpInfo`
-
 **Module:** hr
+
+**Full Class Name:** `com.namasoft.modules.humanresource.utils.actions.EACopySalaryStructureToUpdateEmpInfo`
 
 
 </div>

@@ -8,7 +8,7 @@ module: core
 
 # EARecommitFromQuery
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Recommit all records returned by the query
 
@@ -20,9 +20,9 @@ module: core
 - Do In New Transaction - Continue on Errors (true,false)
 - Run Update Query After Selecting Entities, and Before Recommit
 
-**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EARecommitFromQuery`
-
 **Module:** core
+
+**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EARecommitFromQuery`
 
 
 </div>

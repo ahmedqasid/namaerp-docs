@@ -8,7 +8,7 @@ module: supplychain
 
 # EAUpdateLotIdDates
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Updates Lot dates in all system tables from document lines
 
@@ -18,9 +18,9 @@ module: supplychain
 - Do Not Update Retest Date
 - Force Update of Current Entity Lines
 
-**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.EAUpdateLotIdDates`
-
 **Module:** supplychain
+
+**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.EAUpdateLotIdDates`
 
 
 </div>

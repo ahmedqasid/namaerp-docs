@@ -8,9 +8,11 @@ module: core
 
 # EAGenerateEntityFromEntityAction
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
-**Description:** Creates Entity from another entity, should be used in combination with DeleteRelatedEntityAction
+**Description:** Creates Entity from another entity, should be used in combination with DeleteRelatedEntityAction.
+Visit https://docs.namasoft.com/guide/entity-flows/ea-fields-values-calculator.html to know more about fields map and the available features
+
 
 **Parameters:**
 - Target Type
@@ -30,9 +32,9 @@ description5=n1
 - Group Details By (Please review samples doc)
 - Run Only If number greater not zero eg: totlaizesql(select case when {details.item.item.code} in ('a','b','c') then 1 else 0 end)
 
-**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAGenerateEntityFromEntityAction`
-
 **Module:** core
+
+**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAGenerateEntityFromEntityAction`
 
 
 </div>

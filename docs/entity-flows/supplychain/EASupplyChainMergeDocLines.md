@@ -8,7 +8,7 @@ module: supplychain
 
 # EASupplyChainMergeDocLines
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Merge lines of the same item
 
@@ -23,9 +23,9 @@ module: supplychain
 - doNotConsiderSerial
 - doNotConsiderLocator
 
-**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EASupplyChainMergeDocLines`
-
 **Module:** supplychain
+
+**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EASupplyChainMergeDocLines`
 
 
 </div>

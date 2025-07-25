@@ -8,7 +8,7 @@ module: core
 
 # EAExportAttachments
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
@@ -21,9 +21,9 @@ module: core
 - Do not add each entity in a separate folder
 - Error if attachment exists in the folder before
 
-**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAExportAttachments`
-
 **Module:** core
+
+**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAExportAttachments`
 
 
 </div>

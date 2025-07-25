@@ -8,15 +8,15 @@ module: supplychain
 
 # EAAutoCreateSCDocSecondSerial
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Generates and Deletes the table SCDocSecondSerial
 
-**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAAutoCreateSCDocSecondSerial`
-
 **Module:** supplychain
 
-**ℹ️ Note:** This action is forced automatic
+**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAAutoCreateSCDocSecondSerial`
+
+**ℹ️ Note:** This action is an automatic action, it selects the appropriate events to execute itself
 
 
 </div>

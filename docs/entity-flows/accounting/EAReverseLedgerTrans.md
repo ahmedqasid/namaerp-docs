@@ -8,7 +8,7 @@ module: accounting
 
 # EAReverseLedgerTrans
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
@@ -20,11 +20,11 @@ module: accounting
 sql(select case when {details.item.item.code} = '123' then {details.n1} else 100 end)
 Another example: details.n4
 
-**Full Class Name:** `com.namasoft.modules.accounting.domain.utils.actions.EAReverseLedgerTrans`
-
 **Module:** accounting
 
-**ℹ️ Note:** This action is forced automatic
+**Full Class Name:** `com.namasoft.modules.accounting.domain.utils.actions.EAReverseLedgerTrans`
+
+**ℹ️ Note:** This action is an automatic action, it selects the appropriate events to execute itself
 
 
 </div>

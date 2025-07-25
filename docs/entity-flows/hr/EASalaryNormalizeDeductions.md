@@ -8,7 +8,7 @@ module: hr
 
 # EASalaryNormalizeDeductions
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Normalizes components in case additions are more than deductions
 
@@ -16,9 +16,12 @@ module: hr
 - Target Component Type
 - Components To Normalize(csv). eg: basic,insurance
 
+**Module:** hr
+
 **Full Class Name:** `com.namasoft.modules.humanresource.utils.clientscripts.EASalaryNormalizeDeductions`
 
-**Module:** hr
+**Related Actions:**
+- [EASalaryNormalizeAdditions](EASalaryNormalizeAdditions.md)
 
 
 </div>

@@ -8,7 +8,7 @@ module: supplychain
 
 # EAGuessSourceLineByItemIdAndFreeItem
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Guesses Source Line Id By Item for Lines that are not linked to a valid line in origin doc or from doc, considers free item column if found
 
@@ -29,9 +29,9 @@ module: supplychain
 - Consider Remarks
 - Apply Only If Query Applicable (eg: select case when {details.item.item.code} in ('A','B') then 1 else 0 end )
 
-**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAGuessSourceLineByItemIdAndFreeItem`
-
 **Module:** supplychain
+
+**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAGuessSourceLineByItemIdAndFreeItem`
 
 
 </div>

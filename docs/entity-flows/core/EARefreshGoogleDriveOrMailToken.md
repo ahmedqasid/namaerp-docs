@@ -8,16 +8,16 @@ module: core
 
 # EARefreshGoogleDriveOrMailToken
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
 **Parameters:**
 - OAuth file code or ID
 
-**Full Class Name:** `com.namasoft.infor.domainbase.util.google.EARefreshGoogleDriveOrMailToken`
-
 **Module:** core
+
+**Full Class Name:** `com.namasoft.infor.domainbase.util.google.EARefreshGoogleDriveOrMailToken`
 
 
 </div>

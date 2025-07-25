@@ -8,13 +8,13 @@ module: supplychain
 
 # EAUpdateDeliveryStatusFromSalesDocToFromDoc
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
-**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAUpdateDeliveryStatusFromSalesDocToFromDoc`
-
 **Module:** supplychain
+
+**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAUpdateDeliveryStatusFromSalesDocToFromDoc`
 
 
 </div>

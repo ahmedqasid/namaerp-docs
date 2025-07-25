@@ -8,16 +8,16 @@ module: core
 
 # EAPostGoPayOfflinePayment
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
 **Parameters:**
 - GoPay config code
 
-**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAPostGoPayOfflinePayment`
-
 **Module:** core
+
+**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAPostGoPayOfflinePayment`
 
 
 </div>

@@ -8,7 +8,7 @@ module: hr
 
 # EATimeAttendanceSetDefaultFromTime
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Sets From Time to default shift end for empty lines for employees matching criteria (if found)
 
@@ -17,9 +17,12 @@ module: hr
 - Calc Only If Workday
 - Max Distance In Hours
 
+**Module:** hr
+
 **Full Class Name:** `com.namasoft.modules.humanresource.utils.actions.EATimeAttendanceSetDefaultFromTime`
 
-**Module:** hr
+**Related Actions:**
+- [EATimeAttendanceSetDefaultToTime](EATimeAttendanceSetDefaultToTime.md)
 
 
 </div>

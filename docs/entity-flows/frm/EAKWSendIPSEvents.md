@@ -8,7 +8,7 @@ module: frm
 
 # EAKWSendIPSEvents
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
@@ -21,9 +21,9 @@ module: frm
 - mail item field id
 - event code
 
-**Full Class Name:** `com.namasoft.modules.frm.common.EAKWSendIPSEvents`
-
 **Module:** frm
+
+**Full Class Name:** `com.namasoft.modules.frm.common.EAKWSendIPSEvents`
 
 
 </div>

@@ -8,7 +8,7 @@ module: supplychain
 
 # EASCDocFromDocCreator
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Creates Document From Document
 
@@ -19,9 +19,9 @@ module: supplychain
 - Field ID To Keep Doc(ref1,ref2,...)
 - Field ID to Keep Make From Document
 
-**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EASCDocFromDocCreator`
-
 **Module:** supplychain
+
+**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EASCDocFromDocCreator`
 
 
 </div>

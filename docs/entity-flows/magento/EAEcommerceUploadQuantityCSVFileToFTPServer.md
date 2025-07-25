@@ -8,7 +8,7 @@ module: magento
 
 # EAEcommerceUploadQuantityCSVFileToFTPServer
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
@@ -22,9 +22,9 @@ module: magento
 - File Name(ex: nama-items.csv)
 - File Rows Count
 
-**Full Class Name:** `com.namasoft.modules.magento.utils.EAEcommerceUploadQuantityCSVFileToFTPServer`
-
 **Module:** magento
+
+**Full Class Name:** `com.namasoft.modules.magento.utils.EAEcommerceUploadQuantityCSVFileToFTPServer`
 
 
 </div>

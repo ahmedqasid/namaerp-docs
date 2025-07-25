@@ -8,13 +8,13 @@ module: hr
 
 # EACopySalaryStructureToJobOffer
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Copies NEW element lines only from salary structure to the job offer
 
-**Full Class Name:** `com.namasoft.modules.humanresource.utils.actions.EACopySalaryStructureToJobOffer`
-
 **Module:** hr
+
+**Full Class Name:** `com.namasoft.modules.humanresource.utils.actions.EACopySalaryStructureToJobOffer`
 
 
 </div>

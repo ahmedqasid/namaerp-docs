@@ -8,13 +8,13 @@ module: core
 
 # EASQLToCSVFile
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
-**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EASQLToCSVFile`
-
 **Module:** core
+
+**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EASQLToCSVFile`
 
 
 </div>

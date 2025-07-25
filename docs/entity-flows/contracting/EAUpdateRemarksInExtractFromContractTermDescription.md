@@ -8,7 +8,7 @@ module: contracting
 
 # EAUpdateRemarksInExtractFromContractTermDescription
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
@@ -20,9 +20,9 @@ module: contracting
 - Term Code Field (eg. executiveTermCode, estimatedTermCode, termCode) can be left empty
 - Separator(between level remarks,default ' - ')
 
-**Full Class Name:** `com.namasoft.modules.contracting.domain.utils.EAUpdateRemarksInExtractFromContractTermDescription`
-
 **Module:** contracting
+
+**Full Class Name:** `com.namasoft.modules.contracting.domain.utils.EAUpdateRemarksInExtractFromContractTermDescription`
 
 
 </div>

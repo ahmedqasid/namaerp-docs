@@ -8,7 +8,7 @@ module: crm
 
 # EACRMContractBodyShapersCheckIn
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
@@ -16,9 +16,9 @@ module: crm
 - Added Hours
 - Value for text1
 
-**Full Class Name:** `com.namasoft.modules.crm.domain.entityactions.EACRMContractBodyShapersCheckIn`
-
 **Module:** crm
+
+**Full Class Name:** `com.namasoft.modules.crm.domain.entityactions.EACRMContractBodyShapersCheckIn`
 
 
 </div>

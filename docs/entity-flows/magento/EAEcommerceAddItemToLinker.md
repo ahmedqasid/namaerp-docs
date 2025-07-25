@@ -8,7 +8,7 @@ module: magento
 
 # EAEcommerceAddItemToLinker
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
@@ -17,9 +17,9 @@ module: magento
 - Linker Line Fields Map (eg. line.dimensions.box=name2)
 - Linker File Code Template. eg: {magentoSite.code} 
 
-**Full Class Name:** `com.namasoft.modules.magento.utils.EAEcommerceAddItemToLinker`
-
 **Module:** magento
+
+**Full Class Name:** `com.namasoft.modules.magento.utils.EAEcommerceAddItemToLinker`
 
 
 </div>

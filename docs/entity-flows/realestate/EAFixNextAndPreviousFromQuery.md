@@ -8,7 +8,7 @@ module: realestate
 
 # EAFixNextAndPreviousFromQuery
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
@@ -18,9 +18,9 @@ select entityType,id from RERentContract where commitedBefore = 1
 union all
 select entityType,id from REOpeningRentContract where commitedBefore = 1 
 
-**Full Class Name:** `com.namasoft.modules.realstate.domain.utils.plugnplay.EAFixNextAndPreviousFromQuery`
-
 **Module:** realestate
+
+**Full Class Name:** `com.namasoft.modules.realstate.domain.utils.plugnplay.EAFixNextAndPreviousFromQuery`
 
 
 </div>

@@ -8,7 +8,7 @@ module: core
 
 # EAIgnoringNotFoundTargetFieldsValuesCalculator
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Sets fields from one field to another.
 Parameter 1: fields Map. Format as follows:
@@ -18,6 +18,7 @@ Field Value can be another field id, "quoted string",sql(select max(n1) from Inv
 customer.runCommand="edit"
 customer.runCommand="save"
 
+This action ignores any errors that occur while running.
 
 **Parameters:**
 - First
@@ -26,9 +27,9 @@ customer.runCommand="save"
 - Fourth
 - Fifth
 
-**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAIgnoringNotFoundTargetFieldsValuesCalculator`
-
 **Module:** core
+
+**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAIgnoringNotFoundTargetFieldsValuesCalculator`
 
 
 </div>

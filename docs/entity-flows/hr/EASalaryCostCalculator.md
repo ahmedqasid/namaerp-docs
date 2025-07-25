@@ -8,7 +8,7 @@ module: hr
 
 # EASalaryCostCalculator
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
@@ -17,9 +17,9 @@ module: hr
 - Max Trials Count
 - Allowed Diff
 
-**Full Class Name:** `com.namasoft.modules.humanresource.utils.actions.EASalaryCostCalculator`
-
 **Module:** hr
+
+**Full Class Name:** `com.namasoft.modules.humanresource.utils.actions.EASalaryCostCalculator`
 
 
 </div>

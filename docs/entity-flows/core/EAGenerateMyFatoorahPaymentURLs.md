@@ -8,7 +8,7 @@ module: core
 
 # EAGenerateMyFatoorahPaymentURLs
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
@@ -21,9 +21,9 @@ module: core
 - Customer Email Field (ex:customer.email)
 - Customer Reference Field (Text Field, ex:customer.code)
 
-**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAGenerateMyFatoorahPaymentURLs`
-
 **Module:** core
+
+**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAGenerateMyFatoorahPaymentURLs`
 
 
 </div>

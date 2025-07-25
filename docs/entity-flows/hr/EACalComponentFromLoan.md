@@ -8,7 +8,7 @@ module: hr
 
 # EACalComponentFromLoan
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Calculates a component value using loan value
 
@@ -17,9 +17,9 @@ module: hr
 - Loan Type Code - CSV (Can be Empty)
 - Percentage (Can be a field in Loan document)
 
-**Full Class Name:** `com.namasoft.modules.humanresource.utils.actions.EACalComponentFromLoan`
-
 **Module:** hr
+
+**Full Class Name:** `com.namasoft.modules.humanresource.utils.actions.EACalComponentFromLoan`
 
 
 </div>

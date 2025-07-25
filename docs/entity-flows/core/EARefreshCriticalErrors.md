@@ -8,13 +8,13 @@ module: core
 
 # EARefreshCriticalErrors
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
-**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EARefreshCriticalErrors`
-
 **Module:** core
+
+**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EARefreshCriticalErrors`
 
 
 </div>

@@ -8,7 +8,7 @@ module: core
 
 # EARunManualNotificationFromQuery
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Run Manual Notification On  all records returned by the query
 
@@ -21,9 +21,16 @@ module: core
 - Run Update Query After Selecting Entities, and Before Run Manual Notification On 
 - Manual Notification ID or Code
 
+**Module:** core
+
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EARunManualNotificationFromQuery`
 
-**Module:** core
+**Related Actions:**
+- [EARegenAccFromQuery](EARegenAccFromQuery.md)
+- [EARegenInvTransReqFromQuery](../supplychain/EARegenInvTransReqFromQuery.md)
+- [EASaveRecordsFromQuery](EASaveRecordsFromQuery.md)
+- [EAEGBRASSFixCreationDates](../supplychain/EAEGBRASSFixCreationDates.md)
+- [EADeleteFromQuery](EADeleteFromQuery.md)
 
 
 </div>

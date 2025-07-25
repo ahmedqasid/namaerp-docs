@@ -8,7 +8,7 @@ module: core
 
 # EAGuessEntityFromNames
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Guesses the nearest matching entity using names
 
@@ -24,9 +24,9 @@ module: core
 - Extra Comparison Fields (eg: defaultDetailData.minPrice=details.n2)
 - Min Matched First Letters
 
-**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAGuessEntityFromNames`
-
 **Module:** core
+
+**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAGuessEntityFromNames`
 
 
 </div>

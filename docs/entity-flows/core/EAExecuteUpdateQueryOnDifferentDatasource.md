@@ -8,7 +8,7 @@ module: core
 
 # EAExecuteUpdateQueryOnDifferentDatasource
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Execute update query specified in first parameter on the database defined in paramater 1
 
@@ -18,9 +18,9 @@ module: core
 - Evict Cache After Execution(true,false)
 - Evict Cache After Execution(true,false)
 
-**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAExecuteUpdateQueryOnDifferentDatasource`
-
 **Module:** core
+
+**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAExecuteUpdateQueryOnDifferentDatasource`
 
 
 </div>

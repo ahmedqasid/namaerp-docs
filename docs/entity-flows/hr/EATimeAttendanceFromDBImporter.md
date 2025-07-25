@@ -8,7 +8,7 @@ module: hr
 
 # EATimeAttendanceFromDBImporter
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Creates attendance doc per period from select
 
@@ -22,9 +22,9 @@ module: hr
 - Data Pre-processor (groovy)
 - Ignore Unfound Employees
 
-**Full Class Name:** `com.namasoft.modules.humanresource.utils.actions.EATimeAttendanceFromDBImporter`
-
 **Module:** hr
+
+**Full Class Name:** `com.namasoft.modules.humanresource.utils.actions.EATimeAttendanceFromDBImporter`
 
 **⚠️ Warning:** This action prevents simultaneous runs
 

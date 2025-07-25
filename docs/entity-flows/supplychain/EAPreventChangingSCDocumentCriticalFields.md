@@ -8,13 +8,13 @@ module: supplychain
 
 # EAPreventChangingSCDocumentCriticalFields
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Prevents changing quantity, size, color, etc after first commit
 
-**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.EAPreventChangingSCDocumentCriticalFields`
-
 **Module:** supplychain
+
+**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.EAPreventChangingSCDocumentCriticalFields`
 
 
 </div>

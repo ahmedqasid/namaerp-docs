@@ -8,7 +8,7 @@ module: hr
 
 # EADSCNormalizeTimeAttendance
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Given: Employee starts at 8.30 -> 12
 Second Shift: 12.45->17.30
@@ -19,9 +19,9 @@ If from time is 8.00 and to time is 16.00, system splits into two lines. 8.30 ->
 **Parameters:**
 - Excluded Employees Criteria
 
-**Full Class Name:** `com.namasoft.modules.humanresource.utils.actions.EADSCNormalizeTimeAttendance`
-
 **Module:** hr
+
+**Full Class Name:** `com.namasoft.modules.humanresource.utils.actions.EADSCNormalizeTimeAttendance`
 
 
 </div>

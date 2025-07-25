@@ -8,16 +8,16 @@ module: hms
 
 # EACreateAccommodationInvoice
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
 **Parameters:**
 - Use The Current Time Instead Of Defined Checkout Time(true or false)
 
-**Full Class Name:** `com.namasoft.modules.hms.domain.utils.EACreateAccommodationInvoice`
-
 **Module:** hms
+
+**Full Class Name:** `com.namasoft.modules.hms.domain.utils.EACreateAccommodationInvoice`
 
 
 </div>

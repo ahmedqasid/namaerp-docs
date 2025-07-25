@@ -8,7 +8,7 @@ module: hr
 
 # EAMakeSingleCheckInCheckOutIfNeeded
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Converts single check-in lines to single check-out if time within range in paramater 1 and 2
 
@@ -16,9 +16,9 @@ module: hr
 - Range Start (eg. 14:00)
 - Range End (eg. 23:59)
 
-**Full Class Name:** `com.namasoft.modules.humanresource.utils.actions.EAMakeSingleCheckInCheckOutIfNeeded`
-
 **Module:** hr
+
+**Full Class Name:** `com.namasoft.modules.humanresource.utils.actions.EAMakeSingleCheckInCheckOutIfNeeded`
 
 
 </div>

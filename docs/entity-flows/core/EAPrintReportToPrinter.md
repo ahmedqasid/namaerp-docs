@@ -8,7 +8,7 @@ module: core
 
 # EAPrintReportToPrinter
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
@@ -16,9 +16,9 @@ module: core
 - Printer Name
 - Report Code
 
-**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAPrintReportToPrinter`
-
 **Module:** core
+
+**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAPrintReportToPrinter`
 
 
 </div>

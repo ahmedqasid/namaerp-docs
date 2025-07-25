@@ -8,7 +8,7 @@ module: core
 
 # EASetFieldByTemplate
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Sets a field based on a tenmplate
 
@@ -16,9 +16,9 @@ module: core
 - Field Id
 - Template
 
-**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EASetFieldByTemplate`
-
 **Module:** core
+
+**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EASetFieldByTemplate`
 
 
 </div>

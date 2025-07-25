@@ -8,13 +8,13 @@ module: namapos
 
 # EADarTibaServiceInvoiceTermSetter
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Set service invoice-return term (all items are service items)
 
-**Full Class Name:** `com.namasoft.modules.namapos.utiles.actions.EADarTibaServiceInvoiceTermSetter`
-
 **Module:** namapos
+
+**Full Class Name:** `com.namasoft.modules.namapos.utiles.actions.EADarTibaServiceInvoiceTermSetter`
 
 
 </div>

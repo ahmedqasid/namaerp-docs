@@ -8,7 +8,7 @@ module: core
 
 # EANamaCloudBackupPrepare
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
@@ -19,9 +19,9 @@ module: core
 - Save Output To Task Schedule
 - Output
 
-**Full Class Name:** `com.namasoft.infor.domainbase.util.google.EANamaCloudBackupPrepare`
-
 **Module:** core
+
+**Full Class Name:** `com.namasoft.infor.domainbase.util.google.EANamaCloudBackupPrepare`
 
 
 </div>

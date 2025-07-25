@@ -8,15 +8,15 @@ module: core
 
 # EAPreventFromDocOfUsageAgain
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Prevents using from document in another document
 
-**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAPreventFromDocOfUsageAgain`
-
 **Module:** core
 
-**ℹ️ Note:** This action is forced automatic
+**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAPreventFromDocOfUsageAgain`
+
+**ℹ️ Note:** This action is an automatic action, it selects the appropriate events to execute itself
 
 
 </div>

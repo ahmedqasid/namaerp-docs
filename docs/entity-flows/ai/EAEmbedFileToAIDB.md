@@ -8,16 +8,16 @@ module: ai
 
 # EAEmbedFileToAIDB
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
 **Parameters:**
 - Attachment IDs (e.g: attachment1,details.attachment1)
 
-**Full Class Name:** `com.namasoft.modules.ai.util.actions.EAEmbedFileToAIDB`
-
 **Module:** ai
+
+**Full Class Name:** `com.namasoft.modules.ai.util.actions.EAEmbedFileToAIDB`
 
 
 </div>

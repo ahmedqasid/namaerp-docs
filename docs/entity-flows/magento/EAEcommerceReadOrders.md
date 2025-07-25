@@ -8,7 +8,7 @@ module: magento
 
 # EAEcommerceReadOrders
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
@@ -16,9 +16,9 @@ module: magento
 - Site Code
 - Order IDs (seperated by comma [,])
 
-**Full Class Name:** `com.namasoft.modules.magento.utils.EAEcommerceReadOrders`
-
 **Module:** magento
+
+**Full Class Name:** `com.namasoft.modules.magento.utils.EAEcommerceReadOrders`
 
 
 </div>

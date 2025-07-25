@@ -8,7 +8,7 @@ module: supplychain
 
 # EAApplyReservationOfDocsByQuery
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Applies Reservation of documents provided by query in parameter 1.
 Example query: select entityType,id from ReservationDocument where dueDate<GETDATE()
@@ -16,9 +16,9 @@ Example query: select entityType,id from ReservationDocument where dueDate<GETDA
 **Parameters:**
 - Query. eg. select entityType,id from ReservationDocument where dueDate<GETDATE()
 
-**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.EAApplyReservationOfDocsByQuery`
-
 **Module:** supplychain
+
+**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.EAApplyReservationOfDocsByQuery`
 
 
 </div>

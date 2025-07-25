@@ -8,7 +8,7 @@ module: supplychain
 
 # EAReplaceItemSizeInSystem
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Updates size in all system tables from document lines
 
@@ -21,9 +21,13 @@ module: supplychain
 - Handle Lines Where NEW Property Is Empty
 - Do Not Regen Inventory Requests After Update
 
+**Module:** supplychain
+
 **Full Class Name:** `com.namasoft.modules.supplychain.plugnplay.EAReplaceItemSizeInSystem`
 
-**Module:** supplychain
+**Related Actions:**
+- [EAReplaceItemBoxInSystem](EAReplaceItemBoxInSystem.md)
+- [EAReplaceItemColorInSystem](EAReplaceItemColorInSystem.md)
 
 
 </div>

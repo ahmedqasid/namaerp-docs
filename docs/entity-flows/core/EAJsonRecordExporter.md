@@ -8,7 +8,7 @@ module: core
 
 # EAJsonRecordExporter
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
@@ -22,9 +22,9 @@ name1=arabic_name
 
 - Do Not Send Request, log only to namasoft.log
 
-**Full Class Name:** `com.namasoft.modules.basic.util.EAJsonRecordExporter`
-
 **Module:** core
+
+**Full Class Name:** `com.namasoft.modules.basic.util.EAJsonRecordExporter`
 
 
 </div>

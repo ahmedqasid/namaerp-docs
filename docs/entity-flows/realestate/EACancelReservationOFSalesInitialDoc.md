@@ -8,16 +8,16 @@ module: realestate
 
 # EACancelReservationOFSalesInitialDoc
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Cancel Reservation of initial sales contracts by query
 
 **Parameters:**
 - Query. eg: select id from REInitialSalesContract where toDate < GETDATE() and reserveEstate = 1
 
-**Full Class Name:** `com.namasoft.modules.realestate.domain.entities.EACancelReservationOFSalesInitialDoc`
-
 **Module:** realestate
+
+**Full Class Name:** `com.namasoft.modules.realestate.domain.entities.EACancelReservationOFSalesInitialDoc`
 
 
 </div>

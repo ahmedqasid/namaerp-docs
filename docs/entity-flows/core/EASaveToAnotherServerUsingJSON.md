@@ -8,7 +8,7 @@ module: core
 
 # EASaveToAnotherServerUsingJSON
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
@@ -28,9 +28,12 @@ name1=sql(select case when {group.code} = '11' then '' else {group.name1} end))
 - Add Manual Code Prefix (true/false)
 - Keep Creation Date
 
+**Module:** core
+
 **Full Class Name:** `com.namasoft.commonservices.utils.EASaveToAnotherServerUsingJSON`
 
-**Module:** core
+**Related Actions:**
+- [EASaveToAnotherServer](EASaveToAnotherServer.md)
 
 
 </div>

@@ -8,16 +8,16 @@ module: core
 
 # EARunEntityFlow
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Runs entity flow with code specified in parameter 1, the entity flow must be manual
 
 **Parameters:**
 - Entity Flow Code
 
-**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EARunEntityFlow`
-
 **Module:** core
+
+**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EARunEntityFlow`
 
 
 </div>

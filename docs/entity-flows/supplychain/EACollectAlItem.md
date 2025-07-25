@@ -8,7 +8,7 @@ module: supplychain
 
 # EACollectAlItem
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Collect Alt Items In The Same Item Classes , Item Categories , Item Section or Item Brand
 
@@ -18,9 +18,9 @@ module: supplychain
 - Excluded Origin Ids. Example: select id from StockIssue where fromDoc_id = {id} union all select {id}
 - Wait For All Qty Transactions To Be Processed (default is true)
 
-**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EACollectAlItem`
-
 **Module:** supplychain
+
+**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EACollectAlItem`
 
 
 </div>

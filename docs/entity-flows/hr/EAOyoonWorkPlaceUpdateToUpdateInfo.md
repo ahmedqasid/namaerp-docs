@@ -8,7 +8,7 @@ module: hr
 
 # EAOyoonWorkPlaceUpdateToUpdateInfo
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
@@ -21,11 +21,11 @@ term="UPDTERM"
 Example:
 branch=toInfo.empWorkPlace.branch
 
-**Full Class Name:** `com.namasoft.modules.humanresource.utils.actions.EAOyoonWorkPlaceUpdateToUpdateInfo`
-
 **Module:** hr
 
-**ℹ️ Note:** This action is forced automatic
+**Full Class Name:** `com.namasoft.modules.humanresource.utils.actions.EAOyoonWorkPlaceUpdateToUpdateInfo`
+
+**ℹ️ Note:** This action is an automatic action, it selects the appropriate events to execute itself
 
 
 </div>

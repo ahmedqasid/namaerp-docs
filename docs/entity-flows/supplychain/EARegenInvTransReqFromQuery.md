@@ -8,7 +8,7 @@ module: supplychain
 
 # EARegenInvTransReqFromQuery
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** RegenInvTransReq all records returned by the query
 
@@ -20,9 +20,16 @@ module: supplychain
 - Do In New Transaction - Continue on Errors (true,false)
 - Run Update Query After Selecting Entities, and Before RegenInvTransReq
 
+**Module:** supplychain
+
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EARegenInvTransReqFromQuery`
 
-**Module:** supplychain
+**Related Actions:**
+- [EARunManualNotificationFromQuery](../core/EARunManualNotificationFromQuery.md)
+- [EARegenAccFromQuery](../core/EARegenAccFromQuery.md)
+- [EASaveRecordsFromQuery](../core/EASaveRecordsFromQuery.md)
+- [EAEGBRASSFixCreationDates](EAEGBRASSFixCreationDates.md)
+- [EADeleteFromQuery](../core/EADeleteFromQuery.md)
 
 
 </div>

@@ -8,7 +8,7 @@ module: core
 
 # EASendHttpRequestByTempo
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
@@ -16,9 +16,9 @@ module: core
 - Request Tempo
 - Do Not Delete Task After Finishing
 
-**Full Class Name:** `com.namasoft.modules.basic.util.EASendHttpRequestByTempo`
-
 **Module:** core
+
+**Full Class Name:** `com.namasoft.modules.basic.util.EASendHttpRequestByTempo`
 
 
 </div>

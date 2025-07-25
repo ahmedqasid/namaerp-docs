@@ -8,7 +8,7 @@ module: magento
 
 # EAEcommerceReadAbandonedCarts
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
@@ -16,9 +16,9 @@ module: magento
 - Site Code
 - Maximum Records To Read Per Call (default 50)
 
-**Full Class Name:** `com.namasoft.modules.magento.utils.EAEcommerceReadAbandonedCarts`
-
 **Module:** magento
+
+**Full Class Name:** `com.namasoft.modules.magento.utils.EAEcommerceReadAbandonedCarts`
 
 
 </div>

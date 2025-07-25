@@ -8,7 +8,7 @@ module: supplychain
 
 # EANotifyIfSSLCertificateAboutToExpire
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
@@ -18,9 +18,9 @@ module: supplychain
 - Warning Period In Days- Default is 10 days
 - Send To Email (default a.qasid@namasoft.com)
 
-**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.groovy.EANotifyIfSSLCertificateAboutToExpire`
-
 **Module:** supplychain
+
+**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.groovy.EANotifyIfSSLCertificateAboutToExpire`
 
 
 </div>

@@ -8,13 +8,13 @@ module: supplychain
 
 # ValidateSorceLinesOfFromDocAction
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Prevent New Line To Be Added To Document Lines If It Based On FromDoc
 
-**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.ValidateSorceLinesOfFromDocAction`
-
 **Module:** supplychain
+
+**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.ValidateSorceLinesOfFromDocAction`
 
 
 </div>

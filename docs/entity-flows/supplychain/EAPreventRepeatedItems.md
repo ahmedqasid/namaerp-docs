@@ -8,7 +8,7 @@ module: supplychain
 
 # EAPreventRepeatedItems
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Prevents saving any Supply Chain Documents if any item is repeated, you can consider sizes, revisions, ... etc using parameters
 
@@ -22,9 +22,9 @@ module: supplychain
 - Consider Free Item
 - Warning Not Failure
 
-**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAPreventRepeatedItems`
-
 **Module:** supplychain
+
+**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAPreventRepeatedItems`
 
 
 </div>

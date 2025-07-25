@@ -8,7 +8,7 @@ module: supplychain
 
 # EASCDocFromDocDeleter
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Creates Document From Document
 
@@ -16,9 +16,9 @@ module: supplychain
 - Target Type
 - Field ID To Keep Doc(ref1,ref2,...)
 
-**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EASCDocFromDocDeleter`
-
 **Module:** supplychain
+
+**Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EASCDocFromDocDeleter`
 
 
 </div>

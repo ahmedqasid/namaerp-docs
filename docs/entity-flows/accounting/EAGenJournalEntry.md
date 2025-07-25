@@ -8,7 +8,7 @@ module: accounting
 
 # EAGenJournalEntry
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** Generates Journal Entry from Any Document File
 
@@ -26,9 +26,9 @@ This example will make the effect happen only for lines ref1 being a branch or a
 - Currency Field  (optional)
 - Rate Field (optional)
 
-**Full Class Name:** `com.namasoft.modules.accounting.domain.utils.actions.EAGenJournalEntry`
-
 **Module:** accounting
+
+**Full Class Name:** `com.namasoft.modules.accounting.domain.utils.actions.EAGenJournalEntry`
 
 
 </div>

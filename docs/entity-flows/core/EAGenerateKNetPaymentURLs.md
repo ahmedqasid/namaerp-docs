@@ -8,7 +8,7 @@ module: core
 
 # EAGenerateKNetPaymentURLs
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
@@ -17,9 +17,9 @@ module: core
 - Copy URL To Field (Text Field)
 - Copy Nama Payment URL To Field
 
-**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAGenerateKNetPaymentURLs`
-
 **Module:** core
+
+**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAGenerateKNetPaymentURLs`
 
 
 </div>

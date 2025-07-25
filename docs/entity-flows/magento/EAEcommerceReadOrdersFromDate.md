@@ -8,7 +8,7 @@ module: magento
 
 # EAEcommerceReadOrdersFromDate
 
-**This document was generated using AI Tools**
+**This document was generated using Claude.ai**
 
 **Description:** No description available
 
@@ -16,9 +16,9 @@ module: magento
 - Site Code
 - Read Orders Before (N - Number) days
 
-**Full Class Name:** `com.namasoft.modules.magento.utils.EAEcommerceReadOrdersFromDate`
-
 **Module:** magento
+
+**Full Class Name:** `com.namasoft.modules.magento.utils.EAEcommerceReadOrdersFromDate`
 
 
 </div>
