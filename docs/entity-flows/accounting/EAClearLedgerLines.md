@@ -86,33 +86,20 @@ If you notice missing accounting transactions or incomplete financial data, this
 To check if this action has been affecting your data:
 
 ```sql
--- Check for empty ledger transaction requests
-SELECT originId, originType, creationDate, transStatus
-FROM LedgerTransReq 
-WHERE id NOT IN (
-    SELECT DISTINCT ledgerTransReqId 
-    FROM LedgerTransReqLine 
-    WHERE ledgerTransReqId IS NOT NULL
-);
+-- Check for empty ledger transaction requests (optimized with LEFT JOIN)
+SELECT ltr.originId, ltr.originType, ltr.creationDate, ltr.transStatus
+FROM LedgerTransReq ltr
+LEFT JOIN LedgerTransLine ltrl ON ltr.id = ltrl.ledgerTransReqId
+WHERE ltrl.ledgerTransReqId IS NULL;
 
--- Look for requests created recently without lines
+-- Look for requests created recently without lines (T-SQL syntax)
 SELECT COUNT(*) as EmptyRequests,
-       DATE(creationDate) as RequestDate
-FROM LedgerTransReq 
-WHERE creationDate >= DATE_SUB(NOW(), INTERVAL 7 DAY)
-  AND id NOT IN (SELECT DISTINCT ledgerTransReqId FROM LedgerTransReqLine)
-GROUP BY DATE(creationDate);
-```
-
-### Tempo Language Investigation
-
-Use this Tempo code to check for entities using this action:
-
-```tempo
-entities := findEntitiesWithAction("EAClearLedgerLines")
-for entity in entities {
-    print("Entity: " + entity.name + " uses EAClearLedgerLines")
-}
+       CAST(creationDate AS DATE) as RequestDate
+FROM LedgerTransReq ltr
+LEFT JOIN LedgerTransReqLine ltrl ON ltr.id = ltrl.ledgerTransReqId
+WHERE ltr.creationDate >= DATEADD(DAY, -7, GETDATE())
+  AND ltrl.ledgerTransReqId IS NULL
+GROUP BY CAST(creationDate AS DATE);
 ```
 
 ## Related Actions

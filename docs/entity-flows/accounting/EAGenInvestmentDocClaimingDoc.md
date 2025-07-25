@@ -95,16 +95,15 @@ When troubleshooting issues:
    ```sql
    -- Find treasury bonds maturing today
    SELECT * FROM InvestmentDoc 
-   WHERE worthDate = CURDATE() 
+   WHERE worthDate = CAST(GETDATE() AS DATE)
    AND type = 'TreasuryBonds' 
    AND investmentDocStatus = 'Ongoing'
    AND commitedBefore = 1;
    
    -- Check existing claiming documents
-   SELECT * FROM InvestmentDocClaiming 
-   WHERE investmentDoc_id IN (
-     SELECT id FROM InvestmentDoc WHERE worthDate = CURDATE()
-   );
+   SELECT idc.* FROM InvestmentDocClaiming idc
+   INNER JOIN InvestmentDoc id ON idc.investmentDoc_id = id.id
+   WHERE id.worthDate = CAST(GETDATE() AS DATE);
    ```
 
 ### 📋 **Business Process Context**
