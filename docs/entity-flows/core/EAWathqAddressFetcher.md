@@ -144,9 +144,9 @@ To check recent Wathq address calls:
 ```sql
 SELECT 
     w.crNationalNumber,
-    w.onRecord_entityType,
-    w.onRecord_id,
-    w.user_name,
+    w.onRecordEntityType,
+    w.onRecordId,
+    w.userCode,
     w.onTime,
     CASE 
         WHEN LEN(w.wathqResponse) > 100 

@@ -110,11 +110,11 @@ SELECT
     creationDate,
     preventUseAsFromDoc
 FROM (
-    SELECT 'SalesInvoice' as entityType, id, code, name1, creationDate, preventUseAsFromDoc FROM SalesInvoice WHERE preventUseAsFromDoc = 1
+    SELECT 'SalesInvoice' as entityType, id, code, customerName1 as name1, creationDate, preventUseAsFromDoc FROM SalesInvoice WHERE preventUseAsFromDoc = 1
     UNION ALL
-    SELECT 'PurchaseInvoice' as entityType, id, code, name1, creationDate, preventUseAsFromDoc FROM PurchaseInvoice WHERE preventUseAsFromDoc = 1
+    SELECT 'PurchaseInvoice' as entityType, id, code, supplierName1 as name1, creationDate, preventUseAsFromDoc FROM PurchaseInvoice WHERE preventUseAsFromDoc = 1
     UNION ALL
-    SELECT 'PaymentVoucher' as entityType, id, code, name1, creationDate, preventUseAsFromDoc FROM PaymentVoucher WHERE preventUseAsFromDoc = 1
+    SELECT 'PaymentVoucher' as entityType, id, code, description1 as name1, creationDate, preventUseAsFromDoc FROM PaymentVoucher WHERE preventUseAsFromDoc = 1
 ) AS RestrictedDocs
 ORDER BY creationDate DESC;
 ```
