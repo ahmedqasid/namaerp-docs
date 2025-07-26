@@ -87,43 +87,6 @@ The subsidiary account types passed as parameters typically include:
 
 Some customers may have custom implementations (like `SWSRVPVControlJournals`) that extend this base functionality with additional business rules.
 
-## Troubleshooting
-
-### Common Issues
-
-1. **No journal entries created**
-   - Check if the RVPV document has a `relatedSubsidiary` filled
-   - Verify the subsidiary account types in parameters are valid
-   - Ensure the document is being processed for accounting effects
-
-2. **Incorrect account postings**
-   - Verify the subsidiary account type configuration
-   - Check if the subsidiary has proper account mappings
-   - Review the dimension source settings
-
-3. **Currency issues**
-   - Ensure the subsidiary supports the document's currency
-   - Check currency conversion rates if applicable
-
-### Investigation Steps
-
-1. **Check Related Subsidiary**:
-   ```sql
-   SELECT related_subsidiary_id, related_subsidiary_type
-   FROM rvpv_voucher 
-   WHERE id = 'your-document-id';
-   ```
-
-2. **Verify Account Configuration**:
-   Use ALT+CTRL+I in the system UI on the subsidiary field to see "Show Field Info" for account mappings.
-
-3. **Review Ledger Entries**:
-   ```sql
-   SELECT * FROM ledger_trans_req_line ltrl
-   INNER JOIN ledger_trans_req ltr ON ltrl.ledger_trans_req_id = ltr.id
-   WHERE ltr.origin_id = 'your-document-id';
-   ```
-
 ## Related Documentation
 
 - For detailed entity field information, refer to https://dm.namasoft.com

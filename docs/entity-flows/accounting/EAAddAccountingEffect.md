@@ -93,35 +93,6 @@ Adding entries to allocate costs or revenues to specific departments or branches
 ### 4. Multi-Currency Adjustments
 Creating additional entries for currency conversion differences or adjustments.
 
-## Troubleshooting Guide
-
-### Problem: Flow Not Running
-**Check:**
-1. Does the document type generate ledger effects?
-2. Is it a stock document without `EnablePresendRequestsForCostLedger` enabled?
-3. Are the field values in the Effects parameter non-zero?
-
-### Problem: Wrong Accounting Entries
-**Check:**
-1. Verify the accounting side codes exist in your system
-2. Confirm the field ID in Effects parameter is correct
-3. Test the Apply When Query returns expected 0/1 values
-
-### Problem: Too Many Journal Lines
-**Solution:** Set ShortenLedger parameter to `true`
-
-### Problem: Currency Issues
-**Check:**
-1. Currency Field parameter points to correct field
-2. Rate Field parameter is specified if needed
-3. Exchange rates are properly set in source document
-
-## Testing Tips
-
-1. **Start Simple:** Test with one effect first, then add complexity
-2. **Check Field Names:** Use the system UI with **ALT+CTRL+I** to enable "Show Field Info" feature, which displays field names, table names, column names, and other field details. You can also reference the detailed entity documentation at https://dm.namasoft.com
-3. **Test Apply When Query:** Run the query separately to ensure it returns 0 or 1
-4. **Monitor Journal Entries:** Check the generated journal entry to verify correct debit/credit amounts
 
 ## Module Information
 - **Module:** accounting

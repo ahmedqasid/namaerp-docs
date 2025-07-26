@@ -79,56 +79,11 @@ If you notice missing accounting transactions or incomplete financial data, this
 2. **Request History**: Verify if the clearing was intentional
 3. **Data Recovery**: May require regenerating the cleared transactions
 
-## Monitoring and Troubleshooting
-
-### SQL Queries for Investigation
-
-To check if this action has been affecting your data:
-
-```sql
--- Check for empty ledger transaction requests (optimized with LEFT JOIN)
-SELECT ltr.originId, ltr.originType, ltr.creationDate, ltr.transStatus
-FROM LedgerTransReq ltr
-LEFT JOIN LedgerTransLine ltrl ON ltr.id = ltrl.ledgerTransReqId
-WHERE ltrl.ledgerTransReqId IS NULL;
-
--- Look for requests created recently without lines (T-SQL syntax)
-SELECT COUNT(*) as EmptyRequests,
-       CAST(creationDate AS DATE) as RequestDate
-FROM LedgerTransReq ltr
-LEFT JOIN LedgerTransReqLine ltrl ON ltr.id = ltrl.ledgerTransReqId
-WHERE ltr.creationDate >= DATEADD(DAY, -7, GETDATE())
-  AND ltrl.ledgerTransReqId IS NULL
-GROUP BY CAST(creationDate AS DATE);
-```
-
 ## Related Actions
 
 - **EAReverseLedgerTrans**: Reverses existing ledger transactions
 - **EASortLedger**: Sorts ledger transaction lines
 - **EAShortenLedger**: Consolidates ledger transaction lines
-
-## Support Guidance
-
-### For Technical Support Staff
-
-When investigating issues related to this action:
-
-1. **Verify Timing**: Confirm when the action executed relative to the problem
-2. **Check Dependencies**: Ensure other actions aren't dependent on the cleared data
-3. **Review Configuration**: Verify if the action should be enabled for the affected entity
-4. **Data Recovery**: If data loss is confirmed, work with development team to regenerate transactions
-
-### Common Questions
-
-**Q: Why are my accounting transactions missing?**
-A: Check if EAClearLedgerLines executed before the transactions were finalized. This action removes all transaction lines.
-
-**Q: Can I disable this action?**
-A: This action is marked as "automatic forced" - consult with the development team before making changes.
-
-**Q: How do I recover cleared transactions?**
-A: Cleared transactions cannot be recovered directly. The originating process needs to regenerate them.
 
 </div>
 

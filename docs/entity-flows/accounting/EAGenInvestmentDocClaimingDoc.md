@@ -76,35 +76,6 @@ The action accepts one parameter:
 
 4. **Performance Impact**: Limited to 500 records per run to prevent system overload.
 
-### 🔍 **For Technical Support**
-
-When troubleshooting issues:
-
-1. **Check Bond Status**: Use ALT+CTRL+I on Investment Document to verify:
-   - Worth Date matches expected maturity date
-   - Type is "TreasuryBonds"
-   - Status is "Ongoing"
-   - Record is committed (not draft)
-
-2. **Field Mapping Issues**: If claiming documents are missing fields:
-   - Check the Fields Map parameter
-   - Verify field names match between source and target entities
-   - Use https://dm.namasoft.com to check available fields
-
-3. **Query for Troubleshooting**:
-   ```sql
-   -- Find treasury bonds maturing today
-   SELECT * FROM InvestmentDoc 
-   WHERE worthDate = CAST(GETDATE() AS DATE)
-   AND type = 'TreasuryBonds' 
-   AND investmentDocStatus = 'Ongoing'
-   AND commitedBefore = 1;
-   
-   -- Check existing claiming documents
-   SELECT idc.* FROM InvestmentDocClaiming idc
-   INNER JOIN InvestmentDoc id ON idc.investmentDoc_id = id.id
-   WHERE id.worthDate = CAST(GETDATE() AS DATE);
-   ```
 
 ### 📋 **Business Process Context**
 

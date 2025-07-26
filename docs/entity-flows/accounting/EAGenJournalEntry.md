@@ -224,54 +224,6 @@ conversionRate
 
 ---
 
-## Troubleshooting Common Issues
-
-### No Journal Entry Lines Created
-**Possible Causes:**
-1. **Effect field values are zero/empty** - Check source document field values
-2. **Invalid AccountingSideConfig codes** - Verify codes exist and are active
-3. **Apply When Query excludes all lines** - Review conditional logic
-4. **Field names incorrect** - Use ALT+CTRL+I to verify field IDs
-
-**Diagnostic SQL:**
-```sql
--- Check effect field values
-SELECT id, n1, n2, n3 FROM YourDocumentTable WHERE id = [document_id]
-
--- Verify accounting side codes  
-SELECT code FROM AccountingSideConfig WHERE code IN ('YOUR_DR_CODE', 'YOUR_CR_CODE')
-```
-
-### Journal Entry Not Balanced
-**Possible Causes:**
-1. **Missing credit side effects** - Every debit needs corresponding credit
-2. **Incorrect currency conversion** - Check exchange rates
-3. **Rounding differences** - Review decimal precision settings
-
-**Verification SQL:**
-```sql
--- Check journal entry balance
-SELECT 
-    code,
-    totalDebit,
-    totalCredit, 
-    totalDiff,
-    (totalDebit - totalCredit) AS balance
-FROM JournalEntry 
-WHERE id = [journal_entry_id]
-```
-
-### Performance Issues
-**Possible Causes:**
-1. **Complex Apply When Query** - Simplify conditional logic
-2. **Large detail collections** - Consider processing in batches
-3. **Missing database indexes** - Index frequently queried fields
-
-**Optimization Tips:**
-- Use JOINs instead of subqueries in Apply When Query
-- Index source document foreign key fields
-- Consider using `ShortenLedger=true` for better performance
-
 ---
 
 ## Example Configurations
@@ -324,12 +276,6 @@ Parameter 8 (Rate): exchangeRate
 
 ---
 
-## Support Resources
-
-- **Field Information:** Use ALT+CTRL+I in any form to show field details
-- **Entity Documentation:** Visit https://dm.namasoft.com  
-- **Accounting Configuration:** Check AccountingSideConfig master file for valid codes
-- **Testing:** Use Tempo language scripts to test effects before implementation
 
 </div>
 
