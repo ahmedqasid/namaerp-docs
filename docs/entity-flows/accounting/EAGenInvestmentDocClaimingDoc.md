@@ -5,92 +5,63 @@ module: accounting
 
 <div class='entity-flows'>
 
-# EAGenInvestmentDocClaimingDoc - Treasury Bonds Claiming Document Generator
+# EAGenInvestmentDocClaimingDoc
 
 **This document was generated using Claude.ai**
 
-**Description:** Automatically generates claiming documents for treasury bonds that reach their maturity date
+## Overview
+
+Automatically generates Investment Document Claiming records for treasury bonds that reach their maturity date today. Creates claiming documents to track when treasury bonds become due for collection.
+
+## When This Action Runs
+
+- **Trigger:** Manual execution or scheduled daily processes
+- **Target:** InvestmentDoc entities (treasury bonds only)
+- **Purpose:** Generate claiming documents for bonds maturing today
+- **Timing:** Daily processing for bonds with worth date = today
+
+## How It Works
+
+### Bond Selection Criteria
+- **Worth Date:** Equals today's date (maturity date)
+- **Type:** Treasury Bonds only (not Company Bonds)
+- **Status:** "Ongoing" status (not Initial or Closed)
+- **State:** Previously committed entities only
+
+### Document Generation Process
+- **Creates:** New InvestmentDocClaiming records
+- **Links:** References to original investment documents
+- **Copies:** Specified fields based on field mapping parameter
+- **Generates:** Document codes automatically
+- **Limit:** Maximum 500 records per execution
+
+## Parameters
+
+### Parameter 1: Fields Map (Required)
+- **Type:** Text field mapping configuration
+- **Purpose:** Specifies which fields to copy from source to target document
+- **Format:** Field mapping syntax for data transfer
+
+## Business Use Cases
+
+1. **Treasury Bond Maturity Management:** Track bonds reaching maturity date
+2. **Collection Process:** Generate documents for bond collection processing
+3. **Lifecycle Management:** Support treasury bond lifecycle from purchase to collection
+
+## Important Warnings
+
+### ⚠️ Date and Processing Sensitivity
+- **Today Only:** Processes bonds with worth date = today only
+- **Duplicate Risk:** Multiple executions on same date may create duplicates
+- **Status Dependency:** Only processes "Ongoing" status bonds
+
+### ⚠️ Performance Limitations
+- **Record Limit:** Maximum 500 records per execution
+- **Error Handling:** Stops on first error to prevent partial processing
 
 **Module:** accounting
 
 **Full Class Name:** `com.namasoft.modules.accounting.domain.utils.actions.EAGenInvestmentDocClaimingDoc`
-
-## Overview
-
-This entity action automatically creates **Investment Document Claiming** records for treasury bonds that have reached their maturity date. It's designed to help track when treasury bonds become due for claiming/collection.
-
-### What This Action Does
-
-1. **Searches for Eligible Treasury Bonds**: Finds all treasury bonds that:
-   - Have a worth date (maturity date) equal to today's date
-   - Are of type "Treasury Bonds" (not company bonds)
-   - Have status "Ongoing" (not closed or initial)
-   - Have been committed (saved) before
-
-2. **Creates Claiming Documents**: For each eligible treasury bond, it:
-   - Creates a new "Investment Document Claiming" record
-   - Links it to the original investment document
-   - Copies specified fields from the original investment document
-   - Sets up proper dimensions and accounting book information
-   - Generates a code if needed
-   - Saves the claiming document
-
-## Key Fields and Entities
-
-### Source Entity: Investment Document (سند استثمار)
-- **Entity Type**: InvestmentDoc
-- **Purpose**: Master file that stores treasury bond information
-- **Key Fields Used**:
-  - **Worth Date (تاريخ الاستحقاق)**: The maturity date when the bond becomes claimable
-  - **Type (النوع)**: Must be "TreasuryBonds" (not "CompanyBonds")
-  - **Investment Doc Status (حالة السند)**: Must be "Ongoing" (not "Initial" or "Closed")
-
-### Target Entity: Investment Document Claiming (مستند استحقاق سند استثمار)
-- **Entity Type**: InvestmentDocClaiming
-- **Purpose**: Document that tracks the claiming/collection of matured treasury bonds
-- **Key Fields**:
-  - **Investment Document**: Reference to the original treasury bond
-  - **Various copied fields**: Based on the field mapping parameter
-
-## When This Action Runs
-
-This action is typically triggered:
-- **Daily**: As part of scheduled processes to check for bonds maturing today
-- **Manually**: When users need to generate claiming documents for today's matured bonds
-- **From workflows**: As part of treasury bond management processes
-
-## Parameters
-
-The action accepts one parameter:
-- **Fields Map**: A text parameter that specifies which fields to copy from the source Investment Document to the target Investment Document Claiming
-
-## Important Notes and Warnings
-
-### ⚠️ **Critical Warnings**
-
-1. **Date Sensitivity**: This action only processes bonds with worth date = TODAY. If run on wrong date, it will miss or incorrectly process bonds.
-
-2. **One-Time Processing**: Each treasury bond should only generate one claiming document. Running this action multiple times on the same date may create duplicates.
-
-3. **Status Requirements**: Only processes "Ongoing" treasury bonds. Bonds in "Initial" or "Closed" status are ignored.
-
-4. **Performance Impact**: Limited to 500 records per run to prevent system overload.
-
-
-### 📋 **Business Process Context**
-
-This action supports the treasury bond lifecycle:
-1. **Purchase**: Investment Document created with future worth date
-2. **Ongoing**: Bond status set to "Ongoing" during active period
-3. **Maturity**: This action creates claiming document when worth date arrives
-4. **Collection**: Claiming document used to track actual collection/payment
-
-### 🔧 **Customization Notes**
-
-- **Field Copying**: The specific fields copied depend on the Fields Map parameter
-- **Dimensions**: Generic dimensions are automatically copied from the book
-- **Code Generation**: Codes are auto-generated based on book settings
-- **Error Handling**: Process stops on first error to prevent partial processing
 
 </div>
 
