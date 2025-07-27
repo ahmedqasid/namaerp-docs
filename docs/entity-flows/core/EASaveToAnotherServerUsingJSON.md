@@ -3,7 +3,6 @@ title: EASaveToAnotherServerUsingJSON
 module: core
 ---
 
-
 <div class='entity-flows'>
 
 # EASaveToAnotherServerUsingJSON
@@ -12,63 +11,48 @@ module: core
 
 ## Overview
 
-This entity flow synchronizes data between different Nama ERP servers using JSON format for data transmission. It exports entities to JSON format and imports them on the target server using the CoreWS.importJsonFromAnotherServer method, providing a more flexible alternative to direct DTO transfer.
+Synchronizes data between Nama ERP servers using JSON format for data transmission. Provides more flexible alternative to direct DTO transfer through JSON export/import.
 
 ## When This Action Runs
 
 - **Trigger:** Manual execution or automated synchronization
-- **Target:** Any entity record that needs JSON-based replication
-- **Scope:** Single entity or bulk transfer via SQL query
-- **Method:** JSON export/import using CoreWS interface
+- **Target:** Any entity record requiring JSON-based replication
+- **Purpose:** Server synchronization with JSON format flexibility
+- **Timing:** On-demand or scheduled for data consistency
 
 ## How It Works
 
-### 1. JSON Export Process
-- **JsonRecordExporter:** Uses JsonRecordExporter to convert entity to JSON format
-- **Complete Export:** Exports both header and collection data (full entity structure)
-- **Field Overrides:** Applies custom field mappings to JSON before transmission
-- **Code Modification:** Adds "@draft" suffix if configured
-
-### 2. Data Transmission
-- **JSON Packaging:** Wraps entity JSON in structured format with entity type
-- **CoreWS Client:** Creates CoreWS client for target server communication
-- **Import Request:** Constructs EntityImportRequest with JSON payload
-- **Remote Import:** Calls `importJsonFromAnotherServer()` on target server
-
-### 3. Configuration Options
-- **Dimension Handling:** Controls user dimension assignment behavior
-- **Reference Handling:** Manages missing reference resolution
-- **Draft Mode:** Supports both draft and committed saves
+1. **Exports entity to JSON** using JsonRecordExporter (full structure)
+2. **Applies field overrides** to JSON before transmission
+3. **Transmits via CoreWS** using `importJsonFromAnotherServer()` method
+4. **Imports on target server** with configuration options for references and drafts
 
 ## Key Differences from Standard EASaveToAnotherServer
 
-### Advantages of JSON Method
-- **Format Flexibility:** JSON format is more portable and debugging-friendly
+### Advantages
+- **Format Flexibility:** JSON is more portable and debugging-friendly
+- **Complete Structure:** Exports both header and collection data
 
 ### Limitations
-- **Keep Creation Date:** Not supported (throws exception)
-- **Manual Code Prefix:** Inherited from base class but uses JSON path
+- **Keep Creation Date:** NOT SUPPORTED (throws exception)
+- **Performance:** JSON serialization adds processing overhead
 
 ## Parameters
 
-All parameters are the same as [EASaveToAnotherServer](EASaveToAnotherServer.md) class with the same functionality, except:
+**Same as EASaveToAnotherServer except:**
 
 ### Parameter 12: Keep Creation Date
 - **Status:** **NOT SUPPORTED**
 - **Behavior:** Throws `NaMaBusinessLogicExeption` if set to true
-- **Reason:** JSON import process doesn't support creation date preservation
-- **Workaround:** Use standard `EASaveToAnotherServer` if creation date preservation is required
+- **Workaround:** Use standard `EASaveToAnotherServer` for creation date preservation
 
-All other parameters work identically to the base class:
+**Other parameters work identically:**
 - Server URL, Login ID, Password
-- Draft mode, reference handling
-- Field value overrides
-- Dimension management
-- Bulk processing via SQL queries
+- Draft mode, reference handling, field overrides
+- Dimension management, bulk processing via SQL
 
 ## JSON Structure Example
 
-The transmitted JSON follows this structure:
 ```json
 {
   "EntityTypeName": [
@@ -90,30 +74,28 @@ The transmitted JSON follows this structure:
 
 ## Database Tables Affected
 
-Same as base class:
-- **Source Entity:** The entity being synchronized (any entity type)
-- **SentEntityToAnotherServerSysEntry:** Audit log of synchronization attempts
+**Same as base class:**
+- **Source Entity** - The entity being synchronized
+- **SentEntityToAnotherServerSysEntry** - Audit log of synchronization attempts
 
 ## Important Warnings
 
 ### ⚠️ Functional Limitations
-- **Creation Date:** Cannot preserve original creation date (will throw exception)
-- **Performance:** JSON serialization/deserialization adds processing overhead
-
-### ⚠️ JSON Format Dependencies
-- **Field Mapping:** Custom field overrides apply to JSON structure
+- **Creation Date Preservation:** Not supported - will throw exception
+- **Performance Impact:** JSON serialization/deserialization adds overhead
+- **Field Mapping:** Custom overrides apply to JSON structure
 
 ### ⚠️ Error Handling
-- **Validation Errors:** Server-side validation may reject imported data
+- **Validation Errors:** Server-side validation may reject imported JSON data
 - **Reference Resolution:** Missing references handled by import process settings
+
+## Related Actions
+
+- **EASaveToAnotherServer** - Standard DTO-based server synchronization
 
 **Module:** core
 
 **Full Class Name:** `com.namasoft.commonservices.utils.EASaveToAnotherServerUsingJSON`
-
-**Related Actions:**
-- [EASaveToAnotherServer](EASaveToAnotherServer.md)
-
 
 </div>
 

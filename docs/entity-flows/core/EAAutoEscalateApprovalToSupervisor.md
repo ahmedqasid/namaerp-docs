@@ -3,7 +3,6 @@ title: EAAutoEscalateApprovalToSupervisor
 module: core
 ---
 
-
 <div class='entity-flows'>
 
 # EAAutoEscalateApprovalToSupervisor
@@ -12,71 +11,57 @@ module: core
 
 ## Overview
 
-This entity flow automatically escalates overdue approval cases to the supervisor of the assigned employee when timeout periods are exceeded. It is a specialized version of the approval escalation system that specifically targets supervisor-based escalation rather than fallback employees.
+Automatically escalates overdue approval cases to the supervisor of the assigned employee when timeout periods are exceeded. Uses organizational hierarchy instead of fallback employees.
 
 ## When This Action Runs
 
-- **Trigger:** Automatic execution on scheduled intervals
-- **Event Type:** Not tied to specific document events
-- **Execution Context:** System-wide approval case processing
-- **Frequency:** Based on system scheduling configuration
+- **Trigger:** Scheduled task execution
+- **Target:** Approval cases exceeding auto-escalation timeout
+- **Purpose:** Escalate to supervisor based on organizational hierarchy
+- **Timing:** Runs on system schedule to check for overdue approvals
 
 ## How It Works
 
-The action performs the following steps automatically:
-
-### 1. Find Overdue Approvals
-Searches for approval cases that meet all criteria:
-- `nearestAutoEscalateDate` is in the past (≤ current time)
-- Case state is "InProgress"
-- Has active candidates waiting for approval
-
-### 2. Validate Escalation Candidates
-For each found approval case, checks if escalation is appropriate:
-- Candidate has not already been escalated (`escalated = false`)
-- Approval definition has `autoEscalateAfter` time period configured
-- Time period since candidate request exceeds the configured threshold
-
-### 3. Escalate to Supervisor
-Creates a new approval step with:
-- **Decision Type:** "EscalateToSupervisor"
-- **Target:** The supervisor of the current candidate employee
-- **Reason:** "Auto escalate" 
-- **Audit Trail:** Full tracking of the escalation action
+1. **Finds overdue approvals** where `nearestAutoEscalateDate` has passed and state is "InProgress"
+2. **Validates escalation candidates** haven't already been escalated
+3. **Checks timeout configuration** in approval definition
+4. **Escalates to supervisor** of current candidate employee using organizational hierarchy
 
 ## Database Tables Affected
 
-### Primary Tables
-- **ApprovalCase:** Cases being monitored for escalation
-  - `nearestAutoEscalateDate`: When escalation should occur
-  - `state`: Must be "InProgress" to be eligible
+### ApprovalCase
+- **nearestAutoEscalateDate** - When escalation should occur
+- **state** - Must be "InProgress" for escalation
 
-- **ApprovalDefinition:** Configuration for escalation rules
-  - `autoEscalateAfter`: Time period before escalation (value + unit)
+### ApprovalDefinition
+- **autoEscalateAfter** - Time period before escalation (value + unit)
 
-- **ApprovalCaseStepCandidate:** Individual approval assignments
-  - `escalated`: Whether this candidate has been escalated
-  - `requestedOn`: When the approval was initially requested
-  - `candidate_id`: Reference to the employee who should approve
+### ApprovalCaseStepCandidate
+- **escalated** - Whether candidate has been escalated
+- **requestedOn** - When approval was initially requested
+- **candidate_id** - Employee who should approve
 
 ## Key Differences from Fallback Escalation
 
-Unlike `EAAutoEscalateApprovalToFallBackEmployee`:
 - **Target:** Escalates to employee's direct supervisor (hierarchy-based)
-- **Logic:** Uses system's organizational hierarchy to find supervisor
+- **Logic:** Uses organizational hierarchy to find supervisor
 - **Configuration:** No specific fallback employee configuration needed
 
-## SQL Query for Monitoring
+## Configuration Requirements
 
-To check which approval cases are eligible for supervisor escalation:
+### Approval Definition Setup
+- **autoEscalateAfter:** Must specify time period (value + unit)
+- **Examples:** "2 Days", "1 Week", "4 Hours"
+
+### Employee Hierarchy
+- **Supervisor Relationship:** Employees must have supervisor configured in HR module
+- **Organizational Structure:** Clear reporting hierarchy must be established
+
+## SQL Query Example
 
 ```sql
-SELECT 
-    ac.id AS ApprovalCaseId,
-    ac.nearestAutoEscalateDate,
-    ac.state,
-    ad.autoEscalateAfter_value,
-    ad.autoEscalateAfter_uom
+SELECT ac.id, ac.nearestAutoEscalateDate, ac.state, 
+       ad.autoEscalateAfter_value, ad.autoEscalateAfter_uom
 FROM ApprovalCase ac
 INNER JOIN ApprovalDefinition ad ON ac.approvalDefinition_id = ad.id
 WHERE ac.nearestAutoEscalateDate <= GETDATE()
@@ -84,42 +69,25 @@ WHERE ac.nearestAutoEscalateDate <= GETDATE()
     AND ad.autoEscalateAfter_value > 0;
 ```
 
-## Configuration Requirements
-
-### Approval Definition Setup
-- **autoEscalateAfter:** Must specify time period (value + unit)
-  - Examples: "2 Days", "1 Week", "4 Hours"
-  - Used to calculate when escalation should occur
-
-### Employee Hierarchy
-- **Supervisor Relationship:** Employees must have supervisor configured in HR module
-- **Organizational Structure:** Clear reporting hierarchy must be established
-
 ## Important Warnings
 
-### ⚠️ Supervisor Availability
-- If employee has no supervisor configured, escalation may fail
-- System should gracefully handle missing supervisor relationships
+### ⚠️ Configuration Requirements
+- **Supervisor Relationship Required:** Employees must have supervisor configured
+- **Timeout Configuration:** Must have valid autoEscalateAfter time period
+- **Infinite Loop Prevention:** System tracks escalated status to prevent repeated escalations
 
-### ⚠️ Infinite Loop Prevention
-- System tracks escalated status to prevent repeated escalations
-- Each candidate can only be escalated once per approval step
+### ⚠️ Operational Impact
+- **Missing Supervisor:** Escalation may fail if employee has no supervisor configured
+- **Audit Trail:** All escalations create permanent audit records
+- **Performance:** Large volumes of overdue approvals may impact processing time
 
-### ⚠️ Audit Trail Impact
-- All escalations create permanent audit records
-- Decision history shows automatic escalation reasoning
+## Related Actions
 
-### ⚠️ Performance Considerations
-- Processes all overdue cases in single execution
-- Large volumes of overdue approvals may impact processing time
+- **EAAutoEscalateApprovalToFallBackEmployee** - Escalates to specific fallback employee instead of supervisor
 
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAAutoEscalateApprovalToSupervisor`
-
-**Related Actions:**
-- [EAAutoEscalateApprovalToFallBackEmployee](EAAutoEscalateApprovalToFallBackEmployee.md)
-
 
 </div>
 

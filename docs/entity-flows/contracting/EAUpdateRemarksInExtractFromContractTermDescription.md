@@ -9,176 +9,114 @@ module: contracting
 
 **This document was generated using Claude.ai**
 
-## Purpose
+## Overview
 
-This entity action automatically fills the **Remarks** field in contract extracts (مستخلصات) by copying remarks from the contract terms in a hierarchical manner. It works on both **Project Extracts (مستخلص مشروع)** and **Contractor Extracts (مستخلص مقاول باطن)**.
+Automatically fills remarks fields in contract extracts by copying remarks from contract terms in hierarchical manner. Works on both Project and Contractor extracts.
 
-## What It Does
+## When This Action Runs
 
-The action looks at each line in your extract (whether in Details or Conditions), finds the matching term in the contract, then traces up the contract's term hierarchy to collect remarks from parent terms. These remarks are then combined and placed in the extract line's remarks field.
+- **Trigger:** Manual execution through entity flows
+- **Target:** Contract extract documents (Project/Contractor)
+- **Purpose:** Populate extract remarks from contract term hierarchy
+- **Timing:** On-demand when remarks synchronization is needed
 
-### Key Behavior:
-- **Hierarchical Collection**: If a term has parent terms (like main category → sub-category → specific item), it collects remarks from all levels
-- **Bottom-Up Processing**: Starts from the most specific term and works up to parent terms
-- **Customizable Levels**: You can limit how many hierarchy levels to include
-- **Flexible Sources**: Can work with different contract fields and term code fields
+## How It Works
 
-## Parameters
+1. **Finds matching term** in contract using term code from extract line
+2. **Traces hierarchy** up through parent terms using `parentLineID`
+3. **Collects remarks** from all hierarchy levels
+4. **Combines remarks** with specified separator
+5. **Updates extract fields** in details and/or conditions
 
-| Parameter | Arabic Name | Description | Required | Default |
-|-----------|-------------|-------------|----------|---------|
-| **1. Update Details Remarks** | تحديث ملاحظات التفاصيل | Set to `true` to update remarks in extract details (التفاصيل), `false` to skip | At least one of param 1 or 2 must be true | - |
-| **2. Update Conditions Remarks** | تحديث ملاحظات الشروط | Set to `true` to update remarks in extract conditions (الشروط), `false` to skip | At least one of param 1 or 2 must be true | - |
-| **3. Up to Level** | حتى المستوى | Maximum number of parent levels to include in remarks collection | No | 255 (all levels) |
-| **4. Contract Field** | حقل العقد | Field path to the contract containing the terms (e.g., `projContract.executiveBudget`) | No | Uses main contract |
-| **5. Term Code Field** | حقل كود البند | Field name containing the term code (e.g., `executiveTermCode`, `estimatedTermCode`) | No | Uses default `termCode` |
-| **6. Separator** | الفاصل | Text to separate remarks between hierarchy levels | No | ` - ` (space-dash-space) |
-
-## How Hierarchy Works
-
-Contract terms are organized in a parent-child hierarchy using the `parentLineID` field. For example:
-
+### Hierarchy Example
 ```
 Foundation Work (Level 1)
 ├── Excavation (Level 2)
 │   ├── Manual Excavation (Level 3)
 │   └── Machine Excavation (Level 3)
-└── Concrete Work (Level 2)
 ```
+For "Manual Excavation": collects remarks from levels 3→2→1
 
-When the action processes "Manual Excavation", it collects remarks from:
-1. Manual Excavation (Level 3) - most specific
-2. Excavation (Level 2) - parent
-3. Foundation Work (Level 1) - grandparent
+## Parameters
+
+### Parameter 1: Update Details Remarks (Required)
+- **Values:** `true` or `false`
+- **Purpose:** Update remarks in extract detail lines
+
+### Parameter 2: Update Conditions Remarks (Required)
+- **Values:** `true` or `false`  
+- **Purpose:** Update remarks in extract condition lines
+
+### Parameter 3: Up to Level (Optional)
+- **Default:** 255 (all levels)
+- **Purpose:** Maximum hierarchy levels to include
+
+### Parameter 4: Contract Field (Optional)
+- **Purpose:** Custom field path to contract terms
+- **Examples:** `projContract.executiveBudget`
+
+### Parameter 5: Term Code Field (Optional)
+- **Purpose:** Custom field for term codes
+- **Examples:** `executiveTermCode`, `estimatedTermCode`
+
+### Parameter 6: Separator (Optional)
+- **Default:** `" - "`
+- **Purpose:** Text to separate hierarchy level remarks
 
 ## Database Tables Affected
 
-### Extract Tables:
-- **ProjContrExtractLine** (Project extract details)
-- **ProjExtractCondLine** (Project extract conditions)  
-- **ContractorContrExtractLine** (Contractor extract details)
-- **ContractorExtractCondLine** (Contractor extract conditions)
+### Extract Tables (Updated)
+- **ProjContrExtractLine** - Project extract details
+- **ProjExtractCondLine** - Project extract conditions
+- **ContractorContrExtractLine** - Contractor extract details
+- **ContractorExtractCondLine** - Contractor extract conditions
 
-### Source Tables:
-- **ProjContractTermLine** (Project contract terms)
-- **ContractorContractTermLine** (Contractor contract terms)
-
-## Example Usage Scenarios
-
-### Scenario 1: Basic Usage
-```
-Parameter 1: true
-Parameter 2: true  
-Parameter 3: (empty - uses all levels)
-Parameter 4: (empty - uses main contract)
-Parameter 5: (empty - uses termCode field)
-Parameter 6: (empty - uses default " - ")
-```
-**Result**: Updates both details and conditions remarks with all parent term remarks separated by " - "
-
-### Scenario 2: Limited Hierarchy
-```
-Parameter 1: true
-Parameter 2: false
-Parameter 3: 2
-Parameter 4: (empty)
-Parameter 5: (empty)
-Parameter 6: | (pipe separator)
-```
-**Result**: Updates only details remarks, including maximum 2 hierarchy levels, separated by "|"
-
-### Scenario 3: Alternative Contract Source
-```
-Parameter 1: true
-Parameter 2: true
-Parameter 3: (empty)
-Parameter 4: projContract.executiveBudget
-Parameter 5: executiveTermCode
-Parameter 6: (empty)
-```
-**Result**: Uses executive budget contract and executive term codes instead of main contract
-
-## Field Information
-
-### Extract Detail Fields Updated:
-- **details.remarks** (ملاحظات التفاصيل)
-
-### Extract Condition Fields Updated:  
-- **conditions.remarks** (ملاحظات الشروط)
-
-### Term Code Sources:
-- **details.termCode** (default)
-- **details.executiveTermCode** 
-- **details.estimatedTermCode**
-- **conditions.termCode** (default)
-
-### Contract Sources:
-- Main contract (default)
-- **projContract.executiveBudget**
-- Any other contract reference field
+### Source Tables
+- **ProjContractTermLine** - Project contract terms
+- **ContractorContractTermLine** - Contractor contract terms
 
 ## SQL Query Example
 
-To see what this action would do manually:
-
 ```sql
--- Example: Get hierarchical remarks for a specific term
+-- Get hierarchical remarks for specific term
 WITH TermHierarchy AS (
-    SELECT 
-        t.id,
-        t.termCode,
-        t.remarks,
-        t.parentLineID,
-        1 as Level
+    SELECT t.id, t.termCode, t.remarks, t.parentLineID, 1 as Level
     FROM ProjContractTermLine t 
-    WHERE t.termCode = 'SPECIFIC_TERM_CODE'
-    AND t.projectContract_id = 'CONTRACT_ID'
+    WHERE t.termCode = 'TERM_CODE' AND t.projectContract_id = 'CONTRACT_ID'
     
     UNION ALL
     
-    SELECT 
-        p.id,
-        p.termCode,
-        p.remarks,
-        p.parentLineID,
-        th.Level + 1
+    SELECT p.id, p.termCode, p.remarks, p.parentLineID, th.Level + 1
     FROM ProjContractTermLine p
     INNER JOIN TermHierarchy th ON p.id = th.parentLineID
-    WHERE th.Level < 3  -- Up to level limit
+    WHERE th.Level < 3
 )
-SELECT 
-    STRING_AGG(
-        LTRIM(RTRIM(ISNULL(remarks, ''))), 
-        ' - '
-    ) WITHIN GROUP (ORDER BY Level DESC) as CombinedRemarks
+SELECT STRING_AGG(LTRIM(RTRIM(ISNULL(remarks, ''))), ' - ') 
+       WITHIN GROUP (ORDER BY Level DESC) as CombinedRemarks
 FROM TermHierarchy
 WHERE LTRIM(RTRIM(ISNULL(remarks, ''))) != '';
 ```
 
 ## Important Warnings
 
-⚠️ **Data Overwrite**: This action will **completely replace** existing remarks in the specified fields. Any manually entered remarks will be lost.
+### ⚠️ Data Impact
+- **Data Overwrite:** Completely replaces existing remarks - manual entries will be lost
+- **Hierarchy Dependency:** Requires properly filled `parentLineID` fields in contract terms
+- **Empty Results:** Missing terms or empty remarks result in empty extract remarks
 
-⚠️ **Performance Impact**: On large extracts with many lines, this action may take time to process as it traverses the term hierarchy for each line.
+### ⚠️ Configuration Requirements
+- **Parameter Validation:** At least one of Update Details/Conditions must be `true`
+- **Field Validation:** Contract and term code fields must exist and contain valid data
+- **Performance:** Large extracts with deep hierarchies may take time to process
 
-⚠️ **Contract Dependency**: The action requires that contract terms have properly filled `parentLineID` fields to build the hierarchy correctly.
+## Related Actions
 
-⚠️ **Field Validation**: Ensure the specified contract field and term code field actually exist and contain valid data before running.
+- **Contract Term Management** - Maintains source remarks and hierarchy
+- **Extract Processing** - Uses updated remarks for documentation
+- **Project/Contractor Coordination** - Ensures consistent remarks across extract types
 
-⚠️ **Empty Results**: If no matching terms are found or if terms have no remarks, the extract remarks will be set to empty.
+**Module:** contracting
 
-## Verification Steps
-
-After running this action:
-
-1. **Check Extract Lines**: Use ALT+CTRL+I on extract lines to verify remarks were populated
-2. **Compare with Contract**: Cross-reference with contract terms to ensure proper hierarchy collection
-3. **Test Different Levels**: Try different "Up to Level" values to see the effect
-4. **Validate Sources**: Ensure the correct contract and term code fields were used
-
-## Module Information
-
-**Module:** contracting  
 **Full Class Name:** `com.namasoft.modules.contracting.domain.utils.EAUpdateRemarksInExtractFromContractTermDescription`
 
 </div>

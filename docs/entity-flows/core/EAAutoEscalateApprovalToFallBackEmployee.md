@@ -3,65 +3,60 @@ title: EAAutoEscalateApprovalToFallBackEmployee
 module: core
 ---
 
-
 <div class='entity-flows'>
 
 # EAAutoEscalateApprovalToFallBackEmployee
 
 **This document was generated using Claude.ai**
 
-**Description:** Automatically escalates approval cases to the fallback employee when the approval timeout period has been exceeded
-
-**Module:** core
-
-**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAAutoEscalateApprovalToFallBackEmployee`
-
 ## Overview
 
-This entity action automatically escalates approval cases that have exceeded their auto-escalation timeout period to the fallback employee defined in the approval definition. It runs as a scheduled task to check for overdue approvals and redirects them to ensure approvals don't get stuck with unavailable employees.
+Automatically escalates overdue approval cases to the fallback employee defined in the approval definition. Ensures approvals don't get stuck with unavailable employees.
+
+## When This Action Runs
+
+- **Trigger:** Scheduled task execution
+- **Target:** Approval cases exceeding auto-escalation timeout
+- **Purpose:** Prevent approval bottlenecks with unavailable employees
+- **Timing:** Runs on system schedule to check for overdue approvals
 
 ## How It Works
 
-The system performs the following steps:
+1. **Finds overdue approvals** where `nearestAutoEscalateDate` has passed and state is "InProgress"
+2. **Validates escalation candidates** haven't already been escalated
+3. **Checks timeout configuration** in approval definition
+4. **Escalates to fallback employee** specified in approval definition
 
-1. **Finds Overdue Approvals**: Searches for approval cases where:
-   - The `nearestAutoEscalateDate` has passed (is less than or equal to current date/time)
-   - The approval case state is "InProgress"
+## Database Tables Affected
 
-2. **Validates Escalation Candidates**: For each overdue approval case, checks:
-   - The candidate hasn't already been escalated (`escalated` field is not true)
-   - Auto-escalation is configured in the approval definition (`autoEscalateAfter` has a valid time period)
-   - The escalation timeout has actually been reached
+### ApprovalCase
+- **nearestAutoEscalateDate** - When approval should be auto-escalated
+- **state** - Must be "InProgress" for escalation (values: Approved, Rejected, Returned, Revoked, InProgress)
 
-3. **Escalates to Fallback Employee**: Redirects the approval to the fallback employee specified in the approval definition's `fallBack` field
+### ApprovalDefinition
+- **fallBack** - Employee to escalate to when timeout occurs
+- **autoEscalateAfter.value/uom** - Time period before escalation
 
-## Key Database Tables and Fields
+### ApprovalCaseStepCandidate
+- **escalated** - Tracks if candidate already escalated
+- **requestedOn** - When approval request was made
 
-### ApprovalCase Table
-- **nearestAutoEscalateDate** (DateAndTime): When the approval should be auto-escalated
-- **state** (Enum): Current state - must be "InProgress" for escalation
-  - Possible values: Approved, Rejected, Returned, Revoked, InProgress
+## Configuration Requirements
 
-### ApprovalDefinition Table  
-- **fallBack** (Reference to Employee): The employee to escalate approvals to when timeout occurs
-- **autoEscalateAfter.value** (Decimal): Number of time units before escalation
-- **autoEscalateAfter.uom** (Enum): Time unit (days, hours, minutes, etc.)
+### Approval Definition Setup
+- **fallBack employee** must be specified
+- **autoEscalateAfter** must have valid time period (value > 0 and uom)
 
-### ApprovalCaseStepCandidate Table
-- **escalated** (Boolean): Tracks if this candidate has already been escalated
-- **requestedOn** (Date): When the approval request was made to this candidate
+### Approval Case Requirements
+- Must be in "InProgress" state
+- Must have `nearestAutoEscalateDate` set and exceeded
+- Must have active candidates not yet escalated
 
-## Sample SQL Query to Find Affected Records
+## SQL Query Example
 
 ```sql
-SELECT 
-    ac.id AS ApprovalCaseId,
-    ac.nearestAutoEscalateDate,
-    ac.state,
-    ad.code AS ApprovalDefinitionCode,
-    fb.name1 AS FallbackEmployeeName,
-    ad.autoEscalateAfter_value,
-    ad.autoEscalateAfter_uom
+SELECT ac.id, ac.nearestAutoEscalateDate, ac.state, 
+       ad.code, fb.name1 AS FallbackEmployee
 FROM ApprovalCase ac
 INNER JOIN ApprovalDefinition ad ON ac.approvalDefinition_id = ad.id
 LEFT JOIN Employee fb ON ad.fallBack_id = fb.id
@@ -71,40 +66,25 @@ WHERE ac.nearestAutoEscalateDate <= GETDATE()
 ORDER BY ac.nearestAutoEscalateDate;
 ```
 
-## Configuration Requirements
+## Important Warnings
 
-For this action to work properly:
+### ⚠️ Configuration Requirements
+- **Fallback Employee Required:** Approval definition must have fallback employee configured
+- **Timeout Configuration:** Must have valid autoEscalateAfter time period
+- **Infinite Loop Prevention:** System checks fallback isn't same as current candidate
 
-1. **Approval Definition Setup**:
-   - Must have a `fallBack` employee specified
-   - Must have `autoEscalateAfter` configured with valid time period (value > 0 and uom specified)
-
-2. **Approval Case Requirements**:
-   - Must be in "InProgress" state
-   - Must have `nearestAutoEscalateDate` set and exceeded
-   - Must have active candidates that haven't been escalated yet
-
-## Parameters
-
-This action takes no parameters - it processes all eligible approval cases automatically.
-
-## Important Notes
-
-- **Prevents Infinite Loops**: The system checks if the fallback employee is the same as the current candidate to avoid escalating to the same person
-- **Bulk Processing**: Processes all overdue approval cases in a single execution
-- **Audit Trail**: Creates approval step records showing "Auto escalate" as the reason
-- **Time-Based**: Only processes cases where the actual timeout period has been reached, not just the scheduled escalation date
+### ⚠️ Operational Impact
+- **Automatic Processing:** Processes all eligible approval cases without user intervention
+- **Audit Trail:** Creates approval step records showing "Auto escalate" reason
+- **Workflow Modification:** Changes approval routing automatically
 
 ## Related Actions
 
-- [EAAutoEscalateApprovalToSupervisor](EAAutoEscalateApprovalToSupervisor.md) - Escalates to the employee's supervisor instead of fallback employee
+- **EAAutoEscalateApprovalToSupervisor** - Escalates to employee's supervisor instead of fallback
 
-## Field Reference for System UI
+**Module:** core
 
-Use ALT+CTRL+I in the system to view field information, or check https://dm.namasoft.com for complete entity documentation.
-
-**Warning**: This action modifies approval workflows automatically. Ensure fallback employees are properly configured and available to handle escalated approvals to prevent approval bottlenecks.
-
+**Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAAutoEscalateApprovalToFallBackEmployee`
 
 </div>
 
