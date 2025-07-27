@@ -118,12 +118,6 @@ WHERE fp.endDate <= DATEADD(day, 0, GETDATE())
 - Ensure all required period-end procedures are completed
 - Confirm all transactions are properly posted
 
-## Field Information Access
-
-For detailed field information:
-- **System UI:** Use ALT+CTRL+I on fiscal period fields for "Show Field Info"
-- **Documentation:** Visit https://dm.namasoft.com for comprehensive entity documentation
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EACloseFiscalPeriodsInRange`

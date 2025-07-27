@@ -172,12 +172,6 @@ This action does not require any parameters as it performs system-wide maintenan
 - **Validation Checks:** Verify processing results through status queries
 - **Backup Strategies:** Consider backup strategies for payment transaction data
 
-## Field Information Access
-
-For detailed field information:
-- **System UI:** Use ALT+CTRL+I on any entity field for "Show Field Info"
-- **Documentation:** Visit https://dm.namasoft.com for comprehensive entity documentation
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EACheckAndUpdateLinkAtOnlinePaymentTransactionSysEntry`

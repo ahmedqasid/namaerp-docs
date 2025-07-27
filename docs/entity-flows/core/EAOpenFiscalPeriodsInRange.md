@@ -128,12 +128,6 @@ WHERE fp.startDate <= DATEADD(day, 0, GETDATE())
 - Some jurisdictions have restrictions on historical modifications
 - Document compliance requirements and approvals
 
-## Field Information Access
-
-For detailed field information:
-- **System UI:** Use ALT+CTRL+I on fiscal period fields for "Show Field Info"
-- **Documentation:** Visit https://dm.namasoft.com for comprehensive entity documentation
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAOpenFiscalPeriodsInRange`

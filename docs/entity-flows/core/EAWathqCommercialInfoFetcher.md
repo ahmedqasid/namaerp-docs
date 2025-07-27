@@ -184,12 +184,6 @@ ORDER BY w.onTime DESC;
 - **Data Privacy:** Wathq responses may contain sensitive business information
 - **Access Control:** Restrict action execution to authorized personnel only
 
-## Field Information Access
-
-For detailed field information:
-- **System UI:** Use ALT+CTRL+I on any entity field for "Show Field Info"
-- **Documentation:** Visit https://dm.namasoft.com for comprehensive entity documentation
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAWathqCommercialInfoFetcher`

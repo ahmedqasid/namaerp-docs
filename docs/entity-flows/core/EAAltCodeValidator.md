@@ -189,12 +189,6 @@ Invalid: "abc1234" (lowercase), "AB1234" (too short), "ABC12345" (too long)
 - **Exception Handling:** Plan for legitimate cases that don't fit patterns
 - **Rule Evolution:** Consider how validation rules may change over time
 
-## Field Information Access
-
-For detailed field information:
-- **System UI:** Use ALT+CTRL+I on any entity field for "Show Field Info"
-- **Documentation:** Visit https://dm.namasoft.com for comprehensive entity documentation
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAAltCodeValidator`

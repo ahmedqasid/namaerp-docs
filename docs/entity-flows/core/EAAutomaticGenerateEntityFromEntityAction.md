@@ -220,13 +220,6 @@ totalize(SELECT CASE WHEN {details.item.item.code} IN ('a','b','c') THEN 1 ELSE 
 - **Concurrency Issues:** Multiple simultaneous operations may cause conflicts
 - **Error Recovery:** Failed operations may leave system in inconsistent state
 
-## Field Information Access
-
-For detailed field information:
-- **System UI:** Use ALT+CTRL+I on any entity field for "Show Field Info"
-- **Documentation:** Visit https://dm.namasoft.com for comprehensive entity documentation
-- **Field Mapping Guide:** Visit https://docs.namasoft.com/guide/entity-flows/ea-fields-values-calculator.html
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAAutomaticGenerateEntityFromEntityAction`

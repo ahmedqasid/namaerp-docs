@@ -224,11 +224,6 @@ This action reads configuration but does not modify entity data. All backup chec
 - **Success Rate Tracking:** Track backup success rates over time
 - **Storage Monitoring:** Monitor Google Drive storage usage and quotas
 
-## Field Information Access
-
-For detailed field information:
-- **System UI:** Use ALT+CTRL+I on any entity field for "Show Field Info"
-- **Documentation:** Visit https://dm.namasoft.com for comprehensive entity documentation
 
 **Module:** core
 

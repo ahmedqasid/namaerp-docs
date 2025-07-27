@@ -187,12 +187,6 @@ ORDER BY w.onTime DESC;
 - **API Availability:** Government API may have varying response times
 - **Caching:** Consider API call frequency to avoid unnecessary requests
 
-## Field Information Access
-
-For detailed field information:
-- **System UI:** Use ALT+CTRL+I on any entity field for "Show Field Info"
-- **Documentation:** Visit https://dm.namasoft.com for comprehensive entity documentation
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAWathqBasicInfoFetcher`

@@ -101,12 +101,6 @@ Reversed Lines → Added to current document's LedgerTrans
 Final LedgerTrans → Contains both original document lines + reversed lines
 ```
 
-## Field Information Access
-
-To check field details for parameters, use:
-- **UI Method**: Press `ALT+CTRL+I` while on any field to show field information
-- **Documentation**: Visit https://dm.namasoft.com for comprehensive entity documentation
-
 ## Common Use Cases
 
 ### 1. Document Cancellation

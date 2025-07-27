@@ -194,12 +194,6 @@ This entity flow automatically calculates and sets the exchange rate for foreign
 - **Historical Rates:** Maintain historical rates for audit and compliance
 - **Rate Types:** Use appropriate rate types for different transaction types
 
-## Field Information Access
-
-For detailed field information:
-- **System UI:** Use ALT+CTRL+I on any entity field for "Show Field Info"
-- **Documentation:** Visit https://dm.namasoft.com for comprehensive entity documentation
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EACalcCurrencyRate`

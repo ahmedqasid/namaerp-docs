@@ -179,12 +179,6 @@ This entity flow clears Hibernate second-level cache for a specific entity type,
 - **System Load:** Monitor database and application load during cache rebuild
 - **User Feedback:** Monitor for user reports of performance issues
 
-## Field Information Access
-
-For detailed field information:
-- **System UI:** Use ALT+CTRL+I on any entity field for "Show Field Info"
-- **Documentation:** Visit https://dm.namasoft.com for comprehensive entity documentation
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EACacheEvicter`
