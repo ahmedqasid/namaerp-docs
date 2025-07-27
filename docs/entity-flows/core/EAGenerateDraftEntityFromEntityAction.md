@@ -9,6 +9,7 @@ module: core
 # EAGenerateDraftEntityFromEntityAction
 
 **This document was generated using Claude.ai**
+Please review the human-written page at [Field Values Calculator](../../guide/entity-flows/ea-fields-values-calculator.md)
 
 ## Overview
 
