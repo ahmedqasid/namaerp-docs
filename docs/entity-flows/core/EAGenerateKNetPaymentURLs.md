@@ -29,7 +29,9 @@ Online payment URL generation for documents implementing ISupportOnlinePaymentDo
 ## Parameters
 
 **Parameter 1:** Payment Config Code (Required) - Code of OnlinePaymentConfig entity (e.g., KNET_PROD, KNET_TEST)
+
 **Parameter 2:** Copy URL To Field (Required) - Field name for redirect payment URL storage
+
 **Parameter 3:** Copy Nama Payment URL To Field (Required) - Field name for direct payment URL storage
 
 ## Database Tables Affected

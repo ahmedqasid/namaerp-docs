@@ -29,13 +29,21 @@ Automated entity matching for reference fields requiring population during data 
 ## Parameters
 
 **Parameter 1:** Guess Into Field (Target) (Required) - Target reference field to populate (e.g., item, customer)
+
 **Parameter 2:** Guess From Field (Source) (Required) - Source field containing text to match (e.g., description, itemName)
+
 **Parameter 3:** Target Entity Type (Conditional) - Required for generic reference fields (e.g., InvItem, Customer)
+
 **Parameter 4:** Always Guess (Optional) - "true"/"false" to guess even if target field not empty (default: false)
+
 **Parameter 5:** Max Applicable Weight (Optional) - Weight threshold for accepting matches (default: 50)
+
 **Parameter 6:** Minimum Substring Length (Optional) - Minimum substring length for calculations (default: 4)
+
 **Parameter 7:** Previous Result Cache Statement (Optional) - SQL query for previous matching results
+
 **Parameter 8:** Extra Comparison Fields (Optional) - Additional field comparisons (targetField=sourceField)
+
 **Parameter 9:** Min Matched First Letters (Optional) - Minimum first letters that must match (default: 4)
 
 ## Database Tables Affected

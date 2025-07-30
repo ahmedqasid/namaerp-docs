@@ -31,17 +31,23 @@ Manual execution when documents contain size, color, or revision dimensions that
 
 ### Size Configuration
 **Parameter 1:** Add Size to Item (Optional) - true/false to add sizes not found in item (default: false)
+
 **Parameter 2:** Create Size Master File (Optional) - true/false to create missing size master records (default: false)
+
 **Parameter 3:** Size Fields Map (Optional) - Field mapping for size master file creation
 
 ### Color Configuration  
 **Parameter 4:** Add Color to Item (Optional) - true/false to add colors not found in item (default: false)
+
 **Parameter 5:** Create Color Master File (Optional) - true/false to create missing color master records (default: false)
+
 **Parameter 6:** Color Fields Map (Optional) - Field mapping for color master file creation
 
 ### Revision Configuration
 **Parameter 7:** Add Revision to Item (Optional) - true/false to add revisions not found in item (default: false)
+
 **Parameter 8:** Create Revision Master File (Optional) - true/false to create missing revision master records (default: false)
+
 **Parameter 9:** Revision Fields Map (Optional) - Field mapping for revision master file creation
 
 ## Database Tables Affected
@@ -90,4 +96,3 @@ Manual execution when documents contain size, color, or revision dimensions that
 
 
 </div>
-

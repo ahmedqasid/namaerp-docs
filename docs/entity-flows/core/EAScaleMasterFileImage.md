@@ -29,6 +29,7 @@ Manual execution for standardizing master file images, reducing storage space, o
 ## Parameters
 
 **Parameter 1:** Scaled Width (Required) - Maximum width in pixels for scaled images
+
 **Parameter 2:** Scaled Height (Required) - Maximum height in pixels for scaled images
 
 ## Database Tables Affected
@@ -77,4 +78,3 @@ Manual execution for standardizing master file images, reducing storage space, o
 
 
 </div>
-

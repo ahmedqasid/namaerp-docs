@@ -36,11 +36,17 @@ select code,creationDate [creationDate#ddMMyyy HH:mm:ss] from Employee
 ```
 
 **Parameter 2:** Delimiter (Required) - CSV field delimiter (e.g., `,` or `;` or `|`)
+
 **Parameter 3:** Attachment Name Tempo (Required) - Dynamic filename template using Tempo syntax
+
 **Parameter 4:** Headers Line (Optional) - CSV column headers (uses SQL column names if empty)
+
 **Parameter 5:** Send To Emails (Optional) - Comma-separated recipient email addresses
+
 **Parameter 6:** Subject Tempo (Required) - Email subject template using Tempo syntax
+
 **Parameter 7:** Body Tempo (Required) - Email body template using Tempo syntax
+
 **Parameter 8:** Preferred Sender ID (Optional) - Sender configuration ID
 
 ## Database Tables Affected

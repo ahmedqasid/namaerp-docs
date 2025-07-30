@@ -29,8 +29,11 @@ Manual execution for organizing detail collections, improving data presentation,
 ## Parameters
 
 **Parameter 1:** Detail Field (Required) - Name of the detail collection field to sort (e.g., "details", "lines")
+
 **Parameter 2:** Sort On Field (Required) - Field within detail records to sort by (e.g., "details.item.itemCode", "paymentDetails.amount")
+
 **Parameter 3:** Save Original Order In Field (Optional) - Field to store original position numbers before sorting (e.g. "details.n1")
+
 **Parameter 4:** Sort Direction (Optional) - "asc" for ascending or "desc" for descending (default: "asc")
 
 ## Usage Examples
@@ -98,4 +101,3 @@ Parameter 4: desc
 
 
 </div>
-

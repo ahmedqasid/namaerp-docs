@@ -30,9 +30,13 @@ Manual execution for importing data from external systems, legacy database migra
 ## Parameters
 
 **Parameter 1:** Update SQL (Optional) - SQL statement to run during import process for updates
+
 **Parameter 2:** Data Source Name (Required) - External database connection name (must be defined in context.xml)
+
 **Parameter 3:** SQL Statement 1 (Required) - Main SQL query for entity import with column mapping
+
 **Parameter 4:** SQL Statement 2 (Optional) - Additional SQL query for detail records or related data
+
 **Parameter 5:** SQL Statement 3 (Optional) - Third SQL query for complex imports
 
 ## SQL Query Format
@@ -130,4 +134,3 @@ having sum(coalesce(q.net,0))<i.dfMinQuantity
 
 
 </div>
-

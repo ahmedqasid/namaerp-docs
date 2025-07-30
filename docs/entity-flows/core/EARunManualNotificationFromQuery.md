@@ -36,10 +36,15 @@ select entityType,id from SalesInvoice where dueDate < getdate() and balance > 0
 ```
 
 **Parameter 2:** Flush Before Starting (Optional) - true/false to flush database before starting (default: false)
+
 **Parameter 3:** Do not Send Notifications to cancelled Records (Optional) - true/false to skip cancelled DocumentFile entities (default: true)
+
 **Parameter 4:** Flush After Each Notification (Optional) - true/false to flush after each entity (default: false)
+
 **Parameter 5:** Do In New Transaction - Continue on Errors (Optional) - true/false to continue processing if individual entities fail (default: false)
+
 **Parameter 6:** Run Update Query After Selecting Entities, and Before Notifications (Optional) - SQL update query to run before notifications
+
 **Parameter 7:** Manual Notification ID or Code (Required) - Business code or ID of NotificationDefinition to send
 
 ## Database Tables Affected

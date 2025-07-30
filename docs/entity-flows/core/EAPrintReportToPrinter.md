@@ -28,6 +28,7 @@ Manual execution for printing predefined reports directly to physical printers w
 ## Parameters
 
 **Parameter 1:** Printer Name (Required) - Name of the network or local printer to send output to
+
 **Parameter 2:** Report Code (Required) - Business code of the ReportDefinition to print
 
 ## Database Tables Affected

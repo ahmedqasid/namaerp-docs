@@ -32,8 +32,11 @@ Manual execution or scheduled batch processing for contract renewals. Typically 
 ## Parameters
 
 **Parameter 1:** Generated Contract Book Code or ID (Required) - Book for the new extended contracts
+
 **Parameter 2:** Generated Contract Term Code or ID (Required) - Payment term for the new extended contracts  
+
 **Parameter 3:** Extend Contracts That Have At Least N Days Remaining (Optional) - Minimum days past expiration (default: 0)
+
 **Parameter 4:** Manual Query (Optional) - Custom SQL to specify which contracts to extend
 
 ## Default Query Logic
@@ -135,4 +138,3 @@ select entityType,id from REOpeningRentContract where commitedBefore = 1 and can
 
 
 </div>
-

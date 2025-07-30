@@ -29,7 +29,9 @@ Manual or automated execution during document processing for detail line cleanup
 ## Parameters
 
 **Parameter 1:** Detail ID (Required) - Name of detail collection property (e.g., "lines", "details", "items")
+
 **Parameter 2:** Query (Optional) - SQL-like query returning 1 for lines to remove (use {collection.field} syntax)
+
 **Parameter 3:** Criteria Definition Code (Optional) - Code of predefined criteria for standardized line removal rules
 
 *Note: Must provide either Query or Criteria Definition Code*
@@ -57,4 +59,3 @@ Manual or automated execution during document processing for detail line cleanup
 
 
 </div>
-

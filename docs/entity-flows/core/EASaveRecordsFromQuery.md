@@ -37,9 +37,13 @@ select entityType,id from StockIssue where fromDoc_id = {id} and n1 = 5
 ```
 
 **Parameter 2:** Flush Before Starting (Optional) - true/false to flush database before starting (default: false)
+
 **Parameter 3:** Do not Save cancelled Records (Optional) - true/false to skip cancelled DocumentFile entities (default: true)
+
 **Parameter 4:** Flush After Each Save (Optional) - true/false to flush after each entity (default: false)
+
 **Parameter 5:** Do In New Transaction - Continue on Errors (Optional) - true/false to continue processing if individual entities fail (default: false)
+
 **Parameter 6:** Run Update Query After Selecting Entities, and Before Save (Optional) - SQL update query to run before saving
 
 ## Database Tables Affected

@@ -31,19 +31,33 @@ Manual execution on documents with missing or incorrect line relationships, typi
 ## Parameters
 
 **Parameter 1:** Consider Size (Optional) - true/false to match size dimensions (default: false)
+
 **Parameter 2:** Consider Color (Optional) - true/false to match color dimensions (default: false)
+
 **Parameter 3:** Consider Revision (Optional) - true/false to match revision dimensions (default: false)
+
 **Parameter 4:** Consider Lot ID (Optional) - true/false to match lot tracking (default: false)
+
 **Parameter 5:** Consider Box (Optional) - true/false to match box dimensions (default: false)
+
 **Parameter 6:** Consider Warehouse (Optional) - true/false to match warehouse locations (default: false)
+
 **Parameter 7:** Consider Sales Man or Purchases Man (Optional) - true/false to match responsible person (default: false)
+
 **Parameter 8:** Consider Ref 1 (Optional) - true/false to match reference field 1 (default: false)
+
 **Parameter 9:** Consider Ref 2 (Optional) - true/false to match reference field 2 (default: false)
+
 **Parameter 10:** Consider Locator (Optional) - true/false to match storage locations (default: false)
+
 **Parameter 11:** Consider SubItem (Optional) - true/false to match sub-item references (default: false)
+
 **Parameter 12:** Consider Active Percentage (Optional) - true/false to match active percentages (default: false)
+
 **Parameter 13:** Consider Inactive Percentage (Optional) - true/false to match inactive percentages (default: false)
+
 **Parameter 14:** Consider Remarks (Optional) - true/false to match remarks/notes (default: false)
+
 **Parameter 15:** Apply Only If Query Applicable (Optional) - Conditional execution query
 
 ```sql
@@ -108,4 +122,3 @@ select case when {details.item.item.code} in ('A','B') then 1 else 0 end
 
 
 </div>
-

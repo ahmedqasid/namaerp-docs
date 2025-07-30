@@ -32,6 +32,7 @@ Manual execution to generate related documents from source documents, typically 
 ## Parameters
 
 **Parameter 1:** Target Type (Required) - Entity type of document to generate
+
 **Parameter 2:** Finder SQL (Required) - SQL to find/create target document
 
 ```sql
@@ -47,6 +48,7 @@ ref5=$this
 ```
 
 **Parameter 4:** After Copy Lines Map (Optional) - Additional field mapping after line copying
+
 **Parameter 5:** Inverse Copy (Optional) - Copy fields from generated back to source
 
 ```
@@ -118,4 +120,3 @@ select case when {details.item.item.code} in ('a','b','c') then 1 else 0 end
 
 
 </div>
-

@@ -34,7 +34,9 @@ Manual execution for salary planning and budgeting purposes. Typically used when
 ## Parameters
 
 **Parameter 1:** Tax Formula Code (Required) - Code of the tax calculation formula to use
+
 **Parameter 2:** Max Trials Count (Optional) - Maximum iterations before stopping (default: 150)
+
 **Parameter 3:** Allowed Diff (Optional) - Acceptable difference from target net salary (default: 0.00001)
 
 ## Field Usage
@@ -120,4 +122,3 @@ Manual execution for salary planning and budgeting purposes. Typically used when
 
 
 </div>
-

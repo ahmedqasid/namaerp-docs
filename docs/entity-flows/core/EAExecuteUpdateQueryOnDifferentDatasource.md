@@ -28,7 +28,9 @@ Manual or automated execution for cross-database operations, data synchronizatio
 ## Parameters
 
 **Parameter 1:** Data Source Name (Required) - Name of configured external data source
+
 **Parameter 2:** Update Query (Required) - SQL UPDATE, INSERT, or DELETE statement (use {fieldName} for entity references)
+
 **Parameter 3:** Evict Cache After Execution (Optional) - "true"/"false" to clear application cache (default: false)
 
 ## Database Tables Affected
@@ -53,4 +55,3 @@ Manual or automated execution for cross-database operations, data synchronizatio
 
 
 </div>
-

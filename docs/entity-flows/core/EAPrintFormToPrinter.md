@@ -30,6 +30,7 @@ Manual execution for printing entity forms directly to physical printers without
 ## Parameters
 
 **Parameter 1:** Printer Name (Required) - Name of the network or local printer to send output to
+
 **Parameter 2:** Form Report Code (Optional) - Business code of specific ReportDefinition to use (auto-selects if empty)
 
 ## Database Tables Affected

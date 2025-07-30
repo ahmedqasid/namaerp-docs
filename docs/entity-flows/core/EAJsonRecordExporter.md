@@ -28,9 +28,13 @@ Manual or automated execution for real-time JSON data export to external APIs an
 ## Parameters
 
 **Parameter 1:** Request Type (Optional) - HTTP method "GET" or "POST" (default: POST)
+
 **Parameter 2:** URL Tempo (Required) - Destination URL with optional Tempo field references (e.g., `https://api.example.com/customers/{customer.code}`)
+
 **Parameter 3:** Only Export Fields (Optional) - CSV list of fields to export (e.g., `code,name1,customer.name1`)
+
 **Parameter 4:** Rename Fields To (Optional) - Field mapping `internalField=externalField` format
+
 **Parameter 5:** Do Not Send Request (Optional) - "true" for test mode (logs only), "false" to send HTTP request
 
 ## Database Tables Affected
@@ -56,4 +60,3 @@ Manual or automated execution for real-time JSON data export to external APIs an
 
 
 </div>
-

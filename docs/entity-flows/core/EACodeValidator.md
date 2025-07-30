@@ -28,7 +28,9 @@ Entity validation during save operations to enforce consistent code formatting a
 ## Key Parameters
 
 **Parameter 1:** Min Len,Max Len (Optional) - "MinLength,MaxLength" format (e.g., `3,10`)
+
 **Parameter 2:** Prefix,Suffix (Optional) - "Prefix,Suffix" format (e.g., `INV,_TEMP`) 
+
 **Parameter 3:** Regular Expression (Optional) - Regex pattern for complex validation
 
 

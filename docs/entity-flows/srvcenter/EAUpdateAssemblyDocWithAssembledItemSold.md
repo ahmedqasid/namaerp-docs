@@ -36,7 +36,9 @@ Automatically triggered on post-commit and post-delete events for sales document
 ## Parameters
 
 **Parameter 1:** Assembly Document Ref (From Header) (Optional) - Field reference to assembly document in sales header
+
 **Parameter 2:** Assembly Document Ref (From Line) (Optional) - Field reference to assembly document in sales line
+
 **Parameter 3:** Sales Doc Ref In Assembly Co-products Line (Required) - Field ID for sales document reference in assembly co-product lines
 
 ## Serial Number Management
@@ -132,4 +134,3 @@ Automatically triggered on post-commit and post-delete events for sales document
 
 
 </div>
-

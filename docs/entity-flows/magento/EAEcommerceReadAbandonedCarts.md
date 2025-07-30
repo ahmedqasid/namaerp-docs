@@ -30,6 +30,7 @@ Manual execution or scheduled tasks for abandoned cart analysis and recovery cam
 ## Parameters
 
 **Parameter 1:** Site Code (Required) - Code of the MagentoSite to read abandoned carts from
+
 **Parameter 2:** Maximum Records To Read Per Call (Optional) - Limit for number of records per API call (default: 50)
 
 ## Database Tables Affected
@@ -102,4 +103,3 @@ Manual execution or scheduled tasks for abandoned cart analysis and recovery cam
 
 
 </div>
-

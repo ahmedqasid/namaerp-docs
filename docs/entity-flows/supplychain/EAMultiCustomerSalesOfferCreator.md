@@ -35,6 +35,7 @@ Manual execution on sales orders that contain lines for multiple customers, typi
 ## Parameters
 
 **Parameter 1:** Reserved (Not used)
+
 **Parameter 2:** Fields Map (Required) - Field mapping for copying header data from sales order to quotations
 
 ```
@@ -105,4 +106,3 @@ term=term
 
 
 </div>
-

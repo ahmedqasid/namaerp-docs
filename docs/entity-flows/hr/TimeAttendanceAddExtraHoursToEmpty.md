@@ -31,6 +31,7 @@ Manual execution during attendance data processing. Typically used when you have
 ## Parameters
 
 **Parameter 1:** Extra From Hours (Optional) - Hours to add to start time (negative for earlier, default: 0)
+
 **Parameter 2:** Extra To Hours (Optional) - Hours to add to end time (positive for later, default: 0)
 
 ## Example Usage
@@ -109,4 +110,3 @@ Manual execution during attendance data processing. Typically used when you have
 
 
 </div>
-

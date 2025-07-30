@@ -34,7 +34,9 @@ The underlying functionality:
 ## Parameters
 
 **Parameter 1:** Recalc Unit Price (Optional) - true/false to recalculate unit prices (default: true)
+
 **Parameter 2:** Recalc Discounts (Optional) - true/false to recalculate discounts (default: true)
+
 **Parameter 3:** Recalc Free and Related Items (Optional) - true/false to recalculate promotional items (default: true)
 
 ## Database Tables Affected
@@ -104,4 +106,3 @@ The underlying functionality:
 
 
 </div>
-

@@ -31,6 +31,7 @@ Manual execution during salary processing when you need to set a component value
 ## Parameters
 
 **Parameter 1:** Target Component Type (Required) - Code of the salary component to update
+
 **Parameter 2:** Components To Normalize (Required) - Comma-separated list of component codes to sum (e.g., "basic,insurance")
 
 ## Database Tables Affected
@@ -101,4 +102,3 @@ Manual execution during salary processing when you need to set a component value
 
 
 </div>
-

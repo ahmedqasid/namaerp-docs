@@ -29,10 +29,15 @@ Manual execution for bulk recommitting entities after system updates, configurat
 ## Parameters
 
 **Parameter 1:** Query (Required) - SQL query returning entityType and id columns (e.g., `select entityType,id from StockIssue where fromDoc_id = {id}`)
+
 **Parameter 2:** Flush Before Starting (Optional) - true/false to flush database before starting (default: false)
+
 **Parameter 3:** Do not Recommit cancelled Records (Optional) - true/false to skip cancelled DocumentFile entities (default: true)
+
 **Parameter 4:** Flush After Each Recommit (Optional) - true/false to flush after each entity (default: false)
+
 **Parameter 5:** Do In New Transaction - Continue on Errors (Optional) - true/false to continue processing if individual entities fail (default: false)
+
 **Parameter 6:** Run Update Query After Selecting Entities, and Before Recommit (Optional) - SQL update query to run before recommitting
 
 ## Database Tables Affected

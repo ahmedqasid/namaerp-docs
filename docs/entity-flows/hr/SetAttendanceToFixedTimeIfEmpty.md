@@ -30,6 +30,7 @@ Manual execution during attendance data cleanup or processing. Typically used wh
 ## Parameters
 
 **Parameter 1:** Default From Time (Required) - Default check-in time (e.g., "08:00")
+
 **Parameter 2:** Default To Time (Required) - Default check-out time (e.g., "17:00")
 
 ## Database Tables Affected
@@ -94,4 +95,3 @@ Manual execution during attendance data cleanup or processing. Typically used wh
 
 
 </div>
-

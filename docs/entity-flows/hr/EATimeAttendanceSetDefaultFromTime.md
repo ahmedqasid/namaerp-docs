@@ -31,7 +31,9 @@ Manual execution for fixing incomplete time attendance records, typically used d
 ## Parameters
 
 **Parameter 1:** Criteria Code (For Employee) (Optional) - Employee selection criteria for filtering which employees to process
+
 **Parameter 2:** Calc Only If Workday (Optional) - "true" to process only on scheduled work days, "false" to process all days
+
 **Parameter 3:** Max Distance In Hours (Optional) - Maximum difference in hours between shift end time and actual punch-out time
 
 ## Database Tables Affected
@@ -91,4 +93,3 @@ Manual execution for fixing incomplete time attendance records, typically used d
 
 
 </div>
-

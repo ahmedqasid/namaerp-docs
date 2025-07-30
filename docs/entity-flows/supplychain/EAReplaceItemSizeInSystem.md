@@ -31,11 +31,17 @@ Manual execution when item size specifications need to be corrected or updated s
 ## Parameters
 
 **Parameter 1:** Item Field (Optional) - Field path to item reference (default: details.item.item)
+
 **Parameter 2:** Old Value Field (Optional) - Field path to current size value (default: details.specificDimensions.size)
+
 **Parameter 3:** New Value Field (Optional) - Field path to new size value (default: details.text1)
+
 **Parameter 4:** Change Current Document Lines (Optional) - true/false to update current document
+
 **Parameter 5:** Handle Lines Where Old Property Is Empty (Optional) - true/false to process empty old values
+
 **Parameter 6:** Handle Lines Where NEW Property Is Empty (Optional) - true/false to process empty new values
+
 **Parameter 7:** Do Not Regen Inventory Requests After Update (Optional) - true/false to skip inventory effect regeneration
 
 ## Database Tables Affected
@@ -157,4 +163,3 @@ Manual execution when item size specifications need to be corrected or updated s
 
 
 </div>
-

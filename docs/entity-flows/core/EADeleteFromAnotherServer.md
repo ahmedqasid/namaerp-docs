@@ -29,8 +29,11 @@ Manual or automated execution during delete operations to remove entities from s
 ## Parameters
 
 **Parameter 1:** Other Server URL (Required) - Complete URL to remote Nama ERP server (e.g., `https://erp-backup.company.com/`)
+
 **Parameter 2:** Login ID (Required) - Valid user login with delete permissions on remote server
+
 **Parameter 3:** Password (Required) - Authentication password (hashed before transmission)
+
 **Parameter 4:** Delete Even Documents (Optional) - "true"/"false" to control cancelled document deletion (default: false)
 
 ## Database Tables Affected

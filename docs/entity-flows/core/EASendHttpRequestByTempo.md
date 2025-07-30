@@ -29,6 +29,7 @@ Manual execution for integrating with external APIs, web services, or third-part
 ## Parameters
 
 **Parameter 1:** Request Tempo (Required) - Tempo template containing HTTP request definitions with entity data placeholders
+
 **Parameter 2:** Do Not Delete Task After Finishing (Optional) - true/false to preserve action records after execution (default: false)
 
 ## Tempo Template Structure
@@ -123,4 +124,3 @@ The Tempo template should define HTTP requests using the system's HTTP request f
 
 
 </div>
-

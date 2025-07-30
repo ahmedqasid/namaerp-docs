@@ -28,6 +28,7 @@ Manual or automated execution for bulk data operations, data migration, and data
 ## Parameters
 
 **Parameter 1:** Update Query (Required) - Valid SQL UPDATE, INSERT, or DELETE statement (use {fieldName} for entity references)
+
 **Parameter 2:** Evict Cache After Execution (Optional) - "true"/"false" to clear Hibernate cache after execution (default: false)
 
 ## Database Tables Affected
@@ -53,4 +54,3 @@ Manual or automated execution for bulk data operations, data migration, and data
 
 
 </div>
-

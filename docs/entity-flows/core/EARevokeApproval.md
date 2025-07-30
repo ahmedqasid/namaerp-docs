@@ -29,6 +29,7 @@ Manual execution when approval workflows need to be reset, cancelled, or restart
 ## Parameters
 
 **Parameter 1:** Field Name (Optional) - Field ID pointing to entities to revoke approval for (can be in detail collections)
+
 **Parameter 2:** Finder query (Optional) - SQL query returning entityType and id/code columns
 - Example Query:
 ```

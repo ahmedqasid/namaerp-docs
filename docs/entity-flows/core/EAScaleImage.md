@@ -30,8 +30,11 @@ Manual execution for image optimization, storage space reduction, or standardizi
 ## Parameters
 
 **Parameter 1:** Scaled Width (Required) - Maximum width in pixels for scaled images
+
 **Parameter 2:** Scaled Height (Required) - Maximum height in pixels for scaled images  
+
 **Parameter 3:** Attachment Field ID (Required) - Field ID containing image attachments (can be in collections)
+
 **Parameter 4:** Allowed Extensions (Optional) - Comma-separated file extensions to process (e.g., `jpg,png,bmp`)
 
 ## Database Tables Affected

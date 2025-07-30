@@ -33,6 +33,7 @@ Manual execution to generate related documents from source documents when databa
 ## Parameters
 
 **Parameter 1:** Target Type (Required) - Entity type of document to generate
+
 **Parameter 2:** Finder SQL (Required) - SQL to find/create target document
 
 ```sql
@@ -48,6 +49,7 @@ ref5=$this
 ```
 
 **Parameter 4:** After Copy Lines Map (Optional) - Additional field mapping after line copying
+
 **Parameter 5:** Inverse Copy (Optional) - Copy fields from generated back to source
 
 ```
@@ -56,7 +58,9 @@ description5=n1
 ```
 
 **Parameter 6:** Handle Approval (Optional) - true/false to manage approval workflow
+
 **Parameter 7:** Save as Draft (Optional) - true/false to save as draft
+
 **Parameter 8:** Conditional Execution (Optional) - Only run if condition returns non-zero
 
 ```sql
@@ -64,6 +68,7 @@ select case when {details.item.item.code} in ('a','b','c') then 1 else 0 end
 ```
 
 **Parameter 9:** Line Criteria Filter (Optional) - Criteria definition code for line filtering
+
 **Parameter 10:** Line Query Filter (Optional) - SQL query for line filtering
 
 ```sql
@@ -71,6 +76,7 @@ select case when {details.item.item.code} in ('a','b','c') then 1 else 0 end
 ```
 
 **Parameter 11:** Group Lines By (Optional) - Field(s) to group lines creating multiple documents
+
 **Parameter 12:** Cleanup Query (Optional) - SQL to identify documents for deletion when grouping
 
 ## Database Tables Affected
@@ -126,4 +132,3 @@ select case when {details.item.item.code} in ('a','b','c') then 1 else 0 end
 
 
 </div>
-

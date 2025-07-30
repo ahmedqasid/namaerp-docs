@@ -30,10 +30,15 @@ Backup preparation for TaskSchedule entities requiring Google Drive folder struc
 ## Parameters
 
 **Parameter 1:** (Not Used) - Ignored
+
 **Parameter 2:** OAuth File Code or ID (Required) - Reference to OAuthFile entity with Google Drive credentials
+
 **Parameter 3:** Drive Folder IDs (Required) - Maps sections to folder IDs: `sectionName=folderId1,folderId2`
+
 **Parameter 4:** Append To Output (Optional) - Additional text to append to configuration
+
 **Parameter 5:** Save Output To Task Schedule (Optional) - Target task schedule to save output
+
 **Parameter 6:** Output (Output) - Generated folder configuration for backup validation
 
 ## Database Tables Affected
@@ -65,4 +70,3 @@ Backup preparation for TaskSchedule entities requiring Google Drive folder struc
 
 
 </div>
-

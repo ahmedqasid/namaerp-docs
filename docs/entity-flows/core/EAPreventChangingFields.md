@@ -30,10 +30,15 @@ Data integrity validation during entity save/commit operations for previously co
 ## Parameters
 
 **Parameter 1:** Field IDs (Required) - Comma/line-separated field IDs to protect (e.g., "code,name1" or "details.item")
+
 **Parameter 2:** Prevent Adding New Lines (Optional) - Boolean to prevent adding detail lines (default: false)
+
 **Parameter 3:** Prevent Deleting Lines (Optional) - Boolean to prevent deleting detail lines (default: false)
+
 **Parameter 4:** Change Validation Query (Optional) - SQL query returning 1/0 to conditionally enable field change validation
+
 **Parameter 5:** Added Lines Validation Query (Optional) - SQL query returning 1/0 to conditionally validate newly added lines
+
 **Parameter 6:** Deleted Lines Validation Query (Optional) - SQL query returning 1/0 to conditionally validate deleted lines
 
 ## Database Tables Affected
@@ -67,4 +72,3 @@ Data integrity validation during entity save/commit operations for previously co
 
 
 </div>
-

@@ -30,6 +30,7 @@ Manual execution during attendance data cleanup when you identify patterns of mi
 ## Parameters
 
 **Parameter 1:** Range Start (Required) - Start time of the range (e.g., "14:00" for 2:00 PM)
+
 **Parameter 2:** Range End (Required) - End time of the range (e.g., "23:59" for 11:59 PM)
 
 ## Database Tables Affected
@@ -96,4 +97,3 @@ Manual execution during attendance data cleanup when you identify patterns of mi
 
 
 </div>
-

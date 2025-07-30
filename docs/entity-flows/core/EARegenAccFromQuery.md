@@ -35,9 +35,13 @@ select s.entityType,s.id from SalesInvoice s left join DocumentTerm t on t.id = 
 where t.code = 'term1' and s.valueDate between '20250601' and '20250630'
 ```
 **Parameter 2:** Flush Before Starting (Optional) - true/false to flush database before starting (default: false)
+
 **Parameter 3:** Do not RegenAccEffects cancelled Records (Optional) - true/false to skip cancelled DocumentFile entities (default: true)
+
 **Parameter 4:** Flush After Each RegenAccEffects (Optional) - true/false to flush after each entity (default: false)
+
 **Parameter 5:** Do In New Transaction - Continue on Errors (Optional) - true/false to continue processing if individual entities fail (default: false)
+
 **Parameter 6:** Run Update Query After Selecting Entities, and Before RegenAccEffects (Optional) - SQL update query to run before processing
 
 ## Database Tables Affected

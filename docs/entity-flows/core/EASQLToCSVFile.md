@@ -36,12 +36,19 @@ select code,creationDate [creationDate#ddMMyyy HH:mm:ss] from Employee
 ```
 
 **Parameter 2:** Delimiter (Required) - CSV field delimiter (e.g., `,` or `;` or `|`)
+
 **Parameter 3:** Path Tempo (Required) - Dynamic file path template using Tempo syntax
+
 **Parameter 4:** Headers Line (Optional) - CSV column headers (uses SQL column names if empty)
+
 **Parameter 5:** Protocol (Optional) - Transfer protocol: `local`, `ftp`, `ftps`, or `sftp` (default: local)
+
 **Parameter 6:** Server URL (Optional) - Remote server address (required for FTP protocols)
+
 **Parameter 7:** Server Port (Optional) - Server port (21 for FTP, 990 for FTPS, 22 for SFTP)
+
 **Parameter 8:** Server User (Optional) - Username for remote server authentication
+
 **Parameter 9:** Server Password (Optional) - Password for remote server authentication
 
 ## Database Tables Affected

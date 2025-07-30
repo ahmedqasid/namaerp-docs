@@ -35,6 +35,7 @@ Automatically triggered on post-commit and post-delete events for supply chain d
 ## Parameters
 
 **Parameter 1:** Target Type (Required) - Entity type of documents to generate
+
 **Parameter 2:** Finder SQL (Required) - SQL query to identify target documents
 
 ```sql
@@ -50,6 +51,7 @@ ref5=$this
 ```
 
 **Parameter 4:** After Copy Lines Fields Map (Optional) - Additional field mapping applied after copying lines
+
 **Parameter 5:** Inverse Copy (Optional) - Copies fields from generated document back to source
 
 ```
@@ -58,7 +60,9 @@ description5=n1
 ```
 
 **Parameter 6:** Handle Approval (Optional) - true/false to manage approval workflow
+
 **Parameter 7:** Save as Draft (Optional) - true/false to control draft status
+
 **Parameter 8:** Run Only If Number not zero
 
 ```sql
@@ -66,6 +70,7 @@ totlaizesql(select case when {details.item.item.code} in ('a','b','c') then 1 el
 ```
 
 **Parameter 9:** Copy Lines Criteria (Optional) - Criteria definition code for line filtering
+
 **Parameter 10:** Copy Lines Query (Optional) - SQL query to filter which lines to copy
 
 ```sql
@@ -73,6 +78,7 @@ select case when {details.item.item.code} in ('a','b','c') then 1 else 0 end
 ```
 
 **Parameter 11:** Group Lines By (Optional) - Field(s) to group lines by during generation
+
 **Parameter 12:** Delete Query (Optional) - Query to identify documents for cleanup when grouping
 
 ## Database Tables Affected
@@ -161,4 +167,3 @@ select case when {details.item.item.code} in ('a','b','c') then 1 else 0 end
 
 
 </div>
-

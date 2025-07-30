@@ -30,6 +30,7 @@ Manual execution when customers check in for services under active CRM service c
 ## Parameters
 
 **Parameter 1:** Added Hours (Optional) - Number of hours to add to current time for check-in timestamp (can be decimal)
+
 **Parameter 2:** Value for text1 (Optional) - Additional text/comments to record with the check-in
 
 ## Database Tables Affected
@@ -83,4 +84,3 @@ Manual execution when customers check in for services under active CRM service c
 
 
 </div>
-

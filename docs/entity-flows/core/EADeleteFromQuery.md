@@ -29,10 +29,15 @@ Manual or automated execution for bulk deletion operations, data cleanup, cascad
 ## Parameters
 
 **Parameter 1:** Query (Required) - SQL query returning entityType and id columns (supports {fieldName} substitution)
+
 **Parameter 2:** Flush Before Starting (Optional) - "true"/"false" to flush database before deletion
+
 **Parameter 3:** Do not Delete cancelled Records (Optional) - "true"/"false" to skip cancelled documents
+
 **Parameter 4:** Flush After Each Delete (Optional) - "true"/"false" to flush after each deletion
+
 **Parameter 5:** Do In New Transaction - Continue on Errors (Optional) - "true"/"false" for separate transactions with error continuation
+
 **Parameter 6:** Run Update Query After Selecting Entities, and Before Delete (Optional) - SQL update query to run before deletions
 
 ## Database Tables Affected

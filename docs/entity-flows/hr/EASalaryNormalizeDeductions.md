@@ -30,6 +30,7 @@ Manual execution during salary processing when additions outweigh deductions, ty
 ## Parameters
 
 **Parameter 1:** Target Component Type (Required) - Code of the salary component to adjust (e.g., "overtime", "bonus")
+
 **Parameter 2:** Components To Normalize (Required) - Comma-separated list of component type codes to include in balance calculation
 
 ## Database Tables Affected
@@ -93,4 +94,3 @@ Manual execution during salary processing when additions outweigh deductions, ty
 
 
 </div>
-

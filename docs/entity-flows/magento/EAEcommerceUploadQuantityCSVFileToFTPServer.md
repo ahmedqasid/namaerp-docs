@@ -30,12 +30,19 @@ Manual execution or scheduled tasks for inventory data export. Typically used fo
 ## Parameters
 
 **Parameter 1:** Site Code (Required) - Code of the MagentoSite to export data from
+
 **Parameter 2:** Server URL (Required) - FTP/SFTP server hostname or IP address
+
 **Parameter 3:** Protocol (Required) - Transfer protocol: "ftp", "ftps", or "sftp"
+
 **Parameter 4:** Server Port (Required) - Port number (21 for FTP, 990 for FTPS, 22 for SFTP)
+
 **Parameter 5:** Server Username (Optional) - Username for server authentication
+
 **Parameter 6:** Server Password (Optional) - Password for server authentication
+
 **Parameter 7:** File Name (Required) - Target file name (e.g., "nama-items.csv")
+
 **Parameter 8:** File Rows Count (Optional) - Maximum rows per file for pagination
 
 ## Supported Protocols
@@ -125,4 +132,3 @@ If file rows count is set to 1000 and there are 2500 records:
 
 
 </div>
-

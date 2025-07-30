@@ -31,11 +31,17 @@ Manual execution for updating postal tracking status when mail items change loca
 ## Parameters
 
 **Parameter 1:** Office Code (Required) - Current postal office code handling the mail item
+
 **Parameter 2:** Next Office Code (Optional) - Destination office code for forwarding
+
 **Parameter 3:** Non Delivery Reason Code (Optional) - Code indicating reason for delivery failure
+
 **Parameter 4:** Non Delivery Measure Code (Optional) - Code indicating corrective action taken
+
 **Parameter 5:** Details Field ID (Required) - Field ID of the detail collection containing mail items
+
 **Parameter 6:** Mail Item Field ID (Required) - Field ID within detail records containing mail item identifiers
+
 **Parameter 7:** Event Code (Required) - IPS event code defining the type of status update
 
 ## Database Tables Affected
@@ -94,4 +100,3 @@ Manual execution for updating postal tracking status when mail items change loca
 
 
 </div>
-

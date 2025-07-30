@@ -29,8 +29,11 @@ Scheduled cleanup operations or manual execution for log rotation, backup mainte
 ## Parameters
 
 **Parameter 1:** Folder Path (Required) - Target directory path for cleanup
+
 **Parameter 2:** Order By (Required) - "date" for modification time or "name" for alphabetical sorting
+
 **Parameter 3:** Files To Keep (Required) - Number of files to retain (must be > 0)
+
 **Parameter 4:** Recursive (Optional) - "true"/"false" to process subdirectories
 
 ## Database Tables Affected

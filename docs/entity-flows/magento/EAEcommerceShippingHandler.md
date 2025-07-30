@@ -30,14 +30,23 @@ Manual execution on supply chain documents that require shipping integration. Ty
 ## Parameters
 
 **Parameter 1:** Site Code (Required) - Code of the EcommerceShippingSite to use for shipping
+
 **Parameter 2:** Request Parameter (Required) - Type of shipping operation to perform
+
 **Parameter 3:** Default Customer Email (Optional) - Fallback email for shipping notifications
+
 **Parameter 4:** Default Shipping Note (Optional) - Default note to include with shipments
+
 **Parameter 5:** Refresh Token (Optional) - Authentication token for API access
+
 **Parameter 6:** Magento Order Number Tempo (Optional) - Template for extracting Magento order numbers
+
 **Parameter 7:** Invoice Code Template (Optional) - Template for generating invoice codes
+
 **Parameter 8:** Count Items Query (Optional) - SQL query executed per line for item counting
+
 **Parameter 9:** Send Warehouse From Line (Optional) - true/false to include warehouse info from line
+
 **Parameter 10:** Send Warehouse From Header (Optional) - true/false to include warehouse info from header
 
 ## Supported Request Parameters
@@ -123,4 +132,3 @@ Manual execution on supply chain documents that require shipping integration. Ty
 
 
 </div>
-

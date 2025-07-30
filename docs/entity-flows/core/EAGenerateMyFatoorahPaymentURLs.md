@@ -29,11 +29,17 @@ MyFatoorah payment URL generation for documents implementing ISupportOnlinePayme
 ## Parameters
 
 **Parameter 1:** Payment Config Code (Required) - Code of MyFatoorah payment configuration (e.g., MYFATOORAH_PROD)
+
 **Parameter 2:** Copy URL To Field (Required) - Field name for payment URL storage
+
 **Parameter 3:** Customer Name Field (Required) - Field reference containing customer name (e.g., customer.name1)
+
 **Parameter 4:** Mobile Country Code Field (Optional) - Field reference for country code (e.g., customer.countryCode)
+
 **Parameter 5:** Mobile Number Field (Optional) - Field reference for mobile number (e.g., customer.mobile)
+
 **Parameter 6:** Customer Email Field (Optional) - Field reference for email address (e.g., customer.email)
+
 **Parameter 7:** Customer Reference Field (Optional) - Field reference for customer code (e.g., customer.code)
 
 ## Database Tables Affected

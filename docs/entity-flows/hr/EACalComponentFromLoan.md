@@ -31,7 +31,9 @@ Manual execution during salary processing to calculate loan-related salary compo
 ## Parameters
 
 **Parameter 1:** Component Code (Required) - Code of the salary component to update with calculated value
+
 **Parameter 2:** Loan Type Code (Optional) - Comma-separated list of loan type codes to include in calculation (empty = all types)
+
 **Parameter 3:** Percentage (Required) - Fixed percentage value or field ID in loan document containing percentage
 
 ## Database Tables Affected
@@ -89,4 +91,3 @@ Manual execution during salary processing to calculate loan-related salary compo
 
 
 </div>
-

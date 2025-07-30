@@ -31,10 +31,15 @@ Manual execution or scheduled tasks for regular attendance data imports. Commonl
 ## Parameters
 
 **Parameter 1:** Query (Required) - SQL query to retrieve attendance data
+
 **Parameter 2:** Format Formula (Required) - Transformation rules for data mapping
+
 **Parameter 3:** Document Initialization Query (Required) - SQL to determine document properties
+
 **Parameter 4:** Save as Draft (Required) - true to save as draft, false to commit
+
 **Parameter 5:** Data Pre-processor (Optional) - Groovy script for custom data processing
+
 **Parameter 6:** Ignore Unfound Employees (Required) - true/false to skip unmatched records
 
 ## Example Attendance Query
@@ -132,4 +137,3 @@ SELECT
 
 
 </div>
-

@@ -32,8 +32,11 @@ Manual execution during attendance data import processes. Used when importing at
 ## Parameters
 
 **Parameter 1:** Query (Required) - SQL query to retrieve attendance data
+
 **Parameter 2:** Format Formula (Required) - Transformation rules for data mapping
+
 **Parameter 3:** Data Pre-processor (Optional) - Groovy script for custom data processing
+
 **Parameter 4:** Ignore Unfound Employees (Required) - true/false to skip records with no matching employee
 
 ## Example SQL Query
@@ -136,4 +139,3 @@ Example: `empid#datetime{}#type{I-O}#exact#addhours{2}`
 
 
 </div>
-

@@ -30,7 +30,9 @@ Entity validation during save operations to enforce business rules and data cons
 ## Parameters
 
 **Parameter 1:** Query (Required) - SQL query returning 0 for valid data, non-zero for invalid (use {fieldName} syntax)
+
 **Parameter 2:** Arabic Error Tempo (Required) - Arabic error message template with field references
+
 **Parameter 3:** English Error Tempo (Optional) - English error message template (fallback to Arabic if not provided)
 
 ## Database Tables Affected
@@ -55,4 +57,3 @@ Entity validation during save operations to enforce business rules and data cons
 
 
 </div>
-

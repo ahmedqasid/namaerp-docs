@@ -32,12 +32,19 @@ Manual execution or scheduled batch processing for penalty calculation. Typicall
 ## Parameters
 
 **Parameter 1:** Fields Map (Required) - Field mapping for fine document creation (e.g., book="RF1", term="RFINE")
+
 **Parameter 2:** Grace Period (Optional) - Number of days after due date before fines apply (default: 0)
+
 **Parameter 3:** Add Grace Period To Fine (Optional) - true/false to include grace period in late days calculation (default: false)
+
 **Parameter 4:** Fine Is Value Not Percent (Optional) - true for fixed amount, false for percentage (default: false)
+
 **Parameter 5:** Fine Per (Required) - Time unit for fine calculation: "year", "month", or "day"
+
 **Parameter 6:** Fine Percent/Value (Required) - Fine rate as percentage or fixed amount
+
 **Parameter 7:** Fine Calculation Query (Optional) - Custom SQL query for complex fine calculations
+
 **Parameter 8:** Contracts To Search In CSV (Optional) - Comma-separated contract types to process
 
 ## Default Contract Types
@@ -153,4 +160,3 @@ Custom fine calculation queries can use these variables:
 
 
 </div>
-

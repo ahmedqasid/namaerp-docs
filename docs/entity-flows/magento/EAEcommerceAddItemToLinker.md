@@ -32,7 +32,9 @@ Manual execution on inventory items that need to be linked to Magento e-commerce
 ## Parameters
 
 **Parameter 1:** Site Code (Required) - Code of the MagentoSite to link the item to
+
 **Parameter 2:** Linker Line Fields Map (Optional) - Field mappings for additional data copying
+
 **Parameter 3:** Linker File Code Template (Required) - Template for generating linker document codes
 
 ## Example Field Mapping
@@ -113,4 +115,3 @@ line.weight=weight
 
 
 </div>
-

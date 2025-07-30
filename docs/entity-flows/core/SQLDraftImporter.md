@@ -29,9 +29,13 @@ Manual execution for bulk data import from external sources, automated data migr
 ## Parameters
 
 **Parameter 1:** Update SQL (Optional) - SQL statement to run during import process for updates
+
 **Parameter 2:** SQL Statement 1 (Required) - Main SQL query for entity import with column mapping
+
 **Parameter 3:** SQL Statement 2 (Optional) - Additional SQL query for detail records or related data
+
 **Parameter 4:** SQL Statement 3 (Optional) - Third SQL query for complex imports
+
 **Parameter 5:** SQL Statement 4 (Optional) - Fourth SQL query for extended data processing
 
 ## SQL Query Format
@@ -117,4 +121,3 @@ having sum(coalesce(q.net,0))<i.dfMinQuantity
 
 
 </div>
-

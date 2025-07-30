@@ -31,11 +31,17 @@ Manual or automated execution for attachment export, data archival, backup opera
 ## Parameters
 
 **Parameter 1:** Folder Path (Required) - Target export directory path
+
 **Parameter 2:** Attachment Field Names (Optional) - Comma-separated field names (default: "mainFile")
+
 **Parameter 3:** Include Attachment Field Name in File (Optional) - "true"/"false" to include field name
+
 **Parameter 4:** Do not add entity code to file name (Optional) - "true"/"false" to exclude entity code
+
 **Parameter 5:** Do not add attachment file name to file path (Optional) - "true"/"false" to exclude original filename
+
 **Parameter 6:** Do not add each entity in a separate folder (Optional) - "true"/"false" for single directory
+
 **Parameter 7:** Error if attachment exists in the folder before (Optional) - "true"/"false" for conflict handling
 
 ## Database Tables Affected
@@ -59,4 +65,3 @@ Manual or automated execution for attachment export, data archival, backup opera
 
 
 </div>
-
