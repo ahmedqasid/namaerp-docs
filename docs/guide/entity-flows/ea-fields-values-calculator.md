@@ -174,6 +174,16 @@ matchLinesBy=details.item.item=lines.ref1,details.text1=lines.text1(
   details.description5=lines.text1
 )endMatchLinesBy
 ```
+* نسخ سطور معينة فقط بناءا على شروط محددة
+```ini
+filterLinesBy=(
+filterSourceDetail=creditLimits
+filterSourceBy=sql(select case when {creditLimits.paymentPeriod} > 5 then 1 else 0 end)
+keywordLines=[creditLimits]
+keywordLines.keyword=creditLimits.paymentPeriod
+)endFilterLinesBy
+```
+يمكنك استعمال حقل **رقمي** من السطر بدلا من جملة SQL وفي هذه الحالة سيتم اعتبار السطور التي بها هذا الحقل له قيمة سوى الصفر
 
 * لمطابقة ونقل بيانات الأسطر بين كيانين.
 
