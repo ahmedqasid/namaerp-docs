@@ -1,5 +1,7 @@
 # Field Values Calculator
 
+The article [Field Maps in Nama ERP - Complete Guide](../../entity-flows/core/ai-generated-field-maps-documentation.md) contains more details about field maps
+
 <rtl>
 
 ```ini
