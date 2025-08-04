@@ -12,7 +12,14 @@
 * **Database Engine:** Microsoft SQL Server 2016 or higher (SQL Server 2022 recommended)
   For test environments, use **SQL Server Developer Edition**
   [Download SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
-
+* **SQL Server Management Studio**
+  [Download SQL Server Management Studio](https://learn.microsoft.com/en-us/ssms/install/install#:~:text=Download%20SSMS)
+* **7-Zip** (for handling compressed files)
+  [Download 7-Zip](https://www.7-zip.org/download.html)
+* **Notepad++** (for viewing logs or editing configuration files)
+  [Download Notepad++](https://notepad-plus-plus.org/downloads/)
+* **Nama ERP Installer**
+  [Download Installer](https://namasoft.com/bin/installer/installer.zip)
 
 ## Database Setup
 
@@ -21,6 +28,22 @@
 * Create a SQL user (or use `sa`) and grant full access to the database.
 * Enable **TCP/IP Protocol** using **SQL Server Configuration Manager**.
 * For **named instances**, assign a static port using the **IPAll** settings.
+
+::: tip If you are installing SQL Server on a modern SSD drive, you might face an issue after the installation 
+**Sample Log content** (Log is usually in `C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Log\ERRORLOG` )
+```log
+Error: 5179, Severity: 16, State: 1.
+Cannot use file 'data file path', because it is on a volume with sector size 8192. SQL Server supports a maximum sector size of 4096 bytes. Move the file to a volume with a compatible sector size.
+```
+* Solution:
+    1. Unistall SQL Server
+    2. Run the following powershell script:
+```powershell
+New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\stornvme\Parameters\Device" -Name   "ForcedPhysicalSectorSizeInBytes" -PropertyType MultiString        -Force -Value "* 4095"
+```
+    3. Restart Windows
+    3. Install SQL Server again 
+:::
 
 ## Installer Features
 
@@ -70,16 +93,6 @@ To allow access for other users on your local network (LAN), make sure port `808
 
 * Go to **Windows Defender Firewall** > **Advanced Settings**
 * Under **Inbound Rules**, create a new rule to allow traffic on port `8080`
-
----
-
-## Useful Tools During or After Installation
-
-* **7-Zip** (for handling compressed files)
-  [Download 7-Zip](https://www.7-zip.org/download.html)
-
-* **Notepad++** (for viewing logs or editing configuration files)
-  [Download Notepad++](https://notepad-plus-plus.org/downloads/)
 
 ---
 
