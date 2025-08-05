@@ -29,7 +29,10 @@ export default defineUserConfig({
   }),
   plugins: [
     // slimsearchPlugin({indexContent: true, indexOptions: {}})
-    fullTextSearchPlugin(),
+    fullTextSearchPlugin({
+      searchIndexPathPrefixes: {"videos": "/videos", "ai-docs-entity-flows": "/entity-flows"},
+      searchIndexTitles: {"videos": "Videos", "ai-docs-entity-flows": "Entity Flows"},
+    }),
     markdownContainerPlugin({
       type: 'rtl',
       before: ()=> `<div dir="rtl" class="rtl-block">`,

@@ -19,7 +19,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -45,7 +45,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -71,7 +71,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -97,7 +97,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -123,7 +123,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -149,7 +149,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -175,7 +175,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -201,7 +201,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -227,7 +227,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -253,7 +253,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -286,7 +286,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -312,7 +312,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -338,7 +338,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -364,7 +364,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -390,7 +390,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -416,7 +416,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -449,7 +449,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -475,7 +475,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -501,7 +501,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -527,7 +527,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -553,7 +553,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -579,7 +579,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -605,7 +605,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -631,7 +631,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -657,7 +657,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -683,7 +683,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -709,7 +709,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -735,7 +735,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -761,7 +761,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -787,7 +787,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -813,7 +813,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -839,7 +839,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -865,7 +865,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -891,7 +891,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -917,7 +917,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -943,7 +943,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -969,7 +969,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -995,7 +995,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1021,7 +1021,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1047,7 +1047,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1080,7 +1080,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1106,7 +1106,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1139,7 +1139,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1165,7 +1165,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1191,7 +1191,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1217,7 +1217,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1243,7 +1243,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1269,7 +1269,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1295,7 +1295,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1321,7 +1321,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1347,7 +1347,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1373,7 +1373,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1399,7 +1399,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1425,7 +1425,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1458,7 +1458,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1484,7 +1484,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1510,7 +1510,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1536,7 +1536,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1562,7 +1562,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1588,7 +1588,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1614,7 +1614,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1640,7 +1640,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1666,7 +1666,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1692,7 +1692,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1718,7 +1718,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1744,7 +1744,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1770,7 +1770,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1796,7 +1796,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1822,7 +1822,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1848,7 +1848,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1874,7 +1874,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1900,7 +1900,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1933,7 +1933,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1959,7 +1959,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -1985,7 +1985,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2011,7 +2011,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2037,7 +2037,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2063,7 +2063,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2089,7 +2089,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2115,7 +2115,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2141,7 +2141,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2167,7 +2167,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2193,7 +2193,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2219,7 +2219,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2245,7 +2245,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2271,7 +2271,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2297,7 +2297,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2323,7 +2323,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2349,7 +2349,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2375,7 +2375,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2401,7 +2401,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2427,7 +2427,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2453,7 +2453,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2479,7 +2479,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2505,7 +2505,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2531,7 +2531,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2557,7 +2557,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2583,7 +2583,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2609,7 +2609,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2635,7 +2635,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2661,7 +2661,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2687,7 +2687,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2713,7 +2713,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2739,7 +2739,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2765,7 +2765,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2791,7 +2791,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2817,7 +2817,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2843,7 +2843,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2869,7 +2869,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2895,7 +2895,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2921,7 +2921,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2947,7 +2947,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2973,7 +2973,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -2999,7 +2999,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3025,7 +3025,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3051,7 +3051,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3077,7 +3077,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3103,7 +3103,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3129,7 +3129,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3155,7 +3155,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3181,7 +3181,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3207,7 +3207,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3233,7 +3233,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3259,7 +3259,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3285,7 +3285,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3311,7 +3311,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3337,7 +3337,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3363,7 +3363,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3389,7 +3389,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3415,7 +3415,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3441,7 +3441,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3467,7 +3467,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3493,7 +3493,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3519,7 +3519,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3545,7 +3545,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3571,7 +3571,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3597,7 +3597,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3623,7 +3623,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3649,7 +3649,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3675,7 +3675,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3701,7 +3701,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3727,7 +3727,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3753,7 +3753,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3779,7 +3779,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3805,7 +3805,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3831,7 +3831,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3857,7 +3857,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3883,7 +3883,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3909,7 +3909,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3935,7 +3935,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3961,7 +3961,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -3987,7 +3987,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4013,7 +4013,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4039,7 +4039,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4065,7 +4065,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4091,7 +4091,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4117,7 +4117,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4143,7 +4143,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4169,7 +4169,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4195,7 +4195,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4221,7 +4221,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4247,7 +4247,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4273,7 +4273,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4306,7 +4306,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4332,7 +4332,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4358,7 +4358,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4384,7 +4384,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4410,7 +4410,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4436,7 +4436,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4462,7 +4462,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4488,7 +4488,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4514,7 +4514,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4540,7 +4540,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4566,7 +4566,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4599,7 +4599,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4625,7 +4625,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4658,7 +4658,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4684,7 +4684,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4710,7 +4710,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4736,7 +4736,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4769,7 +4769,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4795,7 +4795,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4821,7 +4821,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4854,7 +4854,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4880,7 +4880,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4913,7 +4913,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4939,7 +4939,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4972,7 +4972,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -4998,7 +4998,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5031,7 +5031,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5057,7 +5057,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5083,7 +5083,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5109,7 +5109,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5135,7 +5135,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5161,7 +5161,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5187,7 +5187,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5213,7 +5213,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5239,7 +5239,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5265,7 +5265,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5291,7 +5291,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5317,7 +5317,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5343,7 +5343,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5369,7 +5369,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5395,7 +5395,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5421,7 +5421,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5447,7 +5447,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5473,7 +5473,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5499,7 +5499,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5525,7 +5525,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5551,7 +5551,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5577,7 +5577,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5603,7 +5603,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5629,7 +5629,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5655,7 +5655,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5688,7 +5688,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5714,7 +5714,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5740,7 +5740,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5766,7 +5766,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5792,7 +5792,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5818,7 +5818,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5844,7 +5844,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5870,7 +5870,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5896,7 +5896,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5929,7 +5929,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5955,7 +5955,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -5988,7 +5988,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6014,7 +6014,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6047,7 +6047,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6073,7 +6073,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6099,7 +6099,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6125,7 +6125,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6151,7 +6151,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6184,7 +6184,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6210,7 +6210,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6236,7 +6236,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6262,7 +6262,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6288,7 +6288,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6314,7 +6314,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6340,7 +6340,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6373,7 +6373,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6399,7 +6399,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6425,7 +6425,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6451,7 +6451,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6477,7 +6477,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6503,7 +6503,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6529,7 +6529,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6555,7 +6555,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6581,7 +6581,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6607,7 +6607,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6633,7 +6633,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6659,7 +6659,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6685,7 +6685,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6711,7 +6711,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6737,7 +6737,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6763,7 +6763,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6789,7 +6789,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6815,7 +6815,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6841,7 +6841,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6867,7 +6867,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6893,7 +6893,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6919,7 +6919,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6945,7 +6945,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6971,7 +6971,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -6997,7 +6997,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7023,7 +7023,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7049,7 +7049,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7075,7 +7075,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7101,7 +7101,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7127,7 +7127,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7153,7 +7153,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7179,7 +7179,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7205,7 +7205,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7231,7 +7231,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7257,7 +7257,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7283,7 +7283,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7309,7 +7309,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7335,7 +7335,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7361,7 +7361,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7387,7 +7387,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7413,7 +7413,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7439,7 +7439,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7465,7 +7465,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7491,7 +7491,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7517,7 +7517,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7543,7 +7543,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7569,7 +7569,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7595,7 +7595,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7621,7 +7621,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7647,7 +7647,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7673,7 +7673,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7699,7 +7699,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7725,7 +7725,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7751,7 +7751,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7777,7 +7777,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7803,7 +7803,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7829,7 +7829,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7855,7 +7855,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7881,7 +7881,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7907,7 +7907,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7933,7 +7933,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7959,7 +7959,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -7985,7 +7985,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -8011,7 +8011,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -8037,7 +8037,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -8063,7 +8063,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -8089,7 +8089,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -8115,7 +8115,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -8141,7 +8141,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -8167,7 +8167,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -8193,7 +8193,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -8219,7 +8219,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/installation-video.md", "/videos/supply-chain-videos/", "/videos/manufacturing-actual-overhead.md", "/videos/report-wizard-videos/", {
+      children: [ "/videos/installation-video.md", "/videos/supply-chain-videos/", "/videos/manufacturing-actual-overhead.md", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -8245,7 +8245,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -8278,7 +8278,7 @@ export const SIDEBAR_CONFIG = {
           text: ".",
           "link" : "/videos/supply-chain-videos/"
         } ]
-      }, "/videos/report-wizard-videos/", {
+      }, "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -8304,7 +8304,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -8330,7 +8330,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -8356,7 +8356,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -8382,7 +8382,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -8415,7 +8415,7 @@ export const SIDEBAR_CONFIG = {
           text: ".",
           "link" : "/videos/report-wizard-videos/"
         } ]
-      }, {
+      }, "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -8441,7 +8441,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -8467,7 +8467,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -8493,7 +8493,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -8519,7 +8519,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -8545,7 +8545,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]
@@ -8571,7 +8571,144 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       collapsible: true,
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
+        text: ".",
+        "link" : "/videos/"
+      } ]
+    } ]
+  } ],
+  "/videos/hr" : [ {
+    text: "Home",
+    collapsible: true,
+    children: [ "/full-search.md", {
+      text: "Guides",
+      collapsible: true,
+      children: [ "/guide/entity-flows/", "/guide/invoices/", {
+        text: ".",
+        "link" : "/guide/"
+      } ]
+    }, "/examples/", "/reprocessing/", "/faq/", {
+      text: "AI Generated Entity Flows Documentation",
+      collapsible: true,
+      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
+        text: ".",
+        "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      collapsible: true,
       children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
+        text: "hr",
+        collapsible: true,
+        children: [ "/videos/hr/hr-course-1.md", "/videos/hr/hr-course-2.md", "/videos/hr/hr-course-3.md", "/videos/hr/hr-course-4.md", {
+          text: ".",
+          "link" : "/videos/hr/"
+        } ]
+      }, {
+        text: ".",
+        "link" : "/videos/"
+      } ]
+    } ]
+  } ],
+  "/videos/hr/hr-course-1.md" : [ {
+    text: "Home",
+    collapsible: true,
+    children: [ "/full-search.md", {
+      text: "Guides",
+      collapsible: true,
+      children: [ "/guide/entity-flows/", "/guide/invoices/", {
+        text: ".",
+        "link" : "/guide/"
+      } ]
+    }, "/examples/", "/reprocessing/", "/faq/", {
+      text: "AI Generated Entity Flows Documentation",
+      collapsible: true,
+      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
+        text: ".",
+        "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      collapsible: true,
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
+        text: ".",
+        "link" : "/videos/"
+      } ]
+    } ]
+  } ],
+  "/videos/hr/hr-course-2.md" : [ {
+    text: "Home",
+    collapsible: true,
+    children: [ "/full-search.md", {
+      text: "Guides",
+      collapsible: true,
+      children: [ "/guide/entity-flows/", "/guide/invoices/", {
+        text: ".",
+        "link" : "/guide/"
+      } ]
+    }, "/examples/", "/reprocessing/", "/faq/", {
+      text: "AI Generated Entity Flows Documentation",
+      collapsible: true,
+      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
+        text: ".",
+        "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      collapsible: true,
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
+        text: ".",
+        "link" : "/videos/"
+      } ]
+    } ]
+  } ],
+  "/videos/hr/hr-course-3.md" : [ {
+    text: "Home",
+    collapsible: true,
+    children: [ "/full-search.md", {
+      text: "Guides",
+      collapsible: true,
+      children: [ "/guide/entity-flows/", "/guide/invoices/", {
+        text: ".",
+        "link" : "/guide/"
+      } ]
+    }, "/examples/", "/reprocessing/", "/faq/", {
+      text: "AI Generated Entity Flows Documentation",
+      collapsible: true,
+      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
+        text: ".",
+        "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      collapsible: true,
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
+        text: ".",
+        "link" : "/videos/"
+      } ]
+    } ]
+  } ],
+  "/videos/hr/hr-course-4.md" : [ {
+    text: "Home",
+    collapsible: true,
+    children: [ "/full-search.md", {
+      text: "Guides",
+      collapsible: true,
+      children: [ "/guide/entity-flows/", "/guide/invoices/", {
+        text: ".",
+        "link" : "/guide/"
+      } ]
+    }, "/examples/", "/reprocessing/", "/faq/", {
+      text: "AI Generated Entity Flows Documentation",
+      collapsible: true,
+      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
+        text: ".",
+        "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      collapsible: true,
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
         text: ".",
         "link" : "/videos/"
       } ]

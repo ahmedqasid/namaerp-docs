@@ -14,5 +14,10 @@
     - [توثيق فيديو تدريب تقرير فاتورة المبيعات وميزات الجيو الجديدة](/videos/report-wizard-videos/report-wizard-webinar-4.md)
     - [شرح إنشاء نموذج طباعة شاشة مستند تصفية](/videos/report-wizard-videos/report-wizard-webinar-5.md)
     - [توثيق شامل لمحتوى الفيديو حول إعداد تقارير الريبورت ويزرد وإدارة الصلاحيات](/videos/report-wizard-videos/report-wizard-webinar-6.md)
+  - [hr](/videos/hr/)
+    - [شرح مفصل لنظام إدارة الرواتب في نظام نما - 1](/videos/hr/hr-course-1.md)
+    - [شرح مفصل لنظام إدارة الرواتب في نظام نما - 2](/videos/hr/hr-course-2.md)
+    - [شرح مفصل لنظام إدارة الرواتب في نظام نما - 3](/videos/hr/hr-course-3.md)
+    - [شرح مفصل لنظام إدارة الرواتب في نظام نما - 4](/videos/hr/hr-course-4.md)
 
 </div>

@@ -20,4 +20,5 @@ export type SearchIndexConfig = {
   defaultSearchIndex?: string;
   defaultSelectedIndex?: string;
   searchIndexTitles?: { [className: string]: string };
+  searchIndexPathPrefixes?: { [indexName: string]: string | string[] };
 };

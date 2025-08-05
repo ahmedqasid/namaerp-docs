@@ -30,6 +30,10 @@ export interface FullTextSearchPluginOptions {
    * Display titles for search indices
    */
   searchIndexTitles?: { [className: string]: string };
+  /**
+   * Path prefixes to create separate search indices for
+   */
+  searchIndexPathPrefixes?: { [indexName: string]: string | string[] };
 }
 
 export const fullTextSearchPlugin = fullTextSearchPluginFunction;
@@ -60,7 +64,8 @@ function fullTextSearchPluginFunction(
         searchIndexClassNames: (options as FullTextSearchPluginOptions).searchIndexClassNames || ['default'],
         defaultSearchIndex: (options as FullTextSearchPluginOptions).defaultSearchIndex,
         defaultSelectedIndex: (options as FullTextSearchPluginOptions).defaultSelectedIndex,
-        searchIndexTitles: (options as FullTextSearchPluginOptions).searchIndexTitles || {}
+        searchIndexTitles: (options as FullTextSearchPluginOptions).searchIndexTitles || {},
+        searchIndexPathPrefixes: (options as FullTextSearchPluginOptions).searchIndexPathPrefixes || {}
       };
       prepareSearchIndex({ app, config });
     },
@@ -74,7 +79,8 @@ function fullTextSearchPluginFunction(
         searchIndexClassNames: (options as FullTextSearchPluginOptions).searchIndexClassNames || ['default'],
         defaultSearchIndex: (options as FullTextSearchPluginOptions).defaultSearchIndex,
         defaultSelectedIndex: (options as FullTextSearchPluginOptions).defaultSelectedIndex,
-        searchIndexTitles: (options as FullTextSearchPluginOptions).searchIndexTitles || {}
+        searchIndexTitles: (options as FullTextSearchPluginOptions).searchIndexTitles || {},
+        searchIndexPathPrefixes: (options as FullTextSearchPluginOptions).searchIndexPathPrefixes || {}
       };
       searchIndexWatcher.on("add", () => {
         prepareSearchIndex({ app, config });
