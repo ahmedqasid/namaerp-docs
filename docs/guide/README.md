@@ -35,3 +35,4 @@
   - [Nama ERP REST API](/guide/nama-erp-api.md)
   - [Criteria from Text Parser](/guide/text-criteria-guide.md)
   - [ضوابط إنشاء طلبات تطوير من قبل أقسام الدعم الفني والتجهيز بالشركة](/guide/dev-request-guidelines.md)
+  - [Nama ERP Notification System](/guide/notifications-system.md)
