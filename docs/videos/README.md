@@ -1,3 +1,5 @@
+<div class="ignore-in-full-text-search">
+
 # Video Tutorials
   - [توثيق فيديو تنصيب Nama ERP والبرامج المساعدة](/videos/installation-video.md)
   - [Supply Chain Videos](/videos/supply-chain-videos/)
@@ -12,3 +14,5 @@
     - [توثيق فيديو تدريب تقرير فاتورة المبيعات وميزات الجيو الجديدة](/videos/report-wizard-videos/report-wizard-webinar-4.md)
     - [شرح إنشاء نموذج طباعة شاشة مستند تصفية](/videos/report-wizard-videos/report-wizard-webinar-5.md)
     - [توثيق شامل لمحتوى الفيديو حول إعداد تقارير الريبورت ويزرد وإدارة الصلاحيات](/videos/report-wizard-videos/report-wizard-webinar-6.md)
+
+</div>

@@ -1,3 +1,5 @@
+<div class="ignore-in-full-text-search">
+
 # e-commerce Integration Module
   - [EAEcommerceAddItemToLinker](/entity-flows/magento/EAEcommerceAddItemToLinker.md)
   - [EAEcommerceGuessItemBySKU](/entity-flows/magento/EAEcommerceGuessItemBySKU.md)
@@ -7,3 +9,5 @@
   - [EAEcommerceShippingHandler](/entity-flows/magento/EAEcommerceShippingHandler.md)
   - [EAEcommerceUploadQuantityCSVFileToFTPServer](/entity-flows/magento/EAEcommerceUploadQuantityCSVFileToFTPServer.md)
   - [EASalesRecalculateFreeAndRelatedItems](/entity-flows/magento/EASalesRecalculateFreeAndRelatedItems.md)
+
+</div>

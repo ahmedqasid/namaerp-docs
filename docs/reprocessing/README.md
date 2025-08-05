@@ -1,3 +1,5 @@
+<div class="ignore-in-full-text-search">
+
 # Reprocessing Transactions
   - [Reprocessing Quantity, Cost, and Stock Ages](/reprocessing/reprocess-qty-and-cost.md)
   - [Accounting Utilities - Ledger and Debt Ages Reprocessing](/reprocessing/reprocess-ledger-and-debt-ages.md)
@@ -10,3 +12,5 @@
   - [Suggest Indexes for Large Detail Tables](/reprocessing/suggest-index-creation.md)
   - [General Purpose Utility Queries](/reprocessing/general-purpose-utility-queries.md)
   - [Replication Utilities](/reprocessing/replication.md)
+
+</div>

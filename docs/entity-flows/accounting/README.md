@@ -1,3 +1,5 @@
+<div class="ignore-in-full-text-search">
+
 # Accounting Module
   - [EAAddAccountingEffect](/entity-flows/accounting/EAAddAccountingEffect.md)
   - [EAClearLedgerLines](/entity-flows/accounting/EAClearLedgerLines.md)
@@ -9,3 +11,5 @@
   - [EAShortenLedger](/entity-flows/accounting/EAShortenLedger.md)
   - [EAShortenLedgerChangeToAccountCurrency](/entity-flows/accounting/EAShortenLedgerChangeToAccountCurrency.md)
   - [EASortLedger](/entity-flows/accounting/EASortLedger.md)
+
+</div>

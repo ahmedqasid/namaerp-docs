@@ -1,3 +1,5 @@
+<div class="ignore-in-full-text-search">
+
 # Service Center Module
   - [EACopyMotorAndChassisSerialsAndLotsToAssembledItemInCoProds](/entity-flows/srvcenter/EACopyMotorAndChassisSerialsAndLotsToAssembledItemInCoProds.md)
   - [EARecalculateSrvcOperationsAndMaterialsPrices](/entity-flows/srvcenter/EARecalculateSrvcOperationsAndMaterialsPrices.md)
@@ -5,3 +7,5 @@
   - [EASRVCCopyExecutionRemarksToJobOrder](/entity-flows/srvcenter/EASRVCCopyExecutionRemarksToJobOrder.md)
   - [EAUpdateAssemblyDocWithAssembledItemSold](/entity-flows/srvcenter/EAUpdateAssemblyDocWithAssembledItemSold.md)
   - [EAUseReceiptPaperForEngineOrChassisItems](/entity-flows/srvcenter/EAUseReceiptPaperForEngineOrChassisItems.md)
+
+</div>

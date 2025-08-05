@@ -1,3 +1,5 @@
+<div class="ignore-in-full-text-search">
+
 # Guides
   - [بعض المعلومات عن استعمال هذا الموقع](/guide/docs-quick-guide.md)
   - [Utility Links](/guide/utils.md)
@@ -36,3 +38,5 @@
   - [Criteria from Text Parser](/guide/text-criteria-guide.md)
   - [ضوابط إنشاء طلبات تطوير من قبل أقسام الدعم الفني والتجهيز بالشركة](/guide/dev-request-guidelines.md)
   - [Nama ERP Notification System](/guide/notifications-system.md)
+
+</div>

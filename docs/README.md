@@ -2,6 +2,12 @@
 home: true
 heroImage: hero.svg
 ---
+
+<div class="ignore-in-full-text-search">
+
+
+<div class="ignore-in-full-text-search">
+
 # Home
   - [Search](/full-search.md)
   - [Guides](/guide/)
@@ -326,3 +332,5 @@ heroImage: hero.svg
       - [توثيق فيديو تدريب تقرير فاتورة المبيعات وميزات الجيو الجديدة](/videos/report-wizard-videos/report-wizard-webinar-4.md)
       - [شرح إنشاء نموذج طباعة شاشة مستند تصفية](/videos/report-wizard-videos/report-wizard-webinar-5.md)
       - [توثيق شامل لمحتوى الفيديو حول إعداد تقارير الريبورت ويزرد وإدارة الصلاحيات](/videos/report-wizard-videos/report-wizard-webinar-6.md)
+
+</div>

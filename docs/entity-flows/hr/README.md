@@ -1,3 +1,5 @@
+<div class="ignore-in-full-text-search">
+
 # HR Module
   - [CalcBasicSalaryForNetSalary](/entity-flows/hr/CalcBasicSalaryForNetSalary.md)
   - [EACalComponentFromLoan](/entity-flows/hr/EACalComponentFromLoan.md)
@@ -23,3 +25,5 @@
   - [SetAttendanceToFixedTimeIfEmpty](/entity-flows/hr/SetAttendanceToFixedTimeIfEmpty.md)
   - [TimeAttendanceAddExtraHoursToEmpty](/entity-flows/hr/TimeAttendanceAddExtraHoursToEmpty.md)
   - [TimeAttendanceRemoveEmptyTimeLines](/entity-flows/hr/TimeAttendanceRemoveEmptyTimeLines.md)
+
+</div>
