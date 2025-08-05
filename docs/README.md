@@ -6,8 +6,6 @@ heroImage: hero.svg
 <div class="ignore-in-full-text-search">
 
 
-<div class="ignore-in-full-text-search">
-
 # Home
   - [Search](/full-search.md)
   - [Guides](/guide/)
