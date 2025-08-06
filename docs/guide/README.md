@@ -28,6 +28,7 @@
   - [Criteria Based Validation](/guide/criteria-based-validation.md)
   - [صيغ الحضور والانصراف](/guide/attendance-machine-formula.md)
   - [الربط مع ماكينات الحضور والانصراف](/guide/attendance-machines-integration.md)
+  - [Nama ERP Notification System](/guide/notifications-system.md)
   - [Email By Parameterized Reports In Task Scheduler](/guide/scheduled-tasks.md)
   - [Nama Properties](/guide/nama-properties.md)
   - [Customer Reward Points (Loyalty Points)](/guide/reward-points.md)
@@ -37,6 +38,5 @@
   - [Nama ERP REST API](/guide/nama-erp-api.md)
   - [Criteria from Text Parser](/guide/text-criteria-guide.md)
   - [ضوابط إنشاء طلبات تطوير من قبل أقسام الدعم الفني والتجهيز بالشركة](/guide/dev-request-guidelines.md)
-  - [Nama ERP Notification System](/guide/notifications-system.md)
 
 </div>

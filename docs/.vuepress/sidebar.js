@@ -57,7 +57,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/docs-quick-guide.md", "/guide/utils.md", "/guide/system-minimum-requirements.md", "/guide/installation-guide.md", "/guide/reports-guide.md", "/guide/shortcuts.md", "/guide/screen-modifier.md", "/guide/entity-flows/", "/guide/report-wizard-guide.md", "/guide/invoices/", "/guide/tempo.md", "/guide/invoice-retriever.md", "/guide/sms-and-whatsapp.md", "/guide/field-filter-with-criteria.md", "/guide/translations.md", "/guide/criteria-based-validation.md", "/guide/attendance-machine-formula.md", "/guide/attendance-machines-integration.md", "/guide/scheduled-tasks.md", "/guide/nama-properties.md", "/guide/reward-points.md", "/guide/nama-pos.md", "/guide/mobile-application-guide.md", "/guide/oracle-jdbc-connection.md", "/guide/nama-erp-api.md", "/guide/text-criteria-guide.md", "/guide/dev-request-guidelines.md", "/guide/notifications-system.md", {
+      children: [ "/guide/docs-quick-guide.md", "/guide/utils.md", "/guide/system-minimum-requirements.md", "/guide/installation-guide.md", "/guide/reports-guide.md", "/guide/shortcuts.md", "/guide/screen-modifier.md", "/guide/entity-flows/", "/guide/report-wizard-guide.md", "/guide/invoices/", "/guide/tempo.md", "/guide/invoice-retriever.md", "/guide/sms-and-whatsapp.md", "/guide/field-filter-with-criteria.md", "/guide/translations.md", "/guide/criteria-based-validation.md", "/guide/attendance-machine-formula.md", "/guide/attendance-machines-integration.md", "/guide/notifications-system.md", "/guide/scheduled-tasks.md", "/guide/nama-properties.md", "/guide/reward-points.md", "/guide/nama-pos.md", "/guide/mobile-application-guide.md", "/guide/oracle-jdbc-connection.md", "/guide/nama-erp-api.md", "/guide/text-criteria-guide.md", "/guide/dev-request-guidelines.md", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -793,6 +793,32 @@ export const SIDEBAR_CONFIG = {
       } ]
     } ]
   } ],
+  "/guide/notifications-system.md" : [ {
+    text: "Home",
+    collapsible: true,
+    children: [ "/full-search.md", {
+      text: "Guides",
+      collapsible: true,
+      children: [ "/guide/entity-flows/", "/guide/invoices/", {
+        text: ".",
+        "link" : "/guide/"
+      } ]
+    }, "/examples/", "/reprocessing/", "/faq/", {
+      text: "AI Generated Entity Flows Documentation",
+      collapsible: true,
+      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
+        text: ".",
+        "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      collapsible: true,
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
+        text: ".",
+        "link" : "/videos/"
+      } ]
+    } ]
+  } ],
   "/guide/scheduled-tasks.md" : [ {
     text: "Home",
     collapsible: true,
@@ -1002,32 +1028,6 @@ export const SIDEBAR_CONFIG = {
     } ]
   } ],
   "/guide/dev-request-guidelines.md" : [ {
-    text: "Home",
-    collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
-      collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", {
-        text: ".",
-        "link" : "/guide/"
-      } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
-      text: "AI Generated Entity Flows Documentation",
-      collapsible: true,
-      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
-        text: ".",
-        "link" : "/entity-flows/"
-      } ]
-    }, {
-      text: "Video Tutorials",
-      collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
-        text: ".",
-        "link" : "/videos/"
-      } ]
-    } ]
-  } ],
-  "/guide/notifications-system.md" : [ {
     text: "Home",
     collapsible: true,
     children: [ "/full-search.md", {
@@ -8598,7 +8598,7 @@ export const SIDEBAR_CONFIG = {
       text: "Video Tutorials",
       collapsible: true,
       children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", {
-        text: "hr",
+        text: "Human Resources Videos",
         collapsible: true,
         children: [ "/videos/hr/hr-course-1.md", "/videos/hr/hr-course-2.md", "/videos/hr/hr-course-3.md", "/videos/hr/hr-course-4.md", {
           text: ".",

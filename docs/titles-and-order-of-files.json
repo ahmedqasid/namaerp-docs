@@ -30,6 +30,7 @@
     "/guide/criteria-based-validation.md",
     "/guide/attendance-machine-formula.md",
     "/guide/attendance-machines-integration.md",
+    "/guide/notifications-system.md",
     "/guide/scheduled-tasks.md",
     "/guide/nama-properties.md",
     "/guide/reward-points.md",
@@ -86,8 +87,12 @@
     "/videos/report-wizard-videos/report-wizard-webinar-3.md",
     "/videos/report-wizard-videos/report-wizard-webinar-4.md",
     "/videos/report-wizard-videos/report-wizard-webinar-5.md",
-    "/videos/report-wizard-videos/report-wizard-webinar-6.md"
-
+    "/videos/report-wizard-videos/report-wizard-webinar-6.md",
+    "/videos/hr",
+    "/videos/hr/hr-course-1.md",
+    "/videos/hr/hr-course-2.md",
+    "/videos/hr/hr-course-3.md",
+    "/videos/hr/hr-course-4.md"
   ],
   "folderTitles": {
     "/": "Home",
@@ -100,6 +105,7 @@
     "/videos": "Video Tutorials",
     "/videos/supply-chain-videos":"Supply Chain Videos",
     "/videos/report-wizard-videos": "Report Wizard Videos",
+    "/videos/hr": "Human Resources Videos",
     "/entity-flows": "AI Generated Entity Flows Documentation",
     "/entity-flows/accounting": "Accounting Module",
     "/entity-flows/ai": "AI Module",

@@ -158,3 +158,13 @@ To enable the system to download and install updates from the **utils** page (i.
 4. Save the configuration and restart the Tomcat service.
 
 ![Configure Tomcat Service Logon as](images/installation-configure-logon-to-enable-auto-upgrade.png)
+
+## Troubleshooting Tomcat Startup or System Issues
+
+Tomcat may fail to start or the system may not function correctly due to one of the following common causes:
+
+1. Another program is already using Tomcat’s port.
+2. SQL Server is not running, the database is in a suspect state, or TCP/IP is not enabled in SQL Server.
+3. The Java path is missing or incorrectly configured.
+
+To diagnose these issues, download the latest version of the Nama ERP Installer, select the Tomcat path, and click **Perform Checks**.
