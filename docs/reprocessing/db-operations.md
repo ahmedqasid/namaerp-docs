@@ -47,11 +47,11 @@ req.session_id,
 req.status,
 req.command,
 req.cpu_time,
-req.total_elapsed_time,
+req.total_elapsed_time/1000.0 total_elapsed_time,
 req.percent_complete
 FROM sys.dm_exec_requests req
 CROSS APPLY sys.dm_exec_sql_text(sql_handle) AS sqltext
-Order by total_elapsed_time desc
+Order by req.total_elapsed_time desc
 
 ```
 :::
@@ -478,5 +478,31 @@ where e.id is null
 ```sql
 delete a from Alias a left join EntitySystemEntry e on e.targetid = a.ownerId
 where e.id is null
+```
+:::
+
+## Find Invalid Remarks Fields (whose type is not nvarchar(max))
+- Query to find all 'remarks' columns that are not nvarchar(max) and generate ALTER statements to change them to nvarchar(max)
+::: details 
+```sql
+
+SELECT
+    t.TABLE_SCHEMA,
+    t.TABLE_NAME,
+    c.COLUMN_NAME,
+    c.DATA_TYPE,
+    c.CHARACTER_MAXIMUM_LENGTH,
+    -- Generate the ALTER statement
+    'ALTER TABLE [' + t.TABLE_SCHEMA + '].[' + t.TABLE_NAME + '] ALTER COLUMN [' + c.COLUMN_NAME + '] NVARCHAR(MAX);' AS ALTER_STATEMENT
+FROM
+    INFORMATION_SCHEMA.TABLES t
+        INNER JOIN INFORMATION_SCHEMA.COLUMNS c ON t.TABLE_NAME = c.TABLE_NAME AND t.TABLE_SCHEMA = c.TABLE_SCHEMA
+WHERE
+    c.COLUMN_NAME = 'remarks'
+  AND t.TABLE_TYPE = 'BASE TABLE'   -- Only actual tables, not views
+  AND NOT (c.DATA_TYPE = 'nvarchar' AND c.CHARACTER_MAXIMUM_LENGTH = -1)  -- -1 indicates MAX
+ORDER BY
+    t.TABLE_SCHEMA, t.TABLE_NAME;
+
 ```
 :::
