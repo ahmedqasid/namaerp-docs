@@ -5020,7 +5020,7 @@ export const SIDEBAR_CONFIG = {
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", {
         text: "HR Module",
         collapsible: true,
-        children: [ "/entity-flows/hr/CalcBasicSalaryForNetSalary.md", "/entity-flows/hr/EACalComponentFromLoan.md", "/entity-flows/hr/EAChangeEmployeeStateHandler.md", "/entity-flows/hr/EAClearFromDateIfFromTimeEmpty.md", "/entity-flows/hr/EAClearToDateIfToTimeEmpty.md", "/entity-flows/hr/EACopySalaryStructureToJobOffer.md", "/entity-flows/hr/EACopySalaryStructureToUpdateEmpInfo.md", "/entity-flows/hr/EADSCNormalizeTimeAttendance.md", "/entity-flows/hr/EAEmpAttendanceSysEntryCalculator.md", "/entity-flows/hr/EAHealthInsuranceOfferReqAction.md", "/entity-flows/hr/EALiptisSetComponentFromAnotherWithMax.md", "/entity-flows/hr/EAMakeSingleCheckInCheckOutIfNeeded.md", "/entity-flows/hr/EAOyoonWorkPlaceUpdateToUpdateInfo.md", "/entity-flows/hr/EASalaryCostCalculator.md", "/entity-flows/hr/EASalaryNormalizeAdditions.md", "/entity-flows/hr/EASalaryNormalizeDeductions.md", "/entity-flows/hr/EATimeAttendanceFromDBImportIntoDocument.md", "/entity-flows/hr/EATimeAttendanceFromDBImporter.md", "/entity-flows/hr/EATimeAttendanceSetDefaultFromTime.md", "/entity-flows/hr/EATimeAttendanceSetDefaultToTime.md", "/entity-flows/hr/EAUpdateEmployeeResidencyRenewDate.md", "/entity-flows/hr/SetAttendanceToFixedTimeIfEmpty.md", "/entity-flows/hr/TimeAttendanceAddExtraHoursToEmpty.md", "/entity-flows/hr/TimeAttendanceRemoveEmptyTimeLines.md", {
+        children: [ "/entity-flows/hr/CalcBasicSalaryForNetSalary.md", "/entity-flows/hr/EACalComponentFromLoan.md", "/entity-flows/hr/EAChangeEmployeeStateFromFiringHandler.md", "/entity-flows/hr/EAChangeEmployeeStateHandler.md", "/entity-flows/hr/EAClearFromDateIfFromTimeEmpty.md", "/entity-flows/hr/EAClearToDateIfToTimeEmpty.md", "/entity-flows/hr/EACopySalaryStructureToJobOffer.md", "/entity-flows/hr/EACopySalaryStructureToUpdateEmpInfo.md", "/entity-flows/hr/EADSCNormalizeTimeAttendance.md", "/entity-flows/hr/EAEmpAttendanceSysEntryCalculator.md", "/entity-flows/hr/EAHealthInsuranceOfferReqAction.md", "/entity-flows/hr/EALiptisSetComponentFromAnotherWithMax.md", "/entity-flows/hr/EAMakeSingleCheckInCheckOutIfNeeded.md", "/entity-flows/hr/EAOyoonWorkPlaceUpdateToUpdateInfo.md", "/entity-flows/hr/EASalaryCostCalculator.md", "/entity-flows/hr/EASalaryNormalizeAdditions.md", "/entity-flows/hr/EASalaryNormalizeDeductions.md", "/entity-flows/hr/EATimeAttendanceFromDBImportIntoDocument.md", "/entity-flows/hr/EATimeAttendanceFromDBImporter.md", "/entity-flows/hr/EATimeAttendanceSetDefaultFromTime.md", "/entity-flows/hr/EATimeAttendanceSetDefaultToTime.md", "/entity-flows/hr/EAUpdateEmployeeResidencyRenewDate.md", "/entity-flows/hr/SetAttendanceToFixedTimeIfEmpty.md", "/entity-flows/hr/TimeAttendanceAddExtraHoursToEmpty.md", "/entity-flows/hr/TimeAttendanceRemoveEmptyTimeLines.md", {
           text: ".",
           "link" : "/entity-flows/hr/"
         } ]
@@ -5064,6 +5064,32 @@ export const SIDEBAR_CONFIG = {
     } ]
   } ],
   "/entity-flows/hr/EACalComponentFromLoan.md" : [ {
+    text: "Home",
+    collapsible: true,
+    children: [ "/full-search.md", {
+      text: "Guides",
+      collapsible: true,
+      children: [ "/guide/entity-flows/", "/guide/invoices/", {
+        text: ".",
+        "link" : "/guide/"
+      } ]
+    }, "/examples/", "/reprocessing/", "/faq/", {
+      text: "AI Generated Entity Flows Documentation",
+      collapsible: true,
+      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
+        text: ".",
+        "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      collapsible: true,
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
+        text: ".",
+        "link" : "/videos/"
+      } ]
+    } ]
+  } ],
+  "/entity-flows/hr/EAChangeEmployeeStateFromFiringHandler.md" : [ {
     text: "Home",
     collapsible: true,
     children: [ "/full-search.md", {

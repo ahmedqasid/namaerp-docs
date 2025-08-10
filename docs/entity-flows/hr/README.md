@@ -3,6 +3,7 @@
 # HR Module
   - [CalcBasicSalaryForNetSalary](/entity-flows/hr/CalcBasicSalaryForNetSalary.md)
   - [EACalComponentFromLoan](/entity-flows/hr/EACalComponentFromLoan.md)
+  - [EAChangeEmployeeStateFromFiringHandler](/entity-flows/hr/EAChangeEmployeeStateFromFiringHandler.md)
   - [EAChangeEmployeeStateHandler](/entity-flows/hr/EAChangeEmployeeStateHandler.md)
   - [EAClearFromDateIfFromTimeEmpty](/entity-flows/hr/EAClearFromDateIfFromTimeEmpty.md)
   - [EAClearToDateIfToTimeEmpty](/entity-flows/hr/EAClearToDateIfToTimeEmpty.md)
