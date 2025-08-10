@@ -41,6 +41,8 @@ Parameters:
   customerId=customer.id
   fromDate=startDate
   amount=money.total
+  fromDate=$today.$yearStart
+  toDate=$today
 ```
 
 ## Database Tables Affected

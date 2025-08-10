@@ -12,26 +12,53 @@ module: hr
 
 ## Overview
 
-Updates employee states based on vacation documents that specify state changes. Executes a SQL query to find vacation documents, then applies the vacation type's designated employee state change to the associated employees.
+This entity flow automatically updates employee states based on vacation documents. When employees go on specific types of vacation (like unpaid leave or maternity leave), their employee state needs to change in the system. This handler processes vacation documents and applies the required state changes to the associated employees.
+
+## What This Action Does
+
+The handler takes a SQL query that finds vacation documents requiring employee state changes, then automatically updates each employee's state based on their vacation type configuration. This is essential for maintaining accurate employee statuses for payroll, attendance, and reporting purposes.
 
 ## When This Action Runs
 
-Manual execution or scheduled tasks for automated employee state management based on approved vacation documents. Typically used to change employee status when vacation periods begin or when specific vacation types require state changes.
+This action typically runs in the following scenarios:
+- **Scheduled Tasks**: Daily automated processes to update employee states for vacations starting today
+- **Manual Execution**: Support staff can run this to correct employee states or process specific vacation batches
+- **Integration Points**: May be triggered by other HR processes when vacation documents are approved
 
-## How It Works
+## Step-by-Step Process
 
-1. **Executes SQL query** - Runs the provided query to find vacation document IDs
-2. **Retrieves vacation documents** - Loads each vacation document by ID from query results
-3. **Validates state change** - Checks if vacation document has a defined state change target
-4. **Updates employee state** - Changes the associated employee's state to the vacation type's specified state
-5. **Commits changes** - Saves employee state changes without triggering replication
-6. **Processes all results** - Iterates through all vacation documents returned by the query
+1. **Query Execution**
+   - The system runs your provided SQL query against the database
+   - The query must return vacation document IDs in the first column
+   - Each ID represents a vacation document that needs processing
 
-## Parameters
+2. **Document Loading**
+   - For each ID returned by the query, the system loads the full VacationDocument record
+   - If a document ID is invalid or deleted, it's skipped without error
 
-**Parameter 1:** Query (Required) - SQL query returning vacation document IDs that require employee state changes
+3. **State Change Validation**
+   - The system checks if the vacation document has a valid `changeEmployeeStateTo` value
+   - This value comes from the VacationType configuration
+   - Documents without this value are skipped
 
-## Example SQL Query
+4. **Employee State Update**
+   - The system calls `changeEmployeeStateIfNeeded` method on the vacation document
+   - This updates the employee's state to match the vacation type's requirement
+   - Changes are saved immediately to the database
+
+5. **Result Accumulation**
+   - All processing results are collected and returned
+   - Errors for individual documents don't stop the overall process
+
+## Required Parameter
+
+**Query Parameter (Required)**
+The SQL query that identifies vacation documents needing state changes. The query must:
+- Return vacation document IDs as the first (or only) column
+- Use proper table names (case-insensitive in SQL Server)
+- Include appropriate filtering conditions
+
+### Standard Query Template
 
 ```sql
 select d.id 
@@ -40,68 +67,47 @@ left join Employee e on e.id = d.employee_id
 left join VacationType t on t.id = d.vacationType_id
 where d.commitedBefore = 1 
   and d.startDate >= cast(getdate() as date) 
+  and t.changeEmployeeStateTo <> ''
   and t.changeEmployeeStateTo <> e.employeeState
 ```
 
-## Database Tables Affected
+### Query Breakdown Explanation
 
-- **VacationDocument** - Reads vacation documents to determine required state changes
-- **Employee** - Updates employee state field based on vacation type configuration
-- **VacationType** - References vacation type configuration for target employee states
+- `d.commitedBefore = 1` - Only process approved/committed vacation documents
+- `d.startDate >= cast(getdate() as date)` - Process vacations starting today or in the future
+- `t.changeEmployeeStateTo <> ''` - Only vacation types that require state changes
+- `t.changeEmployeeStateTo <> e.employeeState` - Only if employee isn't already in the target state
 
-## Important Warnings
+## Database Tables and Fields
 
-### ⚠️ Query Requirements
-- Query must return vacation document IDs (first column)
-- Query should filter for committed vacation documents only
-- Include proper date filtering to avoid processing past vacations
-- Ensure vacation types have valid changeEmployeeStateTo values
+### Primary Tables
+- **VacationDocument** - Stores all vacation requests and approvals
+- **Employee** - Contains employee master data including current state
+- **VacationType** - Defines vacation types and their associated state changes
 
-### ⚠️ Employee State Changes
-- Employee state changes are permanent and affect employee status
-- Changes may impact payroll calculations, access rights, and reporting
-- No automatic reversal when vacation periods end
-- Consider implementing reverse processes for vacation completion
+### Key Fields Used
 
-### ⚠️ Vacation Document Dependencies
-- Only processes vacation documents with defined state change targets
-- Vacation documents must be properly linked to employees
-- Missing or invalid vacation type configurations are skipped
-- Vacation types must have changeEmployeeStateTo field populated
+**VacationDocument Table:**
+- `id` - Unique identifier for the vacation document
+- `employee_id` - Links to the Employee record
+- `vacationType_id` - Links to the VacationType configuration
+- `startDate` - When the vacation begins
+- `endDate` - When the vacation ends
+- `commitedBefore` - Flag indicating if vacation is approved (1 = approved)
 
-### ⚠️ Replication Behavior
-- Employee changes are committed without triggering replication
-- Changes may not propagate to other systems immediately
-- Consider manual replication if cross-system synchronization is required
+**Employee Table:**
+- `id` - Unique employee identifier
+- `employeeState` - Current state/status of the employee
 
-### ⚠️ Date and Time Considerations
-- Query should include appropriate date filtering for timing
-- Consider time zones when filtering by dates
-- Future-dated vacations may be processed before actual start dates
-- Past vacations may be processed if not properly filtered
+**VacationType Table:**
+- `id` - Unique vacation type identifier
+- `changeEmployeeStateTo` - Target employee state when this vacation type is active
 
-### ⚠️ Business Logic Impact
-- State changes may trigger other business rules and validations
-- Employee access permissions may change based on new state
-- Payroll and attendance calculations may be affected
-- Integration with other modules may be impacted
 
-### ⚠️ Error Handling
-- Failed employee updates are logged but don't stop processing
-- Invalid vacation document IDs are skipped silently
-- Large result sets may cause performance issues
-- Consider batching for high-volume operations
+## Technical Details
 
-### ⚠️ Audit and Tracking
-- Employee state changes may not be automatically audited
-- Consider logging state changes for compliance purposes
-- Track which vacation documents triggered state changes
-- Monitor for unexpected or incorrect state changes
-
-**Module:** hr
+**Module:** hr  
 
 **Full Class Name:** `com.namasoft.modules.humanresource.utils.actions.EAChangeEmployeeStateHandler`
 
-
 </div>
-
