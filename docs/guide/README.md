@@ -34,6 +34,7 @@
   - [Customer Reward Points (Loyalty Points)](/guide/reward-points.md)
   - [دليل استعمال النقاط الفنية في نقاط البيع](/guide/nama-pos.md)
   - [تطبيق الهواتف المحمولة](/guide/mobile-application-guide.md)
+  - [Generic Reference Overrider - User Guide](/guide/GenericReferenceOverrider_UserGuide.md)
   - [ORACLE JDBC Integration Connection in context.xml for integration purposes](/guide/oracle-jdbc-connection.md)
   - [Nama ERP REST API](/guide/nama-erp-api.md)
   - [Criteria from Text Parser](/guide/text-criteria-guide.md)
