@@ -19,7 +19,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -52,7 +52,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -92,7 +92,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -132,7 +132,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -172,7 +172,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -212,7 +212,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -252,7 +252,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -285,7 +285,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -325,7 +325,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -365,7 +365,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -405,7 +405,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -445,7 +445,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -485,7 +485,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -525,7 +525,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -565,7 +565,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -605,7 +605,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -645,7 +645,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -685,7 +685,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -725,7 +725,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -765,7 +765,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -805,7 +805,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -845,7 +845,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -885,7 +885,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -918,7 +918,47 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      collapsible: true,
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
+        text: ".",
+        "link" : "/videos/"
+      } ]
+    } ]
+  } ],
+  "/release-notes/2016" : [ {
+    text: "Home",
+    collapsible: true,
+    children: [ "/full-search.md", {
+      text: "Guides",
+      collapsible: true,
+      children: [ "/guide/entity-flows/", "/guide/invoices/", {
+        text: ".",
+        "link" : "/guide/"
+      } ]
+    }, "/examples/", "/reprocessing/", "/faq/", {
+      text: "AI Generated Entity Flows Documentation",
+      collapsible: true,
+      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
+        text: ".",
+        "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ {
+        text: "2016",
+        collapsible: true,
+        children: [ "/release-notes/2016/nama-erp-201605-release-notes-arabic.md", {
+          text: ".",
+          "link" : "/release-notes/2016/"
+        } ]
+      }, "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -951,7 +991,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ {
+      children: [ "/release-notes/2016/", {
         text: "2025",
         collapsible: true,
         children: [ "/release-notes/2025/nama-erp-202507-release-notes-arabic.md", {
@@ -991,7 +1031,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -1024,7 +1064,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -1064,7 +1104,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -1104,7 +1144,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
