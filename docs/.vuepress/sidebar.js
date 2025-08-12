@@ -954,7 +954,7 @@ export const SIDEBAR_CONFIG = {
       children: [ {
         text: "2016",
         collapsible: true,
-        children: [ "/release-notes/2016/nama-erp-201605-release-notes-arabic.md", {
+        children: [ "/release-notes/2016/nama-erp-201605-release-notes-arabic.md", "/release-notes/2016/nama-erp-201606-release-notes-arabic.md", "/release-notes/2016/nama-erp-201607-release-notes-arabic.md", "/release-notes/2016/nama-erp-201608-release-notes-arabic.md", {
           text: ".",
           "link" : "/release-notes/2016/"
         } ]
