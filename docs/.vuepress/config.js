@@ -30,8 +30,8 @@ export default defineUserConfig({
   plugins: [
     // slimsearchPlugin({indexContent: true, indexOptions: {}})
     fullTextSearchPlugin({
-      searchIndexPathPrefixes: {"videos": "/videos", "ai-docs-entity-flows": "/entity-flows"},
-      searchIndexTitles: {"videos": "Videos", "ai-docs-entity-flows": "Entity Flows"},
+      searchIndexPathPrefixes: {"videos": "/videos", "ai-docs-entity-flows": "/entity-flows", "release-notes": "/release-notes"},
+      searchIndexTitles: {"videos": "Videos", "ai-docs-entity-flows": "Entity Flows", "release-notes": "Release Notes"},
     }),
     markdownContainerPlugin({
       type: 'rtl',
