@@ -17,6 +17,13 @@ export const SIDEBAR_CONFIG = {
         "link" : "/entity-flows/"
       } ]
     }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
       text: "Video Tutorials",
       collapsible: true,
       children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
@@ -41,6 +48,13 @@ export const SIDEBAR_CONFIG = {
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
         text: ".",
         "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
       } ]
     }, {
       text: "Video Tutorials",
@@ -76,6 +90,13 @@ export const SIDEBAR_CONFIG = {
         "link" : "/entity-flows/"
       } ]
     }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
       text: "Video Tutorials",
       collapsible: true,
       children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
@@ -107,6 +128,13 @@ export const SIDEBAR_CONFIG = {
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
         text: ".",
         "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
       } ]
     }, {
       text: "Video Tutorials",
@@ -142,6 +170,13 @@ export const SIDEBAR_CONFIG = {
         "link" : "/entity-flows/"
       } ]
     }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
       text: "Video Tutorials",
       collapsible: true,
       children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
@@ -173,6 +208,13 @@ export const SIDEBAR_CONFIG = {
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
         text: ".",
         "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
       } ]
     }, {
       text: "Video Tutorials",
@@ -208,6 +250,13 @@ export const SIDEBAR_CONFIG = {
         "link" : "/entity-flows/"
       } ]
     }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
       text: "Video Tutorials",
       collapsible: true,
       children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
@@ -232,6 +281,13 @@ export const SIDEBAR_CONFIG = {
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
         text: ".",
         "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
       } ]
     }, {
       text: "Video Tutorials",
@@ -267,6 +323,13 @@ export const SIDEBAR_CONFIG = {
         "link" : "/entity-flows/"
       } ]
     }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
       text: "Video Tutorials",
       collapsible: true,
       children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
@@ -298,6 +361,13 @@ export const SIDEBAR_CONFIG = {
       }, "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
         text: ".",
         "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
       } ]
     }, {
       text: "Video Tutorials",
@@ -333,6 +403,13 @@ export const SIDEBAR_CONFIG = {
         "link" : "/entity-flows/"
       } ]
     }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
       text: "Video Tutorials",
       collapsible: true,
       children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
@@ -364,6 +441,13 @@ export const SIDEBAR_CONFIG = {
       }, "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
         text: ".",
         "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
       } ]
     }, {
       text: "Video Tutorials",
@@ -399,6 +483,13 @@ export const SIDEBAR_CONFIG = {
         "link" : "/entity-flows/"
       } ]
     }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
       text: "Video Tutorials",
       collapsible: true,
       children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
@@ -430,6 +521,13 @@ export const SIDEBAR_CONFIG = {
       }, "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
         text: ".",
         "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
       } ]
     }, {
       text: "Video Tutorials",
@@ -465,6 +563,13 @@ export const SIDEBAR_CONFIG = {
         "link" : "/entity-flows/"
       } ]
     }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
       text: "Video Tutorials",
       collapsible: true,
       children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
@@ -496,6 +601,13 @@ export const SIDEBAR_CONFIG = {
       }, "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
         text: ".",
         "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
       } ]
     }, {
       text: "Video Tutorials",
@@ -531,6 +643,13 @@ export const SIDEBAR_CONFIG = {
         "link" : "/entity-flows/"
       } ]
     }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
       text: "Video Tutorials",
       collapsible: true,
       children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
@@ -562,6 +681,13 @@ export const SIDEBAR_CONFIG = {
       }, "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
         text: ".",
         "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
       } ]
     }, {
       text: "Video Tutorials",
@@ -597,6 +723,13 @@ export const SIDEBAR_CONFIG = {
         "link" : "/entity-flows/"
       } ]
     }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
       text: "Video Tutorials",
       collapsible: true,
       children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
@@ -628,6 +761,13 @@ export const SIDEBAR_CONFIG = {
       }, "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
         text: ".",
         "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
       } ]
     }, {
       text: "Video Tutorials",
@@ -663,6 +803,13 @@ export const SIDEBAR_CONFIG = {
         "link" : "/entity-flows/"
       } ]
     }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
       text: "Video Tutorials",
       collapsible: true,
       children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
@@ -694,6 +841,13 @@ export const SIDEBAR_CONFIG = {
       }, "/entity-flows/supplychain/", {
         text: ".",
         "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
       } ]
     }, {
       text: "Video Tutorials",
@@ -729,6 +883,86 @@ export const SIDEBAR_CONFIG = {
         "link" : "/entity-flows/"
       } ]
     }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      collapsible: true,
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
+        text: ".",
+        "link" : "/videos/"
+      } ]
+    } ]
+  } ],
+  "/release-notes" : [ {
+    text: "Home",
+    collapsible: true,
+    children: [ "/full-search.md", {
+      text: "Guides",
+      collapsible: true,
+      children: [ "/guide/entity-flows/", "/guide/invoices/", {
+        text: ".",
+        "link" : "/guide/"
+      } ]
+    }, "/examples/", "/reprocessing/", "/faq/", {
+      text: "AI Generated Entity Flows Documentation",
+      collapsible: true,
+      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
+        text: ".",
+        "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      collapsible: true,
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
+        text: ".",
+        "link" : "/videos/"
+      } ]
+    } ]
+  } ],
+  "/release-notes/2025" : [ {
+    text: "Home",
+    collapsible: true,
+    children: [ "/full-search.md", {
+      text: "Guides",
+      collapsible: true,
+      children: [ "/guide/entity-flows/", "/guide/invoices/", {
+        text: ".",
+        "link" : "/guide/"
+      } ]
+    }, "/examples/", "/reprocessing/", "/faq/", {
+      text: "AI Generated Entity Flows Documentation",
+      collapsible: true,
+      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
+        text: ".",
+        "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ {
+        text: "2025",
+        collapsible: true,
+        children: [ "/release-notes/2025/nama-erp-202507-release-notes-arabic.md", {
+          text: ".",
+          "link" : "/release-notes/2025/"
+        } ]
+      }, {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
       text: "Video Tutorials",
       collapsible: true,
       children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
@@ -755,6 +989,13 @@ export const SIDEBAR_CONFIG = {
         "link" : "/entity-flows/"
       } ]
     }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
       text: "Video Tutorials",
       collapsible: true,
       children: [ "/videos/installation-video.md", "/videos/supply-chain-videos/", "/videos/manufacturing-actual-overhead.md", "/videos/report-wizard-videos/", "/videos/hr/", {
@@ -779,6 +1020,13 @@ export const SIDEBAR_CONFIG = {
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
         text: ".",
         "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
       } ]
     }, {
       text: "Video Tutorials",
@@ -814,6 +1062,13 @@ export const SIDEBAR_CONFIG = {
         "link" : "/entity-flows/"
       } ]
     }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
       text: "Video Tutorials",
       collapsible: true,
       children: [ "/videos/supply-chain-videos/", {
@@ -845,6 +1100,13 @@ export const SIDEBAR_CONFIG = {
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
         text: ".",
         "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
       } ]
     }, {
       text: "Video Tutorials",

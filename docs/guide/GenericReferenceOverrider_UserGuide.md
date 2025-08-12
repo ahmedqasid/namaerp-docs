@@ -15,6 +15,15 @@ The Generic Reference Overrider operates through several key components:
 2. **Utility Cache Layer** (`GenericRefOverriderFromDBUtil.java`): Provides cached access to configurations with thread-safe concurrent hash maps
 3. **Detail Line Types**: Specialized configuration lines for different customization aspects
 4. **Event-Based Cache Invalidation**: Automatic cache refresh when configurations change
+5. **Post Actions System** (`GenericReferenceOverriderPostActions.java`): Provides intelligent field suggestions and validation
+
+::: tip Technical Implementation
+The system uses sophisticated auto-suggestion mechanisms that dynamically filter available fields based on:
+- Entity type context
+- Field type compatibility
+- Predefined business rules
+- System metadata integration
+:::
 
 ## Purpose and Benefits
 
@@ -35,6 +44,14 @@ Generic reference fields in the system typically allow selection from multiple e
 #### How It Works
 The system maintains a cached mapping (`genRefTypesMap`) that stores entity type restrictions per field. When a user opens a reference field lookup, the system checks this map to determine which entity types should be available for selection.
 
+::: details Field Suggestion System
+The system provides intelligent field suggestions through the `EntityFieldIdsSuggestionUtil` utility:
+- **Context-Aware Filtering**: Only shows fields compatible with the selected entity type
+- **Field Type Filtering**: Restricts suggestions to `Genericreference` field types
+- **Dynamic Updates**: Field suggestions update automatically when entity type changes
+- **Discussion Fields**: Optionally includes discussion-related fields in suggestions
+:::
+
 #### Configuration Options
 - **For Type**: Apply override to a specific entity type (e.g., only SalesInvoice)
 - **Entity List**: Apply to multiple entity types using a predefined list
@@ -46,6 +63,13 @@ The system maintains a cached mapping (`genRefTypesMap`) that stores entity type
 
 
 ### 2. Visual Indicators and Icons
+
+::: tip Supported Field Types
+Icon configurations support different field types depending on the icon type:
+- **Field Icons**: All field types
+- **Entity Icons**: Applied to entity types globally
+- **Enum Icons**: Specific to enumeration fields with dynamic value suggestions
+:::
 
 #### Field Icons (`FieldIconLine`)
 **Concept**: Add contextual icons to field labels to provide immediate visual feedback about status, priority, or type.
@@ -68,6 +92,20 @@ The system maintains a cached mapping (`genRefTypesMap`) that stores entity type
 
 **Benefits**: Provides consistent visual language for status values, types, and categories throughout the application.
 
+::: details Enum Management System
+**Dynamic Enum Discovery**: The system automatically discovers all available enumeration types from system metadata using `fetchEnumsData()` method.
+
+**Configuration Process**:
+1. **Enum Type Selection**: Choose from dynamically suggested enum types
+2. **Value Selection**: System provides allowed values specific to the selected enum type
+3. **Icon Assignment**: Assign icons and colors to specific enum values
+
+**Technical Implementation**:
+- Cached enum metadata for performance
+- Real-time value suggestions based on enum type
+- Supports all system-defined enumerations
+:::
+
 **Examples**:
 - Order Status: "Draft" = yellow circle, "Approved" = green check, "Cancelled" = red X
 - Priority Level: "High" = red exclamation, "Medium" = orange dash, "Low" = green dot
@@ -78,6 +116,24 @@ The system maintains a cached mapping (`genRefTypesMap`) that stores entity type
 **Concept**: Apply formatting patterns to field values for consistent display without changing stored data.
 
 **Technical Note**: Masks are applied during UI rendering but don't affect database storage.
+
+::: details Supported Field Types
+**Compatible Fields**: Integer, Long, Decimal fields only
+
+**Mask Examples**:
+- `###,###.##` - Standard number formatting with thousands separator
+- `###.00` - Fixed decimal places
+- `##.##%` - Percentage formatting
+:::
+
+::: tip G2 Display Masks (Advanced)
+**Enhanced Formatting Options**:
+- `##,#` → "1234 → 1,234" (Thousands separator)
+- `##.## \%` → "25.5 → 25.5%" (Percentage with escaped %)
+- `##.00` → "25.5 → 25.50" (Fixed decimals)
+- `c` → "1234 → $1,123.00" (Currency formatting)
+- `##,#.00` → "1234567.56 → 1,234,567.56" (Full number formatting)
+:::
 
 #### Field Formats (`FieldFormatLine`)
 **Concept**: Control field input validation and formatting rules. This can be applied conditionally based on dynamic queries or criteria definitions.
@@ -119,6 +175,15 @@ The system maintains a cached mapping (`genRefTypesMap`) that stores entity type
 
 **How It Works**: The system maintains a metadata structure (`FieldsAllowedValuesMetadata`) that stores allowed values per entity type and field combination. During data entry, the system validates against these lists.
 
+::: details Supported Field Types
+**Compatible Fields**: Text, Integer, Long, Decimal, BigText, Enum, EntityType
+
+**Smart Value Suggestions**: The system provides context-aware suggestions for allowed values based on:
+- Field type and existing data patterns
+- Entity type context
+- Business rules and constraints
+:::
+
 **Configuration**:
 - **Restrict Values**: Boolean flag to enforce restrictions
 - **Allowed Values (1-10)**: Up to 10 predefined values per configuration line
@@ -132,6 +197,12 @@ The system maintains a cached mapping (`genRefTypesMap`) that stores entity type
 
 #### Maximum Field Length (`MaxFieldLengthInDB`)
 **Concept**: Override default database field lengths with business-specific limits for regular systems.
+
+::: details Supported Field Types
+**Compatible Fields**: Text, FieldID, Enum, Link, Email, Password, Color, PhoneNumber
+
+**System Integration**: Includes administrative action `updateFieldsMaxLengthInDB` to apply field length changes to the database schema.
+:::
 
 **Configuration**:
 - **For Type**: Specific entity type
@@ -147,6 +218,15 @@ The system maintains a cached mapping (`genRefTypesMap`) that stores entity type
 #### Maximum POS Field Length (`MaxPOSFieldLengthInDB`)
 **Concept**: Set specific field length limits for Point of Sale systems, typically shorter than regular systems.
 
+::: details POS Entity Recognition
+**Automatic POS Detection**: The system automatically identifies POS entities using the `isPosClass()` flag in entity metadata.
+
+**Smart Filtering**: When configuring POS field lengths:
+- Only POS entities are suggested in entity type selection
+- Field suggestions are limited to Decimal, Text, and Password fields
+- System prevents configuration of non-POS entities for POS-specific limits
+:::
+
 **Why Separate POS Limits**: POS systems often have constraints due to:
 - Receipt printer character limits (typically 40-48 characters per line)
 - Small display screens
@@ -154,7 +234,7 @@ The system maintains a cached mapping (`genRefTypesMap`) that stores entity type
 - Thermal printer limitations
 
 **Configuration**:
-- **For Type**: Entity type in POS context
+- **For Type**: Entity type in POS context (automatically filtered to POS entities)
 - **Field ID**: The field to limit
 - **Max Length**: Maximum characters for POS display/printing
 
@@ -172,6 +252,12 @@ The system maintains a cached mapping (`genRefTypesMap`) that stores entity type
 
 #### Maximum Line Count (`MaxLineCount`)
 **Concept**: Limit the number of detail lines allowed in documents.
+
+::: info Field Type Requirement
+**Compatible Fields**: Detail fields only
+
+Line count restrictions apply specifically to detail/collection fields that represent document lines.
+:::
 
 **Benefits**:
 - Prevent system performance issues
@@ -240,6 +326,12 @@ In ERP systems, dimensions represent organizational structures:
 #### Rich Text Fields (`RichTextFieldsLines`)
 **Concept**: Enable rich text editing (bold, italic, bullets, etc.) for specific text fields.
 
+::: info Field Type Requirement
+**Compatible Fields**: BigText fields only
+
+Rich text functionality is specifically designed for large text fields that can accommodate formatted content.
+:::
+
 **Use Cases**:
 - Product descriptions with formatting
 - Contract terms with emphasis
@@ -248,6 +340,12 @@ In ERP systems, dimensions represent organizational structures:
 
 #### Signature Fields (`SignatureFields`)
 **Concept**: Convert attachment fields to display signature icons instead of standard upload icons, enabling digital signature capture.
+
+::: warning Field Type Requirement
+**Compatible Fields**: Binary/Attachment fields only
+
+The system automatically filters field suggestions to show only binary fields when configuring signature functionality.
+:::
 
 **How It Works**: When configured, attachment fields show a signature button. Clicking this button opens a drawing canvas where users can:
 - **Touch Screen Signing**: Sign using finger or stylus on touch-enabled devices
@@ -265,6 +363,12 @@ In ERP systems, dimensions represent organizational structures:
 
 #### Scanner Integration (`UseScannerInField`)
 **Concept**: Configure attachment fields to support direct document scanning from connected scanner devices or multifunction printers with scanning capability.
+
+::: warning Field Type Requirement
+**Compatible Fields**: Binary/Attachment fields only
+
+Similar to signature fields, scanner integration is limited to binary field types for proper document storage.
+:::
 
 **How It Works**: When applied to attachment fields, this enables:
 - **Direct Scan to Field**: Scan documents directly into attachment fields
@@ -561,6 +665,24 @@ In ERP systems, dimensions represent organizational structures:
 #### Import Integrator (`ImportIntegratorLine`)
 **Concept**: Configure how external data should be imported and mapped to internal entities.
 
+::: details Predefined Integrator IDs
+**System Integrators**: The system includes predefined integrator configurations:
+- `MAGSaveOrder` - Magento order processing
+- `lastEcommerceSyncTime` - E-commerce synchronization timing
+- `lastEcommerceOrderId` - Order tracking integration
+- `vacbal` - Vacation balance imports
+- `shipordstatus` - Shipping order status updates
+- `assetTimes` - Asset time tracking
+- `assetTimesWithSlots` - Asset scheduling with time slots
+
+**Auto-Configuration**: When selecting an integrator ID, the system automatically applies default settings:
+- Import Type: JSON
+- Add Record: Enabled
+- Update Record: Enabled
+- Continue on Errors: Enabled
+- Trim Extra Spaces: Enabled
+:::
+
 **Features**:
 - Field mapping rules
 - Data transformation logic
@@ -570,8 +692,16 @@ In ERP systems, dimensions represent organizational structures:
 #### Email Send To Types (`EmailSendToTypes`)
 **Concept**: Configure which entity types can be selected as email recipients for specific email fields.
 
+::: details Predefined Email Field Types
+**Available Email Fields**: The system supports predefined email field types:
+- `to1`, `to2`, `to3` - Primary recipients
+- `cc1`, `cc2`, `cc3` - Carbon copy recipients
+
+**Smart Suggestions**: Field ID suggestions are automatically filtered to show only these predefined email field types.
+:::
+
 **Configuration**:
-- **Field ID**: The email field being configured
+- **Field ID**: The email field being configured (from predefined list)
 - **Entity Types (1-5)**: Up to 5 entity types that can be email recipients
 - **Send Type**: How emails should be sent (To, CC, BCC)
 
@@ -606,6 +736,16 @@ In ERP systems, dimensions represent organizational structures:
 #### Automatic Coding (`GenRefAutoCodingLine`)
 **Concept**: Generate automatic codes for new records based on configurable patterns.
 
+::: details Criteria Definition Integration
+**Smart Entity Type Filtering**: The system provides intelligent filtering for criteria definitions:
+- Criteria definitions are filtered to show only those applicable to the selected entity type(s)
+- When a criteria definition is selected, the system automatically populates the entity type field
+- Supports both single entity types and entity type lists
+- Bidirectional relationship ensures consistency between criteria and entity types
+
+**Technical Implementation**: Uses `DTOCriteriaBuilder` to create filtered criteria based on entity type context.
+:::
+
 **Pattern Syntax**:
 - `{valueDate.year}`: Four-digit year
 - `{valueDate.month}`: Two-digit month
@@ -614,3 +754,32 @@ In ERP systems, dimensions represent organizational structures:
 **Examples**:
 - Invoice: `INV-{valueDate.year}-` → "INV-2024-000001"
 - Purchase Order: `PO-{branch.code}-{fiscalPeriod.shortCode}-` → "PO-HQ-2503-0001"
+
+### 15. System Integration and Repository Features
+
+#### Implementation Repository Integration
+**Concept**: Integrate configurations with the implementation repository system for centralized management.
+
+::: info Repository Fields
+**System Integration Fields**:
+- `saveToImplRepo` - Save configuration to implementation repository
+- `systemReport` - Mark as system-wide report configuration
+- `implRepo` - Reference to implementation repository entry
+- `screenshot` - Visual documentation of the configuration
+- `pdfSample` - Sample PDF output for reference
+- `attachment1-5` - Additional documentation attachments
+- `relatedEntity1-2` - Related entity references
+- `relatedToModule1-2` - Module relationship tracking
+:::
+
+#### Administrative Actions
+**System Maintenance**: The Generic Reference Overrider includes administrative capabilities:
+
+::: tip Available Actions
+**updateFieldsMaxLengthInDB**: Applies configured field length restrictions to the database schema.
+
+**Requirements**:
+- Configuration must be saved before execution
+- Requires appropriate administrative permissions
+- Changes are applied immediately to database structure
+:::

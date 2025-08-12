@@ -76,6 +76,7 @@
     "/faq/database-error-related-faq.md",
     "/entity-flows",
     "/entity-flows/core",
+    "/release-notes",
     "/videos",
     "/videos/installation-video.md",
     "/videos/supply-chain-videos",
@@ -123,6 +124,7 @@
     "/entity-flows/namapos": "POS Module",
     "/entity-flows/realestate": "Real Estate Module",
     "/entity-flows/srvcenter": "Service Center Module",
-    "/entity-flows/supplychain": "Supply Chain Module"
+    "/entity-flows/supplychain": "Supply Chain Module",
+    "/release-notes": "Release Notes"
   }
 }
