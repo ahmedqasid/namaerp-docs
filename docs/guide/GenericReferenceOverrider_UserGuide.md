@@ -1,5 +1,5 @@
-# Generic Reference Overrider - User Guide
-
+# Generic Reference Overrider - User Guide (Fields and Entities Settings)
+## إعدادات الحقول والشاشات
 ## Overview
 The Generic Reference Overrider is a powerful system configuration entity in Nama ERP that allows administrators to customize and override various field behaviors, validations, and display properties across different entities without modifying the source code. This provides flexibility in adapting the system to specific business requirements.
 
