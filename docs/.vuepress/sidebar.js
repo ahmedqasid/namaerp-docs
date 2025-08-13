@@ -19,7 +19,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -52,7 +52,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -92,7 +92,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -132,7 +132,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -172,7 +172,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -212,7 +212,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -252,7 +252,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -285,7 +285,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -325,7 +325,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -365,7 +365,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -405,7 +405,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -445,7 +445,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -485,7 +485,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -525,7 +525,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -565,7 +565,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -605,7 +605,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -645,7 +645,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -685,7 +685,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -725,7 +725,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -765,7 +765,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -805,7 +805,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -845,7 +845,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -885,7 +885,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -918,7 +918,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -958,7 +958,7 @@ export const SIDEBAR_CONFIG = {
           text: ".",
           "link" : "/release-notes/2016/"
         } ]
-      }, "/release-notes/2017/", "/release-notes/2025/", {
+      }, "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -994,9 +994,89 @@ export const SIDEBAR_CONFIG = {
       children: [ "/release-notes/2016/", {
         text: "2017",
         collapsible: true,
-        children: [ "/release-notes/2017/nama-erp-201701-release-notes-arabic.md", "/release-notes/2017/nama-erp-201702-release-notes-arabic.md", "/release-notes/2017/nama-erp-201703-release-notes-arabic.md", "/release-notes/2017/nama-erp-201705-release-notes-arabic.md", "/release-notes/2017/nama-erp-201706-release-notes-arabic.md", {
+        children: [ "/release-notes/2017/nama-erp-201701-release-notes-arabic.md", "/release-notes/2017/nama-erp-201702-release-notes-arabic.md", "/release-notes/2017/nama-erp-201703-release-notes-arabic.md", "/release-notes/2017/nama-erp-201705-release-notes-arabic.md", "/release-notes/2017/nama-erp-201706-release-notes-arabic.md", "/release-notes/2017/nama-erp-201707-release-notes-arabic.md", "/release-notes/2017/nama-erp-201708-release-notes-arabic.md", "/release-notes/2017/nama-erp-201709-release-notes-arabic.md", "/release-notes/2017/nama-erp-201710-release-notes-arabic.md", "/release-notes/2017/nama-erp-201711-release-notes-arabic.md", {
           text: ".",
           "link" : "/release-notes/2017/"
+        } ]
+      }, "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      collapsible: true,
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
+        text: ".",
+        "link" : "/videos/"
+      } ]
+    } ]
+  } ],
+  "/release-notes/2018" : [ {
+    text: "Home",
+    collapsible: true,
+    children: [ "/full-search.md", {
+      text: "Guides",
+      collapsible: true,
+      children: [ "/guide/entity-flows/", "/guide/invoices/", {
+        text: ".",
+        "link" : "/guide/"
+      } ]
+    }, "/examples/", "/reprocessing/", "/faq/", {
+      text: "AI Generated Entity Flows Documentation",
+      collapsible: true,
+      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
+        text: ".",
+        "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2016/", "/release-notes/2017/", {
+        text: "2018",
+        collapsible: true,
+        children: [ "/release-notes/2018/nama-erp-201801-release-notes-arabic.md", "/release-notes/2018/nama-erp-201802-release-notes-arabic.md", "/release-notes/2018/nama-erp-201803-release-notes-arabic.md", "/release-notes/2018/nama-erp-201804-release-notes-arabic.md", "/release-notes/2018/nama-erp-201805-release-notes-arabic.md", "/release-notes/2018/nama-erp-201806-release-notes-arabic.md", "/release-notes/2018/nama-erp-201807-release-notes-arabic.md", "/release-notes/2018/nama-erp-201808-release-notes-arabic.md", "/release-notes/2018/nama-erp-201809-release-notes-arabic.md", "/release-notes/2018/nama-erp-201810-release-notes-arabic.md", "/release-notes/2018/nama-erp-201811-release-notes-arabic.md", "/release-notes/2018/nama-erp-201812-release-notes-arabic.md", {
+          text: ".",
+          "link" : "/release-notes/2018/"
+        } ]
+      }, "/release-notes/2019/", "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      collapsible: true,
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
+        text: ".",
+        "link" : "/videos/"
+      } ]
+    } ]
+  } ],
+  "/release-notes/2019" : [ {
+    text: "Home",
+    collapsible: true,
+    children: [ "/full-search.md", {
+      text: "Guides",
+      collapsible: true,
+      children: [ "/guide/entity-flows/", "/guide/invoices/", {
+        text: ".",
+        "link" : "/guide/"
+      } ]
+    }, "/examples/", "/reprocessing/", "/faq/", {
+      text: "AI Generated Entity Flows Documentation",
+      collapsible: true,
+      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
+        text: ".",
+        "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", {
+        text: "2019",
+        collapsible: true,
+        children: [ "/release-notes/2019/nama-erp-201901-release-notes-arabic.md", {
+          text: ".",
+          "link" : "/release-notes/2019/"
         } ]
       }, "/release-notes/2025/", {
         text: ".",
@@ -1031,7 +1111,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", {
         text: "2025",
         collapsible: true,
         children: [ "/release-notes/2025/nama-erp-202507-release-notes-arabic.md", {
@@ -1071,7 +1151,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -1104,7 +1184,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -1144,7 +1224,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
@@ -1184,7 +1264,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Release Notes",
       collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2025/", {
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2025/", {
         text: ".",
         "link" : "/release-notes/"
       } ]
