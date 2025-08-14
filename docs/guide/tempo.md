@@ -390,7 +390,7 @@ This example demonstrates:
 * Populating a stock transfer creation form
 
 ```tempo
-{creator(entity="StockTransferReq", menu="StockTransDocumentsStockTransferReq", title="Create StockTransferReq", newwindow="true")}
+{creator(entity="StockTransfer", menu="StockTransDocumentsStockTransferReq", title="Create StockTransferReq", newwindow="true")}
 
 {f("book")}{v("STR01")}
 {f("term")}{v("STR02")}
@@ -412,6 +412,21 @@ This example demonstrates:
 {endloop}
 
 {endcreator}
+```
+
+### Example 2: Creating Stock Transfer Request from SalesOrder if totalUnsatisfiedQty field is not zero 
+
+This example demonstrates using if statements.
+
+```tempo
+{if(totalUnsatisfiedQty)}
+   {creator(entity="StockTransferReq")}
+      {f("book")}{v("STR01")}
+      {f("term")}{v("STR02")}
+      {f("fromDoc#type")}{v(entityType)}
+      {f("fromDoc#code")}{v(code)}
+   {endcreator}
+{endif}
 ```
 
 ## Using Tempo in Approval Notification Templates
