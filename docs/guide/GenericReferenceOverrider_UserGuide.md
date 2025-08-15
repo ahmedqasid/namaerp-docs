@@ -1,5 +1,5 @@
-# Generic Reference Overrider - User Guide (Fields and Entities Settings)
-## إعدادات الحقول والشاشات
+# أعدادات الحقول و الشاشات - Generic Reference Overrider User Guide
+## إعدادات الحقول والشاشات - Fields and Screens Settings
 ## Overview
 The Generic Reference Overrider is a powerful system configuration entity in Nama ERP that allows administrators to customize and override various field behaviors, validations, and display properties across different entities without modifying the source code. This provides flexibility in adapting the system to specific business requirements.
 
@@ -34,15 +34,76 @@ The system uses sophisticated auto-suggestion mechanisms that dynamically filter
 - **Immediate Effect**: Changes apply immediately without system restart
 - **Dimension Control**: Override dimension validation rules per business needs
 
+## Database Schema Overview
+
+::: details Complete Collection Structure
+The GenericReferenceOverrider entity contains 32 detail collections, each stored in separate database tables:
+
+**Main Entity**: `GenericReferenceOverrider` table with Arabic name "أعدادات الحقول و الشاشات"
+
+**Detail Collections**:
+1. `details` → `GenRefOverriderLine` - القيم المسموح بها للمراجع (Allowed Values For Generic References)
+2. `fieldAllowedValues` → `FieldAllowedValues` - القيم المسموح بها للحقول (Field Allowed Values)
+3. `displayMasks` → `FieldDisplayMask` - Display Masks
+4. `signatures` → `SignatureFields` - Signatures
+5. `descriptors` → `ReferenceDescriptorLine` - Descriptors
+6. `lines` → `DuplicatedFieldsLines` - Clear On Duplicate
+7. `richTextFields` → `RichTextFieldsLines` - Rich Text Fields
+8. `queryBasedScreenField` → `QueryBasedScreenField` - استعلامات الحقول المحسوبة (calculated Fields Queries)
+9. `extraFilter` → `FieldExtraFilter` - Extra Filter
+10. `fieldFormats` → `FieldFormatLine` - Field Formats
+11. `fieldStyles` → `FieldStyleLine` - Field Styles
+12. `entityIcons` → `EntityIconLine` - Entity Icons
+13. `fieldIcons` → `FieldIconLine` - Field Icons
+14. `enumIcons` → `EnumConstantIconLine` - Enum Icons
+15. `disabledFields` → `DisabledFieldsLines` - Disabled Fields
+16. `openCreateFields` → `OpenCreateFields` - الحقول التي يتم فتح الإنشاء عند ادخال كود غير موجود
+17. `allowUsageOfPreventedRecords` → `AllowUsageOfPreventedRecords` - السماح باستعمال السجلات الممنوعة من الاستعمال
+18. `integratorConfig` → `IntegratorConfig` - Integrator Config
+19. `publicEntitiesLines` → `PublicEntitiesLine` - Public Entities
+20. `addDiscussionTo` → `AddDiscussionTo` - إضافة النقاش إلي (Add Discussion To)
+21. `addRelatedDocumentsTo` → `AddRelatedDocumentsTo` - إضافة المستندات المرتبطة إلى (Add Related Documents To)
+22. `extraCodes` → `ExtraCode` - Extra Codes
+23. `notColorFields` → `NotColorField` - ليست حقول ألوان (Not Color Fields)
+24. `auditFields` → `DetailedAuditFields` - Audit Fields
+25. `dimensionsConsistency` → `IgnoreDimensionsConsistency` - تجاهل تناسق المحددات لحقول
+26. `searchInNameInFindByCode` → `SearchInNameInFindByCode` - البحث في الأسم العربى والانجليزى عند كتابة كود ملف
+27. `extraReferenceSearchFields` → `ExtraReferenceSearchFields` - حقول البحث الإضافية عند البحث عن مرجع
+28. `emailSendToTypes` → `EmailSendToTypes` - أنواع المراجع في نافذة ارسال بريد الكترونى
+29. `importIntegratorLines` → `ImportIntegratorLine` - Import Integrators
+30. `textToLinkFields` → `TextToLinkFieldsLine` - الحقول النصية المحوله الي روابط (Text To Link Fields)
+31. `styleOverriderLines` → `GenRefRowStyleOverriderLine` - Style Overrider Details
+32. `maxLinesCounts` → `MaxLineCount` - أقصى عدد لسطور السندات والملفات
+33. `maxFieldsLengthInDB` → `MaxFieldLengthInDB` - Max Fields Length In DB
+34. `maxPOSFieldsLengthInDB` → `MaxPOSFieldLengthInDB` - Max POS Fields Length In DB
+35. `invoiceRetrieverLines` → `InvoiceRetrieverLine` - Invoice Retriever Lines
+36. `openInPopups` → `OpenInPopup` - Open Reference In Popup
+37. `autoCodingLines` → `GenRefAutoCodingLine` - التكويد الالي للملفات (Files Auto Coding)
+38. `useScannerInFields` → `UseScannerInField` - Use Scanner In Fields
+
+All detail collections use `genericReferenceOverrider_id` as the foreign key to link back to the main configuration record.
+:::
+
 ## Detailed Feature Descriptions
 
-### 1. Generic Reference Field Overrides (`GenRefOverriderLine`)
+### 1. Generic Reference Field Overrides (`details`)
+**Collection**: القيم المسموح بها للمراجع (Allowed Values For Generic References)
 
 #### Concept and Purpose
 Generic reference fields in the system typically allow selection from multiple entity types. For example, a "Reference" field might accept Customers, Suppliers, Employees, or Items. The Generic Reference Override allows you to restrict or modify which entity types are available for selection in specific contexts.
 
 #### How It Works
 The system maintains a cached mapping (`genRefTypesMap`) that stores entity type restrictions per field. When a user opens a reference field lookup, the system checks this map to determine which entity types should be available for selection.
+
+::: details Technical Field Structure
+**Key Fields**:
+- `forType` (EntityType) → "للنوع" - Target entity type for the override
+- `fieldID` (FieldID) → " الحقل" - Specific field being configured
+- `allowedEntity1-5` (EntityType) → Permitted entity types (up to 5)
+- `allowedEntityList` (EntityList) → Reference to entity list for more options
+- `defaultEntityType` (EntityType) → Pre-selected entity type
+- `addToExisting` (Boolean) → Whether to add to or replace existing allowed types
+:::
 
 ::: details Field Suggestion System
 The system provides intelligent field suggestions through the `EntityFieldIdsSuggestionUtil` utility:
@@ -71,7 +132,8 @@ Icon configurations support different field types depending on the icon type:
 - **Enum Icons**: Specific to enumeration fields with dynamic value suggestions
 :::
 
-#### Field Icons (`FieldIconLine`)
+#### Field Icons (`fieldIcons`)
+**Collection**: Field Icons
 **Concept**: Add contextual icons to field labels to provide immediate visual feedback about status, priority, or type.
 
 **How It Works**: The system evaluates field values and applies configured icons based on field ids.
@@ -83,11 +145,13 @@ Icon configurations support different field types depending on the icon type:
 - **Color Code**: Associated color (hex or named color)
 
 
-#### Entity Icons (`EntityIconLine`)
+#### Entity Icons (`entityIcons`)
+**Collection**: Entity Icons
 **Concept**: Apply icons to entire entity types, typically shown in lists and search results.
 
 
-#### Enum Constant Icons (`EnumConstantIconLine`)
+#### Enum Constant Icons (`enumIcons`)
+**Collection**: Enum Icons
 **Concept**: Add icons to enumeration (dropdown lists) values across the system.
 
 **Benefits**: Provides consistent visual language for status values, types, and categories throughout the application.
@@ -112,10 +176,19 @@ Icon configurations support different field types depending on the icon type:
 
 ### 3. Field Display and Formatting
 
-#### Display Masks (`FieldDisplayMask`)
+#### Display Masks (`displayMasks`)
+**Collection**: Display Masks
+
 **Concept**: Apply formatting patterns to field values for consistent display without changing stored data.
 
 **Technical Note**: Masks are applied during UI rendering but don't affect database storage.
+
+::: details Technical Configuration
+**Key Fields**:
+- `forType` (EntityType) → "للنوع" - Target entity type
+- `fieldID` (FieldID) → " الحقل" - Field to format
+- `displayMask` (Text) → Display Mask - Formatting pattern
+:::
 
 ::: details Supported Field Types
 **Compatible Fields**: Integer, Long, Decimal fields only
@@ -135,7 +208,8 @@ Icon configurations support different field types depending on the icon type:
 - `##,#.00` → "1234567.56 → 1,234,567.56" (Full number formatting)
 :::
 
-#### Field Formats (`FieldFormatLine`)
+#### Field Formats (`fieldFormats`)
+**Collection**: Field Formats
 **Concept**: Control field input validation and formatting rules. This can be applied conditionally based on dynamic queries or criteria definitions.
 
 **Configuration Options**:
@@ -152,7 +226,8 @@ Icon configurations support different field types depending on the icon type:
 - Allow only letters in name fields
 - Apply different validation rules based on document type or status
 
-#### Field Styles (`FieldStyleLine`)
+#### Field Styles (`fieldStyles`)
+**Collection**: Field Styles
 **Concept**: Control field display properties and behavior. This is not conditional styling, but direct field property configuration.
 
 **Configuration Options**:
@@ -170,10 +245,20 @@ Icon configurations support different field types depending on the icon type:
 
 ### 4. Data Validation and Restrictions
 
-#### Field Allowed Values (`FieldAllowedValues`)
+#### Field Allowed Values (`fieldAllowedValues`)
+**Collection**: القيم المسموح بها للحقول (Field Allowed Values)
+
 **Concept**: Create custom dropdown lists and restrict field values to predefined options.
 
 **How It Works**: The system maintains a metadata structure (`FieldsAllowedValuesMetadata`) that stores allowed values per entity type and field combination. During data entry, the system validates against these lists.
+
+::: details Technical Configuration
+**Key Fields**:
+- `forType` (EntityType) → "للنوع" - Target entity type
+- `fieldID` (FieldID) → " الحقل" - Field to restrict
+- `restrictValues` (Boolean) → "عدم السماح بكتابة القيم يدويا" - Enforce restrictions
+- `allowedValue1-10` (Text) → Predefined allowed values
+:::
 
 ::: details Supported Field Types
 **Compatible Fields**: Text, Integer, Long, Decimal, BigText, Enum, EntityType
@@ -195,7 +280,8 @@ Icon configurations support different field types depending on the icon type:
 - Standardize terminology across departments
 - Comply with regulatory requirements
 
-#### Maximum Field Length (`MaxFieldLengthInDB`)
+#### Maximum Field Length (`maxFieldsLengthInDB`)
+**Collection**: Max Fields Length In DB
 **Concept**: Override default database field lengths with business-specific limits for regular systems.
 
 ::: details Supported Field Types
@@ -215,8 +301,17 @@ Icon configurations support different field types depending on the icon type:
 - Enforce data consistency across systems
 - Prevent excessively long entries
 
-#### Maximum POS Field Length (`MaxPOSFieldLengthInDB`)
+#### Maximum POS Field Length (`maxPOSFieldsLengthInDB`)
+**Collection**: Max POS Fields Length In DB
+
 **Concept**: Set specific field length limits for Point of Sale systems, typically shorter than regular systems.
+
+::: details Technical Configuration
+**Key Fields**:
+- `forType` (EntityType) → "للنوع" - POS entity type
+- `fieldID` (FieldID) → " الحقل" - Field to limit
+- `maxLength` (Integer) → "اقصي طول" - Maximum character length for POS
+:::
 
 ::: details POS Entity Recognition
 **Automatic POS Detection**: The system automatically identifies POS entities using the `isPosClass()` flag in entity metadata.
@@ -250,7 +345,8 @@ Icon configurations support different field types depending on the icon type:
 - Maintain readability on small screens
 - Comply with fiscal printer requirements
 
-#### Maximum Line Count (`MaxLineCount`)
+#### Maximum Line Count (`maxLinesCounts`)
+**Collection**: أقصى عدد لسطور السندات والملفات (Max Lines Counts For Documents And Files)
 **Concept**: Limit the number of detail lines allowed in documents.
 
 ::: info Field Type Requirement
@@ -274,7 +370,8 @@ In ERP systems, dimensions represent organizational structures:
 - **Legal Entity**: Separate legal companies
 - **Analysis Set**: Custom analytical groupings
 
-#### Dimension Consistency Rules (`IgnoreDimensionsConsistency`)
+#### Dimension Consistency Rules (`dimensionsConsistency`)
+**Collection**: تجاهل تناسق المحددات لحقول (Ignore Dimensions Consistency for Fields)
 **Default Behavior**: The system enforces dimensional consistency, ensuring all related data belongs to the same organizational unit.
 
 **Override Options**:
@@ -292,7 +389,8 @@ In ERP systems, dimensions represent organizational structures:
 
 ### 6. Field State and Behavior Controls
 
-#### Disabled Fields (`DisabledFieldsLines`)
+#### Disabled Fields (`disabledFields`)
+**Collection**: Disabled Fields
 **Concept**: Make specific fields read-only or disabled in the user interface.
 
 **Configuration**:
@@ -305,7 +403,8 @@ In ERP systems, dimensions represent organizational structures:
 - Lock system-generated values
 - Protect critical data from accidental modification
 
-#### Allow Usage of Prevented Records (`AllowUsageOfPreventedRecords`)
+#### Allow Usage of Prevented Records (`allowUsageOfPreventedRecords`)
+**Collection**: السماح باستعمال السجلات الممنوعة من الاستعمال (Allow Usage Of Prevented Records)
 **Concept**: Override the system's prevention of using certain records that are normally blocked (records with the field preventUsage = true).
 
 **How It Works**: When records are marked as prevented from usage, the system normally doesn't allow them to be selected in reference fields. This configuration allows specific exceptions.
@@ -316,15 +415,24 @@ In ERP systems, dimensions represent organizational structures:
 - Enable expired contracts for reference purposes
 - Allow draft documents in certain workflows
 
-#### Not Color Fields (`NotColorField`)
+#### Not Color Fields (`notColorFields`)
+**Collection**: ليست حقول ألوان (Not Color Fields)
 **Concept**: Prevent specific fields from being treated as color fields, even if they contain color-like values.
 
 **Purpose**: Some text fields might contain values that look like color codes (e.g., "#123456") but shouldn't be rendered as colors.
 
 ### 7. Advanced Field Behaviors
 
-#### Rich Text Fields (`RichTextFieldsLines`)
+#### Rich Text Fields (`richTextFields`)
+**Collection**: Rich Text Fields
+
 **Concept**: Enable rich text editing (bold, italic, bullets, etc.) for specific text fields.
+
+::: details Technical Configuration
+**Key Fields**:
+- `forType` (EntityType) → "للنوع" - Target entity type
+- `fieldID` (FieldID) → " الحقل" - BigText field to enhance
+:::
 
 ::: info Field Type Requirement
 **Compatible Fields**: BigText fields only
@@ -338,8 +446,16 @@ Rich text functionality is specifically designed for large text fields that can 
 - Email templates with styling
 - Report narratives with structure
 
-#### Signature Fields (`SignatureFields`)
+#### Signature Fields (`signatures`)
+**Collection**: Signatures
+
 **Concept**: Convert attachment fields to display signature icons instead of standard upload icons, enabling digital signature capture.
+
+::: details Technical Configuration
+**Key Fields**:
+- `forType` (EntityType) → "للنوع" - Target entity type
+- `fieldID` (FieldID) → " الحقل" - Binary/Attachment field for signatures
+:::
 
 ::: warning Field Type Requirement
 **Compatible Fields**: Binary/Attachment fields only
@@ -361,7 +477,8 @@ The system automatically filters field suggestions to show only binary fields wh
 - Legal document acknowledgments
 - Customer consent forms
 
-#### Scanner Integration (`UseScannerInField`)
+#### Scanner Integration (`useScannerInFields`)
+**Collection**: Use Scanner In Fields
 **Concept**: Configure attachment fields to support direct document scanning from connected scanner devices or multifunction printers with scanning capability.
 
 ::: warning Field Type Requirement
@@ -390,7 +507,8 @@ Similar to signature fields, scanner integration is limited to binary field type
 
 ### 8. Code Fields Management
 
-#### Extra Code Fields (`ExtraCode`)
+#### Extra Code Fields (`extraCodes`)
+**Collection**: Extra Codes
 **Concept**: Designate additional fields to function as code fields alongside the primary code field.
 
 **How It Works**: In Nama ERP, entities typically have one primary "code" field for unique identification. This feature allows you to designate other fields to also function as codes, enabling multiple unique identifiers or alternative lookup keys.
@@ -414,7 +532,8 @@ Similar to signature fields, scanner integration is limited to binary field type
 - Enable industry-specific coding standards
 - Facilitate integration with external systems
 
-#### Detailed Audit Fields (`DetailedAuditFields`)
+#### Detailed Audit Fields (`auditFields`)
+**Collection**: Audit Fields
 **Concept**: Enable detailed audit tracking for specific fields, recording every change with timestamp and user information.
 
 **How It Works**: While the system tracks standard audit information (created/modified by/when), this feature enables granular field-level audit trails for critical data fields.
@@ -439,7 +558,8 @@ Similar to signature fields, scanner integration is limited to binary field type
 
 ### 9. Search and Reference Enhancement
 
-#### Reference Descriptors (`ReferenceDescriptorLine`)
+#### Reference Descriptors (`descriptors`)
+**Collection**: Descriptors
 **Concept**: Customize how entity records appear in search results and dropdown lists.
 
 **Descriptor Types**:
@@ -454,7 +574,8 @@ Similar to signature fields, scanner integration is limited to binary field type
 
 **Example**: `{code} - {name} ({branch})` displays as "CUST001 - ABC Company (Branch A)"
 
-#### Extra Reference Search Fields (`ExtraReferenceSearchFields`)
+#### Extra Reference Search Fields (`extraReferenceSearchFields`)
+**Collection**: حقول البحث الإضافية عند البحث عن مرجع (Extra Reference Search Fields)
 **Concept**: Include additional fields in reference field searches beyond the standard code and name.
 
 **Benefits**:
@@ -467,17 +588,27 @@ Similar to signature fields, scanner integration is limited to binary field type
 - **Field ID**: Additional field to search in
 - **Search Operator**: How to match (contains, equals, starts with)
 
-#### Search in Name for Find by Code (`SearchInNameInFindByCode`)
+#### Search in Name for Find by Code (`searchInNameInFindByCode`)
+**Collection**: البحث في الأسم العربى والانجليزى عند كتابة كود ملف (Search In Name In Find By Code)
 **Concept**: When users search by code, also search in the name field for matches.
 
 **Use Case**: User types "ABC" expecting to find "ABC Company" even though the code is "CUST001"
 
 ### 10. Advanced Query and Display Controls
 
-#### Query-Based Screen Fields (`QueryBasedScreenField`)
+#### Query-Based Screen Fields (`queryBasedScreenField`)
+**Collection**: استعلامات الحقول المحسوبة (calculated Fields Queries)
+
 **Concept**: Create dynamic, calculated fields that execute queries to display aggregated or computed values.
 
 **How It Works**: Define up to 20 different query-based fields that execute SQL queries and display results in entity screens. These fields are calculated in real-time based on current data.
+
+::: details Technical Configuration
+**Key Fields**:
+- `forType` (EntityType) → "للنوع" - Target entity type
+- `detailField` (FieldID) → Field for detail line context
+- `fieldQuery1-20` (BigText) → SQL queries for computed fields (up to 20)
+:::
 
 **Configuration**:
 - **For Type/For Type List**: Entity types where fields appear
@@ -498,7 +629,8 @@ Similar to signature fields, scanner integration is limited to binary field type
 - Show document's approval progress percentage
 - Display related transactions count
 
-#### Field Extra Filters (`FieldExtraFilter`)
+#### Field Extra Filters (`extraFilter`)
+**Collection**: Extra Filter
 **Concept**: Apply additional filtering criteria to reference field lookups based on dynamic conditions.
 
 **How It Works**: When users open a reference field lookup, additional filters are applied to limit the available options based on defined criteria.
@@ -517,7 +649,8 @@ Similar to signature fields, scanner integration is limited to binary field type
 - Show documents within date range
 - Filter suppliers by payment terms
 
-#### Row Style Overrider (`GenRefRowStyleOverriderLine`)
+#### Row Style Overrider (`styleOverriderLines`)
+**Collection**: Style Overrider Details
 **Concept**: Apply dynamic background colors to entire rows in grids and lists based on query results.
 
 **How It Works**: Execute a query for each row that returns a color value, which is then applied as the row's background color.
@@ -537,7 +670,8 @@ Similar to signature fields, scanner integration is limited to binary field type
 
 ### 11. Document and Record Management
 
-#### Duplicate Field Handling (`DuplicatedFieldsLines`)
+#### Duplicate Field Handling (`lines`)
+**Collection**: Clear On Duplicate
 **Concept**: Specify which fields should be cleared when users duplicate a document.
 
 **How It Works**: When a user selects "Duplicate" on a document, the system clears specified fields while preserving others.
@@ -548,7 +682,8 @@ Similar to signature fields, scanner integration is limited to binary field type
 - Reset approval statuses
 - Clear reference numbers
 
-#### Open in Popup (`OpenInPopup`)
+#### Open in Popup (`openInPopups`)
+**Collection**: Open Reference In Popup
 **Concept**: Force specific entity types to open in popup windows instead of full-screen navigation.
 
 **Benefits**:
@@ -557,12 +692,14 @@ Similar to signature fields, scanner integration is limited to binary field type
 - Improve user workflow efficiency
 - Reduce screen navigation complexity
 
-#### Open Create Fields (`OpenCreateFields`)
+#### Open Create Fields (`openCreateFields`)
+**Collection**: الحقول التي يتم فتح الإنشاء عند ادخال كود غير موجود (Fields that open Edit Screen when code not found)
 **Concept**: Enable users to create new records directly from reference field lookups.
 
 **Workflow**: User starts typing in a reference field, if no match is found, system offers to create a new record with the typed value as a starting point.
 
-#### Text to Link Fields (`TextToLinkFieldsLine`)
+#### Text to Link Fields (`textToLinkFields`)
+**Collection**: الحقول النصية المحوله الي روابط (Text To Link Fields)
 **Concept**: Convert text fields into clickable hyperlinks with various link types.
 
 **Configuration**:
@@ -587,10 +724,19 @@ Similar to signature fields, scanner integration is limited to binary field type
 
 ### 12. Layout and UI Components
 
-#### Add Discussion To (`AddDiscussionTo`)
+#### Add Discussion To (`addDiscussionTo`)
+**Collection**: إضافة النقاش إلي (Add Discussion To)
+
 **Concept**: Add discussion/comments sections to entity screens where they don't exist by default.
 
 **How It Works**: Injects a discussion panel into entity layouts, allowing users to add comments, notes, and threaded discussions.
+
+::: details Technical Configuration
+**Key Fields**:
+- `forType` (EntityType) → "للنوع" - Target entity type for discussion panel
+- `addToPage` → Page/tab where discussion panel should be added
+- `insertAt` (Integer) → Position order in the layout
+:::
 
 **Configuration**:
 - **For Type/For Type List**: Target entity types
@@ -610,7 +756,8 @@ Similar to signature fields, scanner integration is limited to binary field type
 - Add communication threads to documents
 - Enable team collaboration on projects
 
-#### Add Related Documents To (`AddRelatedDocumentsTo`)
+#### Add Related Documents To (`addRelatedDocumentsTo`)
+**Collection**: إضافة المستندات المرتبطة إلى (Add Related Documents To)
 **Concept**: Add a related documents section to entity screens for document management.
 
 **Configuration**:
@@ -621,7 +768,8 @@ Similar to signature fields, scanner integration is limited to binary field type
 
 ### 13. Integration and External System Support
 
-#### Public Entities (`PublicEntitiesLine`)
+#### Public Entities (`publicEntitiesLines`)
+**Collection**: Public Entities
 **Concept**: Force specific records to have all dimensions set as public, overriding normal dimensional restrictions.
 
 **How It Works**: Normally, when a user logs into a specific legal entity or branch, they can only edit or create records within that dimensional scope. This configuration removes those restrictions for specified entity types.
@@ -639,7 +787,8 @@ Similar to signature fields, scanner integration is limited to binary field type
 
 **Security Considerations**: Use carefully as this bypasses important security boundaries established by the dimensional structure
 
-#### Integrator Config (`IntegratorConfig`)
+#### Integrator Config (`integratorConfig`)
+**Collection**: Integrator Config
 **Concept**: Configure REST API endpoints for creating and updating entities through external integrations.
 
 **How It Works**: Defines how external systems can send data to create or update records, with field mapping and response templates.
@@ -662,7 +811,8 @@ Similar to signature fields, scanner integration is limited to binary field type
 - Partner system integration
 - Automated data imports
 
-#### Import Integrator (`ImportIntegratorLine`)
+#### Import Integrator (`importIntegratorLines`)
+**Collection**: Import Integrators
 **Concept**: Configure how external data should be imported and mapped to internal entities.
 
 ::: details Predefined Integrator IDs
@@ -689,7 +839,8 @@ Similar to signature fields, scanner integration is limited to binary field type
 - Validation requirements
 - Error handling procedures
 
-#### Email Send To Types (`EmailSendToTypes`)
+#### Email Send To Types (`emailSendToTypes`)
+**Collection**: أنواع المراجع في نافذة ارسال بريد الكترونى (Email Send To Types)
 **Concept**: Configure which entity types can be selected as email recipients for specific email fields.
 
 ::: details Predefined Email Field Types
@@ -712,7 +863,8 @@ Similar to signature fields, scanner integration is limited to binary field type
 - Establish multi-party email fields
 - Control email distribution lists
 
-#### Invoice Retriever Lines (`InvoiceRetrieverLine`)
+#### Invoice Retriever Lines (`invoiceRetrieverLines`)
+**Collection**: Invoice Retriever Lines
 **Concept**: Configure automatic document generation and retrieval for entities.
 
 **How It Works**: Automatically generates documents (invoices, reports, etc.) when entities are created or modified, storing them in specified locations.
@@ -733,7 +885,8 @@ Similar to signature fields, scanner integration is limited to binary field type
 
 ### 14. Auto-Coding and Numbering
 
-#### Automatic Coding (`GenRefAutoCodingLine`)
+#### Automatic Coding (`autoCodingLines`)
+**Collection**: التكويد الالي للملفات (Files Auto Coding)
 **Concept**: Generate automatic codes for new records based on configurable patterns.
 
 ::: details Criteria Definition Integration
@@ -762,14 +915,15 @@ Similar to signature fields, scanner integration is limited to binary field type
 
 ::: info Repository Fields
 **System Integration Fields**:
-- `saveToImplRepo` - Save configuration to implementation repository
-- `systemReport` - Mark as system-wide report configuration
-- `implRepo` - Reference to implementation repository entry
-- `screenshot` - Visual documentation of the configuration
-- `pdfSample` - Sample PDF output for reference
-- `attachment1-5` - Additional documentation attachments
-- `relatedEntity1-2` - Related entity references
-- `relatedToModule1-2` - Module relationship tracking
+- `saveToImplRepo` (Boolean) → "الحفظ في كتالوج التجهيز" - Save configuration to implementation repository
+- `systemReport` (Boolean) → "نظامي" - Mark as system-wide report configuration  
+- `implRepo` (Reference) → "كتالوج التجهيز" - Reference to ImplementationRepository entity
+- `screenshot` (Binary) - Visual documentation of the configuration
+- `pdfSample` (Binary) - Sample PDF output for reference
+- `attachment1-5` (Binary) - Additional documentation attachments
+- `relatedEntity1-2` (Text) - Related entity references
+- `relatedToModule1-2` (Text) - Module relationship tracking
+- `selectedColor` (Color) → "اللون المختار" - Selected color for UI theming
 :::
 
 #### Administrative Actions
