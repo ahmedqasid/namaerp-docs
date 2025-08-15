@@ -1,11 +1,36 @@
-# ReportWizard User Documentation
+# ReportWizard User Documentation (أداة إنشاء تقرير)
 ## Complete Guide to Report Creation and Management
 
 ---
 
 ## Introduction
 
-The ReportWizard is a powerful report generation tool within Nama ERP that enables users to create professional, data-rich reports without writing code. It generates JasperReports-based outputs with extensive customization options for data extraction, formatting, and presentation.
+The ReportWizard (**أداة إنشاء تقرير**) is a powerful report generation tool within Nama ERP that enables users to create professional, data-rich reports without writing code. It generates JasperReports-based outputs with extensive customization options for data extraction, formatting, and presentation.
+
+::: info Entity Information
+- **Entity Type**: ReportWizard
+- **Arabic Name**: أداة إنشاء تقرير  
+- **English Name**: Report Wizard
+- **Entity Classification**: Master File
+- **Database Table**: ReportWizard
+:::
+
+### Entity Structure Overview
+
+The ReportWizard entity contains **32 detail collections** for comprehensive report configuration:
+
+| Collection | Arabic Name | English Name | Purpose |
+|------------|-------------|--------------|---------|
+| `fields` | الحقول | Fields | Report field definitions and formatting |
+| `parameters` | المدخلات | Parameters | User input parameters for report filtering |
+| `group1Lines` - `group5Lines` | سطور المجموعة 1-5 | Group 1-5 Lines | 5-level hierarchical grouping configuration |
+| `crosstabColumns` | الأعمدة | Columns | Crosstab horizontal dimension fields |
+| `crosstabRows` | الصفوف | Rows | Crosstab vertical dimension fields |
+| `crosstabMeasures` | المعادلات | Measures | Crosstab aggregated value fields |
+| `dataSource1FilterLines` - `dataSource5FilterLines` | سطور الفلترة لمصدر البيانات 1-5 | Data Source 1-5 Filter Lines | Multi-source data filtering |
+| `conditionalStyleLines1` - `conditionalStyleLines5` | جدول التنسيق الشرطي 1-5 | Conditional Style 1-5 Lines | Dynamic formatting rules |
+| `securityConstraints` | Security Constraints | Security Constraints | Row-level security configuration |
+| `includeTablesByParameters` | تضمين الجداول بشرط من خلال مدخلات | Include Tables By Parameters | Dynamic table inclusion |
 
 ### Key Benefits
 - **No SQL Required**: Select entities and fields through intuitive interface
@@ -221,6 +246,23 @@ System-provided alternatives for complex data:
 
 ### Field Configuration Options
 
+The `fields` collection (**الحقول**) contains comprehensive field configuration with 50+ properties per field:
+
+::: details Field Collection Technical Structure
+**Table**: `ReportWizardFieldLine`  
+**Join Column**: `reportWizard_id`
+
+**Key Properties Include:**
+- **Basic Configuration**: `fieldId`, `arabicTitle`, `englishTitle`, `type`, `namaFieldType`
+- **Display Settings**: `fieldWidth`, `widthSize`, `hidden`, `displayFieldAs`
+- **Formatting**: `patternType`, `customPattern`, `barcodeType`
+- **Aggregation**: `sqlAggregationType`, `totalPosition`, `showRunningTotalInsteadOfValue`
+- **Group Totals**: `showTotalInGroup1Section` through `showTotalInGroup5Section`
+- **References**: `displayReferenceAs`, `doNotAddLinkToReferences`, `referenceOrderBy`
+- **Custom Logic**: `customSqlExpression`, `customJasperExpression`, `unionHandling`
+- **Styling**: `style`, `conditionalStyleGrid`, `summaryStyle`
+:::
+
 #### Display Properties
 
 1. **Field Width**
@@ -390,16 +432,20 @@ For each field with aggregation:
 
 ### Sorting Methods
 
-#### 1. Database-Level Sorting
-- **Sort Method**: "Database"
-- **Sort Parameters Count**: Number of sort fields (1-10)
-- **Ascending/Descending**: Sort direction
-- **Performance**: Most efficient for large datasets
+The `sortMethod` field (**طريقة الترتيب**) determines how data is sorted in the report:
 
-#### 2. Report-Level Sorting (Jasper)
-- **Sort Method**: "Report"
-- **Jasper Sort Fields**: Define sort fields and order
-- **Use When**: Sorting by calculated fields or expressions
+#### 1. Sort Based On Sort Fields (ترتيب محدد من خلال حقول الترتيب)
+- **Enum Value**: `SortBasedOnSortFields`
+- **Sort Parameters Count**: Number of sort fields (1-10)  
+- **Ascending/Descending**: Sort direction per field
+- **Performance**: Most efficient for large datasets
+- **Configuration**: Uses `sortFields` collection (حقول الترتيب) to define sort criteria
+
+#### 2. Sort Based On Report Parameter (ترتيب من خلال مدخلات يقوم باختيارها المستخدم)
+- **Enum Value**: `SortBasedOnReportParameter`
+- **Jasper Sort Fields**: Uses `jasperSortFieldsLines` collection
+- **Use When**: User-selectable sorting or sorting by calculated fields
+- **Runtime Control**: Users can modify sort order during report execution
 
 #### 3. Multi-Level Sorting
 Configure primary, secondary, tertiary sort fields:
@@ -474,6 +520,23 @@ $P{showDetails} == true  -- Based on parameter
 
 ### Parameter Configuration
 
+The `parameters` collection (**المدخلات**) provides extensive parameter configuration options:
+
+::: details Parameter Collection Technical Structure
+**Table**: `ReportWizardParameterLine`  
+**Join Column**: `reportWizard_id`
+
+**Key Properties Include:**
+- **Basic Setup**: `fieldId`, `arabicTitle`, `englishTitle`, `required`, `requiredGroup`
+- **Data Types**: `paramType`, `parameterType`, `namaFieldType`
+- **Default Values**: `defaultValue`, `defaultValueDate`, `defaultValueDateTime`, `refDefaultValue`
+- **Range Support**: `defaultValueWithBetween`, `defaultValueDateWithBetween`, `refDefaultValueWithBetween`
+- **Reference Parameters**: `refEntityType`, `filter`, `filterType`, `referenceOrderBy`
+- **Layout Control**: `layout`, `showInsideReport`, `hidden`
+- **Cascading Logic**: `sourceParameter`, `sourceProperty`, `allowedValues`
+- **Custom Expressions**: `customSqlExpression`, `customJasperExpression`
+:::
+
 #### Basic Settings
 1. **Field ID**: Parameter reference name
 2. **Arabic Title**: Label in Arabic interface
@@ -482,11 +545,18 @@ $P{showDetails} == true  -- Based on parameter
 5. **Required**: Must be filled before running
 
 #### Layout Configuration
-1. **Parameters Position**:
-   - **First Page Header Only**: Show only on first page
-   - **All Pages Header**: Repeat on every page
+1. **Parameters Position** (`parametersPosition`):
+   Available values from the system:
+   - **FirstPageHeaderOnly**: Show only on first page header
+   - **AllPagesHeader**: Repeat on every page header  
+   - **AllPagesFooter**: Show on every page footer
+   - **None**: Don't display parameters in report
+   - **GroupHeader**: Display in group headers
+   - **GroupFooter**: Display in group footers
+   - **LastPageFooter**: Show only on last page footer
+   - **Summary**: Display in summary section
 
-2. **Number of Parameters in Row**: Columns per row (1-4)
+2. **Number of Parameters in Row** (`numberOfParametersInRow`): Columns per row (1-4)
 
 3. **Parameters Grid Specs**:
    - Height, font size, colors
@@ -604,11 +674,31 @@ Click on cells to see details:
 ### Color Schemes
 
 #### Predefined Schemes
-1. **Aliceblue**: Light blue professional theme
-2. **Professional**: Corporate gray theme
-3. **Colorful**: Vibrant multi-color theme
-4. **Monochrome**: Black and white printing
-5. **Custom**: User-defined colors
+
+The `colorScheme` field provides extensive color options. Key schemes include:
+
+**Professional/Business Colors:**
+- **Aliceblue**: Light blue professional theme
+- **Ghostwhite**: Clean white-based theme  
+- **Lightgray**: Professional gray theme
+- **Silver**: Metallic corporate theme
+- **Gainsboro**: Subtle gray professional
+
+**Vibrant Colors:**
+- **Blue**: Classic blue scheme
+- **Green**: Nature-inspired green
+- **Red**: Bold red theme
+- **Purple**: Rich purple scheme  
+- **Orange**: Energetic orange theme
+
+**Neutral/Print-Friendly:**
+- **White**: Clean white background
+- **Black**: High contrast black theme
+- **Gray**: Standard gray scheme
+
+::: details Complete Color List (100+ Options)
+The system supports over 100 predefined colors including: Aliceblue, Antiquewhite, Aqua, Aquamarine, Azure, Beige, Bisque, Black, Blanchedalmond, Blue, Blueviolet, Brown, Burlywood, Cadetblue, Chartreuse, Chocolate, Coral, Cornflowerblue, Cornsilk, Crimson, Cyan, and many more. Each color can be applied with variations (Default, Light, Dark).
+:::
 
 #### Color Variations
 - **Default**: Standard scheme colors
@@ -1139,4 +1229,67 @@ When troubleshooting:
 
 ---
 
-This comprehensive documentation provides users with detailed information about every aspect of the ReportWizard, from basic setup to advanced features, complete with examples, best practices, and troubleshooting guidance.
+## Technical Appendix
+
+### Complete Entity Structure
+
+::: details ReportWizard Entity Technical Details
+**Entity Information:**
+- **Entity Type**: ReportWizard
+- **Arabic Name**: أداة إنشاء تقرير
+- **English Name**: Report Wizard  
+- **Database Table**: ReportWizard
+- **Classification**: Master File (not Document File)
+
+**Key Header Fields:**
+- **Layout & Design**: `layoutMethod`, `pageFormat`, `pageOrientation`, `colorScheme`, `variation`
+- **Data Sources**: `mainTable`, `dataSource1`-`dataSource5`, `tableType`, `entityType`
+- **Sorting**: `sortMethod`, `sortParametersCount`, `ascendingOrDescending`, `usedBeforeGroupsSort`
+- **Grouping**: `useGroupsAsParameter`, `startNewPageGroup1`-`startNewPageGroup5`
+- **Performance**: `useTempTablesInsteadOfCTE`, `ignorePagination`, `usedBeforeGroupsSort`
+- **Security**: View, update, and usage capabilities with row-level constraints
+- **Crosstab**: `crosstabCellWidth`, `crosstabCellHeight`, `displayCrosstabMeasuresVertically`
+
+**Complete Collection List (32 Collections):**
+1. **fields** (الحقول) - Field definitions
+2. **parameters** (المدخلات) - Parameter configurations  
+3. **userAliases** - User-defined field aliases
+4. **headerComponents** - Header layout components
+5. **sortFields** (حقول الترتيب) - Database sort field definitions
+6. **group1Lines** through **group5Lines** (سطور المجموعة 1-5) - 5-level grouping
+7. **group1HeaderCustomExpressionLines** through **group5HeaderCustomExpressionLines** - Group header expressions
+8. **group1FooterCustomExpressionLines** through **group5FooterCustomExpressionLines** - Group footer expressions
+9. **unionTables** - Union table configurations
+10. **whereLines** - WHERE clause conditions
+11. **jasperSortFieldsLines** - Jasper sort configurations
+12. **jasperVariables** - Custom Jasper variables
+13. **dataSource1FilterLines** through **dataSource5FilterLines** - Multi-source filtering
+14. **dataSource1LinkingLines** through **dataSource5LinkingLines** - Multi-source linking
+15. **printWhenExpressionLines** - Conditional printing rules
+16. **crosstabColumns** (الأعمدة) - Crosstab column fields
+17. **crosstabRows** (الصفوف) - Crosstab row fields  
+18. **crosstabMeasures** (المعادلات) - Crosstab measure fields
+19. **securityConstraints** - Security constraint rules
+20. **conditionalStyleLines1** through **conditionalStyleLines5** (جدول التنسيق الشرطي 1-5) - 5 grids of conditional formatting
+21. **includeTablesByParameters** (تضمين الجداول بشرط من خلال مدخلات) - Dynamic table inclusion
+
+**Enum Field Values:**
+- **sortMethod**: `SortBasedOnSortFields` (ترتيب محدد من خلال حقول الترتيب), `SortBasedOnReportParameter` (ترتيب من خلال مدخلات يقوم باختيارها المستخدم)
+- **parametersPosition**: `FirstPageHeaderOnly`, `AllPagesHeader`, `AllPagesFooter`, `None`, `GroupHeader`, `GroupFooter`, `LastPageFooter`, `Summary`
+- **colorScheme**: 100+ predefined colors from `Aliceblue` to `Yellowgreen`
+- **layoutMethod**: `Manual`, `FromUploadedFile`, `FromEditor`
+:::
+
+### Integration with Nama ERP
+
+The ReportWizard integrates deeply with the Nama ERP system:
+
+- **Entity Integration**: Can report on any entity in the system
+- **Security Integration**: Respects user permissions and organizational constraints  
+- **Multi-Language**: Full Arabic/English support in field names and UI
+- **Performance Optimization**: Advanced query optimization and caching
+- **Export Capabilities**: Multiple output formats (PDF, Excel, HTML)
+
+---
+
+This comprehensive documentation provides users with detailed information about every aspect of the ReportWizard, from basic setup to advanced features, complete with examples, best practices, troubleshooting guidance, and technical implementation details using accurate system translations and field information.
