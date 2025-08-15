@@ -45,16 +45,30 @@ New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\stornvme\Paramet
     3. Install SQL Server again 
 :::
 
-## Installer Features
+## Using the Installer
 
-The **Nama ERP Installer** includes:
+The **Nama ERP Installer** provides a graphical interface with the following key features:
 
-* Creating database and database users.
-* Generating a SQL Server Agent **full backup job**.
-* Creating a **differential backup job** (runs every 2–3 hours to save space and provide disaster recovery).
-* Generating a **backup cleanup script** (removes old backups, e.g., older than 5 days).
-* Option to **upload backups to cloud storage** (Google Drive, Dropbox, OneDrive, etc.).
-* Automatic **SSL certificate** creation using [Let's Encrypt](https://letsencrypt.org/).
+### Core Installation Features
+* Creating database and database users
+* Generating SQL Server Agent **full backup job**
+* Creating **differential backup job** (runs every 2–3 hours)
+* Generating **backup cleanup script** (removes old backups)
+* Option to **upload backups to cloud storage** (Google Drive, Dropbox, OneDrive, etc.)
+* Automatic **SSL certificate** creation using [Let's Encrypt](https://letsencrypt.org/)
+
+### Interface Sections
+1. **License Information**: License key, customer name, sub-server (auto-populated)
+2. **Database Configuration**: Server, port (1433), database name, credentials
+3. **Server Configuration**: Tomcat path (auto-detected), server address
+4. **Installation Paths**: Extras.zip URL/path, download destination
+5. **Progress Monitoring**: Real-time status, logs, and progress bars
+
+### Smart Features
+* **Auto-detection**: Common Tomcat paths, existing configurations
+* **Real-time validation**: Visual feedback (green/red borders) for field inputs
+* **Configuration persistence**: Auto-save/restore settings via `installer.properties`
+* **License key integration**: Automatic customer/sub-server population
 
 ## SSL Certificate Requirements
 
@@ -159,12 +173,38 @@ To enable the system to download and install updates from the **utils** page (i.
 
 ![Configure Tomcat Service Logon as](images/installation-configure-logon-to-enable-auto-upgrade.png)
 
-## Troubleshooting Tomcat Startup or System Issues
+## Troubleshooting
 
-Tomcat may fail to start or the system may not function correctly due to one of the following common causes:
+### Common Issues & Solutions
 
-1. Another program is already using Tomcat’s port.
-2. SQL Server is not running, the database is in a suspect state, or TCP/IP is not enabled in SQL Server.
-3. The Java path is missing or incorrectly configured.
+**Pre-Installation Validation**: Use **Perform Checks** (F5) to diagnose problems:
 
-To diagnose these issues, download the latest version of the Nama ERP Installer, select the Tomcat path, and click **Perform Checks**.
+1. **Port Conflicts**: Another program using Tomcat's port (usually 8080)
+2. **Database Problems**: SQL Server not running, TCP/IP disabled, or incorrect credentials  
+3. **Java Issues**: Missing or incorrectly configured Java path
+4. **Invalid Paths**: Non-existent Tomcat directory or malformed URLs
+
+### Error Resolution Process
+1. **Run Diagnostics** → **Review Logs** → **Fix Fatal Errors** → **Retry Installation**
+2. Use **Load From Tomcat** to import existing configurations
+3. **Save Config** preserves settings between sessions for troubleshooting
+
+## Installer Controls & Operations
+
+### Main Action Buttons
+* **Start Installation**: Begins installation after validation (Enter key or green button)
+* **Perform Checks** (F5): Validates Tomcat, database, Java, and port configuration
+* **Save Config** (Ctrl+S): Saves settings to `installer.properties`
+* **Load From Tomcat** (Ctrl+L): Imports configuration from existing installation
+
+### Advanced Operations  
+* **Request Key**: Automated license key request from Nama servers with approval monitoring
+* **Install SSL**: Launches Let's Encrypt certificate installation wizard
+* **Migrate Tomcat**: Upgrades from Tomcat 9 to Tomcat 10 with configuration preservation
+* **DB Scripts**: Generates database setup scripts
+
+### Validation & Auto-Detection
+* **Path Detection**: Automatically finds Tomcat in common locations
+* **Field Validation**: Real-time feedback with colored borders (green=valid, red=invalid)
+* **Configuration Import**: Loads existing settings from `nama.properties`
+* **Progress Monitoring**: Real-time download progress, installation status, and detailed logging
