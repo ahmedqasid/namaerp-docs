@@ -994,7 +994,7 @@ export const SIDEBAR_CONFIG = {
       children: [ "/release-notes/2016/", {
         text: "2017",
         collapsible: true,
-        children: [ "/release-notes/2017/nama-erp-201701-release-notes-arabic.md", "/release-notes/2017/nama-erp-201702-release-notes-arabic.md", "/release-notes/2017/nama-erp-201703-release-notes-arabic.md", "/release-notes/2017/nama-erp-201705-release-notes-arabic.md", "/release-notes/2017/nama-erp-201706-release-notes-arabic.md", "/release-notes/2017/nama-erp-201707-release-notes-arabic.md", "/release-notes/2017/nama-erp-201708-release-notes-arabic.md", "/release-notes/2017/nama-erp-201709-release-notes-arabic.md", "/release-notes/2017/nama-erp-201710-release-notes-arabic.md", "/release-notes/2017/nama-erp-201711-release-notes-arabic.md", {
+        children: [ "/release-notes/2017/nama-erp-201701-release-notes-arabic.md", "/release-notes/2017/nama-erp-201702-release-notes-arabic.md", "/release-notes/2017/nama-erp-201703-release-notes-arabic.md", "/release-notes/2017/nama-erp-201704-release-notes-arabic.md", "/release-notes/2017/nama-erp-201705-release-notes-arabic.md", "/release-notes/2017/nama-erp-201706-release-notes-arabic.md", "/release-notes/2017/nama-erp-201707-release-notes-arabic.md", "/release-notes/2017/nama-erp-201708-release-notes-arabic.md", "/release-notes/2017/nama-erp-201709-release-notes-arabic.md", "/release-notes/2017/nama-erp-201710-release-notes-arabic.md", "/release-notes/2017/nama-erp-201711-release-notes-arabic.md", "/release-notes/2017/nama-erp-201712-release-notes-arabic.md", {
           text: ".",
           "link" : "/release-notes/2017/"
         } ]
@@ -1074,7 +1074,7 @@ export const SIDEBAR_CONFIG = {
       children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", {
         text: "2019",
         collapsible: true,
-        children: [ "/release-notes/2019/nama-erp-201901-release-notes-arabic.md", "/release-notes/2019/nama-erp-201902-release-notes-arabic.md", "/release-notes/2019/nama-erp-201903-release-notes-arabic.md", "/release-notes/2019/nama-erp-201904-release-notes-arabic.md", {
+        children: [ "/release-notes/2019/nama-erp-201901-release-notes-arabic.md", "/release-notes/2019/nama-erp-201902-release-notes-arabic.md", "/release-notes/2019/nama-erp-201903-release-notes-arabic.md", "/release-notes/2019/nama-erp-201904-release-notes-arabic.md", "/release-notes/2019/nama-erp-201905-release-notes-arabic.md", "/release-notes/2019/nama-erp-201906-release-notes-arabic.md", "/release-notes/2019/nama-erp-201907-release-notes-arabic.md", "/release-notes/2019/nama-erp-201908-release-notes-arabic.md", "/release-notes/2019/nama-erp-201909-release-notes-arabic.md", "/release-notes/2019/nama-erp-201910-release-notes-arabic.md", {
           text: ".",
           "link" : "/release-notes/2019/"
         } ]
