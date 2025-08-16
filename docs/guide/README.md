@@ -20,6 +20,7 @@
     - [دليل ربط Nama ERP بأنظمة الفاتورة الإلكترونية](/guide/invoices/e-invoices-guide.md)
     - [الربط مع هيئة الزكاة والدخل بالسعودية](/guide/invoices/zatca-guide.md)
     - [Electronic Receipt (Egypt Tax eInvoice) تفعيل الإيصال الإلكتروني - الفاتورة الإلكترونية - مصر](/guide/invoices/electronic-receipt-egypt-tax-eInvoice.md)
+    - [Standard Terms and Conditions Feature Documentation](/guide/invoices/standard-terms-feature-documentation.md)
   - [Tempo Language Manual](/guide/tempo.md)
   - [Sending Invoices and Documents to Customers](/guide/invoice-retriever.md)
   - [SMS and WhatsApp Configuration in Nama ERP](/guide/sms-and-whatsapp.md)

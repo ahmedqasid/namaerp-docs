@@ -114,7 +114,7 @@ export const SIDEBAR_CONFIG = {
       children: [ "/guide/entity-flows/", {
         text: "الفواتير والضرائب والخصومات",
         collapsible: true,
-        children: [ "/guide/invoices/payment-entries.md", "/guide/invoices/invoice-discounts-and-tax-calculation-guide.md", "/guide/invoices/e-invoices-guide.md", "/guide/invoices/zatca-guide.md", "/guide/invoices/electronic-receipt-egypt-tax-eInvoice.md", {
+        children: [ "/guide/invoices/payment-entries.md", "/guide/invoices/invoice-discounts-and-tax-calculation-guide.md", "/guide/invoices/e-invoices-guide.md", "/guide/invoices/zatca-guide.md", "/guide/invoices/electronic-receipt-egypt-tax-eInvoice.md", "/guide/invoices/standard-terms-feature-documentation.md", {
           text: ".",
           "link" : "/guide/invoices/"
         } ]
