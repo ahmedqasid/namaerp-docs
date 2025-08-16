@@ -1,5 +1,7 @@
 # Invoice Discounts and Tax Calculation System - Comprehensive Guide
-
+::: tip
+The content of this file was auto-generated using Claude.ai by reviewing the source code for discounts and taxes calculation, if you find any incorrect information, please contact Nama ERP developemnt team.
+:::
 ## Overview
 
 Nama ERP provides a sophisticated invoice discount and tax calculation system that supports complex business requirements. This guide explains how discounts and taxes are calculated, configured, and applied to invoices with detailed field-level configuration information.
