@@ -51,6 +51,11 @@
     - [ملاحظات الإصدار - ديسمبر 2019](/release-notes/2019/nama-erp-201912-release-notes-arabic.md)
   - [2020](/release-notes/2020/)
     - [ملاحظات الإصدار - يناير 2020](/release-notes/2020/nama-erp-202001-release-notes-arabic.md)
+    - [ملاحظات الإصدار - فبراير 2020](/release-notes/2020/nama-erp-202002-release-notes-arabic.md)
+    - [ملاحظات الإصدار - مارس 2020](/release-notes/2020/nama-erp-202003-release-notes-arabic.md)
+    - [ملاحظات الإصدار - أبريل 2020](/release-notes/2020/nama-erp-202004-release-notes-arabic.md)
+    - [ملاحظات الإصدار - مايو 2020](/release-notes/2020/nama-erp-202005-release-notes-arabic.md)
+    - [ملاحظات الإصدار - يونيو 2020](/release-notes/2020/nama-erp-202006-release-notes-arabic.md)
   - [2025](/release-notes/2025/)
     - [ملاحظات إصدار نما ERP - يوليو 2025](/release-notes/2025/nama-erp-202507-release-notes-arabic.md)
 

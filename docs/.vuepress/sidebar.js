@@ -1114,7 +1114,7 @@ export const SIDEBAR_CONFIG = {
       children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", {
         text: "2020",
         collapsible: true,
-        children: [ "/release-notes/2020/nama-erp-202001-release-notes-arabic.md", {
+        children: [ "/release-notes/2020/nama-erp-202001-release-notes-arabic.md", "/release-notes/2020/nama-erp-202002-release-notes-arabic.md", "/release-notes/2020/nama-erp-202003-release-notes-arabic.md", "/release-notes/2020/nama-erp-202004-release-notes-arabic.md", "/release-notes/2020/nama-erp-202005-release-notes-arabic.md", "/release-notes/2020/nama-erp-202006-release-notes-arabic.md", {
           text: ".",
           "link" : "/release-notes/2020/"
         } ]
