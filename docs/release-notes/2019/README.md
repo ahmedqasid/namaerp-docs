@@ -11,5 +11,7 @@
   - [ملاحظات الإصدار - أغسطس 2019](/release-notes/2019/nama-erp-201908-release-notes-arabic.md)
   - [ملاحظات الإصدار - سبتمبر 2019](/release-notes/2019/nama-erp-201909-release-notes-arabic.md)
   - [ملاحظات الإصدار - أكتوبر 2019](/release-notes/2019/nama-erp-201910-release-notes-arabic.md)
+  - [ملاحظات الإصدار - نوفمبر 2019](/release-notes/2019/nama-erp-201911-release-notes-arabic.md)
+  - [ملاحظات الإصدار - ديسمبر 2019](/release-notes/2019/nama-erp-201912-release-notes-arabic.md)
 
 </div>
