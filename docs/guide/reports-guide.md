@@ -1,1060 +1,622 @@
-# Reports Guide (Jasper Reports)
-### Add the company logo to a report
+# NamaRep Complete Guide for Jasper Reports
 
-- Create a parameter named `loginLegalEntityLogo` with type `java.lang.Object` or `java.io.InputStream`
-- Create an image, image expression should be `$P{loginLegalEntityLogo}`
+## Overview
+NamaRep is a powerful utility class that provides essential functions for Jasper Reports in Nama ERP. It extends ServerNamaRep and offers comprehensive features for localization, data retrieval, entity linking, pricing calculations, and more. This guide provides a complete reference for all available NamaRep methods and their usage patterns.
 
-- To add any attachment to a report:
+## Core Localization & Translation
+
+### Name Selection Based on Language
 ```groovy
-NamaRep.getFile($F{attachmentId})
-//OR
-NamaRep.getAttachment($F{attachmentId})
+// Automatically selects Arabic or English name based on current language
+NamaRep.name(name1, name2)  // Returns name1 for Arabic, name2 for English
+
+// With fallback to code if names are empty
+NamaRep.nameOrCode(code, name1, name2)
 ```
 
-## System Parameters in Reports
-::: details Here is the list of all system parameters
+### Translation Methods
 ```groovy
-loginLanguage: Arabic, or English
-formEntityType: the entity type for the form (Can be used for translation)
-loginLegalEntityId
-loginLegalEntityCode
-loginLegalEntityName1
-loginLegalEntityName2
-loginLegalEntityLogo
-loginLegalEntityLogo2
-loginLegalEntityLogo3
-loginLegalEntityLogo4
-loginLegalEntityLogo5
-reportsFooterNote1
-reportsFooterNote2
-loginSectorId
-loginSectorCode
-loginSectorName1
-loginSectorName2
-loginBranchId
-loginBranchCode
-loginBranchName1
-loginBranchName2
-loginAnalysisSetId
-loginAnalysisSetCode
-loginAnalysisSetName1
-loginAnalysisSetName2
-loginDepartmentId
-loginDepartmentCode
-loginDepartmentName1
-loginDepartmentName2
-loginUserId
-loginUserTreatAsAuthorIds
-loginUserCode
-loginUserName1
-loginUserName2
-loginEmployeeId
-publicLegalEntityId
-publicSectorId
-publicBranchId
-publicDepartmentId
-publicAnalysisSetId
-guiServerURL
-externalServerURL
-loginLanguage
-originalLoginLanguage
-formEntityType
-analysisSetNotUsedInSecurity
-sectorNotUsedInSecurity
-departmentNotUsedInSecurity
-branchNotUsedInSecurity
-legalEntityNotUsedInSecurity
-accessibleAnalysisSetIds
-accessibleDepartmentIds
-accessibleBranchIds
-accessibleLegalEntityIds
-accessibleSectorIds
-concernedLines
-candidateEmployeeId
-candidateEmployeeCode
-candidateEmployeeName1
-candidateEmployeeName2
-approvedRecordId
-approvedRecordType
-approvedRecordCode
-approvalSecret
-approvalStepSeq
-reportCode
-reportName1
-reportName2
-reportId
-namaReportInstance
-currentGUIURL
-currentReplicationSited
-currentReplicationSiteCode
-currentReplicationSiteName1
-currentReplicationSiteName2
-allowedCapabilities
-allowedEntities
-allowedDocuments
-allowedFiles
-notAllowedEntities
-notAllowedDocuments
-notAllowedFiles
-posShiftCode
-runId
+// Translate any value (strings, booleans, enums)
+NamaRep.translate(value)
+
+// Translate boolean values to localized text
+NamaRep.translate(true)  // Returns localized "Yes" or "نعم"
+
+// Translate field IDs with entity context
+NamaRep.title(entityType, fieldId)
+NamaRep.translate(entityType, fieldId)
+
+// Translate with prefix
+NamaRep.translate("prefix", "value")  // Translates "prefix.value"
+
+// Split translated text with pipe separator
+NamaRep.head("header|subtitle")  // Returns "header"
+NamaRep.sub("header|subtitle")   // Returns "subtitle"
 ```
-::
-### Subreports
 
-You can include subreports within a main report. A subreport can either be:
+## Date & Time Functions
 
-* Another existing report, or
-* An external report file.
-
-To link a subreport, create a parameter with the **same ID** as the subreport. The parameter type should be either `java.io.InputStream` or `java.lang.Object`, depending on how the subreport is being passed.
-
-
-### Extra Resources (e.g., Images)
-
-You can also attach additional resources—such as images—to a report.
-To use a resource within the report, define a parameter with the **same ID** as the resource. The parameter type should be `java.lang.Object`.
-
-
-### How to Get Day Name of a Date
+### Hijri Calendar Support
 ```groovy
-NamaRep.dayName($F{dateField})
-NamaRep.enDayName($F{dateField})
-NamaRep.arDayName($F{dateField})
+// Convert Gregorian to Hijri
+NamaRep.toHijri(date)                    // Full Hijri date string
+NamaRep.toHijriDate(date)                // HijriDate object
+NamaRep.hijriDay(date)                   // Day in Hijri (padded)
+NamaRep.hijriMonth(date)                 // Month in Hijri (padded)
+NamaRep.hijriYear(date)                  // Year in Hijri
+NamaRep.hijri_yyyyMMdd(date)            // Format: yyyyMMdd
 ```
-### To translate an enum
+
+### Day Names
 ```groovy
-NamaRep.translate(enumValue)
+NamaRep.dayName(date)        // Returns day name in current language
+NamaRep.arDayName(date)      // Arabic day name
+NamaRep.enDayName(date)      // English day name
+NamaRep.dayName(dayNumber)   // 1=Sunday, 2=Monday, etc.
 ```
-### To select name1, name2 or code, altCode based on language
+
+### Time Conversion
 ```groovy
-NamaRep.name(arabic,english)  
+// Convert decimal hours to time format
+NamaRep.decimalToTime(9.5)           // Returns "09:30"
+NamaRep.decimalToTimeNullable(0)     // Returns null instead of "00:00"
+
+// Convert milliseconds to time format
+NamaRep.timeToString(9120000)        // Returns "02:32"
+NamaRep.timeToStringNullable(0)      // Returns null instead of "00:00"
 ```
-where arabic = name1 or code, english = name2 or altCode
 
-### Calculate The Price of an Item
-
+### Date Calculations
 ```groovy
-NamaRep.priceCalculator().item($F{item}).uom($F{UOM}).qty($F{Quantity}).unitPriceOnly().price()
+// Calculate months between dates
+NamaRep.dateDiffInMonth(date1, date2)
 ```
-- This will calculate unit price only for the item with the qty and uom
-::: tip
-- This expression returns a full price Object. 
-- You should put the result in a variable
-  - The variable Class should be `java.lang.Object`
-  - Calculation `No Calculation Function`
-  - Increment type `None`
-  - Reset type `None`
-:::
-- The following is a list of all functions you can use to create a price calculation request
-- The `price()` or `unitPrice()` function must be the last one in the expression
-::: details Here are all the available functions
+
+## Number Formatting & Conversion
+
+### Arabic Numerals
 ```groovy
-item($F{itemIdOrCode})
-customer($F{customerIdOrCode})
-supplier($F{supplierIdOrCode})
-uom($F{uomIdOrCode})
-invoiceClassification($F{classificationIdOrCode})
-ic($F{classificationIdOrCode})
-legalEntity($F{legalEntityIdOrCode})
-le($F{legalEntityIdOrCode})
-sector($F{sectorIdOrCode})
-sc($F{sectorIdOrCode})
-branch($F{branchIdOrCode})
-br($F{branchIdOrCode})
-department($F{departmentIdOrCode})
-dep($F{departmentIdOrCode})
-analysisSet($F{analysisSetIdOrCode})
-anset($F{analysisSetIdOrCode})
-priceClassifier1($F{priceClassifier1IdOrCode})
-pc1($F{priceClassifier1IdOrCode})
-priceClassifier2($F{priceClassifier2IdOrCode})
-pc2($F{priceClassifier2IdOrCode})
-priceClassifier3($F{priceClassifier3IdOrCode})
-pc3($F{priceClassifier3IdOrCode})
-priceClassifier4($F{priceClassifier4IdOrCode})
-pc4($F{priceClassifier4IdOrCode})
-priceClassifier5($F{priceClassifier5IdOrCode})
-pc5($F{priceClassifier5IdOrCode})
-revision($F{revision})
-color($F{colorCode})
-size($F{size})
-qty($F{qty})
-date($F{date})
-unitPriceOnly()
+// Convert Western to Arabic-Hindi numerals
+NamaRep.arNumbers("123")  // Returns "١٢٣"
 ```
-:::
-- Assuming the variable you created is named price, here is a list of all expressions you can use to extract price components
-::: details Click to view all the available variables
+
+### Decimal Helpers
 ```groovy
-$V{price}.custom.primitiveValue
-$V{price}.discount1.afterValue.primitiveValue
-$V{price}.discount1.maxNormalPercent.primitiveValue
-$V{price}.discount1.percentage.primitiveValue
-$V{price}.discount1.value.primitiveValue
-$V{price}.discount2.afterValue.primitiveValue
-$V{price}.discount2.maxNormalPercent.primitiveValue
-$V{price}.discount2.percentage.primitiveValue
-$V{price}.discount2.value.primitiveValue
-$V{price}.discount3.afterValue.primitiveValue
-$V{price}.discount3.maxNormalPercent.primitiveValue
-$V{price}.discount3.percentage.primitiveValue
-$V{price}.discount3.value.primitiveValue
-$V{price}.discount4.afterValue.primitiveValue
-$V{price}.discount4.maxNormalPercent.primitiveValue
-$V{price}.discount4.percentage.primitiveValue
-$V{price}.discount4.value.primitiveValue
-$V{price}.discount5.afterValue.primitiveValue
-$V{price}.discount5.maxNormalPercent.primitiveValue
-$V{price}.discount5.percentage.primitiveValue
-$V{price}.discount5.value.primitiveValue
-$V{price}.discount6.afterValue.primitiveValue
-$V{price}.discount6.maxNormalPercent.primitiveValue
-$V{price}.discount6.percentage.primitiveValue
-$V{price}.discount6.value.primitiveValue
-$V{price}.discount7.afterValue.primitiveValue
-$V{price}.discount7.maxNormalPercent.primitiveValue
-$V{price}.discount7.percentage.primitiveValue
-$V{price}.discount7.value.primitiveValue
-$V{price}.discount8.afterValue.primitiveValue
-$V{price}.discount8.maxNormalPercent.primitiveValue
-$V{price}.discount8.percentage.primitiveValue
-$V{price}.discount8.value.primitiveValue
-$V{price}.headerDicount.afterValue.primitiveValue
-$V{price}.headerDicount.maxNormalPercent.primitiveValue
-$V{price}.headerDicount.percentage.primitiveValue
-$V{price}.headerDicount.value.primitiveValue
-$V{price}.netValue.primitiveValue
-$V{price}.${price}.primitiveValue
-$V{price}.tax1.afterValue.primitiveValue
-$V{price}.tax1.maxNormalPercent.primitiveValue
-$V{price}.tax1.percentage.primitiveValue
-$V{price}.tax1.value.primitiveValue
-$V{price}.tax2.afterValue.primitiveValue
-$V{price}.tax2.maxNormalPercent.primitiveValue
-$V{price}.tax2.percentage.primitiveValue
-$V{price}.tax2.value.primitiveValue
-$V{price}.tax3.afterValue.primitiveValue
-$V{price}.tax3.maxNormalPercent.primitiveValue
-$V{price}.tax3.percentage.primitiveValue
-$V{price}.tax3.value.primitiveValue
-$V{price}.tax4.afterValue.primitiveValue
-$V{price}.tax4.maxNormalPercent.primitiveValue
-$V{price}.tax4.percentage.primitiveValue
-$V{price}.tax4.value.primitiveValue
-$V{price}.totalCashShare.primitiveValue
-$V{price}.totalPaymentMethodShare.primitiveValue
-$V{price}.unitPrice.primitiveValue
-``` 
-:::
-Here's a clean and organized version in English, suitable for your VuePress documentation site:
+// Null-safe operations
+NamaRep.zeroIfNull(value)        // Returns 0 if null
+NamaRep.oneIfZero(value)         // Returns 1 if zero
+NamaRep.nullIfZero(value)        // Returns null if zero
 
----
+// Convert to BigDecimal
+NamaRep.objectToDecimal(value)   // Safe conversion to BigDecimal
+```
 
-## Links to Entities, Attachments, and Reports
+### Number Patterns
+```groovy
+NamaRep.currencyPattern()                    // Default currency pattern
+NamaRep.currencyPattern(currencyCode)        // Specific currency pattern
+NamaRep.quantityPattern()                    // Default quantity pattern
+NamaRep.quantityPattern(uomCode)            // Specific UOM pattern
+NamaRep.ratePattern()                        // Rate pattern
+NamaRep.percentPattern()                     // Percentage pattern
+NamaRep.datePattern()                        // Date pattern
+NamaRep.timePattern()                        // Time pattern
+NamaRep.dateTimePattern()                    // DateTime pattern
+```
 
-### Entity Links
+### Mathematical Operations
+```groovy
+// Access math utilities
+NamaRep.math.round(value, scale)
+NamaRep.round(value, scale)
+```
 
-* Create a simple link to an entity:
+## Tafqeet (Number to Words)
 
-  ```groovy
-  NamaRep.link(entityType, id)
-  ```
+```groovy
+// Convert numbers to words in different languages
+NamaRep.tafqeet(currencyCode, amount)        // Current language
+NamaRep.tafqeetArabic(currencyCode, amount)  // Arabic
+NamaRep.tafqeetEnglish(currencyCode, amount) // English
+NamaRep.tafqeetFrench(currencyCode, amount)  // French
+```
 
-* Create a link to an entity using menu code and view name:
+## Entity Links & Navigation
 
-  ```groovy
-  NamaRep.link()
-    .entityType($F{entityType})
-    .id($F{id})
-    .viewName("theViewName")
-    .menuCode("abcMenu")
-    .toString();
-  ```
+### Basic Entity Links
+```groovy
+// Create link to entity
+NamaRep.link(entityType, id)
+NamaRep.link(serverUrl, entityType, id)
+
+// Advanced link builder
+NamaRep.link()
+  .entityType("Customer")
+  .id(customerId)
+  .menuCode("CustomerMenu")
+  .viewName("DetailView")
+  .url(serverUrl)
+  .toString()
+```
 
 ### Attachment Links
+```groovy
+// Create link to attachment/document
+NamaRep.attachmentLink(attachmentId)
+NamaRep.attachmentLink(serverUrl, attachmentId)
 
-* Create a link to an attachment (file):
-
-  ```groovy
-  NamaRep.attachmentLink(id)
-  ```
+// Get attachment as InputStream
+NamaRep.getFile(attachmentId)
+NamaRep.getAttachment(attachmentId)
+```
 
 ### Report Links
-
-* Create a link to another report:
-
-  ```groovy
-  NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP}, "ReportCode")
-    .p("p1 id").v(value expression)
-    .p("p2 id").v(value expression)
-    .toString()
-  ```
-
-* Copy all shared parameters from the current report:
-
-  ```groovy
-  NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP}, "code").copyParams()
-  ```
-
-### Add Reference Parameters
-
-Use any of the following expressions to pass references:
-
 ```groovy
-v($F{id}, $F{entity}, $F{code}, $F{name1}, $F{name2})
-v($F{id}, $F{entity}, $F{code})
-ref($F{entityType}, $F{id})
-refCode($F{entityType}, $F{code})
-```
-
-### Report Link Examples
-
-```groovy
-NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP}, "Statement")
-  .copyParams()
-  .p("fromAccount").v($F{accountId}, $F{accountEntityType}, $F{accountCode})
-  .p("toAccount").v($F{accountId}, "Account", $F{accountCode})
+// Link to another report by code
+NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP}, "ReportCode")
+  .p("param1").v(value1)
+  .p("param2").v(value2)
+  .copyParams()  // Copy all shared parameters
   .toString()
-```
 
-```groovy
-NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP}, "SalesProfitSummary")
-  .copyParams($P{REPORT_PARAMETERS_MAP})
-  .p("SalesInvoice").ref("SalesInvoice", $F{SSIid})
-  .p("cust").refCode("Customer", "Customer501")
-  .p("fromDate").v("23-04-2014")
-  .p("showDetails").v("true")
+// Link by report ID
+NamaRep.repLinkById($P{REPORT_PARAMETERS_MAP}, reportId)
+  .p("param").ref(entityType, id)
+  .p("param2").refCode(entityType, code)
   .toString()
-```
 
-```groovy
-NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP}, "SubsidiaryAccountStatement")
-  .p("subsidiaryType").v($F{CustomerEntityType})
-  .p("fromSubsidiary").v($F{customerId}, $F{CustomerEntityType}, $F{customerCode})
-  .p("toSubsidiary").v($F{customerId}, $F{CustomerEntityType}, $F{customerCode})
-  .p("accuontType").v("mainAccount")
-  .toString()
-```
-
-### Public Report Links (No Authentication)
-
-To share a report link externally (e.g. to a customer) without requiring login:
-
-```groovy
-NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP}, "ARG000046-report")
-  .p("Code_Equals").ref($F{entityType}, $F{id})
+// Public report link (no authentication required)
+NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP}, "PublicReport")
+  .p("Code_Equals").ref(entityType, id)
   .toNoAuthResultLink()
 ```
 
-::: tip URL Shortening in Reports
-You can shorten report URLs using:
+## Entity Creation (Creators)
 
+### Basic Creator
 ```groovy
-NamaRep.shortenURL(serverurl, signature, url)
-```
-
-See `{shortenurl()}` section in the Tempo help for more info.
-:::
-
----
-
-## Creating Entities from Reports (Creators)
-
-* Example: create a Receipt Voucher from an Invoice:
-
-  ```groovy
-  NamaRep.newWithFields("ReceiptVoucher")
-    .f("term").value("POTermCode")
-    .f("book").value("POBook1")
-    .f("remarks").v("Auto Created")
-    .f("fromDoc#type").v("SalesInvoice")
-    .f("fromDoc#code").v($F{code})
-    .toString()
-  ```
-
-* You can also use:
-
-```groovy
-NamaRep.creator("ReceiptVoucher")
-```
-
-### Creating with Line-Level Details
-
-1. Create a variable called `creatorLink` with initial value expression:
-
-```groovy
-NamaRep.newWithFields("PurchaseOrder").field("term").value("P.Order.Term").root()
-```
-
-2. For line-level expression:
-
-```groovy
-$V{creatorLink}.field("details.item.itemCode").value($F{code}).row($V{REPORT_COUNT})
-```
-
-3. To generate the full link:
-
-```groovy
-$V{creatorLink}.toString()
-```
-
-### Optional: Specify Menu Code or View Name
-
-```groovy {2,3}
+// Create new entity with fields
 NamaRep.newWithFields("ReceiptVoucher")
-  .viewName("NormalReceipts")
-  .menuCode("NormalReceiptMenu")
   .f("term").value("POTermCode")
   .f("book").value("POBook1")
+  .f("remarks").v("Auto Created")
+  .f("fromDoc#type").v("SalesInvoice")
+  .f("fromDoc#code").v(invoiceCode)
+  .menuCode("ReceiptMenu")
+  .viewName("StandardView")
+  .toString()
+
+// Alternative syntax
+NamaRep.creator("PurchaseOrder")
+  .field("supplier").value(supplierId)
   .toString()
 ```
 
-### Find employee vacation balances
+### Creator with Line Details
 ```groovy
-NamaRep.getVacation1RemainderBalance(empIdOrCode)
-NamaRep.getVacation2RemainderBalance(empIdOrCode)
-NamaRep.getVacation3RemainderBalance(empIdOrCode)
-NamaRep.getVacationRemainderBalance(empCodeOrId,vacationTypeIdOrCode)
-NamaRep.getVacationRemainderBalance(empCodeOrId,vacationTypeIdOrCode,atDate)
+// 1. Create variable with initial expression
+$V{creatorLink} = NamaRep.newWithFields("PurchaseOrder")
+  .field("term").value("P.Order.Term")
+  .root()
+
+// 2. Add line items (in detail band)
+$V{creatorLink}
+  .field("details.item.itemCode").value($F{code})
+  .field("details.quantity").value($F{qty})
+  .row($V{REPORT_COUNT})
+
+// 3. Generate final link
+$V{creatorLink}.toString()
 ```
 
-### Approvals in Reports
-- Create Links to approve, reject, return, and so on
+## Pricing Calculations
+
+### Price Calculator
 ```groovy
+// Basic price calculation
+NamaRep.priceCalculator()
+  .item($F{itemId})
+  .customer($F{customerId})
+  .uom($F{uom})
+  .qty($F{quantity})
+  .date($F{date})
+  .unitPriceOnly()
+  .price()
+
+// With all parameters
+NamaRep.priceCalculator()
+  .item(itemCode)
+  .customer(customerCode)
+  .supplier(supplierCode)
+  .uom(uomCode)
+  .qty(quantity)
+  .invoiceClassification(classificationCode)
+  .legalEntity(legalEntityCode)
+  .sector(sectorCode)
+  .branch(branchCode)
+  .department(departmentCode)
+  .analysisSet(analysisSetCode)
+  .priceClassifier1(pc1Code)
+  .priceClassifier2(pc2Code)
+  .revision(revisionCode)
+  .color(colorCode)
+  .size(sizeCode)
+  .date(priceDate)
+  .unitPriceOnly()
+  .price()
+```
+
+### Accessing Price Components
+After storing price in variable `$V{price}`:
+```groovy
+$V{price}.unitPrice.primitiveValue
+$V{price}.netValue.primitiveValue
+$V{price}.custom.primitiveValue
+$V{price}.discount1.percentage.primitiveValue
+$V{price}.discount1.value.primitiveValue
+$V{price}.discount1.afterValue.primitiveValue
+$V{price}.tax1.percentage.primitiveValue
+$V{price}.tax1.value.primitiveValue
+$V{price}.totalCashShare.primitiveValue
+```
+
+### Legacy Price Methods
+```groovy
+// Get item prices
+NamaRep.getItemPriceByCode(itemCode)
+NamaRep.getItemPriceById(itemId)
+NamaRep.getNetPurchaseValue(itemCode)
+
+// Customer-specific pricing
+NamaRep.getItemPriceForCustomer(item, customer)
+NamaRep.getPricesForCustomer(item, customer, uom, qty)
+NamaRep.getPricesForCustomer(item, customer, uom, qty, classification, date)
+```
+
+## Approval System
+
+### Document Approval Links
+```groovy
+// Approve/Reject all lines
 NamaRep.approveAllLink($P{REPORT_PARAMETERS_MAP})
 NamaRep.rejectAllLink($P{REPORT_PARAMETERS_MAP})
 NamaRep.returnAllLink($P{REPORT_PARAMETERS_MAP})
 NamaRep.returnAllToPreviousStepLink($P{REPORT_PARAMETERS_MAP})
+
+// With reason
+NamaRep.approveAllLink($P{REPORT_PARAMETERS_MAP}, reasonCode)
+NamaRep.rejectAllLink($P{REPORT_PARAMETERS_MAP}, reasonCode)
+
+// Per-line approval
+NamaRep.approveLink($P{REPORT_PARAMETERS_MAP}, lineNumber)
+NamaRep.rejectLink($P{REPORT_PARAMETERS_MAP}, lineNumber)
+NamaRep.returnLink($P{REPORT_PARAMETERS_MAP}, lineNumber)
+NamaRep.returnToPreviousStepLink($P{REPORT_PARAMETERS_MAP}, lineNumber)
+
+// Check if line needs approval
+NamaRep.isConcernedLine($P{REPORT_PARAMETERS_MAP}, lineNumber)
 ```
-- If you have approval per line (concerned lines, used mainly in supply chain documents)
+
+### JavaScript Approval Dialog
 ```groovy
-NamaRep.approveLink($P{REPORT_PARAMETERS_MAP},$F{lineNumber})
-NamaRep.approveLink($P{REPORT_PARAMETERS_MAP},$F{lineNumber},reasoncodeOrId) // same for all remaining links
-NamaRep.rejectLink($P{REPORT_PARAMETERS_MAP},$F{lineNumber})
-NamaRep.returnLink($P{REPORT_PARAMETERS_MAP},$F{lineNumber})
-NamaRep.returnToPreviousStepLink($P{REPORT_PARAMETERS_MAP},$F{lineNumber})
+// Show approval dialog in browser
+NamaRep.approveFromJS(entityType, entityId, nextStepName, 
+                      concernedLines, nextStepSeq, summary)
 ```
-- Another alternative would be to use the `approveAllLink` method
+
+## Database Operations
+
+### SQL Queries
 ```groovy
-NamaRep.approveAllLink($P{REPORT_PARAMETERS_MAP},decision)
-```
-::: tip Allowed Values for decision
+// Execute SQL query with parameters
+List results = NamaRep.runSQLQuery(
+  "SELECT * FROM Customer WHERE code = ? AND active = ?",
+  customerCode, true
+)
 
-Decision can be one of: `Approve` , `Reject` , or `Return`
-:::
-- To show approval dialog by clicking on a link, use the following code sample
+// Format query results
+NamaRep.formatQueryResult(results, "\n", ",")  // Row separator, column separator
+```
+
+### Module Configuration
 ```groovy
-NamaRep.approveFromJS(entityType, entityId, nextStepName, concernedLines, nextStepSeq, summary)
+// Get configuration value
+NamaRep.getValueFromModuleConfig("basic", "value.info.useCurrentUserAsSalesMan")
+NamaRep.getValueFromModuleConfig("accounting", "defaultCurrency")
 ```
-- Find if a line is concerned in approval
+
+## Employee & HR Functions
+
+### Vacation Balances
 ```groovy
-NamaRep.isConcernedLine($P{REPORT_PARAMETERS_MAP},$F{lineNumber})
+// Default vacation types
+NamaRep.getVacation1RemainderBalance(employeeId)
+NamaRep.getVacation2RemainderBalance(employeeId)
+NamaRep.getVacation3RemainderBalance(employeeId)
+
+// Specific vacation type
+NamaRep.getVacationRemainderBalance(employeeId, vacationType)
+NamaRep.getVacationRemainderBalance(employeeId, vacationType, atDate)
+
+// Detailed vacation information
+NamaRep.getVacationAssignedConsumedRemainder(employeeId, vacationType)
+NamaRep.getVacationAssignedConsumedRemainder(employeeId, vacationType, atDate)
+
+// Balance per years
+NamaRep.getRemainderBalancePerYears(employeeId, atDate, yearsCount)
 ```
 
+## Security & Permissions
 
-### Run SQL Statement inside a report
+### Security Constraints for Reports
 ```groovy
-NamaRep.runSQLQuery(sql,paramName,paramValue,paramName,paramValue)
-```
-### Transform HTML to text (HTML Parsing)
-```groovy
-NamaRep.htmlToText(text)
-```
-## Miscellaneous
-
-### Time To String Functions in Reports
-- `NamaRep.timeToString`: converts milliseconds to hours:minutes, example 9120000 becomes 02:32
-- `NamaRep.timeToStringNullable`:  same as previous, but 0 is converted to null instead of 00:00
-- `NamaRep.decimalToString`: converts hours to hours:minutes, example 9.5 becomes 09:30 and 9.25 becomes 9:15
-- `NamaRep.decimalToStringNullable`: same as previous, but 0 is converted to null instead of 00:00
-
-### To convert date to Hijri
-
-```groovy
-NamaRep.toHijri($F{date})
-NamaRep.hijriDay($F{date})+"/"+NamaRep.hijriMonth($F{date})+"/"+NamaRep.hijriYear($F{date})
-NamaRep.hijri_yyyyMMdd($F{date})
-```
-
-### To execute query:
-```groovy
-NamaRep.executeQuery("select cast(w.name1 collate Arabic_CI_AI_KS_WS as varchar(250)) from warehouse w where w.id = :wid"
-        ,"wid",$F{wid})
-```
-
-### To Get Configuration Field:
-```groovy
-NamaRep.getValueFromModuleConfig(moduleId,fieldId)
-```
-- Example:
-```groovy
-NamaRep.getValueFromModuleConfig("basic","value.info.useCurrentUserAsSalesMan")
-```
-
-This will get the value of the field: value.info.useCurrentUserAsSalesMan from global config
-
-- Here are the available module names:
-```
-accounting
-basic
-supplychain
-fixedassets
-humanresource
-dms
-project
-ecpa
-manufacturing
-srvcenter
-crm
-contracting
-travel
-realestate
-housing
-auditing
-education
-namapos
-mc
-```
-::: rtl
-
-## كيفية التصفية حسب الشركة، أو القطاع، أو أي مُحدد آخر
-
-نفترض أنك ترغب في تصفية البيانات بناءً على منشئ السجل، وصلاحيات التعديل أو العرض، وكذلك حسب الشركة أو القطاع أو الفرع أو غير ذلك من المُحددات ضمن سجل الحساب. للقيام بذلك، اتبع الخطوات التالية:
-
-### 1. إنشاء مُدخل مخفي باسم `SECURITY_CONSTRAINTS`
-
-أنشئ مُدخلًا (Parameter) من النوع `String`، واختر له خيار "Not For Prompting" لكي لا يظهر للمستخدم، وعيِّن له **التعبير (Expression)** الافتراضي التالي:
-
-```groovy
+// Create security constraint parameter
 NamaRep.security()
-    .fieldEntityType("Account")
-    .tableAlias("acc")
-    .capabilities("firstAuthor", "viewCapability", "usageCapability", "updateCapability", "legalEntity", "branch", "sector", "department", "analysisSet")
-```
+  .fieldEntityType("Account")
+  .tableAlias("acc")
+  .capabilities("firstAuthor", "viewCapability", "updateCapability", 
+                "legalEntity", "branch", "sector", "department", "analysisSet")
+  .toString()
 
-شرح مكونات التعبير (Expression):
-
-```groovy
-NamaRep.security().fieldEntityType("Account")
-```
-
-هذا الجزء يُخبر النظام بأن التصفية ستُطبق على كيان "الحساب". لذلك، لن يُضاف شرط صلاحية العرض إذا كان لدى المستخدم الصلاحيات الكاملة، أو إذا كنت قد فعّلت خيار تجاهل صلاحية العرض من إعدادات تحسين الأداء.
-
-```groovy
-.tableAlias("acc")
-```
-
-هنا تُحدد الاسم المستعار (alias) لجدول الحسابات داخل الاستعلام، بحيث يعرف النظام أين يطبّق التصفية.
-
-```groovy
-.capabilities(...)
-```
-
-في هذا الجزء، تُحدد أسماء المُحددات التي ترغب في أن تشملها التصفية. على سبيل المثال، إذا كنت ترغب في التصفية فقط حسب الشركة والفرع، استخدم ما يلي:
-
-```groovy
-.capabilities("legalEntity", "branch")
-```
-
-يكفي أن تُدرج أسماء المُحددات فقط دون الحاجة إلى تفاصيل إضافية.
-
-
-### 2. استخدام المُدخل داخل الاستعلام
-
-قم بإدراج المُدخل `SECURITY_CONSTRAINTS` ضمن جملة `WHERE` في الاستعلام الخاص بك، على النحو التالي:
-
-```sql
-SELECT a, b, c 
-FROM Table1 t1 
-LEFT JOIN Table2 t2 ON t2.id = t1.someId 
-WHERE t1.code <> 'abc' AND $P!{SECURITY_CONSTRAINTS}
-```
-
-يمكنك استخدام أي اسم يناسبك بدلًا من `SECURITY_CONSTRAINTS`.
-
----
-
-### 3. التصفية حسب أكثر من جدول
-
-إذا كنت ترغب في تطبيق التصفية على أكثر من جدول، يمكنك استخدام الصيغة التالية:
-
-```groovy
+// Multiple table constraints
 NamaRep.security()
-    .fieldEntityType("Account")
-    .tableAlias("Account")
-    .capabilities("firstAuthor", "viewCapability")
+  .fieldEntityType("Account")
+  .tableAlias("acc")
+  .capabilities("viewCapability", "legalEntity")
 + " AND " +
 NamaRep.security()
-    .fieldEntityType("FiscalYear")
-    .tableAlias("FiscalYear")
-    .capabilities("legalEntity", "branch", "sector")
+  .fieldEntityType("FiscalYear")
+  .tableAlias("fy")
+  .capabilities("legalEntity", "branch")
 ```
 
-قم بتكرار هذا الجزء بعدد الجداول المطلوبة، مع استخدام `AND` للفصل بين كل جزء وآخر.
-:::
-
-::: tip Summary In English
-
-**Filtering Data by Legal Entity, Sector, or Other Dimensions**
-
-- This section explains how to apply security-based filtering on reports according to various criteria such as first author, 
-user permissions (view, update), legal entity (company), branch, sector, department, and other analysis sets. 
-- The filtering is done by creating a hidden string parameter that defines the security constraints for a specific entity or table alias in the query.
-- You can specify which capabilities or dimensions to filter on, and then include this parameter as a condition in your SQL or report query.
-- When filtering on multiple tables, combine multiple security constraints with logical AND. T
-- his approach helps enforce data visibility and editing rights dynamically based on user roles and organizational structure.
-
-:::
-
-## To translate a header and sub titles:
-- Suppose that id = "xxx | yyy"
-  - NamaRep.head(id) ⇒ xxx
-  - NamaRep.sub(id) ⇒ yyy
-## Numeric Fields Helpers
+### Display Permissions
 ```groovy
-NamaRep.zeroIfNull(fieldOrVariable)
-NamaRep.oneIfZero(fieldOrVariable)
-NamaRep.nullIfZero(fieldOrVariable)
+// Check if user can display parameter/field
+NamaRep.canDisplay(parameter)
 ```
-## How to create report with different pages sizes
-::: rtl
-- كيفية إنشاء تقرير يحتوي على تقارير فرعية بأحجام صفحات مختلفة باستخدام JasperReports
-يمكنك تنفيذ هذا النوع من التقارير بسهولة باستخدام JasperReports من خلال الخطوات التالية:
 
-1. **إنشاء تقرير من نوع Book:**
+## Utility Functions
 
-  * ابدأ بإنشاء تقرير رئيسي من نوع *Book Report*.
-
-2. **كتابة الجملة الشرطية:**
-
-  * أضف جملة SQL بسيطة تتضمن الحقول التي ستُستخدم لتحديد شروط ظهور الأجزاء المختلفة.
-
-3. **إضافة التقارير الفرعية:**
-
-  * من خلال خيار **Add Part to Content**، أضف كل تقرير فرعي (Part) ترغب في إدراجه داخل التقرير الرئيسي.
-
-4. **تحديد شروط الطباعة لكل Part:**
-
-  * استخدم **Print When Expression** لتحديد متى يظهر كل جزء بناءً على الشروط التي حددتها مسبقًا.
-
-5. **تمرير المتغيرات والمدخلات:**
-
-  * يجب تعريف جميع المدخلات المطلوبة مسبقًا، ثم تمريرها لكل جزء بالطريقة نفسها المستخدمة مع التقارير الفرعية التقليدية (*Sub Reports*).
-
-### مثال:
-
-نموذج طباعة يحتوي على جزأين بحجمي صفحات مختلفين: A4 و A3، يتم إظهار كل جزء بناءً على شرط مستخرج من حقل "الملحوظة" في السند. ويتضمن كل جزء تقارير فرعية داخله.
-
-* 📥 [تحميل ملف الإكسيل للاستيراد](https://docs.google.com/spreadsheets/d/1TPjsTwB2fcCIth0JB30AqbmIxPymgEbG/edit?usp=sharing&ouid=106365317117679104835&rtpof=true&sd=true)
-* 📎 [تحميل المرفق للاستيراد](https://drive.google.com/file/d/1r1FraUmyLue9xyOHURnzzKTKoap_hxQQ/view?usp=sharing)
-:::
-Refer to development request [SRDRQ05261](https://namasoft.com/reqs/SRDRQ05261)
-
-## Kill Reports Running for more than n seconds
-Refer to development request [ECPADR00932](https://namasoft.com/reqs/ECPADR00932)
-::: rtl
-* ⏱️ إيقاف التقارير التي تجاوزت وقت تنفيذ معين
-
-عند تشغيل تقارير كبيرة، قد يؤدي الضغط على النظام أحيانًا إلى عدم قدرة المستخدمين الجدد على تسجيل الدخول. وفي بعض الحالات، نضطر إلى إيقاف خدمة **Tomcat** وإعادة تشغيلها لحل المشكلة.
-
-لذا تم إنشاء أداة تقوم بإيقاف أي تقرير تجاوز وقت تنفيذ معين (مثلاً 10 أو 120 ثانية)، دون الحاجة لإعادة تشغيل الخادم. 
-
----
-
-### 🔧 خطوات التفعيل:
-
-1. **تعديل إعدادات الوقت في ملف `nama.properties`:**
-
-   أضف السطر التالي أو عدله:
-
-   ```ini
-   kill-reports-running-more-than-seconds=120
-   ```
-
-  * الرقم `120` يمثل الحد الأقصى لعدد الثواني المسموح بها لتشغيل التقرير.
-  * يمكنك تغييره لأي قيمة زمنية حسب الحاجة.
-
----
-
-2. **تشغيل رابط المعالجة اليدوية:**
-
-   بعد حفظ الإعداد، شغّل الرابط التالي:
-<NamaURL url="basic-services/monitorlogin?reload-config-and-kill-running-reports=true" removeERPPart />
-   
-  * هذا الرابط يقوم بإعادة تحميل الإعدادات من ملف `nama.properties`، ثم يقوم بإغلاق جميع التقارير التي تجاوز وقت تنفيذها الحد المحدد.
-
-:::
-
-## Tafqeet 
-- You can use any of the following expressions inside your jasper report:
+### String Utilities
 ```groovy
-NamaRep.tafqeet(currencyCode,number)
-NamaRep.tafqeetArabic(currencyCode,number)
-NamaRep.tafqeetEnglish(currencyCode,number)
-NamaRep.tafqeetFrench(currencyCode,number)
+// Access string utilities
+NamaRep.strUtils.leftPad(value, length)
+NamaRep.strUtils.toUUIDStr(id)
+
+// HTML to text conversion
+NamaRep.htmlToText(htmlContent)
+
+// UUID conversion
+NamaRep.toUUIDString(id)
+NamaRep.idToStr(id)
 ```
-The configuration for currencies tafqeet can be found in <GlobalConfigOption option-code="value.info.tafqeetInfo.currencyCode" link-title="Tafqeet Info"/>
 
-## Miscellaneous 
-- To use Arabic (hindu) numerals use
-  '٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'
+### Serial Numbers
 ```groovy
-NamaRep.arNumbers(value)
+// Expand compressed serials
+NamaRep.expandSerials(serials)                      // Default newline separator
+NamaRep.expandSerials(serials, separator)           // Custom separator
+NamaRep.unzipSerials(serials)                      // Returns List<String>
+NamaRep.unzipSerialsWithNewLines(serials)
+NamaRep.unzipSerialsWithComma(serials)
+NamaRep.unzipSerialsWithSeparator(serials, ";")
+
+// Compress serial ranges
+NamaRep.zipSerialsRange(serials)
 ```
-- To get saudi riyal symbol for reports, add an image, make the expression 
+
+### Encryption/Decryption
 ```groovy
+// Standard encryption
+NamaRep.decryptStr(encryptedString)
+
+// Multiple encryption methods
+NamaRep.encryptX(text) / NamaRep.decryptX(encrypted)
+NamaRep.encrypt1(text) / NamaRep.decrypt1(encrypted)
+NamaRep.encrypt2(text) / NamaRep.decrypt2(encrypted)
+```
+
+### ZATCA QR Codes (Saudi Tax Authority)
+```groovy
+// Generate ZATCA QR code
+NamaRep.genZATCAQR(sellerName, vatNumber, timestamp, 
+                   invoiceAmount, vatAmount)
+
+// With separate value and creation dates
+NamaRep.genZATCAQRWithCreationDate(sellerName, vatNumber, 
+                                   valueDate, creationDate, 
+                                   invoiceAmount, vatAmount)
+
+// From entity
+NamaRep.genZatcaQrCodeFromEntity(entityType, idOrCode)
+NamaRep.zatcaHashedInvoice(entityType, id)
+```
+
+### URL Shortening
+```groovy
+NamaRep.shortenURL(serverUrl, signature, longUrl)
+```
+
+### Saudi Riyal Symbol
+```groovy
+// Returns SAR symbol as InputStream for image component
 NamaRep.sar()
 ```
-- To get period between a start date and today, (years, months, days):
-  - Create variable period with reset type none, increment type none
-  - Variable expression should be:
+
+## Advanced Features
+
+### Values Holder
 ```groovy
-java.time.Period.between(new java.util.Date($F{FromDate}.getTime()).toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate(), java.time.LocalDate.now())
-```
-  - Use the following in the text field expression you:
-```groovy
-$V{period}.getYears()+"  "+"سنة"+"  "+$V{period}.getMonths()+"  "+"شهر"+"  "+$V{period}.getDays()+"  "+"يوم"
+// Create values holder for complex operations
+ValuesHolder holder = NamaRep.holder()
 ```
 
-Here’s a clearer and more polished version of your text:
+### Report References
+```groovy
+// Create report reference objects
+NamaRep.repRef(entityType, id, code, name1, name2)
+NamaRep.repRefOrderByCode(entityType, id, code, name1, name2)
+NamaRep.repRefOrderById(entityType, id, code, name1, name2)
+NamaRep.repRefOrderByName1(entityType, id, code, name1, name2)
+NamaRep.repRefOrderByName2(entityType, id, code, name1, name2)
+```
 
----
+### Order By Builder
+```groovy
+NamaRep.orderBy()
+  .orderByParameterTitles("Date", "Code", "Name")
+  .orderByParameterColumns("valueDate", "code", "name1")
+  .orderByDirections("ASC", "DESC", "ASC")
+  .selectedOrderBy("Date", "Code")
+  .selectSortDirections("DESC", "ASC")
+  .setColumnsBeforeGroupFields(true)
+  .toString()
+```
 
-### List Parameters (Multi-Selection)
+### Group Expressions
+```groovy
+// Create composite group key
+NamaRep.groupExpression(field1, field2, field3)
+```
 
-To define a parameter that supports multiple selections, follow these guidelines:
+### Map Creation
+```groovy
+// Create map from key-value pairs
+Map data = NamaRep.map("key1", value1, "key2", value2)
+```
 
-* Set the property `list = true`.
-* If the list is **not** of type `Reference`, you must also specify the `listType` property.
-* To capture the selected values for display purposes, you can define additional parameters:
+### Audit Trail
+```groovy
+// Get audit information
+NamaRep.audit(entityType, id, versionNumber, actionType)
+```
 
-  * `<parameterName>_csv`: Receives the translated values as a CSV string.
-  * `<parameterName>_codecsv`: Receives the codes of the selected values as a CSV string.
-  * `<parameterName>_name1csv`: Receives the `name1` fields of the selected values as a CSV string.
-  * `<parameterName>_name2csv`: Receives the `name2` fields of the selected values as a CSV string.
-* To prevent the automatic display of the selection grid, set the property `doNotAutoShowList = true`.
+### File Operations
+```groovy
+// Retrieve file ID for entity
+NamaRep.retrieverFileId(entityType, idOrCode)
+```
 
-::: details Example:
+## System Parameters Available in Reports
 
+All reports have access to these system parameters:
+
+### User & Login Information
+- `loginLanguage` - Current language (Arabic/English)
+- `loginUserId`, `loginUserCode`, `loginUserName1`, `loginUserName2`
+- `loginEmployeeId`
+- `currentUser` - Current user object
+
+### Organization Structure
+- `loginLegalEntityId`, `loginLegalEntityCode`, `loginLegalEntityName1`, `loginLegalEntityName2`
+- `loginSectorId`, `loginSectorCode`, `loginSectorName1`, `loginSectorName2`
+- `loginBranchId`, `loginBranchCode`, `loginBranchName1`, `loginBranchName2`
+- `loginDepartmentId`, `loginDepartmentCode`, `loginDepartmentName1`, `loginDepartmentName2`
+- `loginAnalysisSetId`, `loginAnalysisSetCode`, `loginAnalysisSetName1`, `loginAnalysisSetName2`
+
+### Logos & Branding
+- `loginLegalEntityLogo` - Primary logo (InputStream)
+- `loginLegalEntityLogo2` through `loginLegalEntityLogo5` - Additional logos
+- `reportsFooterNote1`, `reportsFooterNote2` - Footer text
+
+### Report Context
+- `formEntityType` - Entity type for the form
+- `reportCode`, `reportId`, `reportName1`, `reportName2`
+- `namaReportInstance` - Report instance object
+- `runId` - Unique run identifier
+
+### URLs
+- `guiServerURL` - GUI server URL
+- `externalServerURL` - External server URL
+- `currentGUIURL` - Current GUI URL
+
+### Approval System
+- `concernedLines` - Lines requiring approval
+- `candidateEmployeeId`, `candidateEmployeeCode`, `candidateEmployeeName1`, `candidateEmployeeName2`
+- `approvedRecordId`, `approvedRecordType`, `approvedRecordCode`
+- `approvalSecret`, `approvalStepSeq`
+
+### Security & Permissions
+- `allowedCapabilities`, `allowedEntities`, `allowedDocuments`, `allowedFiles`
+- `notAllowedEntities`, `notAllowedDocuments`, `notAllowedFiles`
+- `accessibleLegalEntityIds`, `accessibleSectorIds`, `accessibleBranchIds`
+- `accessibleDepartmentIds`, `accessibleAnalysisSetIds`
+
+### Security Flags
+- `legalEntityNotUsedInSecurity`
+- `sectorNotUsedInSecurity`
+- `branchNotUsedInSecurity`
+- `departmentNotUsedInSecurity`
+- `analysisSetNotUsedInSecurity`
+
+### Other
+- `posShiftCode` - POS shift code
+- `currentReplicationSiteId`, `currentReplicationSiteCode`
+- `currentReplicationSiteName1`, `currentReplicationSiteName2`
+
+## Best Practices
+
+### 1. Variable Creation for Complex Objects
+When working with price calculations or report links, create variables:
 ```xml
-<parameter name="MultiEmployee" class="java.util.List">
-    <property name="entityType" value="Employee"/>
-    <property name="arabic" value="الموظفين"/>
-    <property name="english" value="Employees"/>
-    <property name="property" value="code"/>
-    <property name="list" value="true"/>
-    <property name="doNotAutoShowList" value="false"/>
-</parameter>
-
-<parameter name="MultiEmployee_csv" class="java.lang.String" isForPrompting="false"/>
-
-<parameter name="MultiDate" class="java.util.Date">
-    <property name="english" value="Dates"/>
-    <property name="arabic" value="التورايخ"/>
-    <property name="defaultValue" value="$monthStart()"/>
-    <property name="list" value="true"/>
-    <property name="listType" value="java.util.Date"/>
-</parameter>
-
-<parameter name="MultiDate_csv" class="java.lang.String" isForPrompting="false"/>
+<variable name="price" class="java.lang.Object" calculation="No Calculation Function">
+  <initialValueExpression>
+    NamaRep.priceCalculator().item($F{item}).qty($F{qty}).price()
+  </initialValueExpression>
+</variable>
 ```
-:::
 
-## Report Properties
-- preRunUtil
-- questionsChangeUtil
-- comparisonType
-To use or change any of the previous properties, please consult the development team
-
-
-## Parameter Properties
-
-
-#### **Basic Properties**
-
-* **`list`**:
-
-  * `true` or `false`
-  * Indicates whether the parameter allows multiple selections (displayed as a selection grid).
-
-* **`listType`**:
-
-  * Required when using non-reference types (e.g., dates, numbers).
-  * Example: `java.util.Date`, `java.lang.Integer`.
-
-* **`layout`**:
-
-  * Defines how the parameter is displayed.
-  * Options: `alone`, `spanned`, `normal`, `spanned2`.
-
-* **`required`**:
-
-  * `true` or `false`
-  * Marks the parameter as mandatory.
-
-* **`requiredGroup`**:
-
-  * Use the same value for multiple parameters to enforce that at least **one** of them must be filled.
-
-* **`hijri`**:
-
-  * `true` or `false`
-  * Indicates whether the date should be displayed using the Hijri calendar.
-
----
-
-#### **Suggestions for Text Fields**
-
-* **`suggestionquery`**:
-
-  * SQL query that returns values for suggestion/autocomplete in text input fields.
-
-  * **Two columns**: First for code, second for Arabic display text.
-
-  * **Three columns**: First for code, second for Arabic, third for English.
-
-  **Examples**:
-
-  ```sql
-  SELECT DISTINCT TOP 25 revisionId, revisionName 
-  FROM ItemRevision 
-  WHERE invItem_id = {fItem} 
-    AND (revisionId LIKE '%' + {revision} + '%' OR revisionName LIKE '%' + {revision} + '%')
-  ```
-
-  ```sql
-  SELECT DISTINCT revisionId 
-  FROM ItemDimensionsQty 
-  WHERE item_id = {fromItem} 
-    AND revisionId LIKE '%' + {revisionId} + '%' 
-    AND net <> 0
-  ```
-
----
-
-#### **Reference Selection**
-
-* **`entityType`**:
-
-  * The entity (table) from which records will be selected.
-
-* **`allowedValues`**:
-
-  * A comma-separated list of allowed values.
-  * Will render any parameter as a combo box
-
-* **`property`**:
-
-  * The field to extract from the selected record (e.g., `code`, `name1`, `name2`, `startDate`).
-
-* **`enumType`**:
-
-  * Defines the enum type to use for allowed values.
-  * Example enums: `EntityTypeDF`, `SubsidiaryType`, `DocumentEntityTypeDF`.
-
-  **Example**:
-
-  ```xml
-  <parameter name="entityType" class="java.lang.String">
-      <property name="enumType" value="EntityTypeDF"/>
-      <property name="allowedValues" value="Employee,Vendor"/>
-  </parameter>
-  ```
-
----
-
-#### **Comparative and Display Properties**
-
-* **`type`**:
-
-  * Comparison operators: `>` or `<`
-  * For example, `>` will substitute negative infinity if no value is provided.
-
-* **`arabic` / `english`**:
-
-  * Arabic and English display labels.
-
-* **`resource`**:
-
-  * Resource key to use instead of specifying Arabic and English manually.
-
-* **`src`**:
-
-  * Used when you want to reuse a property from another parameter.
-
-* **`ignore`**:
-
-  * If set, the parameter is excluded from prompting (similar to `isForPrompting = false`).
-
----
-
-#### **Filtering Values**
-
-* **`filter`**:
-
-  * Syntax: `field,operator,value[,relation]`
-  * Multiple filters are separated by semicolons.
-  * Default relation is `AND`.
-
-  **Operators**:
-
-  ```
-  Equal, EqualOrEmpty, NotEqual, NotEqualOrEmpty,
-  GreaterThan, GreaterThanOrEmpty, GreaterThanOrEqual, GreaterThanOrEqualOrEmpty,
-  LessThan, LessThanOrEmpty, LessThanOrEqual, LessThanOrEqualOrEmpty,
-  StartsWith, StartsWithOrEmpty, NotStartsWith, NotStartsWithOrEmpty,
-  EndsWith, EndsWithOrEmpty, NotEndWith, NotEndWithOrEmpty,
-  Contains, ContainsOrEmpty, NotContain, NotContainOrEmpty,
-  OpenBracket, CloseBracket, In
-  ```
-
-  * Use `${parameterId}` to reference the value of another parameter in filters.
-
-  **Examples**:
-
-  ```
-  forType,Equal,Department,AND;isLeaf,Equal,true
-  documentType,Equal,ReceiptVoucher
-  forType,Equal,${subsidiaryType}
-  ```
-
----
-
-#### **Default Values**
-
-* **`defaultValue`**:
-
-  * String default value based on the parameter type:
-
-    * **Date**: `dd-MM-yyyy`
-    * **Time**: `yyyy-MM-dd'T'HH:mm:ss.SSS`
-    * **Reference**: `id:entityType:code`
-
-::: details  **Functions for dynamic defaults**:
-
-``` 
-$now()
-$today()
-$monthStart()
-$monthEnd()
-$yearStart()
-$yearEnd()
-$currentFiscalPeriod()
-$currentUser()
-$currentEmployee()
-$todayPlusDays(n)
-$todayPlusWeeks(n)
-$todayPlusMonths(n)
-$todayPlusYears(n)
-$quarterStart()
-$quarterEnd()
-$thirdStart()
-$thirdEnd()
-$halveStart()
-$halveEnd()
-$previousMonthStart()
-$previousMonthEnd()
-$nextMonthStart()
-$nextMonthEnd()
-$previousYearStart()
-$previousYearEnd()
-$nextYearStart()
-$nextYearEnd()
+### 2. Null Safety
+Always use null-safe methods when dealing with potentially null values:
+```groovy
+NamaRep.zeroIfNull(value)    // Instead of direct value access
+NamaRep.nameOrCode(code, name1, name2)  // Fallback to code
 ```
-:::
-* **For multi-value parameters (List)**:
 
-  * Use `@A=@X` to separate values.
-  * Format: `id:entityType:code@A=@Xid:entityType:code@A=@X...`
+### 3. Localization
+Always use translation methods for user-facing text:
+```groovy
+NamaRep.translate(enumValue)  // For enums
+NamaRep.name(arabic, english)  // For dual-language fields
+```
 
----
+### 4. Performance Optimization
+- Cache complex calculations in variables
+- Use `copyParams()` when linking reports to avoid parameter duplication
+- Batch SQL queries when possible
 
-#### **Display Control & Validation**
+### 5. Security Constraints
+Always apply security constraints when querying sensitive data:
+```sql
+SELECT * FROM Account acc 
+WHERE acc.active = true 
+  AND $P!{SECURITY_CONSTRAINTS}
+```
 
-* **`NamaRep.canDisplay($P{param})`**:
+## Migration from Legacy Methods
 
-  * Use in `printWhenExpression` to conditionally show elements based on parameter value.
+If you're updating old reports, here are common replacements:
 
-* **`no-mirror = true`**:
+| Old Method | New Method |
+|------------|------------|
+| Direct field access | `NamaRep.name(name1, name2)` |
+| Manual date formatting | `NamaRep.datePattern()` |
+| Custom price queries | `NamaRep.priceCalculator()` |
+| Manual translation | `NamaRep.translate()` |
 
-  * Prevents mirroring of elements or bands.
+## Troubleshooting
 
----
+### Common Issues and Solutions
 
-#### **Range Validation Between Parameters**
+1. **Arabic text not displaying**: Ensure font supports Arabic and PDF encoding is set to `Identity-H`
+2. **Null pointer exceptions**: Use null-safe methods like `zeroIfNull()`
+3. **Price calculations returning null**: Verify all required parameters are provided
+4. **Links not working**: Check that entity type and ID are valid
+5. **Security constraints not applying**: Ensure parameter name matches exactly in query
 
-* **`fromParam`**:
+## Conclusion
 
-  * Links a "to" parameter to a "from" parameter to enforce range consistency.
+NamaRep provides a comprehensive toolkit for Jasper Reports development in Nama ERP. By leveraging these utilities, you can create powerful, localized, and secure reports that integrate seamlessly with the ERP system. Always refer to this guide when developing new reports or maintaining existing ones.
 
-* **`fromParamMaxGapInDays`**:
-
-  * Defines the maximum allowed gap in days between two date parameters. Must be used with `fromParam`.
-
-  **Example**:
-
-  ```xml
-  <parameter name="toDate" class="java.util.Date">
-      <property name="arabic" value="إلى تاريخ"/>
-      <property name="english" value="To Date"/>
-      <property name="fromParam" value="fromDate"/>
-      <property name="fromParamMaxGapInDays" value="30"/>
-  </parameter>
-  ```
-## How to Add Extra Font for PDF Printing in Jasper Reports
-
-Nama ERP supports **Times New Roman** by default for Arabic text in Jasper reports.
-If you need to use a different Arabic-supporting font (like Cairo, Amiri, Droid Arabic Naskh, etc.), follow these steps:
-
----
-
-### 1. Add the Font in Jaspersoft Studio
-
-* Open **Jaspersoft Studio**.
-* Go to `Window > Preferences`.
-* In the Preferences window, navigate to:
-  `Jaspersoft Studio > Fonts`.
-* Click the **Add** button.
-
----
-
-### 2. Configure Font Properties
-
-In the **Font Family** dialog:
-
-* Choose the `.ttf` or `.otf` font file(s) for the font you want to add.
-* Check ✅ **Embed this font in PDF documents**.
-* Set **PDF Encoding** to: `Identity-H`.
-
-![Jasper Reports Font Family Dialog for Arabic Fonts](images/jasper-reports-font-family.png)
-
-* Click **Finish**.
-
----
-
-### 3. Export Font as JAR
-
-* After adding the font, click **Export**.
-* Save the generated `.jar` file.
-
----
-
-### 4. Deploy Font JAR in Tomcat
-
-* Copy the exported `.jar` file to:
-  `tomcat/lib` folder on the server where Nama ERP is deployed.
-* Restart the **Tomcat** service.
-
----
-
-### 5. Use the Font in Your Reports
-
-Now, in Jaspersoft Studio and inside Nama ERP:
-
-* You can assign the new font family to text fields in your `.jrxml` or compiled `.jasper` files.
-* When the report is printed to PDF, the font will be embedded and rendered properly, including Arabic characters.
-
-This process allows proper Arabic rendering and styling beyond the default Times New Roman font.
-
-
+For additional support or undocumented features, consult the Nama ERP development team.
