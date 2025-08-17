@@ -62,11 +62,15 @@ onMounted(() => {
 })
 
 const generatedUrl = computed(() => {
-  const values = paramInputs.value
+  const namedParams = paramInputs.value
       .filter(p => p.id && p.value?.toString().trim())
       .map(p => `${p.id}=${p.value}`);
-  const sep = props.params.length > 0 ? '-' : '';
-  const query = `${props.className}${sep}${values.join(',')}`;
+  const unnamedParams = paramInputs.value
+      .filter(p => !p.id && p.value?.toString().trim())
+      .map(p => p.value);
+  const allParams = [...unnamedParams, ...namedParams];
+  const sep = allParams.length > 0 ? '-' : '';
+  const query = `${props.className}${sep}${allParams.join(',')}`;
   const guiPart = props.gui ? "&gui=true" : "";
   return `${serverUrl.value.replace(/\/$/, '')}/utils?util=${query}${guiPart}`;
 });

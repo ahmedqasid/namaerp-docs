@@ -31,11 +31,35 @@ n1=totalizeif(details,details.price.unitPrice,select case when {details.item.ite
 
 * تجمع القيم فقط إذا تحقق شرط معين. في هذا المثال يتم جمع `unitPrice` فقط إذا كان `section.code` يساوي `SEC001`.
 
+```ini
+n1=max(details.price.unitPrice)
+```
+
+* للحصول على أكبر قيمة داخل حقل معين في جدول (grid)، نستخدم الدالة `max`. المثال أعلاه يجد أكبر قيمة من `details.price.unitPrice`.
+
+```ini
+n1=min(details.price.unitPrice)
+```
+
+* للحصول على أصغر قيمة داخل حقل معين في جدول (grid)، نستخدم الدالة `min`. المثال أعلاه يجد أصغر قيمة من `details.price.unitPrice`.
+
 ```sql
 n1=totalizesql(select {details.price.unitPrice} * {details.n1} / {n3})
 ```
 
 * يجمع ناتج عملية حسابية على الحقول باستخدام SQL مدمج.
+
+```sql
+n1=maxsql(select {details.price.unitPrice} * {details.n1} / {n3})
+```
+
+* يجد أكبر قيمة لناتج عملية حسابية على الحقول باستخدام SQL مدمج.
+
+```sql
+n1=minsql(select {details.price.unitPrice} * {details.n1} / {n3})
+```
+
+* يجد أصغر قيمة لناتج عملية حسابية على الحقول باستخدام SQL مدمج.
 
 ```sql
 n1=sql(select sum(netValue) from SalesInvoice where customer_id = {customer.id})
@@ -59,6 +83,13 @@ details.n1=firstNotEmpty(details.n5,netValue,n4)
 ::: tip
 يمكن استخدام عدد غير محدود من الحقول داخل `firstNotEmpty`.
 :::
+
+```ini
+description1=name(name1,name2)
+description2=name("Arabic","English")
+```
+
+* تُستخدم لدعم اللغات المتعددة. ترجع `name1` (النص العربي) في البيئة العربية، و `name2` (النص الإنجليزي) في البيئة الإنجليزية.
 
 ```ini
 details.text1=mask(details.text2,XX-XX:X--X)
