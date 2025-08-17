@@ -214,6 +214,156 @@ In production environments, configure CORS policies to restrict access to specif
 
 ---
 
+## REST API Endpoints
+
+### Base URL Structure
+```
+http[s]://<server>/erp/rest/v1/{entity}/{operation}/{idOrCode}
+```
+
+**Path Parameters:**
+- `{entity}`: Entity type name (e.g., Customer, SalesInvoice, Item)
+- `{operation}`: Operation to perform (findByIdOrCode, list, save, delete)
+- `{idOrCode}`: Optional - Entity UUID or business code
+
+### HTTP Methods Support
+
+The API supports multiple HTTP methods for flexibility:
+
+| HTTP Method | Supported Operations | Usage |
+|-------------|---------------------|--------|
+| **GET** | findByIdOrCode | Retrieve single entity by ID/code |
+| **POST** | All operations | Universal method for all operations |
+| **PUT** | save | Update existing entities |
+| **DELETE** | delete | Remove entities |
+
+::: tip RESTful Flexibility
+While the API supports RESTful conventions, all operations can be performed using POST method for compatibility with various client implementations.
+:::
+
+### Supported Operations
+
+#### 1. Retrieve Entity (GET)
+```http
+GET /erp/rest/v1/{entity}/findByIdOrCode/{idOrCode}
+apiKey: {api-key}
+responseFields: code,name1,contactInfo.email  # Optional header/parameter
+```
+
+**Batch Retrieval:**
+```http
+POST /erp/rest/v1/{entity}/findByIdOrCode
+apiKey: {api-key}
+Content-Type: application/json
+
+["CUST001", "CUST002", "550e8400-e29b-41d4-a716-446655440000"]
+```
+
+#### 2. List Entities with Pagination (POST)
+```http
+POST /erp/rest/v1/{entity}/list
+apiKey: {api-key}
+Content-Type: application/json
+
+{
+  "startPage": 1,      # 1-based page number
+  "pageSize": 25,      # Max 1000 records per page
+  "textCriteria": "status,Equal,Active,AND;city,Equal,Riyadh,AND;",
+  "orderBy": "creationDate:desc,code"
+}
+```
+
+**Response includes:**
+- `totalRecordsCount`: Total matching records
+- `records`: Array of requested records
+- `records_count`: Number of records in response
+
+#### 3. Create/Update Entity (POST/PUT)
+```http
+POST /erp/rest/v1/{entity}/save
+apiKey: {api-key}
+Content-Type: application/json
+
+# Request Headers/Parameters:
+saveAsDraft: false           # Save as draft without validation
+addRecord: true              # Allow creating new records
+updateRecord: true           # Allow updating existing records
+addToCurrentLines: false     # Append to existing detail lines
+trimExtraSpaces: false       # Trim whitespace from strings
+continueOnErrors: true       # Continue processing on errors
+useUserDimension: true       # Apply user dimension filters
+ignoredUnFoundRefs: false    # Ignore missing references
+responseFields: code,id      # Fields to return after save
+
+# Body: Entity data in JSON format
+{
+  "code": "CUST001",
+  "name1": "Customer Name",
+  "contactInfo": {
+    "email": "customer@example.com",
+    "phone": "+966501234567"
+  },
+  "invoiceLines": [
+    {
+      "itemCode": "ITEM001",
+      "quantity": 5,
+      "unitPrice": 100
+    }
+  ]
+}
+```
+
+**Response:**
+```json
+{
+  "saved_records_count": 1,
+  "saved_records": {
+    "Customer": [
+      {
+        "code": "CUST001",
+        "id": "550e8400-e29b-41d4-a716-446655440000"
+      }
+    ]
+  }
+}
+```
+
+#### 4. Delete Entity (DELETE)
+```http
+DELETE /erp/rest/v1/{entity}/delete/{idOrCode}
+apiKey: {api-key}
+```
+
+**Batch Deletion:**
+```http
+POST /erp/rest/v1/{entity}/delete
+apiKey: {api-key}
+Content-Type: application/json
+
+["CUST001", "CUST002", "550e8400-e29b-41d4-a716-446655440000"]
+```
+
+**Response:**
+```json
+{
+  "deleted_records_count": 2,
+  "deleted_records": ["CUST001", "CUST002"],
+  "failed_records_count": 1,
+  "failed_records": [
+    {
+      "entityType": "Customer",
+      "code": "550e8400-e29b-41d4-a716-446655440000",
+      "indexInRequest": 2,
+      "errors": [
+        {
+          "message": "Record is referenced by other entities"
+        }
+      ]
+    }
+  ]
+}
+```
+
 ## Testing APIs
 
 ### Using the API Browser for Testing
@@ -238,41 +388,67 @@ Access the Swagger interface for interactive testing (if configured).
 
 ### Example Request Formats
 
-#### Finding Records by Code
+#### Finding Single Record
 ```http
-GET /api/v1/Customer/{code}
+GET /erp/rest/v1/Customer/findByIdOrCode/CUST001
 apiKey: {api-key}
 ```
 
-#### Finding Records by UUID
+#### Finding Multiple Records
 ```http
-GET /api/v1/Customer/{uuid}
-apiKey: {api-key}
-```
-
-#### Creating New Records
-```http
-POST /api/v1/Customer
+POST /erp/rest/v1/Customer/findByIdOrCode
 apiKey: {api-key}
 Content-Type: application/json
+
+["CUST001", "CUST002", "CUST003"]
+```
+
+#### Creating New Record
+```http
+POST /erp/rest/v1/Customer/save
+apiKey: {api-key}
+Content-Type: application/json
+addRecord: true
+updateRecord: false
 
 {
   "code": "CUST001",
   "name1": "Customer Name",
-  "contactInfo.email": "customer@example.com",
-  "contactInfo.phone": "+966501234567"
+  "contactInfo": {
+    "email": "customer@example.com",
+    "phone": "+966501234567"
+  }
 }
 ```
 
-#### Updating Records
+#### Updating Existing Record
 ```http
-PUT /api/v1/Customer/{code}
+POST /erp/rest/v1/Customer/save
+apiKey: {api-key}
+Content-Type: application/json
+addRecord: false
+updateRecord: true
+
+{
+  "code": "CUST001",
+  "name1": "Updated Customer Name",
+  "contactInfo": {
+    "email": "newemail@example.com"
+  }
+}
+```
+
+#### Listing with Filters
+```http
+POST /erp/rest/v1/Customer/list
 apiKey: {api-key}
 Content-Type: application/json
 
 {
-  "name1": "Updated Customer Name",
-  "contactInfo.email": "newemail@example.com"
+  "startPage": 1,
+  "pageSize": 50,
+  "textCriteria": "city,Equal,Riyadh,AND;status,Equal,Active,AND;",
+  "orderBy": "status,creationDate:desc,name1"
 }
 ```
 
@@ -328,16 +504,151 @@ Beyond standard entity CRUD operations, Nama ERP provides specialized APIs:
 ## Performance Considerations
 
 ### Pagination
-All list endpoints support pagination:
+All list endpoints support pagination with configurable page size:
+
+```http
+POST /erp/rest/v1/{entity}/list
+Content-Type: application/json
+
+{
+  "startPage": 1,     # 1-based indexing
+  "pageSize": 50      # Maximum 1000 per request
+}
 ```
-GET /api/v1/Customer?page=0&pageSize=50
+
+**Pagination Response:**
+```json
+{
+  "totalRecordsCount": 2547,
+  "records_count": 50,
+  "records": { ... }
+}
 ```
 
 ### Field Selection
-Request only needed fields to reduce payload:
+Control which fields are returned to optimize payload size:
+
+```http
+GET /erp/rest/v1/{entity}/findByIdOrCode/{code}
+responseFields: code,name1,status,balance
 ```
-GET /api/v1/Customer?fields=code,name,email
+
+**Using responseFields parameter:**
+- Pass as HTTP header: `responseFields: field1,field2,field3`
+- Or as query parameter: `?responseFields=field1,field2,field3`
+- Supports nested fields: `contactInfo.email,address.city`
+- Default fields if not specified: `code,id`
+
+### Batch Operations
+Process multiple records in a single request for better performance:
+
+#### Batch Retrieval
+```http
+POST /erp/rest/v1/Customer/findByIdOrCode
+Content-Type: application/json
+
+["CUST001", "CUST002", "550e8400-e29b-41d4-a716-446655440000"]
 ```
+
+#### Batch Import/Save
+```http
+POST /erp/rest/v1/Customer/save
+Content-Type: application/json
+continueOnErrors: true
+
+[
+  {
+    "code": "CUST001",
+    "name1": "Customer 1"
+  },
+  {
+    "code": "CUST002", 
+    "name1": "Customer 2"
+  }
+]
+```
+
+### Query Criteria & Sorting
+Use Nama ERP's structured text criteria format for filtering and sorting:
+
+```json
+{
+  "textCriteria": "code,StartsWith,INV,AND;status,Equal,Active,AND;balance,GreaterThan,1000,AND;",
+  "orderBy": "status,creationDate:desc,code:asc"
+}
+```
+
+**Text Criteria Format:**
+Each condition follows the pattern: `fieldID,operator,value,logic;`
+
+**Example Criteria:**
+```
+code,StartsWith,01,AND;
+name1,Contains,abc,AND;
+date1,Equal,06-07-2025,AND;
+creationDate,GreaterThanOrEqual,2025-07-06T13:05:00.000,AND;
+amount,GreaterThan,1000,AND;
+status,Equal,Active,OR;
+type,In,Type1|Type2|Type3,AND;
+```
+
+**Supported Operators:**
+- **Equality**: `Equal`, `NotEqual`
+- **Comparison**: `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`
+- **Text Matching**: `StartsWith`, `NotStartsWith`, `EndsWith`, `NotEndWith`, `Contains`, `NotContain`
+- **List Operations**: `In`, `NotIn`
+- **Grouping**: `OpenBracket`, `CloseBracket`
+
+**Logical Relationships:**
+- `AND` - All conditions must match
+- `OR` - At least one condition must match
+
+**Field Value Formats:**
+- **Date Fields**: `dd-MM-yyyy` (e.g., `06-07-2025`)
+- **DateTime Fields**: `yyyy-MM-ddTHH:mm:ss.SSS` (e.g., `2025-07-06T13:05:00.000`)
+- **Reference Fields**: `id:entityType:code` or use `.id`/`.code` suffix
+  - Example: `customer.id,Equal,ffff0001-79e2-11f2-8800-0000ff79c2dd,AND;`
+  - Example: `customer.code,Equal,CUST001,AND;`
+
+::: tip Building Criteria
+Use the **Criteria Definition** screen in Nama ERP to visually build filter conditions, then click **Convert to Text** to get the text representation for API use.
+:::
+
+### Order By Format
+Specify sort order for one or multiple fields using comma-separated values:
+
+**Format:** `fieldName:direction,fieldName2:direction,fieldName3`
+
+**Examples:**
+- Multiple fields: `"orderBy": "code:desc,name1,creationDate:asc"`
+- Single field: `"orderBy": "code:asc"`
+- Default direction (ascending): `"orderBy": "name1,code"`
+- Mixed directions: `"orderBy": "status,creationDate:desc,code:asc"`
+
+**Direction Values:**
+- `:asc` - Ascending order (A-Z, 0-9, oldest to newest) - **default if omitted**
+- `:desc` - Descending order (Z-A, 9-0, newest to oldest)
+
+**Notes:**
+- Direction is optional; when omitted, defaults to ascending (`:asc`)
+- Multiple fields are separated by commas
+- Each field can have its own sort direction
+- Duplicate fields are automatically filtered out
+
+### Import Options
+Fine-tune import behavior with request headers:
+
+| Parameter | Default | Description |
+|-----------|---------|-------------|
+| `saveAsDraft` | false | Save without validation rules |
+| `addRecord` | true | Allow creating new records |
+| `updateRecord` | true | Allow updating existing records |
+| `addToCurrentLines` | false | Append to existing detail lines instead of replacing |
+| `trimExtraSpaces` | false | Remove leading/trailing whitespace |
+| `continueOnErrors` | true | Continue processing remaining records on error |
+| `useUserDimension` | true | Apply user's dimension filters |
+| `ignoredUnFoundRefs` | false | Skip validation of reference fields |
+
 ---
 
 ## Troubleshooting
