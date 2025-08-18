@@ -73,6 +73,7 @@ heroImage: hero.svg
     - [أسئلة في موديول التوزيع والمخازن والمبيعات والمشتريات](/faq/supply-chain-faq.md)
     - [أسئلة شائعة حول موديول التصنيع في نظام Nama ERP](/faq/manufacturing-faq.md)
     - [أسئلة شائعة حول نقاط البيع](/faq/pos-faq.md)
+    - [أسئلة شائعة عن الاستثمار العقاري](/faq/real-estate-fq.md)
     - [أسئلة شائعة في موديول الرواتب والموارد البشرية](/faq/human-resources-faq.md)
     - [أسئلة شائعة عن تصميم التقارير](/faq/report-faq.md)
     - [أسئلة شائعة حول أداة إنشاء التقارير](/faq/report-wizard-faq.md)
