@@ -114,7 +114,7 @@ export const SIDEBAR_CONFIG = {
       children: [ "/guide/entity-flows/", {
         text: "الفواتير والضرائب والخصومات",
         collapsible: true,
-        children: [ "/guide/invoices/payment-entries.md", "/guide/invoices/payment-schedules-user-guide.md", "/guide/invoices/invoice-discounts-and-tax-calculation-guide.md", "/guide/invoices/e-invoices-guide.md", "/guide/invoices/zatca-guide.md", "/guide/invoices/electronic-receipt-egypt-tax-eInvoice.md", "/guide/invoices/standard-terms-feature-documentation.md", {
+        children: [ "/guide/invoices/payment-entries.md", "/guide/invoices/payment-schedules-user-guide.md", "/guide/invoices/invoice-discounts-and-tax-calculation-guide.md", "/guide/invoices/pricing-and-offers-guide.md", "/guide/invoices/e-invoices-guide.md", "/guide/invoices/zatca-guide.md", "/guide/invoices/electronic-receipt-egypt-tax-eInvoice.md", "/guide/invoices/standard-terms-feature-documentation.md", {
           text: ".",
           "link" : "/guide/invoices/"
         } ]
@@ -238,7 +238,7 @@ export const SIDEBAR_CONFIG = {
     }, "/examples/", "/reprocessing/", {
       text: "Frequently Asked Questions",
       collapsible: true,
-      children: [ "/faq/general-faq.md", "/faq/screen-modifier-faq.md", "/faq/notification-fq.md", "/faq/gui-post-actions-faq.md", "/faq/entity-flow-faq.md", "/faq/invoices-faq.md", "/faq/supply-chain-faq.md", "/faq/manufacturing-faq.md", "/faq/pos-faq.md", "/faq/real-estate-fq.md", "/faq/human-resources-faq.md", "/faq/report-faq.md", "/faq/report-wizard-faq.md", "/faq/approvals-faq.md", "/faq/mobile-apps-faq.md", "/faq/field-filter-faq.md", "/faq/database-error-related-faq.md", {
+      children: [ "/faq/general-faq.md", "/faq/screen-modifier-faq.md", "/faq/notification-fq.md", "/faq/gui-post-actions-faq.md", "/faq/entity-flow-faq.md", "/faq/invoices-faq.md", "/faq/supply-chain-faq.md", "/faq/manufacturing-faq.md", "/faq/pos-faq.md", "/faq/real-estate-fq.md", "/faq/human-resources-faq.md", "/faq/report-faq.md", "/faq/report-wizard-faq.md", "/faq/approvals-faq.md", "/faq/mobile-apps-faq.md", "/faq/field-filter-faq.md", "/faq/database-error-related-faq.md", "/faq/supply-chain-faq-english.md", {
         text: ".",
         "link" : "/faq/"
       } ]
