@@ -291,6 +291,101 @@ Template Configuration:
 - Grace Period: 15 Days
 - Payment Date at Day: 1 (First of month)
 ```
+
+## Payment Documents and Installment Tracking
+
+Once payment schedules are created and applied to sales documents, the system provides comprehensive tracking through payment documents that can mark installments as paid.
+
+### Receipt Vouchers and Payment Vouchers
+
+Both **Receipt Vouchers** (سندات القبض) and **Payment Vouchers** (سندات الدفع) include an **Installment Lines** (الأقساط) collection that enables payment tracking against scheduled installments:
+
+- **Receipt Vouchers**: Used primarily for sales documents to record customer payments
+- **Payment Vouchers**: Used primarily for purchase documents to record supplier payments
+
+### Installment Lines Collection
+
+The installment lines grid in payment documents contains the following key fields:
+
+| Field | Arabic Name | Description |
+|-------|-------------|-------------|
+| **Installment Doc** | مستند القسط | Reference to the document containing the payment schedule |
+| **Installment Code** | كود القسط | Unique code identifying the specific installment |
+| **Paid Value** | القيمة المدفوعة | Amount being paid against this installment |
+| **Due Date** | تاريخ الاستحقاق | Original due date of the installment |
+| **Remaining** | المتبقي | Outstanding balance after this payment |
+| **Net Value** | صافي القيمة | Total value of the installment |
+
+### Payment Processing Logic
+
+When payment documents are committed, the system uses `InstallmentUtils` to:
+
+1. **Update System Paid Fields**: Automatically updates the `systemPaid` amount for each installment
+2. **Calculate Remaining Balances**: Recalculates remaining amounts across all related installments
+3. **Validate Payment Order**: Ensures payments follow proper sequence (earlier installments paid first)
+4. **Prevent Overpayments**: Validates that paid amounts don't exceed installment values
+
+### Payment Tracking Process
+
+#### Step 1: Create Payment Document
+1. Open Receipt Voucher or Payment Voucher
+2. Enter basic payment information (customer/supplier, amount, date)
+3. Navigate to the **Installment Lines** tab
+
+#### Step 2: Add Installment Payments
+1. Click **Add Line** in the Installment Lines grid
+2. Select the **Installment Document** (sales invoice, quotation, etc.)
+3. Choose the specific **Installment Code** from the document
+4. Enter the **Paid Value** (can be partial or full payment)
+5. Repeat for multiple installments if needed
+
+#### Step 3: Payment Validation
+The system automatically validates:
+- Payment amounts don't exceed installment balances
+- Payment order follows due date sequence (if configured)
+- Referenced installments exist in the source document
+- Total payments match the document amount
+
+#### Step 4: Effect Application
+Upon saving the payment document:
+- Installment balances are updated across the system
+- Related sales/purchase documents show updated payment status
+- Aging reports reflect the new payment information
+- Customer/supplier accounts are updated
+
+### Multi-Document Payment Support
+
+Payment documents can process installments from multiple source documents in a single transaction:
+
+```
+Receipt Voucher RV-2024-001
+├── Customer: ABC Company
+├── Total Amount: 150,000
+└── Installment Lines:
+    ├── Invoice INV-001, Installment #1: 50,000
+    ├── Invoice INV-001, Installment #2: 25,000
+    └── Invoice INV-002, Installment #1: 75,000
+```
+
+### Payment Order Enforcement
+
+::: warning Payment Sequence
+The system can enforce sequential payment of installments based on due dates. This prevents customers from paying later installments while earlier ones remain unpaid.
+:::
+
+**Configuration Options:**
+- **Strict Order**: Must pay installments in due date sequence
+- **Flexible Order**: Allow payments in any order
+- **Document-Level Setting**: Override at individual document level
+
+### Installment Payment Entry System
+
+Behind the scenes, the system maintains `InstallmentPaymentEntry` records that track:
+- **Payment Document**: Which receipt/payment voucher made the payment
+- **Installment Document**: Which sales/purchase document contains the installment
+- **Installment Code**: Specific installment being paid
+- **Effect Type**: How the payment affects the installment (SystemPaid, CollectedByFP, etc.)
+- **Paid Value**: Amount applied to the installment
  
 
 ## Summary
