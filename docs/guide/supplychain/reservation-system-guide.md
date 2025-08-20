@@ -19,15 +19,24 @@ The reservation system affects inventory quantities differently based on the doc
 
 #### Sales and Issue Documents (Pre-Out Reservations)
 - **Sales Documents:** Sales quotations, sales orders, sales invoices
-- **Issue Documents:** Stock issues, transfer issues, production withdrawals
+- **Issue Documents:** Stock issue requests, transfer requests, production withdrawals
 - **Effect:** Creates **Pre-Out** quantities (reserved for outbound)
 - **Purpose:** Ensures items are allocated for customer orders or internal consumption
 
 #### Purchase and Receipt Documents (Pre-In Reservations)  
 - **Purchase Documents:** Purchase requests, purchase orders, purchase invoices
-- **Receipt Documents:** Stock receipts, transfer receipts, production receipts
+- **Receipt Documents:** Stock receipt requests
 - **Effect:** Creates **Pre-In** quantities (reserved for inbound)
 - **Purpose:** Tracks expected inventory arrivals and allocations
+
+#### Stock Documents (No Direct Reservation)
+**Stock Issue, Stock Receipt, and Stock Transfer documents do not create reservations** because they affect actual inventory quantities (In and Out), not reserved quantities.
+
+**However, these documents support:**
+- **Cancelling reservation of upper documents:** When a stock issue is created from a sales order, it should cancel the sales order's reservation
+- **Updating reservation of related documents:** Through the `updateReservationOfRelatedDocs` configuration
+
+**Example:** Creating a stock issue from a sales order should cancel the sales order's Pre-Out reservation since the items are now actually issued (moved from reserved to actual Out quantities).
 
 ### Quantity Types in Reservation System
 
@@ -85,6 +94,17 @@ Each reservation document contains detail lines that specify:
 | None | بدون | No reservation status |
 | Confirmed | مؤكد | Reservation is confirmed and locked |
 | PartialyReserved | PartialyReserved | Only partial quantities are reserved |
+
+### Selective Line Reservation
+
+By default, the reservation status has no effect on whether a line is reserved. However, when combined with the **reservationCriteria** configuration in the document term, the reservation status can be used to selectively apply reservations to specific lines.
+
+**Usage Pattern:**
+1. Configure `reservationCriteria` in the document term to filter lines based on status
+2. Set line-level reservation status to control which lines get reserved
+3. Only lines matching the criteria will have reservation effects applied
+
+This allows fine-grained control over which document lines participate in the reservation system.
 
 ## Document Quantity Tracking and Satisfied Quantities
 
@@ -175,7 +195,7 @@ The system uses a hierarchical approach to determine overdraft permissions:
 - **reservationSatisfiedFields (حقول الكمية الملغي حجزها):**
   - `TrackInFirst`: Track satisfied quantities in first quantity field
   - `TrackInSecond`: Track satisfied quantities in second quantity field
-- **reservationCriteria (فلتر سطور الحجز):** Filter which lines can be reserved
+- **reservationCriteria (فلتر سطور الحجز):** Filter criteria for which lines can be reserved
 
 #### Related Document Handling
 - **cancelReservationOfRelatedDocs (إلغاء حجز المستندات المرتبطة):** Auto-cancel related reservations
@@ -273,6 +293,11 @@ When a document is created from another document with reservations:
 - **Document Chain Tracking:** Maintains relationships for quantity tracking
 - **Quantity Inheritance:** Copies quantities and dimensions from source documents
 
+#### Stock Document Behavior
+**Important:** Stock Issue, Stock Receipt, and Stock Transfer documents have special behavior:
+- **No Direct Reservations:** They do not create Pre-In or Pre-Out quantities
+- **Actual Quantity Effects:** They modify actual In and Out quantities only
+- **Reservation Cancellation:** They can cancel reservations of parent documents
 
 ### Delivery System Integration
 

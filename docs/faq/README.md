@@ -8,6 +8,7 @@
   - [أسئلة شائعة عن مسارات الكيان](/faq/entity-flow-faq.md)
   - [أسئلة شائعة حول الفواتير والدفع](/faq/invoices-faq.md)
   - [أسئلة في موديول التوزيع والمخازن والمبيعات والمشتريات](/faq/supply-chain-faq.md)
+  - [Supply-chain English FAQ](/faq/supply-chain-faq-english.md)
   - [أسئلة شائعة حول موديول التصنيع في نظام Nama ERP](/faq/manufacturing-faq.md)
   - [أسئلة شائعة حول نقاط البيع](/faq/pos-faq.md)
   - [أسئلة شائعة عن الاستثمار العقاري](/faq/real-estate-fq.md)
@@ -18,6 +19,5 @@
   - [أسئلة شائعة حول تطبيقات الهواتف المحمولة في نظام Nama ERP](/faq/mobile-apps-faq.md)
   - [أسئلة شائعة حول فلترة الحقول](/faq/field-filter-faq.md)
   - [Database Related Errors FAQ](/faq/database-error-related-faq.md)
-  - [Supply-chain English FAQ](/faq/supply-chain-faq-english.md)
 
 </div>
