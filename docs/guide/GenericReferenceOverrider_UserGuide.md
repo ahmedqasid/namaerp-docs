@@ -1,5 +1,15 @@
 # أعدادات الحقول و الشاشات - Generic Reference Overrider User Guide
-## إعدادات الحقول والشاشات - Fields and Screens Settings
+## إعدادات الحقول والشاشات - Fields and Entities Settings
+
+## Entity Information
+- **Entity Type**: `GenericReferenceOverrider`
+- **Arabic Name**: أعدادات الحقول و الشاشات
+- **English Name**: Fields and Entities Settings
+- **Classification**: Master File
+- **Database Table**: `GenericReferenceOverrider`
+- **Menu Path**: الأساسيات > الإعدادات > أعدادات الحقول و الشاشات
+- **Menu Path (English)**: Basic > Settings > Fields and Entities Settings
+
 ## Overview
 The Generic Reference Overrider is a powerful system configuration entity in Nama ERP that allows administrators to customize and override various field behaviors, validations, and display properties across different entities without modifying the source code. This provides flexibility in adapting the system to specific business requirements.
 
@@ -36,50 +46,51 @@ The system uses sophisticated auto-suggestion mechanisms that dynamically filter
 
 ## Database Schema Overview
 
-::: details Complete Collection Structure
-The GenericReferenceOverrider entity contains 32 detail collections, each stored in separate database tables:
+::: details Complete Collection Structure (38 Collections)
+The GenericReferenceOverrider entity contains 38 detail collections, each stored in separate database tables:
 
-**Main Entity**: `GenericReferenceOverrider` table with Arabic name "أعدادات الحقول و الشاشات"
+**Main Entity**: `GenericReferenceOverrider` table
 
 **Detail Collections**:
-1. `details` → `GenRefOverriderLine` - القيم المسموح بها للمراجع (Allowed Values For Generic References)
-2. `fieldAllowedValues` → `FieldAllowedValues` - القيم المسموح بها للحقول (Field Allowed Values)
-3. `displayMasks` → `FieldDisplayMask` - Display Masks
-4. `signatures` → `SignatureFields` - Signatures
-5. `descriptors` → `ReferenceDescriptorLine` - Descriptors
-6. `lines` → `DuplicatedFieldsLines` - Clear On Duplicate
-7. `richTextFields` → `RichTextFieldsLines` - Rich Text Fields
-8. `queryBasedScreenField` → `QueryBasedScreenField` - استعلامات الحقول المحسوبة (calculated Fields Queries)
-9. `extraFilter` → `FieldExtraFilter` - Extra Filter
-10. `fieldFormats` → `FieldFormatLine` - Field Formats
-11. `fieldStyles` → `FieldStyleLine` - Field Styles
+1. `addDiscussionTo` → `AddDiscussionTo` - إضافة النقاش إلي (Add Discussion To)
+2. `addRelatedDocumentsTo` → `AddRelatedDocumentsTo` - إضافة المستندات المرتبطة إلى (Add Related Documents To)
+3. `allowUsageOfPreventedRecords` → `AllowUsageOfPreventedRecords` - السماح باستعمال السجلات الممنوعة من الاستعمال (Allow Usage Of Prevented Records)
+4. `auditFields` → `DetailedAuditFields` - Audit Fields
+5. `autoCodingLines` → `GenRefAutoCodingLine` - التكويد الالي للملفات (Files Auto Coding)
+6. `descriptors` → `ReferenceDescriptorLine` - Descriptors
+7. `details` → `GenRefOverriderLine` - القيم المسموح بها للمراجع (Allowed Values For Generic References)
+8. `dimensionsConsistency` → `IgnoreDimensionsConsistency` - تجاهل تناسق المحددات لحقول (Ignore Dimensions Consistency for Fields)
+9. `disabledFields` → `DisabledFieldsLines` - Disabled Fields
+10. `displayMasks` → `FieldDisplayMask` - Display Masks
+11. `emailSendToTypes` → `EmailSendToTypes` - أنواع المراجع في نافذة ارسال بريد الكترونى (Email Send To Types)
 12. `entityIcons` → `EntityIconLine` - Entity Icons
-13. `fieldIcons` → `FieldIconLine` - Field Icons
-14. `enumIcons` → `EnumConstantIconLine` - Enum Icons
-15. `disabledFields` → `DisabledFieldsLines` - Disabled Fields
-16. `openCreateFields` → `OpenCreateFields` - الحقول التي يتم فتح الإنشاء عند ادخال كود غير موجود
-17. `allowUsageOfPreventedRecords` → `AllowUsageOfPreventedRecords` - السماح باستعمال السجلات الممنوعة من الاستعمال
-18. `integratorConfig` → `IntegratorConfig` - Integrator Config
-19. `publicEntitiesLines` → `PublicEntitiesLine` - Public Entities
-20. `addDiscussionTo` → `AddDiscussionTo` - إضافة النقاش إلي (Add Discussion To)
-21. `addRelatedDocumentsTo` → `AddRelatedDocumentsTo` - إضافة المستندات المرتبطة إلى (Add Related Documents To)
-22. `extraCodes` → `ExtraCode` - Extra Codes
-23. `notColorFields` → `NotColorField` - ليست حقول ألوان (Not Color Fields)
-24. `auditFields` → `DetailedAuditFields` - Audit Fields
-25. `dimensionsConsistency` → `IgnoreDimensionsConsistency` - تجاهل تناسق المحددات لحقول
-26. `searchInNameInFindByCode` → `SearchInNameInFindByCode` - البحث في الأسم العربى والانجليزى عند كتابة كود ملف
-27. `extraReferenceSearchFields` → `ExtraReferenceSearchFields` - حقول البحث الإضافية عند البحث عن مرجع
-28. `emailSendToTypes` → `EmailSendToTypes` - أنواع المراجع في نافذة ارسال بريد الكترونى
-29. `importIntegratorLines` → `ImportIntegratorLine` - Import Integrators
-30. `textToLinkFields` → `TextToLinkFieldsLine` - الحقول النصية المحوله الي روابط (Text To Link Fields)
-31. `styleOverriderLines` → `GenRefRowStyleOverriderLine` - Style Overrider Details
-32. `maxLinesCounts` → `MaxLineCount` - أقصى عدد لسطور السندات والملفات
-33. `maxFieldsLengthInDB` → `MaxFieldLengthInDB` - Max Fields Length In DB
-34. `maxPOSFieldsLengthInDB` → `MaxPOSFieldLengthInDB` - Max POS Fields Length In DB
-35. `invoiceRetrieverLines` → `InvoiceRetrieverLine` - Invoice Retriever Lines
-36. `openInPopups` → `OpenInPopup` - Open Reference In Popup
-37. `autoCodingLines` → `GenRefAutoCodingLine` - التكويد الالي للملفات (Files Auto Coding)
-38. `useScannerInFields` → `UseScannerInField` - Use Scanner In Fields
+13. `enumIcons` → `EnumConstantIconLine` - Enum Icons
+14. `errorMessageLoggingConfigs` → `ErrorMesageLoggingConfig` - Error Message Logging Configurations
+15. `extraCodes` → `ExtraCode` - Extra Codes
+16. `extraFilter` → `FieldExtraFilter` - Extra Filter
+17. `extraReferenceSearchFields` → `ExtraReferenceSearchFields` - حقول البحث الإضافية عند البحث عن مرجع (Extra Reference Search Fields)
+18. `fieldAllowedValues` → `FieldAllowedValues` - القيم المسموح بها للحقول (Field Allowed Values)
+19. `fieldFormats` → `FieldFormatLine` - Field Formats
+20. `fieldIcons` → `FieldIconLine` - Field Icons
+21. `fieldStyles` → `FieldStyleLine` - Field Styles
+22. `importIntegratorLines` → `ImportIntegratorLine` - Import Integrators
+23. `integratorConfig` → `IntegratorConfig` - Integrator Config
+24. `invoiceRetrieverLines` → `InvoiceRetrieverLine` - Invoice Retriever Lines
+25. `lines` → `DuplicatedFieldsLines` - Clear On Duplicate
+26. `maxFieldsLengthInDB` → `MaxFieldLengthInDB` - Max Fields Length In DB
+27. `maxLinesCounts` → `MaxLineCount` - أقصى عدد لسطور السندات والملفات (Max Lines Counts For Documents And Files)
+28. `maxPOSFieldsLengthInDB` → `MaxPOSFieldLengthInDB` - Max POS Fields Length In DB
+29. `notColorFields` → `NotColorField` - ليست حقول ألوان (Not Color Fields)
+30. `openCreateFields` → `OpenCreateFields` - الحقول التي يتم فتح الإنشاء عند ادخال كود غير موجود (Fields that open Edit Screen when code not found)
+31. `openInPopups` → `OpenInPopup` - Open Reference In Popup
+32. `publicEntitiesLines` → `PublicEntitiesLine` - Public Entities
+33. `queryBasedScreenField` → `QueryBasedScreenField` - استعلامات الحقول المحسوبة (calculated Fields Queries)
+34. `richTextFields` → `RichTextFieldsLines` - Rich Text Fields
+35. `searchInNameInFindByCode` → `SearchInNameInFindByCode` - البحث في الأسم العربى والانجليزى عند كتابة كود ملف (Search In Name In Find By Code)
+36. `signatures` → `SignatureFields` - Signatures
+37. `styleOverriderLines` → `GenRefRowStyleOverriderLine` - Style Overrider Details
+38. `textToLinkFields` → `TextToLinkFieldsLine` - الحقول النصية المحوله الي روابط (Text To Link Fields)
+39. `useScannerInFields` → `UseScannerInField` - Use Scanner In Fields
 
 All detail collections use `genericReferenceOverrider_id` as the foreign key to link back to the main configuration record.
 :::
@@ -97,12 +108,12 @@ The system maintains a cached mapping (`genRefTypesMap`) that stores entity type
 
 ::: details Technical Field Structure
 **Key Fields**:
-- `forType` (EntityType) → "للنوع" - Target entity type for the override
-- `fieldID` (FieldID) → " الحقل" - Specific field being configured
-- `allowedEntity1-5` (EntityType) → Permitted entity types (up to 5)
-- `allowedEntityList` (EntityList) → Reference to entity list for more options
-- `defaultEntityType` (EntityType) → Pre-selected entity type
-- `addToExisting` (Boolean) → Whether to add to or replace existing allowed types
+- `forType` (EntityType) → "للنوع" (For Type) - Target entity type for the override
+- `fieldID` (FieldID) → "الحقل" (On Field) - Specific field being configured
+- `allowedEntity1-5` (EntityType) → "النوع المسموح 1-5" (Allowed Entity 1-5) - Permitted entity types (up to 5)
+- `allowedEntityList` (EntityList) → "قائمة الأنواع المسموح بها" (Allowed Entity List) - Reference to entity list for more options
+- `defaultEntityType` (EntityType) → "النوع الافتراضي" (Default Entity Type) - Pre-selected entity type
+- `addToExisting` (Boolean) → "إضافة الى الموجود" (Add To Existing) - Whether to add to or replace existing allowed types
 :::
 
 ::: details Field Suggestion System
@@ -254,10 +265,10 @@ Icon configurations support different field types depending on the icon type:
 
 ::: details Technical Configuration
 **Key Fields**:
-- `forType` (EntityType) → "للنوع" - Target entity type
-- `fieldID` (FieldID) → " الحقل" - Field to restrict
-- `restrictValues` (Boolean) → "عدم السماح بكتابة القيم يدويا" - Enforce restrictions
-- `allowedValue1-10` (Text) → Predefined allowed values
+- `forType` (EntityType) → "للنوع" (For Type) - Target entity type
+- `fieldID` (FieldID) → "الحقل" (On Field) - Field to restrict
+- `restrictValues` (Boolean) → "عدم السماح بكتابة القيم يدويا" (Restrict Selection) - Enforce restrictions
+- `allowedValue1-10` (Text) → "القيمة المسموح بها 1-10" (Allowed Value 1-10) - Predefined allowed values
 :::
 
 ::: details Supported Field Types
@@ -605,9 +616,10 @@ Similar to signature fields, scanner integration is limited to binary field type
 
 ::: details Technical Configuration
 **Key Fields**:
-- `forType` (EntityType) → "للنوع" - Target entity type
-- `detailField` (FieldID) → Field for detail line context
-- `fieldQuery1-20` (BigText) → SQL queries for computed fields (up to 20)
+- `forType` (EntityType) → "للنوع" (For Type) - Target entity type
+- `forTypeList` (EntityTypeList) → "لقوائم أنواع" (For Type List) - Multiple entity types
+- `detailField` (FieldID) → "معرف السطور" (Detail Field) - Field for detail line context
+- `field1Query-field20Query` (BigText) → "استعلام الحقل المحسوب 1-20" (Field Query 1-20) - SQL queries for computed fields (up to 20)
 :::
 
 **Configuration**:
@@ -733,9 +745,11 @@ Similar to signature fields, scanner integration is limited to binary field type
 
 ::: details Technical Configuration
 **Key Fields**:
-- `forType` (EntityType) → "للنوع" - Target entity type for discussion panel
-- `addToPage` → Page/tab where discussion panel should be added
-- `insertAt` (Integer) → Position order in the layout
+- `forType` (EntityType) → "للنوع" (For Type) - Target entity type for discussion panel
+- `forTypeList` (EntityTypeList) → "لقوائم أنواع" (For Type List) - Multiple entity types
+- `addToPage` → "إضافة إلي صفحة" (Add To Page) - Page/tab where discussion panel should be added
+- `insertAt` (Integer) → "إضافة في" (Insert At) - Position order in the layout
+- `applicableFor` → "مطبق على" (Applicable For) - Scope rules
 :::
 
 **Configuration**:
@@ -924,16 +938,4 @@ Similar to signature fields, scanner integration is limited to binary field type
 - `relatedEntity1-2` (Text) - Related entity references
 - `relatedToModule1-2` (Text) - Module relationship tracking
 - `selectedColor` (Color) → "اللون المختار" - Selected color for UI theming
-:::
-
-#### Administrative Actions
-**System Maintenance**: The Generic Reference Overrider includes administrative capabilities:
-
-::: tip Available Actions
-**updateFieldsMaxLengthInDB**: Applies configured field length restrictions to the database schema.
-
-**Requirements**:
-- Configuration must be saved before execution
-- Requires appropriate administrative permissions
-- Changes are applied immediately to database structure
 :::
