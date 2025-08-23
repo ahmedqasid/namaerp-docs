@@ -47,6 +47,8 @@
     "/guide/nama-erp-api.md",
     "/guide/text-criteria-guide.md",
     "/guide/dev-request-guidelines.md",
+    "/guide/e-commerce",
+    "/guide/e-commerce/magento-integration-guide.md",
     "/examples",
     "/examples/entity-flow-examples.md",
     "/reprocessing",
@@ -133,6 +135,7 @@
     "/entity-flows/realestate": "Real Estate Module",
     "/entity-flows/srvcenter": "Service Center Module",
     "/entity-flows/supplychain": "Supply Chain Module",
-    "/release-notes": "Release Notes"
+    "/release-notes": "Release Notes",
+    "/guide/e-commerce":"e-commerce integration (Magento)"
   }
 }

@@ -45,5 +45,7 @@
   - [Nama ERP REST API](/guide/nama-erp-api.md)
   - [Criteria from Text Parser](/guide/text-criteria-guide.md)
   - [ضوابط إنشاء طلبات تطوير من قبل أقسام الدعم الفني والتجهيز بالشركة](/guide/dev-request-guidelines.md)
+  - [e-commerce integration (Magento)](/guide/e-commerce/)
+    - [Nama ERP E-Commerce Integration Guide](/guide/e-commerce/magento-integration-guide.md)
 
 </div>

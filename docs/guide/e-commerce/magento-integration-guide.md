@@ -13,8 +13,13 @@
    - [EcommerceCategoryConfig](#ecommercecategoryconfig)
 5. [Integration Workflows](#integration-workflows)
 6. [Configuration Guide](#configuration-guide)
-7. [Troubleshooting](#troubleshooting)
-8. [Technical Support](#technical-support)
+7. [Technical Architecture](#technical-architecture)
+   - [Webhook Processing](#webhook-processing)
+   - [Data Synchronization](#data-synchronization)
+   - [Error Handling](#error-handling)
+8. [Troubleshooting](#troubleshooting)
+9. [Technical Support](#technical-support)
+10. [Appendix](#appendix)
 
 ---
 
@@ -494,6 +499,105 @@ Put Header Discount In Line Discount: [Discount distribution]
 
 ---
 
+## Technical Architecture
+
+### Webhook Processing
+
+The e-commerce integration module uses a sophisticated webhook processing system to handle real-time events from connected platforms.
+
+#### EcommerceWebhookProcessor
+
+The `EcommerceWebhookProcessor` class (`com.namasoft.modules.magento.domain.utils.EcommerceWebhookProcessor`) handles incoming webhook events from e-commerce platforms:
+
+**Key Features:**
+- **Batch Processing**: Processes webhook events in configurable batches (default 300 events)
+- **Multi-Site Support**: Handles webhooks from multiple e-commerce sites simultaneously
+- **Event Prioritization**: Sorts events by creation date for proper sequence processing
+- **Transaction Management**: Each webhook event is processed within its own transaction context
+- **Error Recovery**: Continues processing even if individual events fail
+
+**Processing Flow:**
+1. Retrieves active sites with webhook integration enabled
+2. Fetches pending webhook events from gateway for each site
+3. Sorts all events chronologically across sites
+4. Processes each event individually with error handling
+5. Updates last read timestamp after processing
+
+**Configuration Properties:**
+```properties
+# Enable webhook processing in debug mode
+run-ecommerce-webhook-in-debug=true
+
+# Number of webhook events to read per batch
+read-ecommerce-webhook-events-page-size=300
+```
+
+### Data Synchronization
+
+#### Real-Time Synchronization
+
+The module supports multiple synchronization mechanisms:
+
+1. **Push Synchronization**
+   - Triggered by changes in Nama ERP
+   - Updates sent to e-commerce platform via API
+   - Supports inventory, price, and product data
+
+2. **Pull Synchronization**
+   - Scheduled or manual retrieval from e-commerce platforms
+   - Imports orders, customers, and returns
+   - Configurable polling intervals
+
+3. **Webhook-Based Synchronization**
+   - Real-time event notifications from e-commerce platforms
+   - Immediate processing of critical events (orders, cancellations)
+   - Reduces API polling overhead
+
+#### Synchronization Queue Management
+
+The system uses internal queues to manage synchronization requests:
+
+- **MAGUpdateQtyRequestEntry**: Manages inventory update requests
+- **MAGUpdatePriceRequestEntry**: Handles price synchronization
+- **MAGUpdateItemRequestEntry**: Manages product data updates
+
+Each queue entry tracks:
+- Request status (pending, processing, completed, failed)
+- Retry count and last attempt timestamp
+- Error messages for failed attempts
+- Related entity references
+
+### Error Handling
+
+#### Error Recovery Mechanisms
+
+1. **Automatic Retry Logic**
+   - Exponential backoff for failed requests
+   - Configurable maximum retry attempts
+   - Smart retry based on error type
+
+2. **Error Logging and Notification**
+   - Detailed error logs with stack traces
+   - Email notifications for critical failures
+   - Dashboard alerts for operational issues
+
+3. **Manual Recovery Tools**
+   - "Retry Selected Lines" actions for failed requests
+   - "ReRead Orders" for order import failures
+   - Error cleanup utilities
+
+#### Error Types and Resolution
+
+| Error Type | Common Causes | Resolution Steps |
+|------------|--------------|------------------|
+| Authentication Failed | Expired tokens, wrong credentials | Use "Request Token" action, verify credentials |
+| Network Timeout | Slow connection, large payload | Increase timeout settings, reduce batch size |
+| Data Validation | Missing required fields, format issues | Check field mappings, validate data formats |
+| Rate Limiting | Too many API requests | Implement throttling, adjust sync frequency |
+| Concurrent Update | Race conditions | Enable semaphore locking, sequential processing |
+
+---
+
 ## Troubleshooting
 
 ### Common Issues and Solutions
@@ -655,3 +759,230 @@ For technical support:
 ::: info Module Documentation
 This guide covers the Nama ERP E-Commerce Integration module. For additional technical details, API references, or custom integration requirements, consult your system administrator or technical documentation.
 :::
+
+---
+
+## Appendix
+
+### A. Field Mappings Reference
+
+#### Standard Product Field Mappings
+
+| Nama ERP Field | E-commerce Field | Data Type | Notes |
+|----------------|------------------|-----------|-------|
+| Item.Code | SKU | String | Unique product identifier |
+| Item.Name1 | Product Name | String | Primary product name |
+| Item.Description1 | Short Description | Text | Brief product description |
+| Item.Description2 | Description | Text | Detailed product description |
+| Item.SalesPrice | Price | Decimal | Regular selling price |
+| Item.SpecialPrice | Special Price | Decimal | Promotional price |
+| Item.Weight | Weight | Decimal | Product weight for shipping |
+| Item.Barcode | Barcode/EAN | String | Product barcode |
+| Item.Active | Status | Boolean | Enabled/Disabled status |
+
+#### Customer Field Mappings
+
+| Nama ERP Field | E-commerce Field | Data Type | Notes |
+|----------------|------------------|-----------|-------|
+| Customer.Code | Customer ID | String | Unique customer identifier |
+| Customer.Name1 | First Name | String | Customer first name |
+| Customer.Name2 | Last Name | String | Customer last name |
+| Customer.Email | Email | Email | Primary email address |
+| Customer.Mobile | Phone | String | Primary phone number |
+| Customer.TaxRegNo | VAT Number | String | Tax registration number |
+| Customer.CreditLimit | Credit Limit | Decimal | Maximum credit allowed |
+
+### B. Platform-Specific Configuration
+
+#### Magento 2.x Configuration
+
+**Required Extensions:**
+- REST API enabled
+- OAuth authentication configured
+- Webhook module installed (for real-time sync)
+
+**API Endpoints:**
+```
+Base URL: https://yourstore.com/rest/V1/
+OAuth URL: https://yourstore.com/oauth/
+Webhook URL: https://yourstore.com/webhooks/
+```
+
+**Required Permissions:**
+- Catalog (Read/Write)
+- Sales (Read/Write)
+- Customers (Read/Write)
+- Inventory (Read/Write)
+
+#### Shopify Configuration
+
+**Required Setup:**
+- Private app created with appropriate permissions
+- Webhook notifications configured
+- API version 2024-01 or later
+
+**API Configuration:**
+```
+API Key: [From private app]
+API Secret: [From private app]
+Access Token: [Generated after app installation]
+API Version: 2024-01
+```
+
+#### Salla Configuration
+
+**Required Setup:**
+- OAuth app registered in Salla Partner Portal
+- Webhook endpoints configured
+- Store ID obtained
+
+**OAuth Configuration:**
+```
+Client ID: [From Salla app]
+Client Secret: [From Salla app]
+Redirect URL: [Your callback URL]
+```
+
+### C. Database Tables Reference
+
+#### Core Integration Tables
+
+| Table Name | Description | Key Fields |
+|------------|-------------|------------|
+| MAGMagentoSite | E-commerce site configurations | id, code, url, siteType |
+| MagentoItemLinker | Item-to-product mappings | id, magentoSite, code |
+| MagentoItemLinkerLine | Individual item links | itemId, sku, magentoItemId |
+| MagentoPriceUpdaterDoc | Price update documents | id, documentNo, issueDate |
+| MagentoPriceUpdaterLine | Price update line items | itemId, newPrice, status |
+| EcommerceProductConfig | Product configurations | id, item, sku, attributeSetId |
+| EcommerceCategoryConfig | Category configurations | id, code, magentoSite |
+
+#### Synchronization Queue Tables
+
+| Table Name | Description | Key Fields |
+|------------|-------------|------------|
+| MAGUpdateQtyRequestEntry | Inventory sync queue | id, itemId, quantity, status, retryCount |
+| MAGUpdatePriceRequestEntry | Price sync queue | id, itemId, price, status, retryCount |
+| MAGUpdateItemRequestEntry | Product sync queue | id, itemId, status, lastAttempt |
+| MAGSiteError | Error log entries | id, errorType, errorMessage, timestamp |
+
+### D. System Properties Configuration
+
+#### Core Properties
+
+```properties
+# E-commerce Integration Properties
+# ===================================
+
+# Webhook Processing
+run-ecommerce-webhook-in-debug=false
+read-ecommerce-webhook-events-page-size=300
+
+# Order Processing
+max-orders-per-read=100
+order-processing-batch-size=50
+order-import-timeout=300000
+
+# Inventory Synchronization
+inventory-sync-enabled=true
+inventory-sync-interval=300
+inventory-sync-batch-size=500
+
+# Price Synchronization
+price-sync-enabled=true
+price-sync-interval=600
+price-sync-batch-size=200
+
+# Error Handling
+max-retry-attempts=3
+retry-delay-seconds=60
+error-notification-email=admin@company.com
+
+# Performance Tuning
+concurrent-sync-threads=5
+api-request-timeout=30000
+connection-pool-size=10
+```
+
+### E. Troubleshooting Checklist
+
+#### Initial Setup Checklist
+
+- [ ] E-commerce platform API credentials obtained
+- [ ] MAGMagentoSite record created and configured
+- [ ] Authentication tested using "Request Token" action
+- [ ] Webhook URL registered (if applicable)
+- [ ] Payment methods mapped
+- [ ] Shipping methods configured
+- [ ] Test order successfully imported
+- [ ] Test product successfully synchronized
+
+#### Daily Operations Checklist
+
+- [ ] Check for failed synchronization requests
+- [ ] Review error logs for critical issues
+- [ ] Verify inventory levels are accurate
+- [ ] Confirm orders are importing correctly
+- [ ] Monitor system performance metrics
+- [ ] Clear completed synchronization requests
+
+#### Performance Monitoring
+
+- [ ] API response times within acceptable range
+- [ ] Synchronization queue sizes manageable
+- [ ] Database query performance optimized
+- [ ] Memory usage within limits
+- [ ] Network connectivity stable
+
+### F. Integration Best Practices
+
+#### Data Management
+1. **Regular Cleanup**: Schedule regular cleanup of completed synchronization requests
+2. **Archiving**: Archive old error logs and completed transactions
+3. **Validation**: Implement data validation rules before synchronization
+4. **Backup**: Regular backup of configuration and mapping data
+
+#### Security Considerations
+1. **Credential Storage**: Use secure credential storage mechanisms
+2. **API Keys Rotation**: Regularly rotate API keys and tokens
+3. **Access Control**: Implement role-based access control
+4. **Audit Logging**: Enable comprehensive audit logging
+5. **SSL/TLS**: Always use encrypted connections
+
+#### Performance Optimization
+1. **Batch Processing**: Use appropriate batch sizes for bulk operations
+2. **Caching**: Implement caching for frequently accessed data
+3. **Indexing**: Ensure proper database indexing
+4. **Throttling**: Implement API request throttling
+5. **Monitoring**: Set up performance monitoring and alerts
+
+### G. Common Integration Scenarios
+
+#### Scenario 1: Multi-Channel Retail
+- Single Nama ERP instance
+- Multiple e-commerce platforms (Magento, Shopify, marketplace)
+- Centralized inventory management
+- Unified customer database
+
+#### Scenario 2: B2B E-commerce
+- Customer-specific pricing
+- Credit limit management
+- Bulk order processing
+- Custom catalog per customer
+
+#### Scenario 3: Omnichannel Fulfillment
+- Store inventory synchronization
+- Click-and-collect orders
+- Multi-warehouse management
+- Cross-channel returns
+
+### H. Version Compatibility Matrix
+
+| Platform | Supported Versions | Nama ERP Version | Notes |
+|----------|-------------------|------------------|-------|
+| Magento | 2.3.x, 2.4.x | 2023.1+ | REST API V1 |
+| Shopify | All current | 2023.1+ | API 2024-01 |
+| Salla | Current | 2023.2+ | OAuth 2.0 |
+| BigCommerce | V2, V3 API | 2023.1+ | REST API |
+| WooCommerce | 5.x, 6.x, 7.x | 2023.1+ | REST API v3 |
+| Zid | Current | 2023.3+ | Custom API |
