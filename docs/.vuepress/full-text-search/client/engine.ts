@@ -1,15 +1,14 @@
 import {
-  searchIndex as searchIndexRaw,
-  searchIndices as searchIndicesRaw,
-  searchIndexClassNames,
-  searchIndexTitles,
   defaultSearchIndex,
   defaultSelectedIndex,
+  searchIndex as searchIndexRaw,
+  searchIndexClassNames,
+  searchIndexTitles,
+  searchIndices as searchIndicesRaw,
   UPD_NAME,
-  // @ts-expect-error -- generated from prepare-search-index
 } from "@internal/vuepress-plugin-full-text-search2-search-index";
-import {computed, ref, watch} from "vue";
 import type {Ref} from "vue";
+import {computed, ref, watch} from "vue";
 import type {PageContent, PageIndex, SearchIndices} from "../types";
 import {normalizeArabic} from "../nama-specific-utils";
 
@@ -75,20 +74,90 @@ if (
   };
 }
 
+// Configuration for the search servlet
+const SEARCH_SERVLET_URL = 'https://nlm.namasoft.com/nlm/docs-search';
+// const SEARCH_SERVLET_URL = 'http://localhost:2020/nlm/docs-search';
+
 /** Use suggestions */
 export function useSuggestions(query: Ref<string>): Ref<Suggestion[]> {
   const suggestions = ref([] as Suggestion[]);
   let id: NodeJS.Timeout | null = null;
+  let abortController: AbortController | null = null;
+  
   watch([query, currentSearchIndex], () => {
     if (id) {
       clearTimeout(id);
+    }
+    if (abortController) {
+      abortController.abort();
     }
     id = setTimeout(search, 100);
   });
   return suggestions;
 
   /** Search */
-  function search() {
+  async function search() {
+    const queryStr = query.value.trim();
+    if (!queryStr) {
+      suggestions.value = [];
+      return;
+    }
+    
+    try {
+      // Cancel previous request if still pending
+      if (abortController) {
+        abortController.abort();
+      }
+      abortController = new AbortController();
+      
+      // Determine the JSON index URL
+      const baseUrl = window.location.origin;
+      // Make request to servlet
+      const response = await fetch(SEARCH_SERVLET_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: queryStr,
+          indexUrl: baseUrl,
+          indexName: currentSearchIndex.value || 'default'
+        }),
+        signal: abortController.signal
+      });
+      
+      if (!response.ok) {
+        console.error('Search request failed:', response.statusText);
+        // Fallback to local search
+        searchLocal();
+        return;
+      }
+      
+      const results = await response.json();
+      
+      // Transform servlet results to match the expected format
+      suggestions.value = results.map((result: any) => ({
+        path: result.path,
+        parentPageTitle: result.parentPageTitle,
+        title: result.title,
+        display: result.display,
+        page: null,
+        content: null,
+        parentPagePriority: result.parentPagePriority,
+        priority: result.priority
+      }));
+      
+    } catch (error: any) {
+      if (error.name !== 'AbortError') {
+        console.error('Search error:', error);
+        // Fallback to local search
+        searchLocal();
+      }
+    }
+  }
+  
+  /** Local search fallback */
+  function searchLocal() {
     const queryStr = normalizeArabic(query.value.toLowerCase().trim());
     if (!queryStr) {
       suggestions.value = [];

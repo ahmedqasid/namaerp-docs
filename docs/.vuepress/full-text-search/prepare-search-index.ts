@@ -2,6 +2,8 @@ import type {App as VuepressApp, Page as VuepressPage} from "@vuepress/core";
 import type {PageContent, PageIndex, SearchIndices, SearchIndexConfig} from "./types";
 import {Parser} from "htmlparser2";
 import {normalizeArabic} from "./nama-specific-utils";
+import * as fs from "fs";
+import * as path from "path";
 
 const HMR_CODE = `
 if (import.meta.webpackHot) {
@@ -138,9 +140,22 @@ export async function prepareSearchIndex({
     }
   }
 
-  // search index file content
+  // Create a simplified index without content for the JS file
+  const simplifiedIndices: SearchIndices = {};
+  for (const [indexName, pages] of Object.entries(searchIndices)) {
+    simplifiedIndices[indexName] = pages.map(page => ({
+      ...page,
+      contents: page.contents.map(content => ({
+        header: content.header,
+        slug: content.slug,
+        content: '' // Remove content from JS file
+      }))
+    }));
+  }
+
+  // search index file content (without full content)
   let content = `
-export const searchIndices = ${JSON.stringify(searchIndices, null, 2)};
+export const searchIndices = ${JSON.stringify(simplifiedIndices, null, 2)};
 export const searchIndexClassNames = ${JSON.stringify(Array.from(allIndexNames), null, 2)};
 export const searchIndexTitles = ${JSON.stringify(indexTitles, null, 2)};
 export const defaultSearchIndex = ${JSON.stringify('default', null, 2)};
@@ -156,10 +171,17 @@ export const searchIndex = searchIndices['default'] || [];
     content += HMR_CODE;
   }
 
-  return app.writeTemp(
+  // Write the JS file
+  const jsFilePath = await app.writeTemp(
     "internal/vuepress-plugin-full-text-search2-search-index.js",
     content,
   );
+
+  // Write the full content to a JSON file
+  const jsonFilePath = jsFilePath.replace(/\.js$/, '.json');
+  fs.writeFileSync(jsonFilePath, JSON.stringify(searchIndices, null, 2), 'utf-8');
+
+  return jsFilePath;
 }
 
 /**
