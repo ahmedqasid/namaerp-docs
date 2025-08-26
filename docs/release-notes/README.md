@@ -73,6 +73,12 @@
     - [نما إي آر بي - أغسطس 2021](/release-notes/2021/nama-erp-202108-release-notes-arabic.md)
     - [نما إي آر بي - سبتمبر 2021](/release-notes/2021/nama-erp-202109-release-notes-arabic.md)
     - [نما إي آر بي - أكتوبر 2021](/release-notes/2021/nama-erp-202110-release-notes-arabic.md)
+    - [نما إي آر بي - نوفمبر 2021](/release-notes/2021/nama-erp-202111-release-notes-arabic.md)
+    - [ملاحظات إصدار نما ERP - ديسمبر 2021](/release-notes/2021/nama-erp-202112-release-notes-arabic.md)
+  - [2022](/release-notes/2022/)
+    - [ملاحظات إصدار نما ERP - يناير 2022](/release-notes/2022/nama-erp-202201-release-notes-arabic.md)
+    - [ملاحظات إصدار نما ERP - فبراير 2022](/release-notes/2022/nama-erp-202202-release-notes-arabic.md)
+    - [ملاحظات إصدار نما ERP - مارس 2022](/release-notes/2022/nama-erp-202203-release-notes-arabic.md)
   - [2025](/release-notes/2025/)
     - [ملاحظات إصدار نما ERP - يوليو 2025](/release-notes/2025/nama-erp-202507-release-notes-arabic.md)
 
