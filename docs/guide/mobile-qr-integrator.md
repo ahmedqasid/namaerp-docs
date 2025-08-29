@@ -49,7 +49,7 @@ The MobileQRIntegrator is a master file entity with the following key fields:
 
 The entity flow referenced by the integrator must:
 1. Have at least one action with `targetAction: "Manual"`
-2. Set `requiresCommitOnManual: true` for automatic commit
+2. Set `requiresCommitOnManual: true` for automatic commit, otherwise updates will fail
 3. Access QR parameters via `$map` variables
 
 ## QR Code Generation
@@ -128,10 +128,9 @@ ORDER BY s.valueDate DESC
 
 Entity flows can access QR parameters through the `$map` variable:
 
-```json
-{
-  "parameter1": "fieldValue=$map.qrParam\notherField=$map.anotherParam"
-}
+```
+fieldValue=$map.qrParam
+otherField=$map.anotherParam"
 ```
 
 ### Example Flow: Field Calculator
@@ -139,7 +138,7 @@ Entity flows can access QR parameters through the `$map` variable:
 ```json
 {
   "code": "QREntityCreation",
-  "targetType": "TargetEntity",
+  "targetType": "SalesInvoice",
   "targetAction": "Manual",
   "requiresCommitOnManual": true,
   "details": [{
@@ -170,7 +169,7 @@ Total lines: {lines.$size}
 
 ### Conditional Display
 ```tempo
-{if(status == "APPROVED")}
+{if=(status,"Stable")}
 ✓ Approved: {code}
 {else}
 ⚠ Pending approval: {code}
@@ -236,29 +235,6 @@ NamaRep.mobileQr()
     .toString()
 ```
 
-### 2. Inventory Quick Receive
-
-**Scenario**: Warehouse staff scan QR codes on delivery notes to create receive vouchers.
-
-**Integrator Configuration**:
-```json
-{
-  "code": "QuickReceive",
-  "createdEntityType": "ReceiveVoucher",
-  "creationType": "CreateOnly",
-  "entityFlow": "QuickReceive",
-  "successTempo": "Received {items.$size} items\nVoucher: {code}\nSupplier: {supplier.name1}"
-}
-```
-
-**QR Generation**:
-```java
-NamaRep.mobileQr()
-    .code("QuickReceive")
-    .addParam("po", $F{purchaseOrderCode})
-    .addParam("supplier", $F{supplierCode})
-    .toString()
-```
 
 ### 3. Customer Last Invoice Lookup
 
@@ -272,54 +248,10 @@ NamaRep.mobileQr()
   "creationType": "UpdateOnly",
   "entityFlow": "ViewOnly",
   "finderQuery": "SELECT TOP 1 id FROM SalesInvoice WHERE customer_id = (SELECT id FROM Customer WHERE code = {$map.customer}) ORDER BY valueDate DESC",
-  "successTempo": "Last invoice: {code}\nDate: {valueDate}\nAmount: {money.net}\nStatus: {status}"
+  "successTempo": "Last invoice: {code}\nDate: {valueDate}\nAmount: {money.netValue}\nStatus: {documentFileStatus}"
 }
 ```
 
-## Best Practices
-
-### Security
-1. Use encrypted QR codes for sensitive data
-2. Validate user permissions in entity flows
-3. Limit exposed parameters to necessary data only
-4. Use finder queries to prevent duplicate creation
-
-### Performance
-1. Keep finder queries simple and indexed
-2. Minimize entity flow complexity for mobile scenarios
-3. Use appropriate creation types to avoid unnecessary operations
-4. Cache frequently used integrator configurations
-
-### User Experience
-1. Provide clear success messages with relevant information
-2. Keep QR codes small for reliable scanning
-3. Test QR codes with various lighting conditions
-4. Include fallback manual entry options
-
-### Error Handling
-1. Always validate required parameters in flows
-2. Provide meaningful error messages in flows
-3. Log scanning attempts for troubleshooting
-4. Handle network disconnection scenarios
-
-## Troubleshooting
-
-### Common Issues
-
-| Issue | Cause | Solution |
-|-------|-------|----------|
-| "Could not find the record" | UpdateOnly with no match | Check finder query and parameters |
-| "Failed to execute Mobile QR Integrator" | Entity flow error | Review flow logs and validations |
-| QR not scanning | QR too complex/large | Reduce parameters or use shorter codes |
-| Encrypted QR fails | Encryption mismatch | Verify encryption settings match |
-
-### Validation Checklist
-- ✓ Entity flow has manual action lines
-- ✓ requiresCommitOnManual is true
-- ✓ Finder query is valid SQL (test separately)
-- ✓ All $map parameters are provided in QR
-- ✓ User has permissions for target entity
-- ✓ Mobile menu includes the integrator
 
 ## Technical Implementation Details
 
@@ -333,44 +265,3 @@ NamaRep.mobileQr()
 4. **Flow Execution**: Runs entity flow with parameters
 5. **Auto-Commit**: Commits if requiresCommitOnManual is true
 6. **Response Generation**: Renders successTempo against entity
-
-### Mobile App Flow
-
-1. **Scanner Initialization**: Camera permission check
-2. **QR Detection**: Continuous scanning mode
-3. **Server Request**: POST to `/api/mobile/qr/process`
-4. **Response Handling**: 
-   - Success: Green entry, success tempo displayed
-   - Failure: Red entry, error sound, error message
-
-### API Endpoint
-
-```
-POST /api/mobile/qr/process
-Content-Type: application/json
-
-{
-  "qrData": "encrypted_or_plain_qr_content"
-}
-
-Response:
-{
-  "success": true/false,
-  "responseText": "Rendered message"
-}
-```
-
-## Version History
-
-| Version | Changes |
-|---------|---------|
-| 1.0 | Initial implementation with basic QR scanning |
-| 1.1 | Added encryption support |
-| 1.2 | Enhanced finder query with user context |
-| 1.3 | Added collection support in success tempo |
-
-## Related Documentation
-- [Entity Flows Guide](./entity-flows.md)
-- [Jasper Reports Guide](./reports-guide.md)
-- [Mobile App Configuration](./mobile-app-config.md)
-- [Tempo Template Language](./tempo-templates.md)
