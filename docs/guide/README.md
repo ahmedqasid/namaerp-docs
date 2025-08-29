@@ -39,6 +39,7 @@
   - [Email By Parameterized Reports In Task Scheduler](/guide/scheduled-tasks.md)
   - [Nama Properties](/guide/nama-properties.md)
   - [تطبيق الهواتف المحمولة](/guide/mobile-application-guide.md)
+  - [Mobile QR Integrator Guide](/guide/mobile-qr-integrator.md)
   - [أعدادات الحقول و الشاشات - Generic Reference Overrider User Guide](/guide/GenericReferenceOverrider_UserGuide.md)
   - [ReportWizard User Documentation (أداة إنشاء تقرير)](/guide/ReportWizard_User_Documentation.md)
   - [ORACLE JDBC Integration Connection in context.xml for integration purposes](/guide/oracle-jdbc-connection.md)

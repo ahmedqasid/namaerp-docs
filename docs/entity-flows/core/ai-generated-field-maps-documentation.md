@@ -209,11 +209,9 @@ switchSource=customer.ref1(
 ### Working with Newly Added Lines
 ```ini
 details=[addLines(5)]
-details=addedLinesOnly(
-  details.item=defaultItem
-  details.quantity=1
-  details.price=defaultPrice
-)
+details=addedLinesOnly(details.item=defaultItem)
+details=addedLinesOnly(details.quantity=1)
+details=addedLinesOnly(details.price=defaultPrice)
 ```
 
 ### Line Selection
@@ -238,6 +236,8 @@ runCommand="unforcestable"                 # Cancel force update mode
 runCommand="flush"                         # Flush database changes
 runCommand="guessPeriod"                   # Auto-detect accounting period (DocumentFile only)
 runCommand="makeValueDateToday"            # Set value date to today (DocumentFile only)
+runCommand="setCodeIfNeeded"               # Set code from book or group
+runCommand="copyDimensionsFromBookOrGroup"     # Copy Dimensions (legal entity, branch, department, analysis set, and branch) from book or group
 runCommand="systemUpdateCalculatedFields"  # Update all calculated fields
 runCommand="regenledger"                   # Regenerate ledger entries (if applicable)
 runCommand="runManualEntityFlow(EF005)"    # Run specific entity flow by code

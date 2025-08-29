@@ -433,6 +433,47 @@ NamaRep.genZatcaQrCodeFromEntity(entityType, idOrCode)
 NamaRep.zatcaHashedInvoice(entityType, id)
 ```
 
+### Mobile QR Integrator
+```groovy
+// Create QR code for mobile scanning and entity creation/update
+// The QR code will be processed by Mobile QR Integrator when scanned
+
+// Basic QR with integrator code
+NamaRep.mobileQr()
+    .code("IntegratorCode")
+    .toString()
+
+// QR with integrator ID (UUID)
+NamaRep.mobileQr()
+    .id($F{integratorId})
+    .toString()
+
+// QR with parameters
+NamaRep.mobileQr()
+    .code("CustomerAttendance")
+    .addParam("customer", $F{customerCode})
+    .addParam("date", $F{valueDate})
+    .addParam("amount", $F{totalAmount})
+    .toString()
+
+// Encrypted QR (Base64 encoded)
+NamaRep.mobileQr()
+    .code("SecureIntegrator")
+    .addParam("sensitive", $F{confidentialData})
+    .encrypted()
+    .toString()
+
+// Complete example in Jasper field expression
+NamaRep.mobileQr().code("StudentAttendance").addParam("studentCode", $F{code}).addParam("class", $F{classId}).encrypted().toString()
+```
+
+**Usage Notes:**
+- The QR code contains JSON with the integrator code/ID and parameters
+- Parameters are accessible in entity flows via `$map.paramName`
+- Encrypted QRs are automatically decrypted by the mobile app
+- The integrator must be configured in MobileQRIntegrator entity
+- See [Mobile QR Integrator Guide](./mobile-qr-integrator.md) for complete setup
+
 ### URL Shortening
 ```groovy
 NamaRep.shortenURL(serverUrl, signature, longUrl)
