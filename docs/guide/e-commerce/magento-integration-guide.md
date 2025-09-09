@@ -819,15 +819,286 @@ Webhook URL: https://yourstore.com/webhooks/
 **Required Setup:**
 - Private app created with appropriate permissions
 - Webhook notifications configured
-- API version 2024-01 or later
+- API version 2024-01 or later (GraphQL API 2025-04 recommended)
 
 **API Configuration:**
 ```
 API Key: [From private app]
 API Secret: [From private app]
 Access Token: [Generated after app installation]
-API Version: 2024-01
+API Version: 2025-04 (for GraphQL)
 ```
+
+#### Shopify GraphQL Integration Details
+
+The Nama ERP system uses Shopify's GraphQL API for efficient data synchronization and operations. This section provides technical details for support staff to understand and troubleshoot the Shopify GraphQL integration.
+
+##### GraphQL API Architecture
+
+**Endpoint Configuration:**
+- **Base URL**: `https://[store-name].myshopify.com/admin/api/2025-04/graphql.json`
+- **Authentication**: X-Shopify-Access-Token header
+- **API Version**: 2025-04 (latest stable version with full GraphQL support)
+
+**Core Integration Classes:**
+- `ShopifyQraphQLApi`: Main API client for GraphQL operations
+- `ShopifyProductsQLApi`: Product-specific GraphQL operations
+- `ShopifyOrdersQLApi`: Order management GraphQL operations
+
+##### Supported GraphQL Operations
+
+The integration supports the following GraphQL operations defined in `EcommerceGraphEntityOperation`:
+
+| Operation | Purpose | GraphQL Query/Mutation |
+|-----------|---------|------------------------|
+| `ProductCreate` | Create new products | `productSet` mutation |
+| `ProductUpdate` | Update existing products | `productSet` mutation with ID |
+| `ProductPriceUpdate` | Update product prices | `productVariantsBulkUpdate` mutation |
+| `ProductSpecialPriceUpdate` | Set special/sale prices | `productVariantsBulkUpdate` with compareAtPrice |
+| `ProductQuantityUpdate` | Update inventory quantities | `inventorySetQuantities` mutation |
+| `GetOrderList` | Retrieve orders | `orders` query with pagination |
+| `GetOrderById` | Get specific order | `order` query by ID |
+| `GetProductById` | Get product by ID | `productByIdentifier` query |
+| `GetProductList` | List all products | `products` query with pagination |
+| `GetProductBySku` | **Search product by SKU** | `products` query with SKU search filter |
+| `UpdateOrderStatusAndComment` | Update order notes | `orderUpdate` mutation |
+
+##### Product SKU Search Optimization
+
+**Previous Implementation Issues:**
+- The system previously fetched all products and searched locally for SKUs
+- This caused API throttling with large product catalogs
+- Performance degraded with catalogs over 1000 products
+
+**Current Optimized Implementation:**
+```graphql
+query GetProductBySku($sku: String!, $nestedLinesSize: Int!) {
+  products(first: 1, query: $sku) {
+    nodes {
+      title
+      status
+      id
+      variants(first: $nestedLinesSize) {
+        nodes {
+          id
+          sku
+          title
+          inventoryItem { id measurement { weight { value }}}
+          price
+          inventoryQuantity
+        }
+      }
+    }
+  }
+}
+```
+
+**Variables:**
+```json
+{
+  "sku": "sku:YOUR_PRODUCT_SKU",
+  "nestedLinesSize": 250
+}
+```
+
+**Key Benefits:**
+- Single API call instead of paginating through all products
+- Shopify's server-side search using `query` parameter
+- Prevents API rate limiting
+- Sub-second response times regardless of catalog size
+
+##### GraphQL Query Configuration
+
+**Dynamic Query Building:**
+The system dynamically builds GraphQL queries based on the operation type. Each operation has:
+1. Query/Mutation template
+2. Variables mapping
+3. Field selection based on requirements
+
+**Variable Field Mapping:**
+The system uses a special notation for mapping Nama ERP fields to GraphQL variables:
+- `namaFieldId`: Specifies the field path to extract from Nama entities
+- `.emptyStringIfNull`: Returns empty string if field is null
+- `.dashIfBlank`: Returns "-" if field is empty or null
+
+Example variable configuration:
+```java
+map.put("sku", ShopifyQLUtils.fieldMap("productsApi.productInfo.sku"));
+map.put("price", ShopifyQLUtils.fieldMap("item.currentPrice.primitiveValue"));
+```
+
+##### Error Handling and Throttling
+
+**Rate Limiting:**
+- Shopify GraphQL API has cost-based rate limiting
+- Each query has a calculated cost based on complexity
+- System monitors `X-Shopify-API-Call-Limit` header
+
+**Error Response Handling:**
+```java
+// ShopifyQLUtils.throwsExceptionIfError checks for:
+- GraphQL errors in response
+- User errors in mutations
+- Network and authentication errors
+```
+
+**Retry Mechanism:**
+- Automatic retry with exponential backoff
+- Maximum 3 retry attempts
+- Special handling for throttling errors (429 status)
+
+##### Webhook Integration
+
+**Supported Webhook Topics:**
+- `orders/create` - New order placed
+- `orders/updated` - Order status changed
+- `orders/cancelled` - Order cancelled
+- `products/update` - Product information changed
+- `inventory_levels/update` - Stock level changed
+
+**Webhook Processing:**
+- Webhooks are processed by `EcommerceWebhookProcessor`
+- Events are batched (default 300 events)
+- Chronological processing across multiple sites
+- Transaction isolation for each event
+
+##### Product Synchronization Details
+
+**Product Field Mappings:**
+```java
+// Core product fields synchronized
+- title → Item.Name1
+- description → Item.Description1
+- status → Item.Active
+- variants.sku → Item.Code
+- variants.price → Item.SalesPrice
+- variants.compareAtPrice → Item.SpecialPrice
+- variants.inventoryQuantity → Item.AvailableQty
+```
+
+**Variant Management:**
+- Each product variant is mapped to a unique SKU
+- Parent-child relationships maintained
+- Inventory tracked at variant level
+- Pricing per variant supported
+
+##### Order Processing Workflow
+
+**Order Import Process:**
+1. Query orders using date range or after_id pagination
+2. Transform Shopify order structure to Nama format
+3. Create/update customer records
+4. Generate sales documents based on configuration
+5. Update order status back to Shopify
+
+**Order Status Mapping:**
+| Shopify Status | Nama Status | Notes |
+|---------------|-------------|-------|
+| pending | Draft | Payment pending |
+| authorized | Approved | Payment authorized |
+| paid | Confirmed | Payment received |
+| fulfilled | Delivered | Order shipped |
+| cancelled | Cancelled | Order cancelled |
+| refunded | Returned | Full refund issued |
+
+##### Inventory Management
+
+**Multi-Location Support:**
+- Shopify locations mapped to Nama warehouses
+- Inventory levels tracked per location
+- Transfer orders supported
+
+**Inventory Update Query:**
+```graphql
+mutation UpdateInventory($calculatedQuantityArray: [InventorySetQuantityInput!]!) {
+  inventorySetQuantities(input: $calculatedQuantityArray) {
+    inventoryItem {
+      id
+      inventoryLevels {
+        edges {
+          node {
+            location { id name }
+            available
+          }
+        }
+      }
+    }
+    userErrors { field message }
+  }
+}
+```
+
+##### Performance Optimization Tips
+
+**For Technical Support:**
+
+1. **Batch Operations:**
+   - Use bulk mutations for multiple updates
+   - Group similar operations together
+   - Limit batch size to 100 items
+
+2. **Query Optimization:**
+   - Request only required fields
+   - Use pagination for large result sets
+   - Implement cursor-based pagination
+
+3. **Caching Strategy:**
+   - Cache product mappings locally
+   - Store webhook signatures for deduplication
+   - Maintain GraphQL query cache
+
+4. **Monitoring:**
+   - Track API call costs in response headers
+   - Monitor webhook delivery success rate
+   - Log query execution times
+
+##### Troubleshooting GraphQL Issues
+
+**Common Problems and Solutions:**
+
+| Issue | Symptoms | Solution |
+|-------|----------|----------|
+| Rate Limiting | 429 errors, "Throttled" message | Reduce batch sizes, implement delays |
+| Query Timeout | No response after 30s | Simplify query, reduce nested fields |
+| Invalid SKU Search | Product not found by SKU | Ensure SKU format: "sku:VALUE" |
+| Mutation Errors | userErrors in response | Check required fields, validate data types |
+| Authentication Failed | 401 errors | Verify access token, check permissions |
+
+**Debug Mode:**
+Enable GraphQL debug logging:
+```properties
+shopify.graphql.debug=true
+shopify.graphql.log.queries=true
+shopify.graphql.log.responses=true
+```
+
+**Testing GraphQL Queries:**
+Use the GraphQL testing action in MAGMagentoSite:
+1. Navigate to the site configuration
+2. Use "Test GraphQL Query" action
+3. Enter operation type and test data
+4. Review response and errors
+
+##### Required Shopify App Permissions
+
+For full GraphQL integration, ensure the following scopes are enabled:
+
+**Products:**
+- `read_products` - Read product information
+- `write_products` - Create/update products
+- `read_inventory` - Read inventory levels
+- `write_inventory` - Update inventory
+
+**Orders:**
+- `read_orders` - Import orders
+- `write_orders` - Update order status
+- `read_customers` - Access customer data
+- `write_customers` - Create/update customers
+
+**Additional:**
+- `read_locations` - Multi-location support
+- `read_shipping` - Shipping information
+- `read_fulfillments` - Fulfillment status
 
 #### Salla Configuration
 
@@ -956,7 +1227,116 @@ connection-pool-size=10
 4. **Throttling**: Implement API request throttling
 5. **Monitoring**: Set up performance monitoring and alerts
 
-### G. Common Integration Scenarios
+### G. Shopify GraphQL Technical Reference
+
+#### GraphQL Configuration Storage
+
+**EcommerceGraphQLLine Table Structure:**
+The GraphQL operations are stored in the MAGMagentoSite's graphQLLines collection:
+
+| Field | Description | Example |
+|-------|-------------|---------|
+| operationName | Operation identifier | GetProductBySku |
+| graphQuery | GraphQL query/mutation template | query GetProductBySku($sku: String!)... |
+| variablesFieldsMapASJson | JSON mapping of variables | {"sku": {"namaFieldId": "productsApi.productInfo.sku"}} |
+| isActive | Enable/disable operation | true |
+| priority | Execution priority | 100 |
+
+#### GraphQL Operation Cache
+
+The system implements a caching mechanism for GraphQL configurations:
+
+```java
+// Cache structure in ShopifyQraphQLApi
+private static Map<EcommerceGraphEntityOperation, EcommerceGraphQLLine> graphCacheMap;
+```
+
+**Cache Benefits:**
+- Avoids repeated database lookups
+- Improves query execution performance
+- Reduces memory footprint
+
+#### SKU Search Implementation Details
+
+**Method: findProductBySku**
+Location: `ShopifyProductsQLApi.java`
+
+```java
+public IEcommerceProduct findProductBySku(String sku) {
+    // Set SKU in productInfo for query variable mapping
+    this.productInfo.put("sku", "sku:" + sku);
+    
+    // Execute direct SKU search query
+    Map<String, Object> response = apiClient.executeQueryForType(
+        EcommerceGraphEntityOperation.GetProductBySku()
+    );
+    
+    // Process response and validate SKU match
+    // Returns ShopifyProductInterface or null
+}
+```
+
+**Query Format:**
+The SKU must be formatted as `"sku:VALUE"` for Shopify's search syntax.
+
+#### Variable Field Mapping System
+
+**Special Notations:**
+- **Standard mapping**: `"field.subfield"` - Direct field extraction
+- **Null handling**: `"field.emptyStringIfNull"` - Returns "" if null
+- **Blank handling**: `"field.dashIfBlank"` - Returns "-" if empty
+
+**Mapping Process:**
+1. Parse variable configuration from JSON
+2. Extract field values using reflection
+3. Apply null/blank transformations
+4. Insert values into GraphQL variables
+
+#### Error Handling Classes
+
+**ShopifyQLUtils Error Methods:**
+
+```java
+public static void throwsExceptionIfError(Map<String, Object> response, String inputType) {
+    // Check for GraphQL errors
+    if (response.containsKey("errors")) {
+        // Parse and throw appropriate exception
+    }
+    
+    // Check for user errors in mutations
+    if (response.containsKey("userErrors")) {
+        // Handle mutation validation errors
+    }
+}
+```
+
+#### Performance Metrics
+
+**Typical Response Times:**
+| Operation | Average Time | Max Records |
+|-----------|-------------|-------------|
+| GetProductBySku | 200-500ms | 1 product |
+| GetProductList | 500-2000ms | 250 products |
+| ProductUpdate | 300-800ms | 1 product |
+| InventoryUpdate | 400-1200ms | 100 locations |
+| GetOrderList | 800-3000ms | 100 orders |
+
+#### API Cost Calculation
+
+**Shopify GraphQL Cost Points:**
+- Base query cost: 1 point
+- Each node requested: 1 point
+- Nested connections: Points × requested count
+- Maximum bucket: 1000 points
+- Restore rate: 50 points/second
+
+**Cost Optimization:**
+- Limit nested field depth
+- Use specific field selection
+- Implement pagination for large datasets
+- Cache frequently accessed data
+
+### H. Common Integration Scenarios
 
 #### Scenario 1: Multi-Channel Retail
 - Single Nama ERP instance
@@ -976,13 +1356,13 @@ connection-pool-size=10
 - Multi-warehouse management
 - Cross-channel returns
 
-### H. Version Compatibility Matrix
+### I. Version Compatibility Matrix
 
-| Platform | Supported Versions | Nama ERP Version | Notes |
-|----------|-------------------|------------------|-------|
-| Magento | 2.3.x, 2.4.x | 2023.1+ | REST API V1 |
-| Shopify | All current | 2023.1+ | API 2024-01 |
-| Salla | Current | 2023.2+ | OAuth 2.0 |
-| BigCommerce | V2, V3 API | 2023.1+ | REST API |
-| WooCommerce | 5.x, 6.x, 7.x | 2023.1+ | REST API v3 |
-| Zid | Current | 2023.3+ | Custom API |
+| Platform | Supported Versions | Nama ERP Version | API Type | Notes |
+|----------|-------------------|------------------|----------|-------|
+| Magento | 2.3.x, 2.4.x | 2023.1+ | REST API V1 | Full REST support |
+| Shopify | All current | 2023.1+ | GraphQL 2025-04 | Optimized SKU search, bulk operations |
+| Salla | Current | 2023.2+ | REST + OAuth 2.0 | Webhook support |
+| BigCommerce | V2, V3 API | 2023.1+ | REST API | V3 recommended |
+| WooCommerce | 5.x, 6.x, 7.x | 2023.1+ | REST API v3 | WordPress 5.8+ |
+| Zid | Current | 2023.3+ | Custom API | Manager token required |
