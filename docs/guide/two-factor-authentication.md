@@ -7,9 +7,11 @@ Two-Factor Authentication (2FA) adds an extra layer of security to the Nama ERP 
 ## Supported Authentication Methods
 
 ### 1. Message OTP (One-Time Password)
+Uses the configured notification template which can send OTP codes through multiple channels:
 - **SMS**: Send OTP codes via SMS to the user's registered mobile number
-- **Email**: Send OTP codes to the user's registered email address
-- **Notification**: Uses the configured notification template for 2FA
+- **Email**: Send OTP codes to the user's registered email address  
+- **WhatsApp**: Send OTP codes via WhatsApp messaging
+- **In-App Notifications**: Display OTP within the application's notification system
 
 ### 2. Estidamah API Integration
 Custom authentication provider integration for organizations using the Estidamah authentication gateway. This method:
@@ -131,8 +133,13 @@ This is useful for:
 1. Navigate to **System Configuration** → **Notification Definitions**
 2. Create new manual notification with:
    - **Name**: "2FA OTP Notification"
-   - For Type: User
-   - Manual: True (Selected)
+   - **For Type**: User
+   - **Manual**: True (Selected)
+   - **Channel**: Choose one or multiple:
+     - SMS
+     - Email
+     - WhatsApp
+     - In-App Notification
    - **Template Variables**:
      - `{name1}` - User's full Arabic name
      - `{name2}` - User's full English name
@@ -154,6 +161,20 @@ Do not share this code with anyone.
 <h2>{otpCode}</h2>
 <p>This code will expire in 2 minutes.</p>
 <p>If you didn't request this code, please contact your system administrator immediately.</p>
+```
+
+### Example WhatsApp Template
+```
+🔐 *Nama ERP Security Code*
+
+Hello {name2},
+
+Your verification code is: *{otpCode}*
+
+⏱️ Valid for 3 minutes only
+⚠️ Do not share this code with anyone
+
+If you didn't request this, contact IT immediately.
 ```
 
 
