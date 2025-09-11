@@ -131,6 +131,7 @@ having sum(coalesce(q.net,0))<i.dfMinQuantity
 - [SQLDraftImporter](SQLDraftImporter.md) - Creates draft entities for review before commitment
 - [SQLImporterFromDifferentDataSource](SQLImporterFromDifferentDataSource.md) - Import committed entities from external database
 - [SQLDraftImporterFromDifferentDataSource](SQLDraftImporterFromDifferentDataSource.md) - Import drafts from external database
+- **SQLImporterConsideringApproval** - Same functionality as SQLImporter but considers approval status during import process
 
 
 </div>
