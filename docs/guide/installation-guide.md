@@ -184,6 +184,24 @@ To enable the system to download and install updates from the **utils** page (i.
 3. **Java Issues**: Missing or incorrectly configured Java path
 4. **Invalid Paths**: Non-existent Tomcat directory or malformed URLs
 
+### Debugging Installer Commands
+
+::: tip Viewing Detailed Installer Output
+To see detailed output from commands that run within the installer (useful for debugging installation issues), you can enable process output printing by modifying the installer launcher script.
+
+Edit the `install-nama-erp.js` file and replace:
+```javascript
+Arguments = " -jar \""+oFolder.path+"\\nama-installer-0.0.1-SNAPSHOT.jar\"";
+```
+
+With:
+```javascript
+Arguments = " -Dprint-process-output=true -jar \""+oFolder.path+"\\nama-installer-0.0.1-SNAPSHOT.jar\"";
+```
+
+This will display the output of all commands executed by the installer, helping you identify the exact point where an installation issue occurs.
+:::
+
 ### Error Resolution Process
 1. **Run Diagnostics** → **Review Logs** → **Fix Fatal Errors** → **Retry Installation**
 2. Use **Load From Tomcat** to import existing configurations
