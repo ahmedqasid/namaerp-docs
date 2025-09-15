@@ -22,13 +22,15 @@ Automatic execution during document save/commit operations to validate that spec
 
 1. **Retrieves detail collection** - Gets the specified detail collection from the document using reflection
 2. **Parses field specifications** - Extracts field names from comma or newline separated list
-3. **Processes each detail line** - For each line in the collection:
+3. **Applies query filter (optional)** - If a query is provided, evaluates which lines match the criteria using LineIndices
+4. **Processes each detail line** - For each line in the collection:
+   - Skips lines that don't match query criteria (if query is specified)
    - Extracts values from specified fields using reflection
    - Creates composite key from field values
    - Checks if key already exists from previous lines
-4. **Detects duplicates** - Tracks which line number first used each unique key combination
-5. **Reports violations** - Creates failure results when duplicate keys are found
-6. **Shows line numbers** - Identifies specific lines containing duplicate field combinations
+5. **Detects duplicates** - Tracks which line number first used each unique key combination
+6. **Reports violations** - Creates failure results when duplicate keys are found
+7. **Shows line numbers** - Identifies specific lines containing duplicate field combinations
 
 ## Parameters
 
@@ -36,17 +38,31 @@ Automatic execution during document save/commit operations to validate that spec
 
 Example: `details`, `packingList`, `paymentLines`
 
-**Parameter 2:** Not To Repeat Field Names (Required) - Field names that should not have duplicate combinations
+**Parameter 2:** Not To Repeat Field Names (Required) - Field names that should not have duplicate combinations, separated by comma (,) or Enter
 
 Format: Comma-separated or newline-separated field names with collection prefix
 
-Example: `details.item.item,details.size,details.color`
+Example: `details.text1,details.item.item`
+
+**Parameter 3:** Apply Only on Lines Matching Query (Optional) - SQL-like query to filter which lines to validate
+
+Format: Standard Nama ERP query syntax with field references in curly braces
+
+Example: `select case when {details.n1} > 0 then 1 else 0 end`
 
 ## Database Tables Affected
 
 - **Detail Collections** - Validates uniqueness of field combinations within collections (read-only validation)
 
 ## Important Warnings
+
+### ⚠️ Query-Based Filtering
+- Optional third parameter allows conditional validation using standard Nama ERP query syntax
+- Query uses LineIndices to determine which lines to validate for duplicates
+- Only lines matching the query criteria are checked for duplicate field combinations
+- Empty/null query parameter applies validation to all lines in the collection
+- Query execution context is properly set for field resolution
+- Invalid query syntax may cause runtime validation errors
 
 ### ⚠️ Field Name Format Requirements
 - Field names must include the detail collection prefix (e.g., "details.item.item")
@@ -89,12 +105,6 @@ Example: `details.item.item,details.size,details.color`
 - Complex object references are compared by object identity
 - String values are compared by content
 - Consider data types when defining uniqueness criteria
-
-### ⚠️ Performance Considerations
-- Reflection-based field access has performance overhead
-- Large detail collections may impact validation speed
-- Complex field paths increase processing time
-- Validate only essential field combinations
 
 **Module:** supplychain
 
