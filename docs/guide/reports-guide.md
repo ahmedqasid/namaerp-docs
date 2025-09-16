@@ -728,6 +728,7 @@ To define a parameter that supports multiple selections:
 - **`required`**: `true`/`false` - Mark as mandatory
 - **`requiredGroup`**: Group parameters where at least one must be filled
 - **`hijri`**: `true`/`false` - Use Hijri calendar for dates
+- **`nama-id`**: Internal identifier for Nama-specific functionality (Report Wizard)
 
 #### Suggestions for Text Fields
 - **`suggestionquery`**: SQL query for autocomplete
@@ -838,7 +839,7 @@ id:entityType:code@A=@Xid:entityType:code@A=@X...
 - **`resource`**: Resource key for translation
 - **`src`**: Reuse property from another parameter
 - **`ignore`**: Exclude from prompting
-- **`type`**: Comparison operators (`>`, `<`)
+- **`type`**: Special null handling or comparison type (e.g., for date comparisons with `>`, `<` operators)
 
 ### Report Properties
 Special report-level properties (consult development team for usage):
