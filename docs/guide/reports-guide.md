@@ -745,14 +745,20 @@ WHERE invItem_id = {fItem}
 
 #### Reference Selection
 - **`entityType`**: Entity to select from
-- **`allowedValues`**: Comma-separated allowed values (renders as combo box)
 - **`property`**: Field to extract (`code`, `name1`, `name2`, `startDate`)
+
+#### Combo Box (Drop Down)
 - **`enumType`**: Enum type for allowed values
+- **`allowedValues`**: Comma-separated allowed values (renders as combo box)
+- **`allowedValuesAr`**: Arabic translations for dropdown values (comma-separated, same order as `allowedValues`)
+- **`allowedValuesEn`**: English translations for dropdown values (comma-separated, same order as `allowedValues`)
 
 ```xml
 <parameter name="entityType" class="java.lang.String">
     <property name="enumType" value="EntityTypeDF"/>
-    <property name="allowedValues" value="Employee,Vendor"/>
+    <property name="allowedValues" value="Employee,Supplier"/>
+    <property name="allowedValuesAr" value="موظف,مورد"/>
+    <property name="allowedValuesEn" value="Employee,Supplier"/>
 </parameter>
 ```
 
