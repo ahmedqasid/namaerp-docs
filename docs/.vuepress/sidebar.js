@@ -5,7 +5,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -38,7 +38,47 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/docs-quick-guide.md", "/guide/utils.md", "/guide/system-minimum-requirements.md", "/guide/installation-guide.md", "/guide/reports-guide.md", "/guide/shortcuts.md", "/guide/screen-modifier.md", "/guide/entity-flows/", "/guide/report-wizard-guide.md", "/guide/invoices/", "/guide/supplychain/", "/guide/tempo.md", "/guide/invoice-retriever.md", "/guide/sms-and-whatsapp.md", "/guide/two-factor-authentication.md", "/guide/field-filter-with-criteria.md", "/guide/translations.md", "/guide/criteria-based-validation.md", "/guide/attendance-machine-formula.md", "/guide/attendance-machines-integration.md", "/guide/notifications-system.md", "/guide/scheduled-tasks.md", "/guide/nama-properties.md", "/guide/mobile-application-guide.md", "/guide/mobile-qr-integrator.md", "/guide/GenericReferenceOverrider_UserGuide.md", "/guide/ReportWizard_User_Documentation.md", "/guide/oracle-jdbc-connection.md", "/guide/nama-erp-api.md", "/guide/text-criteria-guide.md", "/guide/dev-request-guidelines.md", "/guide/e-commerce/", {
+      children: [ "/guide/docs-quick-guide.md", "/guide/utils.md", "/guide/system-minimum-requirements.md", "/guide/installation-guide.md", "/guide/reports-guide.md", "/guide/shortcuts.md", "/guide/screen-modifier.md", "/guide/list-views/", "/guide/approvals-system.md", "/guide/entity-flows/", "/guide/report-wizard-guide.md", "/guide/invoices/", "/guide/supplychain/", "/guide/tempo.md", "/guide/invoice-retriever.md", "/guide/sms-and-whatsapp.md", "/guide/two-factor-authentication.md", "/guide/field-filter-with-criteria.md", "/guide/translations.md", "/guide/criteria-based-validation.md", "/guide/attendance-machine-formula.md", "/guide/attendance-machines-integration.md", "/guide/notifications-system.md", "/guide/scheduled-tasks.md", "/guide/nama-properties.md", "/guide/mobile-application-guide.md", "/guide/mobile-qr-integrator.md", "/guide/GenericReferenceOverrider_UserGuide.md", "/guide/ReportWizard_User_Documentation.md", "/guide/oracle-jdbc-connection.md", "/guide/nama-erp-api.md", "/guide/text-criteria-guide.md", "/guide/dev-request-guidelines.md", "/guide/e-commerce/", {
+        text: ".",
+        "link" : "/guide/"
+      } ]
+    }, "/examples/", "/reprocessing/", "/faq/", {
+      text: "AI Generated Entity Flows Documentation",
+      collapsible: true,
+      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
+        text: ".",
+        "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2020/", "/release-notes/2021/", "/release-notes/2022/", "/release-notes/2025/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      collapsible: true,
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
+        text: ".",
+        "link" : "/videos/"
+      } ]
+    } ]
+  } ],
+  "/guide/list-views" : [ {
+    text: "Home",
+    collapsible: true,
+    children: [ "/full-search.md", {
+      text: "Guides",
+      collapsible: true,
+      children: [ {
+        text: "List Views",
+        collapsible: true,
+        children: [ "/guide/list-views/quick-filters.md", {
+          text: ".",
+          "link" : "/guide/list-views/"
+        } ]
+      }, "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -71,7 +111,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ {
+      children: [ "/guide/list-views/", {
         text: "Entity Flows",
         collapsible: true,
         children: [ "/guide/entity-flows/introduction-to-entity-flows.md", "/guide/entity-flows/ea-fields-values-calculator.md", "/guide/entity-flows/excel-and-sql-import-by-entity-flow.md", "/guide/entity-flows/ea-gen-entity-from-entity.md", {
@@ -111,7 +151,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", {
         text: "الفواتير والضرائب والخصومات",
         collapsible: true,
         children: [ "/guide/invoices/reward-points.md", "/guide/invoices/invoice-discounts-and-tax-calculation-guide.md", "/guide/invoices/pricing-and-offers-guide.md", "/guide/invoices/payment-schedules-user-guide.md", "/guide/invoices/payment-entries.md", "/guide/invoices/e-invoices-guide.md", "/guide/invoices/zatca-guide.md", "/guide/invoices/electronic-receipt-egypt-tax-eInvoice.md", "/guide/invoices/standard-terms-feature-documentation.md", {
@@ -151,7 +191,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", {
         text: "Supply Chain",
         collapsible: true,
         children: [ "/guide/supplychain/nama-pos.md", "/guide/supplychain/reservation-system-guide.md", {
@@ -191,7 +231,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", {
         text: "e-commerce integration (Magento)",
         collapsible: true,
         children: [ "/guide/e-commerce/magento-integration-guide.md", {
@@ -231,7 +271,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -271,7 +311,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -311,7 +351,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -351,7 +391,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -384,7 +424,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -424,7 +464,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -464,7 +504,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -504,7 +544,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -544,7 +584,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -584,7 +624,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -624,7 +664,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -664,7 +704,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -704,7 +744,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -744,7 +784,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -784,7 +824,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -824,7 +864,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -864,7 +904,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -904,7 +944,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -944,7 +984,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -984,7 +1024,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -1017,7 +1057,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -1057,7 +1097,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -1097,7 +1137,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -1137,7 +1177,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -1177,7 +1217,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -1217,7 +1257,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -1257,7 +1297,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -1297,7 +1337,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -1337,7 +1377,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -1370,7 +1410,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -1410,7 +1450,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -1450,7 +1490,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
+      children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
