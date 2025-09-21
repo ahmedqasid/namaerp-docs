@@ -640,12 +640,44 @@ Programmatic access for:
 - Generating approval reports
 - Budget validation checks
 
+## Actions History and Audit Trail
+
+The system automatically creates detailed audit trails for all approval activities through the Actions History system. This provides comprehensive tracking of approval decisions and workflow progression.
+
+### Default Actions History Behavior
+
+By default, the system creates **one Actions History record** when the entire approval process is completed:
+
+- **Action Type**: `Approval`
+- **Created**: After the final approval step is finished
+- **Content**: Records the completion of the entire approval workflow
+- **Purpose**: Provides basic audit trail for completed approvals
+
+### Enhanced Step-by-Step Tracking
+
+For organizations requiring detailed audit trails, the system supports granular tracking of every approval step through the global configuration option:
+
+**Configuration Setting**: `addApprovalStepsToActionHistory` (Add Approval Steps to Action History)
+
+When **enabled**, this option creates an Actions History record for **each individual approval step**:
+
+::: info Enhanced Tracking Features
+- **Individual Step Records**: Separate audit entry for each approval decision
+- **Decision Types Tracked**:
+  - `Approve` - When a step is approved
+  - `Reject` - When a step is rejected
+  - `Return` - When returned for modifications
+  - `Escalate` - When escalated to supervisor/specific employee
+- **Final Completion Record**: Still creates the standard `Approval` record when workflow completes
+- **User Context**: Captures who made each decision and when
+:::
+
 ## Security Considerations
 
 ### Access Control
 - **Role-based Permissions**: Control who can create/modify approval definitions
 - **Approver Validation**: Verify approver authorization for each step
-- **Audit Logging**: Track all approval activities
+- **Audit Logging**: Track all approval activities through Actions History
 - **Data Segregation**: Respect organizational boundaries
 - **Budget Access**: Control budget information visibility
 
