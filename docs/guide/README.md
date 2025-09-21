@@ -10,7 +10,7 @@
   - [Layout Names:](/guide/screen-modifier.md)
   - [List Views](/guide/list-views/)
     - [Quick Filters in List Views](/guide/list-views/quick-filters.md)
-  - [Nama ERP Approvals System - User Guide](/guide/approvals-system.md)
+  - [Approvals System - Approval Definition Full Guide](/guide/approvals-system.md)
   - [Entity Flows](/guide/entity-flows/)
     - [مقدمة عن مسارات الكيان](/guide/entity-flows/introduction-to-entity-flows.md)
     - [Field Values Calculator](/guide/entity-flows/ea-fields-values-calculator.md)

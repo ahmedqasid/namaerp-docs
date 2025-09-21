@@ -1,4 +1,4 @@
-# Nama ERP Approvals System - User Guide
+# Approvals System - Approval Definition Full Guide
 
 ## Overview
 
