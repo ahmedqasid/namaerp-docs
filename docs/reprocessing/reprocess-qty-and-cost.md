@@ -107,7 +107,7 @@ className="com.namasoft.modules.supplychain.domain.utils.FastReprocessCostFromDa
   className="com.namasoft.modules.supplychain.domain.utils.plugnplay.StockAgesFastReprocess"
   :params="[
   { title: 'Processed Ages File Path', default: 'E:/rc/stock-ages-done.txt' }
-  ]" :gui = "true"
+  ]"
   />
 ::: warning
   - Make sure to clear the stock-ages-done file before running the utility, The system will ignore all requests mentioned in the file
@@ -142,5 +142,5 @@ Use Process Of Certain Dimensions Util
 className="com.namasoft.modules.supplychain.domain.utils.plugnplay.StockAgesProcessDimensions"
 :params="[
 { title: 'CSV List Of StockAgesIdx IDs You Need', default: '0xFFFFFF44444,0xFFFF55566' }
-]" :gui = "true"
+]"
 />
