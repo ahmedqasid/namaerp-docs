@@ -571,6 +571,151 @@ All notification templates have access to the following context objects and vari
 
 :::
 
+### Accessing Approval Case Data in Notification Templates
+
+In notification templates (email, SMS, in-app notifications, etc.), you can access detailed approval case information using the `currentApprovalCase` prefix. This allows you to display approval history, previous decisions, candidate information, and OTP codes in your notifications.
+
+#### Available ApprovalCase Fields
+
+Access approval case information using `{currentApprovalCase.<field>}`:
+
+**Step Information:**
+- `{currentApprovalCase.$lastStep}` - The most recent approval step
+- `{currentApprovalCase.$firstStep}` - The first approval step
+- `{currentApprovalCase.nextStepSequence}` - Current step sequence number
+- `{currentApprovalCase.nextStepName1}` - Current step Arabic name
+- `{currentApprovalCase.nextStepName2}` - Current step English name
+
+**Candidate Information:**
+- `{currentApprovalCase.$firstCandidate}` - First candidate in current step
+- `{currentApprovalCase.$secondCandidate}` - Second candidate
+- `{currentApprovalCase.$thirdCandidate}` - Third candidate
+- `{currentApprovalCase.$fourthCandidate}` - Fourth candidate
+- `{currentApprovalCase.$fifthCandidate}` - Fifth candidate
+
+**Approval State:**
+- `{currentApprovalCase.state}` - Current approval state (InProgress, Approved, Rejected, Returned)
+- `{currentApprovalCase.requestedBy}` - Employee who initiated the approval
+- `{currentApprovalCase.requestDate}` - When approval was requested
+- `{currentApprovalCase.completionDate}` - When approval was completed
+- `{currentApprovalCase.summary}` - Approval summary text
+
+#### ApprovalCaseStep Fields
+
+Access step details from `$lastStep`, `$firstStep`, or other step references:
+
+- `{currentApprovalCase.$lastStep.decision}` - The decision made (Approve, Reject, Return, etc.)
+- `{currentApprovalCase.$lastStep.actualResponsible}` - Employee who made the decision
+- `{currentApprovalCase.$lastStep.approvalDate}` - When the decision was made
+- `{currentApprovalCase.$lastStep.comment}` - Comment provided with the decision
+- `{currentApprovalCase.$lastStep.approvalStepName1}` - Step Arabic name
+- `{currentApprovalCase.$lastStep.approvalStepName2}` - Step English name
+- `{currentApprovalCase.$lastStep.approvalReason}` - Reason for the approval (if provided)
+- `{currentApprovalCase.$lastStep.escalated}` - Whether step was escalated
+- `{currentApprovalCase.$lastStep.escalatedFrom}` - Who escalated it
+- `{currentApprovalCase.$lastStep.escalateTo}` - Who it was escalated to
+
+#### ApprovalCaseStepCandidate Fields
+
+Access candidate details from `$firstCandidate`, `$secondCandidate`, etc.:
+
+- `{currentApprovalCase.$firstCandidate.candidate}` - The employee candidate
+- `{currentApprovalCase.$firstCandidate.concernedLines}` - Lines assigned to this candidate
+- `{currentApprovalCase.$firstCandidate.otp}` - OTP code for this candidate (if OTP is enabled)
+- `{currentApprovalCase.$firstCandidate.requestedOn}` - When candidate was assigned
+- `{currentApprovalCase.$firstCandidate.escalated}` - Whether escalated to this candidate
+- `{currentApprovalCase.$firstCandidate.escalatedFrom}` - Original approver who escalated
+- `{currentApprovalCase.$firstCandidate.source}` - Source of responsibility assignment
+- `{currentApprovalCase.$firstCandidate.responsibility}` - Type of responsibility
+
+#### Practical Examples for Notification Templates
+
+**Example 1: Display OTP Code**
+```tempo
+{if(currentApprovalCase.$firstCandidate.otp)}
+<p>Your Security Code (OTP): <strong>{currentApprovalCase.$firstCandidate.otp}</strong></p>
+{endif}
+```
+
+**Example 2: Show Previous Approver's Decision and Comment**
+```tempo
+{if(currentApprovalCase.$lastStep)}
+<h3>Previous Approval Step:</h3>
+<p><strong>Approved By:</strong> {currentApprovalCase.$lastStep.actualResponsible.name2}</p>
+<p><strong>Decision:</strong> {currentApprovalCase.$lastStep.decision}</p>
+<p><strong>Date:</strong> {currentApprovalCase.$lastStep.approvalDate}</p>
+{if(currentApprovalCase.$lastStep.comment)}
+<p><strong>Comment:</strong> {currentApprovalCase.$lastStep.comment}</p>
+{endif}
+{endif}
+```
+
+**Example 3: Display Escalation Information**
+```tempo
+{if(currentApprovalCase.$firstCandidate.escalated)}
+<p style="color: orange;">
+    <strong>Note:</strong> This approval was escalated from {currentApprovalCase.$firstCandidate.escalatedFrom.name2}
+</p>
+{endif}
+```
+
+**Example 4: Show All Current Candidates**
+```tempo
+<h3>Awaiting Approval From:</h3>
+<ul>
+{if(currentApprovalCase.$firstCandidate)}
+    <li>{currentApprovalCase.$firstCandidate.candidate.name2}</li>
+{endif}
+{if(currentApprovalCase.$secondCandidate)}
+    <li>{currentApprovalCase.$secondCandidate.candidate.name2}</li>
+{endif}
+{if(currentApprovalCase.$thirdCandidate)}
+    <li>{currentApprovalCase.$thirdCandidate.candidate.name2}</li>
+{endif}
+</ul>
+```
+
+**Example 5: Complete Email Template with Approval History**
+```tempo
+<h2>Approval Request: {entityType} #{code}</h2>
+<p>Dear {$notificationInfo.employee.name2},</p>
+
+<h3>Document Details:</h3>
+<ul>
+    <li><strong>Document:</strong> {link(this)}</li>
+    <li><strong>Amount:</strong> {totalAmount}</li>
+    <li><strong>Requested By:</strong> {currentApprovalCase.requestedBy.name2}</li>
+    <li><strong>Request Date:</strong> {currentApprovalCase.requestDate}</li>
+</ul>
+
+{if(currentApprovalCase.$lastStep)}
+<h3>Previous Approval:</h3>
+<p>{currentApprovalCase.$lastStep.actualResponsible.name2} - {currentApprovalCase.$lastStep.decision} on {currentApprovalCase.$lastStep.approvalDate}</p>
+{if(currentApprovalCase.$lastStep.comment)}
+<p><em>"{currentApprovalCase.$lastStep.comment}"</em></p>
+{endif}
+{endif}
+
+{if(currentApprovalCase.$firstCandidate.otp)}
+<h3>Security Code (OTP):</h3>
+<p style="font-size: 24px; font-weight: bold; color: #2196F3;">{currentApprovalCase.$firstCandidate.otp}</p>
+{endif}
+
+<h3>Summary:</h3>
+<p>{currentApprovalCase.summary}</p>
+
+<p>{approvelink} {rejectlink} {returnlink}</p>
+```
+
+::: tip Use Cases for currentApprovalCase
+- **OTP Display**: Show one-time passwords to candidates in notifications
+- **Approval History**: Display previous approval decisions and comments
+- **Escalation Alerts**: Indicate when approval was escalated and by whom
+- **Multi-Candidate Notifications**: Show all candidates awaiting approval
+- **Audit Trail**: Include complete approval chain in email notifications
+- **Context Information**: Display step names, dates, and responsible parties
+:::
+
 #### Budget-Based Approvals
 ```
 Account Setup:
