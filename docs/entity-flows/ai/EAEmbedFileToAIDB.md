@@ -68,18 +68,6 @@ Processes PDF files attached to entities and converts them into AI-searchable fo
 - **Configuration Issues:** Missing API keys or database connectivity
 - **Field Issues:** Attachment fields don't exist or are empty
 
-## Important Warnings
-
-### ⚠️ Configuration Requirements
-- **Complete Setup:** All AI module settings must be configured
-- **API Keys:** Valid OpenAI and vector database credentials required
-- **Network Access:** Requires connectivity to external AI services
-
-### ⚠️ Security Considerations
-- **Content Exposure:** PDF content becomes searchable by AI assistants
-- **Sensitive Documents:** Ensure AI access is appropriate for document content
-- **API Usage:** Each file generates OpenAI API calls (cost implications)
-
 ## Related Actions
 
 - **AI Module Setup** - Required configuration for AI features

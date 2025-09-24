@@ -29,42 +29,36 @@ Data integrity validation during entity save/commit operations for previously co
 
 ## Parameters
 
-**Parameter 1:** Field IDs (Required) - Comma/line-separated field IDs to protect (e.g., "code,name1" or "details.item")
+**Parameter 1:** Field IDs (Required)
+- Comma/line-separated field IDs to protect
+- Examples: `code,name1` or `details.n1`
 
-**Parameter 2:** Prevent Adding New Lines (Optional) - Boolean to prevent adding detail lines (default: false)
+**Parameter 2:** Prevent Adding New Lines (Optional)
+- Boolean value: `true` or `false`
+- Prevents adding new detail lines (default: `false`)
 
-**Parameter 3:** Prevent Deleting Lines (Optional) - Boolean to prevent deleting detail lines (default: false)
+**Parameter 3:** Prevent Deleting Lines (Optional)
+- Boolean value: `true` or `false`
+- Prevents deleting detail lines (default: `false`)
 
-**Parameter 4:** Change Validation Query (Optional) - SQL query returning 1/0 to conditionally enable field change validation
+**Parameter 4:** Change Validation Query (Optional)
+- SQL query returning 1 (enable validation) or 0 (disable validation)
+- Conditionally enables field change validation for current line
+- Example: `select case when {line.item.item.code} = 'ABC' or {oldLine.item.item.code} = 'ABC' then 1 else 0 end`
+- Available variables: `{line.*}` for new values, `{oldLine.*}` for previous values
 
-**Parameter 5:** Added Lines Validation Query (Optional) - SQL query returning 1/0 to conditionally validate newly added lines
+**Parameter 5:** Added Lines Validation Query (Optional)
+- SQL query returning 1 (enable validation) or 0 (disable validation)
+- Conditionally validates newly added lines
+- Example: `select case when {currentLine.n1} > 0 then 1 else 0 end`
+- Use `{currentLine.*}` to access the added line fields
 
-**Parameter 6:** Deleted Lines Validation Query (Optional) - SQL query returning 1/0 to conditionally validate deleted lines
-
-## Database Tables Affected
-
-- **No Direct Modifications** - Validation-only action that reads entity data for comparison
-- **Entity Data Comparison** - Compares current and previous entity states
-- **Commit Prevention** - Prevents entity commit when validation fails
-
-
-## Important Warnings
-
-### ⚠️ Entity Requirements
-- Only works on previously committed entities (ignores new entities)
-- Must run during entity validation phase before final commit
-- All specified field IDs must be valid for the target entity type
-
-### ⚠️ Performance Impact
-- Field comparison operations add overhead to entity save operations
-- Large detail collections may impact validation performance
-- Conditional SQL queries add additional processing overhead
-
-### ⚠️ Business Impact
-- May prevent expected field changes, impacting user experience
-- Requires proper integration with approval and change management workflows
-- Needs proper error handling and user notification for validation failures
-
+**Parameter 6:** Deleted Lines Validation Query (Optional)
+- SQL query returning 1 (enable validation) or 0 (disable validation)
+- Conditionally validates deleted lines
+- **Important:** Use `{currentLine.*}` to access deleted line data, NOT the detail field name
+- Example: `select case when {currentLine.n1} > 0 then 1 else 0 end`
+- Access deleted line fields via `{currentLine.*}` pattern
 
 **Module:** core
 
