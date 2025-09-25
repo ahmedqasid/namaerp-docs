@@ -234,7 +234,7 @@ export const SIDEBAR_CONFIG = {
       children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", {
         text: "e-commerce integration (Magento)",
         collapsible: true,
-        children: [ "/guide/e-commerce/magento-integration-guide.md", {
+        children: [ "/guide/e-commerce/magento-integration-guide.md", "/guide/e-commerce/omniful-integration.md", {
           text: ".",
           "link" : "/guide/e-commerce/"
         } ]
@@ -514,7 +514,7 @@ export const SIDEBAR_CONFIG = {
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", {
         text: "AI Module",
         collapsible: true,
-        children: [ "/entity-flows/ai/EAEmbedFileToAIDB.md", {
+        children: [ "/entity-flows/ai/EAEmbedFileToAIDB.md", "/entity-flows/ai/EAEmbedRecordsFromQuery.md", {
           text: ".",
           "link" : "/entity-flows/ai/"
         } ]
@@ -754,7 +754,7 @@ export const SIDEBAR_CONFIG = {
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", {
         text: "HR Module",
         collapsible: true,
-        children: [ "/entity-flows/hr/CalcBasicSalaryForNetSalary.md", "/entity-flows/hr/EACalComponentFromLoan.md", "/entity-flows/hr/EAChangeEmployeeStateFromFiringHandler.md", "/entity-flows/hr/EAChangeEmployeeStateHandler.md", "/entity-flows/hr/EAClearFromDateIfFromTimeEmpty.md", "/entity-flows/hr/EAClearToDateIfToTimeEmpty.md", "/entity-flows/hr/EACopySalaryStructureToJobOffer.md", "/entity-flows/hr/EACopySalaryStructureToUpdateEmpInfo.md", "/entity-flows/hr/EADSCNormalizeTimeAttendance.md", "/entity-flows/hr/EAEmpAttendanceSysEntryCalculator.md", "/entity-flows/hr/EAHealthInsuranceOfferReqAction.md", "/entity-flows/hr/EALiptisSetComponentFromAnotherWithMax.md", "/entity-flows/hr/EAMakeSingleCheckInCheckOutIfNeeded.md", "/entity-flows/hr/EAOyoonWorkPlaceUpdateToUpdateInfo.md", "/entity-flows/hr/EASalaryCostCalculator.md", "/entity-flows/hr/EASalaryNormalizeAdditions.md", "/entity-flows/hr/EASalaryNormalizeDeductions.md", "/entity-flows/hr/EATimeAttendanceFromDBImportIntoDocument.md", "/entity-flows/hr/EATimeAttendanceFromDBImporter.md", "/entity-flows/hr/EATimeAttendanceSetDefaultFromTime.md", "/entity-flows/hr/EATimeAttendanceSetDefaultToTime.md", "/entity-flows/hr/EAUpdateEmployeeResidencyRenewDate.md", "/entity-flows/hr/SetAttendanceToFixedTimeIfEmpty.md", "/entity-flows/hr/TimeAttendanceAddExtraHoursToEmpty.md", "/entity-flows/hr/TimeAttendanceRemoveEmptyTimeLines.md", {
+        children: [ "/entity-flows/hr/CalcBasicSalaryForNetSalary.md", "/entity-flows/hr/EACalComponentFromLoan.md", "/entity-flows/hr/EAChangeEmployeeStateFromFiringHandler.md", "/entity-flows/hr/EAChangeEmployeeStateHandler.md", "/entity-flows/hr/EAClearFromDateIfFromTimeEmpty.md", "/entity-flows/hr/EAClearToDateIfToTimeEmpty.md", "/entity-flows/hr/EACopySalaryStructureToJobOffer.md", "/entity-flows/hr/EACopySalaryStructureToUpdateEmpInfo.md", "/entity-flows/hr/EADSCNormalizeTimeAttendance.md", "/entity-flows/hr/EAEmpAttendanceSysEntryCalculator.md", "/entity-flows/hr/EAGenSalarySheet.md", "/entity-flows/hr/EAHealthInsuranceOfferReqAction.md", "/entity-flows/hr/EALiptisSetComponentFromAnotherWithMax.md", "/entity-flows/hr/EAMakeSingleCheckInCheckOutIfNeeded.md", "/entity-flows/hr/EAOyoonWorkPlaceUpdateToUpdateInfo.md", "/entity-flows/hr/EASalaryCostCalculator.md", "/entity-flows/hr/EASalaryNormalizeAdditions.md", "/entity-flows/hr/EASalaryNormalizeDeductions.md", "/entity-flows/hr/EATimeAttendanceFromDBImportIntoDocument.md", "/entity-flows/hr/EATimeAttendanceFromDBImporter.md", "/entity-flows/hr/EATimeAttendanceSetDefaultFromTime.md", "/entity-flows/hr/EATimeAttendanceSetDefaultToTime.md", "/entity-flows/hr/EAUpdateEmployeeResidencyRenewDate.md", "/entity-flows/hr/SetAttendanceToFixedTimeIfEmpty.md", "/entity-flows/hr/TimeAttendanceAddExtraHoursToEmpty.md", "/entity-flows/hr/TimeAttendanceRemoveEmptyTimeLines.md", {
           text: ".",
           "link" : "/entity-flows/hr/"
         } ]
