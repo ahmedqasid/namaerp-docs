@@ -407,6 +407,40 @@ The system can generate customized summaries for approval requests that provide 
    - **Return**: Send back for modifications
    - **Escalate**: Forward to supervisor
 
+#### Global Approval Decision Configuration
+
+The system provides global configuration options to control which approval decisions are available in approval workflows. These settings are configured in the Global Configuration (إعدادات عامة) and affect all approval processes system-wide.
+
+##### Available Decision Configuration Options
+
+| Configuration Option | Arabic Name | English Name | Description |
+|---------------------|-------------|--------------|-------------|
+| **useRejectDecision** | استعمال قرار الرفض | Use Reject Decision | Controls availability of "Reject" (رفض) decision option |
+| **useReturnDecision** | استعمال قرار الارجاع | Use Return Decision | Controls availability of "Return" (إرجاع) decision option |
+| **useEscalateToSupervisor** | استخدام قرار تصعيد الي المدير المباشر | Use Escalate To Supervisor | Controls availability of "Escalate to Supervisor" (تصعيد الي المدير المباشر) option |
+| **useEscalateToSpecificEmployee** | استخدام قرار تصعيد الي موظف بعينه | Use Escalate To Specific Employee | Controls availability of "Escalate to Specific Employee" (تصعيد الي موظف بعينه) option |
+| **useReturnToPreviousStep** | استخدام قرار إرجاع إلي الخطوة السابقة | Use Return To Previous Step | Controls availability of "Return to Previous Step" (إرجاع للخطوة السابقة) option |
+
+##### Configuration Impact
+
+**When Decision Options are Disabled:**
+- The corresponding decision will not appear in the approval dropdown
+- Approvers cannot select that decision type
+- Existing approval definitions that rely on disabled decisions may have limited functionality
+- The system will show only the enabled decision options
+
+**Example Scenarios:**
+1. **Simplified Approval Process**: Disable "Return" and "Escalate" options to only allow "Approve" or "Reject"
+2. **No Rejection Policy**: Disable "Reject" to force approvers to use "Return" for modifications instead
+3. **Hierarchical Only**: Disable "Escalate to Specific Employee" to enforce strict supervisor escalation
+
+::: warning Configuration Considerations
+- Disabling decision options affects all approval processes system-wide
+- Ensure that approval definitions are compatible with the enabled decision set
+- Consider the impact on existing approval workflows before making changes
+- Some approval processes may require specific decision types to function properly
+:::
+
 ### Step 3: Notification Configuration
 
 #### Email Templates
