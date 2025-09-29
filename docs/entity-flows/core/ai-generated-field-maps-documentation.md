@@ -189,6 +189,76 @@ filterLinesBy=(
 )endFilterLinesBy
 ```
 You can filter source only, target only, or both
+## Tempo Expression Integration
+
+### Single-Line Tempo Expressions
+Field maps support embedded Tempo expressions for dynamic text generation and complex field calculations:
+
+```ini
+# Basic tempo field reference
+customerInfo=tempo(Customer {customer.name1} has code {customer.code})
+
+# Format with date functions
+processedInfo=tempo(Processed by {$user.name2} on {$today})
+
+# Conditional content
+statusMessage=tempo({if(status)}Active since {valueDate}{else}Not active{endif})
+
+# Links and hyperlinks
+customerLink=tempo({link(customer)})
+
+# Calculations and totals
+summaryText=tempo(Total amount: {money.netValue}, Customer: {customer.name1})
+```
+
+### Multi-Line Tempo Expressions
+For complex tempo templates with multiple lines, loops, or detailed formatting:
+
+```ini
+# Complex customer summary
+customerSummary=mltempo(
+Customer Details:
+- Name: {customer.name1}
+- Code: {customer.code}
+- Balance: {customer.n1}
+)endmltempo
+
+# Invoice details with table
+invoiceDetails=mltempo(
+Invoice Summary for {customer.name1}
+
+{opentable}
+{row}{cell}Item{cell}Quantity{cell}Price{cell}Total{endrow}
+{loop(details)}
+  {row}
+    {cell}{details.item.item.name1}
+    {cell}{details.quantity.quantity.primeQty.value}
+    {cell}{details.price.unitPrice}
+    {cell}{details.price.netValue}
+  {endrow}
+{endloop}
+{closetable}
+
+Total Amount: {money.netValue}
+)endmltempo
+
+# Conditional content with complex logic
+approvalMessage=mltempo(
+{if(currentApprovalCase.state)}
+  {if=(currentApprovalCase.state,"Approved")}
+    ✅ Approved by {currentApprovalCase.lastStep.actualResponsible.name1} on {currentApprovalCase.currentApprovalCase.completionDate}
+    {if(currentApprovalCase.lastStep.approvalComment)}
+      Comment: {currentApprovalCase.lastStep.approvalComment}
+    {endif}
+  {else}
+    ❌ Status: {translate(currentApprovalCase.state)}
+  {endif}
+{else}
+  ⏳ Pending approval
+{endif}
+)endmltempo
+```
+
 ## Special Operations
 
 ### Switch Target/Source
