@@ -153,6 +153,10 @@ The MAGMagentoSite entity includes several detail collections for granular confi
     - Define criteria for inventory updates
     - Configure quantity synchronization rules
 
+11. **Related Parent Service Items Query For Qty Update** (`relatedParentServiceItemsQueryForQtyUpdate`)
+    - SQL query to find parent service items that should have their quantity updated
+    - Enables quantity tracking for service-type bundle products
+
 #### Available Actions
 
 The MAGMagentoSite entity provides numerous actions for managing e-commerce integration:
@@ -377,7 +381,59 @@ The EcommerceCategoryConfig entity manages category-level settings and configura
    - Webhook events from e-commerce platform trigger immediate updates
    - Critical stock levels are synchronized in real-time
 
-### 4. Price Management Workflow
+### 4. Bundle and Service Items Quantity Synchronization
+
+The system now supports advanced quantity tracking for service-type bundle products through the **Related Parent Service Items Query For Qty Update** feature.
+
+#### Understanding the Challenge
+
+Service items in Nama ERP typically don't track quantities because they represent non-physical products (like warranties, installations, or bundles). However, in e-commerce platforms, these service items might represent product bundles that need quantity tracking based on their physical components.
+
+#### Common Use Case: Furniture Retail
+
+A furniture retailer might have:
+- **Physical Items**:
+  - King Size Bed (SKU: BED-KING)
+  - Queen Size Bed (SKU: BED-QUEEN)
+  - Nightstand (SKU: NIGHT-01)
+  - Dresser (SKU: DRESS-01)
+
+- **Service/Bundle Items**:
+  - Master Bedroom Set (SKU: ROOM-MASTER) - Contains 1 King bed, 2 nightstands, 1 dresser
+  - Guest Bedroom Set (SKU: ROOM-GUEST) - Contains 1 Queen bed, 1 nightstand
+
+#### Configuration
+
+To enable quantity tracking for service bundles, configure the `relatedParentServiceItemsQueryForQtyUpdate` field with an SQL query that returns parent service items when a component's quantity changes.
+
+**Example Query**:
+```sql
+-- Find all service items that contain the current physical item as a component
+SELECT DISTINCT parent.id
+FROM InvItem parent
+INNER JOIN ItemBundleComponents bundle ON bundle.parent_id = parent.id
+WHERE bundle.component_id = {item.id}
+  AND parent.itemType = 'Service'
+  AND bundle.item = {dimensions.item.id}
+```
+::: tip 
+Any field accessible from the `ItemDimensionsQty` object is available to the query
+::: 
+#### How It Works
+
+1. **Physical Item Quantity Changes**: When a physical item's quantity changes (e.g., King Size Bed stock updated)
+
+2. **Query Execution**: The system executes the configured query to find all parent service items containing this physical item
+
+3. **Service Item Update**: For each parent service item found:
+   - A virtual quantity record is created or updated
+   - The quantity is incremented to trigger e-commerce synchronization
+   - The e-commerce platform receives the update
+
+4. **E-commerce Sync**: The service bundle's availability is updated on the e-commerce platform based on component availability
+
+
+### 5. Price Management Workflow
 
 1. **Price Updates**
    - Create MagentoPriceUpdaterDoc for batch price updates
@@ -598,55 +654,6 @@ Each queue entry tracks:
 
 ---
 
-## Troubleshooting
-
-### Common Issues and Solutions
-
-#### 1. Connection Issues
-
-**Problem**: Cannot connect to e-commerce platform
-**Solutions**:
-- Verify URL format and accessibility
-- Check authentication credentials
-- Ensure API permissions are correctly set
-- Use "Request Token" action for OAuth platforms
-
-#### 2. Order Import Failures
-
-**Problem**: Orders not importing correctly
-**Solutions**:
-- Check "Read Orders From Date" setting
-- Verify customer creation settings
-- Review error logs in system
-- Use "ReRead Selected Orders" action
-
-#### 3. Inventory Sync Issues
-
-**Problem**: Stock quantities not synchronizing
-**Solutions**:
-- Use "Update All Qtys" action
-- Check "Update Quantity Criteria" configuration
-- Review failed requests and use "Retry Selected Lines"
-- Verify warehouse mappings
-
-#### 4. Price Update Failures
-
-**Problem**: Prices not updating on e-commerce platform
-**Solutions**:
-- Check price update document approval status
-- Review price calculation settings
-- Use "Price Retry Selected Lines" action
-- Verify currency and tax configurations
-
-#### 5. Product Sync Issues
-
-**Problem**: Product information not synchronizing
-**Solutions**:
-- Verify item linker configurations
-- Check product configuration settings
-- Review attribute mappings
-- Use "Item Retry Selected Lines" action
-
 ### Error Management
 
 #### Viewing Errors
@@ -658,20 +665,6 @@ Each queue entry tracks:
 - Use "Delete Error" action to remove resolved error entries
 - Use "Delete Finished Requests" actions to clean up completed sync requests
 - Regular maintenance prevents system clutter
-
-### Performance Optimization
-
-#### Batch Processing
-- Configure appropriate batch sizes for order processing
-- Use scheduled synchronization for non-critical updates
-- Monitor system performance during bulk operations
-
-#### Real-time vs Batch Sync
-- Use real-time sync for critical data (inventory, orders)
-- Use batch processing for bulk updates (prices, product information)
-- Configure webhook timeouts appropriately
-
----
 
 ## Technical Support
 
