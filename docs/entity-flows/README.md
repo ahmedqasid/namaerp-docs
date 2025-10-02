@@ -17,6 +17,7 @@
     - [EACalcCurrencyRateInDetails](/entity-flows/core/EACalcCurrencyRateInDetails.md)
     - [EACheckAndUpdateLinkAtOnlinePaymentTransactionSysEntry](/entity-flows/core/EACheckAndUpdateLinkAtOnlinePaymentTransactionSysEntry.md)
     - [EACheckDailyBackupOnGoogleDrive](/entity-flows/core/EACheckDailyBackupOnGoogleDrive.md)
+    - [EACheckTaxAuthorityRejectedByReceiverDocuments](/entity-flows/core/EACheckTaxAuthorityRejectedByReceiverDocuments.md)
     - [EAClearGoogleDriveTrash](/entity-flows/core/EAClearGoogleDriveTrash.md)
     - [EACloseFiscalPeriodsInRange](/entity-flows/core/EACloseFiscalPeriodsInRange.md)
     - [EACodeValidator](/entity-flows/core/EACodeValidator.md)
