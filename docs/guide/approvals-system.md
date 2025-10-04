@@ -333,6 +333,34 @@ The system provides flexibility by allowing alternate approvers who can act on A
 - **Other Alternates**: Dynamically determined alternates based on context
 :::
 
+#### Approval Reference Fields
+
+The approval system provides two optional reference fields that can be used to store additional contextual information about approved records. These references help with filtering, reporting, and obtaining extra information about the approval case.
+
+**Configuration:**
+
+**Approval Reference 1 Source (approvalRef1Source)** and **Approval Reference 2 Source (approvalRef2Source)**:
+- **Field Type**: FieldID (field selector)
+- **Source**: Select any reference or generic reference field from the approved entity
+- **Purpose**: Automatically populate `approvalRef1` and `approvalRef2` in the approval case
+- **Availability**: Context-aware based on approval entity and "Apply Also To" settings
+
+::: info How Reference Fields Work
+1. **Configure Source**: In approval definition, select source fields from the approved entity
+2. **Automatic Population**: When approval case is created, values are copied from source fields
+3. **Filtering**: Use `approvalRef1` and `approvalRef2` to filter approval cases in lists
+4. **Reporting**: Include references in approval reports and summaries
+5. **Context Information**: Access related data without navigating to the approved record
+6. **Supports Field Values Calculator Syntax** for example `sql(select entityType,id from Table where x= {y})` 
+:::
+
+**Example Use Cases:**
+- **Customer Approvals**: Store customer reference for filtering customer-specific approvals
+- **Department Tracking**: Link approvals to departments for departmental reporting
+- **Project Association**: Track approvals by project for project management
+- **Location-Based**: Filter approvals by branch or warehouse
+- **Category Grouping**: Group approvals by product category or service type
+
 #### Consider Request Date As Creation Date
 
 By default, the system sets the record's `creationDate` when the final approval step is completed and the record is committed. However, the `considerRequestDateAsCreationDate` option changes this behavior to use the approval request date instead.
@@ -384,6 +412,8 @@ The system can generate customized summaries for approval requests that provide 
 | **Fallback** | Employee to handle system errors (required) |
 | **Alternate** | Employee who can approve any step |
 | **Other Alternates** | Dynamic alternates (supervisor, field-based, etc.) |
+| **Approval Reference 1 Source** | Source field for first approval reference (approvalRef1Source) |
+| **Approval Reference 2 Source** | Source field for second approval reference (approvalRef2Source) |
 | **Consider Request Date As Creation Date** | Use approval request date as record creation date |
 | **Summary Template** | Tempo template for custom approval summaries |
 | **Summary Query** | SQL query to gather data for summary generation |
@@ -633,6 +663,8 @@ Access approval case information using `{currentApprovalCase.<field>}`:
 - `{currentApprovalCase.requestDate}` - When approval was requested
 - `{currentApprovalCase.completionDate}` - When approval was completed
 - `{currentApprovalCase.summary}` - Approval summary text
+- `{currentApprovalCase.approvalRef1}` - First approval reference (if configured)
+- `{currentApprovalCase.approvalRef2}` - Second approval reference (if configured)
 
 #### ApprovalCaseStep Fields
 
