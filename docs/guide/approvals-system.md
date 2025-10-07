@@ -181,6 +181,38 @@ The system provides enhanced security through OTP verification for approval deci
 - When **enabled**: Specific approval step requires OTP verification
 - Allows selective OTP requirement for sensitive steps
 
+#### Require All Approvers
+
+When approval responsibilities are assigned to multiple employees simultaneously (either through employee groups, special responsibilities, or multiple candidates), the **Require All Approvers** setting controls whether ALL designated employees must approve before the step is considered complete.
+
+**Configuration Options:**
+
+**Require All Approvers** (Per Step Setting):
+- **Field Name**: `requireAllApprovers` (يتطلب موافقة الجميع)
+- **Type**: Boolean (Yes/No)
+- **Default**: Disabled (any single approver can complete the step)
+
+**How It Works:**
+
+::: info Default Behavior (Require All Approvers = Disabled)
+When **disabled** (default behavior):
+- The system assigns the approval step to multiple candidates
+- **Any ONE** of the candidates can approve
+- Once one candidate approves, the step is considered complete
+- The approval workflow proceeds to the next step immediately
+- Other candidates are no longer required to act
+:::
+
+::: warning Require All Approvers = Enabled
+When **enabled**:
+- The system assigns the approval step to multiple candidates
+- **ALL** candidates must approve before the step is complete
+- Each candidate approves independently
+- After each approval, the system removes that candidate from the list
+- The step remains **in progress** until ALL candidates have approved
+- Only after ALL approvals are received does the workflow proceed to the next step
+:::
+
 ## Advanced Configuration
 
 ### Conditional Approvals
