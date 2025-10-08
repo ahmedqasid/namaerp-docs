@@ -59,8 +59,7 @@ update EntitySystemEntry set fromType = null,fromId = null where fromid is not n
 ## Insert Into Temp Table Select From With Drop
 ::: details
 ```sql
-IF OBJECT_ID('tempdb.dbo.#Items', 'U') IS NOT NULL 
-			  DROP TABLE #Items ; 
+DROP TABLE IF EXISTS #Items; 
 
 select * into #Items from ( 
 select code from InvItem 
