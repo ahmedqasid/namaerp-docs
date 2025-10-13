@@ -262,19 +262,138 @@ approvalMessage=mltempo(
 ## Special Operations
 
 ### Switch Target/Source
-Temporarily change what entity you're copying to:
+
+When working with collections (detail lines) in referenced entities, you need to use special syntax to properly access and modify fields.
+
+#### Working with Header Fields in Referenced Entities
+
+For header fields in referenced entities, you can use direct dot notation:
+
 ```ini
+# This works - modifying a header field in customer
+customer.n1="5"
+```
+
+#### The Problem with Collections in Referenced Entities
+
+However, when you need to work with collections (details) inside referenced entities, the simple dot notation doesn't work:
+
+```ini
+# ❌ This will NOT work as expected
+customer.lines.n1=n1
+```
+
+This is where `switchTarget` and `switchSource` become essential.
+
+#### Using switchTarget - Modifying Collections in Referenced Entities
+
+Use `switchTarget` when you need to **modify fields in collections** within a referenced entity:
+
+```ini
+# ✅ Correct way to modify collections in customer object
+switchTarget=customer(
+  lines.n1=n1
+)endSwitchTarget
+```
+
+::: tip
+Notice that inside `switchTarget`, we omit the `customer.` prefix because we're already working inside the customer context.
+:::
+
+**More Examples:**
+
+```ini
+# Update related document details
 switchTarget=relatedDocument(
-  # Now copying TO each related document
+  # Now copying TO each related document's collections
   status="Processed"
   processedBy=currentUser
   processedDate=sql(select getdate())
-)endSwitchTarget
 
-switchSource=customer.ref1(
-  totalPurchases=n5 #n5 here will come from customer.ref1
+  # Working with collections inside the related document
+  details.processed=true
+  details.processedDate=sql(select getdate())
+)endSwitchTarget
+```
+
+#### Using switchSource - Copying from Collections in Referenced Entities
+
+Use `switchSource` when you need to **copy data FROM collections** within a referenced entity TO collections in the current entity:
+
+```ini
+# ❌ This will NOT work as expected
+details.n1=customer.lines.n1
+
+# ✅ Correct way to copy from customer collections to invoice collections
+switchSource=customer(
+  details.n1=lines.n1
+  details.item=lines.item
+  details.quantity=lines.quantity
 )endSwitchSource
 ```
+
+::: tip
+Inside `switchSource`, the left side (target) refers to the current entity's collections, and the right side (source) refers to the referenced entity's collections without the prefix.
+:::
+
+**More Examples:**
+
+```ini
+# Copy data from a nested reference
+switchSource=customer.ref1(
+  totalPurchases=n5  # n5 here will come from customer.ref1
+  lastOrderDate=date1
+)endSwitchSource
+
+# Copy from supplier collections to purchase order
+switchSource=supplier(
+  details.defaultPrice=priceList.price
+  details.leadTime=priceList.deliveryDays
+)endSwitchSource
+```
+
+#### Working with Generic References ($toReal)
+
+When working with generic reference fields (like `fromDoc` which can point to different entity types), you normally need to use `$toReal` to access the actual entity. However, `switchSource` and `switchTarget` handle this automatically:
+
+```ini
+# ❌ This will NOT work as expected
+details=fromDoc.$toReal.details
+details.text1=fromDoc.$toReal.details.description
+
+# ✅ Correct way - $toReal is handled automatically
+switchSource=fromDoc(
+  details=details
+  details.text1=details.description
+)endSwitchSource
+```
+
+::: tip
+Notice that we do **not** need `$toReal` inside `switchSource` and `switchTarget`. Generic references are automatically resolved to their real entity type within the switch context.
+:::
+
+**Why this works:**
+- Outside the switch: `fromDoc` is a generic reference that needs `$toReal` to access actual data
+- Inside the switch: The system automatically resolves `fromDoc` to its real entity type
+- You can directly access collections and fields without the `$toReal` operator
+
+#### When to Use Each
+
+| Scenario | Syntax |
+|----------|--------|
+| Modify header field in referenced entity | `customer.n1="5"` |
+| Modify collection in referenced entity | `switchTarget=customer(lines.n1=n1)endSwitchTarget` |
+| Copy from collection in referenced entity | `switchSource=customer(details.n1=lines.n1)endSwitchSource` |
+
+#### Applicability
+
+These `switchTarget` and `switchSource` features work in:
+- **Entity Flows** (Business process automation)
+- **GUI Post Actions** (Field change handlers)
+
+::: warning
+Always remember to use `endSwitchTarget` and `endSwitchSource` to close the switch block. Missing these will cause syntax errors.
+:::
 
 ### Working with Newly Added Lines
 ```ini
