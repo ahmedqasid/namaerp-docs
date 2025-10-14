@@ -23,9 +23,10 @@ Manual execution for generating entity-specific documents like invoices, contrac
 1. **Reads template** - Loads Word document from entity flow attachment or specified field
 2. **Processes placeholders** - Finds and replaces template variables in format `@#fieldName#@`
 3. **Handles table loops** - Processes repeating sections for detail collections (invoiceLines, etc.)
-4. **Generates document** - Creates final Word document with populated data
-5. **Applies protection** - Optionally makes document read-only with password protection
-6. **Saves result** - Stores generated document in specified attachment field
+4. **Replaces image markers** - Inserts images from binary fields using `image(fieldName)` syntax
+5. **Generates document** - Creates final Word document with populated data
+6. **Applies protection** - Optionally makes document read-only with password protection
+7. **Saves result** - Stores generated document in specified attachment field
 
 ## Parameters
 
@@ -42,43 +43,29 @@ Manual execution for generating entity-specific documents like invoices, contrac
 ### Basic Field Replacement
 ```
 @#fieldName#@
-@#customer.name1#@  
+@#customer.name1#@
 @#valueDate#@
 @#moeny.netValue#@
 ```
 
-## Database Tables Affected
+### Image Insertion
+Insert images from binary/attachment fields into the document:
+```
+image(fieldName)
+image(customer.logo)
+image(productImage)
+```
 
-- **Entity Attachment Fields** - Reads template documents and saves generated documents
-- **All Entity Data** - Accesses entity fields and related data for template population
+The system will:
+- Extract the image data from the specified field (must be a LargeData/attachment field)
+- Replace the marker with the actual image in the document
+- Automatically detect image format (PNG, JPEG, GIF, BMP, TIFF)
+- Size the image to 100x100 EMU (default size)
 
-## Important Warnings
+::: tip Image Field Requirements
+The field referenced in `image(fieldName)` must be a binary/attachment field containing image data. Supported formats: PNG, JPEG, GIF, BMP, TIFF.
+:::
 
-### ⚠️ Template Document Requirements
-- Template must be valid Microsoft Word document (.docx format)
-- Template source can be entity flow attachment or specified field
-- Document must be accessible and readable
-- Large templates may cause memory issues during processing
-
-### ⚠️ Template Syntax Requirements
-- Field placeholders use `@#fieldName#@` format exactly
-- Field names are case-sensitive and must match entity structure
-- Invalid field references will appear as empty in output
-- Complex expressions follow Tempo rendering syntax
-
-
-### ⚠️ Document Protection and Security
-- Generated documents are read-only by default with random password
-- Read-only protection prevents unauthorized editing
-- Password is randomly generated and not stored
-- Use Parameter 3 to disable protection if editing is needed
-
-
-### ⚠️ File Handling and Storage
-- Generated documents replace existing content in target field
-- Original template document is not modified
-- File naming follows Parameter 4 template or uses original name
-- Large generated documents may exceed attachment size limits
 
 **Module:** core
 
