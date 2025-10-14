@@ -363,7 +363,7 @@ details.text1=fromDoc.$toReal.details.description
 
 # ✅ Correct way - $toReal is handled automatically
 switchSource=fromDoc(
-  details=details
+  details=[details]
   details.text1=details.description
 )endSwitchSource
 ```
