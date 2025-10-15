@@ -9,5 +9,6 @@ function replaceChars(str: string, replace: string[], replaceBy: string[]) {
 }
 
 export function normalizeArabic(arabic: string) {
-  return replaceChars(arabic, ARABIC_REPLACE___, ARABIC_REPLACE_BY);
+  // return replaceChars(arabic, ARABIC_REPLACE___, ARABIC_REPLACE_BY);
+  return arabic;
 }
