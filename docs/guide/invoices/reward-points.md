@@ -5,14 +5,14 @@
 ```
 Dear {customer.name2},
 Thanks for visiting {branch.name2}.
-You earned {$earnedPoints} points. Your current balance is {customer.$availableRewardPoints} points.
+You earned {$earnedPoints} points. Your current balance is {customer.$availableRewardPoints} points (SAR {customer.$availableRewardAmount}).
 Thanks for shopping with us!
 ```
 * Arabic Version
 ```
 عزيزي {customer.name1}،
 شكرًا لزيارتك فرع {branch.name1}.
-كسبت {$earnedPoints} نقطة جديدة، ورصيدك الآن {customer.$availableRewardPoints} نقطة.
+كسبت {$earnedPoints} نقطة جديدة، ورصيدك الآن {customer.$availableRewardPoints} نقطة ({customer.$availableRewardAmount} ريال سعودي).
 شكرًا لتسوقك معنا.
 ```
 
