@@ -2,7 +2,7 @@
   <div class="embeddable-search-box" :class="{ compact: compact, inline: inline, 'show-results': showResults, 'full-height': fullHeight }">
     <div class="search-box" role="search">
       <div class="search-controls">
-        <select 
+        <select
           v-if="!fixedSearchIndex && searchIndexClassNames && searchIndexClassNames.length > 1"
           v-model="currentSearchIndex"
           class="search-index-selector"
@@ -12,6 +12,14 @@
             {{ searchIndexTitles[indexName] || indexName }}
           </option>
         </select>
+        <label class="semantic-search-toggle" title="Enable AI-powered semantic search">
+          <input
+            type="checkbox"
+            :checked="useSemanticSearch"
+            @change="toggleSemanticSearch"
+          />
+          <span>AI Search</span>
+        </label>
         <input
             ref="input"
             v-model="query"
@@ -70,7 +78,7 @@ import {useRouteLocale} from "@vuepress/client";
 import type {LocaleConfig} from "@vuepress/shared";
 import {watch, onMounted, ref, computed, toRefs} from "vue";
 import {useRouter} from "vue-router";
-import {useSuggestions, useSearchIndexManager} from "./engine";
+import {useSuggestions, useSearchIndexManager, useSemanticSearchManager} from "./engine";
 
 type SearchBoxLocales = LocaleConfig<{
   placeholder: string;
@@ -104,6 +112,7 @@ const focusIndex = ref(-1);
 const resultsEl = ref<HTMLElement | null>(null);
 const suggestions = useSuggestions(query);
 const { currentSearchIndex, searchIndexClassNames, searchIndexTitles, setSearchIndex } = useSearchIndexManager();
+const { useSemanticSearch, toggleSemanticSearch } = useSemanticSearchManager();
 
 
 // Override search index if specified
@@ -300,6 +309,31 @@ function onIndexChange() {
 
 .search-index-selector:focus {
   border-color: var(--c-brand);
+}
+
+.semantic-search-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--c-text);
+  cursor: pointer;
+  user-select: none;
+}
+
+.semantic-search-toggle input[type="checkbox"] {
+  cursor: pointer;
+  accent-color: var(--c-brand);
+}
+
+.semantic-search-toggle span {
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+/* Dark mode support */
+:global(html.dark) .semantic-search-toggle span {
+  color: #fff;
 }
 
 .search-box input {

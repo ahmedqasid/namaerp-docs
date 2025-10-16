@@ -1,16 +1,6 @@
 <template>
   <div class="search-box" role="search">
     <div class="search-controls">
-      <select 
-        v-if="searchIndexClassNames && searchIndexClassNames.length > 1"
-        v-model="currentSearchIndex"
-        class="search-index-selector"
-        @change="onIndexChange"
-      >
-        <option v-for="indexName in searchIndexClassNames" :key="indexName" :value="indexName">
-          {{ searchIndexTitles[indexName] || indexName }}
-        </option>
-      </select>
       <input
           ref="input"
           v-model="query"
@@ -25,6 +15,44 @@
           @keyup.up="onUp"
           @keyup.down="onDown"
       />
+      <button
+        class="search-settings-button"
+        :class="{ active: showSettings }"
+        @click="showSettings = !showSettings"
+        title="Search settings"
+        aria-label="Search settings"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M12 1v6m0 6v6m5.66-13.66l-4.24 4.24m0 6l4.24 4.24M23 12h-6m-6 0H1m18.66 5.66l-4.24-4.24m0-6l4.24-4.24"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Settings Popup -->
+    <div v-if="showSettings" class="search-settings-popup">
+      <div class="settings-section" v-if="searchIndexClassNames && searchIndexClassNames.length > 1">
+        <label class="settings-label">Search Index:</label>
+        <select
+          v-model="currentSearchIndex"
+          class="search-index-selector"
+          @change="onIndexChange"
+        >
+          <option v-for="indexName in searchIndexClassNames" :key="indexName" :value="indexName">
+            {{ searchIndexTitles[indexName] || indexName }}
+          </option>
+        </select>
+      </div>
+      <div class="settings-section">
+        <label class="semantic-search-toggle">
+          <input
+            type="checkbox"
+            :checked="useSemanticSearch"
+            @change="toggleSemanticSearch"
+          />
+          <span>AI-Powered Semantic Search</span>
+        </label>
+      </div>
     </div>
     <ul v-if="activeSuggestion" class="suggestions" @mouseleave="unfocus" ref="el">
       <li
@@ -67,7 +95,7 @@ import type {LocaleConfig} from "@vuepress/shared";
 import {PropType, watch} from "vue";
 import {defineComponent, ref, computed, toRefs} from "vue";
 import {useRouter} from "vue-router";
-import {useSuggestions, useSearchIndexManager} from "./engine";
+import {useSuggestions, useSearchIndexManager, useSemanticSearchManager} from "./engine";
 
 type SearchBoxLocales = LocaleConfig<{
   placeholder: string;
@@ -133,9 +161,11 @@ export default defineComponent({
     const query = ref("");
     const focused = ref(false);
     const focusIndex = ref(-1);
+    const showSettings = ref(false);
     const el = ref<HTMLElement | null>(null);
     const suggestions = useSuggestions(query);
     const { currentSearchIndex, searchIndexClassNames, searchIndexTitles, setSearchIndex } = useSearchIndexManager();
+    const { useSemanticSearch, toggleSemanticSearch } = useSemanticSearchManager();
     watch(focusIndex, (newIndex) => {
       if (newIndex < 0)
         return;
@@ -214,6 +244,7 @@ export default defineComponent({
       query,
       focused,
       focusIndex,
+      showSettings,
       suggestions,
       activeSuggestion,
       onUp,
@@ -227,6 +258,8 @@ export default defineComponent({
       searchIndexClassNames,
       searchIndexTitles,
       onIndexChange,
+      useSemanticSearch,
+      toggleSemanticSearch,
     };
   },
 });
@@ -254,23 +287,107 @@ export default defineComponent({
 .search-controls {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.25rem;
+  position: relative;
+}
+
+.search-settings-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--search-border-color);
+  border-radius: 50%;
+  background: var(--search-bg-color);
+  color: var(--search-text-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+  padding: 0;
+}
+
+.search-settings-button:hover {
+  border-color: var(--search-accent-color);
+  color: var(--search-accent-color);
+}
+
+.search-settings-button.active {
+  background: var(--search-accent-color);
+  border-color: var(--search-accent-color);
+  color: var(--search-accent-text-color);
+}
+
+.search-settings-popup {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  background: var(--search-bg-color);
+  border: 1px solid var(--search-border-color);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  min-width: 250px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+}
+
+.settings-section {
+  margin-bottom: 0.75rem;
+}
+
+.settings-section:last-child {
+  margin-bottom: 0;
+}
+
+.settings-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--search-text-color);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .search-index-selector {
+  width: 100%;
   height: 2rem;
   color: var(--search-text-color);
   border: 1px solid var(--search-border-color);
   border-radius: 0.3rem;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   padding: 0 0.5rem;
   outline: none;
   background: var(--search-bg-color);
-  min-width: 80px;
 }
 
 .search-index-selector:focus {
   border-color: var(--search-accent-color);
+}
+
+.semantic-search-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--search-text-color);
+  cursor: pointer;
+  user-select: none;
+}
+
+.semantic-search-toggle input[type="checkbox"] {
+  cursor: pointer;
+  accent-color: var(--search-accent-color);
+}
+
+.semantic-search-toggle span {
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+/* Dark mode support */
+:global(html.dark) .semantic-search-toggle span {
+  color: #fff;
 }
 
 .search-box input {

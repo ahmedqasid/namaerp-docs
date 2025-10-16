@@ -51,6 +51,23 @@ const getInitialSearchIndex = () => {
 
 const currentSearchIndex = ref(getInitialSearchIndex());
 
+// Initialize semantic search preference with localStorage support
+const getInitialSemanticSearch = () => {
+  if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+    try {
+      const stored = localStorage.getItem('vuepress-use-semantic-search');
+      if (stored !== null) {
+        return stored === 'true';
+      }
+    } catch (e) {
+      // localStorage might be disabled, fall back to default
+    }
+  }
+  return true; // Default to semantic search enabled
+};
+
+const useSemanticSearch = ref(getInitialSemanticSearch());
+
 const pathToPage = computed(() => {
   const map = new Map<string, PageIndex>();
   const currentIndex = searchIndices.value[currentSearchIndex.value] || searchIndex.value;
@@ -83,15 +100,17 @@ export function useSuggestions(query: Ref<string>): Ref<Suggestion[]> {
   const suggestions = ref([] as Suggestion[]);
   let id: NodeJS.Timeout | null = null;
   let abortController: AbortController | null = null;
-  
-  watch([query, currentSearchIndex], () => {
+
+  watch([query, currentSearchIndex, useSemanticSearch], () => {
     if (id) {
       clearTimeout(id);
     }
     if (abortController) {
       abortController.abort();
     }
-    id = setTimeout(search, 100);
+    // Use longer debounce for semantic search (requires API call)
+    const debounceTime = useSemanticSearch.value ? 300 : 100;
+    id = setTimeout(search, debounceTime);
   });
   return suggestions;
 
@@ -102,14 +121,15 @@ export function useSuggestions(query: Ref<string>): Ref<Suggestion[]> {
       suggestions.value = [];
       return;
     }
-    
+
+    // For semantic search, use servlet
     try {
       // Cancel previous request if still pending
       if (abortController) {
         abortController.abort();
       }
       abortController = new AbortController();
-      
+
       // Determine the JSON index URL
       const baseUrl = window.location.origin;
       // Make request to servlet
@@ -121,7 +141,8 @@ export function useSuggestions(query: Ref<string>): Ref<Suggestion[]> {
         body: JSON.stringify({
           query: queryStr,
           indexUrl: baseUrl,
-          indexName: currentSearchIndex.value || 'default'
+          indexName: currentSearchIndex.value || 'default',
+          useSemantic: useSemanticSearch.value
         }),
         signal: abortController.signal
       });
@@ -224,6 +245,30 @@ export function useSearchIndexManager() {
       if (indexClassNames.includes(indexName)) {
         currentSearchIndex.value = indexName;
       }
+    }
+  };
+}
+
+/** Export semantic search management functions */
+export function useSemanticSearchManager() {
+  // Watch for changes and persist to localStorage
+  watch(useSemanticSearch, (newValue) => {
+    if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+      try {
+        localStorage.setItem('vuepress-use-semantic-search', String(newValue));
+      } catch (e) {
+        // localStorage might be disabled, ignore
+      }
+    }
+  });
+
+  return {
+    useSemanticSearch,
+    toggleSemanticSearch: () => {
+      useSemanticSearch.value = !useSemanticSearch.value;
+    },
+    setSemanticSearch: (enabled: boolean) => {
+      useSemanticSearch.value = enabled;
     }
   };
 }
