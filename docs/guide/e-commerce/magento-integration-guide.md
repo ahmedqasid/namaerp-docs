@@ -66,6 +66,9 @@ The integration module supports the following platforms:
 - **Zid**
 - **WooCommerce**
 
+### Shipping & Logistics Platforms
+- **OTO** - Logistics platform integration for inventory quantity synchronization
+
 ### Custom Platforms
 The module's flexible architecture allows integration with any custom e-commerce framework through configurable APIs and webhooks.
 
@@ -486,6 +489,13 @@ Gateway URL: [OAuth authorization URL]
 Authorization Code: [Platform authorization code]
 Zid Manager Token: [For Zid platform]
 Zid Store ID: [For Zid platform]
+```
+
+**For OTO Shipping Platform:**
+```
+Site Type: OTOUpdater
+Password: [API refresh token from OTO platform]
+Ecommerce Warehouse Lines: [Required - Map OTO location codes to Nama warehouses]
 ```
 
 #### Step 3: Synchronization Settings
@@ -1107,6 +1117,44 @@ Client Secret: [From Salla app]
 Redirect URL: [Your callback URL]
 ```
 
+#### OTO Platform Configuration
+
+**Platform Overview:**
+OTO (https://tryoto.com/) is a logistics and shipping platform that provides warehouse and inventory management services. The Nama ERP integration with OTO focuses exclusively on **inventory quantity synchronization** to OTO warehouses.
+
+**Integration Scope:**
+- **Supported**: Inventory quantity updates to OTO warehouse locations
+- **NOT Supported**: Product creation, price updates, order processing
+
+**Required Setup:**
+1. Obtain API refresh token from OTO platform dashboard
+2. Identify your OTO warehouse location codes
+3. Map OTO locations to Nama ERP warehouses
+
+**API Configuration:**
+```
+Site Type: OTOUpdater
+URL: https://api.tryoto.com/ (or your OTO instance URL)
+Password: [API refresh token from OTO platform]
+```
+
+**Warehouse Mapping (Required):**
+In the MAGMagentoSite configuration, you **must** configure the `ecommerceWarehouseLines` collection:
+
+
+**Quantity Synchronization Behavior:**
+- Updates are sent using the `createInventoryOrder` API endpoint
+- Action type is always "inbound" for quantity updates
+- Quantities are sent per warehouse location based on SKU
+- Each warehouse location is updated independently
+- Failed updates are tracked and can be retried
+
+**Limitations:**
+- Product information (name, description, price) cannot be synchronized
+- Orders cannot be imported or updated
+- Only supports inventory quantity updates
+- Requires products to already exist in OTO system
+
 ### C. Database Tables Reference
 
 #### Core Integration Tables
@@ -1353,9 +1401,10 @@ public static void throwsExceptionIfError(Map<String, Object> response, String i
 
 | Platform | Supported Versions | Nama ERP Version | API Type | Notes |
 |----------|-------------------|------------------|----------|-------|
-| Magento | 2.3.x, 2.4.x | 2023.1+ | REST API V1 | Full REST support |
-| Shopify | All current | 2023.1+ | GraphQL 2025-04 | Optimized SKU search, bulk operations |
-| Salla | Current | 2023.2+ | REST + OAuth 2.0 | Webhook support |
-| BigCommerce | V2, V3 API | 2023.1+ | REST API | V3 recommended |
-| WooCommerce | 5.x, 6.x, 7.x | 2023.1+ | REST API v3 | WordPress 5.8+ |
-| Zid | Current | 2023.3+ | Custom API | Manager token required |
+| Magento | 2.3.x, 2.4.x | 2023.1+          | REST API V1 | Full REST support |
+| Shopify | All current | 2023.1+          | GraphQL 2025-04 | Optimized SKU search, bulk operations |
+| Salla | Current | 2023.2+          | REST + OAuth 2.0 | Webhook support |
+| BigCommerce | V2, V3 API | 2023.1+          | REST API | V3 recommended |
+| WooCommerce | 5.x, 6.x, 7.x | 2023.1+          | REST API v3 | WordPress 5.8+ |
+| Zid | Current | 2023.3+          | Custom API | Manager token required |
+| OTO | Current | 2025.10+         | REST API v2 | Inventory sync only, refresh token auth |
