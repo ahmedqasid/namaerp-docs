@@ -37,6 +37,39 @@ isApproved=true          # Set boolean value
 discount=null            # Clear the field
 ```
 
+### Downloading Files from URLs (Attachments)
+For attachment fields (LargeData type), you can provide a URL and the system will automatically download the file:
+
+```ini
+# Direct URL - downloads and stores the file
+attachment="https://example.com/files/sample.pdf"
+
+# URL from another field
+attachment2=productImageURL
+
+# Download contract document from customer website
+contractFile=customer.contractDocumentURL
+
+# Download image from product catalog
+productImage=item.imageURL
+```
+
+::: tip How URL Download Works
+When you set an attachment field to a URL (any string containing `://`), the system:
+1. Detects it's a URL and initiates an HTTP GET request
+2. Downloads the file content from the URL
+3. Extracts the filename from the `Content-Disposition` header or URL path
+4. Stores the file data in the LargeData field
+5. If the field already has an attachment, it updates it instead of creating a new one
+:::
+
+::: warning URL Requirements
+- URLs must be accessible via HTTP/HTTPS
+- No authentication is performed (URL must be publicly accessible or include auth tokens in the URL)
+- Failed downloads are logged but won't stop the field map execution
+- Large files may impact performance - use cautiously
+:::
+
 ### Special References
 ```ini
 ref5=$this               # Set ref5 to reference the source entity itself
