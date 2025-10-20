@@ -63,7 +63,7 @@ const getInitialSemanticSearch = () => {
       // localStorage might be disabled, fall back to default
     }
   }
-  return true; // Default to semantic search enabled
+  return false; // Default to semantic search enabled
 };
 
 const useSemanticSearch = ref(getInitialSemanticSearch());
