@@ -66,6 +66,7 @@
     - [EARegenAccFromQuery](/entity-flows/core/EARegenAccFromQuery.md)
     - [EAReviseUnReviseFromQuery](/entity-flows/core/EAReviseUnReviseFromQuery.md)
     - [EARevokeApproval](/entity-flows/core/EARevokeApproval.md)
+    - [EARunBulkMassagesFromQuery](/entity-flows/core/EARunBulkMassagesFromQuery.md)
     - [EARunEntityFlow](/entity-flows/core/EARunEntityFlow.md)
     - [EARunEntityFlowFromQuery](/entity-flows/core/EARunEntityFlowFromQuery.md)
     - [EARunManualNotification](/entity-flows/core/EARunManualNotification.md)
