@@ -992,11 +992,73 @@ Common replacements when updating old reports:
 
 ## Advanced Features Reference
 
+### Audit Trail (Version History)
+
+The audit trail feature allows you to display detailed change history for any entity record in reports. This is useful for compliance, tracking modifications, and understanding how data evolved over time.
+
+#### Basic Audit Trail Function
+
+```groovy
+NamaRep.audit(entityType, id, versionNumber, actionType, language, outputFormat)
+```
+
+**Parameters:**
+- `entityType` - The entity type (e.g., "SalesInvoice", "Customer")
+- `id` - The record ID
+- `versionNumber` - The version number to compare (usually current version)
+- `actionType` - The action type (typically "Update")
+- `language` - Output language: `"arabic"` or `"english"`
+- `outputFormat` - Format type: `"html"` or `"text"`
+
+**Example - Display audit trail in Arabic HTML:**
+```groovy
+NamaRep.audit($F{entityType}, $F{id}, $F{versionNumber}, "Update", "arabic", "html")
+```
+
+**Example - Display audit trail in English text:**
+```groovy
+NamaRep.audit("Customer", $F{customerId}, $F{currentVersion}, "Update", "english", "text")
+```
+
+#### What the Audit Trail Shows
+
+The audit trail displays:
+- **Header Changes**: Field modifications in the main record
+  - Field name
+  - Old value
+  - New value
+- **Detail Line Changes**: Changes to collection items (e.g., invoice lines)
+  - Lines added
+  - Lines removed
+  - Lines modified
+- **Modification Info**:
+  - Who made the change
+  - When the change was made
+
+#### Output Formats
+
+**HTML Format:**
+- Produces formatted HTML tables with CSS styling
+- Includes headers and organized sections
+- Ideal for embedded display in reports and emails
+
+**Text Format:**
+- Plain text output with indentation
+- Line-by-line change description
+- Suitable for SMS, plain text emails, or simple displays
+
+#### Language Options
+
+- **Arabic**: All labels and field names in Arabic
+- **English**: All labels and field names in English
+
+
+### Other Advanced Features
+
 For additional advanced features, consult the development team:
 
 - Group Expressions: `NamaRep.groupExpression(field1, field2, field3)`
 - Order By Builder for complex sorting
-- Audit Trail: `NamaRep.audit(entityType, id, versionNumber, actionType)`
 - Encryption/Decryption utilities
 - Values Holder for complex operations
 - Report References with custom ordering

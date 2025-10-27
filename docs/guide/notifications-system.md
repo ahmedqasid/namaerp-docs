@@ -126,6 +126,17 @@ Display repeated information like document lines:
 {closetable}
 ```
 
+### Change History (Audit Trail)
+Include detailed change information in notifications (for update notifications):
+```tempo
+{changesAsHtmlAr}  {comment}Changes in HTML format (Arabic){endcomment}
+{changesAsHtmlEn}  {comment}Changes in HTML format (English){endcomment}
+{changesAsTextAr}  {comment}Changes in plain text (Arabic){endcomment}
+{changesAsTextEn}  {comment}Changes in plain text (English){endcomment}
+```
+
+See the [Tempo documentation](./tempo.md#audit-trail-change-history) for detailed examples and usage.
+
 ## Notification Channels in Detail
 
 ### In-App Notifications
@@ -157,6 +168,153 @@ Display repeated information like document lines:
 - Support for interactive buttons and quick replies
 
 ## Advanced Features
+
+### Change History in Notifications
+
+One of the most powerful features of the notification system is the ability to automatically include detailed change history in notifications. This is particularly useful for:
+- **Update notifications**: Show what changed when a record is modified
+- **Approval workflows**: Display changes that need approval
+- **Audit trails**: Track modifications for compliance
+- **User awareness**: Keep teams informed about changes
+
+#### Using Change History Fields
+
+Every entity in Nama ERP provides four built-in fields for displaying change history:
+
+| Field | Format | Language | Use Case |
+|-------|--------|----------|----------|
+| `{$changesAsHtmlAr}` | HTML | Arabic | Rich email notifications in Arabic |
+| `{$changesAsHtmlEn}` | HTML | English | Rich email notifications in English |
+| `{$changesAsTextAr}` | Plain Text | Arabic | SMS messages, simple notifications in Arabic |
+| `{$changesAsTextEn}` | Plain Text | English | SMS messages, simple notifications in English |
+
+#### Example: Update Notification with Changes
+
+**Notification Template for Document Updates:**
+```tempo
+{subject}تحديث: {entityType.$arabic} رقم {code}{endsubject}
+
+<div style="font-family: Arial, sans-serif;">
+  <h2>تم تعديل {entityType.$arabic} رقم {code}</h2>
+
+  <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px;">
+    <h3>التغييرات التي تم إجراؤها:</h3>
+    {$changesAsHtmlAr}
+  </div>
+
+  <p><strong>تم التعديل بواسطة:</strong> {$user.name1}</p>
+  <p><strong>تاريخ ووقت التعديل:</strong> {$now}</p>
+
+  <a href="{link($this)}" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
+    عرض المستند
+  </a>
+</div>
+```
+
+#### Example: Approval Request with Change Summary
+
+**Template for Approval Notifications:**
+```tempo
+{subject}طلب اعتماد {entityType.$arabic}: {code}{endsubject}
+
+<h2>السيد المحترم {currentApprovalCase.lastStep.actualResponsible.name1}</h2>
+
+<p>يرجى مراجعة واعتماد {entityType.$arabic} التالي:</p>
+
+<div style="border: 1px solid #ddd; padding: 10px; margin: 10px 0;">
+  <strong>رقم المستند:</strong> {code}<br/>
+  <strong>التاريخ:</strong> {valueDate}<br/>
+  <strong>القيمة:</strong> {money.total}
+</div>
+
+<div style="background-color: #fff3cd; padding: 15px; border-left: 4px solid #ffc107;">
+  <h3>التغييرات المطلوب اعتمادها:</h3>
+  {$changesAsHtmlAr}
+</div>
+
+<div style="margin-top: 20px;">
+  {approvelink} | {rejectlink} | {returnlink}
+</div>
+```
+
+#### Example: Multi-Language Change Notification
+
+**Template Supporting Both Arabic and English:**
+```tempo
+{subject}Document Update / تحديث المستند: {code}{endsubject}
+
+<div style="direction: rtl; text-align: right; margin-bottom: 30px;">
+  <h2>تحديث المستند رقم {code}</h2>
+  <h3>التغييرات:</h3>
+  {$changesAsHtmlAr}
+</div>
+
+<hr style="margin: 30px 0;"/>
+
+<div style="direction: ltr; text-align: left;">
+  <h2>Document {code} Updated</h2>
+  <h3>Changes:</h3>
+  {$changesAsHtmlEn}
+</div>
+
+<p style="text-align: center; margin-top: 30px;">
+  <a href="{link($this)}">View Document / عرض المستند</a>
+</p>
+```
+
+#### Example: SMS Notification with Text Changes
+
+**Template for SMS Notifications:**
+```tempo
+تحديث: {code}
+{$changesAsTextAr}
+للعرض: {link($this, plainLink=true)}
+```
+
+#### What Information is Displayed
+
+The change history automatically includes:
+
+1. **Header Field Changes**
+   - Field name (translated to selected language)
+   - Previous value
+   - New value
+
+2. **Detail Line Changes**
+   - Added lines with all field values
+   - Removed lines with all field values
+   - Modified lines showing only changed fields
+
+3. **Change Metadata**
+   - User who made the change
+   - Date and time of modification
+
+#### Best Practices
+
+::: tip Choosing the Right Format
+- **Use HTML format** for email notifications where you want formatted tables and styling
+- **Use text format** for SMS messages, plain text emails, or when you need simple output
+- **Choose language** based on your notification target's preferred language
+- Consider providing **both languages** for international teams
+:::
+
+::: warning Performance Considerations
+Change history is calculated dynamically when the notification is sent. For notifications with many recipients, this is optimized to calculate once and reuse the result.
+:::
+
+::: tip Conditional Display
+You can check if there are changes before displaying them:
+```tempo
+{if($changesAsTextAr)}
+  <div class="changes-section">
+    <h3>التغييرات</h3>
+    {$changesAsHtmlAr}
+  </div>
+{else}
+  <p>لا توجد تغييرات مسجلة</p>
+{endif}
+```
+:::
 
 ### Multi-Message Support
 A single notification template can generate multiple messages:

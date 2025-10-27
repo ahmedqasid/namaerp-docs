@@ -1728,6 +1728,26 @@ Use the `itempurchaseprice` function:
 
 ## Utility Fields for Templates, Notifications, and Entity Flows
 
+### Audit Trail (Change History)
+
+Every entity in Nama ERP has built-in audit trail fields that show what changed in the record. These are particularly useful for notifications, emails, and approval workflows.
+
+#### Available Audit Trail Fields
+
+* `{$changesAsHtmlAr}` - Changes in HTML format (Arabic)
+* `{$changesAsHtmlEn}` - Changes in HTML format (English)
+* `{$changesAsTextAr}` - Changes in plain text format (Arabic)
+* `{$changesAsTextEn}` - Changes in plain text format (English)
+
+::: tip Understanding the Changes
+These fields show the differences between the current version and the previous version of the record. They display:
+- Modified header fields (old value → new value)
+- Added detail lines
+- Removed detail lines
+- Modified detail line fields
+:::
+---
+
 ### Discussions
 
 * `discussions`: All related discussions
@@ -1738,7 +1758,7 @@ Use the `itempurchaseprice` function:
 **Example:**
 
 ```tempo
-The last added discussion was {lastDiscussion.discussion} at {lastDiscussion.onTime} by {link(lastDiscussion.user)}.  
+The last added discussion was {lastDiscussion.discussion} at {lastDiscussion.onTime} by {link(lastDiscussion.user)}.
 Ref1 code: {lastDiscussion.ref1.code}
 ```
 
