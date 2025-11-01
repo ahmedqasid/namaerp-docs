@@ -39,6 +39,8 @@ heroImage: hero.svg
     - [Supply Chain](/guide/supplychain/)
       - [دليل استعمال النقاط الفنية في نقاط البيع](/guide/supplychain/nama-pos.md)
       - [Comprehensive Reservation System Guide (دليل نظام الحجوزات الشامل)](/guide/supplychain/reservation-system-guide.md)
+    - [Manufacturing](/guide/manufacturing/)
+      - [Material Requirements Planning (MRP) - User Guide](/guide/manufacturing/material-requirements-planning.md)
     - [Tempo Language Manual](/guide/tempo.md)
     - [Sending Invoices and Documents to Customers](/guide/invoice-retriever.md)
     - [SMS and WhatsApp Configuration in Nama ERP](/guide/sms-and-whatsapp.md)
