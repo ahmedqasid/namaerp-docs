@@ -38,7 +38,7 @@ export const SIDEBAR_CONFIG = {
     children: [ "/full-search.md", {
       text: "Guides",
       collapsible: true,
-      children: [ "/guide/docs-quick-guide.md", "/guide/utils.md", "/guide/system-minimum-requirements.md", "/guide/installation-guide.md", "/guide/reports-guide.md", "/guide/shortcuts.md", "/guide/screen-modifier.md", "/guide/list-views/", "/guide/approvals-system.md", "/guide/entity-flows/", "/guide/report-wizard-guide.md", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/tempo.md", "/guide/invoice-retriever.md", "/guide/sms-and-whatsapp.md", "/guide/two-factor-authentication.md", "/guide/field-filter-with-criteria.md", "/guide/translations.md", "/guide/criteria-based-validation.md", "/guide/attendance-machine-formula.md", "/guide/attendance-machines-integration.md", "/guide/notifications-system.md", "/guide/scheduled-tasks.md", "/guide/nama-properties.md", "/guide/mobile-application-guide.md", "/guide/mobile-qr-integrator.md", "/guide/GenericReferenceOverrider_UserGuide.md", "/guide/ReportWizard_User_Documentation.md", "/guide/oracle-jdbc-connection.md", "/guide/nama-erp-api.md", "/guide/text-criteria-guide.md", "/guide/dev-request-guidelines.md", "/guide/e-commerce/", {
+      children: [ "/guide/docs-quick-guide.md", "/guide/utils.md", "/guide/system-minimum-requirements.md", "/guide/installation-guide.md", "/guide/troubleshooting-system-hanging.md", "/guide/reports-guide.md", "/guide/shortcuts.md", "/guide/screen-modifier.md", "/guide/list-views/", "/guide/approvals-system.md", "/guide/entity-flows/", "/guide/report-wizard-guide.md", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/tempo.md", "/guide/invoice-retriever.md", "/guide/sms-and-whatsapp.md", "/guide/two-factor-authentication.md", "/guide/field-filter-with-criteria.md", "/guide/translations.md", "/guide/criteria-based-validation.md", "/guide/attendance-machine-formula.md", "/guide/attendance-machines-integration.md", "/guide/notifications-system.md", "/guide/scheduled-tasks.md", "/guide/nama-properties.md", "/guide/mobile-application-guide.md", "/guide/mobile-qr-integrator.md", "/guide/GenericReferenceOverrider_UserGuide.md", "/guide/ReportWizard_User_Documentation.md", "/guide/oracle-jdbc-connection.md", "/guide/nama-erp-api.md", "/guide/text-criteria-guide.md", "/guide/dev-request-guidelines.md", "/guide/e-commerce/", {
         text: ".",
         "link" : "/guide/"
       } ]
@@ -234,7 +234,7 @@ export const SIDEBAR_CONFIG = {
       children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", {
         text: "Manufacturing",
         collapsible: true,
-        children: [ "/guide/manufacturing/material-requirements-planning.md", {
+        children: [ "/guide/manufacturing/manufacturing-overview.md", "/guide/manufacturing/production-orders.md", "/guide/manufacturing/production-execution.md", "/guide/manufacturing/production-costing.md", "/guide/manufacturing/material-requirements-planning.md", {
           text: ".",
           "link" : "/guide/manufacturing/"
         } ]
