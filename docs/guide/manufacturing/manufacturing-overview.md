@@ -1,350 +1,221 @@
 # Manufacturing Module Overview
 
-## Introduction
+## What Manufacturing is All About
 
-The Manufacturing module in Nama ERP is a comprehensive production planning and execution system designed to manage the entire manufacturing lifecycle. This module enables businesses to efficiently plan production, track work-in-process inventory, consume raw materials, record production activities, and deliver finished goods.
+Think about how products get made in the real world. You start with raw materials - maybe steel sheets, plastic pellets, or fabric rolls - and through a series of steps, you transform them into finished products that customers want to buy. That transformation process is what manufacturing is all about, and Nama ERP's Manufacturing module is designed to help you manage every aspect of it.
 
-Manufacturing is the process of converting raw materials into finished products through a series of operations. Modern manufacturing systems must handle complex scenarios including:
+The challenge with manufacturing isn't just about making things. It's about knowing what materials you need, when you need them, who's going to do the work, how long it will take, and most importantly - how much it's all going to cost. You need to track work as it moves through your factory, handle quality issues when they come up, and make sure that when production is done, your inventory and costs are accurately recorded.
 
-- Multi-level Bills of Materials (BOM)
-- Routing and operation sequencing
-- Resource allocation and capacity planning
-- Work-in-process tracking
-- Quality control integration
-- Cost accounting for production activities
+Nama ERP handles all of this complexity. Whether you're making simple products or complex assemblies with hundreds of components, the system gives you the tools to plan, execute, and track your manufacturing operations from start to finish.
 
-Nama ERP's Manufacturing module provides enterprise-level capabilities to manage these requirements effectively.
+## The Building Blocks: What You Need to Set Up
 
-## Core Manufacturing Concepts
+Before you can start making anything, you need to teach the system how your products are made. This is where the master data comes in - think of it as the instruction manual for your factory.
 
-### 1. Bill of Materials (BOM)
+### Bill of Materials (BOM) - The Recipe
 
-A **Bill of Materials** (مكونات منتج) is a structured list of all raw materials, components, and sub-assemblies required to manufacture a finished product. The BOM defines:
+A **Bill of Materials** (مكونات منتج) is like a recipe for your product. Just as a recipe tells you "to make a cake, you need flour, eggs, sugar, and butter," a BOM tells you "to make this widget, you need these parts and materials."
 
-- **Parent Item**: The finished product being manufactured
-- **Component Items**: Raw materials and sub-assemblies required
-- **Quantities**: How much of each component is needed
-- **Yield and Scrap**: Expected losses during production
-- **Component Classification**: Material types and usage patterns
+Here's what makes BOMs powerful in Nama ERP: they're not just simple lists. You can have multi-level BOMs where a finished product is made from sub-assemblies, and those sub-assemblies are made from components. Think of it like building a car - the car is made from a chassis, engine, and body. The engine itself is made from pistons, cylinders, and a crankshaft. The system handles all these levels automatically.
 
-In Nama ERP, BOMs support:
-- Multi-level structures (assemblies containing sub-assemblies)
-- Alternative materials and substitutions
-- Date-effective BOMs
-- Revision control
-- Co-products and by-products
+BOMs also account for the messy reality of manufacturing. Maybe you expect to scrap 5% of your material during production - you can build that into the BOM. Maybe you have substitute materials you can use when the preferred one isn't available - the BOM can handle that too. You can even track by-products - things you produce as a side effect of making the main product.
 
-### 2. Routing
+### Routing - The Instructions
 
-A **Routing** (عملية تشغيل) defines the sequence of manufacturing operations required to produce an item. Each routing specifies:
+While the BOM tells you *what* materials you need, the **Routing** (عملية تشغيل) tells you *how* to make the product - the actual manufacturing steps.
 
-- **Operations**: Sequential steps in the production process
-- **Work Centers**: Where each operation is performed
-- **Resources**: Labor, machines, and tools required
-- **Standard Times**: Setup time, run time, and operation duration
-- **Quality Control**: Inspection points and quality checklists
+Imagine you're making furniture. Your routing might say:
+1. Cut the wood pieces (Operation 10)
+2. Sand the pieces (Operation 20)
+3. Apply stain (Operation 30)
+4. Assemble the pieces (Operation 40)
+5. Final inspection and packaging (Operation 50)
 
-Routings enable:
-- Operation sequencing and scheduling
-- Capacity planning
-- Cost estimation
-- Production tracking by operation
+For each operation, you specify where it happens (which work center), how long it should take, what resources (people or machines) are needed, and any quality checks that need to be done. This becomes your production roadmap.
 
-### 3. Standard Operations
+### Work Centers - Where the Magic Happens
 
-**Standard Operations** (عملية قياسية) are predefined manufacturing tasks that can be reused across multiple routings. They define:
+A **Work Center** (صالة إنتاج) represents a physical location in your factory where work gets done. It could be a cutting machine, an assembly station, a paint booth, or a packaging area.
 
-- Operation description and instructions
-- Standard resource requirements
-- Quality control procedures
-- Default time estimates
+Work centers are important because they help you understand capacity. If your cutting machine can only process 100 pieces per day, and you have orders for 150 pieces, you have a problem. The system helps you spot these bottlenecks before they become crises.
 
-This promotes consistency and reduces setup time when creating routings.
+### Standard Operations - Templates for Common Tasks
 
-### 4. Work Centers
+If you find yourself defining the same operation over and over - say, "Final Quality Inspection" - you can create a **Standard Operation** (عملية قياسية) as a template. Then, whenever you need that operation in a routing, you just reference the template instead of entering all the details again. It's a time-saver and ensures consistency.
 
-**Work Centers** (صالة إنتاج) represent physical or logical production areas where manufacturing operations are performed. Work centers define:
+## How Manufacturing Actually Flows
 
-- Production capacity
-- Available resources
-- Cost centers for accounting
-- Operating calendars and shifts
+Let's walk through a typical manufacturing process to see how everything connects.
 
-Work centers are essential for:
-- Capacity planning
-- Production scheduling
-- Cost allocation
-- Performance tracking
+### It Starts with a Production Order
 
-### 5. Production Orders
+When you need to make something, you create a **Production Order** (أمر إنتاج). This is your formal instruction to the factory: "Make 1000 units of product XYZ, starting next Monday."
 
-A **Production Order** (أمر إنتاج) is a formal authorization to manufacture a specific quantity of an item. It contains:
+When you select the product, the system looks up its BOM and Routing. It automatically copies all the component materials and operation steps into the production order, calculating quantities based on how many units you want to make. If your BOM says you need 2 screws per widget and you're making 1000 widgets, the system calculates that you need 2000 screws.
 
-- **Finished Product**: Item to be manufactured
-- **Quantity**: Amount to produce
-- **BOM**: Components to consume
-- **Routing**: Operations to perform
-- **Schedule**: Start and completion dates
-- **Status**: Initial, In Progress, Completed, Closed
+At this point, the order is just a plan. You can review it, adjust quantities, change dates, even swap in substitute materials if needed. Once you're happy with it, you "start" the order, which locks down the structure and tells the factory floor that production is approved.
 
-Production orders drive the entire manufacturing execution process.
+### Getting Materials Ready
 
-### 6. Production Execution
+Before production can begin, you need to get the raw materials to the shop floor. The system can help you identify which lots to use (especially important if you're tracking batches), and you can create Material Issues (صرف مواد خام) to withdraw components from your warehouse and allocate them to the production order.
 
-**Production Execution** (تنفيذ إنتاج) records actual manufacturing activities as they occur on the shop floor. It tracks:
+Some companies prefer to issue materials upfront. Others wait until each operation actually needs them. Nama ERP handles both approaches - you configure it based on how your factory works.
 
-- **Quantity Movement**: Items moving between operations
-- **Operation Progress**: Work performed at each step
-- **Time Tracking**: Labor and machine hours consumed
-- **Material Consumption**: Raw materials issued to production
-- **Quality Results**: Accepted, rejected, and scrap quantities
+### Production Execution - Where Real Work Happens
 
-Production execution provides real-time visibility into work-in-process.
+Now we get to the heart of manufacturing: actual production. As workers complete operations on the shop floor, they record their progress using **Production Execution** (تنفيذ إنتاج) documents.
 
-### 7. Material Issues and Deliveries
+Here's where it gets interesting. In manufacturing, products don't just smoothly flow from operation 1 to operation 2 to operation 3. Reality is messier. Sometimes:
+- Products move forward successfully (the normal case)
+- Quality inspection finds problems, and items need to go back for rework
+- Some pieces are scrapped because they're beyond repair
+- You might take samples for testing
 
-Manufacturing involves inventory movements:
+Nama ERP handles all these scenarios with "operation steps." Each operation can have quantities in different states:
+- **ToMove** (للنقل): Ready to move to the next operation - the normal work-in-process
+- **Rejected** (مرفوض): Failed quality check, needs rework
+- **Scrap** (تالف): Defective, can't be fixed
+- **Sample** (عينة): Taken for quality testing
 
-- **Raw Material Issue** (صرف مواد خام): Withdrawing components from inventory for production
-- **Product Delivery** (تسليم منتج): Receiving finished goods into inventory
+When you record a production execution, you're essentially saying "I moved X units from Operation 10-ToMove to Operation 20-ToMove" or "I found defects, moving Y units from Operation 30-ToMove to Operation 30-Rejected."
 
-These transactions integrate with inventory management and cost accounting.
+The system tracks all this in real-time, so you always know exactly where every unit is in your production process. You know how many units are at each operation, how many passed inspection, how many failed, how much scrap you've generated - everything.
 
-### 8. Manufacturing Overheads
+### Automatic Document Generation
 
-**Manufacturing Overheads** (التكاليف الغير مباشرة) are indirect costs that cannot be directly traced to specific products but must be allocated to production. These include:
+Here's where Nama ERP really shines: it can automatically create supporting documents based on what's happening in production.
 
-- **Facility Costs**: Rent, utilities, maintenance
-- **Indirect Labor**: Supervisors, quality inspectors, material handlers
-- **Depreciation**: Manufacturing equipment and facilities
-- **Supplies**: Cleaning materials, lubricants, consumables
-- **Other Costs**: Insurance, taxes, indirect materials
+When you record a production execution moving items through operations, the system can automatically:
+- Issue the raw materials needed for those operations
+- Create resource vouchers tracking labor and machine hours
+- Generate quality control documents if inspections are required
+- Deliver finished goods to inventory when the last operation completes
 
-#### Overhead Types
+You configure what gets generated automatically versus what you want to do manually. The flexibility is there for your specific process.
 
-An **Overhead Type** (التكاليف الغير مباشرة) defines a template for allocating indirect costs to production orders. It contains:
+### Wrapping Up: Closing the Order
 
-- **Overhead Elements**: Named cost components (e.g., "Factory Rent", "Utilities", "Indirect Labor")
-- **Calculation Methods**: Fixed amount, percentage, or quantity-based
-- **Allocation Bases**: How costs are distributed (per unit, per batch, per hour)
-- **Accounting Accounts**: GL accounts for cost allocation
+Eventually, production is complete. All your finished goods have been delivered to inventory. Now it's time to close the production order and finalize the costs.
 
-#### Actual Overhead Calculator
+This is where the **Order Close Voucher** (إغلاق أمر إنتاج) comes in. When you close an order, Nama ERP:
 
-The **Actual Overhead Calculator** (طريقة حساب فعلي للمصاريف الغير مباشرة) determines actual overhead costs from accounting data:
+1. **Adds up all the actual costs** - everything you spent on materials, labor, machine time, and other resources
+2. **Applies overhead costs** - those indirect costs like factory rent, utilities, and supervisors' salaries that can't be tied to a specific product but still need to be allocated
+3. **Compares to standard costs** - if you have standard costs set up, it shows you the variances (where you spent more or less than expected)
+4. **Updates inventory values** - your finished goods get valued based on the actual costs of production
+5. **Locks the order** - once closed, the order can't be modified, ensuring your historical records stay intact
 
-- **Automated Calculation**: Query actual expenses from GL accounts
-- **Criteria-Based**: Filter transactions by date, account, subsidiary, dimensions
-- **Overhead Mapping**: Match accounting data to overhead elements
-- **Actual vs. Standard**: Compare actual costs to standard overhead rates
+If for some reason you need to cancel an order that wasn't completed, you can terminate it instead of doing a normal close. The system writes off the work-in-process and handles the accounting appropriately.
 
-### 9. Production Order Closing
+## Understanding Costs in Manufacturing
 
-**Order Close Voucher** (إغلاق أمر إنتاج) finalizes a production order and performs cost accounting:
-
-- **Cost Calculation**: Compute total actual production costs
-- **Overhead Allocation**: Apply indirect costs to the order
-- **Variance Analysis**: Compare actual vs. standard costs
-- **Inventory Valuation**: Update finished goods cost
-- **Order Completion**: Change order status to Closed or Terminated
-- **Accounting Effects**: Generate journal entries for cost variances
-
-Closing types:
-- **Normal Close**: Production completed successfully
-- **Terminate**: Cancel order without completion
-
-## Manufacturing Process Flow
-
-The typical manufacturing lifecycle in Nama ERP follows these stages:
-
-```
-1. Master Data Setup
-   ├─ Create Items (raw materials, components, finished goods)
-   ├─ Define BOMs (component structures)
-   ├─ Create Routings (operation sequences)
-   └─ Setup Work Centers (production areas)
-
-2. Production Planning
-   ├─ Generate Production Orders (from MRP or manual)
-   ├─ Review component requirements
-   ├─ Check capacity and resources
-   └─ Schedule production dates
-
-3. Material Preparation
-   ├─ Reserve components
-   ├─ Issue raw materials to shop floor
-   └─ Stage components at work centers
-
-4. Production Execution
-   ├─ Start production order
-   ├─ Record work at each operation
-   ├─ Track quantities and time
-   ├─ Handle scrap and rework
-   └─ Perform quality inspections
-
-5. Completion and Delivery
-   ├─ Complete final operation
-   ├─ Deliver finished products to inventory
-   ├─ Handle co-products and by-products
-   └─ Close production order
-
-6. Costing and Analysis
-   ├─ Calculate actual production costs
-   ├─ Allocate manufacturing overheads
-   ├─ Compare actual vs. standard costs
-   ├─ Analyze material and resource variances
-   ├─ Close production order
-   └─ Update inventory values
-```
-
-## Nama ERP Manufacturing Architecture
-
-### Entity Classification
-
-Nama ERP organizes manufacturing entities into two categories:
-
-#### Master Files (البطاقات)
-- **BOM** (مكونات منتج) - Bill of Materials definitions
-- **Routing** (عملية تشغيل) - Operation sequences
-- **StandardOperation** (عملية قياسية) - Reusable operation templates
-- **WorkCenter** (صالة إنتاج) - Production areas
-- **OverheadType** (التكاليف الغير مباشرة) - Overhead cost templates
-- **ActualOverheadCalculator** (طريقة حساب فعلي للمصاريف الغير مباشرة) - Actual overhead calculation methods
-
-Master files are reference data that define how products are manufactured.
-
-#### Document Files (المستندات)
-- **ProductionOrder** (أمر إنتاج) - Manufacturing work orders
-- **ProductionExecution** (تنفيذ إنتاج) - Shop floor activity recording
-- **ProductDelivery** (تسليم منتج) - Finished goods receipts
-- **RawMaterialIssue** (صرف مواد خام) - Component withdrawals
-- **OrderCloseVoucher** (إغلاق أمر إنتاج) - Production order closing and cost finalization
-
-Document files represent transactional data and manufacturing events.
-
-### Key Relationships
-
-```
-InvItem (Finished Product)
-    │
-    ├──> BOM (Component List)
-    │     └──> BOM Details (Material Lines)
-    │           └──> InvItem (Components)
-    │
-    └──> Routing (Operation Sequence)
-          └──> Routing Details (Operation Lines)
-                ├──> StandardOperation
-                ├──> WorkCenter
-                └──> Resources
-
-ProductionOrder
-    ├──> InvItem (Product to manufacture)
-    ├──> BOM (Components to use)
-    ├──> Routing (Operations to perform)
-    ├──> Components Collection (Order BOM Lines)
-    ├──> Routings Collection (Order Operation Lines)
-    ├──> Resources Collection (Labor/Machine Lines)
-    └──> Co-Products Collection (By-products)
-
-ProductionExecution
-    ├──> ProductionOrder (One or more orders)
-    └──> Execution Details (Lines per order)
-          ├──> From Operation & Step
-          ├──> To Operation & Step
-          ├──> Quantities moved
-          └──> Time and resources used
-```
-
-## Integration Points
-
-The Manufacturing module integrates with:
-
-### Inventory Management
-- Item master data
-- Warehouse and location management
-- Lot and serial number tracking
-- Inventory transactions and balances
-
-### Supply Chain
-- Purchase requisitions for components
-- Inventory reservations
-- Quality control integration
-
-### Cost Accounting
-- Standard costing setup
-- Actual cost collection
-- Manufacturing overhead allocation
-- Variance analysis (material, resource, overhead)
-- Work-in-process valuation
-- Cost per batch/lot tracking
-- Deviation reporting
-
-### Material Requirements Planning (MRP)
-- Demand calculation
-- Production order generation
-- Component requirement explosion
-- Capacity planning
-
-## Navigation
-
-Access manufacturing functions through the main menu:
-
-**Arabic**: التصنيع > المستندات
-**English**: Manufacturing > Documents
-
-Key screens:
-- Production Order (أمر إنتاج): Manufacturing > Documents > Production Order
-- Production Execution (تنفيذ إنتاج): Manufacturing > Documents > Production Execution
-- BOM (مكونات منتج): Manufacturing > Master Files > Bill of Materials
-- Routing (عملية تشغيل): Manufacturing > Master Files > Routing
-
-## Next Steps
-
-For detailed information on specific manufacturing processes:
-
-- [Production Orders](./production-orders.md) - Creating and managing work orders
-- [Production Execution](./production-execution.md) - Recording shop floor activities
-- [Production Costing and Order Closing](./production-costing.md) - Cost calculation and overhead allocation
-- [Bill of Materials](./bill-of-materials.md) - Defining product structures
-- [Routings](./routings.md) - Setting up operation sequences
-- [Material Requirements Planning](./material-requirements-planning.md) - Automated planning
-
-## Key Features Summary
-
-### Production Order Features
-- BOM and routing assignment
-- Component and co-product management
-- Multi-operation tracking
-- Resource allocation
-- Quality control integration
-- Flexible scheduling
-- Status management workflow
-
-### Production Execution Features
-- Operation-by-operation tracking
-- Quantity movement between steps
-- Multiple operation steps (ToMove, Rejected, Scrap, Sample)
-- Time and resource recording
-- Automatic material issue generation
-- Automatic product delivery
-- Work center and employee tracking
-- Quality document integration
-
-### Manufacturing Control
-- Operation sequence enforcement
-- Over-completion controls with permitted percentages
-- Parallel operation support
-- Sample taking and testing
-- Scrap and rework handling
-- Mold usage tracking
-- Real-time production monitoring
-
-## System Configuration
-
-Manufacturing behavior is controlled through:
-
-1. **Module Configuration**: Manufacturing-wide settings
-2. **Document Terms**: Production order and execution policies
-3. **Item Settings**: Manufacturable flag, lead times
-4. **BOM Configuration**: Default batch sizes, scrap factors
-5. **Routing Setup**: Operation times, auto-charge flags
+One of the trickiest parts of manufacturing is getting accurate costs. It's not just about materials - there's so much more.
+
+### Direct Costs - The Easy Part
+
+Some costs are straightforward to trace:
+- **Materials**: The steel, plastic, components you consume
+- **Labor**: The time workers spend directly making products
+- **Machines**: The hours your equipment runs
+
+These are direct costs - you can point to a specific production order and say "this order used these materials, this many labor hours, and this much machine time."
+
+### Indirect Costs - The Tricky Part (Overheads)
+
+But what about all the other costs of running a factory?
+- The factory rent - you can't say product A used $100 of rent and product B used $200
+- Electricity for the whole facility
+- The production manager's salary
+- Cleaning supplies
+- Equipment maintenance
+- Quality inspectors who check all products
+
+These are **Manufacturing Overheads** (التكاليف الغير مباشرة) - indirect costs that need to be spread across your products somehow.
+
+Nama ERP lets you define **Overhead Types** (templates for how to allocate these costs). You might say:
+- "Add 15% of material costs as overhead" (to cover material handling and storage)
+- "Add $5 per unit produced" (to cover general factory costs)
+- "Add $50 per production hour" (to cover utilities and depreciation)
+
+You can mix and match different allocation methods to match how your factory actually works.
+
+### Actual vs. Standard: Getting Real Numbers
+
+Many companies use standard costing - they estimate what production should cost, then compare actual costs to find variances. This is incredibly valuable for spotting problems early.
+
+Maybe your material costs are running 10% higher than expected - is it because prices went up, or because you're wasting material? Maybe labor is taking longer than standard - do workers need more training, or is the standard time unrealistic?
+
+Nama ERP's **Actual Overhead Calculator** (طريقة حساب فعلي للمصاريف الغير مباشرة) takes this a step further. Instead of using predetermined overhead rates, it can query your actual general ledger accounts to see how much you really spent on utilities, maintenance, supervision, etc. Then it allocates those actual costs to production orders. This gives you the most accurate product costing possible.
+
+## How Everything Connects
+
+What makes Nama ERP's Manufacturing module powerful is how everything ties together:
+
+- Your **Items** define what you make and what you use to make it
+- **BOMs** break down products into their components
+- **Routings** define the manufacturing process
+- **Production Orders** authorize making specific quantities
+- **Production Execution** records actual work as it happens
+- **Material Issues** and **Product Deliveries** move inventory
+- **Order Close Vouchers** finalize costs and lock the records
+
+Behind the scenes, the system is tracking work-in-process at each operation, maintaining inventory accuracy, collecting costs, and keeping the general ledger in sync. It's all connected, all integrated.
+
+You can start a production order for a complex assembly, and the system automatically explodes all the sub-levels of the BOM. It knows every component needed, at every level. When you execute production, it tracks quantities operation by operation. When materials are issued, inventory decreases. When finished goods are delivered, inventory increases at the new value. When you close the order, variances flow to the general ledger.
+
+## Different Ways to Work
+
+One of the great things about Nama ERP is that it doesn't force you into one way of doing things. Different industries and companies have different needs, and the system adapts.
+
+**Some factories** issue all materials at once when production starts. Others issue materials operation by operation as they're needed. You can configure either way.
+
+**Some industries** (like pharmaceuticals or food) need to track costs separately for each batch or lot produced. Maybe one batch cost slightly more due to ingredient quality or longer processing time - you need that detail for compliance and analysis. Nama ERP supports cost-per-batch tracking.
+
+**Some companies** need to handle parallel operations - multiple work centers doing the same operation simultaneously to increase capacity. The system handles this with parallel operation configurations.
+
+**Some products** generate co-products or by-products - maybe you're processing meat and you get both the main product and other saleable parts. The system tracks all outputs and allocates costs appropriately.
+
+The flexibility is there. You configure the system to match your process, not the other way around.
+
+## Getting Started
+
+The beauty of this module is that you can start simple and grow into the advanced features.
+
+**Starting out:**
+1. Set up your items (what you make and what you buy)
+2. Create basic BOMs for your products
+3. Define simple routings with main operations
+4. Start creating production orders and executing them
+
+**As you mature:**
+- Add quality check lists to operations
+- Implement standard costing and variance analysis
+- Set up complex overhead allocations
+- Use MRP for automated planning
+- Track resources and capacity in detail
+- Implement cost-per-batch for detailed analysis
+
+The system supports wherever you are in your manufacturing journey.
+
+## What's Next?
+
+This overview gives you the big picture. To dive deeper into specific topics:
+
+**[Production Orders](./production-orders.md)** - Learn how to create orders, work with BOMs and routings, manage components, and start production. This is where you'll spend most of your time planning what to make.
+
+**[Production Execution](./production-execution.md)** - Understand how to record shop floor activities, track quantities through operations, handle rework and scrap, and capture actual time and resource usage.
+
+**[Production Costing and Order Closing](./production-costing.md)** - See how costs flow through the system, how overhead allocation works, how to analyze variances, and how to close orders properly.
+
+Each guide goes into the details, the workflows, and the options available. But they all build on the foundation we've covered here: manufacturing is about transforming materials through operations to create products, and Nama ERP gives you complete visibility and control over that process.
+
+---
+
+**Navigation**:
+- Arabic: التصنيع > المستندات
+- English: Manufacturing > Documents
+
+The main documents you'll work with daily:
+- Production Order (أمر إنتاج) - Your authorization to manufacture
+- Production Execution (تنفيذ إنتاج) - Recording what actually happened
+- Order Close Voucher (إغلاق أمر إنتاج) - Finalizing costs when done

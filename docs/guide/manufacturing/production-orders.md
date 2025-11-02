@@ -1,535 +1,452 @@
-# Production Orders
-
-## Overview
-
-A **Production Order** (أمر إنتاج) is a formal instruction to manufacture a specific quantity of a finished product or semi-finished item. It represents the central document in the manufacturing process, containing all information needed to plan, execute, and track production activities.
-
-**Menu Location**:
-- **Arabic**: التصنيع > المستندات > أمر إنتاج
-- **English**: Manufacturing > Documents > Production Order
-
-**Entity Type**: `ProductionOrder`
-**Classification**: Document File (المستندات)
-**Database Table**: `ProductionOrder`
-
-## Purpose and Functionality
-
-Production orders serve multiple purposes:
-
-1. **Authorization**: Formal approval to consume materials and use resources
-2. **Planning**: Define what, when, and how much to produce
-3. **Scheduling**: Sequence operations and allocate capacity
-4. **Material Planning**: Drive component requirements and reservations
-5. **Execution Control**: Track progress and work-in-process
-6. **Cost Collection**: Accumulate production costs
-7. **Quality Management**: Enforce quality control checkpoints
-
-## Production Order Structure
-
-### Header Information
-
-#### Product Definition
-- **Item** (invItem): The finished product to manufacture
-- **Quantity** (quantity): Amount to produce with unit of measure
-- **Specific Dimensions**: Lot, serial, size, color, revision, warehouse
-- **Production/Expiry Dates**: For lot-tracked items
-
-#### Bill of Materials
-- **BOM** (bom): Reference to the product structure
-- **Components Collection** (components): List of materials to consume
-- **Co-Products Collection** (coProducts): By-products and co-products generated
-
-#### Routing
-- **Routing** (routing): Reference to the operation sequence
-- **Routings Collection** (routings): Operation lines to perform
-- **Resources Collection** (resources): Labor and machines required
-- **Molds Collection** (molds): Molds/tooling needed
-
-#### Scheduling
-- **Planned Start Date** (plannedStartDate): When to begin production
-- **Planned Completion Date** (plannedCompletionDate): Target finish date
-- **Actual Start Date** (actualStartDate): When production actually started
-- **Actual Completion Date** (actualCompletionDate): When completed
-
-#### Status Management
-- **Status** (status): Current state of the order
-  - `Initial`: Created but not started
-  - `InProgress`: Production has begun
-  - `Closed`: Completed and finalized
-  - `Terminated`: Cancelled
-- **Started Order** (startedOrder): Boolean flag indicating order has started
-- **Convert to Initial** (convertToInitialOrder): Flag to revert to initial state
-
-#### Production Control
-- **Permitted Percentage for OP1** (permittedPercentageForOP1): Over-production tolerance for first operation
-- **Unlimited Overcompletion for OP1** (unlimitedOvercompletionForOP1): Allow any quantity in first operation
-- **Quality Check List** (qualityCheckList): Quality control checklist
-- **Assurance Check List** (assuranceCheckList): Quality assurance checklist
-
-### Detail Collections
-
-#### 1. Components (المكونات)
-**Collection**: `components`
-**Table**: `OrderComponentLine`
-
-Each component line contains:
-- **Item**: Raw material or component
-- **Quantity**: Required amount
-- **Operation Seq**: At which operation to consume
-- **Issue Type**: Manual, Auto with BOM, Auto with Execution
-- **Specific Dimensions**: Lot, serial, location
-- **Yield & Potency**: Adjustment factors
-- **Final Calculated Qty**: Actual quantity after adjustments
-
-**Purpose**: Defines materials to withdraw from inventory during production.
-
-#### 2. Co-Products (المنتجات الثانوية)
-**Collection**: `coProducts`
-**Table**: `OrderCoProductLine`
-
-Each co-product line contains:
-- **Item**: By-product or co-product
-- **Quantity**: Expected output
-- **Product Type**: Co-Product, By-Product, Scrap
-- **Cost Percentage**: Share of production cost
-- **Specific Dimensions**: Lot, serial, location
-
-**Purpose**: Tracks secondary outputs from the production process.
-
-#### 3. Routings (عمليات التشغيل)
-**Collection**: `routings`
-**Table**: `OrderRoutingLine`
-
-Each routing line contains:
-- **Operation Seq**: Sequential operation number (10, 20, 30...)
-- **Operation**: Reference to standard operation
-- **Work Center**: Where operation is performed
-- **Operation Name**: Description
-- **Auto Charge**: Automatically consume resources
-- **Quantity**: Quantity passing through operation
-- **Rate**: Production rate
-- **Operation Duration**: Time required
-- **Permitted Percentage**: Over-production tolerance
-- **Unlimited Overcompletion**: Allow unlimited over-production
-- **Quality Lists**: Control and assurance checklists
-- **Parallel Manufacturing**: Multiple operations in parallel
-
-**Purpose**: Defines the sequence of manufacturing steps.
-
-#### 4. Resources (موارد التشغيل)
-**Collection**: `resources`
-**Table**: `OrderResourceLine`
-
-Each resource line contains:
-- **Operation Seq**: Which operation uses this resource
-- **Resource**: Labor, machine, or tool
-- **Resources Count**: Number of resources
-- **Resource Rate**: Time per unit
-- **Basis**: Fixed, Per Unit, Per Lot
-- **Final Qty**: Calculated resource consumption
-- **Activity**: Cost driver for accounting
-- **Auto Charge**: Automatically apply to production
-
-**Purpose**: Tracks labor and equipment usage for costing and capacity planning.
-
-#### 5. Molds (القوالب)
-**Collection**: `molds`
-**Table**: `ProductionOrderMoldLine`
-
-Each mold line contains:
-- **Operation Seq**: Where mold is used
-- **Mold**: Mold or tooling reference
-- **Quantity**: Number of cavities or uses
-
-**Purpose**: Tracks mold usage for specialized manufacturing (injection molding, die casting, etc.).
-
-#### 6. Production Lot Lines (الشحنات المقترحة)
-**Collection**: `productionLotLines`
-**Table**: `ProductionLotLine`
-
-For lot-size manufacturing planning.
-
-## Production Order Lifecycle
-
-### 1. Order Creation
-
-Production orders can be created through multiple sources:
-
-#### Manual Creation
-1. Navigate to Manufacturing > Documents > Production Order
-2. Select Book and Term
-3. Choose the item to manufacture
-4. Select BOM and Routing (or let system auto-select defaults)
-5. Enter quantity and dates
-6. Save the order
-
-#### From Production Order Request
-- Create a Production Order Request first
-- Generate Production Order from the request
-- System copies all details automatically
-
-#### From MRP (Material Requirements Planning)
-- Run MRP analysis
-- System generates planned production orders
-- Convert planned orders to actual orders
-
-#### From Aggregated Production Order
-- Batch-create multiple orders
-- Collect orders from various sources
-- Generate consolidated production plans
-
-### 2. BOM and Routing Assignment
-
-When you select an item and BOM:
-
-**System automatically**:
-1. Copies component lines from BOM to order components
-2. Copies co-product lines from BOM to order co-products
-3. Copies routing operations to order routing lines
-4. Copies resource requirements to order resource lines
-5. Copies mold requirements to order mold lines
-6. Calculates quantities based on order quantity vs. BOM base quantity
-
-**Key Actions** (from `ProdOrderPostActions.java`):
-- `postBom()`: Triggers when BOM is selected
-- `postRouting()`: Triggers when routing is selected
-- `postQty()`: Recalculates all component/co-product quantities when order quantity changes
-- `postStandardOperation()`: Adds operation resources and molds when operation is selected
-
-**Quantity Calculation**:
-```
-Component Final Qty = (Component BOM Qty / BOM Base Qty) × Order Qty × (1 + Scrap%) ÷ Yield%
-```
-
-### 3. Component Collection
-
-**Collect Lots Action** (`collectLotIds`):
-- Searches inventory for available lots
-- Suggests lot numbers for each component
-- Filters by warehouse and locator
-- Can clear existing or append to current selections
-
-**Collect Boxes Action** (`collectBoxs`):
-- Similar to lot collection for box-tracked items
-
-### 4. Order Starting
-
-**Start Production Order Action** (`startProdOrder`):
-- Changes status from `Initial` to `InProgress`
-- Sets `startedOrder` flag to `true`
-- Records actual start date
-- Prevents modifications to BOM/routing structure
-
-**Validation**:
-- Cannot start if order is already Closed or Terminated
-- Once started, order is ready for execution
-
-**Cancel Start Action** (`cancelStartProdOrder`):
-- Reverts order to Initial status
-- Only allowed if no dependent documents exist
-- Checks for production executions and other transactions
-
-### 5. Material Reservation
-
-**Create Reservation Document Action** (`createReservationDocForQtys`):
-- Generates an Inventory Reservation document
-- Reserves components in inventory
-- Prevents stock-outs during production
-- Must save order first before creating reservation
-
-### 6. Production Execution
-
-Once the order is started:
-- Create **Production Execution** documents to record work
-- Track quantities moving through operations
-- Record time and resource consumption
-- System automatically generates material issues
-
-See [Production Execution](./production-execution.md) for detailed execution workflow.
-
-### 7. Material Issues and Receipts
-
-**Generated Documents**:
-
-**Raw Material Issue** (صرف مواد خام):
-- Auto-generated from Production Execution
-- Withdraws components from inventory
-- Updates work-in-process
-- Three issue types:
-  - Manual: User creates separate issue document
-  - Auto with BOM: Issues based on BOM quantities
-  - Auto with Execution: Issues as operations are performed
-
-**Product Delivery** (تسليم منتج):
-- Auto-generated when production completes final operation
-- Receives finished goods into inventory
-- Records lot/serial numbers
-- Handles co-products
-
-### 8. Order Completion and Closing
-
-**Completion**:
-- Last operation is executed
-- Finished goods are delivered
-- All materials are consumed
-- Order status remains `InProgress`
-
-**Closing**:
-- Administrative action to finalize the order
-- Status changes to `Closed`
-- Prevents further modifications
-- Locks cost accounting
-
-**Termination**:
-- Cancel an order that won't be completed
-- Status changes to `Terminated`
-- Reverses any partial production effects
-
-## Special Features
-
-### Multi-Level BOMs
-
-Nama ERP supports multi-level product structures:
-- Finished product contains sub-assemblies
-- Sub-assemblies contain components
-- System automatically explodes all levels
-- Can track work-in-process at sub-assembly level
-
-### Parallel Operations
-
-**Parallel Manufacturing** (`mfgParallel` field):
-- Multiple operations run simultaneously
-- Example: Two painting lines running in parallel
-- Different validation rules for parallel operations
-- Cannot move forward from a parallel operation (must reverse first)
-
-### Over-Production Control
-
-**Permitted Percentage**:
-- Control over-production tolerance
-- Defined per operation in routing
-- First operation (OP1) has separate setting
-- Example: 5% permitted percentage allows producing 105 units from 100 unit order
-
-**Unlimited Over-Completion**:
-- Flag to allow any over-production
-- Useful for processes with variable yields
-- Common in pharmaceutical and food industries
+# Production Orders: Planning What to Make
+
+## What is a Production Order?
+
+A Production Order (أمر إنتاج) is your formal instruction to the factory: "Make this product, in this quantity, by this date." It's the bridge between planning and execution - where you take all your preparation (BOMs, routings, work centers) and turn them into a concrete plan that the shop floor can work from.
+
+You'll find production orders under **Manufacturing > Documents > Production Order** (التصنيع > المستندات > أمر إنتاج).
+
+Think of a production order as a work packet that contains everything needed for manufacturing:
+- What product to make
+- How many units
+- Which materials to use (from the BOM)
+- Which steps to follow (from the routing)
+- When to start and finish
+- Who can do the work
+- Quality standards to meet
+
+The beauty is that most of this information is automatically filled in based on your master data. You select a product and quantity, and the system does the heavy lifting of calculating materials, operations, and resources.
+
+## Creating Your First Production Order
+
+Let's walk through actually creating a production order to see how it all comes together.
+
+### The Basics
+
+You start by opening a new production order and filling in the essentials:
+- **Book and Term**: These control document numbering and behavior (like which documents get auto-generated)
+- **Product (Item)**: What you're going to make
+- **Quantity**: How many units
+- **Dates**: When you plan to start and when it should be done
+
+The moment you select a product, something interesting happens. The system looks for the product's default BOM and Routing. If they exist, it automatically loads them into the order. You can always change to a different BOM or routing if needed - maybe you have multiple recipes for the same product, or different production methods.
+
+### The Magic of Auto-Population
+
+Once you've selected your BOM and routing, the system springs into action. It:
+
+**Calculates all component quantities**. If your BOM says you need 2 screws per widget and you're making 100 widgets, you need 200 screws. But it gets smarter - if the BOM accounts for 5% scrap during production, it adds that in. If you have a yield factor (maybe only 95% of components make it through successfully), it adjusts for that too.
+
+**Copies all routing operations**. Every operation from the routing becomes a line in your production order, with sequence numbers (10, 20, 30...). Each operation knows which work center to use, how long it should take, and what resources (labor or machines) are needed.
+
+**Brings in resource requirements**. If an operation needs a specific machine or skilled worker, that gets added to the order automatically.
+
+**Includes any molds or tooling** needed for the operations.
+
+The calculation is based on the actual order quantity versus the BOM base quantity. So if your BOM is defined for making 1 unit but you're making 100, everything scales proportionally.
+
+### Before You Start Production
+
+At this stage, your production order is in "Initial" status. It's a plan, not yet an instruction to begin work. This gives you time to:
+
+**Review the component list**. Maybe you need to substitute a material because the preferred one isn't available. You can change component items, quantities, or specify which lots to use.
+
+**Adjust operation sequences**. In rare cases, you might need to modify the routing for this specific order - maybe skip an operation, or change the work center.
+
+**Check resource availability**. If a critical machine is down for maintenance, you might need to reschedule.
+
+**Verify dates**. The system can help calculate realistic completion dates based on operation durations and the quantity you're making.
+
+When you're satisfied with the plan, you **Start** the production order. This changes its status from "Initial" to "In Progress" and locks down the BOM and routing structure. You can still adjust some things (like dates or dimensional attributes), but the fundamental structure is fixed. This ensures traceability - you can always look back and see exactly what the order called for.
+
+## Understanding the Production Order Structure
+
+A production order isn't just a simple document - it's actually quite rich with information across several areas. Let's break down what's in there.
+
+### The Header
+
+The header contains overall order information:
+
+**Product Definition**: Which item you're making, how many, and any specific attributes like lot numbers, serial numbers, colors, sizes, or revisions. If you're making a blue widget size Large with lot number 2024-001, all that gets tracked here.
+
+**BOM and Routing References**: Links to the master BOM and routing you're using. The system makes copies of these into the order details, but maintains the reference to the originals for reporting.
+
+**Schedule**: Planned start and finish dates, plus actual start and finish dates (filled in as production progresses).
+
+**Status**: Initial, In Progress, Closed, or Terminated. This drives what you can and can't do with the order.
+
+**Quality**: References to quality checklists and assurance requirements.
+
+**Source**: If this order came from somewhere else (like an MRP run or a production request), that link is maintained.
+
+### Component Details
+
+This collection shows every material you need to consume. Each line includes:
+
+- Which component item
+- How much you need
+- At which operation it gets consumed (important for operation-by-operation material issuing)
+- How it should be issued (manually, automatically with the BOM, or automatically as operations are executed)
+- Specific dimensional details (lot, serial, location in warehouse)
+- Any yield or potency adjustments
+
+When materials are actually issued during production, the system creates Material Issue documents and links them back to these component lines.
+
+### Co-Products
+
+Some manufacturing processes create multiple outputs. When you process crude oil, you get gasoline, diesel, and other products. When you butcher meat, you get various cuts and by-products.
+
+The co-products collection tracks these secondary outputs. Each co-product line includes:
+- The item being produced
+- Expected quantity
+- Whether it's a valuable co-product or just a by-product
+- What percentage of the total cost it should bear
+- Where to deliver it (warehouse and location)
+
+### Routing Operations
+
+This is your step-by-step manufacturing process. Each operation line has:
+
+**Operation Sequence**: Usually numbered 10, 20, 30, 40... (leaving gaps makes it easy to insert new operations if needed).
+
+**Operation Description**: What work gets done - "Cut material", "Weld joints", "Paint finish", "Quality inspection".
+
+**Work Center**: Where it happens - maybe "Cutting Machine 1" or "Assembly Line B".
+
+**Time Estimates**: How long the operation takes. This can be split into setup time (one-time prep) and run time (time per unit). The system uses this for scheduling and capacity planning.
+
+**Quantity Flow**: How many units pass through this operation. Sometimes you lose a few units along the way due to scrap or samples.
+
+**Over-Production Controls**: You can set limits on how much over-production is allowed. Maybe the final operation can only produce 5% more than ordered, but the first operation (cutting raw materials) can have unlimited over-completion because you want to account for downstream losses.
+
+**Quality Requirements**: Links to inspection checklists. Quality staff must complete these before the operation is considered done.
+
+**Parallel Manufacturing**: A flag indicating if multiple work centers can do this operation simultaneously to increase throughput.
+
+### Resource Requirements
+
+For each operation, you might need various resources - people or machines. Each resource line specifies:
+
+- Which resource (Labor Class A, CNC Machine #3, Forklift, etc.)
+- How much (maybe 2 workers, or 1 machine)
+- The basis (fixed time regardless of quantity, time per unit, or time per batch)
+- Whether it's automatically charged to the order or needs manual confirmation
+
+This data feeds into capacity planning (are we overloading any resources?) and cost accounting (how much labor and machine time did this order consume?).
+
+### Molds and Tooling
+
+Some manufacturing - like injection molding or die casting - requires special tooling. The molds collection tracks which molds are needed for which operations. This helps with:
+- Ensuring molds are available before starting production
+- Tracking mold usage for maintenance scheduling
+- Costing mold usage charges to products
+
+## The Production Order Lifecycle
+
+Let's follow a production order from birth to completion.
+
+### Creation
+
+Production orders can come into existence several ways:
+
+**Manual Creation**: You simply create a new order, pick a product, enter a quantity. This is common for make-to-order scenarios or when responding to specific customer requests.
+
+**From MRP**: If you're running Material Requirements Planning, the system analyzes demand (from sales orders, forecasts, etc.) and automatically generates proposed production orders. You review these proposals and convert them to actual orders.
+
+**From Production Requests**: Some companies like a two-step process - planners create Production Order Requests (proposals), they go through an approval workflow, then approved requests are converted to actual Production Orders.
+
+**From Aggregated Orders**: You might collect multiple small requirements and batch them into an aggregated order, then generate individual production orders from it.
+
+However they're created, they all follow the same lifecycle after that.
+
+### BOM Explosion
+
+When you select a BOM, the system performs "BOM explosion" - it breaks down the product structure into actual material requirements.
+
+For a simple product, this is straightforward. For complex assemblies with sub-assemblies, it gets interesting. The system can explode multiple levels. If you're making a car:
+- The car needs an engine (level 1)
+- The engine needs a crankshaft (level 2)
+- The crankshaft needs special steel (level 3)
+
+The system cascades through all levels, calculating total raw material needs.
+
+It also handles tricky scenarios like:
+- **Scrap factors**: If you expect to waste 10% of material during cutting, it adds 10% more to the requirement.
+- **Yield factors**: If only 95% of components pass quality control, it adjusts quantities to ensure you end up with the right amount of good parts.
+- **Phantoms**: Sometimes you have "phantom" sub-assemblies that exist in the BOM for engineering purposes but are never actually stocked - they're assembled and immediately used. The system handles these seamlessly.
+
+### Lot Collection and Material Staging
+
+Before production can start, you need to identify which actual inventory you'll use. If you track by lot numbers (common in food, pharma, chemicals), this is critical for traceability.
+
+Nama ERP has "Collect Lots" functionality. You tell it which component you need, and it searches your inventory for available lots. It can apply rules like FIFO (First In, First Out) or FEFO (First Expired, First Out). You review the suggestions and approve them.
+
+Similarly, if you track items by boxes or pallets, there's "Collect Boxes" functionality.
+
+Once you know which lots you're using, you can create **Reservation Documents** to lock that inventory for this production order. This prevents the warehouse from shipping that material to customers or using it for another order.
+
+You might also create Material Issues at this stage to physically move materials from the warehouse to the shop floor, ready for production. Or you might wait and issue materials as each operation needs them. It depends on your factory's workflow.
+
+### Starting the Order
+
+When everything's ready, you click the **Start Production** button. This is significant because:
+
+1. The order status changes from "Initial" to "In Progress"
+2. The BOM and routing structure gets locked - you can't add/remove components or operations anymore
+3. The system records the actual start date
+4. Shop floor personnel can now start recording work against this order
+
+If you realize you made a mistake and need to go back, there's a **Cancel Start** action - but it only works if no production has been executed yet and no downstream documents have been created.
+
+### Production Execution
+
+Now the real work begins. As operations are performed on the shop floor, workers (or supervisors) record what happened using Production Execution documents.
+
+These executions might say:
+- "Moved 50 units from Operation 10 to Operation 20"
+- "Found 5 defective units at Operation 30, moving them to Rejected status"
+- "Took 2 samples at Operation 40 for quality testing"
+
+Each execution can automatically trigger other documents:
+- **Material Issues**: If you configured components to be issued automatically during execution, the system creates these as operations consume materials.
+- **Resource Vouchers**: Recording actual labor and machine hours used.
+- **Quality Documents**: If operations have quality checklists, the system can generate quality control documents that must be filled out.
+- **Product Deliveries**: When the final operation is completed, the system can automatically receive finished goods into inventory.
+
+We'll cover execution in detail in its own guide, but the key point is that production orders and production executions are tightly linked. The order is the plan; execution is the reality.
+
+### Tracking Progress
+
+Behind the scenes, Nama ERP maintains something called **Production System Entries**. These track exactly where quantities are at any moment.
+
+For each operation in your order, the system knows:
+- How many units are waiting to move forward (ToMove status)
+- How many were rejected for rework
+- How many were scrapped
+- How many are held as samples
+
+This gives you real-time visibility. You can open a production order and immediately see: "Operation 20 has 75 units ready to move forward, Operation 30 has 60 units in progress, we've scrapped 3 units so far."
+
+Production managers love this because they don't have to walk the factory floor to know the status - it's right there in the system.
+
+### Handling the Unexpected
+
+Manufacturing rarely goes perfectly to plan. Nama ERP handles the reality:
+
+**Rework**: When quality finds problems, units move to Rejected status. They can then be sent back to an earlier operation for rework, fixed, and sent through the process again.
+
+**Scrap**: Sometimes units are damaged beyond repair. They move to Scrap status. The system tracks scrap quantities for cost accounting and process improvement.
+
+**Over-production or Under-production**: Maybe your yields are better than expected and you're producing more units than planned. Or maybe a problem caused you to produce less. The system allows this (within configured limits) and tracks the actual quantities.
+
+**Parallel Paths**: Some products can have operations that run in parallel. Maybe units can go through Paint Line A or Paint Line B simultaneously. The system supports this with parallel operation flags and handles the complexity.
+
+### Completion
+
+Eventually, the final operation is complete, and all your finished goods are delivered to inventory. The order is functionally done, but it's still "In Progress" status.
+
+To truly finalize the order, you create an **Order Close Voucher**. This:
+- Calculates the total actual costs (materials, labor, overhead)
+- Compares to standard costs if you have them
+- Updates finished goods inventory values
+- Generates accounting entries
+- Changes the order status to "Closed"
+
+Once closed, the order is locked. No more executions, no more changes. It's history.
+
+(There's also an option to **Terminate** an order if you're cancelling it without completion - maybe the customer cancelled, or you discovered a design flaw, or raw materials are unavailable.)
+
+## Special Features Worth Knowing About
+
+### Permitted Percentages and Over-Completion
+
+In a perfect world, you'd order 100 units and produce exactly 100 units. Reality is messier.
+
+You can set **Permitted Percentages** on operations. If Operation 50 has a 5% permitted percentage and you ordered 100 units, workers can produce up to 105 units without errors or warnings.
+
+Why allow this? Sometimes you need over-production at early operations to account for losses downstream. You might cut 110 pieces knowing that 5 will fail inspection and 5 will be damaged during finishing. End result: 100 good units.
+
+For the first operation, there's even an **Unlimited Over-Completion** flag. This lets you produce as much as needed at that stage, accounting for all downstream losses.
+
+### Multi-Level BOMs and Sub-Assemblies
+
+Nama ERP shines with complex products. You can have a finished product made from sub-assemblies, which are themselves made from components.
+
+The system can handle this in two ways:
+
+**Full Explosion**: Explode all levels of the BOM down to raw materials. Create one production order for the top-level product, and the component list includes everything down to the lowest level. This works for products where sub-assemblies aren't stocked separately.
+
+**Nested Production Orders**: Create separate production orders for sub-assemblies. Make the sub-assemblies first, receive them to inventory, then consume them when making the final product. This works when sub-assemblies are standard items used in multiple products.
+
+You choose the approach based on your business needs.
+
+### Co-Products and By-Products
+
+Some manufacturing inherently creates multiple products. The classic example is petroleum refining - you don't just make gasoline, you also get diesel, jet fuel, and various petrochemicals.
+
+The co-products collection lets you track all outputs. Each co-product can have:
+- Its own quantity
+- Its own destination (warehouse and location)
+- Its own cost share (what percentage of the total production cost it bears)
+
+When you close the production order, costs are allocated across the main product and co-products based on the percentages you set.
 
 ### Quality Integration
 
-**Quality Control Lists**:
-- Attach quality checkpoints to operations
-- System enforces quality approval before proceeding
-- Can block execution if quality is not approved
+Quality is built into the process, not bolted on.
 
-**Quality Documents**:
-- Quality Control Doc
-- Quality Assurance Doc
-- Linked to specific operations
-- Auto-generated from Production Execution
+Operations can have **Quality Control Checklists** or **Quality Assurance Checklists** attached. When a production execution reaches that operation, the system automatically generates a Quality Control document with all the check items from the checklist.
 
-### Cost Tracking
+Quality inspectors fill out the document, answering questions and recording measurements. The document might need approval before production can continue - you configure this based on your quality requirements.
 
-**System tracks**:
-- **Material Issue Cost**: Components consumed
-- **Material Return Cost**: Components returned
+This ensures quality gates are actually enforced, not skipped.
+
+### Cost Tracking Throughout Production
+
+Even before you close the order, the system is tracking costs. Fields on the production order header accumulate:
+- **Material Issue Cost**: Every material issued to the order
+- **Material Return Cost**: If materials are returned (maybe you over-issued)
 - **Resources Cost**: Labor and machine time
 - **Molds Cost**: Tooling usage
-- **Scrap Cost**: Rejected and scrapped quantities
-- **Delivered Product Cost**: Finished goods value
-- **Returned Product Cost**: Finished goods rejected
+- **Scrap Cost**: Value of scrapped units
+- **Delivered Product Cost**: Value of finished goods delivered
+- **Returned Product Cost**: If finished goods are returned for rework
 
-**Cost Reallocation**:
-- Distribute costs across co-products
-- Use cost percentages or fixed amounts
-- Handle by-products and scrap valuation
+You can check these anytime to see how much you've spent on the order so far.
 
-### Lot Collection and Dimensions
+### Production Order Requests and Approval Workflows
 
-**Specific Dimensions**:
-- Lot ID tracking
-- Serial number assignment
-- Box/pallet tracking
-- Size, color, revision
-- Active/inactive percentages (for pharmaceuticals)
-- Sub-item variations
+Some organizations want a formal approval process before manufacturing can begin. Production Order Requests serve this purpose.
 
-**Auto-Collection**:
-- `CollectLots`: Automatically suggest lot numbers
-- `CollectBoxs`: Suggest box/pallet assignments
-- Filters by warehouse availability
-- Respects FIFO/FEFO rules
+The flow is:
+1. Planner creates a Production Order Request (a proposed order)
+2. Request goes through approval workflow (maybe production manager, then materials manager)
+3. Approved requests are converted to actual Production Orders
+4. Production begins
 
-### Production Order Requests
+This separates planning from authorization, giving management control over what gets produced.
 
-**Workflow**:
-1. Create Production Order Request (planning document)
-2. Request approved through workflow
-3. Convert request to Production Order
-4. System copies all data from request
+### Aggregated Production Orders for Batch Planning
 
-**From Document Assignment**:
-- Link production order to source request
-- Prevents duplicate order creation
-- Maintains traceability
+If you're running a weekly planning cycle and have dozens or hundreds of small requirements, creating individual production orders for each is tedious.
 
-### Aggregated Production Orders
+**Aggregated Production Orders** let you:
+1. Create one aggregated order
+2. Add multiple lines (different products, different quantities, different due dates)
+3. Review and adjust the whole batch
+4. Generate individual production orders from each line with one click
 
-**Purpose**: Batch creation of multiple production orders
+It's a time-saver for high-volume, make-to-stock environments.
 
-**Process**:
-1. Create Aggregated Production Order document
-2. Collect Production Order Requests based on criteria:
-   - Date range
-   - Item range
-   - Organizational units (legal entity, branch, sector, department)
-   - Analysis set
-3. Option to merge similar lines
-4. Generate individual Production Orders for each line
-5. System creates orders in batch
+The system can even merge similar lines. If you have three separate requirements for the same product in the same week, it can combine them into one larger production order.
 
-**Use Cases**:
-- Weekly production planning
-- Batch processing of customer orders
-- Consolidation of forecasts
+## Common Workflows
 
-### Document Generation Workflow
+Let's look at a few typical scenarios.
 
-**Key Generated Documents**:
+### Scenario: Make-to-Order Manufacturing
 
-From **Production Execution**:
-- Raw Material Issue (صرف مواد خام)
-- Resource Voucher (سند موارد)
-- MFG Mold Voucher (سند قوالب)
-- Product Delivery (تسليم منتج) - when auto-delivery enabled
-- Production Sample Doc (سند عينة إنتاج) - when samples taken
-- Quality Control/Assurance Docs
+A customer orders 50 custom widgets. Here's how it flows:
 
-Configuration controls:
-- Which documents to generate
-- Book and term for each document type
-- Whether to require approval workflow
-- Auto-delete when source is deleted
+1. Sales creates a Sales Order for 50 widgets
+2. Planner creates a Production Order linked to that sales order
+3. Selects product, quantity 50, desired delivery date
+4. System populates BOM and routing automatically
+5. Planner reviews, adjusts if needed (maybe customer wants a different color)
+6. Starts the production order
+7. Materials are issued to the shop floor
+8. Shop floor executes production operation by operation
+9. Finished goods are delivered to inventory
+10. Order is closed, costs are finalized
+11. Widgets are shipped to customer
 
-## GUI Actions Reference
+The production order ties everything together - you can trace from the customer order to the materials consumed to the shop floor work to the finished goods to the shipment.
 
-Based on `ProdOrderPostActions.java`, key actions include:
+### Scenario: MRP-Driven Make-to-Stock
 
-### Header Actions
-- **startProdOrder**: Start production (change status to In Progress)
-- **cancelStartProdOrder**: Revert to Initial status
-- **CollectLots**: Auto-collect lot numbers for components
-- **CollectBoxs**: Auto-collect box assignments
-- **CollectProductionOrderRequests**: Collect requests for aggregated order
-- **createReservationDocForQtys**: Generate inventory reservation
-- **collectRawMaterials**: Collect raw materials and items
+You manufacture standard products to keep inventory stocked. MRP helps automate the planning:
 
-### Field Post Actors
-- **postBom**: Triggered when BOM selected - copies BOM structure
-- **postRouting**: Triggered when routing selected - copies operations
-- **postQty**: Recalculate all quantities when order quantity changes
-- **postItem**: Handle item selection and default BOM/routing
-- **postStandardOperation**: Add operation resources and molds
-- **postFromDoc**: Copy data from source document (Production Order Request)
+1. System looks at sales forecasts, current inventory, and open sales orders
+2. Calculates net requirements (what you need to make)
+3. Generates proposed production orders to meet those requirements
+4. Planner reviews the proposals, adjusts quantities or dates if needed
+5. Converts approved proposals to actual production orders
+6. Starts the orders
+7. Production executes
+8. Finished goods replenish inventory
+9. Orders are closed
 
-### Searcher Contexts (Filters)
-- **filterFinalItem**: Show only manufacturable items
-- **filterItems**: Filter component items by class
-- **filterBomByItemClassifier**: Filter BOMs by item and classifiers
-- **filterRouting**: Filter routings by item and dimensions
-- **filterProductionOrderContext**: Filter available production order requests
+This can run weekly or even daily, constantly adjusting production plans based on changing demand.
 
-### Suggestion Providers
-- **suggestPrimaryUOM**: Suggest primary units for items
-- **suggestResOpSeq**: Suggest operation sequences
-- **suggestItemCode**: Suggest item codes with auto-completion
+### Scenario: Rework and Quality Issues
 
-## System Entry and Tracking
+You're producing a batch of 100 units. At Operation 30 (painting), quality inspection finds that 10 units have defects.
 
-**Production System Entry** (`ProductionSysEntry`):
-- Real-time tracking of quantities at each operation
-- Fields per operation:
-  - `toMove`: Quantity ready to move forward
-  - `rejected`: Rejected quantity
-  - `scrap`: Scrapped quantity
-  - `sample`: Sample quantity taken
+1. Production Execution moves 90 units from Op30-ToMove to Op40-ToMove (they passed inspection)
+2. Another execution moves 10 units from Op30-ToMove to Op30-Rejected (they failed)
+3. Units in Rejected status are sent back: move 10 units from Op30-Rejected to Op20-ToMove (re-do sanding before re-painting)
+4. Those 10 units work through Op20 and Op30 again
+5. This time they pass inspection and move forward with the rest
 
-**Purpose**:
-- Track work-in-process location
-- Validate execution transactions
-- Prevent invalid operation sequences
-- Support shop floor visibility
+The system tracks all this. Reports can show you how much rework you're doing, where defects are occurring, which operations have the highest failure rates - valuable data for continuous improvement.
 
-## Related Documents
+## What You Can and Can't Do
 
-**SysPORelatedDocLine**:
-- Tracks all documents related to production order
-- Material issues, product deliveries, executions
-- Used for validation and deletion checks
-- Maintains referential integrity
+Understanding the constraints helps avoid frustration:
 
-## Production Order Validation
+### When the Order is "Initial"
 
-**Key Validations**:
+✅ You can change anything - BOM, routing, components, operations, quantities, dates
+✅ You can delete the order
+✅ You can start the order
 
-1. **BOM Validation**:
-   - BOM must exist and be active
-   - Components must be available
-   - BOM quantity must match item
+❌ You can't execute production (must be In Progress first)
 
-2. **Routing Validation**:
-   - Routing must exist and be active
-   - Operations must be sequential
-   - Work centers must be defined
-   - Resources must be available
+### When the Order is "In Progress"
 
-3. **Quantity Validation**:
-   - Order quantity > 0
-   - Component quantities calculated correctly
-   - UOM conversions valid
+✅ You can execute production
+✅ You can adjust dates
+✅ You can modify component quantities or specify lots
+✅ You can adjust operation parameters like permitted percentages
+✅ You can close or terminate the order
 
-4. **Status Validation**:
-   - Cannot start closed/terminated order
-   - Cannot modify started order structure
-   - Cannot delete order with executions
+❌ You can't add or remove components (the BOM is locked)
+❌ You can't add or remove operations (the routing is locked)
+❌ You can't delete the order (if any work has been done)
 
-5. **Dimension Validation**:
-   - Required dimensions based on item setup
-   - Lot/serial validation for tracked items
-   - Warehouse/locator must exist
+### When the Order is "Closed"
 
-## Configuration Options
+✅ You can view everything for historical reference
+✅ You can run cost reports and variance analysis
 
-**Manufacturing Configuration Settings**:
-- `doNotUpdateAfterQtyUpdateInProductionOrdersIfManualIsNotZero`: Preserve manual quantity overrides
-- Allow/prevent various operations
-- Default behaviors for document generation
+❌ You can't change anything (it's locked)
+❌ You can't execute more production
+❌ You can't re-open it (closed is final)
 
-**Document Term Settings**:
-- Auto-generation rules
-- Approval requirements
-- Book assignments
-- Field defaults
+This lifecycle ensures data integrity. Once you've started production and are consuming materials and recording labor, you can't go back and change what the order was supposed to be. What you see is what actually happened.
 
-## Performance Considerations
+## Tips for Success
 
-**Large Orders**:
-- System handles orders with hundreds of components
-- Optimized quantity calculations
-- Efficient BOM explosion algorithms
+A few practical suggestions from experience:
 
-**Batch Operations**:
-- Use Aggregated Production Orders for batch creation
-- Start multiple orders together
-- Parallel processing where possible
+**Start with good BOMs and routings**. The production order is only as good as the master data it's based on. Invest time in getting BOMs accurate (correct quantities, scrap factors, yields) and routings realistic (accurate operation times, correct work centers). Bad master data leads to constant manual adjustments.
+
+**Use standard operations**. If you do the same operation on many products, create a standard operation template. It ensures consistency and saves data entry time.
+
+**Let the system do the calculations**. Don't override component quantities unless you have a good reason. The system's calculations account for yields, scrap, and order quantity scaling. Manual overrides often lead to shortages or excess.
+
+**Start orders when you're ready to produce, not months in advance**. The "In Progress" status is meant for active production. If you start orders too early and then priorities change, you end up with lots of open orders that aren't actually being worked on.
+
+**Close orders promptly when production is done**. Open orders consume system resources and clutter reports. A few weeks after production completes, close the order. You can still reference it later, but it's clearly marked as finished.
+
+**Use production requests or aggregated orders for batch planning**. If you're creating dozens of similar orders, these tools make life much easier than creating them one by one.
 
 ---
 
-::: tip Next Steps
-After creating production orders, proceed to [Production Execution](./production-execution.md) to learn how to record shop floor activities and track production progress.
+::: tip Next Step: Execution
+Creating a production order is planning. The next step is actually doing the work. Check out the [Production Execution](./production-execution.md) guide to learn how shop floor activities are recorded.
 :::
 
-::: warning Important
-Once a production order is started, you cannot modify its BOM or routing structure. Plan carefully before starting orders.
+::: warning Locked After Starting
+Once you start a production order, the BOM and routing structure is locked. Double-check everything before starting.
 :::

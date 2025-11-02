@@ -1,906 +1,510 @@
-# Production Costing and Order Closing
+# Production Costing: Following the Money
 
-## Overview
+## The Real Cost of Making Things
 
-Production costing in Nama ERP provides comprehensive tracking and analysis of manufacturing costs. The system captures actual costs throughout production and compares them to standard costs, generating variance reports and finalizing order costs through the Order Close Voucher.
+Here's a question that keeps manufacturing managers up at night: *How much did it actually cost to make that product?*
 
-This document covers:
-- Manufacturing cost components
-- Overhead allocation
-- Cost calculation methods
-- Order closing process
-- Variance analysis
-- Cost per batch/lot tracking
+It sounds simple, but it's surprisingly tricky. Sure, you know what you spent on materials - you have the invoices. You know how much labor time went into it - you tracked the hours. But what about the factory rent? The electricity bill? The supervisor's salary? The equipment depreciation? How do you fairly allocate those costs across all the different products you make?
 
-## Manufacturing Cost Components
+And even more important: Did production go according to plan? Did you spend what you expected, or were there surprises? If you're spending more than expected, where is the money going?
 
-### Direct Costs
+This is what production costing is all about. It's the financial truth-telling part of manufacturing - tracking every dollar (or riyal, or whatever currency you use) that went into making your products, and figuring out if you're making money or losing it.
 
-Direct costs can be traced directly to specific production orders:
+You'll find the main document under **Manufacturing > Documents > Order Close** (التصنيع > المستندات > إغلاق أمر إنتاج).
 
-#### 1. Material Costs
-**Tracked Through**: Raw Material Issue documents
+## Understanding Manufacturing Costs: The Three Buckets
 
-**Components**:
-- Raw materials consumed
-- Component parts
-- Purchased sub-assemblies
-- Packaging materials
+Think of manufacturing costs as falling into three buckets. Two are easy to track, one is... complicated.
 
-**Cost Sources**:
-- Actual inventory cost (FIFO, Average, or Standard)
-- Purchase price
-- Landed costs (freight, customs, etc.)
+### Bucket 1: Direct Materials - The Easy One
 
-#### 2. Labor Costs
-**Tracked Through**: Resource Voucher documents (auto-generated from Production Execution)
+These are the raw materials and components that physically go into your product. You can point at them and say "this steel sheet, these screws, that paint - they're all in the finished product."
 
-**Components**:
-- Direct labor hours
-- Employee wages/salaries
-- Shift premiums
-- Overtime costs
+Tracking this is straightforward: When you issue materials to a production order, the system records the cost. If you issued 100 kg of steel at $5/kg, that's $500 of material cost. Done.
 
-**Cost Sources**:
-- Resource hourly rates
-- Employee cost centers
-- Actual time recorded
+The system uses your inventory costing method (FIFO, Average, or Standard) to value the materials. If you're using lot-tracked materials, it knows exactly which lot you consumed and what that lot cost.
 
-#### 3. Machine Costs
-**Tracked Through**: Resource Voucher documents
+### Bucket 2: Direct Labor and Machine Time - Still Pretty Clear
 
-**Components**:
-- Machine hours
-- Equipment usage
-- Tooling and mold usage
+These are the people and machines directly making the product. The welder spending 4 hours on this order, the CNC machine running for 2 hours - you can tie these directly to the production order.
 
-**Cost Sources**:
-- Machine hourly rates
-- Fixed asset depreciation
-- Maintenance costs
+When you record production executions, the system creates Resource Vouchers tracking this time. If your welder costs $30/hour and worked 4 hours, that's $120 of labor cost. If your CNC machine costs $75/hour and ran for 2 hours, that's $150 of machine cost.
 
-### Indirect Costs (Overheads)
+Again, pretty straightforward. You have the time, you have the rates, you multiply. The costs get accumulated on the production order.
 
-Indirect costs cannot be traced to specific orders and must be allocated:
+### Bucket 3: Manufacturing Overhead - The Complicated One
 
-#### Manufacturing Overheads Include:
-- **Facility Costs**: Rent, utilities, property taxes
-- **Indirect Labor**: Supervisors, inspectors, material handlers, maintenance staff
-- **Equipment**: Depreciation, maintenance, repairs
-- **Supplies**: Lubricants, cleaning materials, small tools
-- **Quality Control**: Testing, inspection costs
-- **Other**: Insurance, security, waste disposal
+This is where it gets interesting. These are all the other costs of running a factory that you can't tie to a specific product:
 
-## Overhead Types
+**The factory itself**: You pay rent whether you make 100 units or 1000 units. How much of that rent should this particular production order bear?
 
-### Overhead Type Entity
+**Utilities**: The electricity bill covers the whole factory. Sure, running machines uses power, but so does lighting, heating, ventilation. How do you split it up?
 
-**Entity**: `OverheadType`
-**Arabic**: التكاليف الغير مباشرة
-**English**: Overhead Type
-**Classification**: Master File
+**Indirect labor**: Your production supervisor oversees multiple production lines. Quality inspectors check various products. Material handlers move stuff around. How much of their salary goes to each order?
 
-An Overhead Type defines a template for allocating indirect costs to production orders.
+**Equipment depreciation**: That expensive machine depreciates every month whether you use it heavily or barely at all. How do you charge that to products?
 
-### Overhead Type Structure
+**Supplies and consumables**: Lubricants, cleaning materials, protective equipment, small tools - they support production but aren't in the final product.
 
-**Header**:
-- **Code and Name**: Identifier and description
-- **Active Status**: Whether this overhead type is currently in use
+**Facility costs**: Insurance, property taxes, maintenance, security - all necessary, none directly traceable to a specific product.
 
-**Detail Lines** (`OverheadTypeLine`):
-Each line represents one overhead cost element:
+This overhead is real money you're spending. It needs to be recovered through product pricing. But how do you allocate it fairly?
 
-- **Name**: Overhead element name (e.g., "Factory Utilities", "Indirect Labor")
-- **Calculation Type**: How overhead is calculated
-  - **Fixed Amount**: Flat cost per order
-  - **Percentage**: Percentage of another cost base
-  - **Rate**: Amount per unit of allocation base
-- **Element Value**: Base value for calculation (percentage, rate, or fixed amount)
-- **Allocation Base**: What to multiply the rate by
-  - Per unit produced
-  - Per production hour
-  - Percentage of material cost
-  - Percentage of labor cost
-  - Fixed per order
-- **Accounting Configuration**:
-  - **Debit Account**: GL account to debit
-  - **Credit Account**: GL account to credit
-  - **Dimensions**: Cost centers, departments, etc.
+## Overhead Allocation: Making the Invisible Visible
 
-### Overhead Calculation Examples
+This is where **Overhead Types** (التكاليف الغير مباشرة) come in. An overhead type is your formula for spreading indirect costs across products.
 
-#### Example 1: Fixed Overhead per Order
+Think of it as a recipe for overhead allocation. You define overhead "elements" (like "Factory Rent", "Utilities", "Supervision") and tell the system how to calculate each one.
+
+### Method 1: Fixed Amount per Order
+
+The simplest approach. Every production order gets charged a flat amount.
+
 ```
-Name: "Production Setup Cost"
-Calculation Type: Fixed
-Element Value: 500
-Allocation: Per Order
-
-Result: Every production order gets $500 overhead
+Overhead Element: "Production Setup Cost"
+Method: Fixed $500 per order
 ```
 
-#### Example 2: Percentage of Material Cost
-```
-Name: "Material Handling"
-Calculation Type: Percentage
-Element Value: 5%
-Allocation: Material Cost Base
+Whether you're making 10 units or 1000 units, you get charged $500. This works if setup/administrative overhead is roughly the same regardless of order size.
 
-If Material Cost = $10,000
-Overhead = $10,000 × 5% = $500
-```
+**When to use it**: Small-batch manufacturing where setup costs dominate. Job shops. Custom manufacturing.
 
-#### Example 3: Rate per Production Hour
-```
-Name: "Factory Utilities"
-Calculation Type: Rate
-Element Value: 25 per hour
-Allocation: Production Hours
-
-If Production Hours = 40
-Overhead = 40 × $25 = $1,000
-```
-
-#### Example 4: Percentage of Labor Cost
-```
-Name: "Labor Benefits & Taxes"
-Calculation Type: Percentage
-Element Value: 30%
-Allocation: Labor Cost Base
-
-If Labor Cost = $2,000
-Overhead = $2,000 × 30% = $600
-```
-
-## Actual Overhead Calculator
-
-### Purpose
-
-The **Actual Overhead Calculator** (طريقة حساب فعلي للمصاريف الغير مباشرة) determines actual overhead costs from accounting transactions, rather than using predetermined rates.
-
-**Entity**: `ActualOverheadCalculator`
-**Classification**: Master File
-
-### How It Works
-
-Instead of applying fixed overhead rates, the system:
-1. Queries actual general ledger transactions
-2. Filters by account, subsidiary, dimensions, date range
-3. Calculates total actual overhead costs
-4. Allocates to production orders
-
-### Structure
-
-**Header**:
-- **Name**: Calculator description
-- **Overhead Type**: Which overhead type this calculator populates
-- **Must Determine Overhead Type in Details**: Validation flag
-
-**Detail Lines** (`ActualOverheadCalculatorLine`):
-
-Each line maps accounting data to an overhead element:
-
-- **Name**: Overhead element name (must match OverheadType line name)
-- **Overhead Type**: Reference to overhead type
-- **Data Source**: Choose one method:
-  - **Account + Subsidiary + Dimensions**: Specific account criteria
-  - **Accounts Chart**: All accounts in a chart of accounts
-  - **Query**: Custom SQL query for complex filtering
-- **Account**: Specific GL account
-- **Subsidiary**: Subsidiary account filter
-- **Entity Dimension**: Dimension filter (department, branch, etc.)
-- **Dimensions**: Additional dimension filters
-- **Accounts Chart**: Chart of accounts to aggregate
-- **Query**: Custom SQL for overhead calculation
-
-### Validation Rules
-
-1. Each line must have an overhead type (if header flag is set)
-2. Overhead name must exist in the overhead type
-3. Cannot mix account criteria with accounts chart
-4. Cannot use both query and account criteria
-
-### Usage Scenario
-
-**Setup**:
-```
-Overhead Type: "Standard Factory Overhead"
-  - Line 1: "Utilities" (5% of material cost)
-  - Line 2: "Maintenance" (10% of machine hours)
-
-Actual Overhead Calculator: "January 2024 Actual"
-  - Line 1: Name="Utilities", Account=5400 (Utilities Expense)
-    → Query GL account 5400 for January 2024
-    → Total = $12,500
-  - Line 2: Name="Maintenance", Account=5300 (Repairs & Maintenance)
-    → Query GL account 5300 for January 2024
-    → Total = $8,200
-```
-
-**When closing production orders**:
-- Instead of applying 5% and 10% rates
-- System uses actual $12,500 and $8,200
-- Allocates proportionally to orders closed in that period
-
-## Order Close Voucher
-
-### Overview
-
-**Entity**: `OrderCloseVoucher`
-**Arabic**: إغلاق أمر إنتاج
-**English**: Order Close Voucher
-**Menu**: Manufacturing > Documents > Order Close
-
-The Order Close Voucher finalizes a production order by:
-1. Calculating total actual costs
-2. Allocating overhead costs
-3. Computing cost variances
-4. Updating inventory values
-5. Generating accounting entries
-6. Changing order status to Closed or Terminated
-
-### When to Close Production Orders
-
-Close production orders when:
-- ✅ All finished goods have been delivered to inventory
-- ✅ All material issues are complete
-- ✅ All production executions are recorded
-- ✅ No more work will be performed on the order
-- ✅ Ready to finalize costs and lock the order
-
-### Order Close Voucher Structure
-
-#### Header Fields
-
-**Production Order Reference**:
-- **Production Order** (productionOrder): Which order to close
-- **Closing Date** (closingDate): Date of closure
-- **Close Type** (closeType): Normal close or terminate
-
-**Overhead Configuration**:
-- **Overhead** (overhead): Overhead type to apply
-- **Actual Prod Overhead** (actualProdOverhead): Reference to actual overhead calculator
-- **Currency** (currency): Costing currency
-
-**Cost Summary Fields** (System Calculated):
-- **Product Unit Standard Cost** (productUnitStandardCost): تكلفة الوحدة القياسية
-- **Standard Product Total Cost** (standardProductTotalCost): إجمالي التكلفة القياسية
-- **Actual Product Cost** (actualProductCost): تكلفة المنتج الفعلية
-- **Actual Product Total Cost** (actualProductTotalCost): إجمالي تكلفة المنتج الفعلية
-- **Product Qty Deviation** (productQtyDeviation): انحراف كمية المنتج
-- **Total Product Cost Deviation** (totalProductCostDeviation): انحراف تكلفة المنتج القياسية
-- **Total Product Standard Deviation** (totalProductStandardDeviation): إجمالي الإنحراف القياسي للمنتج
-- **Standard Cost Deviation** (standardCostDeviation): انحراف تكلفة الوحدة
-
-#### Detail Collections
-
-##### 1. Overhead Lines (details)
-**Collection**: `details`
-**Table**: `OrderCloseLine`
-
-Generated from Overhead Type, one line per overhead element:
-
-- **Name**: Overhead element name
-- **Lot ID** (lotId): For cost-per-batch scenarios
-- **Element Value**: Overhead rate or percentage
-- **Overhead Value** (overheadValue): Calculated overhead amount
-- **Overhead Calculation Type**: Fixed, percentage, or rate
-- **Value**: Actual overhead value applied
-- **Script Statement**: Formula for calculation
-- **Dimensions**: Cost center allocation
-- **Debit Side / Credit Side**: Accounting accounts
-
-##### 2. Material Deviation Lines
-**Collection**: `materialDeviationLines`
-**Table**: `OrderCloseMaterialDeviationLine`
-
-Variance analysis for each component:
-
-- **Material**: Item that was consumed
-- **Standard Quantity**: Expected quantity from BOM
-- **Actual Quantity**: Actual quantity issued
-- **Quantity Variance**: Difference
-- **Standard Cost**: Expected cost per unit
-- **Actual Cost**: Actual cost per unit
-- **Cost Variance**: Price variance
-- **Total Variance**: Total material variance
-
-##### 3. Resource Deviation Lines
-**Collection**: `resourceDeviationLines`
-**Table**: `OrderCloseResourceDeviationLine`
-
-Variance analysis for labor and machines:
-
-- **Resource**: Labor or machine
-- **Standard Hours**: Expected hours from routing
-- **Actual Hours**: Actual hours from execution
-- **Hours Variance**: Efficiency variance
-- **Standard Rate**: Expected cost per hour
-- **Actual Rate**: Actual cost per hour
-- **Rate Variance**: Price variance
-- **Total Variance**: Total resource variance
-
-### Close Types
-
-#### Normal Close
-**Value**: `OrderCloseType.NormalClose`
-
-**Purpose**: Standard production completion
-
-**Requirements**:
-- All quantities must be in the final operation (no pending work-in-process)
-- Production order status changes to **Closed**
-- Costs are finalized and locked
-
-**Validation**:
-- System checks Production System Entry
-- Ensures no quantities remain in intermediate operations
-- Last operation must have all quantities in "ToMove" status
-
-#### Terminate
-**Value**: `OrderCloseType.Terminate`
-
-**Purpose**: Cancel production without completion
-
-**Use Cases**:
-- Order obsolete due to design change
-- Material quality issues prevent completion
-- Customer cancellation
-- Engineering changes
-
-**Effect**:
-- Production order status changes to **Terminated**
-- Work-in-process is written off
-- Costs are allocated to scrap or variance accounts
-
-### Cost Calculation Process
-
-When an Order Close Voucher is committed, the system performs these steps:
-
-#### Step 1: Collect Actual Costs
-
-System queries all documents related to the production order:
-
-**Material Costs**:
-```
-Query: Raw Material Issue documents
-Where: productionOrder = this order
-Sum: All material costs
-```
-
-**Resource Costs**:
-```
-Query: Resource Voucher documents
-Where: productionOrder = this order
-Sum: Labor + machine costs
-```
-
-**Mold Costs**:
-```
-Query: MFG Mold Voucher documents
-Where: productionOrder = this order
-Sum: Tooling costs
-```
-
-**Delivery Costs**:
-```
-Query: Product Delivery documents
-Where: productionOrder = this order
-Sum: Finished goods value
-```
-
-**Return Costs**:
-```
-Query: Material Return documents
-Where: productionOrder = this order
-Sum: Returned materials
-```
-
-**Scrap Costs**:
-```
-Query: Production Execution documents
-Where: productionOrder = this order AND toStep = Scrap
-Sum: Scrapped value
-```
-
-#### Step 2: Apply Overhead
-
-**If using standard overhead rates**:
-- Apply overhead type rates
-- Calculate based on allocation bases
-- Multiply by appropriate drivers
-
-**If using actual overhead calculator**:
-- Query actual GL transactions
-- Fetch overhead amounts by element
-- Allocate proportionally to production orders
-
-**For cost-per-batch scenarios**:
-- Separate overhead calculation per lot
-- Each lot/batch gets its own overhead allocation
-- Useful for pharmaceutical, food, and chemical industries
-
-#### Step 3: Update Production Order Cost Fields
-
-System updates these fields on the Production Order:
-
-- **Material Issue Cost** (materialIssueCost)
-- **Material Return Cost** (materialReturnCost)
-- **Resources Cost** (resourcesCost)
-- **Molds Cost** (moldsCost)
-- **Scrap Cost** (scrapCost)
-- **Delivered By Prod Cost** (deliveredByProdCost)
-- **Returned By Prod Cost** (returnedByProdCost)
-
-#### Step 4: Calculate Variances (if enabled)
-
-**Material Variances**:
-```
-For each component:
-  Quantity Variance = (Actual Qty - Standard Qty) × Standard Price
-  Price Variance = (Actual Price - Standard Price) × Actual Qty
-  Total Variance = Quantity Variance + Price Variance
-```
-
-**Resource Variances**:
-```
-For each resource:
-  Efficiency Variance = (Actual Hours - Standard Hours) × Standard Rate
-  Rate Variance = (Actual Rate - Standard Rate) × Actual Hours
-  Total Variance = Efficiency Variance + Rate Variance
-```
-
-**Product Quantity Variance**:
-```
-Expected Output = Order Quantity
-Actual Output = Sum of delivered quantities
-Quantity Deviation = Actual - Expected
-```
-
-**Product Cost Variance**:
-```
-Standard Total Cost = Standard Unit Cost × Order Quantity
-Actual Total Cost = Material + Labor + Machine + Overhead
-Total Deviation = Actual - Standard
-Unit Cost Deviation = Total Deviation / Actual Quantity
-```
-
-#### Step 5: Re-commit Deliveries
-
-System re-calculates and updates Product Delivery documents:
-- Updates finished goods inventory value
-- Applies actual costs to delivered quantities
-- Adjusts co-product valuations
-- Updates GL inventory accounts
-
-#### Step 6: Generate Accounting Entries
-
-Creates journal entries for:
-- Overhead allocation (debit WIP, credit overhead accounts)
-- Cost variances (favorable/unfavorable)
-- Work-in-process to finished goods transfer
-- Scrap write-offs (if terminated)
-
-#### Step 7: Update Order Status
-
-- Normal Close → Status = **Closed**
-- Terminate → Status = **Terminated**
-- If order was created from Production Order Request, updates request status to **Finished**
-
-### Cost Per Batch/Lot
-
-**Configuration**: Set in Production Order Term Config
-
-**Purpose**: Track costs separately for each lot/batch produced
-
-**When to Use**:
-- Pharmaceutical manufacturing (batch validation)
-- Food production (lot traceability)
-- Chemical processing (batch yields vary)
-- Any industry requiring lot-specific costing
-
-**How It Works**:
-1. Production Deliveries assign lot numbers
-2. Order Close Voucher creates separate cost calculations per lot
-3. Each lot gets its own:
-   - Material costs
-   - Resource costs
-   - Overhead allocation
-   - Finished goods value
-4. Overhead lines are duplicated per lot
-5. Variance analysis per lot
-
-**Example**:
-```
-Production Order: PO-001
-  Lot A: 100 units delivered
-  Lot B: 95 units delivered
-
-Costs:
-  Material: $10,000 total
-  Labor: $3,000 total
-  Overhead: $2,000 total
-
-Cost Per Batch Allocation:
-  Lot A: (100/195) × $15,000 = $7,692
-  Lot B: (95/195) × $15,000 = $7,308
-
-Lot A Unit Cost: $7,692 / 100 = $76.92
-Lot B Unit Cost: $7,308 / 95 = $76.93
-```
-
-## Overhead Allocation Methods
-
-### Method 1: Fixed Overhead per Order
-
-**Setup**:
-```
-Overhead Type: "Factory Overhead"
-  Line: "Production Overhead"
-    Element Value: 1000
-    Calculation Type: Fixed
-```
-
-**Result**: Every order gets $1,000 overhead regardless of size
+**Limitation**: Unfair to large orders (they subsidize small orders) and small orders might look unprofitable when they're really not.
 
 ### Method 2: Percentage of Material Cost
 
-**Setup**:
+Allocate overhead as a percentage of direct material cost.
+
 ```
-Overhead Type: "Material Handling Overhead"
-  Line: "Material Overhead"
-    Element Value: 10% (0.10)
-    Calculation Type: Percentage
-    Base: Material Cost
+Overhead Element: "Material Handling Overhead"
+Method: 12% of material cost
 ```
 
-**Example**:
-```
-Material Cost: $25,000
-Overhead: $25,000 × 10% = $2,500
-```
+If an order consumed $10,000 in materials, it gets charged $1,200 in overhead.
+
+**When to use it**: When overhead correlates with material value. More expensive materials often require more careful handling, storage, and quality control.
+
+**Real example**: You make both budget products with cheap materials and premium products with expensive materials. The premium products need climate-controlled storage, extra security, more careful handling. A percentage of material cost is a fair way to allocate those costs.
 
 ### Method 3: Percentage of Labor Cost
 
-**Setup**:
+Similar idea, but based on direct labor.
+
 ```
-Overhead Type: "Labor Burden"
-  Line: "Benefits & Taxes"
-    Element Value: 35%
-    Calculation Type: Percentage
-    Base: Labor Cost
+Overhead Element: "Labor Burden"
+Method: 35% of direct labor cost
 ```
 
-**Example**:
-```
-Labor Cost: $8,000
-Overhead: $8,000 × 35% = $2,800
-```
+If an order consumed $8,000 in direct labor, it gets charged $2,800 in overhead.
+
+**Why 35%?** That might cover payroll taxes, benefits, training, supervision, and HR costs. In many countries, for every dollar you pay in wages, you're spending another 30-40% on labor-related overhead.
+
+**When to use it**: When indirect labor overhead (supervision, training, HR) is significant. Labor-intensive manufacturing.
 
 ### Method 4: Rate per Production Hour
 
-**Setup**:
+Charge based on how long products were in production.
+
 ```
-Overhead Type: "Machine Overhead"
-  Line: "Equipment Overhead"
-    Element Value: 50 per hour
-    Calculation Type: Rate
-    Base: Production Hours
+Overhead Element: "Facility Overhead"
+Method: $50 per production hour
 ```
 
-**Example**:
-```
-Production Hours: 80
-Overhead: 80 × $50 = $4,000
-```
+If an order took 80 hours to produce (from start to finish), it gets charged $4,000 in overhead.
+
+**When to use it**: When time on the factory floor is the main cost driver. The longer something occupies your facility, the more rent, utilities, and depreciation it should bear.
+
+**Getting the rate**: Add up all your monthly overhead costs (rent, utilities, depreciation, supervision, etc.), divide by the total production hours per month. That's your overhead rate per hour.
 
 ### Method 5: Rate per Unit Produced
 
-**Setup**:
+Charge a fixed amount per unit.
+
 ```
-Overhead Type: "Quality Overhead"
-  Line: "Inspection Cost"
-    Element Value: 2.50 per unit
-    Calculation Type: Rate
-    Base: Units Produced
+Overhead Element: "Quality Control Overhead"
+Method: $3 per unit
 ```
 
-**Example**:
+Produce 500 units, get charged $1,500 in overhead.
+
+**When to use it**: When certain overhead costs scale directly with volume. If every unit needs an inspection and inspections cost about the same per unit, this makes sense.
+
+### Method 6: The Actual Overhead Calculator - Getting Real
+
+All the above methods use predetermined rates - you're estimating what overhead should be. But what if you want to use actual overhead costs?
+
+That's where the **Actual Overhead Calculator** (طريقة حساب فعلي للمصاريف الغير مباشرة) comes in.
+
+Instead of guessing, you tell the system: "Go look at the actual general ledger accounts for factory overhead. Take the real numbers from accounting."
+
 ```
-Units Produced: 500
-Overhead: 500 × $2.50 = $1,250
-```
-
-### Method 6: Actual Overhead Calculation
-
-**Setup**:
-```
-Actual Overhead Calculator: "Monthly Overhead"
-  Line 1: "Factory Utilities"
-    Account: 5400
-    Query actual expenses for the month
-
-  Line 2: "Indirect Labor"
-    Account: 5200
-    Query actual expenses for the month
-
-  Line 3: "Maintenance"
-    Accounts Chart: "Manufacturing Expenses"
-    Sum all accounts in chart
+Overhead Element: "Actual Factory Utilities"
+Source: GL Account 5400 (Utilities Expense)
+Period: This month
 ```
 
-**Result**:
-```
-January 2024 Actual Costs:
-  Utilities: $15,200
-  Indirect Labor: $28,500
-  Maintenance: $7,800
-  Total Overhead: $51,500
+At month-end, the system queries account 5400, finds you spent $15,200 on utilities this month, and allocates that actual cost across all production orders closed this month.
 
-Allocation to orders closed in January:
-  Order A (200 units): $51,500 × (200/1000) = $10,300
-  Order B (500 units): $51,500 × (500/1000) = $25,750
-  Order C (300 units): $51,500 × (300/1000) = $15,450
+**The beauty**: You're using real numbers, not estimates.
+
+**The trade-off**: You can only finalize costs at period-end when you have actual numbers. If you need real-time costing, you have to use predetermined rates.
+
+**How allocation works**: Usually proportional to something - maybe production hours, maybe direct labor cost, maybe units produced. The system divides the total actual overhead across orders based on their share of that allocation base.
+
+Example:
+```
+January actual utilities: $15,200
+Total production hours in January: 1,900 hours
+
+Order A: 200 hours → gets charged $15,200 × (200/1900) = $1,600
+Order B: 500 hours → gets charged $15,200 × (500/1900) = $4,000
+Order C: 300 hours → gets charged $15,200 × (300/1900) = $2,400
 ```
 
-## Variance Analysis
+## Closing Production Orders: The Final Reckoning
+
+Eventually, production is done. Materials are consumed, work is executed, finished goods are in inventory. Time to close the books on this production order.
+
+This is where the **Order Close Voucher** (إغلاق أمر إنتاج) comes in. It's the final accounting step that says "here's what we actually spent, here's what it means financially."
+
+### When to Close an Order
+
+You close an order when:
+- ✅ All production executions are complete
+- ✅ All finished goods have been delivered to inventory
+- ✅ All material issues are accounted for
+- ✅ No more work will happen on this order
+- ✅ You're ready to lock the costs and move on
+
+**Important**: The system won't let you normally close an order if there are still quantities in intermediate operations. If you have 20 units sitting at Operation 30 waiting to move forward, those represent unfinished work. You need to either complete them or scrap them before closing.
+
+### What Happens When You Close
+
+When you create and commit an Order Close Voucher, several things happen:
+
+**1. Cost Collection**
+
+The system gathers every cost related to this production order:
+- All material issues (صرف مواد خام)
+- All resource vouchers (سند موارد) tracking labor and machine time
+- All mold/tooling usage (سند قوالب)
+- Any returned materials (negative cost)
+- Any scrapped units (cost of waste)
+- Finished goods delivered
+
+It adds them all up. This is your total actual cost before overhead.
+
+**2. Overhead Application**
+
+If you specified an overhead type (either in the close voucher or it came from the production order's default), the system generates overhead lines.
+
+For each element in your overhead type, it calculates the overhead amount based on the method you defined. If you use actual overhead calculator, it pulls real numbers from GL accounts.
+
+These overhead amounts get added to your total cost.
+
+**3. Inventory Revaluation**
+
+Here's the clever part: The system goes back to all the Product Delivery documents for this order and updates them with the actual unit cost.
+
+Maybe when you delivered 100 units, the system used a standard cost of $50/unit. Now, after closing, the actual cost is $52/unit. The system adjusts the inventory value accordingly.
+
+This ensures your finished goods inventory reflects actual production costs, not estimates.
+
+**4. Accounting Entries**
+
+Journal entries are generated for:
+- Overhead application (DR: Work in Process, CR: Overhead accounts)
+- WIP to finished goods transfer
+- Any variances (if using standard costing)
+
+The general ledger gets updated to reflect the reality of what this production cost.
+
+**5. Status Change**
+
+The production order status changes from "In Progress" to "Closed". It's locked - no more changes allowed. What you see is what happened.
+
+If the order came from a Production Order Request, that request's status updates to "Finished" too.
+
+## The Two Ways to Close
+
+### Normal Close: Mission Accomplished
+
+This is the standard way - production completed successfully, all units are accounted for. When you select "Normal Close" type, the system validates that:
+- No quantities are stuck in intermediate operations
+- All work-in-process has been delivered or scrapped
+- The production order is truly done
+
+If validation passes, closure proceeds and costs are finalized.
+
+### Terminate: Calling It Quits
+
+Sometimes you need to cancel an order before completion:
+- Customer cancelled the order
+- Design flaw discovered
+- Material quality issues can't be resolved
+- Business priorities changed
+
+When you select "Terminate" type, the system:
+- Closes the order without requiring all quantities to be delivered
+- Writes off any work-in-process as loss
+- Allocates costs to variance accounts
+- Marks the order status as "Terminated" (not "Closed")
+
+You still go through the costing calculation - you spent money on partial production, and that cost needs to be recorded. But instead of flowing to finished goods inventory, it flows to loss accounts.
+
+## Variance Analysis: Playing Detective
+
+If you're using standard costing (where you set expected costs for materials and labor), the Order Close Voucher can show you variances - the differences between what you expected to spend and what you actually spent.
+
+This is incredibly valuable for continuous improvement. Let's look at the types of variances:
 
 ### Material Variances
 
-#### Quantity Variance
-**Formula**: (Actual Qty - Standard Qty) × Standard Price
+For each component you consumed, the system can compare expected vs. actual on two dimensions:
 
-**Causes**:
-- Yield losses
-- Scrap
-- Waste
-- Rework
-- Theft or spoilage
-
-**Example**:
+**Quantity Variance** (Did you use the right amount of material?)
 ```
-Standard: 100 kg @ $10/kg = $1,000
-Actual: 110 kg @ $10/kg = $1,100
-Quantity Variance: (110 - 100) × $10 = $100 Unfavorable
+Standard: Should use 100 kg
+Actual: Used 110 kg
+Variance: 10 kg over
+
+At standard price of $10/kg: 10 kg × $10 = $100 unfavorable variance
 ```
 
-#### Price Variance
-**Formula**: (Actual Price - Standard Price) × Actual Qty
+**What it tells you**: You're consuming more material than expected. Maybe there's waste in the process, maybe the BOM needs updating, maybe quality issues are causing scrap. This is a red flag to investigate.
 
-**Causes**:
-- Market price changes
-- Supplier changes
-- Purchase discounts/premiums
-- Exchange rate fluctuations
+**Price Variance** (Did you pay the expected price?)
+```
+Standard: Expected $10/kg
+Actual: Paid $11/kg
+Variance: $1/kg over
 
-**Example**:
+For 110 kg actually consumed: 110 kg × $1 = $110 unfavorable variance
 ```
-Standard: 100 kg @ $10/kg = $1,000
-Actual: 100 kg @ $11/kg = $1,100
-Price Variance: ($11 - $10) × 100 = $100 Unfavorable
-```
+
+**What it tells you**: Material costs are higher than expected. Maybe supplier raised prices, maybe you bought from an expensive source due to shortage, maybe freight costs increased. This variance points to purchasing issues, not manufacturing issues.
+
+**Total Material Variance**: Quantity variance + Price variance = Total
 
 ### Resource Variances
 
-#### Efficiency Variance
-**Formula**: (Actual Hours - Standard Hours) × Standard Rate
+Similar analysis for labor and machine time:
 
-**Causes**:
-- Worker skill level
-- Equipment performance
-- Learning curve
-- Process improvements or issues
+**Efficiency Variance** (Did the work take as long as it should?)
+```
+Standard: Should take 40 hours
+Actual: Took 45 hours
+Variance: 5 hours over
+
+At standard rate of $25/hour: 5 hours × $25 = $125 unfavorable variance
+```
+
+**What it tells you**: Work is taking longer than expected. Maybe workers need more training, maybe the routing times are optimistic, maybe there were delays or problems. Look for root causes.
+
+**Rate Variance** (Did you pay the expected rate?)
+```
+Standard: Expected $25/hour
+Actual: Paid $28/hour
+Variance: $3/hour over
+
+For 45 hours actually worked: 45 hours × $3 = $135 unfavorable variance
+```
+
+**What it tells you**: Labor is costing more than expected. Maybe you used overtime (higher rate), maybe you used a more skilled (expensive) worker than planned, maybe rates increased. This points to labor cost or staffing issues.
+
+### Reading the Clues
+
+Variances tell stories. Here are some common patterns:
+
+**High material quantity variance + normal price variance**: You're wasting material or having quality issues. Check scrap rates, look for process problems.
+
+**Normal material quantity + high price variance**: Purchasing is paying more than expected. Check supplier contracts, freight costs, market conditions.
+
+**High labor efficiency variance + normal rate variance**: Work is taking longer than it should. Check for bottlenecks, training needs, equipment issues.
+
+**Normal labor efficiency + high rate variance**: Labor costs increased. Check overtime usage, skill mix, wage changes.
+
+**Large variances on some orders but not others**: Process inconsistency. Some orders go well, others have problems. Look for what's different.
+
+**Consistently favorable variances**: Your standards might be too pessimistic. Or you've genuinely improved the process - time to update standards and take credit!
+
+## Cost Per Batch: When One Size Doesn't Fit All
+
+Sometimes you need to track costs separately for each batch or lot produced. This is common in:
+
+**Pharmaceuticals**: Regulatory requirements demand batch-level costing. Batch 2024-001 might have different costs than Batch 2024-002.
+
+**Food production**: Different production runs can have different ingredient costs, yields, and quality results.
+
+**Chemicals**: Batch yields vary. One batch might produce 95% good product, another 98%. Costs should reflect that.
+
+When you enable "Cost Per Batch" in the production order term configuration, the system:
+
+1. **Tracks costs separately per lot**: Each lot number in your product deliveries gets its own cost calculation.
+
+2. **Allocates overhead by lot**: Overhead is split proportionally based on what each lot produced.
+
+3. **Creates separate inventory values**: Lot A finished goods might cost $50/unit while Lot B cost $52/unit because they had different yields.
 
 **Example**:
 ```
-Standard: 40 hours @ $25/hour = $1,000
-Actual: 45 hours @ $25/hour = $1,125
-Efficiency Variance: (45 - 40) × $25 = $125 Unfavorable
+Production Order: Make 200 units total
+  - Lot 2024-001: 100 units delivered
+  - Lot 2024-002: 100 units delivered
+
+Total Costs:
+  - Materials: $8,000
+  - Labor: $3,000
+  - Overhead: $1,000
+  - Total: $12,000
+
+But Lot 2024-001 used more material (lower yield):
+  - Lot 2024-001: $5,000 materials + $1,500 labor + $500 overhead = $7,000 (100 units = $70/unit)
+  - Lot 2024-002: $3,000 materials + $1,500 labor + $500 overhead = $5,000 (100 units = $50/unit)
 ```
 
-#### Rate Variance
-**Formula**: (Actual Rate - Standard Rate) × Actual Hours
+Now your inventory correctly shows that Lot 2024-001 units cost more than Lot 2024-002 units. When you sell or consume them later, COGS reflects the actual cost of that specific lot.
 
-**Causes**:
-- Wage rate changes
-- Different skill levels used
-- Overtime premiums
-- Machine rate changes
+## Practical Scenarios
 
-**Example**:
-```
-Standard: 40 hours @ $25/hour = $1,000
-Actual: 40 hours @ $28/hour = $1,120
-Rate Variance: ($28 - $25) × 40 = $120 Unfavorable
-```
+### Scenario 1: Simple Order with Standard Overhead
 
-### Overhead Variances
+You made 100 widgets:
+- Material cost: $5,000 (from material issues)
+- Labor cost: $2,000 (from resource vouchers)
+- Machine cost: $1,500 (from resource vouchers)
+- Subtotal: $8,500
 
-#### Volume Variance
-**Cause**: Producing more or fewer units than planned
+Your overhead type charges 20% of direct costs:
+- Overhead: $8,500 × 20% = $1,700
 
-**Example**:
-```
-Standard: 1,000 units @ $5/unit = $5,000 overhead
-Actual: 900 units @ $5/unit = $4,500 expected
-Actual Overhead: $5,200
-Volume Variance: (900 - 1,000) × $5 = $500 Unfavorable
-```
+Total cost: $8,500 + $1,700 = $10,200
+Unit cost: $10,200 / 100 = $102/unit
 
-#### Spending Variance
-**Cause**: Actual overhead costs differ from budget
+When you close the order:
+1. System tallies the $8,500 in direct costs
+2. Calculates $1,700 in overhead
+3. Updates the 100 units in inventory to $102/unit each
+4. Generates accounting entries
+5. Locks the order as Closed
 
-**Example**:
-```
-Budgeted Overhead: $5,000
-Actual Overhead: $5,200
-Spending Variance: $5,200 - $5,000 = $200 Unfavorable
-```
+Simple, clean, done.
 
-## Configuration
+### Scenario 2: Variance Analysis Reveals Problems
 
-### Production Order Term Configuration
+Expected costs (from standards):
+- Materials: 100 kg @ $10/kg = $1,000
+- Labor: 40 hours @ $25/hour = $1,000
+- Total expected: $2,000
 
-**Cost-Related Settings**:
+Actual costs:
+- Materials: 115 kg @ $11/kg = $1,265
+- Labor: 50 hours @ $25/hour = $1,250
+- Total actual: $2,515
 
-**Cost Per Batch** (costPerBatch):
-- Enable lot-specific costing
-- Creates separate cost pools per lot/batch
-- Overhead allocated by lot
+Variance: $515 unfavorable (25% over budget - yikes!)
 
-**Calculate Deviations** (calculateDeviations):
-- Enable variance analysis
-- Populates material and resource deviation lines
-- Compares actual vs. standard
+The Order Close Voucher breaks it down:
 
-**Overhead** (overhead):
-- Default overhead type for orders
-- Can be overridden per order
+**Material Variances**:
+- Quantity: (115 - 100) × $10 = $150 unfavorable
+- Price: (11 - 10) × 115 = $115 unfavorable
+- Total material: $265 unfavorable
 
-### Order Close Term Configuration
+**Labor Variances**:
+- Efficiency: (50 - 40) × $25 = $250 unfavorable
+- Rate: ($25 - $25) × 50 = $0 (no variance)
+- Total labor: $250 unfavorable
 
-**Overhead** (overhead):
-- Default overhead type for closing
-- Overrides production order overhead if set
+**The story**: You used 15% more material than expected (waste or scrap issue) AND paid 10% more for it (purchasing issue). Plus labor took 25% longer (efficiency issue). Three separate problems revealed.
 
-**Do Not Update Accounting Effects With Actual Values**:
-- Use standard costs in accounting instead of actual
-- Variances posted separately
+Now you can investigate:
+- Why the material waste? Check scrap records
+- Why the higher price? Talk to purchasing
+- Why the extra labor hours? Check execution records for that order
 
-## Common Workflows
+Without variance analysis, you'd just know "this order cost more than expected" but not why. With it, you have specific clues to follow.
 
-### Standard Order Closing Process
+### Scenario 3: Using Actual Overhead
 
-1. **Ensure Order is Complete**:
-   - All executions recorded
-   - All materials issued
-   - All finished goods delivered
-   - No pending quantities in operations
+You're closing orders at month-end using actual overhead calculator.
 
-2. **Create Order Close Voucher**:
-   - Select production order
-   - Choose close type (Normal Close)
-   - Select overhead type (or use default)
-   - Set closing date
+Your actual overhead calculator queries GL accounts:
+- Account 5100 (Factory Rent): $12,000
+- Account 5200 (Utilities): $8,500
+- Account 5300 (Supervision): $15,000
+- Account 5400 (Maintenance): $4,500
+- Total actual overhead for month: $40,000
 
-3. **Review Overhead Lines**:
-   - System auto-generates from overhead type
-   - Review calculated amounts
-   - Adjust if necessary (manual overrides allowed)
+Three production orders closed this month:
+- Order A: 150 production hours
+- Order B: 250 production hours
+- Order C: 100 production hours
+- Total: 500 production hours
 
-4. **Review Variance Analysis** (if enabled):
-   - Check material deviation lines
-   - Check resource deviation lines
-   - Investigate significant variances
+Overhead allocated proportionally:
+- Order A: $40,000 × (150/500) = $12,000
+- Order B: $40,000 × (250/500) = $20,000
+- Order C: $40,000 × (100/500) = $8,000
 
-5. **Commit the Voucher**:
-   - System calculates final costs
-   - Updates production order
-   - Generates accounting entries
-   - Changes order status to Closed
+Each order gets charged based on its share of total production hours. Order B, which consumed half the production time, gets charged half the overhead.
 
-### Using Actual Overhead Calculator
+This reflects reality - you spent $40,000 in overhead this month, and you've recovered all of it through product costs.
 
-1. **Create Actual Overhead Calculator**:
-   - Define overhead elements
-   - Map to GL accounts or use queries
-   - Set date filters
+## Configuration That Controls Everything
 
-2. **Run Calculation**:
-   - System queries actual transactions
-   - Aggregates costs by element
-   - Returns actual overhead values
+Several settings control how costing works:
 
-3. **Apply to Order Close Voucher**:
-   - Reference actual overhead calculator in close voucher
-   - System uses actual costs instead of rates
-   - More accurate costing
+### Production Order Term
 
-4. **Review and Commit**:
-   - Verify overhead amounts are reasonable
-   - Compare to standard overhead
-   - Commit to finalize
+**Cost Per Batch**: Enable lot-specific costing. Each lot gets its own cost calculation.
 
-### Terminating an Order
+**Calculate Deviations**: Enable variance analysis. System will populate material and resource deviation lines showing expected vs. actual.
 
-1. **Reason for Termination**:
-   - Document why order is being cancelled
-   - Ensure approvals obtained
+**Overhead**: Default overhead type for all orders using this term.
 
-2. **Create Order Close Voucher**:
-   - Select production order
-   - Choose close type: **Terminate**
-   - Set closing date
+### Order Close Term
 
-3. **Cost Handling**:
-   - System calculates costs incurred to date
-   - Work-in-process written off
-   - Materials issued are scrapped
-   - Costs allocated to variance accounts
+**Overhead**: If specified, overrides the production order's overhead type. Useful if you have a special overhead allocation for certain situations.
 
-4. **Commit**:
-   - Order status changes to Terminated
-   - Cannot be reopened
-   - Production order request status updated
+**Do Not Update Accounting Effects With Actual Values**: Use standard costs in accounting instead of actual. Variances are posted separately. This is a policy decision - some companies prefer standard cost accounting, others prefer actual.
 
-## Accounting Integration
+### Overhead Type Configuration
 
-### Generated Journal Entries
+**Elements**: Define each overhead component (rent, utilities, supervision, etc.)
 
-When Order Close Voucher is committed:
+**Calculation Methods**: Fixed, percentage of material cost, percentage of labor cost, rate per hour, rate per unit, or actual from GL accounts.
 
-**Overhead Allocation**:
-```
-DR: Work in Process (WIP)
-CR: Manufacturing Overhead Applied
-```
+**Accounting Accounts**: Where to debit and credit for each overhead element.
 
-**WIP to Finished Goods**:
-```
-DR: Finished Goods Inventory
-CR: Work in Process (WIP)
-```
+## Tips for Effective Costing
 
-**Material Variance**:
-```
-If Unfavorable:
-  DR: Material Variance (Expense)
-  CR: Work in Process (WIP)
+**Close orders regularly**: Don't let them pile up. Close orders a week or two after production completes. Fresh data, fresh memories if questions arise.
 
-If Favorable:
-  DR: Work in Process (WIP)
-  CR: Material Variance (Income)
-```
+**Review variances**: If you're using standard costing, actually look at the variances. They're telling you something. Big variances are red flags.
 
-**Labor Variance**:
-```
-If Unfavorable:
-  DR: Labor Variance (Expense)
-  CR: Work in Process (WIP)
+**Update standards periodically**: If you consistently have 20% favorable variances, your standards are probably outdated. Update them to reflect current reality.
 
-If Favorable:
-  DR: Work in Process (WIP)
-  CR: Labor Variance (Income)
-```
+**Choose overhead methods that match your business**: Don't just copy what another company does. If your overhead really is driven by production hours, use rate per hour. If it's driven by material handling, use percentage of material cost.
 
-### Accounting Accounts from Overhead Lines
+**Use actual overhead for period-end accuracy**: Predetermined rates are fine for quick costing, but run an actual overhead calculation at period-end to true up your costs.
 
-Each overhead line specifies:
-- **Debit Side**: Account to debit (usually WIP or finished goods)
-- **Credit Side**: Account to credit (overhead control account)
-- **Dimensions**: Cost centers, branches, departments for allocation
+**Track cost trends over time**: Is the cost per unit going up or down? Are variances getting better or worse? Trends tell you if you're improving or declining.
+
+**Investigate, don't just record**: A 15% unfavorable material variance is data. Understanding why (supplier quality issues, process waste, BOM inaccuracy) is information. Information drives improvement.
+
+**Consider cost-per-batch for compliance**: If you're in a regulated industry (pharma, food, medical devices), batch-level costing might not be optional - it might be required for traceability and compliance.
 
 ---
 
-::: tip Costing Accuracy
-For most accurate costs, use Actual Overhead Calculator to query real accounting data rather than applying predetermined overhead rates.
+::: tip The Big Picture
+Production costing connects manufacturing reality to financial results. It's the bridge between "we made 100 units" and "it cost us $X to make them, and here's why."
 :::
 
-::: warning Order Completion
-Ensure all production activities are complete before closing an order. Closed orders cannot be modified and costs are locked.
+::: warning Lock It Down
+Once an order is closed, costs are locked. Make sure all production is truly complete before closing. You can't easily reopen a closed order if you realize you forgot something.
 :::
 
-::: info Variance Investigation
-Significant variances (>10%) should be investigated to identify process improvements or correct standard cost assumptions.
+::: info Variance Analysis is Gold
+If you're using standard costing, the variance analysis isn't just accounting busywork - it's your early warning system for process problems and cost overruns. Pay attention to it.
 :::
