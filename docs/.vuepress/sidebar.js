@@ -234,7 +234,7 @@ export const SIDEBAR_CONFIG = {
       children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", {
         text: "Manufacturing",
         collapsible: true,
-        children: [ "/guide/manufacturing/manufacturing-overview.md", "/guide/manufacturing/production-orders.md", "/guide/manufacturing/production-execution.md", "/guide/manufacturing/production-costing.md", "/guide/manufacturing/material-requirements-planning.md", {
+        children: [ "/guide/manufacturing/manufacturing-overview.md", "/guide/manufacturing/production-orders.md", "/guide/manufacturing/production-execution.md", "/guide/manufacturing/production-costing.md", "/guide/manufacturing/material-requirements-planning.md", "/guide/manufacturing/carton-manufacturing-overview.md", "/guide/manufacturing/carton-specifications.md", "/guide/manufacturing/carton-orders.md", "/guide/manufacturing/carton-material-planning.md", "/guide/manufacturing/carton-material-issue.md", {
           text: ".",
           "link" : "/guide/manufacturing/"
         } ]
