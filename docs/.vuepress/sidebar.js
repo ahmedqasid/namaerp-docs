@@ -194,7 +194,7 @@ export const SIDEBAR_CONFIG = {
       children: [ "/guide/list-views/", "/guide/entity-flows/", "/guide/invoices/", {
         text: "Supply Chain",
         collapsible: true,
-        children: [ "/guide/supplychain/nama-pos.md", "/guide/supplychain/reservation-system-guide.md", {
+        children: [ "/guide/supplychain/supply-chain-intro.md", "/guide/supplychain/understanding-items.md", "/guide/supplychain/receiving-stock.md", "/guide/supplychain/issuing-stock.md", "/guide/supplychain/moving-stock.md", "/guide/supplychain/purchasing-journey.md", "/guide/supplychain/sales-journey.md", "/guide/supplychain/quality-control.md", "/guide/supplychain/specialized-scenarios.md", "/guide/supplychain/nama-pos.md", "/guide/supplychain/reservation-system-guide.md", {
           text: ".",
           "link" : "/guide/supplychain/"
         } ]
