@@ -30,29 +30,27 @@ A thread dump is a text file containing detailed information about all running t
 
 ## Prerequisites
 
-- **Administrator access** to the Windows server
+- **Administrator access** to the Windows server (script will request elevation automatically)
 - **PowerShell 5.1 or later** (included in Windows Server 2016+)
 - **Network connectivity** to download the script (or save it locally)
 
 ## Step-by-Step Instructions
 
-### Step 1: Open PowerShell as Administrator
+### Step 1: Download and Run the Script
 
-1. Press `Win + X` or right-click the Start button
-2. Select **"Windows PowerShell (Admin)"** or **"Terminal (Admin)"**
-3. Click **Yes** when prompted by User Account Control
-
-### Step 2: Download and Run the Script
-
-Copy and paste the following commands into PowerShell:
+Open PowerShell (regular or admin) and copy the following commands:
 
 ```powershell
 # Download the jstack dump script
-Invoke-WebRequest https://www.namasoft.com/jstack-dump.ps1 -OutFile C:\Users\Administrator\jstack-dump.ps1
+Invoke-WebRequest https://www.namasoft.com/jstack-dump.ps1 -OutFile "$env:USERPROFILE\jstack-dump.ps1"
 
-# Run the script
-C:\Users\Administrator\jstack-dump.ps1
+# Run the script (will request admin privileges if needed)
+& "$env:USERPROFILE\jstack-dump.ps1"
 ```
+
+::: tip Automatic Elevation
+If you're not running as administrator, the script will automatically request elevation and restart with admin privileges.
+:::
 
 ::: warning Execution Policy
 If you encounter an error about execution policy, run this command first:
@@ -62,7 +60,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 This temporarily allows the script to run for the current PowerShell session only.
 :::
 
-### Step 3: Select the Tomcat Process
+### Step 2: Select the Tomcat Process
 
 The script will automatically detect running Tomcat processes:
 
@@ -92,47 +90,51 @@ Enter the number corresponding to the **hanging or problematic instance**.
 - If unsure, capture dumps for all instances
 :::
 
-### Step 4: Wait for Completion
+### Step 3: Wait for Completion
 
 The script will:
 1. Find the JDK installation automatically
 2. Locate the process ID (PID)
 3. Execute the jstack command
-4. Save the output to a timestamped file
+4. Save the output to a timestamped file in `%USERPROFILE%\nama-dumps\`
 5. Automatically open the file in your default text editor
 
 ```
 Found PID: 29500
 Running jstack...
-Output file: Tomcat101010-20251102-143025.txt
+Output file: C:\Users\YourName\nama-dumps\Tomcat101010-20251102-143025.txt
 
-Thread dump saved successfully to Tomcat101010-20251102-143025.txt
+Thread dump saved successfully to C:\Users\YourName\nama-dumps\Tomcat101010-20251102-143025.txt
 File size: 2847623 bytes
 Opening file...
 ```
 
-### Step 5: Capture Multiple Dumps (Recommended)
+::: info Where Are Dumps Saved?
+All thread dumps are automatically saved to the `nama-dumps` folder in your user directory. You can easily find them at `%USERPROFILE%\nama-dumps\`
+:::
+
+### Step 4: Capture Multiple Dumps (Recommended)
 
 For better analysis, capture 2-3 dumps with intervals:
 
 ```powershell
 # First dump
-C:\Users\Administrator\jstack-dump.ps1
+& "$env:USERPROFILE\jstack-dump.ps1"
 
 # Wait 10-30 seconds
 Start-Sleep -Seconds 10
 
 # Second dump
-C:\Users\Administrator\jstack-dump.ps1
+& "$env:USERPROFILE\jstack-dump.ps1"
 
 # Wait again
 Start-Sleep -Seconds 10
 
 # Third dump
-C:\Users\Administrator\jstack-dump.ps1
+& "$env:USERPROFILE\jstack-dump.ps1"
 ```
 
-This creates three timestamped files showing how thread states evolve over time.
+This creates three timestamped files in your `nama-dumps` folder showing how thread states evolve over time.
 
 ## Understanding the Output
 
@@ -241,8 +243,8 @@ Get-ChildItem "C:\Program Files\Java" -Directory
 
 **Error**: `Access is denied` or similar
 
-**Solutions**:
-1. Ensure PowerShell is running **as Administrator**
+**Solution**: The script automatically requests administrator privileges. If you still see this error:
+1. Click **Yes** when the UAC prompt appears
 2. Verify your user account has admin rights on the server
 3. Check if antivirus is blocking the script
 
@@ -250,8 +252,9 @@ Get-ChildItem "C:\Program Files\Java" -Directory
 
 Thread dumps can be 5-50 MB depending on the number of threads and loaded classes.
 
-**To compress**:
+**To compress** (from your nama-dumps folder):
 ```powershell
+cd "$env:USERPROFILE\nama-dumps"
 Compress-Archive -Path "Tomcat*.txt" -DestinationPath "thread-dumps.zip"
 ```
 
@@ -262,7 +265,7 @@ Compress-Archive -Path "Tomcat*.txt" -DestinationPath "thread-dumps.zip"
 If you know the exact process name:
 
 ```powershell
-C:\Users\Administrator\jstack-dump.ps1 Tomcat101010
+& "$env:USERPROFILE\jstack-dump.ps1" Tomcat101010
 ```
 
 ::: tip Need Help?
