@@ -48,22 +48,25 @@ Manual execution or automated through entity flows requiring full document gener
 - **Detail Collections** - Generates detail lines based on source collections
 - **Related Tables** - Updates cross-references and relationships
 
-## Important Warnings
+## Example for creating delivery documents from FormDoc1 per line
 
-### ⚠️ Immediate Commitment
-- Generated entities are immediately committed and cannot be easily rolled back
-- All validation rules must be satisfied before generation
-- May trigger immediate downstream processes and workflows
-
-### ⚠️ Performance Impact  
-- Complex field mappings and SQL queries impact system performance
-- Large datasets require careful optimization
-- Monitor database resource usage during operations
-
-### ⚠️ Dependencies
-- Generated entities may trigger multiple downstream processes
-- Field mappings must maintain data consistency
-- Requires proper testing and validation
+```json
+{
+  "targetType": "FormDoc2",
+  "details": [
+    {
+      "className": "com.namasoft.infor.domainbase.util.actions.EAGenerateEntityFromEntityAction",
+      "parameter1": "DeliveryDocument",
+      "parameter2": "select id from DeliveryDocument where id={line.ref5.id}",
+      "parameter3": "ref1=$line.relatedEntity1\nfromDoc=$line.relatedEntity2\nbook='DD'\nterm='DD'\nvalueDate=valueDate\nlegalEntity=$target.book.legalEntity\nbranch=$target.book.branch\ndepartment=$target.book.department\nsector=$target.book.sector\nanalysisSet=$target.book.analysisSet\ndriver=$target.ref1\ndelivStatus='Delivering'",
+      "parameter5": "$line.ref5=$this",
+      "parameter6": "details",
+      "parameter8": "select case when {currentLine.relatedEntity2.$toReal.delivStatus} in ('' , 'NotDelivered') and {line.relatedEntity2.$toReal.sector.code} = '1' then 1 else 0 end",
+      "targetAction": "PostCommit"
+    }
+  ]
+}
+```
 
 ## Related Actions
 
