@@ -109,6 +109,14 @@ ref4=ref(ref2.$toReal.ref1.entitType,sql(select top 1 id from Customer where ref
 * تُستخدم لإنشاء مرجع ديناميكي مستندًا إلى نتيجة استعلام SQL.
 
 ```ini
+enableDetailSqlFields="details"
+details.n1=details.sqlField1
+details.n2=details.sqlField2
+```
+
+* لتمكين الوصول إلى حقول SQL في جدول تفصيلي، استخدم `enableDetailSqlFields` ثم يمكنك الوصول إلى `sqlField1`, `sqlField2`, إلخ.
+
+```ini
 runCommand="edit"
 runCommand="save"
 ```

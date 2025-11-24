@@ -316,6 +316,20 @@ Display each item's code, Arabic name, quantity, and net value in a sales invoic
 
 ---
 
+### Accessing SQL Fields in Detail Collections
+
+To access SQL fields (`sqlField1`, `sqlField2`, etc.) within detail collections, enable them first:
+
+```tempo
+{enableDetailSqlFields(details)}
+{loop(details)}
+  {ifequal(details.sqlField1,'APPROVED')}
+  {endif}
+{endloop}
+```
+
+---
+
 ### Loop Variants
 
 #### 1. **Last Line Only**
