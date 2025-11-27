@@ -22,7 +22,6 @@ heroImage: hero.svg
     - [Approvals System - Approval Definition Full Guide](/guide/approvals-system.md)
     - [Entity Flows](/guide/entity-flows/)
       - [مقدمة عن مسارات الكيان](/guide/entity-flows/introduction-to-entity-flows.md)
-      - [Field Values Calculator](/guide/entity-flows/ea-fields-values-calculator.md)
       - [Importing Data from Excel or Queries](/guide/entity-flows/excel-and-sql-import-by-entity-flow.md)
       - [EAGenerateEntityFromEntityAction](/guide/entity-flows/ea-gen-entity-from-entity.md)
     - [دليل استخدام أداة إنشاء التقارير ونماذج الطباعة](/guide/report-wizard-guide.md)

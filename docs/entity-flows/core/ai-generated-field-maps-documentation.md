@@ -116,9 +116,14 @@ Format text according to a pattern:
 ```ini
 altCode=mask(code,XXX-XXX-XXX)    # ABC123456 becomes ABC-123-456
 phoneDisplay=mask(phone,XXXX XXX XXXX)  # 0501234567 becomes 0501 234 567
+details.text1=mask(details.text2,XX-XX:X--X)  # Works on detail lines too
 ```
 - `X` represents a character from the original value
-- Any other character (like `-`, `.`, ` `) is inserted as-is
+- Any other character (like `-`, `.`, `:`, `*`, `@`) is inserted as-is
+
+**Examples:**
+- If item code is `111222333` and you use `mask(code,XXX-XXX*XXX)`, the result is `111-222*333`
+- If item code is `ABC155713` and you use `mask(code,XXX-XXX@XXX)`, the result is `ABC-155@713`
 
 #### Text Extraction
 ```ini
@@ -134,17 +139,35 @@ Calculate sum of values in detail lines:
 ```ini
 totalAmount=totalize(details,details.price)
 netTotal=totalize(lines,lines.netAmount)
+n1=totalize(details,details.price.unitPrice)
 ```
 
 #### Conditional Totaling
 Sum values only when a condition is met:
 ```ini
 serviceTotal=totalizeif(details,details.price,select case when {details.item.item.itemType} = 'Service' then 1 else 0 end)
+n1=totalizeif(details,details.price.unitPrice,select case when {details.item.item.section.code} = 'SEC001' then 1 else 0 end)
+```
+
+#### Min/Max Functions
+Get the minimum or maximum value from detail lines:
+```ini
+n1=max(details.price.unitPrice)    # Get the maximum unit price
+n1=min(details.price.unitPrice)    # Get the minimum unit price
 ```
 
 #### SQL-Based Calculations
+For complex calculations across detail lines:
 ```ini
+# Sum of calculated values
 weightedTotal=totalizesql(select {details.quantity} * {details.unitPrice} * {details.discount} / 100)
+n1=totalizesql(select {details.price.unitPrice} * {details.n1} / {n3})
+
+# Maximum of calculated values
+n1=maxsql(select {details.price.unitPrice} * {details.n1} / {n3})
+
+# Minimum of calculated values
+n1=minsql(select {details.price.unitPrice} * {details.n1} / {n3})
 ```
 
 ### Database Queries
@@ -153,18 +176,35 @@ weightedTotal=totalizesql(select {details.quantity} * {details.unitPrice} * {det
 ```ini
 customerBalance=sql(select balance from Customer where id = {customer.id})
 lastInvoiceDate=sql(select max(valueDate) from SalesInvoice where customer_id = {customer.id})
+n1=sql(select sum(netValue) from SalesInvoice where customer_id = {customer.id})
 ```
 
 #### Multi-line SQL
+For complex queries that span multiple lines:
 ```ini
 complexValue=mlsql(
-  select case 
+  select case
     when {totalAmount} > 1000 then 'High'
     when {totalAmount} > 500 then 'Medium'
     else 'Low'
   end
 )endmlsql
+
+# Another example with case statement
+n1=mlsql(select case when {code} = 'abc' then 5 when {code} = 'cde' then 6 else 7 end)endmlsql
 ```
+
+#### Detail SQL Fields
+To access SQL-computed fields (sqlField1, sqlField2, etc.) in detail collections, you must first enable them:
+```ini
+enableDetailSqlFields="details"
+details.n1=details.sqlField1
+details.n2=details.sqlField2
+```
+
+::: warning Performance Consideration
+Using detail SQL fields can significantly impact performance because the SQL statements are executed **per line**. For entities with many detail lines, this can result in slow processing. Use this feature sparingly and consider alternative approaches like `totalizesql` for aggregate calculations when possible.
+:::
 
 ### Conditional Value Selection
 
@@ -173,7 +213,12 @@ Returns the first value that is not empty:
 ```ini
 details.ref1=firstNotEmpty(details.ref1,ref1,customer.ref1)
 contactPhone=firstNotEmpty(customer.mobile,customer.phone,customer.contact.phone)
+details.n1=firstNotEmpty(details.n5,netValue,n4)
 ```
+
+::: tip
+You can use an unlimited number of fields inside `firstNotEmpty`.
+:::
 
 #### First Not Null
 Returns the first value that is not null:
@@ -181,14 +226,37 @@ Returns the first value that is not null:
 details.project=firstNotNull(details.project,project,customer.defaultProject)
 ```
 
+### Multilingual Support
+
+#### name() Function
+Use the `name()` function to support multiple languages. It returns the first value (Arabic) in Arabic environments and the second value (English) in English environments:
+
+```ini
+description1=name(name1,name2)           # Uses field values
+description2=name("Arabic Text","English Text")  # Uses literal strings
+```
+
 ### Reference Creation
 Create references to other entities:
 ```ini
-# Fixed reference
+# Fixed reference by entity type and code
 relatedInvoice=ref("SalesInvoice","SIV150160")
+
+# Reference from a book code
+book="BookCode"
+
+# Reference from another field
+term=book.code
+
+# Reference to the current entity
+ref5=$this
+
+# Clear a reference
+book=null
 
 # Dynamic reference based on SQL
 parentDoc=ref(ref2.entityType,sql(select id from SalesInvoice where code = {ref1}))
+ref4=ref(ref2.$toReal.ref1.entityType,sql(select top 1 id from Customer where ref4id = {ref4.$toReal.id}))
 ```
 
 ## Advanced Line Matching
@@ -216,12 +284,27 @@ filterLinesBy=(
   filterSourceBy=sql(select case when {details.quantity} > 0 then 1 else 0 end)
   filterTargetDetail=lines
   filterTargetBy=sql(select case when {lines.item.item.isActive} = 1 then 1 else 0 end)
-  
+
   # Copy only between filtered lines
   lines.quantity=details.quantity
 )endFilterLinesBy
 ```
-You can filter source only, target only, or both
+You can filter source only, target only, or both.
+
+#### Filter with Keyword Lines
+You can also filter lines and copy them to a keyword collection:
+```ini
+filterLinesBy=(
+  filterSourceDetail=creditLimits
+  filterSourceBy=sql(select case when {creditLimits.paymentPeriod} > 5 then 1 else 0 end)
+  keywordLines=[creditLimits]
+  keywordLines.keyword=creditLimits.paymentPeriod
+)endFilterLinesBy
+```
+
+::: tip
+You can use a **numeric field** from the line instead of an SQL statement. In this case, lines where this field has a non-zero value will be included.
+:::
 ## Tempo Expression Integration
 
 ### Single-Line Tempo Expressions
@@ -440,8 +523,11 @@ details=addedLinesOnly(details.price=defaultPrice)
 ```ini
 selectLine="details(0)"     # Select first line (0-based index)
 $line.quantity=10          # Set quantity of selected line
+$line.n1="15"              # Set n1 of selected line
 
-selectLine="details(2)"     # Select third line
+selectLine="details(2)"     # Select third line (index 2)
+n3=currentLine.n3          # Read from selected line using currentLine
+n3=$line.n3                # Alternative: read from selected line using $line
 $line.price=sql(select {$line.quantity} * {$line.unitPrice})  # Calculate price
 
 selectLine="details(last)"  # Select last line
@@ -468,6 +554,19 @@ runCommand="doNotCheckQty"                 # Skip quantity checks (InvoiceWithSt
 runCommand="collectStockDocsIfEmpty"       # Collect stock documents (InvoiceWithStockEffect only)
 ```
 
+#### Common Command Combinations
+```ini
+# Set value date to today and auto-detect accounting period
+runCommand="guessPeriod"
+valueDate=sql(select getdate())
+```
+
+### Adding Discussions
+You can add discussion entries to an entity:
+```ini
+addDiscussion="New Discussion added by entity flow"
+```
+
 ### Updating Related Entities
 ```ini
 # Update item from within invoice line
@@ -480,25 +579,47 @@ details.item.item.runCommand="save"
 ## Security Features
 
 ### Encryption/Decryption
+Multiple encryption methods are available with different passwords:
 ```ini
-# Encrypt sensitive data
-encryptedCode=code.$encrypt1
-encryptedSSN=customer.ssn.$encrypt2
+# Encrypt sensitive data using different encryption keys
+encryptedCode=code.$encrypt1              # Encryption method 1
+encryptedSSN=customer.ssn.$encrypt2       # Encryption method 2
+encryptedData=data.$encryptX              # Encryption method X
 
-# Decrypt when needed
+# Decrypt when needed (use matching decrypt method)
 originalCode=encryptedCode.$decrypt1
 originalSSN=encryptedSSN.$decrypt2
+originalData=encryptedData.$decryptX
+```
+
+You can also use encrypted values in SQL queries:
+```ini
+ref1=sql(select entityType,id from SalesInvoice where code = {description1.$decrypt1})
+```
+
+#### Using in Reports (Groovy/JasperReports)
+```groovy
+NamaRep.encrypt1($F{code})
+NamaRep.decrypt1($F{description1})
 ```
 
 ### OTP Generation
-```ini
-# Numeric OTP
-otp4Digit=$createNumericOTP4     # e.g., 1234
-otp6Digit=$createNumericOTP6     # e.g., 123456
+Generate numeric or alphanumeric OTP codes with lengths from 4 to 8 characters:
 
-# Alphanumeric OTP
-otpCode=$createOTP4              # e.g., A1B2
-otpLong=$createOTP8              # e.g., A1B2C3D4
+```ini
+# Numeric OTP (digits only)
+description1=$createNumericOTP4     # e.g., 1234
+description2=$createNumericOTP5     # e.g., 12345
+description3=$createNumericOTP6     # e.g., 123456
+description4=$createNumericOTP7     # e.g., 1234567
+description5=$createNumericOTP8     # e.g., 12345678
+
+# Alphanumeric OTP (letters and digits)
+description1=$createOTP4            # e.g., A1B2
+description2=$createOTP5            # e.g., A1B2C
+description3=$createOTP6            # e.g., A1B2C3
+description4=$createOTP7            # e.g., A1B2C3D
+description5=$createOTP8            # e.g., A1B2C3D4
 ```
 
 ## Best Practices

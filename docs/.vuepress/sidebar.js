@@ -114,7 +114,7 @@ export const SIDEBAR_CONFIG = {
       children: [ "/guide/list-views/", {
         text: "Entity Flows",
         collapsible: true,
-        children: [ "/guide/entity-flows/introduction-to-entity-flows.md", "/guide/entity-flows/ea-fields-values-calculator.md", "/guide/entity-flows/excel-and-sql-import-by-entity-flow.md", "/guide/entity-flows/ea-gen-entity-from-entity.md", {
+        children: [ "/guide/entity-flows/introduction-to-entity-flows.md", "/guide/entity-flows/excel-and-sql-import-by-entity-flow.md", "/guide/entity-flows/ea-gen-entity-from-entity.md", {
           text: ".",
           "link" : "/guide/entity-flows/"
         } ]
