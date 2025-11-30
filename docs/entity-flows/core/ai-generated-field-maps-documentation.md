@@ -213,12 +213,12 @@ When writing SQL queries with parameters, Nama ERP provides several advanced par
 ##### Literal Substitution (`{!paramName}`)
 Use `{!paramName}` to substitute a parameter value directly into the SQL statement (not as a prepared statement parameter). This is useful for dynamic table or column names:
 
-```ini
-# Dynamic table name
-n1=sql(select count(*) from {!tableName} where status = 'Active')
+```sql
+-- Dynamic table name
+select count(*) from {!tableName} where status = 'Active'
 
-# Dynamic column selection
-description1=sql(select {!columnName} from Customer where id = {customer.id})
+-- Dynamic column selection
+select {!columnName} from Customer where id = {customer.id}
 ```
 
 ::: warning Security Note
@@ -228,13 +228,15 @@ Literal substitution inserts values directly into the SQL. Only use with trusted
 ##### IN Clause with Empty List Support (`{xIN,column,paramName}`)
 Use `{xIN,column,paramName}` for IN clauses that gracefully handle empty collections:
 
-```ini
-# If customerIds is empty: produces "1 = 1" (always true)
-# If customerIds has values: produces "customer_id in (?,?,?)"
-n1=sql(select count(*) from SalesInvoice where {xIN,customer_id,customerIds})
+```sql
+/*
+ If customerIds is empty: produces "1 = 1" (always true)
+ If customerIds has values: produces "customer_id in (?,?,?)"
+*/
+select count(*) from SalesInvoice where {xIN,customer_id,customerIds}
 
-# Combined with other conditions
-totalSales=sql(select sum(netValue) from SalesInvoice where status = 'Posted' and {xIN,customer_id,selectedCustomers})
+-- Combined with other conditions
+select sum(netValue) from SalesInvoice where status = 'Posted' and {xIN,customer_id,selectedCustomers}
 ```
 
 | `customerIds` Value | Generated SQL |
@@ -246,18 +248,18 @@ totalSales=sql(select sum(netValue) from SalesInvoice where status = 'Posted' an
 ##### Between with Null Support (`{xBetween,column,fromParam,toParam}`)
 Use `{xBetween,column,fromParam,toParam}` for range queries where either bound might be empty. Use brackets `[` and `]` to include the boundary values (>= and <=), or omit them for exclusive comparison (> and <):
 
-```ini
-# Inclusive range: code >= ? and code <= ?
-n1=sql(select count(*) from Customer where {[xBetween],code,fromCode,toCode})
+```sql
+-- Inclusive range: code >= ? and code <= ?
+select count(*) from Customer where {[xBetween],code,fromCode,toCode}
 
-# Exclusive range: code > ? and code < ?
-n1=sql(select count(*) from Customer where {xBetween,code,fromCode,toCode})
+-- Exclusive range: code > ? and code < ?
+select count(*) from Customer where {xBetween,code,fromCode,toCode}
 
-# Left-inclusive only: code >= ? and code < ?
-n1=sql(select count(*) from Customer where {[xBetween,code,fromCode,toCode})
+-- Left-inclusive only: code >= ? and code < ?
+select count(*) from Customer where {[xBetween,code,fromCode,toCode}
 
-# Right-inclusive only: code > ? and code <= ?
-n1=sql(select count(*) from Customer where {xBetween],code,fromCode,toCode})
+-- Right-inclusive only: code > ? and code <= ?
+select count(*) from Customer where {xBetween],code,fromCode,toCode}
 ```
 
 | `fromCode` | `toCode` | Generated SQL (inclusive `[xBetween]`) |
@@ -270,13 +272,16 @@ n1=sql(select count(*) from Customer where {xBetween],code,fromCode,toCode})
 ##### Conditional Comparison Operators (`{xOP,column,paramName}`)
 Use `{xOP,column,paramName}` where `OP` is a comparison operator (`=`, `<>`, `>`, `>=`, `<`, `<=`). If the parameter is null, the condition is replaced with `1 = 1`:
 
-```ini
-# If minAmount is null: produces "1 = 1"
-# If minAmount has value: produces "amount >= ?"
-n1=sql(select count(*) from SalesInvoice where {x>=,amount,minAmount})
+```sql
+/*
+If minAmount is null: produces "1 = 1"
+If minAmount has value: produces "amount >= ?"
+*/
 
-# Multiple conditional comparisons
-salesCount=sql(select count(*) from SalesInvoice where {x=,status,filterStatus} and {x>=,valueDate,fromDate} and {x<=,valueDate,toDate})
+select count(*) from SalesInvoice where {x>=,amount,minAmount}
+
+-- Multiple conditional comparisons
+select count(*) from SalesInvoice where {x=,status,filterStatus} and {x>=,valueDate,fromDate} and {x<=,valueDate,toDate}
 ```
 
 | Syntax | Parameter Value | Generated SQL |
