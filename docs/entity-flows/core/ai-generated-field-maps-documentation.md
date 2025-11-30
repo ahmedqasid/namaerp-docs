@@ -206,6 +206,86 @@ details.n2=details.sqlField2
 Using detail SQL fields can significantly impact performance because the SQL statements are executed **per line**. For entities with many detail lines, this can result in slow processing. Use this feature sparingly and consider alternative approaches like `totalizesql` for aggregate calculations when possible.
 :::
 
+#### Advanced SQL Parameter Syntax
+
+When writing SQL queries with parameters, Nama ERP provides several advanced parameter syntaxes for common patterns:
+
+##### Literal Substitution (`{!paramName}`)
+Use `{!paramName}` to substitute a parameter value directly into the SQL statement (not as a prepared statement parameter). This is useful for dynamic table or column names:
+
+```ini
+# Dynamic table name
+n1=sql(select count(*) from {!tableName} where status = 'Active')
+
+# Dynamic column selection
+description1=sql(select {!columnName} from Customer where id = {customer.id})
+```
+
+::: warning Security Note
+Literal substitution inserts values directly into the SQL. Only use with trusted, controlled values - never with user input, as this could lead to SQL injection.
+:::
+
+##### IN Clause with Empty List Support (`{xIN,column,paramName}`)
+Use `{xIN,column,paramName}` for IN clauses that gracefully handle empty collections:
+
+```ini
+# If customerIds is empty: produces "1 = 1" (always true)
+# If customerIds has values: produces "customer_id in (?,?,?)"
+n1=sql(select count(*) from SalesInvoice where {xIN,customer_id,customerIds})
+
+# Combined with other conditions
+totalSales=sql(select sum(netValue) from SalesInvoice where status = 'Posted' and {xIN,customer_id,selectedCustomers})
+```
+
+| `customerIds` Value | Generated SQL |
+|---------------------|---------------|
+| `null` or empty list | `... where 1 = 1` |
+| `[1, 2, 3]` | `... where customer_id in (?,?,?)` |
+| Single value `5` | `... where customer_id in (?)` |
+
+##### Between with Null Support (`{xBetween,column,fromParam,toParam}`)
+Use `{xBetween,column,fromParam,toParam}` for range queries where either bound might be empty. Use brackets `[` and `]` to include the boundary values (>= and <=), or omit them for exclusive comparison (> and <):
+
+```ini
+# Inclusive range: code >= ? and code <= ?
+n1=sql(select count(*) from Customer where {[xBetween],code,fromCode,toCode})
+
+# Exclusive range: code > ? and code < ?
+n1=sql(select count(*) from Customer where {xBetween,code,fromCode,toCode})
+
+# Left-inclusive only: code >= ? and code < ?
+n1=sql(select count(*) from Customer where {[xBetween,code,fromCode,toCode})
+
+# Right-inclusive only: code > ? and code <= ?
+n1=sql(select count(*) from Customer where {xBetween],code,fromCode,toCode})
+```
+
+| `fromCode` | `toCode` | Generated SQL (inclusive `[xBetween]`) |
+|------------|----------|----------------------------------------|
+| `"A"` | `"Z"` | `code >= ? and code <= ?` |
+| `"A"` | `null` | `code >= ?` |
+| `null` | `"Z"` | `code <= ?` |
+| `null` | `null` | `1 = 1` |
+
+##### Conditional Comparison Operators (`{xOP,column,paramName}`)
+Use `{xOP,column,paramName}` where `OP` is a comparison operator (`=`, `<>`, `>`, `>=`, `<`, `<=`). If the parameter is null, the condition is replaced with `1 = 1`:
+
+```ini
+# If minAmount is null: produces "1 = 1"
+# If minAmount has value: produces "amount >= ?"
+n1=sql(select count(*) from SalesInvoice where {x>=,amount,minAmount})
+
+# Multiple conditional comparisons
+salesCount=sql(select count(*) from SalesInvoice where {x=,status,filterStatus} and {x>=,valueDate,fromDate} and {x<=,valueDate,toDate})
+```
+
+| Syntax | Parameter Value | Generated SQL |
+|--------|-----------------|---------------|
+| `{x=,code,customerCode}` | `"ABC"` | `code=?` |
+| `{x=,code,customerCode}` | `null` | `1 = 1` |
+| `{x<>,status,excludeStatus}` | `"Draft"` | `status<>?` |
+| `{x>=,amount,minAmount}` | `100` | `amount>=?` |
+
 ### Conditional Value Selection
 
 #### First Not Empty
@@ -621,56 +701,6 @@ description3=$createOTP6            # e.g., A1B2C3
 description4=$createOTP7            # e.g., A1B2C3D
 description5=$createOTP8            # e.g., A1B2C3D4
 ```
-
-## Best Practices
-
-### 1. Order Matters
-Fields are processed in order, so dependent fields should come after their dependencies:
-```ini
-# Correct
-subtotal=totalize(details,details.price)
-tax=sql(select {subtotal} * 0.15)
-total=sql(select {subtotal} + {tax})
-
-# Incorrect (total calculated before tax)
-total=sql(select {subtotal} + {tax})
-subtotal=totalize(details,details.price)
-tax=sql(select {subtotal} * 0.15)
-```
-
-
-### 2. Handle Empty Values
-```ini
-# Ensure a value is always set
-warehouse=firstNotEmpty(details.warehouse,defaultWarehouse,"WH001")
-```
-
-### 3. Test Conditions
-When using SQL conditions, test with simple cases first:
-```ini
-# Start simple
-includeInTotal=sql(select 1)
-
-# Then add complexity
-includeInTotal=sql(select case when {item.itemType} = 'Service' then 1 else 0 end)
-```
-
-## Troubleshooting
-
-### Common Errors
-
-1. **"Field not found"** - Check field spelling and entity structure
-2. **"Type mismatch"** - Ensure compatible data types (use ref() for references)
-3. **"Empty result"** - Check SQL queries return data
-4. **"Index out of bounds"** - Verify line numbers exist
-
-### Debugging Tips
-
-1. Start with simple direct copies
-2. Test SQL queries separately
-3. Use fixed values to isolate issues
-4. Check entity relationships are correct
-5. Verify user permissions for all operations
 
 ---
 
