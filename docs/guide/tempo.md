@@ -330,6 +330,28 @@ To access SQL fields (`sqlField1`, `sqlField2`, etc.) within detail collections,
 
 ---
 
+### Vacation Remainder
+
+لحساب رصيد الإجازات المتبقي للموظف:
+
+```tempo
+{vacationRemainder(employeeIdOrCode, vacationTypeCodeOrId)}
+{vacationConsumed(employeeIdOrCode, vacationTypeCodeOrId)}
+{vacationAssigned(employeeIdOrCode, vacationTypeCodeOrId)}
+```
+```tempo
+{vacationRemainder(employeeIdOrCode, vacationTypeCodeOrId, atDate)}
+{vacationConsumed(employeeIdOrCode, vacationTypeCodeOrId, atDate)}
+{vacationAssigned(employeeIdOrCode, vacationTypeCodeOrId, atDate)}
+```
+
+**أمثلة:**
+```tempo
+Employee {name1} has {vacationremainder(id, "001")} days remaining
+Employee {name1} has {vacationremainder(id, "001", "2024-12-28")} days remaining
+Employee {name1} has {vacationremainder("E00147", "ffff0001-8d64-70c9-e300-0000ff2854df")} days remaining
+```
+
 ### Loop Variants
 
 #### 1. **Last Line Only**
