@@ -1385,6 +1385,109 @@ You can add dynamic links to reports from notifications or dashboards. This is u
 
 ---
 
+## Filtered List View Links
+
+You can create hyperlinks that open a filtered list view for any entity type. This is useful in notifications, emails, and dashboards to allow users to click and see a pre-filtered list of records.
+
+### Basic Syntax
+
+```tempo
+{listviewlink(title="View Invoices", newwindow="true")}
+  {listentitytype("SalesInvoice")}
+  {listcriteria}
+    customer.code,Equal,{customer.code},AND;
+    valueDate,GreaterThanOrEqual,{valueDate},AND;
+  {endlistcriteria}
+{endlistviewlink}
+```
+
+### Available Property Nodes
+
+| Node | Description |
+|------|-------------|
+| `{listentitytype("EntityType")}` | The entity type to display (e.g., "SalesInvoice", "Customer") |
+| `{listviewname("ViewName")}` | Specific list view name to use |
+| `{listmenucode("MenuCode")}` | Menu code to open the list view in |
+| `{listorderby("fieldName")}` | Field to sort by |
+| `{listascending("true")}` | Sort direction (true = ascending, false = descending) |
+| `{listcurrentpage("1")}` | Page number to display |
+| `{listpagesize("50")}` | Number of records per page (-1 for all) |
+| `{listshowtree("true")}` | Show as tree view |
+| `{listextracriteriaid("criteriaId")}` | Additional criteria definition ID |
+
+### Criteria Block
+
+The `{listcriteria}...{endlistcriteria}` block contains filter conditions in text format. Inside this block, you can use dynamic field values with curly brackets:
+
+```tempo
+{listcriteria}
+  fieldID,operator,{dynamicValue},AND;
+  anotherField,Equal,"constantValue",AND;
+{endlistcriteria}
+```
+
+**Available Operators:**
+- `Equal`, `NotEqual`
+- `GreaterThan`, `GreaterThanOrEqual`
+- `LessThan`, `LessThanOrEqual`
+- `StartsWith`, `NotStartsWith`
+- `EndsWith`, `NotEndWith`
+- `Contains`, `NotContain`
+- `In`, `NotIn`
+
+**Logic Connectors:** `AND`, `OR`
+
+### Main Node Options
+
+The `{listviewlink}` node accepts optional parameters:
+
+| Parameter | Description |
+|-----------|-------------|
+| `title="..."` | Link text to display |
+| `newwindow="true"` | Open in new browser tab |
+| `plainlink="true"` | Output only the URL without HTML anchor tag |
+
+### Complete Example
+
+This example creates a link in a customer notification that shows all unpaid sales invoices for that customer:
+
+```tempo
+Dear {name1},
+
+You have unpaid invoices. Click below to view them:
+
+{listviewlink(title="View Unpaid Invoices", newwindow="true")}
+  {listentitytype("SalesInvoice")}
+  {listviewname("UnpaidInvoices")}
+  {listorderby("valueDate")}
+  {listascending("false")}
+  {listcriteria}
+    customer.id,Equal,{id},AND;
+    money.remaining,GreaterThan,0,AND;
+  {endlistcriteria}
+{endlistviewlink}
+```
+
+### Dashboard Example with Plain Link
+
+For dashboards where you need just the URL:
+
+```tempo
+{listviewlink(plainlink="true")}
+  {listentitytype(entityType)}
+  {listcriteria}
+    branch.code,Equal,{branchCode},AND;
+    status,Equal,Pending,AND;
+  {endlistcriteria}
+{endlistviewlink}
+```
+
+::: tip
+You can use the **Criteria Definition** screen to visually build filter conditions, then click **Convert to Text** to get the text format for use in Tempo templates.
+:::
+
+---
+
 ## CRM Questionnaire Sending
 
 ### 1. Embed Survey in Email

@@ -330,6 +330,100 @@ NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP}, "ARG000046-report")
   .toNoAuthResultLink()
 ```
 
+### Filtered List View Links
+
+You can create hyperlinks that open a filtered list view for any entity type. This is useful when you want users to click a link in a report and see a pre-filtered list of records.
+
+#### Basic Usage
+```groovy
+NamaRep.listView()
+  .entityType("SalesInvoice")
+  .criteria($P{REPORT_SCRIPTLET}.tempo("""
+    customer.code,Equal,{customerCode},AND;
+    valueDate,GreaterThanOrEqual,{fromDate},AND;
+    """))
+  .toString()
+```
+
+#### Builder Methods
+
+| Method | Description |
+|--------|-------------|
+| `.entityType(String)` | The entity type to display (e.g., "SalesInvoice", "Customer") |
+| `.criteria(String)` | Filter criteria in text format (see below) |
+| `.listViewName(String)` | Specific list view name to use |
+| `.menuCode(String)` | Menu code to open the list view in |
+| `.orderBy(String)` | Field to sort by |
+| `.ascending(Boolean)` | Sort direction (true = ascending) |
+| `.currentPage(Integer)` | Page number to display |
+| `.pageSize(Integer)` | Number of records per page (-1 for all) |
+| `.showTree(Boolean)` | Show as tree view |
+| `.extraCriteriaId(String)` | Additional criteria definition ID |
+
+#### Using Tempo for Dynamic Criteria
+
+The most powerful feature is combining the list view builder with Tempo syntax to dynamically inject report field values into the criteria:
+
+```groovy
+$P{REPORT_SCRIPTLET}.tempo("""
+  field,Operator,{value},AND;
+  """)
+```
+
+Inside the curly brackets `{...}`, you can reference:
+- **Fields**: `{fieldName}` - directly use field names without `$F{}`
+- **Parameters**: `{paramName}` - directly use parameter names without `$P{}`
+- **Variables**: `{varName}` - directly use variable names without `$V{}`
+
+#### Complete Example
+
+Suppose you have a report showing customers and want to add a link that opens all sales invoices for that customer:
+
+```groovy
+NamaRep.listView()
+  .entityType("SalesInvoice")
+  .criteria($P{REPORT_SCRIPTLET}.tempo("""
+    customer.code,Equal,{customerCode},AND;
+    valueDate,GreaterThanOrEqual,{fromDate},AND;
+    valueDate,LessThanOrEqual,{toDate},AND;
+    """))
+  .listViewName("SalesInvoicesForCustomer")
+  .orderBy("valueDate")
+  .ascending(false)
+  .toString()
+```
+
+This creates a clickable link that opens the Sales Invoice list view filtered by:
+- Customer code matching the current row's `customerCode` field
+- Value date between the report's `fromDate` and `toDate` parameters
+
+#### Criteria Format Reference
+
+The criteria string follows the [Text Criteria format](../guide/text-criteria-guide.md):
+
+```
+fieldID,operator,value,logic;
+```
+
+**Available Operators:**
+- `Equal`, `NotEqual`
+- `GreaterThan`, `GreaterThanOrEqual`
+- `LessThan`, `LessThanOrEqual`
+- `StartsWith`, `NotStartsWith`
+- `EndsWith`, `NotEndWith`
+- `Contains`, `NotContain`
+- `In`, `NotIn`
+
+**Logic Connectors:** `AND`, `OR`
+
+**Date Format:** `dd-MM-yyyy`
+
+**Reference Format:** `id:entityType:code` (code is optional)
+
+::: tip
+You can use the **Criteria Definition** screen to visually build filter conditions, then click **Convert to Text** to get the text format. This text can then be used as a template for your Tempo-enabled criteria.
+:::
+
 ::: tip URL Shortening
 You can shorten report URLs using:
 ```groovy
