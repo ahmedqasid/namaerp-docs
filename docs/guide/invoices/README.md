@@ -6,6 +6,7 @@
   - [Pricing and Offers Management Guide](/guide/invoices/pricing-and-offers-guide.md)
   - [Payment Schedules User Guide](/guide/invoices/payment-schedules-user-guide.md)
   - [ربط سندات الدفع بالفواتير](/guide/invoices/payment-entries.md)
+  - [Online Payments Integration](/guide/invoices/online-payments.md)
   - [Nama ERP e-Invoice guide](/guide/invoices/e-invoices-guide.md)
   - [الربط مع هيئة الزكاة والدخل بالسعودية](/guide/invoices/zatca-guide.md)
   - [Electronic Receipt (Egypt Tax eInvoice) تفعيل الإيصال الإلكتروني - الفاتورة الإلكترونية - مصر](/guide/invoices/electronic-receipt-egypt-tax-eInvoice.md)

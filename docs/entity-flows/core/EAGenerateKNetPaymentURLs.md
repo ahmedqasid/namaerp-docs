@@ -14,6 +14,10 @@ module: core
 
 Generates KNet payment URLs for documents supporting online payment processing, creating both direct and redirect URLs for Kuwait's KNet payment gateway integration.
 
+::: tip Related Documentation
+For a comprehensive guide on setting up payment gateways, configuring templates, and understanding the full payment workflow, see the [Online Payments Integration Guide](../../guide/invoices/online-payments.md).
+:::
+
 ## When This Action Runs
 
 Online payment URL generation for documents implementing ISupportOnlinePaymentDoc interface (invoices, orders, bills).

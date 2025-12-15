@@ -154,7 +154,7 @@ export const SIDEBAR_CONFIG = {
       children: [ "/guide/list-views/", "/guide/entity-flows/", {
         text: "الفواتير والضرائب والخصومات",
         collapsible: true,
-        children: [ "/guide/invoices/reward-points.md", "/guide/invoices/invoice-discounts-and-tax-calculation-guide.md", "/guide/invoices/pricing-and-offers-guide.md", "/guide/invoices/payment-schedules-user-guide.md", "/guide/invoices/payment-entries.md", "/guide/invoices/e-invoices-guide.md", "/guide/invoices/zatca-guide.md", "/guide/invoices/electronic-receipt-egypt-tax-eInvoice.md", "/guide/invoices/standard-terms-feature-documentation.md", "/guide/invoices/barcode-field-feature.md", {
+        children: [ "/guide/invoices/reward-points.md", "/guide/invoices/invoice-discounts-and-tax-calculation-guide.md", "/guide/invoices/pricing-and-offers-guide.md", "/guide/invoices/payment-schedules-user-guide.md", "/guide/invoices/payment-entries.md", "/guide/invoices/online-payments.md", "/guide/invoices/e-invoices-guide.md", "/guide/invoices/zatca-guide.md", "/guide/invoices/electronic-receipt-egypt-tax-eInvoice.md", "/guide/invoices/standard-terms-feature-documentation.md", "/guide/invoices/barcode-field-feature.md", {
           text: ".",
           "link" : "/guide/invoices/"
         } ]
