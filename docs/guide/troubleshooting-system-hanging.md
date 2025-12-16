@@ -42,7 +42,7 @@ Open PowerShell (regular or admin) and copy the following commands:
 
 ```powershell
 # Download the jstack dump script
-Invoke-WebRequest https://www.namasoft.com/jstack-dump.ps1 -OutFile "$env:USERPROFILE\jstack-dump.ps1"
+Invoke-WebRequest https://www.namasoft.com/bin/jstack-dump.ps1 -OutFile "$env:USERPROFILE\jstack-dump.ps1"
 
 # Run the script (will request admin privileges if needed)
 & "$env:USERPROFILE\jstack-dump.ps1"
