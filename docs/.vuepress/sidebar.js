@@ -554,7 +554,7 @@ export const SIDEBAR_CONFIG = {
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", {
         text: "AI Module",
         collapsible: true,
-        children: [ "/entity-flows/ai/EAEmbedFileToAIDB.md", "/entity-flows/ai/EAEmbedRecordsFromQuery.md", {
+        children: [ "/entity-flows/ai/EAEmbedFileToAIDB.md", "/entity-flows/ai/EAEmbedRecordsFromQuery.md", "/entity-flows/ai/EAKeepZillizClusterActive.md", {
           text: ".",
           "link" : "/entity-flows/ai/"
         } ]

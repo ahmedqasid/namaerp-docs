@@ -108,6 +108,7 @@
   - [AI Module](/entity-flows/ai/)
     - [EAEmbedFileToAIDB](/entity-flows/ai/EAEmbedFileToAIDB.md)
     - [EAEmbedRecordsFromQuery](/entity-flows/ai/EAEmbedRecordsFromQuery.md)
+    - [EAKeepZillizClusterActive](/entity-flows/ai/EAKeepZillizClusterActive.md)
   - [Contracting Module](/entity-flows/contracting/)
     - [EAUpdateExtractsEffectsOnPaymentDocs](/entity-flows/contracting/EAUpdateExtractsEffectsOnPaymentDocs.md)
     - [EAUpdateRemarksInContractorExtractFromProjectContractTermDescription](/entity-flows/contracting/EAUpdateRemarksInContractorExtractFromProjectContractTermDescription.md)
