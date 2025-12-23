@@ -76,6 +76,22 @@ Quick Filters are configured through the Screen Modifier system, which allows cu
    - **Column Names**: Enter comma-separated field IDs (e.g., "status,customerType")
    - **Show Count**: Enable to display record counts
    - **Max Button Count**: Set maximum number of buttons (typically 5-10)
+   - **Remove**: Check this to hide/remove a quick filter group (useful for overriding inherited configurations)
+   - **Quick Filter Values Criteria**: Select a Criteria Definition to filter which values appear in the quick filter buttons
+   - **Quick Filter Values Dynamic Criteria**: Enter dynamic criteria text to filter which values are shown (uses the same syntax as [Text Criteria](../text-criteria-guide.md))
+
+##### Filtering Quick Filter Values
+You can control which values appear in the quick filter buttons using criteria. These criteria filter the database query that fetches distinct values, and can be applied on **any column in the table** - not just the column being displayed in the quick filter.
+
+For example, if you have a quick filter on the "status" field, you could add a date criteria to show only statuses that appeared in recent records:
+
+- **Example**: Show only invoice statuses from the current month by adding criteria: `invoiceDate,GreaterThanOrEqual,$monthStart()`
+
+**Configuration Options:**
+- **Using Criteria Definition**: Create a reusable criteria and link it in the "Quick Filter Values Criteria" field
+- **Using Dynamic Criteria**: Enter criteria text directly in the "Quick Filter Values Dynamic Criteria" field
+
+This is useful when you want the quick filter buttons to reflect only values that are relevant to the current context or time period, rather than showing all values that ever existed in the database.
 
 ##### Example Configuration for Invoice Status Filter
 ```
@@ -84,6 +100,7 @@ English Title: Invoice Status
 Column Names: status
 Show Count: ✓ (checked)
 Max Button Count: 8
+Quick Filter Values Dynamic Criteria: (optional - leave empty to show all values)
 ```
 
 ##### Setting Up Custom Criteria Filters
