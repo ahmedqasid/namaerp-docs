@@ -1,4 +1,4 @@
-# Criteria from Text Parser
+# Criteria from Text Parser (Text Criteria Guide)
 
 Nama ERP provides a flexible text-based filtering mechanism that allows users to define filter criteria using a simple, structured format.
 
@@ -13,20 +13,95 @@ Each filter condition in Nama ERP consists of the following components:
     * `StartsWith`, `NotStartsWith`
     * `EndsWith`, `NotEndWith`
     * `Contains`, `NotContain`
-    * `In`, `NotIn`
+    * `In`, `NotIn` (see [Multiple Values with In/NotIn](#multiple-values-with-in-notin) below)
     * `OpenBracket`, `CloseBracket` (used for grouping expressions, and do not require a field ID or value)
 * **Compared Value**: The value to compare against.
 * **Logical Relationship**: The logical connector to the next condition (`AND` or `OR`).
 
+### Conditional Operators (OrEmpty Suffix)
+
+Any operator can have the `OrEmpty` suffix appended to make the condition optional when no value is provided. If the value is empty, the entire condition is skipped.
+
+For example:
+* `EqualOrEmpty` - Applies Equal only if a value is provided
+* `ContainsOrEmpty` - Applies Contains only if a value is provided
+* `GreaterThanOrEqualOrEmpty` - Applies GreaterThanOrEqual only if a value is provided
+
+This is useful for building dynamic filters where some criteria may or may not have values:
+```
+code,StartsWithOrEmpty,{userInput},AND;
+```
+If `{userInput}` is empty, this condition is ignored entirely.
+
+### Special Commands
+
+**distinct-values**: Add this as a separate line to return only distinct records:
+```
+distinct-values
+code,StartsWith,01,AND;
+```
+
+### Multiple Values with In/NotIn
+
+The `In` and `NotIn` operators allow you to match a field against multiple values. To specify multiple values in the text criteria format, separate them with the special delimiter `@A=@X`.
+
+**Syntax:**
+```
+fieldID,In,value1@A=@Xvalue2@A=@Xvalue3,AND;
+```
+
+**Examples:**
+
+Filter items where status is either "Active", "Pending", or "Review":
+```
+status,In,Active@A=@XPending@A=@XReview,AND;
+```
+
+Filter records where category code is NOT "CAT01" or "CAT02":
+```
+category.code,NotIn,CAT01@A=@XCAT02,AND;
+```
+
+Filter by multiple reference IDs:
+```
+warehouse.id,In,id1@A=@Xid2@A=@Xid3,AND;
+```
+
+::: warning
+The separator `@A=@X` must be used exactly as shown (case-sensitive). Do not add spaces around the separator.
+:::
+
 ## Format
 
-Each filter condition is represented as a line of text with four parts separated by commas, followed by a semicolon (`;`):
+Each filter condition is represented as a line of text with four parts separated by commas:
 
 ```
 fieldID,operator,value,logic;
 ```
 
-Multiple conditions should be separated by semicolons.
+Multiple conditions can be separated by semicolons (`;`) or newlines. Both formats are valid:
+
+**Single-line format:**
+```
+code,StartsWith,01,AND;name1,Contains,abc,AND;
+```
+
+**Multi-line format:**
+```
+code,StartsWith,01,AND
+name1,Contains,abc,AND
+```
+
+### Default Values
+
+* If **operator** is omitted, it defaults to `Equal`
+* If **logical relationship** is omitted, it defaults to `AND`
+
+This means the simplest form of a filter is just:
+```
+fieldID,,value
+```
+Which is equivalent to `fieldID,Equal,value,AND`
 
 ### Special Field Formats
 
@@ -58,6 +133,75 @@ The last line can also be expressed in two alternative forms:
 section.id,Equal,ffff0001-79e2-11f2-8800-0000ff79c2dd,AND;
 section.code,Equal,00,AND;
 ```
+
+## Dynamic Values
+
+In addition to static values, Nama ERP supports dynamic values that are evaluated at runtime. These are especially useful for date-based filters and user-specific criteria.
+
+### Date Dynamic Values
+
+The following dynamic values can be used in place of static dates:
+
+| Value | Description |
+|-------|-------------|
+| `$today()` | Current date |
+| `$now()` | Current date and time |
+| `$monthStart()` | First day of the current month |
+| `$monthEnd()` | Last day of the current month |
+| `$previousMonthStart()` | First day of the previous month |
+| `$previousMonthEnd()` | Last day of the previous month |
+| `$nextMonthStart()` | First day of the next month |
+| `$nextMonthEnd()` | Last day of the next month |
+| `$yearStart()` | First day of the current year |
+| `$yearEnd()` | Last day of the current year |
+| `$previousYearStart()` | First day of the previous year |
+| `$previousYearEnd()` | Last day of the previous year |
+| `$nextYearStart()` | First day of the next year |
+| `$nextYearEnd()` | Last day of the next year |
+| `$quarterStart()` | First day of the current quarter |
+| `$quarterEnd()` | Last day of the current quarter |
+| `$halveStart()` | First day of the current half-year (6-month period) |
+| `$halveEnd()` | Last day of the current half-year |
+| `$thirdStart()` | First day of the current third (4-month period) |
+| `$thirdEnd()` | Last day of the current third |
+
+### Relative Date Values
+
+You can also calculate dates relative to today:
+
+| Value | Description |
+|-------|-------------|
+| `$todayPlusDays(N)` | Today plus N days |
+| `$todayMinusDays(N)` | Today minus N days |
+| `$todayPlusWeeks(N)` | Today plus N weeks |
+| `$todayMinusWeeks(N)` | Today minus N weeks |
+| `$todayPlusMonths(N)` | Today plus N months |
+| `$todayMinusMonths(N)` | Today minus N months |
+| `$todayPlusYears(N)` | Today plus N years |
+| `$todayMinusYears(N)` | Today minus N years |
+
+### User Context Values
+
+These dynamic values reference the current logged-in user:
+
+| Value | Description |
+|-------|-------------|
+| `$currentuserid` | ID of the current logged-in user |
+| `$currentempid` | ID of the employee linked to the current user |
+
+### Dynamic Values Example
+
+```csv
+date1,GreaterThanOrEqual,$monthStart(),AND;
+date1,LessThanOrEqual,$monthEnd(),AND;
+createdBy.id,Equal,$currentuserid,AND;
+dueDate,LessThanOrEqual,$todayPlusDays(30),AND;
+```
+
+This example filters records where:
+* `date1` is within the current month
+* `createdBy` is the current logged-in user
+* `dueDate` is within the next 30 days
 
 ::: tip
 You can use the screen **Criteria Definition** to visually build the required filter conditions through the system interface.
