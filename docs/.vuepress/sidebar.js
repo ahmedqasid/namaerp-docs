@@ -74,7 +74,7 @@ export const SIDEBAR_CONFIG = {
       children: [ {
         text: "List Views",
         collapsible: true,
-        children: [ "/guide/list-views/quick-filters.md", {
+        children: [ "/guide/list-views/quick-filters.md", "/guide/list-views/limit-user-to-year.md", {
           text: ".",
           "link" : "/guide/list-views/"
         } ]
