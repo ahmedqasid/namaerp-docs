@@ -1018,6 +1018,10 @@ In the **Font Family** dialog:
 - Copy the exported `.jar` file to `tomcat/lib` folder
 - Restart the **Tomcat** service
 
+::: tip For POS and Printing Server Applications
+For standalone applications like **POS** and **Printing Server**, place the font JAR file in the `jasper-fonts` subfolder (create it if it doesn't exist) next to the application JAR. The launcher will automatically detect this folder and load any JAR files inside it at runtime, without requiring a rebuild or modifying the application configuration.
+:::
+
 ### 5. Use the Font in Reports
 - Assign the new font family to text fields in your `.jrxml` files
 - The font will be embedded and rendered properly in PDFs, including Arabic characters
