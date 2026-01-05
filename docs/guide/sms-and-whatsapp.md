@@ -1,7 +1,3 @@
-Here is a refined version suitable for inclusion in the Nama ERP documentation site (using VuePress):
-
----
-
 # SMS and WhatsApp Configuration in Nama ERP
 
 Nama ERP supports sending messages via SMS and WhatsApp to users, customers, suppliers, and other entities.
