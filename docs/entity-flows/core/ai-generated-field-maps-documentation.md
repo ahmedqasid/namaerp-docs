@@ -361,6 +361,31 @@ This will:
 2. Only copy data between matched lines
 3. Ignore unmatched lines
 
+### Match Lines by Source Line ID
+When copying data from a parent document to a child document, you often need to match lines based on the `sourceLineId` field that links child lines back to their parent lines:
+
+```ini
+switchSource=fromDoc(
+    matchLinesBy=details.sourceLineId=details.id(
+    details.price.unitPrice=details.price.unitPrice
+    details.n1=details.quantity.quantity.primeQty.value
+    )endMatchLinesBy
+)endSwitchSource
+```
+
+This will:
+1. Switch context to the parent document referenced by `fromDoc`
+2. Match each target line's `sourceLineId` with the source line's `id`
+3. Copy field values only between matched lines
+4. Preserve the relationship between parent and child document lines
+
+::: tip When to Use
+This pattern is particularly useful for:
+- Updating child documents with data from their parent (e.g., updating delivery note from sales order)
+- Syncing prices or quantities from the original source document
+- Copying calculated fields back from processed documents
+:::
+
 ### Filter Lines
 Process only specific lines based on conditions:
 ```ini
