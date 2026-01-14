@@ -332,6 +332,27 @@ Dear Sales Team, invoice {code} was sent to customer...
 {closemsg}
 ```
 
+### Targets Query Examples
+
+The targets query feature allows you to dynamically identify notification recipients using database queries. This is powerful for scenarios where the recipients aren't directly referenced in the triggering record.
+
+::: warning Query Format Requirements
+The query must return `entityType` and `id` columns, in that exact order. Any additional columns will be ignored.
+:::
+
+#### Example: Notifying Subsidiaries When Parent Company Makes Payment
+
+When a parent company (customer) makes a payment, you may want to notify all their subsidiary companies. Use this targets query:
+
+```sql
+select entityType, id from Customer where parent_id = {relatedSubsidiary.id}
+```
+
+This query:
+- Finds all Customer records where `parent_id` matches the subsidiary of the current record
+- Returns both the entity type and ID for each matching customer
+- The notification system then sends notifications to contacts associated with each found customer
+
 ### Conditional Sending
 Control when notifications are sent based on:
 - Field values and conditions
