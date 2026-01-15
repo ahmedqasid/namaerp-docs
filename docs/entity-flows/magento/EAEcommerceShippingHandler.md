@@ -49,6 +49,12 @@ Manual execution on supply chain documents that require shipping integration. Ty
 
 **Parameter 10:** Send Warehouse From Header (Optional) - true/false to include warehouse info from header
 
+**Parameter 11:** Order ID From Tempo (Optional) - Tempo template to directly set the shipping order ID. When provided, this takes **highest priority** over other order ID resolution methods (such as sales code or Invoice Code Template)
+
+**Parameter 12:** Ref1 Tempo (Optional) - Tempo template to directly set the Ref1 field. When provided, this takes **highest priority** over the default Ref1 resolution (Magento Source ID or Magento Order Number Tempo)
+
+**Parameter 13:** Delivery Slot Date Field (Optional) - Field ID on the document to read the delivery slot date from. Directly sets the shipping order's delivery slot date from the specified field. Note: This must be a date field
+
 ## Supported Request Parameters
 
 - **HEALTH_CHECK_REQUEST** - Check API connectivity and status
@@ -58,73 +64,6 @@ Manual execution on supply chain documents that require shipping integration. Ty
 - **CANCEL_ORDER_REQUEST** - Cancel shipping order
 - **ORDER_HISTORY_REQUEST** - Retrieve order history and status
 
-## Database Tables Affected
-
-- **EcommerceShippingSite** - References shipping site configuration (read-only)
-- **BasicSCDocument** - Source document for shipping information (read-only)
-- **Shipping Integration Tables** - Creates or updates shipping data (varies by site implementation)
-
-## Important Warnings
-
-### ⚠️ Document Type Restriction
-- Only works with BasicSCDocument types (sales orders, delivery notes, etc.)
-- Other document types cause action failure
-- Verify document compatibility before use
-
-### ⚠️ Site Code Validation
-- Site code must exist in EcommerceShippingSite table
-- Invalid site codes cause action failure
-- Verify shipping site configuration before running
-
-### ⚠️ Request Parameter Validation
-- Request parameter must be one of the supported constants
-- Invalid request types cause validation failure
-- Check ShippingAPIConstants for valid values
-
-### ⚠️ Required Parameters
-- Site code and request parameter are mandatory
-- Missing required parameters cause validation failure
-- All other parameters are optional with defaults
-
-### ⚠️ API Dependencies
-- Requires active connection to shipping provider APIs
-- Depends on proper site configuration with valid credentials
-- Network connectivity issues may cause failures
-
-### ⚠️ Authentication Handling
-- Refresh token parameter used for API authentication
-- Invalid or expired tokens may cause API failures
-- Monitor token validity for continued operation
-
-### ⚠️ Template Processing
-- Magento order number and invoice code templates use template engine
-- Invalid templates may cause processing errors
-- Test templates with sample data before use
-
-### ⚠️ Query Execution
-- Count items query executed once per document line
-- Complex queries may impact performance
-- Ensure query returns appropriate item count data
-
-### ⚠️ Warehouse Information
-- Warehouse data can be sourced from line level or header level
-- Both parameters can be true simultaneously
-- Configure based on document structure and shipping requirements
-
-### ⚠️ Exception Handling
-- Wraps all processing in try-catch block
-- Any exception returns failure result
-- Check logs for detailed error information
-
-### ⚠️ Shipping Site Implementation
-- Actual shipping logic handled by EcommerceShippingSite
-- Different sites may have different capabilities
-- Verify site supports required request types
-
-### ⚠️ Business Impact
-- Shipping operations may affect order status
-- Failed shipments may require manual intervention
-- Consider impact on customer notifications and tracking
 
 **Module:** magento
 
