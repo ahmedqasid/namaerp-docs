@@ -433,4 +433,36 @@ These templates provide a flexible way to control real-time messaging on POS dis
 - وضح للمستخدم العناصر الإجبارية بشكل واضح
 - تجنب جعل عدد كبير من العناصر إجبارياً
 - اسمح بالاختيار المتعدد عند الضرورة فقط
+
+## إعادة تعيين عداد محاولات الإرسال للمستندات غير المرسلة
+
+عندما تفشل مستندات نقاط البيع في الإرسال إلى الخادم، يقوم النظام بزيادة عداد المحاولات الفاشلة (`writeFailures`). بعد 25 محاولة فاشلة (القيمة الافتراضية)، يتوقف النظام عن محاولة إرسال المستند.
+
+لإعادة تعيين العداد والسماح للنظام بمحاولة الإرسال مرة أخرى، قم بتنفيذ الاستعلام التالي على قاعدة بيانات نقاط البيع:
+
+```sql
+UPDATE POSSalesInvoice SET writeFailures = 0 WHERE sent = 0;
+UPDATE POSSalesReturn SET writeFailures = 0 WHERE sent = 0;
+UPDATE POSSalesReplacement SET writeFailures = 0 WHERE sent = 0;
+UPDATE POSPaymentToRegistery SET writeFailures = 0 WHERE sent = 0;
+UPDATE POSReceiptFromRegistery SET writeFailures = 0 WHERE sent = 0;
+UPDATE POSShiftOpen SET writeFailures = 0 WHERE sent = 0;
+UPDATE POSShiftClose SET writeFailures = 0 WHERE sent = 0;
+UPDATE POSCustomer SET writeFailures = 0 WHERE sent = 0;
+UPDATE POSStockTransferReq SET writeFailures = 0 WHERE sent = 0;
+UPDATE POSOrderReservation SET writeFailures = 0 WHERE sent = 0;
+UPDATE POSCreditNote SET writeFailures = 0 WHERE sent = 0;
+UPDATE POSDiscountCoupon SET writeFailures = 0 WHERE sent = 0;
+UPDATE POSStockTakingDetailsDoc SET writeFailures = 0 WHERE sent = 0;
+UPDATE POSStockReceipt SET writeFailures = 0 WHERE sent = 0;
+UPDATE POSScrapDoc SET writeFailures = 0 WHERE sent = 0;
+UPDATE POSShortfallsDoc SET writeFailures = 0 WHERE sent = 0;
+UPDATE POSError SET writeFailures = 0 WHERE sent = 0;
+UPDATE POSInternalMessage SET writeFailures = 0 WHERE sent = 0;
+UPDATE POSInventory SET writeFailures = 0 WHERE sent = 0;
+```
+
+::: warning
+تأكد من حل المشكلة الأساسية التي تسببت في فشل الإرسال (مثل مشاكل الشبكة أو إعدادات الخادم) قبل تنفيذ هذا الاستعلام.
+:::
 </rtl>
