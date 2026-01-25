@@ -1018,8 +1018,12 @@ In the **Font Family** dialog:
 - Copy the exported `.jar` file to `tomcat/lib` folder
 - Restart the **Tomcat** service
 
-::: tip For POS and Printing Server Applications
-For standalone applications like **POS** and **Printing Server**, place the font JAR file in the `jasper-fonts` subfolder (create it if it doesn't exist) next to the application JAR. The launcher will automatically detect this folder and load any JAR files inside it at runtime, without requiring a rebuild or modifying the application configuration.
+::: tip For POS Applications
+For **POS** applications, upload the exported font JAR file to the **Jasper Fonts** field in **POS UI Settings** (إعدادات واجهة نقطة البيع). The system will automatically create the font extension file in the `jasper-fonts-extension` folder:
+- When the POS application starts up
+- When the POS UI Settings record is saved
+
+**Important:** After updating POS machines to a version that supports jasper-fonts-extension, you must re-save the POS UI Settings record to trigger the font file deployment on each machine.
 :::
 
 ### 5. Use the Font in Reports
