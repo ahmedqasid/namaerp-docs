@@ -30,44 +30,35 @@ A thread dump is a text file containing detailed information about all running t
 
 ## Prerequisites
 
-- **Administrator access** to the Windows server (script will request elevation automatically)
-- **PowerShell 5.1 or later** (included in Windows Server 2016+)
-- **Network connectivity** to download the script (or save it locally)
+- **Administrator access** to the Windows server (the tool will request elevation automatically)
+- **Network connectivity** to download the tool (or save it locally)
 
 ## Step-by-Step Instructions
 
-### Step 1: Download and Run the Script
+### Step 1: Download and Run the Tool
 
 Open PowerShell (regular or admin) and copy the following commands:
 
 ```powershell
-# Download the jstack dump script
-Invoke-WebRequest https://www.namasoft.com/bin/jstack-dump.ps1 -OutFile "$env:USERPROFILE\jstack-dump.ps1"
+# Download the thread dump tool
+Invoke-WebRequest https://namasoft.com/bin/nama-jstack.exe -OutFile "$env:USERPROFILE\nama-jstack.exe"
 
-# Run the script (will request admin privileges if needed)
-& "$env:USERPROFILE\jstack-dump.ps1"
+# Run the tool (will request admin privileges if needed)
+& "$env:USERPROFILE\nama-jstack.exe"
 ```
 
 ::: tip Automatic Elevation
-If you're not running as administrator, the script will automatically request elevation and restart with admin privileges.
-:::
-
-::: warning Execution Policy
-If you encounter an error about execution policy, run this command first:
-```powershell
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
-```
-This temporarily allows the script to run for the current PowerShell session only.
+If you're not running as administrator, the tool will automatically request elevation and restart with admin privileges.
 :::
 
 ### Step 2: Select the Tomcat Process
 
-The script will automatically detect running Tomcat processes:
+The tool will automatically detect running Tomcat processes:
 
 #### Single Process Scenario
-If only one Tomcat instance is running, the script will automatically select it:
+If only one Tomcat instance is running, the tool will automatically select it:
 ```
-Auto-detected process: Tomcat101010
+Auto-detected: Tomcat101010 (PID: 29500)
 ```
 
 #### Multiple Process Scenario
@@ -79,7 +70,7 @@ Found 3 Tomcat processes:
 [2] Tomcat101010 (PID: 29500)
 [3] Tomcat101111 (PID: 20984)
 
-Select process number (1-3):
+Select process (1-3):
 ```
 
 Enter the number corresponding to the **hanging or problematic instance**.
@@ -92,7 +83,7 @@ Enter the number corresponding to the **hanging or problematic instance**.
 
 ### Step 3: Wait for Completion
 
-The script will:
+The tool will:
 1. Find the JDK installation automatically
 2. Locate the process ID (PID)
 3. Execute the jstack command
@@ -100,11 +91,10 @@ The script will:
 5. Automatically open the file in your default text editor
 
 ```
-Found PID: 29500
+Process: Tomcat101010 (PID: 29500)
 Running jstack...
-Output file: C:\Users\YourName\nama-dumps\Tomcat101010-20251102-143025.txt
 
-Thread dump saved successfully to C:\Users\YourName\nama-dumps\Tomcat101010-20251102-143025.txt
+Thread dump saved to: C:\Users\YourName\nama-dumps\Tomcat101010-20251102-143025.txt
 File size: 2847623 bytes
 Opening file...
 ```
@@ -115,30 +105,34 @@ All thread dumps are automatically saved to the `nama-dumps` folder in your user
 
 ### Step 4: Capture Multiple Dumps (Recommended)
 
-For better analysis, capture 2-3 dumps with intervals:
+For better analysis, run the tool 2-3 times with 10-30 second intervals between each run. This creates multiple timestamped files in your `nama-dumps` folder showing how thread states evolve over time.
+
+## Heap Dump (Memory Dump)
+
+::: danger Only When Requested by Developers
+A heap dump captures the entire memory contents of the Tomcat process. **Only run this when the development team specifically asks you to.** Unlike thread dumps, a heap dump:
+- **Consumes significant CPU** while the dump is being written
+- **Uses large amounts of disk space** (the dump file can be several gigabytes)
+- **Temporarily freezes the application** during the dump process
+
+Running this without coordination can make an already struggling system worse.
+:::
+
+If the development team asks you to capture a heap dump, download and run the heap dump tool:
 
 ```powershell
-# First dump
-& "$env:USERPROFILE\jstack-dump.ps1"
+# Download the heap dump tool
+Invoke-WebRequest https://namasoft.com/bin/nama-heap-dump.exe -OutFile "$env:USERPROFILE\nama-heap-dump.exe"
 
-# Wait 10-30 seconds
-Start-Sleep -Seconds 10
-
-# Second dump
-& "$env:USERPROFILE\jstack-dump.ps1"
-
-# Wait again
-Start-Sleep -Seconds 10
-
-# Third dump
-& "$env:USERPROFILE\jstack-dump.ps1"
+# Run the tool (will request admin privileges if needed)
+& "$env:USERPROFILE\nama-heap-dump.exe"
 ```
 
-This creates three timestamped files in your `nama-dumps` folder showing how thread states evolve over time.
+The process selection works the same way as the thread dump tool. The output file will be saved as a compressed `.hprof.gz` file in `%USERPROFILE%\nama-dumps\`.
 
 ## Understanding the Output
 
-The generated file will contain sections like:
+The generated thread dump file will contain sections like:
 
 ```text
 "http-nio-8080-exec-42" #123 daemon prio=5 os_prio=0 tid=0x00007f8c4c123456 nid=0x4567 waiting on condition
@@ -173,7 +167,7 @@ Subject: Thread Dump - System Hanging on [Server Name]
 
 Hi Development Team,
 
-The ERP system experienced [describe issue: hanging/slowness/high CPU] 
+The ERP system experienced [describe issue: hanging/slowness/high CPU]
 on [date] at [time].
 
 Issue Details:
@@ -202,22 +196,11 @@ Best regards,
 2. **Shared Drive** - For larger files or multiple dumps
 3. Whatsapp Messages
 
-## Troubleshooting the Script
-
-### Script Download Fails
-
-**Error**: `Invoke-WebRequest : Unable to connect to the remote server`
-
-**Solutions**:
-1. Check internet connectivity
-2. Verify firewall allows outbound HTTPS
-3. Download manually from https://www.namasoft.com/jstack-dump.ps1 and save locally
+## Troubleshooting
 
 ### JDK Not Found
 
-**Error**: `ERROR: Could not find jstack automatically`
-
-**Solution**: The script will prompt you for the JDK path. Enter the full path:
+The tool will prompt you for the JDK path if it cannot find one automatically. Enter the full path:
 ```
 C:\Program Files\Java\jdk-21
 ```
@@ -229,45 +212,28 @@ Get-ChildItem "C:\Program Files\Java" -Directory
 
 ### Process Not Found
 
-**Error**: `ERROR: Could not find process Tomcat101010`
-
-**Solutions**:
-1. Verify the Tomcat service is running:
-   ```powershell
-   Get-Service | Where-Object {$_.Name -like "*Tomcat*"}
-   ```
-2. Check Task Manager for java.exe or Tomcat*.exe processes
-3. Run the script without parameters to see available processes
+If no Tomcat process is detected, the tool will list any available Java/Tomcat processes it can find. Make sure the Tomcat service is running:
+```powershell
+Get-Service | Where-Object {$_.Name -like "*Tomcat*"}
+```
 
 ### Permission Denied
 
-**Error**: `Access is denied` or similar
-
-**Solution**: The script automatically requests administrator privileges. If you still see this error:
+The tool automatically requests administrator privileges. If you still see this error:
 1. Click **Yes** when the UAC prompt appears
 2. Verify your user account has admin rights on the server
-3. Check if antivirus is blocking the script
-
-### Large File Size
-
-Thread dumps can be 5-50 MB depending on the number of threads and loaded classes.
-
-**To compress** (from your nama-dumps folder):
-```powershell
-cd "$env:USERPROFILE\nama-dumps"
-Compress-Archive -Path "Tomcat*.txt" -DestinationPath "thread-dumps.zip"
-```
+3. Check if antivirus is blocking the tool
 
 ## Advanced Usage
 
 ### Specify Process Name Directly
 
-If you know the exact process name:
+If you know the exact process name, pass it as an argument:
 
 ```powershell
-& "$env:USERPROFILE\jstack-dump.ps1" Tomcat101010
+& "$env:USERPROFILE\nama-jstack.exe" Tomcat101010
 ```
 
 ::: tip Need Help?
-If you encounter any issues with the script or need assistance interpreting results, contact the Nama ERP Development team at dev@namasoft.com
+If you encounter any issues with the tool or need assistance interpreting results, contact the Nama ERP Development team at dev@namasoft.com
 :::
