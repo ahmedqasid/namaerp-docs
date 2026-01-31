@@ -51,6 +51,10 @@ Invoke-WebRequest https://namasoft.com/bin/nama-jstack.exe -OutFile "$env:USERPR
 If you're not running as administrator, the tool will automatically request elevation and restart with admin privileges.
 :::
 
+::: info Alternative Download
+You can also download the tool directly from [namasoft.com/bin](https://namasoft.com/bin) — use the search box to find it by typing "jstack".
+:::
+
 ### Step 2: Select the Tomcat Process
 
 The tool will automatically detect running Tomcat processes:
@@ -127,6 +131,8 @@ Invoke-WebRequest https://namasoft.com/bin/nama-heap-dump.exe -OutFile "$env:USE
 # Run the tool (will request admin privileges if needed)
 & "$env:USERPROFILE\nama-heap-dump.exe"
 ```
+
+You can also download it directly from [namasoft.com/bin](https://namasoft.com/bin) by searching for "heap".
 
 The process selection works the same way as the thread dump tool. The output file will be saved as a compressed `.hprof.gz` file in `%USERPROFILE%\nama-dumps\`.
 
