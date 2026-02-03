@@ -21,50 +21,34 @@ MyFatoorah payment URL generation for documents implementing ISupportOnlinePayme
 ## How It Works
 
 1. **Validates entity compatibility** with ISupportOnlinePaymentDoc interface
-2. **Validates MyFatoorah configuration** exists and is properly configured
-3. **Extracts customer information** from specified entity fields (name required, contact details optional)
-4. **Creates payment invoice** through MyFatoorah API
-5. **Assigns generated URL** to specified entity field with state-aware updates
+2. **Validates MyFatoorah configuration** exists and type is MyFatoorah
+3. **Evaluates country code parameter** — if the value contains `'`, `"`, or `+`, it is treated as a constant value; otherwise it is resolved as a field reference
+4. **Extracts customer information** from specified entity fields (name required, contact details optional)
+5. **Creates payment invoice** through MyFatoorah API via `MyFatoorahPaymentUtil`
+6. **Assigns generated URL** to the target field:
+   - If the entity is in **draft** state, the field is set directly
+   - If the entity is **not draft**, the field is updated via `doSetWhileForceStable` and the last change version is incremented
 
 ## Parameters
 
 **Parameter 1:** Payment Config Code (Required) - Code of MyFatoorah payment configuration (e.g., MYFATOORAH_PROD)
 
-**Parameter 2:** Copy URL To Field (Required) - Field name for payment URL storage
+**Parameter 2:** Copy URL To Field (Required) - Text field name for payment URL storage
 
 **Parameter 3:** Customer Name Field (Required) - Field reference containing customer name (e.g., customer.name1)
 
-**Parameter 4:** Mobile Country Code Field (Optional) - Field reference for country code (e.g., customer.countryCode)
+**Parameter 4:** Mobile Country Code Field (Optional) - Text field reference (e.g., description2) or a constant value (e.g., '+966' or +966 or "+965")
 
-**Parameter 5:** Mobile Number Field (Optional) - Field reference for mobile number (e.g., customer.mobile)
+**Parameter 5:** Mobile Number Field (Optional) - Text field reference for mobile number (e.g., '10********')
 
 **Parameter 6:** Customer Email Field (Optional) - Field reference for email address (e.g., customer.email)
 
-**Parameter 7:** Customer Reference Field (Optional) - Field reference for customer code (e.g., customer.code)
+**Parameter 7:** Customer Reference Field (Optional) - Text field reference for customer code (e.g., customer.code)
 
 ## Database Tables Affected
 
-- **Entity Payment URL Field** - Updates specified field with generated MyFatoorah payment URL
-- **OnlinePaymentConfig Table** - Reads MyFatoorah-specific configuration settings
-- **Customer Data Fields** - Accesses customer information from related entity fields
-- **MyFatoorah API Records** - Creates payment tracking entries through API
-
-## Important Warnings
-
-### ⚠️ Entity Requirements
-- Entity must implement ISupportOnlinePaymentDoc interface
-- Customer name field is mandatory for payment processing
-- Target field for URL storage must exist and support URL text data
-
-### ⚠️ Configuration Dependencies
-- MyFatoorah payment configuration must exist and be properly configured
-- Configuration must be specifically set for MyFatoorah type
-- Valid MyFatoorah API credentials required
-
-### ⚠️ Data Quality
-- Customer data must be complete and accurate for payment processing
-- Valid contact information improves payment success rates
-- Consider entity state (draft vs committed) for field updates
+- **Entity Payment URL Field** - Updates the specified text field with the generated MyFatoorah payment URL
+- **OnlinePaymentConfig Table** - Reads MyFatoorah-specific configuration by business code
 
 **Module:** core
 
