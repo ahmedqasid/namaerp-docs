@@ -103,9 +103,10 @@ NamaRep.hijriDay($F{date})+"/"+NamaRep.hijriMonth($F{date})+"/"+NamaRep.hijriYea
 #### Time Conversion
 ```groovy
 // Convert decimal hours to time format
-NamaRep.decimalToTime(9.5)              // Returns "09:30"
-NamaRep.decimalToTimeWithSeconds(9.5)   // Returns "09:30:00" (includes seconds)
-NamaRep.decimalToTimeNullable(0)        // Returns null instead of "00:00"
+NamaRep.decimalToTime(9.5)                      // Returns "09:30"
+NamaRep.decimalToTimeWithSeconds(9.5)           // Returns "09:30:00" (includes seconds)
+NamaRep.decimalToTimeNullable(0)                // Returns null instead of "00:00"
+NamaRep.decimalToTimeWithSecondsNullable(0)     // Returns null instead of "00:00:00"
 
 // Convert milliseconds to time format
 NamaRep.timeToString(9120000)        // Returns "02:32"
