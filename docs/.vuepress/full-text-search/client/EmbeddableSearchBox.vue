@@ -339,24 +339,41 @@ function onIndexChange() {
 .search-box input {
   cursor: text;
   width: var(--search-input-width);
-  height: 2rem;
+  height: 2.5rem;
   color: var(--c-text);
   display: inline-block;
-  border: 1px solid var(--c-border);
-  border-radius: 2rem;
-  font-size: 0.9rem;
-  line-height: 2rem;
-  padding: 0 0.5rem 0 2rem;
+  border: 2px solid #666;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  line-height: 2.5rem;
+  padding: 0 1rem 0 2.5rem;
   outline: none;
   transition: all ease 0.3s;
-  background: var(--c-bg) url("../full-text-search/client/search.svg") 0.6rem 0.5rem no-repeat;
-  background-size: 1rem;
+  background: var(--c-bg) url("../full-text-search/client/search.svg") 0.8rem center no-repeat;
+  background-size: 1.1rem;
   flex: 1;
 }
 
 .search-box input:focus {
   cursor: auto;
   border-color: var(--c-brand);
+  box-shadow: 0 0 0 3px rgba(62, 175, 124, 0.25);
+}
+
+/* Dark mode input styling */
+:global(html[data-theme="dark"]) .search-box input {
+  background-color: #2a2a2a;
+  border-color: #888;
+  color: #fff;
+}
+
+:global(html[data-theme="dark"]) .search-box input::placeholder {
+  color: #aaa;
+}
+
+:global(html[data-theme="dark"]) .search-box input:focus {
+  border-color: #3eaf7c;
+  background-color: #333;
 }
 
 .inline-results {

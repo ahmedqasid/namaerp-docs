@@ -16,6 +16,7 @@
           @keyup.down="onDown"
       />
       <button
+        ref="settingsButtonRef"
         class="search-settings-button"
         :class="{ active: showSettings }"
         @click="showSettings = !showSettings"
@@ -30,7 +31,7 @@
     </div>
 
     <!-- Settings Popup -->
-    <div v-if="showSettings" class="search-settings-popup">
+    <div v-if="showSettings" ref="settingsPopupRef" class="search-settings-popup">
       <div class="settings-section" v-if="searchIndexClassNames && searchIndexClassNames.length > 1">
         <label class="settings-label">Search Index:</label>
         <select
@@ -92,7 +93,7 @@
 <script lang="ts">
 import {useRouteLocale} from "@vuepress/client";
 import type {LocaleConfig} from "@vuepress/shared";
-import {PropType, watch} from "vue";
+import {PropType, watch, onMounted, onUnmounted} from "vue";
 import {defineComponent, ref, computed, toRefs} from "vue";
 import {useRouter} from "vue-router";
 import {useSuggestions, useSearchIndexManager, useSemanticSearchManager} from "./engine";
@@ -163,9 +164,30 @@ export default defineComponent({
     const focusIndex = ref(-1);
     const showSettings = ref(false);
     const el = ref<HTMLElement | null>(null);
+    const settingsPopupRef = ref<HTMLElement | null>(null);
+    const settingsButtonRef = ref<HTMLElement | null>(null);
     const suggestions = useSuggestions(query);
     const { currentSearchIndex, searchIndexClassNames, searchIndexTitles, setSearchIndex } = useSearchIndexManager();
     const { useSemanticSearch, toggleSemanticSearch } = useSemanticSearchManager();
+
+    // Click outside handler to close settings popup
+    function handleClickOutside(event: MouseEvent) {
+      if (!showSettings.value) return;
+      const target = event.target as Node;
+      const isOutsidePopup = settingsPopupRef.value && !settingsPopupRef.value.contains(target);
+      const isOutsideButton = settingsButtonRef.value && !settingsButtonRef.value.contains(target);
+      if (isOutsidePopup && isOutsideButton) {
+        showSettings.value = false;
+      }
+    }
+
+    onMounted(() => {
+      document.addEventListener('click', handleClickOutside);
+    });
+
+    onUnmounted(() => {
+      document.removeEventListener('click', handleClickOutside);
+    });
     watch(focusIndex, (newIndex) => {
       if (newIndex < 0)
         return;
@@ -254,6 +276,8 @@ export default defineComponent({
       go,
       locale,
       el,
+      settingsPopupRef,
+      settingsButtonRef,
       currentSearchIndex,
       searchIndexClassNames,
       searchIndexTitles,

@@ -7,3 +7,20 @@
     text-align: left;
     direction: ltr;
 }
+
+/* ===== Full-Text Search Box Dark Mode Fixes ===== */
+html[data-theme="dark"] .embeddable-search-box {
+    border-color: #444;
+    background: #1a1a1a;
+}
+
+html[data-theme="dark"] .embeddable-search-box .search-index-selector {
+    background-color: #2a2a2a;
+    border-color: #666;
+    color: #e0e0e0;
+}
+
+html[data-theme="dark"] .embeddable-search-box .inline-results {
+    background: #1a1a1a;
+    border-color: #444;
+}
