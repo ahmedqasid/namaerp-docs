@@ -137,6 +137,44 @@ To enable this feature, configure the appropriate settings from the **Global Con
 * استخدم **Token** ككلمة مرور (Password) للمصادقة.
 
 
+## WaPilot WhatsApp Integration
+
+لتفعيل إرسال رسائل WhatsApp من نظام Nama ERP باستخدام [wapilot.net](https://wapilot.net)، اتبع الخطوات التالية:
+
+---
+
+### خطوات الإعداد
+
+1. **إنشاء حساب وربط واتساب**
+
+   * قم بإنشاء حساب على [app.wapilot.net](https://app.wapilot.net)
+   * أنشئ **Instance** جديد وقم بربطه بحساب WhatsApp عن طريق مسح رمز QR
+
+2. **الحصول على Instance ID**
+
+   * من لوحة التحكم، انتقل إلى قائمة الـ Instances
+   * انسخ **Instance ID** الخاص بك
+
+3. **الحصول على API Token**
+
+   * من إعدادات الحساب أو صفحة API، قم بإنشاء أو نسخ **API Token**
+
+---
+
+### إعدادات Nama ERP
+
+في شاشة إعدادات رسائل الواتساب:
+
+* **مزود الخدمة**: `WaPilot`
+* **اسم المستخدم (Public ID)**: معرّف الـ Instance (Instance ID)
+* **كلمة المرور (Secret)**: رمز الـ API Token
+
+::: tip
+يمكن استخدام WaPilot أيضًا كمزود للرسائل القصيرة (SMS) من خلال شاشة إعدادات الرسائل القصيرة، حيث يتم إرسال الرسائل عبر WhatsApp بدلاً من SMS التقليدي.
+:::
+
+---
+
 ## WaboxApp WhatsApp Integration
 
 
