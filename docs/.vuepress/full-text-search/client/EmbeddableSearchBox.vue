@@ -12,14 +12,16 @@
             {{ searchIndexTitles[indexName] || indexName }}
           </option>
         </select>
-        <label class="semantic-search-toggle" title="Enable AI-powered semantic search">
-          <input
-            type="checkbox"
-            :checked="useSemanticSearch"
-            @change="toggleSemanticSearch"
-          />
-          <span>AI Search</span>
-        </label>
+        <select
+          v-model="searchMode"
+          class="search-mode-selector"
+          @change="onSearchModeChange"
+          title="Select search mode"
+        >
+          <option value="fuzzy">Fuzzy</option>
+          <option value="semantic">AI</option>
+          <option value="fulltext">Full Text</option>
+        </select>
         <input
             ref="input"
             v-model="query"
@@ -78,7 +80,7 @@ import {useRouteLocale} from "@vuepress/client";
 import type {LocaleConfig} from "@vuepress/shared";
 import {watch, onMounted, ref, computed, toRefs} from "vue";
 import {useRouter} from "vue-router";
-import {useSuggestions, useSearchIndexManager, useSemanticSearchManager} from "./engine";
+import {useSuggestions, useSearchIndexManager, useSearchModeManager} from "./engine";
 
 type SearchBoxLocales = LocaleConfig<{
   placeholder: string;
@@ -112,7 +114,12 @@ const focusIndex = ref(-1);
 const resultsEl = ref<HTMLElement | null>(null);
 const suggestions = useSuggestions(query);
 const { currentSearchIndex, searchIndexClassNames, searchIndexTitles, setSearchIndex } = useSearchIndexManager();
-const { useSemanticSearch, toggleSemanticSearch } = useSemanticSearchManager();
+const { searchMode, setSearchMode } = useSearchModeManager();
+
+/** Handle search mode change */
+function onSearchModeChange() {
+  setSearchMode(searchMode.value);
+}
 
 
 // Override search index if specified
@@ -311,29 +318,27 @@ function onIndexChange() {
   border-color: var(--c-brand);
 }
 
-.semantic-search-toggle {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  font-size: 0.8rem;
+.search-mode-selector {
+  height: 2rem;
   color: var(--c-text);
-  cursor: pointer;
-  user-select: none;
-}
-
-.semantic-search-toggle input[type="checkbox"] {
-  cursor: pointer;
-  accent-color: var(--c-brand);
-}
-
-.semantic-search-toggle span {
-  white-space: nowrap;
+  border: 1px solid var(--c-border);
+  border-radius: 0.3rem;
+  font-size: 0.8rem;
+  padding: 0 0.5rem;
+  outline: none;
+  background: var(--c-bg);
+  min-width: 70px;
+  color-scheme: light dark;
   font-weight: 500;
 }
 
-/* Dark mode support */
-:global(html.dark) .semantic-search-toggle span {
-  color: #fff;
+.search-mode-selector option {
+  background: #2c3e50;
+  color: white;
+}
+
+.search-mode-selector:focus {
+  border-color: var(--c-brand);
 }
 
 .search-box input {
