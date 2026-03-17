@@ -51,22 +51,25 @@ const getInitialSearchIndex = () => {
 
 const currentSearchIndex = ref(getInitialSearchIndex());
 
-// Initialize semantic search preference with localStorage support
-const getInitialSemanticSearch = () => {
+// Search modes: 'fuzzy' (Lucene), 'semantic' (AI), 'fulltext' (simple indexOf)
+export type SearchMode = 'fuzzy' | 'semantic' | 'fulltext';
+
+// Initialize search mode preference with localStorage support
+const getInitialSearchMode = (): SearchMode => {
   if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
     try {
-      const stored = localStorage.getItem('vuepress-use-semantic-search');
-      if (stored !== null) {
-        return stored === 'true';
+      const stored = localStorage.getItem('vuepress-search-mode');
+      if (stored && ['fuzzy', 'semantic', 'fulltext'].includes(stored)) {
+        return stored as SearchMode;
       }
     } catch (e) {
       // localStorage might be disabled, fall back to default
     }
   }
-  return false; // Default to semantic search enabled
+  return 'fuzzy'; // Default to Lucene fuzzy search
 };
 
-const useSemanticSearch = ref(getInitialSemanticSearch());
+const searchMode = ref<SearchMode>(getInitialSearchMode());
 
 const pathToPage = computed(() => {
   const map = new Map<string, PageIndex>();
@@ -101,7 +104,7 @@ export function useSuggestions(query: Ref<string>): Ref<Suggestion[]> {
   let id: NodeJS.Timeout | null = null;
   let abortController: AbortController | null = null;
 
-  watch([query, currentSearchIndex, useSemanticSearch], () => {
+  watch([query, currentSearchIndex, searchMode], () => {
     if (id) {
       clearTimeout(id);
     }
@@ -109,7 +112,7 @@ export function useSuggestions(query: Ref<string>): Ref<Suggestion[]> {
       abortController.abort();
     }
     // Use longer debounce for semantic search (requires API call)
-    const debounceTime = useSemanticSearch.value ? 300 : 100;
+    const debounceTime = searchMode.value === 'semantic' ? 300 : 100;
     id = setTimeout(search, debounceTime);
   });
   return suggestions;
@@ -142,7 +145,7 @@ export function useSuggestions(query: Ref<string>): Ref<Suggestion[]> {
           query: queryStr,
           indexUrl: baseUrl,
           indexName: currentSearchIndex.value || 'default',
-          useSemantic: useSemanticSearch.value
+          searchMode: searchMode.value
         }),
         signal: abortController.signal
       });
@@ -249,13 +252,13 @@ export function useSearchIndexManager() {
   };
 }
 
-/** Export semantic search management functions */
-export function useSemanticSearchManager() {
+/** Export search mode management functions */
+export function useSearchModeManager() {
   // Watch for changes and persist to localStorage
-  watch(useSemanticSearch, (newValue) => {
+  watch(searchMode, (newValue) => {
     if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
       try {
-        localStorage.setItem('vuepress-use-semantic-search', String(newValue));
+        localStorage.setItem('vuepress-search-mode', newValue);
       } catch (e) {
         // localStorage might be disabled, ignore
       }
@@ -263,12 +266,9 @@ export function useSemanticSearchManager() {
   });
 
   return {
-    useSemanticSearch,
-    toggleSemanticSearch: () => {
-      useSemanticSearch.value = !useSemanticSearch.value;
-    },
-    setSemanticSearch: (enabled: boolean) => {
-      useSemanticSearch.value = enabled;
+    searchMode,
+    setSearchMode: (mode: SearchMode) => {
+      searchMode.value = mode;
     }
   };
 }

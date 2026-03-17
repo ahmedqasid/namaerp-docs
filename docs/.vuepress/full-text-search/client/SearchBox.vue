@@ -25,7 +25,7 @@
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="3"></circle>
-          <path d="M12 1v6m0 6v6m5.66-13.66l-4.24 4.24m0 6l4.24 4.24M23 12h-6m-6 0H1m18.66 5.66l-4.24-4.24m0-6l4.24-4.24"></path>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
         </svg>
       </button>
     </div>
@@ -45,14 +45,16 @@
         </select>
       </div>
       <div class="settings-section">
-        <label class="semantic-search-toggle">
-          <input
-            type="checkbox"
-            :checked="useSemanticSearch"
-            @change="toggleSemanticSearch"
-          />
-          <span>AI-Powered Semantic Search</span>
-        </label>
+        <label class="settings-label">Search Mode:</label>
+        <select
+          v-model="searchMode"
+          class="search-mode-selector"
+          @change="onSearchModeChange"
+        >
+          <option value="fuzzy">Fuzzy Search</option>
+          <option value="semantic">AI-Powered Search</option>
+          <option value="fulltext">Full Text Search</option>
+        </select>
       </div>
     </div>
     <ul v-if="activeSuggestion" class="suggestions" @mouseleave="unfocus" ref="el">
@@ -96,7 +98,7 @@ import type {LocaleConfig} from "@vuepress/shared";
 import {PropType, watch, onMounted, onUnmounted} from "vue";
 import {defineComponent, ref, computed, toRefs} from "vue";
 import {useRouter} from "vue-router";
-import {useSuggestions, useSearchIndexManager, useSemanticSearchManager} from "./engine";
+import {useSuggestions, useSearchIndexManager, useSearchModeManager} from "./engine";
 
 type SearchBoxLocales = LocaleConfig<{
   placeholder: string;
@@ -168,7 +170,7 @@ export default defineComponent({
     const settingsButtonRef = ref<HTMLElement | null>(null);
     const suggestions = useSuggestions(query);
     const { currentSearchIndex, searchIndexClassNames, searchIndexTitles, setSearchIndex } = useSearchIndexManager();
-    const { useSemanticSearch, toggleSemanticSearch } = useSemanticSearchManager();
+    const { searchMode, setSearchMode } = useSearchModeManager();
 
     // Click outside handler to close settings popup
     function handleClickOutside(event: MouseEvent) {
@@ -262,6 +264,11 @@ export default defineComponent({
       setSearchIndex(currentSearchIndex.value);
     }
 
+    /** Handle search mode change */
+    function onSearchModeChange() {
+      setSearchMode(searchMode.value);
+    }
+
     return {
       query,
       focused,
@@ -282,8 +289,8 @@ export default defineComponent({
       searchIndexClassNames,
       searchIndexTitles,
       onIndexChange,
-      useSemanticSearch,
-      toggleSemanticSearch,
+      searchMode,
+      onSearchModeChange,
     };
   },
 });
@@ -389,29 +396,20 @@ export default defineComponent({
   border-color: var(--search-accent-color);
 }
 
-.semantic-search-toggle {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  font-size: 0.8rem;
+.search-mode-selector {
+  width: 100%;
+  height: 2rem;
   color: var(--search-text-color);
-  cursor: pointer;
-  user-select: none;
+  border: 1px solid var(--search-border-color);
+  border-radius: 0.3rem;
+  font-size: 0.85rem;
+  padding: 0 0.5rem;
+  outline: none;
+  background: var(--search-bg-color);
 }
 
-.semantic-search-toggle input[type="checkbox"] {
-  cursor: pointer;
-  accent-color: var(--search-accent-color);
-}
-
-.semantic-search-toggle span {
-  white-space: nowrap;
-  font-weight: 500;
-}
-
-/* Dark mode support */
-:global(html.dark) .semantic-search-toggle span {
-  color: #fff;
+.search-mode-selector:focus {
+  border-color: var(--search-accent-color);
 }
 
 .search-box input {
