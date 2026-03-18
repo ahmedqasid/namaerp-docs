@@ -39,65 +39,6 @@ The underlying functionality:
 
 **Parameter 3:** Recalc Free and Related Items (Optional) - true/false to recalculate promotional items (default: true)
 
-## Database Tables Affected
-
-- **Sales Document Lines** - Updates pricing, discounts, and quantities
-- **Free Item Lines** - Adds, removes, or updates promotional items
-- **Document Totals** - Recalculates header totals and taxes
-- **Pricing Rules** - References current pricing and discount rules (read-only)
-
-## Important Warnings
-
-### ⚠️ Inheritance Structure
-- This class is a wrapper around the core supply chain functionality
-- All actual logic resides in the parent class
-- Magento-specific behavior can be added by overriding parent methods
-
-### ⚠️ Core Functionality Reference
-- For detailed functionality, refer to the parent class documentation
-- Parameter behavior and processing logic inherited from supply chain module
-- Business rules and calculations follow supply chain standards
-
-### ⚠️ Recalculation Impact
-- May significantly change document totals and line amounts
-- Free items may be added, removed, or quantity adjusted
-- Consider impact on committed or processed orders
-
-### ⚠️ Parameter Defaults
-- All parameters default to true if not specified
-- Empty or null parameters trigger full recalculation
-- Use false values to skip specific recalculation types
-
-### ⚠️ E-commerce Context
-- Designed for use within Magento module workflows
-- May interact with e-commerce specific pricing rules
-- Consider impact on order synchronization with Magento
-
-### ⚠️ Promotional Logic
-- Free and related items depend on configured promotion rules
-- Rules may have date ranges, quantity thresholds, or customer restrictions
-- Invalid or expired promotions may cause items to be removed
-
-### ⚠️ Pricing Dependencies
-- Unit price recalculation depends on active price lists
-- Customer-specific pricing rules may apply
-- Missing price data may cause calculation failures
-
-### ⚠️ Document State
-- Works on sales documents in various states
-- May not be appropriate for locked or finalized documents
-- Consider document workflow restrictions
-
-### ⚠️ Performance Considerations
-- Recalculation can be intensive for large documents
-- Multiple rule evaluations per line item
-- Consider impact on system performance for bulk operations
-
-### ⚠️ Business Rule Consistency
-- Ensures pricing and promotions align with current business rules
-- May override manually entered pricing or discounts
-- Consider implications for special pricing arrangements
-
 **Module:** magento
 
 **Full Class Name:** `com.namasoft.modules.magento.utils.EASalesRecalculateFreeAndRelatedItems`
