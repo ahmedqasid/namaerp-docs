@@ -34,50 +34,6 @@ This action does not require any parameters - it automatically protects predefin
 
 - **Document Lines** - Validates current line data against original committed data (read-only validation)
 
-## Important Warnings
-
-### ⚠️ Critical Field Protection
-- Prevents changes to quantity, size, color, revision, lot ID, and other inventory-affecting fields
-- Protection activates only after first document commit
-- New documents (never committed) are not restricted
-- Field protection is hardcoded in business logic
-
-### ⚠️ Data Integrity Enforcement
-- Validation failures prevent document save operations
-- Error messages do not display entity flow name for cleaner user experience
-- Changes must be reverted or document recreated to proceed
-- No override mechanism available through parameters
-
-### ⚠️ Business Process Impact
-- May prevent legitimate business corrections after document commitment
-- Users cannot modify critical inventory data once document is saved
-- Consider business workflow requirements before implementing
-- May require alternative processes for legitimate corrections
-
-### ⚠️ Document Lifecycle Dependency
-- Only applies to documents with committed history (oldData exists)
-- New document creation is not affected
-- Document cloning may bypass restrictions depending on implementation
-- Consider impact on document revision workflows
-
-### ⚠️ Error Handling Behavior
-- Validation errors prevent entire document save operation
-- Partial saves are not possible when critical fields are changed
-- Users must revert all restricted changes to proceed
-- Error messages focus on field restrictions rather than action name
-
-### ⚠️ Field Scope Limitations
-- Protection applies to predefined set of critical fields
-- Cannot be customized through parameters
-- Additional field protection requires code modifications
-- Non-critical fields remain editable after commitment
-
-### ⚠️ Integration Considerations
-- May conflict with bulk update operations
-- Import processes may fail if updating committed documents
-- API integrations must respect field restrictions
-- Consider impact on automated document processing
-
 **Module:** supplychain
 
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.EAPreventChangingSCDocumentCriticalFields`

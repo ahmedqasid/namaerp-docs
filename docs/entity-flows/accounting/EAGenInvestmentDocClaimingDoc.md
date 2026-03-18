@@ -48,17 +48,6 @@ Automatically generates Investment Document Claiming records for treasury bonds 
 2. **Collection Process:** Generate documents for bond collection processing
 3. **Lifecycle Management:** Support treasury bond lifecycle from purchase to collection
 
-## Important Warnings
-
-### ⚠️ Date and Processing Sensitivity
-- **Today Only:** Processes bonds with worth date = today only
-- **Duplicate Risk:** Multiple executions on same date may create duplicates
-- **Status Dependency:** Only processes "Ongoing" status bonds
-
-### ⚠️ Performance Limitations
-- **Record Limit:** Maximum 500 records per execution
-- **Error Handling:** Stops on first error to prevent partial processing
-
 **Module:** accounting
 
 **Full Class Name:** `com.namasoft.modules.accounting.domain.utils.actions.EAGenInvestmentDocClaimingDoc`

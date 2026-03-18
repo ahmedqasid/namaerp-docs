@@ -46,30 +46,6 @@ Manual execution for bulk recommitting entities after system updates, configurat
 - **Entity Tables** - Recommits affect all tables related to the target entities
 - **Optional Update Tables** - Additional update query may affect other tables
 
-## Important Warnings
-
-### ⚠️ Query Requirements
-- Query must return exactly 2 columns: entityType (string) and id (uniqueID)
-- Query should use proper WHERE conditions to avoid unintended mass operations
-- Use {id} placeholder to reference the current entity's ID in the query
-
-### ⚠️ Performance Impact
-- Large result sets can cause significant performance impact
-- Each entity is loaded and recommitted individually
-- Database flushing options add additional overhead
-- Consider transaction settings for large operations
-
-### ⚠️ Business Logic Impact
-- Recommitting triggers all entity flows and business rules
-- May cause cascading effects on related entities
-- Can modify calculated fields, accounting effects, and status updates
-- Test thoroughly before running on production data
-
-### ⚠️ Error Handling
-- Default behavior stops on first error
-- "Continue on Errors" option processes remaining entities but may leave inconsistent state
-- Monitor logs for individual entity failures when continuing on errors
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EARecommitFromQuery`

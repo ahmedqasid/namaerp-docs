@@ -36,33 +36,6 @@ This action does not require any parameters.
 - **ItemDimensionsDetail** - Modifies rack code in warehouse-specific dimensions
 - **StockTakingDetails** - Reads rack codes from Text1 field (read-only)
 
-## Important Warnings
-
-### ⚠️ Text1 Field Usage
-- Rack codes must be entered in the Text1 field of stock taking lines
-- Empty Text1 fields are ignored
-- No validation of rack code format or uniqueness
-
-### ⚠️ Warehouse Specificity
-- Only updates rack codes for the warehouse specified in document header
-- Other warehouse locations remain unchanged
-- Items must have dimension records for the target warehouse
-
-### ⚠️ Item Master Updates
-- Directly modifies item master records
-- Changes are permanent once committed
-- Previous rack codes are overwritten without backup
-
-### ⚠️ Bulk Processing
-- Processes all items with rack codes in single operation
-- Failure on one item stops entire process
-- No partial updates - all or nothing execution
-
-### ⚠️ Data Consistency
-- Multiple lines for same item use last rack code found
-- No duplicate rack code validation
-- Consider impact on warehouse picking operations
-
 **Module:** supplychain
 
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EACopyRackCodeFromStockTaking`

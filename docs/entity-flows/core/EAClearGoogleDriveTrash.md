@@ -35,18 +35,6 @@ Manual execution or scheduled maintenance tasks to permanently delete all files 
 
 No direct database modifications - only interacts with Google Drive through API calls.
 
-## Important Warnings
-
-### ⚠️ Permanent Data Loss
-- Files deleted from trash cannot be recovered - operation is irreversible
-- All files in trash are deleted without exception
-- No undo function available
-
-### ⚠️ Requirements
-- OAuth file must have "Used For Emptying Trash" permission
-- Requires stable internet connection to Google APIs
-- Subject to Google Drive API rate limits
-
 ## Related Actions
 
 - [EACheckDailyBackupOnGoogleDrive](EACheckDailyBackupOnGoogleDrive.md)

@@ -77,18 +77,6 @@ WHERE fp.startDate <= DATEADD(day, 0, GETDATE())
 - **Data Modification:** Permits changes to transactions in reopened periods
 - **Control Relaxation:** Temporarily removes period-end restrictions
 
-## Important Warnings
-
-### ⚠️ Critical Considerations
-- **Audit Implications:** Opening closed periods may have audit implications
-- **Data Integrity:** Reopened periods allow modifications to historical data
-- **Regulatory Compliance:** Check local accounting regulations before reopening
-
-### ⚠️ Control Requirements
-- **Authorization:** Ensure only authorized personnel can reopen periods
-- **Documentation:** Document business justification for reopening periods
-- **Monitoring:** Monitor transactions posted to reopened periods
-
 ## Related Actions
 
 - **EACloseFiscalPeriodsInRange** - Closes fiscal periods in specified date range

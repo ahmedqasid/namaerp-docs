@@ -66,18 +66,6 @@ WHERE ac.nearestAutoEscalateDate <= GETDATE()
 ORDER BY ac.nearestAutoEscalateDate;
 ```
 
-## Important Warnings
-
-### ⚠️ Configuration Requirements
-- **Fallback Employee Required:** Approval definition must have fallback employee configured
-- **Timeout Configuration:** Must have valid autoEscalateAfter time period
-- **Infinite Loop Prevention:** System checks fallback isn't same as current candidate
-
-### ⚠️ Operational Impact
-- **Automatic Processing:** Processes all eligible approval cases without user intervention
-- **Audit Trail:** Creates approval step records showing "Auto escalate" reason
-- **Workflow Modification:** Changes approval routing automatically
-
 ## Related Actions
 
 - **EAAutoEscalateApprovalToSupervisor** - Escalates to employee's supervisor instead of fallback

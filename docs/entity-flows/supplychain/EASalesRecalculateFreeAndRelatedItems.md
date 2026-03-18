@@ -49,10 +49,6 @@ Manual execution when sales document pricing needs to be refreshed, typically af
 
 **Document Type:** Sales Documents (Orders, Invoices, Quotes)
 
-**Related Actions:**
-- Pricing recalculation utilities in sales module
-- Discount calculation engines
-- Promotional item management actions
 
 
 </div>

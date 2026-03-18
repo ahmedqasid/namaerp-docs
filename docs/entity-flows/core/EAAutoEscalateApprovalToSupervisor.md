@@ -69,18 +69,6 @@ WHERE ac.nearestAutoEscalateDate <= GETDATE()
     AND ad.autoEscalateAfter_value > 0;
 ```
 
-## Important Warnings
-
-### ⚠️ Configuration Requirements
-- **Supervisor Relationship Required:** Employees must have supervisor configured
-- **Timeout Configuration:** Must have valid autoEscalateAfter time period
-- **Infinite Loop Prevention:** System tracks escalated status to prevent repeated escalations
-
-### ⚠️ Operational Impact
-- **Missing Supervisor:** Escalation may fail if employee has no supervisor configured
-- **Audit Trail:** All escalations create permanent audit records
-- **Performance:** Large volumes of overdue approvals may impact processing time
-
 ## Related Actions
 
 - **EAAutoEscalateApprovalToFallBackEmployee** - Escalates to specific fallback employee instead of supervisor

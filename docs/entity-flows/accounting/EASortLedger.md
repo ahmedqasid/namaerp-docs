@@ -47,17 +47,6 @@ Same sign → Order preserved
 - **LedgerTrans** - Final sorted transactions
 - **LedgerTransLine** - Individual sorted lines
 
-## Important Warnings
-
-### ⚠️ Processing Notes
-- **Memory Sorting:** Only sorts lines in memory before processing
-- **Automatic Execution:** Cannot be manually controlled or disabled
-- **Order Dependency:** Reports may depend on this sorting order
-
-### ⚠️ Performance Impact
-- Minimal impact for typical volumes
-- Large transaction sets (1000+ lines) may experience delays
-
 ## Related Actions
 
 - **EAShortenLedger** - Often runs after sorting to consolidate lines

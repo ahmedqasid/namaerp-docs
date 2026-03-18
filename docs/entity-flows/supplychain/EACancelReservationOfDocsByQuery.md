@@ -41,33 +41,6 @@ where dueDate < GETDATE()
 - **Inventory Reservation Tables** - Indirectly releases reserved quantities
 - **Query Target Tables** - Reads from tables specified in the SQL query
 
-## Important Warnings
-
-### ⚠️ Query Requirements
-- Must return exactly 2 columns: entityType and id
-- Both columns required for proper document identification
-- Invalid queries or missing columns skip processing
-
-### ⚠️ Document Validation
-- Only processes previously committed documents (CommitedBefore=true)
-- Non-existent or uncommitted documents are skipped
-- Already cancelled documents are ignored
-
-### ⚠️ Inventory Impact
-- Releases reserved inventory back to available stock
-- May affect pending orders relying on reservations
-- Consider impact on fulfillment operations
-
-### ⚠️ Bulk Operation Risks
-- Processes all documents returned by query
-- No limit on number of documents affected
-- Test query scope carefully before execution
-
-### ⚠️ Transaction Handling
-- Each document commits individually
-- Failures stop processing remaining documents
-- Partial completion possible if errors occur
-
 **Module:** supplychain
 
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.EACancelReservationOfDocsByQuery`

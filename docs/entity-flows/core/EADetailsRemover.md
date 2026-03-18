@@ -41,18 +41,6 @@ Manual or automated execution during document processing for detail line cleanup
 - **Document Detail Collections** - In-memory modification of specified detail collection
 - **CriteriaDefinition** - Read-only access when using criteria-based selection
 
-## Important Warnings
-
-### ⚠️ Data Safety
-- Removed lines cannot be recovered once entity is saved
-- Test queries thoroughly to ensure correct line selection
-- Line removal may affect document totals and related records
-
-### ⚠️ Requirements
-- Must provide either query or criteria definition code
-- Specified detail collection must exist on entity
-- Verify field references in queries are valid
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EADetailsRemover`

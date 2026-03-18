@@ -37,18 +37,6 @@ Manual or automated execution for cross-database operations, data synchronizatio
 
 - **External Database Tables** - Direct modifications to specified external database tables
 - **Application Cache** - May require eviction to maintain cross-system consistency
-## Important Warnings
-
-### ⚠️ Configuration
-- External data source must be properly configured and accessible
-- Requires valid credentials and network access to external database
-- External operations are separate from main database transactions
-
-### ⚠️ Security
-- Secure management of external database credentials required
-- Network latency and connection overhead may impact performance
-- Consider data privacy implications of cross-system operations
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAExecuteUpdateQueryOnDifferentDatasource`

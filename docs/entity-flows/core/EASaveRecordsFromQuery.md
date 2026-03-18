@@ -53,33 +53,6 @@ select entityType,id from StockIssue where fromDoc_id = {id} and n1 = 5
 - **Related Tables** - All tables affected by entity business logic during save
 - **Optional Update Tables** - Additional update query may affect other tables
 
-## Important Warnings
-
-### ⚠️ Query Requirements
-- Query must return exactly 2 columns: entityType (string) and id (uniqueID)
-- Query should use proper WHERE conditions to avoid unintended mass operations
-- Use {id} placeholder to reference the current entity's ID in the query
-
-### ⚠️ Save Operation Impact
-- Triggers full entity editing and save cycle including all business logic
-- May cause cascading effects on related entities and calculated fields
-- More comprehensive than simple recommit - includes editing state management
-
-### ⚠️ Performance Considerations
-- Each entity goes through complete edit/save cycle which is more intensive than recommit
-- Database flushing options add additional overhead
-- Consider transaction settings for large operations
-
-### ⚠️ Business Logic Impact
-- Save operations trigger all entity flows, validation rules, and business logic
-- Can modify calculated fields, accounting effects, and status updates
-- May affect entity relationships and dependent calculations
-
-### ⚠️ Error Handling
-- Default behavior stops on first error unless "Continue on Errors" is enabled
-- Failed entities may leave incomplete save state
-- Monitor carefully when processing large numbers of entities
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EASaveRecordsFromQuery`

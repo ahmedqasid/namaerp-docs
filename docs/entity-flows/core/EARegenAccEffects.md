@@ -36,28 +36,6 @@ Manual execution after configuration changes, account corrections, or when accou
 - **Referenced Entity Tables** - Processes entities found through the specified reference field
 - **Accounting Effect Tables** - Updates accounting calculations and balances
 
-## Important Warnings
-
-### ⚠️ Entity Requirements
-- Current entity or referenced entities must implement IGeneratesAccountingRequest interface
-- Only entities that generate accounting effects can be processed
-- Invalid entity types will be skipped without error
-
-### ⚠️ Accounting Impact
-- Regenerates all accounting effects, potentially modifying journal entries
-- May affect ledger balances and financial reports
-- Test thoroughly before running on production financial data
-
-### ⚠️ Field Configuration
-- Reference field must be valid for the current entity type
-- Field can point to single entities or collections of entities
-- Duplicate entities in collections are processed only once
-
-### ⚠️ Performance Considerations
-- Processing large collections of entities may take significant time
-- Each entity's accounting effect generation runs independently
-- Monitor system performance during bulk operations
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EARegenAccEffects`

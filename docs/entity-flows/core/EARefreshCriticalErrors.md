@@ -33,18 +33,6 @@ Manual execution when critical error indicators need to be refreshed, typically 
 - **Critical Error Cache** - Refreshes in-memory cache of critical system errors
 - **Error Status Tables** - May read from various tables to evaluate current error conditions
 
-## Important Warnings
-
-### ⚠️ System Impact
-- Forces system-wide re-evaluation of critical error conditions
-- May cause temporary performance impact during refresh
-- Updates may affect user interface error indicators immediately
-
-### ⚠️ Usage Guidelines
-- Use when error indicators appear outdated or incorrect
-- Run after resolving critical system issues to clear stale error states
-- Consider timing when running on production systems during peak usage
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EARefreshCriticalErrors`

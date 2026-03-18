@@ -52,48 +52,6 @@ Manual execution for updating postal tracking status when mail items change loca
 - **IPSPostalParcelsSortLine** - Alternative lookup for mail classification codes
 - **FRMConfiguration** - Reads module settings for IPS integration
 
-## Important Warnings
-
-### ⚠️ Configuration Dependencies
-- Action is disabled if FRM configuration has "DoNotSendIPSDocumentsEventsToIPS" set to true
-- IPS user and workstation field IDs must be properly configured
-- Mail item prefix filtering requires proper configuration setup
-
-### ⚠️ Mail Item Validation
-- Only processes mail items with non-empty identifiers
-- Mail items must match allowed prefix patterns if filtering is configured
-- Invalid or unrecognized mail item formats are skipped silently
-
-### ⚠️ IPS Integration Requirements
-- Event code must exist in IPSEvent table with valid configuration
-- Integration tasks are created for asynchronous processing
-- External IPS system must be available to process tasks
-
-### ⚠️ Data Field Requirements
-- Details field ID must reference a valid collection in the source entity
-- Mail item field ID must exist within the detail records
-- Field references are case-sensitive and must match entity structure
-
-### ⚠️ Classification Code Lookup
-- System attempts to find mail class codes from delivery entries first
-- Falls back to postal parcels sort lines if delivery entry not found
-- Missing classification codes result in empty class code in IPS payload
-
-### ⚠️ Performance Considerations
-- Processes all detail records in the specified collection
-- Each valid mail item creates a separate integration task
-- Large collections may generate many integration tasks requiring processing
-
-### ⚠️ External System Integration
-- Integration tasks require separate processing system to send to IPS
-- Failed IPS communication may leave tasks in pending state
-- Monitor integration task processing for successful IPS updates
-
-### ⚠️ Postal Code Validation
-- Office codes, reason codes, and measure codes should match IPS specifications
-- Invalid codes may cause IPS integration failures
-- Ensure codes conform to international postal standards
-
 **Module:** frm
 
 **Full Class Name:** `com.namasoft.modules.frm.common.EAKWSendIPSEvents`

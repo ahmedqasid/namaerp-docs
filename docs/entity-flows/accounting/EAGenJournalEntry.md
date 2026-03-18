@@ -99,18 +99,6 @@ Effects: lines.amount=EXPENSE_DR,PAYABLE_CR
 Apply When: SELECT CASE WHEN {lines.amount} > 0 THEN 1 ELSE 0 END
 ```
 
-## Important Warnings
-
-### ⚠️ Configuration Requirements
-- **book** field is required in Fields Updater
-- Accounting side codes must exist in AccountingSideConfig
-- Field values must be non-zero to generate lines
-
-### ⚠️ Data Validation
-- Finder query returning multiple results uses first result
-- Zero or empty field values are ignored
-- Effects require valid debit/credit side codes
-
 ## Related Actions
 
 - **EAClearLedgerLines** - Clears ledger lines before generation

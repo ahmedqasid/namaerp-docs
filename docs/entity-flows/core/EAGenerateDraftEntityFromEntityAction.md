@@ -53,18 +53,6 @@ Same as [EAGenerateEntityFromEntityAction](EAGenerateEntityFromEntityAction.md) 
 
 Creates entities in **draft status** for review/approval instead of immediate commitment like the standard generation action.
 
-## Important Warnings
-
-### ⚠️ Draft Status Impact
-- Draft documents may not trigger all business processes
-- May be excluded from certain reports until committed
-- External systems may not process draft documents
-
-### ⚠️ Performance & Dependencies
-- Complex field mappings and SQL queries impact performance
-- Requires proper approval workflow configuration
-- Needs procedures for draft document cleanup
-
 ## Related Actions
 
 - [EAGenerateEntityFromEntityAction](EAGenerateEntityFromEntityAction.md)

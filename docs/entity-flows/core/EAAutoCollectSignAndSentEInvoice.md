@@ -50,23 +50,6 @@ SELECT CASE WHEN {customer.code} LIKE 'VIP%' THEN 1 ELSE 0 END
 - **TaskSchedule** - Source entity triggering the process
 - **Invoice Entities** - Updated with submission status
 
-## Important Warnings
-
-### ⚠️ ZATCA Requirements
-- Valid digital certificates required
-- Stable internet connection to ZATCA systems
-- Invoices must meet ZATCA format requirements
-
-### ⚠️ Performance Impact
-- High-volume processing affects system performance
-- Large batches consume significant memory
-- Multiple simultaneous executions may cause conflicts
-
-### ⚠️ Configuration Dependencies
-- TaxPayerConfiguration must be properly configured
-- Submission document book must exist
-- Collector queries must be syntactically correct
-
 ## Related Actions
 
 - [EAAutoSendEInvoice](EAAutoSendEInvoice.md)

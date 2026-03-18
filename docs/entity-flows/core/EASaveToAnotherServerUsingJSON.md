@@ -78,17 +78,6 @@ Synchronizes data between Nama ERP servers using JSON format for data transmissi
 - **Source Entity** - The entity being synchronized
 - **SentEntityToAnotherServerSysEntry** - Audit log of synchronization attempts
 
-## Important Warnings
-
-### ⚠️ Functional Limitations
-- **Creation Date Preservation:** Not supported - will throw exception
-- **Performance Impact:** JSON serialization/deserialization adds overhead
-- **Field Mapping:** Custom overrides apply to JSON structure
-
-### ⚠️ Error Handling
-- **Validation Errors:** Server-side validation may reject imported JSON data
-- **Reference Resolution:** Missing references handled by import process settings
-
 ## Related Actions
 
 - **EASaveToAnotherServer** - Standard DTO-based server synchronization

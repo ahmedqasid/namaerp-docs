@@ -50,48 +50,6 @@ Manual execution for billing patient accommodation charges, typically at dischar
 - **Invoice Tables** - Creates new accommodation invoices through invoice creation utility
 - **HMSConfiguration** - Reads checkout time settings and billing configuration
 
-## Important Warnings
-
-### ⚠️ Accommodation Entry Requirements
-- Only processes accommodation entries that are marked as "in line" (active)
-- Entries must belong to valid patient admissions
-- Missing or invalid accommodation data causes processing failures
-
-### ⚠️ Checkout Time Calculation
-- Parameter determines whether to use current time or configured checkout time
-- Using configured checkout time may adjust checkout date if resulting time is before check-in
-- Incorrect checkout times affect billable day calculations and invoice amounts
-
-### ⚠️ Billable Days Calculation
-- System calculates billable days based on accommodation duration and overlap rules
-- Last accommodation entry in a sequence may have different billing rules
-- Calculation considers multiple consecutive stays for the same admission
-
-### ⚠️ Configuration Dependencies
-- Requires HMS module configuration for checkout times and billing rules
-- Missing configuration falls back to default values
-- Incorrect configuration affects billing accuracy
-
-### ⚠️ Invoice Creation Impact
-- Creates actual billable invoices that affect patient accounts
-- Failed invoice creation may leave accommodation entries in inconsistent state
-- Generated invoices follow standard billing and accounting procedures
-
-### ⚠️ Multi-Admission Processing
-- When processing multiple admissions, failures in one may affect the entire operation
-- Large numbers of admissions may cause performance issues
-- Consider processing in smaller batches for high-volume operations
-
-### ⚠️ Date and Time Handling
-- Checkout date automatically adjusts to next day if checkout time creates past timestamp
-- Time zone handling follows system configuration
-- Date calculations affect billing periods and invoice amounts
-
-### ⚠️ Data Consistency
-- Modifies accommodation entry data during processing (sets end dates/times)
-- Changes are made to cloned entries before invoice creation
-- Original accommodation entries remain unchanged
-
 **Module:** hms
 
 **Full Class Name:** `com.namasoft.modules.hms.domain.utils.EACreateAccommodationInvoice`

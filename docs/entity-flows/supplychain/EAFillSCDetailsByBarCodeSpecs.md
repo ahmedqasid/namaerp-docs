@@ -36,33 +36,6 @@ This action does not require any parameters - it uses system-wide supply chain b
 - **InvItem** - Reads item master records using extracted codes (read-only)
 - **Supply Chain Configuration** - Uses barcode parsing specifications
 
-## Important Warnings
-
-### ⚠️ Barcode Configuration Dependency
-- Requires proper barcode specifications configured in Supply Chain module
-- Uses system-wide barcode parsing rules
-- Barcode format must match configured patterns
-
-### ⚠️ Line Processing Conditions
-- Only processes lines with item codes but no resolved item references
-- Lines with existing item references are skipped
-- Empty item codes are ignored
-
-### ⚠️ Item Resolution Requirements
-- Extracted item codes must exist in InvItem master data
-- Uses business code lookup for item resolution
-- Invalid item codes leave lines unprocessed
-
-### ⚠️ Property Extraction
-- Extracted properties overwrite existing line values
-- Property types must match expected line field types
-- Invalid property values may cause processing errors
-
-### ⚠️ Barcode Format Limitations
-- Only works with configured barcode formats
-- Complex or custom barcodes may not parse correctly
-- Consider testing with representative barcode samples
-
 **Module:** supplychain
 
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAFillSCDetailsByBarCodeSpecs`

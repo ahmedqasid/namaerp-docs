@@ -61,18 +61,6 @@ WHERE a.currency_id != CASE WHEN ltl.debit_amount IS NOT NULL
                            ELSE ltl.credit_currency_id END;
 ```
 
-## Important Warnings
-
-### ⚠️ Currency Requirements
-- **Main Currency Only:** Only processes accounts with legal entity's main currency
-- **Exchange Rate Override:** Sets rate to 1.0, assuming no conversion needed
-- **Automatic Processing:** Cannot be manually controlled per transaction
-
-### ⚠️ Data Impact
-- **Transaction Modification:** Amounts and currencies changed before processing
-- **Line Optimization:** May combine or remove lines during shortenLines() call
-- **Audit Trail:** Track currency conversion effects in reports
-
 ## Related Actions
 
 - **EAShortenLedger** - Consolidates lines after currency alignment

@@ -39,24 +39,6 @@ Offline GoPay payment processing for Receipt Voucher entities linked to GoPay-en
 - **External GoPay System** - Synchronizes transaction data via APIs
 
 
-## Important Warnings
-
-### ⚠️ Entity Requirements
-- Only works with Receipt Voucher entities linked to invoices implementing IGoPayInvoice
-- Receipt voucher must be linked to valid invoice
-- Proper entity relationships must be maintained
-
-### ⚠️ Configuration Dependencies
-- GoPay configuration must exist with valid API credentials
-- Configuration must match target environment (test/production)
-- Risk of duplicate payment processing if run multiple times
-
-### ⚠️ Integration Dependencies
-- Requires GoPay system availability and network connectivity
-- Subject to GoPay API rate limits
-- Balance consistency between local and GoPay systems critical
-
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAPostGoPayOfflinePayment`

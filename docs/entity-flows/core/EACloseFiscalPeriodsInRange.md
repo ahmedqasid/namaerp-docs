@@ -70,18 +70,6 @@ WHERE fp.endDate <= DATEADD(day, 0, GETDATE())
 - **Transaction Restrictions:** No new entries allowed in closed periods
 - **Reporting Accuracy:** Finalizes period-end financial reports
 
-## Important Warnings
-
-### ⚠️ Critical Impact
-- **Irreversible Action:** Closing periods typically cannot be undone
-- **Transaction Restrictions:** All pending transactions in affected periods may be rejected
-- **User Notification:** Users working on period-end entries should be notified
-
-### ⚠️ Processing Considerations
-- **Batch Processing:** Processes multiple years and periods in single execution
-- **Data Validation:** Verify fiscal year setup is complete before closing
-- **Timing:** Consider execution during off-hours to minimize user impact
-
 ## Related Actions
 
 - **EAOpenFiscalPeriodsInRange** - Opens fiscal periods in specified date range

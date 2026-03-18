@@ -44,33 +44,6 @@ select entityType,id from SalesInvoice where ref1Id = {id} and documentFileStatu
 - **Entity Status Fields** - Updates entity approval status and workflow state
 - **Query Target Tables** - Reads from tables specified in finder query
 
-## Important Warnings
-
-### ⚠️ Approval State Requirements
-- Entities must be currently in active approval cycles
-- Entities not in approval workflow are skipped with warning
-- Cannot revoke approvals for entities without current approval cases
-
-### ⚠️ Partial Approval Protection
-- By default, prevents revoking approvals with existing approval steps
-- Use Parameter 3 (Force) carefully as it removes completed approval steps
-- Partial revocation may impact audit trails and approval history
-
-### ⚠️ Business Process Impact
-- Revoking approval resets the entire approval workflow
-- May require entities to restart approval process from beginning
-- Can impact business timelines and approval deadlines
-
-### ⚠️ Multi-Entity Operations
-- When using field references or SQL queries, multiple entities may be affected
-- Each entity is validated individually before approval revocation
-- Failed entities are skipped but operation continues for remaining entities
-
-### ⚠️ Query Requirements
-- SQL query must return at least 2 columns: entityType and id/code
-- Use proper WHERE conditions to avoid unintended mass operations
-- Query results must reference valid, existing entities
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EARevokeApproval`

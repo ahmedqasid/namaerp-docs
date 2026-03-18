@@ -37,18 +37,6 @@ Manual execution on entities with commercial registration information (customers
 - **contactInfo.address*** - All address fields updated with Wathq data
 - **WathqCallInfo** - Audit log with CR number, entity reference, timestamp, and response
 
-## Important Warnings
-
-### ⚠️ Requirements
-- Valid Saudi Commercial Registration number required
-- Stable internet connection to Wathq servers
-- Valid API credentials from Wathq developer portal
-
-### ⚠️ Data Impact
-- Overwrites existing address data completely
-- Address accuracy depends on Commercial Registry data quality
-- Manual verification recommended for critical addresses
-
 ## Related Actions
 
 - [EAWathqBasicInfoFetcher](EAWathqBasicInfoFetcher.md)

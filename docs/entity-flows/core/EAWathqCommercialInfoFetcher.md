@@ -37,18 +37,6 @@ Manual execution on entities implementing IHasCommercialInfo interface (customer
 - **Target Entity** - Updates `name1`, `taxInfo.*`, and `contactInfo.*` fields
 - **WathqCallInfo** - Audit log with CR number, entity reference, timestamp, and response
 
-## Important Warnings
-
-### ⚠️ Requirements
-- Valid Saudi Commercial Registration number required
-- Stable internet connection to Wathq servers
-- Valid API credentials from Wathq developer portal
-
-### ⚠️ Data Impact
-- Overwrites existing company and contact data
-- Information accuracy depends on Commercial Registry data quality
-- Manual verification recommended for critical information
-
 ## Related Actions
 
 - [EAWathqBasicInfoFetcher](EAWathqBasicInfoFetcher.md)

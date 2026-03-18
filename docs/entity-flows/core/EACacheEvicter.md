@@ -32,18 +32,6 @@ Manual execution after bulk data updates or cache inconsistency issues. Should r
 
 No direct database changes. Action only affects Hibernate second-level cache. Subsequent queries will access database instead of cache until cache rebuilds.
 
-## Important Warnings
-
-### ⚠️ Performance Impact
-- Next queries will be significantly slower until cache rebuilds
-- Increased database load temporarily
-- Users may notice slower response times
-
-### ⚠️ Timing Considerations
-- Avoid running during peak system usage
-- Best executed during maintenance windows
-- Entity type must be valid and case-sensitive
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EACacheEvicter`

@@ -40,18 +40,6 @@ Scheduled cleanup operations or manual execution for log rotation, backup mainte
 
 - **None** - File system operation only, no database interaction
 
-## Important Warnings
-
-### ⚠️ Data Safety
-- Files permanently deleted without recovery option
-- Test with non-critical directories before production use
-- Backup important files before cleanup
-
-### ⚠️ Requirements
-- Requires valid folder paths and delete permissions
-- Recursive mode affects all subdirectories and may consume significant resources
-- All file types subject to cleanup without filtering
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EADeleteOldFiles`

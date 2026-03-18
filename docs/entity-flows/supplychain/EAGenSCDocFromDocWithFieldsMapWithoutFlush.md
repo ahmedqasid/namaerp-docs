@@ -85,41 +85,6 @@ select case when {details.item.item.code} in ('a','b','c') then 1 else 0 end
 - **Source Document Tables** - Reads data for mapping (read-only)
 - **Document Line Tables** - Copies and transforms line items
 
-## Important Warnings
-
-### ⚠️ No Auto-Flush Behavior
-- Database changes are not committed until the end of processing
-- Better performance for bulk operations but higher memory usage
-- Failed operations may leave partial data in memory
-- Use when processing multiple documents sequentially
-
-### ⚠️ Memory Usage Considerations
-- Keeps all changes in memory until final commit
-- Large document generation may consume significant memory
-- Monitor system resources during bulk operations
-- Consider breaking large batches into smaller chunks
-
-### ⚠️ Transaction Rollback Risk
-- All changes roll back if any part of the operation fails
-- More vulnerable to timeout issues with large datasets
-- Errors late in processing lose all work done
-- Test thoroughly with representative data volumes
-
-### ⚠️ SQL Query Validation
-- Finder SQL must return valid document IDs or be empty for new documents
-- Line filter queries affect which lines are copied
-- Invalid SQL causes generation failures
-
-### ⚠️ Field Mapping Syntax
-- Field mappings must use exact field paths
-- Use `$this` to reference current document
-- Invalid mappings cause silent failures or errors
-
-### ⚠️ Performance vs Reliability Trade-off
-- Better performance but less fault tolerance than auto-flush version
-- Choose based on operation size and reliability requirements
-- Use EAGenSCDocFromDocWithFieldsMap for small operations requiring immediate commits
-
 **Module:** supplychain
 
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAGenSCDocFromDocWithFieldsMapWithoutFlush`

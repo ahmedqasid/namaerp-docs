@@ -36,23 +36,6 @@ Manual execution for printing predefined reports directly to physical printers w
 - **ReportDefinition** - Reads report configuration, metadata, and question field definitions
 - **Temporary Print Records** - Creates and deletes temporary print job records
 
-## Important Warnings
-
-### ⚠️ Report Requirements
-- Report code must exist and be a valid ReportDefinition business code
-- Report must be properly configured with question fields and metadata
-- Reports print with default question field values only
-
-### ⚠️ Printer Requirements
-- Printer name must exactly match configured network/local printer name
-- Printer must be accessible from the server running the application
-- Print jobs sent directly without user preview or cancellation option
-
-### ⚠️ Processing Limitations
-- No user input for question fields - uses defaults only
-- No entity-specific data integration (unlike form printing)
-- Temporary files are automatically cleaned up after printing
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAPrintReportToPrinter`

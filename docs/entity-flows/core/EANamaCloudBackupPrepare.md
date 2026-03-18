@@ -48,19 +48,6 @@ Backup preparation for TaskSchedule entities requiring Google Drive folder struc
 - **Google Drive** - Read-only access to folder structures, no modifications
 
 
-## Important Warnings
-
-### ⚠️ Google Drive Requirements
-- Requires valid OAuth credentials in OAuthFile entity
-- Expects specific folder structure (2 subfolders per server)
-- All folder IDs must exist and be accessible
-
-### ⚠️ Configuration Dependencies
-- Only works with TaskSchedule entities
-- Folder ID accuracy critical for proper operation
-- May fail due to network issues or expired OAuth credentials
-
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.google.EANamaCloudBackupPrepare`

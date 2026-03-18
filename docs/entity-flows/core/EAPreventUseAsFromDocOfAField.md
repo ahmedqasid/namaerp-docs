@@ -65,18 +65,6 @@ FROM (
 ) AS RestrictedDocs;
 ```
 
-## Important Warnings
-
-### ⚠️ Operational Impact
-- **Copy-From Blocking:** Documents cannot be used as source for copy operations
-- **User Experience:** Copy-from buttons disabled for restricted documents
-- **Workflow Disruption:** May break automated processes relying on document copying
-
-### ⚠️ Access Control
-- **Permanent Effect:** Restriction persists until explicitly removed
-- **System-Wide Impact:** Affects all users and processes
-- **Field Validation:** Invalid field IDs will cause action failure
-
 ## Related Actions
 
 - **EAAllowUseAsFromDocOfAField** - Allows field to be used as document reference

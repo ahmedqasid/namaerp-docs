@@ -46,18 +46,6 @@ Manual or automated execution for bulk deletion operations, data cleanup, cascad
 - **Target Entity Tables** - Tables of entities returned by query (deleted with business logic)
 - **Audit Tables** - Deletion logs and transaction logs created
 
-## Important Warnings
-
-### ⚠️ Data Safety
-- Irreversible bulk deletion operation with potential cascade effects
-- Test queries with SELECT before using for deletion
-- Backup data before large deletion operations
-
-### ⚠️ Performance
-- Complex queries and bulk operations may impact system performance
-- Choose appropriate transaction mode and error handling strategy
-- Monitor database locks and resource usage during large operations
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EADeleteFromQuery`

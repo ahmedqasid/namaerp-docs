@@ -55,33 +55,6 @@ select code,creationDate [creationDate#ddMMyyy HH:mm:ss] from Employee
 - **PendingTask** - Creates email task for delivery queue
 - **Temporary Files** - Creates temporary CSV files for attachment
 
-## Important Warnings
-
-### ⚠️ SQL Query Requirements
-- Query must be valid SQL and return data suitable for CSV export
-- Large result sets may cause performance issues and large file attachments
-- Use proper WHERE conditions to limit result size when appropriate
-
-### ⚠️ Email and File Handling
-- Temporary files are created on server file system
-- Large CSV files may exceed email attachment size limits
-- Email delivery depends on mail server configuration and availability
-
-### ⚠️ Tempo Template Requirements
-- All Tempo templates must be valid and use correct syntax
-- Template variables must reference available entity properties
-- Invalid templates may cause email generation to fail
-
-### ⚠️ Security Considerations
-- SQL query has full database access permissions
-- Email addresses are not validated before sending
-- CSV files may contain sensitive data - consider recipient permissions
-
-### ⚠️ Performance Impact
-- Large queries may impact database performance
-- CSV generation and file operations consume server resources
-- Email queue processing may be delayed for large attachments
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EASQLToCSVEmail`

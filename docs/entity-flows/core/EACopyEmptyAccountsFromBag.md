@@ -37,18 +37,6 @@ Manual or automated execution on entities implementing HasSubsidiaryAccounts int
 - **Account Master Data** - Referenced for validation and account resolution
 
 
-## Important Warnings
-
-### ⚠️ Requirements
-- Entity must implement HasSubsidiaryAccounts interface
-- Requires properly configured subsidiary account structure and account bag
-- Only updates empty fields - existing assignments are preserved
-
-### ⚠️ Dependencies
-- Account bag must contain valid subsidiary account templates
-- Account assignments must comply with business rules
-- Changes may affect accounting and reporting systems
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EACopyEmptyAccountsFromBag`

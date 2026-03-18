@@ -33,48 +33,6 @@ Manual execution during time attendance data cleanup or validation processes. Ty
 
 - **TimeAttendanceLine** - Updates to date fields to null when to time is empty
 
-## Important Warnings
-
-### ⚠️ Data Consistency Purpose
-- Designed to maintain logical consistency between date and time fields
-- Prevents scenarios where end date exists without corresponding end time value
-- Ensures clean data for attendance calculations and reporting
-
-### ⚠️ Data Loss Implications
-- **Permanently removes to date values when to time is empty**
-- Original to date information is lost and cannot be recovered
-- Consider backing up data before running this cleanup action
-
-### ⚠️ Incomplete Attendance Records
-- Only affects attendance lines with missing to time values
-- Does not attempt to populate missing to time values
-- Leaves attendance records incomplete rather than correcting missing times
-
-### ⚠️ Business Logic Impact
-- May affect attendance calculations that depend on to date values
-- Could impact payroll processing if attendance records become incomplete
-- May affect reporting and analytics that use to date information
-
-### ⚠️ Complementary Actions
-- This action removes inconsistent data but doesn't fix underlying issues
-- Consider using EATimeAttendanceSetDefaultToTime to populate missing times
-- May need additional actions to complete attendance record cleanup
-
-### ⚠️ Attendance Processing
-- Incomplete attendance records may not be processed correctly
-- Payroll calculations may exclude records with missing to date/time
-- Consider the impact on employee work hour calculations
-
-### ⚠️ Use Case Scenarios
-- Most useful as a data cleanup step before applying other attendance actions
-- Helpful for preparing data for consistent processing
-- Should be followed by actions that populate missing attendance information
-
-### ⚠️ Validation Requirements
-- Ensures data meets basic consistency requirements
-- Prevents time calculations with incomplete date/time pairs
-- Maintains database referential integrity for attendance processing
-
 **Module:** hr
 
 **Full Class Name:** `com.namasoft.modules.humanresource.utils.actions.EAClearToDateIfToTimeEmpty`

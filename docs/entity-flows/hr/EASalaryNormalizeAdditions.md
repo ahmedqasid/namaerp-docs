@@ -38,48 +38,6 @@ Manual execution during salary processing when deductions outweigh additions, ty
 - **SalaryDocumentLine** - Updates base value and recalculates addition/deduction amounts for target component
 - **SalaryDocument** - Updates total amounts after component normalization
 
-## Important Warnings
-
-### ⚠️ Negative Balance Trigger
-- Action only executes when total calculated amount is negative (deductions > additions)
-- Positive or zero balances do not trigger any component adjustments
-- Normalization specifically targets deficit situations
-
-### ⚠️ Target Component Requirements
-- Target component must exist in the salary document lines
-- Component must have valid component type configuration
-- Missing or invalid target components prevent normalization
-
-### ⚠️ Base Value Modification
-- Permanently modifies the target component's base value
-- New base value is limited to the lesser of deficit amount or original value
-- Original component values are preserved before modification
-
-### ⚠️ Component Type Filtering
-- Only components listed in Parameter 2 are included in balance calculation
-- Component type codes must match exactly (case-sensitive)
-- Invalid component codes are ignored in calculations
-
-### ⚠️ Calculation Impact
-- Changes affect the entire salary calculation chain
-- Modified base values trigger recalculation of addition/deduction amounts
-- Salary totals are updated to reflect normalized component values
-
-### ⚠️ Business Logic Dependencies
-- Assumes specific salary component structure and calculation rules
-- Component modification may affect other dependent calculations
-- Consider impact on tax calculations and benefit computations
-
-### ⚠️ Parameter Validation
-- Both parameters are required for action execution
-- Missing parameters cause action failure
-- CSV format must be properly structured for component list
-
-### ⚠️ Data Consistency
-- Ensures salary documents maintain non-negative net amounts
-- May mask underlying payroll configuration issues
-- Consider addressing root causes of excessive deductions
-
 **Module:** hr
 
 **Full Class Name:** `com.namasoft.modules.humanresource.utils.clientscripts.EASalaryNormalizeAdditions`

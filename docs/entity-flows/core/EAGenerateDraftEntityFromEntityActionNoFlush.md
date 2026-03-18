@@ -36,13 +36,6 @@ Same parameters as [EAGenerateDraftEntityFromEntityAction](EAGenerateDraftEntity
 - **Target Entity Tables** - Creates draft entities in memory (not flushed to database)
 - **Source Entity Tables** - May update source entity based on inverse mapping
 
-## Important Warnings
-
-### ⚠️ Manual Flush Required
-- Changes are NOT automatically saved to database
-- Must call manual flush to persist changes
-- Risk of data loss if system fails before flush
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAGenerateDraftEntityFromEntityActionNoFlush`

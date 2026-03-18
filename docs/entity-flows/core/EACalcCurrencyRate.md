@@ -41,18 +41,6 @@ Rate Field: money.currencyRate, exchangeRate, currencyExchangeRate
 - **Currency** - Master currency data for validation
 - **ExchangeRate** - Source for current/historical rates
 
-## Important Warnings
-
-### ⚠️ Requirements
-- Currency field must contain valid, active currency
-- Exchange rates must be available for specified currency
-- Both currency and rate fields must exist and be accessible
-
-### ⚠️ Field Configuration
-- Currency field must reference Currency entity
-- Rate field must be decimal type with sufficient precision
-- Nested field paths must be correct
-
 ## Related Actions
 
 - [EACalcCurrencyRateInDetails](EACalcCurrencyRateInDetails.md)

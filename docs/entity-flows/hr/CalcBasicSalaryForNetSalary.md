@@ -46,48 +46,6 @@ Manual execution when determining basic salary components to achieve specific ne
 - **SalaryDocument** - Reads employee, period, and date information for salary calculations
 - **Employee Attendance Data** - Accessed during salary calculation iterations
 
-## Important Warnings
-
-### ⚠️ Target Amount Requirements
-- N1 field must contain the desired net salary amount
-- Zero or empty N1 values cause action to exit without processing
-- N2 value is subtracted from N1 to determine working target
-
-### ⚠️ Iterative Convergence
-- Uses trial-and-error approach to find appropriate basic salary
-- May not converge within maximum trials for complex salary structures
-- Default maximum of 25 trials may be insufficient for some configurations
-
-### ⚠️ First Salary Line Dependency
-- Assumes first salary line represents the basic salary component
-- Modifies both base value and original value of the first line
-- Salary document must have at least one salary line for processing
-
-### ⚠️ Calculation Complexity
-- Each iteration performs full salary calculation including taxes and deductions
-- Attendance data is recalculated for each iteration
-- Complex salary rules may cause convergence issues
-
-### ⚠️ Precision Limitations
-- Default accepted difference is 0.01 currency units
-- Very precise net salary targets may not be achievable
-- Rounding in tax calculations may prevent exact convergence
-
-### ⚠️ Configuration Dependencies
-- Relies on HR module configuration for attendance calculation settings
-- Salary calculation rules must be properly configured
-- Changes in tax rates or deduction rules affect convergence
-
-### ⚠️ Performance Considerations
-- Multiple iterations with full salary calculations can be time-consuming
-- Large maximum trial values may cause performance issues
-- Consider optimizing salary calculation complexity for better performance
-
-### ⚠️ Business Logic Impact
-- Modifies basic salary component which affects all subsequent calculations
-- May produce unrealistic basic salary amounts for certain target nets
-- Consider business constraints on minimum/maximum basic salary levels
-
 **Module:** hr
 
 **Full Class Name:** `com.namasoft.modules.humanresource.utils.CalcBasicSalaryForNetSalary`

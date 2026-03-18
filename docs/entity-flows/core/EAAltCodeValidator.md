@@ -41,17 +41,6 @@ Regex: "^[A-Z]{3}[0-9]{4}$" - Three letters followed by four digits
 
 Any entity with altCode field being validated. Common entities include Customer, Supplier, Product, Account, and various document types.
 
-## Important Warnings
-
-### ⚠️ Configuration Recommendation
-- Consider using Fields and Entities Settings for simpler validation rules
-- Validation actions run on every save operation affecting performance
-
-### ⚠️ Validation Behavior
-- Invalid altCodes prevent entity save operations
-- All validations are case-sensitive
-- Validation only applies if altCode field has a value
-
 ## Related Actions
 
 - [EACodeValidator](EACodeValidator.md)

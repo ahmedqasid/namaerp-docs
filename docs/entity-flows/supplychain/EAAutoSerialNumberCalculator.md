@@ -48,33 +48,6 @@ Example: `{item.code}-{item.category.code}-`
 - **Document Line Tables** - Updates ItemSpecificDimensions with generated serials
 - **Assembly Document Tables** - Updates assembly item serial numbers
 
-## Important Warnings
-
-### ⚠️ Serial Number Requirements
-- Items must have HasSerial=true or HasTwoSerials=true flags enabled
-- Only works with BasicSCDocument and AssemblyDocument types
-- Zero quantities are skipped, uses absolute value for negatives
-
-### ⚠️ Template and Prefix
-- Invalid Tempo syntax or missing item properties cause failures
-- Prefix changes reset numbering sequence to start value
-- Case-sensitive prefix matching - ensure consistency
-
-### ⚠️ Number Management
-- Generation stops at configured last number (no overflow)
-- Deleted serials leave permanent gaps in sequence
-- Each item maintains independent serial numbering
-
-### ⚠️ Range Handling
-- Quantities > 1 generate range format "START:END"
-- Range serials cannot be individually tracked or managed
-- Existing serials are preserved, only empty fields populated
-
-### ⚠️ Performance Considerations
-- Searches all existing serials to find next number
-- Complex templates and large serial databases impact speed
-- Serial generation not transactional - monitor for partial failures
-
 **Module:** supplychain
 
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAAutoSerialNumberCalculator`

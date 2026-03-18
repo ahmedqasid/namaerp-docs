@@ -39,18 +39,6 @@ Entity validation during save operations to enforce business rules and data cons
 
 - **None** - Validation only, no database modifications
 
-## Important Warnings
-
-### ⚠️ Deprecation
-- This entity flow has been replaced by CriteriaBasedValidation
-- Use CriteriaBasedValidation for new implementations
-
-### ⚠️ Query Requirements
-- Query must return 0 for valid data, non-zero for invalid data
-- Ensure all referenced fields exist and are accessible
-- Complex queries may impact validation performance
-
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAErrorIfQueryNotMatched`

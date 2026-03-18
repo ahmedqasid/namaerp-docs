@@ -46,17 +46,6 @@ Manual execution on entities implementing IHasCommercialInfo interface (customer
 - **Target Entity** - Updates `name1`, `taxInfo.*` fields
 - **WathqCallInfo** - Audit log with CR number, entity reference, timestamp, and response
 
-## Important Warnings
-
-### ⚠️ Limited Data Scope
-- Basic information only - no comprehensive business details
-- No address data (use EAWathqAddressFetcher)
-- Not suitable for complete customer/supplier setup
-
-### ⚠️ Processing Behavior
-- May update more fields than just name due to shared logic
-- Overwrites existing data with registry information
-
 ## Related Actions
 
 - [EAWathqAddressFetcher](EAWathqAddressFetcher.md)

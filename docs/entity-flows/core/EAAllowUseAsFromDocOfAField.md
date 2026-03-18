@@ -31,13 +31,6 @@ Configures the specified field to allow its use as a "from doc" reference when c
 - **Format:** Field identifier string
 - **Examples:** `customerRef`, `sourceInvoice`, `originalOrder`
 
-## Important Warnings
-
-### ⚠️ Configuration Impact
-- **Field Access:** Changes field behavior in document creation workflows
-- **User Interface:** May affect available options in "from doc" selections
-- **Workflow Dependencies:** Other processes may depend on field reference capabilities
-
 ## Related Actions
 
 - **EAPreventUseAsFromDocOfAField** - Prevents field from being used as document reference

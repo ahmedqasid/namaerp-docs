@@ -63,18 +63,6 @@ WHERE tb.dueDate < GETDATE()
     AND NOT EXISTS (SELECT 1 FROM TreasuryBillCloseDoc tbc WHERE tbc.treasuryBill_id = tb.id);
 ```
 
-## Important Warnings
-
-### ⚠️ Processing Limitations
-- **Batch Limit:** Maximum 500 records per execution
-- **Date Dependency:** Uses current system date for due date comparison
-- **Status Dependency:** Only processes "Running" status bills
-
-### ⚠️ Data and Business Impact
-- **Accounting Effects:** May generate accounting transactions
-- **Data Integrity:** Errors in source bills copied to close documents
-- **Batch Failure:** Individual failures may affect entire batch processing
-
 **Module:** accounting
 
 **Full Class Name:** `com.namasoft.modules.accounting.domain.utils.actions.EAGenTreasuryBillCloseDoc`

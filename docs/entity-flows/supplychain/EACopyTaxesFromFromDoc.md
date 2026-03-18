@@ -36,33 +36,6 @@ This action does not require any parameters.
 - **Parent Document References** - Reads parent line relationships (read-only)
 - **Price Information** - Modifies tax components within line pricing
 
-## Important Warnings
-
-### ⚠️ Invoice Line Requirement
-- Only works on InvoiceLine document types
-- Non-invoice lines are completely ignored
-- Will not process other supply chain document line types
-
-### ⚠️ Parent-Child Dependencies
-- Requires valid parent-child line relationships
-- Lines without parent references are skipped
-- Parent documents must be accessible and contain InvoiceLine types
-
-### ⚠️ Tax Rate Overwrite
-- Overwrites existing tax percentages without validation
-- Does not verify if tax rates are appropriate for jurisdiction
-- May replace manually entered tax rates
-
-### ⚠️ Limited Tax Scope
-- Only copies maximum normal percentages (MaxNormalPercent)
-- Does not copy other tax properties like tax codes or descriptions
-- Limited to four tax types (Tax1, Tax2, Tax3, Tax4)
-
-### ⚠️ Financial Impact
-- Tax changes directly affect invoice totals and calculations
-- May impact tax reporting and compliance
-- Consider impact on accounting and tax submissions
-
 **Module:** supplychain
 
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EACopyTaxesFromFromDoc`

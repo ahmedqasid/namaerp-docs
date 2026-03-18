@@ -46,38 +46,6 @@ Manual execution when document lines need dimension values populated from availa
 - **ItemLot** - Reads lot-specific dates (production, expiry, retest)
 - **Item Configuration** - Checks dimension tracking settings
 
-## Important Warnings
-
-### ⚠️ Line Splitting Behavior
-- Original lines may be split into multiple lines with different dimensions
-- Line count will increase after processing
-- Each split line gets specific dimension values from available inventory
-
-### ⚠️ Inventory Availability
-- Only processes items with positive quantities in ItemDimensionsQty
-- Respects warehouse and locator constraints from document header
-- Considers expiry dates, production dates, and retest dates
-
-### ⚠️ Dimension Assignment
-- Automatically assigns lot ID, box, size, color, revision from available stock
-- May assign different dimensions than expected based on availability
-- Clears existing dimension values if requested
-
-### ⚠️ Quantity Allocation
-- Splits quantities based on available inventory with specific dimensions
-- May create unsatisfied lines if insufficient inventory available
-- Minimum quantity threshold prevents allocation of small amounts
-
-### ⚠️ Performance Impact
-- Searches ItemDimensionsQty table extensively for each line
-- Large inventories with many dimension combinations may be slow
-- Processes 50 records per page for performance optimization
-
-### ⚠️ FIFO/LIFO Control
-- Uses system configuration to determine allocation order
-- May allocate oldest or newest stock first based on settings
-- Consider impact on inventory rotation and expiry management
-
 **Module:** supplychain
 
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EACollectLot`

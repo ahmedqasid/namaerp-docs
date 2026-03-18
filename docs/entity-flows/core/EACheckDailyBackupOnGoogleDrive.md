@@ -45,23 +45,6 @@ Scheduled maintenance task on Google Drive folders containing backup files. Typi
 
 No direct database modifications - only reads configuration and uses Google Drive API.
 
-## Important Warnings
-
-### ⚠️ Dependencies
-- Requires stable internet and valid OAuth file with Drive permissions
-- Subject to Google API rate limits and quotas
-- OAuth tokens may expire and require renewal
-
-### ⚠️ Performance Impact
-- Large folders with many files increase processing time
-- Multiple folders require proportionally more API calls
-- Time zone differences may affect file creation date detection
-
-### ⚠️ Configuration Requirements
-- OAuth file must have appropriate Google Drive access
-- Notification definitions must be properly configured
-- Trash cleanup requires specific "Used For Emptying Trash" permission
-
 ## Related Actions
 
 - [EAClearGoogleDriveTrash](EAClearGoogleDriveTrash.md)

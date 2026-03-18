@@ -52,23 +52,6 @@ Automated entity matching for reference fields requiring population during data 
 - **Entity Master Data** - Reads entity codes, names, and additional fields for matching (read-only)
 - **Internal Cache** - Maintains matching cache for performance optimization
 
-## Important Warnings
-
-### ⚠️ Performance Considerations
-- Large entity sets may degrade performance
-- String distance calculations can be CPU intensive
-- Entity caching may consume significant memory
-
-### ⚠️ Matching Accuracy
-- Fuzzy matching may produce incorrect matches
-- Results depend heavily on source data quality
-- Consider manual validation of critical matches
-
-### ⚠️ Field Requirements
-- Target field must be reference or generic reference type
-- Source text quality significantly affects accuracy
-- Target entities must have complete code and name data
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAGuessEntityFromNames`

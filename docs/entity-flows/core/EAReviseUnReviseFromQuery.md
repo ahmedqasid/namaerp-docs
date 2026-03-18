@@ -41,28 +41,6 @@ select entityType,id from SalesInvoice where datediff(day,lastUpdateDate,getdate
 - **Entity Status Fields** - Updates revision status fields on target entities
 - **Entity Metadata** - May update entity modification timestamps and status tracking
 
-## Important Warnings
-
-### ⚠️ Query Requirements
-- Query must return exactly 2 columns: entityType (string) and id (uniqueID)
-- Query should use proper WHERE conditions to avoid unintended mass operations
-- Use {id} placeholder to reference the current entity's ID in the query
-
-### ⚠️ Revision Control Impact
-- Changes entity revision status which may affect business workflows
-- Revised entities may behave differently in approval processes
-- Unrevising entities may allow further modifications that were previously blocked
-
-### ⚠️ Business Process Considerations
-- Revision status changes may trigger additional business logic
-- May affect document approval workflows and user permissions
-- Consider impact on related entities and dependent processes
-
-### ⚠️ Error Handling
-- Processing stops on first error - no "continue on errors" option
-- Failed operations may leave entities in inconsistent revision states
-- Monitor carefully when processing large numbers of entities
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAReviseUnReviseFromQuery`

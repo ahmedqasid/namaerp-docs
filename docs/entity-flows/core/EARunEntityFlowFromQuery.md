@@ -44,35 +44,6 @@ select entityType,id from SalesInvoice where valueDate = getdate()
 - **Variable Tables** - Depends on the target entity flow being executed
 - **Target Flow Impact** - Database changes depend entirely on what the target flow does
 
-## Important Warnings
-
-### ⚠️ Entity Flow Requirements
-- Target entity flow must exist and have a valid business code
-- Entity flow must be configured for manual execution (not automatic)
-- Entity flow must be applicable to each target entity type
-
-### ⚠️ Query Requirements
-- Query must return exactly 2 columns: entityType (string) and id (uniqueID)
-- Query should use proper WHERE conditions to avoid unintended mass operations
-- Use {id} placeholder to reference the current entity's ID in the query
-
-### ⚠️ Transaction and Error Handling
-- Each entity is processed in a separate transaction
-- Failures on individual entities do not stop processing of remaining entities
-- Error details are logged but processing continues
-- Monitor logs for individual entity failures
-
-### ⚠️ Performance and Scale
-- Large result sets can cause significant performance impact
-- Each entity flow execution runs independently
-- Consider system load and timing for bulk operations
-- Supports task cancellation for long-running operations
-
-### ⚠️ Business Logic Considerations
-- Target flow may have side effects not obvious from this action
-- Each entity flow execution may trigger additional automatic flows
-- Consider cascading effects when processing large numbers of entities
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EARunEntityFlowFromQuery`

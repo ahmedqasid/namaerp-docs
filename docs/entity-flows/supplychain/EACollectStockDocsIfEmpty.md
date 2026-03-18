@@ -35,33 +35,6 @@ This action does not require any parameters.
 - **Stock Document Tables** - Links or creates stock documents
 - **Document Relationship Tables** - Establishes invoice-to-stock document relationships
 
-## Important Warnings
-
-### ⚠️ Invoice Type Requirements
-- Only works with invoices that implement InvoiceWithStockEffect interface
-- Will fail on regular invoices without stock effect capability
-- Cannot be used on non-invoice document types
-
-### ⚠️ Stock Document Generation
-- May create new stock documents automatically
-- Existing stock documents may be modified
-- Process is not reversible without manual intervention
-
-### ⚠️ Inventory Impact
-- Affects inventory tracking and valuation
-- May trigger additional inventory transactions
-- Consider timing of execution for period-end processes
-
-### ⚠️ Document Relationships
-- Creates permanent links between invoice and stock documents
-- Linked documents cannot be independently deleted
-- May affect document workflow and approval processes
-
-### ⚠️ Performance Considerations
-- Processing time depends on invoice complexity
-- Large invoices with many lines may be slow
-- Locks related documents during processing
-
 **Module:** supplychain
 
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EACollectStockDocsIfEmpty`

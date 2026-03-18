@@ -47,23 +47,6 @@ Automatically after invoice save/commit operations on entities implementing ITax
 - API credentials and digital certificates needed
 - Stable internet connection to tax authority systems
 
-## Important Warnings
-
-### ⚠️ Configuration Requirements
-- MUST be configured with `runAfterCommitDocAndEffectOnDB = true`
-- Only works with entities implementing ITaxAuthorityDoc
-- Submission document book must exist and be configured
-
-### ⚠️ Performance Impact
-- Tax authority communication may slow invoice saves
-- High-volume creation may overwhelm tax authority APIs
-- Failed submissions require manual intervention
-
-### ⚠️ Tax Authority Dependencies
-- Requires accessible tax authority systems
-- Valid digital certificates and API credentials needed
-- Invoices must meet format requirements
-
 ## Related Actions
 
 - [EAAutoCollectSignAndSentEInvoice](EAAutoCollectSignAndSentEInvoice.md)

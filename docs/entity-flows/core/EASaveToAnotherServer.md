@@ -69,23 +69,6 @@ WHERE s.executionTime >= DATEADD(day, -7, GETDATE())
 ORDER BY s.executionTime DESC;
 ```
 
-## Important Warnings
-
-### ⚠️ Security Requirements
-- **HTTPS Required:** Use secure connections for production environments
-- **Password Handling:** Passwords hashed before network transmission
-- **Certificate Validation:** Validate target server certificates
-
-### ⚠️ Performance Considerations
-- **Bulk Processing:** Large synchronization jobs may take significant time
-- **Memory Usage:** Monitor memory during bulk transfers
-- **Network Stability:** Requires stable connection to target server
-
-### ⚠️ Data Integrity
-- **Field Limitations:** Overrides only affect header fields, not collections
-- **Reference Dependencies:** Validation depends on "Ignore Not Found References" setting
-- **Version Conflicts:** May occur if entity exists on target server
-
 ## Related Actions
 
 - **EASaveToAnotherServerUsingJSON** - JSON-based server synchronization

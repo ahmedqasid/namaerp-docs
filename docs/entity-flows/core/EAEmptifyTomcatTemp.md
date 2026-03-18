@@ -34,18 +34,6 @@ Scheduled maintenance or manual cleanup operations to remove old temporary files
 
 - **None** - File system operation only, no database interaction
 
-## Important Warnings
-
-### ⚠️ System Impact
-- May delete files currently in use by applications
-- Could affect running applications that rely on temp files
-- Run during low-activity periods to minimize disruption
-
-### ⚠️ Configuration
-- Requires appropriate file system permissions for deletion
-- Choose retention period carefully to avoid deleting needed files
-- Some files may fail to delete due to locks or permissions
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAEmptifyTomcatTemp`

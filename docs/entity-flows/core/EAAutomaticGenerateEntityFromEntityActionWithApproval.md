@@ -46,18 +46,6 @@ Inherits all parameters from EAAutomaticGenerateEntityFromEntityAction:
 - **ApprovalCase** - Created when workflows initiated
 - **ApprovalDefinition** - Checked for workflow requirements
 
-## Important Warnings
-
-### ⚠️ Approval Configuration
-- Target entity types must have approval definitions configured
-- Approval routing must be properly set up
-- Approvers need proper permissions
-
-### ⚠️ Performance Impact
-- Approval initiation adds processing overhead
-- Generated entities may not be immediately active
-- More complex error handling required
-
 ## Related Actions
 
 - [EAAutomaticGenerateEntityFromEntityAction](EAAutomaticGenerateEntityFromEntityAction.md)

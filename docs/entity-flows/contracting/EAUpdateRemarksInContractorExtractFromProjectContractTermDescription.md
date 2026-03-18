@@ -75,18 +75,6 @@ INNER JOIN ContractorContrExtractLine cel ON ce.id = cel.contractorContrExtract_
 WHERE ce.id = [ExtractId] ORDER BY cel.lineNumber;
 ```
 
-## Important Warnings
-
-### ⚠️ Data Impact
-- **Data Overwrite:** Completely replaces existing remarks - manual entries will be lost
-- **Term Code Dependency:** Requires proper `projTermCode` mapping for contractor to project terms
-- **Hierarchy Requirement:** Missing parent terms result in incomplete remarks chains
-
-### ⚠️ Configuration Requirements
-- **Parameter Validation:** At least one of Update Details/Conditions must be `true`
-- **Term Mapping:** ContractorContractTermLine.projTermCode must reference valid project terms
-- **Performance:** Large extracts with deep hierarchies may take time to process
-
 ## Related Actions
 
 - **Project Contract Term Management** - Maintains source remarks

@@ -56,33 +56,6 @@ select code,creationDate [creationDate#ddMMyyy HH:mm:ss] from Employee
 - **Query Target Tables** - Reads from tables specified in the SQL query
 - **File System** - Creates CSV files on local or remote file systems
 
-## Important Warnings
-
-### ⚠️ SQL Query Requirements
-- Query must be valid SQL and return data suitable for CSV export
-- Large result sets may cause memory and performance issues
-- Use proper WHERE conditions to limit result size when appropriate
-
-### ⚠️ File System Access
-- Local protocol requires write permissions to target directory
-- Remote protocols require network connectivity and valid credentials
-- File paths are created automatically including parent directories
-
-### ⚠️ Date Formatting
-- Column aliases with `#` syntax enable custom date formatting
-- Date format patterns must be valid Java SimpleDateFormat patterns
-- Only applies to Date type columns in query results
-
-### ⚠️ Remote Server Configuration
-- FTP/FTPS/SFTP require proper server configuration and credentials
-- Network firewalls may block remote file transfer protocols
-- Credential security considerations for password parameters
-
-### ⚠️ Performance Considerations
-- Large CSV files may consume significant memory during generation
-- Remote file transfers add network latency to processing time
-- File operations may fail due to disk space or permission issues
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EASQLToCSVFile`

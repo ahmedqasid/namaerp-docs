@@ -72,44 +72,6 @@ having sum(coalesce(q.net,0))<i.dfMinQuantity
 - **Source Tables** - Reads data from tables specified in SQL queries
 - **Import Framework Tables** - Uses import processing system for entity creation
 
-## Important Warnings
-
-### ⚠️ SQL Query Requirements
-- First column in entity queries should use `[:-record:EntityType]` format
-- Detail queries should use `[:-detail:collectionName]` format
-- Column aliases must match entity field names exactly
-- Use `#fieldName` for linking parent-child relationships
-
-### ⚠️ Draft Entity Creation
-- **All imported entities are created as drafts only**
-- Draft entities require manual review and commitment
-- Draft status allows import validation without affecting production data
-- Use entity commit operations after import validation
-
-### ⚠️ Simultaneous Execution Prevention
-- Only one SQL import can run at a time across the entire system
-- Multiple simultaneous imports are automatically blocked
-- Long-running imports may delay other import operations
-- Plan import timing to avoid conflicts
-
-### ⚠️ Data Type Handling
-- Dates are formatted as DD-MM-YYYY during import processing
-- Decimal values use system decimal formatting
-- UUID/uniqueID fields require proper byte array handling
-- Null values are converted to empty strings
-
-### ⚠️ Error Handling and Recovery
-- Import errors stop the entire process and rollback changes
-- All SQL statements must succeed for import to complete
-- Error details are logged but import data may be lost
-- Test queries thoroughly before production import
-
-### ⚠️ Column Mapping and Validation
-- Column aliases must exactly match entity field structure
-- Invalid field references cause import failures
-- Required entity fields must be provided in SQL results
-- Field validation occurs during entity creation
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.modules.commonbasic.importer.SQLDraftImporter`

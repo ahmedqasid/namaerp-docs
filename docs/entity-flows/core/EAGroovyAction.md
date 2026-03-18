@@ -41,23 +41,6 @@ Manual execution or automated through entity flows when custom business logic is
 - **Related Entities** - Can access and modify through entity relationships  
 - Scripts work through entity framework with validation and security enforcement
 
-## Important Warnings
-
-### ⚠️ Security Risks
-- Groovy scripts can execute arbitrary code - validate script sources carefully
-- Scripts have full access to entity framework and Java libraries
-- No built-in sandboxing - implement proper security controls
-
-### ⚠️ Performance Impact
-- First execution involves compilation overhead
-- Compiled scripts consume memory - monitor usage
-- Complex scripts may impact overall system performance
-
-### ⚠️ Development Requirements
-- Scripts require same quality standards as Java code
-- Need thorough testing and proper error handling
-- Debugging can be more challenging than standard Java
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAGroovyAction`

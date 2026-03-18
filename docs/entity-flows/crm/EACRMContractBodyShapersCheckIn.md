@@ -40,44 +40,6 @@ Manual execution when customers check in for services under active CRM service c
 - **MeetingRemark** - Creates or updates check-in document
 - **MeetingRemarkLine** - Adds new check-in entry with timestamp and details
 
-## Important Warnings
-
-### ⚠️ Contract Requirements
-- Customer must have at least one CRM service contract
-- Action fails if no service contracts exist for the customer
-- Contract must have valid service lines covering the current date
-- Expired contracts prevent check-in recording
-
-### ⚠️ Contract Validity Checking
-- System checks if today's date falls within any service contract line period
-- Service lines must have start date ≤ today ≤ actual end time
-- If no valid service lines exist, check-in is rejected
-- Contract expiration is enforced at the service line level
-
-### ⚠️ Meeting Remark Document Management
-- Uses contract code as the business code for meeting remark document
-- Creates new document if none exists, updates existing if found
-- Multiple check-ins for same contract accumulate in same document
-- Document editing state is managed automatically
-
-### ⚠️ Time Adjustment Handling
-- Parameter 1 allows adding hours to current system time
-- Hours can be decimal values (e.g., 0.5 for 30 minutes)
-- Time adjustment affects only the recorded check-in time
-- Negative values can be used to record past check-ins
-
-### ⚠️ Data Integrity
-- Each check-in creates a new meeting remark line
-- Check-in date is always set to today regardless of time adjustment
-- Customer reference is stored in the check-in line
-- Contract reference is stored at the document level
-
-### ⚠️ Business Logic Impact
-- Check-ins may trigger attendance tracking calculations
-- Service usage reporting may depend on check-in records
-- Contract utilization metrics may be affected
-- Integration with billing or membership systems may occur
-
 **Module:** crm
 
 **Full Class Name:** `com.namasoft.modules.crm.domain.entityactions.EACRMContractBodyShapersCheckIn`

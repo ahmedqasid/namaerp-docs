@@ -42,49 +42,6 @@ Manual execution during salary processing to calculate loan-related salary compo
 - **PaidInstallmentLine** - Reads paid loan installment amounts for calculation
 - **SalaryDocument** - Updates salary totals after component calculation
 
-## Important Warnings
-
-### ⚠️ Component Existence Requirements
-- Target salary component must exist in the salary document lines
-- Component code must match exactly (case-sensitive)
-- Missing components cause action to exit without processing
-
-### ⚠️ Loan Type Filtering
-- Empty loan type parameter includes all loan types in calculation
-- Loan type codes must match exactly for filtering
-- Invalid loan type codes are ignored in filtering
-
-### ⚠️ Percentage Calculation Logic
-- Parameter 3 can be either a fixed percentage value or a field ID
-- Fixed percentage values are parsed as decimal numbers
-- Field IDs reference fields in the loan document containing percentage values
-- Invalid field references may cause calculation errors
-
-### ⚠️ Paid Installment Dependencies
-- Only processes paid installments linked to the salary document
-- Installments must have valid loan document references for type filtering
-- Missing loan document data may exclude installments from calculation
-
-### ⚠️ Component Value Updates
-- Completely replaces existing component values with calculated amounts
-- Sets indicator value to zero, potentially affecting other calculations
-- Original component configuration may be lost
-
-### ⚠️ Calculation Accuracy
-- Percentage calculations are applied to each installment individually
-- Totalization occurs after individual percentage calculations
-- Rounding may occur during percentage calculations
-
-### ⚠️ Business Logic Impact
-- Component updates trigger full salary recalculation
-- Changes affect addition/deduction calculations and salary totals
-- May impact tax calculations and other dependent components
-
-### ⚠️ Field Reference Format
-- Field IDs must use proper format (e.g., "fieldName" or "collection.fieldName")
-- Field references are case-sensitive
-- Invalid field references cause runtime errors
-
 **Module:** hr
 
 **Full Class Name:** `com.namasoft.modules.humanresource.utils.actions.EACalComponentFromLoan`

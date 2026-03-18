@@ -84,33 +84,6 @@ select case when {details.item.item.code} in ('a','b','c') then 1 else 0 end
 - **Source Document Tables** - Reads data for mapping (read-only)
 - **Document Line Tables** - Copies and transforms line items
 
-## Important Warnings
-
-### ⚠️ SQL Query Validation
-- Finder SQL must return valid document IDs or be empty for new documents
-- Line filter queries affect which lines are copied
-- Invalid SQL causes generation failures
-
-### ⚠️ Field Mapping Syntax
-- Field mappings must use exact field paths
-- Use `$this` to reference current document
-- Invalid mappings cause silent failures or errors
-
-### ⚠️ Line Grouping Complexity
-- Groups create separate documents for each unique value combination
-- May generate many documents from single source
-- Cleanup query removes orphaned documents
-
-### ⚠️ Conditional Execution
-- Condition must return numeric result (0=skip, >0=execute)
-- Complex conditions may impact performance
-- Test conditions thoroughly with sample data
-
-### ⚠️ Approval Workflow Impact
-- Generated documents may enter approval automatically
-- Draft status affects document visibility and processing
-- Consider business workflow requirements
-
 **Module:** supplychain
 
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAGenSCDocFromDocWithFieldsMap`

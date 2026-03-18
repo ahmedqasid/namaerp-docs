@@ -36,18 +36,6 @@ Manual or automated execution for bulk data operations, data migration, and data
 - **Any Database Tables** - Direct modifications to specified tables in SQL statement
 - **Hibernate Cache** - May require eviction to maintain consistency
 
-## Important Warnings
-
-### ⚠️ Data Safety
-- Bypasses entity validation and business logic
-- Direct SQL changes may leave stale data in cache
-- Must respect database constraints and referential integrity
-
-### ⚠️ Security
-- Ensure proper parameter substitution to prevent SQL injection
-- Validate and sanitize dynamic SQL components
-- Test queries thoroughly before deployment
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAExecuteUpdateQuery`

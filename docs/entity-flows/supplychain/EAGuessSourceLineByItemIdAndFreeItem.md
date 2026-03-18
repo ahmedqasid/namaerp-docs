@@ -69,44 +69,6 @@ select case when {details.item.item.code} in ('A','B') then 1 else 0 end
 - **Source Document Lines** - Reads potential match candidates (read-only)
 - **Item Master Data** - Uses item references for matching (read-only)
 
-## Important Warnings
-
-### ⚠️ Free Item Matching Logic
-- Free items only match with other free items
-- Regular (non-free) items only match with regular items
-- This prevents incorrect associations between promotional and regular sales
-- Critical for accurate revenue recognition and inventory tracking
-
-### ⚠️ Matching Accuracy Dependencies
-- More enabled parameters increase matching accuracy but reduce match probability
-- Consider business requirements when selecting matching criteria
-- Too many criteria may prevent valid matches from being found
-
-### ⚠️ Missing Origin Document Impact
-- Only processes lines without existing valid relationships
-- Will not override existing correct origin line references
-- May not find matches if source documents are unavailable
-
-### ⚠️ Multiple Match Scenarios
-- Uses "best match" logic when multiple candidates exist
-- May not always select the expected match in ambiguous cases
-- Review results carefully in complex document scenarios
-
-### ⚠️ Invoice Line Type Requirements
-- Free item logic only applies to invoice lines (IInvoiceLine interface)
-- Other document types use standard matching without free item consideration
-- Ensure document types support the free item field
-
-### ⚠️ Data Consistency Impact
-- Changes affect document traceability and audit trails
-- May impact downstream processes relying on document relationships
-- Consider business workflow implications before execution
-
-### ⚠️ Conditional Execution
-- Query condition must return numeric result (0=skip, >0=process)
-- Applied at line level - each line evaluated separately
-- Complex conditions may impact performance
-
 **Module:** supplychain
 
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAGuessSourceLineByItemIdAndFreeItem`

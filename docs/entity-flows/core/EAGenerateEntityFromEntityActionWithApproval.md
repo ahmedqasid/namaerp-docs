@@ -42,18 +42,6 @@ Same as [EAGenerateEntityFromEntityAction](EAGenerateEntityFromEntityAction.md) 
 - **Source Entity Table** - May update via inverse copy configuration
 - **Related Tables** - Updates cross-references with immediate flush
 
-## Important Warnings
-
-### ⚠️ Approval Dependencies
-- Requires proper approval workflow configuration and authority matrix
-- Approval workflow engine must be operational
-- Generated entities are immediately committed with no rollback
-
-### ⚠️ Performance Impact
-- Approval processing adds overhead to entity generation
-- Immediate persistence with approval workflows may impact performance
-- System must meet real-time processing requirements
-
 ## Related Actions
 
 - [EAGenerateEntityFromEntityAction](EAGenerateEntityFromEntityAction.md)

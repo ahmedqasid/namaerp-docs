@@ -53,23 +53,6 @@ amount=money.total
 - **Target Entity** - Created on commit, deleted on source deletion
 - **Reference Fields** - Maintain relationships between entities
 
-## Important Warnings
-
-### ⚠️ Automatic Execution
-- Cannot be disabled once configured (isAutomaticForced = true)
-- Executes on every save/delete operation
-- May trigger additional entity actions
-
-### ⚠️ Data Integrity
-- Related entity deletion may fail if dependencies exist
-- Operations occur within entity transaction scope
-- Failures affect source entity operations
-
-### ⚠️ Configuration Requirements
-- All parameters must be valid for both creation and deletion
-- Finder SQL must return correct entity IDs
-- Field maps must be compatible with target entity
-
 ## Related Actions
 
 - [EAGenerateEntityFromEntityAction](EAGenerateEntityFromEntityAction.md)

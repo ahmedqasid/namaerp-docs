@@ -42,23 +42,6 @@ Time window enforcement for DocumentFile entities requiring creation time constr
 - **Document Date Fields** - Synchronizes related date fields for consistency
 - **Self-Contained Operation** - Changes isolated to target document only
 
-## Important Warnings
-
-### ⚠️ Parameter Requirements
-- Start and end hours must be valid integers (0-23)
-- Start hour must be less than end hour
-- Start and end hours cannot be the same
-
-### ⚠️ Document Timing Impact
-- Original creation time is permanently modified
-- May affect time-based document sequences
-- Changed creation times may have audit implications
-
-### ⚠️ Performance Considerations
-- Time adjustment adds overhead to document creation
-- Infinite loop protection may trigger in edge cases
-- Long-running adjustments may be cancelled by system
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAMakeCreationDateAlwaysBetween`

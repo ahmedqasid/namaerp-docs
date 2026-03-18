@@ -48,23 +48,6 @@ Detail Name: details, lines, items, invoiceLines
 - **Detail Collection Items** - Currency fields read, rate fields updated
 - **Currency/ExchangeRate** - Master data for rate calculation
 
-## Important Warnings
-
-### ⚠️ Parameter Requirements
-- All three parameters must reference the same detail collection
-- Field paths must use exact dot notation (collection.field)
-- Collection and field names are case-sensitive
-
-### ⚠️ Performance Impact
-- Large collections may impact performance
-- Each line requires separate rate calculation
-- Consider memory usage with large detail collections
-
-### ⚠️ Data Consistency
-- Some lines may succeed while others fail
-- Exchange rates must be available for all currencies
-- Invalid currencies in lines may cause processing issues
-
 ## Related Actions
 
 - [EACalcCurrencyRate](EACalcCurrencyRate.md)

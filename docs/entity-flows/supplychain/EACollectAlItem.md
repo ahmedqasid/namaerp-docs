@@ -49,33 +49,6 @@ union all select {id}
 - **Document Lines** - Modifies existing lines and creates new ones
 - **Inventory Tables** - Calculates available quantities at date
 
-## Important Warnings
-
-### ⚠️ Field Validation
-- Only specific item fields allowed: categories 1-5, classes 1-10, section, brand
-- Invalid field IDs cause validation errors
-- Field matching is exact - partial matches not supported
-
-### ⚠️ Quantity Fulfillment
-- If alternatives cannot fulfill total quantity, original line remains with error
-- Removes lines with zero quantity after processing
-- Uses item's primary UOM for availability calculations
-
-### ⚠️ Alternative Selection
-- Searches alternatives in order specified by priority field
-- Stops searching once quantity fulfilled
-- Each alternative checked for available stock before use
-
-### ⚠️ Performance Impact
-- Waiting for transactions adds 1.5 second delays in loop
-- Large documents with many substitutions may be slow
-- Multiple database queries per line item
-
-### ⚠️ Inventory Calculations
-- Considers both current stock and stock at document date
-- Accounts for pending transactions from same origin
-- UOM conversions applied when line UOM differs from primary
-
 **Module:** supplychain
 
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EACollectAlItem`

@@ -51,30 +51,6 @@ where t.code = 'term1' and s.valueDate between '20250601' and '20250630'
 - **Accounting Effect Tables** - Updates accounting calculations and balances
 - **Optional Update Tables** - Additional update query may affect other tables
 
-## Important Warnings
-
-### ⚠️ Entity Requirements
-- Target entities must implement IGeneratesAccountingRequest interface
-- Only entities that generate accounting effects can be processed
-- Non-accounting entities will cause errors
-
-### ⚠️ Financial Data Impact
-- Regenerates all accounting effects, potentially modifying journal entries
-- May affect ledger balances and financial reports significantly
-- Can impact trial balances and financial statements
-- CRITICAL: Test thoroughly on copy of production data first
-
-### ⚠️ Query Safety
-- Query must return exactly 2 columns: entityType (string) and id (uniqueID)
-- Use proper WHERE conditions to avoid unintended mass operations
-- Consider date ranges and entity status filters to limit scope
-
-### ⚠️ Performance and Scale
-- Large result sets can cause significant performance impact
-- Each entity's accounting effect generation runs independently
-- Database flushing options add substantial overhead
-- Monitor system performance during bulk operations
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EARegenAccFromQuery`

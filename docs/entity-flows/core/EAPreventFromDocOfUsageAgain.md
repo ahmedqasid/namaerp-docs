@@ -34,19 +34,6 @@ Automatic execution on post-commit and post-delete events for DocumentFile entit
 - **DocumentFile** - Updates `preventUseAsFromDoc` flag on source and target documents during commit and delete operations
 
 
-## Important Warnings
-
-### ⚠️ Automatic Operation
-- Cannot be disabled; runs automatically on all DocumentFile entities
-- Modifies document state without user intervention
-- Adds processing overhead to document operations
-
-### ⚠️ System Impact
-- May affect integrations expecting document reuse capabilities
-- Must be considered when designing document workflows
-- Affects document reference operations through APIs
-
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAPreventFromDocOfUsageAgain`

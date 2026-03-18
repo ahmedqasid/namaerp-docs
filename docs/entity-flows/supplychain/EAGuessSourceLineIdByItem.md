@@ -70,49 +70,6 @@ select case when {details.item.item.code} in ('A','B') then 1 else 0 end
 - **Source Document Lines** - Reads potential match candidates (read-only)
 - **Item Master Data** - Uses item references for matching (read-only)
 
-## Important Warnings
-
-### ⚠️ Matching Strategy Logic
-- Always requires item ID match as base criteria
-- Additional parameters increase matching accuracy but reduce match probability
-- Uses "first match found" logic when multiple candidates exist
-- Preserves existing valid source line relationships
-
-### ⚠️ Document Relationship Dependencies
-- Requires valid origin document or from document references
-- Only processes supply chain document types (BasicSCDocument)
-- Source documents must be accessible and committed
-- Lines without items are skipped
-
-### ⚠️ Conditional Processing Impact
-- Query condition applied at line level before processing
-- Each line evaluated separately against condition
-- Non-matching lines are ignored completely
-- Complex conditions may impact performance
-
-### ⚠️ Parameter Selection Guidelines
-- Start with minimal parameters to maximize match success
-- Add parameters incrementally based on business requirements
-- Too many parameters may prevent valid matches
-- Consider data quality when selecting matching criteria
-
-### ⚠️ Existing Relationship Validation
-- Checks if current source line ID still matches criteria
-- Keeps existing relationships if they remain valid
-- Only changes relationships when current link is invalid
-- May not find replacement if existing link fails validation
-
-### ⚠️ Data Consistency Impact
-- Changes affect document traceability and audit trails
-- May impact downstream processes relying on line relationships
-- Affects inventory tracking and cost allocation
-- Consider business workflow implications before execution
-
-### ⚠️ Sales vs Purchase Person Logic
-- Parameter 7 considers both sales man and purchase man fields
-- Matches either field depending on document type
-- Ensure consistent person assignment across document types
-
 **Module:** supplychain
 
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAGuessSourceLineIdByItem`

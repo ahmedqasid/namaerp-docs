@@ -53,56 +53,6 @@ Automatic execution during document save/commit operations to validate that item
 
 - **Document Lines** - Validates uniqueness of items within document (read-only validation)
 
-## Important Warnings
-
-### ⚠️ Uniqueness Criteria Selection
-- Item ID is always included in uniqueness check
-- Additional parameters define what constitutes a "different" item
-- More parameters = more granular uniqueness (allows more combinations)
-- Fewer parameters = stricter uniqueness (prevents more duplicates)
-
-### ⚠️ Business Logic Impact
-- May prevent legitimate business scenarios requiring duplicate items
-- Consider business requirements before enabling strict uniqueness
-- Different item dimensions may legitimately appear multiple times
-- Warehouse transfers may require same item in multiple locations
-
-### ⚠️ Free Item Handling
-- Free item parameter only applies to invoice lines
-- Allows same item to appear as both regular and free
-- Non-invoice documents ignore free item parameter
-- Ensure business rules align with free item treatment
-
-### ⚠️ Validation Mode Selection
-- Failure mode blocks document save completely
-- Warning mode allows save but alerts users to duplicates
-- Choose mode based on business criticality of duplicate prevention
-- Warning mode provides visibility without blocking workflow
-
-### ⚠️ Error Message Behavior
-- Error messages do not display entity flow name for cleaner user experience
-- Shows specific line numbers where duplicates occur
-- Users can identify and resolve duplicate items easily
-- Messages focus on business issue rather than technical validation
-
-### ⚠️ Performance Considerations
-- Validation runs on every document save operation
-- Large documents with many lines may have performance impact
-- Complex uniqueness criteria increase processing time
-- Consider document size when configuring validation
-
-### ⚠️ Dimension Dependency
-- Only validates dimensions that exist on document lines
-- Missing dimension data is treated as empty/null values
-- Empty values are considered equal for uniqueness purposes
-- Ensure dimension data quality for accurate validation
-
-### ⚠️ Line Processing Logic
-- Skips lines without item references (null items)
-- Processes lines in order and reports first duplicate found
-- Line numbers are displayed as 1-based for user clarity
-- All duplicates are reported, not just the first occurrence
-
 **Module:** supplychain
 
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAPreventRepeatedItems`

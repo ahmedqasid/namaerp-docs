@@ -35,23 +35,6 @@ Scheduled maintenance task or manual execution on OnlinePaymentTransactionSysEnt
 - **OnlinePaymentTransactionSysEntry** - `linkStatus` updated from "Valid" to "Expired"
 - **OnlinePaymentConfig** - Referenced for expiry rules and timeouts
 
-## Important Warnings
-
-### ⚠️ System Load
-- Processing large numbers of entries may impact database performance
-- Best run during low-activity periods
-- Batch processing consumes database connections and memory
-
-### ⚠️ Dependencies
-- Requires valid OnlinePaymentConfig entries
-- Relies on OnlinePaymentUtils for expiry calculations
-- System time accuracy critical for proper expiry detection
-
-### ⚠️ Operational Requirements
-- Should be run regularly to maintain status accuracy
-- Requires monitoring to ensure successful completion
-- Processing errors may leave some entries with incorrect status
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EACheckAndUpdateLinkAtOnlinePaymentTransactionSysEntry`

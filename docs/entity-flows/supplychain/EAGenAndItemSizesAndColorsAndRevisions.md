@@ -58,38 +58,6 @@ Manual execution when documents contain size, color, or revision dimensions that
 - **Revision Master Files** - Creates new revision records if configured
 - **Item Configuration Tables** - Links new dimensions to items
 
-## Important Warnings
-
-### ⚠️ Master File Creation
-- Only creates master files when both "Add to Item" and "Create Master File" are true
-- New master files use default field mappings unless specified
-- Master file creation is permanent and affects system-wide options
-
-### ⚠️ Item Configuration Impact
-- Modifies item master records permanently
-- New dimensions become available for all future transactions
-- May affect existing business rules and validations
-
-### ⚠️ Dimension Validation
-- No validation of dimension values before adding to items
-- Invalid or duplicate dimensions may be created
-- Consider business impact of new dimension options
-
-### ⚠️ Field Mapping Requirements
-- Field maps must match target master file structure
-- Invalid field mappings may cause master file creation failures
-- Test field mappings with sample data before production use
-
-### ⚠️ Performance Considerations
-- Processes each document line individually
-- Large documents with many new dimensions may be slow
-- Master file creation adds database overhead
-
-### ⚠️ Data Consistency
-- New dimensions apply immediately to item configurations
-- May affect pending transactions and inventory tracking
-- Consider impact on existing stock with different dimensions
-
 **Module:** supplychain
 
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EAGenAndItemSizesAndColorsAndRevisions`

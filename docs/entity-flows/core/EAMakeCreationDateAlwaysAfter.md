@@ -36,23 +36,6 @@ Date/time enforcement during entity creation or when time-based business rule va
 - **Related Date Fields** - May synchronize value date and document dates
 - **Self-Contained Operation** - Changes isolated to target entity only
 
-## Important Warnings
-
-### ⚠️ Time and Date Integrity
-- Adjustments limited to same calendar day
-- Original creation time is permanently modified
-- May create artificial time progressions
-
-### ⚠️ Business Logic Impact
-- May affect calculations dependent on creation time
-- Changed creation times may have audit implications
-- May impact integration with systems expecting original times
-
-### ⚠️ Configuration
-- Hour parameter must be valid (0-23)
-- Ensure hour parameter aligns with business requirements
-- Consider time zone implications for hour settings
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAMakeCreationDateAlwaysAfter`

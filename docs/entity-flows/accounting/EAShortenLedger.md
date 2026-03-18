@@ -50,17 +50,6 @@ Does not apply to:
 - **Currency Difference Journals** (`CurrencyDiffJournal`)
 - **Exchange Rate Updates** (`ExchangeRateUpdate`)
 
-## Important Warnings
-
-### ⚠️ Data Impact
-- **Audit Trail Loss:** Individual line details are permanently lost
-- **Irreversible:** Original line amounts cannot be recovered
-- **Automatic Execution:** Cannot be manually controlled per transaction
-
-### ⚠️ Reporting Impact
-- Reports expecting detailed breakdown will show consolidated amounts
-- Fewer lines improve performance but reduce detail visibility
-
 ## Related Actions
 
 - **EASortLedger** - Sorts consolidated lines

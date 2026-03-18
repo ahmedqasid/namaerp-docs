@@ -38,18 +38,6 @@ Same parameters as [EAGenerateEntityFromEntityActionNoFlush](EAGenerateEntityFro
 - **Approval Workflow Tables** - Creates approval requests and workflow tracking
 - **Source Entity Tables** - May update based on inverse mapping
 
-## Important Warnings
-
-### ⚠️ Approval Process Dependencies
-- Requires proper approval workflow configuration
-- Approval rules must be properly defined and tested
-- Authority matrix must be current and accurate
-
-### ⚠️ Manual Flush Required
-- Changes are NOT automatically saved to database
-- Approval state remains in memory until flush
-- Risk of losing approval state if system fails before flush
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAGenerateEntityFromEntityActionNoFlushWithApproval`

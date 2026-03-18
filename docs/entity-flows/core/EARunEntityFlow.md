@@ -36,28 +36,6 @@ Manual execution when one entity flow needs to invoke another entity flow as par
 - **Variable Tables** - Depends on the target entity flow being executed
 - **Target Flow Impact** - Database changes depend entirely on what the target flow does
 
-## Important Warnings
-
-### ⚠️ Entity Flow Requirements
-- Target entity flow must exist and have a valid business code
-- Entity flow must be configured for manual execution (not automatic)
-- Entity flow must be applicable to the current entity type
-
-### ⚠️ Execution Dependencies
-- Target flow's success depends on its own configuration and requirements
-- All warnings and limitations of the target flow apply
-- Nested flow execution may have performance implications
-
-### ⚠️ Error Propagation
-- Failures in the target flow will cause this action to fail
-- Error messages may reference the target flow rather than this action
-- Complex debugging when multiple flows are chained together
-
-### ⚠️ Business Logic Considerations
-- Target flow may have side effects not obvious from this action
-- May trigger additional automatic flows or business rules
-- Consider the complete workflow chain when planning execution
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EARunEntityFlow`

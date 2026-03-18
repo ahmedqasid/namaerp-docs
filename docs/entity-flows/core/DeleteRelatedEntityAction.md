@@ -44,18 +44,6 @@ SELECT id FROM JournalEntry WHERE fromDoc_id = {id} AND fromDoc_type = '{entityT
 - **Audit Logs** - Deletion events recorded
 - **Related Entities** - May be affected by cascade rules
 
-## Important Warnings
-
-### ⚠️ Data Loss Risk
-- Permanent deletion cannot be easily recovered
-- May trigger cascade deletion of related entities
-- Only first matching entity is deleted
-
-### ⚠️ Business Logic
-- Respects all validation rules and permissions
-- Cannot delete entities with dependent records
-- Some entities cannot be deleted in certain workflow states
-
 ## Related Actions
 
 - [EAGenerateEntityFromEntityAction](EAGenerateEntityFromEntityAction.md)

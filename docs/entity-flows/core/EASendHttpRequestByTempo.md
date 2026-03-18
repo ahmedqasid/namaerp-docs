@@ -80,44 +80,6 @@ The Tempo template should define HTTP requests using the system's HTTP request f
 - **PendingSystemAction** - Creates new records for HTTP request execution
 - **Entity Data** - Reads entity data to populate Tempo template variables
 
-## Important Warnings
-
-### ⚠️ Tempo Template Requirements
-- Template must contain valid HTTP request definitions
-- Entity field references use {entity.fieldName} syntax
-- Invalid Tempo syntax will cause parsing failures
-- Missing required HTTP elements (URL, Method) will cause execution errors
-
-### ⚠️ HTTP Request Configuration
-- URL must be accessible from the server environment
-- Authentication headers should be properly configured
-- Request timeouts and retry logic are handled by the system action processor
-- Large request bodies may cause memory or size limit issues
-
-### ⚠️ Asynchronous Execution
-- HTTP requests are queued for background processing, not executed immediately
-- Execution timing depends on system action processor schedule
-- Failed requests may be retried based on system configuration
-- Success/failure status is recorded in PendingSystemAction records
-
-### ⚠️ Security Considerations
-- Sensitive data in templates (passwords, API keys) should be handled carefully
-- Template content is stored in pending action records
-- External URLs should be validated and trusted endpoints only
-- Consider using entity field references rather than hardcoded credentials
-
-### ⚠️ Template Processing
-- Entity data is rendered into template at action execution time
-- Complex entity relationships may require careful template design
-- Template parsing errors will prevent action creation
-- Large templates may impact parsing performance
-
-### ⚠️ Action Management
-- Default behavior deletes action records after successful execution
-- Use Parameter 2 to preserve records for audit or debugging purposes
-- Failed actions remain in queue for retry or manual intervention
-- Monitor pending action queue to prevent accumulation
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.modules.basic.util.EASendHttpRequestByTempo`

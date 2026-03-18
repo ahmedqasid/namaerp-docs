@@ -36,23 +36,6 @@ Same parameters as [EAFieldsValuesCalculator](EAFieldsValuesCalculator.md) with 
 - **Referenced Data** - Reads source data and executes SQL queries (read-only)
 - **Partial Updates** - Successful assignments retained even when others fail
 
-## Important Warnings
-
-### ⚠️ Error Masking Risk
-- Errors are logged but processing continues, potentially masking critical issues
-- Partial field assignments may lead to data integrity issues
-- Silent error handling may make debugging more difficult
-
-### ⚠️ Data Consistency
-- Partial updates may leave entities in inconsistent states
-- Errors in reference fields may affect related entity relationships
-- May bypass business rules that depend on all fields being set correctly
-
-### ⚠️ Production Use
-- Requires robust error monitoring to track silent failures
-- Additional data validation may be needed after processing
-- Recovery procedures needed for handling partial failures
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAIgnoringNotFoundTargetFieldsValuesCalculator`

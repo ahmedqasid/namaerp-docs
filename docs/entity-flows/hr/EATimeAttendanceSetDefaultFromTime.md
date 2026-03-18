@@ -42,48 +42,6 @@ Manual execution for fixing incomplete time attendance records, typically used d
 - **Employee Work Schedules** - Reads work day patterns and shift definitions
 - **HR Configuration** - References maximum continuous attendance settings
 
-## Important Warnings
-
-### ⚠️ Incomplete Record Requirements
-- Only processes time attendance lines with empty from dates
-- Records must have valid punch-out times for shift matching
-- Lines without punch-out times are not processed
-
-### ⚠️ Work Schedule Dependencies
-- Requires properly configured employee work schedules with shift times
-- Missing or incomplete work schedule data prevents default time setting
-- Action relies on work time slots (work time 1, 2, 3) being properly defined
-
-### ⚠️ Shift Matching Logic
-- Matches shifts based on proximity of shift end time to actual punch-out time
-- Uses maximum distance parameter to filter relevant shifts
-- Prefers shifts that start before the punch-out time (normal flow)
-
-### ⚠️ Day Spanning Shifts
-- Automatically adjusts from date for shifts that wrap around midnight
-- Sets from date to previous day if work time spans two days
-- Day adjustment affects payroll periods and attendance calculations
-
-### ⚠️ Attendance Duration Validation
-- Calculates total attendance duration after setting from time
-- Removes entries that exceed maximum continuous attendance limits
-- Prevents unrealistic work duration records from being created
-
-### ⚠️ Data Modification Impact
-- Modifies existing time attendance records with calculated start times
-- Changes affect payroll calculations and attendance reporting
-- Generated start times may not reflect actual employee punch-in times
-
-### ⚠️ Employee Filtering
-- Criteria code parameter filters which employees are processed
-- Empty criteria processes all employees with incomplete records
-- Incorrect criteria codes may exclude intended employees
-
-### ⚠️ Configuration Dependencies
-- Maximum continuous attendance limit comes from HR configuration
-- Missing or incorrect configuration may allow invalid attendance durations
-- Configuration changes affect validation behavior
-
 **Module:** hr
 
 **Full Class Name:** `com.namasoft.modules.humanresource.utils.actions.EATimeAttendanceSetDefaultFromTime`

@@ -34,19 +34,6 @@ Automatically removes all ledger transaction lines and debt entries from account
 2. **Error Recovery:** Remove corrupted transaction data during error recovery
 3. **Data Reset:** Start fresh when recalculating accounting effects
 
-## Important Warnings
-
-### ⚠️ Data Loss Risk
-- **Permanent Removal:** All transaction lines are permanently removed from the request
-- **No Recovery:** Original transaction data cannot be recovered once cleared
-- **Automatic Execution:** Runs without user confirmation
-
-### ⚠️ Troubleshooting Missing Transactions
-If accounting transactions are missing:
-1. Check system logs for entity flow execution
-2. Verify if clearing was part of normal processing
-3. Regenerate transactions if necessary
-
 **Module:** accounting
 
 **Full Class Name:** `com.namasoft.modules.accounting.domain.utils.actions.EAClearLedgerLines`

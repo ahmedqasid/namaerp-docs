@@ -36,23 +36,6 @@ Document date enforcement for DocumentFile entities requiring creation time cons
 - **Document Date Fields** - Synchronizes related date fields for consistency
 - **Self-Contained Operation** - Changes isolated to target document only
 
-## Important Warnings
-
-### ⚠️ Document Timing Integrity
-- Original creation time is permanently modified
-- May affect time-based document sequences
-- Changed creation times may have audit implications
-
-### ⚠️ Requirements
-- Only works with DocumentFile entities
-- Requires valid value date on the document
-- Hour parameter must be valid (0-23)
-
-### ⚠️ Business Impact
-- May impact workflows dependent on precise creation timing
-- May affect calculations dependent on creation time
-- May affect integration with systems expecting original times
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAMakeCreationDateAlwaysBefore`

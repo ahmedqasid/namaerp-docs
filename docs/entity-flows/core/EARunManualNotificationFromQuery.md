@@ -54,33 +54,6 @@ select entityType,id from SalesInvoice where dueDate < getdate() and balance > 0
 - **Notification Logs** - Creates notification delivery tracking records
 - **Optional Update Tables** - Additional update query may affect other tables
 
-## Important Warnings
-
-### ⚠️ Query Requirements
-- Query must return exactly 2 columns: entityType (string) and id (uniqueID)
-- Query should use proper WHERE conditions to avoid unintended mass notifications
-- Use {id} placeholder to reference the current entity's ID in the query
-
-### ⚠️ Notification Requirements
-- Notification definition must exist and be configured for manual execution
-- Notification templates and recipient lists must be properly configured
-- Each entity type must be compatible with the notification template
-
-### ⚠️ Delivery Considerations
-- Large result sets can overwhelm email/SMS services
-- Consider rate limiting and service quotas for external notification providers
-- Monitor delivery failures and bounce rates for large campaigns
-
-### ⚠️ Performance and Scale
-- Each notification sends individually which may take significant time
-- Network latency affects bulk notification performance
-- Consider system load and timing for large notification campaigns
-
-### ⚠️ Content and Recipients
-- Notification content is populated from each entity's data
-- Missing contact information may cause delivery failures
-- Template fields must be available across all target entity types
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EARunManualNotificationFromQuery`

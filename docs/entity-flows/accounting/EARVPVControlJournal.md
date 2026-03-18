@@ -59,18 +59,6 @@ Automatically generates control journal entries for Receipt and Payment Vouchers
 2. **Control Accounting:** Maintain control totals for subsidiary ledgers
 3. **Audit Trail:** Provide detailed audit trail linking vouchers to subsidiary movements
 
-## Important Warnings
-
-### ⚠️ Configuration Requirements
-- **Subsidiary Mapping:** Subsidiary account mappings must be properly configured
-- **Account Types:** Parameter account types must exist in system configuration
-- **Related Subsidiary:** Voucher must have valid related subsidiary field
-
-### ⚠️ Performance and Data Impact
-- **Volume Impact:** Large RVPV volumes generate corresponding control entries
-- **Currency Handling:** Multi-currency environments require proper exchange rate setup
-- **Audit Trail:** All entries traced back to originating RVPV document
-
 ## Related Actions
 
 - **EAGenJournalEntry** - Generates journal entries from any document

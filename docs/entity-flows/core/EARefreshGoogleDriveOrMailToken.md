@@ -35,23 +35,6 @@ Manual execution when Google API integration fails due to expired or invalid OAu
 - **OAuthFile** - Reads Google OAuth configuration and credentials
 - **Google Token Storage** - OAuth tokens may be refreshed and updated during the process
 
-## Important Warnings
-
-### ⚠️ OAuth Configuration Requirements
-- OAuthFile must exist and contain valid Google OAuth credentials
-- OAuth configuration must be properly set up for Google Drive/Gmail access
-- Network connectivity to Google APIs is required
-
-### ⚠️ Authentication Impact
-- Forces token refresh which may affect other concurrent Google operations
-- May require user re-authentication if refresh token is invalid
-- 5-minute timeout for credential retrieval operations
-
-### ⚠️ Service Dependencies
-- Requires Google Drive API access permissions
-- Network connectivity to Google services is essential
-- May fail if Google services are temporarily unavailable
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.google.EARefreshGoogleDriveOrMailToken`

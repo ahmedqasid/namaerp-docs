@@ -44,23 +44,6 @@ Online payment URL generation for documents implementing ISupportOnlinePaymentDo
 - **OnlinePaymentConfig Table** - Reads payment gateway configuration settings
 - **Payment Tracking Tables** - Creates payment entries for audit and monitoring
 
-## Important Warnings
-
-### ⚠️ Entity Requirements
-- Entity must implement ISupportOnlinePaymentDoc interface
-- Target fields for URL storage must exist and support URL text data
-- Entity must be a valid payment document type
-
-### ⚠️ Configuration Dependencies
-- Payment configuration must exist and be properly configured
-- KNet gateway must be accessible and operational
-- Valid merchant account required for payment processing
-
-### ⚠️ Security
-- Payment URLs contain sensitive information - handle securely
-- Use SSL/TLS for all payment-related communications
-- Protect payment data according to PCI DSS requirements
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAGenerateKNetPaymentURLs`

@@ -40,17 +40,6 @@ Entity validation during save operations to enforce consistent code formatting a
 
 No database modifications - only validates data and prevents invalid saves.
 
-## Important Warnings
-
-### ⚠️ Rule Compatibility
-- Ensure length limits don't conflict with prefix/suffix requirements
-- Test all validation rules together to ensure compatibility
-- Complex regex patterns may impact validation performance
-
-### ⚠️ Case Sensitivity
-- All prefix/suffix matching is case-sensitive
-- Consider impact on existing codes that may not meet new rules
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EACodeValidator`

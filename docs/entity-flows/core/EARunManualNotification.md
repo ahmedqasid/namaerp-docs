@@ -36,28 +36,6 @@ Manual execution when specific notifications need to be sent outside of automati
 - **Notification Logs** - May create notification delivery tracking records
 - **Entity Data** - Reads current entity data for notification content population
 
-## Important Warnings
-
-### ⚠️ Notification Requirements
-- Notification definition must exist and have a valid business code
-- Notification must be configured for manual execution (not automatic)
-- Notification templates and recipient lists must be properly configured
-
-### ⚠️ Delivery Dependencies
-- Email/SMS services must be properly configured and available
-- Recipient contact information must be valid and current
-- Network connectivity required for external notification services
-
-### ⚠️ Content and Templates
-- Notification content is populated from current entity data
-- Template fields must match available entity properties
-- Missing data may result in incomplete or malformed notifications
-
-### ⚠️ Delivery Limitations
-- No guarantee of successful delivery to recipients
-- External service failures may prevent notification delivery
-- Consider retry mechanisms for critical notifications
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EARunManualNotification`

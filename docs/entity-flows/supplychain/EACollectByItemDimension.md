@@ -38,33 +38,6 @@ Manual execution when document lines need automatic assignment of tracking dimen
 - **Document Lines** - Updates dimension values and may create new split lines
 - **Item Configuration** - Checks tracking requirements for dimensions
 
-## Important Warnings
-
-### ⚠️ Supported Dimensions
-- Only three dimensions supported: lotId, box, revisionId
-- Other dimension fields will cause validation errors
-- Property name is case-insensitive
-
-### ⚠️ Inventory Availability
-- Only considers positive net quantities
-- Respects warehouse and locator constraints
-- Dimension tracking must be enabled in item configuration
-
-### ⚠️ Line Splitting Behavior
-- Creates new lines when partial quantities available
-- Original line order may change due to insertions
-- Split lines inherit all properties except quantity and dimension
-
-### ⚠️ Performance Considerations
-- Queries inventory in pages of 20 records
-- Large inventory datasets may impact performance
-- Caches queries per unique item/warehouse combination
-
-### ⚠️ Dimension Tracking Rules
-- Only fills dimensions when item configuration requires tracking
-- Skips lines that already have dimension values
-- Respects all configured dimension tracking settings
-
 **Module:** supplychain
 
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EACollectByItemDimension`

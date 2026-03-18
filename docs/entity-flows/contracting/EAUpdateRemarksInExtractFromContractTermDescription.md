@@ -97,18 +97,6 @@ FROM TermHierarchy
 WHERE LTRIM(RTRIM(ISNULL(remarks, ''))) != '';
 ```
 
-## Important Warnings
-
-### ⚠️ Data Impact
-- **Data Overwrite:** Completely replaces existing remarks - manual entries will be lost
-- **Hierarchy Dependency:** Requires properly filled `parentLineID` fields in contract terms
-- **Empty Results:** Missing terms or empty remarks result in empty extract remarks
-
-### ⚠️ Configuration Requirements
-- **Parameter Validation:** At least one of Update Details/Conditions must be `true`
-- **Field Validation:** Contract and term code fields must exist and contain valid data
-- **Performance:** Large extracts with deep hierarchies may take time to process
-
 ## Related Actions
 
 - **Contract Term Management** - Maintains source remarks and hierarchy

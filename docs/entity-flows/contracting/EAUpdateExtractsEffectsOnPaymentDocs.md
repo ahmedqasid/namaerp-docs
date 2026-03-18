@@ -71,18 +71,6 @@ GROUP BY cpt.paymentDocId, cpt.termCode
 - **Rule:** Cannot modify term codes with existing transactions
 - **Error:** "Cannot change or remove term code {termCode} because it has {count} transactions"
 
-## Important Warnings
-
-### ⚠️ Validation Requirements
-- **Payment Limits:** Enforces no negative remaining balances (unless explicitly allowed)
-- **Term Code Integrity:** Prevents modification of term codes with active transactions
-- **Final Extract Completeness:** Ensures all payments are fully processed
-
-### ⚠️ Performance Impact
-- **Extract Size:** Processing time increases with number of condition lines
-- **Database Operations:** Multiple table updates require transaction consistency
-- **Memory Usage:** Calculations performed in memory before database updates
-
 ## Related Actions
 
 - **Payment Document Processing** - Updates individual payment totals

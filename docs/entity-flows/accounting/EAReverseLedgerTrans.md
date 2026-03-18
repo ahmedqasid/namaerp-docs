@@ -53,17 +53,6 @@ Reverses previously created accounting transactions by creating opposite entries
 2. **Partial Returns:** Reverse portion of transaction based on returned quantities
 3. **Multiple Document Reversal:** Reverse accounting effects from multiple documents
 
-## Important Warnings
-
-### ⚠️ Critical Requirements
-- **Source Entity Required:** Parameter 1 must reference entity with existing ledger effects
-- **No Double Reversal Protection:** Multiple executions create multiple reversals
-- **Timing Sensitivity:** Only works during document processing phase
-
-### ⚠️ Data Validation
-- **Percentage Range:** Values must be 0-100 for partial reversals
-- **Entity Lookup:** Source entity must have previously generated ledger transactions
-
 ## Related Actions
 
 - **EAGenJournalEntry** - Generates original journal entries that can be reversed

@@ -39,18 +39,6 @@ Same as [EAGenerateEntityFromEntityAction](EAGenerateEntityFromEntityAction.md) 
 - **Source Entity Table** - May update via inverse copy (in memory)
 - **Related Tables** - All changes remain in memory until manual flush
 
-## Important Warnings
-
-### ⚠️ Manual Flush Required
-- Changes are NOT automatically saved to database
-- Risk of data loss if system fails before manual flush
-- Must ensure proper batch completion and flush
-
-### ⚠️ Memory & Performance  
-- Large batches may consume significant memory
-- Workflows and external integrations deferred until flush
-- Requires careful transaction boundary management
-
 ## Related Actions
 
 - [EAGenerateEntityFromEntityAction](EAGenerateEntityFromEntityAction.md)

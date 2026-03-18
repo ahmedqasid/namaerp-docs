@@ -42,18 +42,6 @@ Manual or automated execution for real-time JSON data export to external APIs an
 - **Source Entity** - Read-only access to entity and related data for JSON conversion
 - **External Systems** - Sends JSON data via HTTP to specified endpoints
 
-## Important Warnings
-
-### ⚠️ Security
-- Review exported fields to prevent sensitive data exposure
-- Use HTTPS URLs and proper authentication for external endpoints
-- Filter fields to limit data exposure
-
-### ⚠️ Connectivity
-- Requires network connectivity to external systems
-- HTTP requests may timeout or fail - plan error handling
-- Large entities create large JSON payloads affecting performance
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.modules.basic.util.EAJsonRecordExporter`

@@ -35,38 +35,6 @@ Manual execution for date standardization, reporting preparation, or when groupi
 - **Entity Tables** - Updates the creation date field (creationDate) in the entity's main table
 - **Audit Tables** - May trigger audit logging if entity modification tracking is enabled
 
-## Important Warnings
-
-### ⚠️ Date Modification Impact
-- **Original creation time is permanently lost** - Time component is irreversibly changed to midnight
-- **Affects audit trails** - Changes may impact creation time-based auditing and reporting
-- **No backup of original time** - Consider capturing original timestamp before modification if needed
-
-### ⚠️ Entity Requirements
-- Entity must have a valid creation date field
-- Action skips entities with null or empty creation dates
-- Only affects the current entity being processed
-
-### ⚠️ Time Zone Considerations
-- Uses system/server time zone for time calculations
-- May cause unexpected results if entities were created in different time zones
-- Start of day is based on server time zone, not entity creation time zone
-
-### ⚠️ Business Logic Impact
-- May affect calculations that depend on precise creation timestamps
-- Could impact time-based business rules and workflows
-- Consider implications for reports that use creation time for sorting or filtering
-
-### ⚠️ Data Consistency
-- Use consistently across related entities to maintain data integrity
-- Consider running on all entities in a batch to avoid mixed timestamp formats
-- May cause confusion if only some entities have normalized creation dates
-
-### ⚠️ Reporting and Analytics
-- Will change results for time-based reports that include creation timestamps
-- May improve date-based grouping and aggregation queries
-- Could affect existing dashboard and analytics that rely on creation time precision
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EASetCreationDateToStartOfDay`

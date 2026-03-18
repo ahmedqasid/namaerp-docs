@@ -48,17 +48,6 @@ Manual or automated execution for attachment export, data archival, backup opera
 
 - **Entity Attachment Fields** - Read-only access to attachment data and metadata
 
-## Important Warnings
-
-### ⚠️ File System
-- Export path must be writable with sufficient disk space
-- Large attachments may impact server performance during export
-- File naming conflicts may occur without proper configuration
-
-### ⚠️ Security
-- Exported files may be accessible to server administrators
-- Consider security implications of exporting sensitive attachments
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAExportAttachments`

@@ -37,58 +37,6 @@ Manual execution during attendance data cleanup or processing. Typically used wh
 
 - **TimeAttendanceLine** - Updates from/to dates and times for incomplete records
 
-## Important Warnings
-
-### ⚠️ Time Value Detection
-- Treats zero time values (00:00) as empty and replaces them
-- This may incorrectly replace legitimate midnight times
-- Consider if midnight is a valid time in your business context
-
-### ⚠️ Date Synchronization Logic
-- If to date is empty, copies from date to to date
-- If from date is empty, copies to date to from date
-- Ensures both dates are populated for valid attendance records
-
-### ⚠️ Partial Record Completion
-- Only processes lines that have at least one time value
-- Completely empty lines are skipped entirely
-- Designed for completing partial records, not creating new ones
-
-### ⚠️ Default Time Application
-- Same default times applied to all incomplete records
-- No consideration of employee shifts or schedules
-- May not be appropriate for employees with different work hours
-
-### ⚠️ No Validation
-- Does not validate if default times make business sense
-- Could create invalid attendance records (e.g., check-out before check-in)
-- Review results after applying defaults
-
-### ⚠️ Bulk Updates
-- Modifies all matching records in the document
-- No way to selectively apply to specific employees
-- Consider filtering attendance lines before running
-
-### ⚠️ Time Format Requirements
-- Time parameters must be in valid format (HH:MM)
-- Invalid time formats cause parsing errors
-- Test with sample data before bulk application
-
-### ⚠️ Business Logic Assumptions
-- Assumes single shift per day (one check-in, one check-out)
-- Not suitable for multiple shift scenarios
-- May oversimplify complex attendance patterns
-
-### ⚠️ Data Loss Prevention
-- Only fills empty values, preserves existing data
-- Original non-empty times are never modified
-- Safe to run multiple times on same document
-
-### ⚠️ Common Use Cases
-- Standardizing imported attendance data
-- Filling missing times for salaried employees
-- Creating uniform attendance records for reporting
-
 **Module:** hr
 
 **Full Class Name:** `com.namasoft.modules.humanresource.utils.SetAttendanceToFixedTimeIfEmpty`

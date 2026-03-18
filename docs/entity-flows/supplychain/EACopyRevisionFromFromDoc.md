@@ -36,33 +36,6 @@ This action does not require any parameters.
 - **Invoice Lines** - Additionally updates price information for invoice documents
 - **Parent Document References** - Reads parent line relationships (read-only)
 
-## Important Warnings
-
-### ⚠️ Parent-Child Requirements
-- Only works on documents with established parent-child line relationships
-- Lines without parent references are skipped
-- Parent document must be accessible and valid
-
-### ⚠️ Revision Consistency
-- Overwrites existing revision IDs without validation
-- No verification that revision ID is appropriate for item
-- May create inconsistencies if parent revisions are incorrect
-
-### ⚠️ Price Copying for Invoices
-- Automatically copies prices for invoice line types
-- Overwrites existing pricing without confirmation
-- May impact profitability calculations and discounts
-
-### ⚠️ Data Dependencies
-- Requires proper document linking setup
-- Parent documents must exist and be committed
-- Changes are permanent once applied
-
-### ⚠️ Business Logic Impact
-- Revision changes may affect inventory tracking
-- Price updates could impact financial calculations
-- Consider impact on approval workflows and business rules
-
 **Module:** supplychain
 
 **Full Class Name:** `com.namasoft.modules.supplychain.domain.utils.plugnplay.EACopyRevisionFromFromDoc`

@@ -36,23 +36,6 @@ Automatic execution during detailed remark entity save operations to maintain da
 - **AbsDetailedRemarkLine Details** - Preserves existing lines and appends new lines with audit information
 - **Employee Reference** - Sets current employee on new lines for user tracking
 
-## Important Warnings
-
-### ⚠️ Data Preservation Behavior
-- Existing remark lines cannot be modified once committed
-- All header field changes are reverted to original values
-- Only new line additions are permitted after initial commit
-
-### ⚠️ Audit Trail Impact
-- New lines automatically receive current date and user information
-- Original lines maintain their original timestamps and user references
-- Changes to header fields (remarks, dates, related entities) are not preserved
-
-### ⚠️ Business Process Impact
-- Users cannot edit existing remark content after saving
-- Corrections require adding new remark lines rather than editing existing ones
-- May impact workflows expecting editable remark functionality
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAPreventUpdateDetailedRemarkLines`

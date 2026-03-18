@@ -93,20 +93,6 @@ Run On Detail: details
 - **Target Entity** - Attachment field updated with generated report file
 - **ReportDefinition** - Report configuration and parameters read
 
-## Important Warnings
-
-### ⚠️ Report Requirements
-- Report must exist and be accessible by user
-- Target field must be valid attachment field (LargeData type)
-- Existing attachments are updated rather than replaced (preserves attachment ID)
-- When using Run On Detail, attachment field must be a sub-field of the detail collection
-
-### ⚠️ Performance Impact
-- Complex reports may take significant time
-- Large reports consume disk space and memory
-- Multiple simultaneous executions may impact performance
-- Running on detail collections multiplies execution time by number of detail lines
-
 ## Related Actions
 
 - [EAPrintReportToPrinter](EAPrintReportToPrinter.md)

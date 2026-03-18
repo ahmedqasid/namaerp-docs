@@ -44,23 +44,6 @@ Manual execution or automated through entity flows for field value assignments, 
 - **Related Entities** - Referenced entities may be updated via field assignments
 - **Any Table** - SQL calculations can read from any accessible database table
 
-## Important Warnings
-
-### ⚠️ Processing Order
-- Field assignments processed sequentially in specified order
-- Entity commands should be placed after field assignments
-- Dependent assignments must be ordered correctly
-
-### ⚠️ Performance Impact
-- Complex SQL queries may impact system performance
-- Entity commands trigger full validation and persistence
-- Large datasets require careful optimization
-
-### ⚠️ Data Integrity
-- Assigned values must pass field validation rules
-- Referenced entities must exist and be accessible
-- Values must be compatible with target field types
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAFieldsValuesCalculator`

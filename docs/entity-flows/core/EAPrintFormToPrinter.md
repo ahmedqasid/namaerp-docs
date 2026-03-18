@@ -39,23 +39,6 @@ Manual execution for printing entity forms directly to physical printers without
 - **Entity Print Count** - Increments print count field on the source entity
 - **Temporary Print Records** - Creates and deletes temporary print job records
 
-## Important Warnings
-
-### ⚠️ Printer Requirements
-- Printer name must exactly match configured network/local printer name
-- Printer must be accessible from the server running the application
-- Print jobs sent directly without user preview or cancellation option
-
-### ⚠️ Form Configuration
-- If form code specified, must exist and be compatible with entity type
-- If no form code provided, system must find appropriate form for entity type
-- Form must have proper question fields and metadata configuration
-
-### ⚠️ Processing Impact
-- Print count is incremented regardless of actual print success
-- Temporary files are automatically cleaned up after printing
-- Failed print jobs may leave incomplete records
-
 **Module:** core
 
 **Full Class Name:** `com.namasoft.infor.domainbase.util.actions.EAPrintFormToPrinter`
