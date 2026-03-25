@@ -162,6 +162,7 @@
     - [EAStartOrderIfNotStarted](/entity-flows/manufacturing/EAStartOrderIfNotStarted.md)
   - [POS Module](/entity-flows/namapos/)
     - [EADarTibaServiceInvoiceTermSetter](/entity-flows/namapos/EADarTibaServiceInvoiceTermSetter.md)
+    - [EADeleteOldPOSOnlineOrderEntries](/entity-flows/namapos/EADeleteOldPOSOnlineOrderEntries.md)
   - [Real Estate Module](/entity-flows/realestate/)
     - [EAAutoExtendExpiredRentContracts](/entity-flows/realestate/EAAutoExtendExpiredRentContracts.md)
     - [EAAutoGenerateREFineDoc](/entity-flows/realestate/EAAutoGenerateREFineDoc.md)

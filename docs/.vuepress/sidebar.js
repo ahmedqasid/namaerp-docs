@@ -914,7 +914,7 @@ export const SIDEBAR_CONFIG = {
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", {
         text: "POS Module",
         collapsible: true,
-        children: [ "/entity-flows/namapos/EADarTibaServiceInvoiceTermSetter.md", {
+        children: [ "/entity-flows/namapos/EADarTibaServiceInvoiceTermSetter.md", "/entity-flows/namapos/EADeleteOldPOSOnlineOrderEntries.md", {
           text: ".",
           "link" : "/entity-flows/namapos/"
         } ]

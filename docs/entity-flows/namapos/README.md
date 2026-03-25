@@ -2,5 +2,6 @@
 
 # POS Module
   - [EADarTibaServiceInvoiceTermSetter](/entity-flows/namapos/EADarTibaServiceInvoiceTermSetter.md)
+  - [EADeleteOldPOSOnlineOrderEntries](/entity-flows/namapos/EADeleteOldPOSOnlineOrderEntries.md)
 
 </div>
