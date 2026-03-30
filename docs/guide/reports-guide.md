@@ -538,6 +538,32 @@ NamaRep.getVacationAssignedConsumedRemainder(employeeId, vacationType, atDate)
 NamaRep.getRemainderBalancePerYears(employeeId, atDate, yearsCount)
 ```
 
+## Reward Points
+
+### Available Reward Points & Amounts
+```groovy
+// Get available reward points for an entity (e.g., Customer, Supplier)
+NamaRep.availableRewardPoints("Customer", $F{customerId})
+NamaRep.availableRewardPoints("Customer", $F{customerCode})
+
+// Get available reward amount for an entity
+NamaRep.availableRewardAmount("Customer", $F{customerId})
+NamaRep.availableRewardAmount("Customer", $F{customerCode})
+```
+
+### Earned Points (Documents)
+```groovy
+// Get earned points from a document (e.g., SalesInvoice)
+NamaRep.earnedPoints("SalesInvoice", $F{invoiceId})
+NamaRep.earnedPoints("SalesInvoice", $F{invoiceCode})
+```
+
+::: tip
+- `availableRewardPoints` and `availableRewardAmount` work with any master file.
+- `earnedPoints` only works with document entities (e.g., SalesInvoice, NamaPOSSalesInvoice). It returns `null` for master files.
+- All three methods accept either an ID or a code as the second parameter.
+:::
+
 ## Database Operations
 
 ### SQL Query Execution
