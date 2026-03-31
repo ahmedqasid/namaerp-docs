@@ -682,7 +682,9 @@ Use the following syntax to get properties of the currently logged-in user:
 ### Hijri and String Formats
 
 * Hijri date: `{valueDate.$asHijriString}`
-* `DD_MM_YYYY`: `{valueDate.$toStringDD_MM_YYYY}`
+* `DD-MM-YYYY`: `{valueDate.$toStringDD_MM_YYYY}`
+* `DD/MM/YYYY`: `{valueDate.$toStringSlashDD_MM_YYYY}`
+* `YYYY/MM/DD`: `{valueDate.$toStringSlashYYYY_MM_DD}`
 * `YYYYMMDD`: `{valueDate.$toStringYYYYMMDD}`
 
 ---
