@@ -176,6 +176,55 @@ org.hibernate.query.sqm.PathElementException: Could not resolve attribute 'value
 يرجى أن تقوم بعمل Refresh Critical Errors من صفحة أدوات النظام Utilities بعد تصحيح هذه الأخطأء
 :::
 
+## الخطأ: `There are X user notifications which exceeds the limit of Y, this may affect system performance`
+
+هذا التنبيه يظهر عند تجاوز عدد الإشعارات في النظام الحد الأقصى المسموح به (الافتراضي 10,000 إشعار).
+
+### الحل: إنشاء مهمة مجدولة لحذف الإشعارات القديمة
+
+قم بإنشاء مهمة مجدولة من نوع Action لحذف الإشعارات التي مضى عليها أكثر من 25 يومًا تلقائيًا.
+
+يمكنك استيراد المهمة مباشرة باستخدام JSON التالي:
+
+<ltr>
+
+```json
+{
+  "scheduleType" : "Action",
+  "scheduleInfo" : {
+    "timeMinute" : "30",
+    "timeHour" : "2"
+  },
+  "hourInfo" : {
+    "runOnHour0230" : true
+  },
+  "sendAsMail" : true,
+  "className" : "com.namasoft.infor.domainbase.util.actions.EADeleteNotificationsByDuration",
+  "title1" : "Duration Days (default is 25 days)",
+  "title2" : "Delete Type (all, readonly) - Default is all",
+  "actionDescription" : "Deletes notifications older than specified number of days. Delete type: 'readonly' deletes only viewed notifications, 'all' deletes all notifications."
+}
+```
+
+</ltr>
+
+في هذا المثال ستعمل المهمة يوميًا الساعة 2:30 صباحًا وتحذف جميع الإشعارات الأقدم من 25 يومًا.
+
+#### خيارات المهمة:
+* **Duration Days**: عدد الأيام - يتم حذف الإشعارات الأقدم من هذا العدد (الافتراضي 25 يومًا)
+* **Delete Type**:
+  * `all` - حذف جميع الإشعارات القديمة (الافتراضي)
+  * `readonly` - حذف الإشعارات المقروءة فقط
+
+### تغيير الحد الأقصى لعدد الإشعارات
+
+إذا كنت تريد تغيير الحد الأقصى الافتراضي (10,000) بدلاً من حذف الإشعارات، يمكنك ذلك من خلال الإعدادات العامة:
+<GlobalConfigOption option-code="value.maxUserNotificationCount" />
+
+::: tip ملحوظة هامة
+يرجى أن تقوم بعمل Refresh Critical Errors من صفحة أدوات النظام Utilities بعد تصحيح هذا الخطأ
+:::
+
 ## أريد أن أجعل حقلًا نصيًا يتحول إلى رابط بحيث أستطيع وضع رابط موقع مثلًا، ويتم إظهار زر بجوار الحقل النصي، وعند الضغط عليه يقوم بفتح الرابط
 
 لتحقيق ذلك في نظام Nama ERP، يمكنك استخدام الجدول التالي:
