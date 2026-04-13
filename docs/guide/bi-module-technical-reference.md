@@ -19,7 +19,9 @@ Every BI widget stores its configuration in a single `chartConfigJSON` field (a 
   "echartOption": { },
   "dataMapping": { },
   "clickEmitMapping": [ ],
-  "drillDownMapping": [ ]
+  "clickAction": { },
+  "drillDownMapping": [ ],
+  "linkMappings": [ ]
 }
 ```
 
@@ -28,7 +30,9 @@ Every BI widget stores its configuration in a single `chartConfigJSON` field (a 
 | `echartOption` | Yes | A standard ECharts option object with `$DATA.*` placeholders. The server resolves these placeholders using query results before sending to the frontend. |
 | `dataMapping` | Yes | Tells the server how to transform SQL result rows into the `$DATA.*` values that replace the placeholders. |
 | `clickEmitMapping` | No | Defines which cross-filters this widget emits when the user clicks a data point. |
-| `drillDownMapping` | No | Defines which target widgets appear in the right-click drill-down menu, and what filter values to pass to them. |
+| `clickAction` | No | Configures what a left-click on a data point does: emit cross-filters, navigate via link, or trigger drill-down. Defaults to cross-filter emission if absent. See Section 5a. |
+| `drillDownMapping` | No | Defines which target widgets or dashboards appear in the right-click drill-down menu, and what filter values to pass to them. |
+| `linkMappings` | No | Defines link navigation targets that appear in the right-click context menu under "Navigate To". See Section 5c. |
 
 ---
 
@@ -380,6 +384,7 @@ When a user right-clicks a data point, a context menu shows drill-down targets. 
 ```json
 "drillDownMapping": [
   {
+    "key": "invoiceDetails",
     "targetWidgetCode": "bi-item-invoice-details",
     "arTitle": "عرض تفاصيل الفواتير",
     "enTitle": "View invoice details",
@@ -400,9 +405,13 @@ When a user right-clicks a data point, a context menu shows drill-down targets. 
 
 | Target field | Required | Description |
 |---|---|---|
-| `targetWidgetCode` | Yes | The `code` of the `DashBoardWidget` to open in the drill-down popup |
+| `key` | No | Unique identifier for this target. Required when referenced by `clickAction.targetKey`. |
+| `targetType` | No | `"widget"` (default) or `"dashboard"`. Controls whether the target is a single widget or a full dashboard. |
+| `targetWidgetCode` | If widget | The `code` of the `DashBoardWidget` to open (when `targetType` is `"widget"` or omitted) |
+| `targetDashboardCode` | If dashboard | The `code` of the target `DashBoard` to open (when `targetType` is `"dashboard"`) |
 | `arTitle` | No | Arabic menu item text |
 | `enTitle` | No | English menu item text |
+| `openMode` | No | How to open the target: `"popup"` (default — DrillDownDialog), `"navigate"` (same tab), `"newTab"`. For dashboard targets, popup opens a fullscreen dialog showing all dashboard widgets. |
 | `orderInMenu` | No | Sort order in the context menu (ascending) |
 | `filters` | Yes | Array of filter definitions (same structure as `clickEmitMapping` entries) |
 
@@ -417,6 +426,206 @@ When a user right-clicks a data point, a context menu shows drill-down targets. 
 6. The target widget's chart renders in a popup dialog
 
 **Multiple drill-down targets** can be defined for the same widget — the context menu shows all of them.
+
+### Dashboard Drill-Down
+
+So far we have seen drill-down targets that open a single widget. But what if you want to drill into an entire dashboard — say, a "Regional Analysis" dashboard with its own set of charts? That is what `targetType: "dashboard"` is for.
+
+When `targetType` is `"dashboard"`, you provide `targetDashboardCode` instead of `targetWidgetCode`. The drill-down filters are passed to all widgets on the target dashboard, just as if the user had set those cross-filters manually.
+
+```json
+"drillDownMapping": [
+  {
+    "key": "salesDetail",
+    "targetType": "widget",
+    "targetWidgetCode": "SALES_DETAIL",
+    "enTitle": "Sales Details",
+    "arTitle": "تفاصيل المبيعات",
+    "orderInMenu": 1,
+    "filters": [...]
+  },
+  {
+    "key": "regionalDash",
+    "targetType": "dashboard",
+    "targetDashboardCode": "REGIONAL",
+    "enTitle": "Regional Dashboard",
+    "arTitle": "لوحة المنطقة",
+    "openMode": "popup",
+    "orderInMenu": 2,
+    "filters": [...]
+  }
+]
+```
+
+The `openMode` field controls how the target opens:
+
+| `openMode` | Behavior |
+|---|---|
+| `"popup"` | Default. Opens a DrillDownDialog. For dashboard targets, this is a fullscreen dialog that renders all the dashboard's widgets. |
+| `"navigate"` | Navigates in the same browser tab. |
+| `"newTab"` | Opens the target in a new browser tab. |
+
+::: tip
+Dashboard drill-down is particularly useful for hierarchical analysis — for example, drilling from a company-wide summary into a regional dashboard, and from there into a branch-level dashboard. Each level passes its filters down to the next.
+:::
+
+---
+
+## 5a. clickAction — Controlling Left-Click Behavior
+
+By default, clicking a data point on a chart emits cross-filters (the values defined in `clickEmitMapping`). The `clickAction` object lets you override that behavior so a left-click can instead navigate to a link or trigger a drill-down target directly — no right-click menu needed.
+
+```json
+"clickAction": {
+  "type": "crossFilter | link | drillDown",
+  "targetKey": "someKey"
+}
+```
+
+| Field | Required | Description |
+|---|---|---|
+| `type` | Yes | One of `"crossFilter"`, `"link"`, or `"drillDown"`. |
+| `targetKey` | If link or drillDown | The `key` of the target in `linkMappings` (for `"link"`) or `drillDownMapping` (for `"drillDown"`). Not used for `"crossFilter"`. |
+
+The three modes:
+
+- **`"crossFilter"`** — The current default behavior. The widget emits cross-filter values from `clickEmitMapping`. This is what happens when `clickAction` is absent entirely, so you only need to specify it explicitly if you want to be self-documenting.
+- **`"link"`** — Navigates using a link defined in `linkMappings`. The `targetKey` must match the `key` of one of the link entries.
+- **`"drillDown"`** — Triggers drill-down to a target defined in `drillDownMapping`. The `targetKey` must match the `key` of one of the drill-down entries. This is handy when you want a single-click drill-down experience without requiring the user to right-click and choose from a menu.
+
+::: warning
+If `clickAction` is absent, the widget falls back to cross-filter emission — exactly the same behavior as before this feature was introduced. Existing configurations do not need any changes.
+:::
+
+**Example — left-click opens a drill-down widget directly:**
+
+```json
+{
+  "clickAction": {
+    "type": "drillDown",
+    "targetKey": "invoiceDetails"
+  },
+  "drillDownMapping": [
+    {
+      "key": "invoiceDetails",
+      "targetWidgetCode": "bi-item-invoice-details",
+      "enTitle": "Invoice Details",
+      "arTitle": "تفاصيل الفواتير",
+      "filters": [...]
+    }
+  ]
+}
+```
+
+In this configuration, left-clicking a data point immediately opens the "Invoice Details" drill-down popup. The right-click context menu still shows all drill-down targets as usual.
+
+---
+
+## 5b. linkMappings — Link Navigation
+
+The `linkMappings` array defines navigation links that appear in the right-click context menu under a "Navigate To" group. These links let users jump from a chart data point to an entity edit screen, an external URL, or any internal route.
+
+```json
+"linkMappings": [
+  {
+    "key": "openCustomer",
+    "enLabel": "Open Customer",
+    "arLabel": "فتح العميل",
+    "linkToEntityTypeColumn": "CustomerEntityType",
+    "linkToIdColumn": "CustomerId",
+    "openMode": "popup",
+    "labelColumn": "CustomerName"
+  },
+  {
+    "key": "openWebsite",
+    "enLabel": "Open Website",
+    "arLabel": "فتح الموقع",
+    "linkColumn": "WebsiteURL"
+  }
+]
+```
+
+There are two kinds of links, distinguished by which fields you provide:
+
+### Direct Link (URL-based)
+
+Use the `linkColumn` field to point to a SQL column that contains a URL. The system inspects the URL to decide how to open it:
+
+- **Absolute URLs** (starting with `http://` or `https://`) open in a new browser tab.
+- **Relative URLs** are treated as internal application routes and navigate within the app.
+
+| Field | Required | Description |
+|---|---|---|
+| `key` | Yes | Unique identifier for the link. Referenced by `clickAction.targetKey`. |
+| `enLabel` | No | English label in the context menu |
+| `arLabel` | No | Arabic label in the context menu |
+| `linkColumn` | Yes | SQL column containing the URL |
+
+### Entity Navigation Link
+
+Use `linkToEntityTypeColumn` + `linkToIdColumn` to build a link that opens an entity's edit view — for example, opening the Customer record that a chart bar represents.
+
+| Field | Required | Description |
+|---|---|---|
+| `key` | Yes | Unique identifier for the link. Referenced by `clickAction.targetKey`. |
+| `enLabel` | No | English label in the context menu |
+| `arLabel` | No | Arabic label in the context menu |
+| `linkToEntityTypeColumn` | Yes | SQL column containing the entity type string (e.g., `"Customer"`) |
+| `linkToIdColumn` | Yes | SQL column containing the entity ID |
+| `entityType` | No | Static entity type string. Use this instead of `linkToEntityTypeColumn` when every row links to the same entity type. |
+| `openMode` | No | How to open the entity: `"popup"` (Quasar dialog, default), `"navigate"` (same tab), `"newTab"`. |
+| `labelColumn` | No | SQL column used to enrich the context menu label. For example, if `enLabel` is `"Open Customer"` and `labelColumn` resolves to `"ABC Trading"`, the menu shows `"Open Customer 'ABC Trading'"`. |
+
+::: tip
+The `labelColumn` field is a small touch that makes a big difference in usability. Instead of a generic "Open Customer" menu item, the user sees "Open Customer 'ABC Trading'" — they know exactly where the link will take them before they click.
+:::
+
+**Example — left-click navigates to a customer entity:**
+
+```json
+{
+  "clickAction": {
+    "type": "link",
+    "targetKey": "openCustomer"
+  },
+  "linkMappings": [
+    {
+      "key": "openCustomer",
+      "enLabel": "Open Customer",
+      "arLabel": "فتح العميل",
+      "linkToEntityTypeColumn": "CustomerEntityType",
+      "linkToIdColumn": "CustomerId",
+      "openMode": "popup",
+      "labelColumn": "CustomerName"
+    }
+  ]
+}
+```
+
+Here, left-clicking a data point opens the customer's edit form in a popup dialog. The same link also appears in the right-click context menu under "Navigate To".
+
+---
+
+## 5c. Context Menu Structure
+
+With `linkMappings`, `drillDownMapping`, and dimension drill-by all configured, the right-click context menu on a data point looks like this:
+
+```
+Source Label: "Series / Category"
+─────────────────────────────
+Navigate To:                          ← from linkMappings
+  ├─ Open Customer "ABC Trading"
+  ├─ Open Website
+─────────────────────────────
+Open In:                              ← from drillDownMapping
+  ├─ Sales Details (widget)
+  ├─ Regional Dashboard (dashboard)
+─────────────────────────────
+Drill Down By:                        ← from dimension drill-by
+  ├─ By Month
+```
+
+Each section only appears if the corresponding mapping is defined. A widget with no `linkMappings` and no `drillDownMapping` will only show the "Drill Down By" section (if dimension drill-by fields exist in the wizard), or no context menu at all.
 
 ---
 
@@ -522,9 +731,11 @@ The server injects several non-standard properties into the `echartOption` objec
 | Property | Purpose |
 |---|---|
 | `_clickEmitData` | Pre-built cross-filter emission points (from `clickEmitMapping`) |
+| `_clickAction` | Click action configuration (from `clickAction`) — tells the frontend what to do on left-click |
 | `_formatMeta` | Number format metadata per series (from `format` specs in dataMapping) |
 | `_drillDownData` | Resolved drill-down targets and filter metadata (from `drillDownMapping`) |
 | `_drillDownByData` | Dimension drill-by metadata (from wizard field definitions) |
+| `_linkData` | Resolved link navigation targets and per-point link values (from `linkMappings`) |
 
 ---
 
