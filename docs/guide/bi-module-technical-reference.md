@@ -4,6 +4,10 @@ This document is the authoritative technical reference for the Nama ERP BI (Busi
 
 The BI module uses [Apache ECharts](https://echarts.apache.org/) for chart rendering. AI tools already understand standard ECharts options — this document focuses exclusively on **Nama ERP's extensions** on top of ECharts: the `chartConfigJSON` structure, `$DATA` placeholder system, `$FILTERS$` SQL injection, cross-filter bindings, drill-down mappings, and the bulk import format.
 
+::: tip Schema Discovery
+The Nama ERP data model is published at [https://dm.namasoft.com](https://dm.namasoft.com). AI tools and developers can use this site to discover entity schemas — table names, column names, data types, join columns, foreign keys, and property paths. This is essential for writing correct SQL queries in widget data sources and for knowing which `fieldId` paths to use in wizard definitions.
+:::
+
 ---
 
 ## 1. The chartConfigJSON Structure
