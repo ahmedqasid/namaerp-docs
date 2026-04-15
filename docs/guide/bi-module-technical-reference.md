@@ -2,7 +2,7 @@
 
 This document is the authoritative technical reference for the Nama ERP BI (Business Intelligence) module's JSON structures. It is written primarily for AI assistants and developers who need to create SQL queries, chart configurations, cross-filter bindings, drill-down mappings, and bulk import files that work out-of-the-box when pasted into Nama ERP.
 
-The BI module uses [Apache ECharts](https://echarts.apache.org/) for chart rendering. AI tools already understand standard ECharts options — this document focuses exclusively on **Nama ERP's extensions** on top of ECharts: the `chartConfigJSON` structure, `$DATA` placeholder system, `$FILTERS$` SQL injection, cross-filter bindings, drill-down mappings, and the bulk import format.
+The BI module uses [Apache ECharts](https://echarts.apache.org/) for chart rendering. AI tools already understand standard ECharts options — this document focuses exclusively on **Nama ERP's extensions** on top of ECharts: the `chartConfigJSON` structure, `$DATA` placeholder system, `/*AND-FILTERS*/` SQL injection, cross-filter bindings, drill-down mappings, and the bulk import format.
 
 ::: tip Schema Discovery
 The Nama ERP data model is published at [https://dm.namasoft.com](https://dm.namasoft.com). AI tools and developers can use this site to discover entity schemas — table names, column names, data types, join columns, foreign keys, and property paths. This is essential for writing correct SQL queries in widget data sources and for knowing which `fieldId` paths to use in wizard definitions.
@@ -38,30 +38,30 @@ Every BI widget stores its configuration in a single `chartConfigJSON` field (a 
 
 ## 2. Data Source Query (SQL)
 
-Each widget has a `dataSource` field containing a SQL query (T-SQL for SQL Server). The query **must** include the literal placeholder `$FILTERS$` in its WHERE clause. The server replaces this with the active cross-filter conditions at runtime.
+Each widget has a `dataSource` field containing a SQL query (T-SQL for SQL Server). The query **must** include the literal placeholder `/*AND-FILTERS*/` in its WHERE clause. The server replaces this with the active cross-filter conditions at runtime. Because the placeholder is a SQL comment, the query is also valid when run directly in SQL Server Management Studio without any modifications.
 
 ### Pattern
 
 ```sql
 SELECT columns
 FROM tables
-WHERE 1=1 AND $FILTERS$
+WHERE 1=1 /*AND-FILTERS*/
 GROUP BY columns
 ORDER BY columns
 ```
 
-### How `$FILTERS$` Works
+### How `/*AND-FILTERS*/` Works
 
-At runtime, the server builds WHERE clause expressions from the widget's cross-filter bindings and replaces `$FILTERS$` with them:
+At runtime, the server builds WHERE clause expressions from the widget's cross-filter bindings and replaces `/*AND-FILTERS*/` with them:
 
-- If no filters are active: `$FILTERS$` becomes `1=1`
-- If filters are active: `$FILTERS$` becomes `expr1 AND expr2 AND expr3`
+- If no filters are active: `/*AND-FILTERS*/` is removed (empty string), leaving the query unchanged
+- If filters are active: `/*AND-FILTERS*/` becomes ` AND expr1 AND expr2 AND expr3`
 
-The `1=1 AND $FILTERS$` pattern ensures the WHERE clause is always syntactically valid regardless of whether filters are active.
+Because `/*AND-FILTERS*/` is a SQL comment, the query is always syntactically valid — you can paste it directly into SQL Server Management Studio and run it without any edits.
 
 ### Query Rules
 
-1. Always include `$FILTERS$` — even if the widget has no cross-filter bindings. The server expects it.
+1. Always include `/*AND-FILTERS*/` — even if the widget has no cross-filter bindings. The server expects it.
 2. Use table aliases consistently. The `sqlLeftHandSide` in cross-filter definitions references these aliases (e.g., `l.branch_id`).
 3. For EChart widgets, the column names in the SQL must match the column names referenced in `dataMapping` (e.g., `categoryColumn`, `valueColumn`, series `column`).
 4. For Table widgets, column names become the AG Grid column headers.
@@ -76,7 +76,7 @@ SELECT TOP 10
 FROM SalesInvoiceLine l
   LEFT JOIN InvItem i ON i.id = l.item_id
   LEFT JOIN Branch b ON b.id = l.branch_id
-WHERE 1=1 AND $FILTERS$
+WHERE 1=1 /*AND-FILTERS*/
 GROUP BY i.name2
 ORDER BY netValue DESC
 ```
@@ -187,7 +187,7 @@ Pivot-table style: one column for categories (X-axis), one column whose distinct
 ```sql
 SELECT YEAR(l.valueDate) salesYear, b.name2 branchName, SUM(l.netValue) netValue
 FROM SalesInvoiceLine l LEFT JOIN Branch b ON b.id = l.branch_id
-WHERE 1=1 AND $FILTERS$
+WHERE 1=1 /*AND-FILTERS*/
 GROUP BY YEAR(l.valueDate), b.name2
 ORDER BY salesYear
 ```
@@ -647,7 +647,7 @@ Each binding references a `BICrossFilter` entity by its `code`. When that cross-
 1. `BICrossFilter` with code `"branchFilter"` has `sqlLeftHandSide: "l.branch_id"` and `operator: "Equal"`
 2. Widget X has `crossFilterBindings: [{"crossFilter": "branchFilter"}]`
 3. User clicks a branch on another widget, setting the `branchFilter` cross-filter
-4. Widget X re-fetches data; the server replaces `$FILTERS$` with `l.branch_id = <selected branch ID>`
+4. Widget X re-fetches data; the server replaces `/*AND-FILTERS*/` with `AND l.branch_id = <selected branch ID>`
 
 ### Supported Operators
 
@@ -798,7 +798,7 @@ Each entry creates a `DashBoardWidget` entity. Key fields:
   "chartTitle": "المبيعات حسب الصنف",
   "englishChartTitle": "Sales by Item",
   "type": "EChart",
-  "dataSource": "SELECT ... WHERE 1=1 AND $FILTERS$ ...",
+  "dataSource": "SELECT ... WHERE 1=1 /*AND-FILTERS*/ ...",
   "chartConfigJSON": "{ ... }",
   "horizontalMode": true,
   "crossFilterBindings": [
@@ -816,7 +816,7 @@ Each entry creates a `DashBoardWidget` entity. Key fields:
 | `chartTitle` | No | Arabic chart title displayed above the chart |
 | `englishChartTitle` | No | English chart title |
 | `type` | Yes | `"EChart"` or `"Table"` |
-| `dataSource` | Yes | SQL query with `$FILTERS$` placeholder |
+| `dataSource` | Yes | SQL query with `/*AND-FILTERS*/` placeholder |
 | `chartConfigJSON` | If EChart | JSON string containing echartOption + dataMapping (+ optional clickEmitMapping, drillDownMapping) |
 | `wizardDataSource` | No | Code of a `DashBoardWidgetWizard` entity (alternative to raw SQL) |
 | `horizontalMode` | No | Layout hint |
@@ -951,7 +951,7 @@ Here is a complete, working import JSON that creates a sales analysis dashboard 
       "chartTitle": "المبيعات حسب التصنيف",
       "englishChartTitle": "Sales by Category",
       "type": "EChart",
-      "dataSource": "SELECT cc.id ccId, cc.code ccCode, cc.name1 ccName1, cc.name2 ccName2, SUM(l.netValue) netValue FROM SalesInvoiceLine l LEFT JOIN Customer c ON c.id = l.customer_id LEFT JOIN CustomerCategory cc ON cc.id = c.customerCategory_id WHERE 1=1 AND $FILTERS$ GROUP BY cc.id, cc.code, cc.name1, cc.name2",
+      "dataSource": "SELECT cc.id ccId, cc.code ccCode, cc.name1 ccName1, cc.name2 ccName2, SUM(l.netValue) netValue FROM SalesInvoiceLine l LEFT JOIN Customer c ON c.id = l.customer_id LEFT JOIN CustomerCategory cc ON cc.id = c.customerCategory_id WHERE 1=1 /*AND-FILTERS*/ GROUP BY cc.id, cc.code, cc.name1, cc.name2",
       "chartConfigJSON": "{\"echartOption\":{\"tooltip\":{\"trigger\":\"item\",\"formatter\":\"{b}: {c} ({d}%)\"},\"legend\":{\"orient\":\"vertical\",\"left\":\"left\"},\"series\":[{\"type\":\"pie\",\"radius\":\"60%\",\"data\":\"$DATA.values\"}]},\"dataMapping\":{\"type\":\"LabelValue\",\"labelColumn\":\"ccName2\",\"valueColumn\":\"netValue\"},\"clickEmitMapping\":[{\"crossFilterCode\":\"custCategoryFilter\",\"idColumn\":\"ccId\",\"codeColumn\":\"ccCode\",\"name1Column\":\"ccName1\",\"name2Column\":\"ccName2\",\"entityType\":\"CustomerCategory\"}]}",
       "crossFilterBindings": [
         {"crossFilter": "dateFromFilter"},
@@ -965,7 +965,7 @@ Here is a complete, working import JSON that creates a sales analysis dashboard 
       "chartTitle": "أعلى 10 أصناف",
       "englishChartTitle": "Top 10 Items",
       "type": "EChart",
-      "dataSource": "SELECT TOP 10 i.name2 itemName, SUM(l.netValue) netValue FROM SalesInvoiceLine l LEFT JOIN InvItem i ON i.id = l.item_id LEFT JOIN Customer c ON c.id = l.customer_id LEFT JOIN CustomerCategory cc ON cc.id = c.customerCategory_id WHERE 1=1 AND $FILTERS$ GROUP BY i.name2 ORDER BY netValue DESC",
+      "dataSource": "SELECT TOP 10 i.name2 itemName, SUM(l.netValue) netValue FROM SalesInvoiceLine l LEFT JOIN InvItem i ON i.id = l.item_id LEFT JOIN Customer c ON c.id = l.customer_id LEFT JOIN CustomerCategory cc ON cc.id = c.customerCategory_id WHERE 1=1 /*AND-FILTERS*/ GROUP BY i.name2 ORDER BY netValue DESC",
       "chartConfigJSON": "{\"echartOption\":{\"tooltip\":{\"trigger\":\"axis\",\"axisPointer\":{\"type\":\"shadow\"}},\"grid\":{\"left\":120,\"right\":40,\"top\":10,\"bottom\":20},\"xAxis\":{\"type\":\"value\"},\"yAxis\":{\"type\":\"category\",\"data\":\"$DATA.categories\",\"inverse\":true,\"axisLabel\":{\"width\":110,\"overflow\":\"truncate\"}},\"series\":[{\"name\":\"$DATA.series[0].name\",\"type\":\"bar\",\"data\":\"$DATA.series[0].data\",\"itemStyle\":{\"borderRadius\":[0,4,4,0]},\"label\":{\"show\":true,\"position\":\"right\"}}]},\"dataMapping\":{\"type\":\"CategoryValue\",\"categoryColumn\":\"itemName\",\"series\":[{\"column\":\"netValue\",\"name\":\"Net Value\",\"type\":\"bar\",\"format\":{\"type\":\"currency\",\"decimals\":0,\"compact\":true}}]}}",
       "crossFilterBindings": [
         {"crossFilter": "custCategoryFilter"},
@@ -980,7 +980,7 @@ Here is a complete, working import JSON that creates a sales analysis dashboard 
       "chartTitle": "تفاصيل الفواتير",
       "englishChartTitle": "Invoice Details",
       "type": "Table",
-      "dataSource": "SELECT TOP 200 s.code invoiceCode, l.valueDate, c.name2 customerName, i.name2 itemName, l.quantityBaseValue qty, l.netValue FROM SalesInvoiceLine l LEFT JOIN SalesInvoice s ON s.id = l.salesInvoice_id LEFT JOIN InvItem i ON i.id = l.item_id LEFT JOIN Customer c ON c.id = l.customer_id LEFT JOIN CustomerCategory cc ON cc.id = c.customerCategory_id WHERE 1=1 AND $FILTERS$ ORDER BY l.valueDate DESC",
+      "dataSource": "SELECT TOP 200 s.code invoiceCode, l.valueDate, c.name2 customerName, i.name2 itemName, l.quantityBaseValue qty, l.netValue FROM SalesInvoiceLine l LEFT JOIN SalesInvoice s ON s.id = l.salesInvoice_id LEFT JOIN InvItem i ON i.id = l.item_id LEFT JOIN Customer c ON c.id = l.customer_id LEFT JOIN CustomerCategory cc ON cc.id = c.customerCategory_id WHERE 1=1 /*AND-FILTERS*/ ORDER BY l.valueDate DESC",
       "crossFilterBindings": [
         {"crossFilter": "custCategoryFilter"},
         {"crossFilter": "dateFromFilter"},
