@@ -127,5 +127,69 @@ ___محتويات الفاتورة ___
 {endif}
 ```
 
+## كيف أرسل تنبيه لمشرفي المبيعات عند وجود عروض أسعار لم تُحوَّل إلى أوامر بيع خلال مدة معينة؟
+
+يريد العميل إرسال تنبيه لكل مشرفي المبيعات عند وجود عرض أسعار لبائع تحت إدارة المشرف ولم يتم تحويله إلى أمر بيع بعد مدة تزيد عن 9 أو 10 أيام، وذلك من خلال مهمة مجدولة.
+
+::: warning ملاحظة
+العميل يريد إرسال **تنبيهات** داخل النظام وليس بريد إلكتروني أو تقرير.
+:::
+
+- الاستعلام
+
+الاستعلام التالي يقوم بجلب عروض الأسعار التي مرّ عليها 10 أيام ولم تُحوَّل إلى أوامر بيع:
+
+```sql
+select s.code, c.name1 customername, s.valuedate,
+       cast(s.netValue as decimal(20,2)) netValue,
+       e.code supervisorCode, e.id supervisorId,
+       e.entityType supervisorEntityType
+from SalesQuotation s
+left join SalesOrder o on o.fromDoc_id = s.id
+left join Customer c on c.id = s.customer_id
+left join DocumentTerm t on t.id = s.term_id
+left join Employee e on e.id = s.salesMan_id
+left join Employee esu on esu.id = e.supervisor_id
+where datediff(day, s.valuedate, getdate()) + 1 = 10
+  and s.commitedBefore = 1
+  and o.code is null
+ORDER BY esu.code
+```
+
+- قالب التنبيه
+
+```tempo
+{loop()}
+{header(supervisorCode)}
+{openmsg}{sendto}{supervisorId}{endsendto}
+السادة إدارة المبيعات
+برجاء العلم أن عروض الاسعار الاتية لم يتم تحويلها الى عقود منذ 10 ايام
+برجاء التواصل مع العميل لمعرفة الاسباب
+وكتابة الملاحظات في عرض السعر
+{opentable}
+{row}{cell} كود عرض السعر {cell}  العميل {cell}  التاريخ   {cell}  بقيمة  {endrow}
+{endheader}
+{row}{cell}{code}{cell}{customername}{cell}{valuedate}{cell}{netValue}
+{endrow}
+{footer(supervisorCode)}
+{closetable}
+{closemsg}
+{endfooter}
+{endloop}
+```
+
+- ** شرح القالب **
+
+يستخدم هذا القالب تقنية التجميع (`header`/`footer`) لتجميع عروض الأسعار حسب المشرف (`supervisorCode`)، بحيث يتلقى كل مشرف تنبيهًا واحدًا يحتوي على جدول بجميع عروض الأسعار المتأخرة للبائعين تحت إدارته.
+
+- `{loop()}` — يبدأ التكرار على نتائج الاستعلام.
+- `{header(supervisorCode)}` — يبدأ تجميع السطور حسب كود المشرف، ويُكتب محتوى الـ header مرة واحدة لكل مجموعة.
+- `{sendto}{supervisorId}{endsendto}` — يُرسل التنبيه إلى المشرف المعني.
+- `{opentable}` / `{closetable}` — ينشئ جدولًا يحتوي على تفاصيل عروض الأسعار.
+- `{footer(supervisorCode)}` — يُغلق المجموعة ويُنهي الرسالة.
+
+::: warning ملاحظة مهمة
+يجب أن يحتوي الاستعلام على `ORDER BY esu.code` لضمان أن سجلات كل مشرف تأتي متتالية في النتائج. بدون الترتيب، قد تتداخل سجلات المشرفين ولن يعمل التجميع بـ `header`/`footer` بشكل صحيح.
+:::
 
 </rtl>
