@@ -26,6 +26,8 @@ heroImage: hero.svg
       - [Importing Data from Excel or Queries](/guide/entity-flows/excel-and-sql-import-by-entity-flow.md)
       - [EAGenerateEntityFromEntityAction](/guide/entity-flows/ea-gen-entity-from-entity.md)
     - [دليل استخدام أداة إنشاء التقارير ونماذج الطباعة](/guide/report-wizard-guide.md)
+    - [BI Module — Dashboards & Analytics](/guide/bi-module-guide.md)
+    - [Nama ERP BI Module — Technical Reference](/guide/bi-module-technical-reference.md)
     - [الفواتير والضرائب والخصومات](/guide/invoices/)
       - [Customer Reward Points (Loyalty Points)](/guide/invoices/reward-points.md)
       - [Invoice Discounts and Tax Calculation System - Comprehensive Guide](/guide/invoices/invoice-discounts-and-tax-calculation-guide.md)

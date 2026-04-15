@@ -119,11 +119,11 @@ You don't need to learn the full ECharts API to use the designer. The templates 
 
 #### Click & Links Tab
 
-Configure what happens when users interact with the chart — covered in detail in the [Cross-Filtering](#cross-filtering) and [Links](#links-navigate-to-records) sections below.
+Configure what happens when users interact with the chart — covered in detail in the [Cross-Filtering](#Cross-Filtering) and [Links](#Links----Navigate-to-Records) sections below.
 
 #### Drill-Down Tab
 
-Configure drill-down targets — covered in the [Drill-Down](#drill-down) section below.
+Configure drill-down targets — covered in the [Drill-Down](#Drill-Down) section below.
 
 ---
 
