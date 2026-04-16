@@ -294,6 +294,10 @@ NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP}, "ReportCode")
 .p("param").v($F{id}, $F{entity}, $F{code})
 .p("param").ref($F{entityType}, $F{id})
 .p("param").refCode($F{entityType}, $F{code})
+
+// If you do not want to add the server url (the link will be #rpt:xxx instead of https://abc.namasoft.com/erp/#rpt:xxx) use the following
+.directLink()
+
 ```
 
 #### Report Link Examples
