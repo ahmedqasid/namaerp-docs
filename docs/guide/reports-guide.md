@@ -349,6 +349,9 @@ NamaRep.listView()
     valueDate,GreaterThanOrEqual,{fromDate},AND;
     """))
   .toString()
+
+// To enable direct link to list view, use the following
+.directLink()
 ```
 
 #### Builder Methods
