@@ -358,6 +358,53 @@ You can also control decimal places and specify a currency symbol. If you set th
 
 ---
 
+## Period Comparison
+
+Sometimes you need to answer "how does this quarter compare to the same quarter last year?" without building a completely different dashboard. The period comparison feature handles this — the system runs your existing widget query twice (once for the current dates, once for the shifted dates) and merges the results, so every chart that opts in automatically shows both periods side by side.
+
+### Setting It Up
+
+Three pieces are needed:
+
+1. **Create a `BI Period Comparison Config`** — a master file that defines:
+   - How far to shift the dates (e.g., 1 Year, 3 Months) using the `Subtracted Period` field
+   - Column names for the injected period columns (e.g., `periodAr` / `periodEn`)
+   - Display labels for each period (e.g., "Current Year" / "Previous Year" in both Arabic and English)
+
+2. **Link it to your date cross-filters** — on each date cross-filter (e.g., Date From, Date To), set the `Period Comparison Config` field to the config you created. Both date filters should point to the same config so both ends of the range shift together.
+
+3. **Enable comparison on each widget** — on the widget, check the `Enable Comparison` checkbox. Only widgets with this flag enabled will run the double-query comparison. Other widgets on the same dashboard continue to work normally with a single query.
+
+### Two Modes of Comparison
+
+#### Mode A — Period Label Column (for trend charts)
+
+Best for line charts, area charts, and any chart that uses `CategoryLabelValue` data mapping. The system injects a period column into the result set (using the column names from your config), and the chart's `labelColumn` can reference it to automatically get two series — one per period.
+
+**Example:** A monthly sales trend line chart with `categoryColumn: "monthLabel"` and `labelColumn: "periodEn"`. When the user selects January–March 2026, the chart shows two lines: "Current Year" and "Previous Year", both plotted against months 01, 02, 03.
+
+For this mode, format your month/category to exclude the year (e.g., `FORMAT(l.valueDate, 'MM')` instead of `'yyyy-MM'`) so that the same months align across periods.
+
+#### Mode B — Column Split (for bar charts and explicit series)
+
+Best for bar charts, ranked lists, and any chart that uses `CategoryValue` with explicitly defined series. Instead of adding a period dimension, this mode splits a measure column into two: one for the current period, one for the previous period.
+
+Configure it in the widget's **Comparison Data Mapping** grid:
+
+| Original Column | Previous Period Column |
+|---|---|
+| `netValue` | `prevNetValue` |
+
+Your chart's `CategoryValue` data mapping then has two series: one for `netValue` ("Current Year") and one for `prevNetValue` ("Previous Year"), producing side-by-side bars.
+
+For EChart widgets, you don't need to set `Merge Comparison Results By Columns` — the ECharts data mapping layer already merges rows that share the same category/label keys and sums their values automatically. However, `Merge Comparison Results By Columns` is important for **non-chart widget types** like Tables, Metrics Cards, and other widgets where there's no data mapping layer to handle the merge. Set it to a CSV of the columns that identify a unique row (e.g., `itemClassName`), and the system will match rows from both periods and combine them into a single row instead of appending duplicates.
+
+### Query Parameters
+
+Regardless of mode, the system injects two parameters into every comparison query: `periodArValue` and `periodEnValue`. Widget authors can use these directly in SQL — for example, in `CONCAT()` or `CASE` expressions — to label or transform data based on which period is currently being queried.
+
+---
+
 ## Creating Dashboards with AI
 
 The [BI Module Technical Reference](./bi-module-technical-reference.md) documents every JSON structure, SQL pattern, and import format you need to create dashboards programmatically. It's written specifically for AI tools and developers — which means you can use an AI assistant to design and generate complete dashboard import files for you.
