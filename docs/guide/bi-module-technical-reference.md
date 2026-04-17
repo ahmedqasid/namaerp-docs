@@ -34,6 +34,17 @@ Every BI widget stores its configuration in a single `chartConfigJSON` field (a 
 | `drillDownMapping` | No | Defines which target widgets or dashboards appear in the right-click drill-down menu, and what filter values to pass to them. |
 | `linkMappings` | No | Defines link navigation targets that appear in the right-click context menu under "Navigate To". See Section 5c. |
 
+### 1.1 Wizard Mode vs SQL Mode
+
+A widget operates in one of two modes depending on whether it has a `wizardDataSource` set:
+
+- **SQL mode** (`widget.dataSource` is set, `widget.wizardDataSource` is null): every column reference in `chartConfigJSON` is a raw result-set column name (e.g., `"categoryColumn": "branchName"`). This is the classic mode and all examples in this document default to it.
+- **Wizard mode** (`widget.wizardDataSource` is set): column slots can instead reference **wizard field IDs** — property paths defined on the wizard (e.g., `"categoryWizardFieldId": "customer.customerCategory"`). The backend resolves each field ID to its SQL alias at runtime using metadata cached on the wizard field line, so you don't write column names or repeat the reference sub-columns yourself.
+
+Wizard mode introduces sibling keys next to each existing column key — `*WizardFieldId` alongside `*Column`. Both shapes coexist in the same JSON; the backend uses whichever is set, preferring the resolved column. Tempo columns and period-comparison columns (which have no wizard field) continue to use the `*Column` keys in both modes.
+
+See Section 14 for the full list of wizard-mode key pairs, cross-filter / drill-down interactions, and the dimension drill-by semantics.
+
 ---
 
 ## 2. Data Source Query (SQL)
@@ -361,12 +372,14 @@ When a user clicks a data point on a chart, the widget can emit cross-filter val
 | `name2Column` | No | Column containing English name |
 | `entityType` | No | Static entity type string (e.g., `"InvItem"`, `"Customer"`) |
 | `entityTypeColumn` | No | Column containing the entity type (for generic references) |
+| `wizardFieldId` | Wizard mode | The wizard field ID this emission is bound to — both as the source of id/code/name sub-columns and as the dimension on which this entry fires. See Section 14. |
 
 **Rules:**
 - For **Reference** type cross-filters: provide `idColumn` (required for the filter to work), plus `codeColumn`/`name1Column`/`name2Column` for display. The `entityType` is needed for binary(16) ID coercion.
 - For **scalar** type cross-filters (Date, Integer, Decimal, Text): provide `valueColumn`.
 - Multiple entries in the array mean the widget emits multiple cross-filters from a single click.
 - The columns referenced here must exist in the widget's SQL query.
+- In **wizard mode**, set `wizardFieldId` instead and omit the `idColumn`/`codeColumn`/`name1Column`/`name2Column`/`entityTypeColumn`/`entityType`/`valueColumn` fields — the backend resolves them from the wizard field's cached metadata. Entries are also filtered per-dimension: an entry fires only on clicks where its `wizardFieldId` is one of the chart's currently-active dimensions.
 
 **How it works at runtime:**
 1. User clicks a data point (e.g., bar segment for "Branch A")
@@ -414,8 +427,9 @@ When a user right-clicks a data point, a context menu shows drill-down targets. 
 | `openMode` | No | How to open the target: `"popup"` (default — DrillDownDialog), `"navigate"` (same tab), `"newTab"`. For dashboard targets, popup opens a fullscreen dialog showing all dashboard widgets. |
 | `orderInMenu` | No | Sort order in the context menu (ascending) |
 | `filters` | Yes | Array of filter definitions (same structure as `clickEmitMapping` entries) |
+| `wizardFieldId` | Wizard mode | The dimension this drill target belongs to. The menu only shows entries whose `wizardFieldId` matches one of the chart's active dimensions. See Section 14. |
 
-**Each filter entry** has the same fields as `clickEmitMapping` (crossFilterCode, idColumn, codeColumn, name1Column, name2Column, entityType, entityTypeColumn, valueColumn).
+**Each filter entry** has the same fields as `clickEmitMapping` (crossFilterCode, idColumn, codeColumn, name1Column, name2Column, entityType, entityTypeColumn, valueColumn). In wizard mode each filter may carry `wizardFieldId` instead of the column fields — the backend fills in the sub-columns from the wizard field's cached metadata.
 
 **How it works:**
 1. User right-clicks a data point
@@ -828,7 +842,7 @@ The `chartConfigJSON` value is a **JSON string** (escaped), not a nested object.
 
 ### 11.3 DashBoardWidgetWizard Array (Optional)
 
-Wizards define data sources using field IDs rather than raw SQL. The system generates SQL from the wizard definition. This is an alternative to writing raw SQL in `dataSource`.
+Wizards define data sources using field IDs rather than raw SQL. The system generates SQL from the wizard definition and enables several features (dimension drill-by, auto-inferred cross-filter columns, per-dimension drill menus) that raw-SQL widgets don't get. See Section 14 for the wizard-mode chart-config shape.
 
 ```json
 {
@@ -1147,3 +1161,185 @@ Here is a complete, working import JSON that creates a sales analysis dashboard 
   "dataMapping": {"type": "Heatmap", "xColumn": "dayOfWeek", "yColumn": "hourSlot", "valueColumn": "count"}
 }
 ```
+
+---
+
+## 14. Wizard Mode — Chart Config Shape
+
+When a widget has a `wizardDataSource`, its `chartConfigJSON` can reference **wizard field IDs** instead of raw SQL column names. The backend resolves each field ID to its underlying SQL alias using metadata that is cached on the wizard field line at save time.
+
+This section is the definitive reference for the wizard-mode shape. SQL-mode widgets are unaffected by anything here.
+
+### 14.1 How Metadata Caching Works
+
+When you save a `DashBoardWidgetWizard`, its `postCommitAction` runs `ReportWizardQuery.build()` once, then stores a per-field metadata record in each field line's (system) `fieldMetadata` JSON field. The record contains:
+
+- `fieldId` — the wizard field's property path
+- `chartUsage` — `"Dimension"` or `"Measure"`
+- `paramType` — `Reference`, `Decimal`, `Text`, `Date`, `Integer`, `Genericreference`, `Enum`, `Boolean`
+- `referencedEntityType` — only for reference fields
+- `aggregation` — `None`, `Sum`, `Count`, `Average`, `Min`, `Max`
+- `displayAlias` — the SQL alias used for this field's primary display column
+- `subColumns` — for reference fields only: the aliases of the auto-expanded id/code/name1/name2/entityType/value sub-columns
+- `sqlLeftHandSide` — the fully-qualified SQL LHS (e.g., `MainEntity.CustomerId`) used for cross-filter WHERE injection
+- `arabicTitle` / `englishTitle` — pass-through from the field line
+
+Because metadata is cached, no runtime re-building of `ReportWizardQuery` is needed just to look up an alias. At chart-render time the backend deserializes the cached records and consults them.
+
+### 14.2 Data Mapping Keys
+
+For every column slot that the chart types (Section 3) define, wizard mode adds a `*WizardFieldId` sibling key:
+
+| SQL-mode key | Wizard-mode sibling | Resolves to |
+|---|---|---|
+| `categoryColumn` | `categoryWizardFieldId` | `displayAlias` of the referenced wizard field |
+| `labelColumn` | `labelWizardFieldId` | same |
+| `valueColumn` | `valueWizardFieldId` | same |
+| `xColumn` | `xWizardFieldId` | same |
+| `yColumn` | `yWizardFieldId` | same |
+| `series[].column` | `series[].wizardFieldId` | same |
+
+If both are present for the same slot, the `*Column` value wins. If neither is present, the slot is left unset.
+
+For tempo columns and period-comparison columns, use the `*Column` keys — those aliases are not wizard fields, and any `wizardFieldId` pointing at them is silently ignored by the resolver.
+
+**Example — CategoryLabelValue in wizard mode:**
+
+```json
+"dataMapping": {
+  "type": "CategoryLabelValue",
+  "categoryWizardFieldId": "invoice.valueDate",
+  "labelWizardFieldId": "customer.customerCategory",
+  "valueWizardFieldId": "price.netValue",
+  "seriesType": "bar"
+}
+```
+
+### 14.3 Click-Emit & Drill-Down — wizardFieldId
+
+Each entry in `clickEmitMapping` and `drillDownMapping` (and its `filters[]` sub-entries) can carry a `wizardFieldId`:
+
+```json
+"clickEmitMapping": [
+  { "crossFilterCode": "customerCategoryFilter", "wizardFieldId": "customer.customerCategory" },
+  { "crossFilterCode": "customerFilter",         "wizardFieldId": "invoice.customer" }
+]
+```
+
+Two things happen at runtime for each entry that has a `wizardFieldId`:
+
+1. **Sub-column inference** — the backend fills in missing `idColumn`/`codeColumn`/`name1Column`/`name2Column`/`entityTypeColumn`/`valueColumn`/`entityType` from the wizard field's cached `subColumns` + `referencedEntityType`. You do not need to write those fields.
+2. **Per-dimension filtering** — the entry only fires when its `wizardFieldId` is one of the chart's **currently active dimensions** (see 14.4). This is what makes click-emit and drill-down behave correctly when a single widget supports multiple dimensions via drill-by.
+
+Entries without a `wizardFieldId` are treated as always-active (legacy SQL-mode behavior).
+
+### 14.4 Active Dimensions
+
+The "currently active dimensions" for a wizard widget is the ordered list of wizard field IDs it is grouping by right now. The backend derives it as:
+
+1. If the request carries `drillDownByTargetDimension`, that field ID is first.
+2. Then, in order: `categoryWizardFieldId`, `labelWizardFieldId`, `xWizardFieldId`, `yWizardFieldId` — whichever are set in `dataMapping`.
+
+Duplicates are skipped. This list drives three things:
+
+- **SQL rebuild**: the effective SQL is regenerated for each request via `ReportWizardQuery.buildForDrillDown(wizard, primary, otherDims)`. The primary dimension is the first entry; the rest are included as additional GROUP BY columns. All measures stay in the SELECT regardless.
+- **Click/drill filtering** (14.3).
+- **Drill-by menu exclusion**: a dimension already in the active list is hidden from the right-click "Drill Down By" menu.
+
+### 14.5 Dimension Drill-By Semantics (Option A)
+
+When a user right-clicks a data point and picks "Drill Down By X":
+
+1. **Category is replaced** — the drilled dimension takes the primary (category) slot.
+2. **Other active dimensions (label, x, y) stay** — they remain in GROUP BY so the chart renders the same shape.
+3. **Filter by clicked category value only** — the drill stack accumulates one entry per drill: `(categoryFieldId, clickedValue)`. The label's clicked value is NOT added to the filter.
+4. **Drill stack grows with each drill** — filters accumulate (e.g., after two drills: `WHERE month='Jan' AND region='West'`).
+
+The drill menu is computed from `wizard.fields` filtered to:
+- `chartUsageType == Dimension`
+- Not already in the active list
+- Not already in the drill stack
+
+Once the user drills, the server rebuilds the chart config by reading the widget's existing `chartConfigJSON` and surgically overriding `dataMapping.categoryColumn` with the drilled dimension's display alias (and removing `categoryWizardFieldId` so the rewriter doesn't overwrite). Everything else — `echartOption`, `labelColumn`/`labelWizardFieldId`, `valueColumn`/`valueWizardFieldId`, series styling, colors, `clickEmitMapping`, `drillDownMapping`, `linkMappings` — is carried through untouched.
+
+### 14.6 Cross-Filter SQL LHS
+
+For wizard widgets, cross-filter bindings can omit `sqlLeftHandSide` on both the binding and the `BICrossFilter` entity. If the binding has no LHS, the backend:
+
+1. Finds the click-emit entry for the same cross-filter code in the chart config
+2. Reads its `wizardFieldId`
+3. Uses the wizard field's cached `sqlLeftHandSide`
+
+This lets wizard-backed widgets inherit the SQL LHS from the field ID without the author ever having to know or write it.
+
+### 14.7 Frontend Endpoints
+
+Two endpoints on the BI dashboard servlet feed the chart-config designer:
+
+| Operation | Purpose |
+|---|---|
+| `fetchQueryColumns` | SQL-mode column list — returns the raw output columns of the widget's `dataSource` SQL. Unchanged from before wizard mode. |
+| `fetchExtraTempoAndPeriodRelatedColumns` | Shared — returns tempo columns and period-comparison columns derived from the widget's config. Both modes call this. |
+| `fetchWizardFieldOptions` | Wizard-mode only — takes a `wizardDataSource` reference and returns a list of `DTOBIWizardFieldOption` records (fieldId, titles, chartUsage, paramType, referencedEntityType, aggregation, displayAlias, subColumns) derived from the cached field metadata. Populates the chart designer's field-ID picker. |
+
+### 14.8 Coexistence With Legacy Widgets
+
+Wizard widgets saved before wizard-mode keys were introduced have only `*Column` keys in their `chartConfigJSON`. The backend reads them as before — column names, no per-dimension filtering. Re-saving the widget through the chart designer upgrades it to the new shape if the user picks field IDs for the mapping slots.
+
+### 14.9 Complete Wizard-Mode Example
+
+Below is a single CategoryLabelValue widget written in full wizard-mode shape: category and label are wizard field IDs, the measure is a wizard field ID, and both click-emit and drill-down entries use `wizardFieldId` so sub-columns are auto-inferred and the entries fire per-dimension.
+
+```json
+{
+  "echartOption": {
+    "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
+    "legend": {},
+    "xAxis": {"type": "category", "data": "$DATA.categories"},
+    "yAxis": {"type": "value"},
+    "series": "$DATA.series"
+  },
+  "dataMapping": {
+    "type": "CategoryLabelValue",
+    "categoryWizardFieldId": "invoice.valueDate",
+    "labelWizardFieldId": "customer.customerCategory",
+    "valueWizardFieldId": "price.netValue",
+    "seriesType": "bar",
+    "stack": "total"
+  },
+  "clickEmitMapping": [
+    { "crossFilterCode": "dateFromFilter",         "wizardFieldId": "invoice.valueDate" },
+    { "crossFilterCode": "customerCategoryFilter", "wizardFieldId": "customer.customerCategory" }
+  ],
+  "drillDownMapping": [
+    {
+      "key": "categoryDetails",
+      "wizardFieldId": "customer.customerCategory",
+      "targetWidgetCode": "bi-category-details",
+      "enTitle": "Category details",
+      "arTitle": "تفاصيل التصنيف",
+      "filters": [
+        { "crossFilterCode": "customerCategoryFilter", "wizardFieldId": "customer.customerCategory" }
+      ]
+    }
+  ]
+}
+```
+
+The corresponding wizard definition:
+
+```json
+{
+  "code": "bi-sales-breakdown",
+  "type": "EChartDataSource",
+  "tableType": "DetailLine",
+  "mainTable": "SalesInvoiceLine",
+  "fields": [
+    {"fieldId": "invoice.valueDate",          "chartUsageType": "Dimension"},
+    {"fieldId": "customer.customerCategory",  "chartUsageType": "Dimension"},
+    {"fieldId": "price.netValue",             "chartUsageType": "Measure", "sqlAggregationType": "Sum"}
+  ]
+}
+```
+
+No raw SQL, no column-name bookkeeping, no `idColumn`/`codeColumn` mappings. When a user right-clicks a bar and picks "Drill Down By Branch", the server rebuilds the query keeping customer category as the series axis (so the stacked layout is preserved), swaps the X-axis to branch, filters by the clicked date, and re-renders — all without touching the `echartOption` styling.

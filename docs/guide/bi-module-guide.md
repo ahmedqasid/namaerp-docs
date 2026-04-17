@@ -80,13 +80,24 @@ The form area has several tabs:
 
 #### Data Mapping Tab
 
-This is where you tell the chart which SQL columns to use. The available fields depend on the data mapping type (which is set automatically by your template choice, but can be changed):
+This is where you tell the chart which data fields to use. The available fields depend on the data mapping type (which is set automatically by your template choice, but can be changed):
 
 - **Category column** — the dimension that goes on the X-axis (e.g., branch name, month)
 - **Series** — one or more value columns, each with a name, chart type (bar/line/scatter), number format, and optional Y-axis assignment
 - **Label column** — for pivot-style charts where distinct values in one column become separate series automatically
 - **Stack / Percent mode** — turn grouped bars into stacked bars, or normalize to 100%
 - **Sort order** — ascending or descending by value
+
+The pickers behave differently depending on whether the widget uses a raw SQL data source or a wizard data source:
+
+- **SQL data source** — you pick from the result-set column names returned by your query (plus any tempo columns and period-comparison columns you've defined).
+- **Wizard data source** — you pick from the wizard's field IDs directly. Each option shows the translated title plus the raw field ID in parentheses (so `customer` and `upperInvoice.customer` are distinguishable even when they both translate to "Customer"). Tempo columns and period-comparison columns still appear in the same picker but under separate groups.
+
+Wizard-mode charts get several designer-level shortcuts:
+
+- The category, label, value, X, Y, and series slots accept a wizard field ID — the backend resolves the correct SQL alias at render time.
+- Cross-filter emission entries only need the target cross-filter and the wizard field ID; the id/code/name/entityType columns are auto-inferred from the field's metadata.
+- The Click & Links tab and the Drill-Down tab show an **Active Dimension** selector when in wizard mode. Each dimension gets its own set of cross-filter and drill-down entries, and a "Copy from Dimension" button clones entries from another dimension to bootstrap new configurations.
 
 #### Style Tab
 
@@ -243,7 +254,15 @@ Same idea, but the target is an entire dashboard instead of a single widget. The
 
 ### Dimension Drill-By (Same Chart, Deeper Dimension)
 
-If a widget uses a wizard data source with multiple dimension fields, you can drill down *by dimension*. Click "Riyadh" → drill by Month → see the same metric broken down by month for Riyadh only. A breadcrumb trail tracks your path (Region → Branch → Month), and you can click any breadcrumb to go back.
+If a widget uses a wizard data source with multiple dimension fields, you can drill down *by dimension*. Right-click "Riyadh" → Drill Down By Month → see the same metric broken down by month for Riyadh only. A breadcrumb trail tracks your path (Region → Branch → Month), and you can click any breadcrumb to go back.
+
+**How drill-by works for multi-dimension charts (CategoryLabelValue, stacked bars, etc.):**
+
+- The drilled dimension replaces the **category** (X-axis). If the chart also has a label dimension (series breakdown), that label stays put — the chart keeps the same visual shape with the new X-axis.
+- The filter stack only accumulates the clicked **category** value, not the label value. So right-clicking a "January / Product A" bar and drilling by Region gives you January's regional breakdown across all products — not just Product A's.
+- The right-click menu hides dimensions that are already active on the chart, so you can't drill by a dimension the chart is already grouping by.
+
+Cross-filter emission is a separate flow: left-clicking a data point emits filters for every active dimension of that point (category + label together), independent of drill-by.
 
 ### Single-Click Drill-Down
 
@@ -337,9 +356,16 @@ You write a standard T-SQL SELECT query. The only requirement is including the `
 
 ### Wizard Data Source
 
-Instead of writing SQL, you define a data source using Nama ERP field IDs (property paths like `customer.customerCategory` or `price.netValue`). The system generates the SQL automatically. Wizard data sources are required if you want dimension drill-by — the system needs to know the field structure to build drill queries dynamically.
+Instead of writing SQL, you define a data source using Nama ERP field IDs (property paths like `customer.customerCategory` or `price.netValue`). The system generates the SQL automatically. Wizard fields are marked as either **Dimension** (group-by / category) or **Measure** (aggregated value with Sum, Count, Average, Min, or Max).
 
-Wizard fields are marked as either **Dimension** (group-by / category) or **Measure** (aggregated value with Sum, Count, Average, Min, or Max).
+Wizard data sources unlock several designer and runtime conveniences that raw-SQL widgets don't get:
+
+- **Dimension drill-by** — right-click a data point and drill by any other dimension defined on the wizard. Only available for wizard-backed widgets because the system needs the field structure to rebuild the query on the fly.
+- **Auto-inferred cross-filter columns** — when you emit a cross-filter from a reference field (like `customer.customerCategory`), you don't write out the id / code / name1 / name2 / entityType columns. The system reads them from the wizard field's metadata, which is cached when you save the wizard.
+- **Per-dimension click and drill mappings** — if a chart has multiple dimensions (e.g., category and label on a stacked bar), each dimension gets its own set of click-emit and drill-down entries. The chart designer exposes an "Active Dimension" selector in the Click & Links and Drill-Down tabs to switch between them.
+- **Field-ID pickers instead of column-name pickers** — the designer's data-mapping, cross-filter, and drill-down pickers list wizard field IDs (with translated titles and the raw ID shown for disambiguation) instead of raw SQL column names.
+
+Whenever you save a wizard, the system pre-computes a metadata record for each field (display alias, SQL LHS, referenced entity type, sub-column aliases for references) and caches it on the field line. Chart rendering reads from this cache, so wizard-mode widgets don't pay a query-rebuild cost on every request just to look up aliases.
 
 ---
 
@@ -421,6 +447,7 @@ Here's a workflow that works well:
 4. Ask the AI to generate a complete import JSON file following the technical reference format
 5. Import the generated JSON into Nama ERP — you'll have a working dashboard with all the cross-filters, drill-downs, and styling ready to go
 6. Given AI can guess table names, column names, or joins incorrectly, it is better to give it a sample query containing the columns and joins you want to use.
+7. For wizards, you can skip the sample query and instead let the AI reference [dm.namasoft.com](https://dm.namasoft.com) for property paths — the wizard resolves joins automatically from the field IDs.
 
 This is dramatically faster than building each widget by hand, especially for dashboards with many interconnected charts and complex cross-filter setups.
 :::
