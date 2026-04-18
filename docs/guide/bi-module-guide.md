@@ -165,6 +165,7 @@ While ECharts are the star of the show, dashboards support several other widget 
 |---|-------------------------------------------------------------------------|
 | **EChart** | Any of the 41 chart templates                                           |
 | **Table** | A data table — the SQL column names become column headers automatically |
+| **Table v2 (Enhanced)** | A richer data table — columns are defined explicitly in JSON with formatting, cell renderers, and conditional styling. See the [Enhanced Table](#Enhanced-Table-Widget) section. |
 | **Metrics Cards** | KPI summary cards (value + label + trend)                               |
 | **Timeline** | Chronological event stream                                              |
 | **Calendar** | Event calendar                                                          |
@@ -343,6 +344,88 @@ Each section only appears if the corresponding mapping is defined. A chart with 
 Not everything needs to be a chart. Table widgets display query results in an grid with sortable, resizable columns. The SQL column names become the grid headers — no extra configuration needed beyond the query and cross-filter bindings.
 
 Table widgets respect cross-filters just like chart widgets do, so when you click a branch on a bar chart, the table next to it filters to show only that branch's records.
+
+---
+
+## Enhanced Table Widget
+
+The classic `Table` widget is quick to set up but shows columns exactly as the SQL returns them — raw numbers, no formatting, no color coding, no fancy cell renderers. The **Enhanced Table** widget (`Table v2 (Enhanced)` in the widget type picker, Arabic: "جدول محسن") is a second-generation table where every column is configured explicitly, so you get per-column formatting, colored badges, progress bars, inline sparklines, and rule-based conditional styling — all without touching any custom code.
+
+::: tip
+Enhanced Table is an opt-in upgrade. The classic `Table` widget continues to work exactly as before. Pick Enhanced Table when you need one or more of: currency/percent/date formatting, green-for-positive / red-for-negative coloring, status badges, in-row progress bars, sparklines, grouped column headers, or column pinning.
+:::
+
+### What You Can Do Per Column
+
+Each column in an Enhanced Table is defined in `chartConfigJSON` with its own set of options:
+
+- **Data source** — either a raw SQL column name (`field`) or a wizard field ID (`wizardFieldId`). Same split as anywhere else in the BI module.
+- **Formatting** — pick from `text`, `number`, `currency`, `percent`, `date`, `datetime`, `duration`. Control decimals, thousand separators, currency symbols and placement (prefix or suffix), date format patterns.
+- **Cell renderer** — how the cell is painted:
+  - `text` — plain formatted value (default)
+  - `html` — renders raw HTML from the cell value (for rich formatting that already comes from SQL)
+  - `badge` — pill or square label, background color driven by conditional formatting
+  - `bar` — horizontal bar filled proportionally between a min and max (e.g., "qty out of 50")
+  - `progress` — same as bar, semantically "progress toward target"
+  - `sparkline` — inline mini-chart (line, column, or area) fed by a separate column in the result set
+  - `icon` — shows an icon based on the cell value (e.g., a checkmark for "Approved", a warning for "Pending")
+- **Conditional formatting** — rule-based cell background / text color / bold / italic based on the value. Rules include:
+  - **Thresholds** — "if value ≥ 10,000 show green; if < 0 show red"
+  - **Ranges** — "if value is between 0 and 100 show amber"
+  - **Column comparison** — "if this column's value exceeds the budget column, show red"
+  - **Enum matching** — "if status is Cancelled show gray and italic"
+  - **Null checks** — "if empty, show a subtle 'no data' style"
+
+  Rules are evaluated on the server, so the comparison is always numeric when it should be (no more "2 > 10 because they're compared as strings"). Dates are compared as dates when the column's formatting type is `date` or `datetime`.
+- **Column groups** — give several columns a shared group header (e.g., a "Customer" group above `Customer Name` and `Branch`).
+- **Pinning, width, row grouping, aggregation** — standard AG Grid controls, exposed declaratively in the JSON.
+
+### Row-Level Styling
+
+In addition to per-cell rules, you can style whole rows based on any column's value. For example: highlight every row where margin is negative, or grey out cancelled orders across the whole row. The rule vocabulary is the same as per-cell conditional formatting — you just name the column to test.
+
+### Interactions — Same As The Rest
+
+Everything you know about BI interactions still works: cross-filter emission on click, drill-down to widgets or dashboards on right-click, entity links in the "Navigate To" menu, and the single-click `clickAction` override. The only addition is that each click/drill/link mapping can optionally include a `column` field — when set, the mapping fires only when the user clicks a cell in that specific column. When `column` is absent, the mapping fires on any cell in the row (classic Table behavior).
+
+### Admin Conveniences
+
+When logged in as `admin` (or any user with `treatAsAdmin` enabled), the widget toolbar shows two extra buttons:
+
+- **Copy Data JSON** — copies the widget's fully-computed data payload to the clipboard. Handy for debugging formatting rules or understanding why a particular cell looks the way it does.
+- **Open Widget** — opens the widget's edit screen in a new tab. This same button also appears on `Table`, `Metrics Cards`, `Card Menu`, and `EChart` widgets for admins, giving one-click access to widget configuration from any dashboard.
+
+### Designer
+
+The chart-config editor for Enhanced Table widgets swaps the ECharts-specific tabs for a **Table Columns** tab that lets you:
+
+- List and reorder columns (drag-and-drop arrow buttons)
+- Edit each column's id, field, headers, width, pinning, renderer type, formatting type inline
+- Bootstrap from a SQL query via the **Generate Columns From Result Set** button — this runs the data-source SQL and seeds one default column per result-set header, so you're not starting from zero
+
+A companion **Table Options** tab covers the grid-level switches (pagination, row grouping, grand total row, etc.).
+
+For more advanced configuration — specifically column groups, per-renderer options like bar min/max or icon mappings, and the full conditional-formatting rule DSL — use the **Raw JSON** tab. The [Technical Reference §14](./bi-module-technical-reference.md#14-EnhancedTable----JSON-Driven-Grid) has the complete schema.
+
+### When To Use Which
+
+| Use Case | Widget |
+|---|---|
+| Quick ad-hoc grid over a SQL query, no styling needed | `Table` |
+| Financial tables with currency formatting, negative-in-red, totals | `Table v2 (Enhanced)` |
+| Status / priority / category columns that should read as colored badges | `Table v2 (Enhanced)` |
+| KPI-style tables with inline bars or sparklines showing relative magnitude | `Table v2 (Enhanced)` |
+| Tables with column groups, pinned columns, or per-column aggregation presets | `Table v2 (Enhanced)` |
+
+### Upgrading An Existing Table
+
+No automatic migration — switching is a deliberate choice per widget:
+
+1. Edit the `DashBoardWidget` record and change its type from `Table` to `Table v2 (Enhanced)`.
+2. Open the chart-config editor. The **Table Columns** tab appears in place of the ECharts data-mapping tab.
+3. Click **Generate Columns From Result Set** to seed columns from the widget's SQL.
+4. Tweak formatting, renderers, and conditional formatting as you want.
+5. Save. Any existing cross-filter, drill-down, and link mappings continue to work — the `column` field on those mappings already matches the default column `id`s (which are just the SQL column names).
 
 ---
 
