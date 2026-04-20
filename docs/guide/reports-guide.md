@@ -822,6 +822,19 @@ To define a parameter that supports multiple selections:
    - `<parameterName>_name1csv`: Name1 fields as CSV string
    - `<parameterName>_name2csv`: Name2 fields as CSV string
 4. To prevent automatic grid display: `doNotAutoShowList = true`
+5. To control the display widget for the list, set `listDisplayType`:
+   - `Default` — the standard multi-selection input (used when the property is omitted)
+   - `Dropdown` — selected values render as removable chips inside an input; the full options list opens in a searchable dropdown menu. Ideal when the value set is large
+   - `Chips` — all allowed values render as inline clickable chips with selection toggled on click. Ideal when there are only a few options and you want them visible without opening a menu
+
+   Example:
+   ```xml
+   <parameter name="MultiEmployee" class="java.util.List">
+       <property name="entityType" value="Employee"/>
+       <property name="list" value="true"/>
+       <property name="listDisplayType" value="Chips"/>
+   </parameter>
+   ```
 
 ::: details Example: Multi-Selection Parameters
 ```xml
@@ -853,6 +866,7 @@ To define a parameter that supports multiple selections:
 #### Basic Properties
 - **`list`**: `true`/`false` - Enable multi-selection
 - **`listType`**: Required for non-reference types (e.g., `java.util.Date`)
+- **`listDisplayType`**: Widget used to render a list parameter. One of `Default`, `Dropdown`, `Chips`.
 - **`layout`**: Display layout (`alone`, `spanned`, `normal`, `spanned2`)
 - **`required`**: `true`/`false` - Mark as mandatory
 - **`requiredGroup`**: Group parameters where at least one must be filled
