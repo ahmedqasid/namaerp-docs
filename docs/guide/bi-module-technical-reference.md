@@ -102,6 +102,10 @@ ORDER BY netValue DESC
 
 The `dataMapping` object tells the server how to transform query result rows into the data structures that replace `$DATA.*` placeholders in `echartOption`.
 
+::: tip Scalar pass-through
+Any key in `dataMapping` that isn't a reserved structural field (like `type`, `*Column`, `series`, `stack`, `format`, etc.) is automatically exposed as `$DATA.<key>`. This lets templates carry constants — e.g., `"target": 150` in dataMapping becomes `$DATA.target` in the echartOption, usable inside a markLine definition. Reserved keys: `type`, `categoryColumn`, `labelColumn`, `valueColumn`, `xColumn`, `yColumn`, `sizeColumn`, `innerLabelColumn`, `outerLabelColumn`, `leftValueColumn`, `rightValueColumn`, `seriesType`, `stack`, `areaStyle`, `percentMode`, `sort`, `series`, `format`.
+:::
+
 ### 3.1 CategoryValue
 
 The most common type. One column provides category labels (X-axis), and one or more series columns provide numeric values.
@@ -128,18 +132,22 @@ The most common type. One column provides category labels (X-axis), and one or m
 | `name` | No | Display name for legend. Defaults to column name. |
 | `type` | No | ECharts series type: `"bar"`, `"line"`, `"scatter"`. Defaults to `"bar"`. |
 | `format` | No | Number formatting spec (see Section 7). |
-| `yAxisIndex` | No | Which Y-axis this series binds to (for dual-axis charts). Default `0`. |
+| `yAxisIndex` | No | Which Y-axis this series binds to (for dual-axis charts). Default `0`. Propagated onto the built series entry. |
+| `stack` | No | Stack group name. Series with the same `stack` value are stacked. Propagated onto the built series entry. |
+| `areaStyle` | No | `true` or an object — turns the series into a filled area (line charts). Propagated onto the built series entry. |
 
 **Produces these `$DATA` placeholders:**
 
 | Placeholder | Type | Description |
 |---|---|---|
 | `$DATA.categories` | `string[]` | Values from `categoryColumn`, one per row |
-| `$DATA.series` | `object[]` | Array of `{name, type, data}` objects |
+| `$DATA.series` | `object[]` | Array of `{name, type, data}` objects (plus `stack` / `yAxisIndex` / `areaStyle` if set on the series config) |
 | `$DATA.series[0].name` | `string` | Name of first series |
 | `$DATA.series[0].data` | `number[]` | Numeric values of first series |
 | `$DATA.series[N].name` | `string` | Name of Nth series |
 | `$DATA.series[N].data` | `number[]` | Numeric values of Nth series |
+| `$DATA.min` | `number` | Minimum value across all series (useful for visualMap / `bar-ranked`-style charts) |
+| `$DATA.max` | `number` | Maximum value across all series |
 
 **Example:**
 
@@ -195,7 +203,7 @@ Pivot-table style: one column for categories (X-axis), one column whose distinct
 | Placeholder | Type | Description |
 |---|---|---|
 | `$DATA.categories` | `string[]` | Unique values from `categoryColumn` (preserves row order) |
-| `$DATA.series` | `object[]` | One series per unique label. Each has `name`, `type`, `data`. Data arrays are aligned to categories (missing values are `0`). |
+| `$DATA.series` | `object[]` | One series per unique label. Each has `name`, `type`, `data` — plus `stack` / `areaStyle` when the corresponding top-level dataMapping fields are set. Data arrays are aligned to categories (missing values are `0`). When `percentMode` is `true`, values are normalized per category so each category's series sum to 100. |
 
 **Example SQL:**
 
@@ -328,12 +336,10 @@ For heatmap/matrix charts. Each row provides an X category, Y category, and nume
 
 ### 3.7 Tree
 
-For treemap charts. Each row becomes a node.
+Generic raw-row context (same as `Custom`). For treemap charts, prefer `LabelValue` — it produces the `{name, value}[]` shape ECharts treemap expects directly.
 
 **Required fields:**
 - `type`: `"Tree"`
-- `labelColumn`: column for node label
-- `valueColumn`: column for node value
 
 **Produces:**
 
@@ -342,7 +348,90 @@ For treemap charts. Each row becomes a node.
 | `$DATA.rows` | `string[][]` | All rows as string arrays |
 | `$DATA.columns` | `string[]` | Column headers |
 
-### 3.8 Custom / Raw
+### 3.8 Waterfall
+
+For waterfall (bridge) charts. Given a single value column representing deltas, the server builds two stacked series: an invisible `Placeholder` that steps the base up/down, and a visible `Value` bar showing the magnitude of each delta.
+
+**Required fields:**
+- `type`: `"Waterfall"`
+- `categoryColumn`: column for X-axis categories (in display order)
+- `valueColumn`: column for the delta at each category (can be positive or negative)
+
+**Produces:**
+
+| Placeholder | Type | Description |
+|---|---|---|
+| `$DATA.categories` | `string[]` | Unique values from `categoryColumn`, preserving row order |
+| `$DATA.series` | `object[]` | Two entries: `[0]` is the invisible placeholder, `[1]` is the visible value series. Both carry `stack: "Total"`. |
+| `$DATA.series[0].data` | `number[]` | Placeholder heights (the stepped base level per bar) |
+| `$DATA.series[1].data` | `object[]` | `[{value: <abs delta>, _signedValue: <raw delta>}, ...]`. `_signedValue` is available for styling (e.g. red for negative). |
+
+### 3.9 Radar
+
+For radar/spider charts. One column provides indicator names; each series column is a separate metric plotted across indicators.
+
+**Required fields:**
+- `type`: `"Radar"`
+- `categoryColumn`: column whose distinct values become the radar indicators (axes)
+- `series`: array of `{column, name}` — one entry per entity being compared
+
+**Produces:**
+
+| Placeholder | Type | Description |
+|---|---|---|
+| `$DATA.indicators` | `{name, max}[]` | One per unique category. `max` is the global maximum across all series (so every axis shares the same scale). |
+| `$DATA.series` | `{name, value}[]` | One per series config. `value` is an array aligned to `$DATA.indicators`. |
+
+### 3.10 GaugeMulti
+
+For concentric multi-ring gauges — each row becomes one ring/gauge item.
+
+**Required fields:**
+- `type`: `"GaugeMulti"`
+- `labelColumn`: column for each ring's name
+- `valueColumn`: column for each ring's numeric value
+
+**Produces:**
+
+| Placeholder | Type | Description |
+|---|---|---|
+| `$DATA.values` | `object[]` | `[{value, name, title: {show: false}, detail: {show: false}}, ...]`. Per-point `title`/`detail` are pre-hidden to avoid overlapping labels. |
+
+### 3.11 NestedLabelValue
+
+For nested pies / two-level donuts. One set of rows is aggregated twice — once by the inner label, once by the outer — against a shared value column.
+
+**Required fields:**
+- `type`: `"NestedLabelValue"`
+- `innerLabelColumn`: column for inner-ring labels
+- `outerLabelColumn`: column for outer-ring labels
+- `valueColumn`: column for numeric values
+
+**Produces:**
+
+| Placeholder | Type | Description |
+|---|---|---|
+| `$DATA.innerValues` | `{name, value}[]` | Aggregated by `innerLabelColumn` |
+| `$DATA.outerValues` | `{name, value}[]` | Aggregated by `outerLabelColumn` |
+
+### 3.12 FunnelComparison
+
+For side-by-side comparison funnels. One label column with two value columns (left funnel + right funnel).
+
+**Required fields:**
+- `type`: `"FunnelComparison"`
+- `labelColumn`: column for stage names
+- `leftValueColumn`: column for left-side values
+- `rightValueColumn`: column for right-side values
+
+**Produces:**
+
+| Placeholder | Type | Description |
+|---|---|---|
+| `$DATA.leftValues` | `{name, value}[]` | Aggregated from `leftValueColumn` |
+| `$DATA.rightValues` | `{name, value}[]` | Aggregated from `rightValueColumn` |
+
+### 3.13 Custom / Raw
 
 - `Custom`: Same as Tree — provides `$DATA.rows` and `$DATA.columns`.
 - `Raw`: No `$DATA` context is built. The echartOption must not contain `$DATA` placeholders. Useful for fully static charts.
