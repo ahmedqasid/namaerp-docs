@@ -21,7 +21,9 @@ Every BI widget stores its configuration in a single `chartConfigJSON` field (a 
   "clickEmitMapping": [ ],
   "clickAction": { },
   "drillDownMapping": [ ],
-  "linkMappings": [ ]
+  "linkMappings": [ ],
+  "disableRuntimeDimensionSelection": false,
+  "disableRuntimeMeasureSelection": false
 }
 ```
 
@@ -33,6 +35,8 @@ Every BI widget stores its configuration in a single `chartConfigJSON` field (a 
 | `clickAction` | No | Configures what a left-click on a data point does: emit cross-filters, navigate via link, or trigger drill-down. Defaults to cross-filter emission if absent. See Section 5a. |
 | `drillDownMapping` | No | Defines which target widgets or dashboards appear in the right-click drill-down menu, and what filter values to pass to them. |
 | `linkMappings` | No | Defines link navigation targets that appear in the right-click context menu under "Navigate To". See Section 5b. |
+| `disableRuntimeDimensionSelection` | No (wizard-mode only) | When `true`, hides the dimension pickers in the widget's runtime slot selector. Defaults to `false`. See Section 13.9. |
+| `disableRuntimeMeasureSelection` | No (wizard-mode only) | When `true`, hides the measure pickers in the widget's runtime slot selector. Defaults to `false`. See Section 13.9. |
 
 ### 1.1 Wizard Mode vs SQL Mode
 
@@ -1160,6 +1164,7 @@ For every column slot that the chart types (Section 3) define, wizard mode adds 
 | `valueColumn` | `valueWizardFieldId` | same |
 | `xColumn` | `xWizardFieldId` | same |
 | `yColumn` | `yWizardFieldId` | same |
+| `sizeColumn` | `sizeWizardFieldId` | same (Scatter bubble size) |
 | `series[].column` | `series[].wizardFieldId` | same |
 
 If both are present for the same slot, the `*Column` value wins. If neither is present, the slot is left unset.
@@ -1296,6 +1301,38 @@ The corresponding wizard definition:
 ```
 
 No raw SQL, no column-name bookkeeping, no `idColumn`/`codeColumn` mappings. When a user right-clicks a bar and picks "Drill Down By Branch", the server rebuilds the query keeping customer category as the series axis (so the stacked layout is preserved), swaps the X-axis to branch, filters by the clicked date, and re-renders — all without touching the `echartOption` styling.
+
+### 13.9 Runtime Slot Selection
+
+Wizard-backed widgets expose a runtime selector (toolbar button / echarts toolbox icon on each widget) that lets the dashboard viewer reshape the chart without editing it: pick a different dimension for the category slot, swap the measure, add/remove series measures, etc. Selection is **session-only** — refreshing the page resets to the configured defaults.
+
+The selector shape is driven entirely by `dataMapping.type`. Each mapping type declares which slots are pickable at runtime and which `*WizardFieldId` keys they write to:
+
+| Mapping type | Dimension slots | Measure slots | Multi-measure series |
+|---|---|---|---|
+| `CategoryValue` | `categoryWizardFieldId` | `series[].wizardFieldId` (N) | **Yes** (flexible only) |
+| `LabelValue` | `labelWizardFieldId` | `valueWizardFieldId` | No |
+| `CategoryLabelValue` | `categoryWizardFieldId`, `labelWizardFieldId` | `valueWizardFieldId` | No |
+| `Scatter` | — | `xWizardFieldId`, `yWizardFieldId`, `sizeWizardFieldId` (optional) | No |
+| `Heatmap` | `xWizardFieldId`, `yWizardFieldId` | `valueWizardFieldId` | No |
+| `Gauge` | — | `valueWizardFieldId` | No |
+| `Tree` | `labelWizardFieldId` | `valueWizardFieldId` | No |
+
+Mapping types not listed (`Waterfall`, `NestedLabelValue`, `GaugeMulti`, `Radar`, `FunnelComparison`, `Custom`, `Raw`) have no runtime selector — their button is hidden.
+
+**Flexible vs. fixed `CategoryValue`**: only "flexible" CategoryValue widgets allow the user to pick multiple measures as series. A CategoryValue is **flexible** when every entry in `series[]` is uniform — no `yAxisIndex`, no `stack`, no `target`, and all entries share the same `type`. Dual-axis, combo bar/line, stacked, and with-target CategoryValue charts are **fixed**: their runtime multi-measure picker is hidden (but single-slot pickers still work).
+
+**No selector in drill-by mode**: when a chart is rendered inside the dimension drill-by dialog (request carries `drillDownByTargetDimension`), the server omits `runtimeSelectorInfo` from the chart line, so the selector does not appear on the drill-by view. Drill-by is already reshaping the chart; the runtime selector stays on the main dashboard view only.
+
+**Opt-out flags** on `chartConfigJSON`:
+- `disableRuntimeDimensionSelection: true` — hides dimension pickers (keeps measure pickers).
+- `disableRuntimeMeasureSelection: true` — hides measure pickers (keeps dimension pickers).
+
+Set both to `true` to hide the selector entirely.
+
+**Interaction with click/drill mappings**: runtime slot changes reshape `activeDimensionFieldIds` (Section 13.4), which means click-emit and drill-down entries keyed by `wizardFieldId` automatically follow the new active dimensions — no extra config needed.
+
+**Guidance for AI-generated configs**: prefer wizard-mode keys (`*WizardFieldId`) over raw column names whenever a `wizardDataSource` is present, so generated widgets pick up the runtime selector for free. For designer-only widgets (no end-user reshaping), set both opt-out flags to `true`. For dashboards where you ship carefully tuned combo/dual-axis CategoryValue charts, you don't need the flags — the fixed-shape detector already hides the multi-measure picker.
 
 ---
 
