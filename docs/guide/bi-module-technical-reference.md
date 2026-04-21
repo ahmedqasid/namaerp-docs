@@ -1570,7 +1570,7 @@ Controls how the raw SQL value becomes a display string. Server-computed, so the
   "bar":      { "min": 0, "max": 100, "color": "#4caf50" },
   "progress": { "min": 0, "max": 100 },
   "icon":     { "mapping": [ { "when": "Approved", "icon": "check_circle", "color": "#2e7d32" } ], "position": "prefix" | "replace" },
-  "sparkline": { "sourceColumn": "monthlySeriesCsv", "type": "line" | "column" | "area", "lineColor": "#2196F3", "fill": "rgba(33,150,243,0.2)" }
+  "sparkline": { "type": "line" | "column" | "area", "lineColor": "#2196F3", "fill": "rgba(33,150,243,0.2)" }
 }
 ```
 
@@ -1581,7 +1581,7 @@ Controls how the raw SQL value becomes a display string. Server-computed, so the
 | `badge` | Pill/square label with the cell's text. | Background color comes from `conditionalFormatting` (falls back to a subtle blue). |
 | `bar` | Horizontal filled bar using `agSparklineCellRenderer` with `type:"bar"`, `direction:"horizontal"`. | Value scaled between `min` and `max`. |
 | `progress` | Same mechanism as `bar` with a blue default fill. Semantically "progress toward target". | |
-| `sparkline` | Multi-point mini chart (`agSparklineCellRenderer`). | Reads the series from `sourceColumn`, a separate SQL column in the result set containing either a comma-separated numeric list or a JSON array (e.g. `1,5,9,12` or `[1,5,9,12]`). |
+| `sparkline` | Multi-point mini chart (`agSparklineCellRenderer`). | Reads the series from the column's own SQL `field` — a comma-separated numeric list or a JSON array (e.g. `1,5,9,12` or `[1,5,9,12]`). |
 | `icon` | Cell value is matched against `mapping[].when` strings; matched entry renders an icon (optionally replacing the text when `position: "replace"`). | |
 
 **Important**: `bar`, `progress`, and `sparkline` require AG Grid Enterprise's `SparklinesModule` registered globally (already done in the Nama Vue shell). The widget automatically wraps the cell's numeric value in a single-element array for bar/progress to match what `agSparklineCellRenderer` expects.
