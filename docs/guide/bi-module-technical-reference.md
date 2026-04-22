@@ -399,20 +399,27 @@ For concentric multi-ring gauges — each row becomes one ring/gauge item.
 
 ### 3.11 NestedLabelValue
 
-For nested pies / two-level donuts. One set of rows is aggregated twice — once by the inner label, once by the outer — against a shared value column.
+For nested pies / two-level donuts. Each ring is an independent pie — its own dimension and its own measure — and the two rings are rendered at different radii. Because each ring computes percentages against *its own* total, the inner and outer measures don't need to share a total (e.g., outer could be "invoice count by customer class", inner "invoice value by branch").
 
 **Required fields:**
 - `type`: `"NestedLabelValue"`
 - `innerLabelColumn`: column for inner-ring labels
 - `outerLabelColumn`: column for outer-ring labels
-- `valueColumn`: column for numeric values
+- `innerValueColumn`: measure aggregated for the inner ring
+- `outerValueColumn`: measure aggregated for the outer ring
+
+**Optional fields:**
+- `innerSeriesName` / `outerSeriesName`: display names for the two rings (shown in legend / tooltip via ECharts `{a}`). Templates reference them as `name: '$DATA.innerSeriesName'` / `name: '$DATA.outerSeriesName'`.
+- `innerFormat` / `outerFormat`: per-ring format spec (number/currency/percent/date/datetime/duration). If unset, the top-level `format` applies to both. Inner maps to seriesFormat index `"0"`, outer to `"1"`.
 
 **Produces:**
 
 | Placeholder | Type | Description |
 |---|---|---|
-| `$DATA.innerValues` | `{name, value}[]` | Aggregated by `innerLabelColumn` |
-| `$DATA.outerValues` | `{name, value}[]` | Aggregated by `outerLabelColumn` |
+| `$DATA.innerValues` | `{name, value}[]` | Aggregated by `innerLabelColumn` over `innerValueColumn` |
+| `$DATA.outerValues` | `{name, value}[]` | Aggregated by `outerLabelColumn` over `outerValueColumn` |
+| `$DATA.innerSeriesName` | `string` | Resolved inner ring name (empty string when unset) |
+| `$DATA.outerSeriesName` | `string` | Resolved outer ring name (empty string when unset) |
 
 ### 3.12 FunnelComparison
 
@@ -1356,6 +1363,12 @@ For every column slot that the chart types (Section 3) define, wizard mode adds 
 | `xColumn` | `xWizardFieldId` | same |
 | `yColumn` | `yWizardFieldId` | same |
 | `sizeColumn` | `sizeWizardFieldId` | same (Scatter bubble size) |
+| `innerLabelColumn` | `innerLabelWizardFieldId` | same (NestedLabelValue inner ring) |
+| `outerLabelColumn` | `outerLabelWizardFieldId` | same (NestedLabelValue outer ring) |
+| `innerValueColumn` | `innerValueWizardFieldId` | same (NestedLabelValue inner measure) |
+| `outerValueColumn` | `outerValueWizardFieldId` | same (NestedLabelValue outer measure) |
+| `leftValueColumn` | `leftValueWizardFieldId` | same (FunnelComparison) |
+| `rightValueColumn` | `rightValueWizardFieldId` | same (FunnelComparison) |
 | `series[].column` | `series[].wizardFieldId` | same |
 | `maxResultsRankBy` | `maxResultsRankByWizardFieldId` | same (measure column used to rank top-N buckets) |
 
