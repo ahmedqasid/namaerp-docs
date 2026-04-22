@@ -436,6 +436,37 @@ For side-by-side comparison funnels. One label column with two value columns (le
 - `Custom`: Same as Tree — provides `$DATA.rows` and `$DATA.columns`.
 - `Raw`: No `$DATA` context is built. The echartOption must not contain `$DATA` placeholders. Useful for fully static charts.
 
+### 3.14 Max Results — Top N with Others
+
+For mapping types where a single dimension produces the bucket rows (category, label, outerLabel), `dataMapping.maxResults` keeps the top N and collapses everything else into a synthetic **Others** bucket. Common long-tail problem: a bar chart of 20 customers where 4 dominate — the Top N limit keeps the chart readable without hiding the rest of the totals.
+
+| Key | Purpose |
+|---|---|
+| `maxResults` | Integer. Keep this many buckets; the rest are summed into one "Others" entry. Unset / ≤ 0 = no bucketing |
+| `maxResultsRankBy` | Column used to rank buckets (descending). When empty, defaults to `series[0].column` → `valueColumn` → `leftValueColumn` |
+| `maxResultsRankByWizardFieldId` | Wizard-mode sibling of `maxResultsRankBy` |
+| `othersLabelEn` / `othersLabelAr` | Display text for the Others bucket. When empty, falls back to the `biOthers` translation key |
+
+**Supported mapping types:** `CategoryValue`, `LabelValue`, `CategoryLabelValue`, `Radar`, `Waterfall`, `GaugeMulti`, `FunnelComparison`, `NestedLabelValue`. Not applicable to `Scatter`, `Heatmap`, `Gauge` (no ranking dimension) or `Raw`, `Custom`, `Tree`.
+
+**CategoryLabelValue specifics:** the Top N is computed **across all labels** — i.e., the N categories with the highest summed rank-by across every label win; each keeps its per-label breakdown intact.
+
+**Interaction behavior:** the Others slice emits no cross-filter, drill-down, link, or drill-by — click-emit / drill / link / drill-by payloads for those rows carry `{isOthers: true}` and the frontend skips all interactions on them. Tooltips are blank over the Others slice.
+
+**Chart templates:** templates apply a per-category default via `chartTemplates.ts → applyDefaultMaxResults()`: pie / funnel = 6, radar = 8, bar / treemap = 15. Users can override in the config editor or remove entirely.
+
+```json
+"dataMapping": {
+  "type": "CategoryValue",
+  "categoryColumn": "customerName",
+  "series": [{"column": "totalSales", "name": "Total Sales", "type": "bar"}],
+  "maxResults": 10,
+  "maxResultsRankBy": "totalSales",
+  "othersLabelEn": "Other Customers",
+  "othersLabelAr": "عملاء آخرون"
+}
+```
+
 ---
 
 ## 4. clickEmitMapping — Cross-Filter Emission
@@ -1326,6 +1357,7 @@ For every column slot that the chart types (Section 3) define, wizard mode adds 
 | `yColumn` | `yWizardFieldId` | same |
 | `sizeColumn` | `sizeWizardFieldId` | same (Scatter bubble size) |
 | `series[].column` | `series[].wizardFieldId` | same |
+| `maxResultsRankBy` | `maxResultsRankByWizardFieldId` | same (measure column used to rank top-N buckets) |
 
 If both are present for the same slot, the `*Column` value wins. If neither is present, the slot is left unset.
 
