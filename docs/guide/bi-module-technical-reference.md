@@ -32,7 +32,7 @@ Every BI widget stores its configuration in a single `chartConfigJSON` field (a 
 | `echartOption` | Yes | A standard ECharts option object with `$DATA.*` placeholders. The server resolves these placeholders using query results before sending to the frontend. |
 | `dataMapping` | Yes | Tells the server how to transform SQL result rows into the `$DATA.*` values that replace the placeholders. |
 | `clickEmitMapping` | No | Defines which cross-filters this widget emits when the user clicks a data point. |
-| `clickAction` | No | Configures what a left-click on a data point does: emit cross-filters, navigate via link, or trigger drill-down. Defaults to cross-filter emission if absent. See Section 5a. |
+| `clickAction` | No | Widget-level left-click override for charts (and fallback for tables): emit cross-filters, navigate via link, or trigger drill-down. Defaults to cross-filter emission if absent. For tables, prefer per-entry `onCellClick` on a `linkMappings` / `drillDownMapping` entry — see Section 5a. |
 | `drillDownMapping` | No | Defines which target widgets or dashboards appear in the right-click drill-down menu, and what filter values to pass to them. |
 | `linkMappings` | No | Defines link navigation targets that appear in the right-click context menu under "Navigate To". See Section 5b. |
 | `disableRuntimeDimensionSelection` | No (wizard-mode only) | When `true`, hides the dimension pickers in the widget's runtime slot selector. Defaults to `false`. See Section 13.9. |
@@ -519,6 +519,8 @@ When a user right-clicks a data point, a context menu shows drill-down targets. 
 | `enTitle` | No | English menu item text |
 | `openMode` | No | How to open the target: `"popup"` (default — DrillDownDialog), `"navigate"` (same tab), `"newTab"`. For dashboard targets, popup opens a fullscreen dialog showing all dashboard widgets. |
 | `orderInMenu` | No | Sort order in the context menu (ascending) |
+| `column` | Table widgets only | Scopes the entry to a specific column. Absent = row-level (right-click any cell). |
+| `onCellClick` | No | Table widgets only. When `true`, left-clicking a cell that matches this entry's scope (its `column`, or any cell if row-level) fires the drill-down directly — no right-click needed. See Section 5a. |
 | `filters` | Yes | Array of filter definitions (same structure as `clickEmitMapping` entries) |
 | `wizardFieldId` | Wizard mode | The dimension this drill target belongs to. The menu only shows entries whose `wizardFieldId` matches one of the chart's active dimensions. See Section 13. |
 
@@ -578,9 +580,46 @@ Dashboard drill-down is particularly useful for hierarchical analysis — for ex
 
 ---
 
-## 5a. clickAction — Controlling Left-Click Behavior
+## 5a. Controlling Left-Click Behavior
 
-By default, clicking a data point on a chart emits cross-filters (the values defined in `clickEmitMapping`). The `clickAction` object lets you override that behavior so a left-click can instead navigate to a link or trigger a drill-down target directly — no right-click menu needed.
+By default, clicking a data point on a chart (or a cell in a table) emits cross-filters (the values defined in `clickEmitMapping`). Two mechanisms let you override that: the per-entry `onCellClick` flag on links and drill-downs (tables), and the widget-level `clickAction` (charts without columns).
+
+### 5a.1 onCellClick — Per-Entry Left-Click (Tables + EnhancedTable)
+
+The recommended way for Table/EnhancedTable widgets: mark a specific `linkMappings` or `drillDownMapping` entry with `"onCellClick": true`. When a cell is clicked, the dispatcher looks for the first entry whose scope matches the clicked cell and fires it.
+
+```json
+"linkMappings": [
+  {
+    "key": "openCustomer",
+    "column": "customerName",
+    "onCellClick": true,
+    "linkToEntityTypeColumn": "customerEntityType",
+    "linkToIdColumn": "customerId",
+    "openMode": "popup"
+  }
+]
+```
+
+**Match rules for `onCellClick: true` entries:**
+
+| Entry scope | Matches |
+|---|---|
+| `column` set (e.g. `"customerName"`) | Only when the clicked cell is in that column |
+| `column` absent (row-level) | Any cell in the row |
+
+**Priority order inside one widget** — the dispatcher walks the list in this order and fires the first match:
+
+1. Drill-down entries with `onCellClick: true` (drill-down wins over link when both match).
+2. Link entries with `onCellClick: true`.
+3. Widget-level `clickAction` (see below).
+4. Cross-filter emission (`clickEmitMapping`).
+
+Entries without `onCellClick` still appear in the right-click context menu — the flag only controls left-click auto-fire.
+
+### 5a.2 Widget-Level clickAction (Charts + Fallback)
+
+For ECharts widgets there's no per-cell concept — a click hits a data point, not a column. The widget-level `clickAction` object defines a single action for the whole widget:
 
 ```json
 "clickAction": {
@@ -600,8 +639,10 @@ The three modes:
 - **`"link"`** — Navigates using a link defined in `linkMappings`. The `targetKey` must match the `key` of one of the link entries.
 - **`"drillDown"`** — Triggers drill-down to a target defined in `drillDownMapping`. The `targetKey` must match the `key` of one of the drill-down entries. This is handy when you want a single-click drill-down experience without requiring the user to right-click and choose from a menu.
 
+For Table/EnhancedTable widgets, `clickAction` is still honored but only as a fallback — `onCellClick` entries are checked first. The resolved target's `column` scope is also respected: if `clickAction.targetKey` points to a link/drill entry with `column: "X"`, the action fires only when the clicked cell is in column X. Prefer `onCellClick` for tables so the target scope lives on the mapping itself, not duplicated as a `targetKey` pointer.
+
 ::: warning
-If `clickAction` is absent, the widget falls back to cross-filter emission — exactly the same behavior as before this feature was introduced. Existing configurations do not need any changes.
+If neither `onCellClick` nor `clickAction` is set, the widget falls back to cross-filter emission — exactly the same behavior as before these features were introduced. Existing configurations do not need any changes.
 :::
 
 **Example — left-click opens a drill-down widget directly:**
@@ -667,6 +708,8 @@ Use the `linkColumn` field to point to a SQL column that contains a URL. The sys
 | `enLabel` | No | English label in the context menu |
 | `arLabel` | No | Arabic label in the context menu |
 | `linkColumn` | Yes | SQL column containing the URL |
+| `column` | Table widgets only | Scopes the entry to a specific column (absent = row-level, any cell). |
+| `onCellClick` | No | Table widgets only. When `true`, left-clicking a matching cell fires this link without needing the right-click menu. See Section 5a.1. |
 
 ### Entity Navigation Link
 
@@ -682,12 +725,14 @@ Use `linkToEntityTypeColumn` + `linkToIdColumn` to build a link that opens an en
 | `entityType` | No | Static entity type string. Use this instead of `linkToEntityTypeColumn` when every row links to the same entity type. |
 | `openMode` | No | How to open the entity: `"popup"` (Quasar dialog, default), `"navigate"` (same tab), `"newTab"`. |
 | `labelColumn` | No | SQL column used to enrich the context menu label. For example, if `enLabel` is `"Open Customer"` and `labelColumn` resolves to `"ABC Trading"`, the menu shows `"Open Customer 'ABC Trading'"`. |
+| `column` | Table widgets only | Scopes the entry to a specific column (absent = row-level, any cell). |
+| `onCellClick` | No | Table widgets only. When `true`, left-clicking a matching cell opens the link without needing the right-click menu. See Section 5a.1. |
 
 ::: tip
 The `labelColumn` field is a small touch that makes a big difference in usability. Instead of a generic "Open Customer" menu item, the user sees "Open Customer 'ABC Trading'" — they know exactly where the link will take them before they click.
 :::
 
-**Example — left-click navigates to a customer entity:**
+**Example — chart widget, left-click navigates to a customer entity (widget-level clickAction):**
 
 ```json
 {
@@ -709,7 +754,33 @@ The `labelColumn` field is a small touch that makes a big difference in usabilit
 }
 ```
 
-Here, left-clicking a data point opens the customer's edit form in a popup dialog. The same link also appears in the right-click context menu under "Navigate To".
+Here, left-clicking any data point on the chart opens the customer's edit form. The same link also appears in the right-click context menu under "Navigate To".
+
+**Example — EnhancedTable, click the customer-name cell to open its record (per-entry onCellClick):**
+
+```json
+{
+  "columns": [
+    {"id": "code", "field": "code"},
+    {"id": "customerName", "field": "customerName"}
+  ],
+  "linkMappings": [
+    {
+      "key": "openCustomer",
+      "column": "customerName",
+      "onCellClick": true,
+      "enLabel": "Open Customer",
+      "arLabel": "فتح العميل",
+      "linkToEntityTypeColumn": "CustomerEntityType",
+      "linkToIdColumn": "CustomerId",
+      "openMode": "popup",
+      "labelColumn": "CustomerName"
+    }
+  ]
+}
+```
+
+Clicking the customer-name cell opens the entity; clicking any other cell falls through to cross-filter emission. No `clickAction` needed — the link's own `column` + `onCellClick` flag carry all the information.
 
 ---
 
@@ -1450,7 +1521,7 @@ Set both to `true` to hide the selector entirely.
 | `columnGroups` | No | Array of `{id, headerArTitle, headerEnTitle, marryChildren, openByDefault}` entries. Columns reference their group via `groupId`. |
 | `tableOptions` | No | Grid-level options (see 15.2). Safe to omit — defaults are reasonable. |
 | `rowConditionalFormatting` | No | Row-level conditional formatting (see 15.5). |
-| `clickEmitMapping`, `drillDownMapping`, `linkMappings`, `clickAction` | No | Same as Sections 4–5a. Each entry may carry a `column` field whose value matches a column `id` to fire only when that column's cell is clicked. Entries without `column` are row-level and fire on any cell. |
+| `clickEmitMapping`, `drillDownMapping`, `linkMappings`, `clickAction` | No | Same as Sections 4–5a. Each `drillDownMapping` / `linkMappings` entry may carry a `column` field (scope the entry to a specific column) and `onCellClick: true` (fire on left-click, not just right-click). Prefer `onCellClick` on the entry itself over widget-level `clickAction` for tables — see Section 5a.1 for dispatch order. |
 
 No `dataMapping` / `echartOption` — EnhancedTable does not use ECharts.
 
