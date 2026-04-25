@@ -1437,13 +1437,16 @@ Once the user drills, the server rebuilds the chart config by reading the widget
 
 ### 13.6 Cross-Filter SQL LHS
 
-For wizard widgets, cross-filter bindings can omit `sqlLeftHandSide` on both the binding and the `BICrossFilter` entity. If the binding has no LHS, the backend:
+For wizard widgets, the cross-filter "SQL Left Hand Side" (on the binding or on the `BICrossFilter` entity) accepts a **wizard field path** in addition to a raw `alias.column`. Any field reachable from the wizard's main entity works — it does not need to be one of the widget's displayed dimensions or measures.
 
-1. Finds the click-emit entry for the same cross-filter code in the chart config
-2. Reads its `wizardFieldId`
-3. Uses the wizard field's cached `sqlLeftHandSide`
+Examples of valid LHS values on a wizard-backed widget:
 
-This lets wizard-backed widgets inherit the SQL LHS from the field ID without the author ever having to know or write it.
+- `customer` — a reference field on the main entity. Filter binds against the referenced id automatically.
+- `customer.salesman.code` — a property path through two joins. Joins are added to the query as needed.
+- `valueDate` — a scalar column on the main entity.
+- `l.branch_id` — raw SQL column + alias (legacy path; still supported).
+
+The classifier treats a value as a wizard field path when it has two or more dots, or when it resolves against the wizard's main-table data model. Otherwise it is treated as raw SQL. Raw `alias.column` values in existing dashboards keep working unchanged.
 
 ### 13.7 Coexistence With Legacy Widgets
 
