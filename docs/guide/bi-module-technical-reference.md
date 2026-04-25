@@ -856,6 +856,28 @@ Each binding references a `BICrossFilter` entity by its `code`. When that cross-
 | `Contains` | `LIKE '%value%'` | Text search |
 | `StartsWith` | `LIKE 'value%'` | Text prefix match |
 
+### Widget-Local Scope (`localScope`)
+
+Cross-filter bindings — both at the widget level (`DashBoardWidget.crossFilterBindings`) and at the dashboard level (`DashBoard.crossFilterBindings`) — carry an optional `localScope` flag:
+
+```json
+"crossFilterBindings": [
+  {"crossFilter": "regionFilter", "localScope": true},
+  {"crossFilter": "dateFrom"}
+]
+```
+
+When `localScope` is `true` for a binding, that filter belongs to the widget's own filter popup instead of the dashboard's global filter bar. Specifically:
+
+- The widget exposes a filter button on its header. Clicking it opens a popup with one input per `localScope` binding. Values entered there apply only to this widget.
+- Click-emitted cross-filters from other charts, and values typed into the dashboard filter bar, are **ignored** for `localScope` bindings — only the widget's own popup can drive them.
+- If every binding for a given cross-filter code (across all widgets and the dashboard) is `localScope`, that code disappears from the dashboard filter bar entirely.
+- A drill-down request that targets a `localScope`-bound code still passes its value through (drill-down takes precedence over local scope, since it is an explicit user action).
+- Period-comparison shifting still applies — the resolved local value flows through `BIPeriodComparisonExecutor` like any other.
+- The widget's local filter values are serialized into the shareable dashboard URL via `localToChart`, so a copied URL restores the same per-widget filter state.
+
+Use `localScope` when one chart needs an independent slicer (e.g. "show this KPI for Region X") that should not propagate to its sibling widgets.
+
 ---
 
 ## 7. Number Format Spec
