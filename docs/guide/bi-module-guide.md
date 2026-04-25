@@ -142,6 +142,11 @@ Configure drill-down targets — covered in the [Drill-Down](#Drill-Down) sectio
 
 A dashboard is a grid that holds multiple widgets. You configure the grid size (e.g., 3 columns × 4 rows), then place each widget by specifying its row, column, width (in columns), and height (in rows).
 
+Every dashboard has a **Kind**:
+
+- **Single** — the classic dashboard you've always known. A grid of widgets, optionally with cross-filter bindings. This is the default for new dashboards.
+- **Tabbed** — a container that holds *other dashboards* as switchable tabs, instead of holding widgets directly. See [Tabbed Dashboards](#Tabbed-Dashboards) below.
+
 ### Editing the Layout
 
 In edit mode, you can:
@@ -149,6 +154,8 @@ In edit mode, you can:
 - **Drag widgets** to reposition them on the grid
 - **Resize widgets** using handles on all edges and corners
 - **Save or cancel** your layout changes
+
+The layout designer is for Single dashboards only. Trying to open it on a Tabbed dashboard shows an error — Tabbed dashboards have no widget grid to lay out, just a list of sub-dashboards.
 
 ### Auto-Refresh
 
@@ -174,6 +181,84 @@ While ECharts are the star of the show, dashboards support several other widget 
 | **Recent Visits** | Shows recently viewed records                                           |
 | **Card Menu** | Navigation cards                                                        |
 | **Resource View** | Resource scheduler                                                      |
+
+---
+
+## Tabbed Dashboards
+
+Sometimes one dashboard isn't enough — top management wants to see warehouse, HR, and sales metrics in one place, but each team already has its own dashboard tuned for their work. Building one giant combined dashboard duplicates everything; switching between three separate dashboards is friction. **Tabbed Dashboards** solve this by letting you compose existing dashboards as tabs under a single parent.
+
+### The Reuse Story
+
+Picture this:
+
+- The warehouse team uses **Warehouse Dashboard** every day.
+- HR has their own **HR Dashboard**.
+- Sales runs **Sales Dashboard**.
+
+Each of those is a normal Single dashboard, owned and maintained by its team. Now executives ask for one place to see everything. You create a **new dashboard**, set its Kind to **Tabbed**, and add the three existing dashboards as sub-dashboards. That's it — no duplicating widgets, no copying SQL queries, no parallel maintenance. When the warehouse team adds a new chart to their dashboard, it shows up in the executive view automatically.
+
+The sub-dashboards are still independently navigable too — the warehouse team keeps using Warehouse Dashboard directly, with no awareness that it also lives inside an executive view.
+
+### Setting It Up
+
+When you edit a dashboard record, you'll see the **Kind** field:
+
+- Leave it as **Single** for a normal dashboard.
+- Change it to **Tabbed** to compose other dashboards as tabs.
+
+Switching to Tabbed reveals the **Sub Dashboards** grid. Add one row per tab:
+
+| Field | What it does |
+|---|---|
+| Sub Dashboard | Reference picker pointing to an existing dashboard |
+| Arabic Title | Optional override for the tab label in Arabic |
+| English Title | Optional override for the tab label in English |
+
+The order of rows in the grid is the order tabs appear in the UI. To rearrange tabs, reorder the grid rows. If you leave both title fields empty, the tab uses the sub-dashboard's own name (`name1` for Arabic UI, `name2` for English).
+
+::: tip
+A Tabbed dashboard cannot have widgets of its own — it's purely a container. If you also try to add widgets directly, the system blocks the save. This keeps the model coherent: a Tabbed parent's job is to host sub-dashboards, nothing more.
+:::
+
+### Cross-Filters Across Tabs
+
+The cross-filter bar at the top of a Tabbed dashboard is the **union** of every cross-filter defined on any of the sub-dashboards, with duplicates removed. So if Warehouse and Sales both bind a "Branch" filter, you see one Branch chip in the bar — not two.
+
+What's more, that filter chip applies across **all tabs that bind it**. Click "Riyadh" while viewing the Sales tab, switch to Warehouse, and Warehouse re-fetches with the Riyadh filter applied automatically. This works because cross-filter bindings live on each sub-dashboard, and the system replays them whenever you switch tabs.
+
+You don't define cross-filter bindings on the Tabbed parent itself — that's intentional. Sub-dashboards stay self-sufficient (so they keep working when used standalone), and the parent just unions what they declare.
+
+### Performance — Lazy Loading Per Tab
+
+Only the active tab's widgets are fetched from the server. Switching tabs triggers a fetch for the new tab; previously-loaded tabs aren't re-fetched until you come back. This means heavy dashboards in rarely-visited tabs don't slow down the parent — you pay only for what you look at.
+
+Cross-filter changes also re-fetch only the active tab. Other tabs pick up the filter when you visit them next.
+
+### Bookmarking & Sharing
+
+The active tab is encoded in the URL as the `sd` (sub-dashboard) query parameter. So you can:
+
+- **Bookmark** a specific tab + filter combination, and the link reopens in the same state
+- **Share** a link that points colleagues directly to "the warehouse tab with the Q1 date filter pre-applied"
+- **Use the browser back/forward buttons** — switching tabs doesn't break navigation history beyond the URL update
+
+### What's Different About Editing Tabbed Dashboards
+
+A Tabbed dashboard has no widget grid, so:
+
+- **The layout designer doesn't open** for Tabbed parents. Click "Edit Dashboard Elements" and you'll see an error message asking you to use the Sub Dashboards grid instead.
+- **To edit a sub-dashboard's widget layout**, navigate to that sub-dashboard directly (it's still a normal Single dashboard) and use the layout designer there. Changes appear in the parent automatically.
+
+### Rules & Limits
+
+A few invariants are enforced when you save:
+
+- **No nested tabs.** A sub-dashboard cannot itself be Tabbed. Tabs are one level deep — this avoids cycles and keeps the UI predictable.
+- **No self-reference.** A dashboard cannot list itself as one of its own tabs.
+- **No duplicate sub-dashboards.** Each sub-dashboard can appear at most once in the tab list.
+- **Cross-filter bindings live on sub-dashboards only.** A Tabbed parent cannot have its own bindings — the union from sub-dashboards is what powers the bar.
+- **Permission filtering at runtime.** If you can see the parent but not a particular sub-dashboard, that tab still shows up but renders an error message instead of widgets, so you know something's restricted rather than silently hiding it.
 
 ---
 
