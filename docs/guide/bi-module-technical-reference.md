@@ -1660,7 +1660,7 @@ No `dataMapping` / `echartOption` — EnhancedTable does not use ECharts.
 | `groupId` | No | References an entry in `columnGroups[].id`. Columns with the same `groupId` render under a shared group header. |
 | `headerArTitle` / `headerEnTitle` | No | Localized column header. Falls back to `id` if both are empty. |
 | `hide`, `width`, `minWidth`, `maxWidth`, `flex` | No | AG Grid layout controls. |
-| `pinned` | No | `"left"`, `"right"`, or `null`. |
+| `pinned` | No | `"start"`, `"end"`, or `null`. Logical pinning that flips with the active reading direction — `start` is the leading edge (left in LTR, right in RTL), `end` is the trailing edge. |
 | `sort`, `sortIndex` | No | Initial sort applied when the widget loads. |
 | `rowGroup`, `rowGroupIndex`, `pivot`, `aggFunc` | No | Row-grouping / pivot / aggregation. `aggFunc` accepts `"sum"`, `"avg"`, `"min"`, `"max"`, `"count"`, `"first"`, `"last"`. |
 | `tooltipField` | No | The `id` of another column whose display value becomes this cell's tooltip. |
@@ -1870,3 +1870,119 @@ No automatic upgrade. Users opt in per widget:
 3. Customize column formatting, renderers, conditional formatting as needed.
 
 Existing `clickEmitMapping` / `drillDownMapping` / `linkMappings` in the widget's `chartConfigJSON` continue to work unchanged — the `column` field in those mappings matches the auto-generated column `id`s (which default to the SQL column name).
+
+### 14.8 Pivot (Cross-Tab) Layout
+
+Pivot mode turns an `EnhancedTable` widget into a JasperReports-style cross-tab: one or more **row dimensions** become row groups, one or more **column dimensions** become nested column-group headers, and one or more **measures** fill the cell intersections — with optional subtotals at every level and a grand total. The hand-authored `columns` block is ignored when `pivot` is set; the engine synthesizes columns + nested column groups + the row plan server-side.
+
+#### 14.8.1 Configuration shape
+
+```json
+{
+  "pivot": {
+    "rowDimensions":      [ { "field": "sCode", "headerEnTitle": "Section" }, { "field": "iCode", "headerEnTitle": "Item" } ],
+    "colDimensions":      [ { "field": "bCode", "headerEnTitle": "Branch" }, { "field": "wCode", "headerEnTitle": "Warehouse" } ],
+    "measures": [
+      { "field": "netQty",  "headerEnTitle": "Qty",  "aggFunc": "sum", "formatting": { "type": "number",   "decimals": 2 } },
+      { "field": "netCost", "headerEnTitle": "Cost", "aggFunc": "sum", "formatting": { "type": "currency", "decimals": 2, "currencySymbol": "SAR" } }
+    ],
+    "useRowGrouping":     true,
+    "rowSubtotals":       true,
+    "colSubtotals":       true,
+    "rowGrandTotal":      "bottom",
+    "colGrandTotal":      "end",
+    "subtotalLabelKey":   "biSubtotal",
+    "grandTotalLabelKey": "biGrandTotal",
+    "emptyCellAs":        null,
+    "zeroAsEmpty":        true
+  }
+}
+```
+
+| Field | Default | Notes |
+|---|---|---|
+| `rowDimensions` | required | Ordered list — outermost first. Each entry is a `field` (raw SQL column alias) **or** `wizardFieldId` (wizard mode), plus optional header titles and `formatting`. |
+| `colDimensions` | required | Same shape as `rowDimensions`; ordering controls header nesting. |
+| `measures` | required | Each entry is a `field` / `wizardFieldId`, header titles, `aggFunc` (defaults to `sum`; v1 implements `sum` only), `formatting`, and optional `conditionalFormatting`. The CF block is applied to every synthetic column derived from this measure (leaf cells, subtotal columns, grand-total columns). |
+| `useRowGrouping` | `true` | When true (and there are at least 2 row dims), the outer N-1 row dims become AG Grid row groups; the innermost dim is the leaf row inside each group. With a single row dim, grouping is a no-op (every leaf would be its own group) and the backend falls back to flat rows + backend subtotal/grand-total rows. |
+| `rowSubtotals` | `false` | Show per-group subtotal footer rows. With row grouping active, AG Grid renders these client-side (via `tableOptions.groupIncludeFooter`); without grouping, the backend bakes subtotal rows directly into the result set. |
+| `colSubtotals` | `false` | Show subtotal columns at each non-leaf column-dim level (e.g. branch-level totals across warehouses). Always backend-rendered — AG Grid can't synthesize cross-tab columns. |
+| `rowGrandTotal` | `null` | `"top"`, `"bottom"`, or `null`. With grouping active, maps to AG Grid `tableOptions.grandTotalRow`; without grouping, baked into the result set. |
+| `colGrandTotal` | `null` | `"start"`, `"end"`, or `null`. **Logical** positioning — `start` puts the grand-total columns first in the synthesized list (which renders on the leading edge in either reading direction); `end` puts them last. |
+| `subtotalLabelKey` / `grandTotalLabelKey` | hardcoded fallback | i18n keys. The frontend resolves them via `Translator.translate(key)`; if absent, the backend falls back to `Subtotal` / `Grand Total` (and Arabic equivalents). |
+| `emptyCellAs` | `null` | What to render in cells with no source data: `null` (blank), `0`, or any literal string like `"-"`. |
+| `zeroAsEmpty` | `false` | When true, measure values that aggregate to exactly 0 are rendered using `emptyCellAs` — useful for sparse cross-tabs to declutter "0.00" cells. |
+
+#### 14.8.2 What the engine emits
+
+Given the example config above against a result-set with `wCode, bCode, iCode, sCode, netQty, netCost`, the backend walks the rows once, builds distinct row-tuple and col-tuple trees (sorted alphabetically per level), re-aggregates `(rowTuple, colTuple) → measures` via `sum`, and emits:
+
+- **Synthetic `columns`**: M row-dim columns (pinned `start`) + the leaf measure columns interleaved with col-subtotal columns (per non-leaf col prefix) + col grand-total columns at the chosen end. Each measure column carries a stable id of the form `pv:bCode=B1.wCode=W1:m=netQty`.
+- **Nested `columnGroups`** (with `parentGroupId`): one group per non-leaf col-tuple prefix, e.g. `pvg:bCode=B1` containing `pvg:bCode=B1.wCode=W1` containing the two measure leaves for that warehouse.
+- **Synthetic rows**: with row grouping active, only leaf data rows; without, leaf rows interleaved with subtotal rows (per non-leaf row prefix) and a grand-total row.
+- **`enhancedTableData.styles`** — total rows and columns are tagged via the `t` flag (`0` = grand, `n > 0` = subtotal at depth `n`); the widget applies a default bold + tint style. Explicit `conditionalFormatting` always wins.
+- **`agColumnCellDataTypes`** — every synthetic measure column is tagged `"number"` so cell values flow as JSON numbers (not strings) — required for AG Grid `aggFunc` aggregations on group rows.
+
+#### 14.8.3 Wizard mode
+
+In wizard mode (`widget.wizardDataSource` set), use `wizardFieldId` instead of `field` on every pivot dim and measure. The `WizardChartConfigRewriter` resolves each `wizardFieldId` to the cached SQL alias (`DashBoardWizardFieldMetadata.displayAlias`) before the engine runs — see Section 13. From the engine's perspective everything is `field` thereafter, so all of §14.8.1 applies unchanged.
+
+#### 14.8.4 Interaction skipping on totals
+
+Subtotal and grand-total rows + columns are derived aggregates with no underlying source row, so click-emit / drill-down / link / drill-down-by all skip them. The widget detects them via the `t` flag on the row data (`_totalLevel`) and on the column config (`t`), and short-circuits in `useBIInteractionsForAgGrid.onCellClicked` / `getContextMenuItems` / `cellClassForInteraction` (so the cursor hint also turns off on total cells).
+
+#### 14.8.5 Coexistence with AG Grid client-side pivot
+
+The pre-existing `tableOptions.enablePivot` (which lets the user drag-pivot columns interactively at runtime via AG Grid Enterprise) is unrelated and stays untouched. Use it for free-form exploration; use the `pivot` block in `chartConfigJSON` for author-defined cross-tab reports.
+
+#### 14.8.6 Complete example
+
+Cross-tab from the user's `ItemDimensionsQty` query:
+
+```sql
+select w.code wCode, b.code bCode, i.code iCode, s.code sCode,
+       sum(q.net) netQty, sum(q.netCost) netCost
+from   ItemDimensionsQty q
+left join InvItem      i on i.id = q.item_id
+left join ItemSection  s on s.id = i.section_id
+left join Warehouse    w on w.id = q.warehouse_id
+left join Branch       b on b.id = w.branch_id
+group  by w.code, b.code, i.code, s.code
+```
+
+```json
+{
+  "pivot": {
+    "rowDimensions": [
+      { "field": "sCode", "headerEnTitle": "Section",  "headerArTitle": "القسم" },
+      { "field": "iCode", "headerEnTitle": "Item",     "headerArTitle": "الصنف" }
+    ],
+    "colDimensions": [
+      { "field": "bCode", "headerEnTitle": "Branch",   "headerArTitle": "الفرع" },
+      { "field": "wCode", "headerEnTitle": "Warehouse","headerArTitle": "المخزن" }
+    ],
+    "measures": [
+      { "field": "netQty",  "headerEnTitle": "Qty",  "headerArTitle": "الكمية",
+        "aggFunc": "sum", "formatting": { "type": "number", "decimals": 0 } },
+      { "field": "netCost", "headerEnTitle": "Cost", "headerArTitle": "التكلفة",
+        "aggFunc": "sum",
+        "formatting": { "type": "currency", "decimals": 2, "currencySymbol": "SAR" },
+        "conditionalFormatting": {
+          "rules": [
+            { "when": { "type": "threshold", "op": ">=", "value": 1000000 },
+              "style": { "bold": true, "color": "#1b5e20" } }
+          ]
+        } }
+    ],
+    "useRowGrouping":     true,
+    "rowSubtotals":       true,
+    "colSubtotals":       true,
+    "rowGrandTotal":      "bottom",
+    "colGrandTotal":      "end",
+    "zeroAsEmpty":        true,
+    "emptyCellAs":        "-"
+  }
+}
+```
+
+Result: each Section appears as a collapsible row group containing its Items as leaf rows; each Branch is a top-level column group containing its Warehouse sub-groups, and each Warehouse holds the two measure columns. Branch and grand-total columns appear after the data; subtotal rows show at the end of each section group, with a grand-total row at the bottom. Zero-aggregating cells render as `-`. In Arabic locale, the row-dim columns pin to the right (leading edge) and the grand-total columns appear on the left.
