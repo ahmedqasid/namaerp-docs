@@ -30,6 +30,7 @@
     - [Nama ERP e-Invoice guide](/guide/invoices/e-invoices-guide.md)
     - [الربط مع هيئة الزكاة والدخل بالسعودية](/guide/invoices/zatca-guide.md)
     - [Electronic Receipt (Egypt Tax eInvoice) تفعيل الإيصال الإلكتروني - الفاتورة الإلكترونية - مصر](/guide/invoices/electronic-receipt-egypt-tax-eInvoice.md)
+    - [UAE Orchida EInvoice Guide](/guide/invoices/uae-orchida-einvoice-guide.md)
     - [Standard Terms and Conditions Feature Documentation](/guide/invoices/standard-terms-feature-documentation.md)
     - [ميزة حقل الباركود للمسح المتتالي](/guide/invoices/barcode-field-feature.md)
   - [Supply Chain](/guide/supplychain/)
