@@ -947,6 +947,7 @@ Cross-filters are master-file entities that define reusable filter parameters. T
 | `Table` | AG Grid table (columns from SQL, rows from data) | No |
 | `EnhancedTable` | AG Grid table driven entirely by `chartConfigJSON.columns` — per-column formatting, renderers, conditional formatting, column groups, pinning, aggregation. See Section 14. | Yes |
 | `CrossFilterControl` | Slicer-style filter widget — renders one `BICrossFilter` as an editor on the dashboard grid. Requires only `crossFilterRef`. See Section 9a. | No |
+| `TextBlock` | Non-data rich-HTML widget. Main usage: section headers and titles between data widgets. Also: subtitles, descriptions, instructions. See Section 9b. | Yes |
 | `PieChart`, `ColumnWithRotatedLabels`, etc. | Legacy Highcharts types (auto-translated to ECharts server-side) | No |
 
 For `Table` widgets, the SQL column names become the grid column headers. No `chartConfigJSON` is needed — just provide the `dataSource` SQL and `crossFilterBindings`.
@@ -974,6 +975,36 @@ Renders one `BICrossFilter` as a slicer on the dashboard grid. The same cross-fi
 The fastest way to author one is to set `autoCreateWidget: true` on the `BICrossFilter` (Section 8) — saving the cross-filter creates the paired widget. Otherwise create the widget manually with the JSON above.
 
 When the dashboard has a `CrossFilterControl` for a code, that filter is hidden from the global-bar edit dialog; an active value still appears as a chip in the bar.
+
+---
+
+## 9b. TextBlock Widget
+
+Non-data rich-HTML widget. Main usage: section headers separating groups of data widgets on a dashboard. Also subtitles, descriptions, instructions.
+
+No `dataSource`, no `crossFilterBindings`, no `wizardDataSource`. The widget is a static renderer; `chartConfigJSON` carries the content + frame styles.
+
+```json
+{
+  "code": "salesHeader",
+  "name1": "ترويسة المبيعات",
+  "name2": "Sales Header",
+  "type": "TextBlock",
+  "chartConfigJSON": "{\"html\":\"<h2>Sales Performance</h2>\",\"bgColor\":\"#f5f5f5\",\"padding\":\"8px\",\"textAlign\":\"center\"}"
+}
+```
+
+`chartConfigJSON` keys (all optional except `html`):
+
+| Key | Effect |
+|---|---|
+| `html` | Rendered via `v-html`. Authored through the q-editor or the raw-HTML textarea. |
+| `bgColor` | Wrapper `background-color`. |
+| `color` | Wrapper `color` (default text color). |
+| `padding` | CSS shorthand (e.g. `8px` or `8px 12px`). |
+| `fontSize` | Wrapper `font-size`. |
+| `borderColor`, `borderWidth`, `borderRadius` | Wrapper border. |
+| `textAlign` | `left` / `center` / `right` / `justify`. |
 
 ---
 
