@@ -932,6 +932,8 @@ Cross-filters are master-file entities that define reusable filter parameters. T
 | `sqlLeftHandSide` | Yes | SQL expression for the left side of the WHERE condition (e.g., `"l.branch_id"`) |
 | `operator` | Yes | Comparison operator (see Section 6) |
 | `customWhereClause` | No | Full custom WHERE fragment (overrides sqlLeftHandSide + operator) |
+| `autoCreateWidget` | No | When true, saving the cross-filter creates a paired `DashBoardWidget` of type `CrossFilterControl` (same `code`/`name1`/`name2`, `crossFilterRef` set). Skips the manual widget-creation step. |
+| `hideFilterTitle` | No | When true, suppresses the title label in all renderings of this filter (popup, global-bar dialog, and the legend on `CrossFilterControl` widgets). |
 
 **Important:** For `Reference` type filters, the `sqlLeftHandSide` should reference the **ID column** (e.g., `l.branch_id`), not a name or code column. The system handles binary(16) ID encoding automatically.
 
@@ -944,11 +946,34 @@ Cross-filters are master-file entities that define reusable filter parameters. T
 | `EChart` | ECharts chart (uses echartOption + dataMapping) | Yes |
 | `Table` | AG Grid table (columns from SQL, rows from data) | No |
 | `EnhancedTable` | AG Grid table driven entirely by `chartConfigJSON.columns` — per-column formatting, renderers, conditional formatting, column groups, pinning, aggregation. See Section 14. | Yes |
+| `CrossFilterControl` | Slicer-style filter widget — renders one `BICrossFilter` as an editor on the dashboard grid. Requires only `crossFilterRef`. See Section 9a. | No |
 | `PieChart`, `ColumnWithRotatedLabels`, etc. | Legacy Highcharts types (auto-translated to ECharts server-side) | No |
 
 For `Table` widgets, the SQL column names become the grid column headers. No `chartConfigJSON` is needed — just provide the `dataSource` SQL and `crossFilterBindings`.
 
 For `EnhancedTable` widgets, every column is declared explicitly in `chartConfigJSON` with its own formatting spec, cell renderer, and conditional-formatting rules. See Section 14 for the full schema.
+
+For `CrossFilterControl` widgets, no `dataSource`, no `chartConfigJSON`, no `crossFilterBindings`. Only `crossFilterRef` is required.
+
+---
+
+## 9a. CrossFilterControl Widget
+
+Renders one `BICrossFilter` as a slicer on the dashboard grid. The same cross-filter may be placed in more than one widget; multiple `CrossFilterControl` widgets per dashboard are allowed.
+
+```json
+{
+  "code": "branchFilter",
+  "name1": "فلتر الفرع",
+  "name2": "Branch Filter",
+  "type": "CrossFilterControl",
+  "crossFilterRef": { "code": "branchFilter" }
+}
+```
+
+The fastest way to author one is to set `autoCreateWidget: true` on the `BICrossFilter` (Section 8) — saving the cross-filter creates the paired widget. Otherwise create the widget manually with the JSON above.
+
+When the dashboard has a `CrossFilterControl` for a code, that filter is hidden from the global-bar edit dialog; an active value still appears as a chip in the bar.
 
 ---
 
