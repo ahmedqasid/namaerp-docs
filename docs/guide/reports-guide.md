@@ -861,12 +861,68 @@ To define a parameter that supports multiple selections:
 ```
 :::
 
+### Date Range Parameters
+
+When users filter a report by a date range, defining two separate "From Date" and "To Date" parameters works, but it takes up two prompt rows and the relationship between them isn't visually obvious. The `showAsDateRange` option lets you present a single, unified range picker in the prompt UI while keeping two real date parameters underneath for your SQL query to use.
+
+The pattern relies on three parameters working together:
+
+1. **A controller string parameter** with `showAsDateRange = true`. This is what the user sees and interacts with; it doesn't carry a value of its own.
+2. **A "from date" parameter** with `isForPrompting="false"` — referenced by the controller's `fromDateId` property.
+3. **A "to date" parameter** with `isForPrompting="false"` — referenced by the controller's `toDateId` property.
+
+When the user picks a range, the system writes the chosen dates into the two underlying date parameters. From your query's perspective, nothing changes — you reference `$P{FromValueDate}` and `$P{ToValueDate}` exactly as you would any other date parameter.
+
+* Example
+
+```xml
+<parameter name="FromValueDate" class="java.util.Date" isForPrompting="false">
+    <property name="arabic" value="من التاريخ الفعلي"/>
+    <property name="english" value="From Value Date"/>
+</parameter>
+
+<parameter name="ToValueDate" class="java.util.Date" isForPrompting="false">
+    <property name="arabic" value="إلى التاريخ الفعلي"/>
+    <property name="english" value="To Value Date"/>
+</parameter>
+
+<parameter name="ValueDate" class="java.lang.String">
+    <property name="showAsDateRange" value="true"/>
+    <property name="fromDateId" value="FromValueDate"/>
+    <property name="toDateId" value="ToValueDate"/>
+    <property name="arabic" value="التاريخ الفعلي"/>
+    <property name="english" value="Value Date"/>
+</parameter>
+```
+
+Then in your SQL query, reference the underlying date parameters directly:
+
+```sql
+WHERE valueDate >= $P{FromValueDate}
+  AND valueDate <= $P{ToValueDate}
+```
+
+Or using $X{[BETWEEN syntax]}
+
+```sql
+where $X{[BETWEEN],valueDate,FromValueDate,ToValueDate}
+```
+
+* Requirements
+
+- The controller parameter must be of type `java.lang.String`.
+- Both date parameters must set `isForPrompting="false"` so they don't appear as separate prompts alongside the range picker.
+- The values of `fromDateId` and `toDateId` must match the names of the two date parameters exactly.
+
 ### Parameter Properties Reference
 
 #### Basic Properties
 - **`list`**: `true`/`false` - Enable multi-selection
 - **`listType`**: Required for non-reference types (e.g., `java.util.Date`)
 - **`listDisplayType`**: Widget used to render a list parameter. One of `Default`, `Dropdown`, `Chips`.
+- **`showAsDateRange`**: `true`/`false` - Render a string parameter as a unified date range picker. Used together with `fromDateId` and `toDateId`. See [Date Range Parameters](#Date-Range-Parameters).
+- **`fromDateId`**: Name of the underlying "from date" parameter when `showAsDateRange` is enabled.
+- **`toDateId`**: Name of the underlying "to date" parameter when `showAsDateRange` is enabled.
 - **`layout`**: Display layout (`alone`, `spanned`, `normal`, `spanned2`)
 - **`required`**: `true`/`false` - Mark as mandatory
 - **`requiredGroup`**: Group parameters where at least one must be filled
