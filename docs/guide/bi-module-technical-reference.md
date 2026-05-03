@@ -55,6 +55,10 @@ See Section 13 for the full list of wizard-mode key pairs, cross-filter / drill-
 
 Each widget has a `dataSource` field containing a SQL query (T-SQL for SQL Server). The query **must** include the literal placeholder `/*AND-FILTERS*/` in its WHERE clause. The server replaces this with the active cross-filter conditions at runtime. Because the placeholder is a SQL comment, the query is also valid when run directly in SQL Server Management Studio without any modifications.
 
+::: tip Reusing complex SQL across widgets
+If the same `UNION` / multi-join / hand-rolled SELECT keeps showing up across several SQL-mode widgets, consider promoting it to a **Virtual Entity** instead. A Virtual Entity wraps the SELECT in a SQL Server view and registers it as a first-class entity, so it becomes pickable from the wizard's main-table picker (`tableType = "VirtualEntity"`) — and from there, every wizard-mode convenience (auto-joins on reference fields, dimension drill-by, auto-inferred cross-filter columns) works against it as if it were a real table. See the [Virtual Entity Guide](./virtual-entity-guide.md).
+:::
+
 ### Pattern
 
 ```sql
