@@ -8,6 +8,13 @@ The BI module uses [Apache ECharts](https://echarts.apache.org/) for chart rende
 The Nama ERP data model is published at [https://dm.namasoft.com](https://dm.namasoft.com). AI tools and developers can use this site to discover entity schemas — table names, column names, data types, join columns, foreign keys, and property paths. This is essential for writing correct SQL queries in widget data sources and for knowing which `fieldId` paths to use in wizard definitions.
 :::
 
+::: info Companion files
+Three deep-dive references sit beside this file. Load them on demand to keep context tight:
+- [`bi-reference-wizard-mode.md`](./bi-reference-wizard-mode.md) — wizard widgets (`wizardDataSource`), drill-by, runtime slot selection
+- [`bi-reference-enhanced-table.md`](./bi-reference-enhanced-table.md) — `EnhancedTable` widget + pivot/cross-tab
+- [`bi-reference-enhanced-metrics-card.md`](./bi-reference-enhanced-metrics-card.md) — `EnhancedMetricsCard` + legacy `MetricsCards`
+:::
+
 ---
 
 ## 1. The chartConfigJSON Structure
@@ -81,10 +88,13 @@ Because `/*AND-FILTERS*/` is a SQL comment, the query is always syntactically va
 ### Query Rules
 
 1. Always include `/*AND-FILTERS*/` — even if the widget has no cross-filter bindings. The server expects it.
-2. Use table aliases consistently. The `sqlLeftHandSide` in cross-filter definitions references these aliases (e.g., `l.branch_id`).
-3. For EChart widgets, the column names in the SQL must match the column names referenced in `dataMapping` (e.g., `categoryColumn`, `valueColumn`, series `column`).
-4. For Table widgets, column names become the AG Grid column headers.
-5. `SELECT TOP N` is recommended for widgets that show ranked data.
+2. **Multiple `/*AND-FILTERS*/` placeholders are allowed** and are all replaced with the same filter expression. Required for CTE-heavy queries: every CTE body that joins a filtered table needs its own placeholder so the filter applies inside it (e.g. a `WITH months AS (...), hcSeries AS (SELECT ... FROM Employee WHERE ... /*AND-FILTERS*/), ...` must repeat the placeholder in each CTE that touches the filtered table).
+3. The placeholder lives in the WHERE clause only. `HAVING`, `JOIN ON`, and CTE outer `SELECT` aren't injected into. If you need a filter to apply to a `HAVING`, mirror the predicate or restructure into a subquery whose WHERE carries the placeholder.
+4. Use table aliases consistently. The `sqlLeftHandSide` on a cross-filter targets these aliases (e.g., `l.branch_id`). For binding to work, the alias **must exist in the query** at the placeholder's scope.
+5. For EChart widgets, SQL column names must match the names referenced in `dataMapping` (`categoryColumn`, `valueColumn`, series `column`, etc.).
+6. For Table / EnhancedTable widgets, SQL column names become column `field` keys.
+7. `SELECT TOP N` is recommended for ranked-list widgets. Pair with `ORDER BY` — without it the result-set order is undefined.
+8. To reuse a column for entity-link payloads, alias the entity's `entityType` column explicitly (e.g. `SELECT b.id branchId, b.entityType branchEntityType, ...`) so `linkMappings.linkToEntityTypeColumn` can point at it.
 
 ### Example
 
@@ -828,7 +838,9 @@ Clicking the customer-name cell opens the entity; clicking any other cell falls 
 
 ## 6. Cross-Filter Bindings
 
-Cross-filter bindings define which cross-filters a widget **responds to** (not emits — that's `clickEmitMapping`). They are defined at the widget level (not inside `chartConfigJSON`).
+Cross-filter bindings define which cross-filters a widget **responds to** (not emits — that's `clickEmitMapping`). They live in two places, with **different shapes**:
+
+### Widget-level (`DashBoardWidget.crossFilterBindings`) — the common form
 
 ```json
 "crossFilterBindings": [
@@ -838,7 +850,19 @@ Cross-filter bindings define which cross-filters a widget **responds to** (not e
 ]
 ```
 
-Each binding references a `BICrossFilter` entity by its `code`. When that cross-filter has an active value, the server injects a WHERE clause into this widget's SQL query using the cross-filter's `sqlLeftHandSide` and `operator`.
+Each entry references a `BICrossFilter` by `code`. When the filter has a value, the server injects a WHERE clause into the widget's SQL using the filter's `sqlLeftHandSide` and `operator`. Optional fields per entry: `sqlLeftHandSide` (override), `operator` (override), `customWhereClause`, `localScope`.
+
+### Dashboard-level (`DashBoard.crossFilterBindings`) — overrides only, **`element` required**
+
+```json
+"crossFilterBindings": [
+  {"element": "ex-top-items", "crossFilter": "branchFilter", "operator": "In"}
+]
+```
+
+Dashboard-level entries carry an extra **required** `element` field naming the target widget (`DashBoardWidget.code`). They exist solely to override a single binding for one specific widget on this dashboard — typical use is changing the `operator` or `sqlLeftHandSide` for that widget without touching its widget-level binding.
+
+**Don't use dashboard-level bindings as a substitute for widget-level ones.** A bare `{"crossFilter": "X"}` at dashboard scope is malformed — it'll fail validation because `element` is required. If every widget on the dashboard needs the same binding, declare it at the widget level on each widget. Most dashboards have `crossFilterBindings: []` at the dashboard root.
 
 **Example flow:**
 1. `BICrossFilter` with code `"branchFilter"` has `sqlLeftHandSide: "l.branch_id"` and `operator: "Equal"`
@@ -886,7 +910,17 @@ Use `localScope` when one chart needs an independent slicer (e.g. "show this KPI
 
 ## 7. Number Format Spec
 
-Series and data mappings can include a `format` object that controls how numeric values are displayed in tooltips, axis labels, and data labels.
+Two formatter shapes exist — pick by widget family:
+
+| Where it's used | Shape | Field for currency symbol |
+|---|---|---|
+| ECharts `dataMapping.series[].format` (Section 3) | `format` object below | `currency` |
+| EnhancedTable column / EnhancedMetricsCard slot `formatting` (Section 14.4.1, 15.2) | Richer `formatting` object | `currencySymbol` (also `currencyCode`, `currencyPlacement`) |
+| Legacy `MetricsCards` `metricsCardConfig.numberFormat` | numeral.js mask string (e.g. `"0,0"`, `"0,0.00"`) plus separate `suffix` | n/a |
+
+The two are **not interchangeable** — putting `currency: "SAR"` on an EnhancedTable column does nothing; putting `currencySymbol: "SAR"` in an ECharts series format does nothing.
+
+### ECharts series format (`dataMapping.series[].format`)
 
 ```json
 "format": {
@@ -917,29 +951,45 @@ Cross-filters are master-file entities that define reusable filter parameters. T
   "name2": "Branch Filter",
   "paramType": "Reference",
   "referencedEntityType": "Branch",
+  "listParam": true,
+  "listDisplayType": "Chips",
   "arTitle": "الفرع",
   "enTitle": "Branch",
   "sqlLeftHandSide": "l.branch_id",
-  "operator": "Equal"
+  "operator": "In"
 }
 ```
 
 | Field | Required | Description |
 |---|---|---|
 | `code` | Yes | Unique identifier, referenced by widgets |
-| `name1` | Yes | Arabic name |
-| `name2` | Yes | English name |
-| `paramType` | Yes | Parameter type: `"Reference"`, `"Genericreference"`, `"Date"`, `"Integer"`, `"Decimal"`, `"Text"`, `"Enum"`, `"ListParam"`, `"Boolean"` |
-| `referencedEntityType` | If Reference | Entity type (e.g., `"Branch"`, `"Customer"`, `"InvItem"`) |
-| `arTitle` | No | Arabic label shown in the filter bar |
-| `enTitle` | No | English label shown in the filter bar |
-| `sqlLeftHandSide` | Yes | SQL expression for the left side of the WHERE condition (e.g., `"l.branch_id"`) |
-| `operator` | Yes | Comparison operator (see Section 6) |
-| `customWhereClause` | No | Full custom WHERE fragment (overrides sqlLeftHandSide + operator) |
-| `autoCreateWidget` | No | When true, saving the cross-filter creates a paired `DashBoardWidget` of type `CrossFilterControl` (same `code`/`name1`/`name2`, `crossFilterRef` set). Skips the manual widget-creation step. |
-| `hideFilterTitle` | No | When true, suppresses the title label in all renderings of this filter (popup, global-bar dialog, and the legend on `CrossFilterControl` widgets). |
+| `name1` / `name2` | Yes | Arabic / English name |
+| `paramType` | Yes | Base scalar type. Allowed values: `"Text"`, `"Integer"`, `"Long"`, `"Decimal"`, `"Boolean"`, `"Date"`, `"Time"`, `"Reference"`, `"Genericreference"`, `"BigText"`, `"Enum"`, `"ID"`, `"EntityType"`, `"Password"`, `"LatLng"`. (There is no `"ListParam"` value — multi-value mode is the orthogonal `listParam` flag below.) |
+| `listParam` | No | When `true`, the filter accepts multiple values. **Required** when `operator` is `"In"` or `"NotIn"`. Pair with `listDisplayType` to control the UI affordance. |
+| `listDisplayType` | No | UI affordance for `listParam: true` filters: `"Default"`, `"Dropdown"`, or `"Chips"` (the chip strip is the most common). |
+| `referencedEntityType` | If `paramType=Reference` | Entity type (e.g., `"Branch"`, `"Customer"`, `"InvItem"`) |
+| `arTitle` / `enTitle` | No | Localized labels shown in the filter bar. |
+| `sqlLeftHandSide` | Yes | SQL expression on the left of the WHERE condition (e.g., `"l.branch_id"`). For `Reference` filters, point at the **ID column** — never a name/code column; binary(16) encoding is handled automatically. |
+| `operator` | Yes | Comparison operator (see §6). `"In"`/`"NotIn"` require `listParam: true`. |
+| `customWhereClause` | No | Full custom WHERE fragment (overrides `sqlLeftHandSide` + `operator`). |
+| `required` | No | Filter must have a value before any widget query runs. |
+| `defaultValue` | No | Initial value applied when the dashboard loads. |
+| `allowedValues` | No | Long-text whitelist of accepted literal values (validation only). |
+| `hidden` | No | Hide from the filter bar (still appliable via URL or click-emit). |
+| `requiredGroup` | No | Multi-filter "at least one of" group code — any filter in the group satisfies the requirement. |
+| `criteriaExpression` | No | Server-side criteria for the filter's reference picker (`Reference` filters). |
+| `suggestionQuery` | No | Custom SQL that returns suggestion rows for autocomplete pickers. |
+| `comparisonConfig` | No | Period-comparison config (offset, baseline label) — see `BIPeriodComparisonExecutor`. |
+| `showAsDateRange` | No | Date filters only: render as a single from/to range picker that sets two paired filters at once. |
+| `autoCreateWidget` | No | When true, saving the cross-filter also creates a paired `CrossFilterControl` widget with the same `code`/`name1`/`name2` and `crossFilterRef` set. |
+| `hideFilterTitle` | No | Suppress the title label across all renderings (popup, bar dialog, `CrossFilterControl` legend). |
 
-**Important:** For `Reference` type filters, the `sqlLeftHandSide` should reference the **ID column** (e.g., `l.branch_id`), not a name or code column. The system handles binary(16) ID encoding automatically.
+**Operator/listParam contract** — these combinations matter:
+
+| `operator` | `listParam` | Behavior |
+|---|---|---|
+| `Equal` / `NotEqual` / `>` / `>=` / `<` / `<=` / `Contains` / `StartsWith` | `false` (or omitted) | Single value. |
+| `In` / `NotIn` | `true` (required) | Multi-value; emits `IN (...)` / `NOT IN (...)`. Setting `In` without `listParam: true` is a configuration error. |
 
 ---
 
@@ -1072,16 +1122,18 @@ Each entry creates a `DashBoardWidget` entity. Key fields:
 | Field | Required | Description |
 |---|---|---|
 | `code` | Yes | Unique widget code |
-| `name1` | Yes | Arabic name |
-| `name2` | Yes | English name |
-| `chartTitle` | No | Arabic chart title displayed above the chart |
-| `englishChartTitle` | No | English chart title |
-| `type` | Yes | `"EChart"` or `"Table"` |
-| `dataSource` | Yes | SQL query with `/*AND-FILTERS*/` placeholder |
-| `chartConfigJSON` | If EChart | JSON string containing echartOption + dataMapping (+ optional clickEmitMapping, drillDownMapping) |
-| `wizardDataSource` | No | Code of a `DashBoardWidgetWizard` entity (alternative to raw SQL) |
-| `horizontalMode` | No | Layout hint |
-| `crossFilterBindings` | No | Array of `{"crossFilter": "filterCode"}` objects |
+| `name1` / `name2` | Yes | Arabic / English name |
+| `chartTitle` / `englishChartTitle` | No | Localized title shown above the chart. Emoji prefixes are fine. |
+| `type` | Yes | One of: `"EChart"`, `"Table"`, `"EnhancedTable"`, `"EnhancedMetricsCard"`, `"MetricsCards"` (legacy), `"CrossFilterControl"`, `"TextBlock"`, `"PieChart"`, `"ColumnWithRotatedLabels"`, `"ColumnWithCategsAndLabels"`, `"CombinationChart"`, `"BasicAreaChart"`, `"Gauge"`, `"HeatMap"`, `"HTML"`, `"ThreeDPieChart"`, `"ColumnRange"`, `"Calendar"`, `"ResourceView"`, `"Report"`, `"StackedAndGroupedColumn"`, `"CardMenu"`, `"Timeline"`, `"RecentVisits"`. See §9 for which need `chartConfigJSON`. |
+| `dataSource` | Most types | SQL query with `/*AND-FILTERS*/` placeholder. Skipped for `CrossFilterControl`, `TextBlock`. |
+| `chartConfigJSON` | If EChart / EnhancedTable / EnhancedMetricsCard / TextBlock | JSON **string** (escaped), not a nested object. |
+| `wizardDataSource` | No | Code of a `DashBoardWidgetWizard` entity (alternative to raw SQL). See §13. |
+| `horizontalMode` | No | Layout hint. On `CrossFilterControl` widgets, true = inline chip strip, false = stacked editor. |
+| `crossFilterBindings` | No | Array of `{"crossFilter": "filterCode"}` (widget-level — see §6). |
+| `metricsCardConfig` | If type=`MetricsCards` | Top-level value object (not inside `chartConfigJSON`) carrying the legacy card template — see §15.1 for the shape. |
+| `crossFilterRef` | If type=`CrossFilterControl` | Either bare string `"filterCode"` or object `{"code": "filterCode"}`. See §9a. |
+| `enableComparison` | No | Toggles period-comparison execution (`BIPeriodComparisonExecutor`). |
+| `mergeComparisonByColumns` | No | CSV of column names that key the merge between baseline and comparison rows. |
 
 ::: warning
 The `chartConfigJSON` value is a **JSON string** (escaped), not a nested object. When writing import files, you must serialize the chart config object to a string.
@@ -1119,49 +1171,61 @@ Wizards define data sources using field IDs rather than raw SQL. The system gene
 
 ### 11.4 DashBoard Array
 
-Each entry creates a `DashBoard` entity with a grid layout of widgets.
+Each entry creates a `DashBoard` entity. There are two kinds: **`Single`** (a grid of widgets) and **`Tabbed`** (a parent that composes other Single dashboards as tabs).
+
+#### Single dashboard (grid of widgets)
 
 ```json
 {
   "code": "bi-sales-dashboard",
   "name1": "لوحة تحليل المبيعات",
   "name2": "Sales Analysis Dashboard",
+  "kind": "Single",
   "rowsCount": 3,
   "colsCount": 3,
   "charts": [
-    {
-      "element": "bi-sales-by-item",
-      "heightInRows": 1,
-      "widthInColumns": 2,
-      "rowNumber": 1,
-      "columnNumber": 1
-    },
-    {
-      "element": "bi-monthly-trend",
-      "heightInRows": 1,
-      "widthInColumns": 3,
-      "rowNumber": 2,
-      "columnNumber": 1
-    }
+    { "element": "bi-sales-by-item",   "rowNumber": 1, "columnNumber": 1, "heightInRows": 1, "widthInColumns": 2 },
+    { "element": "bi-monthly-trend",   "rowNumber": 2, "columnNumber": 1, "heightInRows": 1, "widthInColumns": 3 }
   ],
   "crossFilterBindings": []
 }
 ```
 
+#### Tabbed dashboard (composes Single sub-dashboards)
+
+```json
+{
+  "code": "hr-overview",
+  "name1": "لوحة الموارد البشرية",
+  "name2": "HR Overview",
+  "kind": "Tabbed",
+  "rowsCount": 1,
+  "colsCount": 1,
+  "subDashboards": [
+    { "subDashboard": "hr-tab-overview",   "arTitle": "نظرة عامة",  "enTitle": "Overview" },
+    { "subDashboard": "hr-tab-workforce",  "arTitle": "العمالة",    "enTitle": "Workforce" }
+  ]
+}
+```
+
+A Tabbed parent has no `charts` of its own — it lists `subDashboards` (each a Single dashboard by `code`) with localized tab titles. Each tab is loaded independently. `rowsCount`/`colsCount` on the parent are required by the schema but unused; set both to `1`.
+
+**Sharing filters across tabs:** declare a `CrossFilterControl` widget for the shared filter and place it on each Single sub-dashboard (typically as the first row). The cross-filter is the same `BICrossFilter` entity, so a value picked on one tab is visible on others when they bind the same filter. Period-comparison and global-bar chips work across tabs identically.
+
+#### Field reference
+
 | Field | Required | Description |
 |---|---|---|
 | `code` | Yes | Unique dashboard code |
-| `name1` | Yes | Arabic name |
-| `name2` | Yes | English name |
-| `rowsCount` | Yes | Grid row count |
-| `colsCount` | Yes | Grid column count |
-| `charts` | Yes | Array of widget placements |
-| `charts[].element` | Yes | Widget code to place |
-| `charts[].rowNumber` | Yes | Starting row (1-based) |
-| `charts[].columnNumber` | Yes | Starting column (1-based) |
-| `charts[].heightInRows` | Yes | How many rows this widget spans |
-| `charts[].widthInColumns` | Yes | How many columns this widget spans |
-| `crossFilterBindings` | No | Dashboard-level cross-filter bindings (usually empty) |
+| `name1` / `name2` | Yes | Arabic / English name |
+| `kind` | Yes | `"Single"` or `"Tabbed"` |
+| `rowsCount` / `colsCount` | Yes | Grid dimensions (1-based widget placement). Tabbed parent: set both to `1`. |
+| `charts` | Single only | Array of widget placements (`element`, `rowNumber`, `columnNumber`, `heightInRows`, `widthInColumns`). |
+| `subDashboards` | Tabbed only | Array of `{subDashboard, arTitle, enTitle}`. `subDashboard` is the `code` of another `DashBoard` (must be `kind: "Single"`). |
+| `crossFilterBindings` | No | Dashboard-level **overrides** — each entry needs `element` (target widget code) plus `crossFilter`, with optional `operator`/`sqlLeftHandSide`/`customWhereClause`/`localScope`. Usually `[]`. See §6 for shape. |
+| `totalDashboardRowsCount` | No | Pre-computed total row count cache. The system fills this; authors leave it out. |
+| `mobileMaxRowsCount` | No | Cap on rows shown in compact/mobile rendering. |
+| `refreshDashboardPer` | No | `TimePeriod` value-object (e.g. `{magnitude: 5, unit: "Minutes"}`) — auto-refresh interval. |
 
 ---
 
@@ -1411,638 +1475,42 @@ Here is a complete, working import JSON that creates a sales analysis dashboard 
 
 ---
 
-## 13. Wizard Mode — Chart Config Shape
+## 13. Wizard Mode
 
-When a widget has a `wizardDataSource`, its `chartConfigJSON` can reference **wizard field IDs** instead of raw SQL column names. The backend resolves each field ID to its underlying SQL alias using metadata that is cached on the wizard field line at save time.
+Detail moved to a companion file to keep this reference compact. Load only when authoring a widget with `wizardDataSource` set.
 
-This section is the definitive reference for the wizard-mode shape. SQL-mode widgets are unaffected by anything here.
+→ [`bi-reference-wizard-mode.md`](./bi-reference-wizard-mode.md)
 
-### 13.1 How Metadata Caching Works
-
-When you save a `DashBoardWidgetWizard`, its `postCommitAction` runs `ReportWizardQuery.build()` once, then stores a per-field metadata record in each field line's (system) `fieldMetadata` JSON field. The record contains:
-
-- `fieldId` — the wizard field's property path
-- `chartUsage` — `"Dimension"` or `"Measure"`
-- `paramType` — `Reference`, `Decimal`, `Text`, `Date`, `Integer`, `Genericreference`, `Enum`, `Boolean`
-- `referencedEntityType` — only for reference fields
-- `aggregation` — `None`, `Sum`, `Count`, `Average`, `Min`, `Max`
-- `displayAlias` — the SQL alias used for this field's primary display column
-- `subColumns` — for reference fields only: the aliases of the auto-expanded id/code/name1/name2/entityType/value sub-columns
-- `sqlLeftHandSide` — the fully-qualified SQL LHS (e.g., `MainEntity.CustomerId`) used for cross-filter WHERE injection
-- `arabicTitle` / `englishTitle` — pass-through from the field line
-
-Because metadata is cached, no runtime re-building of `ReportWizardQuery` is needed just to look up an alias. At chart-render time the backend deserializes the cached records and consults them.
-
-### 13.2 Data Mapping Keys
-
-For every column slot that the chart types (Section 3) define, wizard mode adds a `*WizardFieldId` sibling key:
-
-| SQL-mode key | Wizard-mode sibling | Resolves to |
-|---|---|---|
-| `categoryColumn` | `categoryWizardFieldId` | `displayAlias` of the referenced wizard field |
-| `labelColumn` | `labelWizardFieldId` | same |
-| `valueColumn` | `valueWizardFieldId` | same |
-| `xColumn` | `xWizardFieldId` | same |
-| `yColumn` | `yWizardFieldId` | same |
-| `sizeColumn` | `sizeWizardFieldId` | same (Scatter bubble size) |
-| `innerLabelColumn` | `innerLabelWizardFieldId` | same (NestedLabelValue inner ring) |
-| `outerLabelColumn` | `outerLabelWizardFieldId` | same (NestedLabelValue outer ring) |
-| `innerValueColumn` | `innerValueWizardFieldId` | same (NestedLabelValue inner measure) |
-| `outerValueColumn` | `outerValueWizardFieldId` | same (NestedLabelValue outer measure) |
-| `leftValueColumn` | `leftValueWizardFieldId` | same (FunnelComparison) |
-| `rightValueColumn` | `rightValueWizardFieldId` | same (FunnelComparison) |
-| `series[].column` | `series[].wizardFieldId` | same |
-| `maxResultsRankBy` | `maxResultsRankByWizardFieldId` | same (measure column used to rank top-N buckets) |
-
-If both are present for the same slot, the `*Column` value wins. If neither is present, the slot is left unset.
-
-For tempo columns and period-comparison columns, use the `*Column` keys — those aliases are not wizard fields, and any `wizardFieldId` pointing at them is silently ignored by the resolver.
-
-**Example — CategoryLabelValue in wizard mode:**
-
-```json
-"dataMapping": {
-  "type": "CategoryLabelValue",
-  "categoryWizardFieldId": "invoice.valueDate",
-  "labelWizardFieldId": "customer.customerCategory",
-  "valueWizardFieldId": "price.netValue",
-  "seriesType": "bar"
-}
-```
-
-### 13.3 Click-Emit & Drill-Down — wizardFieldId
-
-Each entry in `clickEmitMapping` and `drillDownMapping` (and its `filters[]` sub-entries) can carry a `wizardFieldId`:
-
-```json
-"clickEmitMapping": [
-  { "crossFilterCode": "customerCategoryFilter", "wizardFieldId": "customer.customerCategory" },
-  { "crossFilterCode": "customerFilter",         "wizardFieldId": "invoice.customer" }
-]
-```
-
-Two things happen at runtime for each entry that has a `wizardFieldId`:
-
-1. **Sub-column inference** — the backend fills in missing `idColumn`/`codeColumn`/`name1Column`/`name2Column`/`entityTypeColumn`/`valueColumn`/`entityType` from the wizard field's cached `subColumns` + `referencedEntityType`. You do not need to write those fields.
-2. **Per-dimension filtering** — the entry only fires when its `wizardFieldId` is one of the chart's **currently active dimensions** (see 14.4). This is what makes click-emit and drill-down behave correctly when a single widget supports multiple dimensions via drill-by.
-
-Entries without a `wizardFieldId` are treated as always-active (legacy SQL-mode behavior).
-
-### 13.4 Active Dimensions
-
-The "currently active dimensions" for a wizard widget is the ordered list of wizard field IDs it is grouping by right now. The backend derives it as:
-
-1. If the request carries `drillDownByTargetDimension`, that field ID is first.
-2. Then, in order: `categoryWizardFieldId`, `labelWizardFieldId`, `xWizardFieldId`, `yWizardFieldId` — whichever are set in `dataMapping`.
-
-Duplicates are skipped. This list drives three things:
-
-- **SQL rebuild**: the effective SQL is regenerated for each request via `ReportWizardQuery.buildForDrillDown(wizard, primary, otherDims)`. The primary dimension is the first entry; the rest are included as additional GROUP BY columns. All measures stay in the SELECT regardless.
-- **Click/drill filtering** (14.3).
-- **Drill-by menu exclusion**: a dimension already in the active list is hidden from the right-click "Drill Down By" menu.
-
-### 13.5 Dimension Drill-By Semantics (Option A)
-
-When a user right-clicks a data point and picks "Drill Down By X":
-
-1. **Category is replaced** — the drilled dimension takes the primary (category) slot.
-2. **Other active dimensions (label, x, y) stay** — they remain in GROUP BY so the chart renders the same shape.
-3. **Filter by clicked category value only** — the drill stack accumulates one entry per drill: `(categoryFieldId, clickedValue)`. The label's clicked value is NOT added to the filter.
-4. **Drill stack grows with each drill** — filters accumulate (e.g., after two drills: `WHERE month='Jan' AND region='West'`).
-
-The drill menu is computed from `wizard.fields` filtered to:
-- `chartUsageType == Dimension`
-- Not already in the active list
-- Not already in the drill stack
-
-Once the user drills, the server rebuilds the chart config by reading the widget's existing `chartConfigJSON` and surgically overriding `dataMapping.categoryColumn` with the drilled dimension's display alias (and removing `categoryWizardFieldId` so the rewriter doesn't overwrite). Everything else — `echartOption`, `labelColumn`/`labelWizardFieldId`, `valueColumn`/`valueWizardFieldId`, series styling, colors, `clickEmitMapping`, `drillDownMapping`, `linkMappings` — is carried through untouched.
-
-### 13.6 Cross-Filter SQL LHS
-
-For wizard widgets, the cross-filter "SQL Left Hand Side" (on the binding or on the `BICrossFilter` entity) accepts a **wizard field path** in addition to a raw `alias.column`. Any field reachable from the wizard's main entity works — it does not need to be one of the widget's displayed dimensions or measures.
-
-Examples of valid LHS values on a wizard-backed widget:
-
-- `customer` — a reference field on the main entity. Filter binds against the referenced id automatically.
-- `customer.salesman.code` — a property path through two joins. Joins are added to the query as needed.
-- `valueDate` — a scalar column on the main entity.
-- `l.branch_id` — raw SQL column + alias (legacy path; still supported).
-
-The classifier treats a value as a wizard field path when it has two or more dots, or when it resolves against the wizard's main-table data model. Otherwise it is treated as raw SQL. Raw `alias.column` values in existing dashboards keep working unchanged.
-
-### 13.7 Coexistence With Legacy Widgets
-
-Wizard widgets saved before wizard-mode keys were introduced have only `*Column` keys in their `chartConfigJSON`. The backend reads them as before — column names, no per-dimension filtering. Re-saving the widget through the chart designer upgrades it to the new shape if the user picks field IDs for the mapping slots.
-
-### 13.8 Complete Wizard-Mode Example
-
-Below is a single CategoryLabelValue widget written in full wizard-mode shape: category and label are wizard field IDs, the measure is a wizard field ID, and both click-emit and drill-down entries use `wizardFieldId` so sub-columns are auto-inferred and the entries fire per-dimension.
-
-```json
-{
-  "echartOption": {
-    "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
-    "legend": {},
-    "xAxis": {"type": "category", "data": "$DATA.categories"},
-    "yAxis": {"type": "value"},
-    "series": "$DATA.series"
-  },
-  "dataMapping": {
-    "type": "CategoryLabelValue",
-    "categoryWizardFieldId": "invoice.valueDate",
-    "labelWizardFieldId": "customer.customerCategory",
-    "valueWizardFieldId": "price.netValue",
-    "seriesType": "bar",
-    "stack": "total"
-  },
-  "clickEmitMapping": [
-    { "crossFilterCode": "dateFromFilter",         "wizardFieldId": "invoice.valueDate" },
-    { "crossFilterCode": "customerCategoryFilter", "wizardFieldId": "customer.customerCategory" }
-  ],
-  "drillDownMapping": [
-    {
-      "key": "categoryDetails",
-      "wizardFieldId": "customer.customerCategory",
-      "targetWidgetCode": "bi-category-details",
-      "enTitle": "Category details",
-      "arTitle": "تفاصيل التصنيف",
-      "filters": [
-        { "crossFilterCode": "customerCategoryFilter", "wizardFieldId": "customer.customerCategory" }
-      ]
-    }
-  ]
-}
-```
-
-The corresponding wizard definition:
-
-```json
-{
-  "code": "bi-sales-breakdown",
-  "type": "EChartDataSource",
-  "tableType": "DetailLine",
-  "mainTable": "SalesInvoiceLine",
-  "fields": [
-    {"fieldId": "invoice.valueDate",          "chartUsageType": "Dimension"},
-    {"fieldId": "customer.customerCategory",  "chartUsageType": "Dimension"},
-    {"fieldId": "price.netValue",             "chartUsageType": "Measure", "sqlAggregationType": "Sum"}
-  ]
-}
-```
-
-No raw SQL, no column-name bookkeeping, no `idColumn`/`codeColumn` mappings. When a user right-clicks a bar and picks "Drill Down By Branch", the server rebuilds the query keeping customer category as the series axis (so the stacked layout is preserved), swaps the X-axis to branch, filters by the clicked date, and re-renders — all without touching the `echartOption` styling.
-
-### 13.9 Runtime Slot Selection
-
-Wizard-backed widgets expose a runtime selector (toolbar button / echarts toolbox icon on each widget) that lets the dashboard viewer reshape the chart without editing it: pick a different dimension for the category slot, swap the measure, add/remove series measures, etc. Selection is **session-only** — refreshing the page resets to the configured defaults.
-
-The selector shape is driven entirely by `dataMapping.type`. Each mapping type declares which slots are pickable at runtime and which `*WizardFieldId` keys they write to:
-
-| Mapping type | Dimension slots | Measure slots | Multi-measure series |
-|---|---|---|---|
-| `CategoryValue` | `categoryWizardFieldId` | `series[].wizardFieldId` (N) | **Yes** (flexible only) |
-| `LabelValue` | `labelWizardFieldId` | `valueWizardFieldId` | No |
-| `CategoryLabelValue` | `categoryWizardFieldId`, `labelWizardFieldId` | `valueWizardFieldId` | No |
-| `Scatter` | — | `xWizardFieldId`, `yWizardFieldId`, `sizeWizardFieldId` (optional) | No |
-| `Heatmap` | `xWizardFieldId`, `yWizardFieldId` | `valueWizardFieldId` | No |
-| `Gauge` | — | `valueWizardFieldId` | No |
-| `Tree` | `labelWizardFieldId` | `valueWizardFieldId` | No |
-
-Mapping types not listed (`Waterfall`, `NestedLabelValue`, `GaugeMulti`, `Radar`, `FunnelComparison`, `Custom`, `Raw`) have no runtime selector — their button is hidden.
-
-**Flexible vs. fixed `CategoryValue`**: only "flexible" CategoryValue widgets allow the user to pick multiple measures as series. A CategoryValue is **flexible** when every entry in `series[]` is uniform — no `yAxisIndex`, no `stack`, no `target`, and all entries share the same `type`. Dual-axis, combo bar/line, stacked, and with-target CategoryValue charts are **fixed**: their runtime multi-measure picker is hidden (but single-slot pickers still work).
-
-**No selector in drill-by mode**: when a chart is rendered inside the dimension drill-by dialog (request carries `drillDownByTargetDimension`), the server omits `runtimeSelectorInfo` from the chart line, so the selector does not appear on the drill-by view. Drill-by is already reshaping the chart; the runtime selector stays on the main dashboard view only.
-
-**Opt-out flags** on `chartConfigJSON`:
-- `disableRuntimeDimensionSelection: true` — hides dimension pickers (keeps measure pickers).
-- `disableRuntimeMeasureSelection: true` — hides measure pickers (keeps dimension pickers).
-
-Set both to `true` to hide the selector entirely.
-
-**Interaction with click/drill mappings**: runtime slot changes reshape `activeDimensionFieldIds` (Section 13.4), which means click-emit and drill-down entries keyed by `wizardFieldId` automatically follow the new active dimensions — no extra config needed.
-
-**Guidance for AI-generated configs**: prefer wizard-mode keys (`*WizardFieldId`) over raw column names whenever a `wizardDataSource` is present, so generated widgets pick up the runtime selector for free. For designer-only widgets (no end-user reshaping), set both opt-out flags to `true`. For dashboards where you ship carefully tuned combo/dual-axis CategoryValue charts, you don't need the flags — the fixed-shape detector already hides the multi-measure picker.
+Covers: metadata caching, `*WizardFieldId` keys, click-emit / drill-down with `wizardFieldId`, active-dimensions list, drill-by semantics (Option A), wizard-path cross-filter LHS, runtime slot selection, opt-out flags.
 
 ---
 
 ## 14. EnhancedTable — JSON-Driven Grid
 
-`EnhancedTable` is a second-generation table widget where every column is declared in `chartConfigJSON` with its own formatting, renderer, conditional-formatting rules, pinning, grouping, and aggregation. It reuses all the BI interaction machinery (`clickEmitMapping`, `drillDownMapping`, `linkMappings`, `clickAction` — Sections 4–5b) with an optional `column` field on each entry to target a specific cell. The classic `Table` widget remains unchanged; opt in by setting `"type": "EnhancedTable"` on the widget.
+Detail moved to a companion file. Load when authoring `type: "EnhancedTable"` widgets (or pivot/cross-tab mode).
 
-### 14.1 chartConfigJSON Structure
+→ [`bi-reference-enhanced-table.md`](./bi-reference-enhanced-table.md)
 
-```json
-{
-  "tableOptions": { },
-  "columnGroups": [ ],
-  "columns": [ ],
-  "rowConditionalFormatting": { "cascade": false, "rules": [ ] },
-  "clickEmitMapping":  [ ],
-  "drillDownMapping":  [ ],
-  "linkMappings":      [ ],
-  "clickAction":       { }
-}
-```
+Covers: `tableOptions`, column definitions, `formatting` (with `currencySymbol`/`currencyPlacement`), renderers (`badge`/`bar`/`progress`/`sparkline`/`icon`), conditional formatting (cell + row, traffic-light recipe), pivot (cross-tab) layout — row/col dimensions, measures, subtotals, grand totals.
 
-| Key | Required | Description |
-|---|---|---|
-| `columns` | Yes | Ordered array of column definitions (see 15.3). Columns in this array define the grid's column order. |
-| `columnGroups` | No | Array of `{id, headerArTitle, headerEnTitle, marryChildren, openByDefault}` entries. Columns reference their group via `groupId`. |
-| `tableOptions` | No | Grid-level options (see 15.2). Safe to omit — defaults are reasonable. |
-| `rowConditionalFormatting` | No | Row-level conditional formatting (see 15.5). |
-| `clickEmitMapping`, `drillDownMapping`, `linkMappings`, `clickAction` | No | Same as Sections 4–5a. Each `drillDownMapping` / `linkMappings` entry may carry a `column` field (scope the entry to a specific column) and `onCellClick: true` (fire on left-click, not just right-click). Prefer `onCellClick` on the entry itself over widget-level `clickAction` for tables — see Section 5a.1 for dispatch order. |
+---
 
-No `dataMapping` / `echartOption` — EnhancedTable does not use ECharts.
+## 15. EnhancedMetricsCard (and legacy MetricsCards)
 
-### 14.2 tableOptions
+Detail moved to a companion file. Load when authoring metric-card widgets (`type: "EnhancedMetricsCard"` or legacy `type: "MetricsCards"`).
 
-```json
-"tableOptions": {
-  "pagination":         false,
-  "pageSize":           25,
-  "pageSizes":          [25, 50, 100, 250],
-  "rowNumbers":         true,
-  "enableRowGroup":     true,
-  "enablePivot":        false,
-  "pivotOpenByDefault": false,
-  "grandTotalRow":      "bottom",
-  "defaultColWidth":    null,
-  "defaultFlex":        1,
-  "defaultMinWidth":    130,
-  "wrapText":           true,
-  "autoHeight":         true,
-  "enableRtl":          "auto",
-  "cellSelection":      true
-}
-```
+→ [`bi-reference-enhanced-metrics-card.md`](./bi-reference-enhanced-metrics-card.md)
 
-| Field | Default | Notes |
-|---|---|---|
-| `pagination` | `false` | Off by default — all rows load at once and the user scrolls. When enabled, AG Grid paginates the in-memory data (no server-side paging). |
-| `grandTotalRow` | `null` | `"top"`, `"bottom"`, or `null`. AG Grid computes the totals client-side from visible rows; no server-side footer is emitted. |
-| `enableRowGroup` / `enablePivot` | `true` / `false` | Enables AG Grid row-grouping and pivot modes. Columns need `rowGroup: true` / `pivot: true` to be actually grouped/pivoted by default. |
+Covers: when-to-use-which, legacy `metricsCardConfig` value-object shape (top-level on the widget, `numberFormat` mask string), `chartConfigJSON` shape (cardLayout, value/subtitle/icon/badge/sparkline slots), card-to-row vs partition mode (N rows → 1 card), inline sparkline + STUFF/FOR XML PATH recipe, conditional card bg + icon swap, chip-strip recipe.
 
-### 14.3 Column Definition
+---
 
-```json
-{
-  "id":            "amountCol",
-  "field":         "netValue",
-  "wizardFieldId": "price.netValue",
-  "groupId":       "salesGroup",
-  "headerArTitle": "الصافي",
-  "headerEnTitle": "Net Value",
-  "hide":          false,
-  "width":         120,
-  "minWidth":      80,
-  "maxWidth":      240,
-  "flex":          null,
-  "pinned":        null,
-  "sort":          null,
-  "sortIndex":     null,
-  "rowGroup":      false,
-  "rowGroupIndex": null,
-  "pivot":         false,
-  "aggFunc":       "sum",
-  "tooltipField":  null,
-  "formatting":    { },
-  "renderer":      { },
-  "conditionalFormatting": { }
-}
-```
+## Companion files — quick map
 
-| Field | Required | Description |
-|---|---|---|
-| `id` | Yes | Stable identifier. Used by click/drill/link mappings (their `column` field), by conditional formatting (`compareColumn`), and as the React/AG Grid column ID. |
-| `field` | One of | SQL column name from the widget's `dataSource`. |
-| `wizardFieldId` | One of | Wizard field ID (wizard mode only). Resolved to a SQL column alias via `DashBoardWizardFieldMetadata.displayAlias` — see Section 13. |
-| `groupId` | No | References an entry in `columnGroups[].id`. Columns with the same `groupId` render under a shared group header. |
-| `headerArTitle` / `headerEnTitle` | No | Localized column header. Falls back to `id` if both are empty. |
-| `hide`, `width`, `minWidth`, `maxWidth`, `flex` | No | AG Grid layout controls. |
-| `pinned` | No | `"start"`, `"end"`, or `null`. Logical pinning that flips with the active reading direction — `start` is the leading edge (left in LTR, right in RTL), `end` is the trailing edge. |
-| `sort`, `sortIndex` | No | Initial sort applied when the widget loads. |
-| `rowGroup`, `rowGroupIndex`, `pivot`, `aggFunc` | No | Row-grouping / pivot / aggregation. `aggFunc` accepts `"sum"`, `"avg"`, `"min"`, `"max"`, `"count"`, `"first"`, `"last"`. |
-| `tooltipField` | No | The `id` of another column whose display value becomes this cell's tooltip. |
-| `formatting` | No | Display-string formatter (see 15.4.1). |
-| `renderer` | No | Cell renderer (see 15.4.2). Defaults to `text`. |
-| `conditionalFormatting` | No | Per-cell styling rules (see 15.5). |
-
-### 14.4 Formatting & Renderers
-
-#### 15.4.1 `formatting`
-
-Controls how the raw SQL value becomes a display string. Server-computed, so the client uses the result verbatim.
-
-```json
-"formatting": {
-  "type":              "currency",
-  "decimals":          2,
-  "thousandSeparator": true,
-  "currencyCode":      "SAR",
-  "currencySymbol":    "SAR",
-  "currencyPlacement": "suffix",
-  "dateFormat":        "yyyy-MM-dd",
-  "percentScale":      "asIs",
-  "nullDisplay":       "—",
-  "prefix":            "",
-  "suffix":            ""
-}
-```
-
-| `type` | Input | Output example | Extra options |
-|---|---|---|---|
-| `text` | Any | unchanged | — |
-| `number` | Numeric | `1,234.50` | `decimals`, `thousandSeparator` |
-| `currency` | Numeric | `1,234.50 SAR` | `decimals`, `currencySymbol`, `currencyPlacement` (`prefix`/`suffix`) |
-| `percent` | Numeric | `45.00%` | `decimals`, `percentScale` (`asIs` leaves 45 as 45%; `fraction` treats 0.45 as 45%) |
-| `date` | Parseable date | `2026-04-19` | `dateFormat` (SimpleDateFormat pattern, default `yyyy-MM-dd`) |
-| `datetime` | Parseable datetime | `2026-04-19 14:30` | `dateFormat` (default `yyyy-MM-dd HH:mm`) |
-| `duration` | Seconds | `1:23:45` | — |
-
-`prefix` / `suffix` wrap the formatted string. `nullDisplay` replaces empty values (defaults to `""`).
-
-#### 15.4.2 `renderer`
-
-```json
-"renderer": {
-  "type": "text" | "html" | "badge" | "bar" | "sparkline" | "progress" | "icon",
-  "badge":    { "shape": "pill" | "square", "variant": "solid" | "outline" },
-  "bar":      { "min": 0, "max": 100, "color": "#4caf50" },
-  "progress": { "min": 0, "max": 100 },
-  "icon":     { "mapping": [ { "when": "Approved", "icon": "check_circle", "color": "#2e7d32" } ], "position": "prefix" | "replace" },
-  "sparkline": { "type": "line" | "column" | "area", "lineColor": "#2196F3", "fill": "rgba(33,150,243,0.2)" }
-}
-```
-
-| Type | Visual | Notes |
-|---|---|---|
-| `text` | Plain formatted string | Default. No renderer block needed. |
-| `html` | Renders raw HTML from the cell value via `v-html`. | Trust model matches the legacy Table's `Param_INHTML` — no client-side sanitization. |
-| `badge` | Pill/square label with the cell's text. | Background color comes from `conditionalFormatting` (falls back to a subtle blue). |
-| `bar` | Horizontal filled bar using `agSparklineCellRenderer` with `type:"bar"`, `direction:"horizontal"`. | Value scaled between `min` and `max`. |
-| `progress` | Same mechanism as `bar` with a blue default fill. Semantically "progress toward target". | |
-| `sparkline` | Multi-point mini chart (`agSparklineCellRenderer`). | Reads the series from the column's own SQL `field` — a comma-separated numeric list or a JSON array (e.g. `1,5,9,12` or `[1,5,9,12]`). |
-| `icon` | Cell value is matched against `mapping[].when` strings; matched entry renders an icon (optionally replacing the text when `position: "replace"`). | |
-
-**Important**: `bar`, `progress`, and `sparkline` require AG Grid Enterprise's `SparklinesModule` registered globally (already done in the Nama Vue shell). The widget automatically wraps the cell's numeric value in a single-element array for bar/progress to match what `agSparklineCellRenderer` expects.
-
-### 14.5 Conditional Formatting
-
-Rules evaluated server-side against a result-set row; the winning style is embedded directly in the wire payload so the client does zero rule evaluation.
-
-```json
-"conditionalFormatting": {
-  "cascade": false,
-  "rules": [
-    { "when": { "type": "threshold", "op": ">=", "value": 1000 },
-      "style": { "bg": "#e8f5e9", "color": "#1b5e20", "bold": true } },
-    { "when": { "type": "threshold", "op": "<", "value": 0 },
-      "style": { "bg": "#ffebee", "color": "#b71c1c", "bold": true } },
-    { "when": { "type": "range", "min": 0, "max": 100, "maxExclusive": true },
-      "style": { "bg": "#fff3e0" } },
-    { "when": { "type": "enum", "values": ["Cancelled", "Rejected"] },
-      "style": { "bg": "#eeeeee", "italic": true } },
-    { "when": { "type": "compareColumn", "op": ">", "column": "budgetCol" },
-      "style": { "bg": "#ffebee", "color": "#b71c1c" } },
-    { "when": { "type": "isNull" },
-      "style": { "italic": true, "color": "#9e9e9e" } }
-  ]
-}
-```
-
-**Rule types**:
-
-| `type` | Operands | Comparison |
-|---|---|---|
-| `threshold` | `op`, `value` | Numeric (or date, if the column's `formatting.type` is `date`/`datetime`). Coerces both sides; rule misses if coercion fails — never falls through to a string compare. |
-| `range` | `min`, `max`, `minExclusive?`, `maxExclusive?` | Numeric or date, same coercion rule. |
-| `compareColumn` | `op`, `column` (another column's `id`) | Compares this cell's value to another column's value on the same row. |
-| `enum` | `values[]` | Case-sensitive string equality on the trimmed cell value. |
-| `isNull` / `isNotNull` | — | Tests the raw cell value before coercion. |
-
-Operators: `>`, `>=`, `<`, `<=`, `=`, `!=`.
-
-**`cascade`**: when `false` (default), first matching rule wins and evaluation stops. When `true`, every matching rule is merged on top of the previous one (later keys override earlier keys).
-
-**Style object vocabulary** (deliberately small — no raw CSS strings):
-
-| Key | CSS |
+| When the task involves… | Load |
 |---|---|
-| `bg` | `background-color` |
-| `color` | `color` |
-| `bold` | `font-weight: 700` |
-| `italic` | `font-style: italic` |
-| `underline` | `text-decoration: underline` |
-| `border` | `border` (shorthand, trusted string) |
-| `align` | `text-align` (`start`/`center`/`end`) |
+| Widget with `wizardDataSource` set, drill-by, runtime slot selection | [`bi-reference-wizard-mode.md`](./bi-reference-wizard-mode.md) |
+| `type: "EnhancedTable"` — columns, renderers, conditional formatting, pivot | [`bi-reference-enhanced-table.md`](./bi-reference-enhanced-table.md) |
+| `type: "EnhancedMetricsCard"` or legacy `type: "MetricsCards"` | [`bi-reference-enhanced-metrics-card.md`](./bi-reference-enhanced-metrics-card.md) |
+| Anything else (chartConfigJSON, SQL, dataMapping, BICrossFilter, DashBoard, bulk import) | This file |
 
-#### 15.5.1 `rowConditionalFormatting`
-
-Same rule vocabulary, applied per row. Each rule must name the column to test via `when.column` (there is no implicit "this cell"). The winning style is applied to the whole row via AG Grid's `getRowStyle`.
-
-```json
-"rowConditionalFormatting": {
-  "cascade": false,
-  "rules": [
-    { "when": { "type": "threshold", "column": "marginCol", "op": "<", "value": 0 },
-      "style": { "bg": "#ffebee" } },
-    { "when": { "type": "enum", "column": "statusCol", "values": ["Cancelled"] },
-      "style": { "bg": "#fafafa", "italic": true } }
-  ]
-}
-```
-
-### 14.6 Complete Example
-
-```json
-{
-  "tableOptions": {
-    "pagination": false,
-    "rowNumbers": true,
-    "enableRowGroup": true,
-    "grandTotalRow": "bottom"
-  },
-  "columnGroups": [
-    { "id": "customerGroup",
-      "headerArTitle": "بيانات العميل",
-      "headerEnTitle": "Customer",
-      "marryChildren": true }
-  ],
-  "columns": [
-    { "id": "invoiceCode",  "field": "invoiceCode",
-      "headerArTitle": "الفاتورة",   "headerEnTitle": "Invoice",
-      "pinned": "left", "width": 120 },
-    { "id": "valueDate",    "field": "valueDate",
-      "headerArTitle": "التاريخ",    "headerEnTitle": "Date",
-      "formatting": { "type": "date" }, "width": 110 },
-    { "id": "customerName", "field": "customerName", "groupId": "customerGroup",
-      "headerArTitle": "العميل",      "headerEnTitle": "Customer" },
-    { "id": "branchName",   "field": "branchName",   "groupId": "customerGroup",
-      "headerArTitle": "الفرع",       "headerEnTitle": "Branch" },
-    { "id": "qty",          "field": "qty",
-      "headerArTitle": "الكمية",      "headerEnTitle": "Qty",
-      "formatting": { "type": "number", "decimals": 0 },
-      "renderer":   { "type": "progress", "progress": { "min": 0, "max": 50 } },
-      "aggFunc": "sum", "width": 140 },
-    { "id": "netValue",     "field": "netValue",
-      "headerArTitle": "الصافي",      "headerEnTitle": "Net",
-      "formatting": { "type": "currency", "decimals": 2, "currencySymbol": "SAR" },
-      "aggFunc": "sum",
-      "conditionalFormatting": {
-        "rules": [
-          { "when": { "type": "threshold", "op": ">=", "value": 10000 },
-            "style": { "bg": "#e8f5e9", "color": "#1b5e20", "bold": true } },
-          { "when": { "type": "threshold", "op": "<", "value": 0 },
-            "style": { "bg": "#ffebee", "color": "#b71c1c", "bold": true } }
-        ] } },
-    { "id": "tier",         "field": "tier",
-      "headerArTitle": "الفئة",       "headerEnTitle": "Tier",
-      "renderer": { "type": "badge", "badge": { "shape": "pill" } },
-      "conditionalFormatting": {
-        "rules": [
-          { "when": { "type": "enum", "values": ["High"] },
-            "style": { "bg": "#2e7d32", "color": "#ffffff" } },
-          { "when": { "type": "enum", "values": ["Medium"] },
-            "style": { "bg": "#f9a825", "color": "#ffffff" } },
-          { "when": { "type": "enum", "values": ["Low"] },
-            "style": { "bg": "#9e9e9e", "color": "#ffffff" } }
-        ] } }
-  ],
-  "rowConditionalFormatting": {
-    "rules": [
-      { "when": { "type": "threshold", "column": "netValue", "op": ">=", "value": 50000 },
-        "style": { "bg": "#fff8e1", "bold": true } }
-    ]
-  },
-  "clickEmitMapping": [
-    { "crossFilterCode": "customerFilter", "column": "customerName", "valueColumn": "customerName" }
-  ]
-}
-```
-
-### 14.7 Migration From `Table`
-
-No automatic upgrade. Users opt in per widget:
-
-1. Change the widget's `type` from `Table` to `EnhancedTable`.
-2. Open the chart-config editor → **Table Columns** tab → click **Generate Columns From Result Set** to seed default columns from the SQL result-set headers.
-3. Customize column formatting, renderers, conditional formatting as needed.
-
-Existing `clickEmitMapping` / `drillDownMapping` / `linkMappings` in the widget's `chartConfigJSON` continue to work unchanged — the `column` field in those mappings matches the auto-generated column `id`s (which default to the SQL column name).
-
-### 14.8 Pivot (Cross-Tab) Layout
-
-Pivot mode turns an `EnhancedTable` widget into a JasperReports-style cross-tab: one or more **row dimensions** become row groups, one or more **column dimensions** become nested column-group headers, and one or more **measures** fill the cell intersections — with optional subtotals at every level and a grand total. The hand-authored `columns` block is ignored when `pivot` is set; the engine synthesizes columns + nested column groups + the row plan server-side.
-
-#### 14.8.1 Configuration shape
-
-```json
-{
-  "pivot": {
-    "rowDimensions":      [ { "field": "sCode", "headerEnTitle": "Section" }, { "field": "iCode", "headerEnTitle": "Item" } ],
-    "colDimensions":      [ { "field": "bCode", "headerEnTitle": "Branch" }, { "field": "wCode", "headerEnTitle": "Warehouse" } ],
-    "measures": [
-      { "field": "netQty",  "headerEnTitle": "Qty",  "aggFunc": "sum", "formatting": { "type": "number",   "decimals": 2 } },
-      { "field": "netCost", "headerEnTitle": "Cost", "aggFunc": "sum", "formatting": { "type": "currency", "decimals": 2, "currencySymbol": "SAR" } }
-    ],
-    "useRowGrouping":     true,
-    "rowSubtotals":       true,
-    "colSubtotals":       true,
-    "rowGrandTotal":      "bottom",
-    "colGrandTotal":      "end",
-    "subtotalLabelKey":   "biSubtotal",
-    "grandTotalLabelKey": "biGrandTotal",
-    "emptyCellAs":        null,
-    "zeroAsEmpty":        true
-  }
-}
-```
-
-| Field | Default | Notes |
-|---|---|---|
-| `rowDimensions` | required | Ordered list — outermost first. Each entry is a `field` (raw SQL column alias) **or** `wizardFieldId` (wizard mode), plus optional header titles and `formatting`. |
-| `colDimensions` | required | Same shape as `rowDimensions`; ordering controls header nesting. |
-| `measures` | required | Each entry is a `field` / `wizardFieldId`, header titles, `aggFunc` (defaults to `sum`; v1 implements `sum` only), `formatting`, and optional `conditionalFormatting`. The CF block is applied to every synthetic column derived from this measure (leaf cells, subtotal columns, grand-total columns). |
-| `useRowGrouping` | `true` | When true (and there are at least 2 row dims), the outer N-1 row dims become AG Grid row groups; the innermost dim is the leaf row inside each group. With a single row dim, grouping is a no-op (every leaf would be its own group) and the backend falls back to flat rows + backend subtotal/grand-total rows. |
-| `rowSubtotals` | `false` | Show per-group subtotal footer rows. With row grouping active, AG Grid renders these client-side (via `tableOptions.groupIncludeFooter`); without grouping, the backend bakes subtotal rows directly into the result set. |
-| `colSubtotals` | `false` | Show subtotal columns at each non-leaf column-dim level (e.g. branch-level totals across warehouses). Always backend-rendered — AG Grid can't synthesize cross-tab columns. |
-| `rowGrandTotal` | `null` | `"top"`, `"bottom"`, or `null`. With grouping active, maps to AG Grid `tableOptions.grandTotalRow`; without grouping, baked into the result set. |
-| `colGrandTotal` | `null` | `"start"`, `"end"`, or `null`. **Logical** positioning — `start` puts the grand-total columns first in the synthesized list (which renders on the leading edge in either reading direction); `end` puts them last. |
-| `subtotalLabelKey` / `grandTotalLabelKey` | hardcoded fallback | i18n keys. The frontend resolves them via `Translator.translate(key)`; if absent, the backend falls back to `Subtotal` / `Grand Total` (and Arabic equivalents). |
-| `emptyCellAs` | `null` | What to render in cells with no source data: `null` (blank), `0`, or any literal string like `"-"`. |
-| `zeroAsEmpty` | `false` | When true, measure values that aggregate to exactly 0 are rendered using `emptyCellAs` — useful for sparse cross-tabs to declutter "0.00" cells. |
-
-#### 14.8.2 What the engine emits
-
-Given the example config above against a result-set with `wCode, bCode, iCode, sCode, netQty, netCost`, the backend walks the rows once, builds distinct row-tuple and col-tuple trees (sorted alphabetically per level), re-aggregates `(rowTuple, colTuple) → measures` via `sum`, and emits:
-
-- **Synthetic `columns`**: M row-dim columns (pinned `start`) + the leaf measure columns interleaved with col-subtotal columns (per non-leaf col prefix) + col grand-total columns at the chosen end. Each measure column carries a stable id of the form `pv:bCode=B1.wCode=W1:m=netQty`.
-- **Nested `columnGroups`** (with `parentGroupId`): one group per non-leaf col-tuple prefix, e.g. `pvg:bCode=B1` containing `pvg:bCode=B1.wCode=W1` containing the two measure leaves for that warehouse.
-- **Synthetic rows**: with row grouping active, only leaf data rows; without, leaf rows interleaved with subtotal rows (per non-leaf row prefix) and a grand-total row.
-- **`enhancedTableData.styles`** — total rows and columns are tagged via the `t` flag (`0` = grand, `n > 0` = subtotal at depth `n`); the widget applies a default bold + tint style. Explicit `conditionalFormatting` always wins.
-- **`agColumnCellDataTypes`** — every synthetic measure column is tagged `"number"` so cell values flow as JSON numbers (not strings) — required for AG Grid `aggFunc` aggregations on group rows.
-
-#### 14.8.3 Wizard mode
-
-In wizard mode (`widget.wizardDataSource` set), use `wizardFieldId` instead of `field` on every pivot dim and measure. The `WizardChartConfigRewriter` resolves each `wizardFieldId` to the cached SQL alias (`DashBoardWizardFieldMetadata.displayAlias`) before the engine runs — see Section 13. From the engine's perspective everything is `field` thereafter, so all of §14.8.1 applies unchanged.
-
-#### 14.8.4 Interaction skipping on totals
-
-Subtotal and grand-total rows + columns are derived aggregates with no underlying source row, so click-emit / drill-down / link / drill-down-by all skip them. The widget detects them via the `t` flag on the row data (`_totalLevel`) and on the column config (`t`), and short-circuits in `useBIInteractionsForAgGrid.onCellClicked` / `getContextMenuItems` / `cellClassForInteraction` (so the cursor hint also turns off on total cells).
-
-#### 14.8.5 Coexistence with AG Grid client-side pivot
-
-The pre-existing `tableOptions.enablePivot` (which lets the user drag-pivot columns interactively at runtime via AG Grid Enterprise) is unrelated and stays untouched. Use it for free-form exploration; use the `pivot` block in `chartConfigJSON` for author-defined cross-tab reports.
-
-#### 14.8.6 Complete example
-
-Cross-tab from the user's `ItemDimensionsQty` query:
-
-```sql
-select w.code wCode, b.code bCode, i.code iCode, s.code sCode,
-       sum(q.net) netQty, sum(q.netCost) netCost
-from   ItemDimensionsQty q
-left join InvItem      i on i.id = q.item_id
-left join ItemSection  s on s.id = i.section_id
-left join Warehouse    w on w.id = q.warehouse_id
-left join Branch       b on b.id = w.branch_id
-group  by w.code, b.code, i.code, s.code
-```
-
-```json
-{
-  "pivot": {
-    "rowDimensions": [
-      { "field": "sCode", "headerEnTitle": "Section",  "headerArTitle": "القسم" },
-      { "field": "iCode", "headerEnTitle": "Item",     "headerArTitle": "الصنف" }
-    ],
-    "colDimensions": [
-      { "field": "bCode", "headerEnTitle": "Branch",   "headerArTitle": "الفرع" },
-      { "field": "wCode", "headerEnTitle": "Warehouse","headerArTitle": "المخزن" }
-    ],
-    "measures": [
-      { "field": "netQty",  "headerEnTitle": "Qty",  "headerArTitle": "الكمية",
-        "aggFunc": "sum", "formatting": { "type": "number", "decimals": 0 } },
-      { "field": "netCost", "headerEnTitle": "Cost", "headerArTitle": "التكلفة",
-        "aggFunc": "sum",
-        "formatting": { "type": "currency", "decimals": 2, "currencySymbol": "SAR" },
-        "conditionalFormatting": {
-          "rules": [
-            { "when": { "type": "threshold", "op": ">=", "value": 1000000 },
-              "style": { "bold": true, "color": "#1b5e20" } }
-          ]
-        } }
-    ],
-    "useRowGrouping":     true,
-    "rowSubtotals":       true,
-    "colSubtotals":       true,
-    "rowGrandTotal":      "bottom",
-    "colGrandTotal":      "end",
-    "zeroAsEmpty":        true,
-    "emptyCellAs":        "-"
-  }
-}
-```
-
-Result: each Section appears as a collapsible row group containing its Items as leaf rows; each Branch is a top-level column group containing its Warehouse sub-groups, and each Warehouse holds the two measure columns. Branch and grand-total columns appear after the data; subtotal rows show at the end of each section group, with a grand-total row at the bottom. Zero-aggregating cells render as `-`. In Arabic locale, the row-dim columns pin to the right (leading edge) and the grand-total columns appear on the left.
