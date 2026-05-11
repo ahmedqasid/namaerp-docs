@@ -125,6 +125,67 @@
 * **`From Editor`**
   تتيح لك استخدام محرر بصري لتنسيق الحقول وتحديد مواقعها داخل التقرير. يمكن فتح المحرر من خلال زر `Open Editor`.
 
+---
+
+## تحويل الكميات حسب وحدة القياس المختارة
+
+في تقارير المخزون، تُخزَّن الكميات عادةً بوحدة القياس الأساسية للصنف، لكن المستخدم قد يرغب في عرضها بوحدة أخرى (وحدة البيع، وحدة الشراء، إلخ). توفّر أداة إنشاء التقارير خياران متكاملان لتحقيق ذلك.
+
+### الخيار الأول: إضافة بارامتر `UOMConversion`
+
+يضيف هذا البارامتر قائمة منسدلة في شاشة تشغيل التقرير تتيح للمستخدم اختيار وحدة القياس، ويقوم تلقائيًا بإضافة الـ joins اللازمة.
+
+١. تأكد أن التقرير يحتوي على حقل من جدول `InvItem` (مثل `item.code`) — هذا شرط مسبق لتفعيل البارامتر.
+٢. في جدول **المدخلات** (Parameters)، أضف سطرًا جديدًا واترك `Field ID` فارغًا، ثم اختر `Parameter Type = UOMConversion`.
+٣. احفظ التقرير.
+
+عند الحفظ يُضاف تلقائيًا:
+
+* بارامتر `UOM` في ملف JRXML بقيم `baseUnit, reportingUnit1, defaultPurchaseUnit, defaultSalesUnit`.
+* `LEFT JOIN UOM AS PrimaryUOM ON PrimaryUOM.id = <InvItem>.prim$P!{UOM}_id`
+* `LEFT JOIN PrimaryItemUOMLine AS UL ON UL.invItem_id = <InvItem>.id AND UL.uom_id = <InvItem>.prim$P!{UOM}_id`
+
+### الخيار الثاني: تحويل قيمة حقل كمية إلى الوحدة المختارة
+
+بعد إضافة بارامتر `UOMConversion`، يمكنك تفعيل التحويل على أي حقل كمية بشكل مستقل.
+
+١. تأكد من توفر الشرطين: بارامتر `UOMConversion` موجود + حقل من `InvItem` في التقرير.
+٢. في سطر الحقل المراد تحويله (مثل `inBasePValue` أو تعبير مخصّص)، فعّل خانة **«استخدام معامل وحدة القياس لتحويل الكمية»**.
+٣. احفظ التقرير.
+
+يتحوّل تعبير الـ SELECT للحقل إلى `(SUM(الحقل)) / UL.rateToBase`، ويُضاف `UL.rateToBase` تلقائيًا إلى `GROUP BY`.
+
+::: tip
+لو لم يتوفر الشرطان (بارامتر `UOMConversion` + حقل `InvItem`)، تُتجاهل الخانة بصمت ولن يحدث أي تحويل.
+:::
+
+::: details JSON for direct import
+
+```json
+{
+  "mainTable": "QtyTransLine",
+  "fields": [
+    {
+      "fieldId": "in.base.primeQty.value",
+      "customSqlExpression": "(@{in.base.primeQty.value}@-@{out.base.primeQty.value}@)",
+      "useUOMParameterForQtyConversion": true
+    },
+    { "fieldId": "itemTransRef.item" }
+  ],
+  "parameters": [
+    {
+      "userAlias": "PrimaryUOM",
+      "parameterType": "UOMConversion"
+    },
+    {
+      "fieldId": "commonData.valueDate",
+      "filterType": "Equals"
+    }
+  ]
+}
+```
+:::
+
 </rtl>
 
 </rtl>
