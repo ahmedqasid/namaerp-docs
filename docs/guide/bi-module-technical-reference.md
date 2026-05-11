@@ -1066,6 +1066,10 @@ No `dataSource`, no `crossFilterBindings`, no `wizardDataSource`. The widget is 
 
 Nama ERP supports importing a complete dashboard setup (cross-filters, widgets, wizards, and dashboard layout) from a single JSON file. This is the fastest way to create a full dashboard with multiple interconnected charts.
 
+::: tip Sample file
+A working end-to-end example is available: [HR_DASHBOARD_IMPORT.json](/HR_DASHBOARD_IMPORT.json). Download it and import via the bulk-import flow described in [How to Import](#How-to-Import) to see cross-filters, widgets, wizards, and the dashboard layout wired together.
+:::
+
 ### Top-Level Structure
 
 ```json
