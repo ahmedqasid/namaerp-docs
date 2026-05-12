@@ -144,24 +144,33 @@ Server-computed display string; client uses verbatim.
 "renderer": {
   "type": "text" | "html" | "badge" | "bar" | "sparkline" | "progress" | "icon",
   "badge":    { "shape": "pill" | "square", "variant": "solid" | "outline" },
-  "bar":      { "min": 0, "max": 100, "color": "#4caf50" },
-  "progress": { "min": 0, "max": 100 },
+  "bar":      { "min": 0, "max": 100, "color": "#4caf50", "style": "simple" | "interactive" },
+  "progress": { "min": 0, "max": 100, "style": "simple" | "interactive" },
   "icon":     { "mapping": [ { "when": "Approved", "icon": "check_circle", "color": "#2e7d32" } ], "position": "prefix" | "replace" },
   "sparkline":{ "type": "line" | "column" | "area", "lineColor": "#2196F3", "fill": "rgba(33,150,243,0.2)" }
 }
 ```
+
+The `style` field on `bar` and `progress` selects the rendering engine:
+
+| `style` | Visual |
+|---|---|
+| `simple` *(default)* | Pure CSS div + colored fill — lightweight, no chart engine, crisp at any size |
+| `interactive` | ECharts horizontal bar with hover tooltip |
+
+Sparklines always render via ECharts (mini line / area / column with hover tooltip); there is no style option.
+
+Mixing `simple` and `interactive` in one row is supported and often useful — e.g., a CSS-bar `invoiced %` next to an interactive ECharts `revenue` bar visually signals which one rewards exploration.
 
 | Type | Visual | Notes |
 |---|---|---|
 | `text` | Plain string | Default. No renderer block needed. |
 | `html` | Raw HTML via `v-html` | Trust model matches legacy `Param_INHTML` — no client sanitization. |
 | `badge` | Pill/square with cell text | `bg`/`color` come from `conditionalFormatting`; falls back to subtle blue. `outline` variant pairs with conditional `bg` for tinted-pill effect. |
-| `bar` | Horizontal filled bar via `agSparklineCellRenderer` | Value scaled `min`→`max`. **`max` is optional** — when omitted, renderer auto-scales to the column's data max (the common pattern). |
+| `bar` | Horizontal filled bar (CSS by default, ECharts when `style: "interactive"`) | Value scaled `min`→`max`. **`max` is optional** — when omitted, renderer auto-scales to the column's data max (the common pattern). |
 | `progress` | Same mechanism as `bar`, blue fill | Semantically "progress toward target". |
-| `sparkline` | Mini multi-point chart | Reads series from the column's own SQL `field` — CSV string `1,5,9,12` or JSON array `[1,5,9,12]`. |
+| `sparkline` | Mini multi-point ECharts chart | Reads series from the column's own SQL `field` — CSV string `1,5,9,12` or JSON array `[1,5,9,12]`. |
 | `icon` | Cell value matched against `mapping[].when` | Matched entry renders an icon (replaces text when `position: "replace"`). |
-
-**Important**: `bar`, `progress`, `sparkline` need AG Grid Enterprise's `SparklinesModule` (already registered in the Nama Vue shell).
 
 ## 5. Conditional formatting
 
