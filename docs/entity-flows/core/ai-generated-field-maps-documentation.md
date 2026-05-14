@@ -107,6 +107,25 @@ details.price=lines.unitPrice      # Copy price from corresponding lines
 details.item=lines.item           # Copy item references
 ```
 
+### Getting Collection Size
+Use the `$size` operator to get the number of lines in a detail collection:
+
+```ini
+# Store the count of detail lines in a numeric field
+n1=details.$size
+
+```
+
+You can also reference `$size` inside SQL expressions for conditional logic based on line counts:
+
+```ini
+# Conditional text based on number of lines
+text1=sql(select case when {lines.$size} > 5 then N'More than 5' else N'Less than 5' end)
+
+# Use the size in calculations
+avgValue=sql(select {money.netValue} / {details.$size})
+```
+
 ## Advanced Functions
 
 ### Text Manipulation
