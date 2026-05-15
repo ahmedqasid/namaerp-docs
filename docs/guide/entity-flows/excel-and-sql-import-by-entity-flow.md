@@ -97,6 +97,7 @@ Cell references are case-insensitive. For example, `a+2` and `$a` are valid.
 
 ## Import From SQL Statement by Entity Flow or GUI Post Action
 
+- [Watch this video for detailed steps](https://youtu.be/XAOituWQqsg)
 - Example 
 
 ```sql
