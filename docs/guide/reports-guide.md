@@ -1097,6 +1097,8 @@ Reference: Development request [ECPADR00932](https://namasoft.com/reqs/ECPADR009
 
 ## Adding Extra Fonts for PDF Printing
 
+- [Watch this video for detailed steps](https://youtu.be/n08xmWekB1s)
+
 Nama ERP supports **Times New Roman** by default for Arabic text. To use different Arabic-supporting fonts (Cairo, Amiri, Droid Arabic Naskh, etc.):
 
 ### 1. Add Font in Jaspersoft Studio
