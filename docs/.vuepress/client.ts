@@ -9,6 +9,7 @@ import GlobalConfigOption from "./components/GlobalConfigOption.vue";
 import LinkToNewRecord from "./components/LinkToNewRecord.vue";
 import SupplyChainOption from "./components/SupplyChainOption.vue";
 import CopyIcon from "./components/CopyIcon.vue";
+import HRConfigOption from "./components/HRConfigOption.vue";
 
 export default defineClientConfig({
     enhance({app, router, siteData}) {
@@ -21,6 +22,7 @@ export default defineClientConfig({
         app.component('NamaURL', NamaURL)
         app.component('NamaOptionURL', NamaOptionURL)
         app.component('GlobalConfigOption', GlobalConfigOption)
+        app.component('HRConfigOption', HRConfigOption)
         app.component('LinkToNewRecord', LinkToNewRecord)
         app.component('SupplyChainOption', SupplyChainOption)
         app.component('CopyIcon', CopyIcon)

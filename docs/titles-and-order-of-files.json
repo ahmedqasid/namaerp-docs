@@ -19,6 +19,9 @@
     "/guide/report-wizard-guide.md",
     "/guide/bi-module-guide.md",
     "/guide/bi-module-technical-reference.md",
+    "/guide/bi-reference-enhanced-metrics-card.md",
+    "/guide/bi-reference-enhanced-table.md",
+    "/guide/bi-reference-wizard-mode.md",
     "/guide/virtual-entity-guide.md",
     "/guide/entity-flows/introduction-to-entity-flows.md",
     "/guide/entity-flows/excel-and-sql-import-by-entity-flow.md",
@@ -70,6 +73,8 @@
     "/guide/criteria-based-validation.md",
     "/guide/attendance-machine-formula.md",
     "/guide/attendance-machines-integration.md",
+    "/guide/hr",
+    "/guide/hr/ignore-overlapping-attendance.md",
     "/guide/notifications-system.md",
     "/guide/scheduled-tasks.md",
     "/guide/nama-properties.md",
@@ -174,6 +179,7 @@
     "/entity-flows/supplychain": "Supply Chain Module",
     "/release-notes": "Release Notes",
     "/guide/e-commerce":"e-commerce integration (Magento)",
-    "/guide/list-views":"List Views"
+    "/guide/list-views":"List Views",
+    "/guide/hr": "Human Resources"
   }
 }
