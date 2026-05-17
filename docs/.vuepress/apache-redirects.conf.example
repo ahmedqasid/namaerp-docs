@@ -1,0 +1,58 @@
+# =============================================================================
+# Apache 301 redirect map for moved docs pages.
+#
+# WHAT THIS DOES
+#   When a request hits a URL that no longer exists, Apache looks up the page's
+#   basename (e.g. "zatca-onboarding" from "/old/path/zatca-onboarding.html")
+#   in /var/www/docs/redirects.txt and 301-redirects to the current location.
+#
+#   redirects.txt is regenerated on every VuePress build by config.js
+#   (see writeRedirectsMap / onGenerated). One line per page:
+#       <basename><TAB></full/url/path.html>
+#
+# WHERE TO PUT THIS
+#   In the docs site's <VirtualHost> block (or the main server config).
+#   RewriteMap is NOT allowed in .htaccess — it must live in vhost/server
+#   scope. The RewriteCond/RewriteRule lines below CAN go in .htaccess if
+#   you prefer, but keeping everything together is simpler.
+#
+# REQUIRES
+#   a2enmod rewrite     (and reload Apache)
+#
+# COLLISIONS
+#   Basenames that appear under more than one folder are skipped by the
+#   build hook (with a warning in the build log) and therefore won't be
+#   redirected — they'll fall through to the normal 404. Rename or move
+#   one of them if you want auto-redirect coverage.
+# =============================================================================
+
+<VirtualHost *:443>
+    ServerName docs.namasoft.com
+    DocumentRoot /var/www/docs
+
+    # ... your existing SSL / logging / etc. directives ...
+
+    RewriteEngine On
+
+    # Map basename -> canonical URL path. Reloaded automatically when the
+    # file's mtime changes, so no Apache reload needed after a redeploy.
+    RewriteMap pages txt:/var/www/docs/redirects.txt
+
+    # Only kick in when the requested file/dir really doesn't exist.
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Skip the lookup if the basename isn't in the map — let it 404 normally.
+    # $1 is the captured basename from the RewriteRule below.
+    RewriteCond ${pages:$1|NOTFOUND} !=NOTFOUND
+
+    # Capture the last path segment minus an optional .html, look it up,
+    # and 301 to the mapped location. QSA preserves any query string.
+    RewriteRule ^.*/([^/]+?)(?:\.html)?/?$ ${pages:$1} [R=301,L,NE,QSA]
+
+    # Optional: hide the map itself from the public web. Harmless if exposed
+    # (it's just a list of public URLs) but tidier this way.
+    <Files "redirects.txt">
+        Require all denied
+    </Files>
+</VirtualHost>

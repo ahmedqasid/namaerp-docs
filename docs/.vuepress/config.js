@@ -8,6 +8,48 @@ import {sitemapPlugin} from "@vuepress/plugin-sitemap";
 import {seoPlugin} from "@vuepress/plugin-seo";
 import {transliterate} from 'transliteration'
 import fullTextSearchPlugin from "./full-text-search/index.js";
+import fs from 'node:fs'
+import path from 'node:path'
+
+function writeRedirectsMap(destDir) {
+  const map = new Map()
+  const collisions = new Map()
+
+  function walk(dir) {
+    for (const entry of fs.readdirSync(dir, {withFileTypes: true})) {
+      const full = path.join(dir, entry.name)
+      if (entry.isDirectory()) {
+        walk(full)
+        continue
+      }
+      if (!entry.isFile() || !entry.name.endsWith('.html')) continue
+      if (entry.name === 'index.html') continue
+
+      const base = entry.name.slice(0, -'.html'.length)
+      const urlPath = '/' + path.relative(destDir, full).split(path.sep).join('/')
+
+      if (map.has(base)) {
+        if (!collisions.has(base)) collisions.set(base, [map.get(base)])
+        collisions.get(base).push(urlPath)
+      } else {
+        map.set(base, urlPath)
+      }
+    }
+  }
+  walk(destDir)
+
+  for (const [base, paths] of collisions) {
+    map.delete(base)
+    console.warn(`[redirects] duplicate basename "${base}" — no redirect generated:\n  ` + paths.join('\n  '))
+  }
+
+  const lines = [...map.entries()]
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([k, v]) => `${k}\t${v}`)
+      .join('\n')
+  fs.writeFileSync(path.join(destDir, 'redirects.txt'), lines + '\n', 'utf8')
+  console.log(`[redirects] wrote ${map.size} entries to redirects.txt (${collisions.size} basenames skipped)`)
+}
 
 export default defineUserConfig({
   title: 'Nama ERP Docs',
@@ -46,6 +88,9 @@ export default defineUserConfig({
     , sitemapPlugin({hostname: "https://docs.namasoft.com/"}),
     seoPlugin({hostname: "https://docs.namasoft.com/"})
   ],
+  onGenerated: (app) => {
+    writeRedirectsMap(app.dir.dest())
+  },
   bundler: viteBundler(),
   markdown: {
     slugify: (str) => {
