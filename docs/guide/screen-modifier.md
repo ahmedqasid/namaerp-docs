@@ -8,3 +8,5 @@
  - #### You can add a reference code if you append .code to column name, example: lines.account.code
  - #### You can add a reference name if you append .name to column name, example: lines.account.name
  - #### You can add a reference image if you append .image to column name, example: lines.account.image
+[Video 1](https://youtu.be/LaBbI6yyIhg?si=exaaxilwJCZRNo2k)
+[Video 2](https://www.youtube.com/watch?v=RX83qUZGr60)
