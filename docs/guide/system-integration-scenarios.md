@@ -1,7 +1,8 @@
 ---
 lang: ar
 ---
-<div class="rtl">
+
+<rtl>
 
 # سيناريوهات الربط بين نظام نما والأنظمة الأخرى
 
@@ -178,4 +179,4 @@ lang: ar
 * [Nama ERP REST API – Full Developer Guide](./nama-erp-api.md) — الدليل التقنيُّ الكاملُ لاستخدام واجهة نما البرمجيّة (بالإنجليزيّة).
 * [Attendance Machines Integration](./attendance-machines-integration.md) — مثالٌ تطبيقيٌّ على ربط نظام نما مع أجهزة الحضور والانصراف.
 
-</div>
+</rtl>
