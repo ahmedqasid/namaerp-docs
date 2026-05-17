@@ -4,6 +4,10 @@ Nama ERP provides a comprehensive REST API for performing CRUD operations on all
 
 For a fast introduction, watch this video: [Nama ERP Rest API Introduction](https://youtu.be/lUxZMIoxxUY)
 
+::: tip Looking for the high-level integration picture? (Arabic)
+Before diving into the API details, you may want to read the Arabic article [سيناريوهات الربط بين نظام نما والأنظمة الأخرى](./system-integration-scenarios.md). It frames the four possible integration directions (read/write × Nama/other system), explains which scenarios are free out-of-the-box vs. which require custom development, and lists the questions you should ask the customer before quoting an integration.
+:::
+
 ## API Browser Overview
 
 The Nama ERP API Browser provides an interactive interface for exploring and testing all available REST APIs in your system.

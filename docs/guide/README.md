@@ -82,6 +82,7 @@
   - [ReportWizard User Documentation (أداة إنشاء تقرير)](/guide/ReportWizard_User_Documentation.md)
   - [ORACLE JDBC Integration Connection in context.xml for integration purposes](/guide/oracle-jdbc-connection.md)
   - [Nama ERP REST API](/guide/nama-erp-api.md)
+  - [سيناريوهات الربط بين نظام نما والأنظمة الأخرى](/guide/system-integration-scenarios.md)
   - [Criteria from Text Parser (Text Criteria Guide)](/guide/text-criteria-guide.md)
   - [ضوابط إنشاء طلبات تطوير من قبل أقسام الدعم الفني والتجهيز بالشركة](/guide/dev-request-guidelines.md)
   - [e-commerce integration (Magento)](/guide/e-commerce/)
