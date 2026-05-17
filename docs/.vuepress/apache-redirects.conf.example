@@ -39,8 +39,12 @@
     RewriteMap pages txt:/var/www/docs/redirects.txt
 
     # Only kick in when the requested file/dir really doesn't exist.
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
+    # NOTE: in vhost/server scope %{REQUEST_FILENAME} is NOT resolved against
+    # the filesystem — it's just the URI. Without the DocumentRoot prefix the
+    # -f / -d tests always pass, the rule fires on the redirect TARGET too,
+    # and you get ERR_TOO_MANY_REDIRECTS. Prefix with the real path.
+    RewriteCond /var/www/docs%{REQUEST_URI} !-f
+    RewriteCond /var/www/docs%{REQUEST_URI} !-d
 
     # Skip the lookup if the basename isn't in the map — let it 404 normally.
     # $1 is the captured basename from the RewriteRule below.
