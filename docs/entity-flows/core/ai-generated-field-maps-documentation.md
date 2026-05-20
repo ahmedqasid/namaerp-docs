@@ -185,6 +185,22 @@ normalizedName=customer.name1.$normalizeAr
 westernPhone=phone.$replaceArNumerals
 ```
 
+#### Letter Case
+
+| Function | Description |
+|----------|-------------|
+| `$toUpperCase` | Convert all letters to upper case (uses `Locale.ROOT` so Turkish-locale quirks are avoided) |
+| `$toLowerCase` | Convert all letters to lower case |
+
+```ini
+chassisNumber=chassisNumber.$toUpperCase   # "abc123def" becomes "ABC123DEF"
+email=email.$toLowerCase
+```
+
+::: tip
+Arabic letters are case-less, so these functions only affect Latin (and other bicameral) scripts. Digits and symbols are left untouched.
+:::
+
 #### Translation
 
 | Function | Description |

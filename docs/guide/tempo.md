@@ -1230,6 +1230,26 @@ order by customerCode
 {mobile.$replaceArNumerals}
 ```
 
+### Letter Case
+
+* **Convert all letters to upper case:**
+
+```tempo
+{chassisNumber.$toUpperCase}
+```
+
+**Example:** `"abc123def"` becomes `"ABC123DEF"`
+
+* **Convert all letters to lower case:**
+
+```tempo
+{email.$toLowerCase}
+```
+
+::: tip
+Arabic letters are case-less, so these functions only affect Latin (and other bicameral) scripts. Digits and symbols are left untouched.
+:::
+
 ---
 
 ### Parsing and Conversions
