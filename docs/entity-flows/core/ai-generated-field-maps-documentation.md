@@ -153,7 +153,7 @@ middle=ref1.$mid_3_4              # Get 4 characters starting at position 3
 
 ### Data Field Functions
 
-Every zero-argument method on a data field is callable from a field map with the `$methodName` syntax (e.g. `targetField=sourceField.$trim`). They can also appear on either side of an `=` and inside SQL/tempo placeholders. The complete catalog grouped by purpose:
+Every zero-argument method on a data field is callable from a field map with the `$methodName` syntax (e.g. `targetField=sourceField.$trim`). They can also appear only on right side of an `=` and inside SQL/tempo placeholders. The complete catalog grouped by purpose:
 
 #### Whitespace
 
@@ -163,11 +163,13 @@ Every zero-argument method on a data field is callable from a field map with the
 | `$strip` | Trim leading and trailing whitespace, Unicode-aware |
 | `$stripLeading` | Trim only leading Unicode whitespace |
 | `$stripTrailing` | Trim only trailing Unicode whitespace |
+| `$normalizeSpace` | Trim edges **and** collapse any run of internal whitespace into a single space (Unicode-aware) |
 | `$removeAllSpaces` | Remove every whitespace, Unicode-aware — including those in the middle of the value |
 
 ```ini
 cleanName=customer.name1.$strip
 leftClean=code.$stripLeading
+tidyName=customer.name1.$normalizeSpace   # "  Ali   Hassan  " becomes "Ali Hassan"
 compactCode=code.$removeAllSpaces
 ```
 

@@ -756,10 +756,16 @@ Index is zero-based. To get the first row in `details`, use `{details.$get(0)}`
 
 ### Text Utilities
 
-* Remove all spaces:
+* Remove all whitespace — including between words (Unicode-aware):
 
 ```tempo
 {description1.$removeAllSpaces}
+```
+
+* Normalize spaces — trim edges and collapse multiple internal spaces into one:
+
+```tempo
+{name1.$normalizeSpace}
 ```
 
 * Normalize Arabic text (unify similar characters):
@@ -767,6 +773,10 @@ Index is zero-based. To get the first row in `details`, use `{details.$get(0)}`
 ```tempo
 {description1.$normalizeAr}
 ```
+
+::: tip
+The full set of whitespace helpers (`$strip`, `$stripLeading`, `$stripTrailing`, `$normalizeSpace`, `$removeAllSpaces`) is documented under [Trimming and Replacements](#Trimming-and-Replacements).
+:::
 
 **Example:**
 
@@ -1171,11 +1181,48 @@ order by customerCode
 
 ### Trimming and Replacements
 
-* **Trim spaces at the beginning and end:**
+* **Trim spaces at the beginning and end** (ASCII whitespace only, legacy):
 
 ```tempo
 {description1.$trim}
 ```
+
+* **Strip leading and trailing whitespace** (Unicode-aware — handles tabs, NBSP, etc.):
+
+```tempo
+{description1.$strip}
+```
+
+* **Strip only leading whitespace:**
+
+```tempo
+{description1.$stripLeading}
+```
+
+* **Strip only trailing whitespace:**
+
+```tempo
+{description1.$stripTrailing}
+```
+
+* **Normalize spaces** — trims the edges **and** collapses any run of internal whitespace into a single space (Unicode-aware):
+
+```tempo
+{name1.$normalizeSpace}
+```
+
+**Example:**
+
+```
+"  محمد   علي  "  →  "محمد علي"
+"أحمد\t\tحسن"   →  "أحمد حسن"
+```
+
+::: tip Choosing the right whitespace helper
+- Use `$strip` when you only want to trim the edges and keep internal spacing as-is.
+- Use `$normalizeSpace` when you also want to collapse multiple internal spaces (common for cleaning user-entered names).
+- Use `$removeAllSpaces` only when you want **every** whitespace gone, including between words — appropriate for codes, not names.
+:::
 
 * **Convert Arabic numerals to English:**
 
