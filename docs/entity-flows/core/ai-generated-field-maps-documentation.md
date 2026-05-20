@@ -151,6 +151,84 @@ lastTwo=code.$right_2             # Get last 2 characters
 middle=ref1.$mid_3_4              # Get 4 characters starting at position 3
 ```
 
+### Data Field Functions
+
+Every zero-argument method on a data field is callable from a field map with the `$methodName` syntax (e.g. `targetField=sourceField.$trim`). They can also appear on either side of an `=` and inside SQL/tempo placeholders. The complete catalog grouped by purpose:
+
+#### Whitespace
+
+| Function | Description |
+|----------|-------------|
+| `$trim` | Trim leading and trailing whitespace (legacy `String.trim`, ASCII only) |
+| `$strip` | Trim leading and trailing whitespace, Unicode-aware |
+| `$stripLeading` | Trim only leading Unicode whitespace |
+| `$stripTrailing` | Trim only trailing Unicode whitespace |
+| `$removeAllSpaces` | Remove every whitespace, Unicode-aware — including those in the middle of the value |
+
+```ini
+cleanName=customer.name1.$strip
+leftClean=code.$stripLeading
+compactCode=code.$removeAllSpaces
+```
+
+#### Text Normalization
+
+| Function | Description |
+|----------|-------------|
+| `$normalizeAr` | Normalize Arabic letters (unify alef, ya, ta-marbuta variants, etc.) |
+| `$replaceArNumerals` | Convert Arabic-Indic digits (٠–٩) to ASCII digits (0–9) |
+
+```ini
+normalizedName=customer.name1.$normalizeAr
+westernPhone=phone.$replaceArNumerals
+```
+
+#### Translation
+
+| Function | Description |
+|----------|-------------|
+| `$arabic` | Return the Arabic translation of the value |
+| `$english` | Return the English translation of the value |
+| `$translate` | Translate using the current user's UI language |
+
+```ini
+arabicLabel=status.$arabic
+englishLabel=status.$english
+localizedLabel=status.$translate
+```
+
+#### Type Conversion
+
+| Function | Description |
+|----------|-------------|
+| `$tryToInt` | Parse the value as an integer; returns `null` if it is not a valid integer |
+| `$tryToDecimal` | Parse the value as a decimal; returns `null` if it is not a valid number |
+
+```ini
+n1=code.$tryToInt
+amount=description1.$tryToDecimal
+```
+
+#### Serialization
+
+| Function | Description |
+|----------|-------------|
+| `$jsonEscape` | Return the value JSON-escaped (including surrounding quotes for strings) |
+
+```ini
+payload=description1.$jsonEscape
+```
+
+#### Encryption / Decryption
+
+| Function | Description |
+|----------|-------------|
+| `$encrypt1` / `$decrypt1` | Encrypt or decrypt using key set 1 |
+| `$encrypt2` / `$decrypt2` | Encrypt or decrypt using key set 2 |
+| `$encryptX` / `$decryptX` | Encrypt or decrypt using key set X |
+
+See the [Encryption/Decryption](#EncryptionDecryption) section under Security Features for usage examples in field maps, SQL, and reports.
+
 ### Mathematical Functions
 
 #### Totaling Values
