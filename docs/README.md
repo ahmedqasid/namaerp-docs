@@ -163,6 +163,7 @@ heroImage: hero.svg
       - [EAExportAttachments](/entity-flows/core/EAExportAttachments.md)
       - [EAFieldsValuesCalculator](/entity-flows/core/EAFieldsValuesCalculator.md)
       - [EAForceApplyInstallmentEffects](/entity-flows/core/EAForceApplyInstallmentEffects.md)
+      - [EAForceUsersToChangePassword](/entity-flows/core/EAForceUsersToChangePassword.md)
       - [EAGenerateDraftEntityFromEntityAction](/entity-flows/core/EAGenerateDraftEntityFromEntityAction.md)
       - [EAGenerateDraftEntityFromEntityActionNoFlush](/entity-flows/core/EAGenerateDraftEntityFromEntityActionNoFlush.md)
       - [EAGenerateEntityFromEntityAction](/entity-flows/core/EAGenerateEntityFromEntityAction.md)
