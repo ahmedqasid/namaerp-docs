@@ -16,6 +16,7 @@ heroImage: hero.svg
     - [Troubleshooting System Hanging or Unresponsiveness](/guide/troubleshooting-system-hanging.md)
     - [Jasper Reports Complete Guide for Nama ERP](/guide/reports-guide.md)
     - [Keyboard Shortcuts](/guide/shortcuts.md)
+    - [اختصارات لوحة المفاتيح](/guide/shortcuts-ar.md)
     - [Layout Names:](/guide/screen-modifier.md)
     - [List Views](/guide/list-views/)
       - [Quick Filters in List Views](/guide/list-views/quick-filters.md)
