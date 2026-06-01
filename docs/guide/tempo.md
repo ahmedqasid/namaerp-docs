@@ -499,6 +499,34 @@ To include action buttons in your email or SMS templates for approval workflows,
 * It's common to include multiple action links together in a message (e.g., Approve, Reject, Return).
 :::
 
+#### Optional Attributes
+
+Each of the four action links accepts the following optional attributes, written inside parentheses:
+
+| Attribute | Description |
+|-----------|-------------|
+| `reason` | The reason ID or code to attach to the decision (e.g. the reason for a rejection or return). Pass either the reason's ID or its code: `reason=reasonIdOrCode`. |
+| `plain` | When `true`, outputs **only the action URL** instead of the default `<a href='...'>...</a>` anchor tag. This lets you wrap the URL in your own markup — for example a colored button or chip. Defaults to `false`. |
+
+**Example — attach a reason and render a plain (unwrapped) link:**
+
+```tempo
+{approvelink(reason=reasoncode, plain=true)}
+```
+
+**Example — build a custom colored button around a plain reject link:**
+
+```tempo
+<a href='{rejectlink(reason=LATE_SUBMISSION, plain=true)}'
+   style='background:#e53935;color:#fff;padding:8px 16px;border-radius:4px;text-decoration:none'>
+  Reject
+</a>
+```
+
+::: tip
+With `plain=true` no decision text is emitted (since there is no anchor to label), so you are responsible for providing the visible button/chip text yourself.
+:::
+
 ## Creating Tables in Tempo
 
 Tempo allows you to format tabular data using special syntax blocks. This is useful for presenting structured data like document lines, grouped totals, or summaries in a clean format.
@@ -833,6 +861,39 @@ This translates the `orderStatus` value to the other language (Arabic ↔ Englis
 
 ::: tip
 You can also use `{orderStatus.$english}` or `{orderStatus.$arabic}` directly.
+:::
+
+---
+
+#### Branding Keys: Application Name and URL
+
+Two special keys let you reference the running installation's **branding** instead of translating a field. The actual values depend on the licence — the same template renders differently on a Nama ERP install, a Capital Solutions ERP install, an Exceed ERP install, and so on.
+
+* **Application name** — the branded product name:
+
+```tempo
+{translate("applicationName")}
+```
+
+Renders `Nama ERP`, `Capital Solutions ERP`, `Exceed ERP`, etc., according to the current licence branding.
+
+* **Application URL** — the branded website address:
+
+```tempo
+{translate("appUrl")}
+```
+
+Renders `namasoft.com`, `exceed-erp.com`, etc., according to the current licence branding.
+
+**Example:**
+
+```tempo
+Thank you for using {translate("applicationName")}.
+For more information, visit {translate("appUrl")}.
+```
+
+::: tip
+Use these keys in emails, notifications, and templates that may run on differently-branded installations, so the messages always carry the correct product name and website without hardcoding them.
 :::
 
 ---
