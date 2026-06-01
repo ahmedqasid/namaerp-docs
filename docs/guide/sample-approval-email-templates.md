@@ -33,9 +33,7 @@ It uses these fields, all available on any document:
 The template opens with a `subject:` line so the email arrives with a descriptive subject — e.g. *طلب اعتماد فاتورة مبيعات - SI-0012 - منشئ السجل: أحمد* — instead of a generic one. This **must** be the very first line of the body (before the `<div>`); see [Setting the Email Subject](tempo.md#1-Setting-the-Email-Subject).
 :::
 
-::: details Preview — what the email looks like
-A gradient purple header reading **طلب اعتماد** followed by the document's Arabic type, a white card listing the fields above (each with a small colored icon) — including a **ملحوظة** row that only appears when the document actually has remarks — and a footer row with three pill-shaped buttons: a green **اعتماد**, an amber **إرجاع**, and a red **رفض**. Each whole pill is clickable.
-:::
+::: details HTML Code
 
 ```html
 subject:طلب اعتماد {entityType.$arabic} - {code} - منشئ السجل: {firstAuthor.name1}
@@ -128,6 +126,7 @@ subject:طلب اعتماد {entityType.$arabic} - {code} - منشئ السجل:
   </table>
 </div>
 ```
+:::
 
 Here is how the rendered email looks in the inbox:
 
@@ -171,10 +170,7 @@ The header money fields (`{money.total}`, …) are read straight off the documen
 The amounts are wrapped in `{formatNumber(…, "###,##0.00")}` so they render as grouped, two-decimal figures (e.g. *12,500.00*) instead of raw numbers. See [Formatting Numbers](tempo.md#Formatting-Numbers).
 :::
 
-::: details Preview — what the email looks like
-A teal/emerald header reading **طلب اعتماد** followed by the document's Arabic type, the same document info card as the generic template (code, dates, author), then a **money summary** strip showing الإجمالي / قيمة الخصم / الصافي, followed by a striped **items table** listing every line (الصنف، الكمية، سعر الوحدة، الصافي), and finally the three pill buttons: green **اعتماد**, amber **إرجاع**, red **رفض**.
-:::
-
+::: details HTML Code
 ```html
 subject:طلب اعتماد {entityType.$arabic} - {code} - الصافي: {formatNumber(money.netValue, "###,##0.00")}
 <div dir="rtl" style="margin:0;padding:24px;background:#ecfeff;background:linear-gradient(135deg,#ecfeff 0%,#f0fdf4 100%);font-family:'Segoe UI',Tahoma,Arial,sans-serif;">
@@ -302,6 +298,7 @@ subject:طلب اعتماد {entityType.$arabic} - {code} - الصافي: {forma
   </table>
 </div>
 ```
+:::
 
 Here is how the rendered email looks in the inbox:
 
