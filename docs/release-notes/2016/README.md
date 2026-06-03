@@ -1,6 +1,7 @@
 <div class="ignore-in-full-text-search">
 
 # 2016
+  - [ملاحظات إصدار نما ERP - أبريل 2016](/release-notes/2016/nama-erp-201604-release-notes-arabic.md)
   - [ملاحظات إصدار نما ERP - مايو 2016](/release-notes/2016/nama-erp-201605-release-notes-arabic.md)
   - [ملاحظات إصدار نما ERP - يونيو 2016](/release-notes/2016/nama-erp-201606-release-notes-arabic.md)
   - [ملاحظات إصدار نما ERP - يوليو 2016](/release-notes/2016/nama-erp-201607-release-notes-arabic.md)
