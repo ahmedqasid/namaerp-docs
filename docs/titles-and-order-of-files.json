@@ -17,6 +17,13 @@
     "/guide/list-views/limit-user-to-year.md",
     "/guide/fiscal-period-control-guide.md",
     "/guide/approvals-system.md",
+    "/guide/security",
+    "/guide/security/security-overview.md",
+    "/guide/security/security-profiles.md",
+    "/guide/security/field-page-listview-security.md",
+    "/guide/security/record-level-security.md",
+    "/guide/security/users-and-login.md",
+    "/guide/security/security-delegation.md",
     "/guide/entity-flows",
     "/guide/report-wizard-guide.md",
     "/guide/bi-module-guide.md",
@@ -185,6 +192,7 @@
     "/release-notes": "Release Notes",
     "/guide/e-commerce":"e-commerce integration (Magento)",
     "/guide/list-views":"List Views",
+    "/guide/security": "الصلاحيات والأمان",
     "/guide/hr": "Human Resources"
   }
 }

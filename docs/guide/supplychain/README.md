@@ -11,6 +11,7 @@
   - [Quality Control](/guide/supplychain/quality-control.md)
   - [Specialized Scenarios](/guide/supplychain/specialized-scenarios.md)
   - [دليل استعمال النقاط الفنية في نقاط البيع](/guide/supplychain/nama-pos.md)
+  - [الأصناف المجانية في نقاط البيع: المطالبة بالمسح والتسوية عند الدفع](/guide/supplychain/pos-free-items-claim-and-reconciliation.md)
   - [تسجيل الدخول بالبصمة في نقاط البيع](/guide/supplychain/pos-fingerprint-login.md)
   - [Comprehensive Reservation System Guide (دليل نظام الحجوزات الشامل)](/guide/supplychain/reservation-system-guide.md)
   - [تجاهل مخازن/مواقع معينة في التحقق من كمية الحجز بالتاريخ](/guide/supplychain/ignore-reservation-qty-check-by-date.md)
