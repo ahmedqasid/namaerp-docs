@@ -34,6 +34,7 @@ public class ReorganizeDocs {
             new Move("guide/invoices",        "modules/invoicing"),
             new Move("guide/list-views",      "platform/list-views"),
             new Move("guide/manufacturing",   "modules/manufacturing"),
+            new Move("guide/security",        "platform/security"),
             new Move("guide/supplychain",     "modules/supplychain"),
             new Move("reprocessing",          "admin/reprocessing"),
 
@@ -52,6 +53,7 @@ public class ReorganizeDocs {
             new Move("guide/dev-request-guidelines.md",              "developer/dev-request-guidelines.md"),
             new Move("guide/docs-quick-guide.md",                    "developer/docs-quick-guide.md"),
             new Move("guide/field-filter-with-criteria.md",          "platform/field-filter-with-criteria.md"),
+            new Move("guide/fiscal-period-control-guide.md",         "platform/fiscal-period-control-guide.md"),
             new Move("guide/installation-guide.md",                  "getting-started/installation-guide.md"),
             new Move("guide/invoice-retriever.md",                   "integration/invoice-retriever.md"),
             new Move("guide/mobile-application-guide.md",            "modules/mobile/mobile-application-guide.md"),
@@ -62,9 +64,11 @@ public class ReorganizeDocs {
             new Move("guide/oracle-jdbc-connection.md",              "integration/oracle-jdbc-connection.md"),
             new Move("guide/report-wizard-guide.md",                 "platform/reports/report-wizard-guide.md"),
             new Move("guide/reports-guide.md",                       "platform/reports/reports-guide.md"),
+            new Move("guide/sample-approval-email-templates.md",     "platform/approvals/sample-approval-email-templates.md"),
             new Move("guide/scheduled-tasks.md",                     "platform/scheduled-tasks.md"),
             new Move("guide/screen-modifier.md",                     "platform/screen-modifier/screen-modifier.md"),
             new Move("guide/shortcuts.md",                           "platform/shortcuts.md"),
+            new Move("guide/shortcuts-ar.md",                        "platform/shortcuts-ar.md"),
             new Move("guide/sms-and-whatsapp.md",                    "platform/notifications/sms-and-whatsapp.md"),
             new Move("guide/system-integration-scenarios.md",        "integration/system-integration-scenarios.md"),
             new Move("guide/system-minimum-requirements.md",         "getting-started/system-minimum-requirements.md"),
@@ -97,7 +101,49 @@ public class ReorganizeDocs {
             new Move("faq/supply-chain-faq.md",           "modules/supplychain/supply-chain-faq.md"),
 
             // --- examples/ ----------------------------------------------------
-            new Move("examples/entity-flow-examples.md", "platform/entity-flows/entity-flow-examples.md")
+            new Move("examples/entity-flow-examples.md", "platform/entity-flows/entity-flow-examples.md"),
+
+            // --- shared guide/images split: each image follows its page -------
+            // pages keep their relative "images/<name>" references unchanged
+            // -> modules/hr (attendance-machine-formula.md)
+            new Move("guide/images/attendance-formula-example-data.png",        "modules/hr/images/attendance-formula-example-data.png"),
+            new Move("guide/images/attendance-formula-settings-page.png",       "modules/hr/images/attendance-formula-settings-page.png"),
+            new Move("guide/images/attendance-formula-time-attendance.png",     "modules/hr/images/attendance-formula-time-attendance.png"),
+            new Move("guide/images/attendance_machine_forumal_demo_example.PNG","modules/hr/images/attendance_machine_forumal_demo_example.PNG"),
+            // -> integration (attendance-machines-integration.md, nama-erp-api.md)
+            new Move("guide/images/attendance-machine-integration-linked-server.png",                 "integration/images/attendance-machine-integration-linked-server.png"),
+            new Move("guide/images/attendance-machine-integration-linked-server-connection-test.png", "integration/images/attendance-machine-integration-linked-server-connection-test.png"),
+            new Move("guide/images/attendance-machine-integration-linked-server-login-info.png",      "integration/images/attendance-machine-integration-linked-server-login-info.png"),
+            new Move("guide/images/attendance-machine-integration-zk.png",                            "integration/images/attendance-machine-integration-zk.png"),
+            new Move("guide/images/rest-api-browser.png",                                             "integration/images/rest-api-browser.png"),
+            // -> platform (field-filter-with-criteria.md, translations.md + unreferenced creator-link-sample.png)
+            new Move("guide/images/field-filter.png",        "platform/images/field-filter.png"),
+            new Move("guide/images/translation-button.png",  "platform/images/translation-button.png"),
+            new Move("guide/images/translation-editor.png",  "platform/images/translation-editor.png"),
+            new Move("guide/images/translation-export.png",  "platform/images/translation-export.png"),
+            new Move("guide/images/creator-link-sample.png", "platform/images/creator-link-sample.png"),
+            // -> platform/reports (report-wizard-guide.md, reports-guide.md)
+            new Move("guide/images/report-wizard-ex-1-run-report.png",  "platform/reports/images/report-wizard-ex-1-run-report.png"),
+            new Move("guide/images/report-wizard-ex-1-view-result.png", "platform/reports/images/report-wizard-ex-1-view-result.png"),
+            new Move("guide/images/jasper-reports-font-family.png",     "platform/reports/images/jasper-reports-font-family.png"),
+            // -> getting-started (installation-guide.md)
+            new Move("guide/images/installation-configure-logon-to-enable-auto-upgrade.png", "getting-started/images/installation-configure-logon-to-enable-auto-upgrade.png"),
+            // -> platform/approvals (sample-approval-email-templates.md)
+            new Move("guide/images/email-template-screenshot.png",               "platform/approvals/images/email-template-screenshot.png"),
+            new Move("guide/images/sales-invoice-approval-email-template.png",   "platform/approvals/images/sales-invoice-approval-email-template.png"),
+            // -> platform/notifications (sms-and-whatsapp.md)
+            new Move("guide/images/sms-misr-api-key.png",      "platform/notifications/images/sms-misr-api-key.png"),
+            new Move("guide/images/sms-misr-token.png",        "platform/notifications/images/sms-misr-token.png"),
+            new Move("guide/images/taqnyat-bearer-token.png",  "platform/notifications/images/taqnyat-bearer-token.png"),
+            new Move("guide/images/taqnyat-sender.png",        "platform/notifications/images/taqnyat-sender.png"),
+            new Move("guide/images/ultramsg-curl.png",         "platform/notifications/images/ultramsg-curl.png"),
+            new Move("guide/images/ultramsg-instance.png",     "platform/notifications/images/ultramsg-instance.png"),
+            new Move("guide/images/ultramsg-instance-id.png",  "platform/notifications/images/ultramsg-instance-id.png"),
+            new Move("guide/images/waapi-instance-id.png",     "platform/notifications/images/waapi-instance-id.png"),
+            new Move("guide/images/waapi-qr.png",              "platform/notifications/images/waapi-qr.png"),
+            new Move("guide/images/waapi-token.png",           "platform/notifications/images/waapi-token.png"),
+            // -> admin (tempo.md)
+            new Move("guide/images/tempo-editor.png",          "admin/images/tempo-editor.png")
     );
 
     public static void main(String[] args) throws Exception {

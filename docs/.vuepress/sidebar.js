@@ -2,14 +2,28 @@ export const SIDEBAR_CONFIG = {
   "/" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
@@ -32,17 +46,38 @@ export const SIDEBAR_CONFIG = {
       } ]
     } ]
   } ],
-  "/guide" : [ {
+  "/getting-started" : [ {
     text: "Home",
     collapsible: true,
     children: [ "/full-search.md", {
-      text: "Guides",
+      text: "Getting Started",
       collapsible: true,
-      children: [ "/guide/docs-quick-guide.md", "/guide/utils.md", "/guide/system-minimum-requirements.md", "/guide/installation-guide.md", "/guide/troubleshooting-system-hanging.md", "/guide/reports-guide.md", "/guide/shortcuts.md", "/guide/shortcuts-ar.md", "/guide/screen-modifier.md", "/guide/list-views/", "/guide/fiscal-period-control-guide.md", "/guide/approvals-system.md", "/guide/security/", "/guide/entity-flows/", "/guide/report-wizard-guide.md", "/guide/bi-module-guide.md", "/guide/bi-module-technical-reference.md", "/guide/bi-reference-enhanced-metrics-card.md", "/guide/bi-reference-enhanced-table.md", "/guide/bi-reference-wizard-mode.md", "/guide/virtual-entity-guide.md", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/tempo.md", "/guide/sample-approval-email-templates.md", "/guide/invoice-retriever.md", "/guide/sms-and-whatsapp.md", "/guide/two-factor-authentication.md", "/guide/field-filter-with-criteria.md", "/guide/translations.md", "/guide/criteria-based-validation.md", "/guide/attendance-machine-formula.md", "/guide/attendance-machines-integration.md", "/guide/hr/", "/guide/notifications-system.md", "/guide/scheduled-tasks.md", "/guide/nama-properties.md", "/guide/mobile-application-guide.md", "/guide/mobile-qr-integrator.md", "/guide/GenericReferenceOverrider_UserGuide.md", "/guide/ReportWizard_User_Documentation.md", "/guide/oracle-jdbc-connection.md", "/guide/nama-erp-api.md", "/guide/system-integration-scenarios.md", "/guide/text-criteria-guide.md", "/guide/dev-request-guidelines.md", "/guide/e-commerce/", {
+      children: [ "/getting-started/system-minimum-requirements.md", "/getting-started/installation-guide.md", "/getting-started/nama-properties.md", "/getting-started/two-factor-authentication.md", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/getting-started/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Platform Features",
+      collapsible: true,
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
+        text: ".",
+        "link" : "/platform/"
+      } ]
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
@@ -65,24 +100,139 @@ export const SIDEBAR_CONFIG = {
       } ]
     } ]
   } ],
-  "/guide/list-views" : [ {
+  "/platform" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
+      collapsible: true,
+      children: [ "/platform/utils.md", "/platform/shortcuts.md", "/platform/shortcuts-ar.md", "/platform/screen-modifier/", "/platform/list-views/", "/platform/fiscal-period-control-guide.md", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", "/platform/virtual-entity-guide.md", "/platform/field-filter-with-criteria.md", "/platform/field-filter-faq.md", "/platform/translations.md", "/platform/criteria-based-validation.md", "/platform/text-criteria-guide.md", "/platform/scheduled-tasks.md", "/platform/GenericReferenceOverrider_UserGuide.md", {
+        text: ".",
+        "link" : "/platform/"
+      } ]
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
+      text: "AI Generated Entity Flows Documentation",
+      collapsible: true,
+      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
+        text: ".",
+        "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2020/", "/release-notes/2021/", "/release-notes/2022/", "/release-notes/2023/", "/release-notes/2024/", "/release-notes/2025/", "/release-notes/2026/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      collapsible: true,
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
+        text: ".",
+        "link" : "/videos/"
+      } ]
+    } ]
+  } ],
+  "/platform/screen-modifier" : [ {
+    text: "Home",
+    collapsible: true,
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
       children: [ {
+        text: "Screen Modifier",
+        collapsible: true,
+        children: [ "/platform/screen-modifier/screen-modifier.md", "/platform/screen-modifier/screen-modifier-faq.md", {
+          text: ".",
+          "link" : "/platform/screen-modifier/"
+        } ]
+      }, "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
+        text: ".",
+        "link" : "/platform/"
+      } ]
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
+      text: "AI Generated Entity Flows Documentation",
+      collapsible: true,
+      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
+        text: ".",
+        "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2020/", "/release-notes/2021/", "/release-notes/2022/", "/release-notes/2023/", "/release-notes/2024/", "/release-notes/2025/", "/release-notes/2026/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      collapsible: true,
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
+        text: ".",
+        "link" : "/videos/"
+      } ]
+    } ]
+  } ],
+  "/platform/list-views" : [ {
+    text: "Home",
+    collapsible: true,
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
+      collapsible: true,
+      children: [ "/platform/screen-modifier/", {
         text: "List Views",
         collapsible: true,
-        children: [ "/guide/list-views/quick-filters.md", "/guide/list-views/limit-user-to-year.md", {
+        children: [ "/platform/list-views/quick-filters.md", "/platform/list-views/limit-user-to-year.md", {
           text: ".",
-          "link" : "/guide/list-views/"
+          "link" : "/platform/list-views/"
         } ]
-      }, "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      }, "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
@@ -105,24 +255,92 @@ export const SIDEBAR_CONFIG = {
       } ]
     } ]
   } ],
-  "/guide/security" : [ {
+  "/platform/approvals" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", {
+        text: "Approvals",
+        collapsible: true,
+        children: [ "/platform/approvals/approvals-system.md", "/platform/approvals/sample-approval-email-templates.md", "/platform/approvals/approvals-faq.md", {
+          text: ".",
+          "link" : "/platform/approvals/"
+        } ]
+      }, "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
+        text: ".",
+        "link" : "/platform/"
+      } ]
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
+      text: "AI Generated Entity Flows Documentation",
+      collapsible: true,
+      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
+        text: ".",
+        "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2020/", "/release-notes/2021/", "/release-notes/2022/", "/release-notes/2023/", "/release-notes/2024/", "/release-notes/2025/", "/release-notes/2026/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      collapsible: true,
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
+        text: ".",
+        "link" : "/videos/"
+      } ]
+    } ]
+  } ],
+  "/platform/security" : [ {
+    text: "Home",
+    collapsible: true,
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
+      collapsible: true,
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", {
         text: "الصلاحيات والأمان",
         collapsible: true,
-        children: [ "/guide/security/security-overview.md", "/guide/security/security-profiles.md", "/guide/security/field-page-listview-security.md", "/guide/security/record-level-security.md", "/guide/security/users-and-login.md", "/guide/security/security-delegation.md", {
+        children: [ "/platform/security/security-overview.md", "/platform/security/security-profiles.md", "/platform/security/field-page-listview-security.md", "/platform/security/record-level-security.md", "/platform/security/users-and-login.md", "/platform/security/security-delegation.md", {
           text: ".",
-          "link" : "/guide/security/"
+          "link" : "/platform/security/"
         } ]
-      }, "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      }, "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
@@ -145,24 +363,38 @@ export const SIDEBAR_CONFIG = {
       } ]
     } ]
   } ],
-  "/guide/entity-flows" : [ {
+  "/platform/entity-flows" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", {
         text: "Entity Flows",
         collapsible: true,
-        children: [ "/guide/entity-flows/introduction-to-entity-flows.md", "/guide/entity-flows/excel-and-sql-import-by-entity-flow.md", "/guide/entity-flows/ea-gen-entity-from-entity.md", {
+        children: [ "/platform/entity-flows/introduction-to-entity-flows.md", "/platform/entity-flows/excel-and-sql-import-by-entity-flow.md", "/platform/entity-flows/ea-gen-entity-from-entity.md", "/platform/entity-flows/entity-flow-examples.md", "/platform/entity-flows/entity-flow-faq.md", {
           text: ".",
-          "link" : "/guide/entity-flows/"
+          "link" : "/platform/entity-flows/"
         } ]
-      }, "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      }, "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
@@ -185,24 +417,38 @@ export const SIDEBAR_CONFIG = {
       } ]
     } ]
   } ],
-  "/guide/invoices" : [ {
+  "/platform/reports" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", {
-        text: "الفواتير والضرائب والخصومات",
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", {
+        text: "Reports",
         collapsible: true,
-        children: [ "/guide/invoices/reward-points.md", "/guide/invoices/invoice-discounts-and-tax-calculation-guide.md", "/guide/invoices/pricing-and-offers-guide.md", "/guide/invoices/payment-schedules-user-guide.md", "/guide/invoices/payment-entries.md", "/guide/invoices/online-payments.md", "/guide/invoices/e-invoices-guide.md", "/guide/invoices/zatca-guide.md", "/guide/invoices/electronic-receipt-egypt-tax-eInvoice.md", "/guide/invoices/uae-orchida-einvoice-guide.md", "/guide/invoices/standard-terms-feature-documentation.md", "/guide/invoices/barcode-field-feature.md", {
+        children: [ "/platform/reports/reports-guide.md", "/platform/reports/report-wizard-guide.md", "/platform/reports/ReportWizard_User_Documentation.md", "/platform/reports/report-faq.md", "/platform/reports/report-wizard-faq.md", {
           text: ".",
-          "link" : "/guide/invoices/"
+          "link" : "/platform/reports/"
         } ]
-      }, "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      }, "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
@@ -225,24 +471,38 @@ export const SIDEBAR_CONFIG = {
       } ]
     } ]
   } ],
-  "/guide/supplychain" : [ {
+  "/platform/bi" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", {
-        text: "Supply Chain",
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", {
+        text: "Business Intelligence",
         collapsible: true,
-        children: [ "/guide/supplychain/supply-chain-intro.md", "/guide/supplychain/understanding-items.md", "/guide/supplychain/receiving-stock.md", "/guide/supplychain/issuing-stock.md", "/guide/supplychain/moving-stock.md", "/guide/supplychain/purchasing-journey.md", "/guide/supplychain/sales-journey.md", "/guide/supplychain/quality-control.md", "/guide/supplychain/specialized-scenarios.md", "/guide/supplychain/nama-pos.md", "/guide/supplychain/pos-free-items-claim-and-reconciliation.md", "/guide/supplychain/pos-fingerprint-login.md", "/guide/supplychain/reservation-system-guide.md", "/guide/supplychain/ignore-reservation-qty-check-by-date.md", {
+        children: [ "/platform/bi/bi-module-guide.md", "/platform/bi/bi-module-technical-reference.md", "/platform/bi/bi-reference-enhanced-metrics-card.md", "/platform/bi/bi-reference-enhanced-table.md", "/platform/bi/bi-reference-wizard-mode.md", {
           text: ".",
-          "link" : "/guide/supplychain/"
+          "link" : "/platform/bi/"
         } ]
-      }, "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      }, "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
@@ -265,104 +525,38 @@ export const SIDEBAR_CONFIG = {
       } ]
     } ]
   } ],
-  "/guide/manufacturing" : [ {
+  "/platform/notifications" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", {
-        text: "Manufacturing",
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", {
+        text: "Notifications",
         collapsible: true,
-        children: [ "/guide/manufacturing/manufacturing-overview.md", "/guide/manufacturing/production-orders.md", "/guide/manufacturing/production-execution.md", "/guide/manufacturing/production-costing.md", "/guide/manufacturing/material-requirements-planning.md", "/guide/manufacturing/carton-manufacturing-overview.md", "/guide/manufacturing/carton-specifications.md", "/guide/manufacturing/carton-orders.md", "/guide/manufacturing/carton-material-planning.md", "/guide/manufacturing/carton-material-issue.md", {
+        children: [ "/platform/notifications/notifications-system.md", "/platform/notifications/sms-and-whatsapp.md", "/platform/notifications/notification-fq.md", {
           text: ".",
-          "link" : "/guide/manufacturing/"
-        } ]
-      }, "/guide/hr/", "/guide/e-commerce/", {
-        text: ".",
-        "link" : "/guide/"
-      } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
-      text: "AI Generated Entity Flows Documentation",
-      collapsible: true,
-      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
-        text: ".",
-        "link" : "/entity-flows/"
-      } ]
-    }, {
-      text: "Release Notes",
-      collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2020/", "/release-notes/2021/", "/release-notes/2022/", "/release-notes/2023/", "/release-notes/2024/", "/release-notes/2025/", "/release-notes/2026/", {
-        text: ".",
-        "link" : "/release-notes/"
-      } ]
-    }, {
-      text: "Video Tutorials",
-      collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
-        text: ".",
-        "link" : "/videos/"
-      } ]
-    } ]
-  } ],
-  "/guide/hr" : [ {
-    text: "Home",
-    collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
-      collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", {
-        text: "Human Resources",
-        collapsible: true,
-        children: [ "/guide/hr/ignore-overlapping-attendance.md", {
-          text: ".",
-          "link" : "/guide/hr/"
-        } ]
-      }, "/guide/e-commerce/", {
-        text: ".",
-        "link" : "/guide/"
-      } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
-      text: "AI Generated Entity Flows Documentation",
-      collapsible: true,
-      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
-        text: ".",
-        "link" : "/entity-flows/"
-      } ]
-    }, {
-      text: "Release Notes",
-      collapsible: true,
-      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2020/", "/release-notes/2021/", "/release-notes/2022/", "/release-notes/2023/", "/release-notes/2024/", "/release-notes/2025/", "/release-notes/2026/", {
-        text: ".",
-        "link" : "/release-notes/"
-      } ]
-    }, {
-      text: "Video Tutorials",
-      collapsible: true,
-      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
-        text: ".",
-        "link" : "/videos/"
-      } ]
-    } ]
-  } ],
-  "/guide/e-commerce" : [ {
-    text: "Home",
-    collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
-      collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", {
-        text: "e-commerce integration (Magento)",
-        collapsible: true,
-        children: [ "/guide/e-commerce/magento-integration-guide.md", "/guide/e-commerce/omniful-integration.md", {
-          text: ".",
-          "link" : "/guide/e-commerce/"
+          "link" : "/platform/notifications/"
         } ]
       }, {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
@@ -385,24 +579,31 @@ export const SIDEBAR_CONFIG = {
       } ]
     } ]
   } ],
-  "/examples" : [ {
+  "/modules" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
     }, {
-      text: "Examples",
+      text: "Modules",
       collapsible: true,
-      children: [ "/examples/entity-flow-examples.md", {
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
         text: ".",
-        "link" : "/examples/"
+        "link" : "/modules/"
       } ]
-    }, "/reprocessing/", "/faq/", {
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
@@ -425,24 +626,38 @@ export const SIDEBAR_CONFIG = {
       } ]
     } ]
   } ],
-  "/reprocessing" : [ {
+  "/modules/invoicing" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", {
-      text: "Reprocessing Transactions",
+    }, {
+      text: "Modules",
       collapsible: true,
-      children: [ "/reprocessing/reprocess-qty-and-cost.md", "/reprocessing/reprocess-ledger-and-debt-ages.md", "/reprocessing/cost-and-qty-problems.md", "/reprocessing/inventory-utilities.md", "/reprocessing/manufacturing-utilities.md", "/reprocessing/fixed-asset-utilities.md", "/reprocessing/real-estate-utilities.md", "/reprocessing/db-operations.md", "/reprocessing/suggest-index-creation.md", "/reprocessing/general-purpose-utility-queries.md", "/reprocessing/replication.md", {
+      children: [ {
+        text: "الفواتير والضرائب والخصومات",
+        collapsible: true,
+        children: [ "/modules/invoicing/reward-points.md", "/modules/invoicing/invoice-discounts-and-tax-calculation-guide.md", "/modules/invoicing/pricing-and-offers-guide.md", "/modules/invoicing/payment-schedules-user-guide.md", "/modules/invoicing/payment-entries.md", "/modules/invoicing/online-payments.md", "/modules/invoicing/e-invoices-guide.md", "/modules/invoicing/zatca-guide.md", "/modules/invoicing/electronic-receipt-egypt-tax-eInvoice.md", "/modules/invoicing/uae-orchida-einvoice-guide.md", "/modules/invoicing/standard-terms-feature-documentation.md", "/modules/invoicing/barcode-field-feature.md", "/modules/invoicing/invoices-faq.md", {
+          text: ".",
+          "link" : "/modules/invoicing/"
+        } ]
+      }, "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
         text: ".",
-        "link" : "/reprocessing/"
+        "link" : "/modules/"
       } ]
-    }, "/faq/", {
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
@@ -465,22 +680,623 @@ export const SIDEBAR_CONFIG = {
       } ]
     } ]
   } ],
-  "/faq" : [ {
+  "/modules/supplychain" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", {
-      text: "Frequently Asked Questions",
+    }, {
+      text: "Modules",
       collapsible: true,
-      children: [ "/faq/general-faq.md", "/faq/screen-modifier-faq.md", "/faq/notification-fq.md", "/faq/gui-post-actions-faq.md", "/faq/entity-flow-faq.md", "/faq/invoices-faq.md", "/faq/supply-chain-faq.md", "/faq/supply-chain-faq-english.md", "/faq/manufacturing-faq.md", "/faq/pos-faq.md", "/faq/real-estate-fq.md", "/faq/human-resources-faq.md", "/faq/report-faq.md", "/faq/report-wizard-faq.md", "/faq/approvals-faq.md", "/faq/mobile-apps-faq.md", "/faq/field-filter-faq.md", "/faq/database-error-related-faq.md", {
+      children: [ "/modules/invoicing/", {
+        text: "Supply Chain",
+        collapsible: true,
+        children: [ "/modules/supplychain/supply-chain-intro.md", "/modules/supplychain/understanding-items.md", "/modules/supplychain/receiving-stock.md", "/modules/supplychain/issuing-stock.md", "/modules/supplychain/moving-stock.md", "/modules/supplychain/purchasing-journey.md", "/modules/supplychain/sales-journey.md", "/modules/supplychain/quality-control.md", "/modules/supplychain/specialized-scenarios.md", "/modules/supplychain/nama-pos.md", "/modules/supplychain/pos-free-items-claim-and-reconciliation.md", "/modules/supplychain/pos-fingerprint-login.md", "/modules/supplychain/reservation-system-guide.md", "/modules/supplychain/ignore-reservation-qty-check-by-date.md", "/modules/supplychain/supply-chain-faq.md", "/modules/supplychain/supply-chain-faq-english.md", {
+          text: ".",
+          "link" : "/modules/supplychain/"
+        } ]
+      }, "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
         text: ".",
-        "link" : "/faq/"
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
+      text: "AI Generated Entity Flows Documentation",
+      collapsible: true,
+      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
+        text: ".",
+        "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2020/", "/release-notes/2021/", "/release-notes/2022/", "/release-notes/2023/", "/release-notes/2024/", "/release-notes/2025/", "/release-notes/2026/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      collapsible: true,
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
+        text: ".",
+        "link" : "/videos/"
+      } ]
+    } ]
+  } ],
+  "/modules/manufacturing" : [ {
+    text: "Home",
+    collapsible: true,
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
+      collapsible: true,
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
+        text: ".",
+        "link" : "/platform/"
+      } ]
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", {
+        text: "Manufacturing",
+        collapsible: true,
+        children: [ "/modules/manufacturing/manufacturing-overview.md", "/modules/manufacturing/production-orders.md", "/modules/manufacturing/production-execution.md", "/modules/manufacturing/production-costing.md", "/modules/manufacturing/material-requirements-planning.md", "/modules/manufacturing/carton-manufacturing-overview.md", "/modules/manufacturing/carton-specifications.md", "/modules/manufacturing/carton-orders.md", "/modules/manufacturing/carton-material-planning.md", "/modules/manufacturing/carton-material-issue.md", "/modules/manufacturing/manufacturing-faq.md", {
+          text: ".",
+          "link" : "/modules/manufacturing/"
+        } ]
+      }, "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
+      text: "AI Generated Entity Flows Documentation",
+      collapsible: true,
+      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
+        text: ".",
+        "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2020/", "/release-notes/2021/", "/release-notes/2022/", "/release-notes/2023/", "/release-notes/2024/", "/release-notes/2025/", "/release-notes/2026/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      collapsible: true,
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
+        text: ".",
+        "link" : "/videos/"
+      } ]
+    } ]
+  } ],
+  "/modules/hr" : [ {
+    text: "Home",
+    collapsible: true,
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
+      collapsible: true,
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
+        text: ".",
+        "link" : "/platform/"
+      } ]
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", {
+        text: "Human Resources",
+        collapsible: true,
+        children: [ "/modules/hr/attendance-machine-formula.md", "/modules/hr/ignore-overlapping-attendance.md", "/modules/hr/human-resources-faq.md", {
+          text: ".",
+          "link" : "/modules/hr/"
+        } ]
+      }, "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
+      text: "AI Generated Entity Flows Documentation",
+      collapsible: true,
+      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
+        text: ".",
+        "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2020/", "/release-notes/2021/", "/release-notes/2022/", "/release-notes/2023/", "/release-notes/2024/", "/release-notes/2025/", "/release-notes/2026/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      collapsible: true,
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
+        text: ".",
+        "link" : "/videos/"
+      } ]
+    } ]
+  } ],
+  "/modules/pos" : [ {
+    text: "Home",
+    collapsible: true,
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
+      collapsible: true,
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
+        text: ".",
+        "link" : "/platform/"
+      } ]
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", {
+        text: "Point of Sale",
+        collapsible: true,
+        children: [ "/modules/pos/pos-faq.md", {
+          text: ".",
+          "link" : "/modules/pos/"
+        } ]
+      }, "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
+      text: "AI Generated Entity Flows Documentation",
+      collapsible: true,
+      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
+        text: ".",
+        "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2020/", "/release-notes/2021/", "/release-notes/2022/", "/release-notes/2023/", "/release-notes/2024/", "/release-notes/2025/", "/release-notes/2026/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      collapsible: true,
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
+        text: ".",
+        "link" : "/videos/"
+      } ]
+    } ]
+  } ],
+  "/modules/realestate" : [ {
+    text: "Home",
+    collapsible: true,
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
+      collapsible: true,
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
+        text: ".",
+        "link" : "/platform/"
+      } ]
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", {
+        text: "Real Estate",
+        collapsible: true,
+        children: [ "/modules/realestate/real-estate-fq.md", {
+          text: ".",
+          "link" : "/modules/realestate/"
+        } ]
+      }, "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
+      text: "AI Generated Entity Flows Documentation",
+      collapsible: true,
+      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
+        text: ".",
+        "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2020/", "/release-notes/2021/", "/release-notes/2022/", "/release-notes/2023/", "/release-notes/2024/", "/release-notes/2025/", "/release-notes/2026/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      collapsible: true,
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
+        text: ".",
+        "link" : "/videos/"
+      } ]
+    } ]
+  } ],
+  "/modules/mobile" : [ {
+    text: "Home",
+    collapsible: true,
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
+      collapsible: true,
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
+        text: ".",
+        "link" : "/platform/"
+      } ]
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", {
+        text: "Mobile Applications",
+        collapsible: true,
+        children: [ "/modules/mobile/mobile-application-guide.md", "/modules/mobile/mobile-qr-integrator.md", "/modules/mobile/mobile-apps-faq.md", {
+          text: ".",
+          "link" : "/modules/mobile/"
+        } ]
+      }, "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
+      text: "AI Generated Entity Flows Documentation",
+      collapsible: true,
+      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
+        text: ".",
+        "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2020/", "/release-notes/2021/", "/release-notes/2022/", "/release-notes/2023/", "/release-notes/2024/", "/release-notes/2025/", "/release-notes/2026/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      collapsible: true,
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
+        text: ".",
+        "link" : "/videos/"
+      } ]
+    } ]
+  } ],
+  "/modules/ecommerce" : [ {
+    text: "Home",
+    collapsible: true,
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
+      collapsible: true,
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
+        text: ".",
+        "link" : "/platform/"
+      } ]
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", {
+        text: "e-commerce Integration",
+        collapsible: true,
+        children: [ "/modules/ecommerce/magento-integration-guide.md", "/modules/ecommerce/omniful-integration.md", {
+          text: ".",
+          "link" : "/modules/ecommerce/"
+        } ]
+      }, {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
+      text: "AI Generated Entity Flows Documentation",
+      collapsible: true,
+      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
+        text: ".",
+        "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2020/", "/release-notes/2021/", "/release-notes/2022/", "/release-notes/2023/", "/release-notes/2024/", "/release-notes/2025/", "/release-notes/2026/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      collapsible: true,
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
+        text: ".",
+        "link" : "/videos/"
+      } ]
+    } ]
+  } ],
+  "/integration" : [ {
+    text: "Home",
+    collapsible: true,
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
+      collapsible: true,
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
+        text: ".",
+        "link" : "/platform/"
+      } ]
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, {
+      text: "External Integrations",
+      collapsible: true,
+      children: [ "/integration/nama-erp-api.md", "/integration/system-integration-scenarios.md", "/integration/invoice-retriever.md", "/integration/attendance-machines-integration.md", "/integration/oracle-jdbc-connection.md", {
+        text: ".",
+        "link" : "/integration/"
+      } ]
+    }, {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
+      text: "AI Generated Entity Flows Documentation",
+      collapsible: true,
+      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
+        text: ".",
+        "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2020/", "/release-notes/2021/", "/release-notes/2022/", "/release-notes/2023/", "/release-notes/2024/", "/release-notes/2025/", "/release-notes/2026/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      collapsible: true,
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
+        text: ".",
+        "link" : "/videos/"
+      } ]
+    } ]
+  } ],
+  "/admin" : [ {
+    text: "Home",
+    collapsible: true,
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
+      collapsible: true,
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
+        text: ".",
+        "link" : "/platform/"
+      } ]
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/tempo.md", "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
+      text: "AI Generated Entity Flows Documentation",
+      collapsible: true,
+      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
+        text: ".",
+        "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2020/", "/release-notes/2021/", "/release-notes/2022/", "/release-notes/2023/", "/release-notes/2024/", "/release-notes/2025/", "/release-notes/2026/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      collapsible: true,
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
+        text: ".",
+        "link" : "/videos/"
+      } ]
+    } ]
+  } ],
+  "/admin/troubleshooting" : [ {
+    text: "Home",
+    collapsible: true,
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
+      collapsible: true,
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
+        text: ".",
+        "link" : "/platform/"
+      } ]
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ {
+        text: "Troubleshooting",
+        collapsible: true,
+        children: [ "/admin/troubleshooting/troubleshooting-system-hanging.md", "/admin/troubleshooting/general-faq.md", "/admin/troubleshooting/database-error-related-faq.md", {
+          text: ".",
+          "link" : "/admin/troubleshooting/"
+        } ]
+      }, "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
+      text: "AI Generated Entity Flows Documentation",
+      collapsible: true,
+      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
+        text: ".",
+        "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2020/", "/release-notes/2021/", "/release-notes/2022/", "/release-notes/2023/", "/release-notes/2024/", "/release-notes/2025/", "/release-notes/2026/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      collapsible: true,
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
+        text: ".",
+        "link" : "/videos/"
+      } ]
+    } ]
+  } ],
+  "/admin/reprocessing" : [ {
+    text: "Home",
+    collapsible: true,
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
+      collapsible: true,
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
+        text: ".",
+        "link" : "/platform/"
+      } ]
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", {
+        text: "Reprocessing Transactions",
+        collapsible: true,
+        children: [ "/admin/reprocessing/reprocess-qty-and-cost.md", "/admin/reprocessing/reprocess-ledger-and-debt-ages.md", "/admin/reprocessing/cost-and-qty-problems.md", "/admin/reprocessing/inventory-utilities.md", "/admin/reprocessing/manufacturing-utilities.md", "/admin/reprocessing/fixed-asset-utilities.md", "/admin/reprocessing/real-estate-utilities.md", "/admin/reprocessing/db-operations.md", "/admin/reprocessing/suggest-index-creation.md", "/admin/reprocessing/general-purpose-utility-queries.md", "/admin/reprocessing/replication.md", {
+          text: ".",
+          "link" : "/admin/reprocessing/"
+        } ]
+      }, {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
+      text: "AI Generated Entity Flows Documentation",
+      collapsible: true,
+      children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
+        text: ".",
+        "link" : "/entity-flows/"
+      } ]
+    }, {
+      text: "Release Notes",
+      collapsible: true,
+      children: [ "/release-notes/2016/", "/release-notes/2017/", "/release-notes/2018/", "/release-notes/2019/", "/release-notes/2020/", "/release-notes/2021/", "/release-notes/2022/", "/release-notes/2023/", "/release-notes/2024/", "/release-notes/2025/", "/release-notes/2026/", {
+        text: ".",
+        "link" : "/release-notes/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      collapsible: true,
+      children: [ "/videos/supply-chain-videos/", "/videos/report-wizard-videos/", "/videos/hr/", {
+        text: ".",
+        "link" : "/videos/"
+      } ]
+    } ]
+  } ],
+  "/developer" : [ {
+    text: "Home",
+    collapsible: true,
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
+      collapsible: true,
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
+        text: ".",
+        "link" : "/platform/"
+      } ]
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      collapsible: true,
+      children: [ "/developer/docs-quick-guide.md", "/developer/dev-request-guidelines.md", "/developer/gui-post-actions-faq.md", {
+        text: ".",
+        "link" : "/developer/"
       } ]
     }, {
       text: "AI Generated Entity Flows Documentation",
@@ -508,14 +1324,28 @@ export const SIDEBAR_CONFIG = {
   "/entity-flows" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
@@ -541,14 +1371,28 @@ export const SIDEBAR_CONFIG = {
   "/entity-flows/core" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ {
@@ -581,14 +1425,28 @@ export const SIDEBAR_CONFIG = {
   "/entity-flows/accounting" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", {
@@ -621,14 +1479,28 @@ export const SIDEBAR_CONFIG = {
   "/entity-flows/ai" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", {
@@ -661,14 +1533,28 @@ export const SIDEBAR_CONFIG = {
   "/entity-flows/contracting" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", {
@@ -701,14 +1587,28 @@ export const SIDEBAR_CONFIG = {
   "/entity-flows/crm" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", {
@@ -741,14 +1641,28 @@ export const SIDEBAR_CONFIG = {
   "/entity-flows/egtax" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", {
@@ -781,14 +1695,28 @@ export const SIDEBAR_CONFIG = {
   "/entity-flows/frm" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", {
@@ -821,14 +1749,28 @@ export const SIDEBAR_CONFIG = {
   "/entity-flows/hms" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", {
@@ -861,14 +1803,28 @@ export const SIDEBAR_CONFIG = {
   "/entity-flows/hr" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", {
@@ -901,14 +1857,28 @@ export const SIDEBAR_CONFIG = {
   "/entity-flows/magento" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", {
@@ -941,14 +1911,28 @@ export const SIDEBAR_CONFIG = {
   "/entity-flows/manufacturing" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", {
@@ -981,14 +1965,28 @@ export const SIDEBAR_CONFIG = {
   "/entity-flows/namapos" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", {
@@ -1021,14 +2019,28 @@ export const SIDEBAR_CONFIG = {
   "/entity-flows/realestate" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", {
@@ -1061,14 +2073,28 @@ export const SIDEBAR_CONFIG = {
   "/entity-flows/srvcenter" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", {
@@ -1101,14 +2127,28 @@ export const SIDEBAR_CONFIG = {
   "/entity-flows/supplychain" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", {
@@ -1141,14 +2181,28 @@ export const SIDEBAR_CONFIG = {
   "/release-notes" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
@@ -1174,14 +2228,28 @@ export const SIDEBAR_CONFIG = {
   "/release-notes/2016" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
@@ -1214,14 +2282,28 @@ export const SIDEBAR_CONFIG = {
   "/release-notes/2017" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
@@ -1254,14 +2336,28 @@ export const SIDEBAR_CONFIG = {
   "/release-notes/2018" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
@@ -1294,14 +2390,28 @@ export const SIDEBAR_CONFIG = {
   "/release-notes/2019" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
@@ -1334,14 +2444,28 @@ export const SIDEBAR_CONFIG = {
   "/release-notes/2020" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
@@ -1374,14 +2498,28 @@ export const SIDEBAR_CONFIG = {
   "/release-notes/2021" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
@@ -1414,14 +2552,28 @@ export const SIDEBAR_CONFIG = {
   "/release-notes/2022" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
@@ -1454,14 +2606,28 @@ export const SIDEBAR_CONFIG = {
   "/release-notes/2023" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
@@ -1494,14 +2660,28 @@ export const SIDEBAR_CONFIG = {
   "/release-notes/2024" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
@@ -1534,14 +2714,28 @@ export const SIDEBAR_CONFIG = {
   "/release-notes/2025" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
@@ -1574,14 +2768,28 @@ export const SIDEBAR_CONFIG = {
   "/release-notes/2026" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
@@ -1614,14 +2822,28 @@ export const SIDEBAR_CONFIG = {
   "/videos" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
@@ -1647,14 +2869,28 @@ export const SIDEBAR_CONFIG = {
   "/videos/supply-chain-videos" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
@@ -1687,14 +2923,28 @@ export const SIDEBAR_CONFIG = {
   "/videos/report-wizard-videos" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
@@ -1727,14 +2977,28 @@ export const SIDEBAR_CONFIG = {
   "/videos/hr" : [ {
     text: "Home",
     collapsible: true,
-    children: [ "/full-search.md", {
-      text: "Guides",
+    children: [ "/full-search.md", "/getting-started/", {
+      text: "Platform Features",
       collapsible: true,
-      children: [ "/guide/list-views/", "/guide/security/", "/guide/entity-flows/", "/guide/invoices/", "/guide/supplychain/", "/guide/manufacturing/", "/guide/hr/", "/guide/e-commerce/", {
+      children: [ "/platform/screen-modifier/", "/platform/list-views/", "/platform/approvals/", "/platform/security/", "/platform/entity-flows/", "/platform/reports/", "/platform/bi/", "/platform/notifications/", {
         text: ".",
-        "link" : "/guide/"
+        "link" : "/platform/"
       } ]
-    }, "/examples/", "/reprocessing/", "/faq/", {
+    }, {
+      text: "Modules",
+      collapsible: true,
+      children: [ "/modules/invoicing/", "/modules/supplychain/", "/modules/manufacturing/", "/modules/hr/", "/modules/pos/", "/modules/realestate/", "/modules/mobile/", "/modules/ecommerce/", {
+        text: ".",
+        "link" : "/modules/"
+      } ]
+    }, "/integration/", {
+      text: "System Administration",
+      collapsible: true,
+      children: [ "/admin/troubleshooting/", "/admin/reprocessing/", {
+        text: ".",
+        "link" : "/admin/"
+      } ]
+    }, "/developer/", {
       text: "AI Generated Entity Flows Documentation",
       collapsible: true,
       children: [ "/entity-flows/core/", "/entity-flows/accounting/", "/entity-flows/ai/", "/entity-flows/contracting/", "/entity-flows/crm/", "/entity-flows/egtax/", "/entity-flows/frm/", "/entity-flows/hms/", "/entity-flows/hr/", "/entity-flows/magento/", "/entity-flows/manufacturing/", "/entity-flows/namapos/", "/entity-flows/realestate/", "/entity-flows/srvcenter/", "/entity-flows/supplychain/", {
