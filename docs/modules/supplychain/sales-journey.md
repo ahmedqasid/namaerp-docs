@@ -1,611 +1,611 @@
-# The Sales Journey
+# رحلة المبيعات (Sales Journey)
 
-The sales journey is the mirror image of purchasing - instead of bringing items in, you're selling and delivering them to customers. But the principles are similar: Quote → Order → Fulfill → Invoice → Collect. Let's walk through this journey and understand when to use each document.
+رحلة المبيعات هي الصورة المعاكسة للمشتريات — بدلاً من إدخال الأصناف، أنت تبيعها وتسلمها للعملاء. لكن المبادئ متشابهة: عرض أسعار ← أمر بيع ← تنفيذ ← فاتورة ← تحصيل. لنستعرض هذه الرحلة معاً ونفهم متى يُستخدم كل مستند.
 
-## The Big Picture
+## الصورة الكاملة {#The-Big-Picture}
 
-Here's the typical sales process flow:
+إليك التسلسل المعتاد لعملية البيع:
 
 ```
 Inquiry → Quotation → Order → Reservation → Picking → Delivery → Invoice → Payment
 ```
 
-Not every sale follows every step (cash-and-carry skips most of these!), but understanding the complete path helps you design the right process for each type of sale.
-
-## Step 1: Customer Inquiry
-
-Every sale starts with interest. A customer (potential or existing) wants something you offer.
-
-### The Quotation Request
-
-The `SalesQuotationRequest` (طلب عرض أسعار مبيعات) captures customer inquiries:
-
-**Customer**: "We're interested in 100 office chairs. Can you quote us a price?"
-
-**What You Capture:**
-- Customer information (who's asking?)
-- Items of interest (what do they want?)
-- Quantities (how much?)
-- Delivery requirements (where and when?)
-- Special requirements (customization, warranty, support?)
-
-**Who Creates These:**
-- Sales team (after customer call/email)
-- Inside sales (from web inquiries)
-- Customer service (from support requests that become sales opportunities)
-- Sometimes customers directly (through web portal)
-
-**Why Formalize Inquiries?**
-- Track potential sales (pipeline visibility)
-- Measure quote-to-order conversion rates
-- Ensure timely follow-up (don't let inquiries fall through cracks)
-- Assign to sales representatives
-- Prioritize hot leads
-
-### Preparing the Quotation
-
-Before quoting, sales team needs to know:
-- Do we have the items in stock?
-- If not in stock, can we get them in time?
-- What's our cost? (to ensure profitable pricing)
-- Any special considerations for this customer?
-
-The system helps by showing:
-- Available inventory
-- Lead times for out-of-stock items
-- Cost information (so you can price with desired margin)
-- Customer history (past purchases, payment behavior, special terms)
-
-## Step 2: The Sales Quotation
-
-The `SalesQuotation` (عرض أسعار مبيعات) is your formal price proposal to the customer.
-
-### What Goes Into It
-
-**Header Information:**
-- Quotation number
-- Date
-- Validity period (quote expires after 30 days, etc.)
-- Customer details
-- Delivery terms
-- Payment terms
-- Sales representative
-
-**Line Items:**
-- Item descriptions (clear, compelling)
-- Quantities
-- Unit prices
-- Discounts (if any)
-- Line totals
-- Taxes
-
-**Additional Information:**
-- Delivery schedule
-- Warranty terms
-- Service and support
-- Terms and conditions
-- Special notes or instructions
+ليست كل عملية بيع تمر بكل هذه الخطوات (البيع النقدي يتخطى معظمها!)، لكن فهم المسار الكامل يساعدك على تصميم العملية الصحيحة لكل نوع بيع.
+
+## الخطوة الأولى: استفسار العميل {#Step-1-Customer-Inquiry}
+
+كل عملية بيع تبدأ باهتمام. عميل (محتمل أو حالي) يريد شيئاً تقدمه.
+
+### طلب عرض الأسعار {#The-Quotation-Request}
+
+`SalesQuotationRequest` (طلب عرض أسعار مبيعات) يُسجّل استفسارات العملاء:
+
+**العميل**: "نحن مهتمون بـ 100 كرسي مكتبي. هل يمكنكم تزويدنا بسعر؟"
+
+**ما تُسجّله:**
+- بيانات العميل (من يسأل؟)
+- الأصناف المطلوبة (ماذا يريدون؟)
+- الكميات (كم؟)
+- متطلبات التسليم (أين ومتى؟)
+- المتطلبات الخاصة (تخصيص، ضمان، دعم؟)
+
+**من يُنشئ هذه الطلبات:**
+- فريق المبيعات (بعد مكالمة أو بريد إلكتروني من العميل)
+- المبيعات الداخلية (من الاستفسارات عبر الإنترنت)
+- خدمة العملاء (من طلبات الدعم التي تتحول إلى فرص بيع)
+- أحياناً العملاء مباشرةً (عبر بوابة الإنترنت)
+
+**لماذا نُضفي طابعاً رسمياً على الاستفسارات؟**
+- تتبع فرص البيع المحتملة (رؤية خط الأنابيب)
+- قياس معدلات تحويل عروض الأسعار إلى أوامر
+- ضمان المتابعة في الوقت المناسب (لا تترك الاستفسارات تضيع)
+- تعيين ممثلي المبيعات
+- إيلاء الأولوية للعملاء المهتمين
+
+### إعداد عرض الأسعار {#Preparing-the-Quotation}
+
+قبل تقديم العرض، يحتاج فريق المبيعات معرفة:
+- هل الأصناف متوفرة في المخزن؟
+- إن لم تكن، هل يمكن الحصول عليها في الوقت المناسب؟
+- ما هي تكلفتنا؟ (لضمان التسعير المربح)
+- هل هناك اعتبارات خاصة لهذا العميل؟
+
+يساعد النظام بعرض:
+- المخزون المتاح
+- مدد التوريد للأصناف غير المتوفرة
+- معلومات التكلفة (لتسعير بهامش ربح مناسب)
+- سجل العميل (مشتريات سابقة، سلوك الدفع، شروط خاصة)
+
+## الخطوة الثانية: عرض الأسعار {#Step-2-The-Sales-Quotation}
+
+`SalesQuotation` (عرض أسعار مبيعات) هو اقتراحك الرسمي بالسعر للعميل.
+
+### ما يتضمنه العرض {#What-Goes-Into-It}
+
+**معلومات الرأسية:**
+- رقم عرض الأسعار
+- التاريخ
+- مدة الصلاحية (العرض ينتهي بعد 30 يوماً مثلاً)
+- بيانات العميل
+- شروط التسليم
+- شروط الدفع
+- ممثل المبيعات
+
+**بنود الأصناف:**
+- أوصاف الأصناف (واضحة ومقنعة)
+- الكميات
+- أسعار الوحدة
+- الخصومات (إن وُجدت)
+- إجماليات البنود
+- الضرائب
+
+**معلومات إضافية:**
+- جدول التسليم
+- شروط الضمان
+- الخدمة والدعم
+- الشروط والأحكام
+- ملاحظات أو تعليمات خاصة
 
-**Totals:**
-- Subtotal
-- Discounts
-- Taxes
-- Grand total
-
-### Pricing Strategy
-
-The system supports sophisticated pricing:
-
-**Price Lists**: Different prices for different customer segments
-- Retail price list
-- Wholesale price list
-- VIP customer price list
-- Promotional pricing
-
-**Automatic Pricing**: Based on cost plus margin
-- System calculates cost
-- Applies desired margin (configurable per item or customer)
-- Suggests price (can be overridden with approval)
+**الإجماليات:**
+- المجموع الفرعي
+- الخصومات
+- الضرائب
+- الإجمالي الكلي
+
+### استراتيجية التسعير {#Pricing-Strategy}
+
+يدعم النظام تسعيراً متطوراً:
+
+**قوائم الأسعار**: أسعار مختلفة لشرائح عملاء مختلفة
+- قائمة أسعار التجزئة
+- قائمة أسعار الجملة
+- قائمة أسعار عملاء VIP
+- التسعير الترويجي
+
+**التسعير التلقائي**: بناءً على التكلفة زائد هامش الربح
+- يحسب النظام التكلفة
+- يطبق هامش الربح المطلوب (قابل للضبط لكل صنف أو عميل)
+- يقترح السعر (يمكن تجاوزه بموافقة)
 
-**Discount Handling**:
-- Item-level discounts (10% off this item)
-- Header discounts (5% off entire order)
-- Multiple discount layers
-- Minimum price enforcement (can't go below floor price)
+**معالجة الخصومات:**
+- خصومات على مستوى البند (10% على هذا الصنف)
+- خصومات رأسية (5% على الأمر كاملاً)
+- طبقات خصم متعددة
+- تطبيق الحد الأدنى للسعر (لا يمكن النزول عن السعر الأرضي)
 
-### Quotation Lifecycle
+### دورة حياة عرض الأسعار {#Quotation-Lifecycle}
 
-Once created:
-1. **Review**: Sales manager reviews and approves (especially if special pricing)
-2. **Send to Customer**: PDF or email
-3. **Follow Up**: Track customer response
-4. **Outcomes**:
-   - **Convert to Order**: Customer accepts!
-   - **Revise**: Customer negotiates, you create revised quote
-   - **Expire**: Validity period passes, quote is closed
-   - **Lost**: Customer goes elsewhere
+بعد الإنشاء:
+1. **المراجعة**: مدير المبيعات يراجع ويوافق (خاصةً عند التسعير الخاص)
+2. **الإرسال للعميل**: PDF أو بريد إلكتروني
+3. **المتابعة**: رصد استجابة العميل
+4. **النتائج المحتملة**:
+   - **التحويل لأمر**: العميل يقبل!
+   - **المراجعة**: العميل يتفاوض، تُنشئ عرضاً معدلاً
+   - **الانتهاء**: تنتهي صلاحية العرض ويُغلق
+   - **الخسارة**: العميل يختار جهة أخرى
 
-## Step 3: The Sales Order
+## الخطوة الثالثة: أمر البيع {#Step-3-The-Sales-Order}
 
-Customer accepted your quote! Time to create the official order.
+قبل العميل عرضك! حان وقت إنشاء الأمر الرسمي.
 
-### The Sales Order Document
+### مستند أمر البيع {#The-Sales-Order-Document}
 
-The `SalesOrder` (أمر بيع) is the formal commitment: "We will sell you these items under these terms."
+`SalesOrder` (أمر بيع) هو الالتزام الرسمي: "سنبيعك هذه الأصناف وفق هذه الشروط."
 
-**Converting from Quotation:**
-The easiest way is to convert the accepted quotation to an order. The system:
-- Copies all information from quotation
-- Links order to quotation (audit trail)
-- Changes status from "quote" to "order"
-- Initiates fulfillment process
+**التحويل من عرض الأسعار:**
+أسهل طريقة هي تحويل عرض الأسعار المقبول إلى أمر. النظام:
+- ينسخ كافة المعلومات من عرض الأسعار
+- يربط الأمر بعرض الأسعار (مسار التدقيق)
+- يغير الحالة من "عرض" إلى "أمر"
+- يُطلق عملية التنفيذ
 
-**Creating Directly:**
-For existing customers with standard items, you might skip quotation and create orders directly.
+**الإنشاء المباشر:**
+للعملاء الحاليين مع الأصناف المعيارية، يمكنك تخطي عرض الأسعار وإنشاء أوامر مباشرةً.
 
-**What Makes It Official:**
-- Order number (unique identifier)
-- Customer signature/acceptance
-- Credit approval (if selling on credit)
-- Inventory reservation (if configured)
-- Fulfillment workflow triggered
-
-### Order Information
-
-Everything from the quotation, plus:
+**ما يجعله رسمياً:**
+- رقم الأمر (معرّف فريد)
+- توقيع/قبول العميل
+- موافقة الائتمان (عند البيع الآجل)
+- حجز المخزون (إن كان مُهيّأ)
+- بدء سير عمل التنفيذ
+
+### معلومات الأمر {#Order-Information}
+
+كل ما في عرض الأسعار، بالإضافة إلى:
 
-**Fulfillment Details:**
-- Requested delivery date
-- Delivery address (might be different from billing address)
-- Shipping method
-- Special delivery instructions
-
-**Inventory Allocation:**
-- Which warehouse will fulfill?
-- Are items in stock?
-- If not, when will they be available?
-
-**Financial Terms:**
-- Final prices (might differ from quote if negotiated)
-- Payment terms (cash, credit, installments)
-- Credit limit check (for credit customers)
+**تفاصيل التنفيذ:**
+- تاريخ التسليم المطلوب
+- عنوان التسليم (قد يختلف عن عنوان الفوترة)
+- طريقة الشحن
+- تعليمات تسليم خاصة
+
+**تخصيص المخزون:**
+- أي مخزن سينفّذ الأمر؟
+- هل الأصناف متوفرة؟
+- إن لم تكن، متى ستتوفر؟
+
+**الشروط المالية:**
+- الأسعار النهائية (قد تختلف عن العرض إن جرى تفاوض)
+- شروط الدفع (نقد، آجل، أقساط)
+- التحقق من حد الائتمان (للعملاء الآجلين)
 
-### Proforma Orders
-
-The `ProformaSalesInvoice` (فاتورة مبيعات مبدئية) is a halfway point:
-- Looks like an invoice
-- Acts like a quote
-- Used for customer's budget approval, customs, or advance payment
+### الفواتير المبدئية {#Proforma-Orders}
+
+`ProformaSalesInvoice` (فاتورة مبيعات مبدئية) هي نقطة منتصف الطريق:
+- تبدو كفاتورة
+- تعمل كعرض أسعار
+- تُستخدم لموافقة ميزانية العميل أو الجمارك أو الدفع المسبق
 
-Once customer pays or approves, convert to actual order.
+بمجرد دفع العميل أو موافقته، تُحوَّل إلى أمر فعلي.
 
-## Step 4: Reservation and Allocation
-
-Order confirmed. Now ensure you can fulfill it.
-
-### Stock Reservation
-
-If configured, the system automatically reserves stock:
-- 100 office chairs reserved for Order #12345
-- These chairs remain in warehouse
-- But they're flagged "not available for other sales"
-- Prevents overselling
-
-**Reservation Benefits:**
-- Guarantee you can fulfill (no "sorry, we just sold out")
-- Warehouse knows what's committed vs. truly available
-- Can promise delivery with confidence
-
-**When to Reserve:**
-- At order entry (most common)
-- At order approval (after management review)
-- Only when customer confirms (for tentative orders)
-- Not at all (for make-to-order businesses)
-
-### Allocation Strategy
-
-If you have multiple warehouses, which one fulfills this order?
-
-**Options:**
-- **Closest to customer**: Minimizes shipping time and cost
-- **Where inventory is**: Fulfill from warehouse with stock
-- **Dedicated fulfillment center**: All orders ship from central location
-- **Load balancing**: Distribute orders to balance warehouse workload
-
-The system can automatically suggest or require manual selection.
-
-## Step 5: Picking and Preparation
-
-Order confirmed, stock reserved. Time to physically prepare the shipment.
-
-### The Pick List
-
-The `pickLines` collection (or separate picking list document) tells warehouse:
-- What items to pick
-- From which locations
-- In what sequence (optimized path through warehouse)
-- Special handling notes
-
-**Pick List Information:**
-- Order number
-- Customer name (so packer knows who it's for)
-- Each item to pick:
-  - Item code and description
-  - Quantity to pick
-  - Location (Aisle C, Shelf 4, Bin 12)
-  - Serial numbers (if applicable)
-- Packing notes
-- Shipping method
-
-**The Picking Process:**
-1. Warehouse receives pick list
-2. Picker collects items from locations
-3. Marks each item picked
-4. Brings to packing station
-5. Confirms all items picked
-
-**Partial Picks:**
-Sometimes not everything is available:
-- Pick what you have
-- Note what's short
-- Create backorder for remaining items
-- Contact customer about partial shipment
-
-### Packing and Loading
-
-After picking:
-1. Verify items are correct
-2. Pack appropriately
-3. Create shipping label
-4. Record package weight/dimensions
-5. Create `LoadingDocument` (staging for shipment)
-6. Load onto delivery vehicle
-7. Create `DeliveryDocument` (handoff to customer)
-
-## Step 6: The Sales Invoice
-
-Time to bill the customer!
-
-### The Sales Invoice Document
-
-The `SalesInvoice` (فاتورة مبيعات) is both:
-- The bill (customer owes you money)
-- The inventory transaction (items leave your stock)
-
-**Key Information:**
-
-**Header:**
-- Invoice number
-- Date
-- Customer details
-- Billing address
-- Shipping address
-- Sales representative
-- Order reference
-- Payment terms
-
-**Lines:**
-- Item descriptions
-- Quantities sold
-- Unit prices
-- Discounts
-- Taxes
-- Line totals
-
-**Financial Summary:**
-- Subtotal
-- Discounts
-- Shipping charges
-- Taxes (VAT, sales tax, etc.)
-- Grand total
-
-**Payment Details:**
-- Due date
-- Payment method
-- Bank account details
-- Early payment discounts
-
-### What the System Does
-
-When you save the sales invoice (not as draft):
-
-**Inventory Transaction:**
-Automatically creates `SalesInvoiceIssue` documents that:
-- Reduce inventory quantities
-- Remove items from warehouse locations
-- Track which serial numbers/batches were sold
-- Record cost of goods sold
-
-**Accounting Entries:**
-- Debit: Accounts Receivable (or Cash if immediate payment)
-- Credit: Sales Revenue
-- Credit: Tax Output Account
-- Debit: Cost of Goods Sold
-- Credit: Inventory
-
-**Customer Account:**
-- Increases customer balance (what they owe you)
-- Updates credit limit utilization
-- Creates payment due date
-
-### Tax Authority Integration
-
-For countries with electronic tax reporting (e-invoicing):
-- System generates tax-compliant invoice format
-- Submits to tax authority system
-- Receives unique tax ID
-- Stores in `taxAuthoritySysFields`
-- QR code generated for invoice
-- Customer can verify invoice authenticity
-
-## Step 7: Delivery and Confirmation
-
-Physically getting items to customer.
-
-### Delivery Methods
-
-**Self-Pickup:**
-- Customer collects from your location
-- Verify identity
-- Hand over goods
-- Get signature
-- Close delivery
-
-**Your Delivery:**
-- Load items on your vehicle
-- Driver delivers to customer location
-- Get customer signature
-- Photograph delivery (optional)
-- Update delivery status
-
-**Third-Party Shipping:**
-- Hand off to shipping company
-- Provide tracking number
-- Customer tracks shipment
-- Confirm delivery when received
-
-### Delivery Documentation
-
-The `DeliveryDocument` (مستند تسليم) records:
-- What was delivered
-- When it was delivered
-- Where it was delivered
-- Who received it (signature)
-- Condition at delivery (any issues?)
-- Driver and vehicle details
-
-This is your proof of delivery - critical if customer later claims non-delivery.
-
-## Step 8: Payment Collection
-
-The final step: collecting what you're owed.
-
-### Payment Methods
-
-**Cash Sales:**
-Payment happens immediately at invoice time:
-- Customer pays
-- Record payment
-- Invoice is closed
-- No receivable created (or created and immediately cleared)
-
-**Credit Sales:**
-Payment happens later per terms:
-- Invoice creates receivable
-- Due date based on terms (Net 30, Net 60, etc.)
-- System tracks aging
-- Alerts as due date approaches
-- Records payment when received
-
-**Installment Sales:**
-The `scheduleLines` collection breaks payment into installments:
-- First payment: $5,000 due at delivery
-- Second payment: $5,000 due after 30 days
-- Third payment: $5,000 due after 60 days
-
-System tracks each installment separately.
-
-### Payment Recording
-
-The `paymentLines` collection records payments:
-- Date received
-- Amount
-- Method (cash, check, bank transfer, credit card)
-- Reference number
-- Bank details
-
-System automatically:
-- Reduces customer balance
-- Updates aging
-- Closes invoice if fully paid
-- Creates accounting entries
-
-## Handling Returns and Exchanges
-
-Sometimes sales don't stick. Customers return or exchange items.
-
-### The Sales Return
-
-Use `SalesReturnRequest` (طلب مرتجع مبيعات) when customer wants to return:
-
-**Common Reasons:**
-- Defective item
-- Wrong item shipped
-- Customer changed mind (within return period)
-- Damaged in shipping
-- Doesn't meet expectations
-
-**The Return Process:**
-1. **Request**: Customer contacts you
-2. **Authorization**: Sales/customer service reviews and approves
-3. **RMA Number**: Issue return authorization number
-4. **Return**: Customer ships back (or you collect)
-5. **Inspection**: Verify item condition
-6. **Outcome**:
-   - **Accept**: Process refund/credit
-   - **Reject**: Item damaged by customer, no refund
-   - **Partial Credit**: Restocking fee or condition issues
-
-**Accounting Impact:**
-Return creates:
-- Debit: Sales Returns (contra-revenue account)
-- Debit: Inventory (goods back in stock)
-- Debit: Tax Payable (reverse tax)
-- Credit: Accounts Receivable (customer owes less)
-
-### The Sales Replacement
-
-The `SalesReplacement` (استبدال مبيعات) handles exchanges:
-
-**Example**: Customer bought size Medium shirt, wants size Large instead.
-
-The system:
-- Returns the Medium (credit)
-- Issues the Large (new sale)
-- Handles price difference (if sizes cost different)
-- One smooth transaction
-
-**Use For:**
-- Size/color exchanges
-- Warranty replacements
-- Upgrades (customer wants better version)
-- Downgrades (customer wants cheaper version)
-
-## Sales Forecasting and Planning
-
-### The Sales Forecast
-
-The `SalesForecast` (توقعات مبيعات) helps plan future sales:
-
-**Based On:**
-- Historical sales patterns
-- Seasonal trends
-- Marketing campaigns
-- Sales pipeline (open quotations and orders)
-- Market intelligence
-
-**Used For:**
-- Inventory planning (buy enough, not too much)
-- Production scheduling (make-to-forecast)
-- Cash flow projections
-- Sales team targets
-- Management planning
-
-Forecasting shifts from reactive to proactive selling.
-
-## Special Sales Scenarios
-
-### Cash and Carry (POS)
-
-For retail, the process is much simpler:
-1. Customer comes to store
-2. Selects items
-3. You ring up sale (invoice created)
-4. Customer pays immediately
-5. Customer takes items
-
-All happens in minutes with `NamaPOSSalesInvoice` or similar POS documents. More on this in [Specialized Scenarios](./specialized-scenarios.md).
-
-### Export Sales
-
-International sales add complexity:
-- Customs documentation
-- Export licenses
-- Shipping documentation
-- Currency exchange
-- International payment terms (letters of credit, etc.)
-
-### Project Sales
-
-Large project sales span months:
-- Initial quotation for entire project
-- Multiple orders as project progresses
-- Delivery in phases
-- Payment milestones
-- Long-term customer relationship
-
-## Tips for Effective Sales Management
-
-::: tip Best Practices
-
-**Quote Quickly**
-Customers are impatient. Respond to inquiries within hours if possible, not days. Fast response rates correlate with higher conversion rates.
-
-**Follow Up Systematically**
-Don't let quotes die silently. Follow up: after 3 days, after 1 week, before expiration. Track why you win and why you lose.
-
-**Reserve Stock Wisely**
-Reserve for confirmed orders, not for tentative inquiries. Tying up stock for "maybes" prevents selling to "yeses."
-
-**Pick Accurately**
-Wrong items shipped cost you: return shipping, restocking, customer frustration, relationship damage. Double-check picks.
-
-**Invoice Promptly**
-The faster you invoice, the faster you get paid. Don't delay invoicing waiting for "all deliveries to complete" - invoice what's delivered.
-
-**Flexible Payment Terms**
-Different customers need different terms. Cash-strapped small business might need Net 60. Large corporate might demand Net 90. Build relationships by accommodating.
-
-**Track Returns**
-High return rates for an item signal quality problems. High returns from a customer signal training needs or fit issues. Analyze patterns.
-
-**Maintain Stock for Fast-Movers**
-Your best-selling items should never stock out. Forecast accurately, monitor closely, reorder early.
+## الخطوة الرابعة: الحجز والتخصيص {#Step-4-Reservation-and-Allocation}
+
+تأكّد الأمر. الآن تأكّد من قدرتك على تنفيذه.
+
+### حجز المخزون {#Stock-Reservation}
+
+إن كان مُهيّأ، يحجز النظام المخزون تلقائياً:
+- 100 كرسي مكتبي محجوز للأمر رقم 12345
+- هذه الكراسي تبقى في المخزن
+- لكنها مُعلَّمة بـ "غير متاحة لمبيعات أخرى"
+- يمنع البيع الزائد عن الطاقة
+
+**مزايا الحجز:**
+- ضمان القدرة على التنفيذ (لا "عفواً، نفدت البضاعة")
+- المخزن يعرف الملتزم به مقابل المتاح فعلاً
+- القدرة على الوعد بالتسليم بثقة
+
+**متى تحجز:**
+- عند إدخال الأمر (الأكثر شيوعاً)
+- عند اعتماد الأمر (بعد مراجعة الإدارة)
+- فقط عند تأكيد العميل (للأوامر الاحتمالية)
+- عدم الحجز إطلاقاً (للأعمال التي تُنتج بناءً على الطلب)
+
+### استراتيجية التخصيص {#Allocation-Strategy}
+
+إن كان لديك مخازن متعددة، أيها ينفّذ هذا الأمر؟
+
+**الخيارات:**
+- **الأقرب للعميل**: يقلل وقت وتكلفة الشحن
+- **حيث يوجد المخزون**: التنفيذ من المخزن الذي يحتوي الأصناف
+- **مركز تنفيذ مخصص**: جميع الأوامر تُشحن من موقع مركزي
+- **توزيع الأحمال**: توزيع الأوامر لتوازن عبء عمل المخازن
+
+يمكن للنظام الاقتراح تلقائياً أو إلزام الاختيار اليدوي.
+
+## الخطوة الخامسة: التجهيز والسحب {#Step-5-Picking-and-Preparation}
+
+تأكّد الأمر وحُجز المخزون. حان وقت التحضير الفعلي للشحنة.
+
+### قائمة السحب {#The-Pick-List}
+
+مجموعة `pickLines` (أو مستند قائمة سحب منفصل) تُخبر المخزن بـ:
+- الأصناف المطلوب سحبها
+- من أي مواقع
+- بأي تسلسل (مسار محسّن عبر المخزن)
+- ملاحظات معالجة خاصة
+
+**معلومات قائمة السحب:**
+- رقم الأمر
+- اسم العميل (ليعرف المُعبّئ لمن هي)
+- كل صنف للسحب:
+  - كود الصنف والوصف
+  - الكمية المطلوب سحبها
+  - الموقع (الممر C، الرف 4، الحاوية 12)
+  - الأرقام التسلسلية (إن وُجدت)
+- ملاحظات التعبئة
+- طريقة الشحن
+
+**عملية السحب:**
+1. يستلم المخزن قائمة السحب
+2. يجمع الساحب الأصناف من مواقعها
+3. يُعلّم كل صنف تم سحبه
+4. يحضر الأصناف لمحطة التعبئة
+5. يؤكد اكتمال السحب
+
+**السحب الجزئي:**
+أحياناً لا يكون كل شيء متاحاً:
+- اسحب ما هو متوفر
+- لاحظ ما ينقص
+- أنشئ أمر تأخير للأصناف المتبقية
+- اتصل بالعميل بشأن الشحن الجزئي
+
+### التعبئة والتحميل {#Packing-and-Loading}
+
+بعد السحب:
+1. تحقق من صحة الأصناف
+2. عبّئ بشكل مناسب
+3. أنشئ ملصق الشحن
+4. سجّل وزن الطرد وأبعاده
+5. أنشئ `LoadingDocument` (التجهيز للشحن)
+6. حمّل على مركبة التوصيل
+7. أنشئ `DeliveryDocument` (التسليم للعميل)
+
+## الخطوة السادسة: فاتورة المبيعات {#Step-6-The-Sales-Invoice}
+
+حان وقت إصدار الفاتورة للعميل!
+
+### مستند فاتورة المبيعات {#The-Sales-Invoice-Document}
+
+`SalesInvoice` (فاتورة مبيعات) هي في آنٍ واحد:
+- الفاتورة (العميل مدين لك بمبلغ)
+- حركة المخزون (الأصناف تغادر مخزونك)
+
+**المعلومات الأساسية:**
+
+**الرأسية:**
+- رقم الفاتورة
+- التاريخ
+- بيانات العميل
+- عنوان الفوترة
+- عنوان الشحن
+- ممثل المبيعات
+- مرجع الأمر
+- شروط الدفع
+
+**البنود:**
+- أوصاف الأصناف
+- الكميات المباعة
+- أسعار الوحدة
+- الخصومات
+- الضرائب
+- إجماليات البنود
+
+**الملخص المالي:**
+- المجموع الفرعي
+- الخصومات
+- رسوم الشحن
+- الضرائب (VAT، ضريبة المبيعات، إلخ)
+- الإجمالي الكلي
+
+**تفاصيل الدفع:**
+- تاريخ الاستحقاق
+- طريقة الدفع
+- بيانات الحساب البنكي
+- خصومات الدفع المبكر
+
+### ما يفعله النظام {#What-the-System-Does}
+
+عند حفظ فاتورة المبيعات (ليس كمسودة):
+
+**حركة المخزون:**
+ينشئ تلقائياً مستندات `SalesInvoiceIssue` التي:
+- تُخفّض كميات المخزون
+- تُزيل الأصناف من مواقع المخزن
+- تتتبع الأرقام التسلسلية/الدُّفعات التي بيعت
+- تُسجّل تكلفة البضائع المباعة
+
+**القيود المحاسبية:**
+- مدين: الذمم المدينة (أو النقد عند الدفع الفوري)
+- دائن: إيرادات المبيعات
+- دائن: حساب الضريبة المحصّلة
+- مدين: تكلفة البضائع المباعة
+- دائن: المخزون
+
+**حساب العميل:**
+- يزيد رصيد العميل (ما هو مدين به)
+- يُحدّث استهلاك حد الائتمان
+- ينشئ تاريخ استحقاق الدفع
+
+### التكامل مع هيئة الضرائب {#Tax-Authority-Integration}
+
+للدول التي تعتمد إعداد التقارير الضريبية الإلكترونية (الفواتير الإلكترونية):
+- يُنشئ النظام فاتورة بالصيغة الضريبية المعتمدة
+- يُرسلها لنظام هيئة الضرائب
+- يستقبل معرّفاً ضريبياً فريداً
+- يخزّنه في `taxAuthoritySysFields`
+- يُنشئ رمز QR للفاتورة
+- يمكن للعميل التحقق من صحة الفاتورة
+
+## الخطوة السابعة: التسليم والتأكيد {#Step-7-Delivery-and-Confirmation}
+
+إيصال الأصناف للعميل فعلياً.
+
+### طرق التسليم {#Delivery-Methods}
+
+**الاستلام الذاتي:**
+- العميل يستلم من موقعك
+- تحقق من الهوية
+- سلّم البضاعة
+- احصل على التوقيع
+- أغلق التسليم
+
+**التوصيل بواسطتك:**
+- حمّل الأصناف على مركبتك
+- يوصل السائق لموقع العميل
+- احصل على توقيع العميل
+- صوّر التسليم (اختياري)
+- حدّث حالة التسليم
+
+**الشحن عبر طرف ثالث:**
+- سلّم لشركة الشحن
+- زوّد برقم التتبع
+- العميل يتتبع الشحنة
+- أكّد التسليم عند الاستلام
+
+### مستندات التسليم {#Delivery-Documentation}
+
+`DeliveryDocument` (مستند تسليم) يُسجّل:
+- ما تم تسليمه
+- متى تم تسليمه
+- أين تم تسليمه
+- من استلمه (التوقيع)
+- الحالة عند التسليم (أي مشاكل؟)
+- تفاصيل السائق والمركبة
+
+هذه هي وثيقة إثبات التسليم — حيوية إن ادّعى العميل لاحقاً عدم الاستلام.
+
+## الخطوة الثامنة: تحصيل المدفوعات {#Step-8-Payment-Collection}
+
+الخطوة الأخيرة: تحصيل ما هو مستحق لك.
+
+### طرق الدفع {#Payment-Methods}
+
+**المبيعات النقدية:**
+يتم الدفع فوراً عند إصدار الفاتورة:
+- العميل يدفع
+- تُسجّل الدفعة
+- تُغلق الفاتورة
+- لا تُنشأ ذمة مدينة (أو تُنشأ وتُصفّى فوراً)
+
+**مبيعات الآجل:**
+يتم الدفع لاحقاً وفق الشروط:
+- الفاتورة تُنشئ ذمة مدينة
+- تاريخ الاستحقاق بحسب الشروط (صافي 30، صافي 60، إلخ)
+- النظام يتتبع التقادم
+- تنبيهات عند اقتراب تاريخ الاستحقاق
+- يُسجّل الدفع عند استلامه
+
+**مبيعات الأقساط:**
+مجموعة `scheduleLines` تُقسّم الدفع إلى أقساط:
+- القسط الأول: 5,000 دولار مستحق عند التسليم
+- القسط الثاني: 5,000 دولار مستحق بعد 30 يوماً
+- القسط الثالث: 5,000 دولار مستحق بعد 60 يوماً
+
+يتتبع النظام كل قسط بشكل منفصل.
+
+### تسجيل الدفعات {#Payment-Recording}
+
+مجموعة `paymentLines` تُسجّل الدفعات:
+- تاريخ الاستلام
+- المبلغ
+- الطريقة (نقد، شيك، تحويل بنكي، بطاقة ائتمان)
+- رقم المرجع
+- البيانات البنكية
+
+النظام تلقائياً:
+- يُخفّض رصيد العميل
+- يُحدّث التقادم
+- يُغلق الفاتورة إن دُفعت بالكامل
+- يُنشئ القيود المحاسبية
+
+## التعامل مع المرتجعات والاستبدالات {#Handling-Returns-and-Exchanges}
+
+أحياناً لا تكتمل المبيعات. يرجع العملاء الأصناف أو يستبدلونها.
+
+### مرتجع المبيعات {#The-Sales-Return}
+
+استخدم `SalesReturnRequest` (طلب مرتجع مبيعات) عندما يريد العميل الإرجاع:
+
+**الأسباب الشائعة:**
+- صنف معيب
+- شحن صنف خاطئ
+- تغيّر رأي العميل (ضمن فترة الإرجاع)
+- تلف أثناء الشحن
+- لا يلبّي التوقعات
+
+**عملية الإرجاع:**
+1. **الطلب**: العميل يتواصل معك
+2. **الترخيص**: المبيعات/خدمة العملاء يراجعون ويوافقون
+3. **رقم RMA**: إصدار رقم ترخيص الإرجاع
+4. **الإرجاع**: العميل يُعيد الشحن (أو أنت تستلم)
+5. **الفحص**: التحقق من حالة الصنف
+6. **النتيجة**:
+   - **القبول**: معالجة الاسترداد/الرصيد
+   - **الرفض**: الصنف تالف من العميل، لا استرداد
+   - **رصيد جزئي**: رسوم إعادة التخزين أو مشاكل الحالة
+
+**الأثر المحاسبي:**
+الإرجاع يُنشئ:
+- مدين: مردودات المبيعات (حساب مضاد للإيراد)
+- مدين: المخزون (البضاعة تعود للمخزن)
+- مدين: الضريبة المستحقة (عكس الضريبة)
+- دائن: الذمم المدينة (العميل مدين بأقل)
+
+### استبدال المبيعات {#The-Sales-Replacement}
+
+`SalesReplacement` (استبدال مبيعات) يعالج الاستبدالات:
+
+**مثال**: العميل اشترى قميصاً مقاس وسط ويريد كبير.
+
+النظام:
+- يُرجع المقاس الوسط (رصيد)
+- يُصدر المقاس الكبير (بيع جديد)
+- يعالج فرق السعر (إن كانت المقاسات بأسعار مختلفة)
+- معاملة واحدة سلسة
+
+**استخدم للـ:**
+- استبدالات المقاس/اللون
+- استبدالات الضمان
+- الترقيات (العميل يريد نسخة أفضل)
+- التخفيضات (العميل يريد نسخة أرخص)
+
+## التنبؤ بالمبيعات والتخطيط {#Sales-Forecasting-and-Planning}
+
+### توقعات المبيعات {#The-Sales-Forecast}
+
+`SalesForecast` (توقعات مبيعات) يساعد على التخطيط للمبيعات المستقبلية:
+
+**يعتمد على:**
+- أنماط المبيعات التاريخية
+- الاتجاهات الموسمية
+- الحملات التسويقية
+- خط أنابيب المبيعات (عروض الأسعار والأوامر المفتوحة)
+- استخبارات السوق
+
+**يُستخدم لـ:**
+- تخطيط المخزون (شراء الكافي، لا أكثر)
+- جدولة الإنتاج (تصنيع بناءً على التوقعات)
+- إسقاطات التدفق النقدي
+- أهداف فريق المبيعات
+- تخطيط الإدارة
+
+التنبؤ يحوّل البيع من ردود الفعل إلى الاستباقية.
+
+## سيناريوهات مبيعات خاصة {#Special-Sales-Scenarios}
+
+### البيع النقدي (POS) {#Cash-and-Carry-POS}
+
+للبيع بالتجزئة، العملية أبسط بكثير:
+1. العميل يأتي إلى المتجر
+2. يختار الأصناف
+3. تُسجّل البيع (تُنشأ الفاتورة)
+4. العميل يدفع فوراً
+5. العميل يأخذ الأصناف
+
+كل شيء يحدث في دقائق عبر `NamaPOSSalesInvoice` أو مستندات POS مماثلة. مزيد من التفاصيل في [سيناريوهات متخصصة](./specialized-scenarios.md).
+
+### مبيعات التصدير {#Export-Sales}
+
+المبيعات الدولية تزيد التعقيد:
+- مستندات الجمارك
+- تراخيص التصدير
+- مستندات الشحن
+- صرف العملات
+- شروط الدفع الدولية (خطابات الاعتماد، إلخ)
+
+### مبيعات المشاريع {#Project-Sales}
+
+مبيعات المشاريع الكبيرة تمتد لأشهر:
+- عرض أسعار أولي للمشروع بالكامل
+- أوامر متعددة مع تقدم المشروع
+- تسليم على مراحل
+- استحقاقات دفع
+- علاقة طويلة الأمد مع العميل
+
+## نصائح لإدارة مبيعات فعّالة {#Tips-for-Effective-Sales-Management}
+
+::: tip أفضل الممارسات
+
+**استجب للعروض بسرعة**
+العملاء غير صبورين. ردّ على الاستفسارات خلال ساعات إن أمكن، لا أيام. سرعة الاستجابة ترتبط بمعدلات تحويل أعلى.
+
+**تابع بمنهجية**
+لا تدع عروض الأسعار تموت بصمت. تابع: بعد 3 أيام، وبعد أسبوع، وقبل انتهاء الصلاحية. تتبع أسباب كسبك وخسارتك.
+
+**احجز المخزون بحكمة**
+احجز للأوامر المؤكدة، لا للاستفسارات الاحتمالية. ربط المخزون بـ "ربما" يمنع البيع للـ "نعم".
+
+**دقة في السحب**
+الأصناف الخاطئة تكلفك: إعادة الشحن، إعادة التخزين، إحباط العميل، الضرر بالعلاقة. تحقق مرتين.
+
+**أصدر الفواتير فوراً**
+كلما أسرعت بإصدار الفاتورة، أسرعت في التحصيل. لا تؤخر الفوترة انتظاراً لـ "اكتمال جميع التسليمات" — افوتر ما تم تسليمه.
+
+**شروط دفع مرنة**
+عملاء مختلفون يحتاجون شروطاً مختلفة. الشركة الصغيرة المضغوطة مالياً قد تحتاج صافي 60. الشركة الكبيرة قد تطلب صافي 90. بنِ العلاقات بالتكيّف.
+
+**تتبع المرتجعات**
+معدلات إرجاع مرتفعة لصنف ما تشير لمشاكل جودة. إرجاع مرتفع من عميل يشير لحاجة تدريب أو مشاكل ملاءمة. حلّل الأنماط.
+
+**حافظ على مخزون الأصناف سريعة الحركة**
+أصنافك الأكثر مبيعاً يجب ألا تنفد أبداً. توقّع بدقة، راقب عن كثب، أعد الطلب مبكراً.
 
 :::
 
-## Common Questions
+## أسئلة شائعة {#Common-Questions}
 
-**Q: Can we invoice before delivery?**
+**س: هل يمكننا الفوترة قبل التسليم؟**
 
-A: Yes - it's called advance invoicing. Common for: custom orders (pay before we make it), large orders (deposit required), or high-credit-risk customers. System can handle invoicing before stock issue.
+ج: نعم — تُسمّى الفوترة المسبقة. شائعة لـ: الطلبات المخصصة (الدفع قبل التصنيع)، الطلبات الكبيرة (مطلوب عربون)، أو العملاء عاليي مخاطر الائتمان. يمكن للنظام التعامل مع الفوترة قبل صرف المخزون.
 
-**Q: What if customer wants partial delivery?**
+**س: ماذا لو أراد العميل تسليماً جزئياً؟**
 
-A: Create multiple invoices against one order. Invoice and deliver what's available now, invoice and deliver the rest later. System tracks what's fulfilled vs. outstanding.
+ج: أنشئ فواتير متعددة لنفس الأمر. افوتر وسلّم المتاح الآن، افوتر وسلّم الباقي لاحقاً. النظام يتتبع المُنفَّذ مقابل المعلّق.
 
-**Q: How do we handle customer discounts?**
+**س: كيف نتعامل مع خصومات العملاء؟**
 
-A: Multiple ways:
-- Price list with discounted prices for that customer
-- Line-item discounts on invoice
-- Header discount (5% off entire order)
-- Payment discount (2% off if paid within 10 days)
+ج: بطرق متعددة:
+- قائمة أسعار بأسعار مخفَّضة لذلك العميل
+- خصومات على مستوى البند في الفاتورة
+- خصم رأسي (5% على الأمر كاملاً)
+- خصم الدفع (2% إن دُفع خلال 10 أيام)
 
-**Q: Can we change prices after creating an order?**
+**س: هل يمكن تغيير الأسعار بعد إنشاء الأمر؟**
 
-A: Depends on your controls. Some organizations lock prices at order confirmation. Others allow adjustment until invoice. Configure based on your business practices.
+ج: يعتمد على ضوابطك. بعض المنظمات تثبّت الأسعار عند تأكيد الأمر. أخرى تسمح بالتعديل حتى الفاتورة. اضبط وفق ممارسات عملك.
 
-**Q: What happens if we can't fulfill an order?**
+**س: ماذا يحدث إن لم نتمكن من تنفيذ أمر؟**
 
-A: Options:
-- Create backorder (fulfill when stock arrives)
-- Offer substitute item
-- Cancel and refund
-- Partial fulfill (ship what you have)
-Best practice: Communicate immediately with customer to decide together.
+ج: الخيارات:
+- إنشاء أمر تأخير (تنفيذ عند توفر المخزون)
+- عرض صنف بديل
+- الإلغاء والاسترداد
+- تنفيذ جزئي (شحن المتوفر)
+أفضل ممارسة: تواصل فوراً مع العميل للقرار معاً.
 
-## Integration Points
+## نقاط التكامل {#Integration-Points}
 
-Sales connects to:
+المبيعات تتصل بـ:
 
-**Accounting**: Every invoice creates receivables and revenue. Every payment reduces receivables and increases cash.
+**المحاسبة**: كل فاتورة تُنشئ ذمماً مدينة وإيرادات. كل دفعة تُخفّض الذمم وتزيد النقد.
 
-**Inventory**: Sales reduce stock. Returns increase stock. Reservations tie up stock.
+**المخزون**: المبيعات تُخفّض المخزون. المرتجعات تزيده. الحجوزات تُقيّده.
 
-**CRM**: Quotations feed sales pipeline. Customer interactions inform future sales. Service issues trigger returns or exchanges.
+**CRM**: عروض الأسعار تغذّي خط أنابيب المبيعات. تفاعلات العملاء تُخبر المبيعات المستقبلية. مشاكل الخدمة تُطلق المرتجعات أو الاستبدالات.
 
-**Manufacturing**: Sales orders can trigger production orders (make-to-order). Sales forecasts drive production planning (make-to-stock).
+**التصنيع**: أوامر المبيعات يمكنها إطلاق أوامر إنتاج (التصنيع حسب الطلب). توقعات المبيعات تدفع تخطيط الإنتاج (التصنيع للمخزون).
 
-**Shipping**: Delivery documents integrate with carriers for tracking and proof of delivery.
+**الشحن**: مستندات التسليم تتكامل مع الناقلين لتتبع الشحنات وإثبات التسليم.
 
-## Next Steps
+## الخطوات التالية {#Next-Steps}
 
-Now you understand the complete sales journey. Explore related topics:
-- [The Purchasing Journey](./purchasing-journey.md) - The mirror process
-- [Quality Control](./quality-control.md) - Ensuring quality before delivery
-- [Specialized Scenarios](./specialized-scenarios.md) - Industry-specific variations
+الآن تفهم رحلة المبيعات الكاملة. استكشف موضوعات ذات صلة:
+- [رحلة المشتريات](./purchasing-journey.md) - العملية المعاكسة
+- [مراقبة الجودة](./quality-control.md) - ضمان الجودة قبل التسليم
+- [سيناريوهات متخصصة](./specialized-scenarios.md) - تنويعات خاصة بالقطاعات
 
-Or revisit foundations:
-- [Understanding Items](./understanding-items.md) - What you're selling
-- [Issuing Stock](./issuing-stock.md) - How items leave your warehouse
+أو راجع الأساسيات:
+- [فهم الأصناف](./understanding-items.md) - ما تبيعه
+- [صرف المخزون](./issuing-stock.md) - كيف تغادر الأصناف مخزنك

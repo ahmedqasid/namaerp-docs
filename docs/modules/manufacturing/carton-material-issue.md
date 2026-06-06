@@ -1,178 +1,178 @@
-# Carton Material Issues: From Warehouse to Shop Floor
+# صرف خامات الكرتون: من المستودع إلى أرض الإنتاج {#Carton-Material-Issues-From-Warehouse-to-Shop-Floor}
 
-## Connecting Planning to Execution
+## الربط بين التخطيط والتنفيذ {#Connecting-Planning-to-Execution}
 
-You've created a material planning document. The optimizer figured out exactly which rolls to use, from which lots, in what quantities. Production orders are generated and ready to execute.
+لقد أنشأت مستند تخطيط الخامات. قام المحسّن بتحديد الرولات المطلوبة بدقة، من أي تشغيلات، وبأي كميات. وأوامر الإنتاج جاهزة للتنفيذ.
 
-Now you need to actually pull those materials from the warehouse and allocate them to production. That's where **Carton Material Issues** (صرف خامات كرتون) come in.
+الآن تحتاج إلى سحب هذه الخامات فعلياً من المستودع وتخصيصها للإنتاج. هنا يأتي دور **صرف خامات الكرتون** (Carton Material Issues).
 
-A material issue is a specialized inventory document that withdraws materials from stock and allocates them to production. It's linked to the material planning document, so you're issuing exactly what the optimizer specified - the right lots, the right quantities, no guesswork.
+صرف الخامات هو مستند مخزوني متخصص يسحب المواد من المخزون ويخصصها للإنتاج. وهو مرتبط بمستند تخطيط الخامات، بحيث تصرف بالضبط ما حدده المحسّن — التشغيلات الصحيحة، والكميات الصحيحة، دون أي تخمين.
 
-You'll find material issues under **Manufacturing > Documents > Carton Material Issue** (التصنيع > المستندات > صرف خامات كرتون).
+ستجد صرف الخامات ضمن **التصنيع > المستندات > صرف خامات كرتون**.
 
-## Why Carton Material Issues Are Special
+## لماذا صرف خامات الكرتون مختلف؟ {#Why-Carton-Material-Issues-Are-Special}
 
-Nama ERP has general-purpose material issue documents for manufacturing. So why a special one just for cartons?
+يوجد في Nama ERP مستندات صرف خامات للإنتاج ذات أغراض عامة. إذن لماذا مستند خاص بالكرتون؟
 
-**Two reasons**:
+**سببان**:
 
-**1. Direct Link to Planning**: Carton material issues reference the planning document directly. When you select a planning document, the system can auto-populate issue lines with exactly what the optimizer specified - specific lot numbers, specific quantities, specific dimensional attributes. No manual entry, no mistakes.
+**1. الارتباط المباشر بالتخطيط**: يرتبط صرف خامات الكرتون بمستند التخطيط مباشرة. عند اختيار مستند التخطيط، يستطيع النظام تعبئة سطور الصرف تلقائياً بما حدده المحسّن — أرقام تشغيلات محددة، وكميات محددة، ومحددات أبعاد محددة. لا إدخال يدوي، ولا أخطاء.
 
-**2. Lot/Dimensional Tracking**: Carton manufacturing is heavy on lot tracking (paper rolls come in lots with varying quality) and dimensional attributes (roll width is a dimension). Carton material issues are designed to handle this complexity naturally.
+**2. تتبع التشغيلات والأبعاد**: تصنيع الكرتون يعتمد بشدة على تتبع التشغيلات (رولات الورق تأتي في تشغيلات بجودة متباينة) والأبعاد (عرض الرول يُعدّ بُعداً). صرف خامات الكرتون مُصمَّم للتعامل مع هذا التعقيد بطبيعية.
 
-## Creating a Material Issue
+## إنشاء صرف خامات {#Creating-a-Material-Issue}
 
-### Step 1: Header Information
+### الخطوة الأولى: بيانات الرأس {#Step-1-Header-Information}
 
-Start a new carton material issue and fill in the basics:
+ابدأ صرف خامات كرتون جديد وأدخل البيانات الأساسية:
 
-**CRTN Material Planning** (تخطيط خامات الكرتون): **Required**. Select the material planning document you're issuing materials for.
+**تخطيط خامات الكرتون** (CRTN Material Planning): **مطلوب**. اختر مستند التخطيط الذي تصرف الخامات بموجبه.
 
-This is the key link. Everything else flows from this selection.
+هذا هو الرابط الأساسي. كل شيء آخر ينبثق من هذا الاختيار.
 
-**Book** and **Term**: Control numbering, accounting settings, warehouse defaults
+**الدفتر** و**التوجيه**: يتحكمان في الترقيم وإعدادات المحاسبة وافتراضيات المستودع.
 
-**Value Date**: When this issue should be dated
+**تاريخ القيمة**: التاريخ الذي يجب تسجيل الصرف فيه.
 
-**Issue Date**: When the actual withdrawal happens (or happened)
+**تاريخ الصرف**: متى يحدث السحب الفعلي (أو حدث).
 
-### Step 2: Populate Details from Planning
+### الخطوة الثانية: تعبئة التفاصيل من التخطيط {#Step-2-Populate-Details-from-Planning}
 
-You have two approaches:
+لديك طريقتان:
 
-#### Automatic Population (Recommended)
+#### التعبئة التلقائية (الموصى بها) {#Automatic-Population-Recommended}
 
-Once you save the document after selecting the planning document, Nama can auto-populate the **Details** (التفاصيل) grid based on the materials tab from the planning document.
+بعد حفظ المستند عقب اختيار مستند التخطيط، يستطيع Nama تعبئة جدول **التفاصيل** تلقائياً استناداً إلى تبويب الخامات في مستند التخطيط.
 
-**How it works**: The system reads all materials from the planning document and creates one issue line per material. Each line includes:
-- Item classes (grade, weight, etc.)
-- Specific lot number
-- Roll width (Box dimension)
-- Quantity to issue
-- Warehouse and location (from term defaults)
+**كيف يعمل**: يقرأ النظام جميع الخامات من مستند التخطيط وينشئ سطر صرف واحد لكل خامة. يتضمن كل سطر:
+- فئات الصنف (الدرجة، الوزن، إلخ)
+- رقم التشغيلة المحدد
+- عرض الرول (بُعد Box)
+- الكمية المطلوب صرفها
+- المستودع والموقع (من افتراضيات التوجيه)
 
-You get a complete issue list matching exactly what the optimizer planned.
+ستحصل على قائمة صرف كاملة تطابق تماماً ما خطط له المحسّن.
 
-#### Manual Entry
+#### الإدخال اليدوي {#Manual-Entry}
 
-Alternatively, you can manually add detail lines:
+بدلاً من ذلك، يمكنك إضافة سطور التفاصيل يدوياً:
 
-Each line specifies:
-- **Item**: The inventory item (or leave blank and use item classes)
-- **Item Class 1/2**: Paper grade, weight, etc.
-- **Specific Dimensions - Box**: Roll width
-- **Specific Dimensions - Lot ID**: Which lot to issue from
-- **Warehouse** and **Locator**: Where to pull from
-- **Quantity**: How much to issue
+كل سطر يحدد:
+- **الصنف**: الصنف المخزوني (أو اتركه فارغاً واستخدم فئات الصنف)
+- **فئة الصنف 1/2**: درجة الورق، الوزن، إلخ
+- **المحددات المحددة - Box**: عرض الرول
+- **المحددات المحددة - Lot ID**: التشغيلة المطلوب الصرف منها
+- **المستودع** و**الموقع**: مكان السحب
+- **الكمية**: الكمية المطلوب صرفها
 
-Manual entry makes sense if:
-- You're issuing materials that differ from the plan (maybe substituting a different lot)
-- The planning document doesn't exist (you're issuing for ad-hoc production)
-- You want to issue partial quantities (issue some materials now, rest later)
+الإدخال اليدوي مناسب في الحالات التالية:
+- تصرف خامات تختلف عن الخطة (ربما تستبدل تشغيلة مختلفة)
+- مستند التخطيط غير موجود (تصرف لإنتاج طارئ)
+- تريد صرف كميات جزئية (صرف بعض الخامات الآن والباقي لاحقاً)
 
-### Step 3: Review and Adjust
+### الخطوة الثالثة: المراجعة والتعديل {#Step-3-Review-and-Adjust}
 
-Review the details grid. Each line should show:
+راجع جدول التفاصيل. يجب أن يُظهر كل سطر:
 
-**Item information**: What you're issuing (item classes, dimensions)
-**Quantity**: How much (in base UOM - usually meters for rolls)
-**Available quantity at insert** (الكمية عند الإدخال): How much is currently in stock of this exact item/lot/dimension combination
+**بيانات الصنف**: ما تصرفه (فئات الصنف، الأبعاد)
+**الكمية**: الكمية (بوحدة القياس الأساسية — عادةً أمتار للرولات)
+**الكمية المتاحة عند الإدخال** (Available quantity at insert): الكمية الموجودة حالياً في المخزون لهذا التوليف من الصنف/التشغيلة/البُعد
 
-**Important**: If "Available quantity at insert" shows less than the quantity you're trying to issue, you have a problem. Either:
-- The lot doesn't have enough material
-- The warehouse doesn't have enough inventory
-- Inventory records are wrong
+**مهم**: إذا أظهرت "الكمية المتاحة عند الإدخال" أقل من الكمية التي تحاول صرفها، فهناك مشكلة. إما:
+- التشغيلة لا تحتوي مادة كافية
+- المستودع لا يحتوي مخزوناً كافياً
+- سجلات المخزون غير صحيحة
 
-Adjust quantities or lot selections to match what's actually available.
+عدّل الكميات أو اختيارات التشغيلة لتتوافق مع ما هو متاح فعلاً.
 
-**Specific Dimensions Fields**:
+**حقول المحددات المحددة**:
 
-- **Box** (العرض): Roll width. Critical for carton planning - make sure this matches what the planning specified.
-- **Lot ID** (رقم التشغيلة): The specific lot/batch. This should match exactly what the planning document specified for optimal results.
-- **Warehouse** (المستودع): Where you're pulling from
-- **Locator** (الموقع): Specific location within the warehouse (optional but helpful for large warehouses)
+- **Box** (العرض): عرض الرول. حاسم لتخطيط الكرتون — تأكد من تطابقه مع ما حدده التخطيط.
+- **Lot ID** (رقم التشغيلة): التشغيلة/الدفعة المحددة. يجب أن تطابق بالضبط ما حدده مستند التخطيط للحصول على أفضل النتائج.
+- **المستودع** (Warehouse): مكان السحب.
+- **الموقع** (Locator): الموقع المحدد داخل المستودع (اختياري لكنه مفيد في المستودعات الكبيرة).
 
-Other dimension fields (Color, Size, Serial Number, etc.) might not apply to paper rolls but are available if needed.
+قد لا تنطبق حقول الأبعاد الأخرى (اللون، المقاس، الرقم التسلسلي، إلخ) على رولات الورق، لكنها متاحة عند الحاجة.
 
-### Step 4: Commit the Issue
+### الخطوة الرابعة: ترحيل الصرف {#Step-4-Commit-the-Issue}
 
-Once everything looks good, commit the document.
+بعد التأكد من صحة كل شيء، رحّل المستند.
 
-Nama:
-1. **Decreases inventory**: Reduces available quantity of each item/lot/dimension in the specified warehouse
-2. **Creates accounting entries**: Debits work-in-process or production cost accounts (if configured in the term)
-3. **Links to planning**: The material issue is permanently linked to the planning document, creating an audit trail
+يقوم Nama بـ:
+1. **تقليل المخزون**: يخفض الكمية المتاحة لكل صنف/تشغيلة/بُعد في المستودع المحدد.
+2. **إنشاء قيود محاسبية**: يدين حسابات إنتاج تحت التشغيل أو تكلفة الإنتاج (إذا كان مُهيَّأ في التوجيه).
+3. **الربط بالتخطيط**: يظل صرف الخامات مرتبطاً بشكل دائم بمستند التخطيط، مما يُنشئ مسار تدقيق.
 
-The materials are now "on the floor" - allocated to production, no longer in warehouse inventory.
+الخامات أصبحت "في أرض الإنتاج" — مخصصة للإنتاج، ولم تعد ضمن مخزون المستودع.
 
-## Common Scenarios
+## سيناريوهات شائعة {#Common-Scenarios}
 
-### Scenario 1: Standard Planning-Based Issue
+### السيناريو الأول: صرف قياسي مبني على التخطيط {#Scenario-1-Standard-Planning-Based-Issue}
 
-You completed Material Planning #MP-501 which planned:
-- Lot K2024-015, 2000mm width, 97 meters (Kraft facing)
-- Lot F2024-022, 2000mm width, 82 meters (Fluting)
-- Lot L2024-008, 2000mm width, 97 meters (Liner)
+أتممت تخطيط الخامات رقم MP-501 الذي خطط لـ:
+- تشغيلة K2024-015، عرض 2000mm، 97 متر (واجهة Kraft)
+- تشغيلة F2024-022، عرض 2000mm، 82 متر (Fluting)
+- تشغيلة L2024-008، عرض 2000mm، 97 متر (Liner)
 
-Create a carton material issue:
-- Select "CRTN Material Planning" = MP-501
-- Save
-- System auto-populates three detail lines with exact lot numbers, widths, and quantities
-- Verify all "available quantity at insert" values show sufficient stock
-- Commit
+أنشئ صرف خامات كرتون:
+- اختر "تخطيط خامات الكرتون" = MP-501
+- احفظ
+- يعبئ النظام تلقائياً ثلاثة سطور تفاصيل بأرقام التشغيلات والعروض والكميات الدقيقة
+- تحقق من أن جميع قيم "الكمية المتاحة عند الإدخال" تُظهر مخزوناً كافياً
+- رحّل
 
-Boom. Materials issued exactly as planned.
+تم. الخامات مُصرَفة بالضبط كما خُطط لها.
 
-### Scenario 2: Partial Issue
+### السيناريو الثاني: الصرف الجزئي {#Scenario-2-Partial-Issue}
 
-Planning #MP-502 planned materials for a large job. Shop floor wants to start production but doesn't have space to stage all materials at once. Issue in batches.
+التخطيط رقم MP-502 خطط خامات لعمل كبير. يريد أرض الإنتاج بدء الإنتاج لكن لا توجد مساحة لتهيئة جميع الخامات دفعة واحدة. صرّف على دفعات.
 
-**Issue #1** (Monday):
-- Select Planning #MP-502
-- Auto-populate details
-- Manually reduce quantities to 50% of planned
-- Commit
+**الصرف رقم 1** (الاثنين):
+- اختر التخطيط رقم MP-502
+- عبّئ التفاصيل تلقائياً
+- قلّل الكميات يدوياً إلى 50% من المخطط
+- رحّل
 
-**Issue #2** (Wednesday):
-- Select Planning #MP-502 again
-- Auto-populate details
-- System shows full planned quantities
-- Reduce to the remaining 50%
-- Commit
+**الصرف رقم 2** (الأربعاء):
+- اختر التخطيط رقم MP-502 مجدداً
+- عبّئ التفاصيل تلقائياً
+- يُظهر النظام الكميات المخططة الكاملة
+- قلّلها إلى الـ 50% المتبقية
+- رحّل
 
-Both issues link to the same planning document. Total issued equals planned amount.
+كلا الصرفين مرتبطان بنفس مستند التخطيط. المجموع المُصرَف يساوي المقدار المخطط.
 
-### Scenario 3: Lot Substitution
+### السيناريو الثالث: استبدال التشغيلة {#Scenario-3-Lot-Substitution}
 
-Planning specified Lot K2024-015, but that lot has quality issues discovered after planning. You need to use Lot K2024-017 instead (same grade, same width, just different lot).
+حدد التخطيط التشغيلة K2024-015، لكن تبيّن وجود مشاكل جودة فيها بعد التخطيط. تحتاج إلى استخدام التشغيلة K2024-017 بدلاً منها (نفس الدرجة، نفس العرض، تشغيلة مختلفة فقط).
 
-Create material issue:
-- Select the planning document
-- Auto-populate
-- Find the line that specifies Lot K2024-015
-- Change "Lot ID" to K2024-017
-- Verify "Available quantity" shows adequate stock of the new lot
-- Commit
+أنشئ صرف الخامات:
+- اختر مستند التخطيط
+- عبّئ تلقائياً
+- ابحث عن السطر الذي يحدد التشغيلة K2024-015
+- غيّر "Lot ID" إلى K2024-017
+- تحقق من أن "الكمية المتاحة" تُظهر مخزوناً كافياً من التشغيلة الجديدة
+- رحّل
 
-Production uses the substitute lot. The issue document shows you made a substitution (for quality/audit records).
+يستخدم الإنتاج التشغيلة البديلة. يُظهر مستند الصرف أنك أجريت استبدالاً (لسجلات الجودة والتدقيق).
 
-### Scenario 4: Multiple Planning Documents, One Issue
+### السيناريو الرابع: عدة مستندات تخطيط في صرف واحد {#Scenario-4-Multiple-Planning-Documents-One-Issue}
 
-Sometimes shop floor setups make it efficient to issue materials for multiple jobs at once.
+أحياناً تجعل إعدادات أرض الإنتاج من المناسب صرف خامات عدة وظائف دفعة واحدة.
 
-Create a material issue:
-- DON'T select a planning document in the header (leave it blank)
-- Manually add detail lines, one per material from each planning document
-- Use remarks to note which lines are for which planning documents
-- Commit
+أنشئ صرف خامات:
+- لا تختر مستند تخطيط في الرأس (اتركه فارغاً)
+- أضف سطور تفاصيل يدوياً، سطر لكل خامة من كل مستند تخطيط
+- استخدم الملاحظات للإشارة إلى أي سطور خاصة بأي مستندات تخطيط
+- رحّل
 
-This works but loses the automatic link. You can't auto-populate. Use this only when batching issues makes operational sense and the overhead of manual entry is worth it.
+هذا يعمل لكنه يفقد الرابط التلقائي. لا يمكنك التعبئة التلقائية. استخدم هذا فقط عند كون تجميع الصرف منطقياً تشغيلياً ويستحق الجهد الإضافي للإدخال اليدوي.
 
-## Understanding Inventory Impact
+## فهم تأثير المخزون {#Understanding-Inventory-Impact}
 
-When you commit a material issue, inventory quantities change:
+عند ترحيل صرف الخامات، تتغير كميات المخزون:
 
-**Before**:
+**قبل**:
 ```
 Item: Kraft Liner 125gsm
 Lot: K2024-015
@@ -182,9 +182,9 @@ Locator: Roll Storage Zone A
 Available Quantity: 500 meters
 ```
 
-**Issue 97 meters**
+**صرف 97 متراً**
 
-**After**:
+**بعد**:
 ```
 Item: Kraft Liner 125gsm
 Lot: K2024-015
@@ -194,111 +194,111 @@ Locator: Roll Storage Zone A
 Available Quantity: 403 meters
 ```
 
-The 97 meters are no longer available for other purposes - they're allocated to this production job.
+الـ 97 متراً لم تعد متاحة لأغراض أخرى — مخصصة لهذه الوظيفة الإنتاجية.
 
-**Multi-dimensional tracking**: Nama tracks quantities by item + lot + dimensions + warehouse + locator. If you have:
-- Lot K2024-015, 2000mm width: 500 meters
-- Lot K2024-015, 1800mm width: 300 meters
+**التتبع متعدد الأبعاد**: يتتبع Nama الكميات حسب الصنف + التشغيلة + المحددات + المستودع + الموقع. إذا كان لديك:
+- تشغيلة K2024-015، عرض 2000mm: 500 متر
+- تشغيلة K2024-015، عرض 1800mm: 300 متر
 
-These are tracked separately. Issuing from 2000mm doesn't affect the 1800mm quantity.
+فيتم تتبعهما بشكل منفصل. الصرف من 2000mm لا يؤثر على كمية 1800mm.
 
-This level of detail is critical for carton manufacturing where roll width drives everything.
+هذا المستوى من التفاصيل حاسم في تصنيع الكرتون حيث يُحرّك عرض الرول كل شيء.
 
-## Tips for Effective Material Issues
+## نصائح لصرف خامات فعّال {#Tips-for-Effective-Material-Issues}
 
-**Issue from planning whenever possible**: Auto-population eliminates manual errors. Use the link to the planning document.
+**اصرف من التخطيط كلما أمكن**: التعبئة التلقائية تُقصي الأخطاء اليدوية. استخدم الرابط بمستند التخطيط.
 
-**Issue promptly after planning**: Don't plan materials and then wait weeks to issue them. Inventory availability might change. Issue soon after planning (and before production starts).
+**اصرف فوراً بعد التخطيط**: لا تخطط الخامات ثم تنتظر أسابيع لصرفها. قد تتغير توفرية المخزون. اصرف قريباً من التخطيط (وقبل بدء الإنتاج).
 
-**Verify lot availability before committing**: Check "available quantity at insert". If it's lower than needed, investigate why (did someone else issue from that lot? was there a stock adjustment?).
+**تحقق من توفر التشغيلة قبل الترحيل**: تحقق من "الكمية المتاحة عند الإدخال". إذا كانت أقل مما تحتاج، تحقق من السبب (هل صرف أحد من تلك التشغيلة؟ هل جرى تعديل مخزوني؟).
 
-**Match roll widths exactly**: The optimizer planned for specific widths. Don't substitute a 1800mm roll where 2000mm was planned without understanding the impact - it might not fit the cutting pattern.
+**طابق عروض الرولات بدقة**: المحسّن خطط لعروض محددة. لا تستبدل رول 1800mm بدلاً من 2000mm المخطط دون فهم التأثير — قد لا يناسب نمط القطع.
 
-**Document substitutions**: If you must substitute lots or widths, use the remarks field to note why. Future audits will thank you.
+**وثّق الاستبدالات**: إذا اضطررت لاستبدال تشغيلات أو عروض، استخدم حقل الملاحظات لتسجيل السبب. عمليات التدقيق المستقبلية ستشكرك.
 
-**One issue per planning is cleanest**: While you can create multiple issues from one planning (partial issues) or one issue for multiple plannings, the simplest audit trail is one planning → one issue. Stick to that when possible.
+**صرف واحد لكل تخطيط هو الأوضح**: بينما يمكنك إنشاء صرف متعدد من تخطيط واحد (صرف جزئي) أو صرف واحد لعدة تخطيطات، فإن أوضح مسار تدقيق هو تخطيط واحد ← صرف واحد. التزم بذلك قدر الإمكان.
 
-**Coordinate with shop floor**: Make sure the shop floor knows which lots are being issued. They need to pull the right rolls - a lot number on paper doesn't help if they grab the wrong physical roll.
+**تنسّق مع أرض الإنتاج**: تأكد من أن أرض الإنتاج تعلم بالتشغيلات المُصرَفة. يحتاجون لسحب الرولات الصحيحة — رقم التشغيلة على الورق لا يفيد إذا أخذوا الرول المادي الخطأ.
 
-**Use locators if you have them**: In large warehouses, specifying locators (rack/zone/position) speeds up physical picking. The warehouse team knows exactly where to go.
+**استخدم المواقع إذا توفرت**: في المستودعات الكبيرة، تحديد المواقع (الرف/المنطقة/الموضع) يسرّع الانتقاء الفيزيائي. يعرف فريق المستودع بالضبط أين يذهب.
 
-## Validation and Business Rules
+## التحقق وقواعد الأعمال {#Validation-and-Business-Rules}
 
-Nama enforces several validations:
+يطبّق Nama عدة تحققات:
 
-**Must have a planning document** (unless manually creating lines): The planning document link is what enables auto-population and audit trails.
+**يجب وجود مستند تخطيط** (ما لم تنشئ السطور يدوياً): الرابط بمستند التخطيط هو ما يتيح التعبئة التلقائية ومسارات التدقيق.
 
-**Quantities can't exceed availability**: The system checks current stock before committing. If you try to issue more than what's available in that lot/dimension/warehouse combination, the commit fails.
+**لا يمكن تجاوز الكمية المتاحة**: يتحقق النظام من المخزون الحالي قبل الترحيل. إذا حاولت صرف أكثر مما هو متاح في ذلك التوليف من التشغيلة/البُعد/المستودع، يفشل الترحيل.
 
-**Dimensions must be complete**: If lot tracking is enabled for the item, you must specify a lot. If dimensional tracking includes Box (width), you must specify it.
+**يجب اكتمال المحددات**: إذا كان تتبع التشغيلات مفعّلاً للصنف، يجب تحديد التشغيلة. إذا كان تتبع الأبعاد يشمل Box (العرض)، يجب تحديده.
 
-**Warehouse must be specified**: You must indicate which warehouse you're pulling from. No warehouse = no idea where materials are coming from.
+**يجب تحديد المستودع**: يجب الإشارة إلى المستودع الذي تسحب منه. بلا مستودع = لا يعلم أحد من أين تأتي الخامات.
 
-## Integration with Production
+## التكامل مع الإنتاج {#Integration-with-Production}
 
-Material issues are the handoff point from planning to execution:
+صرف الخامات هو نقطة التسليم من التخطيط إلى التنفيذ:
 
-**Material Planning** (Planning Phase):
-- Creates the "what to cut" plan
-- Specifies lots and quantities
+**تخطيط الخامات** (مرحلة التخطيط):
+- يُنشئ خطة "ما سيُقطع"
+- يحدد التشغيلات والكميات
 
-**Material Issues** (Staging Phase):
-- Physically withdraws materials from warehouse
-- Allocates them to production
-- Reduces inventory
+**صرف الخامات** (مرحلة التهيئة):
+- يسحب الخامات فعلياً من المستودع
+- يخصصها للإنتاج
+- يخفض المخزون
 
-**Production Execution** (Execution Phase):
-- Uses the issued materials on the shop floor
-- Records actual consumption
-- Compares actual to planned
+**تنفيذ الإنتاج** (مرحلة التنفيذ):
+- يستخدم الخامات المُصرَفة في أرض الإنتاج
+- يسجل الاستهلاك الفعلي
+- يقارن الفعلي بالمخطط
 
-**Production Costing** (Closing Phase):
-- Allocates material costs to finished goods based on what was actually issued and consumed
+**تكلفة الإنتاج** (مرحلة الإغلاق):
+- يوزع تكاليف الخامات على المنتجات النهائية بناءً على ما صُرف واستُهلك فعلياً
 
-The material issue is the bridge between planning's "ideal world" and production's "reality."
+صرف الخامات هو الجسر بين "العالم المثالي" للتخطيط و"الواقع" للإنتاج.
 
-## Common Questions
+## أسئلة شائعة {#Common-Questions}
 
-**Q: Can I edit a material issue after committing?**
-A: Like most inventory documents, committed material issues typically shouldn't be edited (it creates accounting and audit issues). If you issued wrong quantities or wrong lots, the standard approach is to create a return/reversal issue or adjust inventory, then issue correctly.
+**س: هل يمكنني تعديل صرف خامات بعد الترحيل؟**
+ج: مثل معظم مستندات المخزون، عادةً لا ينبغي تعديل صرف الخامات المُرحَّل (يُنشئ مشاكل محاسبية وتدقيقية). إذا صرفت كميات خاطئة أو تشغيلات خاطئة، الطريقة القياسية هي إنشاء صرف إرجاع/عكس أو تعديل المخزون، ثم الصرف بشكل صحيح.
 
-**Q: What if the planning document didn't specify lot numbers (just item classes)?**
-A: Rare for optimized planning, but if it happens, you select lots manually when creating the material issue. Use the freshest/highest quality lots available.
+**س: ماذا لو لم يحدد مستند التخطيط أرقام التشغيلات (فقط فئات الصنف)؟**
+ج: نادر في التخطيط المحسّن، لكن إذا حدث ذلك، تختار التشغيلات يدوياً عند إنشاء صرف الخامات. استخدم أحدث التشغيلات وأعلاها جودة.
 
-**Q: Can I issue more than planned?**
-A: Yes, if you expect higher consumption (waste/scrap higher than planned). But this means you're deviating from the optimized plan. Better to stick to planned quantities and issue more later if actually needed.
+**س: هل يمكنني الصرف بأكثر مما هو مخطط؟**
+ج: نعم، إذا توقعت استهلاكاً أعلى (هدر/خردة أعلى من المخطط). لكن هذا يعني الانحراف عن الخطة المحسّنة. من الأفضل الالتزام بالكميات المخططة والصرف لاحقاً إذا احتجت فعلاً.
 
-**Q: What if I issue materials and then production is cancelled?**
-A: Create a return/reversal material issue to put materials back in inventory. Or leave them as "issued but unused" and adjust when production eventually happens.
+**س: ماذا لو صرفت خامات ثم أُلغي الإنتاج؟**
+ج: أنشئ صرف خامات إرجاع/عكس لإعادة الخامات إلى المخزون. أو اتركها كـ"مُصرَفة ولم تُستخدم" وعدّل عند حدوث الإنتاج في نهاية المطاف.
 
-**Q: Does the material issue update the production order BOM automatically?**
-A: No. The production order BOM comes from material planning. The material issue is a separate inventory transaction. However, if you configured the production order term to auto-generate material issues, those issues would match the BOM. If creating material issues manually, you control what's issued.
-
----
-
-::: tip Stick to the Plan
-The material planning optimizer worked hard to find the best cutting plan with specific lots and widths. Issue exactly what it specified to get the planned material efficiency. Substitutions might seem minor but can throw off the whole cutting pattern.
-:::
-
-::: warning Check Availability First
-Before committing a material issue, verify that all lots have adequate available quantities. The last thing you want is to commit a production schedule and then realize you don't have the materials you thought you had.
-:::
-
-::: info Traceability
-The chain from Customer Order → Material Planning → Material Issue → Production Order creates complete traceability. You can trace any finished carton back to the exact roll lot it came from. This is critical for quality investigations.
-:::
+**س: هل يُحدّث صرف الخامات قائمة مكونات الإنتاج (BOM) تلقائياً؟**
+ج: لا. قائمة مكونات الإنتاج (BOM) مصدرها تخطيط الخامات. صرف الخامات معاملة مخزونية منفصلة. لكن إذا هيّأت توجيه أمر الإنتاج لتوليد صرف خامات تلقائياً، تطابق تلك الصرفيات الـ BOM. إذا أنشأت صرف الخامات يدوياً، فأنت تتحكم في ما يُصرف.
 
 ---
 
-## You're Ready to Manufacture Cartons
+::: tip التزم بالخطة
+عمل المحسّن بجد لإيجاد أفضل خطة قطع بتشغيلات وعروض محددة. صرّف بالضبط ما حدده للحصول على كفاءة الخامات المخططة. قد تبدو الاستبدالات بسيطة لكنها قد تقلب نمط القطع بأكمله.
+:::
 
-You now have the complete carton manufacturing workflow:
+::: warning تحقق من التوفر أولاً
+قبل ترحيل صرف الخامات، تحقق من أن جميع التشغيلات تحتوي كميات متاحة كافية. آخر ما تريده هو ترحيل جدول إنتاج ثم اكتشاف أنك لا تملك الخامات التي ظننت أنك تملكها.
+:::
 
-1. **[Specifications](./carton-specifications.md)** define your products
-2. **[Orders](./carton-orders.md)** capture customer requirements
-3. **[Material Planning](./carton-material-planning.md)** optimizes cutting plans
-4. **Material Issues** (this document) stage materials for production
-5. Standard Nama **Production Execution** records actual work
-6. **Production Costing** finalizes costs and inventory values
+::: info إمكانية التتبع
+السلسلة من أمر العميل ← تخطيط الخامات ← صرف الخامات ← أمر الإنتاج تُنشئ إمكانية تتبع كاملة. يمكنك تتبع أي كرتونة نهائية وصولاً إلى رولة التشغيلة التي صُنعت منها. هذا حاسم لتحقيقات الجودة.
+:::
 
-The carton manufacturing module brings industrial optimization to a traditionally manual process. Use it well, and you'll see material waste drop, production efficiency rise, and margins improve.
+---
+
+## أنت مستعد لتصنيع الكرتون {#Youre-Ready-to-Manufacture-Cartons}
+
+الآن لديك سير عمل تصنيع الكرتون الكامل:
+
+1. **[المواصفات](./carton-specifications.md)** تُعرّف منتجاتك
+2. **[الأوامر](./carton-orders.md)** تسجّل متطلبات العملاء
+3. **[تخطيط الخامات](./carton-material-planning.md)** يُحسّن خطط القطع
+4. **صرف الخامات** (هذا المستند) يُهيئ الخامات للإنتاج
+5. **تنفيذ الإنتاج** القياسي في Nama يسجّل العمل الفعلي
+6. **تكلفة الإنتاج** تُنهي التكاليف وقيم المخزون
+
+وحدة تصنيع الكرتون تُضفي التحسين الصناعي على عملية كانت تقليدياً يدوية. استخدمها جيداً، وستشهد تراجع هدر الخامات، وارتفاع كفاءة الإنتاج، وتحسن الهوامش.

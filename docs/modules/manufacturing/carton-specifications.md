@@ -1,358 +1,356 @@
-# Carton Specifications: Defining Your Products
+# مواصفات الكرتونة: تعريف منتجاتك
 
-## What a Carton Specification Really Is
+## ما هي مواصفة الكرتونة فعلاً {#What-a-Carton-Specification-Really-Is}
 
-Think of a carton specification as the complete blueprint for a carton product. It's not just dimensions - it's everything someone needs to know to manufacture that exact carton: what materials go into each layer, how big the flat sheet needs to be, what printing or slotting patterns to use, which molds to employ, even how the finished cartons get packaged.
+فكّر في مواصفة الكرتونة باعتبارها المخطط الكامل لمنتج الكرتون. فهي ليست مجرد أبعاد - بل كل ما يحتاج أي شخص معرفته لتصنيع تلك الكرتونة بالضبط: ما المواد التي تدخل في كل طبقة، وما حجم الورقة المسطحة المطلوبة، وما أنماط الطباعة أو التخريم المستخدمة، وأي قوالب تُستخدم، بل وكيف تُعبَّأ الكرتونات النهائية.
 
-You create these once for each carton design you sell. When customers order "Tomato Box 250" or "Electronics Packaging Large", they're referencing a specification you've already defined. All the manufacturing complexity - material requirements, production stages, routings - is already figured out and stored in the spec.
+تُنشئ هذه المواصفات مرة واحدة لكل تصميم كرتون تبيعه. حين يطلب العملاء "صندوق طماطم 250" أو "تغليف إلكترونيات كبير"، فهم يستندون إلى مواصفة قمتَ بتعريفها مسبقاً. وكل تعقيدات التصنيع - متطلبات المواد، ومراحل الإنتاج، والعمليات - محسومة ومخزّنة في المواصفة.
 
-You'll find specifications under **Manufacturing > Cartoon > CRTN Specification** (التصنيع > Cartoon > مواصفات الكرتونة).
+ستجد المواصفات في **التصنيع > Cartoon > مواصفات الكرتونة** (Manufacturing > Cartoon > CRTN Specification).
 
-## The Four Types of Specifications
+## الأنواع الأربعة للمواصفات {#The-Four-Types-of-Specifications}
 
-Nama supports four manufacturing approaches for cartons:
+يدعم Nama أربعة أساليب تصنيع للكراتين:
 
-### Normal Carton (نوع التصنيع: كرتونة عادية)
+### كرتونة عادية (نوع التصنيع: كرتونة عادية) {#Normal-Carton}
 
-This is your standard corrugated carton - facing, fluting, liner, all laminated together in the corrugator, then printed, slotted, and folded. Most of your specifications will be this type.
+هذه هي الكرتونة المموجة القياسية - وجه خارجي وتموج وبطانة داخلية، كلها ملصقة معاً في الماكينة المموِّجة، ثم تُطبع وتُخرَّم وتُطوى. معظم مواصفاتك ستكون من هذا النوع.
 
-When you select "Normal Carton" as the manufacturing type, you're saying "this is a standalone product that goes through our standard production process."
+حين تختار "كرتونة عادية" نوعاً للتصنيع، فأنت تقول: "هذا منتج مستقل يمر بعملية الإنتاج القياسية لدينا."
 
-### Normal Separator (نوع التصنيع: فاصل عادي)
+### فاصل عادي (نوع التصنيع: فاصل عادي) {#Normal-Separator}
 
-Separators (or dividers) go inside cartons to protect products. They're simpler than full cartons - usually just corrugated board cut to size, maybe with slots to interlock.
+الفواصل (أو الحواجز) توضع داخل الكراتين لحماية المنتجات. وهي أبسط من الكراتين الكاملة - عادةً مجرد لوح مموج مقطوع بالحجم المناسب، ربما مع شقوق للتشابك.
 
-Like normal cartons, these are standalone products. You manufacture them, stock them, and sell them independently.
+مثل الكراتين العادية، هذه منتجات مستقلة. تصنّعها وتخزّنها وتبيعها بشكل منفرد.
 
-### Assembled Carton (نوع التصنيع: كرتونة مجمعة)
+### كرتونة مجمّعة (نوع التصنيع: كرتونة مجمعة) {#Assembled-Carton}
 
-Here's where it gets interesting. An assembled carton is made by putting together multiple normal cartons. Think of a display carton that consists of a base tray plus a separate lid.
+هنا تصبح الأمور أكثر إثارة. الكرتونة المجمّعة تُصنَع بتجميع عدة كراتين عادية معاً. فكّر في كرتونة عرض تتكون من قاعدة علبة وغطاء منفصل.
 
-When you create an assembled carton specification:
-1. You still define the overall dimensions and characteristics
-2. But instead of defining material layers, you add "child carton lines"
-3. Each child line references a normal carton specification
+عند إنشاء مواصفة كرتونة مجمّعة:
+1. لا تزال تُعرّف الأبعاد الكلية والخصائص العامة
+2. لكنك بدلاً من تعريف طبقات المواد، تضيف "أسطر كراتين فرعية"
+3. كل سطر فرعي يستند إلى مواصفة كرتونة عادية
 
-Order the assembled carton, and Nama automatically knows it needs to manufacture all the child components.
+اطلب الكرتونة المجمّعة، وسيعرف Nama تلقائياً أنه يحتاج إلى تصنيع جميع المكونات الفرعية.
 
-**Important**: Assembled cartons reference normal cartons as children. The children must already exist as separate "Normal Carton" specifications.
+**مهم**: الكراتين المجمّعة تستند إلى كراتين عادية كمكونات فرعية. يجب أن تكون المكونات الفرعية موجودة مسبقاً كمواصفات "كرتونة عادية" منفصلة.
 
-### Assembled Separator (نوع التصنيع: فاصل مجمع)
+### فاصل مجمّع (نوع التصنيع: فاصل مجمع) {#Assembled-Separator}
 
-Similar to assembled cartons, but for complex separator configurations. An assembled separator is made of multiple "Small Separator" components.
+مشابه للكراتين المجمّعة، لكن لتكوينات الفواصل المعقدة. الفاصل المجمّع مكوّن من عدة مكونات "فاصل صغير".
 
-You define the assembled separator and link it to its small separator children. This type is less common - used mainly for intricate internal packaging systems.
+تُعرّف الفاصل المجمّع وتربطه بمكوناته الفرعية الصغيرة. هذا النوع أقل شيوعاً - يُستخدم أساساً لأنظمة التغليف الداخلي المعقدة.
 
-###
+### فاصل صغير (نوع التصنيع: فاصل صغير) {#Small-Separator}
 
- Small Separator (نوع التصنيع: فاصل صغير)
+الفواصل الصغيرة هي المكونات الفردية للفاصل المجمّع. عادةً لا تطلبها مباشرة - تُصنَّع كجزء من الفاصل المجمّع الأصلي.
 
-Small separators are individual components of an assembled separator. You typically don't order these directly - they're manufactured as part of the assembled separator parent.
+## إنشاء مواصفة كرتونة أساسية {#Creating-a-Basic-Carton-Specification}
 
-## Creating a Basic Carton Specification
+لنستعرض معاً إنشاء مواصفة لصندوق خضروات شائع.
 
-Let's walk through creating a spec for a common produce box.
+### الخطوة الأولى: المعلومات الأساسية {#Step-1-Basic-Information}
 
-### Step 1: Basic Information
+ابدأ مواصفة جديدة وأدخل البيانات الأساسية:
 
-Start a new specification and fill in the essentials:
+**الكود والاسم**: شيء وصفي مثل "TOMATO-250" و"Tomato Box 250mm"
 
-**Code and Name**: Something descriptive like "TOMATO-250" and "Tomato Box 250mm"
+**العميل**: اختر العميل الذي صُمِّمت هذه المواصفة من أجله. سيُصفّي Nama المواصفات حسب العميل عند إنشاء الطلبات، فلا ترى إلا المواصفات ذات الصلة بكل عميل.
 
-**Customer**: Select the customer this spec is designed for. Nama will filter specifications by customer when creating orders, so you only see specs relevant to each customer.
+**نوع التصنيع**: اختر "كرتونة عادية" (أو أي نوع آخر مناسب)
 
-**Manufacturing Type**: Select "Normal Carton" (or whichever type applies)
+**الصنف**: إذا كانت هذه المواصفة تُنتج صنف مخزوناً محدداً (ربما تخزّن هذه الكراتين)، اختر الصنف. هذا يربط المواصفة بإدارة المخزون.
 
-**Item**: If this specification produces a specific inventory item (maybe you stock these cartons), select the item. This links the specification to inventory management.
+### الخطوة الثانية: الأبعاد الفيزيائية {#Step-2-Physical-Dimensions}
 
-### Step 2: Physical Dimensions
+هذه أبعاد الكرتونة المطوية والنهائية:
 
-These are the dimensions of the finished, folded carton:
+**الطول** (l): البعد الأطول عند النظر إلى الصندوق
+**العرض** (w): البعد الأفقي الأقصر
+**الارتفاع** (h): البعد الرأسي
 
-**Length** (l): The longest dimension when looking at the box
-**Width** (w): The shorter horizontal dimension
-**Height** (h): The vertical dimension
+مثلاً، صندوق بأبعاد 250mm × 200mm × 150mm بعد التجميع.
 
-For example, a box that's 250mm × 200mm × 150mm when assembled.
+### الخطوة الثالثة: أبعاد الورقة {#Step-3-Sheet-Dimensions}
 
-### Step 3: Sheet Dimensions
+هنا تبدأ التفاصيل التصنيعية. الورقة المموجة المسطحة، قبل الطي، تحتاج أن تكون أكبر من الصندوق النهائي.
 
-This is where it gets manufacturing-specific. The flat corrugated sheet, before folding, needs to be larger than the finished box.
+**طول الورقة**: الطول المطلوب للورقة المسطحة
+**عرض الورقة**: العرض المطلوب للورقة المسطحة
 
-**Sheet Length**: How long the flat sheet needs to be
-**Sheet Width**: How wide the flat sheet needs to be
+**قيمة اللسان** (اللسان): المادة الإضافية لألسنة الطي. القيمة الافتراضية عادةً 5mm أو نحو ذلك.
 
-**Flap Value** (اللسان): The extra material for flaps that fold over. Default is typically 5mm or so.
+**الجزء الذكي**: لا تحسب هذه الأبعاد يدوياً دائماً. يمكنك استخدام صيغ حسابية.
 
-**Here's the clever part**: You don't always calculate these manually. You can use formulas.
+إذا اخترت **باترون** (Pattern) فيه صيغ محددة، أو **قالب طيات** (Crease Mold) يحتوي على صيغ، فإن Nama يحسب أبعاد الورقة تلقائياً باستخدام تلك الصيغ.
 
-If you select a **Pattern** (باترون) that has formulas defined, or a **Crease Mold** (قالب الطيات) with formulas, Nama automatically calculates sheet dimensions using those formulas.
+يمكن أن تستند الصيغ إلى:
+- `l` - الطول
+- `w` - العرض
+- `h` - الارتفاع
+- `f` - قيمة اللسان
+- `ml`, `mw`, `mh` - أبعاد القالب (إذا كان قالب طيات محدداً)
 
-The formulas can reference:
-- `l` - length
-- `w` - width
-- `h` - height
-- `f` - flap value
-- `ml`, `mw`, `mh` - mold dimensions (if a crease mold is selected)
+مثلاً، قد يتضمن الباترون:
+- صيغة العرض: `2*(l+w) + f`
+- صيغة الطول: `h + w + f`
 
-For example, a pattern might have:
-- Width formula: `2*(l+w) + f`
-- Length formula: `h + w + f`
+اختر ذلك الباترون، وستُحسب أبعاد الورقة تلقائياً بناءً على أبعادك الفيزيائية.
 
-Select that pattern, and sheet dimensions populate automatically based on your physical dimensions.
+**معاملات التضعيف**: إذا أردت قطع عدة كراتين من ورقة واحدة (ربما اثنتين جانباً لجانب)، يمكنك ضبط معامل تضعيف العرض أو الطول. معظم المواصفات تتركها فارغة (كرتونة واحدة لكل ورقة).
 
-**Multiplication factors**: If you want to cut multiple cartons from one sheet (maybe two across), you can set multiplication width or length. Most specs leave these blank (one carton per sheet).
+### الخطوة الرابعة: تركيب الكرتونة والمواد {#Step-4-Carton-Structure-and-Materials}
 
-### Step 4: Carton Structure and Materials
+حدد الآن من ماذا تُصنَع الكرتونة:
 
-Now define what the carton is made of:
+**نوع الكرتونة** (نوع الكرتونة): اختر نوعاً مثل "Standard Corrugated" أو "Double Wall" وما إلى ذلك. قد يكون للأنواع مستويات نشا افتراضية.
 
-**Type** (نوع الكرتونة): Select a carton type like "Standard Corrugated", "Double Wall", etc. Types can have default starch levels.
+**نوع التموج** (نوع التموج): اختر نمط التموج - E-flute أو C-flute أو B-flute وما إلى ذلك. يحدد هذا سمك وقوة الوسط المموج.
 
-**Fluting** (نوع التموج): Choose the fluting profile - E-flute, C-flute, B-flute, etc. This determines the thickness and strength of the corrugated medium.
+**نوع التلصيق** (نوع التلصيق): طريقة الربط - لاصق أو دباسة أو شريط وما إلى ذلك.
 
-**Join Type** (نوع التلصيق): How the carton is joined - glued, stitched, taped, etc.
+**نوع التخريم** (نوع التخريم): نمط التخريم - قياسي أو خاص وما إلى ذلك.
 
-**Slotting Type** (نوع التخريم): The slotting pattern - standard, special, etc.
+**الباترون** (باترون): نمط التصميم الكلي (كرتونة ذات شقوق منتظمة، نصف شقوق، وما إلى ذلك).
 
-**Pattern** (باترون): The overall design pattern (regular slotted carton, half-slotted, etc.)
+**نوع التحميل**: كيف تُكدَّس الكراتين النهائية أو تُحمَّل.
 
-**Loading Type**: How finished cartons are stacked or loaded.
+**منسوب النشا** (منسوب النشا): كمية النشا/اللاصق المستخدمة بالغرام لكل متر مربع. يؤثر على حسابات الوزن والصلابة.
 
-**Starch Level** (منسوب النشا): How much starch/adhesive is used in grams per square meter. This affects weight calculations and strength.
+**ECT و BCT**: قيم Edge Crush Test وBox Compression Test - معدلات المقاومة للكرتونة.
 
-**ECT and BCT**: Edge Crush Test and Box Compression Test values - strength ratings for the carton.
+### الخطوة الخامسة: مراحل الإنتاج (الجزء المهم) {#Step-5-Production-Stages}
 
-### Step 5: Production Stages (The Critical Part)
+هنا تُعرّف المواد التي تدخل فعلياً في تصنيع الكرتونة. معظم مواصفات الكراتين تستخدم **مرحلة الإنتاج الأولى** (مرحلة الإنتاج الأولى) بشكل مكثف.
 
-This is where you define what materials actually go into manufacturing the carton. Most carton specifications use the **First Production Stage** (مرحلة الإنتاج الأولى) extensively.
+#### مرحلة الإنتاج الأولى: الطبقات {#First-Production-Stage-The-Layers}
 
-#### First Production Stage: The Layers
+انقر "إضافة" في شبكة مرحلة الإنتاج الأولى. كل سطر يمثل طبقة مادة واحدة.
 
-Click "Add" in the First Production Stage grid. Each line represents one layer of material.
+للوح مموج نموذجي بثلاث طبقات:
 
-For a typical 3-layer corrugated board:
+**الطبقة 1 - الوجه الخارجي**:
+- **نوع الطبقة**: اختر "Facing" (الوجه الخارجي)
+- **القسم**: اختر قسم الصنف لفضلات الورق (مثل "المواد الخام")
+- **تصنيف الصنف 1**: اختر نوع الورق (مثل "Kraft Liner")
+- **تصنيف الصنف 2**: اختر الدرجة أو الوزن (مثل "125 GSM")
+- تصنيفات إضافية (3-10): استخدمها لمزيد من الفلترة إذا لزم (اللون، والتشطيب، وما إلى ذلك)
+- **معامل التموج** و**نوع التموج**: عادةً يُتركان فارغين للوجه الخارجي (لا تموج)
 
-**Layer 1 - Facing**:
-- **Layer Type**: Select "Facing" (الوجه الخارجي)
-- **Section**: Select the item section for paper rolls (e.g., "Raw Materials")
-- **Item Class 1**: Select the paper type (e.g., "Kraft Liner")
-- **Item Class 2**: Select the grade or weight (e.g., "125 GSM")
-- Additional classes (3-10): Use for further filtering if needed (color, finish, etc.)
-- **Corrugating Factor** and **Corrugating Type**: Usually left blank for facing (no corrugation)
+**الطبقة 2 - التموج**:
+- **نوع الطبقة**: اختر "Fluting" (التموج)
+- **القسم**: المواد الخام
+- **تصنيف الصنف 1**: "Fluting Medium"
+- **تصنيف الصنف 2**: "C-Flute" (أو نوع التموج المناسب)
+- **معامل التموج**: اختر معامل التموج (مثل "1.5" إذا كان التموج يتمدد بنسبة 50%)
+- **نوع التموج**: اختر نوع التموج المقابل (يجب أن يتطابق مع المعامل)
 
-**Layer 2 - Fluting**:
-- **Layer Type**: Select "Fluting" (التموج)
-- **Section**: Raw Materials
-- **Item Class 1**: "Fluting Medium"
-- **Item Class 2**: "C-Flute" (or whichever fluting type)
-- **Corrugating Factor**: Select the corrugating factor (e.g., "1.5" if the fluting expands by 50%)
-- **Corrugating Type**: Select the corresponding corrugating type (must match the factor)
+**الطبقة 3 - البطانة الداخلية**:
+- **نوع الطبقة**: اختر "Liner" (البطانة الداخلية)
+- **القسم**: المواد الخام
+- **تصنيف الصنف 1**: "Test Liner"
+- **تصنيف الصنف 2**: "150 GSM"
+- **معامل التموج** و**نوع التموج**: فارغان (البطانة الداخلية غير مموجة)
 
-**Layer 3 - Liner**:
-- **Layer Type**: Select "Liner" (البطانة الداخلية)
-- **Section**: Raw Materials
-- **Item Class 1**: "Test Liner"
-- **Item Class 2**: "150 GSM"
-- **Corrugating Factor** and **Corrugating Type**: Blank (liner isn't corrugated)
+يستخدم النظام هذه التصنيفات للبحث في المخزون عند تخطيط المواد. يجد جميع أصناف المخزون التي تطابق هذه التصنيفات.
 
-The system uses these item classes to search inventory when planning materials. It finds all inventory items that match these classifications.
+**كمية المادة والكمية النهائية**: تُحسب عادةً تلقائياً. كمية المادة هي كمية المادة الخام المطلوبة (مع مراعاة معامل التموج للطبقة المموجة). والكمية النهائية هي الناتج.
 
-**Material Quantity and Finished Quantity**: These are typically auto-calculated. Material quantity is how much raw material is needed (considering corrugating factor for fluting). Finished quantity is the output.
+#### مرحلة الإنتاج الثانية (اختيارية) {#Second-Production-Stage}
 
-#### Second Production Stage (Optional)
+استخدمها إذا كانت لديك طلمبة إضافية أو معالجة بعد التمويج الأولي. ربما تُلمع صفائح مطبوعة أو تضيف طلاءات خاصة. نفس بنية المرحلة الأولى - عرّف الطبقات والمواد.
 
-Use this if you have additional lamination or processing after initial corrugating. Maybe you laminate printed sheets or add special coatings. Same structure as first stage - define layers and materials.
+#### مرحلة الإنتاج الثالثة (اختيارية) {#Third-Production-Stage}
 
-#### Third Production Stage (Optional)
+لعمليات التشطيب النهائي التي تضيف مواد - ربما ملصقات أو لافتات أو شريط خاص وما إلى ذلك.
 
-For final finishing processes that add materials - maybe stickers, labels, special tape, etc.
+### الخطوة السادسة: القوالب والطباعة {#Step-6-Molds-and-Printing}
 
-### Step 6: Molds and Printing
+إذا كانت هذه الكرتونة تستخدم قوالب:
 
-If this carton uses molds:
+**قالب الطيات** (قالب الطيات): اختر القالب المستخدم للطي. يجب أن يكون القالب مُعداً في ملف القوالب الرئيسية كنوع "قالب طيات".
 
-**Crease Mold** (قالب الطيات): Select the mold used for creasing/folding. The mold should be set up in the Molds master file as type "Crease Mold".
+**قالب الطباعة** (قالب الطباعة): اختر الأسطوانة أو اللوحة المستخدمة للطباعة إذا كانت هذه كرتونة مطبوعة. يُعدّ كنوع "قالب طباعة".
 
-**Printing Mold** (قالب الطباعة): Select the printing cylinder or plate if this is a printed carton. Set up as type "Printing Mold".
+**نوع الطباعة** (نوع الطباعة): اختر عملية الطباعة (flexo أو offset أو digital وما إلى ذلك). قد تكون لأنواع الطباعة حدود قصوى لطول الورقة - يتحقق Nama من عدم تجاوزها.
 
-**Printing Type** (نوع الطباعة): Select the printing process (flexo, offset, digital, etc.). Printing types can have maximum sheet length limits - Nama validates you're not exceeding them.
+**يحتوي على شارة**: ضع علامة إذا كانت الكرتونة تتضمن شارة أو ملصقاً.
 
-**Has Badge**: Check if the carton includes a badge or label.
+### الخطوة السابعة: عمليات التشغيل (Routings) {#Step-7-Routings}
 
-### Step 7: Routings (Operations)
+عرّف خطوات الإنتاج في تبويب **عمليات التشغيل** (Routings).
 
-Define the production steps in the **Routings** (عمليات التشغيل) tab.
+كل سطر عملية يحدد:
+- **العملية**: استند إلى عملية قياسية Standard Operation مثل "Corrugating" أو "Printing" أو "Slotting" أو "Stitching"
+- تُعرّف العملية مراكز العمل وتقديرات الوقت والموارد المطلوبة
 
-Each routing line specifies:
-- **Operation**: Reference a Standard Operation like "Corrugating", "Printing", "Slotting", "Stitching"
-- The operation defines work centers, time estimates, resources needed
+عند توليد أوامر الإنتاج من هذه المواصفة، تصبح أسطر عمليات التشغيل هذه بنداً في مسار أمر الإنتاج.
 
-When you generate production orders from this specification, these routing lines become the production order routing.
+### الخطوة الثامنة: التعبئة والكميات {#Step-8-Packaging-and-Quantities}
 
-### Step 8: Packaging and Quantities
+**الكمية**: كمية الطلب الافتراضية (اختياري)
 
-**Quantity**: Default order quantity (optional)
+**السعر**: سعر البيع الافتراضي (اختياري)
 
-**Price**: Default selling price (optional)
+**النسبة المسموح بها**: مقدار الزيادة أو النقص المسموح به في الإنتاج (مثل 5% لاستيعاب الهدر والزيادات)
 
-**Permitted Percentage**: How much over/under production is allowed (like 5% to account for waste/overruns)
+**العدد في العبوة**: عدد الكراتين النهائية في عبوة واحدة
+**العدد على البالية**: عدد الكراتين على بالية واحدة
 
-**Count in Package**: How many finished cartons fit in one package
-**Count on Pallet**: How many cartons fit on one pallet
+يساعد هذا في تخطيط الشحن واللوجستيات.
 
-These help with shipping and logistics planning.
+### الخطوة التاسعة: معلومات المنتج المعبّأ (اختياري) {#Step-9-Packaged-Product-Information}
 
-### Step 9: Packaged Product Information (Optional)
+إذا كانت هذه الكرتونة مصممة لمنتج معبّأ محدد (شائع في قطاع الغذاء والخضروات)، يمكنك توثيق:
+- نوع المنتج (خضار طازجة، بضائع مجمدة، وما إلى ذلك)
+- وزن المنتج
+- طريقة التعبئة
+- ما إذا كانت للتبريد أو التجميد أو التصدير
+- مرفقات العينات (صور، صفحات مواصفات)
+- ارتفاع تكديس الكراتين
 
-If this carton is designed for a specific packaged product (common in food/produce), you can document:
-- Product type (fresh produce, frozen goods, etc.)
-- Product weight
-- Packaging method
-- Whether it's for cooling, freezing, or export
-- Sample attachments (photos, spec sheets)
-- Cartoons stacked height
+هذا بشكل رئيسي توثيق للمبيعات وخدمة العملاء.
 
-This is mainly documentation for sales and customer service.
+## السيناريوهات المتقدمة {#Advanced-Scenarios}
 
-## Advanced Scenarios
+### الكراتين المجمّعة مع المكونات الفرعية {#Assembled-Cartons-with-Child-Components}
 
-### Assembled Cartons with Child Components
+لنفترض أنك تنشئ مواصفة لكرتونة عرض - كرتونة بقاعدة علبة وغطاء منفصل.
 
-Let's say you're creating a specification for a display shipper - a carton with a base tray and a separate lid.
+**الخطوة الأولى**: أنشئ مواصفتي كرتونة عادية:
+- "DISPLAY-BASE" - قاعدة العلبة
+- "DISPLAY-LID" - الغطاء
 
-**Step 1**: Create two normal carton specifications:
-- "DISPLAY-BASE" - the base tray
-- "DISPLAY-LID" - the lid
+عرّف كلاً منهما بأبعاده الخاصة والمواد وعمليات التشغيل وما إلى ذلك.
 
-Define each with their own dimensions, materials, routings, etc.
+**الخطوة الثانية**: أنشئ مواصفة كرتونة مجمّعة:
+- **الكود**: "DISPLAY-FULL"
+- **نوع التصنيع**: "كرتونة مجمعة"
+- **الأبعاد**: الأبعاد الكلية بعد التجميع
 
-**Step 2**: Create an assembled carton specification:
-- **Code**: "DISPLAY-FULL"
-- **Manufacturing Type**: "Assembled Carton"
-- **Dimensions**: The overall dimensions when assembled
+**الخطوة الثالثة**: في تبويب **أسطر الكراتين الفرعية**، أضف:
+- السطر 1: مواصفات الكرتون = "DISPLAY-BASE"، الكمية = 1
+- السطر 2: مواصفات الكرتون = "DISPLAY-LID"، الكمية = 1
 
-**Step 3**: In the **Child Carton Lines** tab, add:
-- Line 1: Carton Specs = "DISPLAY-BASE", Quantity = 1
-- Line 2: Carton Specs = "DISPLAY-LID", Quantity = 1
+الآن حين يطلب أحد "DISPLAY-FULL"، ستُظهر تفاصيل التصنيع في Nama أنه يحتاج إلى إنتاج قاعدة واحدة وغطاء واحد.
 
-Now when someone orders "DISPLAY-FULL", Nama's manufacturing details will show it needs to produce 1 base and 1 lid.
+**تحقق مهم**:
+- يجب أن تكون جميع الكراتين الفرعية للعميل ذاته كالكرتونة الأصلية
+- يجب أن تكون الكراتين الفرعية من نوع "كرتونة عادية" (ليست كراتين مجمّعة أخرى - لا تداخل في التجميع)
+- يمكن أن تنتمي الكرتونة الفرعية إلى كرتونة أصلية مجمّعة واحدة فقط في كل مرة
 
-**Important validations**:
-- All child cartons must be for the same customer as the parent
-- Child cartons must be "Normal Carton" type (not other assembled cartons - no nesting assemblies)
-- A child carton can only belong to one assembled parent at a time
+### استخدام الصيغ لحسابات الورقة {#Using-Formulas-for-Sheet-Calculations}
 
-### Using Formulas for Sheet Calculations
+إدخال أبعاد الورقة يدوياً يصبح ممللاً وعرضة للخطأ. أعدّ الباترونات أو قوالب الطيات بصيغ حسابية بدلاً من ذلك.
 
-Manual sheet dimension entry gets tedious and error-prone. Set up patterns or crease molds with formulas instead.
+في ملف الباترون أو قالب الطيات الرئيسي، عرّف الصيغ باستخدام تعبيرات Groovy:
 
-In the **Pattern** or **Crease Mold** master file, define formulas using Groovy expressions:
+**قد يتضمن باترون الكرتونة ذات الشقوق المنتظمة (RSC)**:
+- صيغة الطول: `(h + w) + f`
+- صيغة العرض: `(2 * (l + w)) + f`
 
-**Regular Slotted Carton (RSC) pattern might have**:
-- Length formula: `(h + w) + f`
-- Width formula: `(2 * (l + w)) + f`
-
-The formulas can be complex:
+يمكن أن تكون الصيغ معقدة:
 ```groovy
 // Example: account for material thickness
 (2 * l) + (2 * w) + (4 * 0.5) + f  // 0.5mm material thickness
 ```
 
-Or reference mold dimensions:
+أو تستند إلى أبعاد القالب:
 ```groovy
 ml + mw + 10  // mold length + mold width + 10mm clearance
 ```
 
-When you select that pattern in a specification and enter physical dimensions, sheet dimensions calculate automatically.
+حين تختار ذلك الباترون في مواصفة وتُدخل الأبعاد الفيزيائية، تُحسب أبعاد الورقة تلقائياً.
 
-### Weight Calculations
+### حسابات الوزن {#Weight-Calculations}
 
-Nama automatically calculates the carton weight based on:
-- Paper weights (GSM) from each layer
-- Corrugating factors (fluting expands, so more material per area)
-- Sheet area (length × width)
-- Starch level
+يحسب Nama وزن الكرتونة تلقائياً بناءً على:
+- أوزان الورق (GSM) من كل طبقة
+- معاملات التموج (التموج يتمدد، فيلزم مزيد من المواد لكل مساحة)
+- مساحة الورقة (الطول × العرض)
+- منسوب النشا
 
-Formula: `weight = ((sum of layer weights × corrugating factors) + starch level) × sheet area / 10000`
+الصيغة: `weight = ((sum of layer weights × corrugating factors) + starch level) × sheet area / 10000`
 
-Result is in appropriate units (usually grams or kilograms).
+النتيجة بالوحدات المناسبة (عادةً غرام أو كيلوغرام).
 
-This helps with freight calculations and material costing.
+يساعد هذا في حسابات الشحن وتكلفة المواد.
 
-### Forcing Production Stages
+### فرض مراحل الإنتاج {#Forcing-Production-Stages}
 
-Most cartons only use First Production Stage. But if you have multi-stage processing:
+معظم الكراتين تستخدم مرحلة الإنتاج الأولى فقط. لكن في حالة المعالجة متعددة المراحل:
 
-**First Stage**: Corrugating/laminating - creates the basic corrugated board
-**Second Stage**: Printing - adds graphics
-**Third Stage**: Special coating or laminating - adds protective layers
+**المرحلة الأولى**: التمويج/الطلمبة - تُنتج اللوح المموج الأساسي
+**المرحلة الثانية**: الطباعة - تضيف الرسومات
+**المرحلة الثالثة**: طلاء أو لمبة خاصة - تضيف طبقات حماية
 
-Each stage can have different material requirements. The material planning optimizer handles multi-stage specs by finding appropriate materials for each stage independently.
+يمكن أن تكون لكل مرحلة متطلبات مواد مختلفة. يتعامل مُحسّن تخطيط المواد مع المواصفات متعددة المراحل بإيجاد المواد المناسبة لكل مرحلة بشكل مستقل.
 
-## Tips for Effective Specifications
+## نصائح لمواصفات فعّالة {#Tips-for-Effective-Specifications}
 
-**Use consistent naming**: Develop a naming convention. Maybe "CUST-SIZE-TYPE" like "ACME-300-RSC" (Acme customer, 300mm carton, regular slotted carton). Makes searching and filtering easier.
+**استخدم تسمية متسقة**: طوّر اصطلاح تسمية. ربما "CUST-SIZE-TYPE" مثل "ACME-300-RSC" (عميل Acme، كرتونة 300mm، كرتونة ذات شقوق منتظمة). يسهّل البحث والفلترة.
 
-**Link to items**: If you stock cartons, link specs to inventory items. This enables automatic inventory tracking when cartons are produced.
+**اربط بالأصناف**: إذا كنت تخزّن الكراتين، اربط المواصفات بأصناف المخزون. هذا يتيح تتبع المخزون تلقائياً عند إنتاج الكراتين.
 
-**Set up patterns and molds first**: Before creating hundreds of specs, set up your common patterns and molds with formulas. Then spec creation becomes faster and more accurate.
+**أعدّ الباترونات والقوالب أولاً**: قبل إنشاء مئات المواصفات، أعدّ الباترونات والقوالب الشائعة بصيغ حسابية. عندها يصبح إنشاء المواصفات أسرع وأدق.
 
-**Document thoroughly**: Use the description and remarks fields. Future you (or your colleagues) will thank you when trying to figure out why this spec has unusual dimensions.
+**وثّق بشكل وافٍ**: استخدم حقول الوصف والملاحظات. أنت مستقبلاً (أو زملاؤك) ستشكرك حين تحاول معرفة سبب وجود أبعاد غير معتادة في هذه المواصفة.
 
-**Validate before using**: Create a test order with a small quantity, run material planning, make sure the system finds appropriate materials and calculates reasonable quantities. Better to find issues now than when you have a production commitment.
+**تحقق قبل الاستخدام**: أنشئ طلباً تجريبياً بكمية صغيرة، شغّل تخطيط المواد، تأكد من أن النظام يجد المواد المناسبة ويحسب كميات معقولة. أفضل اكتشاف المشاكل الآن من اكتشافها حين يكون لديك التزام إنتاجي.
 
-**Don't over-specify layers**: Only define the layers you actually stock as separate materials. If two layers always come pre-laminated, define them as one layer in the system.
+**لا تُفرط في تحديد الطبقات**: عرّف الطبقات التي تخزّنها فعلاً كمواد منفصلة. إذا كانت طبقتان دائماً تأتيان مُلصقتين مسبقاً، عرّفهما كطبقة واحدة في النظام.
 
-**Customer-specific specs**: Don't try to share specifications across customers if dimensions are even slightly different. Create separate specs. It avoids mistakes and makes filtering much cleaner.
+**مواصفات خاصة بالعملاء**: لا تحاول مشاركة المواصفات بين العملاء إذا اختلفت الأبعاد ولو قليلاً. أنشئ مواصفات منفصلة. يتجنب هذا الأخطاء ويجعل الفلترة أكثر نظافة.
 
-**Review weight calculations**: After defining layers, check the calculated weight against physical samples. If it's way off, check your GSM values and corrugating factors.
+**راجع حسابات الوزن**: بعد تعريف الطبقات، تحقق من الوزن المحسوب مقارنةً بالعينات الفعلية. إذا كان الفرق كبيراً، راجع قيم GSM ومعاملات التموج.
 
-## Validation and Business Rules
+## التحقق وقواعد العمل {#Validation-and-Business-Rules}
 
-Nama enforces several validations when you save a specification:
+يفرض Nama عدة تحققات عند حفظ المواصفة:
 
-**Crease and printing molds must match types**: If you select a mold in "Crease Mold", it must be set up as a crease mold in the molds master file. Same for printing molds.
+**يجب أن تتطابق قوالب الطيات والطباعة مع أنواعها**: إذا اخترت قالباً في "قالب الطيات"، يجب أن يكون مُعداً كقالب طيات في ملف القوالب الرئيسية. وبالمثل لقوالب الطباعة.
 
-**Sheet length limits**: If you select a printing type with a maximum sheet length, Nama checks your sheet length doesn't exceed it.
+**حدود طول الورقة**: إذا اخترت نوع طباعة بحد أقصى لطول الورقة، يتحقق Nama من أن طول ورقتك لا يتجاوزه.
 
-**Corrugating factors must match types**: If you select a corrugating type in a layer, its corrugating factor must match the factor specified in the corrugating type master data.
+**يجب أن تتطابق معاملات التموج مع الأنواع**: إذا اخترت نوع تموج في طبقة، يجب أن يتطابق معامل التموج الخاص به مع المعامل المحدد في بيانات نوع التموج الرئيسية.
 
-**Starch levels must match types**: If your carton type has a starch level defined, the specification's starch level should match.
+**يجب أن تتطابق مستويات النشا مع الأنواع**: إذا كان نوع كرتونتك يحتوي على منسوب نشا محدد، يجب أن يتطابق منسوب النشا في المواصفة معه.
 
-**Assembled cartons require children**: If manufacturing type is "Assembled Carton" or "Assembled Separator", you must add child carton lines. Conversely, normal cartons can't have children.
+**الكراتين المجمّعة تتطلب مكونات فرعية**: إذا كان نوع التصنيع "كرتونة مجمعة" أو "فاصل مجمع"، يجب إضافة أسطر كراتين فرعية. وعلى النقيض، لا يمكن للكراتين العادية أن تحتوي على مكونات فرعية.
 
-**Child carton restrictions**:
-- Must be for the same customer
-- Must be the appropriate type (normal cartons for assembled cartons, small separators for assembled separators)
-- Can't reference yourself (no circular references)
-- Can't be already used as a child in another specification
+**قيود الكراتين الفرعية**:
+- يجب أن تكون للعميل ذاته
+- يجب أن تكون من النوع المناسب (كراتين عادية للكراتين المجمّعة، وفواصل صغيرة للفواصل المجمّعة)
+- لا يمكنها الإشارة إلى نفسها (لا مراجع دائرية)
+- لا يمكنها أن تكون مستخدمة بالفعل كمكون فرعي في مواصفة أخرى
 
-**Customer consistency**: All child cartons must be for the same customer as the parent specification.
+**اتساق العميل**: يجب أن تكون جميع الكراتين الفرعية للعميل ذاته المحدد في المواصفة الأصلية.
 
-## Common Questions
+## أسئلة شائعة {#Common-Questions}
 
-**Q: Can I change a specification after it's been used in orders?**
-A: Yes, but be careful. Changes affect future orders, not past ones. If you change material requirements, existing production orders won't update automatically. Consider creating a new revision of the spec instead (copy and modify).
+**س: هل يمكنني تغيير مواصفة بعد استخدامها في الطلبات؟**
+ج: نعم، لكن كن حذراً. التغييرات تؤثر على الطلبات المستقبلية لا الماضية. إذا غيّرت متطلبات المواد، لن تتحدث أوامر الإنتاج الموجودة تلقائياً. فكر في إنشاء نسخة معدّلة من المواصفة بدلاً من ذلك (انسخها وعدّلها).
 
-**Q: What if I have the same carton for multiple customers?**
-A: Create separate specifications. Even if dimensions are identical, having customer-specific specs makes filtering cleaner and prevents accidentally quoting one customer's price to another.
+**س: ماذا لو كان لديّ الكرتونة ذاتها لعملاء متعددين؟**
+ج: أنشئ مواصفات منفصلة. حتى لو كانت الأبعاد متطابقة، فإن وجود مواصفات خاصة بكل عميل يجعل الفلترة أنظف ويمنع الخطأ في تسعير عميل واحد بسعر عميل آخر.
 
-**Q: How do I handle variations (like different printing for the same base carton)?**
-A: Create separate specifications for each variation. The base structure might be the same, but printing molds are different, so they're different products from a manufacturing standpoint.
+**س: كيف أتعامل مع المتغيرات (مثل طباعة مختلفة للكرتونة الأساسية ذاتها)؟**
+ج: أنشئ مواصفات منفصلة لكل متغير. قد تكون البنية الأساسية ذاتها، لكن قوالب الطباعة مختلفة، فهي منتجات مختلفة من منظور التصنيع.
 
-**Q: Can layers use items from different warehouses?**
-A: Yes. Item classes don't specify warehouses. When planning materials, you can choose which warehouse to pull from. The specification just defines what type of material is needed.
+**س: هل يمكن أن تستخدم الطبقات أصنافاً من مخازن مختلفة؟**
+ج: نعم. التصنيفات لا تحدد المخازن. عند تخطيط المواد، يمكنك اختيار المخزن الذي تسحب منه. المواصفة فقط تُعرّف نوع المادة المطلوبة.
 
-**Q: What happens if I delete a specification?**
-A: Nama prevents deletion if it's used in any orders or production orders. You'd need to delete those first, which is rarely advisable. Instead, mark it as "Prevent Usage" to stop it from being selected in new orders while preserving history.
+**س: ماذا يحدث لو حذفت مواصفة؟**
+ج: يمنع Nama الحذف إذا كانت المواصفة مستخدمة في أي طلبات أو أوامر إنتاج. ستحتاج إلى حذف تلك أولاً، وهو نادراً ما يُنصح به. بدلاً من ذلك، ضع علامة "منع الاستخدام" لمنع اختيارها في الطلبات الجديدة مع الحفاظ على السجل التاريخي.
 
 ---
 
-::: tip Next Step
-Once you have specifications defined, you're ready to create customer orders. See [Carton Orders](./carton-orders.md) for the next step.
+::: tip الخطوة التالية
+بمجرد تعريف المواصفات، أنت مستعد لإنشاء طلبات العملاء. راجع [طلبات الكراتين](./carton-orders.md) للخطوة التالية.
 :::
 
-::: warning Material Planning Requirements
-For material planning to work, you need inventory items set up with the same item classes (section, class1, class2, etc.) that you specified in the production stages. The optimizer can't find materials if the classifications don't match.
+::: warning متطلبات تخطيط المواد
+لكي يعمل تخطيط المواد، تحتاج إلى أصناف مخزون مُعدّة بنفس تصنيفات الأصناف (القسم، والتصنيف 1، والتصنيف 2، وما إلى ذلك) التي حددتها في مراحل الإنتاج. لا يستطيع المُحسّن إيجاد المواد إذا لم تتطابق التصنيفات.
 :::

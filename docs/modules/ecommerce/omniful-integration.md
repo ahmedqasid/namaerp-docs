@@ -1,183 +1,183 @@
-# Omniful Integration Guide
+# دليل التكامل مع Omniful {#Omniful-Integration-Guide}
 
-## Overview
+## نظرة عامة (Overview) {#Overview}
 
-Nama ERP integrates with [Omniful](https://www.omniful.ai/), a unified supply chain platform that provides comprehensive warehouse management and order fulfillment capabilities. This integration enables seamless data synchronization between Nama ERP and Omniful for inventory management, order processing, and supply chain operations.
+يتكامل نظام نما ERP مع [Omniful](https://www.omniful.ai/)، وهي منصة موحدة لسلسلة التوريد توفر إمكانات شاملة لإدارة المستودعات وتنفيذ الطلبات. يتيح هذا التكامل مزامنة البيانات بسلاسة بين نما ERP و Omniful لإدارة المخزون ومعالجة الطلبات وعمليات سلسلة التوريد.
 
-## Integration Architecture
+## بنية التكامل (Integration Architecture) {#Integration-Architecture}
 
-The integration operates in two directions:
+يعمل التكامل في اتجاهين:
 
-1. **Outbound (Nama ERP → Omniful)**: Master data and transactions are sent from Nama ERP to Omniful using Entity Flows
-2. **Inbound (Omniful → Nama ERP)**: Orders, stock transfers, purchase orders, and receipts are received from Omniful via webhooks
+1. **صادر (Nama ERP → Omniful)**: يتم إرسال البيانات الرئيسية والمعاملات من نما ERP إلى Omniful باستخدام مسارات الكيانات (Entity Flows)
+2. **وارد (Omniful → Nama ERP)**: يتم استقبال الطلبات وتحويلات المخزون وأوامر الشراء والإيصالات من Omniful عبر webhooks
 
-## Configuration Setup
+## إعداد التكوين (Configuration Setup) {#Configuration-Setup}
 
-### 1. Omniful Configuration Entity
+### 1. كيان إعداد Omniful {#1-Omniful-Configuration-Entity}
 
-Navigate to **Magento → Omniful Configuration** to create and configure the integration settings.
+انتقل إلى **Magento → Omniful Configuration** لإنشاء وضبط إعدادات التكامل.
 
-#### Required Fields
+#### الحقول المطلوبة {#Required-Fields}
 
-| Field | Arabic Name | Description |
+| الحقل | الاسم العربي | الوصف |
 |-------|-------------|-------------|
-| User Name | - | Omniful API username |
-| Password | - | Omniful API password |
-| Seller Code | اسم البائع | Unique seller identifier in Omniful |
-| Webhook Secret Key | - | Secret key for webhook authentication |
-| Tenant API Username | المستخدم | Tenant API username for advanced operations |
-| Tenant API Password | كلمة المرور | Tenant API password |
-| Nama API Key | - | API credentials for Nama ERP access |
+| User Name | - | اسم مستخدم Omniful API |
+| Password | - | كلمة مرور Omniful API |
+| Seller Code | اسم البائع | معرف البائع الفريد في Omniful |
+| Webhook Secret Key | - | المفتاح السري لمصادقة webhook |
+| Tenant API Username | المستخدم | اسم مستخدم Tenant API للعمليات المتقدمة |
+| Tenant API Password | كلمة المرور | كلمة مرور Tenant API |
+| Nama API Key | - | بيانات اعتماد API للوصول إلى نما ERP |
 
-#### Reference Field Configuration
+#### إعداد حقول المرجع {#Reference-Field-Configuration}
 
-These fields map Omniful IDs to specific fields in Nama ERP entities:
+تربط هذه الحقول معرفات Omniful بحقول محددة في كيانات نما ERP:
 
-| Field | Arabic Name | Purpose |
+| الحقل | الاسم العربي | الغرض |
 |-------|-------------|---------|
-| Omniful Reference Field For Orders | حقل مرجع أومنيفل في الطلبات | Maps sales orders to Omniful order IDs |
-| Omniful Reference Field For Issue Stock Transfer | حقل مرجع أومنيفل في صرف تحويل مخزني | Maps stock issue transfers |
-| Omniful Reference Field For Receipt Stock Transfer | حقل مرجع أومنيفل في استلام تحويل مخزني | Maps stock receipt transfers |
-| Omniful Reference Field For Purchase Order | حقل مرجع أومنيفل في أمر شراء | Maps purchase orders |
-| Omniful Reference Field For Stock Transfer Request | حقل مرجع أومنيفل في طلب التحويل المخزني | Maps stock transfer requests |
-| Omniful Reference Field For Stock Receipt | حقل مرجع أومنيفل في التوريد المخزني | Maps stock receipts |
+| Omniful Reference Field For Orders | حقل مرجع أومنيفل في الطلبات | ربط أوامر البيع بمعرفات الطلبات في Omniful |
+| Omniful Reference Field For Issue Stock Transfer | حقل مرجع أومنيفل في صرف تحويل مخزني | ربط تحويلات صرف المخزون |
+| Omniful Reference Field For Receipt Stock Transfer | حقل مرجع أومنيفل في استلام تحويل مخزني | ربط تحويلات استلام المخزون |
+| Omniful Reference Field For Purchase Order | حقل مرجع أومنيفل في أمر شراء | ربط أوامر الشراء |
+| Omniful Reference Field For Stock Transfer Request | حقل مرجع أومنيفل في طلب التحويل المخزني | ربط طلبات تحويل المخزون |
+| Omniful Reference Field For Stock Receipt | حقل مرجع أومنيفل في التوريد المخزني | ربط إيصالات المخزون |
 
-### 2. Document Generation Configuration
+### 2. إعداد توليد المستندات {#2-Document-Generation-Configuration}
 
-For each document type that will be received from Omniful, configure the Document Generation Info Lines:
+لكل نوع مستند سيُستقبل من Omniful، قم بضبط سطور Document Generation Info:
 
-#### Supported Document Types
+#### أنواع المستندات المدعومة {#Supported-Document-Types}
 
-- **Sales Order** (`SalesOrder`)
-- **Issue Stock Transfer** (`IssueStockTransfer`)
-- **Receipt Stock Transfer** (`ReceiptStockTransfer`)
-- **Stock Transfer Request** (`StockTransferReq`)
-- **Purchase Order** (`PurchaseOrder`)
-- **Stock Receipt** (`StockReceipt`)
+- **أمر بيع** (`SalesOrder`)
+- **صرف تحويل مخزني** (`IssueStockTransfer`)
+- **استلام تحويل مخزني** (`ReceiptStockTransfer`)
+- **طلب تحويل مخزني** (`StockTransferReq`)
+- **أمر شراء** (`PurchaseOrder`)
+- **توريد مخزني** (`StockReceipt`)
 
-#### Configuration Fields
+#### حقول الإعداد {#Configuration-Fields}
 
-| Field | Description |
+| الحقل | الوصف |
 |-------|-------------|
-| Entity Type | Select the document type from the dropdown |
-| Apply When Query | Optional query to conditionally apply this configuration |
-| Book | Document book to assign to generated documents |
-| Term | Document term to assign to generated documents |
-| Save Doc With Errors As Draft | If enabled, documents with validation errors will be saved as drafts instead of failing |
+| Entity Type | اختر نوع المستند من القائمة المنسدلة |
+| Apply When Query | استعلام اختياري لتطبيق هذا الإعداد بشكل مشروط |
+| Book | دفتر المستند المراد تعيينه للمستندات المُنشأة |
+| Term | توجيه المستند المراد تعيينه للمستندات المُنشأة |
+| Save Doc With Errors As Draft | عند التفعيل، تُحفظ المستندات التي تحتوي على أخطاء تحقق كمسودات بدلاً من الفشل |
 
-::: warning Important
-- At least one configuration line must be defined for the integration to work
-- Either Webhook Secret Key or Nama API Key must be configured
-- All reference fields are required and must point to valid custom fields in the respective entities
+::: warning مهم
+- يجب تعريف سطر إعداد واحد على الأقل حتى يعمل التكامل
+- يجب إعداد Webhook Secret Key أو Nama API Key
+- جميع حقول المرجع مطلوبة ويجب أن تشير إلى حقول مخصصة صالحة في الكيانات المعنية
 :::
 
-## Outbound Data Synchronization (Nama ERP → Omniful)
+## مزامنة البيانات الصادرة (Nama ERP → Omniful) {#Outbound-Data-Synchronization-Nama-ERP--Omniful-}
 
-### Available Entity Flows
+### مسارات الكيانات المتاحة {#Available-Entity-Flows}
 
-The following Entity Flows can be used to send data from Nama ERP to Omniful:
+يمكن استخدام مسارات الكيانات التالية لإرسال البيانات من نما ERP إلى Omniful:
 
-#### Master Data Flows
+#### مسارات البيانات الرئيسية {#Master-Data-Flows}
 
 1. **EASendCustomerToOmniful**
-   - Sends customer information including contact details, addresses, and documents
-   - Parameters: Omniful Config Code/ID, Omniful Reference Field ID
-   - Supports both create and update operations
+   - يرسل معلومات العميل بما في ذلك تفاصيل الاتصال والعناوين والمستندات
+   - المدخلات: Omniful Config Code/ID، Omniful Reference Field ID
+   - يدعم عمليتي الإنشاء والتحديث
 
 2. **EASendSupplierToOmniful**
-   - Sends supplier master data to Omniful
-   - Parameters: Omniful Config Code/ID, Omniful Reference Field ID
+   - يرسل البيانات الرئيسية للمورد إلى Omniful
+   - المدخلات: Omniful Config Code/ID، Omniful Reference Field ID
 
 3. **EASendItemToOmniful**
-   - Sends inventory items with sizes and colors variations
-   - Creates SKUs in Omniful for each size/color combination
-   - Parameters: Omniful Config Code/ID, Update Condition Field
+   - يرسل أصناف المخزون مع متغيرات المقاسات والألوان
+   - ينشئ SKUs في Omniful لكل مجموعة مقاس/لون
+   - المدخلات: Omniful Config Code/ID، Update Condition Field
 
 4. **EASendWarehouseToOmniful**
-   - Sends warehouse information including location, contact details, and configuration
-   - Configures warehouse settings for inventory management
-   - Parameters: Omniful Config Code/ID, Update Flag Field
+   - يرسل معلومات المستودع بما في ذلك الموقع وتفاصيل الاتصال والتكوين
+   - يضبط إعدادات المستودع لإدارة المخزون
+   - المدخلات: Omniful Config Code/ID، Update Flag Field
 
-#### Transaction Flows
+#### مسارات المعاملات {#Transaction-Flows}
 
 5. **EASendSalesInvoiceToOmniful**
-   - Sends sales invoices as orders to Omniful
-   - Includes customer details, order items, addresses, and payment information
-   - Parameters: Omniful Config Code/ID, Omniful ID Field
+   - يرسل فواتير البيع كطلبات إلى Omniful
+   - يتضمن تفاصيل العميل وأصناف الطلب والعناوين ومعلومات الدفع
+   - المدخلات: Omniful Config Code/ID، Omniful ID Field
 
 6. **EASendSalesQuotationToOmniful**
-   - Sends sales quotations to Omniful
-   - Parameters: Omniful Config Code/ID, Omniful Reference Field ID
+   - يرسل عروض أسعار البيع إلى Omniful
+   - المدخلات: Omniful Config Code/ID، Omniful Reference Field ID
 
 7. **EASendPurchaseOrderToOmniful**
-   - Sends purchase orders to Omniful for supplier management
-   - Parameters: Omniful Config Code/ID
+   - يرسل أوامر الشراء إلى Omniful لإدارة الموردين
+   - المدخلات: Omniful Config Code/ID
 
 8. **EASendStockTransferReqToOmniful**
-   - Sends stock transfer requests between warehouses
-   - Parameters: Omniful Config Code/ID, Omniful Reference Field ID
+   - يرسل طلبات تحويل المخزون بين المستودعات
+   - المدخلات: Omniful Config Code/ID، Omniful Reference Field ID
 
 9. **EASendStockTransferReqAsPurchaseOrderToOmniful**
-   - Converts stock transfer requests to purchase orders in Omniful
-   - Parameters: Omniful Config Code/ID
+   - يحوّل طلبات تحويل المخزون إلى أوامر شراء في Omniful
+   - المدخلات: Omniful Config Code/ID
 
 10. **EASendIssueStockTransferToOmniful**
-    - Sends issued stock transfers to Omniful
-    - Parameters: Omniful Config Code/ID, Omniful Reference Field ID
+    - يرسل تحويلات صرف المخزون إلى Omniful
+    - المدخلات: Omniful Config Code/ID، Omniful Reference Field ID
 
-## Inbound Data Synchronization (Omniful → Nama ERP)
+## مزامنة البيانات الواردة (Omniful → Nama ERP) {#Inbound-Data-Synchronization-Omniful--Nama-ERP-}
 
-#### Webhook Endpoint
+#### نقطة نهاية Webhook {#Webhook-Endpoint}
 
-Configure Omniful to send webhooks to your Nama ERP webhook endpoint with the following events:
+قم بإعداد Omniful لإرسال webhooks إلى نقطة نهاية webhook الخاصة بنما ERP للأحداث التالية:
 
-#### Supported Events
+#### الأحداث المدعومة {#Supported-Events}
 
-1. **Order Events**
-   - `order.*` with `type: "sto"` → Creates Stock Transfer Requests or Issue Stock Transfers
-   - `order.*` (non-STO) → Creates Sales Orders
+1. **أحداث الطلبات (Order Events)**
+   - `order.*` مع `type: "sto"` ← ينشئ طلبات تحويل مخزني أو صرف تحويل مخزني
+   - `order.*` (غير STO) ← ينشئ أوامر بيع
 
-2. **Purchase Events**
-   - `purchase.*` → Creates Purchase Orders
+2. **أحداث الشراء (Purchase Events)**
+   - `purchase.*` ← ينشئ أوامر شراء
 
-3. **GRN Events**
-   - `grn.*` → Creates Stock Receipts or Receipt Stock Transfers
+3. **أحداث GRN**
+   - `grn.*` ← ينشئ توريدات مخزنية أو استلام تحويل مخزني
 
-### Document Creation Logic
+### منطق إنشاء المستندات {#Document-Creation-Logic}
 
-#### Sales Orders
-- Created when receiving `order` events (non-STO type) with status ≠ "new_order"
-- Maps customer information, billing/shipping addresses, and order items
-- Links to existing Sales Quotations if `order_alias` is provided
+#### أوامر البيع {#Sales-Orders}
+- تُنشأ عند استقبال أحداث `order` (من النوع غير STO) بحالة ≠ "new_order"
+- تربط معلومات العميل وعناوين الفوترة/الشحن وأصناف الطلب
+- تربط بعروض الأسعار الموجودة إذا تم توفير `order_alias`
 
-#### Stock Transfer Operations
-- **Stock Transfer Request**: Created for STO orders with status "new_order"
-- **Issue Stock Transfer**: Created for STO orders with status ≠ "new_order"
-- **Receipt Stock Transfer**: Created from GRN events when matching Issue Stock Transfer exists
+#### عمليات تحويل المخزون {#Stock-Transfer-Operations}
+- **طلب تحويل مخزني**: يُنشأ لطلبات STO بحالة "new_order"
+- **صرف تحويل مخزني**: يُنشأ لطلبات STO بحالة ≠ "new_order"
+- **استلام تحويل مخزني**: يُنشأ من أحداث GRN عند وجود صرف تحويل مخزني مطابق
 
-#### Purchase Orders
-- Created from `purchase` events
-- Includes supplier information, warehouse details, and purchase items
+#### أوامر الشراء {#Purchase-Orders}
+- تُنشأ من أحداث `purchase`
+- تتضمن معلومات المورد وتفاصيل المستودع وأصناف الشراء
 
-#### Stock Receipts
-- Created from GRN events when no matching Issue Stock Transfer exists
-- Links to existing Purchase Orders via `entity_id` reference
+#### التوريدات المخزنية {#Stock-Receipts}
+- تُنشأ من أحداث GRN عند عدم وجود صرف تحويل مخزني مطابق
+- تربط بأوامر الشراء الموجودة عبر مرجع `entity_id`
 
-### Webhook Payload Processing
+### معالجة محتوى Webhook {#Webhook-Payload-Processing}
 
-The webhook handler:
-1. Validates the webhook secret key against the configuration
-2. Parses the JSON payload to extract event type and data
-3. Routes the event to the appropriate document creation method
-4. Maps Omniful data to Nama ERP entities
-5. Saves documents according to the Document Generation Info configuration
-6. Updates reference fields with Omniful IDs for future synchronization
+يقوم معالج webhook بما يلي:
+1. التحقق من صحة المفتاح السري لـ webhook مقابل الإعداد
+2. تحليل محتوى JSON لاستخراج نوع الحدث والبيانات
+3. توجيه الحدث إلى طريقة إنشاء المستند المناسبة
+4. ربط بيانات Omniful بكيانات نما ERP
+5. حفظ المستندات وفقاً لإعداد Document Generation Info
+6. تحديث حقول المرجع بمعرفات Omniful للمزامنة المستقبلية
 
-## Data Mapping
+## ربط البيانات (Data Mapping) {#Data-Mapping}
 
-### Customer Data Mapping
+### ربط بيانات العميل {#Customer-Data-Mapping}
 
-| Nama ERP Field | Omniful Field |
+| حقل نما ERP | حقل Omniful |
 |----------------|---------------|
 | Name1 | first_name |
 | Name2 | last_name |
@@ -188,9 +188,9 @@ The webhook handler:
 | Contact Info → Address | address object |
 | Passport Details | documents array |
 
-### Item Data Mapping
+### ربط بيانات الأصناف {#Item-Data-Mapping}
 
-| Nama ERP Field | Omniful Field |
+| حقل نما ERP | حقل Omniful |
 |----------------|---------------|
 | Size/Color Code | sku_code |
 | Item Name | name |
@@ -200,9 +200,9 @@ The webhook handler:
 | Net Purchase Value | cost |
 | Current Price | selling_price, retail_price |
 
-### Order Data Mapping
+### ربط بيانات الطلبات {#Order-Data-Mapping}
 
-| Nama ERP Field | Omniful Field |
+| حقل نما ERP | حقل Omniful |
 |----------------|---------------|
 | ID | order_id |
 | Code | order_alias |
@@ -213,34 +213,33 @@ The webhook handler:
 | Order Items | order_items array |
 | Payment Method | payment_method |
 
-## Error Handling
+## معالجة الأخطاء (Error Handling) {#Error-Handling}
 
-### Document Creation Errors
+### أخطاء إنشاء المستندات {#Document-Creation-Errors}
 
-When webhook processing encounters errors:
+عند مواجهة أخطاء أثناء معالجة webhook:
 
-1. **Save as Draft**: If "Save Doc With Errors As Draft" is enabled in the configuration, the document is saved as a draft
-2. **Exception Throwing**: If draft saving is disabled, the process throws an exception and returns an error response
+1. **الحفظ كمسودة**: إذا كان خيار "Save Doc With Errors As Draft" مفعّلاً في الإعداد، يُحفظ المستند كمسودة
+2. **رمي الاستثناء**: إذا كان حفظ المسودة معطّلاً، تطرح العملية استثناءً وتُعيد استجابة خطأ
 
-### Validation Requirements
+### متطلبات التحقق {#Validation-Requirements}
 
-Before processing, the system validates:
-- Omniful Configuration exists and is properly configured
-- Document Generation Info Lines are defined
-- Required reference fields are configured
-- Webhook secret key matches the configuration
+قبل المعالجة، يتحقق النظام من:
+- وجود إعداد Omniful وضبطه بشكل صحيح
+- تعريف سطور Document Generation Info
+- إعداد حقول المرجع المطلوبة
+- تطابق المفتاح السري لـ webhook مع الإعداد
 
-## API Clients
+## عملاء API {#API-Clients}
 
-The integration uses two API client types:
+يستخدم التكامل نوعين من عملاء API:
 
-### OmnifulSalesChannelAPIClient
-- Used for customer and order-related operations
-- Handles sales channel API endpoints
-- Manages customer creation and updates
+### OmnifulSalesChannelAPIClient {#OmnifulSalesChannelAPIClient}
+- يُستخدم للعمليات المتعلقة بالعملاء والطلبات
+- يتعامل مع نقاط نهاية API لقناة البيع
+- يدير إنشاء العملاء وتحديثهم
 
-### OmnifulTenantAPIClient
-- Used for warehouse management and inventory operations
-- Handles tenant-level API endpoints
-- Manages items, warehouses, and supply chain operations
- 
+### OmnifulTenantAPIClient {#OmnifulTenantAPIClient}
+- يُستخدم لإدارة المستودعات وعمليات المخزون
+- يتعامل مع نقاط نهاية API على مستوى Tenant
+- يدير الأصناف والمستودعات وعمليات سلسلة التوريد

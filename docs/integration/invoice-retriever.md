@@ -1,69 +1,69 @@
-# Sending Invoices and Documents to Customers
+# إرسال الفواتير والمستندات للعملاء {#Sending-Invoices-and-Documents-to-Customers}
 
-The **Invoice Retriever** feature in Nama ERP allows sending links to customers (or suppliers) that generate and serve reports (e.g., invoices, receipts) on demand.
+تتيح ميزة **Invoice Retriever** في Nama ERP إرسال روابط للعملاء (أو الموردين) تقوم بإنشاء التقارير (مثل الفواتير والإيصالات) وتقديمها عند الطلب.
 
-When a customer clicks the link for the first time, the system runs the associated report, saves the output file, and serves the same file for future visits to enhance performance.
+عندما يضغط العميل على الرابط للمرة الأولى، يقوم النظام بتشغيل التقرير المرتبط وحفظ الملف الناتج، ثم يقدم نفس الملف في الزيارات اللاحقة لتحسين الأداء.
 
-## Configuration Steps
+## خطوات الإعداد {#Configuration-Steps}
 
-### 1. Configure Invoice Retriever
+### 1. إعداد Invoice Retriever {#1-Configure-Invoice-Retriever}
 
-* Navigate to the **Fields and Entities Settings** screen.
-* In the **Invoice Retriever Lines** grid, add a new line.
-* Select the form you want to use to generate the invoice or document.
+* انتقل إلى شاشة **إعدادات الحقول والكيانات**.
+* في جدول **Invoice Retriever Lines**، أضف سطرًا جديدًا.
+* اختر النموذج الذي تريد استخدامه لإنشاء الفاتورة أو المستند.
 
-### 2. Set Output Folder
+### 2. تحديد مجلد الإخراج {#2-Set-Output-Folder}
 
-* Specify the folder path where the output files will be stored.
-* The system will store the report result here to serve it on future link visits without re-generating.
-* You may delete files manually from this folder to force regeneration.
+* حدد مسار المجلد الذي سيتم تخزين الملفات الناتجة فيه.
+* سيخزن النظام نتيجة التقرير هنا لتقديمها في زيارات الرابط اللاحقة دون إعادة الإنشاء.
+* يمكنك حذف الملفات يدويًا من هذا المجلد لإجبار النظام على إعادة الإنشاء.
 
 ::: tip
-By default, the report runs only once. If the invoice is updated afterward, the changes will **not** appear in the link unless the saved file is deleted manually.
+بشكل افتراضي، يعمل التقرير مرة واحدة فقط. إذا تم تحديث الفاتورة لاحقًا، **لن** تظهر التغييرات في الرابط إلا بعد حذف الملف المحفوظ يدويًا.
 :::
 
-### 3. Force Re-Execution (Disable Caching)
+### 3. إجبار إعادة التنفيذ (تعطيل التخزين المؤقت) {#3-Force-Re-Execution-Disable-Caching}
 
-* If you want the report to run **every time** the link is accessed, enable the `Do Not Cache` option in the Invoice Retriever line.
+* إذا أردت أن يعمل التقرير **في كل مرة** يتم فيها الوصول إلى الرابط، فعّل خيار `Do Not Cache` في سطر Invoice Retriever.
 
-### 4. Support for Multiple Forms
+### 4. دعم نماذج متعددة {#4-Support-for-Multiple-Forms}
 
-* You can define multiple retrievers for the same entity using the **URL Prefix** field.
-* This helps support multiple document types under different URL paths (e.g., `invoices`, `receipts`).
+* يمكنك تعريف عدة retrievers لنفس الكيان باستخدام حقل **URL Prefix**.
+* هذا يتيح دعم أنواع مستندات متعددة تحت مسارات URL مختلفة (مثل `invoices` و`receipts`).
 
-## Sending the Link in Notifications
+## إرسال الرابط في الإشعارات {#Sending-the-Link-in-Notifications}
 
-Use notification definitions (SMS, email, etc.) to send links to customers using the `{retrieverFileId}` variable.
+استخدم تعريفات الإشعارات (SMS، بريد إلكتروني، وغيرها) لإرسال روابط للعملاء باستخدام المتغير `{retrieverFileId}`.
 
-### Basic Example (SMS):
+### مثال أساسي (SMS): {#Basic-Example-SMS}
 
 ```
 Thanks for visiting us, view your invoice by clicking on this link:
 https://my.swsg.co/erp/r/{retrieverFileId}
 ```
 
-### With File Extension:
+### مع امتداد الملف: {#With-File-Extension}
 
 ```
 https://my.swsg.co/erp/r/{retrieverFileId}.pdf
 ```
 
-### With Dynamic Code:
+### مع كود ديناميكي: {#With-Dynamic-Code}
 
 ```
 https://my.swsg.co/erp/r/{retrieverFileId}.{code}.pdf
 ```
 
-### Cleaner URL Style:
+### أسلوب URL أنظف: {#Cleaner-URL-Style}
 
 ```
 https://my.swsg.co/erp/r/{retrieverFileId}/{code}.pdf
 ```
 
-### With URL Prefix (e.g., invoices):
+### مع URL Prefix (مثل invoices): {#With-URL-Prefix-eg-invoices}
 
 ```
 https://my.swsg.co/erp/r/invoices/{retrieverFileId}
 ```
 
-Use these variations to customize how the link appears and functions depending on your business needs and branding.
+استخدم هذه الأشكال المختلفة لتخصيص طريقة ظهور الرابط وعمله بحسب احتياجات عملك وهويتك البصرية.

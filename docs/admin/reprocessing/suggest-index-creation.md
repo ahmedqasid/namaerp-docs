@@ -1,24 +1,24 @@
-# Suggest Indexes for Large Detail Tables
+# اقتراح إنشاء Indexes لجداول التفاصيل الكبيرة {#Suggest-Indexes-for-Large-Detail-Tables}
 
-This article provides guidance on identifying large detail tables in your database that are missing essential indexes on their foreign key columns, which may lead to performance issues when selecting records.
+يوفر هذا المقال إرشادات لتحديد جداول التفاصيل الكبيرة في قاعدة البيانات التي تفتقر إلى indexes أساسية على أعمدة المفاتيح الخارجية (foreign key)، مما قد يؤدي إلى مشكلات في الأداء عند استرجاع السجلات.
 
-## Why This Matters
+## لماذا يهمنا هذا الأمر {#Why-This-Matters}
 
-In Nama ERP and other systems with highly normalized schemas, many tables contain **detail lines** (child records) linked to parent headers via a foreign key column (e.g., `qtyTrans_id`, `stockAgesTrans_id`). If these columns are not indexed, queries involving these detail lines—especially during report generation or document loading—can be significantly slower.
+في Nama ERP والأنظمة الأخرى ذات المخططات عالية التطبيع، تحتوي كثير من الجداول على **سطور تفاصيل** (سجلات فرعية) مرتبطة بالجداول الرئيسية عبر عمود مفتاح خارجي (مثل `qtyTrans_id` و`stockAgesTrans_id`). إذا لم تكن هذه الأعمدة مُفهرَسة، فإن الاستعلامات التي تتضمن سطور التفاصيل—ولا سيما عند توليد التقارير أو تحميل المستندات—ستكون أبطأ بشكل ملحوظ.
 
-To optimize performance, it's recommended to create a **non-clustered index** on such foreign key columns **only if the detail table contains a significant number of rows**.
+لتحسين الأداء، يُنصح بإنشاء **non-clustered index** على أعمدة المفاتيح الخارجية هذه **فقط إذا كان جدول التفاصيل يحتوي على عدد كبير من الصفوف**.
 
-## How to Use This Query
+## كيفية استخدام هذا الاستعلام {#How-to-Use-This-Query}
 
-The following SQL query searches for tables in your database that:
+يبحث استعلام SQL التالي عن الجداول في قاعدة البيانات التي:
 
-* Contain large numbers of records
-* Have a known foreign key column to the parent table
-* Do **not** already have an index on that foreign key column
+* تحتوي على أعداد كبيرة من السجلات
+* تملك عمود مفتاح خارجي معروفاً للجدول الأب
+* لا تمتلك **بالفعل** index على عمود المفتاح الخارجي
 
-The query outputs a list of tables with suggestions for creating the needed index.
+يُخرج الاستعلام قائمة بالجداول مع مقترحات لإنشاء الـ index المطلوب.
 
-You should **only apply the suggested indexes to tables where `row_count` exceeds your threshold**, e.g., 50,000 or 100,000 records.
+يجب **تطبيق الـ indexes المقترحة فقط على الجداول التي يتجاوز فيها `row_count` الحد المحدد**، مثل 50,000 أو 100,000 سجل.
 
 | table\_name                | column\_name           | row\_count | create\_index\_sql                                                                                                                          |
 | -------------------------- | ---------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -28,17 +28,17 @@ You should **only apply the suggested indexes to tables where `row_count` exceed
 | StockTakingDetailsElecLine | stockTakingDetails\_id | 2365       | CREATE NONCLUSTERED INDEX IX\_StockTakingDetailsElecLine\_stockTakingDetails\_id ON dbo.StockTakingDetailsElecLine(stockTakingDetails\_id); |
 
 
-From this result:
+من هذه النتيجة:
 
-* You **should** create the index for `StockAgesTransLine` because it has 37 million rows.
-* You **should not** create the index for `StockTakingDetailsElecLine` because it only has 2,365 rows.
+* **يجب** إنشاء الـ index لجدول `StockAgesTransLine` لأنه يحتوي على 37 مليون صف.
+* **لا يجب** إنشاء الـ index لجدول `StockTakingDetailsElecLine` لأنه يحتوي على 2,365 صفاً فقط.
 
-## Recommendations
+## التوصيات {#Recommendations}
 
-* Review the result of the query periodically, especially after new document types or detail tables are introduced.
-* Do **not** create indexes on small tables (e.g., less than 10,000 rows) unless you observe actual performance issues.
+* راجع نتيجة الاستعلام بصفة دورية، خاصةً بعد إضافة أنواع مستندات جديدة أو جداول تفاصيل جديدة.
+* **لا تُنشئ** indexes على الجداول الصغيرة (مثل أقل من 10,000 صف) ما لم تلاحظ مشكلات أداء فعلية.
 
-## SQL Query
+## استعلام SQL {#SQL-Query}
 
 <div class="ignore-in-full-text-search">
 

@@ -1,267 +1,267 @@
-# Carton Material Planning: The Optimization Engine
+# تخطيط خامات الكرتون (Carton Material Planning): محرك التحسين {#Carton-Material-Planning-The-Optimization-Engine}
 
-## The Heart of Material Efficiency
+## قلب كفاءة المواد {#The-Heart-of-Material-Efficiency}
 
-This is where Nama ERP earns its keep in carton manufacturing. You have orders to fulfill, rolls of paper in inventory, and a simple goal: cut those rolls to produce the ordered cartons with minimum waste.
+هنا يُبرهن Nama ERP على قيمته في تصنيع الكرتون. لديك طلبيات تحتاج إلى تنفيذها، ولفات ورق في المخزن، وهدف بسيط: قص تلك اللفات لإنتاج الكرتون المطلوب بأقل هدر ممكن.
 
-Sounds simple. It's not.
+يبدو الأمر بسيطاً، لكنه ليس كذلك.
 
-You have multiple orders of different sizes. Multiple layers per carton, each potentially from different grades of paper. Multiple roll widths in stock. Constraints on minimum trim, minimum cuts per roll, maximum production complexity. And thousands of possible ways to cut everything.
+لديك طلبيات متعددة بأحجام مختلفة، وطبقات متعددة في كل كرتونة من درجات ورق مختلفة، وعروض لفات متعددة في المخزن، وقيود على أقل تريم وأقل عدد قطعيات للرول وأقصى تعقيد في الإنتاج. وآلاف الطرق الممكنة لقص كل شيء.
 
-**Carton Material Planning** (تخطيط خامات الكرتون) takes all of that complexity and finds the optimal cutting plan using industrial-strength constraint-programming algorithms. You tell it what you need to make and what materials you have. It tells you exactly how to cut every roll to minimize waste while fulfilling your orders.
+**تخطيط خامات الكرتون** (Carton Material Planning) يأخذ كل هذا التعقيد ويجد خطة القص المثلى باستخدام خوارزميات constraint-programming على مستوى صناعي. تخبره بما تحتاج إنتاجه وما لديك من مواد، فيخبرك بالضبط كيف تقص كل لفة لتقليل الهدر مع تلبية طلبياتك.
 
-You'll find material planning under **Manufacturing > Documents > CRTN Material Planning** (التصنيع > المستندات > تخطيط خامات الكرتون).
+ستجد تخطيط الخامات عبر **التصنيع > المستندات > تخطيط خامات الكرتون**.
 
-## The Big Picture: What Material Planning Does
+## الصورة الكاملة: ما يفعله تخطيط الخامات {#The-Big-Picture-What-Material-Planning-Does}
 
-Think of material planning as a three-stage process:
+فكر في تخطيط الخامات كعملية ثلاثية المراحل:
 
-**Stage 1: Collect Requirements**
-- Start with one or more carton orders
-- Optionally find companion orders to batch together
-- System extracts manufacturing details (what actually needs to be produced)
-- You review and adjust the list of items to plan
+**المرحلة الأولى: تجميع المتطلبات**
+- ابدأ بطلبية كرتون واحدة أو أكثر
+- ابحث اختيارياً عن أوامر مصاحبة لتجميعها معاً
+- يستخرج النظام تفاصيل التصنيع (ما يحتاج إنتاجه فعلاً)
+- راجع وعدّل قائمة الوصلات المراد تخطيطها
 
-**Stage 2: Optimize Cutting**
-- Click "Collect Materials"
-- Optimizer searches inventory for suitable rolls
-- Runs constraint-programming solver to find best cutting plan
-- Generates detailed material requirements showing exactly how to cut each roll
+**المرحلة الثانية: تحسين القص**
+- انقر "تجميع المواد"
+- يبحث المُحسِّن في المخزن عن اللفات المناسبة
+- يشغّل solver البرمجة التقييدية للعثور على أفضل خطة قص
+- ينشئ متطلبات تفصيلية للخامات توضح كيفية قص كل لفة
 
-**Stage 3: Execute Production**
-- Review the cutting plan
-- Generate production orders
-- Issue materials from specific lots/rolls
-- Send cutting plan to shop floor
+**المرحلة الثالثة: تنفيذ الإنتاج**
+- راجع خطة القص
+- أنشئ أوامر الإنتاج
+- اصرف الخامات من lot/لفة محددة
+- أرسل خطة القص إلى الورشة
 
-Let's walk through each stage in detail.
+لنستعرض كل مرحلة بالتفصيل.
 
-## Stage 1: Setting Up the Planning Document
+## المرحلة الأولى: إعداد مستند التخطيط {#Stage-1-Setting-Up-the-Planning-Document}
 
-### Creating the Document
+### إنشاء المستند {#Creating-the-Document}
 
-Start a new material planning document. Fill in the header:
+أنشئ مستند تخطيط خامات جديداً واملأ البيانات الرئيسية:
 
-**Planning Configuration** (إعدادات التخطيط): **Required**. Select the configuration that defines your optimization parameters (minimum trim, maximum search time, etc.). You must select this before you can do anything else.
+**إعدادات التخطيط** (Planning Configuration): **إلزامي**. اختر الإعدادات التي تحدد معاملات التحسين (أقل تريم، أقصى وقت للبحث، إلخ). يجب اختيارها قبل أي إجراء آخر.
 
-**Book** and **Term**: Control numbering and document generation settings
+**الدفتر** (Book) **والتوجيه** (Term): يتحكمان في الترقيم وإعدادات إنشاء المستند.
 
-**Planning Status** (حالة التخطيط): System-managed field showing where you are in the process:
-- **Initial**: Just created, collecting requirements
-- **Planning**: Ready to run optimizer
-- **Planned**: Optimization complete, results available
+**حالة التخطيط** (Planning Status): حقل يديره النظام ويوضح مرحلتك في العملية:
+- **Initial** (مبدئي): تم الإنشاء للتو، بصدد تجميع المتطلبات
+- **Planning** (تخطيط): جاهز لتشغيل المُحسِّن
+- **Planned** (مخطط): اكتمل التحسين وتتوفر النتائج
 
-**Value Date**: When this planning should be dated (for accounting purposes)
+**تاريخ القيمة** (Value Date): تاريخ هذا التخطيط (لأغراض المحاسبة).
 
-### Adding Orders to Plan
+### إضافة الطلبيات للتخطيط {#Adding-Orders-to-Plan}
 
-You have several ways to populate the planning document with orders:
+لديك عدة طرق لملء مستند التخطيط بالطلبيات:
 
-#### Method 1: From an Order (Quick Start)
+#### الطريقة الأولى: من الطلبية مباشرة (البداية السريعة)
 
-If you're already viewing a carton order, click **Generate CRTN Material Planning** on the order. Nama creates a planning document with that order already added.
+إذا كنت تعرض طلبية كرتون بالفعل، انقر **إنشاء تخطيط خامات الكرتون** (Generate CRTN Material Planning) على الطلبية. سيُنشئ Nama مستند تخطيط مع تلك الطلبية مضافةً بالفعل.
 
-#### Method 2: Manual Selection
+#### الطريقة الثانية: الاختيار اليدوي
 
-Create a blank planning document. In the **Documents** (المستندات) tab, add lines:
+أنشئ مستند تخطيط فارغاً. في تبويب **المستندات** (Documents)، أضف أسطراً:
 
-Each line references a **CRTN Order**. When you select an order, Nama shows the customer and totals.
+كل سطر يشير إلى **طلبية كرتون** (CRTN Order). عند اختيار طلبية، يعرض Nama العميل والإجماليات.
 
-When you save, Nama automatically populates the **Items** (الوصلات) tab based on the manufacturing details from all selected orders.
+عند الحفظ، يملأ Nama تبويب **الوصلات** (Items) تلقائياً بناءً على تفاصيل التصنيع من جميع الطلبيات المختارة.
 
-#### Method 3: Direct Item Entry (Advanced)
+#### الطريقة الثالثة: إدخال الوصلات مباشرة (متقدم)
 
-You can manually add lines to the **Items** tab without going through orders. This is for special scenarios like:
-- Planning for internal use (not customer orders)
-- Replanning after production changes
-- Test runs to evaluate material availability
+يمكنك إضافة أسطر يدوياً في تبويب الوصلات دون المرور بالطلبيات. هذا لسيناريوهات خاصة مثل:
+- التخطيط للاستخدام الداخلي (ليس لطلبيات عملاء)
+- إعادة التخطيط بعد تغييرات الإنتاج
+- تشغيلات تجريبية لتقييم توفر الخامات
 
-When adding items manually:
-- Select the **CRTN Order** (or leave blank for non-order planning)
-- Select the **Carton Specs**
-- Enter **Quantity**
-- Fill in sheet dimensions (length, width)
+عند إضافة الوصلات يدوياً:
+- اختر **طلبية الكرتون** (CRTN Order) أو اتركها فارغة للتخطيط غير المرتبط بطلبية
+- اختر **مواصفات الكرتونة** (Carton Specs)
+- أدخل **الكمية** (Quantity)
+- امل أبعاد اللوح (الطول، العرض)
 
-Most users stick with Methods 1 or 2 - planning from orders.
+معظم المستخدمين يلتزمون بالطريقتين الأولى أو الثانية.
 
-### Understanding the Items Tab
+### فهم تبويب الوصلات {#Understanding-the-Items-Tab}
 
-Once you save, the **Items** tab shows what you're planning to produce. Each line represents one carton specification from one order.
+بعد الحفظ، يعرض تبويب **الوصلات** (Items) ما تخطط لإنتاجه. كل سطر يمثل مواصفة كرتونة من طلبية واحدة.
 
-**Key fields**:
+**الحقول الرئيسية**:
 
-**Carton Specs** (مواصفات الكرتونة): The specification being produced
-**CRTN Order** (طلبية كرتون): Which order this is for
-**Item** (الصنف): The inventory item (if spec is linked to an item)
-**Total Requested Qty** (إجمالي الكمية المطلوبة): How many cartons total
-**Sheet Length/Width** (طول اللوح / عرض اللوح): Dimensions of the flat sheet (from the spec)
-**Flap Value** (اللسان): Flap allowance
+**مواصفات الكرتونة** (Carton Specs): المواصفة المراد إنتاجها
+**طلبية كرتون** (CRTN Order): الطلبية التي ينتمي إليها هذا السطر
+**الصنف** (Item): صنف المخزون (إذا كانت المواصفة مرتبطة بصنف)
+**إجمالي الكمية المطلوبة** (Total Requested Qty): عدد الكرتون الإجمالي
+**طول اللوح / عرض اللوح** (Sheet Length/Width): أبعاد اللوح المسطح (من المواصفة)
+**اللسان** (Flap Value): مقدار اللسان
 
-**Planning results (filled after optimization)**:
+**نتائج التخطيط (تُملأ بعد التحسين)**:
 
-**Roll Width** (عرض اللفة): Which roll width was selected for this carton
-**Number of Pieces** (عدد القطع): How many pieces fit across the roll width (strikes)
-**Number of Strikes** (عدد الضربات): How many times to strike/cut along the roll
-**Number of Operations** (عدد العمليات): How many separate cutting operations
-**Metric Length** (الطول المتري): Total linear meters of roll needed
-**Total Planned Qty** (إجمالي الكمية المخططة): Actual quantity planned (might be slightly more than requested due to cutting multiples)
-**Trim** (التريم): Waste/trim per cut
-**Operating Width** (العرض التشغيلي): Total width consumed across all pieces
+**عرض اللفة** (Roll Width): عرض اللفة المختار لهذه الكرتونة
+**عدد القطع** (Number of Pieces): عدد القطع التي تسع عرض اللفة (strikes)
+**عدد الضربات** (Number of Strikes): عدد مرات الضرب/القص على طول اللفة
+**عدد العمليات** (Number of Operations): عدد عمليات القص المنفصلة
+**الطول المتري** (Metric Length): إجمالي الأمتار الطولية من اللفة المطلوبة
+**إجمالي الكمية المخططة** (Total Planned Qty): الكمية المخططة فعلياً (قد تزيد قليلاً عن المطلوب بسبب مضاعفات القص)
+**التريم** (Trim): الهدر/التريم لكل قطعة
+**العرض التشغيلي** (Operating Width): إجمالي العرض المستهلك عبر جميع القطع
 
-**Force roll widths (optional)**:
+**إجبار عروض اللفات (اختياري)**:
 
-If you need to use a specific roll width for a layer, you can force it:
-- **Force Layers Roll Width** (إجبار عرض لفة الطبقات): Forces all layers to use this width
-- **Force Layer 1/2/3... Roll Width**: Forces a specific layer to use this width
+إذا احتجت استخدام عرض لفة محدد لطبقة ما، يمكنك إجباره:
+- **إجبار عرض لفة الطبقات** (Force Layers Roll Width): يُجبر جميع الطبقات على هذا العرض
+- **إجبار عرض لفة الطبقة 1/2/3...** (Force Layer 1/2/3... Roll Width): يُجبر طبقة محددة على هذا العرض
 
-The optimizer respects these constraints when searching for solutions.
+يحترم المُحسِّن هذه القيود عند البحث عن الحلول.
 
-## Stage 2: Running the Optimizer
+## المرحلة الثانية: تشغيل المُحسِّن {#Stage-2-Running-the-Optimizer}
 
-### Understanding Planning Status
+### فهم حالة التخطيط {#Understanding-Planning-Status}
 
-Before you can optimize, change the **Planning Status** to "Planning" (تخطيط). This unlocks the optimization functions.
+قبل التحسين، غيّر **حالة التخطيط** إلى "Planning" (تخطيط). هذا يفتح وظائف التحسين.
 
-While in "Initial" status, you're still collecting requirements. Move to "Planning" when you're ready to find materials.
+في حالة "Initial" (مبدئي)، لا تزال تجمع المتطلبات. انتقل إلى "Planning" عندما تكون جاهزاً للبحث عن المواد.
 
-### Finding Companion Orders (The Secret Weapon)
+### البحث عن الأوامر المصاحبة (السلاح السري) {#Finding-Companion-Orders-The-Secret-Weapon}
 
-Here's where Nama gets really smart. You have one order to plan - let's say 2000 units of a 450mm wide carton. But you know there are other pending orders out there for similar cartons. Could you batch them together to reduce waste?
+هنا يظهر ذكاء Nama. لديك طلبية واحدة للتخطيط — مثلاً 2000 وحدة كرتون عرضها 450mm. لكنك تعلم أن هناك طلبيات معلقة أخرى لكرتون مشابه. هل يمكنك تجميعها معاً لتقليل الهدر؟
 
-Click **Find Companion Orders** (البحث عن أوامر مصاحبة).
+انقر **البحث عن أوامر مصاحبة** (Find Companion Orders).
 
-Nama searches:
-1. All committed carton orders that aren't fully planned yet
-2. Filters to orders with carton specs that have identical layer structures (same number of layers, same item classes, same corrugating factors, same layer types)
-3. For each candidate order, runs a quick optimization: "If I batch the current order with this candidate, what's the total waste?"
-4. Sorts candidates by total waste - best matches first
+يبحث Nama في:
+1. جميع طلبيات الكرتون المعتمدة غير المخططة بالكامل بعد
+2. يُصفّيها لطلبيات مواصفاتها ذات بنى طبقات متطابقة (نفس عدد الطبقات، نفس فئات الصنف، نفس معامل التموج، نفس أنواع الطبقات)
+3. لكل طلبية مرشحة، يُشغّل تحسيناً سريعاً: "إذا جمعت الطلبية الحالية مع هذه المرشحة، كم يكون إجمالي الهدر؟"
+4. يُرتّب المرشحات حسب إجمالي الهدر — أفضل التطابقات أولاً
 
-The **Companion Orders** (الأوامر المصاحبة) tab populates with results:
+يمتلئ تبويب **الأوامر المصاحبة** (Companion Orders) بالنتائج:
 
-Each line shows:
-- The candidate order
-- The carton specification
-- Quantities
-- **Total Waste** (إجمالي الهدر): How much total waste (in square meters) if you batch this order with yours
+كل سطر يعرض:
+- الطلبية المرشحة
+- مواصفة الكرتونة
+- الكميات
+- **إجمالي الهدر** (Total Waste): مقدار الهدر الإجمالي (بالمتر المربع) عند تجميع هذه الطلبية مع طلبيتك
 
-The list is sorted by waste - least waste at the top.
+القائمة مرتبة حسب الهدر — أقل هدر في الأعلى.
 
-**Why this matters**: Maybe your 450mm carton alone would use a 2000mm roll with 200mm trim (10% waste). But there's an order for a 540mm carton. Cut both from the same 2000mm roll (450 + 540 = 990mm, fit 2 pairs = 1980mm used) and waste drops to 20mm (1% waste). Huge savings.
+**لماذا هذا مهم**: ربما تستخدم كرتونتك 450mm لفة 2000mm بتريم 200mm (هدر 10%) عند تخطيطها منفردة. لكن هناك طلبية لكرتونة 540mm. اقصهما من نفس لفة 2000mm (450 + 540 = 990mm، يسع زوجين = 1980mm مستخدمة) فينخفض الهدر إلى 20mm (1% هدر). توفير هائل.
 
-**To accept a companion order**:
-1. Review the list
-2. Consider not just waste, but also customer priorities (maybe the top waste-saver is for a customer whose delivery can wait, but the second-best match is for a rush customer)
-3. Click **Accept Selected Order** (قبول الأمر المختار) on the line you want
+**لقبول أمر مصاحب**:
+1. راجع القائمة
+2. ضع في اعتبارك ليس الهدر فحسب، بل أولويات العملاء أيضاً (ربما صاحب أعلى توفير للهدر عميل تحتمل طلبيته الانتظار، بينما الثاني في القائمة طلبية عاجلة)
+3. انقر **قبول الأمر المختار** (Accept Selected Order) على السطر الذي تريده
 
-Nama adds that order to your Documents tab and updates the Items tab with the new carton specs. Now you're planning for both orders together.
+يضيف Nama تلك الطلبية إلى تبويب المستندات ويحدّث تبويب الوصلات بمواصفات الكرتون الجديدة. أصبحت تخطط للطلبيتين معاً.
 
-**You can repeat this**: Find companions again, accept another, keep batching until you've hit a good balance of efficiency vs. production complexity.
+**يمكنك تكرار ذلك**: ابحث عن مصاحبين مجدداً، اقبل آخر، استمر في التجميع حتى تحقق توازناً جيداً بين الكفاءة وتعقيد الإنتاج.
 
-### Before Running Optimization
+### قبل تشغيل التحسين {#Before-Running-Optimization}
 
-Make sure:
-- Planning Status is "Planning"
-- Items tab has all the carton specs you want to produce
-- You're happy with any forced roll widths (or they're all blank for full flexibility)
-- Your planning configuration has reasonable parameters (more on this below)
+تأكد من:
+- حالة التخطيط هي "Planning"
+- تبويب الوصلات يحتوي جميع مواصفات الكرتون التي تريد إنتاجها
+- رضاك عن أي عروض لفات مُجبرة (أو أنها فارغة لمرونة كاملة)
+- إعدادات التخطيط بمعاملات معقولة (مزيد من التفاصيل أدناه)
 
-### Running "Collect Materials"
+### تشغيل "تجميع المواد" {#Running-Collect-Materials}
 
-Click **Collect Materials** (تجميع المواد).
+انقر **تجميع المواد** (Collect Materials).
 
-Nama goes to work:
+يبدأ Nama العمل:
 
-**Step 1: Query Inventory**
+**الخطوة الأولى: الاستعلام عن المخزون**
 
-For each layer of each carton spec, Nama searches for rolls that:
-- Match the required item classes (Section, Class1, Class2, etc.) defined in the spec
-- Are wide enough to fit the sheet width plus minimum trim
-- Are long enough to meet minimum roll length requirements
-- Have available quantity in inventory (based on lot tracking)
+لكل طبقة في كل مواصفة كرتون، يبحث Nama عن لفات:
+- تطابق فئات الصنف المطلوبة (Section, Class1, Class2, إلخ) المحددة في المواصفة
+- عرضها كافٍ ليسع عرض اللوح مضافاً إليه أقل تريم
+- طولها كافٍ لاستيفاء متطلبات أقل طول للرول
+- لديها كمية متاحة في المخزون (بناءً على تتبع lot)
 
-This might find dozens or hundreds of candidate rolls.
+قد يجد هذا عشرات أو مئات اللفات المرشحة.
 
-**Step 2: Calculate Possibilities**
+**الخطوة الثانية: حساب الاحتمالات**
 
-For each candidate roll and each carton:
-- How many pieces fit across the width (considering trim)?
-- How many strikes along the length?
-- What's the total quantity this roll could produce?
-- What's the waste?
+لكل لفة مرشحة ولكل كرتونة:
+- كم قطعة تسع العرض (مع مراعاة التريم)؟
+- كم ضربة على الطول؟
+- ما الكمية الإجمالية التي يمكن أن تنتجها هذه اللفة؟
+- ما مقدار الهدر؟
 
-**Step 3: Set Up the Optimization Problem**
+**الخطوة الثالثة: إعداد مسألة التحسين**
 
-Nama creates a constraint-programming model with:
-- Variables for which rolls to use, how many strikes, how many operations
-- Constraints: Must produce requested quantities (or close to it), must respect minimum trim, can't exceed roll availability, etc.
-- Objective: Minimize total waste + number of rolls used
+ينشئ Nama نموذج برمجة تقييدية يتضمن:
+- متغيرات: أي لفات تُستخدم، وعدد الضربات والعمليات
+- قيود: يجب إنتاج الكميات المطلوبة (أو ما يقاربها)، واحترام أقل تريم، وعدم تجاوز الكميات المتاحة، إلخ
+- هدف: تقليل إجمالي الهدر + عدد اللفات المستخدمة
 
-**Step 4: Solve with CP-SAT**
+**الخطوة الرابعة: الحل بـ CP-SAT**
 
-The Google OR-Tools CP-SAT solver takes over. It's searching through a massive solution space - millions of possible cutting plans - applying constraints to prune invalid solutions, and using sophisticated search heuristics to find the optimal plan.
+يتولى Google OR-Tools CP-SAT solver المهمة. يبحث في فضاء حلول ضخم — ملايين خطط القص الممكنة — مطبقاً القيود لاستبعاد الحلول غير الصالحة، ومستخدماً تقنيات بحث متطورة للعثور على الخطة المثلى.
 
-You can configure in the Planning Configuration:
-- **Max Time in Minutes** (أقصى وقت بالدقائق للبحث): Default 10 minutes. The solver stops after this time.
-- **Workers Count** (عدد الـ Workers): How many CPU threads to use. More threads = faster (if your server has multiple cores).
+يمكنك تهيئة ما يلي في إعدادات التخطيط:
+- **أقصى وقت بالدقائق للبحث** (Max Time in Minutes): الافتراضي 10 دقائق. يتوقف solver بعد هذا الوقت.
+- **عدد الـ Workers** (Workers Count): عدد خيوط المعالج المستخدمة. زيادة الخيوط = أسرع (إذا كان خادمك متعدد النوى).
 
-The solver runs until it finds an optimal solution or hits the time limit.
+يعمل solver حتى يجد حلاً مثالياً أو يصل إلى الحد الزمني.
 
-**Step 5: Return Results**
+**الخطوة الخامسة: إعادة النتائج**
 
-The solver finishes and Nama populates three grids:
+ينتهي solver ويملأ Nama ثلاثة grids:
 
-**Materials Tab** (قطع غيار): The detailed cutting plan. Each line shows:
-- Which lot/roll to use (Lot ID, Box - roll width)
-- How many pieces to cut
-- How many strikes
-- Metric length consumed
-- Specific dimensions assigned
+**تبويب الخامات** (Materials): خطة القص التفصيلية. كل سطر يعرض:
+- أي lot/لفة تُستخدم (Lot ID، Box - عرض اللفة)
+- عدد القطع المقصوصة
+- عدد الضربات
+- الطول المتري المستهلك
+- الأبعاد المحددة
 
-**Materials Totals Tab** (إجماليات الخامات): Summary by item class and roll width showing total quantities needed
+**تبويب إجماليات الخامات** (Materials Totals): ملخص حسب فئة الصنف وعرض اللفة يوضح الكميات الإجمالية المطلوبة
 
-**Items Tab Updates**: Each item line now shows:
-- Roll width selected
-- Number of pieces and strikes
-- Total planned quantity
-- Trim/waste
+**تحديثات تبويب الوصلات**: كل سطر وصلة يعرض الآن:
+- عرض اللفة المختار
+- عدد القطع والضربات
+- إجمالي الكمية المخططة
+- التريم/الهدر
 
-**Planning Status Changes**: If a solution was found, status changes to indicate success:
+**تغييرات حالة التخطيط**: إذا وُجد حل، تتغير الحالة للإشارة إلى النجاح:
 
-**Solution Type** (نوع الحل):
-- **Optimal** (مثالي): The solver proved this is the best possible solution
-- **Feasible** (ممكن): A good solution was found, but the solver ran out of time before proving it's optimal
+**نوع الحل** (Solution Type):
+- **Optimal** (مثالي): أثبت solver أن هذا أفضل حل ممكن
+- **Feasible** (ممكن): وُجد حل جيد لكن solver نفد وقته قبل إثبات المثالية
 
-**Solution Wall Time** (الوقت المستغرق للبحث عن حل): How many seconds the solver took
+**الوقت المستغرق للبحث عن حل** (Solution Wall Time): عدد الثواني التي استغرقها solver
 
-### If the Optimizer Fails
+### إذا فشل المُحسِّن {#If-the-Optimizer-Fails}
 
-Sometimes the optimizer can't find a solution. Common reasons:
+أحياناً لا يجد المُحسِّن حلاً. الأسباب الشائعة:
 
-**Insufficient Materials**: You don't have rolls wide enough, long enough, or in the right grades. Check the error message - it'll tell you which items/layers couldn't find suitable rolls.
+**خامات غير كافية**: لا توجد لفات بعرض كافٍ أو طول كافٍ أو بالدرجات الصحيحة. راجع رسالة الخطأ — ستخبرك بالوصلات/الطبقات التي لم تجد لفات مناسبة.
 
-**Fix**: Purchase materials, or adjust order quantities to what's available.
+**الحل**: اشتر خامات، أو اضبط كميات الطلبيات لما هو متاح.
 
-**Constraints Too Tight**: Maybe your minimum trim requirement is too high, or minimum roll cuts is preventing use of available inventory.
+**قيود شديدة**: ربما متطلب أقل تريم مرتفع جداً، أو أقل عدد قطعيات للرول يمنع استخدام المخزون المتاح.
 
-**Fix**: Relax constraints in the Planning Configuration, or accept that you need to purchase more materials.
+**الحل**: خفف القيود في إعدادات التخطيط، أو اقبل أنك بحاجة لشراء مواد إضافية.
 
-**Orders Incompatible**: The companion orders you batched together can't actually be cut from the same rolls efficiently.
+**طلبيات غير متوافقة**: الأوامر المصاحبة التي جمعتها لا يمكن قصها من نفس اللفات بكفاءة.
 
-**Fix**: Remove some orders from the planning document and plan them separately.
+**الحل**: أزل بعض الطلبيات من مستند التخطيط وخططها منفردة.
 
-**Time Limit Too Short**: The problem is complex and the solver needs more time.
+**الحد الزمني قصير جداً**: المسألة معقدة ويحتاج solver وقتاً أطول.
 
-**Fix**: Increase "Max Time in Minutes" in the Planning Configuration and try again.
+**الحل**: زد "أقصى وقت بالدقائق" في إعدادات التخطيط وأعد المحاولة.
 
-## Interpreting the Results
+## تفسير النتائج {#Interpreting-the-Results}
 
-### Materials Tab: Your Cutting Plan
+### تبويب الخامات: خطة القص {#Materials-Tab-Your-Cutting-Plan}
 
-This is the actionable output - exactly what to cut.
+هذا هو الناتج القابل للتنفيذ — ما تقصه بالضبط.
 
-Each line represents material for one layer of one carton spec from one specific lot/roll.
+كل سطر يمثل خاماً لطبقة واحدة من مواصفة كرتونة واحدة من lot/لفة محددة.
 
-**Example line**:
+**مثال على سطر**:
 ```
 Item Class 1: Kraft Liner
 Item Class 2: 125 GSM
@@ -273,15 +273,15 @@ Metric Length: 110 meters
 Source Line ID: (links back to the item being produced)
 ```
 
-**What this means**: Take roll lot A2024-5001 (which is 2000mm wide). Cut 4 pieces across the width, make 250 strikes along the length. You'll consume 110 meters of this roll.
+**ما يعنيه ذلك**: خذ لفة lot A2024-5001 (عرضها 2000mm). اقص 4 قطع عبر العرض، واعمل 250 ضربة على الطول. ستستهلك 110 متراً من هذه اللفة.
 
-**Why multiple lines for one carton?**: A carton has multiple layers (facing, fluting, liner). Each layer might come from different rolls, different lots, even different widths. You'll see one material line per layer.
+**لماذا أسطر متعددة لكرتونة واحدة؟**: الكرتونة لها طبقات متعددة (facing, fluting, liner). كل طبقة قد تأتي من لفات مختلفة، lots مختلفة، بل وعروض مختلفة. ستجد سطر خامة واحد لكل طبقة.
 
-**Grouping and filtering**: Use the grid filters to group by carton spec, by lot, by layer - whatever view helps you understand the plan.
+**التجميع والتصفية**: استخدم فلاتر الـ grid للتجميع حسب مواصفة الكرتون، أو lot، أو الطبقة — أياً كان العرض الذي يساعدك على فهم الخطة.
 
-### Materials Totals: Roll Requirements Summary
+### إجماليات الخامات: ملخص متطلبات اللفات {#Materials-Totals-Roll-Requirements-Summary}
 
-This grid aggregates materials by item class and roll width:
+هذا الـ grid يجمع الخامات حسب فئة الصنف وعرض اللفة:
 
 ```
 Item Class 1: Kraft Liner
@@ -290,240 +290,240 @@ Box (Roll Width): 2000mm
 Quantity: 2500 linear meters
 ```
 
-This tells you: "In total, across all cartons in this plan, you need 2500 meters of 125gsm Kraft liner in 2000mm width."
+هذا يخبرك: "في الإجمالي، عبر جميع الكرتون في هذه الخطة، تحتاج 2500 متر من Kraft liner بـ 125gsm بعرض 2000mm."
 
-Use this for:
-- Quick availability check (do we have enough?)
-- Purchase requisitions (if you're short)
-- Warehouse pull lists (which rolls to stage for production)
+استخدم هذا لـ:
+- التحقق السريع من التوفر (هل لدينا ما يكفي؟)
+- طلبات الشراء (إذا كنت في نقص)
+- قوائم سحب المخزن (أي لفات تُجهَّز للإنتاج)
 
-### Available Materials: Inventory vs. Requirements
+### الخامات المتاحة: المخزون مقابل المتطلبات {#Available-Materials-Inventory-vs-Requirements}
 
-Before running optimization, you can click **Review Available Quantities** (مراجعة الكميات المتاحة) to see what's in inventory.
+قبل تشغيل التحسين، يمكنك النقر على **مراجعة الكميات المتاحة** (Review Available Quantities) لمعرفة ما في المخزون.
 
-This action asks: "Include Item in Result?" (usually say No for a summary by width/class, Yes for detail by specific item).
+يسألك هذا الإجراء: "هل تشمل الصنف في النتيجة؟" (عادةً لا للحصول على ملخص حسب العرض/الفئة، نعم للتفاصيل حسب الصنف).
 
-It populates the **Available Materials** (الخامات المتاحة) tab showing:
+يملأ تبويب **الخامات المتاحة** (Available Materials) بما يعرض:
 
-- Roll width
-- Item classes
-- Available quantity in inventory
-- Required quantity for each layer (Layer 1-7)
-- Total required quantity
-- Unavailable quantity (shortfall, if any)
+- عرض اللفة
+- فئات الصنف
+- الكمية المتاحة في المخزون
+- الكمية المطلوبة لكل طبقة (1-7)
+- إجمالي الكمية المطلوبة
+- الكمية غير المتاحة (العجز، إن وُجد)
 
-**Use case**: Before committing to a planning document or before accepting a companion order, review available materials to make sure you can actually fulfill the plan. If "Unavailable Qty" shows values, you don't have enough material - either reduce order quantities or purchase more material.
+**حالة الاستخدام**: قبل الالتزام بمستند تخطيط أو قبول أمر مصاحب، راجع الخامات المتاحة للتأكد من قدرتك على تنفيذ الخطة فعلاً. إذا ظهرت قيم في "الكمية غير المتاحة"، فليس لديك مواد كافية — إما خفّض كميات الطلبيات أو اشتر خامات إضافية.
 
-## Advanced: Controlling the Optimization
+## متقدم: التحكم في التحسين {#Advanced-Controlling-the-Optimization}
 
-### Planning Configuration Parameters
+### معاملات إعدادات التخطيط {#Planning-Configuration-Parameters}
 
-The Planning Configuration (master file) controls how the optimizer behaves. Understanding these parameters lets you tune the solver for your specific needs.
+يتحكم ملف إعدادات التخطيط (Planning Configuration) في سلوك المُحسِّن. فهم هذه المعاملات يمكّنك من ضبط solver لاحتياجاتك المحددة.
 
-**Minimum Roll Length** (أقل طول للرول): Don't use rolls shorter than this. Prevents using up small remnant rolls that aren't efficient to set up.
+**أقل طول للرول** (Minimum Roll Length): لا تستخدم لفات أقصر من هذا. يمنع استخدام لفات الفضلات الصغيرة غير الكفؤة للإعداد.
 
-*Example*: Set to 50 meters. The optimizer ignores any rolls in inventory under 50 meters length.
+*مثال*: اضبط على 50 متراً. يتجاهل المُحسِّن أي لفات في المخزون أقل من 50 متراً.
 
-**Minimum Roll Cuts** (أقل عدد قطعيات للرول): A roll must yield at least this many cuts to be used. Prevents inefficient use where you set up a roll for just a few pieces.
+**أقل عدد قطعيات للرول** (Minimum Roll Cuts): يجب أن تنتج اللفة على الأقل هذا العدد من القطع لاستخدامها. يمنع الاستخدام غير الكفؤ حيث تُعدّ لفة لبضع قطع فحسب.
 
-*Example*: Set to 10. The optimizer won't use a roll unless it can get at least 10 cuts from it.
+*مثال*: اضبط على 10. لن يستخدم المُحسِّن لفة ما لم يحصل منها على 10 قطع على الأقل.
 
-**Minimum Trim** (أقل تريم): The smallest acceptable trim/waste per cut. If you cut pieces that leave less than this as waste, the optimizer rejects that cutting plan.
+**أقل تريم** (Minimum Trim): أصغر تريم/هدر مقبول لكل قطعة. إذا أنتجت القطع هدراً أقل من هذا، يرفض المُحسِّن خطة القص تلك.
 
-*Example*: Set to 20mm. Any cutting pattern that leaves less than 20mm trim is rejected. This prevents using up roll width inefficiently.
+*مثال*: اضبط على 20mm. يُرفض أي نمط قص يترك أقل من 20mm تريم. هذا يمنع استخدام عرض اللفة بشكل غير كفؤ.
 
-**Why have minimum trim?**: Seems counterintuitive - why reject low-waste solutions? Because very narrow trim can jam machines, can't be reused, and might indicate you're forcing an inefficient width match. Sometimes it's better to have a bit more waste that can be recycled than a tiny sliver that causes production problems.
+**لماذا يوجد أقل تريم؟**: يبدو غير منطقي — لماذا نرفض حلول ذات هدر منخفض؟ لأن التريم الضيق جداً قد يعيق الآلات، ولا يمكن إعادة استخدامه، وقد يشير إلى إجبارك تطابق عرض غير كفؤ. أحياناً وجود هدر أكبر قليلاً يمكن إعادة تدويره أفضل من شريحة رفيعة تسبب مشاكل إنتاج.
 
-**Maximum Time in Minutes** (أقصى وقت بالدقائق للبحث): How long the CP-SAT solver can search for a solution. Longer time = better chance of finding optimal solution, but you wait longer.
+**أقصى وقت بالدقائق للبحث** (Maximum Time in Minutes): المدة التي يمكن فيها لـ CP-SAT solver البحث عن حل. وقت أطول = فرصة أكبر للعثور على حل مثالي، لكنك تنتظر أطول.
 
-*Typical values*: 5-10 minutes for simple plans (few orders, lots of material options), 15-30 minutes for complex plans (many orders, tight constraints).
+*قيم نموذجية*: 5-10 دقائق للخطط البسيطة (طلبيات قليلة، خيارات مواد كثيرة)، 15-30 دقيقة للخطط المعقدة (طلبيات كثيرة، قيود مشددة).
 
-**Companion Order Search Max Time in Seconds** (أقصى وقت بالثواني للبحث عن مصاحب): When searching for companion orders, how long to test each candidate order. Shorter time = faster search but might miss good matches.
+**أقصى وقت بالثواني للبحث عن مصاحب** (Companion Order Search Max Time in Seconds): عند البحث عن أوامر مصاحبة، كم تستغرق اختبار كل طلبية مرشحة. وقت أقصر = بحث أسرع لكن قد يفوت تطابقات جيدة.
 
-*Typical values*: 5-10 seconds per candidate.
+*قيم نموذجية*: 5-10 ثوانٍ لكل مرشح.
 
-**CPU Thread Workers Count** (عدد الـ Workers): How many parallel search threads to use. Modern multi-core CPUs can run multiple threads simultaneously, speeding up the search.
+**عدد الـ Workers** (CPU Thread Workers Count): عدد خيوط البحث المتوازية. يمكن لـ CPUs الحديثة متعددة الأنوية تشغيل خيوط متعددة في آنٍ واحد، مما يسرّع البحث.
 
-*Typical values*: 4-12 threads depending on your server. Don't exceed the number of CPU cores you have.
+*قيم نموذجية*: 4-12 خيطاً حسب خادمك. لا تتجاوز عدد أنوية المعالج لديك.
 
-**Max Different Lengths Per Sheet**: Limits complexity. If you're cutting multiple cartons from one roll, this limits how many different lengths can be cut from that sheet.
+**Max Different Lengths Per Sheet**: يحدّ من التعقيد. إذا كنت تقص كرتوناً متعدداً من لفة واحدة، يحدد هذا عدد الأطوال المختلفة التي يمكن قصها من ذلك اللوح.
 
-*Example*: Set to 2. If you're batching three orders with different lengths, the optimizer might split them across different sheets to stay within this limit.
+*مثال*: اضبط على 2. إذا كنت تجمع ثلاث طلبيات بأطوال مختلفة، قد يوزعها المُحسِّن على ألواح مختلفة للبقاء ضمن هذا الحد.
 
-**Max Roll Group Split Count**: When grouping compatible rolls (same width, same grade), how many separate cutting patterns can be used per group.
+**Max Roll Group Split Count**: عند تجميع اللفات المتوافقة (نفس العرض، نفس الدرجة)، كم نمط قص مختلف يمكن استخدامه لكل مجموعة.
 
-*Example*: Set to 2. The optimizer can use up to 2 different cutting patterns on rolls from the same group, but not more.
+*مثال*: اضبط على 2. يمكن للمُحسِّن استخدام حتى نمطين مختلفين من أنماط القص على لفات من نفس المجموعة، لكن ليس أكثر.
 
-**Trim Co-Product** (الصنف الثانوي للتريم): If trim waste should be tracked as inventory (maybe you recycle it or sell it as scrap), select the inventory item here. When production orders are generated, trim is added as a co-product.
+**الصنف الثانوي للتريم** (Trim Co-Product): إذا كان يجب تتبع هدر التريم كمخزون (ربما تعيد تدويره أو تبيعه كخردة)، اختر صنف المخزون هنا. عند إنشاء أوامر الإنتاج، يُضاف التريم كمنتج ثانوي (co-product).
 
-### Forcing Roll Widths
+### إجبار عروض اللفات {#Forcing-Roll-Widths}
 
-Sometimes you need to override the optimizer's selection:
+أحياناً تحتاج تجاوز اختيار المُحسِّن:
 
-**Scenario 1: Finish off inventory**: You have a partial roll of 2100mm width you want to use up before it sits forever. Force that layer to use 2100mm, and the optimizer plans around it.
+**السيناريو الأول: تصفية المخزون**: لديك لفة جزئية بعرض 2100mm تريد استخدامها قبل أن تظل جامدة. أجبر تلك الطبقة على استخدام 2100mm، ويخطط المُحسِّن حولها.
 
-**Scenario 2: Customer requirements**: Customer specified that the facing layer must be from a certain width for appearance consistency. Force it.
+**السيناريو الثاني: متطلبات العميل**: حدد العميل أن طبقة facing يجب أن تكون من عرض معين لاتساق المظهر. أجبره.
 
-**Scenario 3: Machine limitations**: Your corrugator handles only certain widths efficiently. Force those widths.
+**السيناريو الثالث: قيود الآلة**: corrugator لديك يتعامل بكفاءة مع عروض معينة فحسب. أجبر تلك العروض.
 
-In the **Items** tab, fill in:
-- **Force Layers Roll Width**: Forces all layers of this carton to use this width
-- **Force Layer X Roll Width**: Forces a specific layer (1-7) to use this width
+في تبويب **الوصلات** (Items)، امل:
+- **إجبار عرض لفة الطبقات** (Force Layers Roll Width): يُجبر جميع طبقات هذه الكرتونة على هذا العرض
+- **إجبار عرض لفة الطبقة X** (Force Layer X Roll Width): يُجبر طبقة محددة (1-7) على هذا العرض
 
-The optimizer treats these as hard constraints - it will only consider rolls of the forced width for those layers.
+يعاملها المُحسِّن كقيود صارمة — لن يأخذ بعين الاعتبار إلا لفات العرض المُجبر لتلك الطبقات.
 
-**Trade-off**: Less flexibility for the optimizer usually means less optimal solutions (more waste or fewer batching opportunities). Only force widths when there's a real requirement.
+**المقايضة**: مرونة أقل للمُحسِّن تعني عادةً حلولاً أقل مثالية (هدر أكثر أو فرص تجميع أقل). أجبر العروض فقط عند وجود متطلب حقيقي.
 
-### Planning Single Layer (Advanced)
+### تخطيط طبقة واحدة (متقدم) {#Planning-Single-Layer-Advanced}
 
-The **Plan Single Layer** (تخطيط طبقة واحدة) field lets you run optimization for just one layer at a time.
+يتيح لك حقل **تخطيط طبقة واحدة** (Plan Single Layer) تشغيل التحسين لطبقة واحدة فقط في كل مرة.
 
-**Why?**: Sometimes you have materials for most layers but one layer is problematic. Plan that layer separately to see what's needed.
+**لماذا؟**: أحياناً تتوفر لديك خامات لمعظم الطبقات لكن طبقة واحدة مشكلة. خطط تلك الطبقة منفردة لمعرفة ما هو مطلوب.
 
-*Example*: Set "Plan Single Layer" to 2. Run optimization. Nama plans only Layer 2 (fluting), ignoring layers 1, 3, etc.
+*مثال*: اضبط "تخطيط طبقة واحدة" على 2. شغّل التحسين. يخطط Nama الطبقة 2 (fluting) فقط، متجاهلاً الطبقات 1 و3 وما بعدها.
 
-Review the results, see if fluting materials are adequate. Then set to 1, run again for facing. And so on.
+راجع النتائج وتحقق من كفاية مواد fluting. ثم اضبط على 1، وشغّل مجدداً للـ facing. وهكذا.
 
-Most users leave this blank and plan all layers together.
+معظم المستخدمين يتركون هذا الحقل فارغاً ويخططون جميع الطبقات معاً.
 
-## Stage 3: Moving to Production
+## المرحلة الثالثة: الانتقال إلى الإنتاج {#Stage-3-Moving-to-Production}
 
-### Reviewing the Plan
+### مراجعة الخطة {#Reviewing-the-Plan}
 
-Before committing to production, review:
+قبل الالتزام بالإنتاج، راجع:
 
-**Materials tab**: Do the lot selections make sense? Maybe you prefer using certain lots first (older inventory, lower quality for non-critical orders, etc.). Note which lots are assigned.
+**تبويب الخامات**: هل اختيارات lot منطقية؟ ربما تفضل استخدام lots معينة أولاً (المخزون الأقدم، الجودة الأدنى للطلبيات غير الحرجة، إلخ). لاحظ أي lots مخصصة.
 
-**Items tab**: Are planned quantities reasonable? If you requested 5000 and planned 5040 (because cutting multiples work out that way), is the 40-unit overrun acceptable?
+**تبويب الوصلات**: هل الكميات المخططة معقولة؟ إذا طلبت 5000 وخُطط 5040 (لأن مضاعفات القص تسير هكذا)، هل الـ 40 وحدة الزيادة مقبولة؟
 
-**Totals**: Do you have enough of everything? Check available materials vs. requirements.
+**الإجماليات**: هل لديك ما يكفي من كل شيء؟ تحقق من الخامات المتاحة مقابل المتطلبات.
 
-**Waste/Trim**: Is the waste level acceptable? Maybe 5% trim is fine, but 15% suggests you should wait for different materials or batch with different orders.
+**الهدر/التريم**: هل مستوى الهدر مقبول؟ ربما 5% تريم مناسب، لكن 15% يشير إلى انتظار خامات مختلفة أو تجميع مع طلبيات أخرى.
 
-### Generating Production Orders
+### إنشاء أوامر الإنتاج {#Generating-Production-Orders}
 
-Once you're happy with the plan, click **Generate Production Orders** (إنشاء أوامر إنتاج).
+بمجرد رضاك عن الخطة، انقر **إنشاء أوامر إنتاج** (Generate Production Orders).
 
-Nama creates one production order for each carton specification in the Items tab.
+ينشئ Nama أمر إنتاج واحداً لكل مواصفة كرتون في تبويب الوصلات.
 
-**Each production order includes**:
+**كل أمر إنتاج يتضمن**:
 
-**Header**: Quantity to produce (from Total Planned Qty), item (if spec has an item), dates copied from the planning document
+**البيانات الرئيسية**: الكمية المراد إنتاجها (من إجمالي الكمية المخططة)، الصنف (إذا كانت المواصفة مرتبطة بصنف)، التواريخ منسوخة من مستند التخطيط
 
-**Components (BOM)**: Exact materials from the Materials tab - which item classes, which specific lots, which quantities. If you planned Layer 1 to use Lot A2024-001 with 110 meters, the BOM shows "Lot A2024-001, 110 meters."
+**المكونات (BOM)**: الخامات الدقيقة من تبويب الخامات — أي فئات أصناف، وأي lots محددة، وأي كميات. إذا خططت الطبقة 1 لاستخدام Lot A2024-001 بـ 110 أمتار، يعرض BOM "Lot A2024-001، 110 أمتار."
 
-**Routings**: Operations copied from the carton specification's routing lines
+**مسارات الإنتاج** (Routings): عمليات منسوخة من أسطر مسار مواصفة الكرتون
 
-**Co-Products**: If trim co-product is configured, trim quantity is added as a co-product
+**المنتجات الثانوية** (Co-Products): إذا كان الصنف الثانوي للتريم مُهيأً، تُضاف كمية التريم كمنتج ثانوي
 
-**Link to Planning**: The production order references the planning document as its "From Doc", so you can trace back.
+**الرابط بالتخطيط**: يشير أمر الإنتاج إلى مستند التخطيط كـ "من مستند" (From Doc) لتتبع الأصل.
 
-**Link to Order**: The production order references the original carton order, maintaining the chain from customer order → planning → production.
+**الرابط بالطلبية**: يشير أمر الإنتاج إلى طلبية الكرتون الأصلية، محافظاً على السلسلة من طلبية العميل إلى التخطيط إلى الإنتاج.
 
-The production orders are committed automatically. They're ready for execution.
+تُعتمد أوامر الإنتاج تلقائياً. هي جاهزة للتنفيذ.
 
-**In the Items tab**, each line now shows the **Production Order** field filled in, linking to the generated order.
+**في تبويب الوصلات**، يظهر الآن حقل **أمر الإنتاج** (Production Order) ممتلئاً في كل سطر، بالرابط للأمر المنشأ.
 
-### Material Issues
+### صرف الخامات {#Material-Issues}
 
-With production orders created, the next step is issuing materials from inventory.
+بعد إنشاء أوامر الإنتاج، الخطوة التالية صرف الخامات من المخزون.
 
-You can create **Carton Material Issues** (صرف خامات كرتون) referencing this planning document.
+يمكنك إنشاء **صرف خامات الكرتون** (Carton Material Issues) مشيراً إلى مستند التخطيط هذا.
 
-When you select the planning document in a material issue, it can auto-populate with the exact materials, lots, and quantities from the Materials tab.
+عند اختيار مستند التخطيط في سند صرف الخامات، يمكنه الملء التلقائي بالخامات والـ lots والكميات الدقيقة من تبويب الخامات.
 
-See [Carton Material Issues](./carton-material-issue.md) for details.
+راجع [صرف خامات الكرتون](./carton-material-issue.md) للتفاصيل.
 
-## Real-World Workflow Example
+## مثال على سير العمل الواقعي {#Real-World-Workflow-Example}
 
-Let's walk through a complete planning session from start to finish.
+لنستعرض جلسة تخطيط كاملة من البداية إلى النهاية.
 
-**Monday morning**: Production planner Sarah reviews pending carton orders. She sees:
-- Order #6501: Customer A, 3000 units, "Tomato Box 250"
-- Order #6502: Customer B, 2000 units, "Electronics Box 300"
-- Order #6503: Customer C, 1500 units, "Produce Tray 280"
+**صباح الاثنين**: تراجع مخططة الإنتاج سارة طلبيات الكرتون المعلقة. ترى:
+- الطلبية #6501: العميل أ، 3000 وحدة، "Tomato Box 250"
+- الطلبية #6502: العميل ب، 2000 وحدة، "Electronics Box 300"
+- الطلبية #6503: العميل ج، 1500 وحدة، "Produce Tray 280"
 
-**Step 1**: Sarah creates a new Material Planning document, selects the default Planning Configuration.
+**الخطوة الأولى**: تنشئ سارة مستند تخطيط خامات جديداً، وتختار إعدادات التخطيط الافتراضية.
 
-**Step 2**: In Documents tab, she adds Order #6501 (the Tomato Box). Saves. Items tab populates with one line: 3000 units of Tomato Box 250.
+**الخطوة الثانية**: في تبويب المستندات، تضيف الطلبية #6501 (Tomato Box). تحفظ. يمتلئ تبويب الوصلات بسطر واحد: 3000 وحدة Tomato Box 250.
 
-**Step 3**: Changes Planning Status to "Planning".
+**الخطوة الثالثة**: تغير حالة التخطيط إلى "Planning".
 
-**Step 4**: Clicks "Find Companion Orders". System searches, finds Orders #6502 and #6503 plus a few others.
+**الخطوة الرابعة**: تنقر "البحث عن أوامر مصاحبة". يبحث النظام ويجد الطلبيتين #6502 و #6503 وبعض الطلبيات الأخرى.
 
-Reviews the list sorted by waste:
-- Order #6503 (Produce Tray) shows lowest total waste if batched
-- Order #6502 (Electronics Box) shows slightly higher waste
+تراجع القائمة المرتبة حسب الهدر:
+- الطلبية #6503 (Produce Tray) تُظهر أقل إجمالي هدر عند التجميع
+- الطلبية #6502 (Electronics Box) تُظهر هدراً أعلى قليلاً
 
-Sarah checks delivery dates. Produce Tray is due same week as Tomato Box. Electronics Box is two weeks out. She decides to batch Tomato Box + Produce Tray for now.
+تتحقق سارة من تواريخ التسليم. Produce Tray مستحق في نفس أسبوع Tomato Box. Electronics Box بعد أسبوعين. تقرر تجميع Tomato Box + Produce Tray الآن.
 
-Selects Order #6503, clicks "Accept Selected Order".
+تختار الطلبية #6503 وتنقر "قبول الأمر المختار".
 
-**Step 5**: Items tab now shows:
-- 3000 units, Tomato Box 250, 520mm sheet width
-- 1500 units, Produce Tray 280, 480mm sheet width
+**الخطوة الخامسة**: يعرض تبويب الوصلات الآن:
+- 3000 وحدة، Tomato Box 250، عرض لوح 520mm
+- 1500 وحدة، Produce Tray 280، عرض لوح 480mm
 
-Sarah notices these widths: 520 + 480 = 1000mm. Two pairs fit nicely on a 2000mm roll with minimal waste. Good match.
+تلاحظ سارة هذه العروض: 520 + 480 = 1000mm. يسع زوجان بشكل مريح على لفة 2000mm بهدر ضئيل. تطابق جيد.
 
-**Step 6**: Clicks "Collect Materials".
+**الخطوة السادسة**: تنقر "تجميع المواد".
 
-The solver runs for 2 minutes. Status changes to "Planned", Solution Type shows "Optimal".
+يعمل solver دقيقتين. تتغير الحالة إلى "Planned"، ونوع الحل يعرض "Optimal".
 
-**Step 7**: Reviews Materials tab. Sees:
+**الخطوة السابعة**: تراجع تبويب الخامات. ترى:
 
-For Tomato Box:
-- Layer 1 (Facing): Lot K2024-015, 2000mm width, 4 pieces, 187 strikes, 97 meters
-- Layer 2 (Fluting): Lot F2024-022, 2000mm width, 4 pieces, 187 strikes, 82 meters (shorter because fluting has corrugating factor)
-- Layer 3 (Liner): Lot L2024-008, 2000mm width, 4 pieces, 187 strikes, 97 meters
+لـ Tomato Box:
+- الطبقة 1 (Facing): Lot K2024-015، عرض 2000mm، 4 قطع، 187 ضربة، 97 متراً
+- الطبقة 2 (Fluting): Lot F2024-022، عرض 2000mm، 4 قطع، 187 ضربة، 82 متراً (أقصر لأن fluting لديه معامل تموج)
+- الطبقة 3 (Liner): Lot L2024-008، عرض 2000mm، 4 قطع، 187 ضربة، 97 متراً
 
-For Produce Tray (similar pattern with different lots).
+لـ Produce Tray (نمط مشابه بـ lots مختلفة).
 
-Checks Materials Totals: 195 meters of 125gsm Kraft, 164 meters of C-Flute, 195 meters of Test Liner. All available in inventory.
+تتحقق من إجماليات الخامات: 195 متراً من Kraft 125gsm، 164 متراً من C-Flute، 195 متراً من Test Liner. جميعها متاحة في المخزون.
 
-**Step 8**: Clicks "Review Available Quantities" to double-check. Available Materials shows adequate inventory for all layers. No shortfalls.
+**الخطوة الثامنة**: تنقر "مراجعة الكميات المتاحة" للتأكيد المزدوج. تعرض الخامات المتاحة مخزوناً كافياً لجميع الطبقات. لا عجز.
 
-**Step 9**: Happy with the plan. Clicks "Generate Production Orders".
+**الخطوة التاسعة**: راضية عن الخطة. تنقر "إنشاء أوامر إنتاج".
 
-Two production orders created:
-- PO-8801: 3000 Tomato Box 250
-- PO-8802: 1500 Produce Tray 280
+أنشئ أمري إنتاج:
+- PO-8801: 3000 وحدة Tomato Box 250
+- PO-8802: 1500 وحدة Produce Tray 280
 
-Both have full BOMs with specific lots assigned, routing steps, everything ready.
+كلاهما بـ BOM كامل مع lots محددة مخصصة، وخطوات تصنيع، وكل شيء جاهز.
 
-**Step 10**: Saves and commits the planning document. Orders #6501 and #6503 are now marked "Fully Planned". They won't appear in future companion order searches.
+**الخطوة العاشرة**: تحفظ وتعتمد مستند التخطيط. الطلبيتان #6501 و #6503 مُعلَّمتان الآن بـ "مخطط بالكامل". لن تظهرا في عمليات البحث المستقبلية عن أوامر مصاحبة.
 
-**Tuesday**: Shop floor pulls the specific lots identified in the plan, issues them to production, and starts cutting according to the plan (4 pieces across, 187 strikes). The plan was followed precisely, waste came in at 2.3% - well below the usual 8%.
+**الثلاثاء**: تسحب الورشة الـ lots المحددة في الخطة، وتصرفها للإنتاج، وتبدأ القص وفق الخطة (4 قطع عبر العرض، 187 ضربة). اتُّبعت الخطة بدقة، وجاء الهدر عند 2.3% — أقل بكثير من المعتاد 8%.
 
-Sarah saved the company roughly 5% in material costs by batching these orders. Over a year, that adds up to significant savings.
+وفّرت سارة للشركة قرابة 5% من تكاليف الخامات بتجميع هذه الطلبيات. على مدار عام، يتراكم ذلك ليصبح توفيراً كبيراً.
 
-## Tips for Effective Planning
+## نصائح للتخطيط الفعّال {#Tips-for-Effective-Planning}
 
-**Plan in batches**: Don't plan every order individually. Use companion orders to batch compatible orders together. The more orders you batch (up to a point), the better the optimizer can pack material usage.
+**خطط على دفعات**: لا تخطط كل طلبية منفردة. استخدم الأوامر المصاحبة لتجميع الطلبيات المتوافقة معاً. كلما زاد تجميعك (إلى حد معين)، كان المُحسِّن أفضل في كثافة استخدام الخامات.
 
-**But don't over-batch**: Too many orders in one plan (especially with different sizes) increases complexity. The optimizer might struggle. Aim for 3-5 orders per plan as a sweet spot.
+**لكن لا تفرط في التجميع**: كثرة الطلبيات في خطة واحدة (خاصة بأحجام مختلفة) تزيد التعقيد. قد يعاني المُحسِّن. استهدف 3-5 طلبيات للخطة الواحدة كنقطة توازن.
 
-**Plan regularly**: Don't wait until you have a week's worth of orders. Plan daily or every few days. Smaller, more frequent batches give you flexibility to prioritize rush orders.
+**خطط بانتظام**: لا تنتظر حتى يتراكم أسبوع من الطلبيات. خطط يومياً أو كل بضعة أيام. الدفعات الأصغر والأكثر تكراراً تمنحك مرونة لإيلاء الأولوية للطلبيات العاجلة.
 
-**Review available materials early**: Before accepting companion orders, click "Review Available Quantities" to make sure you can actually fulfill the combined plan. Don't commit to planning you can't execute.
+**راجع الخامات المتاحة مبكراً**: قبل قبول الأوامر المصاحبة، انقر "مراجعة الكميات المتاحة" للتأكد من قدرتك فعلاً على تنفيذ الخطة المشتركة. لا تلتزم بتخطيط لا يمكنك تنفيذه.
 
-**Use forced widths sparingly**: Let the optimizer do its job. Only force widths when there's a real reason (customer requirement, finishing off partial rolls, machine constraints).
+**استخدم إجبار العروض باعتدال**: دع المُحسِّن يؤدي عمله. أجبر العروض فقط عند وجود سبب حقيقي (متطلب عميل، استنفاد لفات جزئية، قيود آلة).
 
-**Monitor solution type**: If you keep getting "Feasible" instead of "Optimal" solutions, consider increasing max search time. An extra 5 minutes of search might save 2% in materials - worth the wait.
+**راقب نوع الحل**: إذا استمررت في الحصول على "Feasible" بدلاً من "Optimal"، فكّر في زيادة وقت البحث الأقصى. 5 دقائق إضافية من البحث قد توفر 2% في الخامات — تستحق الانتظار.
 
-**Save failed planning attempts**: If optimization fails, save the document as draft and review the error. It tells you what's wrong (which items couldn't find materials, which constraints failed). Fix the underlying issue before trying again.
+**احفظ محاولات التخطيط الفاشلة**: إذا فشل التحسين، احفظ المستند كمسودة وراجع الخطأ. يخبرك بما هو الخطأ (أي وصلات لم تجد خامات، وأي قيود فشلت). أصلح المشكلة الجذرية قبل إعادة المحاولة.
 
-**Communicate the plan**: Make sure the shop floor gets the full materials list with lot numbers. Cutting the wrong lot defeats the whole optimization effort.
+**أبلغ الورشة عن الخطة**: تأكد من حصول الورشة على قائمة الخامات الكاملة مع أرقام الـ lots. قص الـ lot الخطأ يُفسد كل جهد التحسين.
 
 ---
 
-::: tip Batching is Gold
-The difference between planning orders individually vs. batching compatible orders can easily be 5-10% in material savings. Always search for companion orders before finalizing a plan.
+::: tip التجميع ذهب خالص
+الفرق بين تخطيط الطلبيات منفردة مقابل تجميع الطلبيات المتوافقة يمكن أن يصل بسهولة إلى 5-10% توفيراً في الخامات. ابحث دائماً عن أوامر مصاحبة قبل إنهاء الخطة.
 :::
 
-::: warning Time Limits Matter
-If the optimizer hits the time limit before finding an optimal solution, you get a "Feasible" result. It's usually good enough, but increasing search time might find better solutions. Experiment with your typical order mix to find the right time limit.
+::: warning الحدود الزمنية مهمة
+إذا وصل المُحسِّن إلى الحد الزمني قبل إيجاد الحل المثالي، تحصل على نتيجة "Feasible". عادةً تكون كافية، لكن زيادة وقت البحث قد تجد حلولاً أفضل. جرّب مع نمط طلبياتك المعتاد للعثور على الحد الزمني الصحيح.
 :::
 
-::: info Next Step
-With materials planned, you're ready to issue them to production. See [Carton Material Issues](./carton-material-issue.md).
+::: info الخطوة التالية
+بعد تخطيط الخامات، أنت جاهز لصرفها للإنتاج. راجع [صرف خامات الكرتون](./carton-material-issue.md).
 :::

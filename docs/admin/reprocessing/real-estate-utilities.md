@@ -1,18 +1,18 @@
-# Real Estate Utilities
+# أدوات العقارات (Real Estate Utilities)
 
-## Fix System Paid, Collect Requested and Collected by Financial Papers in Contracts
-::: details First run the following statement and then put the output in recommit file:
+## إصلاح المدفوع من النظام وطلب التحصيل والمحصّل بالأوراق المالية في العقود {#Fix-System-Paid-Collect-Requested-and-Collected-by-Financial-Papers-in-Contracts}
+::: details أولاً: نفّذ الاستعلام التالي ثم ضع المخرجات في ملف إعادة الترحيل:
  ```sql
 select distinct paymentDocEntityType,paymentDocId from InstallmentPaymentEntry where refid is null
 
 ```
 :::
-::: details Now Delete all bad entries:
+::: details ثانياً: احذف جميع الإدخالات غير الصحيحة:
 ```sql
 delete  from InstallmentPaymentEntry where refid is null
 ```
 :::
-::: details Run The following Query
+::: details نفّذ الاستعلام التالي:
 ```sql
 with paidValues as (
 select sum(case when effectType = 'SystemPaid' then e.paidValue else 0 end) SystemPaid
@@ -85,4 +85,4 @@ from SalesInvScheduledPayLine l left join paidValues pv on pv.installmentCode = 
 go
 ```
 :::
-- Now recommit the files
+- أعد ترحيل الملفات الآن

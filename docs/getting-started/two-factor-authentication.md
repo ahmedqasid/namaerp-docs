@@ -1,152 +1,152 @@
-# Two-Factor Authentication (2FA) Guide
+# دليل المصادقة الثنائية (2FA) {#Two-Factor-Authentication-2FA-Guide}
 
-## Overview
+## نظرة عامة {#Overview}
 
-Two-Factor Authentication (2FA) adds an extra layer of security to the Nama ERP login process by requiring users to provide a second form of verification beyond their username and password. This feature supports multiple authentication methods and provides flexible configuration options for system administrators.
+تضيف المصادقة الثنائية (2FA) طبقة حماية إضافية لعملية تسجيل الدخول في Nama ERP، إذ تطلب من المستخدمين تقديم وسيلة تحقق ثانية تتجاوز اسم المستخدم وكلمة المرور. تدعم هذه الميزة طرق مصادقة متعددة وتوفر خيارات إعداد مرنة لمسؤولي النظام.
 
-## Supported Authentication Methods
+## طرق المصادقة المدعومة {#Supported-Authentication-Methods}
 
-### 1. Message OTP (One-Time Password)
-Uses the configured notification template which can send OTP codes through multiple channels:
-- **SMS**: Send OTP codes via SMS to the user's registered mobile number
-- **Email**: Send OTP codes to the user's registered email address  
-- **WhatsApp**: Send OTP codes via WhatsApp messaging
-- **In-App Notifications**: Display OTP within the application's notification system
+### 1. Message OTP (كلمة المرور لمرة واحدة) {#1-Message-OTP-One-Time-Password-}
+تستخدم قالب الإشعار المُعدّ الذي يمكنه إرسال رموز OTP عبر قنوات متعددة:
+- **SMS**: إرسال رموز OTP عبر رسالة قصيرة إلى رقم الجوال المسجّل للمستخدم
+- **البريد الإلكتروني**: إرسال رموز OTP إلى عنوان البريد الإلكتروني المسجّل للمستخدم
+- **WhatsApp**: إرسال رموز OTP عبر رسائل WhatsApp
+- **إشعارات داخل التطبيق**: عرض OTP ضمن نظام الإشعارات في التطبيق
 
-### 2. Estidamah API Integration
-Custom authentication provider integration for organizations using the Estidamah authentication gateway. This method:
-- Encrypts credentials using configured encryption keys
-- Sends encrypted data to the Estidamah authentication gateway
-- Gateway handles OTP delivery to users
-- Validates OTP through the integrated API
+### 2. تكامل Estidamah API {#2-Estidamah-API-Integration}
+تكامل مع مزود مصادقة مخصص للمؤسسات التي تستخدم بوابة مصادقة Estidamah. تعمل هذه الطريقة على النحو التالي:
+- تشفير بيانات الاعتماد باستخدام مفاتيح التشفير المُعدّة
+- إرسال البيانات المشفرة إلى بوابة مصادقة Estidamah
+- تتولى البوابة تسليم OTP للمستخدمين
+- التحقق من OTP عبر الـ API المتكاملة
 
-### 3. None
-Disables 2FA (not recommended for production environments)
+### 3. بلا مصادقة ثنائية {#3-None}
+تعطيل المصادقة الثنائية (غير موصى به في بيئات الإنتاج)
 
-## Configuration Settings
+## إعدادات الضبط {#Configuration-Settings}
 
-### Access Login Settings
-Navigate to: **Global Configuration** → **Login Settings**
+### الوصول إلى إعدادات تسجيل الدخول {#Access-Login-Settings}
+اذهب إلى: **الإعداد العام** → **إعدادات تسجيل الدخول**
 
-### Configuration Validation Rules
+### قواعد التحقق من الإعدادات {#Configuration-Validation-Rules}
 
-The system enforces the following validation rules when configuring 2FA:
+يطبّق النظام قواعد التحقق التالية عند ضبط المصادقة الثنائية:
 
-1. **Message OTP Method Requirements**:
-   - **Notification Template**: You must select a notification definition for sending OTP codes
-   - Error message if not configured: *"Cannot select the option Message OTP without filling Notification For Two-Factor Authentication OTP"*
+1. **متطلبات طريقة Message OTP**:
+   - **قالب الإشعار**: يجب اختيار تعريف إشعار لإرسال رموز OTP
+   - رسالة الخطأ في حال عدم الضبط: *"Cannot select the option Message OTP without filling Notification For Two-Factor Authentication OTP"*
 
-2. **Estidamah API Method Requirements**:
-   - **All three Estidamah fields are mandatory**:
+2. **متطلبات طريقة Estidamah API**:
+   - **جميع حقول Estidamah الثلاثة إلزامية**:
      - Environment URL
-     - Encryption Key  
+     - Encryption Key
      - Encryption IV
-   - **Custom Password Validator**: Must be enabled in `nama.properties`
-   - Error if not enabled: *"You cannot enable Estidamah login method without enabling custom password validator in nama.properties first"*
+   - **Custom Password Validator**: يجب تفعيله في `nama.properties`
+   - الخطأ في حال عدم التفعيل: *"You cannot enable Estidamah login method without enabling custom password validator in nama.properties first"*
 
-### Available Configuration Fields in Global Config
+### حقول الضبط المتاحة في الإعداد العام {#Available-Configuration-Fields-in-Global-Config}
 
-| Field | Description | Default | Options | Validation Rules |
-|-------|-------------|---------|---------|-----------------|
-| **login2FAMethod** | Select the 2FA authentication method | None | • None<br>• Message OTP<br>• Estidamah API | - |
-| **notificationFor2FAOtp** | Notification template for sending OTP | - | Select from available notification definitions | **Required** when using Message OTP method |
-| **otpFormat** | Format of the generated OTP | Numeric | • Numeric (e.g., 123456)<br>• Alphabetic (e.g., ABCDEF)<br>• AlphaNumeric (e.g., A1B2C3) |
-| **otpLength** | Number of characters in the OTP | 6 | 4-10 characters |
-| **otpExpiryTime** | Time in seconds before OTP expires | 300 | 60-1200 seconds (1-20 minutes) |
-| **otpResendDelay** | Delay in seconds before allowing OTP resend | 60 | 30-300 seconds |
+| الحقل | الوصف | الافتراضي | الخيارات | قواعد التحقق |
+|-------|-------|-----------|---------|--------------|
+| **login2FAMethod** | اختيار طريقة المصادقة الثنائية | None | • None<br>• Message OTP<br>• Estidamah API | - |
+| **notificationFor2FAOtp** | قالب الإشعار لإرسال OTP | - | اختر من تعريفات الإشعار المتاحة | **مطلوب** عند استخدام طريقة Message OTP |
+| **otpFormat** | صيغة OTP المُولَّد | Numeric | • Numeric (مثال: 123456)<br>• Alphabetic (مثال: ABCDEF)<br>• AlphaNumeric (مثال: A1B2C3) |
+| **otpLength** | عدد أحرف OTP | 6 | 4-10 أحرف |
+| **otpExpiryTime** | الوقت بالثواني قبل انتهاء صلاحية OTP | 300 | 60-1200 ثانية (1-20 دقيقة) |
+| **otpResendDelay** | الانتظار بالثواني قبل السماح بإعادة إرسال OTP | 60 | 30-300 ثانية |
 
-### Estidamah-Specific Settings
-Only required when using Estidamah API method:
+### الإعدادات الخاصة بـ Estidamah {#Estidamah-Specific-Settings}
+مطلوبة فقط عند استخدام طريقة Estidamah API:
 
-| Field | Description |
-|-------|-------------|
-| **estidamahEnvironmentUrl** | Estidamah gateway URL (Required) |
-| **estidamahEncryptionKey** | Encryption key for securing credentials (Required) |
-| **estidamahEncryptionIV** | Initialization vector for encryption (Required) |
+| الحقل | الوصف |
+|-------|-------|
+| **estidamahEnvironmentUrl** | رابط بوابة Estidamah (مطلوب) |
+| **estidamahEncryptionKey** | مفتاح التشفير لتأمين بيانات الاعتماد (مطلوب) |
+| **estidamahEncryptionIV** | متجه التهيئة للتشفير (مطلوب) |
 
-::: warning Important Configuration Requirement
-To use Estidamah API authentication method, you must enable custom password validator in `nama.properties`:
+::: warning متطلب إعداد مهم
+لاستخدام طريقة مصادقة Estidamah API، يجب تفعيل custom password validator في `nama.properties`:
 ```properties
 use-custom-password-validator=true
 ```
-This setting prevents password hashing and allows the system to send encrypted credentials to the Estidamah gateway.
+يمنع هذا الإعداد تشفير كلمة المرور ويسمح للنظام بإرسال بيانات الاعتماد المشفرة إلى بوابة Estidamah.
 :::
 
-## User Experience Flow
+## تجربة المستخدم {#User-Experience-Flow}
 
-### Standard Login with 2FA
+### تسجيل الدخول القياسي مع المصادقة الثنائية {#Standard-Login-with-2FA}
 
-1. **Initial Login**
-   - User enters username and password
-   - System validates credentials
+1. **تسجيل الدخول الأولي**
+   - يُدخل المستخدم اسم المستخدم وكلمة المرور
+   - يتحقق النظام من بيانات الاعتماد
 
-2. **OTP Generation**
-   - If 2FA is enabled, system generates OTP
-   - OTP is sent via configured method (SMS/Email/Notification)
-   - User sees OTP input screen
+2. **توليد OTP**
+   - إذا كانت المصادقة الثنائية مفعّلة، يُولّد النظام OTP
+   - يُرسَل OTP عبر الطريقة المُعدّة (SMS/بريد إلكتروني/إشعار)
+   - يرى المستخدم شاشة إدخال OTP
 
-3. **OTP Verification**
-   - User enters received OTP code
-   - System validates the OTP
-   - Upon successful validation, user gains access
+3. **التحقق من OTP**
+   - يُدخل المستخدم رمز OTP المستلَم
+   - يتحقق النظام من OTP
+   - عند التحقق الناجح، يحصل المستخدم على الوصول
 
-4. **OTP Resend**
-   - If user doesn't receive OTP, they can request resend
-   - Resend is available after configured delay period
-   - Same OTP is resent if still valid, new one generated if expired
+4. **إعادة إرسال OTP**
+   - إذا لم يستلم المستخدم OTP، يمكنه طلب إعادة الإرسال
+   - الإرسال متاح بعد انتهاء فترة التأخير المُعدّة
+   - يُعاد إرسال نفس OTP إذا كان لا يزال صالحاً، أو يُولَّد رمز جديد إذا انتهت صلاحيته
 
-### Error Handling
+### معالجة الأخطاء {#Error-Handling}
 
-- **Invalid OTP**: User receives error message and can retry
-- **Expired OTP**: User must request new OTP
-- **Maximum Attempts**: After multiple failed attempts, account may be temporarily locked (configured separately)
+- **OTP غير صالح**: يتلقى المستخدم رسالة خطأ ويمكنه إعادة المحاولة
+- **OTP منتهي الصلاحية**: يجب على المستخدم طلب OTP جديد
+- **الحد الأقصى للمحاولات**: بعد محاولات فاشلة متعددة، قد يُقفَل الحساب مؤقتاً (يُضبط بشكل منفصل)
 
-## User Settings
+## إعدادات المستخدم {#User-Settings}
 
-### Excluding Users from 2FA
+### استثناء المستخدمين من المصادقة الثنائية {#Excluding-Users-from-2FA}
 
-Individual users can be excluded from 2FA requirements:
+يمكن استثناء مستخدمين بعينهم من متطلبات المصادقة الثنائية:
 
-1. Navigate to **User Management** → **User Settings**
-2. Find the user account
-3. Enable **"Exclude from 2FA"** option
-4. Save changes
+1. اذهب إلى **إدارة المستخدمين** → **إعدادات المستخدم**
+2. ابحث عن حساب المستخدم
+3. فعّل خيار **"Exclude from 2FA"**
+4. احفظ التغييرات
 
-This is useful for:
-- Service accounts
-- Emergency access accounts
-- Users in specific roles that don't require 2FA
+هذا مفيد لـ:
+- حسابات الخدمة
+- حسابات الوصول الطارئ
+- المستخدمون في أدوار محددة لا تستلزم المصادقة الثنائية
 
-## Technical Implementation Details
+## تفاصيل التنفيذ التقني {#Technical-Implementation-Details}
 
-### Session Management
+### إدارة الجلسة {#Session-Management}
 
-- OTP validation is tied to the login session
-- Once validated, OTP ID is cached temporarily
-- Subsequent API calls within the session don't require re-validation
-- Session timeout triggers new 2FA requirement
+- يرتبط التحقق من OTP بجلسة تسجيل الدخول
+- بعد التحقق، يُخزَّن معرّف OTP مؤقتاً
+- استدعاءات الـ API اللاحقة ضمن الجلسة لا تتطلب إعادة التحقق
+- انتهاء الجلسة يستدعي إجراء مصادقة ثنائية جديدة
 
-## Notification Template Setup
+## إعداد قالب الإشعار {#Notification-Template-Setup}
 
-### Creating 2FA Notification Template
+### إنشاء قالب إشعار المصادقة الثنائية {#Creating-2FA-Notification-Template}
 
-1. Navigate to **System Configuration** → **Notification Definitions**
-2. Create new manual notification with:
-   - **Name**: "2FA OTP Notification"
-   - **For Type**: User
-   - **Manual**: True (Selected)
-   - **Channel**: Choose one or multiple:
+1. اذهب إلى **إعداد النظام** → **تعريفات الإشعارات**
+2. أنشئ إشعاراً يدوياً جديداً بما يلي:
+   - **الاسم**: "2FA OTP Notification"
+   - **للنوع**: User
+   - **يدوي**: True (محدد)
+   - **القناة**: اختر واحدة أو أكثر:
      - SMS
-     - Email
+     - البريد الإلكتروني
      - WhatsApp
-     - In-App Notification
-   - **Template Variables**:
-     - `{name1}` - User's full Arabic name
-     - `{name2}` - User's full English name
-     - `{otpCode}` - Generated OTP code
-     - Any field available in the user master file
+     - إشعار داخل التطبيق
+   - **متغيرات القالب**:
+     - `{name1}` - الاسم العربي الكامل للمستخدم
+     - `{name2}` - الاسم الإنجليزي الكامل للمستخدم
+     - `{otpCode}` - رمز OTP المُولَّد
+     - أي حقل متاح في ملف بيانات المستخدم الرئيسي
 
-### Example SMS Template
+### مثال على قالب SMS {#Example-SMS-Template}
 ```
 Dear ${name2},
 Your Nama ERP verification code is: {otpCode}
@@ -154,7 +154,7 @@ This code expires in 3 minutes.
 Do not share this code with anyone.
 ```
 
-### Example Email Template
+### مثال على قالب البريد الإلكتروني {#Example-Email-Template}
 ```html
 <p>Dear {name1},</p>
 <p>Your Nama ERP login verification code is:</p>
@@ -163,7 +163,7 @@ Do not share this code with anyone.
 <p>If you didn't request this code, please contact your system administrator immediately.</p>
 ```
 
-### Example WhatsApp Template
+### مثال على قالب WhatsApp {#Example-WhatsApp-Template}
 ```
 🔐 *Nama ERP Security Code*
 
@@ -178,11 +178,11 @@ If you didn't request this, contact IT immediately.
 ```
 
 
-## Compliance and Regulations
+## الامتثال والتنظيمات {#Compliance-and-Regulations}
 
-The 2FA implementation helps organizations meet various security compliance requirements:
+يساعد تطبيق المصادقة الثنائية المؤسسات على استيفاء متطلبات الامتثال الأمني المختلفة:
 
-- **ISO 27001**: Information security management
-- **PCI DSS**: Payment card industry standards
-- **GDPR**: Data protection regulations
-- **Local regulations**: Saudi Arabia's NCA ECC requirements
+- **ISO 27001**: إدارة أمن المعلومات
+- **PCI DSS**: معايير صناعة بطاقات الدفع
+- **GDPR**: لوائح حماية البيانات
+- **اللوائح المحلية**: متطلبات NCA ECC في المملكة العربية السعودية

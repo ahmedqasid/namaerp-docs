@@ -1,264 +1,264 @@
-# Carton Manufacturing: Smart Material Planning for Corrugated Products
+# تصنيع الكرتون: تخطيط ذكي للمواد في منتجات الورق المموج
 
-## The Challenge of Carton Manufacturing
+## تحدي تصنيع الكرتون {#The-Challenge-of-Carton-Manufacturing}
 
-If you make corrugated cartons, you know the problem intimately: You buy paper rolls in standard widths - maybe 1800mm, 2000mm, 2200mm. Your customers order cartons in all different sizes - 300mm wide, 450mm, 680mm, whatever fits their product.
+إذا كنت تصنّع كراتين من الورق المموج، فأنت تعرف المشكلة جيداً: تشتري لفات ورق بعرض قياسي - ربما 1800mm أو 2000mm أو 2200mm. بينما يطلب عملاؤك كراتين بأحجام مختلفة تماماً - عرض 300mm أو 450mm أو 680mm، حسب ما يناسب منتجاتهم.
 
-How do you cut those standard rolls efficiently? If you're making a 450mm wide carton and you have a 2000mm roll, you can fit four cartons across (4 × 450 = 1800mm) with 200mm of trim waste. That's about 10% waste - not terrible, but not great.
+فكيف تقطع تلك اللفات القياسية بكفاءة؟ إذا كنت تصنع كرتونة عرضها 450mm ولديك لفة 2000mm، يمكنك قطع أربع كراتين عبر العرض (4 × 450 = 1800mm) مع 200mm هدر قطع. هذا يمثّل حوالي 10% هدر - ليس سيئاً، لكنه ليس مثالياً أيضاً.
 
-But what if you have three different orders to fulfill: one for 450mm cartons, one for 320mm, and one for 230mm? Could you cut all three from the same roll and reduce waste? What about different layers - the outer facing and inner liner might come from different paper grades. Can you mix and match rolls to minimize trim?
+لكن ماذا لو كان لديك ثلاثة طلبات مختلفة: واحدة لكراتين 450mm، وأخرى لـ 320mm، وثالثة لـ 230mm؟ هل يمكنك قطع الثلاثة من نفس اللفة لتقليل الهدر؟ وماذا عن الطبقات المختلفة - فالطبقة الخارجية (facing) والبطانة الداخلية (liner) قد تأتيان من درجات ورق مختلفة. هل يمكنك الجمع بين اللفات لتقليل الهدر؟
 
-This is where things get complicated fast. The math becomes a massive optimization problem: which orders to batch together, which rolls to use for which layers, how many pieces to cut from each roll, how to minimize setup changes while still getting orders out the door on time.
+هنا تتعقد الأمور بسرعة. تصبح الحسابات مسألة تحسين ضخمة: أي الطلبات يجب تجميعها معاً، وأي اللفات تُستخدم لكل طبقة، وكم قطعة تُقطع من كل لفة، وكيف تقلل تغييرات الإعداد مع إنجاز الطلبات في الوقت المحدد.
 
-**Nama ERP's Carton Manufacturing module** solves this with industrial-strength optimization algorithms. You tell it what orders you need to fulfill and what rolls you have in stock. It figures out the optimal cutting plan, minimizes waste, and even helps you find "companion orders" - other pending orders that would fit perfectly with what you're already planning to cut.
+**وحدة تصنيع الكرتون في Nama ERP** تحل هذا بخوارزميات تحسين ذات مستوى صناعي. تخبرها بالطلبات التي تحتاج إلى تنفيذها وباللفات المتاحة في مخزونك، فتحدد خطة القطع المثلى وتقلل الهدر، بل وتساعدك في إيجاد "الطلبات المرافقة" - الطلبات المعلقة الأخرى التي تتناسب تماماً مع ما تخطط لقطعه.
 
-## How It All Fits Together
+## كيف تتكامل الأجزاء معاً {#How-It-All-Fits-Together}
 
-Think of carton manufacturing in Nama ERP as flowing through four stages:
+فكّر في تصنيع الكرتون في Nama ERP على أنه يمر بأربع مراحل:
 
-### 1. Define Your Products (Carton Specifications)
+### 1. تعريف منتجاتك (مواصفات الكرتونة) {#1-Define-Your-Products-Carton-Specifications}
 
-Before you can make or sell cartons, you need to teach the system what each carton looks like. That's where **Carton Specifications** (مواصفات الكرتونة) come in.
+قبل أن تتمكن من تصنيع الكراتين أو بيعها، تحتاج إلى تعليم النظام ما يبدو عليه كل كرتون. هنا يأتي دور **مواصفات الكرتونة** (Carton Specifications).
 
-A specification describes everything about a carton:
-- **Physical dimensions**: Length, width, height of the finished box
-- **Sheet dimensions**: How big the flat sheet needs to be before folding
-- **Material structure**: What paper grades go into each layer (facing, fluting, liner)
-- **Manufacturing details**: Fluting type, pattern, joining method, whether it has a badge or printing
-- **Production stages**: First stage (typically corrugating/laminating), second stage (printing/slotting), third stage (final finishing)
+تصف المواصفة كل شيء عن الكرتون:
+- **الأبعاد المادية**: الطول والعرض والارتفاع للصندوق النهائي
+- **أبعاد الورقة**: الحجم المطلوب للورقة المسطحة قبل الطي
+- **التركيب المادي**: درجات الورق المستخدمة في كل طبقة (facing وfluting وliner)
+- **تفاصيل التصنيع**: نوع التموج (fluting) والباترون وطريقة التلصيق، وما إذا كانت تحمل شارة أو طباعة
+- **مراحل الإنتاج**: المرحلة الأولى (عادةً التموج/التلصيق)، المرحلة الثانية (الطباعة/الشق)، المرحلة الثالثة (التشطيب النهائي)
 
-You set these up once per carton design. When a customer orders that carton, you just reference the specification.
+تُعدّ هذه المواصفات مرة واحدة لكل تصميم كرتونة. وعندما يطلب عميل تلك الكرتونة، تشير فقط إلى المواصفة.
 
-The smart part: specifications can be hierarchical. An "assembled carton" specification might reference several "normal carton" specifications as components. Order the assembled carton, and Nama automatically figures out you need to manufacture all the pieces.
+الجزء الذكي: يمكن أن تكون المواصفات هرمية. قد تشير مواصفة "كرتونة مجمّعة" إلى عدة مواصفات "كرتونة عادية" كمكونات. اطلب الكرتونة المجمّعة، وسيحدد Nama تلقائياً أنك تحتاج إلى تصنيع جميع القطع.
 
-### 2. Receive Customer Orders (Carton Orders)
+### 2. استقبال طلبات العملاء (طلبيات الكرتون) {#2-Receive-Customer-Orders-Carton-Orders}
 
-When a customer places an order, you create a **Carton Order** (طلبية كرتون). It's a sales document - customer, quantities, prices, delivery terms - but with carton-specific details.
+عندما يقدّم عميل طلباً، تُنشئ **طلبية كرتون** (Carton Order). وهي مستند مبيعات - العميل والكميات والأسعار وشروط التسليم - لكن مع تفاصيل خاصة بالكرتون.
 
-Each order line references a carton specification and states the quantity needed. Behind the scenes, Nama automatically creates "manufacturing details" - the actual production requirements. If you ordered an assembled carton made of three components, the manufacturing details will show all three components need to be produced.
+يشير كل سطر في الطلبية إلى مواصفة كرتونة ويحدد الكمية المطلوبة. خلف الكواليس، يُنشئ Nama تلقائياً "تفاصيل التصنيع" - متطلبات الإنتاج الفعلية. فإذا طلبت كرتونة مجمّعة مكوّنة من ثلاثة مكونات، ستُظهر تفاصيل التصنيع أن المكونات الثلاثة تحتاج إلى إنتاج.
 
-Orders track their planning status. Once an order (or part of an order) gets planned for production, Nama marks it so you don't accidentally plan the same order twice.
+تتتبع الطلبيات حالة تخطيطها. بمجرد تخطيط طلبية (أو جزء منها) للإنتاج، يُعلّم Nama ذلك حتى لا تُخطط نفس الطلبية مرتين خطأً.
 
-### 3. Plan Material Cutting (Material Planning & Optimization)
+### 3. تخطيط قطع المواد (تخطيط المواد والتحسين) {#3-Plan-Material-Cutting-Material-Planning--Optimization}
 
-This is where the magic happens. **Carton Material Planning** (تخطيط خامات الكرتون) is Nama's optimization engine.
+هنا يحدث السحر. **تخطيط خامات الكرتون** (Carton Material Planning) هو محرك التحسين في Nama.
 
-You start a material planning document and select one or more carton orders to fulfill. Nama looks at:
-- What carton specs you need to produce
-- What quantities you need
-- What paper rolls you have in inventory (items, grades, widths, lengths, lot numbers)
-- Your optimization constraints (minimum trim allowed, minimum roll length to use, time limits for the optimizer)
+تبدأ بإنشاء مستند تخطيط مواد وتختار طلبية كرتون واحدة أو أكثر للتنفيذ. ينظر Nama في:
+- مواصفات الكرتون التي تحتاج إلى إنتاجها
+- الكميات المطلوبة
+- لفات الورق المتاحة في المخزون (الأصناف والدرجات والأعراض والأطوال وأرقام الدفعات)
+- قيود التحسين (الحد الأدنى للهدر المسموح به، والحد الأدنى لطول اللفة المستخدمة، وحدود الوقت لمحرك التحسين)
 
-Then you hit "Collect Materials" and Nama runs a constraint-programming solver (using Google's OR-Tools) to figure out the optimal cutting plan.
+ثم تضغط على "تجميع المواد" وتشغّل Nama محرك برمجة القيود (باستخدام Google OR-Tools) لتحديد خطة القطع المثلى.
 
-The result: a detailed cutting plan showing:
-- Which rolls to use for each layer of each carton
-- How many pieces to cut across the width of each roll (strikes)
-- How many strikes to make along the length (operations)
-- Total quantity planned per order
-- Material efficiency (trim/waste calculated)
+النتيجة: خطة قطع تفصيلية تُظهر:
+- اللفات المستخدمة لكل طبقة من كل كرتونة
+- عدد القطع المقطوعة عبر عرض كل لفة (الضربات/strikes)
+- عدد الضربات على طول اللفة (العمليات/operations)
+- إجمالي الكمية المخططة لكل طلبية
+- كفاءة المواد (الهدر/القطع المحسوبة)
 
-**Companion Orders**: Here's a powerful feature. Say you have one order to plan, but you know there are other pending orders for similar cartons. Click "Find Companion Orders" and Nama searches all unplanned orders, finds ones with compatible specs (same layers/grades), and calculates which companion order would give you the best material efficiency if you batched them together.
+**الطلبيات المرافقة**: هذه ميزة قوية. لنقل أن لديك طلبية واحدة للتخطيط، لكنك تعلم أن هناك طلبيات معلقة أخرى لكراتين مماثلة. انقر "إيجاد الطلبيات المرافقة" ويبحث Nama في جميع الطلبيات غير المخططة، ويجد تلك ذات المواصفات المتوافقة (نفس الطبقات/الدرجات)، ويحسب أي طلبية مرافقة ستمنحك أفضل كفاءة للمواد إذا دمجتهما معاً.
 
-You see a list sorted by total waste - the orders that would waste the least material appear first. Accept the one you want (maybe based on customer priority), and Nama adds it to your planning document. Run optimization again, and now you're cutting multiple orders from shared rolls, minimizing waste across the batch.
+تظهر لك قائمة مرتبة حسب إجمالي الهدر - الطلبيات التي تُهدر أقل مواد تظهر أولاً. اقبل ما تريد (ربما بناءً على أولوية العميل)، ويضيف Nama الطلبية إلى مستند التخطيط. شغّل التحسين مجدداً، والآن تقطع طلبيات متعددة من لفات مشتركة، مما يقلل الهدر عبر الدفعة بأكملها.
 
-### 4. Execute Production
+### 4. تنفيذ الإنتاج {#4-Execute-Production}
 
-Once planning is done, you can:
+بمجرد الانتهاء من التخطيط، يمكنك:
 
-**Generate Production Orders**: Nama creates production orders for each carton spec in the plan. The production order includes:
-- Bill of materials (BOM) - exactly which rolls to issue, in which quantities, from which lots
-- Routings - the operations to perform (corrugating, slotting, printing, etc.)
-- Co-products - if you configured trim as a co-product item, it's tracked
+**إنشاء أوامر الإنتاج**: يُنشئ Nama أوامر إنتاج لكل مواصفة كرتونة في الخطة. يتضمن أمر الإنتاج:
+- قائمة المواد (BOM) - بالضبط أي اللفات تُصرف، وبأي كميات، ومن أي دفعات
+- مسارات العمل (Routings) - العمليات التي يجب تنفيذها (التموج والشق والطباعة وغيرها)
+- المنتجات المشتركة (Co-products) - إذا ضبطت الهدر كصنف منتج مشترك، يُتتبع ذلك
 
-**Issue Materials**: Create **Carton Material Issues** (صرف خامات كرتون) to withdraw the planned rolls from inventory and allocate them to production. The material issue references the planning document, so you know exactly which materials are for which cutting plan.
+**صرف المواد**: أنشئ **صرف خامات كرتون** (Carton Material Issues) لسحب اللفات المخططة من المخزون وتخصيصها للإنتاج. يشير مستند الصرف إلى مستند التخطيط، لذا تعلم بالضبط أي المواد مخصصة لأي خطة قطع.
 
-**Track Production**: Use standard Nama production execution to record actual work as it happens on the shop floor.
+**تتبع الإنتاج**: استخدم تنفيذ الإنتاج القياسي في Nama لتسجيل العمل الفعلي كما يحدث في أرضية المصنع.
 
-## The Optimization Algorithm: What Happens Behind the Scenes
+## خوارزمية التحسين: ما يحدث خلف الكواليس {#The-Optimization-Algorithm-What-Happens-Behind-the-Scenes}
 
-When you click "Collect Materials," Nama isn't doing simple arithmetic. It's solving what computer scientists call a "bin packing problem with multiple dimensions and constraints" - which is NP-hard (meaning there's no quick formula, you have to search for solutions).
+عندما تنقر "تجميع المواد"، لا يقوم Nama بحسابات بسيطة. إنه يحل ما يسميه علماء الحاسب "مشكلة تعبئة الحاويات متعددة الأبعاد والقيود" - وهي مشكلة NP-hard (أي لا توجد صيغة سريعة لها، بل يجب البحث عن الحلول).
 
-Here's what the algorithm does:
+إليك ما تفعله الخوارزمية:
 
-**1. Gather candidate rolls**: For each layer of each carton spec, Nama queries inventory to find all rolls that:
-   - Match the required item classes (paper grade, color, etc.)
-   - Are wide enough to fit the carton sheet width plus minimum trim
-   - Are long enough to be worth cutting
-   - Meet minimum roll length requirements from your planning configuration
+**1. جمع اللفات المرشحة**: لكل طبقة من كل مواصفة كرتونة، يستعلم Nama عن المخزون للعثور على جميع اللفات التي:
+   - تتطابق مع تصنيفات الصنف المطلوبة (درجة الورق واللون وما إلى ذلك)
+   - عرضها كافٍ لاستيعاب عرض ورقة الكرتونة بالإضافة إلى الحد الأدنى للهدر
+   - طولها كافٍ يستحق القطع
+   - تلبّي متطلبات الحد الأدنى لطول اللفة من إعدادات التخطيط
 
-**2. Calculate possibilities**: For each candidate roll and each carton order:
-   - How many pieces can we fit across the width (strikes)?
-   - How many times can we cut along the length (operations)?
-   - What's the trim waste (roll width minus total piece width)?
-   - Does this meet minimum trim requirements?
+**2. حساب الاحتمالات**: لكل لفة مرشحة ولكل طلبية كرتون:
+   - كم قطعة يمكن احتواؤها عبر العرض (الضربات/strikes)؟
+   - كم مرة يمكن القطع على طول اللفة (العمليات/operations)؟
+   - ما هدر القطع (عرض اللفة ناقص إجمالي عرض القطع)؟
+   - هل يلبّي الحد الأدنى لمتطلبات الهدر؟
 
-**3. Group compatible orders**: If you have multiple orders, Nama looks for rolls that could serve multiple orders simultaneously (cutting different products from the same roll, side by side).
+**3. تجميع الطلبيات المتوافقة**: إذا كان لديك طلبيات متعددة، يبحث Nama عن لفات يمكنها خدمة طلبيات متعددة في آنٍ واحد (قطع منتجات مختلفة من نفس اللفة جنباً إلى جنب).
 
-**4. Set up constraints**:
-   - Each order must get the full quantity requested (or as close as possible)
-   - Each roll has a maximum available quantity
-   - Trim must meet minimum requirements
-   - Number of different lengths per sheet is limited (reduces setup complexity)
-   - Total cutting operations should be reasonable
+**4. إعداد القيود**:
+   - يجب أن تحصل كل طلبية على الكمية المطلوبة الكاملة (أو أقرب قدر ممكن)
+   - كل لفة لها كمية متاحة قصوى
+   - يجب أن يلبّي الهدر الحد الأدنى المطلوب
+   - عدد الأطوال المختلفة لكل ورقة محدود (يقلل تعقيد الإعداد)
+   - يجب أن يكون إجمالي عمليات القطع معقولاً
 
-**5. Define the objective**: Minimize total waste (trim) plus the number of rolls used (to reduce setup changes).
+**5. تحديد الهدف**: تقليل إجمالي الهدر (قطع الزوائد) بالإضافة إلى عدد اللفات المستخدمة (لتقليل تغييرات الإعداد).
 
-**6. Solve with constraint programming**: Nama uses the CP-SAT solver from Google OR-Tools - an industrial-strength optimizer used in logistics, scheduling, and manufacturing worldwide. You can configure solver parameters:
-   - Max time to search for a solution (default 10 minutes)
-   - Number of CPU threads to use (parallelizes the search)
-   - Max different lengths per sheet
+**6. الحل ببرمجة القيود**: يستخدم Nama محرك CP-SAT من Google OR-Tools - محرك تحسين ذو مستوى صناعي يُستخدم في الخدمات اللوجستية والجدولة والتصنيع حول العالم. يمكنك ضبط معامِلات المحرك:
+   - الوقت الأقصى للبحث عن حل (الافتراضي 10 دقائق)
+   - عدد خيوط المعالج المستخدمة (يوزّع البحث على أكثر من خيط)
+   - الحد الأقصى لعدد الأطوال المختلفة لكل ورقة
 
-The solver searches through millions of possible cutting plans, applying constraints to eliminate invalid solutions, and finding the plan that minimizes waste.
+يبحث المحرك في ملايين خطط القطع الممكنة، مطبّقاً القيود للتخلص من الحلول غير الصالحة، وإيجاد الخطة التي تقلل الهدر.
 
-**7. Return results**: Nama shows you:
-   - **Optimal solution**: The best possible plan found (if solver had enough time)
-   - **Feasible solution**: A good plan (if time limit hit before proving optimality)
-   - **No solution**: Can't fulfill the order with available materials
+**7. إعادة النتائج**: يُظهر لك Nama:
+   - **الحل الأمثل**: أفضل خطة ممكنة وُجدت (إذا كان وقت المحرك كافياً)
+   - **حل قابل للتطبيق**: خطة جيدة (إذا انتهى الوقت المحدد قبل إثبات الأمثلية)
+   - **لا حل**: لا يمكن تنفيذ الطلبية بالمواد المتاحة
 
-You see the exact cutting plan: which rolls, how many strikes, how many operations, which lots, total quantities.
+تظهر لك خطة القطع الدقيقة: أي اللفات، وعدد الضربات، وعدد العمليات، وأرقام الدفعات، والكميات الإجمالية.
 
-## Real-World Example
+## مثال من الواقع {#Real-World-Example}
 
-Let's walk through a realistic scenario to see how this all works together.
+لنستعرض سيناريو واقعياً لنرى كيف تعمل هذه الأجزاء معاً.
 
-**Your situation**: You manufacture corrugated cartons for produce packaging. You have three production stages:
-- Stage 1: Corrugating (laminating facing to fluting to liner)
-- Stage 2: Printing and slotting (cutting flaps and slots)
-- Stage 3: Stitching and bundling
+**حالتك**: تصنّع كراتين مموجة لتعبئة الخضار. لديك ثلاث مراحل إنتاج:
+- المرحلة الأولى: التموج (تلصيق الطبقة الخارجية بالتموج والبطانة الداخلية)
+- المرحلة الثانية: الطباعة والشق (قطع الرفارف والشقوق)
+- المرحلة الثالثة: التدبيس والتجميع
 
-**Your inventory**: You have rolls of:
-- Kraft facing paper, 2000mm width, various lots
-- C-flute medium, 2000mm width
-- Test liner, 1800mm and 2000mm widths
+**مخزونك**: لديك لفات من:
+- ورق Kraft facing، عرض 2000mm، دفعات متنوعة
+- وسط C-flute، عرض 2000mm
+- Test liner، أعراض 1800mm و2000mm
 
-**Customer Order #1**: A produce company wants 5000 cartons, spec "Tomato Box 250" which needs:
-- Finished dimensions: 250mm × 200mm × 150mm
-- Sheet dimensions: 520mm width × 440mm length
-- Layer 1: Kraft facing 125gsm
-- Layer 2: C-flute
-- Layer 3: Test liner 150gsm
+**طلبية العميل #1**: تريد إحدى شركات الخضار 5000 كرتونة، بمواصفة "Tomato Box 250" التي تتطلب:
+- الأبعاد النهائية: 250mm × 200mm × 150mm
+- أبعاد الورقة: عرض 520mm × طول 440mm
+- الطبقة الأولى: Kraft facing 125gsm
+- الطبقة الثانية: C-flute
+- الطبقة الثالثة: Test liner 150gsm
 
-**The traditional approach**: You'd manually calculate: 2000mm roll ÷ 520mm = 3.84, so cut 3 pieces across (1560mm used, 440mm trim - 22% waste). Then figure out how many cuts along the length to hit 5000 pieces total.
+**الطريقة التقليدية**: تحسب يدوياً: 2000mm لفة ÷ 520mm = 3.84، إذاً تقطع 3 قطع عبر العرض (1560mm مستخدمة، 440mm هدر - 22% هدر). ثم تحدد عدد القطعات على طول اللفة للحصول على 5000 قطعة.
 
-**The Nama approach**: Create a carton specification for "Tomato Box 250" defining all those parameters. Create a carton order for 5000 units. Create a material planning document, add the order, hit "Collect Materials."
+**طريقة Nama**: أنشئ مواصفة كرتونة لـ "Tomato Box 250" محدداً جميع تلك المعاملات. أنشئ طلبية كرتون لـ 5000 وحدة. أنشئ مستند تخطيط مواد، أضف الطلبية، واضغط "تجميع المواد."
 
-Nama searches and finds: "If you cut 4 pieces across a 2100mm roll (using a wider roll you have one lot of), waste drops to 5mm per piece. And I found pending Order #847 for a 480mm wide carton - if you cut that alongside your 520mm order on the same roll (520 + 480 = 1000mm, fit 2 pairs across a 2000mm roll with minimal trim), total waste is just 3%."
+يبحث Nama ويجد: "إذا قطعت 4 قطع عبر لفة 2100mm (باستخدام لفة أعرض لديك دفعة منها)، ينخفض الهدر إلى 5mm لكل قطعة. ووجدت الطلبية المعلقة #847 لكرتونة عرضها 480mm - إذا قطعتها بجانب طلبيتك 520mm من نفس اللفة (520 + 480 = 1000mm، قطعين زوجيين عبر لفة 2000mm بهدر ضئيل)، يصبح إجمالي الهدر 3% فقط."
 
-You review the companion order, see it's for another produce customer whose delivery is also next week, accept it. Nama generates the cutting plan, you generate production orders, issue materials from the exact lots Nama specified, and production executes the plan.
+تراجع الطلبية المرافقة وتجد أنها لعميل خضار آخر موعد تسليمه أيضاً الأسبوع القادم، فتقبلها. يولّد Nama خطة القطع، تُنشئ أوامر الإنتاج، وتصرف المواد من الدفعات التي حددها Nama، وينفّذ الإنتاج الخطة.
 
-Result: You just reduced waste from 22% to 3% and got two orders done in the same setup time. That's real money saved and faster throughput.
+النتيجة: خفّضت الهدر من 22% إلى 3% وأنجزت طلبيتين في نفس وقت الإعداد. هذا مال حقيقي يُوفَّر وإنتاجية أعلى.
 
-## Key Features That Make This Powerful
+## الميزات الرئيسية التي تجعل هذا قوياً {#Key-Features-That-Make-This-Powerful}
 
-### Multi-Layer Intelligence
-Cartons aren't one-dimensional. A 3-layer corrugated board has facing, fluting, and liner - each potentially from different rolls, different grades, different widths. Nama optimizes each layer independently, finding the best roll for each layer's specific requirements.
+### ذكاء متعدد الطبقات {#Multi-Layer-Intelligence}
+الكراتين ليست أحادية البعد. لوح مموج مكوّن من 3 طبقات يحتوي على facing وfluting وliner - كل منها قد يأتي من لفات مختلفة ودرجات مختلفة وأعراض مختلفة. يُحسّن Nama كل طبقة بشكل مستقل، موجداً أفضل لفة لمتطلبات كل طبقة.
 
-### Lot Tracking
-Paper quality varies by lot. Maybe Lot A2024-001 has slightly better strength than A2024-002. Nama tracks which specific lots go into which production orders, giving you full traceability if quality issues arise.
+### تتبع الدفعات {#Lot-Tracking}
+جودة الورق تتفاوت بين الدفعات. ربما الدفعة A2024-001 لها متانة أفضل قليلاً من A2024-002. يتتبع Nama الدفعات المحددة التي تدخل في كل أمر إنتاج، مما يمنحك إمكانية التتبع الكاملة إذا ظهرت مشكلات جودة.
 
-### Flexible Constraints
-You control the trade-offs:
-- **Minimum trim**: Don't allow cuts that waste too much (e.g., no cuts with less than 50mm trim)
-- **Minimum roll cuts**: Don't use a roll unless you can get at least X cuts from it (avoids inefficient partial rolls)
-- **Maximum time**: Limit how long the optimizer searches (faster results vs. better optimization)
-- **Workers count**: Use more CPU threads for faster solving on multi-core servers
+### قيود مرنة {#Flexible-Constraints}
+أنت تتحكم في المقايضات:
+- **الحد الأدنى للهدر**: لا تسمح بقطعات تُهدر كثيراً (مثلاً، لا قطعات بهدر أقل من 50mm)
+- **الحد الأدنى لعمليات القطع**: لا تستخدم لفة إلا إذا تمكنت من الحصول على X عمليات قطع منها على الأقل (يتجنب اللفات الجزئية غير الفعّالة)
+- **الوقت الأقصى**: حدّد المدة التي يبحث فيها المحرك (نتائج أسرع مقابل تحسين أفضل)
+- **عدد العمال**: استخدم خيوط معالج أكثر لحل أسرع على الخوادم متعددة الأنوية
 
-### Forced Roll Widths
-Sometimes you need to use a specific roll width (maybe to finish off inventory or meet a specification requirement). You can force a particular layer to use a particular roll width, and Nama optimizes around that constraint.
+### إجبار أعراض اللفات {#Forced-Roll-Widths}
+أحياناً تحتاج إلى استخدام عرض لفة محدد (ربما لتصفية المخزون أو تلبية متطلبات مواصفة). يمكنك إجبار طبقة معينة على استخدام عرض لفة معين، ويُحسّن Nama حول هذا القيد.
 
-### Production Integration
-This isn't just a planning tool that outputs spreadsheets. Everything flows into Nama's production system:
-- Automatic production order generation
-- BOM lines populated from the cutting plan
-- Material issues tied directly to the plan
-- Production execution tracks actual consumption vs. plan
-- Costing captures trim waste as co-product or scrap
+### التكامل مع الإنتاج {#Production-Integration}
+هذه ليست مجرد أداة تخطيط تُنتج جداول بيانات. كل شيء يتدفق في نظام إنتاج Nama:
+- إنشاء أوامر الإنتاج تلقائياً
+- سطور BOM مُعبّأة من خطة القطع
+- صرف المواد مرتبط مباشرة بالخطة
+- تنفيذ الإنتاج يتتبع الاستهلاك الفعلي مقابل الخطة
+- التكلفة تسجّل هدر القطع كمنتج مشترك أو هدر
 
-### Review and Adjust
-Before committing, you can review available quantities per roll width. Nama shows: "For 2000mm rolls, I have 25,000 linear meters available across layers 1-3. For 1800mm rolls, I have 12,000 meters in layer 1 only."
+### المراجعة والتعديل {#Review-and-Adjust}
+قبل الالتزام، يمكنك مراجعة الكميات المتاحة لكل عرض لفة. يُظهر Nama: "للفات 2000mm، لديّ 25,000 متر طولي متاح عبر الطبقات 1-3. للفات 1800mm، لديّ 12,000 متر في الطبقة الأولى فقط."
 
-This helps you spot inventory gaps before you commit to a plan you can't execute.
+يساعدك هذا في اكتشاف نقص المخزون قبل الالتزام بخطة لا يمكنك تنفيذها.
 
-## Who Uses This and When
+## من يستخدم هذا ومتى {#Who-Uses-This-and-When}
 
-**Production Planners** use this daily to create weekly or shift-based cutting plans. They batch orders, find companion orders, and optimize material usage.
+**مخططو الإنتاج** يستخدمون هذا يومياً لإنشاء خطط قطع أسبوعية أو قائمة على الوردية. يجمعون الطلبيات ويجدون الطلبيات المرافقة ويُحسّنون استخدام المواد.
 
-**Shop Floor Supervisors** review the material issue documents to see exactly which rolls to pull for which jobs.
+**مشرفو أرضية المصنع** يراجعون مستندات صرف المواد لمعرفة أي اللفات يجب سحبها لأي وظائف.
 
-**Manufacturing Engineers** set up the carton specifications when new products are designed, defining the production stages and material requirements.
+**مهندسو التصنيع** يُعدّون مواصفات الكرتونة عند تصميم منتجات جديدة، محددين مراحل الإنتاج ومتطلبات المواد.
 
-**System Administrators** configure the planning settings - optimization parameters, co-product items for trim, numbering schemes.
+**مسؤولو النظام** يضبطون إعدادات التخطيط - معاملات التحسين والأصناف المنتجة المشتركة للهدر ومخططات الترقيم.
 
-**Purchasing** monitors the "Available Materials" report to see which roll widths are running low and need reordering.
+**قسم المشتريات** يراقب تقرير "المواد المتاحة" لمعرفة أعراض اللفات التي تنخفض وتحتاج إلى إعادة طلب.
 
-## Common Workflows
+## سير العمل الشائعة {#Common-Workflows}
 
-**Daily Planning Cycle**:
-1. Review pending carton orders
-2. Create material planning document
-3. Add primary orders to fulfill
-4. Search for companion orders to batch
-5. Run optimization
-6. Review cutting plan and waste %
-7. Generate production orders
-8. Issue materials
-9. Send cutting plan to shop floor
+**دورة التخطيط اليومي**:
+1. مراجعة طلبيات الكرتون المعلقة
+2. إنشاء مستند تخطيط مواد
+3. إضافة الطلبيات الأساسية للتنفيذ
+4. البحث عن طلبيات مرافقة للتجميع
+5. تشغيل التحسين
+6. مراجعة خطة القطع ونسبة الهدر
+7. إنشاء أوامر الإنتاج
+8. صرف المواد
+9. إرسال خطة القطع إلى أرضية المصنع
 
-**New Product Setup**:
-1. Create carton specification
-2. Define physical dimensions
-3. Configure first/second/third stage materials
-4. Set up routings (operations)
-5. Test with a sample order
-6. Adjust specifications based on actual results
+**إعداد منتج جديد**:
+1. إنشاء مواصفة كرتونة
+2. تحديد الأبعاد المادية
+3. ضبط مواد المرحلة الأولى/الثانية/الثالثة
+4. إعداد مسارات العمل (العمليات)
+5. الاختبار بطلبية نموذجية
+6. تعديل المواصفات بناءً على النتائج الفعلية
 
-**Material Availability Check**:
-1. Create material planning document
-2. Add order to plan
-3. Run "Review Available Quantities"
-4. See which roll widths have stock
-5. Identify shortages before committing to production
+**التحقق من توافر المواد**:
+1. إنشاء مستند تخطيط مواد
+2. إضافة الطلبية إلى الخطة
+3. تشغيل "مراجعة الكميات المتاحة"
+4. الاطلاع على أعراض اللفات المتوفرة في المخزون
+5. تحديد النقص قبل الالتزام بالإنتاج
 
-## Configuration and Setup
+## الإعداد والتهيئة {#Configuration-and-Setup}
 
-Before you start using carton manufacturing, you need to set up:
+قبل البدء باستخدام تصنيع الكرتون، تحتاج إلى إعداد:
 
-**Planning Configuration** (إعدادات تخطيط الكرتون): Create at least one configuration defining:
-- Minimum roll length to use
-- Minimum number of cuts per roll
-- Minimum trim allowed
-- Maximum search time for optimizer
-- Trim co-product item (if you want to track trim as inventory)
+**إعدادات تخطيط الكرتون** (Planning Configuration): أنشئ إعداداً واحداً على الأقل يحدد:
+- الحد الأدنى لطول اللفة المستخدمة
+- الحد الأدنى لعدد القطعات من كل لفة
+- الحد الأدنى للهدر المسموح به
+- الوقت الأقصى للبحث في محرك التحسين
+- صنف الهدر المنتج المشترك (إذا أردت تتبع الهدر كمخزون)
 
-**Supporting Master Data**:
-- **Carton Types** (نوع الكرتونة): Define types with default starch levels
-- **Carton Patterns** (باترون الكرتونة): Define cutting patterns with formulas
-- **Fluting Types** (نوع التموج): E-flute, C-flute, B-flute, etc.
-- **Corrugating Factors** (عامل تموج): Define corrugation ratios
-- **Molds**: Crease molds and printing molds
-- **Items**: Set up inventory items for paper rolls with item classes for grades
+**البيانات الأساسية الداعمة**:
+- **نوع الكرتونة** (Carton Types): حدد الأنواع بمستويات النشا الافتراضية
+- **باترون الكرتونة** (Carton Patterns): حدد أنماط القطع بالصيغ
+- **نوع التموج** (Fluting Types): E-flute وC-flute وB-flute وغيرها
+- **عامل التموج** (Corrugating Factors): حدد نسب التموج
+- **القوالب** (Molds): قوالب الطيّ وقوالب الطباعة
+- **الأصناف** (Items): أعدّ أصناف المخزون للفات الورق مع تصنيفات الصنف للدرجات
 
-**Document Terms**: Configure terms for:
-- Carton Orders (auto-numbering, accounting effects)
-- Material Planning (generation settings)
-- Material Issues (warehouse defaults, accounting)
+**توجيه المستندات** (Document Terms): اضبط التوجيهات لـ:
+- طلبيات الكرتون (الترقيم التلقائي والتأثيرات المحاسبية)
+- تخطيط المواد (إعدادات الإنشاء)
+- صرف المواد (إعدادات المخزن الافتراضية والمحاسبة)
 
-## Next Steps
+## الخطوات التالية {#Next-Steps}
 
-Ready to dive deeper? The detailed guides cover:
+هل أنت مستعد للتعمق أكثر؟ الأدلة التفصيلية تغطي:
 
-- **[Carton Specifications](./carton-specifications.md)** - How to define carton products in detail
-- **[Carton Orders](./carton-orders.md)** - Creating customer orders and managing sales
-- **[Material Planning & Optimization](./carton-material-planning.md)** - The complete guide to the optimization engine
-- **[Material Issues](./carton-material-issue.md)** - Issuing materials to production
+- **[مواصفات الكرتونة](./carton-specifications.md)** - كيفية تعريف منتجات الكرتون بالتفصيل
+- **[طلبيات الكرتون](./carton-orders.md)** - إنشاء طلبيات العملاء وإدارة المبيعات
+- **[تخطيط المواد والتحسين](./carton-material-planning.md)** - الدليل الكامل لمحرك التحسين
+- **[صرف المواد](./carton-material-issue.md)** - صرف المواد للإنتاج
 
 ---
 
-::: tip Why This Matters
-Material is typically 60-70% of the cost of a corrugated carton. Reducing waste from 15% to 5% through better planning can increase profit margins by 10-15% or more. The optimization literally pays for itself in saved material.
+::: tip لماذا هذا مهم
+المواد تمثل عادةً 60-70% من تكلفة الكرتونة المموجة. تقليل الهدر من 15% إلى 5% من خلال تخطيط أفضل يمكن أن يزيد هوامش الربح بنسبة 10-15% أو أكثر. محرك التحسين يوفّر تكلفته حرفياً من المواد التي يوفّرها.
 :::
 
-::: info Navigation
-Find carton manufacturing under **Manufacturing > Cartoon** (التصنيع > Cartoon) in the menu.
+::: info التنقل
+يمكنك إيجاد تصنيع الكرتون تحت **Manufacturing > Cartoon** في القائمة.
 :::

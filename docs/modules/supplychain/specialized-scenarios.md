@@ -1,553 +1,553 @@
-# Specialized Scenarios
-
-While the core supply chain concepts we've covered apply universally, different industries have unique requirements. NaMa ERP includes specialized documents and workflows for these specific scenarios. Let's explore how the system adapts to different business contexts.
+# سيناريوهات متخصصة (Specialized Scenarios)
+
+رغم أن المفاهيم الأساسية لسلسلة التوريد التي تناولناها تنطبق على جميع القطاعات، إلا أن كل صناعة لها متطلباتها الخاصة. يتضمن NaMa ERP مستندات وسير عمل متخصصة لهذه السيناريوهات تحديداً. دعنا نستعرض كيف يتكيّف النظام مع مختلف بيئات الأعمال.
 
-## Hospital and Healthcare
+## المستشفيات والرعاية الصحية {#Hospital-and-Healthcare}
 
-Healthcare supply chain has unique requirements around patient safety, regulatory compliance, expiration tracking, and controlled substances.
+تتميز سلسلة توريد الرعاية الصحية بمتطلبات فريدة تتعلق بسلامة المرضى والامتثال التنظيمي وتتبع تواريخ الانتهاء والمواد الخاضعة للرقابة.
 
-### Pharmacy Operations
-
-Hospital pharmacies operate differently from regular warehouses:
+### عمليات الصيدلية {#Pharmacy-Operations}
+
+تعمل صيدليات المستشفيات بشكل مختلف عن المستودعات العادية:
 
-**HMSPharmacyInvoice** (فاتورة صيدلية): Dispensing medications to patients
-- Links to patient records
-- Tracks insurance coverage
-- Enforces prescription requirements
-- Records lot numbers for recall capability
-- Monitors expiration dates
-- Checks drug interactions
+**HMSPharmacyInvoice** (فاتورة صيدلية): صرف الأدوية للمرضى
+- ربط بسجلات المرضى
+- تتبع التغطية التأمينية
+- التحقق من اشتراطات الوصفات الطبية
+- تسجيل أرقام الدُفعات لإمكانية الاسترداد
+- مراقبة تواريخ الانتهاء
+- فحص التفاعلات الدوائية
 
-**HMSPharmacyReturn** (مرتجع صيدلية): Unused medications returned
-- Quarantine returned medications (can't reissue)
-- Document reason for return
-- Proper disposal tracking for controlled substances
-- Credit patient or insurance
-
-**Why Different from Regular Sales?**
-- Patient safety is paramount
-- Regulatory requirements (prescription verification, controlled substance tracking)
-- Insurance integration (claims, copays, formularies)
-- Expiration management is critical (use FEFO - First Expiry First Out)
+**HMSPharmacyReturn** (مرتجع صيدلية): إعادة الأدوية غير المستخدمة
+- عزل الأدوية المُعادة (لا يمكن إعادة صرفها)
+- توثيق سبب الإعادة
+- تتبع التخلص السليم من المواد الخاضعة للرقابة
+- إضافة رصيد للمريض أو شركة التأمين
+
+**لماذا تختلف عن المبيعات العادية؟**
+- سلامة المريض هي الأولوية القصوى
+- المتطلبات التنظيمية (التحقق من الوصفات، تتبع المواد الخاضعة للرقابة)
+- التكامل مع التأمين (المطالبات، الاشتراكات، قوائم الأدوية المعتمدة)
+- إدارة تواريخ الانتهاء أمر بالغ الأهمية (استخدام FEFO - أول انتهاء أول صرف)
 
-### Blood Bank Management
-
-Blood products have the shortest shelf life and highest criticality:
+### إدارة بنك الدم {#Blood-Bank-Management}
+
+مشتقات الدم لها أقصر مدة صلاحية وأعلى درجة حرجية:
 
-**HMSBloodBankInvoice** (فاتورة بنك دم): Issuing blood products
-- Blood type matching critical
-- Strict expiration (days, not months)
-- Temperature control tracking
-- Patient crossmatch requirements
-- Trace every unit to donor and recipient
-
-**HMSBloodBankReturn** (مرتجع بنك دم): Unused units returned
-- Must return quickly (short shelf life)
-- Temperature breach = discard
-- Document why unused (surgery cancelled, patient outcome changed)
-
-**Unique Characteristics:**
-- Every unit individually tracked (serial numbers mandatory)
-- Zero error tolerance (wrong blood type = fatal)
-- Extremely short shelf life (days)
-- Complete traceability (from donor through recipient)
-
-### Medical Supplies
-
-General medical supplies (not drugs):
-
-**HMSSuppliesInvoice** (فاتورة مستلزمات): Issuing supplies
-- To departments (OR, ICU, wards)
-- To specific procedures (track cost per surgery)
-- Implants and high-value items individually tracked
-- Par level replenishment
-
-**HMSSupplyReturn** (مرتجع مستلزمات): Unused supplies returned
-- Return to central supply
-- Restock if sterility intact
-- Discard if opened or contaminated
+**HMSBloodBankInvoice** (فاتورة بنك دم): صرف مشتقات الدم
+- مطابقة فصيلة الدم أمر بالغ الأهمية
+- انتهاء صارم (أيام وليس أشهر)
+- تتبع ضبط درجة الحرارة
+- اشتراطات المطابقة المتقاطعة للمريض
+- تتبع كل وحدة من المتبرع إلى المتلقي
+
+**HMSBloodBankReturn** (مرتجع بنك دم): إعادة الوحدات غير المستخدمة
+- وجوب الإعادة السريعة (قِصَر مدة الصلاحية)
+- أي خرق في درجة الحرارة = تخلص من المنتج
+- توثيق سبب عدم الاستخدام (إلغاء العملية، تغير حالة المريض)
+
+**خصائص فريدة:**
+- تتبع فردي لكل وحدة (الأرقام التسلسلية إلزامية)
+- تسامح صفري مع الأخطاء (فصيلة الدم الخاطئة = مميتة)
+- مدة صلاحية قصيرة جداً (أيام)
+- إمكانية تتبع كاملة (من المتبرع حتى المتلقي)
+
+### المستلزمات الطبية {#Medical-Supplies}
+
+المستلزمات الطبية العامة (غير الدوائية):
+
+**HMSSuppliesInvoice** (فاتورة مستلزمات): صرف المستلزمات
+- للأقسام (غرفة العمليات، العناية المركزة، الأجنحة)
+- لإجراءات بعينها (تتبع التكلفة لكل عملية)
+- تتبع فردي للزرعات والمواد عالية القيمة
+- تجديد المخزون وفق مستويات الحد الأدنى
+
+**HMSSupplyReturn** (مرتجع مستلزمات): إعادة المستلزمات غير المستخدمة
+- الإعادة إلى المستودع المركزي
+- إعادة التخزين إذا ظلت عقامة المنتج سليمة
+- التخلص منها إذا فُتحت أو تلوثت
 
-**HMSServiceSupplyInvoice**: Supplies tied to patient services
-- Cost allocation to patient
-- Insurance billing
-- Supply cost tracking per procedure type
-
-### Ward Supply Management
+**HMSServiceSupplyInvoice**: المستلزمات المرتبطة بخدمات المرضى
+- توزيع التكلفة على المريض
+- الفوترة التأمينية
+- تتبع تكلفة المستلزمات لكل نوع إجراء
+
+### إدارة مستلزمات الأجنحة {#Ward-Supply-Management}
 
-**HMSFeedingIssue**: Replenishing department par levels
-- Each ward/department has minimum stock levels
-- Automated replenishment when low
-- Track consumption by department
-- Cost allocation to departments
-
-## Point of Sale (Retail)
+**HMSFeedingIssue**: تجديد مستويات المخزون في الأقسام
+- لكل جناح/قسم مستويات مخزون دنيا
+- تجديد تلقائي عند الانخفاض
+- تتبع الاستهلاك حسب القسم
+- توزيع التكلفة على الأقسام
+
+## نقطة البيع (التجزئة) {#Point-of-Sale-Retail}
 
-Retail operations need speed over detailed approval workflows.
-
-### POS Sales Process
+تحتاج عمليات التجزئة إلى السرعة بدلاً من دورات الموافقة التفصيلية.
+
+### عملية مبيعات نقطة البيع {#POS-Sales-Process}
 
-**NamaPOSSalesInvoice** (فاتورة مبيعات نقطة بيع): Retail sales
-- Immediate payment required (cash, card)
-- Fast transaction processing
-- Barcode scanning
-- Receipt printing
-- Cash drawer management
-- End-of-day reconciliation
-
-**Key Differences from Regular Sales:**
-- No quotation or order process
-- Payment immediate (no credit terms)
-- High volume, low complexity transactions
-- Customer usually anonymous (no customer record unless loyalty program)
-- Inventory issues instantly
-
-### POS Returns and Exchanges
+**NamaPOSSalesInvoice** (فاتورة مبيعات نقطة بيع): مبيعات التجزئة
+- الدفع الفوري مطلوب (نقداً أو بطاقة)
+- معالجة سريعة للمعاملات
+- مسح الباركود
+- طباعة الإيصالات
+- إدارة درج النقد
+- تسوية نهاية اليوم
+
+**الفروقات الرئيسية عن المبيعات العادية:**
+- لا تعرّض أسعار أو أوامر بيع
+- الدفع فوري (لا شروط ائتمانية)
+- معاملات بحجم كبير وتعقيد منخفض
+- العميل عادةً مجهول (لا سجل عميل إلا مع برنامج الولاء)
+- صرف المخزون فورياً
+
+### مرتجعات واستبدالات نقطة البيع {#POS-Returns-and-Exchanges}
 
-**NamaPOSSalesReturn** (مرتجع مبيعات نقطة بيع): Retail returns
-- Verify original receipt
-- Return within policy period
-- Check item condition
-- Process refund or store credit
-
-**NamaPOSSalesReplacement**: Size/color exchanges
-- Customer exchanges without full return/repurchase
-- Handle price differences
-- Update inventory for both items
-
-### POS Reservations
-
-**NamaPOSOrderReservation** (حجز طلب نقطة بيع): Customer orders
-- Customer wants item not in stock
-- Reserve when arrives
-- Hold for pickup
-- Time limit before cancellation
-
-**NamaPOSCancelReservation**: When customer doesn't pick up
-- Release reserved stock
-- Return to available inventory
-
-### POS Inventory Management
-
-**NamaPOSStockReceipt** (استلام مخزني نقطة بيع): Store receiving
-- Receiving from central warehouse
-- Store transfers
-- Vendor direct delivery to store
-
-**NamaPOSStockTransferReq**: Requesting stock from warehouse
-- Store running low
-- Request transfer from central warehouse or other stores
-- Automated based on sales velocity
-
-**NamaPOSStockTakingDetails**: Store inventory counts
-- End-of-day counts (for high-value items)
-- Periodic full counts
-- Cycle counts
-- Shrinkage tracking
-
-### POS Special Handling
-
-**NamaPOSHeldInvoice**: Holding transactions
-- Customer shopping interrupted
-- Hold transaction, continue later
-- Prevents timeout losing customer's cart
-
-**NamaPOSScrapDoc**: Damaged merchandise
-- In-store damage
-- Display damage
-- Expired products
-- Document for inventory write-off
-
-**NamaPOSShortfallsDoc**: Shortage tracking
-- Items missing during count
-- Potential theft or loss
-- Regular reporting to management
-
-## Service Center Operations
-
-Service centers (repair shops, service businesses) have unique inventory flows:
-
-### Service Item Assembly
-
-**SubItemAssemblyDocument**: Assembling service items
-- Service package = base service + parts + labor
-- Track component costs
-- Bill customer for total service
-
-### Service Parts Management
-
-**SIPurchaseOrder**, **SIPurchaseInvoice**: Parts for service jobs
-- Purchasing parts specific to customer orders
-- Direct job costing
-- Customer authorization for parts
-
-**SISalesInvoice**, **SISalesOrder**: Billing for services
-- Service labor + parts cost
-- Warranty vs. paid service
-- Customer approval before work
-
-**SrvCRawMaterialIssue**: Issuing parts to technician
-- Technician takes parts to job site
-- Track who has what parts
-- Return unused parts
-
-**SrvCRawMaterialIssueRequest**: Requesting parts for job
-- Technician identifies needed parts
-- Parts issued from stock
-- Charge to customer or warranty
-
-**SrvcRawMaterialReturn**: Returning unused parts
-- Job didn't need all parts issued
-- Return to service parts inventory
-- Adjust customer billing
-
-### Service Location Management
-
-**SIReceipt**, **SIReceiptCancel**: Receiving service items
-- Customer brings item for service
-- Receive into service queue
-- Track status (waiting, in-progress, done)
-
-**InvoiceReceiptDoc**: Completing service
-- Service finished
-- Invoice customer
-- Release repaired item
-
-**SIAllocation**, **SIAllocationCancel**: Assigning work
-- Allocate service job to technician
-- Track workload
-- Schedule management
-
-**SITrafficLetter**, **SITrafficLetterCancel**: Delivery authorization
-- Authorize delivery of serviced item
-- Customer pickup or delivery
-- Release from service center
-
-**SISalesApproval**: Customer approval for service
-- Estimate provided
-- Customer approves work
-- Proceed with service
-
-## Job Order Manufacturing
-
-Custom manufacturing where each order is unique:
-
-### Glass Job Orders
-
-**GlassJobOrder** (أمر شغل زجاج): Custom glass cutting/fabrication
-- Customer specifications (dimensions, type, tinting, etc.)
-- Custom cutting and assembly
-- Measurement → fabrication → installation
-
-**GlassJobOrderReq**: Requesting custom work
-- Customer inquires
-- Site measurement
-- Quotation
-- Approval
-- Work order created
-
-### Job Order Sales
-
-**JOSalesQuotation** (عرض أسعار أمر شغل): Custom quotations
-- Each job is unique
-- Estimate materials needed
-- Estimate labor time
-- Price accordingly
-
-**JOSalesQuotationReq**: Customer requests quote
-- Provide specifications
-- Site visit if needed
-- Create detailed quote
-
-**JOSalesOrder**, **JOSalesInvoice**: Job order sales
-- Custom order processing
-- Track job progress
-- Bill upon completion or milestones
-
-### Job Order Operations
-
-**JOOutSourceManufactureIssue**: Sending to subcontractor
-- Parts that need outside processing
-- Track what's at subcontractor
-- Cost tracking
-
-**JOOutSourcManufacturReceipt**: Receiving from subcontractor
-- Parts return from outside processing
-- Inspect work
-- Pay subcontractor
-
-**JODamageDoc**: Job site damage
-- Custom work damaged
-- Determine responsibility (you vs. customer vs. shipper)
-- Remake or repair
-- Insurance claims
-
-## Contracting and Project Management
-
-Construction and contracting have unique material management:
-
-### Project Material Management
-
-**ContractingPurchaseOrder**, **ContractingPurchaseRequest**: Project purchasing
-- Materials for specific projects
-- Track costs to project
-- Customer approval for changes
-- Budget tracking
-
-**ContractingMaterialIssue**, **ContractingMaterialIssueReq**: Issuing to job sites
-- Send materials to project site
-- Track by project and location
-- Cost allocation to projects
-
-**ContractingMaterialReturn**: Returning from job sites
-- Unused materials back to warehouse
-- Credit to project
-- Restock for other projects
-
-### Contractor Material Management
-
-**ContractorMaterialIssue**: Issuing to subcontractor
-- Materials provided to subcontractor
-- Track what they have
-- Recover or charge if not returned
-
-**ContractorMaterialReturn**: Subcontractor returns unused
-- Return excess materials
-- Verify quantities
-- Credit to subcontractor account
-
-### Budget and Executive Items
-
-**ExecutiveBudgetItemRequest**: Government/large project requisitions
-- Budget approval required
-- Multiple approval levels
-- Detailed justification
-- Audit trail
-
-## Manufacturing Operations
-
-### Raw Material Management
-
-**RawMaterialIssue**, **RawMaterialIssueReq**: Materials to production
-- Issue to specific production orders
-- Track consumption
-- Variance analysis (planned vs. actual)
-
-**RawMaterialReturn**, **RawMaterialReturnReq**: Unused materials back
-- Return excess from production
-- Update job costs
-- Restock for other jobs
-
-**MCRawMaterialIssue**: Manufacturing cell material issues
-- JIT/cellular manufacturing
-- Kanban-style replenishment
-- Lean manufacturing integration
-
-### Production Output
-
-**ProductDelivery**: Finished goods from production
-- Receive into finished goods inventory
-- Calculate product cost (materials + labor + overhead)
-- Quality check before stock
-
-**ProductReturn**, **ProductReturnReq**: Defective products back
-- Failed final inspection
-- Return to production for rework
-- Scrap if unrepairable
-
-**ScrapReceipt**: Manufacturing scrap
-- Byproducts from production
-- Salvage value
-- Disposal tracking
-
-### Processing and Transformation
-
-**ProcessingDoc** (مستند معالجة): Item processing
-- Transform one item into another
-- Chemical processing
-- Heat treatment
-- Assembly processing
-
-**CRTNMaterialIssue**: CRTN-specific material issues
-- Industry-specific issue process
-- Custom tracking requirements
-
-## Tender and Pricing Operations
-
-**Tender** (مناقصة): Tender management
-- Government or corporate tenders
-- Bid preparation
-- Pricing strategy
-- Compliance documentation
-
-**FinishedProductPricing** (تسعير منتج نهائي): Cost-plus pricing
-- Calculate product cost (materials + labor + overhead)
-- Apply margin
-- Set sales prices
-- Update price lists
-
-## E-Commerce Integration
-
-### Magento Integration
-
-**MagentoPriceUpdaterDoc**: Syncing prices to online store
-- Update Magento prices from ERP
-- Bulk price updates
-- Promotional pricing
-- Variant pricing
-
-**Magento Fields on Sales Invoices:**
-- `magentoSourceId`: Order ID from Magento
-- `magentoSiteRef`: Which Magento site
-- `lastMagentoStatus`: Sync status
-- `lastMagentoComment`: Notes from Magento
-
-**Integration Flow:**
-1. Customer orders on website (Magento)
-2. Order syncs to NaMa ERP (SalesInvoice created)
-3. Process order in ERP (pick, pack, ship)
-4. Update status in Magento (customer sees tracking)
-5. Invoice created in Magento
-6. Shipment notification to customer
-
-## Weight Scale Integration
-
-**WeightScalePreparationDoc** (مستند تحضير ميزان): Bulk receiving/shipping
-- For businesses receiving/shipping bulk materials
-- Integration with electronic truck scales
-- Automated weight capture
-- Calculate net weight (gross - tare)
-- Reduce manual data entry errors
-
-**Common Industries:**
-- Agriculture (grain, feed)
-- Chemicals (bulk liquids)
-- Construction materials (sand, gravel, cement)
-- Recycling (scrap metal, paper)
-- Waste management
-
-## Common Patterns Across Specializations
-
-Despite industry differences, patterns emerge:
-
-### Two-Step Processes
-Many industries use request → execution:
-- Request ensures approval before action
-- Provides planning time
-- Creates audit trail
-- Supports workflow management
-
-### Cancellation Documents
-Most document types have cancellations:
-- Maintains audit trail
-- Reverses effects properly
-- Tracks why cancellation happened
-- Supports controls and compliance
-
-### Integration Points
-Specialized documents integrate with:
-- **Core Inventory**: All affect stock levels
-- **Accounting**: All have financial impact
-- **Quality**: Many include inspection steps
-- **Customer/Supplier**: Many link to parties
-
-### Traceability
-All specialized scenarios emphasize:
-- Where did items come from?
-- Where did they go?
-- Who handled them?
-- When did events occur?
-- Why did actions happen?
-
-## Choosing the Right Document
-
-With so many document types, how do you choose?
-
-**Ask These Questions:**
-
-1. **What's the business event?** (receiving, issuing, selling, processing)
-2. **What's the industry context?** (hospital, retail, manufacturing, service)
-3. **What's the source/destination?** (supplier, customer, department, production)
-4. **What regulatory/compliance needs exist?** (controlled substances, safety, traceability)
-5. **What approval workflow is needed?** (direct, request-first, multiple approvals)
-
-The answers point you to the right document type.
-
-## Tips for Specialized Operations
-
-::: tip Best Practices
-
-**Use Industry-Specific Documents**
-Don't try to force retail operations into manufacturing documents or vice versa. Use the specialized documents designed for your industry.
-
-**Understand Your Compliance Requirements**
-Many specialized documents exist because of regulatory requirements. Make sure you understand your obligations.
-
-**Train for Specialization**
-Hospital inventory management is very different from retail. Invest in industry-specific training for your team.
-
-**Configure Appropriately**
-Many specialized features require configuration. Work with your NaMa ERP consultant to set up your system correctly.
-
-**Don't Over-Complicate**
-Just because a feature exists doesn't mean you must use it. Start simple, add complexity only when needed.
+**NamaPOSSalesReturn** (مرتجع مبيعات نقطة بيع): مرتجعات التجزئة
+- التحقق من الإيصال الأصلي
+- الإعادة ضمن فترة السياسة
+- فحص حالة البضاعة
+- معالجة استرداد المبلغ أو رصيد المتجر
+
+**NamaPOSSalesReplacement**: استبدال المقاسات/الألوان
+- تبديل العميل دون إعادة واسترداد كامل
+- معالجة فروق الأسعار
+- تحديث المخزون لكلا الصنفين
+
+### حجوزات نقطة البيع {#POS-Reservations}
+
+**NamaPOSOrderReservation** (حجز طلب نقطة بيع): طلبات العملاء
+- العميل يرغب في صنف غير متوفر
+- الحجز عند الوصول
+- الاحتفاظ للاستلام
+- حد زمني قبل الإلغاء
+
+**NamaPOSCancelReservation**: عند عدم استلام العميل
+- الإفراج عن المخزون المحجوز
+- إعادته إلى المخزون المتاح
+
+### إدارة مخزون نقطة البيع {#POS-Inventory-Management}
+
+**NamaPOSStockReceipt** (استلام مخزني نقطة بيع): استلام المتجر
+- استلام من المستودع المركزي
+- تحويلات بين المتاجر
+- تسليم مباشر من المورد إلى المتجر
+
+**NamaPOSStockTransferReq**: طلب مخزون من المستودع
+- انخفاض مخزون المتجر
+- طلب تحويل من المستودع المركزي أو متاجر أخرى
+- آلي بناءً على سرعة المبيعات
+
+**NamaPOSStockTakingDetails**: جرد المخزون في المتجر
+- عدد نهاية اليوم (للأصناف عالية القيمة)
+- جردات دورية كاملة
+- جردات دورانية
+- تتبع الفاقد
+
+### معالجة خاصة في نقطة البيع {#POS-Special-Handling}
+
+**NamaPOSHeldInvoice**: تعليق المعاملات
+- انقطاع تسوّق العميل
+- تعليق المعاملة والمتابعة لاحقاً
+- تجنب انتهاء الجلسة مع ضياع سلة العميل
+
+**NamaPOSScrapDoc**: البضاعة التالفة
+- تلف داخل المتجر
+- تلف معروضات
+- منتجات منتهية الصلاحية
+- توثيق لشطب المخزون
+
+**NamaPOSShortfallsDoc**: تتبع النقص
+- أصناف مفقودة أثناء الجرد
+- احتمال سرقة أو فقدان
+- تقارير دورية للإدارة
+
+## عمليات مركز الخدمة {#Service-Center-Operations}
+
+لمراكز الخدمة (ورش الإصلاح، أعمال الخدمة) تدفقات مخزون فريدة:
+
+### تجميع أصناف الخدمة {#Service-Item-Assembly}
+
+**SubItemAssemblyDocument**: تجميع أصناف الخدمة
+- حزمة الخدمة = خدمة أساسية + قطع + عمالة
+- تتبع تكاليف المكونات
+- إصدار فاتورة للعميل بالتكلفة الإجمالية
+
+### إدارة قطع الخدمة {#Service-Parts-Management}
+
+**SIPurchaseOrder**، **SIPurchaseInvoice**: قطع لأعمال الخدمة
+- شراء قطع خاصة بأوامر العملاء
+- تكاليف مباشرة على المشروع
+- تفويض العميل للقطع
+
+**SISalesInvoice**، **SISalesOrder**: فوترة الخدمات
+- تكلفة عمالة الخدمة + القطع
+- خدمة ضمان مقابل خدمة مدفوعة
+- موافقة العميل قبل بدء العمل
+
+**SrvCRawMaterialIssue**: صرف قطع للفني
+- الفني يأخذ القطع إلى موقع العمل
+- تتبع من لديه أي قطع
+- إعادة القطع غير المستخدمة
+
+**SrvCRawMaterialIssueRequest**: طلب قطع للمشروع
+- الفني يحدد القطع المطلوبة
+- صرف القطع من المخزون
+- الإضافة لحساب العميل أو الضمان
+
+**SrvcRawMaterialReturn**: إعادة القطع غير المستخدمة
+- المشروع لم يستخدم جميع القطع المصروفة
+- الإعادة إلى مخزون قطع الخدمة
+- تعديل فاتورة العميل
+
+### إدارة موقع الخدمة {#Service-Location-Management}
+
+**SIReceipt**، **SIReceiptCancel**: استلام أصناف الخدمة
+- العميل يحضر الصنف للخدمة
+- استلامه في قائمة انتظار الخدمة
+- تتبع الحالة (انتظار، قيد التنفيذ، منجز)
+
+**InvoiceReceiptDoc**: إتمام الخدمة
+- انتهاء الخدمة
+- إصدار فاتورة للعميل
+- الإفراج عن الصنف المُصلح
+
+**SIAllocation**، **SIAllocationCancel**: تخصيص العمل
+- إسناد مشروع الخدمة إلى فني
+- تتبع عبء العمل
+- إدارة الجدول الزمني
+
+**SITrafficLetter**، **SITrafficLetterCancel**: تفويض التسليم
+- تفويض تسليم الصنف بعد الخدمة
+- استلام العميل أو التوصيل
+- الإفراج من مركز الخدمة
+
+**SISalesApproval**: موافقة العميل على الخدمة
+- تقديم التقدير
+- موافقة العميل على العمل
+- المتابعة بتنفيذ الخدمة
+
+## تصنيع أوامر الشغل (Job Order) {#Job-Order-Manufacturing}
+
+التصنيع المخصص حيث كل أمر فريد:
+
+### أوامر شغل الزجاج {#Glass-Job-Orders}
+
+**GlassJobOrder** (أمر شغل زجاج): قطع/تصنيع زجاج مخصص
+- مواصفات العميل (الأبعاد، النوع، التظليل، إلخ)
+- قطع وتجميع مخصص
+- القياس ← التصنيع ← التركيب
+
+**GlassJobOrderReq**: طلب عمل مخصص
+- استفسار العميل
+- القياس الميداني
+- التسعير
+- الموافقة
+- إنشاء أمر العمل
+
+### مبيعات أوامر الشغل {#Job-Order-Sales}
+
+**JOSalesQuotation** (عرض أسعار أمر شغل): عروض أسعار مخصصة
+- كل مشروع فريد
+- تقدير المواد المطلوبة
+- تقدير وقت العمالة
+- التسعير وفقاً لذلك
+
+**JOSalesQuotationReq**: طلب عميل لعرض أسعار
+- تقديم المواصفات
+- زيارة ميدانية عند الحاجة
+- إعداد عرض سعر تفصيلي
+
+**JOSalesOrder**، **JOSalesInvoice**: مبيعات أوامر الشغل
+- معالجة الأوامر المخصصة
+- تتبع تقدم المشروع
+- الفوترة عند الإتمام أو المراحل
+
+### عمليات أوامر الشغل {#Job-Order-Operations}
+
+**JOOutSourceManufactureIssue**: إرسال إلى مقاول من الباطن
+- قطع تحتاج معالجة خارجية
+- تتبع ما هو لدى المقاول
+- تتبع التكاليف
+
+**JOOutSourcManufacturReceipt**: استلام من مقاول الباطن
+- عودة القطع من المعالجة الخارجية
+- فحص العمل
+- دفع المستحقات للمقاول
+
+**JODamageDoc**: تلف في موقع العمل
+- تلف في العمل المخصص
+- تحديد المسؤولية (أنت / العميل / الشاحن)
+- إعادة تصنيع أو إصلاح
+- مطالبات التأمين
+
+## المقاولات وإدارة المشاريع {#Contracting-and-Project-Management}
+
+للإنشاء والمقاولات إدارة خاصة للمواد:
+
+### إدارة مواد المشروع {#Project-Material-Management}
+
+**ContractingPurchaseOrder**، **ContractingPurchaseRequest**: شراء للمشاريع
+- مواد لمشاريع بعينها
+- تتبع التكاليف على المشروع
+- موافقة العميل على التغييرات
+- تتبع الميزانية
+
+**ContractingMaterialIssue**، **ContractingMaterialIssueReq**: الصرف إلى مواقع العمل
+- إرسال المواد إلى موقع المشروع
+- التتبع حسب المشروع والموقع
+- توزيع التكلفة على المشاريع
+
+**ContractingMaterialReturn**: الإعادة من مواقع العمل
+- المواد غير المستخدمة تعود إلى المستودع
+- إضافة رصيد للمشروع
+- إعادة التخزين لمشاريع أخرى
+
+### إدارة مواد المقاولين {#Contractor-Material-Management}
+
+**ContractorMaterialIssue**: الصرف إلى مقاول الباطن
+- مواد مقدَّمة لمقاول الباطن
+- تتبع ما بحوزته
+- الاسترداد أو الإضافة للحساب عند عدم الإعادة
+
+**ContractorMaterialReturn**: إعادة مقاول الباطن للمواد الزائدة
+- إعادة المواد الفائضة
+- التحقق من الكميات
+- إضافة رصيد لحساب المقاول
+
+### البنود التنفيذية والميزانية {#Budget-and-Executive-Items}
+
+**ExecutiveBudgetItemRequest**: طلبات المشاريع الحكومية/الكبرى
+- اشتراط موافقة الميزانية
+- مستويات موافقة متعددة
+- مبررات تفصيلية
+- أثر مراجعة كامل
+
+## عمليات التصنيع {#Manufacturing-Operations}
+
+### إدارة المواد الخام {#Raw-Material-Management}
+
+**RawMaterialIssue**، **RawMaterialIssueReq**: المواد إلى الإنتاج
+- صرف لأوامر إنتاج محددة
+- تتبع الاستهلاك
+- تحليل الانحراف (المخطط مقابل الفعلي)
+
+**RawMaterialReturn**، **RawMaterialReturnReq**: إعادة المواد غير المستخدمة
+- إعادة الفائض من الإنتاج
+- تحديث تكاليف المشروع
+- إعادة التخزين لمشاريع أخرى
+
+**MCRawMaterialIssue**: صرف مواد خلية التصنيع
+- التصنيع الخلوي / في الوقت المناسب (JIT)
+- تجديد بنمط Kanban
+- تكامل مع التصنيع الرشيق
+
+### مخرجات الإنتاج {#Production-Output}
+
+**ProductDelivery**: البضاعة التامة من الإنتاج
+- استلام إلى مخزون البضاعة التامة
+- احتساب تكلفة المنتج (مواد + عمالة + تكاليف عامة)
+- فحص الجودة قبل التخزين
+
+**ProductReturn**، **ProductReturnReq**: منتجات معيبة للإعادة
+- رسوب في الفحص النهائي
+- إعادة للإنتاج لإعادة التصنيع
+- الإتلاف إذا تعذّر الإصلاح
+
+**ScrapReceipt**: نفايات التصنيع
+- منتجات ثانوية من الإنتاج
+- قيمة الخردة
+- تتبع التخلص
+
+### المعالجة والتحويل {#Processing-and-Transformation}
+
+**ProcessingDoc** (مستند معالجة): معالجة الأصناف
+- تحويل صنف إلى آخر
+- معالجة كيميائية
+- معالجة حرارية
+- معالجة تجميع
+
+**CRTNMaterialIssue**: صرف مواد خاص بـ CRTN
+- عملية صرف خاصة بالصناعة
+- اشتراطات تتبع مخصصة
+
+## عمليات المناقصات والتسعير {#Tender-and-Pricing-Operations}
+
+**Tender** (مناقصة): إدارة المناقصات
+- مناقصات حكومية أو مؤسسية
+- إعداد العطاءات
+- استراتيجية التسعير
+- توثيق الامتثال
+
+**FinishedProductPricing** (تسعير منتج نهائي): تسعير التكلفة + هامش
+- احتساب تكلفة المنتج (مواد + عمالة + تكاليف عامة)
+- إضافة هامش الربح
+- تحديد أسعار المبيعات
+- تحديث قوائم الأسعار
+
+## التكامل مع التجارة الإلكترونية {#E-Commerce-Integration}
+
+### تكامل Magento {#Magento-Integration}
+
+**MagentoPriceUpdaterDoc**: مزامنة الأسعار مع المتجر الإلكتروني
+- تحديث أسعار Magento من نظام ERP
+- تحديثات أسعار جماعية
+- أسعار ترويجية
+- تسعير المتغيرات
+
+**حقول Magento في فواتير المبيعات:**
+- `magentoSourceId`: رقم الأمر من Magento
+- `magentoSiteRef`: موقع Magento المحدد
+- `lastMagentoStatus`: حالة المزامنة
+- `lastMagentoComment`: ملاحظات من Magento
+
+**مسار التكامل:**
+1. العميل يطلب من الموقع (Magento)
+2. الأمر يُزامَن مع NaMa ERP (إنشاء SalesInvoice)
+3. معالجة الأمر في ERP (تجهيز، تعبئة، شحن)
+4. تحديث الحالة في Magento (العميل يرى التتبع)
+5. إنشاء الفاتورة في Magento
+6. إشعار الشحن للعميل
+
+## تكامل الموازين {#Weight-Scale-Integration}
+
+**WeightScalePreparationDoc** (مستند تحضير ميزان): استلام/شحن المواد بالجملة
+- للمنشآت التي تستلم/تشحن مواد بالجملة
+- تكامل مع موازين الشاحنات الإلكترونية
+- التقاط تلقائي للوزن
+- احتساب الوزن الصافي (الإجمالي - وزن العبوة)
+- تقليل أخطاء الإدخال اليدوي
+
+**القطاعات الشائعة:**
+- الزراعة (الحبوب، الأعلاف)
+- الكيماويات (السوائل السائبة)
+- مواد البناء (رمل، حصى، إسمنت)
+- إعادة التدوير (خردة معدنية، ورق)
+- إدارة النفايات
+
+## الأنماط المشتركة عبر التخصصات {#Common-Patterns-Across-Specializations}
+
+رغم الاختلافات القطاعية، تبرز أنماط مشتركة:
+
+### العمليات الثنائية الخطوات {#Two-Step-Processes}
+تعتمد كثير من القطاعات نمط طلب → تنفيذ:
+- الطلب يضمن الموافقة قبل الإجراء
+- يوفر وقتاً للتخطيط
+- يُنشئ أثر مراجعة
+- يدعم إدارة سير العمل
+
+### مستندات الإلغاء {#Cancellation-Documents}
+معظم أنواع المستندات لها إلغاءات:
+- يحافظ على أثر المراجعة
+- يعكس التأثيرات بشكل صحيح
+- يوثّق سبب الإلغاء
+- يدعم الضوابط والامتثال
+
+### نقاط التكامل {#Integration-Points}
+تتكامل المستندات المتخصصة مع:
+- **المخزون الأساسي**: جميعها تؤثر على مستويات المخزون
+- **المحاسبة**: جميعها لها تأثير مالي
+- **الجودة**: كثيرٌ منها يتضمن خطوات فحص
+- **العملاء/الموردون**: كثيرٌ منها مرتبط بأطراف
+
+### إمكانية التتبع {#Traceability}
+تُركّز جميع السيناريوهات المتخصصة على:
+- من أين جاءت الأصناف؟
+- إلى أين ذهبت؟
+- من تعامل معها؟
+- متى وقعت الأحداث؟
+- لماذا حدثت الإجراءات؟
+
+## اختيار المستند الصحيح {#Choosing-the-Right-Document}
+
+مع هذا الكم من أنواع المستندات، كيف تختار؟
+
+**اطرح هذه الأسئلة:**
+
+1. **ما هو الحدث التجاري؟** (استلام، صرف، بيع، معالجة)
+2. **ما هو السياق القطاعي؟** (مستشفى، تجزئة، تصنيع، خدمة)
+3. **ما المصدر/الوجهة؟** (مورد، عميل، قسم، إنتاج)
+4. **ما متطلبات الامتثال التنظيمي؟** (مواد خاضعة للرقابة، سلامة، تتبع)
+5. **ما سير الموافقة المطلوب؟** (مباشر، طلب أولاً، موافقات متعددة)
+
+الإجابات توجهك إلى نوع المستند الصحيح.
+
+## نصائح للعمليات المتخصصة {#Tips-for-Specialized-Operations}
+
+::: tip أفضل الممارسات
+
+**استخدم المستندات الخاصة بقطاعك**
+لا تحاول إخضاع عمليات التجزئة لمستندات التصنيع أو العكس. استخدم المستندات المصممة لقطاعك.
+
+**افهم متطلبات الامتثال لديك**
+كثير من المستندات المتخصصة موجودة بسبب متطلبات تنظيمية. تأكد من فهم التزاماتك.
+
+**درِّب على التخصص**
+إدارة مخزون المستشفيات تختلف جداً عن التجزئة. استثمر في التدريب الخاص بقطاعك لفريقك.
+
+**جهّز النظام بشكل صحيح**
+كثير من الميزات المتخصصة تحتاج إعداداً. اعمل مع مستشار NaMa ERP لضبط نظامك بشكل صحيح.
+
+**لا تُعقّد الأمور أكثر من اللازم**
+وجود الميزة لا يعني وجوب استخدامها. ابدأ بالبسيط، وأضف التعقيد عند الحاجة فقط.
 
 :::
 
-## Common Questions
+## أسئلة شائعة {#Common-Questions}
 
-**Q: Can we use general documents instead of specialized ones?**
+**س: هل يمكن استخدام المستندات العامة بدلاً من المتخصصة؟**
 
-A: Technically possible but not recommended. Specialized documents enforce industry requirements, provide appropriate fields, and ensure compliance. Using general documents risks missing critical tracking.
+ج: ممكن تقنياً لكن غير موصى به. المستندات المتخصصة تفرض متطلبات القطاع وتوفر الحقول الملائمة وتضمن الامتثال. استخدام المستندات العامة يُعرّض للخطر عمليات التتبع الحرجة.
 
-**Q: What if our industry isn't listed here?**
+**س: ماذا لو لم يُذكر قطاعنا هنا؟**
 
-A: NaMa ERP's core supply chain documents are flexible enough for most industries. The specialized documents cover common industry needs, but custom configurations can handle unique requirements.
+ج: مستندات سلسلة التوريد الأساسية في NaMa ERP مرنة بما يكفي لمعظم القطاعات. المستندات المتخصصة تغطي الاحتياجات الأكثر شيوعاً، لكن الإعدادات المخصصة تستطيع معالجة المتطلبات الفريدة.
 
-**Q: Can we mix document types?**
+**س: هل يمكن دمج أنواع مستندات مختلفة؟**
 
-A: Yes - a hospital might use POS documents for its gift shop and HMS documents for pharmacy. Use the right tool for each operation.
+ج: نعم - قد يستخدم المستشفى مستندات نقطة البيع في متجر الهدايا ومستندات HMS في الصيدلية. استخدم الأداة المناسبة لكل عملية.
 
-**Q: How do we learn more about our industry's documents?**
+**س: كيف نتعلم المزيد عن مستندات قطاعنا؟**
 
-A: Consult with NaMa ERP specialists who understand your industry. They can guide you on best practices and configuration.
+ج: تشاور مع متخصصي NaMa ERP الذين يفهمون قطاعك. يمكنهم إرشادك إلى أفضل الممارسات والإعدادات الملائمة.
 
-## Integration Across Industries
+## التكامل عبر القطاعات {#Integration-Across-Industries}
 
-Despite differences, all specialized operations connect to:
+رغم الاختلافات، تتصل جميع العمليات المتخصصة بـ:
 
-**The Core Supply Chain**: All documents ultimately increase or decrease inventory, following the same underlying transaction model.
+**سلسلة التوريد الأساسية**: جميع المستندات في نهاية المطاف تزيد المخزون أو تنقصه، وفق نفس نموذج المعاملة الأساسي.
 
-**Accounting**: All financial transactions post to ledgers using the same accounting engine.
+**المحاسبة**: جميع المعاملات المالية تُرحَّل إلى دفاتر الأستاذ باستخدام نفس محرك المحاسبة.
 
-**Common Workflows**: Request → Approve → Execute → Document patterns apply universally.
+**سير العمل المشترك**: أنماط طلب → موافقة → تنفيذ → توثيق تنطبق عالمياً.
 
-**Quality Control**: Inspection and quality management apply across industries, just with different criteria.
+**ضبط الجودة**: الفحص وإدارة الجودة ينطبقان على جميع القطاعات، فقط بمعايير مختلفة.
 
-## Conclusion
+## خلاصة {#Conclusion}
 
-NaMa ERP's supply chain module balances universal principles with industry-specific needs. The core concepts of receiving, issuing, buying, and selling apply everywhere. But healthcare, retail, manufacturing, and other industries each have unique documents and workflows that make the system fit their specific requirements.
+يوازن نظام NaMa ERP في وحدة سلسلة التوريد بين المبادئ العامة والاحتياجات الخاصة بكل قطاع. مفاهيم الاستلام والصرف والشراء والبيع تنطبق في كل مكان. لكن الرعاية الصحية والتجزئة والتصنيع وغيرها من القطاعات، لكل منها مستندات وسير عمل فريدة تجعل النظام ملائماً لمتطلباتها.
 
-Start with understanding the core supply chain concepts, then explore the specialized documents relevant to your industry. The foundation is the same; the implementation details adapt to your business reality.
+ابدأ بفهم المفاهيم الأساسية لسلسلة التوريد، ثم استكشف المستندات المتخصصة ذات الصلة بقطاعك. الأساس واحد؛ وتفاصيل التطبيق تتكيّف مع واقع عملك.
 
-## Next Steps
+## الخطوات التالية {#Next-Steps}
 
-You've completed the supply chain documentation tour! To deepen your knowledge:
+لقد أتممت جولة توثيق سلسلة التوريد! لتعميق معرفتك:
 
-**Review Core Concepts:**
-- [Understanding Items](./understanding-items.md)
-- [Receiving Stock](./receiving-stock.md)
-- [Issuing Stock](./issuing-stock.md)
-- [Moving Stock](./moving-stock.md)
+**مراجعة المفاهيم الأساسية:**
+- [فهم الأصناف](./understanding-items.md)
+- [استلام المخزون](./receiving-stock.md)
+- [صرف المخزون](./issuing-stock.md)
+- [نقل المخزون](./moving-stock.md)
 
-**Explore Business Processes:**
-- [The Purchasing Journey](./purchasing-journey.md)
-- [The Sales Journey](./sales-journey.md)
-- [Quality Control](./quality-control.md)
+**استكشاف العمليات التجارية:**
+- [رحلة الشراء](./purchasing-journey.md)
+- [رحلة المبيعات](./sales-journey.md)
+- [ضبط الجودة](./quality-control.md)
 
-**Get Hands-On:**
-- Practice with sample data
-- Configure for your specific industry
-- Train your team
-- Start with simple operations, add complexity gradually
+**التطبيق العملي:**
+- التدرب على بيانات نموذجية
+- الإعداد الخاص بقطاعك
+- تدريب فريقك
+- البدء بعمليات بسيطة وإضافة التعقيد تدريجياً
 
-Welcome to mastering supply chain management with NaMa ERP!
+أهلاً بك في عالم إتقان إدارة سلسلة التوريد مع NaMa ERP!

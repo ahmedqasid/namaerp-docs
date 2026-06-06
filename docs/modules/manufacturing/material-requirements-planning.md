@@ -1,49 +1,49 @@
-# Material Requirements Planning (MRP) - User Guide
+# تخطيط متطلبات المواد (Material Requirements Planning - MRP) - دليل المستخدم {#Material-Requirements-Planning-MRP----User-Guide}
 
-## Introduction to MRP
+## مقدمة عن MRP {#Introduction-to-MRP}
 
-**Material Requirements Planning (MRP)** is a production planning, scheduling, and inventory control system designed to manage manufacturing processes. It helps organizations ensure they have the right materials, in the right quantities, at the right time to meet production demands.
+**تخطيط متطلبات المواد (Material Requirements Planning - MRP)** هو نظام لتخطيط الإنتاج وجدولته والتحكم في المخزون، مصمم لإدارة عمليات التصنيع. يساعد المؤسسات على ضمان توافر المواد الصحيحة بالكميات الصحيحة وفي الوقت المناسب لتلبية متطلبات الإنتاج.
 
-### Why MRP is Important
+### لماذا يُعدّ MRP مهماً {#Why-MRP-is-Important}
 
-MRP systems help businesses:
-- **Reduce inventory costs** by ordering materials only when needed
-- **Improve customer service** by ensuring timely delivery
-- **Optimize production scheduling** by planning material availability
-- **Minimize stockouts** through proactive planning
-- **Coordinate purchasing and production** activities
+تساعد أنظمة MRP الشركات على:
+- **خفض تكاليف المخزون** بطلب المواد عند الحاجة فقط
+- **تحسين خدمة العملاء** من خلال ضمان التسليم في الوقت المحدد
+- **تحسين جدولة الإنتاج** بالتخطيط لتوافر المواد
+- **تقليل نفاد المخزون** عبر التخطيط الاستباقي
+- **تنسيق أنشطة الشراء والإنتاج**
 
-### Core MRP Objectives
+### أهداف MRP الأساسية {#Core-MRP-Objectives}
 
-1. **Ensure materials are available** for production and products are available for delivery to customers
-2. **Maintain the lowest possible material and product levels** in inventory
-3. **Plan manufacturing activities, delivery schedules, and purchasing activities**
+1. **ضمان توافر المواد** للإنتاج وتوافر المنتجات للتسليم للعملاء
+2. **الحفاظ على أدنى مستوى ممكن من المواد والمنتجات** في المخزون
+3. **التخطيط لأنشطة التصنيع وجداول التسليم وأنشطة الشراء**
 
 ---
 
-## MRP Concepts
+## مفاهيم MRP {#MRP-Concepts}
 
-Understanding these fundamental concepts is essential for effective MRP usage:
+فهم هذه المفاهيم الأساسية ضروري للاستخدام الفعّال لـ MRP:
 
-### 1. Demand
+### 1. الطلب (Demand) {#1-Demand}
 
-**Demand** represents the need for finished products or materials. There are two types:
+**الطلب** يمثل الحاجة إلى المنتجات النهائية أو المواد. يوجد نوعان:
 
-- **Independent Demand**: Demand from customers (e.g., sales orders, forecasts)
-- **Dependent Demand**: Demand derived from the production of other items (e.g., components needed to manufacture a product)
+- **الطلب المستقل (Independent Demand)**: الطلب من العملاء (مثل أوامر البيع والتوقعات)
+- **الطلب التابع (Dependent Demand)**: الطلب المشتق من إنتاج عناصر أخرى (مثل المكونات اللازمة لتصنيع منتج)
 
-### 2. Bill of Materials (BOM)
+### 2. قائمة المكونات (Bill of Materials - BOM) {#2-Bill-of-Materials-BOM}
 
-A **Bill of Materials** is a comprehensive list of:
-- Raw materials
-- Sub-assemblies
-- Components
-- Parts
-- Quantities of each
+**قائمة المكونات** هي قائمة شاملة تضم:
+- المواد الخام
+- التجميعات الفرعية
+- المكونات
+- الأجزاء
+- كميات كل منها
 
-...required to manufacture a finished product.
+...المطلوبة لتصنيع منتج نهائي.
 
-**Example BOM Structure:**
+**مثال على هيكل BOM:**
 ```
 Product: Chair
 ├── Seat (1 unit)
@@ -53,379 +53,379 @@ Product: Chair
 └── Wood Glue (50 ml)
 ```
 
-### 3. Routing
+### 3. التوجيه (Routing) {#3-Routing}
 
-A **Routing** defines the sequence of operations and resources required to manufacture a product:
-- Operation steps
-- Work centers/machines
-- Time requirements
-- Resource allocation
+**التوجيه** يحدد تسلسل العمليات والموارد اللازمة لتصنيع المنتج:
+- خطوات العمليات
+- مراكز العمل/الآلات
+- متطلبات الوقت
+- تخصيص الموارد
 
-### 4. Lead Time
+### 4. وقت الانتظار (Lead Time) {#4-Lead-Time}
 
-**Lead Time** is the time between initiating and completing a process:
-- **Manufacturing Lead Time**: Time to produce an item
-- **Purchase Lead Time**: Time from ordering to receiving materials
+**وقت الانتظار** هو الوقت بين بدء العملية وإتمامها:
+- **وقت انتظار التصنيع (Manufacturing Lead Time)**: الوقت اللازم لإنتاج صنف
+- **وقت انتظار الشراء (Purchase Lead Time)**: الوقت من تقديم الطلب حتى استلام المواد
 
-### 5. Safety Stock
+### 5. مخزون الأمان (Safety Stock) {#5-Safety-Stock}
 
-**Safety Stock** is extra inventory held to guard against:
-- Demand variability
-- Supply delays
-- Quality issues
-- Forecast inaccuracy
+**مخزون الأمان** هو مخزون إضافي يُحتفظ به للحماية من:
+- تذبذب الطلب
+- تأخر التوريد
+- مشاكل الجودة
+- عدم دقة التوقعات
 
-### 6. Lot Sizing / Batch Size
+### 6. تحديد حجم الدفعة (Lot Sizing / Batch Size) {#6-Lot-Sizing--Batch-Size}
 
-**Lot Sizing** determines how much to order or produce:
-- Fixed batch size
-- Economic Order Quantity (EOQ)
-- Lot-for-lot (produce exactly what's needed)
-- Minimum order quantities
+**تحديد حجم الدفعة** يحدد الكمية المراد طلبها أو إنتاجها:
+- حجم دفعة ثابت
+- الكمية الاقتصادية للطلب (Economic Order Quantity - EOQ)
+- دفعة مقابل دفعة (إنتاج ما يُحتاج بالضبط)
+- الحد الأدنى لكميات الطلب
 
-### 7. MRP Explosion
+### 7. تفجير MRP (MRP Explosion) {#7-MRP-Explosion}
 
-**MRP Explosion** is the process of:
-1. Starting with demand for finished products
-2. Breaking down (exploding) into component requirements
-3. Calculating net requirements at each level
-4. Scheduling production and purchases
-
----
-
-## MRP in Nama ERP
-
-Nama ERP implements a comprehensive MRP system that integrates seamlessly with other modules. Here's how MRP concepts map to Nama ERP entities and processes:
-
-### Main Entity: MRP Document (سند تخطيط)
-
-**Navigation Path:** Manufacturing > Material Resource Planning > planning raw materials Document
-
-**Arabic Name:** سند تخطيط
-**English Name:** Planning Raw Materials Document
-
-The MRP Document is the central entity that coordinates all material requirements planning activities.
-
-### Related Entities
-
-| Entity | Arabic Name | English Name | Purpose |
-|--------|-------------|--------------|---------|
-| **BOM** | مكونات منتج | Bill of Materials | Defines product components and quantities |
-| **Routing** | عملية تشغيل | Operation Routing | Defines production operations and resources |
-| **MRPSalesForecasting** | سند توقعات | Sales Forecast Document | Captures predicted future demand |
-| **ManualDemand** | سند طلب يدوي | Manual Demand Document | Captures manually entered demand |
-| **SalesOrder** | أمر بيع | Sales Order | Represents actual customer orders |
+**تفجير MRP** هو عملية:
+1. البدء بطلب المنتجات النهائية
+2. تفكيكها (تفجيرها) إلى متطلبات المكونات
+3. حساب الاحتياجات الصافية في كل مستوى
+4. جدولة الإنتاج والمشتريات
 
 ---
 
-## Prerequisites
+## MRP في Nama ERP {#MRP-in-Nama-ERP}
 
-Before using MRP in Nama ERP, ensure the following master data is configured:
+ينفذ Nama ERP نظام MRP شاملاً يتكامل بسلاسة مع الوحدات الأخرى. إليك كيفية ارتباط مفاهيم MRP بكيانات وعمليات Nama ERP:
 
-### 1. Items Configuration
+### الكيان الرئيسي: سند تخطيط (MRP Document) {#Main-Entity--MRP-Document}
 
-For each item, configure:
-- ✅ **Primary UOM** (Unit of Measure)
-- ✅ **Manufacturing Lead Time** (for manufactured items)
-- ✅ **Purchase Lead Time** (for purchased items)
-- ✅ **Safety Stock** settings
-- ✅ **Minimum Order Quantity**
-- ✅ **Manufacturable Flag** (check if item can be manufactured)
+**مسار التنقل:** التصنيع > تخطيط الموارد المادية > سند تخطيط المواد الخام
 
-### 2. Bill of Materials (BOM)
+**الاسم بالعربية:** سند تخطيط
+**الاسم بالإنجليزية:** Planning Raw Materials Document
 
-For manufactured items, create BOMs with:
-- Component items and quantities
-- Batch size (lot size)
-- Associated routing
-- Specific dimensions (if applicable)
-- Default BOM flag
+سند تخطيط MRP هو الكيان المركزي الذي ينسق جميع أنشطة تخطيط متطلبات المواد.
 
-### 3. Routing
+### الكيانات ذات الصلة {#Related-Entities}
 
-For manufactured items, create routings with:
-- Operation sequence
-- Resources required
-- Time estimates
-- Associated BOM (optional)
-
-### 4. Warehouses
-
-Configure warehouses with:
-- MRP flag enabled (to include in MRP calculations)
-
-### 5. Scenarios (Optional)
-
-Create MRP scenarios for:
-- Different planning horizons
-- What-if analysis
-- Custom available quantity calculations
-
-### 6. Document Terms
-
-Configure MRP document terms with:
-- Purchase order book/term
-- Production order book/term
-- Item request book/term
-- MRP purchase request book/term
+| الكيان | الاسم بالعربية | الاسم بالإنجليزية | الغرض |
+|--------|----------------|-------------------|-------|
+| **BOM** | مكونات منتج | Bill of Materials | يحدد مكونات المنتج وكمياتها |
+| **Routing** | عملية تشغيل | Operation Routing | يحدد عمليات الإنتاج والموارد |
+| **MRPSalesForecasting** | سند توقعات | Sales Forecast Document | يسجل الطلب المستقبلي المتوقع |
+| **ManualDemand** | سند طلب يدوي | Manual Demand Document | يسجل الطلب المُدخل يدوياً |
+| **SalesOrder** | أمر بيع | Sales Order | يمثل أوامر العملاء الفعلية |
 
 ---
 
-## MRP Document Workflow
+## المتطلبات الأساسية {#Prerequisites}
 
-The MRP process in Nama ERP follows this workflow:
+قبل استخدام MRP في Nama ERP، تأكد من إعداد البيانات الرئيسية التالية:
 
-### Step 1: Create MRP Document
+### 1. إعداد الأصناف {#1-Items-Configuration}
 
-1. Navigate to: **Manufacturing > Material Resource Planning > MRP Document**
-2. Click **New** to create a new MRP document
-3. Fill in header information:
+لكل صنف، قم بإعداد:
+- ✅ **وحدة القياس الأساسية (Primary UOM)**
+- ✅ **وقت انتظار التصنيع (Manufacturing Lead Time)** (للأصناف المصنّعة)
+- ✅ **وقت انتظار الشراء (Purchase Lead Time)** (للأصناف المشتراة)
+- ✅ إعدادات **مخزون الأمان (Safety Stock)**
+- ✅ **الحد الأدنى لكمية الطلب (Minimum Order Quantity)**
+- ✅ **علامة قابلية التصنيع (Manufacturable Flag)** (حدد إذا كان الصنف قابلاً للتصنيع)
 
-#### Header Fields
+### 2. قائمة المكونات (BOM) {#2-Bill-of-Materials-BOM-1}
 
-| Field | Arabic Name | Description |
-|-------|-------------|-------------|
-| **Code** | الكود | Auto-generated document code |
-| **Value Date** | التاريخ | Document date |
-| **From Date** | من تاريخ | Start date for demand collection |
-| **To Date** | إلى تاريخ | End date for demand collection |
-| **Aggregation Period Type** | نوع فترة التجميع | How to group requirements (Daily, Weekly, Monthly, Quarterly, Yearly) |
-| **Req Qty Method Type** | نوع الحقل المتعامل عليه | For forecasts: use Actual or Forecasted quantities |
-| **Scenario** | السيناريو | Optional scenario for what-if analysis |
-| **Previous MRP Document** | سند التخطيط السابق | Link to previous MRP run (for rolling planning) |
-| **Purchase Doc Type** | نوع مستند الشراء | Type of purchase document to generate (Purchase Order, Item Request, MRP Purchase Request) |
-| **Production Doc Type** | نوع مستند الإنتاج | Type of production document to generate (Production Order, Production Order Request) |
+للأصناف المصنّعة، أنشئ قوائم BOM تتضمن:
+- أصناف المكونات وكمياتها
+- حجم الدفعة (lot size)
+- التوجيه المرتبط
+- المحددات المحددة (إن وُجدت)
+- علامة BOM الافتراضية
 
-::: tip Aggregation Period
-The **Aggregation Period Type** determines how demand is grouped:
-- **Daily**: Separate requirements for each day
-- **Weekly**: Group requirements by week
-- **Monthly**: Group requirements by month (recommended for most scenarios)
-- **Quarterly**: Group by quarter
-- **Yearly**: Group by year
+### 3. التوجيه (Routing) {#3-Routing-1}
+
+للأصناف المصنّعة، أنشئ توجيهات تتضمن:
+- تسلسل العمليات
+- الموارد المطلوبة
+- تقديرات الوقت
+- BOM المرتبط (اختياري)
+
+### 4. المخازن (Warehouses) {#4-Warehouses}
+
+أعدّ المخازن بتفعيل:
+- علامة MRP (لتضمينها في حسابات MRP)
+
+### 5. السيناريوهات (اختياري) {#5-Scenarios-Optional}
+
+أنشئ سيناريوهات MRP من أجل:
+- آفاق تخطيطية مختلفة
+- تحليل "ماذا لو"
+- حسابات مخصصة للكميات المتاحة
+
+### 6. توجيهات المستند (Document Terms) {#6-Document-Terms}
+
+أعدّ توجيهات مستند MRP لتشمل:
+- دفتر/توجيه أمر الشراء
+- دفتر/توجيه أمر الإنتاج
+- دفتر/توجيه طلب الصنف
+- دفتر/توجيه طلب شراء MRP
+
+---
+
+## سير عمل سند تخطيط MRP {#MRP-Document-Workflow}
+
+تتبع عملية MRP في Nama ERP هذا المسار:
+
+### الخطوة 1: إنشاء سند تخطيط MRP {#Step-1--Create-MRP-Document}
+
+1. انتقل إلى: **التصنيع > تخطيط الموارد المادية > سند تخطيط MRP**
+2. انقر **جديد** لإنشاء سند تخطيط MRP جديد
+3. أدخل معلومات الرأس:
+
+#### حقول الرأس {#Header-Fields}
+
+| الحقل | الاسم بالعربية | الوصف |
+|-------|----------------|-------|
+| **Code** | الكود | كود المستند المولّد تلقائياً |
+| **Value Date** | التاريخ | تاريخ المستند |
+| **From Date** | من تاريخ | تاريخ بداية تجميع الطلب |
+| **To Date** | إلى تاريخ | تاريخ نهاية تجميع الطلب |
+| **Aggregation Period Type** | نوع فترة التجميع | طريقة تجميع الاحتياجات (يومي، أسبوعي، شهري، ربع سنوي، سنوي) |
+| **Req Qty Method Type** | نوع الحقل المتعامل عليه | للتوقعات: استخدام الكميات الفعلية أو المتوقعة |
+| **Scenario** | السيناريو | سيناريو اختياري لتحليل "ماذا لو" |
+| **Previous MRP Document** | سند التخطيط السابق | ربط بتشغيل MRP السابق (للتخطيط المتجدد) |
+| **Purchase Doc Type** | نوع مستند الشراء | نوع مستند الشراء المراد توليده (أمر شراء، طلب صنف، طلب شراء MRP) |
+| **Production Doc Type** | نوع مستند الإنتاج | نوع مستند الإنتاج المراد توليده (أمر إنتاج، طلب أمر إنتاج) |
+
+::: tip فترة التجميع (Aggregation Period)
+يحدد **نوع فترة التجميع (Aggregation Period Type)** كيفية تجميع الطلب:
+- **يومي (Daily)**: احتياجات منفصلة لكل يوم
+- **أسبوعي (Weekly)**: تجميع الاحتياجات أسبوعياً
+- **شهري (Monthly)**: تجميع الاحتياجات شهرياً (موصى به لمعظم السيناريوهات)
+- **ربع سنوي (Quarterly)**: تجميع كل ربع سنة
+- **سنوي (Yearly)**: تجميع سنوياً
 :::
 
-### Step 2: Collect Demand
+### الخطوة 2: تجميع الطلب {#Step-2--Collect-Demand}
 
-After filling header information, click the **Collect** button (تجميع).
+بعد ملء معلومات الرأس، انقر زر **تجميع (Collect)**.
 
-#### Collect Dialog Parameters
+#### معاملات نافذة التجميع {#Collect-Dialog-Parameters}
 
-The system will prompt you to select which demand sources to include:
+سيطلب منك النظام تحديد مصادر الطلب التي تريد تضمينها:
 
-- ☑️ **Include Sales Orders** (تضمين أوامر البيع)
-  - Includes confirmed customer orders within the date range
+- ☑️ **تضمين أوامر البيع (Include Sales Orders)**
+  - يشمل أوامر العملاء المؤكدة ضمن النطاق الزمني
 
-- ☑️ **Include Manual Demands** (تضمين الطلبات اليدوية)
-  - Includes manually created demand documents
+- ☑️ **تضمين الطلبات اليدوية (Include Manual Demands)**
+  - يشمل مستندات الطلب المنشأة يدوياً
 
-- ☑️ **Include Forecasts** (تضمين التوقعات)
-  - Includes sales forecast documents
+- ☑️ **تضمين التوقعات (Include Forecasts)**
+  - يشمل مستندات توقعات المبيعات
 
-::: warning Important
-You must select at least one demand source. The system will show an error if none are selected.
+::: warning مهم
+يجب اختيار مصدر طلب واحد على الأقل. سيعرض النظام رسالة خطأ إذا لم يُحدد أي منها.
 :::
 
-#### What Happens During Collection
+#### ما يحدث أثناء التجميع {#What-Happens-During-Collection}
 
-The system will:
-1. Search for demand documents within the specified date range
-2. Extract item requirements from each document
-3. Populate the **Lines** (التفاصيل) collection with demand sources
-4. Create **Required Lines** (الاحتياجات) by aggregating demand according to the aggregation period
-5. Calculate available quantities for each item
+سيقوم النظام بـ:
+1. البحث عن مستندات الطلب ضمن النطاق الزمني المحدد
+2. استخراج احتياجات الأصناف من كل مستند
+3. تعبئة مجموعة **التفاصيل (Lines)** بمصادر الطلب
+4. إنشاء **سطور الاحتياجات (Required Lines)** بتجميع الطلب حسب فترة التجميع
+5. حساب الكميات المتاحة لكل صنف
 
-### Step 3: Review Required Lines
+### الخطوة 3: مراجعة سطور الاحتياجات {#Step-3--Review-Required-Lines}
 
-After collection, review the **Required Lines** tab:
+بعد التجميع، راجع تبويب **سطور الاحتياجات**:
 
-#### Required Lines Fields
+#### حقول سطور الاحتياجات {#Required-Lines-Fields}
 
-| Field | Arabic Name | Description |
-|-------|-------------|-------------|
-| **Item** | الصنف | The item required |
-| **Required Qty** | الكمية المطلوبة | Quantity needed |
-| **Required On** | مطلوب في | Date when quantity is needed |
-| **Dimensions** | الأبعاد | Specific dimensions (warehouse, locator, lot, size, color, etc.) |
-| **Total Available** | الإجمالي المتاح | Current inventory quantity |
-| **Predicted Purchase** | المشتريات المتوقعة | Expected incoming purchases |
-| **Predicted Sales** | المبيعات المتوقعة | Expected outgoing sales |
-| **BOM** | مكونات المنتج | Bill of materials to use (if item is manufacturable) |
-| **Routing** | عملية التشغيل | Routing to use (if item is manufacturable) |
+| الحقل | الاسم بالعربية | الوصف |
+|-------|----------------|-------|
+| **Item** | الصنف | الصنف المطلوب |
+| **Required Qty** | الكمية المطلوبة | الكمية المحتاجة |
+| **Required On** | مطلوب في | التاريخ الذي تُحتاج فيه الكمية |
+| **Dimensions** | الأبعاد | المحددات المحددة (مخزن، موقع، lot، مقاس، لون، إلخ) |
+| **Total Available** | الإجمالي المتاح | كمية المخزون الحالية |
+| **Predicted Purchase** | المشتريات المتوقعة | المشتريات الواردة المتوقعة |
+| **Predicted Sales** | المبيعات المتوقعة | المبيعات الصادرة المتوقعة |
+| **BOM** | مكونات المنتج | قائمة المكونات المراد استخدامها (إذا كان الصنف قابلاً للتصنيع) |
+| **Routing** | عملية التشغيل | التوجيه المراد استخدامه (إذا كان الصنف قابلاً للتصنيع) |
 
-::: tip Manual Adjustments
-You can manually edit:
-- **BOM** and **Routing** selections for specific items
-- **Edited Net Required** (الاحتياج الصافي المعدل): Override calculated net requirement
-- **Edited Batches Count** (عدد الدفعات المعدل): Specify exact number of batches to produce
+::: tip التعديلات اليدوية
+يمكنك تعديل يدوياً:
+- اختيارات **BOM** و**Routing** لأصناف محددة
+- **الاحتياج الصافي المعدل (Edited Net Required)**: تجاوز الاحتياج الصافي المحسوب
+- **عدد الدفعات المعدل (Edited Batches Count)**: تحديد عدد دقيق من الدفعات للإنتاج
 :::
 
-### Step 4: Analyze Requirements
+### الخطوة 4: تحليل الاحتياجات {#Step-4--Analyze-Requirements}
 
-Click the **Analyze** button (تحليل) to perform MRP explosion.
+انقر زر **تحليل (Analyze)** لتنفيذ تفجير MRP.
 
-::: warning Save First
-The document must be saved before you can run the analysis.
+::: warning احفظ أولاً
+يجب حفظ المستند قبل تشغيل التحليل.
 :::
 
-#### What Happens During Analysis
+#### ما يحدث أثناء التحليل {#What-Happens-During-Analysis}
 
-The system performs these calculations:
+يجري النظام هذه الحسابات:
 
-1. **For Each Required Line:**
-   - Fetches the BOM (if item is manufacturable)
-   - Fetches the Routing
-   - Calculates available quantity
-   - Calculates safety stock
-   - Determines net requirement
+1. **لكل سطر احتياج:**
+   - يجلب BOM (إذا كان الصنف قابلاً للتصنيع)
+   - يجلب التوجيه
+   - يحسب الكمية المتاحة
+   - يحسب مخزون الأمان
+   - يحدد الاحتياج الصافي
 
-2. **Net Requirement Calculation:**
+2. **حساب الاحتياج الصافي:**
    ```
    Net Requirement = Required Qty + Safety Stock - (Available Qty + Potential Available)
    ```
 
-3. **Batch Size Calculation:**
-   - If BOM has a batch size, calculates number of batches needed
-   - Adjusts net requirement to whole batches
-   - Considers minimum order quantities
+3. **حساب حجم الدفعة:**
+   - إذا كان BOM يحتوي على حجم دفعة، يحسب عدد الدفعات المطلوبة
+   - يعدّل الاحتياج الصافي ليكون بدفعات كاملة
+   - يأخذ في الاعتبار الحد الأدنى لكميات الطلب
 
-4. **MRP Explosion:**
-   - For manufactured items, explodes BOM to find component requirements
-   - Recursively analyzes component requirements (dependent demand)
-   - Considers lead times to calculate order dates
+4. **تفجير MRP:**
+   - للأصناف المصنّعة، يُفجّر BOM لإيجاد احتياجات المكونات
+   - يحلل احتياجات المكونات بشكل متكرر (الطلب التابع)
+   - يأخذ في الاعتبار أوقات الانتظار لحساب تواريخ الطلب
 
-5. **Creates Analysis Lines:**
-   - One analysis line for each item-period-dimension combination
-   - Links parent-child relationships for BOM explosions
+5. **إنشاء سطور التحليل:**
+   - سطر تحليل واحد لكل مجموعة صنف-فترة-محددات
+   - يربط علاقات الأصل والفرع لتفجيرات BOM
 
-### Step 5: Review Analysis Results
+### الخطوة 5: مراجعة نتائج التحليل {#Step-5--Review-Analysis-Results}
 
-After analysis completes, review the **Analysis** (التحليل) tab:
+بعد اكتمال التحليل، راجع تبويب **التحليل**:
 
-#### Analysis Line Fields
+#### حقول سطر التحليل {#Analysis-Line-Fields}
 
-| Field | Arabic Name | Description |
-|-------|-------------|-------------|
-| **Item** | الصنف | Item being analyzed |
-| **Required On** | مطلوب في | Date needed |
-| **Order On** | تاريخ الطلب | Date to order (considers lead time) |
-| **Required Qty** | الكمية المطلوبة | Gross requirement |
-| **Available** | المتاح | Currently available quantity |
-| **Potential Available** | المتاح المحتمل | Expected to be available |
-| **Safety Stock** | مخزون الأمان | Safety stock requirement |
-| **Total Required** | الإجمالي المطلوب | Gross requirement before adjustments |
-| **Net Required** | الاحتياج الصافي | Net requirement after considering availability |
-| **Net Required After Edit** | الاحتياج الصافي بعد التعديل | Final requirement including manual edits |
-| **Batch Size** | حجم الدفعة | Production batch size |
-| **Batches Count** | عدد الدفعات | Number of batches to produce |
-| **Remaining** | المتبقي | Quantity remaining after fulfilling requirement |
-| **BOM** | مكونات المنتج | Bill of materials used |
-| **Routing** | عملية التشغيل | Routing used |
+| الحقل | الاسم بالعربية | الوصف |
+|-------|----------------|-------|
+| **Item** | الصنف | الصنف الجاري تحليله |
+| **Required On** | مطلوب في | التاريخ المطلوب فيه |
+| **Order On** | تاريخ الطلب | تاريخ تقديم الطلب (مع مراعاة وقت الانتظار) |
+| **Required Qty** | الكمية المطلوبة | الاحتياج الإجمالي |
+| **Available** | المتاح | الكمية المتاحة حالياً |
+| **Potential Available** | المتاح المحتمل | المتوقع توفره |
+| **Safety Stock** | مخزون الأمان | احتياج مخزون الأمان |
+| **Total Required** | الإجمالي المطلوب | الاحتياج الإجمالي قبل التعديلات |
+| **Net Required** | الاحتياج الصافي | الاحتياج الصافي بعد مراعاة التوافر |
+| **Net Required After Edit** | الاحتياج الصافي بعد التعديل | الاحتياج النهائي بما يشمل التعديلات اليدوية |
+| **Batch Size** | حجم الدفعة | حجم دفعة الإنتاج |
+| **Batches Count** | عدد الدفعات | عدد الدفعات المراد إنتاجها |
+| **Remaining** | المتبقي | الكمية المتبقية بعد تلبية الاحتياج |
+| **BOM** | مكونات المنتج | قائمة المكونات المستخدمة |
+| **Routing** | عملية التشغيل | التوجيه المستخدم |
 
-::: details Understanding Available Quantities
-**Available Quantity** can be calculated from:
-- **Current inventory** in MRP-enabled warehouses
-- **Previous MRP Document** remaining quantities (for rolling planning)
-- **Custom Scenario Query** (if scenario is specified)
-- **Available Qty Source Document** (if configured)
+::: details فهم الكميات المتاحة
+يمكن حساب **الكمية المتاحة** من:
+- **المخزون الحالي** في المخازن المفعّلة لـ MRP
+- الكميات المتبقية من **سند تخطيط MRP السابق** (للتخطيط المتجدد)
+- **استعلام سيناريو مخصص** (إذا تم تحديد سيناريو)
+- **مستند مصدر الكميات المتاحة (Available Qty Source Document)** (إذا تم إعداده)
 :::
 
-### Step 6: Review Planned Orders
+### الخطوة 6: مراجعة الأوامر المخططة {#Step-6--Review-Planned-Orders}
 
-The analysis automatically generates planned orders in two tabs:
+يولّد التحليل تلقائياً أوامر مخططة في تبويبين:
 
-#### Planned Production Lines (خطوط الإنتاج المخطط)
+#### خطوط الإنتاج المخطط (Planned Production Lines) {#Planned-Production-Lines}
 
-Contains production orders to be created:
+تحتوي على أوامر الإنتاج المراد إنشاؤها:
 
-| Field | Description |
-|-------|-------------|
-| **Selected** | Check to include in document generation |
-| **Item** | Item to produce |
-| **Quantity** | Quantity to produce |
-| **Date** | Production date (considering lead time) |
-| **BOM** | Bill of materials to use |
-| **Routing** | Routing to use |
-| **Warehouse** | Production warehouse |
-| **Order Type** | Production Order or Production Order Request |
-| **Doc** | Generated document (after generation) |
+| الحقل | الوصف |
+|-------|-------|
+| **Selected** | حدد للتضمين في توليد المستند |
+| **Item** | الصنف المراد إنتاجه |
+| **Quantity** | الكمية المراد إنتاجها |
+| **Date** | تاريخ الإنتاج (مع مراعاة وقت الانتظار) |
+| **BOM** | قائمة المكونات المراد استخدامها |
+| **Routing** | التوجيه المراد استخدامه |
+| **Warehouse** | مخزن الإنتاج |
+| **Order Type** | أمر إنتاج أو طلب أمر إنتاج |
+| **Doc** | المستند المولّد (بعد التوليد) |
 
-#### Planned Purchase Lines (خطوط الشراء المخطط)
+#### خطوط الشراء المخطط (Planned Purchase Lines) {#Planned-Purchase-Lines}
 
-Contains purchase orders to be created:
+تحتوي على أوامر الشراء المراد إنشاؤها:
 
-| Field | Description |
-|-------|-------------|
-| **Selected** | Check to include in document generation |
-| **Item** | Item to purchase |
-| **Quantity** | Quantity to purchase |
-| **Date** | Purchase date (considering lead time) |
-| **Supplier** | Preferred supplier (if configured) |
-| **Warehouse** | Receiving warehouse |
-| **Order Type** | Purchase Order, Item Request, or MRP Purchase Request |
-| **Doc** | Generated document (after generation) |
+| الحقل | الوصف |
+|-------|-------|
+| **Selected** | حدد للتضمين في توليد المستند |
+| **Item** | الصنف المراد شراؤه |
+| **Quantity** | الكمية المراد شراؤها |
+| **Date** | تاريخ الشراء (مع مراعاة وقت الانتظار) |
+| **Supplier** | المورد المفضل (إذا تم إعداده) |
+| **Warehouse** | مخزن الاستلام |
+| **Order Type** | أمر شراء، طلب صنف، أو طلب شراء MRP |
+| **Doc** | المستند المولّد (بعد التوليد) |
 
-::: tip Filtering Planned Lines
-Planned lines are separated into:
-- **Manufacturable items** → Planned Production Lines
-- **Purchased items** → Planned Purchase Lines
+::: tip تصفية الخطوط المخططة
+تُفصل الخطوط المخططة إلى:
+- **الأصناف القابلة للتصنيع** ← خطوط الإنتاج المخطط
+- **الأصناف المشتراة** ← خطوط الشراء المخطط
 
-Items are classified based on the **Manufacturable** flag on the item master.
+تُصنَّف الأصناف بناءً على علامة **Manufacturable** في ملف الصنف الرئيسي.
 :::
 
-### Step 7: Generate Purchase and Production Orders
+### الخطوة 7: توليد أوامر الشراء والإنتاج {#Step-7--Generate-Purchase-and-Production-Orders}
 
-#### Select Lines to Generate
+#### تحديد الخطوط المراد توليدها {#Select-Lines-to-Generate}
 
-1. Review planned production and purchase lines
-2. Check the **Selected** checkbox for lines you want to generate
-3. Use **Select All** buttons to quickly select all lines in a tab
+1. راجع خطوط الإنتاج والشراء المخططة
+2. ضع علامة في خانة **Selected** للخطوط التي تريد توليدها
+3. استخدم أزرار **تحديد الكل (Select All)** لتحديد جميع الخطوط في التبويب بسرعة
 
-#### Generate Documents
+#### توليد المستندات {#Generate-Documents}
 
-Click one of these action buttons:
+انقر أحد أزرار الإجراءات التالية:
 
-- **Generate Production Orders** (إنشاء أوامر إنتاج)
-  - Creates production documents from selected production lines
-  - One document per line (by default)
+- **إنشاء أوامر إنتاج (Generate Production Orders)**
+  - ينشئ مستندات إنتاج من خطوط الإنتاج المحددة
+  - مستند واحد لكل سطر (افتراضياً)
 
-- **Generate Purchase Orders** (إنشاء أوامر شراء)
-  - Creates purchase documents from selected purchase lines
-  - One document per line (by default)
+- **إنشاء أوامر شراء (Generate Purchase Orders)**
+  - ينشئ مستندات شراء من خطوط الشراء المحددة
+  - مستند واحد لكل سطر (افتراضياً)
 
-- **Gen Single Purchase Order** (إنشاء أمر شراء واحد)
-  - Consolidates all selected purchase lines into one purchase document
-  - Groups items by supplier (if configured)
+- **إنشاء أمر شراء واحد (Gen Single Purchase Order)**
+  - يدمج جميع خطوط الشراء المحددة في مستند شراء واحد
+  - يجمع الأصناف حسب المورد (إذا تم إعداده)
 
-::: warning Document Terms Required
-Ensure document terms are properly configured with books for:
-- Purchase Order
-- Production Order
-- Item Request
-- MRP Purchase Request
-- Production Order Request
+::: warning توجيهات المستند مطلوبة
+تأكد من إعداد توجيهات المستند مع دفاتر لـ:
+- أمر الشراء
+- أمر الإنتاج
+- طلب الصنف
+- طلب شراء MRP
+- طلب أمر إنتاج
 
-The system will show an error if required books/terms are not configured.
+سيعرض النظام رسالة خطأ إذا لم يتم إعداد الدفاتر/التوجيهات المطلوبة.
 :::
 
-#### After Document Generation
+#### بعد توليد المستندات {#After-Document-Generation}
 
-- Generated documents are linked in the **Doc** field of each planned line
-- Documents are created in draft status (with @ symbol in code)
-- You can review and edit generated documents before committing
-- The **Selected** checkbox is automatically cleared (if configured)
+- ترتبط المستندات المولّدة في حقل **Doc** لكل خط مخطط
+- تُنشأ المستندات بحالة مسودة (برمز @ في الكود)
+- يمكنك مراجعة المستندات المولّدة وتعديلها قبل الاعتماد
+- تُمسح علامة **Selected** تلقائياً (إذا تم إعداد ذلك)
 
-::: tip Reviewing Generated Documents
-Click the document reference in the **Doc** field to open and review the generated document.
+::: tip مراجعة المستندات المولّدة
+انقر مرجع المستند في حقل **Doc** لفتح المستند المولّد ومراجعته.
 :::
 
 ---
 
-## Understanding MRP Results
+## فهم نتائج MRP {#Understanding-MRP-Results}
 
-### Reading the Analysis Tab
+### قراءة تبويب التحليل {#Reading-the-Analysis-Tab}
 
-The analysis tab shows the complete MRP explosion with all levels of BOM:
+يعرض تبويب التحليل تفجير MRP الكامل بجميع مستويات BOM:
 
 ```
 Level 0: Finished Product (from sales orders/forecasts)
@@ -435,14 +435,14 @@ Level 0: Finished Product (from sales orders/forecasts)
     └─ Level 1: Raw Material C
 ```
 
-**Hierarchical Relationships:**
-- **Parent Analysis Line ID**: Links to parent in BOM structure
-- **Master Row ID**: Links back to the original required line
-- **Parent BOM**: The BOM that generated this requirement
+**العلاقات الهرمية:**
+- **معرف سطر التحليل الأصل (Parent Analysis Line ID)**: يرتبط بالأصل في هيكل BOM
+- **معرف الصف الرئيسي (Master Row ID)**: يرتبط بسطر الاحتياج الأصلي
+- **BOM الأصل (Parent BOM)**: BOM الذي ولّد هذا الاحتياج
 
-### Net Requirement Calculation Logic
+### منطق حساب الاحتياج الصافي {#Net-Requirement-Calculation-Logic}
 
-The system calculates net requirements using this logic:
+يحسب النظام الاحتياجات الصافية وفق هذا المنطق:
 
 ```
 1. Start with Gross Requirement (from demand)
@@ -452,202 +452,202 @@ The system calculates net requirements using this logic:
 5. Result = Net Requirement (if positive)
 ```
 
-If the item has a **batch size**:
+إذا كان للصنف **حجم دفعة**:
 ```
 6. Calculate batches needed = CEILING(Net Requirement / Batch Size)
 7. Final Net Requirement = Batches Needed × Batch Size
 ```
 
-If the item has a **minimum order quantity**:
+إذا كان للصنف **حد أدنى لكمية الطلب**:
 ```
 8. Final Net Requirement = CEILING(Net Requirement / Min Order Qty) × Min Order Qty
 ```
 
-### Safety Stock Calculation Methods
+### طرق حساب مخزون الأمان {#Safety-Stock-Calculation-Methods}
 
-Nama ERP supports three safety stock calculation methods:
+يدعم Nama ERP ثلاث طرق لحساب مخزون الأمان:
 
-#### 1. Quantity-Based
-- Fixed quantity specified on item master
-- Simple and straightforward
-- Best for stable demand items
+#### 1. القائمة على الكمية (Quantity-Based) {#1-Quantity-Based}
+- كمية ثابتة محددة في ملف الصنف الرئيسي
+- بسيطة ومباشرة
+- الأفضل للأصناف ذات الطلب الثابت
 
-#### 2. Periods Count - Current Period
-- Safety stock = Required Qty × Safety Stock Factor
-- Example: If required qty = 100 and factor = 1.2, safety stock = 20
+#### 2. عدد الفترات - الفترة الحالية (Periods Count - Current Period) {#2-Periods-Count---Current-Period}
+- مخزون الأمان = الكمية المطلوبة × معامل مخزون الأمان
+- مثال: إذا كانت الكمية المطلوبة = 100 والمعامل = 1.2، فمخزون الأمان = 20
 
-#### 3. Periods Count - Next Periods
-- Looks ahead at next N periods
-- Sums requirements from future periods
-- More dynamic, responds to demand patterns
+#### 3. عدد الفترات - الفترات القادمة (Periods Count - Next Periods) {#3-Periods-Count---Next-Periods}
+- ينظر إلى الأمام N فترات
+- يجمع الاحتياجات من الفترات المستقبلية
+- أكثر ديناميكية، يستجيب لأنماط الطلب
 
-#### 4. Periods Count - Plan Average
-- Calculates average demand across all periods
-- Multiplies by safety stock factor
-- Smooths out demand variability
+#### 4. عدد الفترات - متوسط الخطة (Periods Count - Plan Average) {#4-Periods-Count---Plan-Average}
+- يحسب متوسط الطلب عبر جميع الفترات
+- يضرب في معامل مخزون الأمان
+- يخفف تذبذب الطلب
 
-::: tip Configuring Safety Stock
-Configure safety stock method on the Item master:
-- **Safety Stock Calculation Type**: Choose the method
-- **Safety Stock**: The quantity or factor (depending on method)
-- **Order Limit**: Fallback if safety stock is not set
+::: tip إعداد مخزون الأمان
+أعدّ طريقة مخزون الأمان في ملف الصنف الرئيسي:
+- **نوع حساب مخزون الأمان (Safety Stock Calculation Type)**: اختر الطريقة
+- **مخزون الأمان (Safety Stock)**: الكمية أو المعامل (حسب الطريقة)
+- **حد الطلب (Order Limit)**: بديل إذا لم يتم تعيين مخزون الأمان
 :::
 
-### Understanding Lead Times
+### فهم أوقات الانتظار {#Understanding-Lead-Times}
 
-Lead times affect the **Order On** date calculation:
+تؤثر أوقات الانتظار في حساب تاريخ **Order On**:
 
 ```
 Order Date = Required Date - Lead Time
 ```
 
-**For Manufactured Items:**
-- Uses **Manufacturing Lead Time** from item master
-- Example: Required on March 15, Lead time = 5 days → Order on March 10
+**للأصناف المصنّعة:**
+- يستخدم **وقت انتظار التصنيع (Manufacturing Lead Time)** من ملف الصنف
+- مثال: مطلوب في 15 مارس، وقت الانتظار = 5 أيام ← الطلب في 10 مارس
 
-**For Purchased Items:**
-- Uses **Purchase Lead Time** from item master
-- Example: Required on March 15, Lead time = 10 days → Order on March 5
+**للأصناف المشتراة:**
+- يستخدم **وقت انتظار الشراء (Purchase Lead Time)** من ملف الصنف
+- مثال: مطلوب في 15 مارس، وقت الانتظار = 10 أيام ← الطلب في 5 مارس
 
-::: warning Lead Time Units
-Lead times can be specified in:
-- Days
-- Weeks
-- Months
+::: warning وحدات وقت الانتظار
+يمكن تحديد أوقات الانتظار بـ:
+- أيام
+- أسابيع
+- أشهر
 
-Ensure the UOM (Unit of Measure) is correctly set on the lead time field.
+تأكد من ضبط وحدة القياس (UOM) بشكل صحيح في حقل وقت الانتظار.
 :::
 
 ---
 
-## Generating Production and Purchase Orders
+## توليد أوامر الإنتاج والشراء {#Generating-Production-and-Purchase-Orders}
 
-### Document Generation Process
+### عملية توليد المستندات {#Document-Generation-Process}
 
-When you click generate buttons, the system:
+عند النقر على أزرار التوليد، يقوم النظام بـ:
 
-1. **Validates Configuration**
-   - Checks document terms are configured
-   - Verifies books have auto-coding enabled
-   - Validates required fields
+1. **التحقق من الإعداد**
+   - التحقق من إعداد توجيهات المستند
+   - التحقق من تفعيل الترقيم التلقائي للدفاتر
+   - التحقق من صحة الحقول المطلوبة
 
-2. **Creates Documents**
-   - Instantiates appropriate document type
-   - Sets book and term from MRP document term config
-   - Copies dimensions from MRP document
+2. **إنشاء المستندات**
+   - إنشاء نوع المستند المناسب
+   - تعيين الدفتر والتوجيه من إعداد توجيه مستند MRP
+   - نسخ المحددات من مستند MRP
 
-3. **Populates Document Lines**
-   - For purchase documents: Creates purchase lines from planned lines
-   - For production documents: Creates production order with BOM components
+3. **تعبئة سطور المستند**
+   - لمستندات الشراء: إنشاء سطور شراء من الخطوط المخططة
+   - لمستندات الإنتاج: إنشاء أمر إنتاج مع مكونات BOM
 
-4. **Sets Document Details**
-   - Value date from planned line date
-   - Warehouse from planned line
-   - Supplier (for purchase documents)
-   - BOM and routing (for production documents)
+4. **تعيين تفاصيل المستند**
+   - تاريخ القيمة من تاريخ الخط المخطط
+   - المخزن من الخط المخطط
+   - المورد (لمستندات الشراء)
+   - BOM والتوجيه (لمستندات الإنتاج)
 
-5. **Commits Documents**
-   - Automatically commits documents
-   - Links generated documents back to planned lines
-   - Updates MRP document status
+5. **اعتماد المستندات**
+   - اعتماد المستندات تلقائياً
+   - ربط المستندات المولّدة بالخطوط المخططة
+   - تحديث حالة مستند MRP
 
-### Production Order Generation
+### توليد أمر الإنتاج {#Production-Order-Generation}
 
-For each selected production line, the system creates:
+لكل خط إنتاج محدد، ينشئ النظام:
 
-**Production Order Header:**
-- Item to produce
-- Quantity
-- BOM and Routing
-- Warehouse
+**رأس أمر الإنتاج:**
+- الصنف المراد إنتاجه
+- الكمية
+- BOM والتوجيه
+- المخزن
 
-**Production Order Components:**
-- Exploded from BOM
-- Quantities calculated based on production quantity
-- Considers yield and potency factors
+**مكونات أمر الإنتاج:**
+- مُفجَّرة من BOM
+- الكميات محسوبة بناءً على كمية الإنتاج
+- تأخذ في الاعتبار عوامل العائد والفاعلية
 
-**Production Order Co-Products:**
-- Copied from BOM co-products
-- Quantities proportionally calculated
+**المنتجات المصاحبة لأمر الإنتاج:**
+- منسوخة من منتجات BOM المصاحبة
+- الكميات محسوبة نسبياً
 
-**Production Order Resources:**
-- Copied from routing resources
-- Time calculated based on quantity
+**موارد أمر الإنتاج:**
+- منسوخة من موارد التوجيه
+- الوقت محسوب بناءً على الكمية
 
-**Production Order Operations:**
-- Copied from routing operations
-- Sequenced according to routing
+**عمليات أمر الإنتاج:**
+- منسوخة من عمليات التوجيه
+- مرتبة وفق التوجيه
 
-### Purchase Order Generation
+### توليد أمر الشراء {#Purchase-Order-Generation}
 
-For each selected purchase line, the system creates:
+لكل خط شراء محدد، ينشئ النظام:
 
-**Purchase Document Header:**
-- Supplier (if specified)
-- Warehouse
-- Fiscal period
+**رأس مستند الشراء:**
+- المورد (إذا تم تحديده)
+- المخزن
+- الفترة المالية
 
-**Purchase Document Lines:**
-- Item to purchase
-- Quantity
-- Value date from planned date
-- Price (blank - to be filled manually)
+**سطور مستند الشراء:**
+- الصنف المراد شراؤه
+- الكمية
+- تاريخ القيمة من التاريخ المخطط
+- السعر (فارغ - يُملأ يدوياً)
 
-::: tip Consolidating Purchase Orders
-Use **Gen Single Purchase Order** to:
-- Create one purchase document for multiple items
-- Reduce number of purchase orders
-- Easier to manage with suppliers
+::: tip دمج أوامر الشراء
+استخدم **إنشاء أمر شراء واحد (Gen Single Purchase Order)** لـ:
+- إنشاء مستند شراء واحد لأصناف متعددة
+- تقليل عدد أوامر الشراء
+- سهولة إدارة أكبر مع الموردين
 
-All selected purchase lines will be combined into a single document.
+ستُدمج جميع خطوط الشراء المحددة في مستند واحد.
 :::
 
-### Handling Generated Documents
+### التعامل مع المستندات المولّدة {#Handling-Generated-Documents}
 
-After generation:
+بعد التوليد:
 
-1. **Review Generated Documents**
-   - Click document reference to open
-   - Review quantities and dates
-   - Add pricing information (for purchases)
-   - Verify BOM/routing selection (for production)
+1. **مراجعة المستندات المولّدة**
+   - انقر مرجع المستند لفتحه
+   - راجع الكميات والتواريخ
+   - أضف معلومات الأسعار (للمشتريات)
+   - تحقق من اختيار BOM/التوجيه (للإنتاج)
 
-2. **Edit if Needed**
-   - Documents are created and committed automatically
-   - Use "Start Editing" if changes are needed
-   - Make adjustments
-   - Commit again
+2. **التعديل عند الحاجة**
+   - تُنشأ المستندات وتُعتمد تلقائياً
+   - استخدم "بدء التعديل" إذا لزمت إجراء تغييرات
+   - أجرِ التعديلات
+   - أعدّ الاعتماد
 
-3. **Track Generation**
-   - Generated documents have **From Doc** pointing to MRP document
-   - MRP document tracks generated docs count
-   - Can regenerate if needed (previous docs will be deleted if not committed)
+3. **تتبع التوليد**
+   - المستندات المولّدة تحتوي على **From Doc** يشير إلى مستند MRP
+   - يتتبع مستند MRP عدد المستندات المولّدة
+   - يمكن إعادة التوليد عند الحاجة (ستُحذف المستندات السابقة إذا لم تُعتمد)
 
-::: warning Regeneration Behavior
-If you regenerate documents:
-- Previously generated documents from this MRP document will be **deleted**
-- Only applies to documents that have **From Doc** = this MRP document
-- Committed documents in use (with transactions) will cause errors
+::: warning سلوك إعادة التوليد
+إذا أعدت توليد المستندات:
+- ستُـ**حذف** المستندات المولّدة سابقاً من مستند MRP هذا
+- ينطبق فقط على المستندات التي تحتوي على **From Doc** = مستند MRP هذا
+- المستندات المعتمدة المستخدمة (بها معاملات) ستتسبب في أخطاء
 :::
 
 ---
 
-## Advanced Features
+## الميزات المتقدمة {#Advanced-Features}
 
-### 1. Rolling MRP Planning
+### 1. التخطيط المتجدد لـ MRP (Rolling MRP Planning) {#1-Rolling-MRP-Planning}
 
-Use **Previous MRP Document** to link MRP runs:
+استخدم **سند التخطيط السابق (Previous MRP Document)** لربط تشغيلات MRP:
 
-**Benefits:**
-- Carries forward remaining quantities from previous run
-- Supports continuous planning (e.g., monthly MRP runs)
-- Avoids double-counting requirements
+**الفوائد:**
+- ينقل الكميات المتبقية من التشغيل السابق
+- يدعم التخطيط المستمر (مثل تشغيلات MRP الشهرية)
+- يتجنب الاحتساب المزدوج للاحتياجات
 
-**Requirements:**
-- Previous and current documents must have same **Scenario**
-- Previous document's **To Date** must be before current document's **From Date**
+**المتطلبات:**
+- يجب أن يكون للمستندين السابق والحالي نفس **السيناريو**
+- يجب أن يكون **إلى تاريخ** المستند السابق قبل **من تاريخ** المستند الحالي
 
-**Example:**
+**مثال:**
 ```
 January MRP: From Date = Jan 1, To Date = Jan 31
 February MRP: From Date = Feb 1, To Date = Feb 28, Previous = January MRP
@@ -655,22 +655,22 @@ February MRP: From Date = Feb 1, To Date = Feb 28, Previous = January MRP
 February MRP will start with remaining quantities from January.
 ```
 
-### 2. Scenario-Based Planning
+### 2. التخطيط القائم على السيناريو (Scenario-Based Planning) {#2-Scenario-Based-Planning}
 
-Create scenarios for:
-- Different planning assumptions
-- What-if analysis
-- Custom availability calculations
+أنشئ سيناريوهات لـ:
+- افتراضات تخطيطية مختلفة
+- تحليل "ماذا لو"
+- حسابات توافر مخصصة
 
-**Scenario Features:**
-- **Available Quantities Query**: Custom SQL query to calculate available quantities
-- **Potential Available Query**: Custom SQL query for potential available
-- **Do Not Divide Qty By Batch Size**: Produce entire batch quantity rather than splitting into multiple production orders
+**ميزات السيناريو:**
+- **استعلام الكميات المتاحة (Available Quantities Query)**: استعلام SQL مخصص لحساب الكميات المتاحة
+- **استعلام المتاح المحتمل (Potential Available Query)**: استعلام SQL مخصص للمتاح المحتمل
+- **عدم تقسيم الكمية حسب حجم الدفعة (Do Not Divide Qty By Batch Size)**: إنتاج كمية الدفعة كاملة بدلاً من التقسيم على أوامر إنتاج متعددة
 
-::: details Custom Query Format
-Scenario queries should return a single numeric value representing the quantity.
+::: details صيغة الاستعلام المخصص
+يجب أن تعيد استعلامات السيناريو قيمة عددية واحدة تمثل الكمية.
 
-Example query:
+مثال على الاستعلام:
 ```sql
 SELECT SUM(netQty)
 FROM QtyTransLine
@@ -678,162 +678,162 @@ WHERE item_id = {itemId}
   AND warehouse_id IN ({warehouseIds})
 ```
 
-The system will execute this query for each required line, passing item and dimension parameters.
+سينفذ النظام هذا الاستعلام لكل سطر احتياج، مع تمرير معاملات الصنف والمحددات.
 :::
 
-### 3. Available Qty Source Document
+### 3. مستند مصدر الكميات المتاحة (Available Qty Source Document) {#3-Available-Qty-Source-Document}
 
-Instead of scenario queries, you can create an **MRP Available Qty Source** document:
+بدلاً من استعلامات السيناريو، يمكنك إنشاء مستند **MRP Available Qty Source**:
 
-**Features:**
-- Manually specify available quantities per item/warehouse
-- Specify whether quantity is "Total Available" or "Predicted Purchase"
-- More controlled than scenario queries
-- Easier for users to understand and maintain
+**الميزات:**
+- تحديد الكميات المتاحة يدوياً لكل صنف/مخزن
+- تحديد ما إذا كانت الكمية "الإجمالي المتاح" أو "المشتريات المتوقعة"
+- أكثر تحكماً من استعلامات السيناريو
+- أسهل للمستخدمين في الفهم والصيانة
 
-**Usage:**
-1. Create MRP Available Qty Source document
-2. Add lines for items with custom available quantities
-3. Select this document in MRP Document's **Available Qty Source** field
+**طريقة الاستخدام:**
+1. أنشئ مستند MRP Available Qty Source
+2. أضف سطوراً للأصناف ذات الكميات المتاحة المخصصة
+3. حدد هذا المستند في حقل **Available Qty Source** في مستند MRP
 
-### 4. Manual Edits to Requirements
+### 4. التعديلات اليدوية على الاحتياجات {#4-Manual-Edits-to-Requirements}
 
-Override calculated requirements:
+تجاوز الاحتياجات المحسوبة:
 
-**Edited Net Required** (الاحتياج الصافي المعدل):
-- Manually specify exact net requirement
-- Overrides all calculations
-- Use for special cases or adjustments
+**الاحتياج الصافي المعدل (Edited Net Required)**:
+- تحديد الاحتياج الصافي الدقيق يدوياً
+- يتجاوز جميع الحسابات
+- يُستخدم للحالات الخاصة أو التعديلات
 
-**Edited Batches Count** (عدد الدفعات المعدل):
-- Specify exact number of batches to produce
-- Only works if item has batch size defined
-- Cannot be used with Edited Net Required
+**عدد الدفعات المعدل (Edited Batches Count)**:
+- تحديد عدد دقيق من الدفعات للإنتاج
+- يعمل فقط إذا كان للصنف حجم دفعة محدد
+- لا يمكن استخدامه مع الاحتياج الصافي المعدل
 
-::: warning Edit Restrictions
-- Cannot edit net required if batch size > 0 (use edited batches count instead)
-- Cannot edit batches count if batch size = 0 (use edited net required instead)
-- Edits are validated on commit
+::: warning قيود التعديل
+- لا يمكن تعديل الاحتياج الصافي إذا كان حجم الدفعة > 0 (استخدم عدد الدفعات المعدل بدلاً من ذلك)
+- لا يمكن تعديل عدد الدفعات إذا كان حجم الدفعة = 0 (استخدم الاحتياج الصافي المعدل بدلاً من ذلك)
+- تُتحقق التعديلات عند الاعتماد
 :::
 
-### 5. Merge Planned Lines
+### 5. دمج الخطوط المخططة (Merge Planned Lines) {#5-Merge-Planned-Lines}
 
-Use the **Merge** action to combine planned lines:
+استخدم إجراء **دمج (Merge)** لدمج الخطوط المخططة:
 
-**Merging Production Lines:**
-1. Select 2 or more planned production lines (same item and order type)
-2. Click **Merge** button
-3. System combines quantities into first selected line
-4. Removes other selected lines
+**دمج خطوط الإنتاج:**
+1. حدد سطرين أو أكثر من خطوط الإنتاج المخططة (نفس الصنف ونوع الطلب)
+2. انقر زر **دمج**
+3. يدمج النظام الكميات في أول سطر محدد
+4. يحذف السطور الأخرى المحددة
 
-**Requirements:**
-- Lines must have same **Item**
-- Lines must have same **Order Type**
-- At least 2 lines must be selected
+**المتطلبات:**
+- يجب أن تتشارك السطور نفس **الصنف**
+- يجب أن تتشارك السطور نفس **نوع الطلب**
+- يجب تحديد سطرين على الأقل
 
-::: tip When to Merge
-Merge lines when:
-- Multiple small requirements for same item
-- Consolidating production runs
-- Reducing number of production orders
+::: tip متى تستخدم الدمج
+استخدم الدمج عند:
+- وجود احتياجات صغيرة متعددة لنفس الصنف
+- دمج تشغيلات الإنتاج
+- تقليل عدد أوامر الإنتاج
 :::
 
-### 6. Dimension Handling in MRP
+### 6. التعامل مع المحددات في MRP {#6-Dimension-Handling-in-MRP}
 
-MRP respects item dimensions during planning:
+يراعي MRP محددات الأصناف أثناء التخطيط:
 
-**Supported Dimensions:**
-- Warehouse
-- Locator
-- Size
-- Color
+**المحددات المدعومة:**
+- المخزن (Warehouse)
+- الموقع (Locator)
+- المقاس (Size)
+- اللون (Color)
 - Lot ID
 - Revision ID
-- Active Percentage
-- Inactive Percentage
-- Box/Package
-- Measures
-- Sub-item
-- Serial Number
+- نسبة الفاعل (Active Percentage)
+- نسبة الخامل (Inactive Percentage)
+- صندوق/عبوة (Box/Package)
+- القياسات (Measures)
+- صنف فرعي (Sub-item)
+- الرقم التسلسلي (Serial Number)
 
-**Configuration:**
-Manufacturing module configuration controls which dimensions are:
-- **Considered in BOM/Routing Search**
-- **Used as aggregation keys** in MRP planning
+**الإعداد:**
+يتحكم إعداد وحدة التصنيع في المحددات التي:
+- **تُؤخذ في الاعتبار في البحث عن BOM/التوجيه**
+- **تُستخدم كمفاتيح تجميع** في تخطيط MRP
 
-Example: If "Size" is enabled in MRP:
-- Red chairs and blue chairs are planned separately
-- Different BOMs can exist for different sizes
-- Requirements are tracked per size
+مثال: إذا تم تفعيل "المقاس" في MRP:
+- تُخطَّط الكراسي الحمراء والزرقاء بشكل منفصل
+- يمكن أن تتوافر قوائم BOM مختلفة لمقاسات مختلفة
+- تُتتبع الاحتياجات لكل مقاس
 
-### 7. Period-Based Safety Stock
+### 7. مخزون الأمان القائم على الفترات (Period-Based Safety Stock) {#7-Period-Based-Safety-Stock}
 
-For items with variable demand:
+للأصناف ذات الطلب المتغير:
 
-**Configuration:**
-1. Set **Safety Stock Calculation Type** = "Periods Count"
-2. Set **Safety Stock** = number of periods or factor
-3. Choose calculation method on MRP Document
+**الإعداد:**
+1. اضبط **نوع حساب مخزون الأمان (Safety Stock Calculation Type)** = "Periods Count"
+2. اضبط **مخزون الأمان (Safety Stock)** = عدد الفترات أو المعامل
+3. اختر طريقة الحساب في مستند MRP
 
-**Periods Calc Method Options:**
+**خيارات طريقة حساب الفترات:**
 
-- **Required In Current Period**:
-  Safety stock = Current period demand × factor
+- **المطلوب في الفترة الحالية (Required In Current Period)**:
+  مخزون الأمان = طلب الفترة الحالية × المعامل
 
-- **Next Periods**:
-  Safety stock = Sum of next N periods' demand
+- **الفترات القادمة (Next Periods)**:
+  مخزون الأمان = مجموع طلب N فترات قادمة
 
-- **Plan Average**:
-  Safety stock = (Total demand / Total periods) × factor
+- **متوسط الخطة (Plan Average)**:
+  مخزون الأمان = (إجمالي الطلب / إجمالي الفترات) × المعامل
 
-::: tip Choosing a Method
-- **Current Period**: Best for steady demand
-- **Next Periods**: Best for growing demand
-- **Plan Average**: Best for fluctuating demand
+::: tip اختيار الطريقة
+- **الفترة الحالية**: الأفضل للطلب الثابت
+- **الفترات القادمة**: الأفضل للطلب المتزايد
+- **متوسط الخطة**: الأفضل للطلب المتذبذب
 :::
 
-### 8. Multiple UOM Handling
+### 8. التعامل مع وحدات القياس المتعددة (Multiple UOM Handling) {#8-Multiple-UOM-Handling}
 
-MRP works with items that have multiple units of measure:
+يعمل MRP مع الأصناف ذات وحدات قياس متعددة:
 
-**Unit Used for MRP** (configured in Manufacturing Configuration):
-- Base Unit
-- Primary UOM
-- Secondary UOM
+**الوحدة المستخدمة لـ MRP** (تُعدّ في إعداد وحدة التصنيع):
+- الوحدة الأساسية
+- وحدة القياس الأساسية (Primary UOM)
+- وحدة القياس الثانوية (Secondary UOM)
 
-All requirements are converted to this unit for planning, then converted back to item's primary UOM for document generation.
+تُحوَّل جميع الاحتياجات إلى هذه الوحدة للتخطيط، ثم تُعاد إلى وحدة القياس الأساسية للصنف عند توليد المستندات.
 
-### 9. Handling Recurring Demand
+### 9. التعامل مع الطلب المتكرر (Handling Recurring Demand) {#9-Handling-Recurring-Demand}
 
-For ongoing production schedules:
+لجداول الإنتاج المستمرة:
 
-**Approach 1: Monthly MRP Runs**
-- Run MRP monthly
-- Use previous MRP document to carry forward
-- Generate orders for next month
+**النهج الأول: تشغيلات MRP الشهرية**
+- تشغيل MRP شهرياً
+- استخدام سند MRP السابق للترحيل
+- توليد أوامر للشهر القادم
 
-**Approach 2: Rolling Forecast**
-- Update forecast document regularly
-- Rerun MRP with updated forecast
-- Adjust planned orders as needed
+**النهج الثاني: التوقعات المتجددة (Rolling Forecast)**
+- تحديث مستند التوقعات بانتظام
+- إعادة تشغيل MRP بتوقعات محدّثة
+- تعديل الأوامر المخططة حسب الحاجة
 
-**Approach 3: Manual Demand**
-- Create manual demand documents for regular requirements
-- Include in MRP collection
-- Suitable for internal consumption patterns
+**النهج الثالث: الطلب اليدوي**
+- إنشاء مستندات طلب يدوي للاحتياجات المنتظمة
+- تضمينها في تجميع MRP
+- مناسب لأنماط الاستهلاك الداخلي
 
 ---
-## Summary
+## ملخص {#Summary}
 
-Material Requirements Planning in Nama ERP provides a comprehensive solution for:
-- ✅ Planning material requirements based on demand
-- ✅ Exploding BOMs to determine component needs
-- ✅ Calculating net requirements considering availability
-- ✅ Generating purchase and production orders automatically
-- ✅ Supporting rolling plans and scenarios
-- ✅ Handling complex manufacturing environments
+يوفر تخطيط متطلبات المواد في Nama ERP حلاً شاملاً لـ:
+- ✅ تخطيط احتياجات المواد بناءً على الطلب
+- ✅ تفجير قوائم BOM لتحديد احتياجات المكونات
+- ✅ حساب الاحتياجات الصافية مع مراعاة التوافر
+- ✅ توليد أوامر الشراء والإنتاج تلقائياً
+- ✅ دعم الخطط المتجددة والسيناريوهات
+- ✅ التعامل مع بيئات التصنيع المعقدة
 
-### MRP Workflow Summary
+### ملخص سير عمل MRP {#MRP-Workflow-Summary}
 
 ```
 1. Create MRP Document → Configure date range and parameters
@@ -845,11 +845,10 @@ Material Requirements Planning in Nama ERP provides a comprehensive solution for
 7. Execute → Review and commit generated documents
 ```
 
-### Key Success Factors
+### عوامل النجاح الرئيسية {#Key-Success-Factors}
 
-1. **Accurate Master Data**: BOMs, routings, lead times
-2. **Reliable Demand**: Sales forecasts and orders
-3. **Regular Planning**: Run MRP at appropriate frequency
-4. **Review Results**: Don't auto-generate without review
-5. **Continuous Improvement**: Refine based on actual performance
-
+1. **دقة البيانات الرئيسية**: قوائم BOM، التوجيهات، أوقات الانتظار
+2. **موثوقية الطلب**: توقعات المبيعات والأوامر
+3. **التخطيط المنتظم**: تشغيل MRP بالتكرار المناسب
+4. **مراجعة النتائج**: لا تولّد تلقائياً دون مراجعة
+5. **التحسين المستمر**: التحسين بناءً على الأداء الفعلي

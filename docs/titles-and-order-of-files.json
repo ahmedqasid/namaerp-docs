@@ -218,5 +218,9 @@
     "/videos/supply-chain-videos": "Supply Chain Videos",
     "/videos/report-wizard-videos": "Report Wizard Videos",
     "/videos/hr": "Human Resources Videos"
+  },
+  "folderTitlesEn": {
+    "/platform/security": "Security & Permissions",
+    "/modules/invoicing": "Invoicing, Taxes & Discounts"
   }
 }

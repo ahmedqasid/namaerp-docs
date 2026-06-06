@@ -1,474 +1,474 @@
-# Quality Control
+# ضبط الجودة (Quality Control)
 
-Quality control is the gatekeeper between your suppliers and your customers - ensuring that only items meeting your standards make it into available inventory and out to your customers. Let's explore how NaMa ERP helps you maintain quality throughout your supply chain.
+ضبط الجودة هو البوابة الفاصلة بين مورديك وعملائك، إذ يضمن أن الأصناف التي تستوفي معاييرك فقط هي التي تدخل المخزون المتاح وتخرج إلى عملائك. لنتعرف على كيفية مساعدة نظام Nama ERP في الحفاظ على الجودة في جميع مراحل سلسلة التوريد.
 
-## Why Quality Control Matters
+## لماذا يهم ضبط الجودة {#Why-Quality-Control-Matters}
 
-Imagine this scenario: You receive 1,000 units from a supplier. You immediately receive them into stock. The next day, production discovers half are defective. Now you have to:
-- Stop production (disruption)
-- Segregate bad units (extra handling)
-- Contact supplier (time consuming)
-- Process returns (paperwork and shipping)
-- Find emergency replacement (likely expensive)
-- Explain delay to your customers (damage to reputation)
+تخيل هذا السيناريو: تستلم 1,000 وحدة من أحد الموردين وتضعها مباشرة في المخزون. في اليوم التالي يكتشف الإنتاج أن نصفها معيب. ستضطر حينها إلى:
+- إيقاف الإنتاج (تعطيل)
+- فصل الوحدات المعيبة (جهد إضافي)
+- التواصل مع المورد (مضيعة للوقت)
+- معالجة المرتجعات (إجراءات ورقية وشحن)
+- إيجاد بديل طارئ (مكلف على الأرجح)
+- إبلاغ عملائك بالتأخير (ضرر بالسمعة)
 
-Quality control prevents this cascade of problems by catching issues **before** items enter your regular stock and production flow.
+ضبط الجودة يمنع هذه السلسلة من المشكلات عبر اكتشاف الخلل **قبل** أن تدخل الأصناف إلى مخزونك العادي وخط الإنتاج.
 
-## The Quality Control Philosophy
+## فلسفة ضبط الجودة {#The-Quality-Control-Philosophy}
 
-Quality control in NaMa ERP follows these principles:
+يسير ضبط الجودة في نظام Nama ERP وفق المبادئ التالية:
 
-**1. Gate Keeping**: Items don't automatically become "available" just because they arrived. They become available after passing quality checks.
+**1. حراسة البوابة (Gate Keeping)**: لا تصبح الأصناف "متاحة" تلقائياً بمجرد وصولها، بل تصبح متاحة بعد اجتيازها فحوصات الجودة.
 
-**2. Documentation**: Every quality decision is recorded - what was checked, who checked it, what criteria were used, what was found.
+**2. التوثيق (Documentation)**: كل قرار يتعلق بالجودة يُسجَّل: ما الذي جرى فحصه، ومن فحصه، وما المعايير المستخدمة، وما النتائج.
 
-**3. Traceability**: Link quality records to specific batches, lots, or serial numbers so you can trace issues.
+**3. إمكانية التتبع (Traceability)**: ربط سجلات الجودة بدفعات أو أرقام تسلسلية محددة لتتبع أي مشكلة.
 
-**4. Continuous Improvement**: Quality data helps you improve suppliers, processes, and specifications over time.
+**4. التحسين المستمر (Continuous Improvement)**: بيانات الجودة تساعدك في تحسين الموردين والعمليات والمواصفات بمرور الوقت.
 
-## Quality Control for Incoming Goods
+## ضبط جودة البضائع الواردة {#Quality-Control-for-Incoming-Goods}
 
-The most common quality control scenario is inspecting items as they arrive from suppliers.
+أكثر سيناريوهات ضبط الجودة شيوعاً هو فحص الأصناف لدى وصولها من الموردين.
 
-### The Two-Step Receipt Process
+### عملية الاستلام على مرحلتين {#The-Two-Step-Receipt-Process}
 
-Instead of directly receiving into available stock, use a two-step process:
+بدلاً من الاستلام المباشر في المخزون المتاح، استخدم عملية من مرحلتين:
 
-#### Step 1: Receipt to Inspection
+#### المرحلة الأولى: الاستلام للفحص {#Step-1-Receipt-to-Inspection}
 
-Use `ReceiptInspection` (فحص استلام) to receive items into a quality inspection area:
+استخدم `ReceiptInspection` (فحص استلام) لاستلام الأصناف في منطقة الفحص:
 
-**What Happens:**
-- Items physically arrive
-- Count them (verify quantities)
-- Move to inspection area (separate from regular stock)
-- Create receipt inspection document
-- Items status: "Under Inspection"
+**ما يحدث:**
+- تصل الأصناف فعلياً
+- يُحسب عددها (التحقق من الكميات)
+- تُنقل إلى منطقة الفحص (منفصلة عن المخزون العادي)
+- يُنشأ مستند فحص الاستلام
+- حالة الأصناف: "تحت الفحص"
 
-**At This Point:**
-- Items are in your custody (ownership transferred)
-- They're in your inventory (counted as asset)
-- But they're NOT available for use (can't be issued to production or sold)
+**في هذه المرحلة:**
+- الأصناف في عهدتك (انتقلت الملكية إليك)
+- مسجلة في مخزونك (تُحسب كأصل)
+- لكنها غير متاحة للاستخدام (لا يمكن صرفها للإنتاج أو بيعها)
 
-#### Step 2: Quality Inspection
+#### المرحلة الثانية: فحص الجودة {#Step-2-Quality-Inspection}
 
-Quality team inspects items using configured checklists:
+يفحص فريق الجودة الأصناف باستخدام قوائم التحقق المُعدَّة:
 
-**Physical Inspection:**
-- Visual examination (damage, finish, appearance)
-- Dimensional checks (measurements match specifications?)
-- Functional tests (does it work?)
-- Sample testing (destructive or non-destructive tests)
+**الفحص المادي:**
+- الفحص البصري (التلف والتشطيب والمظهر)
+- الفحوصات القياسية (هل تطابق القياسات المواصفات؟)
+- الاختبارات الوظيفية (هل يعمل الصنف؟)
+- اختبار العينات (اختبارات تدميرية أو غير تدميرية)
 
-**Documentation Review:**
-- Certificates of analysis
-- Material certifications
-- Test reports from supplier
-- Compliance documentation
+**مراجعة الوثائق:**
+- شهادات التحليل
+- شهادات المواد
+- تقارير الاختبار من المورد
+- وثائق الامتثال
 
-**Recording Results:**
-Use `QualityControlDoc` (مستند فحص جودة) to record:
-- What was inspected
-- What tests were performed
-- What results were found
-- Pass/fail decision for each criterion
-- Overall accept/reject decision
+**تسجيل النتائج:**
+استخدم `QualityControlDoc` (مستند فحص جودة) لتسجيل:
+- ما الذي جرى فحصه
+- ما الاختبارات التي أُجريت
+- ما النتائج التي تم التوصل إليها
+- قرار النجاح/الفشل لكل معيار
+- قرار القبول/الرفض الإجمالي
 
-#### Step 3: Disposition
+#### المرحلة الثالثة: البت النهائي {#Step-3-Disposition}
 
-Based on inspection results:
+بناءً على نتائج الفحص:
 
-**Accept (Full):**
-- Create stock receipt from inspection to regular stock
-- Items now available for use
-- Update supplier quality score positively
+**قبول كامل:**
+- إنشاء إيصال مخزني من منطقة الفحص إلى المخزون العادي
+- الأصناف متاحة الآن للاستخدام
+- تحديث نقاط جودة المورد بشكل إيجابي
 
-**Reject (Full):**
-- Create purchase return request
-- Keep items in inspection/reject area
-- Contact supplier for RMA
-- Return items
-- Update supplier quality score negatively
+**رفض كامل:**
+- إنشاء طلب مرتجع مشتريات
+- الإبقاء على الأصناف في منطقة الفحص/الرفض
+- التواصل مع المورد للحصول على تفويض إرجاع (RMA)
+- إرجاع الأصناف
+- تحديث نقاط جودة المورد بشكل سلبي
 
-**Partial Accept:**
-- Accept good quantity (move to regular stock)
-- Reject bad quantity (prepare for return)
-- Document discrepancy
-- Inform purchasing for price adjustment
+**قبول جزئي:**
+- قبول الكمية الجيدة (نقلها إلى المخزون العادي)
+- رفض الكمية المعيبة (التجهيز للإرجاع)
+- توثيق الفارق
+- إبلاغ المشتريات لتعديل السعر
 
-**Accept with Deviation:**
-- Items don't fully meet specifications but usable
-- Create deviation approval document
-- Document the deviation
-- Move to stock with notes
-- Supplier may owe price reduction
+**قبول مع انحراف:**
+- الأصناف لا تستوفي المواصفات بالكامل لكنها قابلة للاستخدام
+- إنشاء مستند موافقة على الانحراف
+- توثيق الانحراف
+- النقل إلى المخزون مع ملاحظات
+- قد يستوجب ذلك تخفيض سعر من المورد
 
-### The Quality Control Request
+### طلب فحص الجودة {#The-Quality-Control-Request}
 
-For planned inspections, start with `QualityControlReq` (طلب فحص جودة):
+للفحوصات المخططة مسبقاً، ابدأ بـ `QualityControlReq` (طلب فحص جودة):
 
-**Workflow:**
-1. Goods arrive, receipt inspection created
-2. Quality team receives request: "Please inspect 1,000 widgets in inspection area A-12"
-3. Team plans inspection (schedule, assign inspector, prepare equipment)
-4. Perform inspection
-5. Create quality control document with results
-6. Make disposition decision
+**سير العمل:**
+1. تصل البضاعة ويُنشأ مستند فحص الاستلام
+2. يستلم فريق الجودة الطلب: "يرجى فحص 1,000 وحدة في منطقة الفحص A-12"
+3. يخطط الفريق للفحص (الجدول الزمني، تعيين المفتش، تجهيز المعدات)
+4. إجراء الفحص
+5. إنشاء مستند فحص الجودة بالنتائج
+6. اتخاذ قرار البت النهائي
 
-This formalized request ensures:
-- Inspections don't get forgotten
-- You can track inspection backlogs
-- Management visibility into quality workload
-- Priority inspections get handled first
+يضمن هذا الطلب الرسمي:
+- عدم نسيان أي فحص
+- إمكانية تتبع أعباء الفحص المتراكمة
+- رؤية الإدارة لحجم أعمال الجودة
+- معالجة الفحوصات ذات الأولوية أولاً
 
-## Quality Checklists
+## قوائم التحقق من الجودة {#Quality-Checklists}
 
-Rather than relying on inspector memory, use standardized checklists.
+بدلاً من الاعتماد على ذاكرة المفتش، استخدم قوائم تحقق موحدة.
 
-### Item-Level Quality Checklists
+### قوائم تحقق الجودة على مستوى الصنف {#Item-Level-Quality-Checklists}
 
-Configure quality requirements at the item level:
+اضبط متطلبات الجودة على مستوى الصنف:
 
-`qualityCheckList` field on `InvItem` defines:
-- Which checks are required for this item
-- What criteria define pass/fail
-- What measurements to record
-- What tolerances are acceptable
+الحقل `qualityCheckList` في `InvItem` يحدد:
+- الفحوصات المطلوبة لهذا الصنف
+- المعايير التي تحدد النجاح/الفشل
+- القياسات الواجب تسجيلها
+- حدود التفاوت المقبولة
 
-**Example Checklist for Electronic Components:**
-- [ ] Visual inspection: No physical damage
-- [ ] Dimensional check: Within ±0.1mm tolerance
-- [ ] Electrical test: Resistance 100Ω ±5%
-- [ ] Function test: Powers on correctly
-- [ ] Documentation: Certificate of compliance present
+**مثال على قائمة تحقق للمكونات الإلكترونية:**
+- [ ] فحص بصري: لا يوجد تلف مادي
+- [ ] فحص قياسي: ضمن تفاوت ±0.1mm
+- [ ] اختبار كهربائي: مقاومة 100Ω ±5%
+- [ ] اختبار وظيفي: يعمل بشكل صحيح عند تشغيله
+- [ ] الوثائق: شهادة المطابقة موجودة
 
-**Example Checklist for Food Products:**
-- [ ] Visual inspection: No damage to packaging
-- [ ] Temperature check: Maintained cold chain
-- [ ] Expiration date: Minimum 6 months remaining
-- [ ] Sample test: Microbiological analysis
-- [ ] Documentation: Health certificate present
+**مثال على قائمة تحقق للمنتجات الغذائية:**
+- [ ] فحص بصري: لا يوجد تلف في التغليف
+- [ ] فحص درجة الحرارة: الحفاظ على سلسلة التبريد
+- [ ] تاريخ الصلاحية: لا يقل عن 6 أشهر متبقية
+- [ ] اختبار عينات: تحليل ميكروبيولوجي
+- [ ] الوثائق: شهادة صحية موجودة
 
-### Using Checklists
+### استخدام قوائم التحقق {#Using-Checklists}
 
-When inspector creates `QualityControlDoc`:
-1. System shows the checklist for that item
-2. Inspector checks off each item
-3. Enter measurement values where applicable
-4. Mark pass/fail for each criterion
-5. System calculates overall pass/fail based on rules
+عندما يُنشئ المفتش `QualityControlDoc`:
+1. يعرض النظام قائمة التحقق الخاصة بذلك الصنف
+2. يؤشر المفتش على كل بند
+3. يُدخل قيم القياسات حيثما ينطبق
+4. يضع علامة نجاح/فشل لكل معيار
+5. يحسب النظام النجاح/الفشل الإجمالي بناءً على القواعد المضبوطة
 
-This ensures:
-- Consistency (all inspectors check the same things)
-- Completeness (nothing gets skipped)
-- Documentation (every check is recorded)
-- Data capture (measurements for trend analysis)
+يضمن ذلك:
+- الاتساق (جميع المفتشين يفحصون الأمور نفسها)
+- الاكتمال (لا يُتجاوز أي بند)
+- التوثيق (كل فحص مسجَّل)
+- التقاط البيانات (القياسات لتحليل الاتجاهات)
 
-## Quality Assurance for Inventory
+## ضمان جودة المخزون {#Quality-Assurance-for-Inventory}
 
-Quality control isn't just for newly arrived items. Items in stock may need periodic quality checks.
+ضبط الجودة لا يقتصر على الأصناف الواردة حديثاً، فالأصناف الموجودة في المخزون قد تحتاج إلى فحوصات دورية.
 
-### Quality Assurance Documents
+### مستندات ضمان الجودة {#Quality-Assurance-Documents}
 
-The `QualityAssuranceDoc` (ضمان جودة) records ongoing quality checks:
+يسجل `QualityAssuranceDoc` (ضمان جودة) فحوصات الجودة الجارية:
 
-**Use Cases:**
+**حالات الاستخدام:**
 
-**Periodic Retesting:**
-Some items (chemicals, pharmaceuticals) degrade over time. The `reTestPeriod` field on items defines how often to retest.
+**إعادة الاختبار الدورية:**
+بعض الأصناف (المواد الكيميائية والأدوية) تتدهور بمرور الوقت. يحدد حقل `reTestPeriod` على الأصناف وتيرة إعادة الاختبار.
 
-Example: Chemical expires 1 year after manufacture, but requires retesting every 3 months to confirm it's still within specifications.
+مثال: مادة كيميائية تنتهي صلاحيتها بعد عام من التصنيع، لكنها تستوجب إعادة الاختبار كل 3 أشهر للتأكد من بقائها ضمن المواصفات.
 
-**Random Quality Sampling:**
-Periodically pull random samples from inventory to verify quality is maintained during storage.
+**أخذ عينات عشوائية للجودة:**
+سحب عينات عشوائية دورية من المخزون للتحقق من الحفاظ على الجودة أثناء التخزين.
 
-**Pre-Use Inspection:**
-Before issuing critical items (especially if they've been in stock a while), verify they're still good.
+**الفحص قبل الاستخدام:**
+قبل صرف الأصناف الحرجة (خاصة إن مكثت في المخزون فترة طويلة)، تحقق من أنها لا تزال صالحة.
 
-**Compliance Audits:**
-Regulatory or customer audits may require demonstration of ongoing quality management.
+**عمليات التدقيق الامتثالي:**
+قد تستوجب عمليات التدقيق التنظيمية أو عمليات تدقيق العملاء إثبات إدارة جودة مستمرة.
 
-### Quality Assurance Requests
+### طلبات ضمان الجودة {#Quality-Assurance-Requests}
 
-The `QualityAssuranceReq` (طلب ضمان جودة) initiates quality checks:
-- Quality manager schedules periodic checks
-- Production requests check before using materials
-- Customer audit triggers compliance verification
+يُطلق `QualityAssuranceReq` (طلب ضمان جودة) فحوصات الجودة:
+- يجدول مدير الجودة الفحوصات الدورية
+- يطلب الإنتاج الفحص قبل استخدام المواد
+- يُطلق تدقيق العملاء التحقق من الامتثال
 
-## Quality Control for Outgoing Goods
+## ضبط جودة البضائع الصادرة {#Quality-Control-for-Outgoing-Goods}
 
-Quality control isn't just about what comes in - it's also about what goes out.
+ضبط الجودة لا يتعلق فقط بما يدخل، بل أيضاً بما يخرج.
 
-### Pre-Shipment Inspection
+### الفحص قبل الشحن {#Pre-Shipment-Inspection}
 
-Before shipping to customers, especially for:
-- Large orders
-- Critical customers
-- Complex assembled items
-- First-time products
+قبل الشحن للعملاء، خاصة في حالات:
+- الطلبات الكبيرة
+- العملاء الحرجيين
+- الأصناف المجمَّعة المعقدة
+- المنتجات لأول مرة
 
-Perform final inspection:
-- Verify correct items picked
-- Check condition (no damage during warehouse handling)
-- Test function (if applicable)
-- Verify completeness (all components included)
-- Inspect packaging
+أجرِ الفحص النهائي:
+- التحقق من صحة الأصناف المختارة
+- فحص الحالة (لا يوجد تلف أثناء المناولة في المستودع)
+- اختبار الوظيفة (إن أمكن)
+- التحقق من الاكتمال (جميع المكونات موجودة)
+- فحص التغليف
 
-Record this inspection so if customer later complains, you have documentation of condition when shipped.
+سجِّل هذا الفحص حتى تتوفر لديك وثائق تثبت حالة الشحنة عند إرسالها في حال تذمُّر العميل لاحقاً.
 
-### Certificate of Quality
+### شهادة الجودة {#Certificate-of-Quality}
 
-Some customers require certificates:
-- Certificate of conformance (items meet specifications)
-- Certificate of origin (items manufactured in specific location)
-- Certificate of analysis (lab test results)
-- Calibration certificates (for measurement equipment)
+يشترط بعض العملاء شهادات:
+- شهادة مطابقة (الأصناف تستوفي المواصفات)
+- شهادة منشأ (الأصناف مصنَّعة في موقع محدد)
+- شهادة تحليل (نتائج اختبارات المختبر)
+- شهادات معايرة (لمعدات القياس)
 
-Generate these from quality control records and ship with goods.
+أصدر هذه الشهادات من سجلات فحص الجودة وأرسلها مع البضاعة.
 
-## Handling Quality Failures
+## التعامل مع إخفاقات الجودة {#Handling-Quality-Failures}
 
-When items fail quality control, you need clear processes.
+عندما ترسب الأصناف في فحص الجودة، تحتاج إلى عمليات واضحة.
 
-### Supplier Communication
+### التواصل مع المورد {#Supplier-Communication}
 
-**First Failure:**
-- Document the issue clearly
-- Provide evidence (photos, measurements, test results)
-- Request corrective action
-- Process return or claim discount
+**الإخفاق الأول:**
+- وثِّق المشكلة بوضوح
+- قدِّم الأدلة (صور وقياسات ونتائج اختبارات)
+- اطلب اتخاذ إجراء تصحيحي
+- اعمل على إرجاع البضاعة أو المطالبة بخصم
 
-**Repeated Failures:**
-- Escalate to supplier management
-- Require corrective action plan
-- Increase inspection stringency (inspect 100% instead of samples)
-- Consider alternative suppliers
-- Document everything for potential legal action
+**الإخفاقات المتكررة:**
+- التصعيد إلى إدارة المورد
+- طلب خطة إجراء تصحيحي
+- رفع صرامة الفحص (فحص 100% بدلاً من العينات)
+- النظر في موردين بديلين
+- توثيق كل شيء للاحتمال القانوني
 
-### Internal Quality Issues
+### مشكلات الجودة الداخلية {#Internal-Quality-Issues}
 
-When items already in your stock are found defective:
+عندما يتبيَّن وجود عيوب في أصناف موجودة في مخزونك:
 
-**Source Identification:**
-- Which lot/batch is affected?
-- Who is the supplier?
-- When was it received?
-- What other items from same lot exist?
+**تحديد المصدر:**
+- أي دفعة/تشغيلة تأثرت؟
+- من المورد؟
+- متى جرى استلامها؟
+- ما الأصناف الأخرى من الدفعة نفسها؟
 
-**Segregation:**
-- Physically separate suspected items
-- Flag in system as "Quarantine"
-- Prevent from being issued
-- Investigate
+**العزل:**
+- فصل الأصناف المشتبه بها فيزيائياً
+- وضع علامة في النظام "حجر صحي"
+- منع صرفها
+- التحقيق
 
-**Disposition:**
-- Test all items from affected lot
-- Return to supplier (if possible)
-- Scrap (if cannot return)
-- Accept for alternative use (if partially usable)
-- Document total cost impact
+**البت النهائي:**
+- اختبار جميع الأصناف من الدفعة المتأثرة
+- إرجاعها إلى المورد (إن أمكن)
+- الإتلاف (إن تعذّر الإرجاع)
+- قبولها لاستخدام بديل (إن كانت قابلة للاستخدام جزئياً)
+- توثيق إجمالي تكلفة التأثير
 
-## Quality Metrics and Reporting
+## مقاييس الجودة والتقارير {#Quality-Metrics-and-Reporting}
 
-Quality control generates valuable data for improvement.
+يُولِّد ضبط الجودة بيانات قيِّمة للتحسين.
 
-### Supplier Quality Metrics
+### مقاييس جودة الموردين {#Supplier-Quality-Metrics}
 
-Track by supplier:
-- **Defect rate**: Percentage of items failing inspection
-- **First-pass yield**: Percentage passing inspection on first try
-- **Return rate**: Percentage of receipts resulting in returns
-- **Response time**: How quickly supplier addresses issues
-- **Corrective action effectiveness**: Do their fixes work?
+تتبَّع لكل مورد:
+- **معدل العيوب**: نسبة الأصناف التي ترسب في الفحص
+- **نسبة النجاح من أول مرة**: نسبة الأصناف التي تجتاز الفحص في المحاولة الأولى
+- **معدل الإرجاع**: نسبة الاستلامات التي تؤدي إلى مرتجعات
+- **وقت الاستجابة**: مدى سرعة المورد في معالجة المشكلات
+- **فاعلية الإجراء التصحيحي**: هل تنجح الحلول التي يقدمها؟
 
-Use this data to:
-- Rate suppliers
-- Make sourcing decisions
-- Negotiate better terms (good quality = better prices)
-- Drive supplier improvement
+استخدم هذه البيانات لـ:
+- تقييم الموردين
+- اتخاذ قرارات التوريد
+- التفاوض على شروط أفضل (الجودة الجيدة تعني أسعاراً أفضل)
+- تحفيز الموردين على التحسين
 
-### Item Quality Metrics
+### مقاييس جودة الأصناف {#Item-Quality-Metrics}
 
-Track by item:
-- **Failure modes**: What kinds of defects occur?
-- **Failure frequency**: How often does this item fail?
-- **Cost of quality**: Inspection cost + failure cost
-- **Trend**: Is quality improving or degrading?
+تتبَّع لكل صنف:
+- **أنماط الأعطال**: ما أنواع العيوب التي تظهر؟
+- **تكرار الأعطال**: كم مرة يفشل هذا الصنف؟
+- **تكلفة الجودة**: تكلفة الفحص + تكلفة العطل
+- **الاتجاه**: هل الجودة في تحسُّن أم تراجُع؟
 
-Use this data to:
-- Improve specifications
-- Change suppliers
-- Redesign items
-- Adjust inspection intensity
+استخدم هذه البيانات لـ:
+- تحسين المواصفات
+- تغيير الموردين
+- إعادة تصميم الأصناف
+- ضبط شدة الفحص
 
-### Inspector Performance
+### أداء المفتشين {#Inspector-Performance}
 
-Track by inspector:
-- **Consistency**: Do different inspectors reach same conclusions?
-- **Speed**: How long does inspection take?
-- **Accuracy**: How often do customers report defects that passed inspection?
+تتبَّع لكل مفتش:
+- **الاتساق**: هل يصل مفتشون مختلفون إلى نفس النتائج؟
+- **السرعة**: كم يستغرق الفحص؟
+- **الدقة**: كم مرة يُبلِّغ العملاء عن عيوب اجتازت الفحص؟
 
-Use for:
-- Training needs identification
-- Process improvement
-- Capacity planning
+يُستخدم ذلك لـ:
+- تحديد احتياجات التدريب
+- تحسين العمليات
+- تخطيط الطاقة الاستيعابية
 
-## Automated vs. Manual Inspection
+## الفحص الآلي مقابل الفحص اليدوي {#Automated-vs-Manual-Inspection}
 
-### Manual Inspection
+### الفحص اليدوي {#Manual-Inspection}
 
-Traditional approach:
-- Inspector physically examines items
-- Uses measurement tools
-- Records results in system
-- Makes subjective judgments
+النهج التقليدي:
+- يفحص المفتش الأصناف فيزيائياً
+- يستخدم أدوات القياس
+- يسجل النتائج في النظام
+- يصدر أحكاماً اجتهادية
 
-**Good For:**
-- Small batches
-- Complex criteria
-- Items where automated equipment doesn't exist
-- Subjective quality factors (appearance, fit, feel)
+**مناسب لـ:**
+- الدفعات الصغيرة
+- المعايير المعقدة
+- الأصناف التي لا تتوفر لها معدات آلية
+- عوامل الجودة الذاتية (المظهر والملاءمة والملمس)
 
-### Automated Inspection
+### الفحص الآلي {#Automated-Inspection}
 
-Modern approach:
-- Electronic equipment performs measurements
-- Camera systems perform visual inspection
-- Integration with NaMa ERP records results
-- Consistent, fast, objective
+النهج الحديث:
+- تجري المعدات الإلكترونية القياسات
+- تُجري أنظمة الكاميرات الفحص البصري
+- التكامل مع Nama ERP لتسجيل النتائج
+- متسق وسريع وموضوعي
 
-**Good For:**
-- Large batches
-- Objective measurements
-- High-volume operations
-- Dangerous or difficult inspections
+**مناسب لـ:**
+- الدفعات الكبيرة
+- القياسات الموضوعية
+- العمليات ذات الحجم الكبير
+- الفحوصات الخطرة أو الصعبة
 
-The `WeightScalePreparationDoc` is an example of automated integration - electronic scales feed weight data directly to the system.
+يُعدُّ `WeightScalePreparationDoc` مثالاً على التكامل الآلي، إذ تُغذِّي الموازين الإلكترونية بيانات الوزن مباشرةً إلى النظام.
 
-## Statistical Quality Control
+## ضبط الجودة الإحصائي {#Statistical-Quality-Control}
 
-For high-volume operations, inspect samples rather than 100%.
+في العمليات ذات الحجم الكبير، افحص عينات بدلاً من 100%.
 
-### Sampling Plans
+### خطط أخذ العينات {#Sampling-Plans}
 
-Define:
-- **Sample size**: How many to inspect from each lot
-- **Acceptance criteria**: How many defects allowed in sample
-- **Risk levels**: Balance between inspection cost and defect risk
+حدِّد:
+- **حجم العينة**: كم وحدة تُفحص من كل دفعة
+- **معايير القبول**: كم عيباً مسموح به في العينة
+- **مستويات المخاطرة**: الموازنة بين تكلفة الفحص ومخاطر العيوب
 
-**Example**: "From each lot of 1000, inspect 50 random items. If more than 2 defects found, reject entire lot."
+**مثال**: "من كل دفعة تضم 1000 وحدة، افحص 50 عنصراً عشوائياً. إذا وُجد أكثر من عيبَين، ارفض الدفعة بأكملها."
 
-### Control Charts
+### مخططات التحكم {#Control-Charts}
 
-Over time, plot quality metrics:
-- Are defect rates stable or trending?
-- Are we within control limits?
-- When do we need to intervene?
+ارسم مقاييس الجودة بمرور الوقت:
+- هل معدلات العيوب مستقرة أم في تصاعد؟
+- هل نحن ضمن حدود التحكم؟
+- متى يجب التدخل؟
 
-This shifts from reactive (inspect everything) to proactive (monitor and intervene when trends indicate problems).
+يحوِّل ذلك النهج من التفاعلي (فحص كل شيء) إلى الاستباقي (المراقبة والتدخل عند ظهور اتجاهات تنذر بمشكلات).
 
-## Tips for Effective Quality Control
+## نصائح لضبط جودة فعّال {#Tips-for-Effective-Quality-Control}
 
-::: tip Best Practices
+::: tip أفضل الممارسات
 
-**Risk-Based Inspection**
-Not everything needs equal scrutiny. Inspect more stringently:
-- New suppliers (until they prove quality)
-- Critical items (safety, regulatory, high-value)
-- Items with history of problems
+**الفحص المبني على المخاطر**
+لا تحتاج كل الأصناف إلى نفس درجة الصرامة. افحص بصرامة أكبر:
+- الموردين الجدد (حتى يُثبتوا جودتهم)
+- الأصناف الحرجة (الأمنية والتنظيمية وعالية القيمة)
+- الأصناف ذات تاريخ من المشكلات
 
-Inspect less stringently:
-- Proven suppliers
-- Non-critical items
-- Items with excellent quality history
+افحص بصرامة أقل:
+- الموردين الموثوقين
+- الأصناف غير الحرجة
+- الأصناف ذات تاريخ جودة ممتاز
 
-**Fast Feedback Loop**
-Don't let inspection results sit. Immediately:
-- Move accepted items to available stock (don't delay production)
-- Initiate returns for rejected items (sooner = better)
-- Communicate with suppliers (real-time feedback improves quality faster)
+**حلقة التغذية الراجعة السريعة**
+لا تترك نتائج الفحص معلَّقة. تصرَّف فوراً:
+- انقل الأصناف المقبولة إلى المخزون المتاح (لا تؤخر الإنتاج)
+- ابدأ إجراءات إرجاع الأصناف المرفوضة (كلما كان أسرع كان أفضل)
+- تواصل مع الموردين (التغذية الراجعة الآنية تُحسِّن الجودة بشكل أسرع)
 
-**Inspector Training**
-Quality is only as good as your inspectors. Invest in:
-- Clear procedures and checklists
-- Equipment and tools
-- Training and certification
-- Regular calibration checks
+**تدريب المفتشين**
+الجودة لا تتجاوز كفاءة مفتشيها. استثمر في:
+- إجراءات وقوائم تحقق واضحة
+- المعدات والأدوات
+- التدريب والتأهيل
+- فحوصات معايرة منتظمة
 
-**Root Cause Analysis**
-Don't just reject defects - understand why they occurred:
-- Supplier process issue?
-- Design problem?
-- Shipping damage?
-- Specification ambiguity?
+**تحليل السبب الجذري**
+لا تكتفِ برفض العيوب، بل افهم لماذا حدثت:
+- مشكلة في عملية المورد؟
+- خلل في التصميم؟
+- تلف أثناء الشحن؟
+- غموض في المواصفات؟
 
-Fix causes, not just symptoms.
+عالج الأسباب لا الأعراض.
 
-**Customer Voice**
-Customer complaints are quality data too:
-- What are customers finding that your inspection missed?
-- Are specifications complete?
-- Is inspector training adequate?
-- Should inspection criteria change?
+**صوت العميل**
+شكاوى العملاء هي بيانات جودة أيضاً:
+- ما الذي يجده العملاء مما فاتك أنت في الفحص؟
+- هل المواصفات مكتملة؟
+- هل تدريب المفتشين كافٍ؟
+- هل ينبغي تغيير معايير الفحص؟
 
 :::
 
-## Common Questions
+## أسئلة شائعة {#Common-Questions}
 
-**Q: Do we need to inspect everything from every supplier?**
+**س: هل نحتاج إلى فحص كل شيء من كل مورد؟**
 
-A: No. Use risk-based inspection. Proven suppliers with excellent history can have reduced inspection (or even skip-lot inspection). New or problematic suppliers get 100% inspection.
+ج: لا. استخدم الفحص المبني على المخاطر. الموردون الموثوقون ذوو السجل الممتاز يمكن أن يخضعوا لفحص مخفَّف (أو حتى فحص عينات متقطعة). الموردون الجدد أو المشكِلون يخضعون لفحص 100%.
 
-**Q: What if inspection takes too long and delays production?**
+**س: ماذا لو استغرق الفحص وقتاً طويلاً وأعاق الإنتاج؟**
 
-A: Balance risk vs. speed. Options:
-- Increase inspection resources
-- Use sampling instead of 100%
-- Accept with provision (use but segregate in case issues found)
-- Supplier certification (they do inspection, you audit)
+ج: وازن بين المخاطرة والسرعة. الخيارات:
+- زيادة موارد الفحص
+- استخدام العينات بدلاً من 100%
+- القبول بشرط (استخدام مع عزل في حال ظهرت مشكلات)
+- اعتماد المورد (يُجري الفحص بنفسه وأنت تراجعه)
 
-**Q: Can supplier inspection replace our inspection?**
+**س: هل يمكن لفحص المورد أن يحل محل فحصنا؟**
 
-A: Depends on trust level. Some organizations:
-- Accept supplier certificates initially
-- Periodically audit supplier process
-- Spot-check to verify
-- Move to full acceptance if supplier proves consistent
+ج: يتوقف ذلك على مستوى الثقة. بعض المنظمات:
+- تقبل شهادات المورد في البداية
+- تراجع دورياً عملية المورد
+- تجري فحصاً عشوائياً للتحقق
+- تنتقل إلى القبول الكامل إذا أثبت المورد الاتساق
 
-**Q: What percentage of defects is acceptable?**
+**س: ما النسبة المقبولة من العيوب؟**
 
-A: Depends on criticality:
-- Safety items: Zero defects
-- Critical components: Very low (0.1%)
-- Standard items: Low but acceptable (1-2%)
-- Non-critical supplies: Higher tolerance acceptable (5%)
+ج: يتوقف ذلك على الأهمية:
+- الأصناف الأمنية: صفر عيوب
+- المكونات الحرجة: منخفضة جداً (0.1%)
+- الأصناف القياسية: منخفضة لكن مقبولة (1-2%)
+- المستلزمات غير الحرجة: تفاوت أعلى مقبول (5%)
 
-**Q: How do we balance quality control cost vs. defect cost?**
+**س: كيف نوازن بين تكلفة ضبط الجودة وتكلفة العيوب؟**
 
-A: Calculate:
-- Inspection cost per unit
-- Cost of defect reaching customer
-- Probability of defect
+ج: احسب:
+- تكلفة الفحص للوحدة
+- تكلفة وصول العيب إلى العميل
+- احتمالية وجود عيب
 
-If (cost of defect × probability) > inspection cost, inspect. Otherwise, accept the risk.
+إذا كانت (تكلفة العيب × الاحتمالية) > تكلفة الفحص، افحص. وإلا تقبَّل المخاطرة.
 
-## Integration Points
+## نقاط التكامل {#Integration-Points}
 
-Quality control connects to:
+يرتبط ضبط الجودة بـ:
 
-**Purchasing**: Supplier quality scores inform purchasing decisions and negotiations.
+**المشتريات**: تُعلم نقاط جودة الموردين قرارات المشتريات والتفاوض.
 
-**Inventory**: Items don't become available until passing QC. Failed items trigger returns.
+**المخزون**: لا تصبح الأصناف متاحة إلا بعد اجتياز ضبط الجودة. الأصناف الفاشلة تُطلق طلبات الإرجاع.
 
-**Production**: Manufacturing can't use materials that fail QC. Prevents defects from propagating.
+**الإنتاج**: لا يستطيع التصنيع استخدام مواد فشلت في ضبط الجودة. يمنع ذلك تناقل العيوب.
 
-**Sales**: Pre-shipment inspection prevents customer complaints. Certificates document quality for customers.
+**المبيعات**: الفحص قبل الشحن يمنع شكاوى العملاء. الشهادات توثق الجودة للعملاء.
 
-**Accounting**: Rejected items reduce inventory value. Returns credit accounts payable. Quality issues affect supplier negotiations.
+**المحاسبة**: الأصناف المرفوضة تخفض قيمة المخزون. المرتجعات تُضاف إلى ذمم الدائنين. مشكلات الجودة تؤثر على التفاوض مع الموردين.
 
-## Next Steps
+## الخطوات التالية {#Next-Steps}
 
-Quality control is crucial but specialized. Now explore:
-- [Specialized Scenarios](./specialized-scenarios.md) - How different industries handle quality uniquely
-- [Receiving Stock](./receiving-stock.md) - Where quality control fits in receiving
-- [The Purchasing Journey](./purchasing-journey.md) - How quality affects supplier relationships
+ضبط الجودة أمر بالغ الأهمية ومتخصص. استكشف الآن:
+- [سيناريوهات متخصصة](./specialized-scenarios.md) - كيف تتعامل الصناعات المختلفة مع الجودة بشكل فريد
+- [استلام المخزون](./receiving-stock.md) - أين يتناسب ضبط الجودة مع الاستلام
+- [رحلة المشتريات](./purchasing-journey.md) - كيف تؤثر الجودة على علاقات الموردين

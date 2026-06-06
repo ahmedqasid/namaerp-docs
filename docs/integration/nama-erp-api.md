@@ -1,112 +1,112 @@
-# Nama ERP REST API
+# واجهة برمجية REST لنظام نما ERP {#Nama-ERP-REST-API}
 
-Nama ERP provides a comprehensive REST API for performing CRUD operations on all system entities, with full OpenAPI 3.0 specification support for seamless integration with third-party systems.
+يوفر نظام نما ERP واجهة برمجية REST شاملة لإجراء عمليات CRUD على جميع كيانات النظام، مع دعم كامل لمواصفة OpenAPI 3.0 لتحقيق تكامل سلس مع الأنظمة الخارجية.
 
-For a fast introduction, watch this video: [Nama ERP Rest API Introduction](https://youtu.be/lUxZMIoxxUY)
+للبدء بسرعة، شاهد هذا الفيديو: [مقدمة في Nama ERP Rest API](https://youtu.be/lUxZMIoxxUY)
 
-::: tip Looking for the high-level integration picture? (Arabic)
-Before diving into the API details, you may want to read the Arabic article [سيناريوهات الربط بين نظام نما والأنظمة الأخرى](./system-integration-scenarios.md). It frames the four possible integration directions (read/write × Nama/other system), explains which scenarios are free out-of-the-box vs. which require custom development, and lists the questions you should ask the customer before quoting an integration.
+::: tip هل تبحث عن الصورة الكاملة للتكامل؟ (بالعربية)
+قبل الغوص في تفاصيل الواجهة البرمجية، قد ترغب في قراءة المقال [سيناريوهات الربط بين نظام نما والأنظمة الأخرى](./system-integration-scenarios.md). يُحدد المقال الاتجاهات الأربعة الممكنة للتكامل (قراءة/كتابة × نما/النظام الآخر)، ويوضح أي السيناريوهات متاحة مجاناً من الصندوق وأيها يستلزم تطويراً مخصصاً، مع قائمة بالأسئلة التي ينبغي طرحها على العميل قبل تسعير أي تكامل.
 :::
 
-## API Browser Overview
+## نظرة عامة على متصفح الواجهة البرمجية (API Browser) {#API-Browser-Overview}
 
-The Nama ERP API Browser provides an interactive interface for exploring and testing all available REST APIs in your system.
+يوفر متصفح الواجهة البرمجية في نما ERP واجهة تفاعلية لاستعراض جميع واجهات REST المتاحة في نظامك واختبارها.
 
-### Accessing the API Browser
+### الوصول إلى متصفح الواجهة البرمجية {#Accessing-the-API-Browser}
 
-The API Browser is available through multiple endpoints:
+يمكن الوصول إلى متصفح الواجهة البرمجية عبر عدة نقاط:
 
-#### Main API Browser (Router Page)
+#### الصفحة الرئيسية لمتصفح الواجهة البرمجية {#Main-API-Browser--Router-Page-}
 ```
 http[s]://<server-ip-or-domain>/erp/browseapi/
 ```
-This displays the main router page with links to different API sections.
+تعرض الصفحة الرئيسية مع روابط لأقسام الواجهات البرمجية المختلفة.
 
-#### Entity APIs Browser
+#### متصفح واجهات الكيانات {#Entity-APIs-Browser}
 ```
 http[s]://<server-ip-or-domain>/erp/browseapi/browseentitiesapi.html
 ```
-Lists all available entity APIs with their Arabic and English names.
+يسرد جميع واجهات الكيانات المتاحة بأسمائها العربية والإنجليزية.
 
-#### Special Purpose APIs Browser
+#### متصفح الواجهات ذات الأغراض الخاصة {#Special-Purpose-APIs-Browser}
 ```
 http[s]://<server-ip-or-domain>/erp/browseapi/browsespecialpurposesapi.html
 ```
-Lists specialized APIs for specific integrations (e.g., attendance machine synchronization).
+يسرد الواجهات المتخصصة لتكاملات محددة (مثل مزامنة أجهزة الحضور والانصراف).
 
 ![Rest API Browser Screenshot](images/rest-api-browser.png)
 
-### Features of the API Browser
+### مميزات متصفح الواجهة البرمجية {#Features-of-the-API-Browser}
 
-The API Browser dynamically generates documentation based on your system configuration:
+يولّد متصفح الواجهة البرمجية التوثيق تلقائياً بناءً على إعدادات نظامك:
 
-* **Entity List**: Displays all entities available to the current user based on:
-  - Module permissions
-  - User access rights
-  - Enabled features
-  - Customer-specific configurations
+* **قائمة الكيانات**: تعرض جميع الكيانات المتاحة للمستخدم الحالي بناءً على:
+  - صلاحيات الوحدات
+  - حقوق الوصول للمستخدم
+  - الميزات المُفعَّلة
+  - الإعدادات الخاصة بالعميل
   
-* **Multilingual Support**: Shows entity names in both Arabic and English
-* **For each entity, two primary resources are provided:**
+* **دعم متعدد اللغات**: يعرض أسماء الكيانات بالعربية والإنجليزية
+* **لكل كيان، يُوفَّر مصدران أساسيان:**
 
-  1. **OpenAPI JSON Specification**: Machine-readable API definition
-  2. **Swagger UI**: Interactive documentation and testing interface
+  1. **مواصفة OpenAPI بصيغة JSON**: تعريف الواجهة البرمجية بصيغة قابلة للقراءة آلياً
+  2. **Swagger UI**: توثيق تفاعلي وواجهة اختبار
 
-### OpenAPI JSON Specifications
+### مواصفات OpenAPI بصيغة JSON {#OpenAPI-JSON-Specifications}
 
-#### Basic OpenAPI Endpoint
+#### نقطة OpenAPI الأساسية {#Basic-OpenAPI-Endpoint}
 ```
 http[s]://<server-ip-or-domain>/erp/browseapi/openapi/{EntityName}.json
 ```
 
-#### OpenAPI with Example Data
+#### OpenAPI مع بيانات مثال {#OpenAPI-with-Example-Data}
 ```
 http[s]://<server-ip-or-domain>/erp/browseapi/openapi/{EntityName}.json?exampleCode={code}
 ```
 
-**Parameters:**
-- `{EntityName}`: The entity type (e.g., SalesInvoice, Customer, Item)
-- `{code}`: Optional - specific record code or UUID to use as example
+**المعاملات:**
+- `{EntityName}`: نوع الكيان (مثل SalesInvoice وCustomer وItem)
+- `{code}`: اختياري - كود سجل محدد أو UUID لاستخدامه كمثال
 
-**Special Example Codes:**
-- `Find@First`: Uses the first available record as example
-- Any valid business code or UUID from your system
+**أكواد الأمثلة الخاصة:**
+- `Find@First`: يستخدم أول سجل متاح كمثال
+- أي كود أعمال أو UUID صالح في نظامك
 
-::: tip Example URLs
+::: tip أمثلة على الروابط
 ```
-# Get SalesInvoice OpenAPI spec with first available record
+# الحصول على مواصفة OpenAPI لـ SalesInvoice مع أول سجل متاح
 http://localhost:8080/erp/browseapi/openapi/SalesInvoice.json?exampleCode=Find@First
 
-# Get Customer OpenAPI spec with specific customer
+# الحصول على مواصفة OpenAPI لـ Customer مع عميل محدد
 http://localhost:8080/erp/browseapi/openapi/Customer.json?exampleCode=CUST001
 
-# Get Item OpenAPI spec without examples
+# الحصول على مواصفة OpenAPI لـ Item بدون أمثلة
 http://localhost:8080/erp/browseapi/openapi/Item.json
 ```
 :::
 
-### API Response Structure
+### بنية استجابة الواجهة البرمجية {#API-Response-Structure}
 
-The OpenAPI specification includes detailed schema definitions for each entity:
+تتضمن مواصفة OpenAPI تعريفات مخطط تفصيلية لكل كيان:
 
-#### Field Types Mapping
-- **String Fields**: Text, BigText, Date, DateTime, Time, Email, Color, LatLng, Enum
-- **Number Fields**: Decimal, Integer
-- **Boolean Fields**: Boolean type fields
-- **Reference Fields**: Returns the referenced entity's code
-- **Generic References**: Object with `entityType` and `code` properties
-- **Collections/Details**: Arrays of objects (e.g., invoice lines, payment details)
+#### تعيين أنواع الحقول {#Field-Types-Mapping}
+- **حقول النص**: Text وBigText وDate وDateTime وTime وEmail وColor وLatLng وEnum
+- **حقول الأرقام**: Decimal وInteger
+- **حقول القيم المنطقية**: حقول من نوع Boolean
+- **حقول المرجع**: تُرجع كود الكيان المُشار إليه
+- **المراجع العامة**: كائن يحتوي على `entityType` و`code`
+- **Collections/التفاصيل**: مصفوفات من الكائنات (مثل بنود الفاتورة وتفاصيل الدفع)
 
-#### Excluded Fields
-The API automatically excludes:
-- System-generated fields (unless specifically requested)
-- Calculated fields
-- Binary fields (images, documents)
-- Internal user tracking fields
+#### الحقول المستثناة {#Excluded-Fields}
+تستثني الواجهة البرمجية تلقائياً:
+- الحقول التي يولدها النظام (ما لم يُطلب ذلك تحديداً)
+- الحقول المحسوبة
+- الحقول الثنائية (الصور والمستندات)
+- حقول تتبع المستخدمين الداخلية
 
-### Working with Entity Collections
+### التعامل مع collections الكيانات {#Working-with-Entity-Collections}
 
-Many entities include detail collections (one-to-many relationships):
+تتضمن كثير من الكيانات collections تفصيلية (علاقات one-to-many):
 
 ```json
 {
@@ -123,138 +123,138 @@ Many entities include detail collections (one-to-many relationships):
 }
 ```
 
-Collections represent detail records like:
-- Invoice lines
-- Payment lines
-- Order items
-- Journal entry lines
+تمثل collections السجلات التفصيلية مثل:
+- بنود الفاتورة
+- بنود الدفع
+- بنود الطلب
+- بنود قيد اليومية
 
 ---
 
-## API Authentication & Access
+## المصادقة والوصول إلى الواجهة البرمجية {#API-Authentication---Access}
 
-### Authentication Methods
+### طرق المصادقة {#Authentication-Methods}
 
-Nama ERP REST API supports two authentication methods:
+تدعم واجهة REST لنما ERP طريقتين للمصادقة:
 
-#### 1. API Key Authentication (Recommended)
+#### 1. المصادقة بمفتاح الواجهة البرمجية API Key (موصى بها) {#1--API-Key-Authentication--Recommended-}
 
-API Keys are the primary authentication method for production integrations.
+تعد API Keys الطريقة الأساسية للمصادقة في تكاملات الإنتاج.
 
-**Header-based Authentication:**
+**المصادقة عبر الترويسة (Header):**
 ```http
 apiKey: {your-api-key}
 ```
 
-**Query Parameter Authentication (Testing Only):**
+**المصادقة عبر معامل الاستعلام (للاختبار فقط):**
 ```
 http://localhost:8080/erp/browseapi/openapi/SalesInvoice.json?apiKey={your-api-key}
 ```
 
 ::: warning
-Query parameter authentication should only be used for testing in the API Browser. Production integrations must use header-based authentication for security.
+يجب استخدام المصادقة عبر معامل الاستعلام للاختبار في متصفح الواجهة البرمجية فقط. يجب أن تستخدم تكاملات الإنتاج المصادقة عبر الترويسة لأسباب أمنية.
 :::
 
-#### 2. Session-based Authentication
+#### 2. المصادقة بالجلسة {#2--Session-based-Authentication}
 
-For browser-based testing, you can use session cookies from a logged-in user session.
+في الاختبار عبر المتصفح، يمكن استخدام ملفات تعريف الارتباط (cookies) من جلسة مستخدم مُسجَّل دخوله.
 
-### How to Generate an API Key
+### كيفية إنشاء مفتاح الواجهة البرمجية {#How-to-Generate-an-API-Key}
 
-The **system administrator** can generate API keys using the **API Credentials** master screen:
+يستطيع **مسؤول النظام** إنشاء API Keys عبر شاشة **API Credentials**:
 
-1. Open the API Credentials screen
-2. Create a new record with:
-   - **Code**: Unique identifier for this API credential
-   - **Name**: Descriptive name for the integration
-3. Select the **User** whose permissions will apply to this key
-4. Save the record
-5. **Important**: The API Key displays once after saving—copy it immediately
-6. Provide the key securely to the development/integration team
+1. افتح شاشة API Credentials
+2. أنشئ سجلاً جديداً يتضمن:
+   - **الكود**: معرّف فريد لبيانات اعتماد الواجهة البرمجية
+   - **الاسم**: اسم وصفي للتكامل
+3. اختر **المستخدم** الذي ستُطبَّق صلاحياته على هذا المفتاح
+4. احفظ السجل
+5. **مهم**: يظهر API Key مرة واحدة بعد الحفظ — انسخه فوراً
+6. أرسل المفتاح بأمان إلى فريق التطوير أو التكامل
 
-::: tip Permission Inheritance
-The API Key inherits all access permissions from the selected user:
-- Entity access rights
-- Module permissions
-- Data visibility rules
-- Company/branch restrictions
+::: tip وراثة الصلاحيات
+يرث API Key جميع صلاحيات الوصول من المستخدم المختار:
+- حقوق الوصول إلى الكيانات
+- صلاحيات الوحدات
+- قواعد رؤية البيانات
+- قيود الشركة/الفرع
 :::
 
-### Viewing API Keys After Creation
+### عرض API Keys بعد الإنشاء {#Viewing-API-Keys-After-Creation}
 
-To view an API Key again after initial creation:
+لعرض API Key مجدداً بعد إنشائه:
 
-1. Open the API Credentials record
-2. Check **"View API Key"** option
-3. Click **Save**
-4. The API Key will display on screen
+1. افتح سجل API Credentials
+2. حدد خيار **"View API Key"**
+3. انقر **حفظ**
+4. سيظهر API Key على الشاشة
 
-::: info Audit Trail
-Re-exposing an API key is logged in the audit trail for security tracking.
+::: info سجل التدقيق
+يُسجَّل إعادة عرض API Key في سجل التدقيق لأغراض التتبع الأمني.
 :::
 
-### API Key Best Practices
+### أفضل الممارسات لـ API Keys {#API-Key-Best-Practices}
 
-1. **Create separate keys** for different integrations
-2. **Use descriptive names** to identify each integration
-3. **Assign minimal permissions** needed for each integration
-4. **Rotate keys periodically** for security
-5. **Monitor API usage** through audit logs
-6. **Revoke unused keys** to minimize security risks
+1. **أنشئ مفاتيح منفصلة** لكل تكامل
+2. **استخدم أسماء وصفية** لتحديد كل تكامل
+3. **امنح أدنى الصلاحيات** اللازمة لكل تكامل
+4. **جدِّد المفاتيح دورياً** لأسباب أمنية
+5. **راقب استخدام الواجهة البرمجية** عبر سجلات التدقيق
+6. **ألغِ المفاتيح غير المستخدمة** للحد من المخاطر الأمنية
 
 ---
 
-## CORS Configuration
+## إعداد CORS {#CORS-Configuration}
 
-The API Browser automatically handles Cross-Origin Resource Sharing (CORS) for API requests:
+يتولى متصفح الواجهة البرمجية تلقائياً إدارة Cross-Origin Resource Sharing (CORS) لطلبات الواجهة البرمجية:
 
-- Allows cross-origin requests from any domain (development mode)
-- Supports preflight OPTIONS requests
-- Includes necessary CORS headers in responses
+- يسمح بالطلبات عبر المنشأ من أي نطاق (وضع التطوير)
+- يدعم طلبات OPTIONS التمهيدية (preflight)
+- يتضمن ترويسات CORS اللازمة في الاستجابات
 
-::: warning Production CORS
-In production environments, configure CORS policies to restrict access to specific domains for security.
+::: warning CORS في الإنتاج
+في بيئات الإنتاج، قم بإعداد سياسات CORS لتقييد الوصول على نطاقات محددة لأسباب أمنية.
 :::
 
 ---
 
-## REST API Endpoints
+## نقاط نهاية REST API {#REST-API-Endpoints}
 
-### Base URL Structure
+### بنية رابط الأساس {#Base-URL-Structure}
 ```
 http[s]://<server>/erp/rest/v1/{entity}/{operation}/{idOrCode}
 ```
 
-**Path Parameters:**
-- `{entity}`: Entity type name (e.g., Customer, SalesInvoice, Item)
-- `{operation}`: Operation to perform (findByIdOrCode, list, save, delete)
-- `{idOrCode}`: Optional - Entity UUID or business code
+**معاملات المسار:**
+- `{entity}`: اسم نوع الكيان (مثل Customer وSalesInvoice وItem)
+- `{operation}`: العملية المراد تنفيذها (findByIdOrCode وlist وsave وdelete)
+- `{idOrCode}`: اختياري - UUID الكيان أو كود الأعمال
 
-### HTTP Methods Support
+### دعم أساليب HTTP {#HTTP-Methods-Support}
 
-The API supports multiple HTTP methods for flexibility:
+تدعم الواجهة البرمجية عدة أساليب HTTP للمرونة:
 
-| HTTP Method | Supported Operations | Usage |
+| أسلوب HTTP | العمليات المدعومة | الاستخدام |
 |-------------|---------------------|--------|
-| **GET** | findByIdOrCode | Retrieve single entity by ID/code |
-| **POST** | All operations | Universal method for all operations |
-| **PUT** | save | Update existing entities |
-| **DELETE** | delete | Remove entities |
+| **GET** | findByIdOrCode | استرجاع كيان واحد بالمعرّف/الكود |
+| **POST** | جميع العمليات | الأسلوب الشامل لكل العمليات |
+| **PUT** | save | تحديث الكيانات الموجودة |
+| **DELETE** | delete | حذف الكيانات |
 
-::: tip RESTful Flexibility
-While the API supports RESTful conventions, all operations can be performed using POST method for compatibility with various client implementations.
+::: tip مرونة RESTful
+بينما تدعم الواجهة البرمجية اتفاقيات RESTful، يمكن تنفيذ جميع العمليات باستخدام أسلوب POST للتوافق مع مختلف تطبيقات العملاء.
 :::
 
-### Supported Operations
+### العمليات المدعومة {#Supported-Operations}
 
-#### 1. Retrieve Entity (GET)
+#### 1. استرجاع كيان (GET) {#1--Retrieve-Entity--GET-}
 ```http
 GET /erp/rest/v1/{entity}/findByIdOrCode/{idOrCode}
 apiKey: {api-key}
-responseFields: code,name1,contactInfo.email  # Optional header/parameter
+responseFields: code,name1,contactInfo.email  # ترويسة/معامل اختياري
 ```
 
-**Batch Retrieval:**
+**الاسترجاع الدفعي:**
 ```http
 POST /erp/rest/v1/{entity}/findByIdOrCode
 apiKey: {api-key}
@@ -263,43 +263,43 @@ Content-Type: application/json
 ["CUST001", "CUST002", "550e8400-e29b-41d4-a716-446655440000"]
 ```
 
-#### 2. List Entities with Pagination (POST)
+#### 2. سرد الكيانات مع التصفيح (POST) {#2--List-Entities-with-Pagination--POST-}
 ```http
 POST /erp/rest/v1/{entity}/list
 apiKey: {api-key}
 Content-Type: application/json
 
 {
-  "startPage": 1,      # 1-based page number
-  "pageSize": 25,      # Max 1000 records per page
+  "startPage": 1,      # رقم الصفحة (يبدأ من 1)
+  "pageSize": 25,      # الحد الأقصى 1000 سجل لكل صفحة
   "textCriteria": "status,Equal,Active,AND;city,Equal,Riyadh,AND;",
   "orderBy": "creationDate:desc,code"
 }
 ```
 
-**Response includes:**
-- `totalRecordsCount`: Total matching records
-- `records`: Array of requested records
-- `records_count`: Number of records in response
+**تتضمن الاستجابة:**
+- `totalRecordsCount`: إجمالي السجلات المطابقة
+- `records`: مصفوفة السجلات المطلوبة
+- `records_count`: عدد السجلات في الاستجابة
 
-#### 3. Create/Update Entity (POST/PUT)
+#### 3. إنشاء/تحديث كيان (POST/PUT) {#3--Create-Update-Entity--POST-PUT-}
 ```http
 POST /erp/rest/v1/{entity}/save
 apiKey: {api-key}
 Content-Type: application/json
 
-# Request Headers/Parameters:
-saveAsDraft: false           # Save as draft without validation
-addRecord: true              # Allow creating new records
-updateRecord: true           # Allow updating existing records
-addToCurrentLines: false     # Append to existing detail lines
-trimExtraSpaces: false       # Trim whitespace from strings
-continueOnErrors: true       # Continue processing on errors
-useUserDimension: true       # Apply user dimension filters
-ignoredUnFoundRefs: false    # Ignore missing references
-responseFields: code,id      # Fields to return after save
+# ترويسات/معاملات الطلب:
+saveAsDraft: false           # الحفظ كمسودة بدون التحقق
+addRecord: true              # السماح بإنشاء سجلات جديدة
+updateRecord: true           # السماح بتحديث السجلات الموجودة
+addToCurrentLines: false     # الإضافة إلى البنود التفصيلية الموجودة
+trimExtraSpaces: false       # إزالة المسافات الزائدة من النصوص
+continueOnErrors: true       # الاستمرار في المعالجة عند الأخطاء
+useUserDimension: true       # تطبيق فلاتر محددات المستخدم
+ignoredUnFoundRefs: false    # تجاهل المراجع غير الموجودة
+responseFields: code,id      # الحقول المُرجَعة بعد الحفظ
 
-# Body: Entity data in JSON format
+# الجسم: بيانات الكيان بصيغة JSON
 {
   "code": "CUST001",
   "name1": "Customer Name",
@@ -317,7 +317,7 @@ responseFields: code,id      # Fields to return after save
 }
 ```
 
-**Response:**
+**الاستجابة:**
 ```json
 {
   "saved_records_count": 1,
@@ -332,13 +332,13 @@ responseFields: code,id      # Fields to return after save
 }
 ```
 
-#### 4. Delete Entity (DELETE)
+#### 4. حذف كيان (DELETE) {#4--Delete-Entity--DELETE-}
 ```http
 DELETE /erp/rest/v1/{entity}/delete/{idOrCode}
 apiKey: {api-key}
 ```
 
-**Batch Deletion:**
+**الحذف الدفعي:**
 ```http
 POST /erp/rest/v1/{entity}/delete
 apiKey: {api-key}
@@ -347,7 +347,7 @@ Content-Type: application/json
 ["CUST001", "CUST002", "550e8400-e29b-41d4-a716-446655440000"]
 ```
 
-**Response:**
+**الاستجابة:**
 ```json
 {
   "deleted_records_count": 2,
@@ -368,37 +368,37 @@ Content-Type: application/json
 }
 ```
 
-## Testing APIs
+## اختبار الواجهات البرمجية {#Testing-APIs}
 
-### Using the API Browser for Testing
+### استخدام متصفح الواجهة البرمجية للاختبار {#Using-the-API-Browser-for-Testing}
 
-The API Browser provides multiple ways to test APIs:
+يوفر متصفح الواجهة البرمجية عدة طرق لاختبار الواجهات:
 
-#### 1. Direct OpenAPI JSON Access
+#### 1. الوصول المباشر إلى OpenAPI JSON {#1--Direct-OpenAPI-JSON-Access}
 ```bash
-# Get the OpenAPI spec with examples
+# الحصول على مواصفة OpenAPI مع أمثلة
 curl -H "apiKey: {api-key}" \
   "http://localhost:8080/erp/browseapi/openapi/Customer.json?exampleCode=Find@First"
 ```
 
-#### 2. Import to Postman
-1. Copy the OpenAPI JSON URL
-2. In Postman: Import → Link → Paste URL
-3. Add API Key to collection authentication
-4. Test all CRUD operations
+#### 2. الاستيراد إلى Postman {#2--Import-to-Postman}
+1. انسخ رابط OpenAPI JSON
+2. في Postman: Import → Link → الصق الرابط
+3. أضف API Key إلى مصادقة المجموعة
+4. اختبر جميع عمليات CRUD
 
-#### 3. Interactive Swagger UI
-Access the Swagger interface for interactive testing (if configured).
+#### 3. Swagger UI التفاعلي {#3--Interactive-Swagger-UI}
+ادخل إلى واجهة Swagger للاختبار التفاعلي (إن كانت مُهيَّأة).
 
-### Example Request Formats
+### أمثلة على صيغ الطلبات {#Example-Request-Formats}
 
-#### Finding Single Record
+#### البحث عن سجل واحد {#Finding-Single-Record}
 ```http
 GET /erp/rest/v1/Customer/findByIdOrCode/CUST001
 apiKey: {api-key}
 ```
 
-#### Finding Multiple Records
+#### البحث عن سجلات متعددة {#Finding-Multiple-Records}
 ```http
 POST /erp/rest/v1/Customer/findByIdOrCode
 apiKey: {api-key}
@@ -407,7 +407,7 @@ Content-Type: application/json
 ["CUST001", "CUST002", "CUST003"]
 ```
 
-#### Creating New Record
+#### إنشاء سجل جديد {#Creating-New-Record}
 ```http
 POST /erp/rest/v1/Customer/save
 apiKey: {api-key}
@@ -425,7 +425,7 @@ updateRecord: false
 }
 ```
 
-#### Updating Existing Record
+#### تحديث سجل موجود {#Updating-Existing-Record}
 ```http
 POST /erp/rest/v1/Customer/save
 apiKey: {api-key}
@@ -442,7 +442,7 @@ updateRecord: true
 }
 ```
 
-#### Listing with Filters
+#### السرد مع الفلاتر {#Listing-with-Filters}
 ```http
 POST /erp/rest/v1/Customer/list
 apiKey: {api-key}
@@ -458,20 +458,20 @@ Content-Type: application/json
 
 ---
 
-## Error Handling
+## معالجة الأخطاء {#Error-Handling}
 
-The API returns standard HTTP status codes and detailed error messages:
+تُرجع الواجهة البرمجية رموز حالة HTTP قياسية ورسائل خطأ تفصيلية:
 
-### Common Response Codes
-- **200 OK**: Successful request
-- **201 Created**: Resource created successfully
-- **400 Bad Request**: Invalid request parameters
-- **401 Unauthorized**: Missing or invalid API key
-- **403 Forbidden**: Insufficient permissions
-- **404 Not Found**: Resource not found
-- **500 Internal Server Error**: Server-side error
+### رموز الاستجابة الشائعة {#Common-Response-Codes}
+- **200 OK**: طلب ناجح
+- **201 Created**: تم إنشاء المورد بنجاح
+- **400 Bad Request**: معاملات طلب غير صالحة
+- **401 Unauthorized**: مفتاح API مفقود أو غير صالح
+- **403 Forbidden**: صلاحيات غير كافية
+- **404 Not Found**: المورد غير موجود
+- **500 Internal Server Error**: خطأ على جانب الخادم
 
-### Error Response Format
+### صيغة استجابة الخطأ {#Error-Response-Format}
 ```json
 {
   "error": {
@@ -484,43 +484,43 @@ The API returns standard HTTP status codes and detailed error messages:
 
 ---
 
-## Special Purpose APIs
+## الواجهات البرمجية ذات الأغراض الخاصة {#Special-Purpose-APIs}
 
-Beyond standard entity CRUD operations, Nama ERP provides specialized APIs:
+بالإضافة إلى عمليات CRUD القياسية، يوفر نما ERP واجهات متخصصة:
 
-### Attendance Machine Integration
-- Endpoint: `attcron-open-api-template`
-- Purpose: Synchronize attendance data from biometric devices
-- Supports batch processing of attendance records
+### تكامل أجهزة الحضور والانصراف {#Attendance-Machine-Integration}
+- نقطة النهاية: `attcron-open-api-template`
+- الغرض: مزامنة بيانات الحضور من أجهزة البصمة البيومترية
+- يدعم المعالجة الدفعية لسجلات الحضور
 
-### Data Export API
-- Export records as JSON with full relationship data
-- Supports filtering and pagination
-- Preserves data integrity for backup/migration
+### واجهة برمجية لتصدير البيانات {#Data-Export-API}
+- تصدير السجلات بصيغة JSON مع بيانات العلاقات الكاملة
+- يدعم الفلترة والتصفيح
+- يحافظ على سلامة البيانات للنسخ الاحتياطي/الترحيل
 
-### Batch Operations
-- Process multiple records in single request
-- Transactional processing with rollback on errors
-- Optimized for high-volume integrations
+### العمليات الدفعية {#Batch-Operations}
+- معالجة سجلات متعددة في طلب واحد
+- معالجة تعاملية مع التراجع عند الأخطاء
+- محسَّنة للتكاملات ذات الحجم الكبير
 
 ---
 
-## Performance Considerations
+## اعتبارات الأداء {#Performance-Considerations}
 
-### Pagination
-All list endpoints support pagination with configurable page size:
+### التصفيح {#Pagination}
+تدعم جميع نقاط نهاية السرد التصفيح بحجم صفحة قابل للتهيئة:
 
 ```http
 POST /erp/rest/v1/{entity}/list
 Content-Type: application/json
 
 {
-  "startPage": 1,     # 1-based indexing
-  "pageSize": 50      # Maximum 1000 per request
+  "startPage": 1,     # ترقيم يبدأ من 1
+  "pageSize": 50      # الحد الأقصى 1000 لكل طلب
 }
 ```
 
-**Pagination Response:**
+**استجابة التصفيح:**
 ```json
 {
   "totalRecordsCount": 2547,
@@ -529,24 +529,24 @@ Content-Type: application/json
 }
 ```
 
-### Field Selection
-Control which fields are returned to optimize payload size:
+### اختيار الحقول {#Field-Selection}
+تحكم في الحقول المُرجَعة لتحسين حجم البيانات:
 
 ```http
 GET /erp/rest/v1/{entity}/findByIdOrCode/{code}
 responseFields: code,name1,status,balance
 ```
 
-**Using responseFields parameter:**
-- Pass as HTTP header: `responseFields: field1,field2,field3`
-- Or as query parameter: `?responseFields=field1,field2,field3`
-- Supports nested fields: `contactInfo.email,address.city`
-- Default fields if not specified: `code,id`
+**استخدام معامل responseFields:**
+- مررها كترويسة HTTP: `responseFields: field1,field2,field3`
+- أو كمعامل استعلام: `?responseFields=field1,field2,field3`
+- تدعم الحقول المتداخلة: `contactInfo.email,address.city`
+- الحقول الافتراضية إذا لم تُحدَّد: `code,id`
 
-### Batch Operations
-Process multiple records in a single request for better performance:
+### العمليات الدفعية {#Batch-Operations-1}
+عالج سجلات متعددة في طلب واحد لأداء أفضل:
 
-#### Batch Retrieval
+#### الاسترجاع الدفعي {#Batch-Retrieval}
 ```http
 POST /erp/rest/v1/Customer/findByIdOrCode
 Content-Type: application/json
@@ -554,7 +554,7 @@ Content-Type: application/json
 ["CUST001", "CUST002", "550e8400-e29b-41d4-a716-446655440000"]
 ```
 
-#### Batch Import/Save
+#### الاستيراد/الحفظ الدفعي {#Batch-Import-Save}
 ```http
 POST /erp/rest/v1/Customer/save
 Content-Type: application/json
@@ -572,8 +572,8 @@ continueOnErrors: true
 ]
 ```
 
-### Query Criteria & Sorting
-Use Nama ERP's structured text criteria format for filtering and sorting:
+### المعايير والترتيب {#Query-Criteria---Sorting}
+استخدم صيغة المعايير النصية المنظَّمة في نما ERP للفلترة والترتيب:
 
 ```json
 {
@@ -582,10 +582,10 @@ Use Nama ERP's structured text criteria format for filtering and sorting:
 }
 ```
 
-**Text Criteria Format:**
-Each condition follows the pattern: `fieldID,operator,value,logic;`
+**صيغة المعايير النصية:**
+يتبع كل شرط النمط التالي: `fieldID,operator,value,logic;`
 
-**Example Criteria:**
+**أمثلة على المعايير:**
 ```
 code,StartsWith,01,AND;
 name1,Contains,abc,AND;
@@ -596,80 +596,80 @@ status,Equal,Active,OR;
 type,In,Type1|Type2|Type3,AND;
 ```
 
-**Supported Operators:**
-- **Equality**: `Equal`, `NotEqual`
-- **Comparison**: `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`
-- **Text Matching**: `StartsWith`, `NotStartsWith`, `EndsWith`, `NotEndWith`, `Contains`, `NotContain`
-- **List Operations**: `In`, `NotIn`
-- **Grouping**: `OpenBracket`, `CloseBracket`
+**المشغّلات المدعومة:**
+- **المساواة**: `Equal` و`NotEqual`
+- **المقارنة**: `GreaterThan` و`GreaterThanOrEqual` و`LessThan` و`LessThanOrEqual`
+- **مطابقة النص**: `StartsWith` و`NotStartsWith` و`EndsWith` و`NotEndWith` و`Contains` و`NotContain`
+- **عمليات القوائم**: `In` و`NotIn`
+- **التجميع**: `OpenBracket` و`CloseBracket`
 
-**Logical Relationships:**
-- `AND` - All conditions must match
-- `OR` - At least one condition must match
+**العلاقات المنطقية:**
+- `AND` - يجب أن تتحقق جميع الشروط
+- `OR` - يكفي تحقق شرط واحد على الأقل
 
-**Field Value Formats:**
-- **Date Fields**: `dd-MM-yyyy` (e.g., `06-07-2025`)
-- **DateTime Fields**: `yyyy-MM-ddTHH:mm:ss.SSS` (e.g., `2025-07-06T13:05:00.000`)
-- **Reference Fields**: `id:entityType:code` or use `.id`/`.code` suffix
-  - Example: `customer.id,Equal,ffff0001-79e2-11f2-8800-0000ff79c2dd,AND;`
-  - Example: `customer.code,Equal,CUST001,AND;`
+**صيغ قيم الحقول:**
+- **حقول التاريخ**: `dd-MM-yyyy` (مثال: `06-07-2025`)
+- **حقول التاريخ والوقت**: `yyyy-MM-ddTHH:mm:ss.SSS` (مثال: `2025-07-06T13:05:00.000`)
+- **حقول المرجع**: `id:entityType:code` أو استخدام اللاحقة `.id`/`.code`
+  - مثال: `customer.id,Equal,ffff0001-79e2-11f2-8800-0000ff79c2dd,AND;`
+  - مثال: `customer.code,Equal,CUST001,AND;`
 
-::: tip Building Criteria
-Use the **Criteria Definition** screen in Nama ERP to visually build filter conditions, then click **Convert to Text** to get the text representation for API use.
+::: tip بناء المعايير
+استخدم شاشة **Criteria Definition** في نما ERP لبناء شروط الفلتر بصرياً، ثم انقر **Convert to Text** للحصول على التمثيل النصي للاستخدام في الواجهة البرمجية.
 :::
 
-### Order By Format
-Specify sort order for one or multiple fields using comma-separated values:
+### صيغة الترتيب {#Order-By-Format}
+حدد ترتيب الفرز لحقل واحد أو أكثر باستخدام قيم مفصولة بفواصل:
 
-**Format:** `fieldName:direction,fieldName2:direction,fieldName3`
+**الصيغة:** `fieldName:direction,fieldName2:direction,fieldName3`
 
-**Examples:**
-- Multiple fields: `"orderBy": "code:desc,name1,creationDate:asc"`
-- Single field: `"orderBy": "code:asc"`
-- Default direction (ascending): `"orderBy": "name1,code"`
-- Mixed directions: `"orderBy": "status,creationDate:desc,code:asc"`
+**أمثلة:**
+- حقول متعددة: `"orderBy": "code:desc,name1,creationDate:asc"`
+- حقل واحد: `"orderBy": "code:asc"`
+- الاتجاه الافتراضي (تصاعدي): `"orderBy": "name1,code"`
+- اتجاهات مختلطة: `"orderBy": "status,creationDate:desc,code:asc"`
 
-**Direction Values:**
-- `:asc` - Ascending order (A-Z, 0-9, oldest to newest) - **default if omitted**
-- `:desc` - Descending order (Z-A, 9-0, newest to oldest)
+**قيم الاتجاه:**
+- `:asc` - ترتيب تصاعدي (أ-ي، 0-9، من الأقدم للأحدث) - **الافتراضي إذا حُذف**
+- `:desc` - ترتيب تنازلي (ي-أ، 9-0، من الأحدث للأقدم)
 
-**Notes:**
-- Direction is optional; when omitted, defaults to ascending (`:asc`)
-- Multiple fields are separated by commas
-- Each field can have its own sort direction
-- Duplicate fields are automatically filtered out
+**ملاحظات:**
+- الاتجاه اختياري؛ عند حذفه يُطبَّق الترتيب التصاعدي (`:asc`) افتراضياً
+- الحقول المتعددة مفصولة بفواصل
+- يمكن لكل حقل أن يملك اتجاه فرز خاص به
+- يُزال تلقائياً أي تكرار في الحقول
 
-### Import Options
-Fine-tune import behavior with request headers:
+### خيارات الاستيراد {#Import-Options}
+ضبط دقيق لسلوك الاستيراد عبر ترويسات الطلب:
 
-| Parameter | Default | Description |
+| المعامل | الافتراضي | الوصف |
 |-----------|---------|-------------|
-| `saveAsDraft` | false | Save without validation rules |
-| `addRecord` | true | Allow creating new records |
-| `updateRecord` | true | Allow updating existing records |
-| `addToCurrentLines` | false | Append to existing detail lines instead of replacing |
-| `trimExtraSpaces` | false | Remove leading/trailing whitespace |
-| `continueOnErrors` | true | Continue processing remaining records on error |
-| `useUserDimension` | true | Apply user's dimension filters |
-| `ignoredUnFoundRefs` | false | Skip validation of reference fields |
+| `saveAsDraft` | false | الحفظ بدون قواعد التحقق |
+| `addRecord` | true | السماح بإنشاء سجلات جديدة |
+| `updateRecord` | true | السماح بتحديث السجلات الموجودة |
+| `addToCurrentLines` | false | الإضافة إلى البنود التفصيلية الموجودة بدلاً من استبدالها |
+| `trimExtraSpaces` | false | إزالة المسافات البادئة واللاحقة |
+| `continueOnErrors` | true | الاستمرار في معالجة السجلات المتبقية عند الخطأ |
+| `useUserDimension` | true | تطبيق فلاتر محددات المستخدم |
+| `ignoredUnFoundRefs` | false | تخطي التحقق من حقول المرجع |
 
 ---
 
-## Troubleshooting
+## استكشاف الأخطاء وإصلاحها {#Troubleshooting}
 
-### Common Issues and Solutions
+### المشكلات الشائعة وحلولها {#Common-Issues-and-Solutions}
 
-#### API Key Not Working
-- Verify key is active in API Credentials screen
-- Check user permissions for the entity
-- Ensure correct Authorization header format
+#### API Key لا يعمل {#API-Key-Not-Working}
+- تحقق من أن المفتاح نشط في شاشة API Credentials
+- تحقق من صلاحيات المستخدم على الكيان
+- تأكد من صحة صيغة ترويسة Authorization
 
-#### Empty Example Data
-- Verify records exist for the entity
-- Check user data visibility permissions
-- Use `Find@First` to get any available record
+#### بيانات مثال فارغة {#Empty-Example-Data}
+- تحقق من وجود سجلات للكيان
+- تحقق من صلاحيات رؤية البيانات للمستخدم
+- استخدم `Find@First` للحصول على أي سجل متاح
 
-#### Missing Fields in Response
-- System fields excluded by default
-- Binary fields not included in API responses
-- Calculated fields not available via API
+#### حقول مفقودة في الاستجابة {#Missing-Fields-in-Response}
+- حقول النظام مستثناة افتراضياً
+- الحقول الثنائية غير مدرجة في استجابات الواجهة البرمجية
+- الحقول المحسوبة غير متاحة عبر الواجهة البرمجية

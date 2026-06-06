@@ -3,7 +3,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -191,7 +191,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -379,23 +379,23 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
       "link" : "/getting-started/",
       "collapsed" : false,
       "items" : [ {
-        text: "System Minimum Requirements",
+        text: "الحد الأدنى لمتطلبات تشغيل النظام",
         "link" : "/getting-started/system-minimum-requirements"
       }, {
-        text: "Nama ERP Installation Guide",
+        text: "دليل تثبيت Nama ERP {#Nama-ERP-Installation-Guide}",
         "link" : "/getting-started/installation-guide"
       }, {
-        text: "Nama Properties",
+        text: "إعدادات Nama Properties {#Nama-Properties}",
         "link" : "/getting-started/nama-properties"
       }, {
-        text: "Two-Factor Authentication (2FA) Guide",
+        text: "دليل المصادقة الثنائية (2FA) {#Two-Factor-Authentication-2FA-Guide}",
         "link" : "/getting-started/two-factor-authentication"
       } ]
     }, {
@@ -581,7 +581,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -591,10 +591,10 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Utility Links",
+        text: "روابط الأدوات المساعدة (Utility Links) {#Utility-Links}",
         "link" : "/platform/utils"
       }, {
-        text: "Keyboard Shortcuts",
+        text: "اختصارات لوحة المفاتيح",
         "link" : "/platform/shortcuts"
       }, {
         text: "اختصارات لوحة المفاتيح",
@@ -627,10 +627,10 @@ export const SIDEBAR_CONFIG = {
         text: "Notifications",
         "link" : "/platform/notifications/"
       }, {
-        text: "Virtual Entities — Reusable SQL Building Blocks for Reports & Dashboards",
+        text: "الكيانات الافتراضية (Virtual Entities) — وحدات SQL قابلة لإعادة الاستخدام في التقارير ولوحات المعلومات",
         "link" : "/platform/virtual-entity-guide"
       }, {
-        text: "Field Filter with Criteria",
+        text: "فلتر الحقل بالمعايير (Field Filter with Criteria)",
         "link" : "/platform/field-filter-with-criteria"
       }, {
         text: "أسئلة شائعة حول فلترة الحقول",
@@ -639,16 +639,16 @@ export const SIDEBAR_CONFIG = {
         text: "تعديل الترجمات في نظام نما",
         "link" : "/platform/translations"
       }, {
-        text: "Criteria Based Validation",
+        text: "التحقق المبني على المعايير (Criteria Based Validation)",
         "link" : "/platform/criteria-based-validation"
       }, {
-        text: "Criteria from Text Parser (Text Criteria Guide)",
+        text: "معايير من المحلل النصي (دليل معايير النص) {#Criteria-from-Text-Parser--Text-Criteria-Guide-}",
         "link" : "/platform/text-criteria-guide"
       }, {
-        text: "Scheduled Tasks (Task Scheduler)",
+        text: "scheduled-tasks.md",
         "link" : "/platform/scheduled-tasks"
       }, {
-        text: "أعدادات الحقول و الشاشات - Generic Reference Overrider User Guide",
+        text: "أعدادات الحقول و الشاشات (Generic Reference Overrider User Guide) {#Fields-and-Entities-Settings---Generic-Reference-Overrider-User-Guide}",
         "link" : "/platform/GenericReferenceOverrider_UserGuide"
       } ]
     }, {
@@ -805,7 +805,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -819,7 +819,7 @@ export const SIDEBAR_CONFIG = {
         "link" : "/platform/screen-modifier/",
         "collapsed" : false,
         "items" : [ {
-          text: "Layout Names:",
+          text: "أسماء التخطيط (Layout Names): {#Layout-Names}",
           "link" : "/platform/screen-modifier/screen-modifier"
         }, {
           text: "أسئلة شائعة حول تعديل الشاشات",
@@ -1001,7 +1001,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -1018,7 +1018,7 @@ export const SIDEBAR_CONFIG = {
         "link" : "/platform/list-views/",
         "collapsed" : false,
         "items" : [ {
-          text: "Quick Filters in List Views",
+          text: "الفلاتر السريعة في قوائم المستندات (Quick Filters in List Views) {#Quick-Filters-in-List-Views}",
           "link" : "/platform/list-views/quick-filters"
         }, {
           text: "قصر المستخدم على سنة مالية (Limit User To Year)",
@@ -1197,7 +1197,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -1217,10 +1217,10 @@ export const SIDEBAR_CONFIG = {
         "link" : "/platform/approvals/",
         "collapsed" : false,
         "items" : [ {
-          text: "Approvals System - Approval Definition Full Guide",
+          text: "نظام الموافقات - الدليل الشامل لتعريف الموافقة {#Approvals-System---Approval-Definition-Full-Guide}",
           "link" : "/platform/approvals/approvals-system"
         }, {
-          text: "Sample Approval Email Templates",
+          text: "نماذج بريد إلكتروني جاهزة لطلبات الموافقة (Sample Approval Email Templates) {#Sample-Approval-Email-Templates}",
           "link" : "/platform/approvals/sample-approval-email-templates"
         }, {
           text: "أسئلة شائعة عن الموافقات",
@@ -1396,7 +1396,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -1604,7 +1604,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -1633,7 +1633,7 @@ export const SIDEBAR_CONFIG = {
           text: "مقدمة عن مسارات الكيان",
           "link" : "/platform/entity-flows/introduction-to-entity-flows"
         }, {
-          text: "Importing Data from Excel or Queries",
+          text: "استيراد البيانات من Excel أو الاستعلامات {#Importing-Data-from-Excel-or-Queries}",
           "link" : "/platform/entity-flows/excel-and-sql-import-by-entity-flow"
         }, {
           text: "EAGenerateEntityFromEntityAction",
@@ -1809,7 +1809,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -1838,13 +1838,13 @@ export const SIDEBAR_CONFIG = {
         "link" : "/platform/reports/",
         "collapsed" : false,
         "items" : [ {
-          text: "Jasper Reports Complete Guide for Nama ERP",
+          text: "دليل Jasper Reports الشامل لنظام Nama ERP {#Jasper-Reports-Complete-Guide-for-Nama-ERP}",
           "link" : "/platform/reports/reports-guide"
         }, {
           text: "دليل استخدام أداة إنشاء التقارير ونماذج الطباعة",
           "link" : "/platform/reports/report-wizard-guide"
         }, {
-          text: "ReportWizard User Documentation (أداة إنشاء تقرير)",
+          text: "أداة إنشاء التقارير (ReportWizard) - دليل المستخدم {#ReportWizard-User-Documentation-Report-Creation-Tool}",
           "link" : "/platform/reports/ReportWizard_User_Documentation"
         }, {
           text: "أسئلة شائعة عن تصميم التقارير",
@@ -2014,7 +2014,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -2046,19 +2046,19 @@ export const SIDEBAR_CONFIG = {
         "link" : "/platform/bi/",
         "collapsed" : false,
         "items" : [ {
-          text: "BI Module — Dashboards & Analytics",
+          text: "وحدة BI — لوحات المعلومات والتحليلات (BI Module — Dashboards & Analytics) {#BI-Module----Dashboards---Analytics}",
           "link" : "/platform/bi/bi-module-guide"
         }, {
-          text: "Nama ERP BI Module — Technical Reference",
+          text: "وحدة BI في Nama ERP — المرجع التقني",
           "link" : "/platform/bi/bi-module-technical-reference"
         }, {
-          text: "BI Reference — EnhancedMetricsCard (and legacy MetricsCards)",
+          text: "مرجع BI — EnhancedMetricsCard (وwidget المقاييس القديم MetricsCards) {#BI-Reference----EnhancedMetricsCard-and-legacy-MetricsCards}",
           "link" : "/platform/bi/bi-reference-enhanced-metrics-card"
         }, {
-          text: "BI Reference — EnhancedTable",
+          text: "مرجع BI — EnhancedTable {#BI-Reference----EnhancedTable}",
           "link" : "/platform/bi/bi-reference-enhanced-table"
         }, {
-          text: "BI Reference — Wizard Mode",
+          text: "مرجع BI — وضع المعالج (Wizard Mode)",
           "link" : "/platform/bi/bi-reference-wizard-mode"
         } ]
       }, {
@@ -2219,7 +2219,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -2254,10 +2254,10 @@ export const SIDEBAR_CONFIG = {
         "link" : "/platform/notifications/",
         "collapsed" : false,
         "items" : [ {
-          text: "Nama ERP Notification System",
+          text: "نظام التنبيهات في Nama ERP {#Nama-ERP-Notification-System}",
           "link" : "/platform/notifications/notifications-system"
         }, {
-          text: "SMS and WhatsApp Configuration in Nama ERP",
+          text: "تكامل WhatsApp {#WhatsApp-Integration}",
           "link" : "/platform/notifications/sms-and-whatsapp"
         }, {
           text: "أسئلة شائعة عن التنبيهات والرسائل",
@@ -2418,7 +2418,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -2606,7 +2606,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -2649,22 +2649,22 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/invoicing/",
         "collapsed" : false,
         "items" : [ {
-          text: "Customer Reward Points (Loyalty Points)",
+          text: "نقاط مكافآت العملاء (Customer Reward Points / Loyalty Points)",
           "link" : "/modules/invoicing/reward-points"
         }, {
-          text: "Invoice Discounts and Tax Calculation System - Comprehensive Guide",
+          text: "دليل نظام الخصومات وحساب الضرائب على الفواتير - دليل شامل {#Invoice-Discounts-and-Tax-Calculation-System---Comprehensive-Guide}",
           "link" : "/modules/invoicing/invoice-discounts-and-tax-calculation-guide"
         }, {
-          text: "Pricing and Offers Management Guide",
+          text: "دليل إدارة الأسعار والعروض (Pricing and Offers Management Guide) {#Pricing-and-Offers-Management-Guide}",
           "link" : "/modules/invoicing/pricing-and-offers-guide"
         }, {
-          text: "Payment Schedules User Guide",
+          text: "دليل المستخدم لجداول الدفع (Payment Schedules)",
           "link" : "/modules/invoicing/payment-schedules-user-guide"
         }, {
           text: "ربط سندات الدفع بالفواتير",
           "link" : "/modules/invoicing/payment-entries"
         }, {
-          text: "Online Payments Integration",
+          text: "تكامل المدفوعات الإلكترونية (Online Payments Integration) {#Online-Payments-Integration}",
           "link" : "/modules/invoicing/online-payments"
         }, {
           text: "Nama ERP e-Invoice guide",
@@ -2676,10 +2676,10 @@ export const SIDEBAR_CONFIG = {
           text: "Electronic Receipt (Egypt Tax eInvoice) تفعيل الإيصال الإلكتروني - الفاتورة الإلكترونية - مصر",
           "link" : "/modules/invoicing/electronic-receipt-egypt-tax-eInvoice"
         }, {
-          text: "UAE E-Invoicing Integration via Orchida osTax",
+          text: "الربط مع الفاتورة الإلكترونية في الإمارات عبر Orchida osTax {#UAE-E-Invoicing-Integration-via-Orchida-osTax}",
           "link" : "/modules/invoicing/uae-orchida-einvoice-guide"
         }, {
-          text: "Standard Terms and Conditions Feature Documentation",
+          text: "توثيق خاصية الشروط والأحكام القياسية (Standard Terms and Conditions Feature Documentation) {#Standard-Terms-and-Conditions-Feature-Documentation}",
           "link" : "/modules/invoicing/standard-terms-feature-documentation"
         }, {
           text: "ميزة حقل الباركود للمسح المتتالي",
@@ -2835,7 +2835,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -2881,31 +2881,31 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/supplychain/",
         "collapsed" : false,
         "items" : [ {
-          text: "Supply Chain Management",
+          text: "إدارة سلسلة التوريد (Supply Chain Management)",
           "link" : "/modules/supplychain/supply-chain-intro"
         }, {
-          text: "Understanding Inventory Items",
+          text: "فهم أصناف المخزون (Understanding Inventory Items)",
           "link" : "/modules/supplychain/understanding-items"
         }, {
-          text: "Receiving Stock into Your Warehouse",
+          text: "استلام المخزون في المستودع (Receiving Stock into Your Warehouse) {#Receiving-Stock-into-Your-Warehouse}",
           "link" : "/modules/supplychain/receiving-stock"
         }, {
-          text: "Issuing Stock from Your Warehouse",
+          text: "إصدار المخزون من المستودع (Issuing Stock from Your Warehouse)",
           "link" : "/modules/supplychain/issuing-stock"
         }, {
-          text: "Moving Stock Around",
+          text: "تحريك المخزون {#Moving-Stock-Around}",
           "link" : "/modules/supplychain/moving-stock"
         }, {
-          text: "The Purchasing Journey",
+          text: "رحلة الشراء (The Purchasing Journey)",
           "link" : "/modules/supplychain/purchasing-journey"
         }, {
-          text: "The Sales Journey",
+          text: "رحلة المبيعات (Sales Journey)",
           "link" : "/modules/supplychain/sales-journey"
         }, {
-          text: "Quality Control",
+          text: "ضبط الجودة (Quality Control)",
           "link" : "/modules/supplychain/quality-control"
         }, {
-          text: "Specialized Scenarios",
+          text: "سيناريوهات متخصصة (Specialized Scenarios)",
           "link" : "/modules/supplychain/specialized-scenarios"
         }, {
           text: "دليل استعمال النقاط الفنية في نقاط البيع",
@@ -2917,7 +2917,7 @@ export const SIDEBAR_CONFIG = {
           text: "تسجيل الدخول بالبصمة في نقاط البيع",
           "link" : "/modules/supplychain/pos-fingerprint-login"
         }, {
-          text: "Comprehensive Reservation System Guide (دليل نظام الحجوزات الشامل)",
+          text: "دليل نظام الحجوزات الشامل (Comprehensive Reservation System Guide) {#Comprehensive-Reservation-System-Guide}",
           "link" : "/modules/supplychain/reservation-system-guide"
         }, {
           text: "تجاهل مخازن/مواقع معينة في التحقق من كمية الحجز بالتاريخ",
@@ -2926,7 +2926,7 @@ export const SIDEBAR_CONFIG = {
           text: "أسئلة في موديول التوزيع والمخازن والمبيعات والمشتريات",
           "link" : "/modules/supplychain/supply-chain-faq"
         }, {
-          text: "Supply-chain English FAQ",
+          text: "الأسئلة الشائعة لسلسلة التوريد (Supply-chain FAQ) {#Supply-chain-English-FAQ}",
           "link" : "/modules/supplychain/supply-chain-faq-english"
         } ]
       }, {
@@ -3073,7 +3073,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -3122,34 +3122,34 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/",
         "collapsed" : false,
         "items" : [ {
-          text: "Manufacturing Module Overview",
+          text: "نظرة عامة على وحدة التصنيع (Manufacturing Module Overview)",
           "link" : "/modules/manufacturing/manufacturing-overview"
         }, {
-          text: "Production Orders: Planning What to Make",
+          text: "أوامر الإنتاج (Production Orders): التخطيط لما سيتم تصنيعه {#Production-Orders-Planning-What-to-Make}",
           "link" : "/modules/manufacturing/production-orders"
         }, {
-          text: "Production Execution: Recording What Actually Happens",
+          text: "تنفيذ الإنتاج (Production Execution): تسجيل ما يحدث فعلاً",
           "link" : "/modules/manufacturing/production-execution"
         }, {
-          text: "Production Costing: Following the Money",
+          text: "تكاليف الإنتاج: تتبع الأموال {#Production-Costing--Following-the-Money}",
           "link" : "/modules/manufacturing/production-costing"
         }, {
-          text: "Material Requirements Planning (MRP) - User Guide",
+          text: "تخطيط متطلبات المواد (Material Requirements Planning - MRP) - دليل المستخدم {#Material-Requirements-Planning-MRP----User-Guide}",
           "link" : "/modules/manufacturing/material-requirements-planning"
         }, {
-          text: "Carton Manufacturing: Smart Material Planning for Corrugated Products",
+          text: "تصنيع الكرتون: تخطيط ذكي للمواد في منتجات الورق المموج",
           "link" : "/modules/manufacturing/carton-manufacturing-overview"
         }, {
-          text: "Carton Specifications: Defining Your Products",
+          text: "مواصفات الكرتونة: تعريف منتجاتك",
           "link" : "/modules/manufacturing/carton-specifications"
         }, {
-          text: "Carton Orders: From Customer Request to Production Plan",
+          text: "طلبيات الكرتون (Carton Orders): من طلب العميل إلى خطة الإنتاج",
           "link" : "/modules/manufacturing/carton-orders"
         }, {
-          text: "Carton Material Planning: The Optimization Engine",
+          text: "تخطيط خامات الكرتون (Carton Material Planning): محرك التحسين {#Carton-Material-Planning-The-Optimization-Engine}",
           "link" : "/modules/manufacturing/carton-material-planning"
         }, {
-          text: "Carton Material Issues: From Warehouse to Shop Floor",
+          text: "صرف خامات الكرتون: من المستودع إلى أرض الإنتاج {#Carton-Material-Issues-From-Warehouse-to-Shop-Floor}",
           "link" : "/modules/manufacturing/carton-material-issue"
         }, {
           text: "أسئلة شائعة حول موديول التصنيع في نظام Nama ERP",
@@ -3296,7 +3296,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -3495,7 +3495,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -3688,7 +3688,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -3881,7 +3881,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -3945,7 +3945,7 @@ export const SIDEBAR_CONFIG = {
           text: "تطبيق الهواتف المحمولة",
           "link" : "/modules/mobile/mobile-application-guide"
         }, {
-          text: "Mobile QR Integrator Guide",
+          text: "دليل Mobile QR Integrator",
           "link" : "/modules/mobile/mobile-qr-integrator"
         }, {
           text: "أسئلة شائعة حول تطبيقات الهواتف المحمولة في نظام Nama ERP",
@@ -4080,7 +4080,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -4144,10 +4144,10 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/ecommerce/",
         "collapsed" : false,
         "items" : [ {
-          text: "Nama ERP E-Commerce Integration Guide",
+          text: "دليل تكامل التجارة الإلكترونية مع Nama ERP {#Nama-ERP-E-Commerce-Integration-Guide}",
           "link" : "/modules/ecommerce/magento-integration-guide"
         }, {
-          text: "Omniful Integration Guide",
+          text: "دليل التكامل مع Omniful {#Omniful-Integration-Guide}",
           "link" : "/modules/ecommerce/omniful-integration"
         } ]
       } ]
@@ -4276,7 +4276,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -4344,19 +4344,19 @@ export const SIDEBAR_CONFIG = {
       "link" : "/integration/",
       "collapsed" : false,
       "items" : [ {
-        text: "Nama ERP REST API",
+        text: "واجهة برمجية REST لنظام نما ERP {#Nama-ERP-REST-API}",
         "link" : "/integration/nama-erp-api"
       }, {
         text: "سيناريوهات الربط بين نظام نما والأنظمة الأخرى",
         "link" : "/integration/system-integration-scenarios"
       }, {
-        text: "Sending Invoices and Documents to Customers",
+        text: "إرسال الفواتير والمستندات للعملاء {#Sending-Invoices-and-Documents-to-Customers}",
         "link" : "/integration/invoice-retriever"
       }, {
         text: "الربط مع ماكينات الحضور والانصراف",
         "link" : "/integration/attendance-machines-integration"
       }, {
-        text: "ORACLE JDBC Integration Connection in context.xml for integration purposes",
+        text: "إعداد اتصال Oracle JDBC في ملف context.xml لأغراض التكامل {#ORACLE-JDBC-Integration-Connection-in-context-xml-for-integration-purposes}",
         "link" : "/integration/oracle-jdbc-connection"
       } ]
     }, {
@@ -4481,7 +4481,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -4552,7 +4552,7 @@ export const SIDEBAR_CONFIG = {
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Tempo Language Manual",
+        text: "دليل لغة Tempo",
         "link" : "/admin/tempo"
       }, {
         text: "Troubleshooting",
@@ -4672,7 +4672,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -4747,7 +4747,7 @@ export const SIDEBAR_CONFIG = {
         "link" : "/admin/troubleshooting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Troubleshooting System Hanging or Unresponsiveness",
+          text: "استكشاف أخطاء توقف النظام أو عدم استجابته (Troubleshooting System Hanging or Unresponsiveness) {#Troubleshooting-System-Hanging-or-Unresponsiveness}",
           "link" : "/admin/troubleshooting/troubleshooting-system-hanging"
         }, {
           text: "أسئلة عامة",
@@ -4871,7 +4871,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -4949,37 +4949,37 @@ export const SIDEBAR_CONFIG = {
         "link" : "/admin/reprocessing/",
         "collapsed" : false,
         "items" : [ {
-          text: "Reprocessing Quantity, Cost, and Stock Ages",
+          text: "إعادة معالجة الكميات والتكاليف وأعمار المخزون (Reprocessing Quantity, Cost, and Stock Ages)",
           "link" : "/admin/reprocessing/reprocess-qty-and-cost"
         }, {
-          text: "Accounting Utilities - Ledger and Debt Ages Reprocessing",
+          text: "أدوات المحاسبة - إعادة معالجة دفتر الأستاذ وأعمار الديون (Accounting Utilities - Ledger and Debt Ages Reprocessing)",
           "link" : "/admin/reprocessing/reprocess-ledger-and-debt-ages"
         }, {
-          text: "Queries to Check for (and Fix) Cost And Qty Problems",
+          text: "استعلامات للكشف عن مشاكل التكلفة والكميات (وإصلاحها) {#Queries-to-Check-for-and-Fix-Cost-And-Qty-Problems}",
           "link" : "/admin/reprocessing/cost-and-qty-problems"
         }, {
-          text: "Inventory Related Utility Queries",
+          text: "استعلامات الأدوات المساعدة للمخزون {#Inventory-Related-Utility-Queries}",
           "link" : "/admin/reprocessing/inventory-utilities"
         }, {
-          text: "Manufacturing Utilities",
+          text: "أدوات التصنيع (Manufacturing Utilities)",
           "link" : "/admin/reprocessing/manufacturing-utilities"
         }, {
-          text: "Fixed Assets Module Utilities",
+          text: "أدوات وحدة الأصول الثابتة (Fixed Assets Module Utilities) {#Fixed-Assets-Module-Utilities}",
           "link" : "/admin/reprocessing/fixed-asset-utilities"
         }, {
-          text: "Real Estate Utilities",
+          text: "أدوات العقارات (Real Estate Utilities)",
           "link" : "/admin/reprocessing/real-estate-utilities"
         }, {
-          text: "Database Related Operations",
+          text: "عمليات قاعدة البيانات (Database Related Operations) {#Database-Related-Operations}",
           "link" : "/admin/reprocessing/db-operations"
         }, {
-          text: "Suggest Indexes for Large Detail Tables",
+          text: "اقتراح إنشاء Indexes لجداول التفاصيل الكبيرة {#Suggest-Indexes-for-Large-Detail-Tables}",
           "link" : "/admin/reprocessing/suggest-index-creation"
         }, {
-          text: "General Purpose Utility Queries",
+          text: "استعلامات عامة متعددة الأغراض (General Purpose Utility Queries) {#General-Purpose-Utility-Queries}",
           "link" : "/admin/reprocessing/general-purpose-utility-queries"
         }, {
-          text: "Replication Utilities",
+          text: "أدوات النسخ المتطابق (Replication Utilities)",
           "link" : "/admin/reprocessing/replication"
         } ]
       } ]
@@ -5094,7 +5094,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -5293,7 +5293,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -5481,7 +5481,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -5950,7 +5950,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -6170,7 +6170,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -6369,7 +6369,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -6568,7 +6568,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -6764,7 +6764,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -6957,7 +6957,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -7150,7 +7150,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -7343,7 +7343,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -7611,7 +7611,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -7825,7 +7825,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -8018,7 +8018,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -8214,7 +8214,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -8416,7 +8416,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -8624,7 +8624,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -9024,7 +9024,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -9212,7 +9212,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -9429,7 +9429,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -9655,7 +9655,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -9881,7 +9881,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -10107,7 +10107,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -10333,7 +10333,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -10559,7 +10559,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -10785,7 +10785,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -11011,7 +11011,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -11237,7 +11237,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -11463,7 +11463,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -11668,7 +11668,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -11862,7 +11862,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -12061,7 +12061,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -12269,7 +12269,7 @@ export const SIDEBAR_CONFIG = {
     text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
+      text: "البحث",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
@@ -12463,6 +12463,3385 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "شرح مفصل لنظام إدارة الرواتب في نظام نما - 4",
           "link" : "/videos/hr/hr-course-4"
+        } ]
+      } ]
+    } ]
+  } ],
+  "/en/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/getting-started/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "System Minimum Requirements",
+        "link" : "/en/getting-started/system-minimum-requirements"
+      }, {
+        text: "Nama ERP Installation Guide",
+        "link" : "/en/getting-started/installation-guide"
+      }, {
+        text: "Nama Properties",
+        "link" : "/en/getting-started/nama-properties"
+      }, {
+        text: "Two-Factor Authentication (2FA) Guide",
+        "link" : "/en/getting-started/two-factor-authentication"
+      } ]
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/platform/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Utility Links",
+        "link" : "/en/platform/utils"
+      }, {
+        text: "Keyboard Shortcuts",
+        "link" : "/en/platform/shortcuts"
+      }, {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Fiscal Period Control",
+        "link" : "/en/platform/fiscal-period-control-guide"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      }, {
+        text: "Virtual Entities — Reusable SQL Building Blocks for Reports & Dashboards",
+        "link" : "/en/platform/virtual-entity-guide"
+      }, {
+        text: "Field Filter with Criteria",
+        "link" : "/en/platform/field-filter-with-criteria"
+      }, {
+        text: "Frequently Asked Questions about Field Filtering",
+        "link" : "/en/platform/field-filter-faq"
+      }, {
+        text: "Modifying Translations in Nama ERP",
+        "link" : "/en/platform/translations"
+      }, {
+        text: "Criteria Based Validation",
+        "link" : "/en/platform/criteria-based-validation"
+      }, {
+        text: "Criteria from Text Parser (Text Criteria Guide)",
+        "link" : "/en/platform/text-criteria-guide"
+      }, {
+        text: "Scheduled Tasks (Task Scheduler)",
+        "link" : "/en/platform/scheduled-tasks"
+      }, {
+        text: "Fields and Entities Settings - Generic Reference Overrider User Guide",
+        "link" : "/en/platform/GenericReferenceOverrider_UserGuide"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/platform/screen-modifier/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Layout Names:",
+          "link" : "/en/platform/screen-modifier/screen-modifier"
+        }, {
+          text: "Frequently Asked Questions about Screen Modifier",
+          "link" : "/en/platform/screen-modifier/screen-modifier-faq"
+        } ]
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/platform/list-views/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Quick Filters in List Views",
+          "link" : "/en/platform/list-views/quick-filters"
+        }, {
+          text: "Limit User To Year",
+          "link" : "/en/platform/list-views/limit-user-to-year"
+        } ]
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/platform/approvals/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Approvals System - Approval Definition Full Guide",
+          "link" : "/en/platform/approvals/approvals-system"
+        }, {
+          text: "Sample Approval Email Templates",
+          "link" : "/en/platform/approvals/sample-approval-email-templates"
+        }, {
+          text: "Approvals FAQ",
+          "link" : "/en/platform/approvals/approvals-faq"
+        } ]
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/platform/security/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Security System Overview",
+          "link" : "/en/platform/security/security-overview"
+        }, {
+          text: "Security Profile",
+          "link" : "/en/platform/security/security-profiles"
+        }, {
+          text: "Field, Page, and List View Security",
+          "link" : "/en/platform/security/field-page-listview-security"
+        }, {
+          text: "Record-Level Security (Dimensions and Filters)",
+          "link" : "/en/platform/security/record-level-security"
+        }, {
+          text: "Users and Login",
+          "link" : "/en/platform/security/users-and-login"
+        }, {
+          text: "Temporary Additional Permissions (Delegation)",
+          "link" : "/en/platform/security/security-delegation"
+        } ]
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/platform/entity-flows/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Introduction to Entity Flows",
+          "link" : "/en/platform/entity-flows/introduction-to-entity-flows"
+        }, {
+          text: "Importing Data from Excel or Queries",
+          "link" : "/en/platform/entity-flows/excel-and-sql-import-by-entity-flow"
+        }, {
+          text: "EAGenerateEntityFromEntityAction",
+          "link" : "/en/platform/entity-flows/ea-gen-entity-from-entity"
+        }, {
+          text: "Entity Flow Examples",
+          "link" : "/en/platform/entity-flows/entity-flow-examples"
+        }, {
+          text: "Entity Flow FAQ",
+          "link" : "/en/platform/entity-flows/entity-flow-faq"
+        } ]
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/platform/reports/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Jasper Reports Complete Guide for Nama ERP",
+          "link" : "/en/platform/reports/reports-guide"
+        }, {
+          text: "Report Wizard Guide",
+          "link" : "/en/platform/reports/report-wizard-guide"
+        }, {
+          text: "ReportWizard User Documentation (Report Creation Tool)",
+          "link" : "/en/platform/reports/ReportWizard_User_Documentation"
+        }, {
+          text: "Frequently Asked Questions About Report Design",
+          "link" : "/en/platform/reports/report-faq"
+        }, {
+          text: "Frequently Asked Questions About the Report Builder",
+          "link" : "/en/platform/reports/report-wizard-faq"
+        } ]
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/platform/bi/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "BI Module — Dashboards & Analytics",
+          "link" : "/en/platform/bi/bi-module-guide"
+        }, {
+          text: "Nama ERP BI Module — Technical Reference",
+          "link" : "/en/platform/bi/bi-module-technical-reference"
+        }, {
+          text: "BI Reference — EnhancedMetricsCard (and legacy MetricsCards)",
+          "link" : "/en/platform/bi/bi-reference-enhanced-metrics-card"
+        }, {
+          text: "BI Reference — EnhancedTable",
+          "link" : "/en/platform/bi/bi-reference-enhanced-table"
+        }, {
+          text: "BI Reference — Wizard Mode",
+          "link" : "/en/platform/bi/bi-reference-wizard-mode"
+        } ]
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/platform/notifications/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Nama ERP Notification System",
+          "link" : "/en/platform/notifications/notifications-system"
+        }, {
+          text: "WhatsApp Integration",
+          "link" : "/en/platform/notifications/sms-and-whatsapp"
+        }, {
+          text: "Frequently Asked Questions: Notifications and Messages",
+          "link" : "/en/platform/notifications/notification-fq"
+        } ]
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/modules/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/modules/invoicing/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Customer Reward Points (Loyalty Points)",
+          "link" : "/en/modules/invoicing/reward-points"
+        }, {
+          text: "Invoice Discounts and Tax Calculation System - Comprehensive Guide",
+          "link" : "/en/modules/invoicing/invoice-discounts-and-tax-calculation-guide"
+        }, {
+          text: "Pricing and Offers Management Guide",
+          "link" : "/en/modules/invoicing/pricing-and-offers-guide"
+        }, {
+          text: "Payment Schedules User Guide",
+          "link" : "/en/modules/invoicing/payment-schedules-user-guide"
+        }, {
+          text: "Linking Payment Vouchers to Invoices",
+          "link" : "/en/modules/invoicing/payment-entries"
+        }, {
+          text: "Online Payments Integration",
+          "link" : "/en/modules/invoicing/online-payments"
+        }, {
+          text: "Nama ERP e-Invoice guide",
+          "link" : "/en/modules/invoicing/e-invoices-guide"
+        }, {
+          text: "Integration with ZATCA (Saudi Arabia)",
+          "link" : "/en/modules/invoicing/zatca-guide"
+        }, {
+          text: "Electronic Receipt (Egypt Tax eInvoice) - Activating the Electronic Receipt and eInvoice - Egypt",
+          "link" : "/en/modules/invoicing/electronic-receipt-egypt-tax-eInvoice"
+        }, {
+          text: "UAE E-Invoicing Integration via Orchida osTax",
+          "link" : "/en/modules/invoicing/uae-orchida-einvoice-guide"
+        }, {
+          text: "Standard Terms and Conditions Feature Documentation",
+          "link" : "/en/modules/invoicing/standard-terms-feature-documentation"
+        }, {
+          text: "Barcode Field Feature for Sequential Scanning",
+          "link" : "/en/modules/invoicing/barcode-field-feature"
+        }, {
+          text: "Frequently Asked Questions about Invoices and Payments",
+          "link" : "/en/modules/invoicing/invoices-faq"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/modules/supplychain/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Supply Chain Management",
+          "link" : "/en/modules/supplychain/supply-chain-intro"
+        }, {
+          text: "Understanding Inventory Items",
+          "link" : "/en/modules/supplychain/understanding-items"
+        }, {
+          text: "Receiving Stock into Your Warehouse",
+          "link" : "/en/modules/supplychain/receiving-stock"
+        }, {
+          text: "Issuing Stock from Your Warehouse",
+          "link" : "/en/modules/supplychain/issuing-stock"
+        }, {
+          text: "Moving Stock Around",
+          "link" : "/en/modules/supplychain/moving-stock"
+        }, {
+          text: "The Purchasing Journey",
+          "link" : "/en/modules/supplychain/purchasing-journey"
+        }, {
+          text: "The Sales Journey",
+          "link" : "/en/modules/supplychain/sales-journey"
+        }, {
+          text: "Quality Control",
+          "link" : "/en/modules/supplychain/quality-control"
+        }, {
+          text: "Specialized Scenarios",
+          "link" : "/en/modules/supplychain/specialized-scenarios"
+        }, {
+          text: "Nama POS — Technical Points of Use Guide",
+          "link" : "/en/modules/supplychain/nama-pos"
+        }, {
+          text: "Free Items in POS: Claim at Scan and Reconciliation at Payment",
+          "link" : "/en/modules/supplychain/pos-free-items-claim-and-reconciliation"
+        }, {
+          text: "Fingerprint Login in Point of Sale",
+          "link" : "/en/modules/supplychain/pos-fingerprint-login"
+        }, {
+          text: "Comprehensive Reservation System Guide",
+          "link" : "/en/modules/supplychain/reservation-system-guide"
+        }, {
+          text: "Ignoring Specific Warehouses/Locators in Reservation Quantity Check by Date",
+          "link" : "/en/modules/supplychain/ignore-reservation-qty-check-by-date"
+        }, {
+          text: "FAQ — Distribution, Warehousing, Sales & Purchasing Module",
+          "link" : "/en/modules/supplychain/supply-chain-faq"
+        }, {
+          text: "Supply-chain English FAQ",
+          "link" : "/en/modules/supplychain/supply-chain-faq-english"
+        } ]
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/modules/manufacturing/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Manufacturing Module Overview",
+          "link" : "/en/modules/manufacturing/manufacturing-overview"
+        }, {
+          text: "Production Orders: Planning What to Make",
+          "link" : "/en/modules/manufacturing/production-orders"
+        }, {
+          text: "Production Execution: Recording What Actually Happens",
+          "link" : "/en/modules/manufacturing/production-execution"
+        }, {
+          text: "Production Costing: Following the Money",
+          "link" : "/en/modules/manufacturing/production-costing"
+        }, {
+          text: "Material Requirements Planning (MRP) - User Guide",
+          "link" : "/en/modules/manufacturing/material-requirements-planning"
+        }, {
+          text: "Carton Manufacturing: Smart Material Planning for Corrugated Products",
+          "link" : "/en/modules/manufacturing/carton-manufacturing-overview"
+        }, {
+          text: "Carton Specifications: Defining Your Products",
+          "link" : "/en/modules/manufacturing/carton-specifications"
+        }, {
+          text: "Carton Orders: From Customer Request to Production Plan",
+          "link" : "/en/modules/manufacturing/carton-orders"
+        }, {
+          text: "Carton Material Planning: The Optimization Engine",
+          "link" : "/en/modules/manufacturing/carton-material-planning"
+        }, {
+          text: "Carton Material Issues: From Warehouse to Shop Floor",
+          "link" : "/en/modules/manufacturing/carton-material-issue"
+        }, {
+          text: "Frequently Asked Questions — Manufacturing Module in Nama ERP",
+          "link" : "/en/modules/manufacturing/manufacturing-faq"
+        } ]
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/modules/hr/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Attendance and Departure Formulas",
+          "link" : "/en/modules/hr/attendance-machine-formula"
+        }, {
+          text: "Ignoring Overlapping Attendance and Departure Lines",
+          "link" : "/en/modules/hr/ignore-overlapping-attendance"
+        }, {
+          text: "Frequently Asked Questions — Payroll and Human Resources Module",
+          "link" : "/en/modules/hr/human-resources-faq"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/modules/pos/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Point of Sale FAQ",
+          "link" : "/en/modules/pos/pos-faq"
+        } ]
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/modules/realestate/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Real Estate Investment FAQ",
+          "link" : "/en/modules/realestate/real-estate-fq"
+        } ]
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/modules/mobile/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Mobile Application",
+          "link" : "/en/modules/mobile/mobile-application-guide"
+        }, {
+          text: "Mobile QR Integrator Guide",
+          "link" : "/en/modules/mobile/mobile-qr-integrator"
+        }, {
+          text: "Frequently Asked Questions About Mobile Applications in Nama ERP",
+          "link" : "/en/modules/mobile/mobile-apps-faq"
+        } ]
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/modules/ecommerce/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Nama ERP E-Commerce Integration Guide",
+          "link" : "/en/modules/ecommerce/magento-integration-guide"
+        }, {
+          text: "Omniful Integration Guide",
+          "link" : "/en/modules/ecommerce/omniful-integration"
+        } ]
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/integration/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Nama ERP REST API",
+        "link" : "/en/integration/nama-erp-api"
+      }, {
+        text: "Integration Scenarios Between Nama and Other Systems",
+        "link" : "/en/integration/system-integration-scenarios"
+      }, {
+        text: "Sending Invoices and Documents to Customers",
+        "link" : "/en/integration/invoice-retriever"
+      }, {
+        text: "Integration with Attendance Machines",
+        "link" : "/en/integration/attendance-machines-integration"
+      }, {
+        text: "ORACLE JDBC Integration Connection in context.xml for integration purposes",
+        "link" : "/en/integration/oracle-jdbc-connection"
+      } ]
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/admin/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Tempo Language Manual",
+        "link" : "/en/admin/tempo"
+      }, {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/admin/troubleshooting/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Troubleshooting System Hanging or Unresponsiveness",
+          "link" : "/en/admin/troubleshooting/troubleshooting-system-hanging"
+        }, {
+          text: "General FAQ",
+          "link" : "/en/admin/troubleshooting/general-faq"
+        }, {
+          text: "Database Related Errors FAQ",
+          "link" : "/en/admin/troubleshooting/database-error-related-faq"
+        } ]
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/admin/reprocessing/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Reprocessing Quantity, Cost, and Stock Ages",
+          "link" : "/en/admin/reprocessing/reprocess-qty-and-cost"
+        }, {
+          text: "Accounting Utilities - Ledger and Debt Ages Reprocessing",
+          "link" : "/en/admin/reprocessing/reprocess-ledger-and-debt-ages"
+        }, {
+          text: "Queries to Check for (and Fix) Cost And Qty Problems",
+          "link" : "/en/admin/reprocessing/cost-and-qty-problems"
+        }, {
+          text: "Inventory Related Utility Queries",
+          "link" : "/en/admin/reprocessing/inventory-utilities"
+        }, {
+          text: "Manufacturing Utilities",
+          "link" : "/en/admin/reprocessing/manufacturing-utilities"
+        }, {
+          text: "Fixed Assets Module Utilities",
+          "link" : "/en/admin/reprocessing/fixed-asset-utilities"
+        }, {
+          text: "Real Estate Utilities",
+          "link" : "/en/admin/reprocessing/real-estate-utilities"
+        }, {
+          text: "Database Related Operations",
+          "link" : "/en/admin/reprocessing/db-operations"
+        }, {
+          text: "Suggest Indexes for Large Detail Tables",
+          "link" : "/en/admin/reprocessing/suggest-index-creation"
+        }, {
+          text: "General Purpose Utility Queries",
+          "link" : "/en/admin/reprocessing/general-purpose-utility-queries"
+        }, {
+          text: "Replication Utilities",
+          "link" : "/en/admin/reprocessing/replication"
+        } ]
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/developer/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Some Information About Using This Site",
+        "link" : "/en/developer/docs-quick-guide"
+      }, {
+        text: "Guidelines for Submitting Development Requests by Support and Setup Teams",
+        "link" : "/en/developer/dev-request-guidelines"
+      }, {
+        text: "General Questions About GUI Post Actions",
+        "link" : "/en/developer/gui-post-actions-faq"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/videos/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Documentation for the Nama ERP Installation Video and Supporting Software",
+        "link" : "/en/videos/installation-video"
+      }, {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Documentation: Explaining Actual and Indirect Costs in the Manufacturing System",
+        "link" : "/en/videos/manufacturing-actual-overhead"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/videos/supply-chain-videos/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Inventory Costing Explained - Video 1",
+          "link" : "/en/videos/supply-chain-videos/cost-video-1"
+        }, {
+          text: "Inventory Costing Methods - Video 2",
+          "link" : "/en/videos/supply-chain-videos/cost-video-2"
+        }, {
+          text: "Costing Tutorial Video - 3",
+          "link" : "/en/videos/supply-chain-videos/cost-video-3"
+        } ]
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/videos/report-wizard-videos/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Video (1): Report Designer Tool Walkthrough",
+          "link" : "/en/videos/report-wizard-videos/report-wizard-webinar-1"
+        }, {
+          text: "Detailed Guide to Grouping, Data Sources, and Report Sorting in Nama ERP",
+          "link" : "/en/videos/report-wizard-videos/report-wizard-webinar-2"
+        }, {
+          text: "1. What Is a Cross Tab Report and How to Create One?",
+          "link" : "/en/videos/report-wizard-videos/report-wizard-webinar-3"
+        }, {
+          text: "report-wizard-webinar-4.md",
+          "link" : "/en/videos/report-wizard-videos/report-wizard-webinar-4"
+        }, {
+          text: "Conclusion",
+          "link" : "/en/videos/report-wizard-videos/report-wizard-webinar-5"
+        }, {
+          text: "Content Summary",
+          "link" : "/en/videos/report-wizard-videos/report-wizard-webinar-6"
+        } ]
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/videos/hr/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Detailed Explanation of the Payroll Management System in Nama ERP - 1",
+          "link" : "/en/videos/hr/hr-course-1"
+        }, {
+          text: "Detailed Explanation of the Payroll Management System in Nama ERP - 2",
+          "link" : "/en/videos/hr/hr-course-2"
+        }, {
+          text: "Detailed Explanation of the Payroll Management System in Nama ERP - 3",
+          "link" : "/en/videos/hr/hr-course-3"
+        }, {
+          text: "Detailed Explanation of the Payroll System in Nama ERP - 4",
+          "link" : "/en/videos/hr/hr-course-4"
         } ]
       } ]
     } ]

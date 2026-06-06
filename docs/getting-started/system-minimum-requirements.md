@@ -1,22 +1,21 @@
-# System Minimum Requirements
+# الحد الأدنى لمتطلبات تشغيل النظام
 
-Nama ERP is a web-based application, It can be hosted on-premise or on-cloud
+Nama ERP هو تطبيق ويب، يمكن استضافته محليًا (On-Premise) أو على السحابة (Cloud)
 
-If you will host Nama ERP on-premise, here are the minimum and recommended hardware and software specifications:
+إذا كنت ستستضيف Nama ERP محليًا، فهذه هي المواصفات الدنيا والموصى بها للأجهزة والبرمجيات:
 
 
-| **Spec**                     | **Minimum**                                                                                                                                                     | **Recommended**                                                 |
-|-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
-| **Processor**               | Core i5 or i7, recent generation                                                                                                                                | Intel Xeon or AMD Epyc                                          |
-| **Storage**                 | 512 GB SSD for OS and Database<br>1 TB HDD for Backups                                                                                                          | 512 GB SSD for OS<br>512 GB SSD for Database<br>2 TB HDD for Backups |
-| **RAM**                     | 64 GB                                                                                                                                                           | 128 GB or more                                                  |
-| **OS**                      | Any recent Windows OS (64 Bit)                                                                                                                                  | Windows Server 2022 or Newer                                    |
-| **Database Management System** | SQL Server 2019                                                                                                                                                 | SQL Server 2022 or Newer                                        |
-| **Network**                 | To be able to access the server from outside your company LAN, we recommend a static IP, if none is available a DDNS service should be configured on the router |        |
-| **Cloud Backup**            | 2 TB Google Drive account for daily backups<br>[Check plans](https://one.google.com/about/plans)                                                                |  |
+| **المواصفة**                  | **الحد الأدنى**                                                                                                                                          | **الموصى به**                                                        |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
+| **المعالج**                  | Core i5 أو i7 من جيل حديث                                                                                                                                 | Intel Xeon أو AMD Epyc                                               |
+| **التخزين**                  | 512 GB SSD لنظام التشغيل وقاعدة البيانات<br>1 TB HDD للنسخ الاحتياطية                                                                                      | 512 GB SSD لنظام التشغيل<br>512 GB SSD لقاعدة البيانات<br>2 TB HDD للنسخ الاحتياطية |
+| **الذاكرة (RAM)**            | 64 GB                                                                                                                                                      | 128 GB أو أكثر                                                       |
+| **نظام التشغيل**             | أي إصدار حديث من Windows ‏(64 Bit)                                                                                                                         | Windows Server 2022 أو أحدث                                          |
+| **نظام إدارة قواعد البيانات** | SQL Server 2019                                                                                                                                            | SQL Server 2022 أو أحدث                                              |
+| **الشبكة**                   | للتمكن من الوصول إلى السيرفر من خارج شبكة الشركة، ننصح باستخدام IP ثابت، وإذا لم يتوفر يجب إعداد خدمة DDNS على الراوتر                                      |        |
+| **النسخ الاحتياطي السحابي**  | حساب Google Drive بسعة 2 TB للنسخ الاحتياطية اليومية<br>[اطلع على الباقات](https://one.google.com/about/plans)                                             |  |
 
-## Nama ERP can be installed on-cloud
-#### Namasoft Provides Cloud ERP Hosting. The data centers we use are mainly in Europe (Germany, France, and Finland). Please request a quote from our sales team.
+## يمكن تركيب Nama ERP على السحابة
+#### توفر Namasoft استضافة سحابية لنظام ERP. مراكز البيانات التي نستخدمها تقع بشكل أساسي في أوروبا (ألمانيا وفرنسا وفنلندا). يرجى طلب عرض سعر من فريق المبيعات لدينا.
 
-#### You can also install on your own cloud server, but make sure that the server is not a "shared host". Nama ERP can be installed on Virtual Private Servers (VMs) or dedicated servers.
-
+#### يمكنك أيضًا التركيب على سيرفرك السحابي الخاص، لكن تأكد من أن السيرفر ليس استضافة مشتركة (Shared Host). يمكن تركيب Nama ERP على سيرفرات افتراضية خاصة (VMs) أو سيرفرات مخصصة.

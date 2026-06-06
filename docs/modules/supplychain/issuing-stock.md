@@ -1,383 +1,383 @@
-# Issuing Stock from Your Warehouse
+# إصدار المخزون من المستودع (Issuing Stock from Your Warehouse)
 
-What goes in must come out! While [receiving stock](./receiving-stock.md) is about bringing items into your warehouse, issuing is about releasing them for use. Let's explore when, why, and how items leave your inventory.
+ما يدخل لا بد أن يخرج! بينما تتعلق [استلام المخزون](./receiving-stock.md) بإدخال الأصناف إلى المستودع، فإن الصرف يتعلق بإطلاقها للاستخدام. لنستعرض متى ولماذا وكيف تغادر الأصناف مخزونك.
 
-## The Stock Issue Document: Your Inventory Exit Point
+## مستند الصرف المخزني: نقطة الخروج من المخزون {#The-Stock-Issue-Document-Your-Inventory-Exit-Point}
 
-A **stock issue** (entity `StockIssue` or صرف مخزني in Arabic) is the formal record that items left your warehouse at a specific time for a specific purpose. Just like receipts, different scenarios call for different types of issue documents.
+**الصرف المخزني** (الكيان `StockIssue`) هو السجل الرسمي الذي يُثبت خروج الأصناف من المستودع في وقت محدد ولغرض محدد. تماماً كوثائق الاستلام، تستدعي السيناريوهات المختلفة أنواعاً مختلفة من مستندات الصرف.
 
-## The General Stock Issue: Your Go-To Tool
+## الصرف المخزني العام: أداتك الأساسية {#The-General-Stock-Issue-Your-Go-To-Tool}
 
-The `StockIssue` document is your general-purpose tool for releasing items from inventory for any reason other than sales (which have their own process we'll cover in [The Sales Journey](./sales-journey.md)).
+مستند `StockIssue` هو أداتك متعددة الأغراض لإخراج الأصناف من المخزون لأي سبب غير المبيعات (التي تمتلك عمليتها الخاصة التي سنتناولها في [رحلة المبيعات](./sales-journey.md)).
 
-### Common Scenarios
+### السيناريوهات الشائعة {#Common-Scenarios}
 
-**Issuing to Production**
-Your manufacturing floor needs 500 kg of steel to make furniture. You create a stock issue that:
-- Reduces raw materials inventory by 500 kg
-- Records which production order received the materials
-- Accumulates cost to work-in-process
-- Tracks what was issued to whom and when
+**الصرف للإنتاج**
+يحتاج خط التصنيع إلى 500 كغ من الفولاذ لصنع الأثاث. تنشئ صرفاً مخزنياً يقوم بـ:
+- تخفيض مخزون المواد الخام بمقدار 500 كغ
+- تسجيل أمر الإنتاج الذي استلم المواد
+- تراكم التكلفة في حساب الإنتاج تحت التشغيل
+- تتبع ما صُرف لمن ومتى
 
-**Internal Department Use**
-The IT department needs 10 laptops for a new project. Create a stock issue to:
-- Move laptops from "available" to "in use by IT"
-- Track who has custody of the items
-- Reduce available inventory (so you don't accidentally sell those laptops)
-- Know where to find the laptops later
+**الاستخدام الداخلي للأقسام**
+يحتاج قسم تكنولوجيا المعلومات إلى 10 أجهزة لابتوب لمشروع جديد. أنشئ صرفاً مخزنياً لـ:
+- نقل أجهزة اللابتوب من "متاح" إلى "قيد الاستخدام من قبل IT"
+- تتبع من يحوز الأصناف
+- تقليل المخزون المتاح (حتى لا تبيع تلك الأجهزة عن طريق الخطأ)
+- معرفة مكان الأجهزة لاحقاً
 
-**Samples and Demonstrations**
-Your sales team needs product samples for a trade show. Issue them with notes about the purpose, so you can:
-- Track what was given out vs. what's available to sell
-- Account for the cost of samples (marketing expense)
-- Follow up after the trade show (were samples returned? converted to sales?)
+**العينات والعروض التوضيحية**
+يحتاج فريق المبيعات إلى عينات للمعرض التجاري. اصرفها مع ملاحظات عن الغرض، حتى تتمكن من:
+- تتبع ما وُزِّع مقابل ما هو متاح للبيع
+- احتساب تكلفة العينات (مصروف تسويقي)
+- المتابعة بعد المعرض (هل أُعيدت العينات؟ هل تحولت إلى مبيعات؟)
 
-**Shrinkage and Loss**
-During inventory count, you discover 5 widgets are missing. Create an issue to:
-- Formally remove them from tracked inventory
-- Record the loss for accounting
-- Document when and why (theft? damage? miscounting?)
+**العجز والخسائر**
+خلال جرد المخزون، اكتشفت نقصاً في 5 قطع. أنشئ صرفاً لـ:
+- إزالتها رسمياً من المخزون المتتبع
+- تسجيل الخسارة للمحاسبة
+- توثيق متى ولماذا (سرقة؟ تلف؟ خطأ في العد؟)
 
-**Donations**
-You're donating old equipment to a charity. Issue the items with:
-- Proper documentation for tax purposes
-- Fair market value recording
-- Recipient information
+**التبرعات**
+تتبرع بمعدات قديمة لجمعية خيرية. اصرف الأصناف مع:
+- توثيق مناسب للأغراض الضريبية
+- تسجيل القيمة السوقية العادلة
+- معلومات جهة الاستلام
 
-### How It Works
+### كيف يعمل النظام {#How-It-Works}
 
-Every issue document requires:
+يتطلب كل مستند صرف:
 
-1. **Source Location**: Where are items being taken from? Which warehouse and specific location?
+1. **موقع المصدر**: من أين تُؤخذ الأصناف؟ أي مستودع وموقع محدد؟
 
-2. **Items and Quantities**: What's going out and how much? Include unit of measure.
+2. **الأصناف والكميات**: ما الذي يخرج وبأي كمية؟ مع تحديد وحدة القياس.
 
-3. **Purpose/Recipient**: Where are these items going? Production order? Department? Customer? External party?
+3. **الغرض / جهة الاستلام**: إلى أين تذهب هذه الأصناف؟ أمر إنتاج؟ قسم؟ عميل؟ جهة خارجية؟
 
-4. **Cost Method**: How should cost be calculated? (Usually automatic based on your costing method)
+4. **طريقة التكلفة**: كيف تُحتسب التكلفة؟ (عادةً تلقائية بناءً على طريقة التكليف المعتمدة)
 
-The system then:
-- Decreases inventory quantity in the source location
-- Reduces inventory asset value
-- Creates accounting entries (crediting inventory, debiting expense or WIP)
-- Records which specific serial numbers or batches were issued
-- Updates available-to-promise calculations
-- Creates transaction history
+يقوم النظام بعدها بـ:
+- تخفيض كمية المخزون في موقع المصدر
+- تقليل قيمة أصل المخزون
+- إنشاء قيود محاسبية (دائن المخزون، مدين المصروف أو الإنتاج تحت التشغيل)
+- تسجيل الأرقام التسلسلية أو الدُّفعات المحددة التي صُرفت
+- تحديث حسابات الكميات المتاحة للوعد
+- إنشاء سجل المعاملات
 
-## The Request-First Approach
+## نهج الطلب أولاً {#The-Request-First-Approach}
 
-In many organizations, you don't just randomly issue items - someone first requests them. This creates a two-step process with better control.
+في كثير من المنظمات، لا تصرف الأصناف عشوائياً — بل يطلبها شخص ما أولاً. هذا يُنشئ عملية من خطوتين تمنح تحكماً أفضل.
 
-### StockIssueReq - The Requisition Document
+### StockIssueReq - مستند طلب الصرف {#StockIssueReq---The-Requisition-Document}
 
-The `StockIssueReq` (طلب صرف مخزني) is a request for items. Think of it as a formal shopping list that must be reviewed and approved before items are actually issued.
+`StockIssueReq` (طلب صرف مخزني) هو طلب للحصول على أصناف. فكر فيه كقائمة تسوق رسمية يجب مراجعتها واعتمادها قبل صرف الأصناف فعلياً.
 
-**The Workflow:**
+**سير العمل:**
 
-1. **Request**: The production department creates a stock issue request: "We need 100 kg steel, 50 bolts, 20 liters of paint for production order #12345"
+1. **الطلب**: يُنشئ قسم الإنتاج طلب صرف مخزني: "نحتاج 100 كغ فولاذ، 50 مسمار، 20 لتر طلاء لأمر الإنتاج #12345"
 
-2. **Review**: Warehouse supervisor reviews:
-   - Do we have these items in stock?
-   - Is this a valid production order?
-   - Are quantities reasonable?
+2. **المراجعة**: يراجع مشرف المستودع:
+   - هل تتوفر هذه الأصناف في المخزون؟
+   - هل أمر الإنتاج صحيح؟
+   - هل الكميات معقولة؟
 
-3. **Approval**: Once approved, the request becomes authorized
+3. **الاعتماد**: بعد الاعتماد، يصبح الطلب مُرخَّصاً
 
-4. **Fulfillment**: Warehouse creates the actual `StockIssue` document, linked to the request
+4. **التنفيذ**: ينشئ المستودع مستند `StockIssue` الفعلي مرتبطاً بالطلب
 
-5. **Issuance**: Items are physically picked and issued, document is saved (not draft)
+5. **الصرف**: تُجمَع الأصناف فعلياً وتُصرف، ويُحفظ المستند (لا كمسودة)
 
-**Why the extra step?** Because it gives you:
-- **Control**: Not everyone can just take items - they must request and be approved
-- **Planning**: Warehouse can prepare items before the production line needs them
-- **Visibility**: Management sees what's being consumed before it's consumed
-- **Audit Trail**: Clear record of who requested what and who approved it
+**لماذا الخطوة الإضافية؟** لأنها تمنحك:
+- **التحكم**: لا يمكن لأي شخص أخذ الأصناف — يجب الطلب والاعتماد
+- **التخطيط**: يمكن للمستودع تجهيز الأصناف قبل احتياج خط الإنتاج لها
+- **الرؤية**: تطلع الإدارة على ما يُستهلك قبل استهلاكه
+- **مسار التدقيق**: سجل واضح بمن طلب ماذا ومن اعتمد
 
-This is especially important for:
-- High-value items
-- Controlled substances
-- Items subject to budget constraints
-- Organizations with complex approval hierarchies
+هذا بالغ الأهمية لـ:
+- الأصناف عالية القيمة
+- المواد الخاضعة للرقابة
+- الأصناف المقيدة بقيود ميزانية
+- المنظمات ذات التسلسل الهرمي المعقد للاعتمادات
 
-## Issuing for Manufacturing
+## الصرف للتصنيع {#Issuing-for-Manufacturing}
 
-Manufacturing has special issue requirements because materials consumed must be tracked to production orders and eventually cost into finished products.
+يتميز التصنيع بمتطلبات صرف خاصة، إذ يجب تتبع المواد المستهلكة لأوامر الإنتاج وإدراجها في تكلفة المنتجات النهائية.
 
-### RawMaterialIssue - Feeding Production
+### RawMaterialIssue - تغذية الإنتاج {#RawMaterialIssue---Feeding-Production}
 
-The `RawMaterialIssue` (صرف مواد أولية) document specifically handles issuing raw materials to manufacturing.
+مستند `RawMaterialIssue` (صرف مواد أولية) مخصص لصرف المواد الخام للتصنيع.
 
-**The Story:**
-Production order #12345 is scheduled to make 100 wooden chairs. The bill of materials says each chair needs:
-- 5 kg of wood
-- 4 bolts
-- 0.5 liters of varnish
+**القصة:**
+أمر الإنتاج #12345 مجدول لصنع 100 كرسي خشبي. تنص قائمة المواد على أن كل كرسي يحتاج:
+- 5 كغ خشب
+- 4 مسامير
+- 0.5 لتر ورنيش
 
-You create a raw material issue for:
-- 500 kg wood
-- 400 bolts
-- 50 liters varnish
+تنشئ صرف مواد أولية بـ:
+- 500 كغ خشب
+- 400 مسمار
+- 50 لتر ورنيش
 
-All issued to production order #12345.
+جميعها لأمر الإنتاج #12345.
 
-The system:
-- Reduces raw materials inventory
-- Increases work-in-process for PO #12345
-- Tracks material cost for eventual product costing
-- Compares issued quantities to planned quantities (variance analysis)
+يقوم النظام بـ:
+- تخفيض مخزون المواد الخام
+- زيادة الإنتاج تحت التشغيل لأمر الإنتاج #12345
+- تتبع تكلفة المواد لاحتساب تكلفة المنتج في النهاية
+- مقارنة الكميات المصروفة بالكميات المخططة (تحليل الانحرافات)
 
-### RawMaterialIssueReq - Planning Material Needs
+### RawMaterialIssueReq - تخطيط احتياجات المواد {#RawMaterialIssueReq---Planning-Material-Needs}
 
-The `RawMaterialIssueReq` (طلب صرف مواد أولية) is the requisition before the issue. Production planners create these to:
-- Request materials be ready when production starts
-- Allow warehouse to prepare materials in advance
-- Get approval for consuming materials
+`RawMaterialIssueReq` (طلب صرف مواد أولية) هو الطلب السابق للصرف. يُنشئه مخططو الإنتاج لـ:
+- طلب تجهيز المواد قبل بدء الإنتاج
+- السماح للمستودع بتحضير المواد مسبقاً
+- الحصول على اعتماد لاستهلاك المواد
 
-Often these are auto-generated when a production order is released!
+في الغالب تُولَّد هذه الطلبات تلقائياً عند إصدار أمر الإنتاج!
 
-## Handling Special Cases
+## التعامل مع الحالات الخاصة {#Handling-Special-Cases}
 
-### HMSFeedingIssue - Hospital Ward Supply
+### HMSFeedingIssue - تزويد أجنحة المستشفى {#HMSFeedingIssue---Hospital-Ward-Supply}
 
-Hospitals have unique requirements. The `HMSFeedingIssue` documents issuing supplies from the central pharmacy or warehouse to:
-- Patient wards
-- Operating rooms
-- Clinical departments
+للمستشفيات متطلبات فريدة. يُوثِّق `HMSFeedingIssue` صرف المستلزمات من الصيدلية المركزية أو المستودع إلى:
+- أجنحة المرضى
+- غرف العمليات
+- الأقسام السريرية
 
-This tracks:
-- Which department received which supplies
-- Cost allocation to departments
-- Par level replenishment
-- Controlled substance tracking
+يتتبع هذا المستند:
+- أي قسم استلم أي مستلزمات
+- توزيع التكلفة على الأقسام
+- إعادة التزويد بناءً على الحد الأدنى
+- تتبع المواد الخاضعة للرقابة
 
-### ContractingMaterialIssue - Job Site Materials
+### ContractingMaterialIssue - مواد مواقع المشاريع {#ContractingMaterialIssue---Job-Site-Materials}
 
-For contracting businesses, the `ContractingMaterialIssue` documents materials sent to job sites. This is crucial because:
-- Materials might be at multiple active job sites
-- You need to track cost by project
-- Materials might be returned from site (unused materials)
-- Job costing depends on accurate material tracking
+لشركات المقاولات، يُوثِّق `ContractingMaterialIssue` المواد المرسلة إلى مواقع العمل. هذا أمر بالغ الأهمية لأن:
+- المواد قد تكون في مواقع عمل متعددة نشطة
+- تحتاج إلى تتبع التكلفة حسب المشروع
+- قد تُعاد المواد من الموقع (مواد غير مستخدمة)
+- يعتمد احتساب تكلفة المشروع على تتبع دقيق للمواد
 
-### ItemCuttingDoc - Material Transformation
+### ItemCuttingDoc - تحويل المواد {#ItemCuttingDoc---Material-Transformation}
 
-The `ItemCuttingDoc` (مستند تقطيع) handles a special case: when you're not just issuing material, but transforming it.
+يُعالج `ItemCuttingDoc` (مستند تقطيع) حالة خاصة: عندما لا تصرف المواد فحسب، بل تُحوِّلها.
 
-**Example**: You have a roll of fabric (100 meters). You cut it into pieces:
-- 20 pieces of 2 meters each
-- 15 pieces of 1.5 meters each
-- 10 pieces of 3 meters each
+**مثال**: لديك لفة قماش (100 متر). تقطعها إلى قطع:
+- 20 قطعة بطول 2 متر لكل منها
+- 15 قطعة بطول 1.5 متر لكل منها
+- 10 قطع بطول 3 أمتار لكل منها
 
-This document:
-- **Issues** the full roll (100 meters)
-- **Receives** 45 cut pieces of various sizes
-- **Tracks** waste (100 meters issued vs. 95 meters in cut pieces = 5 meters waste)
+هذا المستند:
+- **يصرف** اللفة الكاملة (100 متر)
+- **يستلم** 45 قطعة مقطوعة بأحجام مختلفة
+- **يتتبع** الهدر (100 متر مصروف مقابل 95 متر في القطع المقطوعة = 5 أمتار هدر)
 
-It's simultaneously an issue and receipt - a transformation document.
+إنه صرف واستلام في آنٍ واحد — مستند تحويل.
 
-## The Issue Life Cycle
+## دورة حياة الصرف {#The-Issue-Life-Cycle}
 
-Understanding the document journey:
+لفهم مسار المستند:
 
-### 1. Creation (Optional Request)
-If your organization uses requisitions, start with `StockIssueReq`. Otherwise, go straight to creating the issue.
+### 1. الإنشاء (طلب اختياري) {#1-Creation-Optional-Request}
+إذا كانت مؤسستك تستخدم طلبات الصرف، ابدأ بـ `StockIssueReq`. وإلا انتقل مباشرةً لإنشاء الصرف.
 
-### 2. Data Entry
-Specify:
-- Items and quantities to issue
-- From which location
-- For what purpose (production order, department, project, etc.)
-- Any special instructions
+### 2. إدخال البيانات {#2-Data-Entry}
+حدد:
+- الأصناف والكميات المراد صرفها
+- من أي موقع
+- لأي غرض (أمر إنتاج، قسم، مشروع، إلخ)
+- أي تعليمات خاصة
 
-### 3. Availability Check
-The system checks:
-- Do we have enough quantity in the specified location?
-- Are serial numbers/batches selected correctly?
-- Will this cause negative inventory?
+### 3. التحقق من التوفر {#3-Availability-Check}
+يتحقق النظام من:
+- هل تتوفر كمية كافية في الموقع المحدد؟
+- هل الأرقام التسلسلية / الدُّفعات محددة بشكل صحيح؟
+- هل سيؤدي هذا إلى مخزون سالب؟
 
-Depending on your overdraft policy, the system might prevent, warn, or allow going negative.
+بحسب سياسة السحب على المكشوف، قد يمنع النظام أو ينبه أو يسمح بالدخول في الرصيد السالب.
 
-### 4. Approval (Optional)
-Depending on item value, quantity, or organizational policy, the issue might require approval before saving.
+### 4. الاعتماد (اختياري) {#4-Approval-Optional}
+بحسب قيمة الصنف أو الكمية أو السياسة المؤسسية، قد يستلزم الصرف اعتماداً قبل الحفظ.
 
-### 5. Physical Picking
-Someone physically retrieves items from the warehouse. For complex picks, you might print a picking list.
+### 5. التجميع الفعلي {#5-Physical-Picking}
+يقوم شخص ما بسحب الأصناف فعلياً من المستودع. بالنسبة للتجميعات المعقدة، يمكن طباعة قائمة تجميع.
 
-### 6. Save the Document
-When you save (not as draft):
-- Inventory quantities decrease immediately
-- Accounting entries are created right away
-- Serial/lot numbers are removed from available inventory
-- Transaction history is recorded
+### 6. حفظ المستند {#6-Save-the-Document}
+عند الحفظ (لا كمسودة):
+- تنخفض كميات المخزون فوراً
+- تُنشأ القيود المحاسبية في الحال
+- تُزال الأرقام التسلسلية / أرقام الدُّفعات من المخزون المتاح
+- يُسجَّل سجل المعاملة
 
-### 7. Potential Return
-Sometimes issued items come back unused. Create a receipt document to return them to available stock.
+### 7. الإعادة المحتملة {#7-Potential-Return}
+أحياناً تعود الأصناف المصروفة غير مستخدمة. أنشئ مستند استلام لإعادتها إلى المخزون المتاح.
 
-## Batch Selection: Which Items Get Issued?
+## اختيار الدُّفعات: أي الأصناف تُصرف؟ {#Batch-Selection-Which-Items-Get-Issued}
 
-When you have multiple batches of the same item, which ones get issued? The system can automatically select based on:
+عندما يكون لديك عدة دفعات من الصنف ذاته، أيها يُصرف؟ يمكن للنظام الاختيار تلقائياً بناءً على:
 
-**FIFO (First In, First Out)**
-Issue oldest inventory first. Good for:
-- Perishable items
-- Items with shelf life
-- Preventing obsolescence
+**FIFO (أول داخل أول خارج)**
+صرف أقدم المخزون أولاً. مناسب لـ:
+- الأصناف القابلة للتلف
+- الأصناف ذات مدة الصلاحية
+- الوقاية من التقادم
 
-**LIFO (Last In, First Out)**
-Issue newest inventory first. Sometimes used for:
-- Tax optimization (in jurisdictions where allowed)
-- Items where newer is better (technology)
+**LIFO (آخر داخل أول خارج)**
+صرف أحدث المخزون أولاً. يُستخدم أحياناً لـ:
+- التحسين الضريبي (في الولايات القضائية التي تسمح بذلك)
+- الأصناف التي يكون فيها الأحدث أفضل (التكنولوجيا)
 
-**FEFO (First Expiry, First Out)**
-Issue items with earliest expiration date first. Essential for:
-- Pharmaceuticals
-- Food products
-- Any item with expiration dating
+**FEFO (أول انتهاء صلاحية أول خارج)**
+صرف الأصناف الأقرب انتهاءً أولاً. ضروري لـ:
+- الأدوية
+- المواد الغذائية
+- أي صنف له تاريخ انتهاء
 
-**Manual Selection**
-Sometimes you need to manually pick which batch:
-- Quality considerations
-- Customer preferences
-- Specific lot requirements
+**الاختيار اليدوي**
+أحياناً تحتاج إلى اختيار الدُّفعة يدوياً:
+- اعتبارات الجودة
+- تفضيلات العملاء
+- متطلبات دُفعة محددة
 
-## Serial Number Management
+## إدارة الأرقام التسلسلية {#Serial-Number-Management}
 
-For serialized items, issuing requires specifying exactly which serial numbers are leaving.
+للأصناف المرقَّمة تسلسلياً، يستلزم الصرف تحديد الأرقام التسلسلية المغادِرة بدقة.
 
-**The Process:**
-1. System shows all available serial numbers in the source location
-2. User selects which serial numbers to issue (or scans them)
-3. System verifies each serial number is available
-4. Upon saving, those serial numbers move from available to issued
-5. Future tracking: "Where is serial #12345?" shows it was issued on X date to Y department
+**العملية:**
+1. يعرض النظام جميع الأرقام التسلسلية المتاحة في موقع المصدر
+2. يختار المستخدم الأرقام التسلسلية المراد صرفها (أو يمسحها ضوئياً)
+3. يتحقق النظام من توفر كل رقم تسلسلي
+4. عند الحفظ، تنتقل تلك الأرقام من "متاح" إلى "مصروف"
+5. التتبع المستقبلي: "أين الرقم التسلسلي #12345؟" يُظهر أنه صُرف في تاريخ X لقسم Y
 
-This level of tracking is crucial for:
-- Warranty tracking
-- Recall management
-- Asset management
-- Compliance requirements
+هذا المستوى من التتبع ضروري لـ:
+- تتبع الضمان
+- إدارة الاستدعاء
+- إدارة الأصول
+- متطلبات الامتثال
 
-## Reservations and Committed Stock
+## الحجوزات والمخزون الملتزم {#Reservations-and-Committed-Stock}
 
-Sometimes stock is physically in the warehouse but not really "available" - it's reserved for a specific purpose.
+أحياناً يكون المخزون موجوداً فعلياً في المستودع لكنه غير "متاح" حقاً — إنه محجوز لغرض محدد.
 
-When you issue reserved stock, the system:
-- Checks that you're issuing to the correct purpose (the one it was reserved for)
-- Releases the reservation as you issue
-- Prevents accidentally issuing someone else's reserved items
+عند صرف المخزون المحجوز، يقوم النظام بـ:
+- التحقق من أنك تصرف للغرض الصحيح (الغرض الذي حُجز له)
+- تحرير الحجز عند الصرف
+- منع صرف أصناف محجوزة لجهة أخرى عن طريق الخطأ
 
-## Accounting Impact of Issues
+## الأثر المحاسبي للصرف {#Accounting-Impact-of-Issues}
 
-Every issue has accounting consequences. What happens depends on the purpose:
+لكل عملية صرف تبعات محاسبية. ما يحدث يعتمد على الغرض:
 
-**Issue to Production**
-- Credit: Raw Materials Inventory
-- Debit: Work-in-Process Inventory
+**الصرف للإنتاج**
+- دائن: مخزون المواد الخام
+- مدين: مخزون الإنتاج تحت التشغيل
 
-**Issue to Department (Internal Use)**
-- Credit: Inventory
-- Debit: Department Expense Account
+**الصرف لقسم (استخدام داخلي)**
+- دائن: المخزون
+- مدين: حساب مصروفات القسم
 
-**Issue for Samples (Marketing)**
-- Credit: Inventory
-- Debit: Marketing Expense
+**الصرف للعينات (تسويق)**
+- دائن: المخزون
+- مدين: مصروف التسويق
 
-**Issue for Warranty Replacement**
-- Credit: Inventory
-- Debit: Warranty Expense
+**الصرف لاستبدال الضمان**
+- دائن: المخزون
+- مدين: مصروف الضمان
 
-**Issue to Repair (To Be Returned)**
-- Credit: Inventory
-- Debit: Inventory-Under-Repair (Still an asset!)
+**الصرف للإصلاح (يُعاد لاحقاً)**
+- دائن: المخزون
+- مدين: مخزون تحت الإصلاح (لا يزال أصلاً!)
 
-The system creates these entries automatically based on how you configured the item's accounting settings and the issue purpose.
+يُنشئ النظام هذه القيود تلقائياً بناءً على إعدادات المحاسبة التي هيأتها للصنف وغرض الصرف.
 
-## Correcting Issue Mistakes
+## تصحيح أخطاء الصرف {#Correcting-Issue-Mistakes}
 
-What if you issued too much? Too little? Wrong item?
+ماذا لو صرفت أكثر مما يجب؟ أو أقل؟ أو الصنف الخطأ؟
 
-**Option 1: Receipt Document**
-If you issued too much and items are returned, create a receipt to bring them back.
+**الخيار الأول: مستند الاستلام**
+إذا صرفت أكثر وأُعيدت الأصناف، أنشئ استلاماً لإعادتها.
 
-**Option 2: Adjustment Issue**
-If you issued too little, create another issue for the additional quantity.
+**الخيار الثاني: صرف تعديلي**
+إذا صرفت أقل، أنشئ صرفاً إضافياً للكمية الباقية.
 
-**Option 3: Negative Issue (Careful!)**
-Some systems allow negative quantity issues (effectively receipts). Use cautiously - this mixes receipt and issue concepts.
+**الخيار الثالث: صرف بكمية سالبة (بحذر!)**
+بعض الأنظمة تسمح بصرف بكميات سالبة (استلام فعلياً). استخدمه بحذر — يخلط مفهومَي الاستلام والصرف.
 
-**Option 4: Cancellation and Reissue**
-Cancel the wrong issue, then create a new correct one. Cleanest audit trail but most work.
+**الخيار الرابع: الإلغاء وإعادة الإصدار**
+ألغِ الصرف الخاطئ ثم أنشئ واحداً صحيحاً. أوضح مسار تدقيق لكنه الأكثر جهداً.
 
-Choose based on your organization's controls, how much time has passed, and whether downstream processes (like production costing) have already used the issue data.
+اختر بناءً على ضوابط مؤسستك، والوقت المنقضي، وما إذا كانت العمليات اللاحقة (كاحتساب تكلفة الإنتاج) قد استخدمت بيانات الصرف بالفعل.
 
-## Tips for Accurate Issuing
+## نصائح للصرف الدقيق {#Tips-for-Accurate-Issuing}
 
-::: tip Best Practices
+::: tip أفضل الممارسات
 
-**Verify Before Saving**
-Double-check quantities and items before saving (not as draft). Once saved, the document affects the system immediately.
+**تحقق قبل الحفظ**
+راجع الكميات والأصناف قبل الحفظ (لا كمسودة). بمجرد الحفظ، يؤثر المستند على النظام فوراً.
 
-**Use Locations Precisely**
-Issue from the exact location where items physically are. Don't issue from "Warehouse 1" generically - issue from "WH1-Aisle-A-Shelf-3".
+**استخدم المواقع بدقة**
+اصرف من الموقع الفعلي الذي تتواجد فيه الأصناف. لا تصرف من "مستودع 1" بشكل عام — اصرف من "WH1-Aisle-A-Shelf-3".
 
-**Link to Source Docs**
-Always link issues to their purpose: production order number, sales order number, requisition number, project code. This traceability is essential.
+**اربط بمستندات المصدر**
+اربط الصرف دائماً بغرضه: رقم أمر الإنتاج، رقم أمر البيع، رقم الطلب، رمز المشروع. هذا التتبع ضروري.
 
-**Don't Stockpile Issues**
-Enter issues when they happen, not in batch at the end of the day/week. Real-time inventory accuracy requires real-time recording.
+**لا تؤخر تسجيل الصرف**
+سجِّل الصرف فور حدوثه، لا دفعةً في نهاية اليوم أو الأسبوع. دقة المخزون اللحظية تتطلب تسجيلاً لحظياً.
 
-**Serial Number Accuracy**
-If you're issuing serialized items, scan or carefully record serial numbers. Wrong serial numbers mean inventory inaccuracy.
+**دقة الأرقام التسلسلية**
+إذا صرفت أصنافاً مرقَّمة تسلسلياً، امسح الأرقام ضوئياً أو سجِّلها بعناية. الأرقام الخاطئة تعني عدم دقة المخزون.
 
-**Handle Partial Issues**
-If you can only issue part of a request (not enough stock), issue what you have and note the shortage. Don't wait until you can fulfill the entire request.
+**عالج الصرف الجزئي**
+إذا كان بإمكانك صرف جزء فقط من الطلب (مخزون غير كافٍ)، اصرف ما لديك وسجِّل النقص. لا تنتظر حتى تتمكن من تنفيذ الطلب كاملاً.
 
-**Use Remarks**
-When something unusual happens, document it in the remarks field. Future you will need this context.
+**استخدم حقل الملاحظات**
+عندما يحدث شيء غير اعتيادي، وثِّقه في حقل الملاحظات. ستحتاج إلى هذا السياق لاحقاً.
 
 :::
 
-## Common Questions
+## أسئلة شائعة {#Common-Questions}
 
-**Q: Can we issue items we don't have (go negative)?**
+**س: هل يمكننا صرف أصناف غير موجودة في المخزون (الدخول في الرصيد السالب)؟**
 
-A: It depends on the item's overdraft policy. Some items (critical supplies) might prevent negative inventory. Others might warn but allow. Check with your system administrator about policies for different item categories.
+ج: يعتمد الأمر على سياسة السحب على المكشوف للصنف. بعض الأصناف (المستلزمات الحيوية) قد تمنع المخزون السالب. وأخرى قد تُنبِّه لكن تسمح. استشر مدير النظام بشأن السياسات لفئات الأصناف المختلفة.
 
-**Q: We issued the wrong items. Can we reverse the issue?**
+**س: صرفنا الأصناف الخاطئة. هل يمكن عكس الصرف؟**
 
-A: You can't "un-post" an issue, but you can:
-1. Receive the wrong items back (undo the effect)
-2. Issue the correct items
-This maintains proper audit trail.
+ج: لا يمكنك "إلغاء ترحيل" الصرف، لكن يمكنك:
+1. استلام الأصناف الخاطئة مجدداً (التراجع عن الأثر)
+2. صرف الأصناف الصحيحة
+هذا يحافظ على مسار التدقيق الصحيح.
 
-**Q: How do we handle partial returns of issued items?**
+**س: كيف نتعامل مع الإعادة الجزئية للأصناف المصروفة؟**
 
-A: Create a receipt document for the returned quantity, linking it to the original issue document. This handles scenarios like issuing 100 units but 10 come back unused.
+ج: أنشئ مستند استلام للكمية المُعادة مرتبطاً بمستند الصرف الأصلي. هذا يعالج سيناريوهات من قبيل صرف 100 وحدة وإعادة 10 منها غير مستخدمة.
 
-**Q: What's the difference between issuing and transferring?**
+**س: ما الفرق بين الصرف والتحويل؟**
 
-A: **Issue** reduces total inventory (items left the organization's control). **Transfer** moves items between locations but total inventory stays the same. Issue to a customer is an issue. Move from warehouse A to warehouse B is a transfer.
+ج: **الصرف** يُقلِّص إجمالي المخزون (خرجت الأصناف من سيطرة المنظمة). **التحويل** ينقل الأصناف بين المواقع لكن يبقى إجمالي المخزون كما هو. الصرف للعميل يُعدُّ صرفاً. النقل من مستودع أ إلى مستودع ب يُعدُّ تحويلاً.
 
-**Q: Can one issue go to multiple purposes?**
+**س: هل يمكن أن يخدم صرف واحد أغراضاً متعددة؟**
 
-A: Technically yes - one issue document can have multiple lines for different purposes. But often it's clearer to create separate issues when the purposes are different (one for production, one for samples, etc.).
+ج: من الناحية التقنية نعم — يمكن لمستند صرف واحد أن يحتوي على أسطر لأغراض مختلفة. لكن في أغلب الأحيان يكون أوضح إنشاء صرفيات منفصلة عندما تختلف الأغراض (واحد للإنتاج، وآخر للعينات، إلخ).
 
-## Integration with Other Processes
+## التكامل مع العمليات الأخرى {#Integration-with-Other-Processes}
 
-Issues connect to many other business processes:
+يرتبط الصرف بعمليات تجارية متعددة:
 
-**Manufacturing**: Issues feed production orders, which eventually produce finished goods receipts.
+**التصنيع**: يُغذِّي الصرف أوامر الإنتاج التي تُنتج في النهاية استلام البضائع التامة.
 
-**Sales**: While direct sales use specialized sales documents, sometimes you issue items for demonstrations, samples, or sales kits.
+**المبيعات**: بينما تستخدم المبيعات المباشرة مستندات متخصصة، أحياناً تصرف أصنافاً للعروض التوضيحية أو العينات أو طقم المبيعات.
 
-**Projects**: For project-based businesses, issues allocate costs to specific projects or job numbers.
+**المشاريع**: لأعمال المشاريع، يُخصِّص الصرف التكاليف لمشاريع أو أرقام وظائف محددة.
 
-**Maintenance**: Issuing spare parts reduces parts inventory and increases maintenance expense or asset improvement cost.
+**الصيانة**: صرف قطع الغيار يُقلِّص مخزون القطع ويرفع مصروف الصيانة أو تكلفة تحسين الأصل.
 
-**Quality Control**: Sometimes you issue items for destructive testing - they're consumed in the quality process.
+**مراقبة الجودة**: أحياناً تُصرف أصناف لاختبارات تدميرية — تُستهلك في عملية الجودة.
 
-## Next Steps
+## الخطوات التالية {#Next-Steps}
 
-Now you understand both receiving and issuing. Next, learn about:
-- [Moving Stock Around](./moving-stock.md) - Transfers, assemblies, and transformations
-- [The Purchasing Journey](./purchasing-journey.md) - How purchased items arrive (leading to receipts)
-- [The Sales Journey](./sales-journey.md) - How sold items leave (leading to issues)
+الآن وقد فهمت الاستلام والصرف معاً، تعلَّم ما يلي:
+- [تحريك المخزون](./moving-stock.md) - التحويلات والتجميعات والتحولات
+- [رحلة الشراء](./purchasing-journey.md) - كيف تصل الأصناف المشتراة (مما يؤدي إلى الاستلام)
+- [رحلة المبيعات](./sales-journey.md) - كيف تغادر الأصناف المباعة (مما يؤدي إلى الصرف)

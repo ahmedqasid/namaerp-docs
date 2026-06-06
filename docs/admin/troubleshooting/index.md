@@ -1,7 +1,7 @@
 <div class="ignore-in-full-text-search">
 
 # Troubleshooting
-  - [Troubleshooting System Hanging or Unresponsiveness](/admin/troubleshooting/troubleshooting-system-hanging.md)
+  - [استكشاف أخطاء توقف النظام أو عدم استجابته (Troubleshooting System Hanging or Unresponsiveness) {#Troubleshooting-System-Hanging-or-Unresponsiveness}](/admin/troubleshooting/troubleshooting-system-hanging.md)
   - [أسئلة عامة](/admin/troubleshooting/general-faq.md)
   - [Database Related Errors FAQ](/admin/troubleshooting/database-error-related-faq.md)
 

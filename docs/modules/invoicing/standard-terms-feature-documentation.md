@@ -1,191 +1,191 @@
-# Standard Terms and Conditions Feature Documentation
+# توثيق خاصية الشروط والأحكام القياسية (Standard Terms and Conditions Feature Documentation) {#Standard-Terms-and-Conditions-Feature-Documentation}
 ::: tip
-The content of this file was auto-generated using Claude.ai by reviewing the source code, if you find any incorrect information, please contact Nama ERP developemnt team.
+محتوى هذا الملف تم إنشاؤه تلقائيًا باستخدام Claude.ai بمراجعة الكود المصدري، إذا وجدت أي معلومات غير صحيحة يرجى التواصل مع فريق تطوير Nama ERP.
 :::
 
-## Overview
+## نظرة عامة (Overview) {#Overview}
 
-The Standard Terms feature in Nama ERP provides a comprehensive mechanism for tracking terms and conditions in sales documents (invoices, quotations, etc.) and monitoring whether these terms have been fulfilled. This system allows businesses to define standardized terms, attach them to documents, track their fulfillment status, and manage extensions when needed.
+تتيح خاصية الشروط القياسية في Nama ERP آلية شاملة لتتبع الشروط والأحكام في وثائق المبيعات (الفواتير والعروض وما إليها) ومراقبة مدى الوفاء بها. يمكّن هذا النظام الشركات من تحديد شروط موحدة وإرفاقها بالوثائق وتتبع حالة الوفاء بها وإدارة التمديدات عند الحاجة.
 
-## Key Components
+## المكونات الرئيسية (Key Components) {#Key-Components}
 
-### 1. Sales Standard Term (Master File)
-**Entity**: `SalesStandardTerm`  
-**Table**: `SalesStandardTerm`  
-**Type**: Master File
+### 1. الشرط القياسي للمبيعات - ملف رئيسي (Sales Standard Term - Master File) {#1-Sales-Standard-Term-Master-File}
+**الكيان**: `SalesStandardTerm`  
+**الجدول**: `SalesStandardTerm`  
+**النوع**: ملف رئيسي
 
-This is the master definition of standard terms that can be attached to sales documents.
+هذا هو التعريف الرئيسي للشروط القياسية التي يمكن إرفاقها بوثائق المبيعات.
 
-#### Configuration Fields:
-- **Code** (`code`): Unique identifier for the term
-- **Name 1** (`name1`): Primary name/description of the term
-- **Requires Standard Term Fulfillment Document** (`requiresTermFulfillment`): Boolean flag indicating if this term needs formal fulfillment tracking
-- **Used With Standard Term Extension Document** (`useWithTermExtension`): Boolean flag indicating if this term can be extended
-- **Initial Term Work Period** (`initialTermWorkPeriod`): Default duration for the term (includes value and unit of measure)
-- **Remarks 2** (`remarks2`): Additional notes or detailed description of the term
+#### حقول الإعداد (Configuration Fields): {#Configuration-Fields}
+- **الكود** (`code`): معرّف فريد للشرط
+- **الاسم 1** (`name1`): الاسم/الوصف الرئيسي للشرط
+- **يتطلب وثيقة إتمام الشرط القياسي** (`requiresTermFulfillment`): علامة منطقية تشير إلى ما إذا كان هذا الشرط يحتاج إلى تتبع رسمي للوفاء به
+- **يُستخدم مع وثيقة تمديد الشرط القياسي** (`useWithTermExtension`): علامة منطقية تشير إلى إمكانية تمديد هذا الشرط
+- **فترة العمل الأولية للشرط** (`initialTermWorkPeriod`): المدة الافتراضية للشرط (تشمل القيمة ووحدة القياس)
+- **ملاحظات 2** (`remarks2`): ملاحظات إضافية أو وصف تفصيلي للشرط
 
-### 2. Standard Term Fulfillment Document
-**Entity**: `StandardTermFulfillment`  
-**Table**: `StandardTermFulfillment`  
-**Type**: Document File
+### 2. وثيقة إتمام الشرط القياسي (Standard Term Fulfillment Document) {#2-Standard-Term-Fulfillment-Document}
+**الكيان**: `StandardTermFulfillment`  
+**الجدول**: `StandardTermFulfillment`  
+**النوع**: ملف وثيقة
 
-Document used to formally record that specific terms have been fulfilled.
+وثيقة تُستخدم لتسجيل الوفاء بشروط محددة رسميًا.
 
-#### Key Fields:
-- **From Doc** (`fromDoc`): Generic reference to the source document (e.g., Sales Invoice)
-- **Details** (`details`): Collection of fulfillment lines
+#### الحقول الرئيسية (Key Fields): {#Key-Fields}
+- **من وثيقة** (`fromDoc`): مرجع عام للوثيقة المصدر (مثل فاتورة المبيعات)
+- **التفاصيل** (`details`): مجموعة من سطور الوفاء
 
-#### Fulfillment Line Fields:
-- **Standard Term** (`standardTerm`): Reference to the Sales Standard Term being fulfilled
-- **Fulfillment Date** (`fulfillmentDate`): Date when the term was fulfilled
+#### حقول سطر الوفاء (Fulfillment Line Fields): {#Fulfillment-Line-Fields}
+- **الشرط القياسي** (`standardTerm`): حقل مرجع للشرط القياسي للمبيعات الذي تم الوفاء به
+- **تاريخ الوفاء** (`fulfillmentDate`): التاريخ الذي تم فيه الوفاء بالشرط
 
-### 3. Standard Term Extension Document
-**Entity**: `StandardTermExtension`  
-**Table**: `StandardTermExtension`  
-**Type**: Document File
+### 3. وثيقة تمديد الشرط القياسي (Standard Term Extension Document) {#3-Standard-Term-Extension-Document}
+**الكيان**: `StandardTermExtension`  
+**الجدول**: `StandardTermExtension`  
+**النوع**: ملف وثيقة
 
-Document used to extend the deadline for standard terms that allow extensions.
+وثيقة تُستخدم لتمديد الموعد النهائي للشروط القياسية التي تسمح بالتمديد.
 
-#### Key Fields:
-- **From Doc** (`fromDoc`): Generic reference to the source document
-- **Details** (`details`): Collection of extension lines
+#### الحقول الرئيسية (Key Fields): {#Key-Fields-2}
+- **من وثيقة** (`fromDoc`): مرجع عام للوثيقة المصدر
+- **التفاصيل** (`details`): مجموعة من سطور التمديد
 
-#### Extension Line Fields:
-- **Standard Term** (`standardTerm`): Reference to the Sales Standard Term being extended
-- **Extension Period** (`extensionPeriod`): Additional time period for the extension
-- **Extension Fine** (`extensionFine`): Monetary penalty for the extension
+#### حقول سطر التمديد (Extension Line Fields): {#Extension-Line-Fields}
+- **الشرط القياسي** (`standardTerm`): حقل مرجع للشرط القياسي للمبيعات المراد تمديده
+- **فترة التمديد** (`extensionPeriod`): مدة إضافية للتمديد
+- **غرامة التمديد** (`extensionFine`): غرامة مالية مقابل التمديد
 
-## Implementation in Sales Documents
+## التطبيق في وثائق المبيعات (Implementation in Sales Documents) {#Implementation-in-Sales-Documents}
 
-### Sales Invoice Standard Terms Line
-Documents like Sales Invoices can include standard terms through detail lines.
+### سطر الشروط القياسية في فاتورة المبيعات (Sales Invoice Standard Terms Line) {#Sales-Invoice-Standard-Terms-Line}
+يمكن للوثائق كفواتير المبيعات تضمين الشروط القياسية من خلال سطور التفاصيل.
 
-#### Line Fields:
-- **Standard Term** (`standardTerm`): Reference to the Sales Standard Term
-- **Remarks** (`remarks`): Additional notes specific to this instance
-- **Standard Term Planned End Date** (`termPlannedEndDate`): Original deadline for the term
-- **Standard Term End Date After Extension** (`termExtendedEndDate`): Updated deadline after extensions (system-calculated)
-- **Fulfillment Date** (`fulfillmentDate`): Date when fulfilled (system-updated)
-- **Total Extension Fine** (`extensionFines`): Accumulated fines from all extensions (system-calculated)
-- **Fulfillment Doc** (`fulfillmentDoc`): Reference to the Standard Term Fulfillment document (system-updated)
+#### حقول السطر (Line Fields): {#Line-Fields}
+- **الشرط القياسي** (`standardTerm`): حقل مرجع للشرط القياسي للمبيعات
+- **ملاحظات** (`remarks`): ملاحظات إضافية خاصة بهذه الحالة
+- **تاريخ انتهاء الشرط القياسي المخطط** (`termPlannedEndDate`): الموعد النهائي الأصلي للشرط
+- **تاريخ انتهاء الشرط القياسي بعد التمديد** (`termExtendedEndDate`): الموعد النهائي المحدث بعد التمديدات (يحسبه النظام)
+- **تاريخ الوفاء** (`fulfillmentDate`): تاريخ الوفاء (يحدّثه النظام)
+- **إجمالي غرامات التمديد** (`extensionFines`): الغرامات المتراكمة من جميع التمديدات (يحسبها النظام)
+- **وثيقة الوفاء** (`fulfillmentDoc`): حقل مرجع لوثيقة إتمام الشرط القياسي (يحدّثه النظام)
 
-#### Additional Custom Fields:
-The system provides flexible fields for custom data:
-- **Reference Fields** (`ref1` to `ref5`): Generic references for linking to other entities
-- **Numeric Fields** (`n1` to `n5`): Decimal values for custom calculations
-- **Text Fields** (`text1` to `text5`): Text values for additional information
-- **Date Fields** (`date1` to `date5`): Date values for tracking milestones
-- **Attachments** (`attachment1` to `attachment3`): Binary data for supporting documents
+#### حقول مخصصة إضافية (Additional Custom Fields): {#Additional-Custom-Fields}
+يوفر النظام حقولًا مرنة للبيانات المخصصة:
+- **حقول مرجع** (`ref1` إلى `ref5`): مراجع عامة للربط بكيانات أخرى
+- **حقول رقمية** (`n1` إلى `n5`): قيم عشرية للحسابات المخصصة
+- **حقول نصية** (`text1` إلى `text5`): قيم نصية للمعلومات الإضافية
+- **حقول التاريخ** (`date1` إلى `date5`): قيم تاريخ لتتبع المعالم
+- **المرفقات** (`attachment1` إلى `attachment3`): بيانات ثنائية للوثائق الداعمة
 
-## Business Process Flow
+## مسار العمل التجاري (Business Process Flow) {#Business-Process-Flow}
 
-### 1. Setup Phase
-1. Create Sales Standard Terms in the master file
-2. Configure each term with:
-   - Whether it requires fulfillment tracking
-   - Whether it can be extended
-   - Default work period duration
+### 1. مرحلة الإعداد (Setup Phase) {#1-Setup-Phase}
+1. أنشئ الشروط القياسية للمبيعات في الملف الرئيسي
+2. قم بتهيئة كل شرط بما يلي:
+   - هل يتطلب تتبع الوفاء
+   - هل يمكن تمديده
+   - مدة العمل الافتراضية
 
-### 2. Document Creation
-1. Add standard terms to sales documents (invoices, quotations, etc.)
-2. System automatically calculates `termPlannedEndDate` based on:
-   - Document value date
-   - Term's initial work period
-3. For extendable terms, system calculates `termExtendedEndDate` considering any existing extensions
+### 2. إنشاء الوثيقة (Document Creation) {#2-Document-Creation}
+1. أضف الشروط القياسية إلى وثائق المبيعات (الفواتير والعروض وما إليها)
+2. يحسب النظام تلقائيًا `termPlannedEndDate` بناءً على:
+   - تاريخ قيمة الوثيقة
+   - الفترة الأولية للشرط
+3. بالنسبة للشروط القابلة للتمديد، يحسب النظام `termExtendedEndDate` مع مراعاة أي تمديدات قائمة
 
-### 3. Term Extension Process
-1. Create a Standard Term Extension document
-2. Reference the source document
-3. Add extension lines specifying:
-   - Which terms to extend
-   - Extension period
-   - Extension fines
-4. System updates:
-   - `termExtendedEndDate` on the original document
-   - `extensionFines` accumulation
+### 3. عملية تمديد الشرط (Term Extension Process) {#3-Term-Extension-Process}
+1. أنشئ وثيقة تمديد الشرط القياسي
+2. أشر إلى الوثيقة المصدر
+3. أضف سطور تمديد محددةً:
+   - أي الشروط يُراد تمديدها
+   - فترة التمديد
+   - غرامات التمديد
+4. يقوم النظام بتحديث:
+   - `termExtendedEndDate` في الوثيقة الأصلية
+   - تراكم `extensionFines`
 
-### 4. Term Fulfillment Process
-1. Create a Standard Term Fulfillment document
-2. Reference the source document
-3. Add fulfillment lines specifying:
-   - Which terms are fulfilled
-   - Fulfillment dates
-4. System validates and updates:
-   - `fulfillmentDate` on the original document
-   - `fulfillmentDoc` reference
+### 4. عملية الوفاء بالشرط (Term Fulfillment Process) {#4-Term-Fulfillment-Process}
+1. أنشئ وثيقة إتمام الشرط القياسي
+2. أشر إلى الوثيقة المصدر
+3. أضف سطور وفاء محددةً:
+   - أي الشروط تم الوفاء بها
+   - تواريخ الوفاء
+4. يتحقق النظام ويحدّث:
+   - `fulfillmentDate` في الوثيقة الأصلية
+   - حقل مرجع `fulfillmentDoc`
 
-## Validation Rules
+## قواعد التحقق (Validation Rules) {#Validation-Rules}
 
-### Term Uniqueness
-- Each standard term can only appear once per document (for terms requiring fulfillment or extension)
-- System validates during document save
+### تفرد الشروط (Term Uniqueness) {#Term-Uniqueness}
+- يمكن أن يظهر كل شرط قياسي مرة واحدة فقط لكل وثيقة (للشروط التي تتطلب وفاءً أو تمديدًا)
+- يتحقق النظام من ذلك عند حفظ الوثيقة
 
-### Extension Validation
-- Extensions cannot be applied after a term has been fulfilled
-- Extensions are processed chronologically based on creation date
-- System prevents conflicting extensions
+### التحقق من التمديد (Extension Validation) {#Extension-Validation}
+- لا يمكن تطبيق التمديدات بعد الوفاء بالشرط
+- تتم معالجة التمديدات بالترتيب الزمني بناءً على تاريخ الإنشاء
+- يمنع النظام التمديدات المتعارضة
 
-### Fulfillment Validation
-- A term can only be fulfilled once
-- If a fulfillment document already exists for a term, another document cannot fulfill it
-- System validates fulfillment dates against extension periods
+### التحقق من الوفاء (Fulfillment Validation) {#Fulfillment-Validation}
+- لا يمكن الوفاء بالشرط إلا مرة واحدة
+- إذا كانت وثيقة وفاء موجودة بالفعل لشرط ما، فلا يمكن لوثيقة أخرى الوفاء به
+- يتحقق النظام من تواريخ الوفاء مقارنةً بفترات التمديد
 
-## Technical Implementation
+## التطبيق التقني (Technical Implementation) {#Technical-Implementation}
 
-### Key Interfaces
+### الواجهات الرئيسية (Key Interfaces) {#Key-Interfaces}
 
 #### IHasStandardTerms
-Implemented by documents that support standard terms:
-- `fetchTerms()`: Returns the collection of standard term lines
-- `termLineClassType()`: Returns the specific line class type
-- `calcStandardTermEndDateAfterExtension()`: Calculates dates considering extensions
-- `validateStandardTerms()`: Validates term uniqueness and rules
+تُطبَّق في الوثائق التي تدعم الشروط القياسية:
+- `fetchTerms()`: يُرجع مجموعة سطور الشروط القياسية
+- `termLineClassType()`: يُرجع نوع فئة السطر المحددة
+- `calcStandardTermEndDateAfterExtension()`: يحسب التواريخ مع مراعاة التمديدات
+- `validateStandardTerms()`: يتحقق من تفرد الشروط وقواعدها
 
 #### IStandardTermLine
-Implemented by standard term line classes:
-- Getters and setters for all term-related fields
-- System fields are managed automatically
+تُطبَّق في فئات سطر الشروط القياسية:
+- أدوات الوصول والتعيين لجميع الحقول المتعلقة بالشروط
+- تُدار الحقول الخاصة بالنظام تلقائيًا
 
-### Utility Class: StandardTermUtils
-Provides core business logic:
-- `markStandardTermAsFulfilled()`: Processes fulfillment documents
-- `extendStandardTerm()`: Processes extension documents
-- `unFilFullStandardTerms()`: Reverses fulfillment
-- `cancelExtendStandardTerm()`: Reverses extension
-- `calcTermEndDatesAfterExtension()`: Recalculates dates
+### فئة الأداة المساعدة: StandardTermUtils {#Utility-Class-StandardTermUtils}
+توفر المنطق التجاري الأساسي:
+- `markStandardTermAsFulfilled()`: يعالج وثائق الوفاء
+- `extendStandardTerm()`: يعالج وثائق التمديد
+- `unFilFullStandardTerms()`: يعكس الوفاء
+- `cancelExtendStandardTerm()`: يعكس التمديد
+- `calcTermEndDatesAfterExtension()`: يعيد حساب التواريخ
 
-## Configuration Examples
+## أمثلة الإعداد (Configuration Examples) {#Configuration-Examples}
 
-### Example 1: Payment Terms
-**Term Setup**:
-- Code: `PAY30`
-- Name: "Payment within 30 days"
-- Requires Fulfillment: Yes
-- Allows Extension: Yes
-- Initial Period: 30 days
+### مثال 1: شروط الدفع (Payment Terms) {#Example-1-Payment-Terms}
+**إعداد الشرط**:
+- الكود: `PAY30`
+- الاسم: "السداد خلال 30 يومًا"
+- يتطلب وفاء: نعم
+- يسمح بالتمديد: نعم
+- الفترة الأولية: 30 يومًا
 
-**Usage**: Attached to sales invoices to track payment deadlines and extensions.
+**الاستخدام**: يُرفق بفواتير المبيعات لتتبع مواعيد الدفع النهائية والتمديدات.
 
-### Example 2: Delivery Terms
-**Term Setup**:
-- Code: `DEL7`
-- Name: "Delivery within 7 days"
-- Requires Fulfillment: Yes
-- Allows Extension: No
-- Initial Period: 7 days
+### مثال 2: شروط التسليم (Delivery Terms) {#Example-2-Delivery-Terms}
+**إعداد الشرط**:
+- الكود: `DEL7`
+- الاسم: "التسليم خلال 7 أيام"
+- يتطلب وفاء: نعم
+- يسمح بالتمديد: لا
+- الفترة الأولية: 7 أيام
 
-**Usage**: Attached to sales orders to track delivery commitments.
+**الاستخدام**: يُرفق بأوامر المبيعات لتتبع التزامات التسليم.
 
-### Example 3: Warranty Terms
-**Term Setup**:
-- Code: `WAR365`
-- Name: "One year warranty"
-- Requires Fulfillment: No
-- Allows Extension: Yes
-- Initial Period: 365 days
+### مثال 3: شروط الضمان (Warranty Terms) {#Example-3-Warranty-Terms}
+**إعداد الشرط**:
+- الكود: `WAR365`
+- الاسم: "ضمان لمدة سنة"
+- يتطلب وفاء: لا
+- يسمح بالتمديد: نعم
+- الفترة الأولية: 365 يومًا
 
-**Usage**: Attached to sales invoices for warranty tracking.
+**الاستخدام**: يُرفق بفواتير المبيعات لتتبع الضمان.
 
-## Summary
+## ملخص (Summary) {#Summary}
 
-The Standard Terms feature provides comprehensive tracking and management of contractual terms and conditions in Nama ERP. Through its flexible configuration, automated calculations, and validation rules, it ensures businesses can effectively monitor and fulfill their obligations while maintaining clear documentation of all extensions and completions.
+تتيح خاصية الشروط القياسية تتبعًا شاملًا وإدارةً كاملة للشروط والأحكام التعاقدية في Nama ERP. من خلال إعدادها المرن والحسابات الآلية وقواعد التحقق، تضمن هذه الخاصية للشركات مراقبة التزاماتها والوفاء بها بفاعلية مع الحفاظ على توثيق واضح لجميع التمديدات والإنجازات.

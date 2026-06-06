@@ -1,131 +1,131 @@
-# Scheduled Tasks (Task Scheduler)
+﻿# المهام المجدولة (Task Scheduler) {#Scheduled-Tasks--Task-Scheduler-}
 
-Task Scheduler allows you to automate recurring operations in Nama ERP. Whether you need to send daily reports to managers, run system maintenance queries, or trigger notifications when certain conditions are met, the Task Scheduler handles it all—running in the background while you focus on your business.
+يتيح لك Task Scheduler أتمتة العمليات المتكررة في Nama ERP. سواء كنت بحاجة إلى إرسال تقارير يومية للمديرين، أو تشغيل استعلامات صيانة النظام، أو إطلاق إشعارات عند توافر شروط معينة، يتكفل Task Scheduler بكل ذلك — يعمل في الخلفية بينما تركز أنت على أعمالك.
 
-## Understanding Task Types
+## أنواع المهام {#Understanding-Task-Types}
 
-When you create a scheduled task, the first decision you'll make is choosing the **Schedule Type**. This determines what kind of action the task will perform when it runs. Let's walk through each type:
+عند إنشاء مهمة مجدولة، أول قرار ستتخذه هو اختيار **نوع الجدولة (Schedule Type)**. يحدد هذا الخيار نوع الإجراء الذي ستنفذه المهمة عند تشغيلها. فيما يلي شرح لكل نوع:
 
-### Report (Email Report)
-The most common use case. The system runs a report and emails it to specified recipients. You'll select a report definition, configure the output format (HTML, PDF, Excel), and specify who should receive it.
+### Report (إرسال تقرير بالبريد الإلكتروني)
+الاستخدام الأكثر شيوعًا. يقوم النظام بتشغيل تقرير وإرساله بالبريد الإلكتروني إلى المستلمين المحددين. ستختار تعريف التقرير، وتحدد تنسيق المخرجات (HTML، PDF، Excel)، ومن يستلمه.
 
-### Print Report
-Similar to the Report type, but instead of emailing, the report is sent directly to a printer. You'll need to specify the printer name that's configured on the server.
+### Print Report (طباعة تقرير)
+مشابه لنوع Report، لكن بدلًا من الإرسال بالبريد الإلكتروني، يُرسل التقرير مباشرة إلى طابعة. ستحتاج إلى تحديد اسم الطابعة المهيأة على الخادم.
 
-### Notification
-Sends notifications to users based on query results and templates. You can configure notification templates for:
-- In-app notifications
-- Email messages
-- SMS messages
+### Notification (إشعار)
+يرسل إشعارات للمستخدمين استنادًا إلى نتائج الاستعلامات والقوالب. يمكنك إعداد قوالب الإشعارات لـ:
+- الإشعارات داخل التطبيق
+- رسائل البريد الإلكتروني
+- رسائل SMS
 
-### System
-Executes a native SQL query directly against the database. Use this for maintenance operations, data cleanup, or batch updates. The query runs as-is, so use with caution.
+### System (نظام)
+ينفّذ استعلام SQL مباشرةً على قاعدة البيانات. استخدمه لعمليات الصيانة وتنظيف البيانات أو التحديثات الدفعية. الاستعلام يُنفَّذ كما هو، لذا استخدمه بحذر.
 
-### Action
-Runs a Java class that implements `EntityAction`. This is the most flexible option—you specify the fully qualified class name and up to 15 parameters. The system validates parameters before execution and provides descriptions of what each action does.
+### Action (إجراء)
+يشغّل كلاس Java يُطبّق `EntityAction`. هذا هو الخيار الأكثر مرونة — تحدد اسم الكلاس الكامل ومعاملات تصل إلى 15 مدخلًا. يتحقق النظام من المدخلات قبل التنفيذ ويوفر أوصافًا لما يفعله كل إجراء.
 
-### Parameterized Report (Email)
-A powerful variation of Report type. Instead of running the report once, it executes a SQL query first to get parameter values, then runs the report multiple times—once for each row returned. Each execution can go to different recipients.
+### Parameterized Report (Email) (تقرير بمعاملات - بريد إلكتروني)
+نوع متقدم من Report. بدلًا من تشغيل التقرير مرة واحدة، ينفّذ أولًا استعلام SQL للحصول على قيم المعاملات، ثم يشغّل التقرير عدة مرات — مرة لكل صف مُعاد. يمكن أن يذهب كل تنفيذ إلى مستلمين مختلفين.
 
-### Parameterized Report (Print)
-Same as above, but sends each report iteration to a printer instead of email.
+### Parameterized Report (Print) (تقرير بمعاملات - طباعة)
+مثل النوع السابق، لكن يرسل كل تكرار للتقرير إلى طابعة بدلًا من البريد الإلكتروني.
 
-### Recurring Document
-Automates the creation of recurring documents. You link the task to a Recurring Document definition, and it generates new documents based on the schedule.
+### Recurring Document (مستند متكرر)
+يؤتمت إنشاء المستندات المتكررة. تربط المهمة بتعريف مستند متكرر وتُنشئ مستندات جديدة وفق الجدول الزمني.
 
 ### Read Magento Orders / Read Magento Returns
-For e-commerce integration—pulls orders or returns from a configured Magento site.
+لتكامل التجارة الإلكترونية — يسحب الطلبات أو المرتجعات من موقع Magento مهيأ.
 
 ### Purge Expired Reward Points
-A specialized task for loyalty programs that removes expired reward points from the system.
+مهمة متخصصة لبرامج الولاء تزيل نقاط المكافآت المنتهية الصلاحية من النظام.
 
 ### Read E-Invoice Notifications
-For e-invoicing integrations—reads notifications from an intermediary e-invoicing server.
+لتكاملات الفواتير الإلكترونية — يقرأ الإشعارات من خادم وسيط للفوترة الإلكترونية.
 
-## Scheduling Options
+## خيارات الجدولة {#Scheduling-Options}
 
-The scheduler offers two approaches: a user-friendly checkbox interface or advanced cron expressions.
+يوفر المجدول مقاربتين: واجهة مربعات اختيار سهلة الاستخدام أو تعبيرات cron متقدمة.
 
-### Simple Scheduling (Checkbox Mode)
+### الجدولة البسيطة (Checkbox Mode) {#Simple-Scheduling--Checkbox-Mode-}
 
-When **Using Cron** is unchecked, you get an intuitive scheduling interface:
+عندما يكون **Using Cron** غير محددًا، تحصل على واجهة جدولة بديهية:
 
-**Run Every X Minutes/Hours/Days/Months**
-The simplest approach. Set **Run On** to a number (like 5) and **Run On Type** to "Minute" to run every 5 minutes. Examples:
-- Run On: 10, Run On Type: Minute → Runs every 10 minutes
-- Run On: 2, Run On Type: Hour → Runs every 2 hours
-- Run On: 1, Run On Type: Day → Runs daily
+**تشغيل كل X دقائق/ساعات/أيام/أشهر**
+أبسط مقاربة. اضبط **Run On** على رقم (مثل 5) و **Run On Type** على "Minute" للتشغيل كل 5 دقائق. أمثلة:
+- Run On: 10، Run On Type: Minute → يعمل كل 10 دقائق
+- Run On: 2، Run On Type: Hour → يعمل كل ساعتين
+- Run On: 1، Run On Type: Day → يعمل يوميًا
 
-**Weekly Schedule**
-Check **Weekly** and then select which days of the week to run. You can select any combination of Saturday through Friday.
+**الجدول الأسبوعي**
+فعّل **Weekly** ثم اختر أيام الأسبوع التي تريد التشغيل فيها. يمكنك اختيار أي مجموعة من السبت حتى الجمعة.
 
-**Monthly Schedule**
-Check **Monthly** and select:
-- Which months to run (January through December)
-- Which days of the month to run (1st through 31st)
+**الجدول الشهري**
+فعّل **Monthly** واختر:
+- الأشهر التي تريد التشغيل فيها (يناير حتى ديسمبر)
+- أيام الشهر التي تريد التشغيل فيها (1 حتى 31)
 
-**Time of Day**
-For weekly and monthly schedules, you specify exactly when during the day to run. Select any 30-minute time slots from 00:00 to 23:30.
+**وقت اليوم**
+للجداول الأسبوعية والشهرية، تحدد الوقت الدقيق للتشغيل خلال اليوم. اختر أي فترة زمنية بفاصل 30 دقيقة من 00:00 حتى 23:30.
 
-### Advanced Scheduling (Cron Mode)
+### الجدولة المتقدمة (Cron Mode) {#Advanced-Scheduling--Cron-Mode-}
 
-When **Using Cron** is checked, you enter a cron expression directly using these five fields:
+عندما يكون **Using Cron** محددًا، تدخل تعبير cron مباشرةً باستخدام هذه الحقول الخمسة:
 
-| Field | Allowed Values |
+| الحقل | القيم المسموح بها |
 |-------|---------------|
-| Minute | 0-59, or `*` for every minute, or `*/5` for every 5 minutes |
-| Hour | 0-23, or `*` for every hour |
-| Day of Month | 1-31, or `*` for every day |
-| Month | 1-12, or `*` for every month |
-| Day of Week | 0-6 (Sunday=0) or SUN,MON,TUE,WED,THU,FRI,SAT |
+| Minute | 0-59، أو `*` لكل دقيقة، أو `*/5` لكل 5 دقائق |
+| Hour | 0-23، أو `*` لكل ساعة |
+| Day of Month | 1-31، أو `*` لكل يوم |
+| Month | 1-12، أو `*` لكل شهر |
+| Day of Week | 0-6 (الأحد=0) أو SUN,MON,TUE,WED,THU,FRI,SAT |
 
-**Cron Examples:**
-- `0 8 * * *` → Every day at 8:00 AM
-- `*/30 * * * *` → Every 30 minutes
-- `0 0 1 * *` → First day of every month at midnight
-- `0 9 * * 1-5` → Every weekday at 9:00 AM
+**أمثلة على Cron:**
+- `0 8 * * *` → كل يوم الساعة 8:00 صباحًا
+- `*/30 * * * *` → كل 30 دقيقة
+- `0 0 1 * *` → أول يوم من كل شهر عند منتصف الليل
+- `0 9 * * 1-5` → كل يوم عمل الساعة 9:00 صباحًا
 
-## Targeting Recipients
+## تحديد المستلمين {#Targeting-Recipients}
 
-You have several options for specifying who receives reports and notifications:
+تتوفر عدة خيارات لتحديد من يستلم التقارير والإشعارات:
 
-### Direct Email Addresses
-Enter email addresses directly in **Target Emails** field, separated by commas or on separate lines.
+### عناوين البريد الإلكتروني المباشرة {#Direct-Email-Addresses}
+أدخل عناوين البريد الإلكتروني مباشرةً في حقل **Target Emails**، مفصولةً بفواصل أو في أسطر منفصلة.
 
-### Target Reference
-Select from:
-- **Employee** → specific employee
-- **Organization Position** → all employees in that position
-- **Master Group** → all members of the group
-- **Special Responsible** → based on special responsibility assignments
+### Target Reference {#Target-Reference}
+اختر من:
+- **Employee** → موظف محدد
+- **Organization Position** → جميع الموظفين في ذلك المنصب
+- **Master Group** → جميع أعضاء المجموعة
+- **Special Responsible** → بناءً على تعيينات المسؤولية الخاصة
 
-### Target Criteria
-Define dynamic criteria to calculate recipients. This is useful when the recipient depends on the data being processed.
+### Target Criteria {#Target-Criteria}
+حدد معايير ديناميكية لحساب المستلمين. مفيد عندما يعتمد المستلم على البيانات التي تُعالج.
 
-### Target Lines
-Add multiple target references in a grid for complex recipient lists.
+### Target Lines {#Target-Lines}
+أضف مراجع مستلمين متعددة في جدول لقوائم المستلمين المعقدة.
 
-## Email by Parameterized Reports
+## البريد الإلكتروني عبر التقارير المعاملاتية {#Email-by-Parameterized-Reports}
 
-This powerful feature lets you run a single report with different parameters for different recipients.
+تتيح لك هذه الميزة القوية تشغيل تقرير واحد بمعاملات مختلفة لمستلمين مختلفين.
 
-**How it works:**
-1. Set Schedule Type to **Action**
-2. Set Action name to `com.namasoft.reporting.ParamterizedReporTask`
-3. First Parameter: SQL query that returns parameter values
-4. Second Parameter: comma-separated list of column names
+**آلية العمل:**
+1. اضبط Schedule Type على **Action**
+2. اضبط Action name على `com.namasoft.reporting.ParamterizedReporTask`
+3. المدخل الأول: استعلام SQL يُعيد قيم المعاملات
+4. المدخل الثاني: قائمة أسماء الأعمدة مفصولةً بفواصل
 
-**Query Result Column Conventions:**
-- `subject` → email subject line
-- `sendto` → email address to send to (plain email)
-- `sendto#type` and `sendto#id` → entity reference for recipient
-- `parameterName#type` and `parameterName#id` → entity reference for report parameter
+**اصطلاحات أعمدة نتيجة الاستعلام:**
+- `subject` → سطر موضوع البريد الإلكتروني
+- `sendto` → عنوان البريد الإلكتروني للإرسال إليه (بريد عادي)
+- `sendto#type` و `sendto#id` → مرجع كيان للمستلم
+- `parameterName#type` و `parameterName#id` → مرجع كيان لمعامل التقرير
 
-**Example: Employee Residency Expiration Alerts**
+**مثال: تنبيهات انتهاء إقامة الموظفين**
 
-This sends personalized emails to supervisors about employees whose residency permits are expiring:
+يرسل رسائل بريد إلكتروني مخصصة للمشرفين بشأن الموظفين الذين تنتهي إقامتهم قريبًا:
 
-**First Parameter (SQL Query):**
+**المدخل الأول (استعلام SQL):**
 ```sql
 select
   case when DATEDIFF(day, GETDATE(), residencyEnd) < 1
@@ -141,16 +141,16 @@ where DATEDIFF(day, GETDATE(), residencyEnd) < 30
 order by 2
 ```
 
-**Second Parameter:**
+**المدخل الثاني:**
 ```
 subject,sendto#type,sendto#id,employee#type,employee#id
 ```
 
-This runs the specified report for each employee expiring within 30 days, filling in the `employee` parameter, and emailing the result to their supervisor.
+يشغّل هذا التقرير المحدد لكل موظف تنتهي إقامته خلال 30 يومًا، ويملأ معامل `employee`، ويرسل النتيجة بالبريد الإلكتروني إلى مشرفه.
 
-**Alternative: Send to Employee's Own Email**
+**بديل: الإرسال إلى البريد الإلكتروني الخاص بالموظف**
 
-Replace the sendto columns with the employee's contact email:
+استبدل أعمدة sendto ببريد الموظف الإلكتروني للتواصل:
 ```sql
 select
   case when DATEDIFF(day, GETDATE(), residencyEnd) < 1
@@ -165,32 +165,32 @@ where DATEDIFF(day, GETDATE(), residencyEnd) < 30
 order by 2
 ```
 
-## Notification by SQL Query
+## الإشعارات عبر استعلام SQL {#Notification-by-SQL-Query}
 
-Send notifications (in-app, email, or SMS) based on SQL query results.
+أرسل إشعارات (داخل التطبيق، أو بريد إلكتروني، أو SMS) استنادًا إلى نتائج استعلام SQL.
 
-**Setup:**
-1. Set Schedule Type to **Action**
-2. Set Action name to `com.namasoft.infra.domainbase.utils.notifications.NotificationByQueryTask`
-3. First Parameter: SQL query returning notification data
-4. Second Parameter: comma-separated column names
-5. Third Parameter: notification type (optional)
+**الإعداد:**
+1. اضبط Schedule Type على **Action**
+2. اضبط Action name على `com.namasoft.infra.domainbase.utils.notifications.NotificationByQueryTask`
+3. المدخل الأول: استعلام SQL يُعيد بيانات الإشعار
+4. المدخل الثاني: أسماء الأعمدة مفصولةً بفواصل
+5. المدخل الثالث: نوع الإشعار (اختياري)
 
-**Third Parameter Options:**
-| Value | Behavior |
+**خيارات المدخل الثالث:**
+| القيمة | السلوك |
 |-------|----------|
-| (empty) | Email only |
-| `mail` | Email only |
-| `notification` | In-app notification only |
-| `mail,notification` | Both email and notification |
+| (فارغ) | بريد إلكتروني فقط |
+| `mail` | بريد إلكتروني فقط |
+| `notification` | إشعار داخل التطبيق فقط |
+| `mail,notification` | كلاهما: بريد إلكتروني وإشعار |
 
-**Query Column Conventions:**
-- `subject` → notification/email subject
-- `sendto` → direct email address
-- `sendto#type` and `sendto#id` → entity reference for recipient
-- `parameterName#type` and `parameterName#id` → entity parameters
+**اصطلاحات أعمدة الاستعلام:**
+- `subject` → موضوع الإشعار/البريد الإلكتروني
+- `sendto` → عنوان البريد الإلكتروني المباشر
+- `sendto#type` و `sendto#id` → مرجع كيان للمستلم
+- `parameterName#type` و `parameterName#id` → معاملات الكيان
 
-**Example:**
+**مثال:**
 ```sql
 select
   case when DATEDIFF(day, GETDATE(), residencyEnd) < 1
@@ -206,116 +206,116 @@ where DATEDIFF(day, GETDATE(), residencyEnd) < 30
 order by 2
 ```
 
-## Notification Templates
+## قوالب الإشعارات {#Notification-Templates}
 
-When using the Notification schedule type, you can configure templates for three channels:
+عند استخدام نوع جدولة Notification، يمكنك إعداد قوالب لثلاث قنوات:
 
-**Email Template**: HTML content for email body. Use placeholders like `{columnName}` to insert query result values.
+**قالب البريد الإلكتروني**: محتوى HTML لجسم البريد الإلكتروني. استخدم العناصر النائبة مثل `{columnName}` لإدراج قيم نتائج الاستعلام.
 
-**Notification Template**: Content for in-app notifications.
+**قالب الإشعار**: محتوى الإشعارات داخل التطبيق.
 
-**SMS Template**: Short text content for SMS messages.
+**قالب SMS**: محتوى نصي قصير لرسائل SMS.
 
-Each template supports the complex renderer syntax with placeholders that get filled from query results.
+يدعم كل قالب صيغة المُصيِّر المعقد مع عناصر نائبة تُملأ من نتائج الاستعلام.
 
-## Email Customization
+## تخصيص البريد الإلكتروني {#Email-Customization}
 
-### Subject and Attachment Name Templates
-You can customize email subjects and attachment filenames using templates with placeholders:
+### قوالب الموضوع واسم المرفق {#Subject-and-Attachment-Name-Templates}
+يمكنك تخصيص موضوعات البريد الإلكتروني وأسماء ملفات المرفقات باستخدام قوالب مع عناصر نائبة:
 
-- **Email Subject Template**: Template with placeholders filled from the report or query
-- **Email Subject Query**: SQL query to provide values for subject template
-- **Attachment Name Template**: Template for the attached file name
-- **Attachment Name Query**: SQL query to provide values for attachment name
+- **Email Subject Template**: قالب مع عناصر نائبة تُملأ من التقرير أو الاستعلام
+- **Email Subject Query**: استعلام SQL لتوفير قيم قالب الموضوع
+- **Attachment Name Template**: قالب لاسم الملف المرفق
+- **Attachment Name Query**: استعلام SQL لتوفير قيم اسم المرفق
 
-### Output Format
-Choose the format for email attachments:
+### تنسيق المخرجات {#Output-Format}
+اختر تنسيق مرفقات البريد الإلكتروني:
 - HTML
 - PDF
 - Excel
 - Word
 - CSV
 
-### Preferred Email Sender
-Select a specific configured email sender to use for outgoing emails from this task.
+### المُرسِل المفضّل للبريد الإلكتروني {#Preferred-Email-Sender}
+اختر مُرسِل بريد إلكتروني محددًا ومهيأً لاستخدامه في الرسائل الصادرة من هذه المهمة.
 
-## Error Handling
+## معالجة الأخطاء {#Error-Handling}
 
-### Error Notification
-Configure **When Errors Notification** to send alerts when a task fails. This notification definition must be:
-- Set to "Use Manually"
-- Configured for Task Schedule
+### إشعار الخطأ {#Error-Notification}
+هيّئ **When Errors Notification** لإرسال تنبيهات عند فشل مهمة ما. يجب أن يكون تعريف هذا الإشعار:
+- مضبوطًا على "Use Manually"
+- مهيأً لـ Task Schedule
 
-If no error notification is configured, the system automatically notifies the admin user with error details.
+إذا لم يُهيَّأ إشعار خطأ، يُعلم النظام تلقائيًا مستخدم المسؤول بتفاصيل الخطأ.
 
-### Error Information
-When a task fails, the system captures:
-- **Error Message**: Brief description of what went wrong
-- **Error Description**: Full stack trace for technical debugging
+### معلومات الخطأ {#Error-Information}
+عند فشل مهمة، يسجّل النظام:
+- **Error Message**: وصف موجز لما حدث
+- **Error Description**: تتبع الاستدعاء الكامل للتشخيص التقني
 
-## Advanced Options
+## الخيارات المتقدمة {#Advanced-Options}
 
-### Allow Simultaneous Runs
-By default, if a task is still running when its next scheduled execution time arrives, the new execution is skipped. Enable **Allow Simultaneous Runs** to let multiple instances run in parallel.
+### السماح بالتشغيل المتزامن {#Allow-Simultaneous-Runs}
+افتراضيًا، إذا كانت مهمة لا تزال تعمل عند وصول وقت التنفيذ التالي، يُتخطى التنفيذ الجديد. فعّل **Allow Simultaneous Runs** للسماح بتشغيل نسخ متعددة في وقت واحد.
 
-### Run in Sites (Replication)
-For multi-site deployments with replication enabled, you can specify which sites should run this task. Leave empty to run on all sites, or select specific sites.
+### التشغيل في المواقع (Replication) {#Run-in-Sites--Replication-}
+في بيئات متعددة المواقع مع تفعيل النسخ المتماثل، يمكنك تحديد المواقع التي يجب أن تُشغّل هذه المهمة. اتركها فارغةً للتشغيل على جميع المواقع، أو اختر مواقع محددة.
 
-### Inactive
-Check **Inactive** to temporarily disable a task without deleting it. The task remains in the system but won't execute.
+### غير نشط {#Inactive}
+فعّل **Inactive** لتعطيل مهمة مؤقتًا دون حذفها. تبقى المهمة في النظام لكنها لن تُنفَّذ.
 
-### Development Mode
-By default, scheduled tasks don't run when the server is in debug mode. To enable task execution during development, add to `nama.properties`:
+### وضع التطوير {#Development-Mode}
+افتراضيًا، لا تعمل المهام المجدولة عند تشغيل الخادم في وضع التشخيص. لتفعيل تنفيذ المهام أثناء التطوير، أضف إلى `nama.properties`:
 ```properties
 run-task-schedules-in-debug-mode=true
 ```
 
-### Initial Delay
-Tasks don't start immediately when the server starts—there's a 5-minute default delay. Customize this in `nama.properties`:
+### التأخير الأولي {#Initial-Delay}
+لا تبدأ المهام فورًا عند تشغيل الخادم — هناك تأخير افتراضي مدته 5 دقائق. خصّصه في `nama.properties`:
 ```properties
 tasks-initial-delay-minutes=10
 ```
 
-## Implementation Repository Integration
+## تكامل مستودع التطبيق {#Implementation-Repository-Integration}
 
-Tasks can be saved to the Implementation Repository for deployment across environments:
-- **Save to Implementation Repository**: Enable to include this task in exports
-- **System Report**: Mark as a system-provided task
+يمكن حفظ المهام في مستودع التطبيق للنشر عبر البيئات المختلفة:
+- **Save to Implementation Repository**: فعّله لتضمين هذه المهمة في التصديرات
+- **System Report**: ضعه علامةً كمهمة مقدمة من النظام
 
-## Parameters Collection
+## مجموعة المدخلات (Params) {#Parameters-Collection}
 
-For Parameterized Report tasks, you can define parameters using the **Params** collection instead of a SQL query. Each parameter line specifies:
-- **Send To**: Recipient for this parameter set
-- **P1 through P15**: Parameter values (can reference entities or use static values)
+للمهام من نوع Parameterized Report، يمكنك تعريف المعاملات باستخدام مجموعة **Params** بدلًا من استعلام SQL. يحدد كل سطر معاملات:
+- **Send To**: المستلم لهذه المجموعة من المعاملات
+- **P1 حتى P15**: قيم المعاملات (يمكن الإشارة إلى كيانات أو استخدام قيم ثابتة)
 
 ::: warning
-You cannot use both a Query and the Params collection on the same task. Choose one approach.
+لا يمكنك استخدام استعلام ومجموعة Params في نفس المهمة. اختر مقاربة واحدة.
 :::
 
-## Practical Example Scenarios
+## أمثلة عملية {#Practical-Example-Scenarios}
 
-### Daily Sales Summary to Management
-- Type: Report
-- Report: Daily Sales Summary
-- Output Format: PDF
-- Weekly: All weekdays selected
-- Time: 08:00
+### ملخص المبيعات اليومي للإدارة
+- النوع: Report
+- التقرير: ملخص المبيعات اليومي
+- تنسيق المخرجات: PDF
+- أسبوعي: جميع أيام العمل محددة
+- الوقت: 08:00
 - Target Emails: management@company.com
 
-### Monthly Invoice Reminders
-- Type: Parameterized Report
-- Query: Select unpaid invoices older than 30 days
-- Report: Invoice Reminder Letter
-- Monthly: All months, Day 1
-- Send to: Each customer's contact email
+### تذكيرات الفواتير الشهرية
+- النوع: Parameterized Report
+- الاستعلام: تحديد الفواتير غير المدفوعة منذ أكثر من 30 يومًا
+- التقرير: رسالة تذكير الفاتورة
+- شهري: جميع الأشهر، اليوم 1
+- الإرسال إلى: البريد الإلكتروني للتواصل لكل عميل
 
-### Nightly Database Maintenance
-- Type: System
-- Query: `EXEC sp_updatestats`
-- Daily at 02:00
-- No recipients needed
+### صيانة قاعدة البيانات الليلية
+- النوع: System
+- الاستعلام: `EXEC sp_updatestats`
+- يوميًا الساعة 02:00
+- لا يلزم مستلمون
 
-### Real-time Order Sync
-- Type: Read Magento Orders
-- Run Every: 5 Minutes
-- Magento Site: configured site reference
+### مزامنة الطلبات الفورية
+- النوع: Read Magento Orders
+- تشغيل كل: 5 دقائق
+- Magento Site: مرجع الموقع المهيأ

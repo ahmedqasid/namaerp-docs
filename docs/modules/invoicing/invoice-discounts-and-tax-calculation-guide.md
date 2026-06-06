@@ -1,41 +1,41 @@
-# Invoice Discounts and Tax Calculation System - Comprehensive Guide
+# دليل نظام الخصومات وحساب الضرائب على الفواتير - دليل شامل {#Invoice-Discounts-and-Tax-Calculation-System---Comprehensive-Guide}
 ::: tip
-The content of this file was auto-generated using Claude.ai by reviewing the source code for discounts and taxes calculation, if you find any incorrect information, please contact Nama ERP developemnt team.
+تم إنشاء محتوى هذا الملف تلقائياً باستخدام Claude.ai من خلال مراجعة الكود المصدري لحسابات الخصومات والضرائب. إذا وجدت أي معلومات غير صحيحة، يرجى التواصل مع فريق تطوير Nama ERP.
 :::
-## Overview
+## نظرة عامة {#Overview}
 
-Nama ERP provides a sophisticated invoice discount and tax calculation system that supports complex business requirements. This guide explains how discounts and taxes are calculated, configured, and applied to invoices with detailed field-level configuration information.
+يوفر Nama ERP نظاماً متطوراً لحساب خصومات الفواتير والضرائب يدعم متطلبات الأعمال المعقدة. يشرح هذا الدليل كيفية حساب الخصومات والضرائب وإعدادها وتطبيقها على الفواتير، مع معلومات تفصيلية على مستوى الحقول.
 
-::: tip Key Features
-- Support for 8 sequential line discounts plus 1 header discount
-- 4 configurable tax types with flexible application points  
-- Complex discount-tax interactions and custom ordering
-- Multi-currency and multi-rate support
-- Extensive configuration options for different business scenarios
-- Tax can be configured as addition or deduction
-:::
-
-## Understanding the Calculation Flow
-
-### Basic Calculation Sequence
-
-When an invoice is processed, Nama ERP follows this general calculation sequence:
-
-1. **Line Total Calculation**: Quantity × Unit Price = Line Total
-2. **Line Discounts Application**: Apply Discount1 through Discount8 in sequence
-3. **Header Discount Application**: Apply single discount to entire invoice
-4. **Tax Calculations**: Apply Tax1 through Tax4 at configured points
-5. **Final Totals**: Calculate net amounts and remaining balances
-
-::: info Important Note
-The exact sequence can be customized through the `effectsConfig` field in TaxConfiguration, allowing for different discount and tax application orders based on business requirements.
+::: tip الميزات الرئيسية
+- دعم 8 خصومات تسلسلية على مستوى السطر بالإضافة إلى خصم واحد على مستوى الرأس
+- 4 أنواع ضرائب قابلة للإعداد مع نقاط تطبيق مرنة
+- تفاعلات معقدة بين الخصومات والضرائب وترتيب مخصص
+- دعم متعدد العملات ومتعدد المعدلات
+- خيارات إعداد شاملة لسيناريوهات الأعمال المختلفة
+- يمكن إعداد الضريبة كإضافة أو خصم
 :::
 
-## Tax Configuration Resolution System
+## فهم تدفق الحساب {#Understanding-the-Calculation-Flow}
 
-### Understanding fetchTaxConfiguration Method
+### تسلسل الحساب الأساسي {#Basic-Calculation-Sequence}
 
-The `fetchTaxConfiguration` method in `TaxPlan.java` determines which tax configuration to use through a hierarchical resolution process:
+عند معالجة فاتورة، يتبع Nama ERP تسلسل الحساب العام التالي:
+
+1. **حساب إجمالي السطر**: الكمية × سعر الوحدة = إجمالي السطر
+2. **تطبيق خصومات السطر**: تطبيق Discount1 حتى Discount8 بالتسلسل
+3. **تطبيق خصم الرأس**: تطبيق خصم واحد على الفاتورة بالكامل
+4. **حسابات الضرائب**: تطبيق Tax1 حتى Tax4 عند النقاط المُعدَّة
+5. **الإجماليات النهائية**: حساب صافي المبالغ والأرصدة المتبقية
+
+::: info ملاحظة مهمة
+يمكن تخصيص التسلسل الدقيق من خلال حقل `effectsConfig` في TaxConfiguration، مما يتيح ترتيبات مختلفة لتطبيق الخصومات والضرائب بناءً على متطلبات الأعمال.
+:::
+
+## نظام حل إعدادات الضرائب {#Tax-Configuration-Resolution-System}
+
+### فهم طريقة fetchTaxConfiguration {#Understanding-fetchTaxConfiguration-Method}
+
+تحدد طريقة `fetchTaxConfiguration` في `TaxPlan.java` إعدادات الضريبة المستخدمة من خلال عملية حل هرمية:
 
 ```java
 public static TaxConfiguration fetchTaxConfiguration(
@@ -46,235 +46,235 @@ public static TaxConfiguration fetchTaxConfiguration(
     EntityTypeDF entityType)
 ```
 
-#### Resolution Hierarchy
+#### التسلسل الهرمي للحل {#Resolution-Hierarchy}
 
-1. **Header Tax Plan Priority**
-   - First checks if header tax plan exists
-   - If exists, checks its `defaultTaxConfig` field:
-     - **GlobalConfig**: Uses system-wide global configuration
-     - **TaxPlanHeader**: Uses configuration from tax plan header
-     - **TaxPlanLine**: Uses configuration from legal entity tax lines
+1. **أولوية خطة الضريبة في الرأس**
+   - يتحقق أولاً من وجود خطة ضريبة في الرأس
+   - إذا وُجدت، يتحقق من حقل `defaultTaxConfig`:
+     - **GlobalConfig**: يستخدم الإعداد العام على مستوى النظام
+     - **TaxPlanHeader**: يستخدم الإعداد من رأس خطة الضريبة
+     - **TaxPlanLine**: يستخدم الإعداد من سطور ضريبة الشركة
 
-2. **Line Tax Plan Fallback**
-   - If header plan doesn't provide configuration, checks line tax plan
-   - Follows same `defaultTaxConfig` resolution logic
+2. **الرجوع إلى خطة ضريبة السطر**
+   - إذا لم توفر خطة الرأس إعداداً، يتحقق من خطة ضريبة السطر
+   - يتبع نفس منطق حل `defaultTaxConfig`
 
-3. **Global Default**
-   - If neither plan provides configuration, uses global system configuration
+3. **الإعداد الافتراضي العام**
+   - إذا لم توفر أي خطة إعداداً، يستخدم إعداد النظام العام
 
-### Tax Plan Configuration Fields
+### حقول إعداد خطة الضريبة {#Tax-Plan-Configuration-Fields}
 
-#### Core Tax Plan Fields
+#### حقول خطة الضريبة الأساسية {#Core-Tax-Plan-Fields}
 
-| Field Name | Database Field | Description | Impact |
-|------------|---------------|-------------|---------|
-| **Item Plan** | `itemPlan` | Indicates if this plan applies to items | When true, plan is used for item-level taxes (Tax1, Tax2) |
-| **No Item Taxes With This Policy** | `noItemTaxesWithThisPolicy` | Disables Tax1 and Tax2 | When true, item taxes are zeroed regardless of rates |
-| **No Invoice Taxes With This Policy** | `noInvoiceTaxesWithThisPolicy` | Disables Tax3 and Tax4 | When true, invoice taxes are zeroed regardless of rates |
-| **Prioritize This Policy Over Policy Specified In Customer and Supplier** | `priorityPolicyOverCusOrSup` | Policy precedence control | When true, this plan overrides customer/supplier tax settings |
-| **Default Tax Configuration** | `defaultTaxConfig` | Source of tax configuration | Options: GlobalConfig, TaxPlanHeader, TaxPlanLine |
-| **Tax Configuration** | `taxConfiguration` | Embedded tax behavior settings | Contains all tax calculation rules |
-| **Legal Entity Taxes** | `legalEntityTaxes` | Tax rates by entity and date | List of entity-specific tax rates |
-| **Subsidiary Accounts** | `subsidiaryAccounts` | Account-level settings | Contains tax exemption flags |
+| اسم الحقل | حقل قاعدة البيانات | الوصف | التأثير |
+|------------|------------------|-------|---------|
+| **Item Plan** | `itemPlan` | يشير إلى تطبيق الخطة على الأصناف | عند التفعيل، تُستخدم الخطة لضرائب مستوى الصنف (Tax1, Tax2) |
+| **No Item Taxes With This Policy** | `noItemTaxesWithThisPolicy` | تعطيل Tax1 وTax2 | عند التفعيل، تصبح ضرائب الأصناف صفراً بغض النظر عن المعدلات |
+| **No Invoice Taxes With This Policy** | `noInvoiceTaxesWithThisPolicy` | تعطيل Tax3 وTax4 | عند التفعيل، تصبح ضرائب الفاتورة صفراً بغض النظر عن المعدلات |
+| **Prioritize This Policy Over Policy Specified In Customer and Supplier** | `priorityPolicyOverCusOrSup` | التحكم في أولوية السياسة | عند التفعيل، تتجاوز هذه الخطة إعدادات ضريبة العميل/المورد |
+| **Default Tax Configuration** | `defaultTaxConfig` | مصدر إعداد الضريبة | الخيارات: GlobalConfig, TaxPlanHeader, TaxPlanLine |
+| **Tax Configuration** | `taxConfiguration` | إعدادات سلوك الضريبة المضمنة | تحتوي على جميع قواعد حساب الضريبة |
+| **Legal Entity Taxes** | `legalEntityTaxes` | معدلات الضريبة حسب الشركة والتاريخ | قائمة بمعدلات الضريبة الخاصة بكل شركة |
+| **Subsidiary Accounts** | `subsidiaryAccounts` | إعدادات على مستوى الحساب | تحتوي على علامات الإعفاء الضريبي |
 
-#### Legal Entity Tax Fields
+#### حقول ضريبة الشركة {#Legal-Entity-Tax-Fields}
 
-Each `LegalEntityTax` record contains:
+يحتوي كل سجل `LegalEntityTax` على:
 
-| Field Name | Database Field | Description |
-|------------|---------------|-------------|
-| **Legal Entity** | `legalEntity` | Specific legal entity or null for all |
-| **Effective From** | `effectiveFrom` | Start date for tax rates |
-| **Effective To** | `effectiveTo` | End date for tax rates |
-| **Tax 1** | `tax1` | Tax1 rate (percentage or value) |
-| **Tax 2** | `tax2` | Tax2 rate (percentage or value) |
-| **Entity Type** | `entityType` | Specific document type |
-| **Entity Type List** | `entityTypeList` | Multiple document types |
-| **Revision ID** | `revisionId` | Version control for rates |
-| **Tax Configuration** | `taxConfiguration` | Override configuration for this entity |
+| اسم الحقل | حقل قاعدة البيانات | الوصف |
+|------------|------------------|-------|
+| **Legal Entity** | `legalEntity` | شركة محددة أو null للجميع |
+| **Effective From** | `effectiveFrom` | تاريخ بدء سريان معدلات الضريبة |
+| **Effective To** | `effectiveTo` | تاريخ انتهاء سريان معدلات الضريبة |
+| **Tax 1** | `tax1` | معدل Tax1 (نسبة مئوية أو قيمة) |
+| **Tax 2** | `tax2` | معدل Tax2 (نسبة مئوية أو قيمة) |
+| **Entity Type** | `entityType` | نوع المستند المحدد |
+| **Entity Type List** | `entityTypeList` | أنواع مستندات متعددة |
+| **Revision ID** | `revisionId` | التحكم في إصدار المعدلات |
+| **Tax Configuration** | `taxConfiguration` | إعداد تجاوز لهذه الشركة |
 
-## Discount System Configuration
+## إعداد نظام الخصومات {#Discount-System-Configuration}
 
-### Types of Discounts
+### أنواع الخصومات {#Types-of-Discounts}
 
-#### Line Discounts (Discount 1-8)
-- **Sequential Application**: Each discount applies after the previous one
-- **Configurable Base**: Each discount can apply to different base amounts
-- **Percentage or Value**: Can be specified as percentage or fixed amount
-- **Individual Control**: Each discount has independent configuration
+#### خصومات السطر (Discount 1-8) {#Line-Discounts-Discount-1-8}
+- **التطبيق التسلسلي**: يُطبَّق كل خصم بعد السابق
+- **قاعدة قابلة للإعداد**: يمكن لكل خصم تطبيق مبالغ أساسية مختلفة
+- **نسبة مئوية أو قيمة**: يمكن تحديده كنسبة مئوية أو مبلغ ثابت
+- **تحكم فردي**: لكل خصم إعداد مستقل
 
-#### Header Discount
-- **Invoice-Wide**: Applied to the entire invoice total
-- **Proportional Distribution**: Distributed across all invoice lines proportionally
-- **Configurable Timing**: Can be applied at different points in the calculation sequence
+#### خصم الرأس {#Header-Discount}
+- **على مستوى الفاتورة**: يُطبَّق على إجمالي الفاتورة بالكامل
+- **التوزيع النسبي**: يُوزَّع على جميع سطور الفاتورة بشكل نسبي
+- **توقيت قابل للإعداد**: يمكن تطبيقه في نقاط مختلفة من تسلسل الحساب
 
-### Discount Configuration Fields
+### حقول إعداد الخصم {#Discount-Configuration-Fields}
 
-#### Global Configuration - Discount Apply Types
+#### الإعداد العام - أنواع تطبيق الخصم {#Global-Configuration---Discount-Apply-Types}
 
-Located in `GlobalConfigInfo.java`:
+موجود في `GlobalConfigInfo.java`:
 
-| Field Name | Database Field | Description | Available Values |
-|------------|---------------|-------------|------------------|
-| **Discount 1 Apply Type** | `discount1ApplyType` | Base amount for Discount 1 | TotalPrice, AfterDiscount1-8, AfterHeaderDiscount, Custom, Tax/Discount Values |
-| **Discount 2 Apply Type** | `discount2ApplyType` | Base amount for Discount 2 | Same as above |
-| **Discount 3 Apply Type** | `discount3ApplyType` | Base amount for Discount 3 | Same as above |
-| **Discount 4 Apply Type** | `discount4ApplyType` | Base amount for Discount 4 | Same as above |
-| **Discount 5 Apply Type** | `discount5ApplyType` | Base amount for Discount 5 | Same as above |
-| **Discount 6 Apply Type** | `discount6ApplyType` | Base amount for Discount 6 | Same as above |
-| **Discount 7 Apply Type** | `discount7ApplyType` | Base amount for Discount 7 | Same as above |
-| **Discount 8 Apply Type** | `discount8ApplyType` | Base amount for Discount 8 | Same as above |
-| **Header Discount Apply Type** | `headerDiscountApplyType` | Base amount for header discount | Same as above |
+| اسم الحقل | حقل قاعدة البيانات | الوصف | القيم المتاحة |
+|------------|------------------|-------|--------------|
+| **Discount 1 Apply Type** | `discount1ApplyType` | المبلغ الأساسي لـ Discount 1 | TotalPrice, AfterDiscount1-8, AfterHeaderDiscount, Custom, Tax/Discount Values |
+| **Discount 2 Apply Type** | `discount2ApplyType` | المبلغ الأساسي لـ Discount 2 | كما أعلاه |
+| **Discount 3 Apply Type** | `discount3ApplyType` | المبلغ الأساسي لـ Discount 3 | كما أعلاه |
+| **Discount 4 Apply Type** | `discount4ApplyType` | المبلغ الأساسي لـ Discount 4 | كما أعلاه |
+| **Discount 5 Apply Type** | `discount5ApplyType` | المبلغ الأساسي لـ Discount 5 | كما أعلاه |
+| **Discount 6 Apply Type** | `discount6ApplyType` | المبلغ الأساسي لـ Discount 6 | كما أعلاه |
+| **Discount 7 Apply Type** | `discount7ApplyType` | المبلغ الأساسي لـ Discount 7 | كما أعلاه |
+| **Discount 8 Apply Type** | `discount8ApplyType` | المبلغ الأساسي لـ Discount 8 | كما أعلاه |
+| **Header Discount Apply Type** | `headerDiscountApplyType` | المبلغ الأساسي لخصم الرأس | كما أعلاه |
 
-#### Discount Calculation Method Fields
+#### حقول طريقة حساب الخصم {#Discount-Calculation-Method-Fields}
 
-| Field Name | Database Field | Description | Impact |
-|------------|---------------|-------------|---------|
-| **Calculate discount 1 percentage from value** | `calcDisc1PercentFromValue` | Calculation direction for Discount 1 | True: Calculate % from fixed value<br>False: Calculate value from % |
-| **Calculate discount 2 percentage from value** | `calcDisc2PercentFromValue` | Calculation direction for Discount 2 | Same as above |
-| **Calculate discount 3 percentage from value** | `calcDisc3PercentFromValue` | Calculation direction for Discount 3 | Same as above |
-| **Calculate discount 4 percentage from value** | `calcDisc4PercentFromValue` | Calculation direction for Discount 4 | Same as above |
-| **Calculate discount 5 percentage from value** | `calcDisc5PercentFromValue` | Calculation direction for Discount 5 | Same as above |
-| **Calculate discount 6 percentage from value** | `calcDisc6PercentFromValue` | Calculation direction for Discount 6 | Same as above |
-| **Calculate discount 7 percentage from value** | `calcDisc7PercentFromValue` | Calculation direction for Discount 7 | Same as above |
-| **Calculate discount 8 percentage from value** | `calcDisc8PercentFromValue` | Calculation direction for Discount 8 | Same as above |
+| اسم الحقل | حقل قاعدة البيانات | الوصف | التأثير |
+|------------|------------------|-------|---------|
+| **Calculate discount 1 percentage from value** | `calcDisc1PercentFromValue` | اتجاه الحساب لـ Discount 1 | True: حساب النسبة من القيمة الثابتة<br>False: حساب القيمة من النسبة |
+| **Calculate discount 2 percentage from value** | `calcDisc2PercentFromValue` | اتجاه الحساب لـ Discount 2 | كما أعلاه |
+| **Calculate discount 3 percentage from value** | `calcDisc3PercentFromValue` | اتجاه الحساب لـ Discount 3 | كما أعلاه |
+| **Calculate discount 4 percentage from value** | `calcDisc4PercentFromValue` | اتجاه الحساب لـ Discount 4 | كما أعلاه |
+| **Calculate discount 5 percentage from value** | `calcDisc5PercentFromValue` | اتجاه الحساب لـ Discount 5 | كما أعلاه |
+| **Calculate discount 6 percentage from value** | `calcDisc6PercentFromValue` | اتجاه الحساب لـ Discount 6 | كما أعلاه |
+| **Calculate discount 7 percentage from value** | `calcDisc7PercentFromValue` | اتجاه الحساب لـ Discount 7 | كما أعلاه |
+| **Calculate discount 8 percentage from value** | `calcDisc8PercentFromValue` | اتجاه الحساب لـ Discount 8 | كما أعلاه |
 
-#### Tax Effect on Discount Configuration
+#### إعداد تأثير الضريبة على الخصم {#Tax-Effect-on-Discount-Configuration}
 
-Each discount (1-8) has a `TaxEffectOnDiscount` configuration with these fields:
+لكل خصم (1-8) إعداد `TaxEffectOnDiscount` بهذه الحقول:
 
-| Field Name | Database Field | Description | Impact |
-|------------|---------------|-------------|---------|
-| **Consider Tax 1** | `discount[N].considerTax1` | Subtract Tax1 from discount base | When true, Tax1 is deducted before applying discount |
-| **Consider Tax 2** | `discount[N].considerTax2` | Subtract Tax2 from discount base | When true, Tax2 is deducted before applying discount |
-| **Consider Tax 3** | `discount[N].considerTax3` | Subtract Tax3 from discount base | When true, Tax3 is deducted before applying discount |
-| **Consider Tax 4** | `discount[N].considerTax4` | Subtract Tax4 from discount base | When true, Tax4 is deducted before applying discount |
+| اسم الحقل | حقل قاعدة البيانات | الوصف | التأثير |
+|------------|------------------|-------|---------|
+| **Consider Tax 1** | `discount[N].considerTax1` | خصم Tax1 من قاعدة الخصم | عند التفعيل، تُخصم Tax1 قبل تطبيق الخصم |
+| **Consider Tax 2** | `discount[N].considerTax2` | خصم Tax2 من قاعدة الخصم | عند التفعيل، تُخصم Tax2 قبل تطبيق الخصم |
+| **Consider Tax 3** | `discount[N].considerTax3` | خصم Tax3 من قاعدة الخصم | عند التفعيل، تُخصم Tax3 قبل تطبيق الخصم |
+| **Consider Tax 4** | `discount[N].considerTax4` | خصم Tax4 من قاعدة الخصم | عند التفعيل، تُخصم Tax4 قبل تطبيق الخصم |
 
-### How Discounts Are Calculated
+### كيفية حساب الخصومات {#How-Discounts-Are-Calculated}
 
-#### Percentage-Based Discounts
+#### الخصومات النسبية {#Percentage-Based-Discounts}
 ```
 Discount Amount = (Base Amount × Discount Percentage) ÷ 100
 New Total = Base Amount - Discount Amount
 ```
 
-#### Value-Based Discounts
+#### الخصومات بقيمة ثابتة {#Value-Based-Discounts}
 ```
 Discount Amount = Fixed Discount Value
 New Total = Base Amount - Discount Amount
 ```
 
-#### Tax-Inclusive Discounts
-When taxes are included in the price, the discount calculation adjusts:
+#### الخصومات الشاملة للضريبة {#Tax-Inclusive-Discounts}
+عند تضمين الضرائب في السعر، يُعدَّل حساب الخصم كالتالي:
 ```
 Discount Amount = Base Amount - (Base Amount × 100) ÷ (100 + Tax Percentage)
 ```
 
-## Tax System Configuration
+## إعداد نظام الضرائب {#Tax-System-Configuration}
 
-### Tax Configuration Fields in TaxConfiguration Object
+### حقول إعداد الضريبة في كائن TaxConfiguration {#Tax-Configuration-Fields-in-TaxConfiguration-Object}
 
-The `TaxConfiguration` object contains all tax behavior settings:
+يحتوي كائن `TaxConfiguration` على جميع إعدادات سلوك الضريبة:
 
-#### Tax Location Fields
+#### حقول موقع الضريبة {#Tax-Location-Fields}
 
-| Field Name | Database Field | Description | Impact |
-|------------|---------------|-------------|---------|
-| **Tax 1 Location** | `tax1Location` | When Tax1 is calculated | Controls sequence position |
-| **Tax 2 Location** | `tax2Location` | When Tax2 is calculated | Controls sequence position |
-| **Tax 3 Location** | `tax3Location` | When Tax3 is calculated | Controls sequence position |
-| **Tax 4 Location** | `tax4Location` | When Tax4 is calculated | Controls sequence position |
+| اسم الحقل | حقل قاعدة البيانات | الوصف | التأثير |
+|------------|------------------|-------|---------|
+| **Tax 1 Location** | `tax1Location` | وقت حساب Tax1 | يتحكم في موضع التسلسل |
+| **Tax 2 Location** | `tax2Location` | وقت حساب Tax2 | يتحكم في موضع التسلسل |
+| **Tax 3 Location** | `tax3Location` | وقت حساب Tax3 | يتحكم في موضع التسلسل |
+| **Tax 4 Location** | `tax4Location` | وقت حساب Tax4 | يتحكم في موضع التسلسل |
 
-Available Location Values:
-- `MainPrice`: Applied to original line total
-- `Discount1` through `Discount8`: Applied after specific discount
-- `HeaderDiscount`: Applied after header discount
+قيم الموقع المتاحة:
+- `MainPrice`: تُطبَّق على إجمالي السطر الأصلي
+- `Discount1` حتى `Discount8`: تُطبَّق بعد خصم محدد
+- `HeaderDiscount`: تُطبَّق بعد خصم الرأس
 
-#### Tax Apply Type Fields
+#### حقول نوع تطبيق الضريبة {#Tax-Apply-Type-Fields}
 
-| Field Name | Database Field | Description | Impact |
-|------------|---------------|-------------|---------|
-| **Tax 1 Apply Type** | `tax1ApplyType` | Base for Tax1 calculation | Determines what amount Tax1 applies to |
-| **Tax 2 Apply Type** | `tax2ApplyType` | Base for Tax2 calculation | Determines what amount Tax2 applies to |
-| **Tax 3 Apply Type** | `tax3ApplyType` | Base for Tax3 calculation | Determines what amount Tax3 applies to |
-| **Tax 4 Apply Type** | `tax4ApplyType` | Base for Tax4 calculation | Determines what amount Tax4 applies to |
+| اسم الحقل | حقل قاعدة البيانات | الوصف | التأثير |
+|------------|------------------|-------|---------|
+| **Tax 1 Apply Type** | `tax1ApplyType` | الأساس لحساب Tax1 | يحدد المبلغ الذي تُطبَّق عليه Tax1 |
+| **Tax 2 Apply Type** | `tax2ApplyType` | الأساس لحساب Tax2 | يحدد المبلغ الذي تُطبَّق عليه Tax2 |
+| **Tax 3 Apply Type** | `tax3ApplyType` | الأساس لحساب Tax3 | يحدد المبلغ الذي تُطبَّق عليه Tax3 |
+| **Tax 4 Apply Type** | `tax4ApplyType` | الأساس لحساب Tax4 | يحدد المبلغ الذي تُطبَّق عليه Tax4 |
 
-#### Tax Behavior Control Fields
+#### حقول التحكم في سلوك الضريبة {#Tax-Behavior-Control-Fields}
 
-| Field Name | Database Field | Description | Impact on Calculation |
-|------------|---------------|-------------|----------------------|
-| **Tax 1 Is Discount** | `tax1IsDiscount` | Tax1 reduces total | When true: Amount is subtracted<br>When false: Amount is added |
-| **Tax 2 Is Discount** | `tax2IsDiscount` | Tax2 reduces total | When true: Amount is subtracted<br>When false: Amount is added |
-| **Tax 3 Is Discount** | `tax3IsDiscount` | Tax3 reduces total | When true: Amount is subtracted<br>When false: Amount is added |
-| **Tax 4 Is Discount** | `tax4IsDiscount` | Tax4 reduces total | When true: Amount is subtracted<br>When false: Amount is added |
+| اسم الحقل | حقل قاعدة البيانات | الوصف | التأثير على الحساب |
+|------------|------------------|-------|------------------|
+| **Tax 1 Is Discount** | `tax1IsDiscount` | Tax1 تخفض الإجمالي | True: يُطرح المبلغ<br>False: يُضاف المبلغ |
+| **Tax 2 Is Discount** | `tax2IsDiscount` | Tax2 تخفض الإجمالي | True: يُطرح المبلغ<br>False: يُضاف المبلغ |
+| **Tax 3 Is Discount** | `tax3IsDiscount` | Tax3 تخفض الإجمالي | True: يُطرح المبلغ<br>False: يُضاف المبلغ |
+| **Tax 4 Is Discount** | `tax4IsDiscount` | Tax4 تخفض الإجمالي | True: يُطرح المبلغ<br>False: يُضاف المبلغ |
 
-#### Tax Calculation Method Fields
+#### حقول طريقة حساب الضريبة {#Tax-Calculation-Method-Fields}
 
-| Field Name | Database Field | Description | Calculation Formula |
-|------------|---------------|-------------|---------------------|
-| **Tax 1 Is Value Not Percentage** | `tax1IsValue` | Tax1 as fixed amount | True: Fixed amount<br>False: Percentage of base |
-| **Tax 2 Is Value Not Percentage** | `tax2IsValue` | Tax2 as fixed amount | True: Fixed amount<br>False: Percentage of base |
-| **Tax 3 Is Value Not Percentage** | `tax3IsValue` | Tax3 as fixed amount | True: Fixed amount<br>False: Percentage of base |
-| **Tax 4 Is Value Not Percentage** | `tax4IsValue` | Tax4 as fixed amount | True: Fixed amount<br>False: Percentage of base |
+| اسم الحقل | حقل قاعدة البيانات | الوصف | صيغة الحساب |
+|------------|------------------|-------|------------|
+| **Tax 1 Is Value Not Percentage** | `tax1IsValue` | Tax1 كمبلغ ثابت | True: مبلغ ثابت<br>False: نسبة مئوية من الأساس |
+| **Tax 2 Is Value Not Percentage** | `tax2IsValue` | Tax2 كمبلغ ثابت | True: مبلغ ثابت<br>False: نسبة مئوية من الأساس |
+| **Tax 3 Is Value Not Percentage** | `tax3IsValue` | Tax3 كمبلغ ثابت | True: مبلغ ثابت<br>False: نسبة مئوية من الأساس |
+| **Tax 4 Is Value Not Percentage** | `tax4IsValue` | Tax4 كمبلغ ثابت | True: مبلغ ثابت<br>False: نسبة مئوية من الأساس |
 
-#### Tax Value Application Fields
+#### حقول تطبيق قيمة الضريبة {#Tax-Value-Application-Fields}
 
-| Field Name | Database Field | Description | Impact |
-|------------|---------------|-------------|---------|
-| **Tax 1 Value Is For Total Not Per Piece** | `tax1ValueIsForTotal` | Tax1 value application | True: Flat amount<br>False: Multiplied by quantity |
-| **Tax 2 Value Is For Total Not Per Piece** | `tax2ValueIsForTotal` | Tax2 value application | True: Flat amount<br>False: Multiplied by quantity |
-| **Tax 3 Value Is For Total Not Per Piece** | `tax3ValueIsForTotal` | Tax3 value application | True: Flat amount<br>False: Multiplied by quantity |
-| **Tax 4 Value Is For Total Not Per Piece** | `tax4ValueIsForTotal` | Tax4 value application | True: Flat amount<br>False: Multiplied by quantity |
+| اسم الحقل | حقل قاعدة البيانات | الوصف | التأثير |
+|------------|------------------|-------|---------|
+| **Tax 1 Value Is For Total Not Per Piece** | `tax1ValueIsForTotal` | تطبيق قيمة Tax1 | True: مبلغ إجمالي ثابت<br>False: مضروب في الكمية |
+| **Tax 2 Value Is For Total Not Per Piece** | `tax2ValueIsForTotal` | تطبيق قيمة Tax2 | True: مبلغ إجمالي ثابت<br>False: مضروب في الكمية |
+| **Tax 3 Value Is For Total Not Per Piece** | `tax3ValueIsForTotal` | تطبيق قيمة Tax3 | True: مبلغ إجمالي ثابت<br>False: مضروب في الكمية |
+| **Tax 4 Value Is For Total Not Per Piece** | `tax4ValueIsForTotal` | تطبيق قيمة Tax4 | True: مبلغ إجمالي ثابت<br>False: مضروب في الكمية |
 
-#### Price Inclusion Fields
+#### حقول تضمين السعر {#Price-Inclusion-Fields}
 
-| Field Name | Database Field | Description | Calculation Impact |
-|------------|---------------|-------------|-------------------|
-| **Price Includes Tax 1** | `priceIncludesTax` | Tax1 in quoted price | True: Tax extracted from price<br>False: Tax added to price |
-| **Price Includes Tax 2** | `priceIncludesTax2` | Tax2 in quoted price | True: Tax extracted from price<br>False: Tax added to price |
-| **Price Includes Tax 3** | `priceIncludesTax3` | Tax3 in quoted price | True: Tax extracted from price<br>False: Tax added to price |
-| **Price Includes Tax 4** | `priceIncludesTax4` | Tax4 in quoted price | True: Tax extracted from price<br>False: Tax added to price |
+| اسم الحقل | حقل قاعدة البيانات | الوصف | تأثير الحساب |
+|------------|------------------|-------|-------------|
+| **Price Includes Tax 1** | `priceIncludesTax` | Tax1 ضمن السعر المعروض | True: تُستخرج الضريبة من السعر<br>False: تُضاف الضريبة إلى السعر |
+| **Price Includes Tax 2** | `priceIncludesTax2` | Tax2 ضمن السعر المعروض | True: تُستخرج الضريبة من السعر<br>False: تُضاف الضريبة إلى السعر |
+| **Price Includes Tax 3** | `priceIncludesTax3` | Tax3 ضمن السعر المعروض | True: تُستخرج الضريبة من السعر<br>False: تُضاف الضريبة إلى السعر |
+| **Price Includes Tax 4** | `priceIncludesTax4` | Tax4 ضمن السعر المعروض | True: تُستخرج الضريبة من السعر<br>False: تُضاف الضريبة إلى السعر |
 
-#### Total Inclusion Fields
+#### حقول تضمين الإجمالي {#Total-Inclusion-Fields}
 
-| Field Name | Database Field | Description | Invoice Total Impact |
-|------------|---------------|-------------|---------------------|
-| **Tax 1 Not Included In Total** | `tax1NotIncludedInTotal` | Tax1 excluded from total | True: Not added to invoice total<br>False: Added to invoice total |
-| **Tax 2 Not Included In Total** | `tax2NotIncludedInTotal` | Tax2 excluded from total | True: Not added to invoice total<br>False: Added to invoice total |
-| **Tax 3 Not Included In Total** | `tax3NotIncludedInTotal` | Tax3 excluded from total | True: Not added to invoice total<br>False: Added to invoice total |
-| **Tax 4 Not Included In Total** | `tax4NotIncludedInTotal` | Tax4 excluded from total | True: Not added to invoice total<br>False: Added to invoice total |
+| اسم الحقل | حقل قاعدة البيانات | الوصف | تأثير إجمالي الفاتورة |
+|------------|------------------|-------|---------------------|
+| **Tax 1 Not Included In Total** | `tax1NotIncludedInTotal` | استبعاد Tax1 من الإجمالي | True: لا تُضاف إلى إجمالي الفاتورة<br>False: تُضاف إلى إجمالي الفاتورة |
+| **Tax 2 Not Included In Total** | `tax2NotIncludedInTotal` | استبعاد Tax2 من الإجمالي | True: لا تُضاف إلى إجمالي الفاتورة<br>False: تُضاف إلى إجمالي الفاتورة |
+| **Tax 3 Not Included In Total** | `tax3NotIncludedInTotal` | استبعاد Tax3 من الإجمالي | True: لا تُضاف إلى إجمالي الفاتورة<br>False: تُضاف إلى إجمالي الفاتورة |
+| **Tax 4 Not Included In Total** | `tax4NotIncludedInTotal` | استبعاد Tax4 من الإجمالي | True: لا تُضاف إلى إجمالي الفاتورة<br>False: تُضاف إلى إجمالي الفاتورة |
 
-### Tax as Addition vs Deduction
+### الضريبة كإضافة أو خصم {#Tax-as-Addition-vs-Deduction}
 
-The system determines whether a tax adds to or subtracts from the invoice total based on the `tax[N]IsDiscount` field:
+يحدد النظام ما إذا كانت الضريبة تُضاف إلى إجمالي الفاتورة أو تُطرح منه بناءً على حقل `tax[N]IsDiscount`:
 
-#### When Tax Adds to Total (Standard Tax)
-- **Field Setting**: `tax[N]IsDiscount = false`
-- **Calculation**: `New Total = Base Amount + Tax Amount`
-- **Use Case**: VAT, GST, Sales Tax
-- **Example**: 
+#### عندما تُضاف الضريبة إلى الإجمالي (ضريبة قياسية) {#When-Tax-Adds-to-Total-Standard-Tax}
+- **إعداد الحقل**: `tax[N]IsDiscount = false`
+- **الحساب**: `New Total = Base Amount + Tax Amount`
+- **حالة الاستخدام**: ضريبة القيمة المضافة (VAT)، ضريبة المبيعات (GST)
+- **مثال**: 
   ```
   Line Total: $100
   Tax1 (15%): $15
   Final Total: $100 + $15 = $115
   ```
 
-#### When Tax Reduces Total (Discount Tax)
-- **Field Setting**: `tax[N]IsDiscount = true`
-- **Calculation**: `New Total = Base Amount - Tax Amount`
-- **Use Case**: Withholding Tax, Discount Tax, Rebates
-- **Example**:
+#### عندما تخفض الضريبة الإجمالي (ضريبة خصم) {#When-Tax-Reduces-Total-Discount-Tax}
+- **إعداد الحقل**: `tax[N]IsDiscount = true`
+- **الحساب**: `New Total = Base Amount - Tax Amount`
+- **حالة الاستخدام**: ضريبة الاستقطاع (Withholding Tax)، الخصومات، الحسومات
+- **مثال**:
   ```
   Line Total: $100
   Tax3 (5% withholding): $5
   Final Total: $100 - $5 = $95
   ```
 
-### Tax Calculation Methods
+### طرق حساب الضرائب {#Tax-Calculation-Methods}
 
-#### Percentage-Based Taxes
+#### الضرائب النسبية {#Percentage-Based-Taxes}
 
-**Tax-Exclusive (Added to Price):**
+**ضريبة خارج السعر (تُضاف إلى السعر):**
 ```java
 if (!priceIncludesTax && !taxIsDiscount) {
     taxAmount = (baseAmount × taxPercentage) ÷ 100;
@@ -282,7 +282,7 @@ if (!priceIncludesTax && !taxIsDiscount) {
 }
 ```
 
-**Tax-Inclusive (Included in Price):**
+**ضريبة ضمن السعر (مدرجة في السعر):**
 ```java
 if (priceIncludesTax && !taxIsDiscount) {
     taxAmount = baseAmount - (baseAmount × 100) ÷ (100 + taxPercentage);
@@ -290,7 +290,7 @@ if (priceIncludesTax && !taxIsDiscount) {
 }
 ```
 
-**Tax as Discount:**
+**الضريبة كخصم:**
 ```java
 if (taxIsDiscount) {
     taxAmount = (baseAmount × taxPercentage) ÷ 100;
@@ -298,105 +298,105 @@ if (taxIsDiscount) {
 }
 ```
 
-#### Value-Based Taxes
+#### الضرائب بقيمة ثابتة {#Value-Based-Taxes}
 
-**Per Unit Calculation:**
+**الحساب بالوحدة:**
 ```java
 if (taxIsValue && !taxValueIsForTotal) {
     taxAmount = taxRate × quantity;
 }
 ```
 
-**Total Amount Calculation:**
+**الحساب بالإجمالي:**
 ```java
 if (taxIsValue && taxValueIsForTotal) {
     taxAmount = taxRate; // Fixed amount regardless of quantity
 }
 ```
 
-## Advanced Effects Configuration
+## إعداد التأثيرات المتقدمة {#Advanced-Effects-Configuration}
 
-### TaxDiscountEffectsConfig Entity
+### كيان TaxDiscountEffectsConfig {#TaxDiscountEffectsConfig-Entity}
 
-The `effectsConfig` field in TaxConfiguration references a `TaxDiscountEffectsConfig` entity that provides complete control over calculation sequence:
+يشير حقل `effectsConfig` في TaxConfiguration إلى كيان `TaxDiscountEffectsConfig` الذي يوفر تحكماً كاملاً في تسلسل الحساب:
 
-#### Effects Order Configuration
+#### إعداد ترتيب التأثيرات {#Effects-Order-Configuration}
 
-| Field Name | Database Field | Description |
-|------------|---------------|-------------|
-| **Effects Order** | `effectsOrder` | List defining sequence of effects |
-| **Effect 1 Type** | `effect1Type` | Type of first effect (Tax1-4, Discount1-8, HeaderDiscount) |
-| **Effect 1 Basis Lines** | `effect1BasisLines` | Calculation rules for effect 1 |
-| **Effect 2 Type** | `effect2Type` | Type of second effect |
-| **Effect 2 Basis Lines** | `effect2BasisLines` | Calculation rules for effect 2 |
+| اسم الحقل | حقل قاعدة البيانات | الوصف |
+|------------|------------------|-------|
+| **Effects Order** | `effectsOrder` | قائمة تحدد تسلسل التأثيرات |
+| **Effect 1 Type** | `effect1Type` | نوع التأثير الأول (Tax1-4, Discount1-8, HeaderDiscount) |
+| **Effect 1 Basis Lines** | `effect1BasisLines` | قواعد الحساب للتأثير 1 |
+| **Effect 2 Type** | `effect2Type` | نوع التأثير الثاني |
+| **Effect 2 Basis Lines** | `effect2BasisLines` | قواعد الحساب للتأثير 2 |
 | ... | ... | ... |
-| **Effect 13 Type** | `effect13Type` | Type of thirteenth effect |
-| **Effect 13 Basis Lines** | `effect13BasisLines` | Calculation rules for effect 13 |
+| **Effect 13 Type** | `effect13Type` | نوع التأثير الثالث عشر |
+| **Effect 13 Basis Lines** | `effect13BasisLines` | قواعد الحساب للتأثير 13 |
 
-#### Effect Basis Line Configuration
+#### إعداد سطر أساس التأثير {#Effect-Basis-Line-Configuration}
 
-Each effect basis line contains:
+يحتوي كل سطر أساس تأثير على:
 
-| Field Name | Description | Impact |
-|------------|-------------|---------|
-| **Source Type** | What value to use (MainPrice, CurrentTotal, Discount1-8, Tax1-4, etc.) | Determines base value |
-| **Source Value** | Which aspect of source (Value, AfterValue, Percentage) | Specifies exact value to extract |
-| **Source Operation** | Mathematical operation (Add, Subtract, Multiply, Divide, CalcPercentage, CalcInversePercentage) | How to apply the value |
+| اسم الحقل | الوصف | التأثير |
+|------------|-------|---------|
+| **Source Type** | القيمة المستخدمة (MainPrice, CurrentTotal, Discount1-8, Tax1-4, إلخ) | يحدد القيمة الأساسية |
+| **Source Value** | الجانب المحدد من المصدر (Value, AfterValue, Percentage) | يحدد القيمة الدقيقة للاستخراج |
+| **Source Operation** | العملية الرياضية (Add, Subtract, Multiply, Divide, CalcPercentage, CalcInversePercentage) | كيفية تطبيق القيمة |
 
-### Custom Calculation Operations
+### العمليات الحسابية المخصصة {#Custom-Calculation-Operations}
 
-The system supports these operations for custom effect calculations:
+يدعم النظام هذه العمليات لحسابات التأثيرات المخصصة:
 
-| Operation | Formula | Use Case |
-|-----------|---------|----------|
-| **Add** | `total + value` | Standard addition |
-| **Subtract** | `total - value` | Standard subtraction |
-| **Multiply** | `total × value` | Scaling calculations |
-| **Divide** | `total ÷ value` | Division operations |
-| **CalcPercentage** | `(total × value) ÷ 100` | Percentage calculations |
-| **CalcInversePercentage** | `total - (total ÷ ((100 + value) ÷ 100))` | Tax-inclusive extractions |
+| العملية | الصيغة | حالة الاستخدام |
+|---------|--------|---------------|
+| **Add** | `total + value` | الجمع القياسي |
+| **Subtract** | `total - value` | الطرح القياسي |
+| **Multiply** | `total × value` | حسابات القياس |
+| **Divide** | `total ÷ value` | عمليات القسمة |
+| **CalcPercentage** | `(total × value) ÷ 100` | حسابات النسبة المئوية |
+| **CalcInversePercentage** | `total - (total ÷ ((100 + value) ÷ 100))` | استخراج الضريبة الشاملة |
 
-## Special Configuration Options
+## خيارات الإعداد الخاصة {#Special-Configuration-Options}
 
-### Free Item Handling
+### معالجة الأصناف المجانية {#Free-Item-Handling}
 
-| Field Name | Database Field | Description | Impact |
-|------------|---------------|-------------|---------|
-| **No Taxes For Free Item** | `noTaxesForFreeItem` | Disable taxes on free items | All taxes zeroed for lines marked as free |
+| اسم الحقل | حقل قاعدة البيانات | الوصف | التأثير |
+|------------|------------------|-------|---------|
+| **No Taxes For Free Item** | `noTaxesForFreeItem` | تعطيل الضرائب على الأصناف المجانية | تصبح جميع الضرائب صفراً للسطور المحددة كمجانية |
 
-### Additional Value Usage
+### استخدام القيمة الإضافية {#Additional-Value-Usage}
 
-These fields control whether tax percentages are added as additional values to line totals:
+تتحكم هذه الحقول في إضافة نسب الضريبة كقيم إضافية لإجماليات السطور:
 
-| Field Name | Database Field | When False (Default) |
-|------------|---------------|---------------------|
-| **Do Not Use Tax1 Percentage As Additional Value1** | `doNotUseTax1PercentageAsAdditionalValue1` | Tax1 percentage added to line total |
-| **Do Not Use Tax2 Percentage As Additional Value2** | `doNotUseTax2PercentageAsAdditionalValue2` | Tax2 percentage added to line total |
-| **Do Not Use Tax3 Percentage As Additional Value3** | `doNotUseTax3PercentageAsAdditionalValue3` | Tax3 percentage added to line total |
-| **Do Not Use Tax4 Percentage As Additional Value4** | `doNotUseTax4PercentageAsAdditionalValue4` | Tax4 percentage added to line total |
+| اسم الحقل | حقل قاعدة البيانات | عند الإيقاف (الافتراضي) |
+|------------|------------------|----------------------|
+| **Do Not Use Tax1 Percentage As Additional Value1** | `doNotUseTax1PercentageAsAdditionalValue1` | تُضاف نسبة Tax1 إلى إجمالي السطر |
+| **Do Not Use Tax2 Percentage As Additional Value2** | `doNotUseTax2PercentageAsAdditionalValue2` | تُضاف نسبة Tax2 إلى إجمالي السطر |
+| **Do Not Use Tax3 Percentage As Additional Value3** | `doNotUseTax3PercentageAsAdditionalValue3` | تُضاف نسبة Tax3 إلى إجمالي السطر |
+| **Do Not Use Tax4 Percentage As Additional Value4** | `doNotUseTax4PercentageAsAdditionalValue4` | تُضاف نسبة Tax4 إلى إجمالي السطر |
 
-### Subsidiary Account Tax Exemptions
+### إعفاءات الضريبة لحسابات الموازنة {#Subsidiary-Account-Tax-Exemptions}
 
-Customers and suppliers can have tax exemptions configured in their subsidiary accounts:
+يمكن إعداد إعفاءات ضريبية للعملاء والموردين في حسابات موازنتهم:
 
-| Field Name | Description | Impact |
-|------------|-------------|---------|
-| **Tax 1 Exempt** | `subsidiaryAccounts.tax1Exempt` | When true, Tax1 is zeroed for this entity |
-| **Tax 2 Exempt** | `subsidiaryAccounts.tax2Exempt` | When true, Tax2 is zeroed for this entity |
-| **Tax 3 Exempt** | `subsidiaryAccounts.tax3Exempt` | When true, Tax3 is zeroed for this entity |
-| **Tax 4 Exempt** | `subsidiaryAccounts.tax4Exempt` | When true, Tax4 is zeroed for this entity |
+| اسم الحقل | الوصف | التأثير |
+|------------|-------|---------|
+| **Tax 1 Exempt** | `subsidiaryAccounts.tax1Exempt` | عند التفعيل، تصبح Tax1 صفراً لهذه الجهة |
+| **Tax 2 Exempt** | `subsidiaryAccounts.tax2Exempt` | عند التفعيل، تصبح Tax2 صفراً لهذه الجهة |
+| **Tax 3 Exempt** | `subsidiaryAccounts.tax3Exempt` | عند التفعيل، تصبح Tax3 صفراً لهذه الجهة |
+| **Tax 4 Exempt** | `subsidiaryAccounts.tax4Exempt` | عند التفعيل، تصبح Tax4 صفراً لهذه الجهة |
 
-## Common Scenarios and Examples
+## سيناريوهات وأمثلة شائعة {#Common-Scenarios-and-Examples}
 
-### Scenario 1: Standard VAT with Trade Discount
+### السيناريو 1: ضريبة القيمة المضافة القياسية مع خصم تجاري {#Scenario-1-Standard-VAT-with-Trade-Discount}
 
-**Configuration:**
+**الإعداد:**
 - `discount1ApplyType`: TotalPrice
 - `tax1Location`: HeaderDiscount
 - `priceIncludesTax`: false
 - `tax1IsDiscount`: false
 
-**Calculation:**
+**الحساب:**
 ```
 Line Total: $1,000
 Discount 1 (10%): $100
@@ -405,14 +405,14 @@ VAT (15%): $135
 Final Total: $900 + $135 = $1,035
 ```
 
-### Scenario 2: Tax-Inclusive Pricing with Discount
+### السيناريو 2: تسعير شامل للضريبة مع خصم {#Scenario-2-Tax-Inclusive-Pricing-with-Discount}
 
-**Configuration:**
+**الإعداد:**
 - `priceIncludesTax`: true
 - `discount1ApplyType`: TotalPrice
 - `discount1.considerTax1`: true
 
-**Calculation:**
+**الحساب:**
 ```
 Quoted Price (includes 15% VAT): $1,150
 VAT Component: $150
@@ -424,14 +424,14 @@ Final VAT: $135
 Final Total: $1,035
 ```
 
-### Scenario 3: Withholding Tax Configuration
+### السيناريو 3: إعداد ضريبة الاستقطاع {#Scenario-3-Withholding-Tax-Configuration}
 
-**Configuration:**
-- `tax3IsDiscount`: true (makes it a deduction)
+**الإعداد:**
+- `tax3IsDiscount`: true (يجعلها خصماً)
 - `tax3Location`: HeaderDiscount
 - `tax3NotIncludedInTotal`: false
 
-**Calculation:**
+**الحساب:**
 ```
 Line Total: $1,000
 VAT (15%): $150
@@ -440,9 +440,9 @@ Withholding (5%): $50 (deducted)
 Final Total: $1,150 - $50 = $1,100
 ```
 
-### Scenario 4: Complex Effects Order
+### السيناريو 4: ترتيب تأثيرات معقد {#Scenario-4-Complex-Effects-Order}
 
-**Configuration using TaxDiscountEffectsConfig:**
+**الإعداد باستخدام TaxDiscountEffectsConfig:**
 ```
 Effect 1: Discount1 (10% trade discount)
 Effect 2: Discount2 (5% volume discount)  
@@ -451,7 +451,7 @@ Effect 4: HeaderDiscount ($25 promotional)
 Effect 5: Tax3 (3% withholding)
 ```
 
-**Calculation:**
+**الحساب:**
 ```
 Line Total: $1,000
 After Discount1: $900
@@ -461,306 +461,306 @@ After Header Discount: $958.25
 After Withholding: $958.25 - $28.75 = $929.50
 ```
 
-## Configuration Best Practices
+## أفضل ممارسات الإعداد {#Configuration-Best-Practices}
 
-### Setting Up Tax Plans
+### إعداد خطط الضريبة {#Setting-Up-Tax-Plans}
 
-1. **Create Base Tax Plans**
-   - Set `defaultTaxConfig` to control configuration source
-   - Configure `taxConfiguration` with standard settings
-   - Define `legalEntityTaxes` for different entities and date ranges
+1. **إنشاء خطط ضريبة أساسية**
+   - تعيين `defaultTaxConfig` للتحكم في مصدر الإعداد
+   - إعداد `taxConfiguration` بالإعدادات القياسية
+   - تعريف `legalEntityTaxes` لجهات وفترات زمنية مختلفة
 
-2. **Configure Tax Behavior**
-   - Set `tax[N]IsDiscount` correctly for additions vs deductions
-   - Configure `priceIncludesTax[N]` based on pricing strategy
-   - Set `tax[N]NotIncludedInTotal` for display-only taxes
+2. **إعداد سلوك الضريبة**
+   - تعيين `tax[N]IsDiscount` بشكل صحيح للإضافات والخصومات
+   - إعداد `priceIncludesTax[N]` بناءً على استراتيجية التسعير
+   - تعيين `tax[N]NotIncludedInTotal` للضرائب المعروضة فقط
 
-3. **Set Application Points**
-   - Configure `tax[N]Location` for proper sequence
-   - Set `tax[N]ApplyType` for correct base calculation
-   - Use `effectsConfig` for complex sequences
+3. **تعيين نقاط التطبيق**
+   - إعداد `tax[N]Location` للتسلسل الصحيح
+   - تعيين `tax[N]ApplyType` لحساب الأساس الصحيح
+   - استخدام `effectsConfig` للتسلسلات المعقدة
 
-### Discount Configuration Guidelines
+### إرشادات إعداد الخصم {#Discount-Configuration-Guidelines}
 
-1. **Sequential Discounts**
-   - Configure `discount[N]ApplyType` for cascading discounts
-   - Use `AfterDiscount[N-1]Price` for sequential application
-   - Consider tax effects with `discount[N].considerTax[N]`
+1. **الخصومات التسلسلية**
+   - إعداد `discount[N]ApplyType` للخصومات المتدرجة
+   - استخدام `AfterDiscount[N-1]Price` للتطبيق التسلسلي
+   - مراعاة تأثيرات الضريبة مع `discount[N].considerTax[N]`
 
-2. **Value vs Percentage**
-   - Set `calcDisc[N]PercentFromValue` based on business rules
-   - Use value-based for fixed discounts
-   - Use percentage-based for proportional discounts
+2. **قيمة ثابتة مقابل نسبة مئوية**
+   - تعيين `calcDisc[N]PercentFromValue` بناءً على قواعد العمل
+   - استخدام القيمة الثابتة للخصومات المحددة
+   - استخدام النسبة المئوية للخصومات النسبية
 
-### Tax Configuration Validation
+### التحقق من صحة إعداد الضريبة {#Tax-Configuration-Validation}
 
-Before deploying tax configurations:
+قبل نشر إعدادات الضريبة:
 
-1. **Verify Calculation Direction**
-   - Check `tax[N]IsDiscount` for correct addition/subtraction
-   - Validate `priceIncludesTax[N]` matches pricing strategy
+1. **التحقق من اتجاه الحساب**
+   - التحقق من `tax[N]IsDiscount` للإضافة/الطرح الصحيح
+   - التحقق من تطابق `priceIncludesTax[N]` مع استراتيجية التسعير
 
-2. **Test Date Ranges**
-   - Ensure `effectiveFrom` and `effectiveTo` cover required periods
-   - Test rate transitions at date boundaries
+2. **اختبار نطاقات التواريخ**
+   - التأكد من أن `effectiveFrom` و`effectiveTo` يغطيان الفترات المطلوبة
+   - اختبار انتقالات المعدلات عند حدود التواريخ
 
-3. **Validate Sequences**
-   - Confirm `effectsOrder` produces expected results
-   - Test with sample data covering all scenarios
+3. **التحقق من التسلسلات**
+   - تأكيد أن `effectsOrder` ينتج النتائج المتوقعة
+   - الاختبار ببيانات نموذجية تغطي جميع السيناريوهات
 
-## Troubleshooting Guide
+## دليل استكشاف الأخطاء وإصلاحها {#Troubleshooting-Guide}
 
-### Common Configuration Issues
+### مشكلات الإعداد الشائعة {#Common-Configuration-Issues}
 
-#### Issue: Tax Being Added Instead of Deducted
+#### المشكلة: إضافة الضريبة بدلاً من خصمها {#Issue-Tax-Being-Added-Instead-of-Deducted}
 
-**Check These Fields:**
-- `tax[N]IsDiscount`: Should be `true` for deductions
-- `tax[N]Location`: Verify calculation point
-- `effectsConfig`: Check if custom sequence overrides settings
+**تحقق من هذه الحقول:**
+- `tax[N]IsDiscount`: يجب أن يكون `true` للخصومات
+- `tax[N]Location`: التحقق من نقطة الحساب
+- `effectsConfig`: التحقق مما إذا كان التسلسل المخصص يتجاوز الإعدادات
 
-#### Issue: Incorrect Discount Base
+#### المشكلة: قاعدة خصم غير صحيحة {#Issue-Incorrect-Discount-Base}
 
-**Check These Fields:**
-- `discount[N]ApplyType`: Verify base value selection
-- `discount[N].considerTax[N]`: Check tax consideration
-- `effectsConfig`: Review custom calculation rules
+**تحقق من هذه الحقول:**
+- `discount[N]ApplyType`: التحقق من اختيار القيمة الأساسية
+- `discount[N].considerTax[N]`: التحقق من مراعاة الضريبة
+- `effectsConfig`: مراجعة قواعد الحساب المخصصة
 
-#### Issue: Tax Not Appearing in Total
+#### المشكلة: الضريبة لا تظهر في الإجمالي {#Issue-Tax-Not-Appearing-in-Total}
 
-**Check These Fields:**
-- `tax[N]NotIncludedInTotal`: Should be `false` to include
-- `noItemTaxesWithThisPolicy`: Should be `false` for Tax1/Tax2
-- `noInvoiceTaxesWithThisPolicy`: Should be `false` for Tax3/Tax4
-- Customer/Supplier `tax[N]Exempt`: Check exemption flags
+**تحقق من هذه الحقول:**
+- `tax[N]NotIncludedInTotal`: يجب أن يكون `false` للتضمين
+- `noItemTaxesWithThisPolicy`: يجب أن يكون `false` لـ Tax1/Tax2
+- `noInvoiceTaxesWithThisPolicy`: يجب أن يكون `false` لـ Tax3/Tax4
+- `tax[N]Exempt` للعميل/المورد: التحقق من علامات الإعفاء
 
-#### Issue: Wrong Tax Rate Applied
+#### المشكلة: تطبيق معدل ضريبة خاطئ {#Issue-Wrong-Tax-Rate-Applied}
 
-**Check Resolution Order:**
-1. Header tax plan with matching legal entity and date
-2. Line tax plan with matching criteria
-3. Global configuration default
-4. Verify `priorityPolicyOverCusOrSup` setting
+**تحقق من ترتيب الحل:**
+1. خطة ضريبة الرأس مع الشركة والتاريخ المطابقين
+2. خطة ضريبة السطر مع المعايير المطابقة
+3. الإعداد الافتراضي العام
+4. التحقق من إعداد `priorityPolicyOverCusOrSup`
 
-### Validation Rules
+### قواعد التحقق {#Validation-Rules}
 
-The system enforces these validation rules:
+يُطبِّق النظام قواعد التحقق التالية:
 
-1. **Tax Plan Consistency**
-   - `itemPlan` and `noItemTaxesWithThisPolicy` cannot both be true
-   - Configuration combinations must be mathematically valid
+1. **اتساق خطة الضريبة**
+   - لا يمكن أن يكون `itemPlan` و`noItemTaxesWithThisPolicy` كلاهما true
+   - يجب أن تكون تركيبات الإعداد صالحة رياضياً
 
-2. **Calculation Integrity**
-   - Discount amounts cannot make line totals negative
-   - Tax percentages must be within valid ranges
-   - Rounding must maintain accuracy
+2. **سلامة الحساب**
+   - لا يمكن أن تجعل مبالغ الخصم إجماليات السطور سالبة
+   - يجب أن تكون نسب الضريبة ضمن النطاقات الصالحة
+   - يجب أن يحافظ التقريب على الدقة
 
-3. **Date Range Validity**
-   - Overlapping date ranges for same entity not allowed
-   - Effective dates must be logically consistent
+3. **صحة نطاق التواريخ**
+   - لا يُسمح بنطاقات تواريخ متداخلة لنفس الجهة
+   - يجب أن تكون تواريخ السريان منطقية ومتسقة
 
-## Performance Considerations
+## اعتبارات الأداء {#Performance-Considerations}
 
-### Optimization Guidelines
+### إرشادات التحسين {#Optimization-Guidelines}
 
-1. **Minimize Effects Configuration Complexity**
-   - Use only necessary effect positions
-   - Avoid redundant calculations
-   - Cache frequently used configurations
+1. **تقليل تعقيد إعداد التأثيرات**
+   - استخدم مواضع التأثيرات الضرورية فقط
+   - تجنب الحسابات المتكررة
+   - خزِّن الإعدادات المستخدمة بتكرار في الذاكرة المؤقتة
 
-2. **Efficient Tax Plan Design**
-   - Minimize legal entity tax records
-   - Use date ranges effectively
-   - Leverage default configurations
+2. **تصميم خطة ضريبة فعّالة**
+   - قلِّل سجلات ضريبة الشركات
+   - استخدم نطاقات التواريخ بفعالية
+   - استفد من الإعدادات الافتراضية
 
-3. **Configuration Caching**
-   - Tax configurations are cached per invoice
-   - Avoid unnecessary tax plan changes
-   - Use consistent configurations across similar documents
+3. **تخزين الإعداد مؤقتاً**
+   - تُخزَّن إعدادات الضريبة مؤقتاً لكل فاتورة
+   - تجنب التغييرات غير الضرورية في خطة الضريبة
+   - استخدم إعدادات متسقة عبر المستندات المماثلة
 
-::: warning Important
-Always test configuration changes in a development environment before applying to production systems. Complex discount and tax interactions can have unexpected results, especially when using custom effects configurations.
+::: warning مهم
+اختبر دائماً تغييرات الإعداد في بيئة التطوير قبل تطبيقها على أنظمة الإنتاج. يمكن أن تُفضي التفاعلات المعقدة بين الخصومات والضرائب إلى نتائج غير متوقعة، خاصةً عند استخدام إعدادات التأثيرات المخصصة.
 :::
 
-## Comparison with Other ERP Systems
+## المقارنة مع أنظمة ERP الأخرى {#Comparison-with-Other-ERP-Systems}
 
-### Nama ERP vs Other Major ERP Systems
+### Nama ERP مقارنةً بأنظمة ERP الرئيسية الأخرى {#Nama-ERP-vs-Other-Major-ERP-Systems}
 
-Understanding how Nama ERP's discount and tax system compares to other major ERP systems helps appreciate its unique capabilities and design philosophy.
+يساعد فهم مقارنة نظام الخصومات والضرائب في Nama ERP بأنظمة ERP الرئيسية الأخرى على تقدير قدراته الفريدة وفلسفته التصميمية.
 
-#### Nama ERP vs Odoo
+#### Nama ERP مقارنةً بـ Odoo {#Nama-ERP-vs-Odoo}
 
-| Feature | Nama ERP | Odoo |
-|---------|----------|------|
-| **Number of Line Discounts** | 8 sequential discounts | Typically 1-2 line discounts |
-| **Discount Application Order** | Fully configurable via effects config | Fixed sequence |
-| **Tax Types** | 4 configurable taxes (can be additions or deductions) | Unlimited tax lines but typically additions only |
-| **Tax-Discount Interaction** | Configurable per discount via TaxEffectOnDiscount | Basic tax on discounted amount |
-| **Custom Calculation Sequences** | 13-position effects configuration | Limited to predefined sequences |
-| **Tax as Deduction** | Native support via taxIsDiscount flag | Requires workarounds or customization |
-| **Price-Inclusive Tax** | Built-in with automatic extraction | Supported but less flexible |
-| **Date-Based Tax Rates** | Native with Legal Entity Tax records | Requires fiscal positions |
+| الميزة | Nama ERP | Odoo |
+|--------|----------|------|
+| **عدد خصومات السطر** | 8 خصومات تسلسلية | عادةً 1-2 خصومات |
+| **ترتيب تطبيق الخصم** | قابل للإعداد بالكامل عبر effects config | تسلسل ثابت |
+| **أنواع الضرائب** | 4 ضرائب قابلة للإعداد (إضافات أو خصومات) | سطور ضريبة غير محدودة لكن عادةً إضافات فقط |
+| **تفاعل الضريبة-الخصم** | قابل للإعداد لكل خصم عبر TaxEffectOnDiscount | ضريبة أساسية على المبلغ بعد الخصم |
+| **تسلسلات الحساب المخصصة** | إعداد تأثيرات بـ 13 موضعاً | محدود بتسلسلات محددة مسبقاً |
+| **الضريبة كخصم** | دعم أصلي عبر taxIsDiscount flag | يتطلب حلولاً بديلة أو تخصيصاً |
+| **الضريبة الشاملة في السعر** | مدمجة مع استخراج تلقائي | مدعومة لكن أقل مرونة |
+| **معدلات الضريبة المستندة إلى التاريخ** | أصلية مع سجلات Legal Entity Tax | تتطلب fiscal positions |
 
-**Key Advantages of Nama ERP:**
-- More granular discount control with 8 sequential discounts
-- Native support for taxes as deductions (withholding taxes)
-- Complex tax-discount interaction configuration
-- Custom calculation sequences through effects configuration
+**المزايا الرئيسية لـ Nama ERP:**
+- تحكم أكثر تفصيلاً في الخصومات بـ 8 خصومات تسلسلية
+- دعم أصلي للضرائب كخصومات (ضرائب استقطاع)
+- إعداد معقد لتفاعل الضريبة-الخصم
+- تسلسلات حساب مخصصة عبر إعداد التأثيرات
 
-**Odoo Advantages:**
-- Simpler configuration for basic scenarios
-- More extensive community modules
-- Easier tax report generation through account configurations
+**مزايا Odoo:**
+- إعداد أبسط للسيناريوهات الأساسية
+- وحدات مجتمعية أكثر شمولاً
+- إنشاء تقارير ضريبية أسهل عبر إعدادات الحسابات
 
-#### Nama ERP vs Microsoft Dynamics 365
+#### Nama ERP مقارنةً بـ Microsoft Dynamics 365 {#Nama-ERP-vs-Microsoft-Dynamics-365}
 
-| Feature | Nama ERP | Microsoft Dynamics 365 |
-|---------|----------|------------------------|
-| **Discount Levels** | 8 line + 1 header discount | Multiple discount types but typically 3 levels |
-| **Discount Base Configuration** | Each discount can apply to different bases | Limited base options |
-| **Tax Configuration** | Tax Plans with hierarchical resolution | Tax groups and tax codes |
-| **Tax Application Points** | Configurable at any point in calculation | After all discounts typically |
-| **Effects Ordering** | Complete custom sequencing | Predefined calculation order |
-| **Tax Exemptions** | Built into subsidiary accounts | Customer tax groups |
-| **Multi-Currency Tax Handling** | Integrated with configurable conversion | Separate currency handling |
+| الميزة | Nama ERP | Microsoft Dynamics 365 |
+|--------|----------|------------------------|
+| **مستويات الخصم** | 8 سطور + 1 خصم رأس | أنواع خصومات متعددة لكن عادةً 3 مستويات |
+| **إعداد قاعدة الخصم** | يمكن لكل خصم تطبيق قواعد مختلفة | خيارات قاعدة محدودة |
+| **إعداد الضريبة** | Tax Plans مع حل هرمي | مجموعات ضريبة وأكواد ضريبة |
+| **نقاط تطبيق الضريبة** | قابلة للإعداد في أي نقطة من الحساب | عادةً بعد جميع الخصومات |
+| **ترتيب التأثيرات** | تسلسل مخصص كامل | ترتيب حساب محدد مسبقاً |
+| **الإعفاءات الضريبية** | مدمجة في حسابات الموازنة | مجموعات ضريبة العميل |
+| **معالجة الضريبة متعددة العملات** | مدمجة مع تحويل قابل للإعداد | معالجة عملة منفصلة |
 
-**Key Advantages of Nama ERP:**
-- More flexible discount base calculations
-- Hierarchical tax configuration resolution
-- Greater control over calculation sequence
-- Integrated tax exemption at account level
+**المزايا الرئيسية لـ Nama ERP:**
+- حسابات قاعدة خصم أكثر مرونة
+- حل إعداد ضريبة هرمي
+- تحكم أكبر في تسلسل الحساب
+- إعفاء ضريبي مدمج على مستوى الحساب
 
-**Dynamics 365 Advantages:**
-- Better integration with Microsoft ecosystem
-- More sophisticated financial reporting
-- Advanced analytics and AI capabilities
+**مزايا Dynamics 365:**
+- تكامل أفضل مع نظام Microsoft
+- تقارير مالية أكثر تطوراً
+- قدرات تحليلية وذكاء اصطناعي متقدمة
 
-#### Nama ERP vs SAP (ECC/S4HANA)
+#### Nama ERP مقارنةً بـ SAP (ECC/S4HANA) {#Nama-ERP-vs-SAP-ECCS4HANA}
 
-| Feature | Nama ERP | SAP |
-|---------|----------|-----|
-| **Discount Structure** | 8 sequential line discounts | Condition types (unlimited but complex) |
-| **Configuration Approach** | Field-based configuration | Condition technique with schemas |
-| **Tax Calculation** | 4 taxes with flexible behavior | Tax procedures with condition types |
-| **Calculation Flexibility** | Effects configuration for custom sequences | Pricing procedures with steps |
-| **Tax as Discount** | Simple flag configuration | Requires condition type configuration |
-| **User Interface** | Direct field configuration | ABAP customization often required |
-| **Performance** | Optimized single-pass calculation | Complex but highly optimized |
+| الميزة | Nama ERP | SAP |
+|--------|----------|-----|
+| **هيكل الخصم** | 8 خصومات تسلسلية على السطر | أنواع شروط (غير محدودة لكن معقدة) |
+| **نهج الإعداد** | إعداد قائم على الحقول | تقنية الشروط مع المخططات |
+| **حساب الضريبة** | 4 ضرائب بسلوك مرن | إجراءات ضريبة مع أنواع شروط |
+| **مرونة الحساب** | إعداد التأثيرات للتسلسلات المخصصة | إجراءات التسعير مع الخطوات |
+| **الضريبة كخصم** | إعداد بسيط عبر flag | يتطلب إعداد نوع الشرط |
+| **واجهة المستخدم** | إعداد مباشر للحقول | يتطلب تخصيص ABAP في الغالب |
+| **الأداء** | حساب محسَّن في مرور واحد | معقد لكن محسَّن للغاية |
 
-**Key Advantages of Nama ERP:**
-- Simpler configuration without extensive customization
-- More intuitive tax as deduction setup
-- Direct field-level configuration
-- Easier to understand calculation flow
+**المزايا الرئيسية لـ Nama ERP:**
+- إعداد أبسط دون تخصيص مكثف
+- إعداد أكثر بديهية لضريبة الاستقطاع
+- إعداد مباشر على مستوى الحقول
+- تدفق حساب أسهل فهماً
 
-**SAP Advantages:**
-- Unlimited flexibility through condition types
-- Industry-specific solutions
-- Extensive integration capabilities
-- More sophisticated pricing procedures
+**مزايا SAP:**
+- مرونة غير محدودة عبر أنواع الشروط
+- حلول خاصة بالصناعة
+- قدرات تكامل واسعة
+- إجراءات تسعير أكثر تطوراً
 
-#### Nama ERP vs Oracle EBS (E-Business Suite)
+#### Nama ERP مقارنةً بـ Oracle EBS (E-Business Suite) {#Nama-ERP-vs-Oracle-EBS-E-Business-Suite}
 
-| Feature | Nama ERP | Oracle EBS |
-|---------|----------|------------|
-| **Discount Management** | 8 line + header with individual control | Modifier lists and qualifiers |
-| **Tax Engine** | Built-in with 4 configurable taxes | Oracle Tax (E-Business Tax) |
-| **Configuration Complexity** | Field-based, business-user friendly | Requires technical setup |
-| **Tax Regimes** | Tax Plans with date ranges | Tax regimes and jurisdictions |
-| **Calculation Transparency** | Clear field-by-field configuration | Complex tax rules engine |
-| **Withholding Tax** | Native support via taxIsDiscount | Separate withholding tax module |
+| الميزة | Nama ERP | Oracle EBS |
+|--------|----------|------------|
+| **إدارة الخصومات** | 8 سطور + رأس مع تحكم فردي | قوائم تعديل ومؤهلات |
+| **محرك الضريبة** | مدمج مع 4 ضرائب قابلة للإعداد | Oracle Tax (E-Business Tax) |
+| **تعقيد الإعداد** | قائم على الحقول، مناسب لمستخدمي الأعمال | يتطلب إعداداً تقنياً |
+| **أنظمة الضرائب** | Tax Plans مع نطاقات تواريخ | أنظمة ضريبة وولايات قضائية |
+| **شفافية الحساب** | إعداد واضح حقلاً بحقل | محرك قواعد ضريبة معقد |
+| **ضريبة الاستقطاع** | دعم أصلي عبر taxIsDiscount | وحدة ضريبة استقطاع منفصلة |
 
-**Key Advantages of Nama ERP:**
-- Simpler, more transparent configuration
-- Unified handling of regular and withholding taxes
-- Business-user friendly setup
-- Integrated discount-tax configuration
+**المزايا الرئيسية لـ Nama ERP:**
+- إعداد أبسط وأكثر شفافية
+- معالجة موحدة للضرائب العادية وضرائب الاستقطاع
+- مناسب لمستخدمي الأعمال
+- إعداد مدمج للخصومات والضرائب
 
-**Oracle EBS Advantages:**
-- More comprehensive tax compliance features
-- Better suited for complex multi-jurisdictional requirements
-- Advanced tax reporting and reconciliation
-- Deeper supply chain integration
+**مزايا Oracle EBS:**
+- ميزات امتثال ضريبي أكثر شمولاً
+- أكثر ملاءمة للمتطلبات المعقدة متعددة الولايات القضائية
+- تقارير ضريبية ومطابقة متقدمة
+- تكامل أعمق مع سلسلة التوريد
 
-### Unique Features of Nama ERP
+### الميزات الفريدة لـ Nama ERP {#Unique-Features-of-Nama-ERP}
 
-#### Features Rarely Found in Other ERPs
+#### ميزات نادراً ما تُوجد في أنظمة ERP الأخرى {#Features-Rarely-Found-in-Other-ERPs}
 
-1. **Eight Sequential Line Discounts**
-   - Most ERPs limit to 2-3 discount levels
-   - Nama allows complex discount chains for sophisticated pricing
+1. **ثمانية خصومات تسلسلية على السطر**
+   - تحد معظم أنظمة ERP من 2-3 مستويات خصم
+   - يتيح Nama سلاسل خصم معقدة لتسعير متطور
 
-2. **TaxEffectOnDiscount Configuration**
-   - Granular control over tax consideration in discount calculations
-   - Each discount can independently consider each tax
+2. **إعداد TaxEffectOnDiscount**
+   - تحكم تفصيلي في مراعاة الضريبة في حسابات الخصم
+   - كل خصم يمكنه مراعاة كل ضريبة بشكل مستقل
 
-3. **Unified Tax Addition/Deduction Model**
-   - Single flag (`taxIsDiscount`) converts any tax to deduction
-   - Eliminates need for separate withholding tax modules
+3. **نموذج موحد للإضافة/الخصم الضريبي**
+   - flag واحد (`taxIsDiscount`) يحوّل أي ضريبة إلى خصم
+   - يلغي الحاجة إلى وحدات ضريبة استقطاع منفصلة
 
-4. **13-Position Effects Configuration**
-   - Complete control over calculation sequence
-   - Custom mathematical operations between effects
+4. **إعداد تأثيرات بـ 13 موضعاً**
+   - تحكم كامل في تسلسل الحساب
+   - عمليات رياضية مخصصة بين التأثيرات
 
-5. **Hierarchical Configuration Resolution**
-   - Three-tier resolution: Header Plan → Line Plan → Global
-   - Flexibility with clear precedence rules
+5. **حل الإعداد الهرمي**
+   - حل ثلاثي المستويات: Header Plan → Line Plan → Global
+   - مرونة مع قواعد أولوية واضحة
 
-#### When to Choose Nama ERP
+#### متى تختار Nama ERP {#When-to-Choose-Nama-ERP}
 
-**Nama ERP is Ideal for:**
-- Businesses with complex discount structures
-- Markets with multiple withholding tax requirements
-- Companies needing flexible tax-discount interactions
-- Organizations requiring transparent, field-level configuration
-- Businesses with unique calculation sequences
+**Nama ERP مثالي لـ:**
+- الشركات ذات هياكل الخصم المعقدة
+- الأسواق ذات متطلبات ضريبة الاستقطاع المتعددة
+- الشركات التي تحتاج إلى تفاعلات مرنة بين الضريبة والخصم
+- المؤسسات التي تتطلب إعداداً شفافاً على مستوى الحقول
+- الشركات ذات تسلسلات الحساب الفريدة
 
-### Technical Innovation Comparison
+### مقارنة الابتكار التقني {#Technical-Innovation-Comparison}
 
-| Aspect | Nama ERP Approach | Industry Standard |
-|--------|-------------------|-------------------|
-| **Configuration Philosophy** | Field-based with UI exposure | Code/script-based customization |
-| **Calculation Engine** | Single-pass with effects ordering | Multi-pass or procedure-based |
-| **Tax Handling** | Unified model for all tax types | Separate modules for different tax types |
-| **Discount Architecture** | Fixed 8-level structure | Variable but typically limited |
-| **Customization Method** | Configuration over customization | Customization-heavy approach |
-| **Learning Curve** | Moderate - many fields but logical | Varies - often requires technical expertise |
+| الجانب | نهج Nama ERP | المعيار الصناعي |
+|--------|-------------|----------------|
+| **فلسفة الإعداد** | قائمة على الحقول مع إظهار واجهة المستخدم | تخصيص قائم على الكود/السكريبت |
+| **محرك الحساب** | مرور واحد مع ترتيب التأثيرات | متعدد المرور أو قائم على الإجراءات |
+| **معالجة الضريبة** | نموذج موحد لجميع أنواع الضرائب | وحدات منفصلة لأنواع الضرائب المختلفة |
+| **هيكل الخصم** | هيكل ثابت بـ 8 مستويات | متغير لكن محدود عادةً |
+| **طريقة التخصيص** | الإعداد على حساب التخصيص | نهج كثيف التخصيص |
+| **منحنى التعلم** | معتدل - حقول كثيرة لكن منطقية | متفاوت - يتطلب خبرة تقنية في الغالب |
 
-### Migration Considerations
+### اعتبارات الترحيل {#Migration-Considerations}
 
-When migrating from other ERPs to Nama ERP:
+عند الترحيل من أنظمة ERP الأخرى إلى Nama ERP:
 
-**From Odoo:**
-- Map simple discounts to Nama's first 1-2 discount levels
-- Convert tax configurations to Tax Plans
-- Leverage effects configuration for complex scenarios
+**من Odoo:**
+- عيِّن الخصومات البسيطة إلى أول 1-2 مستويات خصم في Nama
+- حوِّل إعدادات الضريبة إلى Tax Plans
+- استفد من إعداد التأثيرات للسيناريوهات المعقدة
 
-**From Dynamics 365:**
-- Map trade agreement discounts to line discounts
-- Convert tax groups to Tax Plans
-- Utilize subsidiary account exemptions
+**من Dynamics 365:**
+- عيِّن خصومات اتفاقيات التجارة إلى خصومات السطر
+- حوِّل مجموعات الضريبة إلى Tax Plans
+- استخدم إعفاءات حسابات الموازنة
 
-**From SAP:**
-- Simplify condition types to discount/tax fields
-- Convert pricing procedures to effects configuration
-- Map tax procedures to Tax Plans
+**من SAP:**
+- بسِّط أنواع الشروط إلى حقول الخصم/الضريبة
+- حوِّل إجراءات التسعير إلى إعداد التأثيرات
+- عيِّن إجراءات الضريبة إلى Tax Plans
 
-**From Oracle EBS:**
-- Convert modifier lists to discount configurations
-- Map tax regimes to Tax Plans with legal entities
-- Simplify withholding tax to taxIsDiscount flags
+**من Oracle EBS:**
+- حوِّل قوائم التعديل إلى إعدادات الخصم
+- عيِّن أنظمة الضريبة إلى Tax Plans مع الشركات
+- بسِّط ضريبة الاستقطاع إلى taxIsDiscount flags
 
-## Summary
+## ملخص {#Summary}
 
-The Nama ERP invoice discount and tax calculation system provides extensive flexibility through:
+يوفر نظام حساب خصومات الفواتير والضرائب في Nama ERP مرونة واسعة من خلال:
 
-- **Hierarchical Configuration**: Tax plans, legal entity rates, and global defaults
-- **Flexible Calculation**: Taxes can be additions or deductions
-- **Custom Sequences**: Complete control over calculation order via effects configuration
-- **Date-Based Rates**: Automatic rate changes over time
-- **Entity-Specific Settings**: Different rates and rules per legal entity
-- **Comprehensive Control**: Field-level configuration for all aspects of calculation
+- **الإعداد الهرمي**: خطط الضريبة، معدلات الشركة، والإعدادات الافتراضية العامة
+- **الحساب المرن**: يمكن أن تكون الضرائب إضافات أو خصومات
+- **التسلسلات المخصصة**: تحكم كامل في ترتيب الحساب عبر إعداد التأثيرات
+- **المعدلات المستندة إلى التاريخ**: تغييرات تلقائية في المعدلات بمرور الوقت
+- **الإعدادات الخاصة بالجهة**: معدلات وقواعد مختلفة لكل شركة
+- **التحكم الشامل**: إعداد على مستوى الحقول لجميع جوانب الحساب
 
-Compared to other major ERP systems, Nama ERP offers a unique balance of flexibility and simplicity, with its 8-level discount structure, unified tax model, and effects configuration providing capabilities that typically require extensive customization in other systems. While it may not have the extensive ecosystem of SAP or Oracle, or the simplicity of Odoo for basic scenarios, it excels in handling complex discount and tax requirements through configuration rather than customization.
+مقارنةً بأنظمة ERP الرئيسية الأخرى، يقدم Nama ERP توازناً فريداً بين المرونة والبساطة، حيث توفر بنية الخصم ذات المستويات الثمانية والنموذج الضريبي الموحد وإعداد التأثيرات قدرات تتطلب عادةً تخصيصاً مكثفاً في الأنظمة الأخرى. وبينما قد لا يمتلك النظام البيئة الواسعة لـ SAP أو Oracle، أو بساطة Odoo للسيناريوهات الأساسية، فإنه يتفوق في التعامل مع متطلبات الخصومات والضرائب المعقدة من خلال الإعداد بدلاً من التخصيص.
 
-Understanding the field-level configuration options and the tax configuration resolution process is essential for proper system setup and maintenance. The combination of tax plans, configuration objects, and effects ordering provides the flexibility to handle virtually any business requirement while maintaining calculation accuracy and regulatory compliance.
+يُعدّ فهم خيارات الإعداد على مستوى الحقول وعملية حل إعدادات الضريبة أمراً أساسياً للإعداد الصحيح للنظام وصيانته. يوفر مزيج خطط الضريبة وكائنات الإعداد وترتيب التأثيرات المرونة الكافية للتعامل مع أي متطلبات أعمال مع الحفاظ على دقة الحساب والامتثال للوائح التنظيمية.

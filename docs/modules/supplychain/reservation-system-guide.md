@@ -1,645 +1,644 @@
-# Comprehensive Reservation System Guide (دليل نظام الحجوزات الشامل)
+# دليل نظام الحجوزات الشامل (Comprehensive Reservation System Guide) {#Comprehensive-Reservation-System-Guide}
 
-This guide provides comprehensive documentation for the Reservation System in Nama ERP, intended for technical support staff and system administrators.
+يوفر هذا الدليل توثيقاً شاملاً لنظام الحجوزات في Nama ERP، وهو موجّه لفريق الدعم الفني ومسؤولي النظام.
 
-## Overview
+## نظرة عامة (Overview) {#Overview}
 
-The Reservation System in Nama ERP is a sophisticated inventory management feature that allows organizations to reserve inventory items across different types of supply chain documents. The system manages reservation effects differently based on document types and integrates with quantity tracking mechanisms to provide real-time inventory allocation control.
+نظام الحجوزات في Nama ERP هو ميزة متقدمة لإدارة المخزون تتيح للمؤسسات حجز أصناف المخزون عبر أنواع مختلفة من مستندات سلسلة التوريد. يدير النظام تأثيرات الحجز بشكل مختلف بناءً على نوع المستند، ويتكامل مع آليات تتبع الكميات لتوفير تحكم فوري في تخصيص المخزون.
 
-**Arabic Name:** نظام الحجوزات  
-**English Name:** Reservation System  
-**Menu Path:** Inventory > Reservation Documents > Reservation Document  
+**الاسم العربي:** نظام الحجوزات  
+**الاسم الإنجليزي:** Reservation System  
+**مسار القائمة:** المخازن > سندات الحجوزات > سند حجز  
 **Arabic Menu Path:** المخازن > سندات الحجوزات > سند حجز
 
-## Fundamental Concepts
+## المفاهيم الأساسية (Fundamental Concepts) {#Fundamental-Concepts}
 
-### Reservation Direction by Document Type
+### اتجاه الحجز حسب نوع المستند (Reservation Direction by Document Type) {#Reservation-Direction-by-Document-Type}
 
-The reservation system affects inventory quantities differently based on the document type:
+يؤثر نظام الحجوزات على كميات المخزون بشكل مختلف بحسب نوع المستند:
 
-#### Sales and Issue Documents (Pre-Out Reservations)
-- **Sales Documents:** Sales quotations, sales orders, sales invoices
-- **Issue Documents:** Stock issue requests, transfer requests, production withdrawals
-- **Effect:** Creates **Pre-Out** quantities (reserved for outbound)
-- **Purpose:** Ensures items are allocated for customer orders or internal consumption
+#### مستندات المبيعات والصرف (Pre-Out Reservations)
+- **مستندات المبيعات:** عروض الأسعار، أوامر البيع، فواتير المبيعات
+- **مستندات الصرف:** طلبات الصرف المخزني، طلبات التحويل، سحوبات الإنتاج
+- **التأثير:** ينشئ كميات **Pre-Out** (محجوز للصرف)
+- **الغرض:** ضمان تخصيص الأصناف لطلبات العملاء أو الاستهلاك الداخلي
 
-#### Purchase and Receipt Documents (Pre-In Reservations)  
-- **Purchase Documents:** Purchase requests, purchase orders, purchase invoices
-- **Receipt Documents:** Stock receipt requests
-- **Effect:** Creates **Pre-In** quantities (reserved for inbound)
-- **Purpose:** Tracks expected inventory arrivals and allocations
+#### مستندات المشتريات والاستلام (Pre-In Reservations)
+- **مستندات المشتريات:** طلبات الشراء، أوامر الشراء، فواتير المشتريات
+- **مستندات الاستلام:** طلبات استلام المخزون
+- **التأثير:** ينشئ كميات **Pre-In** (محجوز للاستلام)
+- **الغرض:** تتبع الوارد المتوقع من المخزون والتخصيصات
 
-#### Stock Documents (No Direct Reservation)
-**Stock Issue, Stock Receipt, and Stock Transfer documents do not create reservations** because they affect actual inventory quantities (In and Out), not reserved quantities.
+#### مستندات المخزون (بدون حجز مباشر)
+**مستندات الصرف المخزني، الاستلام المخزني، والتحويل المخزني لا تنشئ حجوزات** لأنها تؤثر على الكميات الفعلية (الداخل والخارج) وليس الكميات المحجوزة.
 
-**However, these documents support:**
-- **Cancelling reservation of upper documents:** When a stock issue is created from a sales order, it should cancel the sales order's reservation
-- **Updating reservation of related documents:** Through the `updateReservationOfRelatedDocs` configuration
+**غير أن هذه المستندات تدعم:**
+- **إلغاء حجز المستندات الأعلى:** عند إنشاء صرف مخزني من أمر بيع، يجب إلغاء حجز أمر البيع
+- **تحديث حجز المستندات المرتبطة:** من خلال إعداد `updateReservationOfRelatedDocs`
 
-**Example:** Creating a stock issue from a sales order should cancel the sales order's Pre-Out reservation since the items are now actually issued (moved from reserved to actual Out quantities).
+**مثال:** إنشاء صرف مخزني من أمر بيع يجب أن يلغي حجز Pre-Out الخاص بأمر البيع، لأن الأصناف قد صُرفت فعلياً (تحوّلت من الكميات المحجوزة إلى الكميات الفعلية الخارجة).
 
-### Quantity Types in Reservation System
+### أنواع الكميات في نظام الحجوزات (Quantity Types in Reservation System) {#Quantity-Types-in-Reservation-System}
 
-The system manages four types of quantities for each item dimension:
+يدير النظام أربعة أنواع من الكميات لكل بُعد من أبعاد الصنف:
 
-| Quantity Type | Arabic | Description |
-|---------------|--------|-------------|
-| **In** | داخل | Actual received quantities |
-| **Out** | خارج | Actual issued quantities |
-| **Pre-In** | محجوز داخل | Reserved quantities expecting receipt |
-| **Pre-Out** | محجوز خارج | Reserved quantities allocated for issue |
+| نوع الكمية | العربي | الوصف |
+|------------|--------|-------|
+| **In** | داخل | الكميات المستلمة فعلياً |
+| **Out** | خارج | الكميات المصروفة فعلياً |
+| **Pre-In** | محجوز داخل | الكميات المحجوزة المتوقع استلامها |
+| **Pre-Out** | محجوز خارج | الكميات المحجوزة المخصصة للصرف |
 
-**Available Balance Calculation:**
+**حساب الرصيد المتاح:**
 ```
 Available = (In + Pre-In) - (Out + Pre-Out)
 ```
 
-*Note: Pre-In and Pre-Out inclusion in balance depends on item configuration.*
+*ملاحظة: إدراج Pre-In وPre-Out في الرصيد يعتمد على إعداد الصنف.*
 
-## Reservation Document Structure
+## هيكل سند الحجز (Reservation Document Structure) {#Reservation-Document-Structure}
 
-### Main Entity: ReservationDocument (سند حجز)
+### الكيان الرئيسي: ReservationDocument (سند حجز) {#Main-Entity-ReservationDocument}
 
-**Entity Type:** ReservationDocument  
-**Database Table:** ReservationDocument  
-**Classification:** Document File (not Master File)
+**نوع الكيان:** ReservationDocument  
+**جدول قاعدة البيانات:** ReservationDocument  
+**التصنيف:** ملف مستند (وليس ملف رئيسي)
 
-### Key Header Fields
+### الحقول الرئيسية في الرأسية (Key Header Fields) {#Key-Header-Fields}
 
-- **Reservation Status (حالة الحجز):** Controls the current state of the entire document
-- **Due Date (تاريخ الاستحقاق):** When the reservation expires or should be fulfilled
-- **To Employee (إلى موظف):** Employee assigned to handle the reservation
-- **Copy To Employee (نسخة إلى موظف):** Additional employee to be notified
-- **Warehouse (المخزن):** Primary warehouse for the reservation
-- **Locator (الموقع):** Specific location within the warehouse
-- **Customer (العميل):** Customer associated with the reservation
-- **From Document (بناءا على):** Source document that generated this reservation
+- **حالة الحجز (Reservation Status):** يتحكم في الحالة الراهنة للمستند بأكمله
+- **تاريخ الاستحقاق (Due Date):** موعد انتهاء الحجز أو الوفاء به
+- **إلى موظف (To Employee):** الموظف المعين للتعامل مع الحجز
+- **نسخة إلى موظف (Copy To Employee):** موظف إضافي لإشعاره
+- **المخزن (Warehouse):** المخزن الرئيسي للحجز
+- **الموقع (Locator):** الموقع المحدد داخل المخزن
+- **العميل (Customer):** العميل المرتبط بالحجز
+- **بناءاً على (From Document):** المستند المصدر الذي أنشأ هذا الحجز
 
-### Detail Lines (التفاصيل)
+### سطور التفاصيل (Detail Lines) {#Detail-Lines}
 
-Each reservation document contains detail lines that specify:
+يحتوي كل سند حجز على سطور تفاصيل تحدد:
 
-- **Item Information:** Item code, name, and specifications
-- **Quantities:** Reserved quantity with primary and secondary units
-- **Dimensions:** Warehouse, locator, lot, serial numbers, colors, sizes
-- **Reservation Details:** Line-level reservation status, date, and specific warehouse/locator
-- **Tracking Information:** Satisfied and unsatisfied quantities for linked documents
+- **معلومات الصنف:** رمز الصنف، الاسم، والمواصفات
+- **الكميات:** الكمية المحجوزة بالوحدات الأولية والثانوية
+- **المحددات:** المخزن، الموقع، الشحنة، الأرقام التسلسلية، الألوان، المقاسات
+- **تفاصيل الحجز:** حالة الحجز على مستوى السطر، التاريخ، والمخزن/الموقع المحدد
+- **معلومات التتبع:** الكميات المنفذة وغير المنفذة للمستندات المرتبطة
 
-## Reservation Status Values (قيم حالة الحجز)
+## قيم حالة الحجز (Reservation Status Values) {#Reservation-Status-Values}
 
-| English | Arabic | Description |
-|---------|--------|-------------|
-| Reserved | محجوز | Items are fully reserved and allocated |
-| PostReserved | حجز مؤجل | Reservation is pending or delayed |
-| None | بدون | No reservation status |
-| Confirmed | مؤكد | Reservation is confirmed and locked |
-| PartialyReserved | PartialyReserved | Only partial quantities are reserved |
+| الإنجليزي | العربي | الوصف |
+|-----------|--------|-------|
+| Reserved | محجوز | الأصناف محجوزة بالكامل ومخصصة |
+| PostReserved | حجز مؤجل | الحجز معلق أو مؤجل |
+| None | بدون | لا توجد حالة حجز |
+| Confirmed | مؤكد | الحجز مؤكد ومقفل |
+| PartialyReserved | PartialyReserved | جزء فقط من الكميات محجوز |
 
-### Selective Line Reservation
+### الحجز الانتقائي للسطور (Selective Line Reservation) {#Selective-Line-Reservation}
 
-By default, the reservation status has no effect on whether a line is reserved. However, when combined with the **reservationCriteria** configuration in the document term, the reservation status can be used to selectively apply reservations to specific lines.
+بشكل افتراضي، لا تؤثر حالة الحجز على ما إذا كان السطر محجوزاً. غير أنه عند دمجها مع إعداد **reservationCriteria** في توجيه المستند، يمكن استخدام حالة الحجز لتطبيق الحجوزات بصورة انتقائية على سطور محددة.
 
-**Usage Pattern:**
-1. Configure `reservationCriteria` in the document term to filter lines based on status
-2. Set line-level reservation status to control which lines get reserved
-3. Only lines matching the criteria will have reservation effects applied
+**نمط الاستخدام:**
+1. تهيئة `reservationCriteria` في توجيه المستند لتصفية السطور بناءً على الحالة
+2. تعيين حالة الحجز على مستوى السطر للتحكم في السطور التي تُحجز
+3. يُطبَّق تأثير الحجز فقط على السطور المطابقة للمعايير
 
-This allows fine-grained control over which document lines participate in the reservation system.
+يتيح ذلك تحكماً دقيقاً في السطور المشاركة في نظام الحجوزات.
 
-## Document Quantity Tracking and Satisfied Quantities
+## تتبع كميات المستند والكميات المنفذة (Document Quantity Tracking and Satisfied Quantities) {#Document-Quantity-Tracking-and-Satisfied-Quantities}
 
-### The Satisfied Quantity Mechanism
+### آلية الكمية المنفذة (The Satisfied Quantity Mechanism) {#The-Satisfied-Quantity-Mechanism}
 
-The reservation system includes a sophisticated quantity tracking mechanism that monitors how much of a document's quantities have been fulfilled by subsequent documents.
+يتضمن نظام الحجوزات آلية متقدمة لتتبع الكميات ترصد مقدار الكميات التي تم الوفاء بها عبر المستندات اللاحقة.
 
-#### Key Concepts
+#### المفاهيم الأساسية (Key Concepts) {#Key-Concepts}
 
-**Satisfied Quantity (الكمية المنفذة):** The amount of a document line that has been fulfilled by other documents  
-**Unsatisfied Quantity (الكمية غير المنفذة):** The remaining amount that still needs to be fulfilled  
-**User Satisfied Quantity (الكمية المنفذة يدوياً):** Manually adjusted satisfied quantities
+**الكمية المنفذة (Satisfied Quantity):** مقدار سطر المستند الذي وفّت به مستندات أخرى  
+**الكمية غير المنفذة (Unsatisfied Quantity):** المقدار المتبقي الذي لا يزال يحتاج إلى وفاء  
+**الكمية المنفذة يدوياً (User Satisfied Quantity):** الكميات المنفذة المعدَّلة يدوياً
 
-#### Practical Example: Sales Quotation to Orders
+#### مثال عملي: من عرض السعر إلى أوامر البيع (Practical Example: Sales Quotation to Orders) {#Practical-Example-Sales-Quotation-to-Orders}
 
-1. **Create Sales Quotation:** 100 pieces of Item A with reservation enabled
-   - **Effect:** Creates Pre-Out reservation for 100 pieces
-   - **Satisfied Qty:** 0, **Unsatisfied Qty:** 100
+1. **إنشاء عرض السعر:** 100 قطعة من الصنف A مع تفعيل الحجز
+   - **التأثير:** ينشئ حجز Pre-Out لـ 100 قطعة
+   - **الكمية المنفذة:** 0، **الكمية غير المنفذة:** 100
 
-2. **Create Sales Order #1:** 50 pieces from the quotation
-   - **System Updates Quotation:**
-     - **Satisfied Qty:** 50, **Unsatisfied Qty:** 50
-   - **System Updates Reservation:** Reduces quotation reservation to 50 pieces
-   - **Order Creates:** New Pre-Out reservation for 50 pieces
+2. **إنشاء أمر البيع #1:** 50 قطعة من عرض السعر
+   - **يحدّث النظام عرض السعر:**
+     - **الكمية المنفذة:** 50، **الكمية غير المنفذة:** 50
+   - **يحدّث النظام الحجز:** يقلل حجز عرض السعر إلى 50 قطعة
+   - **ينشئ الأمر:** حجز Pre-Out جديد لـ 50 قطعة
 
-3. **Create Sales Order #2:** 20 pieces from the same quotation
-   - **System Updates Quotation:**
-     - **Satisfied Qty:** 70, **Unsatisfied Qty:** 30
-   - **System Updates Reservation:** Reduces quotation reservation to 30 pieces
-   - **Order Creates:** New Pre-Out reservation for 20 pieces
+3. **إنشاء أمر البيع #2:** 20 قطعة من نفس عرض السعر
+   - **يحدّث النظام عرض السعر:**
+     - **الكمية المنفذة:** 70، **الكمية غير المنفذة:** 30
+   - **يحدّث النظام الحجز:** يقلل حجز عرض السعر إلى 30 قطعة
+   - **ينشئ الأمر:** حجز Pre-Out جديد لـ 20 قطعة
 
-#### Configuration for Quantity Tracking
+#### إعداد تتبع الكميات (Configuration for Quantity Tracking) {#Configuration-for-Quantity-Tracking}
 
-**Document Term Configuration:**
-- **forceTrackQtyOfRelatedDocs:** Enable mandatory quantity tracking
-- **updateTrackQtyInRelatedDoc:** Update tracking quantities in source documents
-- **relatedDocQtyPolicy:** Policy for handling quantity variances
-- **relatedDocQtyFields:** Which fields to use for tracking (first or second quantity)
+**إعداد توجيه المستند:**
+- **forceTrackQtyOfRelatedDocs:** تفعيل تتبع الكميات الإجباري
+- **updateTrackQtyInRelatedDoc:** تحديث كميات التتبع في المستندات المصدر
+- **relatedDocQtyPolicy:** سياسة التعامل مع فوارق الكميات
+- **relatedDocQtyFields:** الحقول المستخدمة للتتبع (الكمية الأولى أو الثانية)
 
-**Reservation-Specific Configuration:**
-- **reservationSatisfiedFields:** Which quantity fields track reservation satisfaction
-- **updateReservationOfRelatedDocs:** Enable reservation updates when tracking quantities
+**الإعداد الخاص بالحجوزات:**
+- **reservationSatisfiedFields:** حقول الكمية التي تتبع الوفاء بالحجوزات
+- **updateReservationOfRelatedDocs:** تفعيل تحديثات الحجز عند تتبع الكميات
 
-## Item-Level Reservation Configuration
+## إعداد الحجز على مستوى الصنف (Item-Level Reservation Configuration) {#Item-Level-Reservation-Configuration}
 
-Items can be configured with specific reservation behaviors through `ItemConfigurations`:
+يمكن تهيئة الأصناف بسلوكيات حجز محددة عبر `ItemConfigurations`:
 
-### Core Reservation Settings
+### إعدادات الحجز الأساسية (Core Reservation Settings) {#Core-Reservation-Settings}
 
-- **includeReservedInBalance (اعتبار المحجوز في الرصيد):** Whether reserved quantities affect available balance calculations
-- **allowOverdraftInReservation (السماح بالسحب على المكشوف في الحجز):** Allow reservations even when insufficient quantities exist
+- **includeReservedInBalance:** هل تؤثر الكميات المحجوزة على حسابات الرصيد المتاح
+- **allowOverdraftInReservation:** السماح بالحجوزات حتى عند نقص الكميات
 
-### Overdraft Policy Hierarchy
+### تسلسل سياسة السحب على المكشوف (Overdraft Policy Hierarchy) {#Overdraft-Policy-Hierarchy}
 
-The system uses a hierarchical approach to determine overdraft permissions:
+يستخدم النظام نهجاً هرمياً لتحديد صلاحيات السحب على المكشوف:
 
-1. **Item Level:** Individual item overdraft policy
-2. **Item Section Level:** Item category overdraft policy  
-3. **System Level:** Global supply chain configuration overdraft policy
+1. **مستوى الصنف:** سياسة السحب على المكشوف للصنف المنفرد
+2. **مستوى مجموعة الصنف:** سياسة السحب على المكشوف لفئة الصنف
+3. **مستوى النظام:** سياسة السحب على المكشوف الخاصة بإعداد سلسلة التوريد العام
 
-**Policy Values:**
-- **Yes:** Allow overdraft
-- **No:** Prevent overdraft
-- **Inherited:** Use parent level policy
+**قيم السياسة:**
+- **Yes:** السماح بالسحب على المكشوف
+- **No:** منع السحب على المكشوف
+- **Inherited:** استخدام سياسة المستوى الأعلى
 
-## Comprehensive Configuration Options
+## خيارات الإعداد الشاملة (Comprehensive Configuration Options) {#Comprehensive-Configuration-Options}
 
-### Document Term Configuration (InvDocTermConfig)
+### إعداد توجيه المستند (InvDocTermConfig) {#Document-Term-Configuration-InvDocTermConfig}
 
-#### Basic Reservation Control
-- **reserve (حجز):** Enable/disable reservation functionality
-- **reserveFromReservationQty:** Reserve from existing reservation quantities instead of document quantities
-- **preventCancelReservation (منع إلغاء الحجز):** Disable reservation cancellation
+#### التحكم الأساسي في الحجز (Basic Reservation Control)
+- **reserve:** تفعيل/تعطيل وظيفة الحجز
+- **reserveFromReservationQty:** الحجز من كميات الحجز الموجودة بدلاً من كميات المستند
+- **preventCancelReservation:** تعطيل إلغاء الحجز
 
-#### Reservation Sequentiality
-- **checkReservationSequentiality (التاكد من تسلسل الحجز):** Enforce proper reservation order
-- **checkReservationSequentialityInFirstSaveOnly:** Apply sequentiality check only on initial save
+#### تسلسل الحجز (Reservation Sequentiality)
+- **checkReservationSequentiality:** فرض ترتيب الحجز الصحيح
+- **checkReservationSequentialityInFirstSaveOnly:** تطبيق فحص التسلسل عند الحفظ الأول فقط
 
-#### Warehouse and Location Management
-- **reservationWarehouseSource (مصدر مخزن الحجز):**
-  - `NormalWarehouse`: Use the document's normal warehouse
-  - `ReservationWarehouse`: Use specialized reservation warehouse
-- **reservationLocatorSource (مصدر موقع الحجز):**
-  - `NormalLocator`: Use the document's normal locator
-  - `ReservationLocator`: Use specialized reservation locator
+#### إدارة المخزن والموقع (Warehouse and Location Management)
+- **reservationWarehouseSource:**
+  - `NormalWarehouse`: استخدام المخزن المعتاد للمستند
+  - `ReservationWarehouse`: استخدام مخزن الحجز المتخصص
+- **reservationLocatorSource:**
+  - `NormalLocator`: استخدام الموقع المعتاد للمستند
+  - `ReservationLocator`: استخدام موقع الحجز المتخصص
 
-#### Quantity Tracking Integration
-- **reservationSatisfiedFields (حقول الكمية الملغي حجزها):**
-  - `TrackInFirst`: Track satisfied quantities in first quantity field
-  - `TrackInSecond`: Track satisfied quantities in second quantity field
-- **reservationCriteria (فلتر سطور الحجز):** Filter criteria for which lines can be reserved
+#### تكامل تتبع الكميات (Quantity Tracking Integration)
+- **reservationSatisfiedFields:**
+  - `TrackInFirst`: تتبع الكميات المنفذة في حقل الكمية الأول
+  - `TrackInSecond`: تتبع الكميات المنفذة في حقل الكمية الثاني
+- **reservationCriteria:** المعايير لتصفية السطور القابلة للحجز
 
-#### Related Document Handling
-- **cancelReservationOfRelatedDocs (إلغاء حجز المستندات المرتبطة):** Auto-cancel related reservations
-- **updateReservationOfRelatedDocs (تحديث حجز المستندات المرتبطة):** Update connected reservations when quantities change
-- **updateReservationStatusInFromDoc (تحديث حالة الحجز في المستند المرتبط):** Sync status with source documents
+#### التعامل مع المستندات المرتبطة (Related Document Handling)
+- **cancelReservationOfRelatedDocs:** إلغاء تلقائي للحجوزات المرتبطة
+- **updateReservationOfRelatedDocs:** تحديث الحجوزات المرتبطة عند تغيير الكميات
+- **updateReservationStatusInFromDoc:** مزامنة الحالة مع المستندات المصدر
 
-#### Validation and Quality Control
-- **checkAvailableQties (التاكد من الكميات المتاحة قبل الحفظ):** Validate before saving
-- **forceDoNotIncludeReserved (عدم اعتبار المحجوز عند التأكد من الكميات):** Exclude reserved quantities from validation
+#### الفحص وضبط الجودة (Validation and Quality Control)
+- **checkAvailableQties:** التحقق قبل الحفظ
+- **forceDoNotIncludeReserved:** استبعاد الكميات المحجوزة من التحقق
 
-#### Delivery System Integration
-- **useDelivSysEntriesForReserv (الحجز بأستخدام جدول التوصيل النظامي):** Use delivery system for reservations
-- **reserveFromDeliveryEntryQty (حجز من كمية جدول التوصيل النظامي):** Reserve based on delivery quantities
-- **rootDeliveryDocument (مستند توصيل رئيسي):** Link to primary delivery document
+#### تكامل نظام التوصيل (Delivery System Integration)
+- **useDelivSysEntriesForReserv:** استخدام نظام التوصيل للحجوزات
+- **reserveFromDeliveryEntryQty:** الحجز بناءً على كميات التوصيل
+- **rootDeliveryDocument:** ربط بمستند التوصيل الرئيسي
 
-## Reservation Process Flow
+## مسار عملية الحجز (Reservation Process Flow) {#Reservation-Process-Flow}
 
-### 1. Document Creation and Setup
+### 1. إنشاء المستند والإعداد (Document Creation and Setup) {#1-Document-Creation-and-Setup}
 
-1. **Document Type Determination:** System identifies if document is Sales/Issue (Pre-Out) or Purchase/Receipt (Pre-In)
-2. **Term Configuration Loading:** Retrieves reservation settings from document term configuration
-3. **Item Configuration Check:** Validates item-level reservation permissions and overdraft policies
-4. **Warehouse/Locator Assignment:** Applies reservation-specific warehouse and locator rules
+1. **تحديد نوع المستند:** يحدد النظام إذا كان المستند مبيعات/صرف (Pre-Out) أو مشتريات/استلام (Pre-In)
+2. **تحميل إعداد التوجيه:** استرداد إعدادات الحجز من إعداد توجيه المستند
+3. **فحص إعداد الصنف:** التحقق من صلاحيات الحجز وسياسات السحب على المكشوف على مستوى الصنف
+4. **تعيين المخزن/الموقع:** تطبيق قواعد المخزن والموقع الخاصة بالحجز
 
-### 2. Reservation Request Generation
+### 2. توليد طلب الحجز (Reservation Request Generation) {#2-Reservation-Request-Generation}
 
-When a document with reservations is saved:
+عند حفظ مستند بحجوزات:
 
-1. **InvTransReq Creation:** System generates inventory transaction requests
-2. **Line Processing:** Converts document lines to reservation request lines
-3. **Quantity Calculation:** 
-   - For new reservations: Uses full document quantities
-   - For updates with satisfied quantities: Subtracts fulfilled amounts
-4. **Dimension Transfer:** Copies item dimensions, warehouse, locator, and tracking information
+1. **إنشاء InvTransReq:** ينشئ النظام طلبات معاملات المخزون
+2. **معالجة السطور:** تحويل سطور المستند إلى سطور طلب حجز
+3. **حساب الكمية:**
+   - للحجوزات الجديدة: استخدام كميات المستند الكاملة
+   - للتحديثات بكميات منفذة: طرح المقادير المنجزة
+4. **نقل المحددات:** نسخ محددات الصنف، المخزن، الموقع، ومعلومات التتبع
 
-**Code Reference:** `InvSystemFilesUtils.addRequestLine:354-373`
+**مرجع الكود:** `InvSystemFilesUtils.addRequestLine:354-373`
 
-### 3. Quantity Validation and Effects
+### 3. فحص الكميات والتأثيرات (Quantity Validation and Effects) {#3-Quantity-Validation-and-Effects}
 
-The `setIdAndValidateQtyEffects` method performs comprehensive validation:
+تُجري طريقة `setIdAndValidateQtyEffects` فحصاً شاملاً:
 
-1. **Available Quantity Check:** Verifies sufficient quantities exist
-2. **Overdraft Validation:** Checks item, section, and system-level overdraft policies
-3. **Reserved Quantity Processing:** 
-   - For Sales/Issue documents: Increases Pre-Out quantities
-   - For Purchase/Receipt documents: Increases Pre-In quantities
-4. **Balance Calculation:** Updates available balance based on item configuration
+1. **فحص الكمية المتاحة:** التحقق من وجود كميات كافية
+2. **فحص السحب على المكشوف:** مراجعة سياسات السحب على مستوى الصنف، المجموعة، والنظام
+3. **معالجة الكميات المحجوزة:**
+   - لمستندات المبيعات/الصرف: زيادة كميات Pre-Out
+   - لمستندات المشتريات/الاستلام: زيادة كميات Pre-In
+4. **حساب الرصيد:** تحديث الرصيد المتاح بناءً على إعداد الصنف
 
-**Code Reference:** `QtyTransUtils.setIdAndValidateQtyEffects:154-285`
+**مرجع الكود:** `QtyTransUtils.setIdAndValidateQtyEffects:154-285`
 
-### 4. Satisfied Quantity Updates (For Related Documents)
+### 4. تحديثات الكمية المنفذة (للمستندات المرتبطة) {#4-Satisfied-Quantity-Updates-For-Related-Documents}
 
-When a document is created from another document with reservations:
+عند إنشاء مستند من مستند آخر بحجوزات:
 
-1. **Source Document Identification:** Finds the originating document
-2. **Quantity Tracking Configuration:** Retrieves tracking field settings
-3. **Satisfied Quantity Calculation:** Updates fulfilled amounts in source document
-4. **Reservation Adjustment:** Reduces source document's reservation by satisfied amount
-5. **New Reservation Creation:** Creates new reservation for the current document
+1. **تحديد المستند المصدر:** إيجاد المستند الأصل
+2. **إعداد تتبع الكميات:** استرداد إعدادات حقل التتبع
+3. **حساب الكمية المنفذة:** تحديث المقادير المنجزة في المستند المصدر
+4. **تعديل الحجز:** تقليل حجز المستند المصدر بمقدار الكمية المنفذة
+5. **إنشاء حجز جديد:** إنشاء حجز جديد للمستند الحالي
 
-**Code Reference:** `SCRelatedQtiesUtil.updateSatisfiedQtiesd:80-149`
+**مرجع الكود:** `SCRelatedQtiesUtil.updateSatisfiedQtiesd:80-149`
 
-### 5. Reservation Cancellation
+### 5. إلغاء الحجز (Reservation Cancellation) {#5-Reservation-Cancellation}
 
-#### Automatic Cancellation Triggers
-- **Document Deletion:** Automatically cancels all reservation effects
-- **CancelReservation Flag:** Manual cancellation through document interface
-- **Related Document Processing:** Cascading cancellation through document chains
+#### مشغلات الإلغاء التلقائي (Automatic Cancellation Triggers)
+- **حذف المستند:** يلغي تلقائياً جميع تأثيرات الحجز
+- **علامة CancelReservation:** إلغاء يدوي عبر واجهة المستند
+- **معالجة المستندات المرتبطة:** إلغاء متتالي عبر سلاسل المستندات
 
-#### Cancellation Process
-1. **Validation:** Check if cancellation is allowed by term configuration
-2. **Request Type Change:** Converts reservation requests to DELETE operations
-3. **Effect Reversal:** Removes Pre-In/Pre-Out quantities
-4. **Related Updates:** Updates all connected documents in the chain
+#### عملية الإلغاء (Cancellation Process)
+1. **التحقق:** فحص ما إذا كان الإلغاء مسموحاً به حسب إعداد التوجيه
+2. **تغيير نوع الطلب:** تحويل طلبات الحجز إلى عمليات DELETE
+3. **عكس التأثير:** إزالة كميات Pre-In/Pre-Out
+4. **التحديثات المرتبطة:** تحديث جميع المستندات المرتبطة في السلسلة
 
-**Code Reference:** `BasicSCDocument.cancelReservationOfRelatedIfNeeded`
+**مرجع الكود:** `BasicSCDocument.cancelReservationOfRelatedIfNeeded`
 
-## System Integration Points
+## نقاط التكامل مع النظام (System Integration Points) {#System-Integration-Points}
 
-### Inventory Management Integration
+### تكامل إدارة المخزون (Inventory Management Integration) {#Inventory-Management-Integration}
 
-#### Quantity Effects
-- **ItemDimensionsQty Records:** Store reservation effects per item/dimension combination
-- **ItemDimensionsQty.data:** Track in/out/pre-in/pre-out quantities
-- **Balance Calculation:** Consider reserved quantities based on item configuration
+#### تأثيرات الكميات (Quantity Effects)
+- **سجلات ItemDimensionsQty:** تخزن تأثيرات الحجز لكل تركيبة صنف/محدد
+- **ItemDimensionsQty.data:** تتبع كميات الداخل/الخارج/Pre-In/Pre-Out
+- **حساب الرصيد:** مراعاة الكميات المحجوزة بناءً على إعداد الصنف
 
-#### Transaction Processing
-- **ReservationTransLine:** Manages reservation transaction lines
+#### معالجة المعاملات (Transaction Processing)
+- **ReservationTransLine:** يدير سطور معاملات الحجز
 
 
-### Document Workflow Integration
+### تكامل سير عمل المستندات (Document Workflow Integration) {#Document-Workflow-Integration}
 
-#### Source Document Relationships
-- **From Document Processing:** Automatic creation from sales orders, purchase orders, etc.
-- **Document Chain Tracking:** Maintains relationships for quantity tracking
-- **Quantity Inheritance:** Copies quantities and dimensions from source documents
+#### علاقات المستند المصدر (Source Document Relationships)
+- **معالجة "بناءاً على":** الإنشاء التلقائي من أوامر البيع، أوامر الشراء، وغيرها
+- **تتبع سلسلة المستندات:** الحفاظ على العلاقات لتتبع الكميات
+- **توارث الكميات:** نسخ الكميات والمحددات من المستندات المصدر
 
-#### Stock Document Behavior
-**Important:** Stock Issue, Stock Receipt, and Stock Transfer documents have special behavior:
-- **No Direct Reservations:** They do not create Pre-In or Pre-Out quantities
-- **Actual Quantity Effects:** They modify actual In and Out quantities only
-- **Reservation Cancellation:** They can cancel reservations of parent documents
+#### سلوك مستندات المخزون (Stock Document Behavior)
+**هام:** لمستندات الصرف المخزني، الاستلام المخزني، والتحويل المخزني سلوك خاص:
+- **لا حجوزات مباشرة:** لا تنشئ كميات Pre-In أو Pre-Out
+- **تأثيرات الكميات الفعلية:** تعدّل الكميات الفعلية الداخلة والخارجة فقط
+- **إلغاء الحجز:** يمكنها إلغاء حجوزات المستندات الأعلى
 
-### Delivery System Integration
+### تكامل نظام التوصيل (Delivery System Integration) {#Delivery-System-Integration}
 
-#### Delivery-Based Reservations
-- **DeliverySysEntry Integration:** Use delivery system quantities instead of document quantities
-- **Root Entry Processing:** Creates reservation lines from delivery entries
-- **Remaining Quantity Management:** Reserves based on delivery system remaining quantities
+#### الحجوزات القائمة على التوصيل (Delivery-Based Reservations)
+- **تكامل DeliverySysEntry:** استخدام كميات نظام التوصيل بدلاً من كميات المستند
+- **معالجة المدخل الجذر:** إنشاء سطور الحجز من مدخلات التوصيل
+- **إدارة الكمية المتبقية:** الحجز بناءً على الكميات المتبقية في نظام التوصيل
 
-**Code Reference:** `InvSystemFilesUtils.createInvReqLinesFromEntries`
+**مرجع الكود:** `InvSystemFilesUtils.createInvReqLinesFromEntries`
 
-## User Interface and Operations
+## واجهة المستخدم والعمليات (User Interface and Operations) {#User-Interface-and-Operations}
 
-### Main Edit Screen Layout
+### تخطيط شاشة التحرير الرئيسية (Main Edit Screen Layout) {#Main-Edit-Screen-Layout}
 
-#### Details Grid (التفاصيل)
-The details grid provides comprehensive item management:
+#### شبكة التفاصيل (Details Grid)
+توفر شبكة التفاصيل إدارة شاملة للأصناف:
 
-**Item Identification:**
-- Item code and description
-- Assortment and measure quantities
-- Dimensions (length, width, height)
+**تعريف الصنف:**
+- رمز الصنف والوصف
+- كميات التشكيلة والقياس
+- المحددات (الطول، العرض، الارتفاع)
 
-**Quantity Management:**
-- Primary quantity with UOM
-- Secondary quantity tracking
-- Reserved quantity display
-- Satisfied/unsatisfied quantity tracking
+**إدارة الكميات:**
+- الكمية الأولى بوحدة القياس
+- تتبع الكمية الثانية
+- عرض الكمية المحجوزة
+- تتبع الكميات المنفذة/غير المنفذة
 
-**Dimension Specifications:**
-- Warehouse and locator (can differ from header)
-- Serial numbers and identifiers
-- Item-specific dimensions (box, revision, size, color, lot)
-- Active/inactive percentages
-- Production, expiry, and retest dates
+**محددات الأبعاد:**
+- المخزن والموقع (يمكن أن يختلفا عن الرأسية)
+- الأرقام التسلسلية والمعرّفات
+- محددات الصنف (الصندوق، المراجعة، المقاس، اللون، الشحنة)
+- نسب الفاعلة/غير الفاعلة
+- تواريخ الإنتاج، الانتهاء، وإعادة الاختبار
 
-**Tracking Information:**
-- Line reservation status
-- Reservation date and warehouse assignment
+**معلومات التتبع:**
+- حالة الحجز على مستوى السطر
+- تاريخ الحجز وتعيين المخزن
 
-#### Available Actions
+#### الإجراءات المتاحة (Available Actions) {#Available-Actions}
 
-**Core Reservation Actions:**
-1. **Apply Reservation (تطبيق الحجز)** - Execute the reservation effects on inventory
-2. **Cancel Reservation (إلغاء الحجز)** - Cancel reservation effects for related documents
+**إجراءات الحجز الأساسية:**
+1. **تطبيق الحجز (Apply Reservation)** - تنفيذ تأثيرات الحجز على المخزون
+2. **إلغاء الحجز (Cancel Reservation)** - إلغاء تأثيرات الحجز للمستندات المرتبطة
 
-## Troubleshooting Guide
+## دليل استكشاف الأخطاء وإصلاحها (Troubleshooting Guide) {#Troubleshooting-Guide}
 
-### Common Issues and Solutions
+### المشكلات الشائعة والحلول (Common Issues and Solutions) {#Common-Issues-and-Solutions}
 
-#### Issue: Insufficient Quantity Errors
+#### مشكلة: أخطاء نقص الكمية (Issue: Insufficient Quantity Errors) {#Issue-Insufficient-Quantity-Errors}
 
-**Error Message:** "Insufficient quantity for item [ItemCode], Available Quantity is [X], Reserved quantity is [Y]"
+**رسالة الخطأ:** "Insufficient quantity for item [ItemCode], Available Quantity is [X], Reserved quantity is [Y]"
 
-**Root Causes:**
-1. **Actual Shortage:** Item doesn't have enough available quantity
-2. **Reserved Quantity Blocking:** Previous reservations are consuming availability
-3. **Configuration Issue:** Item's `includeReservedInBalance` setting affecting calculations
-4. **Dimension Mismatch:** Specific warehouse/locator/lot doesn't contain the item
-5. **Overdraft Policy:** Item or system settings preventing overdraft
+**الأسباب الجذرية:**
+1. **نقص فعلي:** الصنف لا يملك كمية كافية متاحة
+2. **حجب الكميات المحجوزة:** حجوزات سابقة تستهلك التوفر
+3. **مشكلة إعداد:** إعداد `includeReservedInBalance` للصنف يؤثر على الحسابات
+4. **عدم تطابق المحددات:** المخزن/الموقع/الشحنة المحددة لا تحتوي على الصنف
+5. **سياسة السحب على المكشوف:** إعدادات الصنف أو النظام تمنع السحب على المكشوف
 
-**Diagnostic Steps:**
-1. Check actual inventory quantities in specified warehouse/locator
-2. Review item configuration for `includeReservedInBalance` setting
-3. Verify item's `allowOverdraftInReservation` configuration
-4. Check dimension specifications match available inventory
-5. Review system-level overdraft policies
+**خطوات التشخيص:**
+1. فحص كميات المخزون الفعلية في المخزن/الموقع المحدد
+2. مراجعة إعداد الصنف لـ `includeReservedInBalance`
+3. التحقق من إعداد `allowOverdraftInReservation` للصنف
+4. فحص مطابقة محددات الأبعاد مع المخزون المتاح
+5. مراجعة سياسات السحب على المكشوف على مستوى النظام
 
-**Solutions:**
-1. **Transfer Inventory:** Move items from other locations
-2. **Adjust Item Configuration:** Modify `includeReservedInBalance` if appropriate
-3. **Cancel Competing Reservations:** Review and cancel unnecessary reservations
-4. **Adjust Dimensions:** Modify warehouse, locator, or other dimension requirements
+**الحلول:**
+1. **نقل المخزون:** نقل الأصناف من مواقع أخرى
+2. **تعديل إعداد الصنف:** تعديل `includeReservedInBalance` عند الاقتضاء
+3. **إلغاء الحجوزات المنافسة:** مراجعة وإلغاء الحجوزات غير الضرورية
+4. **تعديل المحددات:** تعديل المخزن، الموقع، أو متطلبات المحددات الأخرى
 
-#### Issue: Reservation Sequentiality Violations
+#### مشكلة: انتهاكات تسلسل الحجز (Issue: Reservation Sequentiality Violations) {#Issue-Reservation-Sequentiality-Violations}
 
-**Problem:** System rejects reservation due to sequentiality rules
+**المشكلة:** رفض النظام للحجز بسبب قواعد التسلسل
 
-**Causes:**
-1. **Term Configuration:** `checkReservationSequentiality` enabled
-2. **Document Order:** Documents not created in required sequence
-3. **Chain Breaks:** Missing intermediate documents in the workflow
+**الأسباب:**
+1. **إعداد التوجيه:** تفعيل `checkReservationSequentiality`
+2. **ترتيب المستندات:** لم تُنشأ المستندات بالتسلسل المطلوب
+3. **انقطاع السلسلة:** مستندات وسيطة مفقودة في سير العمل
 
-**Solutions:**
-1. **Review Sequentiality Settings:** Check if `checkReservationSequentialityInFirstSaveOnly` can be used
-2. **Document Order:** Ensure documents are created in proper sequence
-3. **Configuration Adjustment:** Consider relaxing sequentiality requirements if business allows
-4. **Workflow Review:** Ensure complete document chain exists
+**الحلول:**
+1. **مراجعة إعدادات التسلسل:** فحص إمكانية استخدام `checkReservationSequentialityInFirstSaveOnly`
+2. **ترتيب المستندات:** التأكد من إنشاء المستندات بالتسلسل الصحيح
+3. **تعديل الإعداد:** النظر في تخفيف متطلبات التسلسل إذا سمح العمل بذلك
+4. **مراجعة سير العمل:** التأكد من اكتمال سلسلة المستندات
 
-#### Issue: Related Document Updates Not Working
+#### مشكلة: عدم عمل تحديثات المستندات المرتبطة (Issue: Related Document Updates Not Working) {#Issue-Related-Document-Updates-Not-Working}
 
-**Problem:** Changes in reservation document don't update source documents
+**المشكلة:** التغييرات في سند الحجز لا تُحدّث المستندات المصدر
 
-**Diagnostic Checklist:**
-1. **Document Relationships:** Verify proper "From Document" linkage
-2. **Term Configuration:** Check `updateReservationOfRelatedDocs` setting
-3. **Quantity Tracking:** Verify `reservationSatisfiedFields` configuration
-4. **Status Updates:** Confirm `updateReservationStatusInFromDoc` is enabled
+**قائمة التشخيص:**
+1. **علاقات المستندات:** التحقق من الربط الصحيح في حقل "بناءاً على"
+2. **إعداد التوجيه:** فحص إعداد `updateReservationOfRelatedDocs`
+3. **تتبع الكميات:** التحقق من إعداد `reservationSatisfiedFields`
+4. **تحديثات الحالة:** تأكيد تفعيل `updateReservationStatusInFromDoc`
 
-**Solutions:**
-1. **Configure Relationships:** Ensure proper document chain setup
-2. **Enable Updates:** Turn on related document update settings
-3. **Field Mapping:** Configure appropriate satisfaction quantity fields
-4. **Test Chain:** Verify updates flow through entire document hierarchy
+**الحلول:**
+1. **تهيئة العلاقات:** ضمان إعداد سلسلة المستندات الصحيح
+2. **تفعيل التحديثات:** تشغيل إعدادات تحديث المستندات المرتبطة
+3. **تعيين الحقول:** إعداد حقول كمية الوفاء المناسبة
+4. **اختبار السلسلة:** التحقق من تدفق التحديثات عبر التسلسل الهرمي للمستندات
 
-#### Issue: Satisfied Quantity Tracking Errors
+#### مشكلة: أخطاء تتبع الكميات المنفذة (Issue: Satisfied Quantity Tracking Errors) {#Issue-Satisfied-Quantity-Tracking-Errors}
 
-**Problem:** Satisfied quantities not updating correctly between documents
+**المشكلة:** الكميات المنفذة لا تُحدَّث بشكل صحيح بين المستندات
 
-**Common Causes:**
-1. **Configuration Missing:** `forceTrackQtyOfRelatedDocs` not enabled
-2. **Field Mapping:** Wrong `relatedDocQtyFields` or `reservationSatisfiedFields` setting
-3. **Unit Conversion:** UOM conversion failures between documents
-4. **Chain Breaks:** Document relationship issues
+**الأسباب الشائعة:**
+1. **إعداد مفقود:** `forceTrackQtyOfRelatedDocs` غير مفعّل
+2. **تعيين الحقول:** إعداد خاطئ لـ `relatedDocQtyFields` أو `reservationSatisfiedFields`
+3. **تحويل الوحدات:** فشل في تحويل وحدات القياس بين المستندات
+4. **انقطاع السلسلة:** مشكلات في علاقة المستندات
 
-**Solutions:**
-1. **Enable Tracking:** Turn on quantity tracking in term configuration
-2. **Field Configuration:** Verify correct quantity field mappings
-3. **UOM Setup:** Ensure proper unit of measure conversions exist
-4. **Relationship Verification:** Check document chain integrity
+**الحلول:**
+1. **تفعيل التتبع:** تشغيل تتبع الكميات في إعداد التوجيه
+2. **إعداد الحقول:** التحقق من تعيينات حقول الكميات الصحيحة
+3. **إعداد وحدات القياس:** ضمان وجود تحويلات وحدات القياس الصحيحة
+4. **التحقق من العلاقة:** فحص سلامة سلسلة المستندات
 
-## Technical Implementation Reference
+## مرجع التنفيذ التقني (Technical Implementation Reference) {#Technical-Implementation-Reference}
 
-### Key Classes and Methods
+### الكلاسات والطرق الرئيسية (Key Classes and Methods) {#Key-Classes-and-Methods}
 
-#### Core Processing Classes
+#### كلاسات المعالجة الأساسية (Core Processing Classes) {#Core-Processing-Classes}
 
 **InvSystemFilesUtils**
-- **Location:** `supplychain/supplychaindomain/utils/InvSystemFilesUtils.java`
-- **Key Methods:**
-  - `update()` - Processes reservation updates and cancellations
-  - `addRequestLine()` - Handles reservation request line creation with satisfied quantities
-  - `generatedRequests()` - Creates inventory transaction requests
+- **الموقع:** `supplychain/supplychaindomain/utils/InvSystemFilesUtils.java`
+- **الطرق الرئيسية:**
+  - `update()` - معالجة تحديثات الحجز وعمليات الإلغاء
+  - `addRequestLine()` - معالجة إنشاء سطور طلب الحجز مع الكميات المنفذة
+  - `generatedRequests()` - إنشاء طلبات معاملات المخزون
 
 **QtyTransUtils**
-- **Location:** `supplychain/supplychaindomain/invrequest/utils/QtyTransUtils.java`
-- **Key Method:** `setIdAndValidateQtyEffects()` - Validates quantities and applies reservation effects
+- **الموقع:** `supplychain/supplychaindomain/invrequest/utils/QtyTransUtils.java`
+- **الطريقة الرئيسية:** `setIdAndValidateQtyEffects()` - فحص الكميات وتطبيق تأثيرات الحجز
 
 **SCRelatedQtiesUtil**
-- **Location:** `supplychain/supplychaindomain/utils/SCRelatedQtiesUtil.java`
-- **Key Methods:**
-  - `updateSatisfiedQtiesd()` - Updates satisfied quantities between related documents
-  - `createSatisfier()` - Creates quantity satisfaction tracking objects
+- **الموقع:** `supplychain/supplychaindomain/utils/SCRelatedQtiesUtil.java`
+- **الطرق الرئيسية:**
+  - `updateSatisfiedQtiesd()` - تحديث الكميات المنفذة بين المستندات المرتبطة
+  - `createSatisfier()` - إنشاء كائنات تتبع الوفاء بالكميات
 
-#### Configuration Classes
+#### كلاسات الإعداد (Configuration Classes) {#Configuration-Classes}
 
 **InvDocTermConfig**
-- **Location:** `supplychain/supplychaindsl/inventory/terms/InvDocTermConfig.java`
-- **Reservation Fields:** Complete set of reservation configuration options
+- **الموقع:** `supplychain/supplychaindsl/inventory/terms/InvDocTermConfig.java`
+- **حقول الحجز:** المجموعة الكاملة من خيارات إعداد الحجز
 
 **ItemConfigurations**
-- **Location:** `supplychain/supplychaindsl/inventory/entities/ItemConfigurations.java`
-- **Key Fields:** `includeReservedInBalance`, `allowOverdraftInReservation`
+- **الموقع:** `supplychain/supplychaindsl/inventory/entities/ItemConfigurations.java`
+- **الحقول الرئيسية:** `includeReservedInBalance`، `allowOverdraftInReservation`
 
-### Database Structure
+### هيكل قاعدة البيانات (Database Structure) {#Database-Structure}
 
-#### Primary Tables
+#### الجداول الأساسية (Primary Tables) {#Primary-Tables}
 
-**ItemDimensionsQty:** Inventory quantity tracking
-- Tracks in/out/pre-in/pre-out quantities per item dimension
-- Core table for reservation effects and balance calculations
+**ItemDimensionsQty:** تتبع كميات المخزون
+- يتتبع كميات الداخل/الخارج/Pre-In/Pre-Out لكل محدد صنف
+- الجدول الأساسي لتأثيرات الحجز وحسابات الرصيد
 
-#### Supporting Tables
+#### الجداول الداعمة (Supporting Tables) {#Supporting-Tables}
 
-**BasicSCDocumentLine:** Base for all supply chain document lines
-- Contains satisfied/unsatisfied quantity fields
-- Supports quantity tracking between related documents
+**BasicSCDocumentLine:** القاعدة لجميع سطور مستندات سلسلة التوريد
+- يحتوي على حقول الكميات المنفذة/غير المنفذة
+- يدعم تتبع الكميات بين المستندات المرتبطة
 
-**DeliverySysEntry:** Delivery system integration
-- Alternative quantity source for delivery-based reservations
-- Supports complex delivery planning scenarios
+**DeliverySysEntry:** تكامل نظام التوصيل
+- مصدر كميات بديل للحجوزات القائمة على التوصيل
+- يدعم سيناريوهات تخطيط التوصيل المعقدة
 
 ---
 
-## Complete Configuration Reference
+## مرجع الإعداد الشامل (Complete Configuration Reference) {#Complete-Configuration-Reference}
 
-This section provides a comprehensive list of all configuration options related to the reservation system, organized by their location in the system.
+يوفر هذا القسم قائمة شاملة بجميع خيارات الإعداد المرتبطة بنظام الحجوزات، مرتبةً حسب موقعها في النظام.
 
-### Document Term Configuration (InvDocTermConfig)
-**Location:** Document Term > Term Configuration Tab
+### إعداد توجيه المستند (InvDocTermConfig) {#Document-Term-Configuration-InvDocTermConfig-2}
+**الموقع:** توجيه المستند > تبويب إعداد التوجيه
 
-#### Basic Reservation Settings
-| Configuration Field | Arabic Translation | Description |
-|---------------------|-------------------|-------------|
-| `reserve` | حجز | Enable/disable reservation functionality for this document type |
-| `reserveFromReservationQty` | حجز من كميات الحجز وليس من كمية المستند | Reserve from existing reservation quantities instead of document quantities |
-| `preventCancelReservation` | منع إلغاء الحجز | Disable reservation cancellation for this document type |
+#### إعدادات الحجز الأساسية (Basic Reservation Settings)
+| حقل الإعداد | الترجمة العربية | الوصف |
+|-------------|-----------------|-------|
+| `reserve` | حجز | تفعيل/تعطيل وظيفة الحجز لهذا النوع من المستندات |
+| `reserveFromReservationQty` | حجز من كميات الحجز وليس من كمية المستند | الحجز من كميات الحجز الموجودة بدلاً من كميات المستند |
+| `preventCancelReservation` | منع إلغاء الحجز | تعطيل إلغاء الحجز لهذا النوع من المستندات |
 
-#### Reservation Sequentiality Control
-| Configuration Field | Arabic Translation | Description |
-|---------------------|-------------------|-------------|
-| `checkReservationSequentiality` | التاكد من تسلسل الحجز | Enforce proper reservation order across document chain |
-| `checkReservationSequentialityInFirstSaveOnly` | التاكد من التسلسل في الحفظ اول مرة فقط | Apply sequentiality check only on initial document save |
+#### التحكم في تسلسل الحجز (Reservation Sequentiality Control)
+| حقل الإعداد | الترجمة العربية | الوصف |
+|-------------|-----------------|-------|
+| `checkReservationSequentiality` | التاكد من تسلسل الحجز | فرض ترتيب الحجز الصحيح عبر سلسلة المستندات |
+| `checkReservationSequentialityInFirstSaveOnly` | التاكد من التسلسل في الحفظ اول مرة فقط | تطبيق فحص التسلسل عند حفظ المستند لأول مرة فقط |
 
-#### Warehouse and Location Management
-| Configuration Field | Arabic Translation | Description |
-|---------------------|-------------------|-------------|
-| `reservationWarehouseSource` | مصدر مخزن الحجز | Define warehouse selection rules for reservations |
-| `reservationLocatorSource` | مصدر موقع الحجز | Define locator selection rules for reservations |
+#### إدارة المخزن والموقع (Warehouse and Location Management)
+| حقل الإعداد | الترجمة العربية | الوصف |
+|-------------|-----------------|-------|
+| `reservationWarehouseSource` | مصدر مخزن الحجز | تحديد قواعد اختيار المخزن للحجوزات |
+| `reservationLocatorSource` | مصدر موقع الحجز | تحديد قواعد اختيار الموقع للحجوزات |
 
-**Warehouse Source Values:**
-- `NormalWarehouse`: Use the document's normal warehouse
-- `ReservationWarehouse`: Use specialized reservation warehouse
+**قيم مصدر المخزن:**
+- `NormalWarehouse`: استخدام المخزن المعتاد للمستند
+- `ReservationWarehouse`: استخدام مخزن الحجز المتخصص
 
-**Locator Source Values:**
-- `NormalLocator`: Use the document's normal locator  
-- `ReservationLocator`: Use specialized reservation locator
+**قيم مصدر الموقع:**
+- `NormalLocator`: استخدام الموقع المعتاد للمستند
+- `ReservationLocator`: استخدام موقع الحجز المتخصص
 
-#### Quantity Tracking and Satisfaction
-| Configuration Field | Arabic Translation | Description |
-|---------------------|-------------------|-------------|
-| `reservationSatisfiedFields` | حقول الكمية الملغي حجزها | Configure which fields track satisfied reservation quantities |
-| `reservationCriteria` | فلتر سطور الحجز | Filter criteria for which lines can be reserved |
+#### تتبع الكميات والوفاء (Quantity Tracking and Satisfaction)
+| حقل الإعداد | الترجمة العربية | الوصف |
+|-------------|-----------------|-------|
+| `reservationSatisfiedFields` | حقول الكمية الملغي حجزها | تهيئة الحقول التي تتبع كميات الحجز المنفذة |
+| `reservationCriteria` | فلتر سطور الحجز | المعايير لتصفية السطور القابلة للحجز |
 
-**Satisfied Fields Values:**
-- `TrackInFirst`: Track satisfied quantities in first quantity field
-- `TrackInSecond`: Track satisfied quantities in second quantity field
+**قيم حقول الوفاء:**
+- `TrackInFirst`: تتبع الكميات المنفذة في حقل الكمية الأول
+- `TrackInSecond`: تتبع الكميات المنفذة في حقل الكمية الثاني
 
-#### Related Document Processing
-| Configuration Field | Arabic Translation | Description |
-|---------------------|-------------------|-------------|
-| `cancelReservationOfRelatedDocs` | إلغاء حجز المستندات المرتبطة | Automatically cancel related document reservations |
-| `updateReservationOfRelatedDocs` | تحديث حجز المستندات المرتبطة | Update connected reservations when quantities change |
-| `updateReservationStatusInFromDoc` | تحديث حالة الحجز في المستند المرتبط | Sync reservation status with source documents |
+#### معالجة المستندات المرتبطة (Related Document Processing)
+| حقل الإعداد | الترجمة العربية | الوصف |
+|-------------|-----------------|-------|
+| `cancelReservationOfRelatedDocs` | إلغاء حجز المستندات المرتبطة | إلغاء تلقائي لحجوزات المستندات المرتبطة |
+| `updateReservationOfRelatedDocs` | تحديث حجز المستندات المرتبطة | تحديث الحجوزات المرتبطة عند تغيير الكميات |
+| `updateReservationStatusInFromDoc` | تحديث حالة الحجز في المستند المرتبط | مزامنة حالة الحجز مع المستندات المصدر |
 
-#### Quantity Tracking Configuration
-| Configuration Field | Arabic Translation | Description |
-|---------------------|-------------------|-------------|
-| `forceTrackQtyOfRelatedDocs` | متابعة كمية المستند المرتبط إجبارياً | Enable mandatory quantity tracking between documents |
-| `updateTrackQtyInRelatedDoc` | تحديث متابعة الكميات في السند المرتبط | Update tracking quantities in source documents |
-| `relatedDocQtyPolicy` | متابعة كمية المستند المرتبط | Policy for handling quantity variances |
-| `relatedDocQtyFields` | حقول متابعة الكميات في السند المرتبط | Which fields to use for tracking (first or second quantity) |
+#### إعداد تتبع الكميات (Quantity Tracking Configuration)
+| حقل الإعداد | الترجمة العربية | الوصف |
+|-------------|-----------------|-------|
+| `forceTrackQtyOfRelatedDocs` | متابعة كمية المستند المرتبط إجبارياً | تفعيل تتبع الكميات الإجباري بين المستندات |
+| `updateTrackQtyInRelatedDoc` | تحديث متابعة الكميات في السند المرتبط | تحديث كميات التتبع في المستندات المصدر |
+| `relatedDocQtyPolicy` | متابعة كمية المستند المرتبط | سياسة التعامل مع فوارق الكميات |
+| `relatedDocQtyFields` | حقول متابعة الكميات في السند المرتبط | الحقول المستخدمة للتتبع (الكمية الأولى أو الثانية) |
 
-#### Validation and Quality Control
-| Configuration Field | Arabic Translation | Description |
-|---------------------|-------------------|-------------|
-| `checkAvailableQties` | التاكد من الكميات المتاحة قبل الحفظ | Validate available quantities before saving |
-| `forceDoNotIncludeReserved` | عدم اعتبار المحجوز عند التأكد من الكميات | Exclude reserved quantities from validation |
+#### الفحص وضبط الجودة (Validation and Quality Control)
+| حقل الإعداد | الترجمة العربية | الوصف |
+|-------------|-----------------|-------|
+| `checkAvailableQties` | التاكد من الكميات المتاحة قبل الحفظ | فحص الكميات المتاحة قبل الحفظ |
+| `forceDoNotIncludeReserved` | عدم اعتبار المحجوز عند التأكد من الكميات | استبعاد الكميات المحجوزة من الفحص |
 
-#### Delivery System Integration
-| Configuration Field | Arabic Translation | Description |
-|---------------------|-------------------|-------------|
-| `useDelivSysEntriesForReserv` | الحجز بأستخدام جدول التوصيل النظامي | Use delivery system entries for reservations |
-| `reserveFromDeliveryEntryQty` | حجز من كمية جدول التوصيل النظامي | Reserve based on delivery system quantities |
-| `rootDeliveryDocument` | مستند توصيل رئيسي | Link to primary delivery document |
+#### تكامل نظام التوصيل (Delivery System Integration)
+| حقل الإعداد | الترجمة العربية | الوصف |
+|-------------|-----------------|-------|
+| `useDelivSysEntriesForReserv` | الحجز بأستخدام جدول التوصيل النظامي | استخدام مدخلات نظام التوصيل للحجوزات |
+| `reserveFromDeliveryEntryQty` | حجز من كمية جدول التوصيل النظامي | الحجز بناءً على كميات نظام التوصيل |
+| `rootDeliveryDocument` | مستند توصيل رئيسي | ربط بمستند التوصيل الرئيسي |
 
-### Item Configuration (ItemConfigurations)
-**Location:** Item Master > Item Configuration Tab
+### إعداد الصنف (ItemConfigurations) {#Item-Configuration-ItemConfigurations}
+**الموقع:** الصنف الرئيسي > تبويب إعداد الصنف
 
-| Configuration Field | Arabic Translation | Description |
-|---------------------|-------------------|-------------|
-| `includeReservedInBalance` | اعتبار المحجوز في الرصيد | Whether reserved quantities affect available balance calculations |
-| `allowOverdraftInReservation` | السماح بالسحب على المكشوف في الحجز | Allow reservations even when insufficient quantities exist |
-| `overDraftPolicy` | سياسة السحب على المكشوف | Item-level overdraft policy (Yes/No/Inherited) |
+| حقل الإعداد | الترجمة العربية | الوصف |
+|-------------|-----------------|-------|
+| `includeReservedInBalance` | اعتبار المحجوز في الرصيد | هل تؤثر الكميات المحجوزة على حسابات الرصيد المتاح |
+| `allowOverdraftInReservation` | السماح بالسحب على المكشوف في الحجز | السماح بالحجوزات حتى عند نقص الكميات |
+| `overDraftPolicy` | سياسة السحب على المكشوف | سياسة السحب على المكشوف على مستوى الصنف (Yes/No/Inherited) |
 
-### Supply Chain Configuration (SupplyChainConfigurations)  
-**Location:** System Configuration > Supply Chain Configurations
+### إعداد سلسلة التوريد (SupplyChainConfigurations) {#Supply-Chain-Configuration-SupplyChainConfigurations}
+**الموقع:** إعداد النظام > إعدادات سلسلة التوريد
 
-#### Core Reservation Settings
-| Configuration Field | Arabic Translation | Description |
-|---------------------|-------------------|-------------|
-| `reservationType` | نوع الحجز | Global reservation type (Automatic/Manual) |
-| `checkQtiesInReservationDocs` | فحص الكميات في سندات الحجز | Check quantities in reservation documents |
-| `cancelReservationOfDirectParentsOnly` | إلغاء حجز الوالدين المباشرين فقط | Cancel reservation of direct parent documents only |
+#### إعدادات الحجز الأساسية (Core Reservation Settings)
+| حقل الإعداد | الترجمة العربية | الوصف |
+|-------------|-----------------|-------|
+| `reservationType` | نوع الحجز | نوع الحجز العام (تلقائي/يدوي) |
+| `checkQtiesInReservationDocs` | فحص الكميات في سندات الحجز | فحص الكميات في سندات الحجز |
+| `cancelReservationOfDirectParentsOnly` | إلغاء حجز الوالدين المباشرين فقط | إلغاء حجز المستندات الأعلى المباشرة فقط |
 
-#### Overdraft Control
-| Configuration Field | Arabic Translation | Description |
-|---------------------|-------------------|-------------|
-| `overDraftPolicy` | سياسة السحب على المكشوف | System-level overdraft policy |
-| `dimensionsWithAllowedOverdraft` | الأبعاد المسموح بها السحب على المكشوف | Dimensions with allowed overdraft configurations |
-| `checkOverdraftByDate` | فحص السحب على المكشوف بالتاريخ | Check overdraft by date |
-| `includeReservationInCheckOverdraftByDate` | تضمين الحجز في فحص السحب على المكشوف بالتاريخ | Include reservation in overdraft check by date |
-| `doNotCheckOverdraftByDateForReservation` | عدم فحص السحب على المكشوف بالتاريخ للحجز | Do not check overdraft by date for reservations |
+#### التحكم في السحب على المكشوف (Overdraft Control)
+| حقل الإعداد | الترجمة العربية | الوصف |
+|-------------|-----------------|-------|
+| `overDraftPolicy` | سياسة السحب على المكشوف | سياسة السحب على المكشوف على مستوى النظام |
+| `dimensionsWithAllowedOverdraft` | الأبعاد المسموح بها السحب على المكشوف | المحددات التي يُسمح فيها بالسحب على المكشوف |
+| `checkOverdraftByDate` | فحص السحب على المكشوف بالتاريخ | فحص السحب على المكشوف بالتاريخ |
+| `includeReservationInCheckOverdraftByDate` | تضمين الحجز في فحص السحب على المكشوف بالتاريخ | تضمين الحجز في فحص السحب على المكشوف بالتاريخ |
+| `doNotCheckOverdraftByDateForReservation` | عدم فحص السحب على المكشوف بالتاريخ للحجز | عدم فحص السحب على المكشوف بالتاريخ للحجوزات |
 
-#### Quantity Check Configuration
-| Configuration Field | Arabic Translation | Description |
-|---------------------|-------------------|-------------|
-| `checkQtyByDateOnly` | فحص الكمية بالتاريخ فقط | Check quantity by date only |
-| `checkQtyByDateOnlyWithReservation` | فحص الكمية بالتاريخ فقط مع الحجز | Check quantity by date only with reservation |
-| `reservationSettings` | إعدادات الحجز | Reservation-specific settings for ignoring certain validations |
-| `doNotConsiderDimensionsInOverdraftByDate` | عدم اعتبار الأبعاد في السحب على المكشوف بالتاريخ | Do not consider dimensions in overdraft by date |
-| `doNotConsiderDimensionsInOverdraftByDateWithReservation` | عدم اعتبار الأبعاد في السحب على المكشوف بالتاريخ مع الحجز | Do not consider dimensions in overdraft by date with reservation |
+#### إعداد فحص الكميات (Quantity Check Configuration)
+| حقل الإعداد | الترجمة العربية | الوصف |
+|-------------|-----------------|-------|
+| `checkQtyByDateOnly` | فحص الكمية بالتاريخ فقط | فحص الكمية بالتاريخ فقط |
+| `checkQtyByDateOnlyWithReservation` | فحص الكمية بالتاريخ فقط مع الحجز | فحص الكمية بالتاريخ فقط مع الحجز |
+| `reservationSettings` | إعدادات الحجز | إعدادات خاصة بالحجز لتجاهل فحوصات معينة |
+| `doNotConsiderDimensionsInOverdraftByDate` | عدم اعتبار الأبعاد في السحب على المكشوف بالتاريخ | عدم اعتبار المحددات في السحب على المكشوف بالتاريخ |
+| `doNotConsiderDimensionsInOverdraftByDateWithReservation` | عدم اعتبار الأبعاد في السحب على المكشوف بالتاريخ مع الحجز | عدم اعتبار المحددات في السحب على المكشوف بالتاريخ مع الحجز |
 
-#### Quantity Tracking System
-| Configuration Field | Arabic Translation | Description |
-|---------------------|-------------------|-------------|
-| `useEntriesForTrackQuantities` | استخدام المدخلات لتتبع الكميات | Use system entries for quantity tracking |
-| `ignoreQtyTrackingWhithDocumentDelete` | تجاهل تتبع الكميات مع حذف المستند | Ignore quantity tracking when deleting documents |
-| `updateReservationQtyWithPrimeQtyChange` | تحديث كمية الحجز مع تغيير الكمية الرئيسية | Update reservation quantity with primary quantity changes |
+#### نظام تتبع الكميات (Quantity Tracking System)
+| حقل الإعداد | الترجمة العربية | الوصف |
+|-------------|-----------------|-------|
+| `useEntriesForTrackQuantities` | استخدام المدخلات لتتبع الكميات | استخدام مدخلات النظام لتتبع الكميات |
+| `ignoreQtyTrackingWhithDocumentDelete` | تجاهل تتبع الكميات مع حذف المستند | تجاهل تتبع الكميات عند حذف المستندات |
+| `updateReservationQtyWithPrimeQtyChange` | تحديث كمية الحجز مع تغيير الكمية الرئيسية | تحديث كمية الحجز عند تغيير الكمية الرئيسية |
 
-#### Transfer and Stock Document Settings
-| Configuration Field | Arabic Translation | Description |
-|---------------------|-------------------|-------------|
-| `transReqReserveQtyOutOnly` | طلب التحويل يحجز الكمية الخارجة فقط | Transfer request reserves outbound quantity only |
-| `showToItemDimensionsInTransfer` | إظهار أبعاد الصنف المستقبل في التحويل | Show destination item dimensions in transfers |
-| `doNotUpdateItemLotAndBoxFromIssueAndSales` | عدم تحديث شحنة وصندوق الصنف من الصرف والمبيعات | Do not update item lot and box from issue and sales |
+#### إعدادات مستندات التحويل والمخزون (Transfer and Stock Document Settings)
+| حقل الإعداد | الترجمة العربية | الوصف |
+|-------------|-----------------|-------|
+| `transReqReserveQtyOutOnly` | طلب التحويل يحجز الكمية الخارجة فقط | طلب التحويل يحجز الكمية الخارجة فقط |
+| `showToItemDimensionsInTransfer` | إظهار أبعاد الصنف المستقبل في التحويل | إظهار محددات الصنف الوجهة في التحويلات |
+| `doNotUpdateItemLotAndBoxFromIssueAndSales` | عدم تحديث شحنة وصندوق الصنف من الصرف والمبيعات | عدم تحديث شحنة وصندوق الصنف من الصرف والمبيعات |
 
-#### Performance and Processing
-| Configuration Field | Arabic Translation | Description |
-|---------------------|-------------------|-------------|
-| `checkOverdraftNextTransCount` | عدد المعاملات التالية لفحص السحب على المكشوف | Number of next transactions to check for overdraft |
-| `doNotCheckOverdraftWithRecommit` | عدم فحص السحب على المكشوف مع إعادة الحفظ | Do not check overdraft with recommit operations |
+#### الأداء والمعالجة (Performance and Processing)
+| حقل الإعداد | الترجمة العربية | الوصف |
+|-------------|-----------------|-------|
+| `checkOverdraftNextTransCount` | عدد المعاملات التالية لفحص السحب على المكشوف | عدد المعاملات التالية لفحص السحب على المكشوف |
+| `doNotCheckOverdraftWithRecommit` | عدم فحص السحب على المكشوف مع إعادة الحفظ | عدم فحص السحب على المكشوف مع عمليات إعادة الحفظ |
 
-### Item Section Configuration
-**Location:** Item Section Master > Configuration
+### إعداد مجموعة الأصناف (Item Section Configuration) {#Item-Section-Configuration}
+**الموقع:** الصنف الرئيسي > مجموعة الأصناف > الإعداد
 
-| Configuration Field | Arabic Translation | Description |
-|---------------------|-------------------|-------------|
-| `overDraftPolicy` | سياسة السحب على المكشوف | Section-level overdraft policy (Yes/No/Inherited) |
+| حقل الإعداد | الترجمة العربية | الوصف |
+|-------------|-----------------|-------|
+| `overDraftPolicy` | سياسة السحب على المكشوف | سياسة السحب على المكشوف على مستوى المجموعة (Yes/No/Inherited) |
 
-### System-Wide Reservation Enums and Values
+### قيم Enum وقيم الحجز على مستوى النظام (System-Wide Reservation Enums and Values) {#System-Wide-Reservation-Enums-and-Values}
 
-### Configuration Hierarchy and Inheritance
+### التسلسل الهرمي للإعداد والتوارث (Configuration Hierarchy and Inheritance) {#Configuration-Hierarchy-and-Inheritance}
 
-The reservation system uses a hierarchical configuration approach:
+يستخدم نظام الحجوزات نهجاً هرمياً للإعداد:
 
-1. **System Level:** SupplyChainConfigurations provides global defaults
-2. **Item Section Level:** Item section overdraft and tracking policies
-3. **Item Level:** Individual item configuration overrides
-4. **Document Term Level:** Document-specific reservation behavior
-5. **Document Line Level:** Line-specific reservation settings
+1. **مستوى النظام:** يوفر SupplyChainConfigurations الإعدادات الافتراضية العامة
+2. **مستوى مجموعة الأصناف:** سياسات السحب على المكشوف والتتبع لمجموعة الأصناف
+3. **مستوى الصنف:** تجاوزات إعداد الصنف المنفرد
+4. **مستوى توجيه المستند:** سلوك الحجز الخاص بالمستند
+5. **مستوى سطر المستند:** إعدادات الحجز الخاصة بالسطر
 
-**Priority Order (highest to lowest):**
-1. Document Line Settings
-2. Document Term Configuration  
-3. Item Configuration
-4. Item Section Configuration
-5. System Configuration
+**ترتيب الأولوية (من الأعلى إلى الأدنى):**
+1. إعدادات سطر المستند
+2. إعداد توجيه المستند
+3. إعداد الصنف
+4. إعداد مجموعة الأصناف
+5. إعداد النظام
 
-### Configuration Validation Rules
+### قواعد التحقق من الإعداد (Configuration Validation Rules) {#Configuration-Validation-Rules}
 
-#### Required Configurations for Basic Reservation
-- Document Term: `reserve = true`
-- Item Configuration: Valid `overDraftPolicy` setting
-- System Configuration: Valid `reservationType` setting
+#### الإعدادات المطلوبة للحجز الأساسي (Required Configurations for Basic Reservation)
+- توجيه المستند: `reserve = true`
+- إعداد الصنف: إعداد `overDraftPolicy` صالح
+- إعداد النظام: إعداد `reservationType` صالح
 
-#### Required Configurations for Quantity Tracking
-- Document Term: `forceTrackQtyOfRelatedDocs = true`
-- Document Term: `relatedDocQtyFields` must be specified
-- System Configuration: `useEntriesForTrackQuantities` (optional)
+#### الإعدادات المطلوبة لتتبع الكميات (Required Configurations for Quantity Tracking)
+- توجيه المستند: `forceTrackQtyOfRelatedDocs = true`
+- توجيه المستند: يجب تحديد `relatedDocQtyFields`
+- إعداد النظام: `useEntriesForTrackQuantities` (اختياري)
 
-#### Required Configurations for Reservation Updates
-- Document Term: `updateReservationOfRelatedDocs = true`
-- Document Term: `reservationSatisfiedFields` must be specified
-- Source Document Term: `reserve = true`
-
+#### الإعدادات المطلوبة لتحديثات الحجز (Required Configurations for Reservation Updates)
+- توجيه المستند: `updateReservationOfRelatedDocs = true`
+- توجيه المستند: يجب تحديد `reservationSatisfiedFields`
+- توجيه المستند المصدر: `reserve = true`

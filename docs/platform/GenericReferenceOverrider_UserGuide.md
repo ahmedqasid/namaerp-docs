@@ -1,57 +1,57 @@
-# أعدادات الحقول و الشاشات - Generic Reference Overrider User Guide
-## إعدادات الحقول والشاشات - Fields and Entities Settings
+# أعدادات الحقول و الشاشات (Generic Reference Overrider User Guide) {#Fields-and-Entities-Settings---Generic-Reference-Overrider-User-Guide}
+## إعدادات الحقول والشاشات (Fields and Entities Settings) {#Fields-and-Entities-Settings}
 
-## Entity Information
-- **Entity Type**: `GenericReferenceOverrider`
-- **Arabic Name**: أعدادات الحقول و الشاشات
-- **English Name**: Fields and Entities Settings
-- **Classification**: Master File
-- **Database Table**: `GenericReferenceOverrider`
-- **Menu Path**: الأساسيات > الإعدادات > أعدادات الحقول و الشاشات
-- **Menu Path (English)**: Basic > Settings > Fields and Entities Settings
+## معلومات الكيان (Entity Information) {#Entity-Information}
+- **نوع الكيان**: `GenericReferenceOverrider`
+- **الاسم العربي**: أعدادات الحقول و الشاشات
+- **الاسم الإنجليزي**: Fields and Entities Settings
+- **التصنيف**: ملف أساسي (Master File)
+- **جدول قاعدة البيانات**: `GenericReferenceOverrider`
+- **مسار القائمة**: الأساسيات > الإعدادات > أعدادات الحقول و الشاشات
+- **مسار القائمة (إنجليزي)**: Basic > Settings > Fields and Entities Settings
 
-## Overview
-The Generic Reference Overrider is a powerful system configuration entity in Nama ERP that allows administrators to customize and override various field behaviors, validations, and display properties across different entities without modifying the source code. This provides flexibility in adapting the system to specific business requirements.
+## نظرة عامة (Overview) {#Overview}
+يُعدّ Generic Reference Overrider كياناً قوياً لإعداد النظام في Nama ERP، يُتيح للمسؤولين تخصيص وتجاوز سلوكيات الحقول المختلفة والتحقق من صحتها وخصائص العرض عبر كيانات متعددة دون الحاجة إلى تعديل كود المصدر. يوفر هذا المرونة اللازمة لتكييف النظام وفق متطلبات العمل المحددة.
 
-### Core Concept
-In enterprise systems, different organizations have varying business rules, validation requirements, and display preferences. Rather than creating multiple versions of the software or modifying source code, the Generic Reference Overrider provides a configuration-based approach to customize system behavior. 
+### المفهوم الأساسي (Core Concept) {#Core-Concept}
+في الأنظمة المؤسسية، تتباين قواعد العمل ومتطلبات التحقق وتفضيلات العرض بين المؤسسات المختلفة. بدلاً من إنشاء نسخ متعددة من البرنامج أو تعديل كود المصدر، يوفر Generic Reference Overrider نهجاً قائماً على الإعداد لتخصيص سلوك النظام.
 
-The system works by intercepting standard field operations (validation, display, search, etc.) and applying custom rules defined in the overrider configurations. These configurations are loaded into memory at startup and cached for performance, with automatic cache invalidation when configurations change.
+يعمل النظام عبر اعتراض عمليات الحقول القياسية (التحقق، العرض، البحث، إلخ) وتطبيق قواعد مخصصة مُعرَّفة في إعدادات التجاوز. تُحمَّل هذه الإعدادات في الذاكرة عند بدء التشغيل وتُخزَّن مؤقتاً لتحسين الأداء، مع إلغاء تلقائي للتخزين المؤقت عند تغيير الإعدادات.
 
-### Architecture Overview
-The Generic Reference Overrider operates through several key components:
+### نظرة عامة على البنية (Architecture Overview) {#Architecture-Overview}
+يعمل Generic Reference Overrider من خلال عدة مكونات رئيسية:
 
-1. **DSL Entity Definition** (`GenericReferenceOverrider.java`): Defines the master configuration entity with various detail line types
-2. **Utility Cache Layer** (`GenericRefOverriderFromDBUtil.java`): Provides cached access to configurations with thread-safe concurrent hash maps
-3. **Detail Line Types**: Specialized configuration lines for different customization aspects
-4. **Event-Based Cache Invalidation**: Automatic cache refresh when configurations change
-5. **Post Actions System** (`GenericReferenceOverriderPostActions.java`): Provides intelligent field suggestions and validation
+1. **تعريف كيان DSL** (`GenericReferenceOverrider.java`): يُعرِّف كيان الإعداد الرئيسي بأنواع سطور التفاصيل المتعددة
+2. **طبقة التخزين المؤقت** (`GenericRefOverriderFromDBUtil.java`): توفر وصولاً مخزناً مؤقتاً للإعدادات باستخدام concurrent hash maps آمنة للخيوط
+3. **أنواع سطور التفاصيل**: سطور إعداد متخصصة لجوانب التخصيص المختلفة
+4. **إلغاء التخزين المؤقت القائم على الأحداث**: تحديث تلقائي للتخزين المؤقت عند تغيير الإعدادات
+5. **نظام Post Actions** (`GenericReferenceOverriderPostActions.java`): يوفر اقتراحات ذكية للحقول والتحقق من صحتها
 
-::: tip Technical Implementation
-The system uses sophisticated auto-suggestion mechanisms that dynamically filter available fields based on:
-- Entity type context
-- Field type compatibility
-- Predefined business rules
-- System metadata integration
+::: tip التطبيق التقني (Technical Implementation)
+يستخدم النظام آليات اقتراح تلقائي متطورة تُصفِّي الحقول المتاحة ديناميكياً بناءً على:
+- سياق نوع الكيان
+- توافق نوع الحقل
+- قواعد العمل المحددة مسبقاً
+- تكامل بيانات النظام الوصفية
 :::
 
-## Purpose and Benefits
+## الغرض والفوائد (Purpose and Benefits) {#Purpose-and-Benefits}
 
-### Key Benefits:
-- **No-Code Customization**: Modify system behavior without programming knowledge
-- **Entity-Specific Rules**: Apply different rules to different entity types
-- **Centralized Configuration**: All customizations in one location
-- **Immediate Effect**: Changes apply immediately without system restart
-- **Dimension Control**: Override dimension validation rules per business needs
+### الفوائد الرئيسية: {#Key-Benefits}
+- **تخصيص بدون كود (No-Code Customization)**: تعديل سلوك النظام دون معرفة برمجية
+- **قواعد خاصة بكل كيان (Entity-Specific Rules)**: تطبيق قواعد مختلفة على أنواع كيانات مختلفة
+- **إعداد مركزي (Centralized Configuration)**: جميع التخصيصات في مكان واحد
+- **تأثير فوري (Immediate Effect)**: تُطبَّق التغييرات فوراً دون إعادة تشغيل النظام
+- **التحكم في المحددات (Dimension Control)**: تجاوز قواعد التحقق من المحددات حسب احتياجات العمل
 
-## Database Schema Overview
+## نظرة عامة على مخطط قاعدة البيانات (Database Schema Overview) {#Database-Schema-Overview}
 
-::: details Complete Collection Structure (38 Collections)
-The GenericReferenceOverrider entity contains 38 detail collections, each stored in separate database tables:
+::: details هيكل المجموعات الكاملة (38 مجموعة)
+يحتوي كيان GenericReferenceOverrider على 38 مجموعة تفاصيل، كل منها مخزنة في جداول قاعدة بيانات منفصلة:
 
-**Main Entity**: `GenericReferenceOverrider` table
+**الكيان الرئيسي**: جدول `GenericReferenceOverrider`
 
-**Detail Collections**:
+**مجموعات التفاصيل**:
 1. `addDiscussionTo` → `AddDiscussionTo` - إضافة النقاش إلي (Add Discussion To)
 2. `addRelatedDocumentsTo` → `AddRelatedDocumentsTo` - إضافة المستندات المرتبطة إلى (Add Related Documents To)
 3. `allowUsageOfPreventedRecords` → `AllowUsageOfPreventedRecords` - السماح باستعمال السجلات الممنوعة من الاستعمال (Allow Usage Of Prevented Records)
@@ -92,850 +92,850 @@ The GenericReferenceOverrider entity contains 38 detail collections, each stored
 38. `textToLinkFields` → `TextToLinkFieldsLine` - الحقول النصية المحوله الي روابط (Text To Link Fields)
 39. `useScannerInFields` → `UseScannerInField` - Use Scanner In Fields
 
-All detail collections use `genericReferenceOverrider_id` as the foreign key to link back to the main configuration record.
+جميع مجموعات التفاصيل تستخدم `genericReferenceOverrider_id` كمفتاح خارجي للربط بسجل الإعداد الرئيسي.
 :::
 
-## Detailed Feature Descriptions
+## أوصاف الميزات التفصيلية (Detailed Feature Descriptions) {#Detailed-Feature-Descriptions}
 
-### 1. Generic Reference Field Overrides (`details`)
-**Collection**: القيم المسموح بها للمراجع (Allowed Values For Generic References)
+### 1. تجاوزات حقول المرجع العام (`details`) {#1-Generic-Reference-Field-Overrides-details}
+**المجموعة**: القيم المسموح بها للمراجع (Allowed Values For Generic References)
 
-#### Concept and Purpose
-Generic reference fields in the system typically allow selection from multiple entity types. For example, a "Reference" field might accept Customers, Suppliers, Employees, or Items. The Generic Reference Override allows you to restrict or modify which entity types are available for selection in specific contexts.
+#### المفهوم والغرض {#Concept-and-Purpose}
+تتيح حقول المرجع العام في النظام عادةً الاختيار من أنواع كيانات متعددة. على سبيل المثال، قد يقبل حقل "Reference" عملاء أو موردين أو موظفين أو أصنافاً. يتيح لك Generic Reference Override تقييد أو تعديل أنواع الكيانات المتاحة للاختيار في سياقات محددة.
 
-#### How It Works
-The system maintains a cached mapping (`genRefTypesMap`) that stores entity type restrictions per field. When a user opens a reference field lookup, the system checks this map to determine which entity types should be available for selection.
+#### كيفية العمل {#How-It-Works}
+يحتفظ النظام بخريطة مخزنة مؤقتاً (`genRefTypesMap`) تخزن قيود نوع الكيان لكل حقل. عند فتح المستخدم لبحث حقل مرجع، يتحقق النظام من هذه الخريطة لتحديد أنواع الكيانات المتاحة للاختيار.
 
-::: details Technical Field Structure
-**Key Fields**:
-- `forType` (EntityType) → "للنوع" (For Type) - Target entity type for the override
-- `fieldID` (FieldID) → "الحقل" (On Field) - Specific field being configured
-- `allowedEntity1-5` (EntityType) → "النوع المسموح 1-5" (Allowed Entity 1-5) - Permitted entity types (up to 5)
-- `allowedEntityList` (EntityList) → "قائمة الأنواع المسموح بها" (Allowed Entity List) - Reference to entity list for more options
-- `defaultEntityType` (EntityType) → "النوع الافتراضي" (Default Entity Type) - Pre-selected entity type
-- `addToExisting` (Boolean) → "إضافة الى الموجود" (Add To Existing) - Whether to add to or replace existing allowed types
+::: details الهيكل التقني للحقول
+**الحقول الرئيسية**:
+- `forType` (EntityType) → "للنوع" (For Type) - نوع الكيان الهدف للتجاوز
+- `fieldID` (FieldID) → "الحقل" (On Field) - الحقل المحدد الذي يتم إعداده
+- `allowedEntity1-5` (EntityType) → "النوع المسموح 1-5" (Allowed Entity 1-5) - أنواع الكيانات المسموح بها (حتى 5)
+- `allowedEntityList` (EntityList) → "قائمة الأنواع المسموح بها" (Allowed Entity List) - مرجع إلى قائمة كيانات لمزيد من الخيارات
+- `defaultEntityType` (EntityType) → "النوع الافتراضي" (Default Entity Type) - نوع الكيان المحدد مسبقاً
+- `addToExisting` (Boolean) → "إضافة الى الموجود" (Add To Existing) - ما إذا كان يضاف إلى الأنواع الموجودة أم يستبدلها
 :::
 
-::: details Field Suggestion System
-The system provides intelligent field suggestions through the `EntityFieldIdsSuggestionUtil` utility:
-- **Context-Aware Filtering**: Only shows fields compatible with the selected entity type
-- **Field Type Filtering**: Restricts suggestions to `Genericreference` field types
-- **Dynamic Updates**: Field suggestions update automatically when entity type changes
-- **Discussion Fields**: Optionally includes discussion-related fields in suggestions
+::: details نظام اقتراح الحقول (Field Suggestion System)
+يوفر النظام اقتراحات ذكية للحقول من خلال الأداة المساعدة `EntityFieldIdsSuggestionUtil`:
+- **تصفية حسب السياق**: يعرض فقط الحقول المتوافقة مع نوع الكيان المحدد
+- **تصفية نوع الحقل**: يقصر الاقتراحات على أنواع حقول `Genericreference`
+- **تحديثات ديناميكية**: تتحدث اقتراحات الحقول تلقائياً عند تغيير نوع الكيان
+- **حقول النقاش**: تتضمن اختيارياً الحقول المتعلقة بالنقاش في الاقتراحات
 :::
 
-#### Configuration Options
-- **For Type**: Apply override to a specific entity type (e.g., only SalesInvoice)
-- **Entity List**: Apply to multiple entity types using a predefined list
-- **Field ID**: The specific field being overridden (e.g., "customer", "item", "reference")
-- **Allowed Entities (1-5)**: Up to 5 entity types that should be available for selection
-- **Allowed Entity List**: For more than 5 entity types, use a predefined entity list
-- **Default Entity Type**: The entity type that should be pre-selected
-- **Add to Existing**: Whether to add to existing allowed types or replace them completely
+#### خيارات الإعداد {#Configuration-Options}
+- **للنوع (For Type)**: تطبيق التجاوز على نوع كيان محدد (مثلاً SalesInvoice فقط)
+- **قائمة الكيانات (Entity List)**: تطبيق على أنواع كيانات متعددة باستخدام قائمة محددة مسبقاً
+- **معرّف الحقل (Field ID)**: الحقل المحدد الذي يتم تجاوزه (مثلاً "customer"، "item"، "reference")
+- **الكيانات المسموح بها (1-5)**: حتى 5 أنواع كيانات يجب أن تكون متاحة للاختيار
+- **قائمة الكيانات المسموح بها (Allowed Entity List)**: لأكثر من 5 أنواع كيانات، استخدم قائمة كيانات محددة مسبقاً
+- **نوع الكيان الافتراضي (Default Entity Type)**: نوع الكيان الذي يجب تحديده مسبقاً
+- **إضافة إلى الموجود (Add to Existing)**: ما إذا كان يضاف إلى الأنواع المسموح بها الموجودة أم يستبدلها كلياً
 
 
-### 2. Visual Indicators and Icons
+### 2. المؤشرات البصرية والأيقونات (Visual Indicators and Icons) {#2-Visual-Indicators-and-Icons}
 
-::: tip Supported Field Types
-Icon configurations support different field types depending on the icon type:
-- **Field Icons**: All field types
-- **Entity Icons**: Applied to entity types globally
-- **Enum Icons**: Specific to enumeration fields with dynamic value suggestions
+::: tip أنواع الحقول المدعومة (Supported Field Types)
+تدعم إعدادات الأيقونات أنواع حقول مختلفة حسب نوع الأيقونة:
+- **Field Icons**: جميع أنواع الحقول
+- **Entity Icons**: تُطبَّق على أنواع الكيانات بشكل عام
+- **Enum Icons**: خاصة بحقول التعداد مع اقتراحات ديناميكية للقيم
 :::
 
-#### Field Icons (`fieldIcons`)
-**Collection**: Field Icons
-**Concept**: Add contextual icons to field labels to provide immediate visual feedback about status, priority, or type.
+#### أيقونات الحقول (`fieldIcons`) {#Field-Icons-fieldIcons}
+**المجموعة**: Field Icons
+**المفهوم**: إضافة أيقونات سياقية إلى تسميات الحقول لتوفير تغذية راجعة بصرية فورية حول الحالة أو الأولوية أو النوع.
 
-**How It Works**: The system evaluates field values and applies configured icons based on field ids.
+**كيفية العمل**: يقيّم النظام قيم الحقول ويطبق الأيقونات المضبوطة بناءً على معرفات الحقول.
 
-**Configuration**:
-- **Entity Type/Entity Type List**: Scope of application
-- **Field ID**: Target field (e.g., "status", "priority", "type")
-- **Icon Code**: Icon identifier
-- **Color Code**: Associated color (hex or named color)
-
-
-#### Entity Icons (`entityIcons`)
-**Collection**: Entity Icons
-**Concept**: Apply icons to entire entity types, typically shown in lists and search results.
+**الإعداد**:
+- **نوع الكيان/قائمة أنواع الكيانات**: نطاق التطبيق
+- **معرّف الحقل (Field ID)**: الحقل الهدف (مثلاً "status"، "priority"، "type")
+- **كود الأيقونة (Icon Code)**: معرف الأيقونة
+- **كود اللون (Color Code)**: اللون المرتبط (hex أو اسم لون)
 
 
-#### Enum Constant Icons (`enumIcons`)
-**Collection**: Enum Icons
-**Concept**: Add icons to enumeration (dropdown lists) values across the system.
+#### أيقونات الكيانات (`entityIcons`) {#Entity-Icons-entityIcons}
+**المجموعة**: Entity Icons
+**المفهوم**: تطبيق أيقونات على أنواع الكيانات بأكملها، تظهر عادةً في القوائم ونتائج البحث.
 
-**Benefits**: Provides consistent visual language for status values, types, and categories throughout the application.
 
-::: details Enum Management System
-**Dynamic Enum Discovery**: The system automatically discovers all available enumeration types from system metadata using `fetchEnumsData()` method.
+#### أيقونات ثوابت التعداد (`enumIcons`) {#Enum-Constant-Icons-enumIcons}
+**المجموعة**: Enum Icons
+**المفهوم**: إضافة أيقونات إلى قيم التعداد (القوائم المنسدلة) عبر النظام.
 
-**Configuration Process**:
-1. **Enum Type Selection**: Choose from dynamically suggested enum types
-2. **Value Selection**: System provides allowed values specific to the selected enum type
-3. **Icon Assignment**: Assign icons and colors to specific enum values
+**الفوائد**: يوفر لغة بصرية متسقة لقيم الحالة والأنواع والفئات في جميع أنحاء التطبيق.
 
-**Technical Implementation**:
-- Cached enum metadata for performance
-- Real-time value suggestions based on enum type
-- Supports all system-defined enumerations
+::: details نظام إدارة التعداد (Enum Management System)
+**اكتشاف ديناميكي للتعداد**: يكتشف النظام تلقائياً جميع أنواع التعداد المتاحة من البيانات الوصفية للنظام باستخدام طريقة `fetchEnumsData()`.
+
+**عملية الإعداد**:
+1. **اختيار نوع التعداد**: اختر من أنواع التعداد المقترحة ديناميكياً
+2. **اختيار القيمة**: يوفر النظام القيم المسموح بها الخاصة بنوع التعداد المحدد
+3. **تعيين الأيقونة**: عيّن أيقوناً ولوناً لقيم تعداد محددة
+
+**التطبيق التقني**:
+- بيانات التعداد الوصفية مخزنة مؤقتاً لتحسين الأداء
+- اقتراحات قيم في الوقت الفعلي بناءً على نوع التعداد
+- يدعم جميع تعدادات النظام
 :::
 
-**Examples**:
-- Order Status: "Draft" = yellow circle, "Approved" = green check, "Cancelled" = red X
-- Priority Level: "High" = red exclamation, "Medium" = orange dash, "Low" = green dot
+**أمثلة**:
+- حالة الطلب: "Draft" = دائرة صفراء، "Approved" = علامة خضراء، "Cancelled" = X أحمر
+- مستوى الأولوية: "High" = علامة تعجب حمراء، "Medium" = شرطة برتقالية، "Low" = نقطة خضراء
 
-### 3. Field Display and Formatting
+### 3. عرض الحقول والتنسيق (Field Display and Formatting) {#3-Field-Display-and-Formatting}
 
-#### Display Masks (`displayMasks`)
-**Collection**: Display Masks
+#### أقنعة العرض (`displayMasks`) {#Display-Masks-displayMasks}
+**المجموعة**: Display Masks
 
-**Concept**: Apply formatting patterns to field values for consistent display without changing stored data.
+**المفهوم**: تطبيق أنماط تنسيق على قيم الحقول لعرض متسق دون تغيير البيانات المخزنة.
 
-**Technical Note**: Masks are applied during UI rendering but don't affect database storage.
+**ملاحظة تقنية**: تُطبَّق الأقنعة أثناء عرض واجهة المستخدم ولا تؤثر على التخزين في قاعدة البيانات.
 
-::: details Technical Configuration
-**Key Fields**:
-- `forType` (EntityType) → "للنوع" - Target entity type
-- `fieldID` (FieldID) → " الحقل" - Field to format
-- `displayMask` (Text) → Display Mask - Formatting pattern
+::: details الإعداد التقني
+**الحقول الرئيسية**:
+- `forType` (EntityType) → "للنوع" - نوع الكيان الهدف
+- `fieldID` (FieldID) → "الحقل" - الحقل المراد تنسيقه
+- `displayMask` (Text) → Display Mask - نمط التنسيق
 :::
 
-::: details Supported Field Types
-**Compatible Fields**: Integer, Long, Decimal fields only
+::: details أنواع الحقول المدعومة
+**الحقول المتوافقة**: حقول Integer و Long و Decimal فقط
 
-**Mask Examples**:
-- `###,###.##` - Standard number formatting with thousands separator
-- `###.00` - Fixed decimal places
-- `##.##%` - Percentage formatting
+**أمثلة على الأقنعة**:
+- `###,###.##` - تنسيق أرقام قياسي مع فاصل الآلاف
+- `###.00` - منازل عشرية ثابتة
+- `##.##%` - تنسيق النسبة المئوية
 :::
 
-::: tip G2 Display Masks (Advanced)
-**Enhanced Formatting Options**:
-- `##,#` → "1234 → 1,234" (Thousands separator)
-- `##.## \%` → "25.5 → 25.5%" (Percentage with escaped %)
-- `##.00` → "25.5 → 25.50" (Fixed decimals)
-- `c` → "1234 → $1,123.00" (Currency formatting)
-- `##,#.00` → "1234567.56 → 1,234,567.56" (Full number formatting)
+::: tip أقنعة عرض G2 (متقدم)
+**خيارات تنسيق محسّنة**:
+- `##,#` → "1234 → 1,234" (فاصل الآلاف)
+- `##.## \%` → "25.5 → 25.5%" (نسبة مئوية مع % مُهرَّبة)
+- `##.00` → "25.5 → 25.50" (منازل عشرية ثابتة)
+- `c` → "1234 → $1,123.00" (تنسيق العملة)
+- `##,#.00` → "1234567.56 → 1,234,567.56" (تنسيق رقم كامل)
 :::
 
-#### Field Formats (`fieldFormats`)
-**Collection**: Field Formats
-**Concept**: Control field input validation and formatting rules. This can be applied conditionally based on dynamic queries or criteria definitions.
+#### تنسيقات الحقول (`fieldFormats`) {#Field-Formats-fieldFormats}
+**المجموعة**: Field Formats
+**المفهوم**: التحكم في قواعد التحقق من إدخال الحقل وتنسيقه. يمكن تطبيق ذلك بشكل مشروط بناءً على استعلامات ديناميكية أو تعريفات معايير.
 
-**Configuration Options**:
-- **Max Length**: Maximum number of characters allowed
-- **Min Length**: Minimum number of characters required
-- **Allow Numbers**: Whether numeric characters are permitted
-- **Allow Letters**: Whether alphabetic characters are permitted
-- **Mixed Content**: Whether both numbers and letters are allowed
-- **Conditional Application**: Apply rules based on dynamic queries or specific criteria
+**خيارات الإعداد**:
+- **الحد الأقصى للطول (Max Length)**: الحد الأقصى لعدد الأحرف المسموح بها
+- **الحد الأدنى للطول (Min Length)**: الحد الأدنى لعدد الأحرف المطلوبة
+- **السماح بالأرقام (Allow Numbers)**: ما إذا كانت الأحرف الرقمية مسموحاً بها
+- **السماح بالحروف (Allow Letters)**: ما إذا كانت الأحرف الأبجدية مسموحاً بها
+- **محتوى مختلط (Mixed Content)**: ما إذا كانت الأرقام والحروف معاً مسموحاً بها
+- **تطبيق مشروط (Conditional Application)**: تطبيق القواعد بناءً على استعلامات ديناميكية أو معايير محددة
 
-**Use Cases**:
-- Restrict item codes to numeric-only format
-- Enforce minimum password length requirements
-- Allow only letters in name fields
-- Apply different validation rules based on document type or status
+**حالات الاستخدام**:
+- تقييد أكواد الأصناف بتنسيق أرقام فقط
+- فرض متطلبات الحد الأدنى لطول كلمة المرور
+- السماح بالحروف فقط في حقول الاسم
+- تطبيق قواعد تحقق مختلفة بناءً على نوع المستند أو حالته
 
-#### Field Styles (`fieldStyles`)
-**Collection**: Field Styles
-**Concept**: Control field display properties and behavior. This is not conditional styling, but direct field property configuration.
+#### أنماط الحقول (`fieldStyles`) {#Field-Styles-fieldStyles}
+**المجموعة**: Field Styles
+**المفهوم**: التحكم في خصائص عرض الحقل وسلوكه. هذا ليس تنسيقاً مشروطاً، بل إعداد مباشر لخصائص الحقل.
 
-**Configuration Options**:
-- **Text Direction**: Set right-to-left (RTL) or left-to-right (LTR) text direction
-- **Password Field**: Convert text fields to password fields (showing asterisks or dots)
-- **Text Color**: Set the color of the text content
-- **Background Color**: Set the background color of the field
+**خيارات الإعداد**:
+- **اتجاه النص (Text Direction)**: تعيين اتجاه من اليمين إلى اليسار (RTL) أو من اليسار إلى اليمين (LTR)
+- **حقل كلمة المرور (Password Field)**: تحويل حقول النص إلى حقول كلمة مرور (عرض نجوم أو نقاط)
+- **لون النص (Text Color)**: تعيين لون محتوى النص
+- **لون الخلفية (Background Color)**: تعيين لون خلفية الحقل
 
-**Use Cases**:
-- Set Arabic fields to RTL direction
-- Convert sensitive fields to password display
-- Apply corporate color schemes to specific fields
-- Highlight important fields with background colors
-- Ensure proper text direction for multilingual applications
+**حالات الاستخدام**:
+- تعيين حقول اللغة العربية باتجاه RTL
+- تحويل الحقول الحساسة إلى عرض كلمة مرور
+- تطبيق نظام ألوان الشركة على حقول محددة
+- إبراز الحقول المهمة بألوان خلفية
+- ضمان اتجاه النص الصحيح للتطبيقات متعددة اللغات
 
-### 4. Data Validation and Restrictions
+### 4. التحقق من البيانات والقيود (Data Validation and Restrictions) {#4-Data-Validation-and-Restrictions}
 
-#### Field Allowed Values (`fieldAllowedValues`)
-**Collection**: القيم المسموح بها للحقول (Field Allowed Values)
+#### القيم المسموح بها للحقول (`fieldAllowedValues`) {#Field-Allowed-Values-fieldAllowedValues}
+**المجموعة**: القيم المسموح بها للحقول (Field Allowed Values)
 
-**Concept**: Create custom dropdown lists and restrict field values to predefined options.
+**المفهوم**: إنشاء قوائم منسدلة مخصصة وتقييد قيم الحقول بخيارات محددة مسبقاً.
 
-**How It Works**: The system maintains a metadata structure (`FieldsAllowedValuesMetadata`) that stores allowed values per entity type and field combination. During data entry, the system validates against these lists.
+**كيفية العمل**: يحتفظ النظام ببنية بيانات وصفية (`FieldsAllowedValuesMetadata`) تخزن القيم المسموح بها لكل مجموعة من نوع الكيان والحقل. أثناء إدخال البيانات، يتحقق النظام من هذه القوائم.
 
-::: details Technical Configuration
-**Key Fields**:
-- `forType` (EntityType) → "للنوع" (For Type) - Target entity type
-- `fieldID` (FieldID) → "الحقل" (On Field) - Field to restrict
-- `restrictValues` (Boolean) → "عدم السماح بكتابة القيم يدويا" (Restrict Selection) - Enforce restrictions
-- `allowedValue1-10` (Text) → "القيمة المسموح بها 1-10" (Allowed Value 1-10) - Predefined allowed values
+::: details الإعداد التقني
+**الحقول الرئيسية**:
+- `forType` (EntityType) → "للنوع" (For Type) - نوع الكيان الهدف
+- `fieldID` (FieldID) → "الحقل" (On Field) - الحقل المراد تقييده
+- `restrictValues` (Boolean) → "عدم السماح بكتابة القيم يدويا" (Restrict Selection) - فرض القيود
+- `allowedValue1-10` (Text) → "القيمة المسموح بها 1-10" (Allowed Value 1-10) - القيم المسموح بها المحددة مسبقاً
 :::
 
-::: details Supported Field Types
-**Compatible Fields**: Text, Integer, Long, Decimal, BigText, Enum, EntityType
+::: details أنواع الحقول المدعومة
+**الحقول المتوافقة**: Text و Integer و Long و Decimal و BigText و Enum و EntityType
 
-**Smart Value Suggestions**: The system provides context-aware suggestions for allowed values based on:
-- Field type and existing data patterns
-- Entity type context
-- Business rules and constraints
+**اقتراحات قيم ذكية**: يوفر النظام اقتراحات مدركة للسياق للقيم المسموح بها بناءً على:
+- نوع الحقل وأنماط البيانات الموجودة
+- سياق نوع الكيان
+- قواعد العمل والقيود
 :::
 
-**Configuration**:
-- **Restrict Values**: Boolean flag to enforce restrictions
-- **Allowed Values (1-10)**: Up to 10 predefined values per configuration line
-- **Multiple Lines**: Create additional lines for more values
+**الإعداد**:
+- **تقييد القيم (Restrict Values)**: علامة بوليانية لفرض القيود
+- **القيم المسموح بها (1-10)**: حتى 10 قيم محددة مسبقاً لكل سطر إعداد
+- **سطور متعددة**: إنشاء سطور إضافية لمزيد من القيم
 
-**Business Benefits**:
-- Ensure data consistency
-- Reduce data entry errors
-- Standardize terminology across departments
-- Comply with regulatory requirements
+**فوائد الأعمال**:
+- ضمان اتساق البيانات
+- تقليل أخطاء إدخال البيانات
+- توحيد المصطلحات عبر الأقسام
+- الامتثال للمتطلبات التنظيمية
 
-#### Maximum Field Length (`maxFieldsLengthInDB`)
-**Collection**: Max Fields Length In DB
-**Concept**: Override default database field lengths with business-specific limits for regular systems.
+#### الحد الأقصى لطول الحقل (`maxFieldsLengthInDB`) {#Maximum-Field-Length-maxFieldsLengthInDB}
+**المجموعة**: Max Fields Length In DB
+**المفهوم**: تجاوز أطوال حقول قاعدة البيانات الافتراضية بحدود خاصة بالعمل للأنظمة العادية.
 
-::: details Supported Field Types
-**Compatible Fields**: Text, FieldID, Enum, Link, Email, Password, Color, PhoneNumber
+::: details أنواع الحقول المدعومة
+**الحقول المتوافقة**: Text و FieldID و Enum و Link و Email و Password و Color و PhoneNumber
 
-**System Integration**: Includes administrative action `updateFieldsMaxLengthInDB` to apply field length changes to the database schema.
+**تكامل النظام**: يتضمن إجراء إدارياً `updateFieldsMaxLengthInDB` لتطبيق تغييرات طول الحقل على مخطط قاعدة البيانات.
 :::
 
-**Configuration**:
-- **For Type**: Specific entity type
-- **Field ID**: The field to limit
-- **Max Length**: Maximum number of characters
+**الإعداد**:
+- **للنوع (For Type)**: نوع كيان محدد
+- **معرّف الحقل (Field ID)**: الحقل المراد تقييده
+- **الحد الأقصى للطول (Max Length)**: الحد الأقصى لعدد الأحرف
 
-**Use Cases**:
-- Restrict item codes to specific patterns
-- Comply with external system integration requirements
-- Enforce data consistency across systems
-- Prevent excessively long entries
+**حالات الاستخدام**:
+- تقييد أكواد الأصناف بأنماط محددة
+- الامتثال لمتطلبات تكامل الأنظمة الخارجية
+- فرض اتساق البيانات عبر الأنظمة
+- منع الإدخالات الطويلة بشكل مفرط
 
-#### Maximum POS Field Length (`maxPOSFieldsLengthInDB`)
-**Collection**: Max POS Fields Length In DB
+#### الحد الأقصى لطول حقل نقاط البيع (`maxPOSFieldsLengthInDB`) {#Maximum-POS-Field-Length-maxPOSFieldsLengthInDB}
+**المجموعة**: Max POS Fields Length In DB
 
-**Concept**: Set specific field length limits for Point of Sale systems, typically shorter than regular systems.
+**المفهوم**: تعيين حدود طول حقل محددة لأنظمة نقاط البيع (POS)، تكون عادةً أقصر من الأنظمة العادية.
 
-::: details Technical Configuration
-**Key Fields**:
-- `forType` (EntityType) → "للنوع" - POS entity type
-- `fieldID` (FieldID) → " الحقل" - Field to limit
-- `maxLength` (Integer) → "اقصي طول" - Maximum character length for POS
+::: details الإعداد التقني
+**الحقول الرئيسية**:
+- `forType` (EntityType) → "للنوع" - نوع كيان POS
+- `fieldID` (FieldID) → "الحقل" - الحقل المراد تقييده
+- `maxLength` (Integer) → "اقصي طول" - الحد الأقصى لطول الحرف لـ POS
 :::
 
-::: details POS Entity Recognition
-**Automatic POS Detection**: The system automatically identifies POS entities using the `isPosClass()` flag in entity metadata.
+::: details التعرف على كيانات POS
+**الكشف التلقائي عن POS**: يحدد النظام تلقائياً كيانات POS باستخدام علامة `isPosClass()` في البيانات الوصفية للكيان.
 
-**Smart Filtering**: When configuring POS field lengths:
-- Only POS entities are suggested in entity type selection
-- Field suggestions are limited to Decimal, Text, and Password fields
-- System prevents configuration of non-POS entities for POS-specific limits
+**التصفية الذكية**: عند إعداد أطوال حقول POS:
+- تُقترح كيانات POS فقط في اختيار نوع الكيان
+- تقتصر اقتراحات الحقول على حقول Decimal و Text و Password
+- يمنع النظام إعداد كيانات غير POS للحدود الخاصة بـ POS
 :::
 
-**Why Separate POS Limits**: POS systems often have constraints due to:
-- Receipt printer character limits (typically 40-48 characters per line)
-- Small display screens
-- Quick transaction requirements
-- Thermal printer limitations
+**لماذا حدود POS منفصلة**: تعاني أنظمة POS في الغالب من قيود بسبب:
+- حدود أحرف طابعة الإيصالات (عادةً 40-48 حرفاً في السطر)
+- شاشات العرض الصغيرة
+- متطلبات المعاملات السريعة
+- قيود الطابعات الحرارية
 
-**Configuration**:
-- **For Type**: Entity type in POS context (automatically filtered to POS entities)
-- **Field ID**: The field to limit
-- **Max Length**: Maximum characters for POS display/printing
+**الإعداد**:
+- **للنوع (For Type)**: نوع الكيان في سياق POS (يُصفَّى تلقائياً لكيانات POS)
+- **معرّف الحقل (Field ID)**: الحقل المراد تقييده
+- **الحد الأقصى للطول (Max Length)**: الحد الأقصى للأحرف لعرض/طباعة POS
 
-**Common POS Limits**:
-- Customer name: 20-25 characters
-- Item description: 30 characters
-- Address lines: 35 characters
-- Payment reference: 15 characters
+**حدود POS الشائعة**:
+- اسم العميل: 20-25 حرفاً
+- وصف الصنف: 30 حرفاً
+- سطور العنوان: 35 حرفاً
+- مرجع الدفع: 15 حرفاً
 
-**Use Cases**:
-- Ensure names fit on receipts
-- Optimize POS screen display
-- Maintain readability on small screens
-- Comply with fiscal printer requirements
+**حالات الاستخدام**:
+- ضمان ملاءمة الأسماء للإيصالات
+- تحسين عرض شاشة POS
+- الحفاظ على قابلية القراءة على الشاشات الصغيرة
+- الامتثال لمتطلبات الطابعات المالية
 
-#### Maximum Line Count (`maxLinesCounts`)
-**Collection**: أقصى عدد لسطور السندات والملفات (Max Lines Counts For Documents And Files)
-**Concept**: Limit the number of detail lines allowed in documents.
+#### الحد الأقصى لعدد السطور (`maxLinesCounts`) {#Maximum-Line-Count-maxLinesCounts}
+**المجموعة**: أقصى عدد لسطور السندات والملفات (Max Lines Counts For Documents And Files)
+**المفهوم**: تحديد عدد سطور التفاصيل المسموح بها في المستندات.
 
-::: info Field Type Requirement
-**Compatible Fields**: Detail fields only
+::: info متطلبات نوع الحقل
+**الحقول المتوافقة**: حقول التفاصيل فقط
 
-Line count restrictions apply specifically to detail/collection fields that represent document lines.
+تنطبق قيود عدد السطور تحديداً على حقول التفاصيل/المجموعات التي تمثل سطور المستند.
 :::
 
-**Benefits**:
-- Prevent system performance issues
-- Enforce business rules (e.g., max 10 items per order)
-- Control document complexity
-- Manage printing and display constraints
+**الفوائد**:
+- منع مشكلات أداء النظام
+- فرض قواعد العمل (مثلاً: 10 أصناف كحد أقصى لكل طلب)
+- التحكم في تعقيد المستند
+- إدارة قيود الطباعة والعرض
 
-### 5. Dimension Consistency Management
+### 5. إدارة اتساق المحددات (Dimension Consistency Management) {#5-Dimension-Consistency-Management}
 
-#### Understanding Dimensions
-In ERP systems, dimensions represent organizational structures:
-- **Branch**: Physical locations or business units
-- **Department**: Functional divisions
-- **Legal Entity**: Separate legal companies
-- **Analysis Set**: Custom analytical groupings
+#### فهم المحددات (Understanding Dimensions) {#Understanding-Dimensions}
+في أنظمة ERP، تمثل المحددات الهياكل التنظيمية:
+- **الفرع (Branch)**: المواقع المادية أو وحدات الأعمال
+- **القسم (Department)**: الأقسام الوظيفية
+- **الشركة (Legal Entity)**: شركات قانونية منفصلة
+- **مجموعة التحليل (Analysis Set)**: تجميعات تحليلية مخصصة
 
-#### Dimension Consistency Rules (`dimensionsConsistency`)
-**Collection**: تجاهل تناسق المحددات لحقول (Ignore Dimensions Consistency for Fields)
-**Default Behavior**: The system enforces dimensional consistency, ensuring all related data belongs to the same organizational unit.
+#### قواعد اتساق المحددات (`dimensionsConsistency`) {#Dimension-Consistency-Rules-dimensionsConsistency}
+**المجموعة**: تجاهل تناسق المحددات لحقول (Ignore Dimensions Consistency for Fields)
+**السلوك الافتراضي**: يفرض النظام اتساق المحددات، مما يضمن أن جميع البيانات المرتبطة تنتمي إلى نفس الوحدة التنظيمية.
 
-**Override Options**:
-- **Ignore Branch**: Allow cross-branch transactions
-- **Ignore Department**: Enable inter-department operations  
-- **Ignore Legal Entity**: Permit inter-company transactions
-- **Ignore Analysis Set**: Skip analytical consistency checks
-- **Allow Drafts**: Include draft documents in references
+**خيارات التجاوز**:
+- **تجاهل الفرع (Ignore Branch)**: السماح بالمعاملات عبر الفروع
+- **تجاهل القسم (Ignore Department)**: تمكين العمليات بين الأقسام
+- **تجاهل الشركة (Ignore Legal Entity)**: السماح بالمعاملات بين الشركات
+- **تجاهل مجموعة التحليل (Ignore Analysis Set)**: تخطي فحوصات الاتساق التحليلي
+- **السماح بالمسودات (Allow Drafts)**: تضمين المستندات المسودة في المراجع
 
-**Business Scenarios**:
-- Cross-branch inventory transfers
-- Shared services across departments
-- Inter-company loans and transfers
-- Consolidated reporting requirements
+**سيناريوهات الأعمال**:
+- تحويلات المخزون عبر الفروع
+- الخدمات المشتركة عبر الأقسام
+- القروض والتحويلات بين الشركات
+- متطلبات إعداد التقارير الموحدة
 
-### 6. Field State and Behavior Controls
+### 6. ضوابط حالة الحقل وسلوكه (Field State and Behavior Controls) {#6-Field-State-and-Behavior-Controls}
 
-#### Disabled Fields (`disabledFields`)
-**Collection**: Disabled Fields
-**Concept**: Make specific fields read-only or disabled in the user interface.
+#### الحقول المعطلة (`disabledFields`) {#Disabled-Fields-disabledFields}
+**المجموعة**: Disabled Fields
+**المفهوم**: جعل حقول محددة للقراءة فقط أو معطلة في واجهة المستخدم.
 
-**Configuration**:
-- **For Type**: Apply to a specific entity type
-- **Entity List**: Apply to multiple entity types
-- **Field ID**: The field to be disabled
+**الإعداد**:
+- **للنوع (For Type)**: تطبيق على نوع كيان محدد
+- **قائمة الكيانات (Entity List)**: تطبيق على أنواع كيانات متعددة
+- **معرّف الحقل (Field ID)**: الحقل المراد تعطيله
 
-**Use Cases**:
-- Prevent editing of calculated fields
-- Lock system-generated values
-- Protect critical data from accidental modification
+**حالات الاستخدام**:
+- منع تعديل الحقول المحسوبة
+- قفل القيم المولدة من النظام
+- حماية البيانات الحرجة من التعديل غير المقصود
 
-#### Allow Usage of Prevented Records (`allowUsageOfPreventedRecords`)
-**Collection**: السماح باستعمال السجلات الممنوعة من الاستعمال (Allow Usage Of Prevented Records)
-**Concept**: Override the system's prevention of using certain records that are normally blocked (records with the field preventUsage = true).
+#### السماح باستعمال السجلات الممنوعة (`allowUsageOfPreventedRecords`) {#Allow-Usage-of-Prevented-Records-allowUsageOfPreventedRecords}
+**المجموعة**: السماح باستعمال السجلات الممنوعة من الاستعمال (Allow Usage Of Prevented Records)
+**المفهوم**: تجاوز منع النظام لاستخدام سجلات معينة تكون محجوبة عادةً (السجلات التي تحتوي على الحقل preventUsage = true).
 
-**How It Works**: When records are marked as prevented from usage, the system normally doesn't allow them to be selected in reference fields. This configuration allows specific exceptions.
+**كيفية العمل**: عندما تُوضَع علامة على السجلات بوصفها ممنوعة من الاستخدام، لا يسمح النظام عادةً باختيارها في حقول المرجع. يتيح هذا الإعداد استثناءات محددة.
 
-**Use Cases**:
-- Allow selection of inactive items for historical reports
-- Permit blocked customers for specific operations
-- Enable expired contracts for reference purposes
-- Allow draft documents in certain workflows
+**حالات الاستخدام**:
+- السماح باختيار الأصناف غير النشطة للتقارير التاريخية
+- السماح للعملاء المحجوبين بعمليات محددة
+- تمكين العقود المنتهية لأغراض المرجع
+- السماح بالمستندات المسودة في مسارات عمل معينة
 
-#### Not Color Fields (`notColorFields`)
-**Collection**: ليست حقول ألوان (Not Color Fields)
-**Concept**: Prevent specific fields from being treated as color fields, even if they contain color-like values.
+#### الحقول التي ليست حقول ألوان (`notColorFields`) {#Not-Color-Fields-notColorFields}
+**المجموعة**: ليست حقول ألوان (Not Color Fields)
+**المفهوم**: منع معاملة حقول محددة كحقول ألوان، حتى لو كانت تحتوي على قيم تشبه الألوان.
 
-**Purpose**: Some text fields might contain values that look like color codes (e.g., "#123456") but shouldn't be rendered as colors.
+**الغرض**: قد تحتوي بعض حقول النص على قيم تبدو ككودات ألوان (مثلاً "#123456") لكن لا ينبغي عرضها كألوان.
 
-### 7. Advanced Field Behaviors
+### 7. سلوكيات الحقول المتقدمة (Advanced Field Behaviors) {#7-Advanced-Field-Behaviors}
 
-#### Rich Text Fields (`richTextFields`)
-**Collection**: Rich Text Fields
+#### حقول النص المنسق (`richTextFields`) {#Rich-Text-Fields-richTextFields}
+**المجموعة**: Rich Text Fields
 
-**Concept**: Enable rich text editing (bold, italic, bullets, etc.) for specific text fields.
+**المفهوم**: تمكين تحرير النص المنسق (عريض، مائل، نقاط، إلخ) لحقول نصية محددة.
 
-::: details Technical Configuration
-**Key Fields**:
-- `forType` (EntityType) → "للنوع" - Target entity type
-- `fieldID` (FieldID) → " الحقل" - BigText field to enhance
+::: details الإعداد التقني
+**الحقول الرئيسية**:
+- `forType` (EntityType) → "للنوع" - نوع الكيان الهدف
+- `fieldID` (FieldID) → "الحقل" - حقل BigText المراد تحسينه
 :::
 
-::: info Field Type Requirement
-**Compatible Fields**: BigText fields only
+::: info متطلبات نوع الحقل
+**الحقول المتوافقة**: حقول BigText فقط
 
-Rich text functionality is specifically designed for large text fields that can accommodate formatted content.
+وظيفة النص المنسق مصممة تحديداً لحقول النص الكبيرة التي يمكنها استيعاب المحتوى المنسق.
 :::
 
-**Use Cases**:
-- Product descriptions with formatting
-- Contract terms with emphasis
-- Email templates with styling
-- Report narratives with structure
+**حالات الاستخدام**:
+- أوصاف المنتجات بتنسيق
+- بنود العقود مع التأكيد
+- قوالب البريد الإلكتروني بالتنسيق
+- روايات التقارير بالهيكل
 
-#### Signature Fields (`signatures`)
-**Collection**: Signatures
+#### حقول التوقيع (`signatures`) {#Signature-Fields-signatures}
+**المجموعة**: Signatures
 
-**Concept**: Convert attachment fields to display signature icons instead of standard upload icons, enabling digital signature capture.
+**المفهوم**: تحويل حقول المرفقات لعرض أيقونات التوقيع بدلاً من أيقونات الرفع القياسية، مما يتيح التقاط التوقيعات الرقمية.
 
-::: details Technical Configuration
-**Key Fields**:
-- `forType` (EntityType) → "للنوع" - Target entity type
-- `fieldID` (FieldID) → " الحقل" - Binary/Attachment field for signatures
+::: details الإعداد التقني
+**الحقول الرئيسية**:
+- `forType` (EntityType) → "للنوع" - نوع الكيان الهدف
+- `fieldID` (FieldID) → "الحقل" - حقل Binary/Attachment للتوقيعات
 :::
 
-::: warning Field Type Requirement
-**Compatible Fields**: Binary/Attachment fields only
+::: warning متطلبات نوع الحقل
+**الحقول المتوافقة**: حقول Binary/Attachment فقط
 
-The system automatically filters field suggestions to show only binary fields when configuring signature functionality.
+يُصفِّي النظام تلقائياً اقتراحات الحقول لإظهار الحقول الثنائية فقط عند إعداد وظيفة التوقيع.
 :::
 
-**How It Works**: When configured, attachment fields show a signature button. Clicking this button opens a drawing canvas where users can:
-- **Touch Screen Signing**: Sign using finger or stylus on touch-enabled devices
-- **Mouse Signing**: Draw signatures using mouse on desktop computers
-- **ePad Ink Device Integration**: Capture signatures using specialized signature pad devices with pen input
+**كيفية العمل**: عند الإعداد، تظهر حقول المرفقات بزر توقيع. يؤدي النقر على هذا الزر إلى فتح لوحة رسم حيث يمكن للمستخدمين:
+- **التوقيع بشاشة اللمس**: التوقيع باستخدام الإصبع أو القلم على الأجهزة التي تدعم اللمس
+- **التوقيع بالماوس**: رسم التوقيعات باستخدام الماوس على أجهزة سطح المكتب
+- **تكامل جهاز ePad Ink**: التقاط التوقيعات باستخدام أجهزة لوحة توقيع متخصصة بإدخال القلم
 
-**Technical Integration**: Supports ePad Ink devices which are professional signature capture devices used in retail, banking, and document processing environments.
+**التكامل التقني**: يدعم أجهزة ePad Ink وهي أجهزة احترافية لالتقاط التوقيعات تُستخدم في بيئات البيع بالتجزئة والبنوك ومعالجة المستندات.
 
-**Use Cases**:
-- Contract approval signatures
-- Delivery confirmation signatures
-- Authorization approvals
-- Legal document acknowledgments
-- Customer consent forms
+**حالات الاستخدام**:
+- توقيعات الموافقة على العقود
+- توقيعات تأكيد التسليم
+- موافقات التفويض
+- إقرارات المستندات القانونية
+- نماذج موافقة العملاء
 
-#### Scanner Integration (`useScannerInFields`)
-**Collection**: Use Scanner In Fields
-**Concept**: Configure attachment fields to support direct document scanning from connected scanner devices or multifunction printers with scanning capability.
+#### تكامل الماسح الضوئي (`useScannerInFields`) {#Scanner-Integration-useScannerInFields}
+**المجموعة**: Use Scanner In Fields
+**المفهوم**: إعداد حقول المرفقات لدعم المسح المباشر للمستندات من أجهزة الماسح الضوئي المتصلة أو الطابعات متعددة الوظائف ذات قدرة المسح.
 
-::: warning Field Type Requirement
-**Compatible Fields**: Binary/Attachment fields only
+::: warning متطلبات نوع الحقل
+**الحقول المتوافقة**: حقول Binary/Attachment فقط
 
-Similar to signature fields, scanner integration is limited to binary field types for proper document storage.
+مثل حقول التوقيع، يقتصر تكامل الماسح الضوئي على أنواع الحقول الثنائية للتخزين الصحيح للمستندات.
 :::
 
-**How It Works**: When applied to attachment fields, this enables:
-- **Direct Scan to Field**: Scan documents directly into attachment fields
-- **Scanner Device Integration**: Works with connected document scanners
-- **Printer-Scanner Combinations**: Supports multifunction devices with scanning capabilities
-- **Automatic File Creation**: Scanned documents are automatically saved as attachments
+**كيفية العمل**: عند تطبيقه على حقول المرفقات، يتيح هذا:
+- **المسح المباشر إلى الحقل**: مسح المستندات مباشرةً إلى حقول المرفقات
+- **تكامل جهاز الماسح الضوئي**: يعمل مع أجهزة مسح المستندات المتصلة
+- **مجموعات الطابعة-الماسح**: يدعم الأجهزة متعددة الوظائف ذات قدرات المسح
+- **إنشاء ملف تلقائي**: تُحفظ المستندات الممسوحة تلقائياً كمرفقات
 
-**Technical Requirements**:
-- Compatible scanner devices connected to the system
-- Proper scanner drivers installed
-- Network-connected multifunction printers with scan-to-folder capabilities
+**المتطلبات التقنية**:
+- أجهزة ماسح ضوئي متوافقة متصلة بالنظام
+- برامج تشغيل الماسح الضوئي مثبتة بشكل صحيح
+- طابعات متعددة الوظائف متصلة بالشبكة مع قدرات المسح إلى مجلد
 
-**Use Cases**:
-- Scan invoices directly to purchase order attachments
-- Capture ID documents during customer registration
-- Digitize paper contracts and agreements
-- Archive physical receipts and documentation
-- Streamline document workflow processes
+**حالات الاستخدام**:
+- مسح الفواتير مباشرةً إلى مرفقات أوامر الشراء
+- التقاط وثائق الهوية أثناء تسجيل العملاء
+- رقمنة العقود الورقية والاتفاقيات
+- أرشفة الإيصالات المادية والوثائق
+- تبسيط عمليات سير مستندات العمل
 
-### 8. Code Fields Management
+### 8. إدارة حقول الكود (Code Fields Management) {#8-Code-Fields-Management}
 
-#### Extra Code Fields (`extraCodes`)
-**Collection**: Extra Codes
-**Concept**: Designate additional fields to function as code fields alongside the primary code field.
+#### حقول كود إضافية (`extraCodes`) {#Extra-Code-Fields-extraCodes}
+**المجموعة**: Extra Codes
+**المفهوم**: تعيين حقول إضافية لتعمل كحقول كود جنباً إلى جنب مع حقل الكود الأساسي.
 
-**How It Works**: In Nama ERP, entities typically have one primary "code" field for unique identification. This feature allows you to designate other fields to also function as codes, enabling multiple unique identifiers or alternative lookup keys.
+**كيفية العمل**: في Nama ERP، تمتلك الكيانات عادةً حقل "كود" أساسياً واحداً للتعريف الفريد. تتيح لك هذه الميزة تعيين حقول أخرى لتعمل أيضاً ككودات، مما يتيح معرّفات فريدة متعددة أو مفاتيح بحث بديلة.
 
-**Configuration**:
-- **For Type**: Specific entity type
-- **For Type List**: Multiple entity types
-- **Applicable For**: Use predefined applicability rules (All Screens, Documents, Master Files)
-- **Field ID**: The field to treat as an additional code
+**الإعداد**:
+- **للنوع (For Type)**: نوع كيان محدد
+- **لقائمة الأنواع (For Type List)**: أنواع كيانات متعددة
+- **مطبق على (Applicable For)**: استخدام قواعد قابلية التطبيق المحددة مسبقاً (جميع الشاشات، المستندات، الملفات الأساسية)
+- **معرّف الحقل (Field ID)**: الحقل المراد معاملته ككود إضافي
 
-**Use Cases**:
-- Add barcode field as an alternative item code
-- Use employee number as additional code beside employee ID
-- Create SKU field as secondary product identifier
-- Add tax registration number as additional customer code
-- Enable multiple reference number systems
+**حالات الاستخدام**:
+- إضافة حقل الباركود ككود صنف بديل
+- استخدام رقم الموظف ككود إضافي بجانب معرّف الموظف
+- إنشاء حقل SKU كمعرف منتج ثانوي
+- إضافة رقم التسجيل الضريبي ككود عميل إضافي
+- تمكين أنظمة ترقيم مرجعي متعددة
 
-**Benefits**:
-- Search by multiple unique identifiers
-- Support legacy numbering systems
-- Enable industry-specific coding standards
-- Facilitate integration with external systems
+**الفوائد**:
+- البحث بمعرّفات فريدة متعددة
+- دعم أنظمة الترقيم القديمة
+- تمكين معايير الترميز الخاصة بالصناعة
+- تسهيل التكامل مع الأنظمة الخارجية
 
-#### Detailed Audit Fields (`auditFields`)
-**Collection**: Audit Fields
-**Concept**: Enable detailed audit tracking for specific fields, recording every change with timestamp and user information.
+#### حقول التدقيق التفصيلي (`auditFields`) {#Detailed-Audit-Fields-auditFields}
+**المجموعة**: Audit Fields
+**المفهوم**: تمكين تتبع التدقيق التفصيلي لحقول محددة، مع تسجيل كل تغيير بطابع زمني ومعلومات المستخدم.
 
-**How It Works**: While the system tracks standard audit information (created/modified by/when), this feature enables granular field-level audit trails for critical data fields.
+**كيفية العمل**: بينما يتتبع النظام معلومات التدقيق القياسية (تاريخ ومنشئ/معدِّل السجل)، تتيح هذه الميزة مسارات تدقيق تفصيلية على مستوى الحقل للبيانات الحرجة.
 
-**Configuration**:
-- **For Type**: Specific entity type
-- **For Type List**: Multiple entity types
-- **Applicable For**: Predefined scope rules
-- **Field ID**: The field to track in detail
+**الإعداد**:
+- **للنوع (For Type)**: نوع كيان محدد
+- **لقائمة الأنواع (For Type List)**: أنواع كيانات متعددة
+- **مطبق على (Applicable For)**: قواعد النطاق المحددة مسبقاً
+- **معرّف الحقل (Field ID)**: الحقل المراد تتبعه بالتفصيل
 
-**Tracked Information**:
-- Old value and new value
-- User who made the change
-- Exact timestamp of change
+**المعلومات المتتبعة**:
+- القيمة القديمة والقيمة الجديدة
+- المستخدم الذي أجرى التغيير
+- الطابع الزمني الدقيق للتغيير
 
-**Use Cases**:
-- Track price changes on items
-- Monitor credit limit modifications
-- Audit approval status changes
-- Record sensitive data modifications
-- Maintain compliance audit trails
+**حالات الاستخدام**:
+- تتبع تغييرات الأسعار على الأصناف
+- مراقبة تعديلات حد الائتمان
+- تدقيق تغييرات حالة الموافقة
+- تسجيل تعديلات البيانات الحساسة
+- الحفاظ على مسارات تدقيق الامتثال
 
-### 9. Search and Reference Enhancement
+### 9. تحسين البحث والمرجع (Search and Reference Enhancement) {#9-Search-and-Reference-Enhancement}
 
-#### Reference Descriptors (`descriptors`)
-**Collection**: Descriptors
-**Concept**: Customize how entity records appear in search results and dropdown lists.
+#### واصفات المرجع (`descriptors`) {#Reference-Descriptors-descriptors}
+**المجموعة**: Descriptors
+**المفهوم**: تخصيص كيفية ظهور سجلات الكيانات في نتائج البحث والقوائم المنسدلة.
 
-**Descriptor Types**:
-- **Search Only**: Custom display in search results
-- **Title Only**: Custom display in field headers
-- **Search and Title**: Both contexts
+**أنواع الواصفات**:
+- **البحث فقط (Search Only)**: عرض مخصص في نتائج البحث
+- **العنوان فقط (Title Only)**: عرض مخصص في رؤوس الحقول
+- **البحث والعنوان (Search and Title)**: كلا السياقين
 
-**Configuration**:
-- **Arabic Descriptor**: Custom format for Arabic display
-- **English Descriptor**: Custom format for English display
-- **Field Placeholders**: Use `{fieldName}` syntax to include dynamic values
+**الإعداد**:
+- **واصف عربي (Arabic Descriptor)**: تنسيق مخصص للعرض بالعربية
+- **واصف إنجليزي (English Descriptor)**: تنسيق مخصص للعرض بالإنجليزية
+- **عناصر نائبة للحقول (Field Placeholders)**: استخدام صيغة `{fieldName}` لتضمين قيم ديناميكية
 
-**Example**: `{code} - {name} ({branch})` displays as "CUST001 - ABC Company (Branch A)"
+**مثال**: `{code} - {name} ({branch})` يظهر كـ "CUST001 - ABC Company (Branch A)"
 
-#### Extra Reference Search Fields (`extraReferenceSearchFields`)
-**Collection**: حقول البحث الإضافية عند البحث عن مرجع (Extra Reference Search Fields)
-**Concept**: Include additional fields in reference field searches beyond the standard code and name.
+#### حقول البحث الإضافية في المرجع (`extraReferenceSearchFields`) {#Extra-Reference-Search-Fields-extraReferenceSearchFields}
+**المجموعة**: حقول البحث الإضافية عند البحث عن مرجع (Extra Reference Search Fields)
+**المفهوم**: تضمين حقول إضافية في عمليات بحث حقل المرجع تتخطى الكود والاسم القياسيين.
 
-**Benefits**:
-- Search by phone number in customer lookups
-- Find items by barcode or alternative codes
-- Locate employees by employee number or department
-- Search documents by reference numbers
+**الفوائد**:
+- البحث برقم الهاتف في عمليات بحث العملاء
+- إيجاد الأصناف بالباركود أو الأكواد البديلة
+- تحديد موقع الموظفين برقم الموظف أو القسم
+- البحث في المستندات بالأرقام المرجعية
 
-**Configuration**:
-- **Field ID**: Additional field to search in
-- **Search Operator**: How to match (contains, equals, starts with)
+**الإعداد**:
+- **معرّف الحقل (Field ID)**: حقل إضافي للبحث فيه
+- **معامل البحث (Search Operator)**: طريقة المطابقة (يحتوي، يساوي، يبدأ بـ)
 
-#### Search in Name for Find by Code (`searchInNameInFindByCode`)
-**Collection**: البحث في الأسم العربى والانجليزى عند كتابة كود ملف (Search In Name In Find By Code)
-**Concept**: When users search by code, also search in the name field for matches.
+#### البحث في الاسم عند إيجاد الكود (`searchInNameInFindByCode`) {#Search-in-Name-for-Find-by-Code-searchInNameInFindByCode}
+**المجموعة**: البحث في الأسم العربى والانجليزى عند كتابة كود ملف (Search In Name In Find By Code)
+**المفهوم**: عندما يبحث المستخدمون بالكود، يبحث النظام أيضاً في حقل الاسم عن تطابقات.
 
-**Use Case**: User types "ABC" expecting to find "ABC Company" even though the code is "CUST001"
+**حالة الاستخدام**: يكتب المستخدم "ABC" متوقعاً إيجاد "ABC Company" رغم أن الكود هو "CUST001"
 
-### 10. Advanced Query and Display Controls
+### 10. ضوابط الاستعلام والعرض المتقدمة (Advanced Query and Display Controls) {#10-Advanced-Query-and-Display-Controls}
 
-#### Query-Based Screen Fields (`queryBasedScreenField`)
-**Collection**: استعلامات الحقول المحسوبة (calculated Fields Queries)
+#### حقول الشاشة القائمة على الاستعلام (`queryBasedScreenField`) {#Query-Based-Screen-Fields-queryBasedScreenField}
+**المجموعة**: استعلامات الحقول المحسوبة (Calculated Fields Queries)
 
-**Concept**: Create dynamic, calculated fields that execute queries to display aggregated or computed values.
+**المفهوم**: إنشاء حقول ديناميكية محسوبة تنفذ استعلامات لعرض قيم مجمعة أو محسوبة.
 
-**How It Works**: Define up to 20 different query-based fields that execute SQL queries and display results in entity screens. These fields are calculated in real-time based on current data.
+**كيفية العمل**: تعريف ما يصل إلى 20 حقلاً مختلفاً قائماً على الاستعلام تنفذ استعلامات SQL وتعرض النتائج في شاشات الكيانات. يتم حساب هذه الحقول في الوقت الفعلي بناءً على البيانات الحالية.
 
-::: details Technical Configuration
-**Key Fields**:
-- `forType` (EntityType) → "للنوع" (For Type) - Target entity type
-- `forTypeList` (EntityTypeList) → "لقوائم أنواع" (For Type List) - Multiple entity types
-- `detailField` (FieldID) → "معرف السطور" (Detail Field) - Field for detail line context
-- `field1Query-field20Query` (BigText) → "استعلام الحقل المحسوب 1-20" (Field Query 1-20) - SQL queries for computed fields (up to 20)
+::: details الإعداد التقني
+**الحقول الرئيسية**:
+- `forType` (EntityType) → "للنوع" (For Type) - نوع الكيان الهدف
+- `forTypeList` (EntityTypeList) → "لقوائم أنواع" (For Type List) - أنواع كيانات متعددة
+- `detailField` (FieldID) → "معرف السطور" (Detail Field) - الحقل لسياق سطر التفاصيل
+- `field1Query-field20Query` (BigText) → "استعلام الحقل المحسوب 1-20" (Field Query 1-20) - استعلامات SQL للحقول المحسوبة (حتى 20)
 :::
 
-**Configuration**:
-- **For Type/For Type List**: Entity types where fields appear
-- **Detail Field**: If displaying in detail lines
-- **Field Query (1-20)**: SQL queries for each dynamic field
+**الإعداد**:
+- **للنوع/لقائمة الأنواع**: أنواع الكيانات التي تظهر فيها الحقول
+- **حقل التفاصيل (Detail Field)**: إذا كان العرض في سطور التفاصيل
+- **استعلام الحقل (1-20)**: استعلامات SQL لكل حقل ديناميكي
 
-**Query Capabilities**:
-- Aggregate functions (SUM, COUNT, AVG, MIN, MAX)
-- Related entity lookups
-- Conditional calculations
-- Cross-table joins
-- Date-based computations
+**قدرات الاستعلام**:
+- دوال التجميع (SUM، COUNT، AVG، MIN، MAX)
+- عمليات بحث الكيانات المرتبطة
+- الحسابات الشرطية
+- الربط عبر الجداول
+- الحسابات القائمة على التاريخ
 
-**Use Cases**:
-- Show customer's total outstanding balance
-- Display item's current stock across all warehouses
-- Calculate employee's accumulated leave days
-- Show document's approval progress percentage
-- Display related transactions count
+**حالات الاستخدام**:
+- عرض إجمالي الرصيد المستحق للعميل
+- عرض المخزون الحالي للصنف عبر جميع المخازن
+- حساب أيام الإجازة المتراكمة للموظف
+- عرض نسبة التقدم في الموافقة على المستند
+- عرض عدد المعاملات المرتبطة
 
-#### Field Extra Filters (`extraFilter`)
-**Collection**: Extra Filter
-**Concept**: Apply additional filtering criteria to reference field lookups based on dynamic conditions.
+#### الفلاتر الإضافية للحقل (`extraFilter`) {#Field-Extra-Filters-extraFilter}
+**المجموعة**: Extra Filter
+**المفهوم**: تطبيق معايير تصفية إضافية على عمليات بحث حقل المرجع بناءً على شروط ديناميكية.
 
-**How It Works**: When users open a reference field lookup, additional filters are applied to limit the available options based on defined criteria.
+**كيفية العمل**: عندما يفتح المستخدمون بحث حقل مرجع، تُطبَّق فلاتر إضافية لتقييد الخيارات المتاحة بناءً على المعايير المحددة.
 
-**Configuration**:
-- **For Type**: Entity type containing the field
-- **Entity List**: Multiple entity types
-- **Field ID**: The reference field to filter
-- **Criteria Definition**: The filtering rules to apply
-- **Filtered Type**: The entity type being filtered
+**الإعداد**:
+- **للنوع (For Type)**: نوع الكيان الذي يحتوي على الحقل
+- **قائمة الكيانات (Entity List)**: أنواع كيانات متعددة
+- **معرّف الحقل (Field ID)**: حقل المرجع المراد تصفيته
+- **تعريف المعايير (Criteria Definition)**: قواعد التصفية المطبقة
+- **النوع المصفى (Filtered Type)**: نوع الكيان الذي يتم تصفيته
 
-**Filter Examples**:
-- Show only items from specific categories
-- Display customers with credit available
-- List employees in active departments
-- Show documents within date range
-- Filter suppliers by payment terms
+**أمثلة على الفلاتر**:
+- عرض الأصناف من فئات محددة فقط
+- عرض العملاء الذين لديهم رصيد متاح
+- إدراج الموظفين في الأقسام النشطة
+- عرض المستندات ضمن نطاق تاريخي
+- تصفية الموردين حسب شروط الدفع
 
-#### Row Style Overrider (`styleOverriderLines`)
-**Collection**: Style Overrider Details
-**Concept**: Apply dynamic background colors to entire rows in grids and lists based on query results.
+#### متجاوز نمط الصف (`styleOverriderLines`) {#Row-Style-Overrider-styleOverriderLines}
+**المجموعة**: Style Overrider Details
+**المفهوم**: تطبيق ألوان خلفية ديناميكية على صفوف كاملة في الشبكات والقوائم بناءً على نتائج الاستعلام.
 
-**How It Works**: Execute a query for each row that returns a color value, which is then applied as the row's background color.
+**كيفية العمل**: تنفيذ استعلام لكل صف يعيد قيمة لون، تُطبَّق بعد ذلك كلون خلفية الصف.
 
-**Configuration**:
-- **For Type**: Entity type for the grid
-- **Entity List**: Multiple entity types
-- **Field ID**: Specific field context (optional)
-- **Row Background Color Query**: Query returning color value
+**الإعداد**:
+- **للنوع (For Type)**: نوع الكيان للشبكة
+- **قائمة الكيانات (Entity List)**: أنواع كيانات متعددة
+- **معرّف الحقل (Field ID)**: سياق حقل محدد (اختياري)
+- **استعلام لون خلفية الصف**: استعلام يعيد قيمة لون
 
-**Use Cases**:
-- Highlight overdue invoices in red
-- Show priority orders in yellow
-- Display cancelled items in gray
-- Mark VIP customers in gold
-- Indicate urgent tasks in orange
+**حالات الاستخدام**:
+- إبراز الفواتير المتأخرة باللون الأحمر
+- عرض الطلبات ذات الأولوية باللون الأصفر
+- عرض الأصناف الملغاة باللون الرمادي
+- تمييز عملاء VIP باللون الذهبي
+- الإشارة إلى المهام العاجلة باللون البرتقالي
 
-### 11. Document and Record Management
+### 11. إدارة المستندات والسجلات (Document and Record Management) {#11-Document-and-Record-Management}
 
-#### Duplicate Field Handling (`lines`)
-**Collection**: Clear On Duplicate
-**Concept**: Specify which fields should be cleared when users duplicate a document.
+#### معالجة حقول النسخ المماثل (`lines`) {#Duplicate-Field-Handling-lines}
+**المجموعة**: Clear On Duplicate
+**المفهوم**: تحديد الحقول التي يجب مسحها عند إنشاء نسخة مماثلة من مستند.
 
-**How It Works**: When a user selects "Duplicate" on a document, the system clears specified fields while preserving others.
+**كيفية العمل**: عندما يختار مستخدم "نسخة مماثلة" على مستند، يمسح النظام الحقول المحددة مع الاحتفاظ بالأخرى.
 
-**Common Patterns**:
-- Clear document numbers and dates
-- Preserve customer and line item details
-- Reset approval statuses
-- Clear reference numbers
+**الأنماط الشائعة**:
+- مسح أرقام المستندات والتواريخ
+- الاحتفاظ بتفاصيل العميل وأصناف السطور
+- إعادة تعيين حالات الموافقة
+- مسح الأرقام المرجعية
 
-#### Open in Popup (`openInPopups`)
-**Collection**: Open Reference In Popup
-**Concept**: Force specific entity types to open in popup windows instead of full-screen navigation.
+#### الفتح في نافذة منبثقة (`openInPopups`) {#Open-in-Popup-openInPopups}
+**المجموعة**: Open Reference In Popup
+**المفهوم**: إجبار أنواع كيانات محددة على الفتح في نوافذ منبثقة بدلاً من التنقل بالشاشة الكاملة.
 
-**Benefits**:
-- Faster reference lookups
-- Maintain context in parent screen
-- Improve user workflow efficiency
-- Reduce screen navigation complexity
+**الفوائد**:
+- عمليات بحث مرجعية أسرع
+- الحفاظ على السياق في الشاشة الأصلية
+- تحسين كفاءة سير عمل المستخدم
+- تقليل تعقيد التنقل بين الشاشات
 
-#### Open Create Fields (`openCreateFields`)
-**Collection**: الحقول التي يتم فتح الإنشاء عند ادخال كود غير موجود (Fields that open Edit Screen when code not found)
-**Concept**: Enable users to create new records directly from reference field lookups.
+#### حقول الإنشاء المفتوح (`openCreateFields`) {#Open-Create-Fields-openCreateFields}
+**المجموعة**: الحقول التي يتم فتح الإنشاء عند ادخال كود غير موجود (Fields that open Edit Screen when code not found)
+**المفهوم**: تمكين المستخدمين من إنشاء سجلات جديدة مباشرةً من عمليات بحث حقل المرجع.
 
-**Workflow**: User starts typing in a reference field, if no match is found, system offers to create a new record with the typed value as a starting point.
+**مسار العمل**: يبدأ المستخدم الكتابة في حقل مرجع، فإذا لم يُعثَر على تطابق، يعرض النظام إنشاء سجل جديد بالقيمة المكتوبة كنقطة بداية.
 
-#### Text to Link Fields (`textToLinkFields`)
-**Collection**: الحقول النصية المحوله الي روابط (Text To Link Fields)
-**Concept**: Convert text fields into clickable hyperlinks with various link types.
+#### حقول النص المحوَّلة إلى روابط (`textToLinkFields`) {#Text-to-Link-Fields-textToLinkFields}
+**المجموعة**: الحقول النصية المحوله الي روابط (Text To Link Fields)
+**المفهوم**: تحويل حقول النص إلى روابط تشعبية قابلة للنقر بأنواع روابط مختلفة.
 
-**Configuration**:
-- **For Type**: Specific entity type
-- **Entity List**: Multiple entity types
-- **Field ID**: The text field to convert
-- **Link Type**: Type of link (URL, Email, Phone, WhatsApp, etc.)
+**الإعداد**:
+- **للنوع (For Type)**: نوع كيان محدد
+- **قائمة الكيانات (Entity List)**: أنواع كيانات متعددة
+- **معرّف الحقل (Field ID)**: حقل النص المراد تحويله
+- **نوع الرابط (Link Type)**: نوع الرابط (URL، بريد إلكتروني، هاتف، WhatsApp، إلخ)
 
-**Link Types Available**:
-- **URL**: Opens web addresses
-- **Email**: Opens email client with mailto:
-- **Phone**: Initiates phone calls on mobile devices
-- **WhatsApp**: Opens WhatsApp with pre-filled number
-- **Internal Navigation**: Links to other entities in the system
+**أنواع الروابط المتاحة**:
+- **URL**: فتح عناوين الويب
+- **بريد إلكتروني (Email)**: فتح عميل البريد الإلكتروني بـ mailto:
+- **هاتف (Phone)**: إجراء مكالمات هاتفية على الأجهزة المحمولة
+- **واتساب (WhatsApp)**: فتح WhatsApp برقم مملوء مسبقاً
+- **تنقل داخلي (Internal Navigation)**: روابط لكيانات أخرى في النظام
 
-**Use Cases**:
-- Make website fields clickable
-- Enable click-to-email for email addresses
-- Create click-to-call for phone numbers
-- Link to related documents
-- Connect to external tracking systems
+**حالات الاستخدام**:
+- جعل حقول الموقع الإلكتروني قابلة للنقر
+- تمكين النقر للإرسال بالبريد الإلكتروني لعناوين البريد
+- إنشاء النقر للاتصال لأرقام الهاتف
+- الربط بالمستندات ذات الصلة
+- الاتصال بأنظمة التتبع الخارجية
 
-### 12. Layout and UI Components
+### 12. تخطيط الشاشة ومكونات واجهة المستخدم (Layout and UI Components) {#12-Layout-and-UI-Components}
 
-#### Add Discussion To (`addDiscussionTo`)
-**Collection**: إضافة النقاش إلي (Add Discussion To)
+#### إضافة نقاش (`addDiscussionTo`) {#Add-Discussion-To-addDiscussionTo}
+**المجموعة**: إضافة النقاش إلي (Add Discussion To)
 
-**Concept**: Add discussion/comments sections to entity screens where they don't exist by default.
+**المفهوم**: إضافة أقسام نقاش/تعليقات إلى شاشات الكيانات حيث لا تكون موجودة بشكل افتراضي.
 
-**How It Works**: Injects a discussion panel into entity layouts, allowing users to add comments, notes, and threaded discussions.
+**كيفية العمل**: يُدخِل لوحة نقاش في تخطيطات الكيانات، مما يتيح للمستخدمين إضافة تعليقات وملاحظات ونقاشات متسلسلة.
 
-::: details Technical Configuration
-**Key Fields**:
-- `forType` (EntityType) → "للنوع" (For Type) - Target entity type for discussion panel
-- `forTypeList` (EntityTypeList) → "لقوائم أنواع" (For Type List) - Multiple entity types
-- `addToPage` → "إضافة إلي صفحة" (Add To Page) - Page/tab where discussion panel should be added
-- `insertAt` (Integer) → "إضافة في" (Insert At) - Position order in the layout
-- `applicableFor` → "مطبق على" (Applicable For) - Scope rules
+::: details الإعداد التقني
+**الحقول الرئيسية**:
+- `forType` (EntityType) → "للنوع" (For Type) - نوع الكيان الهدف للوحة النقاش
+- `forTypeList` (EntityTypeList) → "لقوائم أنواع" (For Type List) - أنواع كيانات متعددة
+- `addToPage` → "إضافة إلي صفحة" (Add To Page) - الصفحة/التبويب الذي يجب إضافة لوحة النقاش إليه
+- `insertAt` (Integer) → "إضافة في" (Insert At) - ترتيب الموضع في التخطيط
+- `applicableFor` → "مطبق على" (Applicable For) - قواعد النطاق
 :::
 
-**Configuration**:
-- **For Type/For Type List**: Target entity types
-- **Applicable For**: Scope rules
-- **Add To Page**: Which page/tab to add the discussion panel
-- **Insert At**: Position in the layout (order number)
+**الإعداد**:
+- **للنوع/لقائمة الأنواع**: أنواع الكيانات الهدف
+- **مطبق على (Applicable For)**: قواعد النطاق
+- **إضافة إلى صفحة (Add To Page)**: أي صفحة/تبويب لإضافة لوحة النقاش
+- **إضافة في (Insert At)**: الموضع في التخطيط (رقم الترتيب)
 
-**Features**:
-- Threaded discussions
-- File attachments in comments
-- Timestamp and user tracking
+**الميزات**:
+- نقاشات متسلسلة
+- مرفقات ملفات في التعليقات
+- تتبع الطابع الزمني والمستخدم
 
-**Use Cases**:
-- Add comments to master data records
-- Enable discussions on configuration entities
-- Create notes section for items
-- Add communication threads to documents
-- Enable team collaboration on projects
+**حالات الاستخدام**:
+- إضافة تعليقات إلى سجلات البيانات الأساسية
+- تمكين النقاشات على كيانات الإعداد
+- إنشاء قسم ملاحظات للأصناف
+- إضافة سلاسل تواصل إلى المستندات
+- تمكين التعاون الجماعي على المشاريع
 
-#### Add Related Documents To (`addRelatedDocumentsTo`)
-**Collection**: إضافة المستندات المرتبطة إلى (Add Related Documents To)
-**Concept**: Add a related documents section to entity screens for document management.
+#### إضافة مستندات ذات صلة (`addRelatedDocumentsTo`) {#Add-Related-Documents-To-addRelatedDocumentsTo}
+**المجموعة**: إضافة المستندات المرتبطة إلى (Add Related Documents To)
+**المفهوم**: إضافة قسم مستندات ذات صلة إلى شاشات الكيانات لإدارة المستندات.
 
-**Configuration**:
-- **For Type/For Type List**: Target entity types
-- **Applicable For**: Scope rules
-- **Add To Page**: Which page/tab to add the panel
-- **Insert At**: Position in the layout
+**الإعداد**:
+- **للنوع/لقائمة الأنواع**: أنواع الكيانات الهدف
+- **مطبق على (Applicable For)**: قواعد النطاق
+- **إضافة إلى صفحة (Add To Page)**: أي صفحة/تبويب لإضافة اللوحة
+- **إضافة في (Insert At)**: الموضع في التخطيط
 
-### 13. Integration and External System Support
+### 13. دعم التكامل والأنظمة الخارجية (Integration and External System Support) {#13-Integration-and-External-System-Support}
 
-#### Public Entities (`publicEntitiesLines`)
-**Collection**: Public Entities
-**Concept**: Force specific records to have all dimensions set as public, overriding normal dimensional restrictions.
+#### الكيانات العامة (`publicEntitiesLines`) {#Public-Entities-publicEntitiesLines}
+**المجموعة**: Public Entities
+**المفهوم**: إجبار سجلات محددة على تعيين جميع محدداتها كعامة، متجاوزةً القيود البعدية العادية.
 
-**How It Works**: Normally, when a user logs into a specific legal entity or branch, they can only edit or create records within that dimensional scope. This configuration removes those restrictions for specified entity types.
+**كيفية العمل**: عادةً، عندما يسجل مستخدم دخوله إلى شركة أو فرع محدد، يمكنه فقط تعديل أو إنشاء سجلات ضمن نطاق ذلك المحدد. يزيل هذا الإعداد تلك القيود لأنواع الكيانات المحددة.
 
-**Default Behavior**: Users are restricted to their assigned dimensions (legal entity, branch, department, etc.)
+**السلوك الافتراضي**: يقتصر المستخدمون على محدداتهم المعيّنة (الشركة، الفرع، القسم، إلخ)
 
-**Override Effect**: Records become accessible and editable across all dimensions, regardless of user's assigned dimensional restrictions
+**تأثير التجاوز**: تصبح السجلات قابلة للوصول والتعديل عبر جميع المحددات، بصرف النظر عن القيود البعدية المعيّنة للمستخدم
 
-**Use Cases**:
-- Shared master data (like chart of accounts) accessible to all branches
-- Corporate-wide policies and procedures
-- System configuration entities that need global access
-- Reference data used across multiple legal entities
-- Common item catalogs shared across all locations
+**حالات الاستخدام**:
+- البيانات الأساسية المشتركة (كدليل الحسابات) المتاحة لجميع الفروع
+- السياسات والإجراءات على مستوى الشركة
+- كيانات إعداد النظام التي تحتاج إلى وصول عالمي
+- البيانات المرجعية المستخدمة عبر شركات قانونية متعددة
+- كتالوجات الأصناف الشائعة المشتركة عبر جميع المواقع
 
-**Security Considerations**: Use carefully as this bypasses important security boundaries established by the dimensional structure
+**اعتبارات الأمان**: استخدم بحذر إذ يتجاوز هذا حدود الأمان المهمة التي أنشأها الهيكل البعدي
 
-#### Integrator Config (`integratorConfig`)
-**Collection**: Integrator Config
-**Concept**: Configure REST API endpoints for creating and updating entities through external integrations.
+#### إعداد المكامل (`integratorConfig`) {#Integrator-Config-integratorConfig}
+**المجموعة**: Integrator Config
+**المفهوم**: إعداد نقاط نهاية REST API لإنشاء وتحديث الكيانات من خلال عمليات التكامل الخارجية.
 
-**How It Works**: Defines how external systems can send data to create or update records, with field mapping and response templates.
+**كيفية العمل**: يحدد كيفية إرسال الأنظمة الخارجية للبيانات لإنشاء أو تحديث السجلات، مع تعيين الحقول وقوالب الاستجابة.
 
-**Configuration**:
-- **Created Type**: The entity type to create
-- **Created Type Param**: Dynamic type parameter
-- **Finder Query**: Query to find existing records for updates
-- **Fields Map**: JSON mapping of external to internal fields
-- **Response Template**: Custom response format
-- **Close Browser Window**: Auto-close after completion
-- **Run Entity Flow**: Execute workflow after creation
-- **Export Integrator**: Make available for export
-- **Create Only**: Prevent updates, only allow creation
+**الإعداد**:
+- **النوع المُنشأ (Created Type)**: نوع الكيان المراد إنشاؤه
+- **معامل النوع المُنشأ (Created Type Param)**: معامل النوع الديناميكي
+- **استعلام البحث (Finder Query)**: استعلام للعثور على السجلات الموجودة للتحديثات
+- **خريطة الحقول (Fields Map)**: تعيين JSON للحقول الخارجية إلى الداخلية
+- **قالب الاستجابة (Response Template)**: تنسيق استجابة مخصص
+- **إغلاق نافذة المتصفح (Close Browser Window)**: إغلاق تلقائي بعد الإتمام
+- **تشغيل مسار الكيان (Run Entity Flow)**: تنفيذ مسار العمل بعد الإنشاء
+- **تصدير المكامل (Export Integrator)**: إتاحة للتصدير
+- **إنشاء فقط (Create Only)**: منع التحديثات، السماح بالإنشاء فقط
 
-**Use Cases**:
-- E-commerce platform integration
-- Third-party CRM synchronization
-- Mobile app data submission
-- Partner system integration
-- Automated data imports
+**حالات الاستخدام**:
+- تكامل منصة التجارة الإلكترونية
+- مزامنة CRM خارجي
+- تقديم بيانات تطبيق الجوال
+- تكامل نظام الشريك
+- استيراد البيانات الآلي
 
-#### Import Integrator (`importIntegratorLines`)
-**Collection**: Import Integrators
-**Concept**: Configure how external data should be imported and mapped to internal entities.
+#### مكامل الاستيراد (`importIntegratorLines`) {#Import-Integrator-importIntegratorLines}
+**المجموعة**: Import Integrators
+**المفهوم**: إعداد كيفية استيراد البيانات الخارجية وتعيينها لكيانات داخلية.
 
-::: details Predefined Integrator IDs
-**System Integrators**: The system includes predefined integrator configurations:
-- `MAGSaveOrder` - Magento order processing
-- `lastEcommerceSyncTime` - E-commerce synchronization timing
-- `lastEcommerceOrderId` - Order tracking integration
-- `vacbal` - Vacation balance imports
-- `shipordstatus` - Shipping order status updates
-- `assetTimes` - Asset time tracking
-- `assetTimesWithSlots` - Asset scheduling with time slots
+::: details معرّفات المكامل المحددة مسبقاً
+**مكاملات النظام**: يتضمن النظام إعدادات مكامل محددة مسبقاً:
+- `MAGSaveOrder` - معالجة طلبات Magento
+- `lastEcommerceSyncTime` - توقيت مزامنة التجارة الإلكترونية
+- `lastEcommerceOrderId` - تكامل تتبع الطلبات
+- `vacbal` - استيراد رصيد الإجازات
+- `shipordstatus` - تحديثات حالة طلب الشحن
+- `assetTimes` - تتبع أوقات الأصول
+- `assetTimesWithSlots` - جدولة الأصول مع فتحات زمنية
 
-**Auto-Configuration**: When selecting an integrator ID, the system automatically applies default settings:
-- Import Type: JSON
-- Add Record: Enabled
-- Update Record: Enabled
-- Continue on Errors: Enabled
-- Trim Extra Spaces: Enabled
+**الإعداد التلقائي**: عند اختيار معرف مكامل، يطبق النظام تلقائياً الإعدادات الافتراضية:
+- نوع الاستيراد: JSON
+- إضافة سجل: مفعّل
+- تحديث سجل: مفعّل
+- المتابعة عند الأخطاء: مفعّلة
+- قطع المسافات الزائدة: مفعّل
 :::
 
-**Features**:
-- Field mapping rules
-- Data transformation logic
-- Validation requirements
-- Error handling procedures
+**الميزات**:
+- قواعد تعيين الحقول
+- منطق تحويل البيانات
+- متطلبات التحقق
+- إجراءات معالجة الأخطاء
 
-#### Email Send To Types (`emailSendToTypes`)
-**Collection**: أنواع المراجع في نافذة ارسال بريد الكترونى (Email Send To Types)
-**Concept**: Configure which entity types can be selected as email recipients for specific email fields.
+#### أنواع مرسلي البريد الإلكتروني (`emailSendToTypes`) {#Email-Send-To-Types-emailSendToTypes}
+**المجموعة**: أنواع المراجع في نافذة ارسال بريد الكترونى (Email Send To Types)
+**المفهوم**: إعداد أنواع الكيانات التي يمكن اختيارها كمستلمي بريد إلكتروني لحقول بريد إلكتروني محددة.
 
-::: details Predefined Email Field Types
-**Available Email Fields**: The system supports predefined email field types:
-- `to1`, `to2`, `to3` - Primary recipients
-- `cc1`, `cc2`, `cc3` - Carbon copy recipients
+::: details أنواع حقول البريد الإلكتروني المحددة مسبقاً
+**حقول البريد الإلكتروني المتاحة**: يدعم النظام أنواع حقول بريد إلكتروني محددة مسبقاً:
+- `to1`, `to2`, `to3` - المستلمون الأساسيون
+- `cc1`, `cc2`, `cc3` - مستلمو النسخة الكربونية
 
-**Smart Suggestions**: Field ID suggestions are automatically filtered to show only these predefined email field types.
+**اقتراحات ذكية**: تُصفَّى اقتراحات معرّف الحقل تلقائياً لإظهار أنواع حقول البريد الإلكتروني المحددة مسبقاً فقط.
 :::
 
-**Configuration**:
-- **Field ID**: The email field being configured (from predefined list)
-- **Entity Types (1-5)**: Up to 5 entity types that can be email recipients
-- **Send Type**: How emails should be sent (To, CC, BCC)
+**الإعداد**:
+- **معرّف الحقل (Field ID)**: حقل البريد الإلكتروني الذي يتم إعداده (من القائمة المحددة مسبقاً)
+- **أنواع الكيانات (1-5)**: حتى 5 أنواع كيانات يمكنها أن تكون مستلمي بريد إلكتروني
+- **نوع الإرسال (Send Type)**: كيفية إرسال الرسائل (To، CC، BCC)
 
-**Use Cases**:
-- Configure customer email notifications
-- Set up employee communication fields
-- Define supplier correspondence rules
-- Establish multi-party email fields
-- Control email distribution lists
+**حالات الاستخدام**:
+- إعداد إشعارات بريد عملاء
+- إعداد حقول تواصل الموظفين
+- تعريف قواعد مراسلة الموردين
+- إنشاء حقول بريد متعددة الأطراف
+- التحكم في قوائم توزيع البريد
 
-#### Invoice Retriever Lines (`invoiceRetrieverLines`)
-**Collection**: Invoice Retriever Lines
-**Concept**: Configure automatic document generation and retrieval for entities.
+#### سطور استرداد الفواتير (`invoiceRetrieverLines`) {#Invoice-Retriever-Lines-invoiceRetrieverLines}
+**المجموعة**: Invoice Retriever Lines
+**المفهوم**: إعداد إنشاء المستندات واستردادها تلقائياً للكيانات.
 
-**How It Works**: Automatically generates documents (invoices, reports, etc.) when entities are created or modified, storing them in specified locations.
+**كيفية العمل**: ينشئ تلقائياً مستندات (فواتير، تقارير، إلخ) عند إنشاء الكيانات أو تعديلها، مخزِّناً إياها في مواقع محددة.
 
-**Configuration**:
-- **Report Definition**: The report template to use
-- **Save Files In Folder**: File system location for generated documents
-- **URL Prefix**: Web access URL prefix
-- **Output Format**: PDF, DOCX, XLSX, ODS, ODT
-- **Do Not Cache**: Disable caching for dynamic content
+**الإعداد**:
+- **تعريف التقرير (Report Definition)**: قالب التقرير المستخدَم
+- **حفظ الملفات في المجلد (Save Files In Folder)**: موقع نظام الملفات للمستندات المنشأة
+- **بادئة URL (URL Prefix)**: بادئة URL للوصول عبر الويب
+- **تنسيق الإخراج (Output Format)**: PDF، DOCX، XLSX، ODS، ODT
+- **عدم التخزين المؤقت (Do Not Cache)**: تعطيل التخزين المؤقت للمحتوى الديناميكي
 
-**Use Cases**:
-- Auto-generate invoices on sale completion
-- Create order confirmations automatically
-- Generate certificates on approval
-- Produce shipping documents
-- Create compliance reports
+**حالات الاستخدام**:
+- إنشاء الفواتير تلقائياً عند إتمام البيع
+- إنشاء تأكيدات الطلبات تلقائياً
+- إنشاء الشهادات عند الموافقة
+- إنتاج مستندات الشحن
+- إنشاء تقارير الامتثال
 
-### 14. Auto-Coding and Numbering
+### 14. الترميز والترقيم التلقائي (Auto-Coding and Numbering) {#14-Auto-Coding-and-Numbering}
 
-#### Automatic Coding (`autoCodingLines`)
-**Collection**: التكويد الالي للملفات (Files Auto Coding)
-**Concept**: Generate automatic codes for new records based on configurable patterns.
+#### الترميز التلقائي (`autoCodingLines`) {#Automatic-Coding-autoCodingLines}
+**المجموعة**: التكويد الالي للملفات (Files Auto Coding)
+**المفهوم**: إنشاء أكواد تلقائية للسجلات الجديدة بناءً على أنماط قابلة للإعداد.
 
-::: details Criteria Definition Integration
-**Smart Entity Type Filtering**: The system provides intelligent filtering for criteria definitions:
-- Criteria definitions are filtered to show only those applicable to the selected entity type(s)
-- When a criteria definition is selected, the system automatically populates the entity type field
-- Supports both single entity types and entity type lists
-- Bidirectional relationship ensures consistency between criteria and entity types
+::: details تكامل تعريف المعايير
+**التصفية الذكية لنوع الكيان**: يوفر النظام تصفية ذكية لتعريفات المعايير:
+- تُصفَّى تعريفات المعايير لإظهار تلك المطبقة على نوع/أنواع الكيانات المحددة فقط
+- عند اختيار تعريف معايير، يملأ النظام تلقائياً حقل نوع الكيان
+- يدعم أنواع الكيانات المفردة وقوائم أنواع الكيانات
+- العلاقة ثنائية الاتجاه تضمن الاتساق بين المعايير وأنواع الكيانات
 
-**Technical Implementation**: Uses `DTOCriteriaBuilder` to create filtered criteria based on entity type context.
+**التطبيق التقني**: يستخدم `DTOCriteriaBuilder` لإنشاء معايير مصفاة بناءً على سياق نوع الكيان.
 :::
 
-**Pattern Syntax**:
-- `{valueDate.year}`: Four-digit year
-- `{valueDate.month}`: Two-digit month
-- `{branch.code}`: Record branch code
+**صيغة النمط**:
+- `{valueDate.year}`: السنة بأربعة أرقام
+- `{valueDate.month}`: الشهر برقمين
+- `{branch.code}`: كود فرع السجل
 
-**Examples**:
-- Invoice: `INV-{valueDate.year}-` → "INV-2024-000001"
-- Purchase Order: `PO-{branch.code}-{fiscalPeriod.shortCode}-` → "PO-HQ-2503-0001"
+**أمثلة**:
+- الفاتورة: `INV-{valueDate.year}-` → "INV-2024-000001"
+- أمر الشراء: `PO-{branch.code}-{fiscalPeriod.shortCode}-` → "PO-HQ-2503-0001"
 
-### 15. System Integration and Repository Features
+### 15. ميزات تكامل النظام والمستودع (System Integration and Repository Features) {#15-System-Integration-and-Repository-Features}
 
-#### Implementation Repository Integration
-**Concept**: Integrate configurations with the implementation repository system for centralized management.
+#### تكامل مستودع التطبيق (Implementation Repository Integration) {#Implementation-Repository-Integration}
+**المفهوم**: دمج الإعدادات مع نظام مستودع التطبيق للإدارة المركزية.
 
-::: info Repository Fields
-**System Integration Fields**:
-- `saveToImplRepo` (Boolean) → "الحفظ في كتالوج التجهيز" - Save configuration to implementation repository
-- `systemReport` (Boolean) → "نظامي" - Mark as system-wide report configuration  
-- `implRepo` (Reference) → "كتالوج التجهيز" - Reference to ImplementationRepository entity
-- `screenshot` (Binary) - Visual documentation of the configuration
-- `pdfSample` (Binary) - Sample PDF output for reference
-- `attachment1-5` (Binary) - Additional documentation attachments
-- `relatedEntity1-2` (Text) - Related entity references
-- `relatedToModule1-2` (Text) - Module relationship tracking
-- `selectedColor` (Color) → "اللون المختار" - Selected color for UI theming
+::: info حقول المستودع
+**حقول تكامل النظام**:
+- `saveToImplRepo` (Boolean) → "الحفظ في كتالوج التجهيز" - حفظ الإعداد في مستودع التطبيق
+- `systemReport` (Boolean) → "نظامي" - تمييز كإعداد تقرير على مستوى النظام
+- `implRepo` (Reference) → "كتالوج التجهيز" - مرجع لكيان ImplementationRepository
+- `screenshot` (Binary) - وثائق بصرية للإعداد
+- `pdfSample` (Binary) - نموذج PDF للمرجع
+- `attachment1-5` (Binary) - مرفقات وثائق إضافية
+- `relatedEntity1-2` (Text) - مراجع الكيانات المرتبطة
+- `relatedToModule1-2` (Text) - تتبع ارتباط الوحدة
+- `selectedColor` (Color) → "اللون المختار" - اللون المختار لتصميم واجهة المستخدم
 :::

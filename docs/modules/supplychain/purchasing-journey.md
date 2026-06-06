@@ -1,495 +1,495 @@
-# The Purchasing Journey
+# رحلة الشراء (The Purchasing Journey)
 
-Let's follow the complete story of how items get purchased - from "we need something" to "it's in our warehouse and we've paid for it." This journey involves many people, documents, and decisions. Understanding the flow helps you know which document to use when.
+لنتابع القصة الكاملة لكيفية شراء الأصناف - من "نحتاج شيئًا" إلى "وصل إلى مخزننا ودفعنا ثمنه." تشمل هذه الرحلة أشخاصًا كثيرين ووثائق متعددة وقرارات مهمة. فهم هذا المسار يساعدك على معرفة أي مستند تستخدمه في كل موقف.
 
-## The Big Picture
+## الصورة الكاملة {#The-Big-Picture}
 
-Before diving into details, here's the typical purchasing journey:
+قبل الغوص في التفاصيل، هذا هو مسار الشراء النموذجي:
 
 ```
 Need → Request → Quotations → Comparison → Order → Receipt → Invoice → Payment
 ```
 
-Not every purchase follows every step (sometimes you skip straight to ordering), but understanding the full path helps you choose the right level of process for each situation.
+ليس كل عملية شراء تمر بكل خطوة (أحيانًا تقفز مباشرة إلى الطلب)، لكن فهم المسار الكامل يساعدك على اختيار المستوى المناسب من الإجراءات لكل حالة.
 
-## Step 1: Identifying the Need
+## الخطوة الأولى: تحديد الحاجة {#Step-1-Identifying-the-Need}
 
-Every purchase starts with a need. Someone, somewhere in your organization realizes they need something.
+كل عملية شراء تبدأ بحاجة. شخص ما، في مكان ما في مؤسستك، يدرك أنه يحتاج إلى شيء.
 
-### The Item Request
+### طلب الصنف {#The-Item-Request}
 
-The `ItemRequest` (طلب شراء صنف) is where it begins. Think of it as a formal "shopping list" that says:
+`ItemRequest` (طلب شراء صنف) هو نقطة البداية. فكّر فيه كـ"قائمة تسوق" رسمية تقول:
 
-**From**: Production Department
-**Message**: "We need 500kg of steel, 200 bolts, and 50 liters of paint for next week's production run."
+**من**: قسم الإنتاج
+**الرسالة**: "نحتاج 500 كغ من الحديد، و200 مسمار، و50 لترًا من الطلاء لخط الإنتاج الأسبوع القادم."
 
-The request includes:
-- What items are needed
-- How much of each
-- When they're needed
-- Why they're needed (production order, project, general replenishment)
-- How urgent it is
+يتضمن الطلب:
+- ما الأصناف المطلوبة
+- الكميات المطلوبة من كل صنف
+- وقت الحاجة إليها
+- سبب الحاجة إليها (أمر إنتاج، مشروع، تجديد مخزون عام)
+- درجة الإلحاح
 
-**Who Creates These?**
-- Production planners (for manufacturing materials)
-- Department heads (for operational supplies)
-- Project managers (for project-specific items)
-- Store keepers (for stock replenishment)
+**من يُنشئ هذه الطلبات؟**
+- مخططو الإنتاج (لمواد التصنيع)
+- رؤساء الأقسام (للمستلزمات التشغيلية)
+- مديرو المشاريع (للأصناف الخاصة بمشروع ما)
+- أمناء المخازن (لتجديد المخزون)
 
-**What Happens Next?**
-The request goes through an approval workflow. Managers review:
-- Is this really necessary?
-- Is it budgeted?
-- Do we already have some in stock?
-- Should we bundle this with other requests?
+**ماذا يحدث بعد ذلك؟**
+يمر الطلب بسير عمل الموافقة. يراجع المديرون:
+- هل هذا ضروري فعلًا؟
+- هل هو ضمن الميزانية؟
+- هل لدينا بعضه في المخزون؟
+- هل ينبغي دمجه مع طلبات أخرى؟
 
-### Consolidating Requests
+### تجميع الطلبات {#Consolidating-Requests}
 
-Multiple small requests can be consolidated. The `ConsolidatedPurchaseReq` (طلب شراء مجمع) combines:
-- IT department needs keyboards
-- Admin needs office supplies
-- Production needs steel
+يمكن تجميع طلبات صغيرة متعددة. `ConsolidatedPurchaseReq` (طلب شراء مجمع) يجمع:
+- احتياجات قسم IT من لوحات مفاتيح
+- احتياجات الإدارة من مستلزمات مكتبية
+- احتياجات الإنتاج من الحديد
 
-All grouped by:
-- Supplier (buy everything from OfficeSupplyCo in one order)
-- Category (all electronics together)
-- Urgency (all urgent items now, regular items next week)
+كل ذلك مجمّعًا حسب:
+- المورد (شراء كل شيء من موردٍ واحد في طلب واحد)
+- الفئة (كل المنتجات الإلكترونية معًا)
+- الإلحاح (كل الأصناف العاجلة الآن، والعادية الأسبوع القادم)
 
-**Why Consolidate?** Because it:
-- Reduces shipping costs
-- Improves negotiating power (bigger orders = better prices)
-- Reduces administrative overhead
-- Simplifies supplier management
+**لماذا التجميع؟** لأنه:
+- يقلل تكاليف الشحن
+- يرفع القدرة التفاوضية (الطلبات الأكبر = أسعار أفضل)
+- يقلل الأعباء الإدارية
+- يبسط إدارة الموردين
 
-## Step 2: Getting Quotations
+## الخطوة الثانية: الحصول على عروض الأسعار {#Step-2-Getting-Quotations}
 
-Now you know what you need. Time to find out who can supply it and at what price.
-
-### The Quotation Request
+الآن أنت تعرف ما تحتاجه. حان الوقت لمعرفة من يمكنه التوريد وبأي سعر.
+
+### طلب عرض الأسعار {#The-Quotation-Request}
 
-The `PurchaseQuotationRequest` (طلب عرض أسعار شراء) is sent to potential suppliers asking:
-- Can you supply these items?
-- What price will you charge?
-- What delivery timeframe?
-- What payment terms do you offer?
-
-You typically send this to multiple suppliers (3-5 is common) to get competitive pricing.
+يُرسَل `PurchaseQuotationRequest` (طلب عرض أسعار شراء) إلى الموردين المحتملين للسؤال عن:
+- هل يمكنك توريد هذه الأصناف؟
+- ما السعر الذي ستحدده؟
+- ما الإطار الزمني للتسليم؟
+- ما شروط الدفع التي تقدمها؟
+
+عادةً يُرسَل هذا إلى عدة موردين (3-5 موردين أمر شائع) للحصول على أسعار تنافسية.
 
-**What Goes in a Quotation Request:**
-- Clear item specifications (so all suppliers quote the same thing)
-- Quantities needed
-- Delivery location
-- Desired delivery date
-- Payment terms you prefer
-- Any special requirements
+**ما يتضمنه طلب عرض الأسعار:**
+- مواصفات واضحة للأصناف (حتى يقدّم جميع الموردين عروضًا على نفس الشيء)
+- الكميات المطلوبة
+- موقع التسليم
+- تاريخ التسليم المطلوب
+- شروط الدفع المفضلة
+- أي متطلبات خاصة
 
-### Receiving Quotations
+### استلام عروض الأسعار {#Receiving-Quotations}
 
-Suppliers respond with their quotes, which you record as `PurchaseQuotation` (عرض أسعار شراء) documents.
+يردّ الموردون بعروضهم، والتي تُسجَّل كمستندات `PurchaseQuotation` (عرض أسعار شراء).
 
-Each quotation captures:
-- Supplier offered prices for each item
-- Delivery time they promise
-- Payment terms they offer
-- Validity period (quote expires after 30 days, etc.)
-- Any conditions or notes
+يلتقط كل عرض:
+- الأسعار التي يعرضها المورد لكل صنف
+- وقت التسليم الذي يعده به
+- شروط الدفع التي يقدمها
+- فترة الصلاحية (ينتهي العرض بعد 30 يومًا مثلًا)
+- أي شروط أو ملاحظات
 
-**Reality Check**: Not all suppliers respond on time. Some prices are surprisingly high. Some quotes have hidden conditions. This is normal - the comparison process helps you navigate this.
+**الواقع**: لا يردّ جميع الموردين في الوقت المحدد. بعض الأسعار مرتفعة بشكل مفاجئ. بعض العروض فيها شروط مخفية. هذا أمر طبيعي - عملية المقارنة تساعدك على التعامل مع هذا الواقع.
 
-### Comparing Quotations
+### مقارنة عروض الأسعار {#Comparing-Quotations}
 
-The `PurchasePriceComparing` (مقارنة أسعار شراء) document puts all quotations side-by-side so you can analyze:
+مستند `PurchasePriceComparing` (مقارنة أسعار شراء) يضع جميع العروض جنبًا إلى جنب للتحليل:
 
-| Item | Supplier A Price | Supplier B Price | Supplier C Price | Delivery A | Delivery B | Delivery C |
-|------|------------------|------------------|------------------|------------|------------|------------|
-| Steel | $2.50/kg | $2.30/kg | $2.60/kg | 5 days | 7 days | 3 days |
-| Bolts | $0.10/each | $0.12/each | $0.09/each | 5 days | 7 days | 3 days |
+| الصنف | سعر المورد أ | سعر المورد ب | سعر المورد ج | تسليم أ | تسليم ب | تسليم ج |
+|-------|-------------|-------------|-------------|---------|---------|---------|
+| حديد | $2.50/كغ | $2.30/كغ | $2.60/كغ | 5 أيام | 7 أيام | 3 أيام |
+| مسامير | $0.10/قطعة | $0.12/قطعة | $0.09/قطعة | 5 أيام | 7 أيام | 3 أيام |
 
-**Decision Factors Beyond Price:**
-- Quality (cheapest isn't always best)
-- Reliability (does this supplier deliver on time?)
-- Payment terms (30 days vs. 60 days credit makes a cash flow difference)
-- Existing relationships
-- Service and support
-- Local vs. imported
-
-The comparison document supports your approval workflow - management reviews and approves the selected supplier.
-
-## Step 3: Placing the Order
-
-Quotations compared, supplier selected, approval received. Time to officially order!
-
-### The Purchase Order
-
-The `PurchaseOrder` (أمر شراء) is the official document that says: "Dear Supplier, please supply us with these items under these terms."
-
-**What Makes It Official:**
-- Legal commitment (you're promising to buy, they're promising to sell)
-- Specific quantities and items
-- Agreed prices
-- Delivery terms (where and when)
-- Payment terms (when and how you'll pay)
-- Order number (your reference and theirs)
-
-**The Information it Contains:**
-
-**Your Information:**
-- Company name and legal details
-- Delivery address
-- Billing address
-- Contact person
-- Order number
-
-**Supplier Information:**
-- Supplier name and details
-- Supplier code (your internal reference)
+**عوامل القرار ما وراء السعر:**
+- الجودة (الأرخص ليس دائمًا الأفضل)
+- الموثوقية (هل يسلّم هذا المورد في الوقت المحدد؟)
+- شروط الدفع (الفرق بين 30 يومًا و60 يومًا ائتمانًا يصنع فرقًا في التدفق النقدي)
+- العلاقات القائمة
+- الخدمة والدعم
+- محلي مقابل مستورد
+
+يدعم مستند المقارنة سير عمل الموافقة - تراجع الإدارة وتعتمد المورد المختار.
+
+## الخطوة الثالثة: إصدار أمر الشراء {#Step-3-Placing-the-Order}
+
+بعد مقارنة العروض واختيار المورد والحصول على الموافقة، حان وقت الطلب الرسمي!
+
+### أمر الشراء {#The-Purchase-Order}
+
+`PurchaseOrder` (أمر شراء) هو المستند الرسمي الذي يقول: "عزيزي المورد، يرجى توريد هذه الأصناف وفق هذه الشروط."
+
+**ما الذي يجعله رسميًا:**
+- التزام قانوني (أنت تعد بالشراء، وهم يعدون بالبيع)
+- كميات وأصناف محددة
+- أسعار متفق عليها
+- شروط التسليم (أين ومتى)
+- شروط الدفع (متى وكيف ستدفع)
+- رقم الأمر (مرجعك ومرجعهم)
+
+**المعلومات التي يتضمنها:**
+
+**معلوماتك:**
+- اسم الشركة والبيانات القانونية
+- عنوان التسليم
+- عنوان الفوترة
+- جهة الاتصال
+- رقم الأمر
+
+**معلومات المورد:**
+- اسم المورد وبياناته
+- كود المورد (مرجعك الداخلي)
 
-**Items Ordered:**
-- Item descriptions (clear, specific)
-- Quantities
-- Units of measure
-- Unit prices
-- Line totals
+**الأصناف المطلوبة:**
+- أوصاف الأصناف (واضحة ومحددة)
+- الكميات
+- وحدات القياس
+- الأسعار الفردية
+- إجماليات السطور
 
-**Terms:**
-- Delivery date
-- Delivery location
-- Shipping method
-- Payment terms
-- Currency
-- Tax handling
-- Special conditions
-
-**Totals:**
-- Subtotal
-- Discounts
-- Taxes
-- Grand total
-
-### The Proforma Alternative
-
-Sometimes you need a purchase order that's not quite official - maybe for:
-- Getting customs approval before formal purchase
-- Budget approval process
-- Letter of credit application
-
-Use `ProformaPurchaseInvoice` (فاتورة مشتريات مبدئية) for these "almost orders" that aren't yet committed.
-
-### After the Order is Sent
-
-Once sent to the supplier:
-1. Supplier acknowledges receipt
-2. Supplier confirms or negotiates any changes
-3. Order enters "open" status
-4. You wait for delivery
-5. System tracks: What's been received? What's still outstanding?
-
-You can track purchase order status:
-- Open (nothing received yet)
-- Partially received (some items arrived, some pending)
-- Fully received (everything arrived)
-- Cancelled (order was terminated)
-
-## Step 4: Receiving the Goods
-
-The truck arrives! Time to receive what you ordered.
-
-### The Receipt Process
-
-Physically:
-1. Truck delivers goods
-2. Receiving clerk counts and inspects
-3. Compares received quantity to packing slip
-4. Compares packing slip to purchase order
-
-In the system:
-1. Create receipt document (often `PurchaseInvoiceReceipt` if created from the invoice, or standalone stock receipt)
-2. Link to purchase order
-3. Enter actually received quantities
-4. Note any discrepancies
-
-**Common Discrepancies:**
-- Ordered 100, received 95 (short shipment)
-- Ordered 100, received 105 (over shipment)
-- Received wrong item
-- Received damaged items
-- Received correct quantity but wrong specifications
-
-Each requires different handling:
-- Accept partial and wait for balance
-- Accept all (even over shipment)
-- Reject and return
-- Accept good, reject damaged
-- Escalate to purchasing for resolution
-
-### Inspection Receipts
-
-For critical items, use two-step receiving:
-
-1. **Initial Receipt**: Items arrive, count them, move to inspection area (`ReceiptInspection` document)
-2. **Quality Inspection**: Test, measure, verify specifications
-3. **Final Decision**:
-   - Accept: Move to regular stock
-   - Reject: Prepare return to supplier
-   - Partial: Accept some, reject some
+**الشروط:**
+- تاريخ التسليم
+- موقع التسليم
+- طريقة الشحن
+- شروط الدفع
+- العملة
+- معالجة الضرائب
+- الشروط الخاصة
+
+**الإجماليات:**
+- الإجمالي الفرعي
+- الخصومات
+- الضرائب
+- الإجمالي الكلي
+
+### البديل المبدئي (Proforma) {#The-Proforma-Alternative}
+
+أحيانًا تحتاج إلى أمر شراء غير رسمي تمامًا - ربما من أجل:
+- الحصول على موافقة الجمارك قبل الشراء الرسمي
+- عملية اعتماد الميزانية
+- طلب خطاب اعتماد
+
+استخدم `ProformaPurchaseInvoice` (فاتورة مشتريات مبدئية) لهذه "الطلبات شبه الرسمية" التي لم تُلتزَم بعد.
+
+### بعد إرسال الأمر {#After-the-Order-is-Sent}
+
+بمجرد إرساله للمورد:
+1. يؤكد المورد استلامه
+2. يؤكد المورد أو يتفاوض على أي تغييرات
+3. يدخل الأمر في حالة "مفتوح"
+4. تنتظر التسليم
+5. يتتبع النظام: ما الذي استُلم؟ وما الذي لا يزال معلقًا؟
+
+يمكنك تتبع حالة أمر الشراء:
+- مفتوح (لم يُستلَم شيء بعد)
+- مستلَم جزئيًا (وصل بعض الأصناف، وبعضها معلق)
+- مستلَم بالكامل (وصل كل شيء)
+- ملغى (تم إنهاء الأمر)
+
+## الخطوة الرابعة: استلام البضائع {#Step-4-Receiving-the-Goods}
+
+وصلت الشاحنة! حان وقت استلام ما طلبته.
+
+### عملية الاستلام {#The-Receipt-Process}
+
+فعليًا:
+1. تُسلّم الشاحنة البضائع
+2. موظف الاستلام يعدّها ويفحصها
+3. يقارن الكمية المستلمة بقائمة التعبئة
+4. يقارن قائمة التعبئة بأمر الشراء
+
+في النظام:
+1. إنشاء مستند الاستلام (غالبًا `PurchaseInvoiceReceipt` إذا أنشئ من الفاتورة، أو استلام مخزني مستقل)
+2. الربط بأمر الشراء
+3. إدخال الكميات المستلمة فعليًا
+4. تسجيل أي فروقات
+
+**الفروقات الشائعة:**
+- طُلب 100، استُلم 95 (شحنة ناقصة)
+- طُلب 100، استُلم 105 (شحنة زائدة)
+- استُلم صنف خاطئ
+- استُلمت أصناف تالفة
+- استُلمت كمية صحيحة لكن مواصفات خاطئة
+
+كل حالة تتطلب معالجة مختلفة:
+- قبول الجزئي والانتظار على الباقي
+- قبول الكل (حتى الزيادة)
+- رفض والإرجاع
+- قبول السليم ورفض التالف
+- التصعيد إلى قسم المشتريات للحل
+
+### استلام الفحص {#Inspection-Receipts}
+
+للأصناف الحرجة، استخدم الاستلام على مرحلتين:
+
+1. **الاستلام الأولي**: وصول الأصناف وعدّها ونقلها إلى منطقة الفحص (مستند `ReceiptInspection`)
+2. **فحص الجودة**: اختبار وقياس والتحقق من المواصفات
+3. **القرار النهائي**:
+   - قبول: نقلها إلى المخزون العادي
+   - رفض: الإعداد لإرجاعها إلى المورد
+   - جزئي: قبول البعض ورفض البعض
 
-More on this in [Quality Control](./quality-control.md).
+مزيد من التفاصيل في [ضبط الجودة](./quality-control.md).
 
-## Step 5: Receiving the Invoice
+## الخطوة الخامسة: استلام الفاتورة {#Step-5-Receiving-the-Invoice}
 
-Days or weeks later (or sometimes with the goods), the supplier sends an invoice.
+بعد أيام أو أسابيع (أو أحيانًا مع البضاعة)، يرسل المورد الفاتورة.
 
-### The Purchase Invoice
+### فاتورة المشتريات {#The-Purchase-Invoice}
 
-The `PurchaseInvoice` (فاتورة مشتريات) is the supplier's bill. It says: "You received these goods, now pay us this amount."
+`PurchaseInvoice` (فاتورة مشتريات) هي فاتورة المورد. تقول: "استلمت هذه البضائع، ادفع لنا الآن هذا المبلغ."
 
-**Key Information:**
+**المعلومات الرئيسية:**
 
-**Header:**
-- Supplier invoice number (their reference)
-- Invoice date
-- Due date
-- Payment terms
-- Supplier details
-- Your purchase order reference
+**الترويسة:**
+- رقم فاتورة المورد (مرجعهم)
+- تاريخ الفاتورة
+- تاريخ الاستحقاق
+- شروط الدفع
+- بيانات المورد
+- مرجع أمر الشراء الخاص بك
 
-**Lines (for each item):**
-- Item received
-- Quantity
-- Unit price
-- Line total
-- Taxes
+**السطور (لكل صنف):**
+- الصنف المستلَم
+- الكمية
+- السعر الفردي
+- إجمالي السطر
+- الضرائب
 
-**Summary:**
-- Subtotal
-- Discounts
-- Shipping charges
-- Other charges (customs, insurance, handling)
-- Taxes
-- Grand total
+**الملخص:**
+- الإجمالي الفرعي
+- الخصومات
+- رسوم الشحن
+- رسوم أخرى (جمارك، تأمين، مناولة)
+- الضرائب
+- الإجمالي الكلي
 
-### The Three-Way Match
+### المطابقة الثلاثية {#The-Three-Way-Match}
 
-Best practice is to match three documents:
-1. Purchase Order: What you agreed to buy
-2. Receipt Document: What you actually received
-3. Purchase Invoice: What the supplier is billing
+أفضل ممارسة هي مطابقة ثلاثة مستندات:
+1. أمر الشراء: ما اتفقت على شرائه
+2. مستند الاستلام: ما استلمته فعليًا
+3. فاتورة المشتريات: ما يفوتر به المورد
 
-Check:
-- ✓ Quantities match (or discrepancies are explained)
-- ✓ Prices match what was agreed
-- ✓ Math is correct
-- ✓ Terms are as agreed
+التحقق من:
+- ✓ تطابق الكميات (أو شرح الفروقات)
+- ✓ تطابق الأسعار مع ما اتُّفق عليه
+- ✓ صحة الحسابات
+- ✓ الشروط كما اتُّفق عليها
 
-Only pay invoices that pass the three-way match. Discrepancies require investigation and resolution.
+ادفع فقط الفواتير التي تجتاز المطابقة الثلاثية. الفروقات تستوجب التحقيق والحل.
 
-### What the System Does
+### ما يفعله النظام {#What-the-System-Does}
 
-When you save the purchase invoice (not as draft):
+عند حفظ فاتورة المشتريات (ليس كمسودة):
 
-**Inventory Update**:
-If you haven't already created a receipt (maybe invoice arrived first), the system can automatically create the receipt. Inventory increases.
+**تحديث المخزون**:
+إذا لم تُنشئ مستند استلامًا بعد (ربما وصلت الفاتورة أولًا)، يمكن للنظام إنشاء الاستلام تلقائيًا. يزداد المخزون.
 
-**Accounting Entries**:
-- Debit: Inventory Asset (or Expense if not inventory items)
-- Debit: Tax Input Account (recoverable VAT)
-- Credit: Accounts Payable - Supplier
+**قيود المحاسبة**:
+- مدين: أصل المخزون (أو المصروف إذا لم تكن أصناف مخزنية)
+- مدين: حساب الضريبة المدخلة (ضريبة القيمة المضافة القابلة للاسترداد)
+- دائن: ذمم الدائنون - المورد
 
-**Payment Scheduling**:
-Based on payment terms, system creates payment schedule:
-- Invoice for $10,000
-- Terms: Net 30 days
-- Due date: (Invoice date + 30 days)
-- Reminder: System alerts as due date approaches
+**جدولة الدفع**:
+بناءً على شروط الدفع، يُنشئ النظام جدول السداد:
+- فاتورة بقيمة $10,000
+- الشروط: صافي 30 يومًا
+- تاريخ الاستحقاق: (تاريخ الفاتورة + 30 يومًا)
+- التذكير: يُنبّه النظام عند اقتراب تاريخ الاستحقاق
 
-## Step 6: Payment
+## الخطوة السادسة: الدفع {#Step-6-Payment}
 
-Eventually (hopefully on time!), you pay the supplier.
+في النهاية (وبالوقت المحدد نأمل!)، تدفع للمورد.
 
-### Payment Documents
+### مستندات الدفع {#Payment-Documents}
 
-Payment can happen through:
-- Bank transfer
-- Check
-- Cash (for small amounts)
-- Credit card
-- Payment vouchers
+يمكن الدفع عبر:
+- تحويل بنكي
+- شيك
+- نقدًا (للمبالغ الصغيرة)
+- بطاقة ائتمان
+- سندات دفع
 
-The system tracks:
-- Which invoices are paid
-- When payment was made
-- How much was paid
-- What payment method was used
-- Remaining balance
+يتتبع النظام:
+- أي الفواتير مدفوعة
+- متى تم الدفع
+- كم دُفع
+- طريقة الدفع المستخدمة
+- الرصيد المتبقي
 
-### Scheduled Payments
+### المدفوعات المجدولة {#Scheduled-Payments}
 
-The `scheduleLines` collection on the invoice tracks payment schedule:
-- First installment: $5,000 due in 30 days
-- Second installment: $5,000 due in 60 days
+مجموعة `scheduleLines` على الفاتورة تتتبع جدول الدفع:
+- الدفعة الأولى: $5,000 مستحقة خلال 30 يومًا
+- الدفعة الثانية: $5,000 مستحقة خلال 60 يومًا
 
-As you make payments, these get marked paid.
+عند إجراء المدفوعات تُوسَّم هذه الدفعات بـ"مدفوعة".
 
-### External Payment Lines
+### سطور الدفع الخارجية {#External-Payment-Lines}
 
-The `externalPaymentLines` collection links purchase invoices to payment vouchers in the accounting system. This creates the connection between:
-- Accounts Payable (liability)
-- Cash/Bank (asset reduction)
+مجموعة `externalPaymentLines` تربط فواتير المشتريات بسندات الدفع في نظام المحاسبة. هذا يُنشئ الصلة بين:
+- الذمم الدائنة (الالتزام)
+- النقدية/البنك (تخفيض الأصول)
 
-## Handling Returns and Problems
+## التعامل مع المرتجعات والمشكلات {#Handling-Returns-and-Problems}
 
-Things go wrong. You need to return items.
+الأمور قد تسوء. وتحتاج إلى إرجاع الأصناف.
 
-### The Purchase Return
+### مرتجع المشتريات {#The-Purchase-Return}
 
-The `PurchaseReturn` (مرتجع مشتريات) reverses a purchase:
+`PurchaseReturn` (مرتجع مشتريات) يعكس عملية الشراء:
 
-**Common Scenarios:**
-- Items arrived defective
-- Wrong items were shipped
-- Items failed quality inspection
-- You ordered too much and supplier accepts return
+**السيناريوهات الشائعة:**
+- وصلت الأصناف معيبة
+- شُحنت أصناف خاطئة
+- فشلت الأصناف في فحص الجودة
+- طلبت كميةً زائدة والمورد يقبل الإرجاع
 
-**The Process:**
-1. Get return authorization from supplier (RMA number)
-2. Create purchase return document linking to original purchase
-3. Issue items from your warehouse
-4. Ship back to supplier
-5. Await credit note
-6. Apply credit to your payable balance
+**العملية:**
+1. الحصول على تفويض الإرجاع من المورد (رقم RMA)
+2. إنشاء مستند مرتجع مشتريات مرتبط بالمشتريات الأصلية
+3. صرف الأصناف من مخزنك
+4. شحنها إلى المورد
+5. انتظار إشعار الدائن
+6. تطبيق الرصيد الدائن على رصيد الذمم الدائنة
 
-**Accounting Impact:**
-Purchase return creates:
-- Credit: Inventory (reduces asset)
-- Debit: Accounts Payable (reduces liability)
+**الأثر المحاسبي:**
+مرتجع المشتريات يُنشئ:
+- دائن: المخزون (تخفيض الأصل)
+- مدين: الذمم الدائنة (تخفيض الالتزام)
 
-If you've already paid, you might get:
-- Credit note applied to future purchases
-- Refund (cash back)
+إذا كنت قد دفعت مسبقًا، فقد تحصل على:
+- إشعار دائن يُطبَّق على مشتريات مستقبلية
+- استرداد نقدي (cashback)
 
-### The Return Request
+### طلب المرتجع {#The-Return-Request}
 
-The `PurchaseReturnReq` (طلب مرتجع مشتريات) initiates the return process:
-1. Warehouse identifies items to return
-2. Creates return request with reason
-3. Purchasing contacts supplier for RMA
-4. Once authorized, create actual return
-5. Execute the return
+`PurchaseReturnReq` (طلب مرتجع مشتريات) يبدأ عملية الإرجاع:
+1. يحدد المخزن الأصناف المراد إرجاعها
+2. إنشاء طلب إرجاع مع السبب
+3. يتواصل قسم المشتريات مع المورد للحصول على RMA
+4. بعد الترخيص، إنشاء المرتجع الفعلي
+5. تنفيذ الإرجاع
 
-## Special Scenarios
+## سيناريوهات خاصة {#Special-Scenarios}
 
-### Import Purchases and Letters of Credit
+### المشتريات الاستيرادية وخطابات الاعتماد {#Import-Purchases-and-Letters-of-Credit}
 
-For international purchases, the process becomes more complex with customs, shipping, and payment security.
+للمشتريات الدولية، تصبح العملية أكثر تعقيدًا مع الجمارك والشحن وضمان الدفع.
 
-**Letter of Credit Documents:**
-- `LCProformaInvoice`: Proforma invoice for opening letter of credit
-- `LCShipmentProformaInvoice`: For specific shipments under LC
+**مستندات خطاب الاعتماد:**
+- `LCProformaInvoice`: فاتورة مبدئية لفتح خطاب الاعتماد
+- `LCShipmentProformaInvoice`: لشحنات محددة ضمن خطاب الاعتماد
 
-These integrate with your banking relationships to ensure payment is secured before goods ship.
+هذه تتكامل مع علاقاتك المصرفية لضمان تأمين الدفع قبل شحن البضائع.
 
-### Purchase Document Updates
+### تحديثات مستند المشتريات {#Purchase-Document-Updates}
 
-Sometimes you need to adjust a purchase after the fact:
+أحيانًا تحتاج إلى تعديل عملية شراء بعد الوقوعة:
 
-`PurchaseDocumentUpdate` (تحديث مستند مشتريات) handles:
-- Price adjustments (supplier gives discount after invoice)
-- Quantity corrections (invoice said 100, should be 95)
-- Additional charges (freight charge billed separately)
-- Tax adjustments
+`PurchaseDocumentUpdate` (تحديث مستند مشتريات) يتعامل مع:
+- تعديلات الأسعار (يمنح المورد خصمًا بعد الفاتورة)
+- تصحيحات الكميات (قالت الفاتورة 100، والصحيح 95)
+- رسوم إضافية (رسوم الشحن مفوترة بشكل منفصل)
+- تعديلات الضرائب
 
-Think of these as "amendments" to the original purchase.
+فكّر فيها كـ"تعديلات" على عملية الشراء الأصلية.
 
-## Forecasting and Planning
+## التنبؤ والتخطيط {#Forecasting-and-Planning}
 
-### Purchase Forecasts
+### توقعات الشراء {#Purchase-Forecasts}
 
-The `PurchaseForecast` (توقعات شراء) helps plan future purchases:
-- Based on sales forecasts
-- Based on production schedules
-- Based on historical consumption
-- Accounting for lead times
+`PurchaseForecast` (توقعات شراء) يساعد في تخطيط المشتريات المستقبلية:
+- بناءً على توقعات المبيعات
+- بناءً على جداول الإنتاج
+- بناءً على الاستهلاك التاريخي
+- مع مراعاة أوقات الاستلام (lead times)
 
-This shifts purchasing from reactive to proactive:
-- **Reactive**: "We're out! Order now!" (often paying rush fees)
-- **Proactive**: "We'll run low in 3 weeks. Order now for normal delivery." (better prices, better terms)
+هذا يحوّل المشتريات من تفاعلية إلى استباقية:
+- **تفاعلية**: "نفدت! اطلب الآن!" (غالبًا بدفع رسوم استعجال)
+- **استباقية**: "سينتهي المخزون خلال 3 أسابيع. اطلب الآن للتسليم العادي." (أسعار أفضل وشروط أفضل)
 
-## Tips for Effective Purchasing
+## نصائح للشراء الفعال {#Tips-for-Effective-Purchasing}
 
-::: tip Best Practices
+::: tip أفضل الممارسات
 
-**Document Everything**
-Every conversation with suppliers, every negotiation, every price change - document it in the system's remarks and notes fields.
+**وثّق كل شيء**
+كل محادثة مع الموردين، وكل مفاوضة، وكل تغيير في السعر - وثّقه في حقول الملاحظات والتعليقات في النظام.
 
-**Standardize Requests**
-Use consistent item requests. Clear specifications prevent misunderstandings and make comparing options easier.
+**قيّس الطلبات**
+استخدم طلبات أصناف موحدة. المواصفات الواضحة تمنع سوء الفهم وتجعل مقارنة الخيارات أسهل.
 
-**Compare Before Ordering**
-Even with preferred suppliers, periodically get competitive quotes. Markets change, relationships can become complacent.
+**قارن قبل الطلب**
+حتى مع الموردين المفضلين، احصل بصفة دورية على عروض تنافسية. الأسواق تتغير والعلاقات قد تُصبح مريحةً أكثر من اللازم.
 
-**Three-Way Match Strictly**
-Don't skip the matching process. It catches errors, prevents fraud, and ensures you pay what you should pay.
+**طبّق المطابقة الثلاثية بصرامة**
+لا تتخطَّ عملية المطابقة. فهي تكشف الأخطاء، وتمنع الاحتيال، وتضمن أنك تدفع ما يجب.
 
-**Track Supplier Performance**
-Note which suppliers deliver on time, which have quality issues, which respond well to problems. This data informs future decisions.
+**تتبع أداء الموردين**
+لاحظ أي الموردين يلتزم بالمواعيد، وأيها لديه مشكلات جودة، وأيها يتعامل بشكل جيد مع المشكلات. هذه البيانات تُوجّه قرارات المستقبل.
 
-**Negotiate Payment Terms**
-Price isn't everything. Extra 30 days to pay can be worth more than 2% discount if cash flow is tight.
+**تفاوض على شروط الدفع**
+السعر ليس كل شيء. 30 يومًا إضافيًا للسداد قد تكون أكثر قيمة من خصم 2% إذا كان التدفق النقدي ضيقًا.
 
-**Maintain Safety Stock**
-Don't wait until you're at zero. Reorder when you hit safety stock level to buffer against delivery delays.
+**حافظ على مخزون الأمان**
+لا تنتظر حتى يصل المخزون إلى صفر. أعِد الطلب عند بلوغ مستوى مخزون الأمان لتمتص تأخيرات التسليم.
 
-**Communicate Lead Times**
-Tell your internal customers realistic lead times. Under-promising and over-delivering is better than the reverse.
+**أبلغ بأوقات الاستلام الواقعية**
+أبلغ عملاءك الداخليين بأوقات استلام واقعية. الوعد بأقل وتسليم أكثر أفضل من العكس.
 
 :::
 
-## Common Questions
+## أسئلة شائعة {#Common-Questions}
 
-**Q: Can we create a purchase invoice before receiving the goods?**
+**س: هل يمكننا إنشاء فاتورة مشتريات قبل استلام البضائع؟**
 
-A: Yes, but it's not recommended. Best practice is receive first (to verify what you got), then match invoice to receipt. However, sometimes invoices arrive first - the system can handle this by automatically creating the receipt from the invoice.
+ج: نعم، لكن لا يُنصح بذلك. أفضل ممارسة هي الاستلام أولًا (للتحقق مما استلمت)، ثم مطابقة الفاتورة بالاستلام. ومع ذلك، أحيانًا تصل الفواتير أولًا - النظام يمكنه التعامل مع هذا بإنشاء الاستلام تلقائيًا من الفاتورة.
 
-**Q: What if the supplier charges more on the invoice than on the purchase order?**
+**س: ماذا لو حدّد المورد في الفاتورة سعرًا أعلى من أمر الشراء؟**
 
-A: The system typically warns you about price discrepancies. Either:
-- Reject the invoice and contact supplier
-- Accept if the difference is small and documented
-- Update the purchase order if prices were renegotiated
+ج: عادةً يُنبّهك النظام عن فروقات الأسعار. إما:
+- رفض الفاتورة والتواصل مع المورد
+- قبولها إذا كان الفرق بسيطًا وموثقًا
+- تحديث أمر الشراء إذا أُعيد التفاوض على الأسعار
 
-**Q: How do we handle partial deliveries?**
+**س: كيف نتعامل مع التسليمات الجزئية؟**
 
-A: Create a receipt for what arrived. Purchase order tracks what's still outstanding. When the rest arrives, create another receipt against the same order. System handles this naturally.
+ج: أنشئ مستند استلام لما وصل. يتتبع أمر الشراء ما لا يزال معلقًا. عند وصول الباقي، أنشئ مستند استلام آخر مقابل نفس الأمر. النظام يتعامل مع هذا بطريقة طبيعية.
 
-**Q: Can we order items not in our item master?**
+**س: هل يمكننا طلب أصناف غير موجودة في بيانات الأصناف (item master)؟**
 
-A: Technically possible (free-text line items) but not recommended. Better to add items to the master first - ensures consistent tracking, costing, and accounting.
+ج: ممكن تقنيًا (سطور نصية حرة) لكن لا يُنصح بذلك. من الأفضل إضافة الأصناف إلى البيانات أولًا - يضمن هذا التتبع والتكليف والمحاسبة بشكل متسق.
 
-**Q: What happens if we cancel a purchase order after partially receiving?**
+**س: ماذا يحدث إذا ألغينا أمر شراء بعد استلام جزء منه؟**
 
-A: You can close the order for remaining quantities. What's been received stays received, but the system won't expect the balance anymore.
+ج: يمكنك إغلاق الأمر على الكميات المتبقية. ما استُلم يبقى مستلمًا، لكن النظام لن ينتظر الرصيد بعد الآن.
 
-## Integration Points
+## نقاط التكامل {#Integration-Points}
 
-Purchasing connects to:
+المشتريات مرتبطة بـ:
 
-**Accounting**: Every purchase invoice creates payables. Every payment reduces payables and cash.
+**المحاسبة**: كل فاتورة مشتريات تُنشئ ذمم دائنة. كل دفعة تخفض الذمم الدائنة والنقدية.
 
-**Inventory**: Receipts increase stock. Returns reduce stock. All with proper costing.
+**المخزون**: الاستلامات تزيد المخزون. المرتجعات تخفضه. كل ذلك بالتكليف الصحيح.
 
-**Production**: Raw material purchases feed production. Purchase lead times affect production scheduling.
+**الإنتاج**: مشتريات المواد الأولية تُغذّي الإنتاج. أوقات استلام المشتريات تؤثر على جدولة الإنتاج.
 
-**Quality**: Inspection requirements affect receiving process and supplier relationships.
+**الجودة**: متطلبات الفحص تؤثر على عملية الاستلام وعلاقات الموردين.
 
-**Budget**: Purchase requisitions can check budget availability before allowing orders.
+**الميزانية**: يمكن لطلبات الشراء التحقق من توفر الميزانية قبل السماح بالطلبات.
 
-## Next Steps
+## الخطوات التالية {#Next-Steps}
 
-Now understand the purchasing journey. Continue to:
-- [The Sales Journey](./sales-journey.md) - The mirror process of selling
-- [Quality Control](./quality-control.md) - How inspection fits into receiving
-- [Specialized Scenarios](./specialized-scenarios.md) - Industry-specific variations
+الآن فهمت رحلة الشراء. تابع إلى:
+- [رحلة المبيعات](./sales-journey.md) - العملية المقابلة للبيع
+- [ضبط الجودة](./quality-control.md) - كيف يندمج الفحص في الاستلام
+- [سيناريوهات متخصصة](./specialized-scenarios.md) - تغييرات خاصة بالقطاع
 
-Or go back to understand the foundation:
-- [Understanding Items](./understanding-items.md) - What you're buying
-- [Receiving Stock](./receiving-stock.md) - Detailed receipt processes
+أو ارجع لفهم الأساس:
+- [فهم الأصناف](./understanding-items.md) - ما الذي تشتريه
+- [استلام المخزون](./receiving-stock.md) - عمليات الاستلام التفصيلية

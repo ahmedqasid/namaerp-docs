@@ -1,171 +1,171 @@
 ::: warning In Progress
-This document is still in progress, not yet finished
+هذا المستند لا يزال قيد الإعداد ولم يكتمل بعد
 :::
 
-# UAE E-Invoicing Integration via Orchida osTax
+# الربط مع الفاتورة الإلكترونية في الإمارات عبر Orchida osTax {#UAE-E-Invoicing-Integration-via-Orchida-osTax}
 
-## Overview
+## نظرة عامة (Overview) {#Overview}
 
-NamaERP supports sending electronic invoices to the UAE Federal Tax Authority (FTA) through the Orchida osTax service provider. Orchida acts as an Accredited Service Provider (ASP) in the UAE's Peppol-based 5-corner e-invoicing model.
+يدعم NamaERP إرسال الفواتير الإلكترونية إلى الهيئة الاتحادية للضرائب في الإمارات (FTA) عبر مزوّد الخدمة Orchida osTax. تعمل Orchida بصفتها مزوّد خدمة معتمدًا (ASP) ضمن نموذج الفوترة الإلكترونية ذي الخمسة أطراف المبني على شبكة Peppol في الإمارات.
 
-The system sends invoices in JSON format to Orchida, which validates them, reports tax data to the FTA, and routes them to the buyer through the Peppol network.
+يُرسل النظام الفواتير بصيغة JSON إلى Orchida التي تتحقق منها وتُبلّغ بيانات الضريبة إلى الهيئة الاتحادية للضرائب وتوجّهها إلى المشتري عبر شبكة Peppol.
 
-## Prerequisites
+## المتطلبات الأساسية (Prerequisites) {#Prerequisites}
 
-Before starting the setup, you need:
+قبل البدء في الإعداد، تحتاج إلى:
 
-- An account on the Orchida osTax platform (https://app.orchidatax.com)
-- An API Key (Bearer Token) from the Orchida dashboard
-- A Company ID from the Orchida dashboard
+- حساب على منصة Orchida osTax (https://app.orchidatax.com)
+- مفتاح API (Bearer Token) من لوحة تحكم Orchida
+- معرّف الشركة (Company ID) من لوحة تحكم Orchida
 
-### Getting Credentials from Orchida
+### الحصول على بيانات الاعتماد من Orchida {#Getting-Credentials-from-Orchida}
 
-1. Log in to the Orchida dashboard
-2. Enter the OTP sent to your email
-3. Select your tenant and company
-4. Go to Security > Generate Key
-5. Create a new key (set expiration date and name)
-6. Copy the API Key and Company ID
+1. سجّل الدخول إلى لوحة تحكم Orchida
+2. أدخل رمز OTP المُرسَل إلى بريدك الإلكتروني
+3. اختر المستأجر والشركة المناسبَين
+4. اذهب إلى Security > Generate Key
+5. أنشئ مفتاحًا جديدًا (حدد تاريخ انتهاء الصلاحية والاسم)
+6. انسخ مفتاح API ومعرّف الشركة
 
-## System Setup
+## إعداد النظام (System Setup) {#System-Setup}
 
-### Step 1: Global E-Invoice Settings
+### الخطوة الأولى: إعدادات الفاتورة الإلكترونية العامة (Step 1: Global E-Invoice Settings) {#Step-1-Global-E-Invoice-Settings}
 
-From Global Configuration > Page 2:
-- Set `e-Invoice Page To Show` to `UAE Page`
-- After changing the value, perform a Regen UI
+من الإعدادات العامة > الصفحة الثانية:
+- اضبط `e-Invoice Page To Show` على `UAE Page`
+- بعد تغيير القيمة قم بعمل Regen UI
 
-### Step 2: Tax Payer Configuration
+### الخطوة الثانية: إعداد مصلحة الضرائب (Step 2: Tax Payer Configuration) {#Step-2-Tax-Payer-Configuration}
 
-Create a new Tax Payer Configuration or edit an existing one.
+أنشئ إعداد مصلحة ضرائب جديدًا أو عدّل إعدادًا قائمًا.
 
-#### Basic Information
+#### المعلومات الأساسية (Basic Information) {#Basic-Information}
 
-| Field          | Value |
+| الحقل          | القيمة |
 |----------------|-------|
-| taxPayerType | `UAE - Electronic Invoice Staging` (for testing) or `UAE - Electronic Invoice` (for production) |
-| TaxRegNo     | Your establishment's tax registration number |
+| taxPayerType | `UAE - Electronic Invoice Staging` (للاختبار) أو `UAE - Electronic Invoice` (للإنتاج) |
+| TaxRegNo     | رقم التسجيل الضريبي للمنشأة |
 
-#### Integration Settings
+#### إعدادات التكامل (Integration Settings) {#Integration-Settings}
 
-| Field              | Description |
+| الحقل              | الوصف |
 |--------------------|-------------|
-| APIURL             | Auto-filled when Tax Payer Type is selected |
-| password           | API Key from Orchida (Bearer Token) |
-| orchidaCompanyID | Company ID from the Orchida dashboard |
+| APIURL             | يُملأ تلقائيًا عند اختيار نوع مصلحة الضرائب |
+| password           | مفتاح API من Orchida (Bearer Token) |
+| orchidaCompanyID | معرّف الشركة من لوحة تحكم Orchida |
 
-#### Tax Code Configuration
+#### إعداد أكواد الضريبة (Tax Code Configuration) {#Tax-Code-Configuration}
 
-UAE tax codes follow the UN/EDIFACT 5305 standard (Aligned Tax Category Codes).
+تتبع أكواد الضريبة في الإمارات معيار UN/EDIFACT 5305 (أكواد فئة الضريبة المنسَّقة).
 
-**Tax Type**:
+**نوع الضريبة (Tax Type)**:
 
-| Code | Description |
+| الكود | الوصف |
 |------|-------------|
-| VAT | Value Added Tax |
+| VAT | ضريبة القيمة المضافة |
 
-**Tax SubType**:
+**نوع الضريبة الفرعي (Tax SubType)**:
 
-| Code | Description |
+| الكود | الوصف |
 |------|-------------|
-| S | Standard rate (5%) |
-| Z | Zero rated |
-| E | Exempt from tax |
-| O | Out of scope |
-| AE | Reverse Charge |
+| S | النسبة القياسية (5%) |
+| Z | خاضع للضريبة بنسبة صفر |
+| E | معفي من الضريبة |
+| O | خارج النطاق |
+| AE | الاحتساب العكسي |
 
 ::: warning
-When using code `S` (Standard rate), the VAT rate must be exactly `5.00`
+عند استخدام الكود `S` (النسبة القياسية)، يجب أن تكون نسبة ضريبة القيمة المضافة بالضبط `5.00`
 :::
 
-### Step 3: Customer Setup
+### الخطوة الثالثة: إعداد العميل (Step 3: Customer Setup) {#Step-3-Customer-Setup}
 
-For each customer that will receive electronic invoices, fill in the following fields:
+لكل عميل سيستقبل فواتير إلكترونية، أكمل الحقول التالية:
 
-#### Tax Information
+#### البيانات الضريبية (Tax Information) {#Tax-Information}
 
-| Field        | Description |
+| الحقل        | الوصف |
 |--------------|-------------|
-| taxRegNo     | Customer's Tax Registration Number (TRN) |
-| specialNumber | Customer's Peppol Endpoint ID |
-| description4 | Agency ID (e.g. `TL`) |
-| description5 | Agency Name (e.g. company name) |
+| taxRegNo     | رقم التسجيل الضريبي (TRN) للعميل |
+| specialNumber | معرّف نقطة نهاية Peppol للعميل |
+| description4 | معرّف الجهة (مثلًا `TL`) |
+| description5 | اسم الجهة (مثلًا اسم الشركة) |
 
-#### Address
+#### العنوان (Address) {#Address}
 
-| Field       | Description |
+| الحقل       | الوصف |
 |-------------|-------------|
-| country     | Country code (e.g. `AE`) |
-| city        | City name |
-| street      | Street address |
-| governorate | Emirate code |
+| country     | كود الدولة (مثلًا `AE`) |
+| city        | اسم المدينة |
+| street      | عنوان الشارع |
+| governorate | كود الإمارة |
 
-::: tip Emirate Codes
+::: tip أكواد الإمارات
 
-| Code | Emirate |
+| الكود | الإمارة |
 |------|---------|
-| AUH | Abu Dhabi |
-| DXB | Dubai |
-| SHJ | Sharjah |
-| AJM | Ajman |
-| UAQ | Umm Al Quwain |
-| RAK | Ras Al Khaimah |
-| FUJ | Fujairah |
+| AUH | أبوظبي |
+| DXB | دبي |
+| SHJ | الشارقة |
+| AJM | عجمان |
+| UAQ | أم القيوين |
+| RAK | رأس الخيمة |
+| FUJ | الفجيرة |
 :::
 
-### Step 4: Unit of Measure Setup
+### الخطوة الرابعة: إعداد وحدات القياس (Step 4: Unit of Measure Setup) {#Step-4-Unit-of-Measure-Setup}
 
-Each UOM used in invoices must have a valid tax authority code following UN/ECE Rec 20:
+يجب أن تمتلك كل وحدة قياس مستخدمة في الفواتير كودًا صالحًا لدى مصلحة الضرائب وفق معيار UN/ECE Rec 20:
 
-| Code | Description |
+| الكود | الوصف |
 |------|-------------|
-| EA | Each |
-| KGM | Kilogram |
-| MTR | Metre |
-| LTR | Litre |
-| XBX | Box |
-| PCE | Piece |
+| EA | وحدة |
+| KGM | كيلوغرام |
+| MTR | متر |
+| LTR | لتر |
+| XBX | صندوق |
+| PCE | قطعة |
 
-### Step 5: Currency Setup
+### الخطوة الخامسة: إعداد العملة (Step 5: Currency Setup) {#Step-5-Currency-Setup}
 
-Ensure a currency with tax authority code `AED` exists and is set as the default currency.
+تأكد من وجود عملة بكود مصلحة الضرائب `AED` وأنها مضبوطة كعملة افتراضية.
 
-## Sending Invoices
+## إرسال الفواتير (Sending Invoices) {#Sending-Invoices}
 
-### Creating a Tax Authority Submission Document
+### إنشاء وثيقة إرسال لمصلحة الضرائب (Creating a Tax Authority Submission Document) {#Creating-a-Tax-Authority-Submission-Document}
 
-1. Go to Tax Authority Submission Document
-2. Click "Collect Documents" to add the invoices to be sent
-3. Click "Send" to submit the invoices to Orchida
+1. اذهب إلى وثيقة إرسال مصلحة الضرائب
+2. انقر على "تجميع الوثائق" لإضافة الفواتير المراد إرسالها
+3. انقر على "إرسال" لتقديم الفواتير إلى Orchida
 
-### Submission Statuses
+### حالات الإرسال (Submission Statuses) {#Submission-Statuses}
 
-After sending, the document status is set to:
-- **Sent**: Orchida accepted the invoice for processing
-- **NotValidSent**: The invoice was rejected — check the errors field for details
+بعد الإرسال تُضبط حالة الوثيقة إلى:
+- **Sent**: قبلت Orchida الفاتورة للمعالجة
+- **NotValidSent**: رُفضت الفاتورة — راجع حقل الأخطاء للاطلاع على التفاصيل
 
-### Checking Invoice Status from Orchida
+### التحقق من حالة الفاتورة في Orchida {#Checking-Invoice-Status-from-Orchida}
 
-After submission, you can check the final status of the invoice with the tax authority:
+بعد الإرسال يمكنك التحقق من الحالة النهائية للفاتورة لدى مصلحة الضرائب:
 
-1. From the Tax Authority Submission Document, click "Check Documents Status"
-2. The system calls Orchida and retrieves the current status
-3. The following fields are updated automatically:
-   - **Status In Tax Authority**: `valid`, `invalid`, or `pending`
-   - **Tax Auth Entity Status Type**: updated based on Orchida's response
+1. من وثيقة إرسال مصلحة الضرائب انقر على "التحقق من حالة الوثائق"
+2. يتصل النظام بـ Orchida ويستعرض الحالة الحالية
+3. تُحدَّث الحقول التالية تلقائيًا:
+   - **Status In Tax Authority**: `valid` أو `invalid` أو `pending`
+   - **Tax Auth Entity Status Type**: يُحدَّث بناءً على استجابة Orchida
 
 ::: warning
-Orchida may take some time to process the invoice. If the status is `pending`, wait and check again later.
+قد تحتاج Orchida إلى بعض الوقت لمعالجة الفاتورة. إذا كانت الحالة `pending`، انتظر ثم تحقق مجددًا لاحقًا.
 :::
 
-## Supported Document Types
+## أنواع الوثائق المدعومة (Supported Document Types) {#Supported-Document-Types}
 
-| Type | Supported |
+| النوع | مدعوم |
 |------|-----------|
-| Invoice | Yes |
-| Credit Note | Yes |
-| Debit Note | No |
+| فاتورة | نعم |
+| إشعار دائن | نعم |
+| إشعار مدين | لا |
 
-## Maximum Days to Send
+## الحد الأقصى لأيام الإرسال (Maximum Days to Send) {#Maximum-Days-to-Send}
 
-The default number of days allowed to send an invoice after its value date is **14 days**. This can be changed in the Tax Payer Configuration under "Max Days To Send Invoice".
+العدد الافتراضي للأيام المسموح بها لإرسال الفاتورة بعد تاريخ قيمتها هو **14 يومًا**. يمكن تغيير هذا الإعداد في إعداد مصلحة الضرائب ضمن حقل "Max Days To Send Invoice".

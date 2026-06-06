@@ -1,5 +1,5 @@
-# Database Related Operations
-## Enable READ_COMMITED_SNAPSHOT
+# عمليات قاعدة البيانات (Database Related Operations) {#Database-Related-Operations}
+## تفعيل READ_COMMITED_SNAPSHOT {#Enable-READCOMMITEDSNAPSHOT}
 ::: details
 ```sql
 USE master
@@ -13,7 +13,7 @@ ALTER DATABASE DBNAME
 SET MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT ON;
 ```
 :::
-## Find Current Isolation Level
+## معرفة مستوى العزل الحالي (Isolation Level) {#Find-Current-Isolation-Level}
 ::: details
 ```sql
 SELECT CASE  
@@ -39,7 +39,7 @@ WHERE  session_id = @@SPID
 
 ```
 :::
-## Monitor or Find Currently Running Queries
+## مراقبة الاستعلامات الجارية حاليًا {#Monitor-or-Find-Currently-Running-Queries}
 ::: details
 ```sql
 SELECT DatabaseName = db_name(req.database_id),sqltext.TEXT,
@@ -55,7 +55,7 @@ Order by req.total_elapsed_time desc
 
 ```
 :::
-## Find Table Sizes
+## معرفة أحجام الجداول {#Find-Table-Sizes}
 ::: details
 ```sql
 SELECT t.NAME AS TableName, s.Name AS SchemaName, p.rows AS RowCounts, SUM(a.total_pages) * 8 AS TotalSpaceKB, 
@@ -70,14 +70,14 @@ GROUP BY t.Name, s.Name, p.Rows
 ORDER BY TotalSpaceKB desc
 ```
 :::
-## View Users and creation dates
+## عرض المستخدمين وتواريخ إنشائهم {#View-Users-and-creation-dates}
 ::: details
 ```sql
 SELECT name, createdate FROM master..syslogins
 
 ```
 :::
-## Externalize all attachments to c:\temp
+## تصدير جميع المرفقات إلى c:\temp {#Externalize-all-attachments-to-c-temp}
 ::: details
 ```sql
 sp_configure 'show advanced options', 1;  
@@ -129,7 +129,7 @@ GO
 
 ```
 :::
-## DROP ALL FOREIGN KEYS
+## حذف جميع المفاتيح الخارجية (DROP ALL FOREIGN KEYS) {#DROP-ALL-FOREIGN-KEYS}
 ::: details
 ```sql
 while(exists(select 1 from INFORMATION_SCHEMA.TABLE_CONSTRAINTS where CONSTRAINT_TYPE='FOREIGN KEY'))
@@ -144,7 +144,7 @@ end
 
 ```
 :::
-## Repair Database (suspect database)
+## إصلاح قاعدة البيانات (قاعدة بيانات مشبوهة) {#Repair-Database-suspect-database}
 ::: details
 ```sql
 USE master;
@@ -160,7 +160,7 @@ SET MULTI_USER;
 GO
 ```
 :::
-## Allow Deleting Users
+## السماح بحذف المستخدمين {#Allow-Deleting-Users}
 ::: details
 ```sql
 while(exists(select * from INFORMATION_SCHEMA.TABLE_CONSTRAINTS t left join INFORMATION_SCHEMA.KEY_COLUMN_USAGE k on k.CONSTRAINT_NAME = t.CONSTRAINT_NAME
@@ -176,7 +176,7 @@ end
 
 ```
 :::
-## Allow Deleting Attachments
+## السماح بحذف المرفقات {#Allow-Deleting-Attachments}
 ::: details
 ```sql
 while(exists(select * from INFORMATION_SCHEMA.TABLE_CONSTRAINTS t left join INFORMATION_SCHEMA.KEY_COLUMN_USAGE k on k.CONSTRAINT_NAME = t.CONSTRAINT_NAME
@@ -192,7 +192,7 @@ end
 
 ```
 :::
-## Allow Deleting Dimensions, and Fiscal Years
+## السماح بحذف المحددات والسنوات المالية {#Allow-Deleting-Dimensions-and-Fiscal-Years}
 ::: details
 ```sql
 delete from BusinessRequestStatus where requestType = 'Delete' and transStatus = 'Processed'
@@ -202,7 +202,7 @@ go
 delete from InvTransReq where requestType = 'Delete' and transStatus = 'Processed'
 ```
 :::
-## Allow Deleting Approval Cases
+## السماح بحذف حالات الموافقة {#Allow-Deleting-Approval-Cases}
 ::: details
 ```sql
 while(exists(select * from INFORMATION_SCHEMA.TABLE_CONSTRAINTS t left join INFORMATION_SCHEMA.KEY_COLUMN_USAGE k on k.CONSTRAINT_NAME = t.CONSTRAINT_NAME
@@ -218,7 +218,7 @@ end
 
 ```
 :::
-## Allow Deleting Employees
+## السماح بحذف الموظفين {#Allow-Deleting-Employees}
 ::: details
 ```sql
 while(exists(SELECT  
@@ -251,7 +251,7 @@ end
 
 ```
 :::
-## Allow Deleting Accounts
+## السماح بحذف الحسابات {#Allow-Deleting-Accounts}
 ::: details
 ```sql
 while(exists(select * from INFORMATION_SCHEMA.TABLE_CONSTRAINTS t left join INFORMATION_SCHEMA.KEY_COLUMN_USAGE k on k.CONSTRAINT_NAME = t.CONSTRAINT_NAME
@@ -267,26 +267,26 @@ end
 
 ```
 :::
-## Cleanup Utility for Recycle Bin, Action History, Notifications, and Pending Tasks
+## أداة تنظيف سلة المحذوفات والسجل وإشعارات المستخدمين والمهام المعلقة {#Cleanup-Utility-for-Recycle-Bin-Action-History-Notifications-and-Pending-Tasks}
 
-This SQL script performs cleanup operations on several tables. The operations are **safe by default**—nothing is deleted unless you explicitly set the parameters.
+يُنفّذ هذا السكريبت عمليات تنظيف على عدة جداول. العمليات **آمنة بشكل افتراضي** — لن يُحذف أي شيء ما لم تُعيّن المعاملات بشكل صريح.
 
-### Cleanup Targets
+### أهداف التنظيف {#Cleanup-Targets}
 
-* **Recycle Bin** (`EntityVersion` orphan records)
-* **Action History** (`ActionsHistory`)
-* **Entity Versions** (`EntityVersion`)
-* **User Notifications** (`UserNotification`)
-* **Inventory and Ledger Requests** (`InvTransReq`, `LedgerTransReq`)
-* **Business Requests** (`BusinessRequestStatus`)
-* **Pending Tasks** (`PendingTask`)
+* **سلة المحذوفات** (سجلات يتيمة في `EntityVersion`)
+* **سجل الإجراءات** (`ActionsHistory`)
+* **نسخ الكيانات** (`EntityVersion`)
+* **إشعارات المستخدمين** (`UserNotification`)
+* **طلبات المخزون والأستاذ العام** (`InvTransReq`, `LedgerTransReq`)
+* **طلبات العمل** (`BusinessRequestStatus`)
+* **المهام المعلقة** (`PendingTask`)
 
-### Usage Notes
+### ملاحظات الاستخدام {#Usage-Notes}
 
-* **All deletions are batch processed in chunks of 1000 rows**
-* **Date parameters must be in the format** `yyyyMMdd`
-* **All deletions require the appropriate date or flag to be set**
-* **Recycle bin cleanup only happens when** `@clean_recycle_bin = 1`
+* **تُعالَج جميع عمليات الحذف على دفعات بحجم 1000 سجل**
+* **يجب أن تكون معاملات التاريخ بالصيغة** `yyyyMMdd`
+* **تتطلب جميع عمليات الحذف تعيين التاريخ أو العلامة المناسبة**
+* **لا يحدث تنظيف سلة المحذوفات إلا عند تعيين** `@clean_recycle_bin = 1`
 
 ::: details
 ```sql
@@ -361,7 +361,7 @@ end
 
 ```
 :::
-## Delete entity version of deleted records
+## حذف نسخ الكيانات للسجلات المحذوفة {#Delete-entity-version-of-deleted-records}
 ::: details
 ```sql
 while exists (select top 1 e.id  from EntityVersion e left join EntitySystemEntry ese on ese.targetId = e.ownerId where
@@ -376,7 +376,7 @@ end
 
 ```
 :::
-## Keep Only last five versions
+## الاحتفاظ بآخر خمس نسخ فقط {#Keep-Only-last-five-versions}
 ::: details
 ```sql
 declare @keepCount as int = 5 --change this number if you want more or less than 5 versions
@@ -395,7 +395,7 @@ end
 :::
 
 ::: danger
-## Shrink database for backup upload (VERY DANGEROUS, TAKE CARE, YOU MUST BACKUP THE DATABASE FIRST)
+## تصغير قاعدة البيانات لرفع نسخة احتياطية (خطر جداً، توخَّ الحذر، يجب عمل نسخة احتياطية أولاً) {#Shrink-database-for-backup-upload-VERY-DANGEROUS-TAKE-CARE-YOU-MUST-BACKUP-THE-DATABASE-FIRST}
 :::
 ::: details Click to view the SQL Statement
 ```sql
@@ -438,9 +438,9 @@ ORDER BY
 ```
 :::
 
-## Backup Database Task
+## مهمة النسخ الاحتياطي لقاعدة البيانات {#Backup-Database-Task}
 ::: tip
-You can find a better solution in the [installation video](https://youtu.be/EVaF2BtVPUU?t=2382):
+يمكنك إيجاد حل أفضل في [فيديو التثبيت](https://youtu.be/EVaF2BtVPUU?t=2382):
 <iframe width="560" height="315" src="https://www.youtube.com/embed/EVaF2BtVPUU?si=NA_qiuje-bvh_joJ&amp;start=2385" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 :::
 ::: details
@@ -466,23 +466,23 @@ BACKUP DATABASE DBNAME TO  DISK = @SQLStatement with compression
 
 ```
 :::
-## Delete Zombie Aliases
-::: details Find Zombie Aliases Query
+## حذف الأسماء المستعارة الزائفة (Zombie Aliases) {#Delete-Zombie-Aliases}
+::: details استعلام إيجاد الأسماء المستعارة الزائفة
 ```sql
 select a.* from Alias a left join EntitySystemEntry e on e.targetid = a.ownerId
 where e.id is null
 ```
 :::
 
-::: details Delete Zombie Aliases Query
+::: details استعلام حذف الأسماء المستعارة الزائفة
 ```sql
 delete a from Alias a left join EntitySystemEntry e on e.targetid = a.ownerId
 where e.id is null
 ```
 :::
 
-## Find Invalid Remarks Fields (whose type is not nvarchar(max))
-- Query to find all 'remarks' columns that are not nvarchar(max) and generate ALTER statements to change them to nvarchar(max)
+## إيجاد حقول الملاحظات (Remarks) غير الصحيحة (النوع ليس nvarchar(max)) {#Find-Invalid-Remarks-Fields-whose-type-is-not-nvarcharmax}
+- استعلام لإيجاد جميع أعمدة 'remarks' التي ليست من نوع nvarchar(max) وتوليد جمل ALTER لتحويلها إلى nvarchar(max)
 ::: details 
 ```sql
 

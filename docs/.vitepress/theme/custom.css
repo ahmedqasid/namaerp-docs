@@ -23,6 +23,12 @@
     unicode-bidi: embed;
 }
 
+/* Entity-flow docs are English-only but stay under the Arabic (RTL) locale — render their content LTR */
+[dir='rtl'] .entity-flows {
+    direction: ltr;
+    text-align: left;
+}
+
 /*
  * Fix: postcss-rtlcss mirrors the sidebar's mobile-drawer "hidden" state
  * ([dir=rtl] .VPSidebar { transform: translate(100%) }) with higher specificity

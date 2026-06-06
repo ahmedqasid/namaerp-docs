@@ -1,11 +1,11 @@
-# Criteria from Text Parser (Text Criteria Guide)
+# معايير من المحلل النصي (دليل معايير النص) {#Criteria-from-Text-Parser--Text-Criteria-Guide-}
 
-Nama ERP provides a flexible text-based filtering mechanism that allows users to define filter criteria using a simple, structured format.
+يوفر نظام نما ERP آلية مرنة للتصفية النصية تتيح للمستخدمين تعريف معايير الفلترة باستخدام صيغة بسيطة ومنظمة.
 
-Each filter condition in Nama ERP consists of the following components:
+يتكوّن كل شرط فلترة في نظام نما ERP من المكونات التالية:
 
-* **Field ID**: The property (field) to apply the filter on.
-* **Operator**: One of the following options:
+* **Field ID**: الخاصية (الحقل) المراد تطبيق الفلتر عليها.
+* **Operator**: أحد الخيارات التالية:
 
     * `Equal`, `NotEqual`
     * `GreaterThan`, `GreaterThanOrEqual`
@@ -13,110 +13,110 @@ Each filter condition in Nama ERP consists of the following components:
     * `StartsWith`, `NotStartsWith`
     * `EndsWith`, `NotEndWith`
     * `Contains`, `NotContain`
-    * `In`, `NotIn` (see [Multiple Values with In/NotIn](#multiple-values-with-in-notin) below)
-    * `OpenBracket`, `CloseBracket` (used for grouping expressions, and do not require a field ID or value)
-* **Compared Value**: The value to compare against.
-* **Logical Relationship**: The logical connector to the next condition (`AND` or `OR`).
+    * `In`, `NotIn` (انظر [قيم متعددة مع In/NotIn](#Multiple-Values-with-In-NotIn) أدناه)
+    * `OpenBracket`, `CloseBracket` (تُستخدم لتجميع التعبيرات، ولا تتطلب Field ID أو قيمة)
+* **Compared Value**: القيمة المراد المقارنة بها.
+* **Logical Relationship**: الرابط المنطقي للشرط التالي (`AND` أو `OR`).
 
-### Conditional Operators (OrEmpty Suffix)
+### المعاملات الشرطية (لاحقة OrEmpty) {#Conditional-Operators--OrEmpty-Suffix-}
 
-Any operator can have the `OrEmpty` suffix appended to make the condition optional when no value is provided. If the value is empty, the entire condition is skipped.
+يمكن إضافة اللاحقة `OrEmpty` لأي معامل لجعل الشرط اختياريًا عندما لا تُوفَّر قيمة. إذا كانت القيمة فارغة، يُتجاهل الشرط بالكامل.
 
-For example:
-* `EqualOrEmpty` - Applies Equal only if a value is provided
-* `ContainsOrEmpty` - Applies Contains only if a value is provided
-* `GreaterThanOrEqualOrEmpty` - Applies GreaterThanOrEqual only if a value is provided
+على سبيل المثال:
+* `EqualOrEmpty` - يطبّق Equal فقط إذا كانت القيمة موجودة
+* `ContainsOrEmpty` - يطبّق Contains فقط إذا كانت القيمة موجودة
+* `GreaterThanOrEqualOrEmpty` - يطبّق GreaterThanOrEqual فقط إذا كانت القيمة موجودة
 
-This is useful for building dynamic filters where some criteria may or may not have values:
+هذا مفيد لبناء فلاتر ديناميكية قد تحتوي بعض المعايير على قيم أو لا:
 ```
 code,StartsWithOrEmpty,{userInput},AND;
 ```
-If `{userInput}` is empty, this condition is ignored entirely.
+إذا كان `{userInput}` فارغًا، يُتجاهل هذا الشرط كليًا.
 
-### Special Commands
+### أوامر خاصة {#Special-Commands}
 
-**distinct-values**: Add this as a separate line to return only distinct records:
+**distinct-values**: أضف هذا في سطر منفصل للحصول على سجلات فريدة فقط:
 ```
 distinct-values
 code,StartsWith,01,AND;
 ```
 
-### Multiple Values with In/NotIn
+### قيم متعددة مع In/NotIn {#Multiple-Values-with-In-NotIn}
 
-The `In` and `NotIn` operators allow you to match a field against multiple values. To specify multiple values in the text criteria format, separate them with the special delimiter `@A=@X`.
+تتيح معاملات `In` و`NotIn` مطابقة حقل مع قيم متعددة. لتحديد قيم متعددة في صيغة معايير النص، افصل بينها بالمحدد الخاص `@A=@X`.
 
-**Syntax:**
+**الصيغة:**
 ```
 fieldID,In,value1@A=@Xvalue2@A=@Xvalue3,AND;
 ```
 
-**Examples:**
+**أمثلة:**
 
-Filter items where status is either "Active", "Pending", or "Review":
+تصفية العناصر التي حالتها "Active" أو "Pending" أو "Review":
 ```
 status,In,Active@A=@XPending@A=@XReview,AND;
 ```
 
-Filter records where category code is NOT "CAT01" or "CAT02":
+تصفية السجلات التي رمز الفئة فيها ليس "CAT01" أو "CAT02":
 ```
 category.code,NotIn,CAT01@A=@XCAT02,AND;
 ```
 
-Filter by multiple reference IDs:
+التصفية بمعرّفات مرجعية متعددة:
 ```
 warehouse.id,In,id1@A=@Xid2@A=@Xid3,AND;
 ```
 
 ::: warning
-The separator `@A=@X` must be used exactly as shown (case-sensitive). Do not add spaces around the separator.
+يجب استخدام المحدد `@A=@X` بالضبط كما هو موضح (حساس لحالة الأحرف). لا تضف مسافات حول المحدد.
 :::
 
-## Format
+## الصيغة {#Format}
 
-Each filter condition is represented as a line of text with four parts separated by commas:
+يُمثَّل كل شرط فلترة كسطر نصي يتكون من أربعة أجزاء مفصولة بفاصلات:
 
 ```
 fieldID,operator,value,logic;
 ```
 
-Multiple conditions can be separated by semicolons (`;`) or newlines. Both formats are valid:
+يمكن فصل الشروط المتعددة بفاصلات منقوطة (`;`) أو أسطر جديدة. كلا الصيغتين صالحتان:
 
-**Single-line format:**
+**الصيغة في سطر واحد:**
 ```
 code,StartsWith,01,AND;name1,Contains,abc,AND;
 ```
 
-**Multi-line format:**
+**الصيغة متعددة الأسطر:**
 ```
 code,StartsWith,01,AND
 name1,Contains,abc,AND
 ```
 
-### Default Values
+### القيم الافتراضية {#Default-Values}
 
-* If **operator** is omitted, it defaults to `Equal`
-* If **logical relationship** is omitted, it defaults to `AND`
+* إذا حُذف **operator**، يكون الافتراضي `Equal`
+* إذا حُذف **logical relationship**، يكون الافتراضي `AND`
 
-This means the simplest form of a filter is just:
+وهذا يعني أن أبسط صيغة للفلتر هي:
 ```
 fieldID,,value
 ```
-Which is equivalent to `fieldID,Equal,value,AND`
+وهي مكافئة لـ `fieldID,Equal,value,AND`
 
-### Special Field Formats
+### صيَغ حقول خاصة {#Special-Field-Formats}
 
-* **Date Fields**: Format must be `dd-MM-yyyy`
-* **Date-Time Fields**: Format must be `yyyy-MM-ddTHH:mm:ss.SSS` (milliseconds can be `000`)
-* **Reference Fields**: A reference is written as a colon-separated string:
+* **حقول التاريخ**: يجب أن تكون الصيغة `dd-MM-yyyy`
+* **حقول التاريخ والوقت**: يجب أن تكون الصيغة `yyyy-MM-ddTHH:mm:ss.SSS` (يمكن أن تكون الميلي ثانية `000`)
+* **حقول المرجع**: يُكتب المرجع كسلسلة مفصولة بنقطتين:
 
   ```
   <id>:<entityType>:<code>
   ```
 
-    * The `code` part is optional.
-    * Alternatively, you can reference specific parts using `.id` or `.code` for clarity and simplicity.
+    * جزء `code` اختياري.
+    * يمكن بديلًا الإشارة إلى أجزاء محددة باستخدام `.id` أو `.code` للوضوح والبساطة.
 
-## Example
+## مثال {#Example}
 
 ```csv
 code,StartsWith,01,AND;
@@ -127,69 +127,69 @@ n1,Equal,10,AND;
 section,Equal,ffff0001-79e2-11f2-8800-0000ff79c2dd:ItemSection:00,AND;
 ```
 
-The last line can also be expressed in two alternative forms:
+يمكن أيضًا التعبير عن السطر الأخير بصيغتين بديلتين:
 
 ```csv
 section.id,Equal,ffff0001-79e2-11f2-8800-0000ff79c2dd,AND;
 section.code,Equal,00,AND;
 ```
 
-## Dynamic Values
+## القيم الديناميكية {#Dynamic-Values}
 
-In addition to static values, Nama ERP supports dynamic values that are evaluated at runtime. These are especially useful for date-based filters and user-specific criteria.
+بالإضافة إلى القيم الثابتة، يدعم نظام نما ERP قيمًا ديناميكية تُحسب في وقت التشغيل. وهي مفيدة بشكل خاص للفلاتر المستندة إلى التاريخ والمعايير الخاصة بالمستخدم.
 
-### Date Dynamic Values
+### القيم الديناميكية للتاريخ {#Date-Dynamic-Values}
 
-The following dynamic values can be used in place of static dates:
+يمكن استخدام القيم الديناميكية التالية بدلًا من التواريخ الثابتة:
 
-| Value | Description |
+| القيمة | الوصف |
 |-------|-------------|
-| `$today()` | Current date |
-| `$now()` | Current date and time |
-| `$monthStart()` | First day of the current month |
-| `$monthEnd()` | Last day of the current month |
-| `$previousMonthStart()` | First day of the previous month |
-| `$previousMonthEnd()` | Last day of the previous month |
-| `$nextMonthStart()` | First day of the next month |
-| `$nextMonthEnd()` | Last day of the next month |
-| `$yearStart()` | First day of the current year |
-| `$yearEnd()` | Last day of the current year |
-| `$previousYearStart()` | First day of the previous year |
-| `$previousYearEnd()` | Last day of the previous year |
-| `$nextYearStart()` | First day of the next year |
-| `$nextYearEnd()` | Last day of the next year |
-| `$quarterStart()` | First day of the current quarter |
-| `$quarterEnd()` | Last day of the current quarter |
-| `$halveStart()` | First day of the current half-year (6-month period) |
-| `$halveEnd()` | Last day of the current half-year |
-| `$thirdStart()` | First day of the current third (4-month period) |
-| `$thirdEnd()` | Last day of the current third |
+| `$today()` | التاريخ الحالي |
+| `$now()` | التاريخ والوقت الحاليان |
+| `$monthStart()` | أول يوم في الشهر الحالي |
+| `$monthEnd()` | آخر يوم في الشهر الحالي |
+| `$previousMonthStart()` | أول يوم في الشهر الماضي |
+| `$previousMonthEnd()` | آخر يوم في الشهر الماضي |
+| `$nextMonthStart()` | أول يوم في الشهر القادم |
+| `$nextMonthEnd()` | آخر يوم في الشهر القادم |
+| `$yearStart()` | أول يوم في السنة الحالية |
+| `$yearEnd()` | آخر يوم في السنة الحالية |
+| `$previousYearStart()` | أول يوم في السنة الماضية |
+| `$previousYearEnd()` | آخر يوم في السنة الماضية |
+| `$nextYearStart()` | أول يوم في السنة القادمة |
+| `$nextYearEnd()` | آخر يوم في السنة القادمة |
+| `$quarterStart()` | أول يوم في الربع الحالي |
+| `$quarterEnd()` | آخر يوم في الربع الحالي |
+| `$halveStart()` | أول يوم في النصف الحالي من السنة (6 أشهر) |
+| `$halveEnd()` | آخر يوم في النصف الحالي من السنة |
+| `$thirdStart()` | أول يوم في الثلث الحالي (4 أشهر) |
+| `$thirdEnd()` | آخر يوم في الثلث الحالي |
 
-### Relative Date Values
+### القيم النسبية للتاريخ {#Relative-Date-Values}
 
-You can also calculate dates relative to today:
+يمكنك أيضًا حساب تواريخ نسبة إلى اليوم:
 
-| Value | Description |
+| القيمة | الوصف |
 |-------|-------------|
-| `$todayPlusDays(N)` | Today plus N days |
-| `$todayMinusDays(N)` | Today minus N days |
-| `$todayPlusWeeks(N)` | Today plus N weeks |
-| `$todayMinusWeeks(N)` | Today minus N weeks |
-| `$todayPlusMonths(N)` | Today plus N months |
-| `$todayMinusMonths(N)` | Today minus N months |
-| `$todayPlusYears(N)` | Today plus N years |
-| `$todayMinusYears(N)` | Today minus N years |
+| `$todayPlusDays(N)` | اليوم زائد N أيام |
+| `$todayMinusDays(N)` | اليوم ناقص N أيام |
+| `$todayPlusWeeks(N)` | اليوم زائد N أسابيع |
+| `$todayMinusWeeks(N)` | اليوم ناقص N أسابيع |
+| `$todayPlusMonths(N)` | اليوم زائد N أشهر |
+| `$todayMinusMonths(N)` | اليوم ناقص N أشهر |
+| `$todayPlusYears(N)` | اليوم زائد N سنوات |
+| `$todayMinusYears(N)` | اليوم ناقص N سنوات |
 
-### User Context Values
+### قيم سياق المستخدم {#User-Context-Values}
 
-These dynamic values reference the current logged-in user:
+هذه القيم الديناميكية تُشير إلى المستخدم الحالي المسجّل دخوله:
 
-| Value | Description |
+| القيمة | الوصف |
 |-------|-------------|
-| `$currentuserid` | ID of the current logged-in user |
-| `$currentempid` | ID of the employee linked to the current user |
+| `$currentuserid` | معرّف المستخدم الحالي المسجّل دخوله |
+| `$currentempid` | معرّف الموظف المرتبط بالمستخدم الحالي |
 
-### Dynamic Values Example
+### مثال على القيم الديناميكية {#Dynamic-Values-Example}
 
 ```csv
 date1,GreaterThanOrEqual,$monthStart(),AND;
@@ -198,13 +198,13 @@ createdBy.id,Equal,$currentuserid,AND;
 dueDate,LessThanOrEqual,$todayPlusDays(30),AND;
 ```
 
-This example filters records where:
-* `date1` is within the current month
-* `createdBy` is the current logged-in user
-* `dueDate` is within the next 30 days
+يُصفّي هذا المثال السجلات حيث:
+* `date1` ضمن الشهر الحالي
+* `createdBy` هو المستخدم الحالي المسجّل دخوله
+* `dueDate` خلال الـ 30 يومًا القادمة
 
 ::: tip
-You can use the screen **Criteria Definition** to visually build the required filter conditions through the system interface.
-Once you've defined the desired criteria using the UI, simply click the **Convert to Text** button to generate the equivalent text-based representation.
-This text can then be used directly in APIs or automation scripts.
+يمكنك استخدام شاشة **Criteria Definition** لبناء شروط الفلترة المطلوبة بصريًا عبر واجهة النظام.
+بعد تعريف المعايير المطلوبة من خلال واجهة المستخدم، اضغط على زر **Convert to Text** لتوليد التمثيل النصي المكافئ.
+يمكن بعد ذلك استخدام هذا النص مباشرةً في APIs أو سكريبتات الأتمتة.
 :::

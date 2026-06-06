@@ -1,17 +1,17 @@
 
-# Tempo Language Manual
+# دليل لغة Tempo
 
-This guide introduces the **Tempo language**, developed by the **NAMA team**, to help implementers create dynamic messages for **customers**, **employees**, and **suppliers**. Tempo is used in various outputs such as **notifications**, **emails**, **SMS messages**, and **validation error messages**.
+يُقدّم هذا الدليل **لغة Tempo**، التي طوّرها **فريق Nama**، لمساعدة المنفّذين في إنشاء رسائل ديناميكية للـ**عملاء** والـ**موظفين** والـ**موردين**. تُستخدم Tempo في مخرجات متنوعة مثل **الإشعارات** والـ**بريد الإلكتروني** ورسائل **SMS** و**رسائل خطأ التحقق**.
 
-## What is Tempo?
+## ما هي Tempo؟ {#What-is-Tempo}
 
-Tempo lets you embed dynamic values in text templates. For example, to display an error message stating that an employee cannot take more than five days of vacation, you can include the employee’s name dynamically:
+تتيح لك Tempo تضمين قيم ديناميكية في قوالب نصية. مثلًا، لعرض رسالة خطأ تفيد بأن موظفًا لا يمكنه أخذ أكثر من خمسة أيام إجازة، يمكنك تضمين اسم الموظف ديناميكيًا:
 
 ```tempo
 Employee {employee.name1} cannot take more than five days of vacation.
 ```
 
-If you want to include a hyperlink to the employee record:
+إذا أردت تضمين رابط تشعبي لسجل الموظف:
 
 ```tempo
 {link(employee)}
@@ -19,62 +19,62 @@ If you want to include a hyperlink to the employee record:
 
 ---
 
-## How to Discover Field Names
+## كيفية اكتشاف أسماء الحقول {#How-to-Discover-Field-Names}
 
-To find field names in any screen:
+للعثور على أسماء الحقول في أي شاشة:
 
-1. Press `CTRL + ALT + I`
-2. Right-click on any field to see its **internal ID**, **table name**, and **column name**
+1. اضغط `CTRL + ALT + I`
+2. انقر بزر الفأرة الأيمن على أي حقل لرؤية **المعرّف الداخلي** و**اسم الجدول** و**اسم العمود**
 
 ---
 
-## Using the Tempo Web Editor
+## استخدام محرّر Tempo على الويب {#Using-the-Tempo-Web-Editor}
 
-NAMA provides a web-based editor for writing and testing Tempo syntax:
+توفّر Nama محرّرًا عبر الويب لكتابة صياغة Tempo واختبارها:
 
-* It supports **auto-completion** with `Ctrl + Space`
-* It checks **syntax** as you write
+* يدعم **الإكمال التلقائي** بالضغط على `Ctrl + Space`
+* يفحص **الصياغة** أثناء الكتابة
 
-👉 Try it here: [Tempo Editor](https://www.namasoft.com/tempo.html)
+👉 جرّبه هنا: [Tempo Editor](https://www.namasoft.com/tempo.html)
 ![Tempo Editor](images/tempo-editor.png)
 
 ---
 
-## When to Use Tempo
+## متى تستخدم Tempo {#When-to-Use-Tempo}
 
-Tempo can be used in two major contexts:
+يمكن استخدام Tempo في سياقين رئيسيين:
 
-::: tip Two Usage Modes
+::: tip نمطا الاستخدام
 
-1. **Query Results**
-   Used in dashboards, notifications by query, or validation messages where a query is involved.
+1. **نتائج الاستعلام (Query Results)**
+   تُستخدم في لوحات المعلومات والإشعارات المستندة إلى استعلام أو رسائل التحقق التي تتضمن استعلامًا.
 
-2. **Record Rendering**
-   Used in entity-based messages (e.g., approvals, flows) to directly access record fields.
+2. **عرض السجل (Record Rendering)**
+   تُستخدم في الرسائل المستندة إلى الكيان (مثل الموافقات والمسارات) للوصول المباشر إلى حقول السجل.
 
-**Key Difference**:
-Only in record mode can you access nested fields (e.g., `customer.group.code`). In query result mode, such navigation won't work as expected.
+**الفرق الرئيسي**:
+لا يمكن الوصول إلى الحقول المتداخلة (مثل `customer.group.code`) إلا في وضع السجل. في وضع نتائج الاستعلام، لن يعمل هذا النوع من التنقل كما هو متوقع.
 :::
 
 ---
 
-## Tempo Syntax Overview
+## نظرة عامة على صياغة Tempo {#Tempo-Syntax-Overview}
 
-### 1. Accessing Record Fields
+### 1. الوصول إلى حقول السجل {#1--Accessing-Record-Fields}
 
-* Use `{fieldName}` to show a field from the current record:
+* استخدم `{fieldName}` لعرض حقل من السجل الحالي:
 
 ```tempo
 This Employee's Arabic name is {name1}
 ```
 
-* For related records (e.g., employee in a vacation request):
+* للسجلات المرتبطة (مثل موظف في طلب إجازة):
 
 ```tempo
 This Employee's Arabic name is {employee.name1}
 ```
 
-* For indirect references (e.g., employee in a `subsidiary` field):
+* للمراجع غير المباشرة (مثل موظف في حقل `subsidiary`):
 
 ```tempo
 This Employee's Arabic name is {subsidiary.$toReal.name1}
@@ -82,9 +82,9 @@ This Employee's Arabic name is {subsidiary.$toReal.name1}
 
 ---
 
-### 2. Writing Comments
+### 2. كتابة التعليقات {#2--Writing-Comments}
 
-To add comments in your Tempo code:
+لإضافة تعليقات في كود Tempo:
 
 ```tempo
 {comment} This was written by Khaled {endcomment}
@@ -92,9 +92,9 @@ To add comments in your Tempo code:
 
 ---
 
-### 3. Disabling Tempo Parsing
+### 3. تعطيل تحليل Tempo {#3--Disabling-Tempo-Parsing}
 
-If you want to prevent the whole template or part of it from being parsed:
+إذا أردت منع تحليل القالب بأكمله أو جزء منه:
 
 ```html
 <notempo/>
@@ -102,9 +102,9 @@ If you want to prevent the whole template or part of it from being parsed:
 
 ---
 
-### 4. Parsing a Field as Tempo Template
+### 4. تحليل حقل كقالب Tempo {#4--Parsing-a-Field-as-Tempo-Template}
 
-To parse the content of a field (e.g., remarks) as a Tempo template:
+لتحليل محتوى حقل (مثل الملاحظات) كقالب Tempo:
 
 ```tempo
 {tempo}{customer.remarks}{endtempo}
@@ -112,9 +112,9 @@ To parse the content of a field (e.g., remarks) as a Tempo template:
 
 ---
 
-### 5. Escaping Curly Brackets
+### 5. إفلات الأقواس المعقوفة {#5--Escaping-Curly-Brackets}
 
-If you need to show `{code}` literally without rendering:
+إذا أردت عرض `{code}` حرفيًا دون تفسيره:
 
 ```tempo
 \{code\}
@@ -122,21 +122,21 @@ If you need to show `{code}` literally without rendering:
 
 ---
 
-### 6. CSS-Friendly Brackets
+### 6. أقواس متوافقة مع CSS {#6--CSS-Friendly-Brackets}
 
-To avoid issues when working with HTML/CSS, enable CSS-friendly brackets:
+لتجنب مشكلات العمل مع HTML/CSS، فعّل الأقواس المتوافقة مع CSS:
 
 ```html
 <useCSSFriendlyBrackets/>
 ```
 
-Now you can write:
+يمكنك حينئذٍ الكتابة بهذا الشكل:
 
 ```tempo
 %{code}%
 ```
 
-Instead of:
+بدلًا من:
 
 ```tempo
 {code}
@@ -144,17 +144,17 @@ Instead of:
 
 ---
 
-### 7. Handling Editor Errors
+### 7. التعامل مع أخطاء المحرّر {#7--Handling-Editor-Errors}
 
-Sometimes the Tempo editor incorrectly flags correct syntax. You can prefix such expressions with `#` to ignore the error:
+أحيانًا يُبلّغ محرّر Tempo بشكل خاطئ عن صياغة صحيحة. يمكنك إضافة البادئة `#` لتجاهل الخطأ:
 
-Incorrect (editor shows error):
+غير صحيح (يعرض المحرّر خطأ):
 
 ```tempo
 {time.$hours}
 ```
 
-Corrected:
+المصحَّح:
 
 ```tempo
 {#time.$hours}
@@ -162,31 +162,31 @@ Corrected:
 
 ---
 
-### 8. Creating Line Breaks
+### 8. إنشاء فواصل أسطر {#8--Creating-Line-Breaks}
 
-Use `{enter}` to insert a line break in HTML messages:
+استخدم `{enter}` لإدراج فاصل سطر في رسائل HTML:
 
 ```tempo
 Line 1{enter}
 Line 2
 ```
 
-## Creating Hyperlinks in Tempo
+## إنشاء الروابط التشعبية في Tempo {#Creating-Hyperlinks-in-Tempo}
 
-### 1. Link to a Field or Record
+### 1. رابط لحقل أو سجل {#1--Link-to-a-Field-or-Record}
 
-You can generate clickable links for fields or records using two approaches:
+يمكنك إنشاء روابط قابلة للنقر للحقول أو السجلات باستخدام أسلوبين:
 
-#### **Method 1: Basic Link (Displays Field as Link)**
+#### **الأسلوب الأول: رابط أساسي (يعرض الحقل كرابط)**
 
-Use the `link()` function to make the field itself a hyperlink:
+استخدم دالة `link()` لتحويل الحقل نفسه إلى رابط تشعبي:
 
 ```tempo
 {link(targetField)}
 ```
 
-**Example:**
-To create a link for the customer record:
+**مثال:**
+لإنشاء رابط لسجل العميل:
 
 ```tempo
 {link(customer)}
@@ -194,16 +194,16 @@ To create a link for the customer record:
 
 ---
 
-#### **Method 2: Titled Link (Custom Text as Link)**
+#### **الأسلوب الثاني: رابط بعنوان مخصص**
 
-Use `titledlink()` with custom link content:
+استخدم `titledlink()` مع محتوى رابط مخصص:
 
 ```tempo
 {titledlink(targetField)} Your custom link text {endlink}
 ```
 
-**Example:**
-To show a customer link with the title “Current Customer code is ABC”:
+**مثال:**
+لعرض رابط عميل بالعنوان "Current Customer code is ABC":
 
 ```tempo
 {titledlink(customer)} Current Customer code is {code} {endlink}
@@ -211,25 +211,25 @@ To show a customer link with the title “Current Customer code is ABC”:
 
 ---
 
-### 2. Relative Links for Web Notifications
+### 2. الروابط النسبية للإشعارات على الويب {#2--Relative-Links-for-Web-Notifications}
 
-When creating links for notifications (not emails), use relative paths for optimal behavior:
+عند إنشاء روابط للإشعارات (وليس البريد الإلكتروني)، استخدم المسارات النسبية للحصول على أفضل سلوك:
 
-#### **Use `{shortlinks}` or `{directlinks}`**
+#### **استخدم `{shortlinks}` أو `{directlinks}`**
 
-* `{shortlinks}`: Generates relative links based on the current web page
-* `{directlinks}`: Also generates relative links but allows for more direct access
+* `{shortlinks}`: ينشئ روابط نسبية استنادًا إلى صفحة الويب الحالية
+* `{directlinks}`: ينشئ أيضًا روابط نسبية لكنه يتيح وصولًا أكثر مباشرة
 
-> ⚠️ These are **not** suitable for email messages.
+> ⚠️ هذه **غير** مناسبة لرسائل البريد الإلكتروني.
 
-**Example 1 – Using `{shortlinks}`**:
+**مثال 1 – استخدام `{shortlinks}`**:
 
 ```tempo
 {shortlinks}
 The user {#firstAuthor.name2} created the document {#code}
 ```
 
-**Example 2 – Using `{directlinks}`**:
+**مثال 2 – استخدام `{directlinks}`**:
 
 ```tempo
 {directlinks}
@@ -238,27 +238,27 @@ The user {#firstAuthor.name2} created the document {link($this)}
 
 ---
 
-### 3. Linking from Query Results
+### 3. الربط من نتائج الاستعلام {#3--Linking-from-Query-Results}
 
-If you're sending a notification based on a query:
+إذا كنت ترسل إشعارًا استنادًا إلى استعلام:
 
 ```tempo
 {titledlink(entityType, id)} {code} {endlink}
 ```
 
-This links to the record identified by `entityType` and `id`, using the record's code as the visible title.
+يربط هذا بالسجل المحدَّد بـ`entityType` و`id`، مستخدمًا كود السجل كعنوان مرئي.
 
 ---
 
-### 4. Open Record in Specific Menu or View
+### 4. فتح السجل في قائمة أو عرض محدد {#4--Open-Record-in-Specific-Menu-or-View}
 
-You can customize how a link opens by specifying additional parameters:
+يمكنك تخصيص طريقة فتح الرابط بتحديد معاملات إضافية:
 
 ```tempo
 {link(record, menu="MenuCode", newindow="true or false", view="ViewName")}
 ```
 
-Or with a custom title:
+أو بعنوان مخصص:
 
 ```tempo
 {titledlink(record, menu="MenuCode", newindow="true or false", view="ViewName")}
@@ -266,14 +266,14 @@ Link Content Here
 {endlink}
 ```
 
-**Example:**
-Open an employee record in a new window via a specific menu and view:
+**مثال:**
+فتح سجل موظف في نافذة جديدة عبر قائمة وعرض محددين:
 
 ```tempo
 {link(employee, menu="NewEmp", newindow="true", view="NewEmpsView")}
 ```
 
-With a title:
+مع عنوان:
 
 ```tempo
 {titledlink(employee, menu="NewEmp", newindow="true", view="NewEmpsView")}
@@ -283,21 +283,21 @@ Employee code {code}, Name {name1}
 
 ---
 
-### 5. Using a Specific Base URL for All Links
+### 5. استخدام عنوان URL أساسي محدد لجميع الروابط {#5--Using-a-Specific-Base-URL-for-All-Links}
 
-To force all links to use a certain server address, use the `{appurl()}` tag at the **start** of the template:
+لإجبار جميع الروابط على استخدام عنوان خادم معين، استخدم الوسم `{appurl()}` في **بداية** القالب:
 
 ```tempo
 {appurl("http://crm7.namasoft.com:8080/erp/")}
 ```
 
-This ensures that all subsequent links are based on the provided URL.
+يضمن هذا أن جميع الروابط اللاحقة تستند إلى العنوان المقدَّم.
 
-## Using Loops in Tempo
+## استخدام الحلقات (Loops) في Tempo {#Using-Loops-in-Tempo}
 
-### Looping Through Repeated Data (e.g. Document Details)
+### التكرار على بيانات متكررة (مثل تفاصيل المستند) {#Looping-Through-Repeated-Data--e-g--Document-Details-}
 
-To display a list of repeated rows (like items in a document), use the `loop` block:
+لعرض قائمة من الصفوف المتكررة (مثل الأصناف في مستند)، استخدم كتلة `loop`:
 
 ```tempo
 {loop(details)}
@@ -305,8 +305,8 @@ To display a list of repeated rows (like items in a document), use the `loop` bl
 {endloop}
 ```
 
-**Example:**
-Display each item's code, Arabic name, quantity, and net value in a sales invoice:
+**مثال:**
+عرض كود كل صنف واسمه بالعربية والكمية والقيمة الصافية في فاتورة مبيعات:
 
 ```tempo
 {loop(details)}
@@ -316,9 +316,9 @@ Display each item's code, Arabic name, quantity, and net value in a sales invoic
 
 ---
 
-### Accessing SQL Fields in Detail Collections
+### الوصول إلى حقول SQL في مجموعات التفاصيل {#Accessing-SQL-Fields-in-Detail-Collections}
 
-To access SQL fields (`sqlField1`, `sqlField2`, etc.) within detail collections, enable them first:
+للوصول إلى حقول SQL (`sqlField1`، `sqlField2`، إلخ) ضمن مجموعات التفاصيل، فعّلها أولًا:
 
 ```tempo
 {enableDetailSqlFields(details)}
@@ -330,7 +330,7 @@ To access SQL fields (`sqlField1`, `sqlField2`, etc.) within detail collections,
 
 ---
 
-### Vacation Remainder
+### رصيد الإجازات المتبقي {#Vacation-Remainder}
 
 لحساب رصيد الإجازات المتبقي للموظف:
 
@@ -352,11 +352,11 @@ Employee {name1} has {vacationremainder(id, "001", "2024-12-28")} days remaining
 Employee {name1} has {vacationremainder("E00147", "ffff0001-8d64-70c9-e300-0000ff2854df")} days remaining
 ```
 
-### Loop Variants
+### أشكال الحلقات {#Loop-Variants}
 
-#### 1. **Last Line Only**
+#### 1. **السطر الأخير فقط** {#1--Last-Line-Only}
 
-Loop through just the last row:
+التكرار على السطر الأخير فقط:
 
 ```tempo
 {loop(details, last)}
@@ -366,9 +366,9 @@ Loop through just the last row:
 
 ---
 
-#### 2. **Range of Lines**
+#### 2. **نطاق من الأسطر** {#2--Range-of-Lines}
 
-Loop through a specific range of line numbers:
+التكرار على نطاق محدد من أرقام الأسطر:
 
 ```tempo
 {loop(details, 2, 3)}
@@ -378,15 +378,15 @@ Loop through a specific range of line numbers:
 
 ---
 
-#### 3. **From Specific Line to End**
+#### 3. **من سطر محدد حتى النهاية** {#3--From-Specific-Line-to-End}
 
-Loop from a starting line to the last line:
+التكرار من سطر بداية حتى السطر الأخير:
 
 ```tempo
 {loop(details, 5)}
 ```
 
-> This is equivalent to:
+> هذا مكافئ لـ:
 
 ```tempo
 {loop(details, 5, last)}
@@ -394,11 +394,11 @@ Loop from a starting line to the last line:
 
 ---
 
-### Manual Counters
+### العدّادات اليدوية {#Manual-Counters}
 
-You can define and control your own counters for custom row numbering and referencing:
+يمكنك تعريف عدّاداتك الخاصة والتحكم فيها لترقيم الصفوف المخصص والمرجعية:
 
-#### Counter Syntax
+#### صياغة العدّاد {#Counter-Syntax}
 
 ```tempo
 {incrementcounter(counterName)}
@@ -406,9 +406,9 @@ You can define and control your own counters for custom row numbering and refere
 {countervalue(counterName)}
 ```
 
-#### Use in Quick Creators
+#### الاستخدام في Quick Creators {#Use-in-Quick-Creators}
 
-To use the counter in a row expression:
+لاستخدام العدّاد في تعبير الصف:
 
 ```tempo
 {r(@@counterName)}
@@ -416,14 +416,14 @@ To use the counter in a row expression:
 
 ---
 
-### Full Example: Creating Stock Transfer from MnOrder
+### مثال كامل: إنشاء تحويل مخزني من MnOrder {#Full-Example--Creating-Stock-Transfer-from-MnOrder}
 
-This example demonstrates:
+يوضّح هذا المثال:
 
-* A loop over `spareParts`
-* Skipping rows where `spareParts.n1` is true
-* Using a manual counter `c1`
-* Populating a stock transfer creation form
+* حلقة على `spareParts`
+* تخطي الصفوف التي تكون فيها `spareParts.n1` مساوية لـ true
+* استخدام عدّاد يدوي `c1`
+* ملء نموذج إنشاء تحويل مخزني
 
 ```tempo
 {creator(entity="StockTransfer", menu="StockTransDocumentsStockTransferReq", title="Create StockTransferReq", newwindow="true")}
@@ -450,9 +450,9 @@ This example demonstrates:
 {endcreator}
 ```
 
-### Example 2: Creating Stock Transfer Request from SalesOrder if totalUnsatisfiedQty field is not zero 
+### مثال 2: إنشاء طلب تحويل مخزني من SalesOrder إذا لم يكن الحقل totalUnsatisfiedQty صفرًا {#Example-2--Creating-Stock-Transfer-Request-from-SalesOrder-if-totalUnsatisfiedQty-field-is-not-zero}
 
-This example demonstrates using if statements.
+يوضّح هذا المثال استخدام جمل if.
 
 ```tempo
 {if(totalUnsatisfiedQty)}
@@ -465,11 +465,11 @@ This example demonstrates using if statements.
 {endif}
 ```
 
-## Using Tempo in Approval Notification Templates
+## استخدام Tempo في قوالب إشعارات الموافقة {#Using-Tempo-in-Approval-Notification-Templates}
 
-### 1. Displaying Approval-Related Lines
+### 1. عرض الأسطر المتعلقة بالموافقة {#1--Displaying-Approval-Related-Lines}
 
-To inform users about specific lines affected by an approval rule (e.g., prices below a threshold), use a `loop` over the approval rule lines:
+لإعلام المستخدمين بالأسطر المحددة المتأثرة بقاعدة موافقة (مثل الأسعار الأقل من الحد)، استخدم حلقة `loop` على أسطر قاعدة الموافقة:
 
 ```tempo
 The lines that are below the default sales price:
@@ -478,13 +478,13 @@ The lines that are below the default sales price:
 {endloop}
 ```
 
-This will list each line with a link to the item and display the unit price.
+سيُدرج هذا كل سطر مع رابط للصنف ويعرض سعر الوحدة.
 
 ---
 
-### 2. Adding Approval Action Links
+### 2. إضافة روابط إجراءات الموافقة {#2--Adding-Approval-Action-Links}
 
-To include action buttons in your email or SMS templates for approval workflows, use the following placeholders:
+لتضمين أزرار الإجراءات في قوالب البريد الإلكتروني أو SMS لمسارات الموافقة، استخدم العناصر النائبة التالية:
 
 ```tempo
 {approvelink}
@@ -495,26 +495,26 @@ To include action buttons in your email or SMS templates for approval workflows,
 
 ::: tip
 
-* These action links are mainly used in **email or SMS templates** defined within an **approval rule**.
-* It's common to include multiple action links together in a message (e.g., Approve, Reject, Return).
+* تُستخدم روابط الإجراءات هذه بشكل رئيسي في **قوالب البريد الإلكتروني أو SMS** المحدَّدة ضمن **قاعدة موافقة**.
+* من الشائع تضمين عدة روابط إجراءات معًا في رسالة (مثل: موافقة، رفض، إرجاع).
 :::
 
-#### Optional Attributes
+#### الخصائص الاختيارية {#Optional-Attributes}
 
-Each of the four action links accepts the following optional attributes, written inside parentheses:
+يقبل كل من الروابط الأربعة الخصائص الاختيارية التالية داخل الأقواس:
 
-| Attribute | Description |
-|-----------|-------------|
-| `reason` | The reason ID or code to attach to the decision (e.g. the reason for a rejection or return). Pass either the reason's ID or its code: `reason=reasonIdOrCode`. |
-| `plain` | When `true`, outputs **only the action URL** instead of the default `<a href='...'>...</a>` anchor tag. This lets you wrap the URL in your own markup — for example a colored button or chip. Defaults to `false`. |
+| الخاصية | الوصف |
+|---------|-------|
+| `reason` | معرّف السبب أو كوده المرفق بالقرار (مثل سبب الرفض أو الإرجاع). مرّر إما معرّف السبب أو كوده: `reason=reasonIdOrCode`. |
+| `plain` | عندما يكون `true`، يُخرج **عنوان URL للإجراء فقط** بدلًا من وسم الرابط الافتراضي `<a href='...'>...</a>`. يتيح لك هذا تغليف الرابط في ترميزك الخاص — مثل زر ملون. القيمة الافتراضية `false`. |
 
-**Example — attach a reason and render a plain (unwrapped) link:**
+**مثال — إرفاق سبب وعرض رابط عادي (غير مغلّف):**
 
 ```tempo
 {approvelink(reason=reasoncode, plain=true)}
 ```
 
-**Example — build a custom colored button around a plain reject link:**
+**مثال — بناء زر ملون مخصص حول رابط رفض عادي:**
 
 ```tempo
 <a href='{rejectlink(reason=LATE_SUBMISSION, plain=true)}'
@@ -524,20 +524,20 @@ Each of the four action links accepts the following optional attributes, written
 ```
 
 ::: tip
-With `plain=true` no decision text is emitted (since there is no anchor to label), so you are responsible for providing the visible button/chip text yourself.
+مع `plain=true` لا يُصدَر نص القرار (إذ لا يوجد رابط لوضع العنوان فيه)، لذا أنت المسؤول عن توفير نص الزر/الشريحة المرئي.
 :::
 
-## Creating Tables in Tempo
+## إنشاء جداول في Tempo {#Creating-Tables-in-Tempo}
 
-Tempo allows you to format tabular data using special syntax blocks. This is useful for presenting structured data like document lines, grouped totals, or summaries in a clean format.
+تتيح Tempo تنسيق البيانات الجدولية باستخدام كتل صياغة خاصة. هذا مفيد لتقديم بيانات منظمة كأسطر المستند والإجماليات المجمَّعة أو الملخصات بتنسيق أنيق.
 
 ---
 
-### 1. Basic Table Structure
+### 1. هيكل الجدول الأساسي {#1--Basic-Table-Structure}
 
-To create a table, wrap your content between `{opentable}` and `{closetable}` tags.
+لإنشاء جدول، غلّف محتواك بين وسمَي `{opentable}` و`{closetable}`.
 
-#### **Example – Table of Sales Invoice Details**
+#### **مثال – جدول تفاصيل فاتورة المبيعات**
 
 ```tempo
 {opentable}
@@ -555,44 +555,44 @@ To create a table, wrap your content between `{opentable}` and `{closetable}` ta
 ```
 
 ::: tip
-`{@rownumber}` represents the line number and corresponds to the `#` symbol in the header.
+`{@rownumber}` يمثّل رقم السطر ويقابل رمز `#` في الرأس.
 :::
 
 ---
 
-### 2. Rows and Cells
+### 2. الصفوف والخلايا {#2--Rows-and-Cells}
 
-#### Drawing Rows
+#### رسم الصفوف {#Drawing-Rows}
 
-Use `{row}` and `{endrow}` to define a table row.
+استخدم `{row}` و`{endrow}` لتعريف صف جدول.
 
-**Example – Table Header Row:**
+**مثال – صف رأس الجدول:**
 
 ```tempo
 {row}{cell}#{cell}Item Code{cell}Item Name{cell}Quantity{cell}Net Value{endrow}
 ```
 
-#### Drawing Cells
+#### رسم الخلايا {#Drawing-Cells}
 
-Use `{cell}` to create table cells. You may optionally close each cell with `{endcell}`.
+استخدم `{cell}` لإنشاء خلايا الجدول. يمكنك اختياريًا إغلاق كل خلية بـ`{endcell}`.
 
-**Example:**
+**مثال:**
 
 ```tempo
 {cell}Item Name{endcell}
 ```
 
 ::: tip
-The `{endcell}` tag is optional and can be omitted for simplicity.
+وسم `{endcell}` اختياري ويمكن حذفه للتبسيط.
 :::
 
 ---
 
-### 3. Grouping Data in Tables
+### 3. تجميع البيانات في الجداول {#3--Grouping-Data-in-Tables}
 
-Tempo supports grouping rows with headers and footers using the following syntax:
+تدعم Tempo تجميع الصفوف مع رؤوس وتذييلات باستخدام الصياغة التالية:
 
-#### Group Header
+#### رأس المجموعة {#Group-Header}
 
 ```tempo
 {header(groupingField)}
@@ -600,7 +600,7 @@ Tempo supports grouping rows with headers and footers using the following syntax
 {endheader}
 ```
 
-#### Group Footer
+#### تذييل المجموعة {#Group-Footer}
 
 ```tempo
 {footer(groupingField)}
@@ -608,7 +608,7 @@ Tempo supports grouping rows with headers and footers using the following syntax
 {endfooter}
 ```
 
-#### **Example – Grouped Table by Item Code**
+#### **مثال – جدول مجمَّع حسب كود الصنف**
 
 ```tempo
 {loop(details)}
@@ -629,23 +629,23 @@ Tempo supports grouping rows with headers and footers using the following syntax
 {endloop}
 ```
 
-In this example:
+في هذا المثال:
 
-* A new table is created for each unique `item.code`
-* The table opens in the header and closes in the footer
-* Individual item rows are inserted within the loop
+* يُنشأ جدول جديد لكل `item.code` فريد
+* يُفتح الجدول في الرأس ويُغلق في التذييل
+* تُدرج صفوف الأصناف الفردية ضمن الحلقة
 
-## Functions Available in Tempo
+## الدوال المتاحة في Tempo {#Functions-Available-in-Tempo}
 
-### Accessing Current User Data
+### الوصول إلى بيانات المستخدم الحالي {#Accessing-Current-User-Data}
 
-Use the following syntax to get properties of the currently logged-in user:
+استخدم الصياغة التالية للحصول على خصائص المستخدم الحالي المسجّل دخوله:
 
 ```tempo
 {$user.PROPERTY_NAME}
 ```
 
-**Example:**
+**مثال:**
 
 ```tempo
 {$user.code}
@@ -653,15 +653,15 @@ Use the following syntax to get properties of the currently logged-in user:
 
 ---
 
-## Date and Time Functions
+## دوال التاريخ والوقت {#Date-and-Time-Functions}
 
-### General Date Formatting
+### التنسيق العام للتاريخ {#General-Date-Formatting}
 
 ```tempo
 {formatDate(dateExpression, formatExpression)}
 ```
 
-**Example:**
+**مثال:**
 
 ```tempo
 {formatDate(valueDate, "yyyy-MM-dd")}
@@ -669,47 +669,47 @@ Use the following syntax to get properties of the currently logged-in user:
 
 ---
 
-### Record Metadata
+### بيانات وصف السجل {#Record-Metadata}
 
-* Creation date and time: `{$creationDate}`
-* Creation date only: `{$creationDate.$toDate}`
-* Current date: `{$today}`
-* Current date and time: `{$now}`
-
----
-
-### Navigating Dates
-
-* Next month: `{date.$nextMonth}`
-* Previous month: `{date.$previousMonth}`
-* Next day: `{valueDate.$nextDay}`
-* Previous day: `{valueDate.$previousDay}`
-* Next year: `{valueDate.$nextYear}`
-* Previous year: `{valueDate.$previousYear}`
-* Start of month: `{valueDate.$monthStart}`
-* End of month: `{valueDate.$monthEnd}`
+* تاريخ ووقت الإنشاء: `{$creationDate}`
+* تاريخ الإنشاء فقط: `{$creationDate.$toDate}`
+* التاريخ الحالي: `{$today}`
+* التاريخ والوقت الحالي: `{$now}`
 
 ---
 
-### Extracting Parts of a Date
+### التنقل بين التواريخ {#Navigating-Dates}
 
-* Day: `{valueDate.day}`
-* Month: `{valueDate.month}`
-* Year: `{valueDate.year}`
-
----
-
-### Day Name
-
-* Arabic: `{valueDate.$arDayName}`
-* English: `{valueDate.$enDayName}`
-* Based on current language: `{valueDate.$dayName}`
+* الشهر التالي: `{date.$nextMonth}`
+* الشهر السابق: `{date.$previousMonth}`
+* اليوم التالي: `{valueDate.$nextDay}`
+* اليوم السابق: `{valueDate.$previousDay}`
+* السنة التالية: `{valueDate.$nextYear}`
+* السنة السابقة: `{valueDate.$previousYear}`
+* بداية الشهر: `{valueDate.$monthStart}`
+* نهاية الشهر: `{valueDate.$monthEnd}`
 
 ---
 
-### Hijri and String Formats
+### استخراج أجزاء التاريخ {#Extracting-Parts-of-a-Date}
 
-* Hijri date: `{valueDate.$asHijriString}`
+* اليوم: `{valueDate.day}`
+* الشهر: `{valueDate.month}`
+* السنة: `{valueDate.year}`
+
+---
+
+### اسم اليوم {#Day-Name}
+
+* بالعربية: `{valueDate.$arDayName}`
+* بالإنجليزية: `{valueDate.$enDayName}`
+* حسب اللغة الحالية: `{valueDate.$dayName}`
+
+---
+
+### صيغ التاريخ الهجري والنصي {#Hijri-and-String-Formats}
+
+* التاريخ الهجري: `{valueDate.$asHijriString}`
 * `DD-MM-YYYY`: `{valueDate.$toStringDD_MM_YYYY}`
 * `DD/MM/YYYY`: `{valueDate.$toStringSlashDD_MM_YYYY}`
 * `YYYY/MM/DD`: `{valueDate.$toStringSlashYYYY_MM_DD}`
@@ -717,50 +717,50 @@ Use the following syntax to get properties of the currently logged-in user:
 
 ---
 
-### Record Creation Time
+### وقت إنشاء السجل {#Record-Creation-Time}
 
-* Time only: `{$creationDate.$toTime.$toStringNormal}`
+* الوقت فقط: `{$creationDate.$toTime.$toStringNormal}`
 
 ::: tip
-`$toStringNormal` converts time to a readable format like `12:50:10`
+`$toStringNormal` يحوّل الوقت إلى صيغة قابلة للقراءة مثل `12:50:10`
 :::
 
 ---
 
-### Time Field Functions (Record Mode)
+### دوال حقل الوقت (وضع السجل) {#Time-Field-Functions--Record-Mode-}
 
 ::: tip
-Assume the field is called `time`
+افترض أن الحقل يسمى `time`
 :::
 
-* Hour: `{time.$hours}`
-* Minute: `{time.$minutesOfHour}`
-* Second: `{time.$secondsOfMinute}`
-* Millisecond: `{time.$millisOfSecond}`
+* الساعة: `{time.$hours}`
+* الدقيقة: `{time.$minutesOfHour}`
+* الثانية: `{time.$secondsOfMinute}`
+* الميلي ثانية: `{time.$millisOfSecond}`
 
 ---
 
-### Time Field Functions (Query Mode)
+### دوال حقل الوقت (وضع الاستعلام) {#Time-Field-Functions--Query-Mode-}
 
-To format a time field from a query:
+لتنسيق حقل وقت من استعلام:
 
 ```tempo
 {time(timeField)}
 ```
 
-**Example:**
+**مثال:**
 
 ```tempo
 {time(fromTime)}
 ```
 
-Or use:
+أو استخدم:
 
 ```tempo
 {fromTime.$toStringNormal}
 ```
 
-For total hours stored as a decimal:
+لإجمالي الساعات المخزَّنة كعدد عشري:
 
 ```tempo
 {decimalToTime(decimalField)}
@@ -768,124 +768,124 @@ For total hours stored as a decimal:
 
 ---
 
-## Array and Text Utilities
+## أدوات المصفوفات والنصوص {#Array-and-Text-Utilities}
 
-### Accessing Array Elements
+### الوصول إلى عناصر المصفوفة {#Accessing-Array-Elements}
 
 ```tempo
 {details.$get(index)}
 ```
 
 ::: tip
-Index is zero-based. To get the first row in `details`, use `{details.$get(0)}`
+الفهرس يبدأ من صفر. للحصول على الصف الأول في `details`، استخدم `{details.$get(0)}`
 :::
 
 ---
 
-### Text Utilities
+### أدوات النصوص {#Text-Utilities}
 
-* Remove all whitespace — including between words (Unicode-aware):
+* إزالة جميع المسافات البيضاء — بما فيها بين الكلمات (يدعم Unicode):
 
 ```tempo
 {description1.$removeAllSpaces}
 ```
 
-* Normalize spaces — trim edges and collapse multiple internal spaces into one:
+* تسوية المسافات — قص الحواف وطي المسافات الداخلية المتعددة إلى مسافة واحدة:
 
 ```tempo
 {name1.$normalizeSpace}
 ```
 
-* Normalize Arabic text (unify similar characters):
+* تسوية النص العربي (توحيد الحروف المتشابهة):
 
 ```tempo
 {description1.$normalizeAr}
 ```
 
 ::: tip
-The full set of whitespace helpers (`$strip`, `$stripLeading`, `$stripTrailing`, `$normalizeSpace`, `$removeAllSpaces`) is documented under [Trimming and Replacements](#Trimming-and-Replacements).
+المجموعة الكاملة من مساعدات المسافات البيضاء (`$strip`، `$stripLeading`، `$stripTrailing`، `$normalizeSpace`، `$removeAllSpaces`) موثَّقة تحت [Trimming and Replacements](#Trimming-and-Replacements).
 :::
 
-**Example:**
+**مثال:**
 
 ```
 منى ذهبت إلى المدرسة مع فؤاد
 ```
 
-Becomes:
+يصبح:
 
 ```
 مني ذهبت الي المدرسه مع فواد
 ```
-### Translations in Tempo
+### الترجمات في Tempo {#Translations-in-Tempo}
 
-#### Translating Enumeration Fields
+#### ترجمة حقول التعداد (Enumeration Fields) {#Translating-Enumeration-Fields}
 
-* Arabic translation:
+* الترجمة العربية:
 
 ```tempo
 {#orderStatus.$arabic}
 ```
 
-* English translation:
+* الترجمة الإنجليزية:
 
 ```tempo
 {#orderStatus.$english}
 ```
 
-* Auto-translate based on language settings:
+* الترجمة التلقائية استنادًا إلى إعدادات اللغة:
 
 ```tempo
 {translate(orderStatus)}
 ```
 
-* Force Arabic translation:
+* إجبار الترجمة العربية:
 
 ```tempo
 {translateAr(orderStatus)}
 ```
 
-* Force English translation:
+* إجبار الترجمة الإنجليزية:
 
 ```tempo
 {translateEn(orderStatus)}
 ```
 
-**Example:**
+**مثال:**
 
 ```tempo
 {translate(orderStatus)}
 ```
 
-This translates the `orderStatus` value to the other language (Arabic ↔ English).
+يُترجم هذا قيمة `orderStatus` إلى اللغة الأخرى (عربي ↔ إنجليزي).
 
 ::: tip
-You can also use `{orderStatus.$english}` or `{orderStatus.$arabic}` directly.
+يمكنك أيضًا استخدام `{orderStatus.$english}` أو `{orderStatus.$arabic}` مباشرةً.
 :::
 
 ---
 
-#### Branding Keys: Application Name and URL
+#### مفاتيح العلامة التجارية: اسم التطبيق وعنوانه {#Branding-Keys--Application-Name-and-URL}
 
-Two special keys let you reference the running installation's **branding** instead of translating a field. The actual values depend on the licence — the same template renders differently on a Nama ERP install, a Capital Solutions ERP install, an Exceed ERP install, and so on.
+يتيح لك مفتاحان خاصان الإشارة إلى **العلامة التجارية** للتثبيت الحالي بدلًا من ترجمة حقل. تعتمد القيم الفعلية على الترخيص — يُصيَّر نفس القالب بشكل مختلف على تثبيت Nama ERP أو Capital Solutions ERP أو Exceed ERP وما إلى ذلك.
 
-* **Application name** — the branded product name:
+* **اسم التطبيق** — اسم المنتج ذو العلامة التجارية:
 
 ```tempo
 {translate("applicationName")}
 ```
 
-Renders `Nama ERP`, `Capital Solutions ERP`, `Exceed ERP`, etc., according to the current licence branding.
+يُصيَّر كـ `Nama ERP` أو `Capital Solutions ERP` أو `Exceed ERP` وما إلى ذلك، وفقًا لعلامة الترخيص الحالية.
 
-* **Application URL** — the branded website address:
+* **عنوان URL للتطبيق** — عنوان الموقع الإلكتروني ذو العلامة التجارية:
 
 ```tempo
 {translate("appUrl")}
 ```
 
-Renders `namasoft.com`, `exceed-erp.com`, etc., according to the current licence branding.
+يُصيَّر كـ `namasoft.com` أو `exceed-erp.com` وما إلى ذلك، وفقًا لعلامة الترخيص الحالية.
 
-**Example:**
+**مثال:**
 
 ```tempo
 Thank you for using {translate("applicationName")}.
@@ -893,22 +893,22 @@ For more information, visit {translate("appUrl")}.
 ```
 
 ::: tip
-Use these keys in emails, notifications, and templates that may run on differently-branded installations, so the messages always carry the correct product name and website without hardcoding them.
+استخدم هذين المفتاحين في رسائل البريد الإلكتروني والإشعارات والقوالب التي قد تعمل على تثبيتات ذات علامات تجارية مختلفة، حتى تحمل الرسائل دائمًا اسم المنتج الصحيح والموقع الإلكتروني دون ترميزهما بشكل ثابت.
 :::
 
 ---
 
-### Number-Related Functions in Tempo
+### الدوال المتعلقة بالأرقام في Tempo {#Number-Related-Functions-in-Tempo}
 
-#### Convert Text to Number (if possible)
+#### تحويل النص إلى رقم (إن أمكن) {#Convert-Text-to-Number--if-possible-}
 
-* Convert to integer:
+* التحويل إلى عدد صحيح:
 
 ```tempo
 {#description1.$tryToInt}
 ```
 
-* Convert to decimal:
+* التحويل إلى عدد عشري:
 
 ```tempo
 {#description1.$tryToDecimal}
@@ -916,48 +916,48 @@ Use these keys in emails, notifications, and templates that may run on different
 
 ---
 
-### Formatting Dates and Numbers
+### تنسيق التواريخ والأرقام {#Formatting-Dates-and-Numbers}
 
-Use the `$format` function on dates or numbers with your desired pattern:
+استخدم دالة `$format` على التواريخ أو الأرقام مع النمط المطلوب:
 
 ```tempo
 {creationDate.$format."yyyy-MM-dd HH:mm:ss"}
 {money.total.$format."###,###.00"}
 ```
-## If Statements (Conditionals) in Tempo
+## جمل الشرط (Conditionals) في Tempo {#If-Statements--Conditionals--in-Tempo}
 
-Tempo provides flexible conditional logic using `{if}`, `{ifnot}`, and related syntax to control when content is rendered.
+توفّر Tempo منطقًا شرطيًا مرنًا باستخدام `{if}` و`{ifnot}` والصياغات ذات الصلة للتحكم في وقت عرض المحتوى.
 
 ---
 
-### Basic Conditions
+### الشروط الأساسية {#Basic-Conditions}
 
-* **If a field is not empty**:
+* **إذا لم يكن الحقل فارغًا**:
 
 ```tempo
 {if(code)}Content shown if `code` is not empty{endif}
 ```
 
-* **If a number is not zero**:
+* **إذا لم يكن الرقم صفرًا**:
 
 ```tempo
 {if(money.remaining)}Remaining is {#money.remaining}{endif}
 ```
 
-* **If a boolean is true**:
+* **إذا كانت القيمة المنطقية true**:
 
 ```tempo
 {if(commitedBefore)}Record is committed before{endif}
 ```
 
-* **Negated if condition** (if the field is empty or false):
+* **شرط منفي** (إذا كان الحقل فارغًا أو false):
 
 ```tempo
 {ifnot(code)}Code is missing{endif}
 {if!(code)}Code is missing{endif}
 ```
 
-* **If a string represents a number that’s not zero**:
+* **إذا كان النص يمثّل رقمًا غير صفري**:
 
 ```tempo
 {ifnumber(description1)}
@@ -965,39 +965,39 @@ Tempo provides flexible conditional logic using `{if}`, `{ifnot}`, and related s
 
 ---
 
-### Full Syntax Reference
+### مرجع الصياغة الكامل {#Full-Syntax-Reference}
 
-| Syntax                                | Description                     |
-| ------------------------------------- | ------------------------------- |
-| `{if(value)}`                         | Renders if `value` is not empty |
-| `{if!(value)}`, `{ifnot(value)}`      | Renders if `value` is empty     |
-| `{if=(a,b)}`, `{ifequal(a,b)}`        | Renders if `a == b`             |
-| `{if!=(a,b)}`, `{ifnotequal(a,b)}`    | Renders if `a != b`             |
-| `{if<(a,b)}`, `{ifless(a,b)}`         | Renders if `a < b`              |
-| `{if<=(a,b)}`, `{iflessoreq(a,b)}`    | Renders if `a <= b`             |
-| `{if>(a,b)}`, `{ifgreater(a,b)}`      | Renders if `a > b`              |
-| `{if>=(a,b)}`, `{ifgreateroreq(a,b)}` | Renders if `a >= b`             |
-
----
-
-### Number-Specific Conditions
-
-| Syntax                                            | Description                      |
-| ------------------------------------------------- | -------------------------------- |
-| `{ifnumber(n)}`                                   | Renders if `n` is not zero       |
-| `{ifnumber!(n)}`, `{ifnumbernot(n)}`              | Renders if `n` is zero           |
-| `{ifnumber=(a,b)}`, `{ifnumberequal(a,b)}`        | Renders if numbers are equal     |
-| `{ifnumber!=(a,b)}`, `{ifnumbernotequal(a,b)}`    | Renders if numbers are not equal |
-| `{ifnumber<(a,b)}`, `{ifnumberless(a,b)}`         | Renders if `a < b`               |
-| `{ifnumber<=(a,b)}`, `{ifnumberlessoreq(a,b)}`    | Renders if `a <= b`              |
-| `{ifnumber>(a,b)}`, `{ifnumbergreater(a,b)}`      | Renders if `a > b`               |
-| `{ifnumber>=(a,b)}`, `{ifnumbergreateroreq(a,b)}` | Renders if `a >= b`              |
+| الصياغة | الوصف |
+| ------- | ----- |
+| `{if(value)}` | يُصيَّر إذا كانت `value` غير فارغة |
+| `{if!(value)}`، `{ifnot(value)}` | يُصيَّر إذا كانت `value` فارغة |
+| `{if=(a,b)}`، `{ifequal(a,b)}` | يُصيَّر إذا كان `a == b` |
+| `{if!=(a,b)}`، `{ifnotequal(a,b)}` | يُصيَّر إذا كان `a != b` |
+| `{if<(a,b)}`، `{ifless(a,b)}` | يُصيَّر إذا كان `a < b` |
+| `{if<=(a,b)}`، `{iflessoreq(a,b)}` | يُصيَّر إذا كان `a <= b` |
+| `{if>(a,b)}`، `{ifgreater(a,b)}` | يُصيَّر إذا كان `a > b` |
+| `{if>=(a,b)}`، `{ifgreateroreq(a,b)}` | يُصيَّر إذا كان `a >= b` |
 
 ---
 
-### Using `else` and `else if`
+### الشروط الخاصة بالأرقام {#Number-Specific-Conditions}
 
-You can chain multiple conditions using `else if=`, `elseif=`, or `else`.
+| الصياغة | الوصف |
+| ------- | ----- |
+| `{ifnumber(n)}` | يُصيَّر إذا لم يكن `n` صفرًا |
+| `{ifnumber!(n)}`، `{ifnumbernot(n)}` | يُصيَّر إذا كان `n` صفرًا |
+| `{ifnumber=(a,b)}`، `{ifnumberequal(a,b)}` | يُصيَّر إذا تساوت الأرقام |
+| `{ifnumber!=(a,b)}`، `{ifnumbernotequal(a,b)}` | يُصيَّر إذا اختلفت الأرقام |
+| `{ifnumber<(a,b)}`، `{ifnumberless(a,b)}` | يُصيَّر إذا كان `a < b` |
+| `{ifnumber<=(a,b)}`، `{ifnumberlessoreq(a,b)}` | يُصيَّر إذا كان `a <= b` |
+| `{ifnumber>(a,b)}`، `{ifnumbergreater(a,b)}` | يُصيَّر إذا كان `a > b` |
+| `{ifnumber>=(a,b)}`، `{ifnumbergreateroreq(a,b)}` | يُصيَّر إذا كان `a >= b` |
+
+---
+
+### استخدام else و else if {#Using--else--and--else-if-}
+
+يمكنك ربط شروط متعددة باستخدام `else if=` أو `elseif=` أو `else`.
 
 ```tempo
 {if=(code,"a")}Case A
@@ -1009,18 +1009,18 @@ You can chain multiple conditions using `else if=`, `elseif=`, or `else`.
 
 ::: tip
 
-* `else` must come last.
-* `endelse` is optional and not recommended.
-* You can prepend `else` to any `if` condition.
+* يجب أن يأتي `else` أخيرًا.
+* `endelse` اختياري وغير موصى به.
+* يمكنك إضافة `else` قبل أي شرط `if`.
 :::
 
-This structure allows full control over conditional content rendering within Tempo templates.
+يتيح هذا الهيكل تحكمًا كاملًا في عرض المحتوى الشرطي ضمن قوالب Tempo.
 
-## Tafqeet in Tempo
+## التفقيط (Tafqeet) في Tempo {#Tafqeet-in-Tempo}
 
-The `tafqeet` function converts numeric values into words, using the currency formatting defined in the global configuration.
+تُحوّل دالة `tafqeet` القيم الرقمية إلى كلمات، باستخدام تنسيق العملة المحدَّد في الإعداد العام.
 
-### Syntax
+### الصياغة {#Syntax}
 
 ```tempo
 {tafqeet("Number", "CurrencyCode")}
@@ -1028,36 +1028,36 @@ The `tafqeet` function converts numeric values into words, using the currency fo
 
 ---
 
-### Examples
+### الأمثلة {#Examples}
 
-#### Example 1: Hardcoded Values
+#### مثال 1: قيم ثابتة {#Example-1--Hardcoded-Values}
 
 ```tempo
 {tafqeet("500", "EGP")}
 ```
 
-* On English interface → `five hundred Egyptian Pounds`
-* On Arabic interface → `خمسمائة جنيه مصري`
+* على الواجهة الإنجليزية → `five hundred Egyptian Pounds`
+* على الواجهة العربية → `خمسمائة جنيه مصري`
 
-#### Example 2: Using Field Values
+#### مثال 2: استخدام قيم الحقول {#Example-2--Using-Field-Values}
 
 ```tempo
 {tafqeet(money.netValue, money.currency.code)}
 ```
 
-This converts the value of `money.netValue` using the currency code defined in the `money` object.
+يُحوّل هذا قيمة `money.netValue` باستخدام كود العملة المحدَّد في الكائن `money`.
 
 ---
 
-### Notes
+### ملاحظات {#Notes}
 
 ::: tip
-If the global configuration defines:
+إذا كان الإعداد العام يُعرّف:
 
 * `code = جم`
 * `altCode = EGP`
 
-And you want the conversion in English regardless of the interface language, use:
+وتريد التحويل بالإنجليزية بصرف النظر عن لغة الواجهة، استخدم:
 
 ```tempo
 {tafqeet(money.netValue, money.currency.altCode)}
@@ -1067,50 +1067,50 @@ And you want the conversion in English regardless of the interface language, use
 
 ---
 
-### Force Language with `tafqeetAr` or `tafqeetEn`
+### إجبار اللغة باستخدام tafqeetAr أو tafqeetEn {#Force-Language-with--tafqeetAr--or--tafqeetEn-}
 
-* Always render in **Arabic**:
+* التصيير دائمًا **بالعربية**:
 
 ```tempo
 {tafqeetAr(money.netValue, money.currency.code)}
 ```
 
-* Always render in **English**:
+* التصيير دائمًا **بالإنجليزية**:
 
 ```tempo
 {tafqeetEn(money.netValue, money.currency.code)}
 ```
-## Executing Entity Flows via Tempo Links
+## تنفيذ مسارات الكيان عبر روابط Tempo {#Executing-Entity-Flows-via-Tempo-Links}
 
-To trigger an entity flow from a Tempo template (e.g. in an email), use the following syntax:
+لتشغيل مسار كيان من قالب Tempo (مثلًا في بريد إلكتروني)، استخدم الصياغة التالية:
 
 ```tempo
 {flow(record, flowCode="EntityFlowCode")}
 ```
 
-**Example:**
+**مثال:**
 
 ```tempo
 {flow(employee, flowCode="CreateJobOffer")}
 ```
 
-This executes the `CreateJobOffer` flow for the current `employee` record.
+يُنفّذ هذا مسار الكيان `CreateJobOffer` لسجل `employee` الحالي.
 
 ---
 
-## Email-Related Functions
+## الدوال المتعلقة بالبريد الإلكتروني {#Email-Related-Functions}
 
-### 1. Setting the Email Subject
+### 1. تعيين موضوع البريد الإلكتروني {#1--Setting-the-Email-Subject}
 
-#### Method 1: Using `subject:` at the Start of the First Line
+#### الأسلوب الأول: استخدام `subject:` في بداية السطر الأول {#Method-1--Using--subject---at-the-Start-of-the-First-Line}
 
 ```tempo
 subject:The employee {name2} was updated by {$user.name2}
 ```
 
-> Must be placed at the very beginning of the email body.
+> يجب وضعه في بداية نص البريد الإلكتروني تمامًا.
 
-#### Method 2: Using `{subject}` Block
+#### الأسلوب الثاني: استخدام كتلة `{subject}` {#Method-2--Using---subject---Block}
 
 ```tempo
 {subject}The employee {name2} was updated by {$user.name2}{endsubject}
@@ -1118,16 +1118,16 @@ subject:The employee {name2} was updated by {$user.name2}
 
 ---
 
-### 2. Adding Attachments
+### 2. إضافة المرفقات {#2--Adding-Attachments}
 
-Use one or more `emailattachment` tags for fields or server paths:
+استخدم وسمًا أو أكثر من `emailattachment` للحقول أو مسارات الخادم:
 
 ```tempo
 {emailattachment(attachmentField)}
 {emailattachment("C:\Path\To\File.pdf")}
 ```
 
-**Example:**
+**مثال:**
 
 ```tempo
 subject:Attachments of employee {code} - {name1}
@@ -1136,7 +1136,7 @@ Please note that the employee {name1} was changed. The email contains all files 
 {emailattachment(attachment)}{emailattachment(attachment1)}{emailattachment(attachment2)}{emailattachment(attachment3)}{emailattachment(attachment4)}{emailattachment(attachment5)}{emailattachment(mainFile)}
 ```
 
-**Another Example:**
+**مثال آخر:**
 
 ```tempo
 Attached our catalog {emailattachment("E:\Media\Prochures\catalog.pdf")}
@@ -1144,20 +1144,17 @@ Attached our catalog {emailattachment("E:\Media\Prochures\catalog.pdf")}
 
 ::: tip 
 
-<rtl>
 * يُفضّل وضع جمل المرفقات في نهاية الرسالة.
 * تجنب ترك سطور فارغة أو مسافات بينها لتفادي ظهورها غير المرغوب فيه في البريد.
 * المرفقات الفارغة يتم تجاهلها تلقائيًا.
-
-</rtl>
 
 :::
 
 ---
 
-### 3. Prevent Auto-Attaching Images
+### 3. منع الإرفاق التلقائي للصور {#3--Prevent-Auto-Attaching-Images}
 
-For HTML emails that shouldn't attach images automatically, include:
+لرسائل HTML التي لا ينبغي أن ترفق الصور تلقائيًا، أضف:
 
 ```html
 <donothandleimages/>
@@ -1165,9 +1162,9 @@ For HTML emails that shouldn't attach images automatically, include:
 
 ---
 
-### 4. Creating and Sending Messages
+### 4. إنشاء الرسائل وإرسالها {#4--Creating-and-Sending-Messages}
 
-#### Message Body Block
+#### كتلة نص الرسالة {#Message-Body-Block}
 
 ```tempo
 {openmsg}
@@ -1175,35 +1172,35 @@ Message content here
 {closemsg}
 ```
 
-#### Define Recipient Address
+#### تعريف عنوان المستلم {#Define-Recipient-Address}
 
 ```tempo
 {sendto}email-or-phone{endsendto}
 ```
 
-**Examples:**
+**أمثلة:**
 
-* Send to a customer's email:
+* الإرسال إلى بريد العميل الإلكتروني:
 
 ```tempo
 {sendto}{#email}{endsendto}
 ```
 
-* Send an SMS to a phone number:
+* إرسال SMS إلى رقم هاتف:
 
 ```tempo
 {sendto}{#phoneNumber}{endsendto}
 ```
 
 ::: tip
-Typically used inside `{loop}` blocks to send individualized messages.
+يُستخدم عادةً داخل كتل `{loop}` لإرسال رسائل فردية.
 :::
 
 ---
 
-### Example: Send Email Notifications to Customers with Overdue Invoices
+### مثال: إرسال إشعارات بريد إلكتروني للعملاء ذوي الفواتير المتأخرة {#Example--Send-Email-Notifications-to-Customers-with-Overdue-Invoices}
 
-**Step 1: Email Template Query**
+**الخطوة 1: استعلام قالب البريد الإلكتروني**
 
 ```sql
 select s.code invoiceCode, s.valueDate, c.code customerCode, c.name2 customerName, s.remaining, c.email
@@ -1213,7 +1210,7 @@ where remaining > 0 and valueDate between dateadd(month,-1,getdate()) and getdat
 order by customerCode
 ```
 
-**Step 2: Email Template Content**
+**الخطوة 2: محتوى قالب البريد الإلكتروني**
 
 ```tempo
 {loop()}
@@ -1238,90 +1235,90 @@ order by customerCode
   {endfooter}
 {endloop}
 ```
-## String Manipulation Functions in Tempo
+## دوال معالجة النصوص في Tempo {#String-Manipulation-Functions-in-Tempo}
 
-### Trimming and Replacements
+### القص والاستبدال {#Trimming-and-Replacements}
 
-* **Trim spaces at the beginning and end** (ASCII whitespace only, legacy):
+* **قص المسافات من البداية والنهاية** (مسافات ASCII فقط، أسلوب قديم):
 
 ```tempo
 {description1.$trim}
 ```
 
-* **Strip leading and trailing whitespace** (Unicode-aware — handles tabs, NBSP, etc.):
+* **تجريد المسافات البيضاء الأمامية والخلفية** (يدعم Unicode — يتعامل مع التبويبات، NBSP، إلخ):
 
 ```tempo
 {description1.$strip}
 ```
 
-* **Strip only leading whitespace:**
+* **تجريد المسافات البيضاء الأمامية فقط:**
 
 ```tempo
 {description1.$stripLeading}
 ```
 
-* **Strip only trailing whitespace:**
+* **تجريد المسافات البيضاء الخلفية فقط:**
 
 ```tempo
 {description1.$stripTrailing}
 ```
 
-* **Normalize spaces** — trims the edges **and** collapses any run of internal whitespace into a single space (Unicode-aware):
+* **تسوية المسافات** — يقص الحواف **ويطوي** أي سلسلة من المسافات الداخلية إلى مسافة واحدة (يدعم Unicode):
 
 ```tempo
 {name1.$normalizeSpace}
 ```
 
-**Example:**
+**مثال:**
 
 ```
 "  محمد   علي  "  →  "محمد علي"
 "أحمد\t\tحسن"   →  "أحمد حسن"
 ```
 
-::: tip Choosing the right whitespace helper
-- Use `$strip` when you only want to trim the edges and keep internal spacing as-is.
-- Use `$normalizeSpace` when you also want to collapse multiple internal spaces (common for cleaning user-entered names).
-- Use `$removeAllSpaces` only when you want **every** whitespace gone, including between words — appropriate for codes, not names.
+::: tip اختيار أداة المسافات البيضاء المناسبة
+- استخدم `$strip` عندما تريد فقط قص الحواف مع الإبقاء على التباعد الداخلي كما هو.
+- استخدم `$normalizeSpace` عندما تريد أيضًا طي المسافات الداخلية المتعددة (شائع لتنظيف الأسماء المُدخَلة من المستخدم).
+- استخدم `$removeAllSpaces` فقط عندما تريد إزالة **كل** مسافة بيضاء، بما فيها بين الكلمات — مناسب للأكواد لا للأسماء.
 :::
 
-* **Convert Arabic numerals to English:**
+* **تحويل الأرقام العربية إلى إنجليزية:**
 
 ```tempo
 {mobile.$replaceArNumerals}
 ```
 
-### Letter Case
+### حالة الأحرف {#Letter-Case}
 
-* **Convert all letters to upper case:**
+* **تحويل جميع الأحرف إلى أحرف كبيرة:**
 
 ```tempo
 {chassisNumber.$toUpperCase}
 ```
 
-**Example:** `"abc123def"` becomes `"ABC123DEF"`
+**مثال:** `"abc123def"` تصبح `"ABC123DEF"`
 
-* **Convert all letters to lower case:**
+* **تحويل جميع الأحرف إلى أحرف صغيرة:**
 
 ```tempo
 {email.$toLowerCase}
 ```
 
 ::: tip
-Arabic letters are case-less, so these functions only affect Latin (and other bicameral) scripts. Digits and symbols are left untouched.
+الأحرف العربية لا تمتلك حالة كبيرة/صغيرة، لذا تؤثر هذه الدوال على النصوص اللاتينية (وغيرها من الخطوط ذات الحالتين) فقط. تبقى الأرقام والرموز دون تغيير.
 :::
 
 ---
 
-### Parsing and Conversions
+### التحليل والتحويلات {#Parsing-and-Conversions}
 
-* **Parse JSON string to a map:**
+* **تحليل نص JSON إلى map:**
 
 ```tempo
 {text1.$parseJSONToMap}
 ```
 
-* **Convert comma-separated text into a list:**
+* **تحويل نص مفصول بفواصل إلى قائمة:**
 
 ```tempo
 {remarks.$parseCSVToList}
@@ -1329,39 +1326,39 @@ Arabic letters are case-less, so these functions only affect Latin (and other bi
 
 ---
 
-### Substring Functions
+### دوال السلاسل الفرعية {#Substring-Functions}
 
-* **Extract characters from the left:**
+* **استخراج أحرف من اليسار:**
 
 ```tempo
 {left(string, length)}
 ```
 
-**Example:**
+**مثال:**
 
 ```tempo
 {left(code, 3)} → "Nam" if code is "NamaSoft"
 ```
 
-* **Extract characters from the right:**
+* **استخراج أحرف من اليمين:**
 
 ```tempo
 {right(string, length)}
 ```
 
-**Example:**
+**مثال:**
 
 ```tempo
 {right(code, 3)} → "oft" if code is "NamaSoft"
 ```
 
-* **Extract substring from a specific range:**
+* **استخراج سلسلة فرعية من نطاق محدد:**
 
 ```tempo
 {substring(string, startIndex, endIndex)}
 ```
 
-**Example:**
+**مثال:**
 
 ```tempo
 {substring("NamaSoft", 3, 5)} → "maS"
@@ -1369,21 +1366,21 @@ Arabic letters are case-less, so these functions only affect Latin (and other bi
 
 ---
 
-### Padding (Truncating or Adding Spaces)
+### الحشو (Padding) (قص أو إضافة مسافات) {#Padding--Truncating-or-Adding-Spaces-}
 
-* **Left pad or truncate:**
+* **حشو أو قص من اليسار:**
 
 ```tempo
 {leftpad(length)}YourTextHere{endpad}
 ```
 
-* **Right pad or truncate:**
+* **حشو أو قص من اليمين:**
 
 ```tempo
 {rightpad(length)}YourTextHere{endpad}
 ```
 
-**Examples:**
+**أمثلة:**
 
 ```tempo
 {leftpad(10)}123{endpad}     → "       123"
@@ -1394,11 +1391,11 @@ Arabic letters are case-less, so these functions only affect Latin (and other bi
 
 ---
 
-## Numeric Field Functions
+## دوال الحقول الرقمية {#Numeric-Field-Functions}
 
-### Fixed-Decimal Rounding
+### التقريب إلى عدد ثابت من الخانات العشرية {#Fixed-Decimal-Rounding}
 
-* **Round to 0–5 decimal places:**
+* **التقريب إلى 0–5 خانات عشرية:**
 
 ```tempo
 {n1.$round0}
@@ -1409,7 +1406,7 @@ Arabic letters are case-less, so these functions only affect Latin (and other bi
 {n1.$round5}
 ```
 
-**Examples:**
+**أمثلة:**
 
 ```tempo
 {n1.$round0} → 20 if n1 = 19.9  
@@ -1418,13 +1415,13 @@ Arabic letters are case-less, so these functions only affect Latin (and other bi
 
 ---
 
-### Dynamic Rounding
+### التقريب الديناميكي {#Dynamic-Rounding}
 
 ```tempo
 {round(numberExpression, decimalPlacesExpression)}
 ```
 
-**Examples:**
+**أمثلة:**
 
 ```tempo
 {round(n1, "2")}
@@ -1433,25 +1430,25 @@ Arabic letters are case-less, so these functions only affect Latin (and other bi
 
 ---
 
-### Number Formatting
+### تنسيق الأرقام {#Number-Formatting}
 
 ```tempo
 {formatNumber(numberExpression, formatExpression)}
 ```
 
-**Example:**
+**مثال:**
 
 ```tempo
 {formatNumber(n1, "###,###.00")} → 1,234.50
 ```
-## URL Shortening in Tempo
+## اختصار URL في Tempo {#URL-Shortening-in-Tempo}
 
-URL shortening is particularly useful for SMS messages, where long links are not practical.
+اختصار URL مفيد بشكل خاص لرسائل SMS حيث لا تكون الروابط الطويلة عملية.
 
-* To use this feature, you need a [YOURLS](https://yourls.org) server or subscribe to Namasoft's shortening service.
-* You also need an API **signature** from the YOURLS server.
+* لاستخدام هذه الميزة، تحتاج إلى خادم [YOURLS](https://yourls.org) أو الاشتراك في خدمة الاختصار من Namasoft.
+* تحتاج أيضًا إلى **توقيع** API من خادم YOURLS.
 
-### Syntax
+### الصياغة {#Syntax-1}
 
 ```tempo
 {shortenurl(server="https://your-shortener.com/", signature="SIGNATURE_HERE")}
@@ -1459,7 +1456,7 @@ URL shortening is particularly useful for SMS messages, where long links are not
 {endshortenurl}
 ```
 
-**Example using Namasoft shortening service:**
+**مثال باستخدام خدمة اختصار Namasoft:**
 
 ```tempo
 {shortenurl(server="https://namasoft.com/s/", signature="SIGNATURE_HERE")}
@@ -1469,11 +1466,11 @@ URL shortening is particularly useful for SMS messages, where long links are not
 
 ---
 
-## Dynamic Report Links in Notifications and Dashboards
+## روابط التقارير الديناميكية في الإشعارات ولوحات المعلومات {#Dynamic-Report-Links-in-Notifications-and-Dashboards}
 
-You can add dynamic links to reports from notifications or dashboards. This is useful for generating contextual reports based on specific parameters.
+يمكنك إضافة روابط ديناميكية للتقارير من الإشعارات أو لوحات المعلومات. هذا مفيد لإنشاء تقارير سياقية استنادًا إلى معاملات محددة.
 
-### Notification Example
+### مثال الإشعار {#Notification-Example}
 
 ```tempo
 {reportlink(reportCode="1000", runType="launch", newwindow="true")}
@@ -1482,7 +1479,7 @@ You can add dynamic links to reports from notifications or dashboards. This is u
 {endreportlink}
 ```
 
-### Dashboard Example
+### مثال لوحة المعلومات {#Dashboard-Example}
 
 ```tempo
 {reportlink(reportCode="1000", runType="launch", plainLink=true)}
@@ -1493,21 +1490,21 @@ You can add dynamic links to reports from notifications or dashboards. This is u
 
 ---
 
-### Supported Nodes
+### العقد المدعومة {#Supported-Nodes}
 
-* **Parameter by Name:**
+* **المعامل بالاسم:**
 
 ```tempo
 {paramname("paramName")}{paramvalue("paramValue")}
 ```
 
-* **Reference Parameters (with optional display fields):**
+* **معاملات المرجع (مع حقول العرض الاختيارية):**
 
 ```tempo
 {paramrefvalue(entityType=..., id=..., code=..., name1=..., name2=...)}
 ```
 
-* **Multi-value Parameters:**
+* **معاملات متعددة القيم:**
 
 ```tempo
 {parammultivalue}{code} {name1}{endmutlivalue}
@@ -1515,11 +1512,11 @@ You can add dynamic links to reports from notifications or dashboards. This is u
 
 ---
 
-## Filtered List View Links
+## روابط عرض القائمة المفلترة {#Filtered-List-View-Links}
 
-You can create hyperlinks that open a filtered list view for any entity type. This is useful in notifications, emails, and dashboards to allow users to click and see a pre-filtered list of records.
+يمكنك إنشاء روابط تشعبية تفتح عرض قائمة مفلترة لأي نوع كيان. هذا مفيد في الإشعارات والبريد الإلكتروني ولوحات المعلومات للسماح للمستخدمين بالنقر ورؤية قائمة مسجلات مرشَّحة مسبقًا.
 
-### Basic Syntax
+### الصياغة الأساسية {#Basic-Syntax}
 
 ```tempo
 {listviewlink(title="View Invoices", newwindow="true")}
@@ -1531,23 +1528,23 @@ You can create hyperlinks that open a filtered list view for any entity type. Th
 {endlistviewlink}
 ```
 
-### Available Property Nodes
+### عقد الخصائص المتاحة {#Available-Property-Nodes}
 
-| Node | Description |
-|------|-------------|
-| `{listentitytype("EntityType")}` | The entity type to display (e.g., "SalesInvoice", "Customer") |
-| `{listviewname("ViewName")}` | Specific list view name to use |
-| `{listmenucode("MenuCode")}` | Menu code to open the list view in |
-| `{listorderby("fieldName")}` | Field to sort by |
-| `{listascending("true")}` | Sort direction (true = ascending, false = descending) |
-| `{listcurrentpage("1")}` | Page number to display |
-| `{listpagesize("50")}` | Number of records per page (-1 for all) |
-| `{listshowtree("true")}` | Show as tree view |
-| `{listextracriteriaid("criteriaId")}` | Additional criteria definition ID |
+| العقدة | الوصف |
+|--------|-------|
+| `{listentitytype("EntityType")}` | نوع الكيان المراد عرضه (مثل "SalesInvoice"، "Customer") |
+| `{listviewname("ViewName")}` | اسم عرض القائمة المحدد للاستخدام |
+| `{listmenucode("MenuCode")}` | كود القائمة لفتح عرض القائمة فيه |
+| `{listorderby("fieldName")}` | الحقل المراد الترتيب به |
+| `{listascending("true")}` | اتجاه الترتيب (true = تصاعدي، false = تنازلي) |
+| `{listcurrentpage("1")}` | رقم الصفحة المراد عرضها |
+| `{listpagesize("50")}` | عدد السجلات في الصفحة (-1 للكل) |
+| `{listshowtree("true")}` | عرض كشجرة |
+| `{listextracriteriaid("criteriaId")}` | معرّف تعريف معايير إضافية |
 
-### Criteria Block
+### كتلة المعايير {#Criteria-Block}
 
-The `{listcriteria}...{endlistcriteria}` block contains filter conditions in text format. Inside this block, you can use dynamic field values with curly brackets:
+تحتوي كتلة `{listcriteria}...{endlistcriteria}` على شروط التصفية بتنسيق نصي. يمكنك داخل هذه الكتلة استخدام قيم الحقول الديناميكية بالأقواس المعقوفة:
 
 ```tempo
 {listcriteria}
@@ -1556,30 +1553,30 @@ The `{listcriteria}...{endlistcriteria}` block contains filter conditions in tex
 {endlistcriteria}
 ```
 
-**Available Operators:**
-- `Equal`, `NotEqual`
-- `GreaterThan`, `GreaterThanOrEqual`
-- `LessThan`, `LessThanOrEqual`
-- `StartsWith`, `NotStartsWith`
-- `EndsWith`, `NotEndWith`
-- `Contains`, `NotContain`
-- `In`, `NotIn`
+**العوامل المتاحة:**
+- `Equal`، `NotEqual`
+- `GreaterThan`، `GreaterThanOrEqual`
+- `LessThan`، `LessThanOrEqual`
+- `StartsWith`، `NotStartsWith`
+- `EndsWith`، `NotEndWith`
+- `Contains`، `NotContain`
+- `In`، `NotIn`
 
-**Logic Connectors:** `AND`, `OR`
+**موصلات المنطق:** `AND`، `OR`
 
-### Main Node Options
+### خيارات العقدة الرئيسية {#Main-Node-Options}
 
-The `{listviewlink}` node accepts optional parameters:
+تقبل عقدة `{listviewlink}` معاملات اختيارية:
 
-| Parameter | Description |
-|-----------|-------------|
-| `title="..."` | Link text to display |
-| `newwindow="true"` | Open in new browser tab |
-| `plainlink="true"` | Output only the URL without HTML anchor tag |
+| المعامل | الوصف |
+|---------|-------|
+| `title="..."` | نص الرابط المراد عرضه |
+| `newwindow="true"` | الفتح في تبويب متصفح جديد |
+| `plainlink="true"` | إخراج URL فقط دون وسم HTML للرابط |
 
-### Complete Example
+### مثال كامل {#Complete-Example}
 
-This example creates a link in a customer notification that shows all unpaid sales invoices for that customer:
+ينشئ هذا المثال رابطًا في إشعار عميل يعرض جميع فواتير المبيعات غير المدفوعة لذلك العميل:
 
 ```tempo
 Dear {name1},
@@ -1598,9 +1595,9 @@ You have unpaid invoices. Click below to view them:
 {endlistviewlink}
 ```
 
-### Dashboard Example with Plain Link
+### مثال لوحة المعلومات برابط عادي {#Dashboard-Example-with-Plain-Link}
 
-For dashboards where you need just the URL:
+للوحات المعلومات التي تحتاج فقط إلى URL:
 
 ```tempo
 {listviewlink(plainlink="true")}
@@ -1613,14 +1610,14 @@ For dashboards where you need just the URL:
 ```
 
 ::: tip
-You can use the **Criteria Definition** screen to visually build filter conditions, then click **Convert to Text** to get the text format for use in Tempo templates.
+يمكنك استخدام شاشة **Criteria Definition** لبناء شروط التصفية بشكل مرئي، ثم النقر على **Convert to Text** للحصول على التنسيق النصي للاستخدام في قوالب Tempo.
 :::
 
 ---
 
-## CRM Questionnaire Sending
+## إرسال استبيانات CRM {#CRM-Questionnaire-Sending}
 
-### 1. Embed Survey in Email
+### 1. تضمين الاستبيان في البريد الإلكتروني {#1--Embed-Survey-in-Email}
 
 ```tempo
 Dear Sir,{enter}
@@ -1629,22 +1626,22 @@ We would love you to answer the following survey.{enter}
 Thanks and Best Regards
 ```
 
-### 2. Send Survey as Link
+### 2. إرسال الاستبيان كرابط {#2--Send-Survey-as-Link}
 
 ```tempo
 Dear Sir,{enter}
 We would love you to answer a quick survey on the following <a href='{$questionsURL}'>URL</a>.{enter}
 Thanks and Best Regards
 ```
-## Sending HTTP Requests from Tempo
+## إرسال طلبات HTTP من Tempo {#Sending-HTTP-Requests-from-Tempo}
 
-You can send HTTP requests from within Tempo using the `EASendHttpRequestByTempo` entity flow. This is useful for integrating external APIs (e.g., WhatsApp, SMS, ERPs) directly from records or looped data like document lines.
+يمكنك إرسال طلبات HTTP من داخل Tempo باستخدام مسار الكيان `EASendHttpRequestByTempo`. هذا مفيد لدمج APIs خارجية (مثل WhatsApp وSMS وأنظمة ERP) مباشرةً من السجلات أو البيانات المتكررة كأسطر المستند.
 
 ---
 
-### Example 1: Structured Body with Named Parameters
+### مثال 1: هيكل body بمعاملات مسمّاة {#Example-1--Structured-Body-with-Named-Parameters}
 
-This example sends a POST request for each line in `details`, with body parts defined individually:
+يرسل هذا المثال طلب POST لكل سطر في `details`، مع تعريف أجزاء الـ body بشكل فردي:
 
 ```tempo
 {loop(details)}
@@ -1684,9 +1681,9 @@ This example sends a POST request for each line in `details`, with body parts de
 
 ---
 
-### Example 2: Custom JSON Body String
+### مثال 2: نص JSON مخصص للـ body {#Example-2--Custom-JSON-Body-String}
 
-This version uses a manually written JSON string in the request body:
+يستخدم هذا الإصدار نص JSON مكتوبًا يدويًا في جسم الطلب:
 
 ```tempo
 {loop(details)}
@@ -1714,16 +1711,16 @@ This version uses a manually written JSON string in the request body:
 
 ---
 
-Both examples demonstrate sending a request per row in `details`, with the flexibility to include headers, parameters, individual body fields, or full custom JSON.
+يوضّح كلا المثالين إرسال طلب لكل صف في `details`، مع المرونة في تضمين الرؤوس والمعاملات وحقول الـ body الفردية أو JSON مخصص كامل.
 
 
-## Creators in Tempo
+## المنشئون (Creators) في Tempo {#Creators-in-Tempo}
 
-In Tempo, a **creator** is used to generate and populate a new entity record (like a sales invoice, customer, etc.) directly from templates.
+في Tempo، يُستخدم **المنشئ (creator)** لإنشاء سجل كيان جديد وملئه (مثل فاتورة مبيعات أو عميل وما إلى ذلك) مباشرةً من القوالب.
 
 ---
 
-### Basic Creator Syntax
+### صياغة المنشئ الأساسية {#Basic-Creator-Syntax}
 
 ```tempo
 {creator(entity="EntityName", menu="MenuName", title="Link Title", view="ViewName", newwindow="true/false")}
@@ -1731,13 +1728,13 @@ In Tempo, a **creator** is used to generate and populate a new entity record (li
 {endcreator}
 ```
 
-* `entity`: Name of the entity to create.
-* `menu` *(optional)*: Target menu name (if customized).
-* `title` *(optional)*: Title shown in the creator link.
-* `view` *(optional)*: Custom screen view name.
-* `newwindow` *(optional)*: Whether to open in a new tab.
+* `entity`: اسم الكيان المراد إنشاؤه.
+* `menu` *(اختياري)*: اسم القائمة المستهدفة (إذا كانت مخصَّصة).
+* `title` *(اختياري)*: العنوان المعروض في رابط المنشئ.
+* `view` *(اختياري)*: اسم عرض الشاشة المخصص.
+* `newwindow` *(اختياري)*: ما إذا كان يُفتح في تبويب جديد.
 
-**Example:**
+**مثال:**
 
 ```tempo
 {creator(entity="SalesInvoice")}
@@ -1746,11 +1743,11 @@ In Tempo, a **creator** is used to generate and populate a new entity record (li
 
 ---
 
-### Setting Field Values
+### تعيين قيم الحقول {#Setting-Field-Values}
 
-Use `{f("FieldName")}` and `{v("Value")}` to assign a value.
+استخدم `{f("FieldName")}` و`{v("Value")}` لتعيين قيمة.
 
-**Example:**
+**مثال:**
 
 ```tempo
 {f("n1")}{v("10")}
@@ -1758,11 +1755,11 @@ Use `{f("FieldName")}` and `{v("Value")}` to assign a value.
 
 ---
 
-### Dynamic Field Content
+### محتوى الحقل الديناميكي {#Dynamic-Field-Content}
 
-Use `{creatorvalue}...{endvalue}` to embed dynamic or computed text.
+استخدم `{creatorvalue}...{endvalue}` لتضمين نص ديناميكي أو محسوب.
 
-**Example:**
+**مثال:**
 
 ```tempo
 {creator(entity="SalesInvoice")}
@@ -1776,35 +1773,35 @@ Use `{creatorvalue}...{endvalue}` to embed dynamic or computed text.
 
 ---
 
-### Assigning Detail Line Values
+### تعيين قيم أسطر التفاصيل {#Assigning-Detail-Line-Values}
 
-You can insert data into specific rows in detail tables:
+يمكنك إدراج بيانات في صفوف محددة في جداول التفاصيل:
 
-#### Method 1: By row number
+#### الأسلوب 1: برقم الصف {#Method-1--By-row-number}
 
 ```tempo
 {f("details.item.itemCode")}{v("ITEM005")}{r("2")}
 ```
 
-#### Method 2: Append to new row if needed (`@@end`)
+#### الأسلوب 2: الإضافة إلى صف جديد عند الحاجة (`@@end`) {#Method-2--Append-to-new-row-if-needed----end--}
 
 ```tempo
 {f("details.item.itemCode")}{v("ITEM005")}{r("@@end")}
 ```
 
-#### Method 3: Always use last row (`@@last`)
+#### الأسلوب 3: استخدام الصف الأخير دائمًا (`@@last`) {#Method-3--Always-use-last-row----last--}
 
 ```tempo
 {f("details.item.itemCode")}{v("ITEM005")}{r("@@last")}
 ```
 
-#### Method 4: Use current loop row number
+#### الأسلوب 4: استخدام رقم الصف الحالي في الحلقة {#Method-4--Use-current-loop-row-number}
 
 ```tempo
 {f("details.item.itemCode")}{v(details.item.itemCode)}{r(@rownumber)}
 ```
 
-**Looping Example:**
+**مثال مع حلقة:**
 
 ```tempo
 {creator(entity="SalesInvoice")}
@@ -1817,7 +1814,7 @@ You can insert data into specific rows in detail tables:
 
 ---
 
-### Use Case Example: Copying Only Non-Service Items
+### مثال حالة استخدام: نسخ الأصناف غير الخدمية فقط {#Use-Case-Example--Copying-Only-Non-Service-Items}
 
 ```tempo
 {creator(entity="SalesInvoice")}
@@ -1835,20 +1832,20 @@ You can insert data into specific rows in detail tables:
 {endcreator}
 ```
 
-* `@@end` ensures a new line is added for each item.
-* `@@last` ensures related fields are filled in the correct last row.
+* `@@end` يضمن إضافة سطر جديد لكل صنف.
+* `@@last` يضمن ملء الحقول المرتبطة في الصف الأخير الصحيح.
 
 ---
 
-### Calling System GUI Actions from Creator
+### استدعاء إجراءات GUI النظام من المنشئ {#Calling-System-GUI-Actions-from-Creator}
 
-You can invoke UI actions (e.g., Save, Print, Delete):
+يمكنك استدعاء إجراءات الواجهة (مثل حفظ وطباعة وحذف):
 
 ```tempo
 {callGUIAction("actionId")}
 ```
 
-**Available `actionId` values:**
+**قيم `actionId` المتاحة:**
 
 ```
 save, saveAndContinue, duplicate, accept, approval, revise, unrevise,
@@ -1856,19 +1853,19 @@ print, listView, showHelpMsgs, treeView, newRecord, delete,
 more, refresh, homePage, goToRecord
 ```
 
-## Sales and Purchase Prices in Tempo
+## أسعار المبيعات والمشتريات في Tempo {#Sales-and-Purchase-Prices-in-Tempo}
 
-### Getting the Sales Price of an Item
+### الحصول على سعر بيع صنف {#Getting-the-Sales-Price-of-an-Item}
 
-Use the `itemprice` function:
+استخدم دالة `itemprice`:
 
 ```tempo
 {itemprice(itemIdOrCode=expression)}
 ```
 
-This function returns the sales price for an item. Only `itemIdOrCode` is required. All other parameters are optional and can appear in any order.
+تُرجع هذه الدالة سعر بيع الصنف. المعامل `itemIdOrCode` فقط مطلوب. جميع المعاملات الأخرى اختيارية ويمكن ذكرها بأي ترتيب.
 
-#### Full Syntax
+#### الصياغة الكاملة {#Full-Syntax}
 
 ```tempo
 {itemprice(
@@ -1897,10 +1894,10 @@ This function returns the sales price for an item. Only `itemIdOrCode` is requir
 ```
 
 ::: tip
-You can pass either the ID or the code for any parameter.
+يمكنك تمرير المعرّف أو الكود لأي معامل.
 :::
 
-#### Available fields for fieldToDisplay
+#### الحقول المتاحة لـ fieldToDisplay
  
 - unitPrice
 - price
@@ -1945,7 +1942,7 @@ You can pass either the ID or the code for any parameter.
 - tax4.maxNormalPercent
 - tax4.value
  
-#### Examples
+#### أمثلة {#Examples-1}
 
 ```tempo
 {loop(details)}
@@ -1957,15 +1954,15 @@ You can pass either the ID or the code for any parameter.
 
 ---
 
-### Getting the Purchase Price of an Item
+### الحصول على سعر شراء صنف {#Getting-the-Purchase-Price-of-an-Item}
 
-Use the `itempurchaseprice` function:
+استخدم دالة `itempurchaseprice`:
 
 ```tempo
 {itempurchaseprice(itemIdOrCode=..., supplierIdOrCode=...)}
 ```
 
-#### Full Syntax
+#### الصياغة الكاملة {#Full-Syntax-1}
 
 ```tempo
 {itempurchaseprice(
@@ -1995,36 +1992,36 @@ Use the `itempurchaseprice` function:
 
 ---
 
-## Utility Fields for Templates, Notifications, and Entity Flows
+## الحقول المساعدة للقوالب والإشعارات ومسارات الكيان {#Utility-Fields-for-Templates--Notifications--and-Entity-Flows}
 
-### Audit Trail (Change History)
+### سجل التدقيق (تاريخ التغييرات) {#Audit-Trail--Change-History-}
 
-Every entity in Nama ERP has built-in audit trail fields that show what changed in the record. These are particularly useful for notifications, emails, and approval workflows.
+كل كيان في Nama ERP يمتلك حقول سجل تدقيق مدمجة تُظهر ما تغيّر في السجل. تفيد هذه الحقول بشكل خاص في الإشعارات والبريد الإلكتروني ومسارات الموافقة.
 
-#### Available Audit Trail Fields
+#### حقول سجل التدقيق المتاحة {#Available-Audit-Trail-Fields}
 
-* `{$changesAsHtmlAr}` - Changes in HTML format (Arabic)
-* `{$changesAsHtmlEn}` - Changes in HTML format (English)
-* `{$changesAsTextAr}` - Changes in plain text format (Arabic)
-* `{$changesAsTextEn}` - Changes in plain text format (English)
+* `{$changesAsHtmlAr}` - التغييرات بتنسيق HTML (عربي)
+* `{$changesAsHtmlEn}` - التغييرات بتنسيق HTML (إنجليزي)
+* `{$changesAsTextAr}` - التغييرات بتنسيق نصي عادي (عربي)
+* `{$changesAsTextEn}` - التغييرات بتنسيق نصي عادي (إنجليزي)
 
-::: tip Understanding the Changes
-These fields show the differences between the current version and the previous version of the record. They display:
-- Modified header fields (old value → new value)
-- Added detail lines
-- Removed detail lines
-- Modified detail line fields
+::: tip فهم التغييرات
+تُظهر هذه الحقول الفروق بين الإصدار الحالي والإصدار السابق من السجل. وتعرض:
+- الحقول الرئيسية المعدَّلة (القيمة القديمة ← القيمة الجديدة)
+- أسطر التفاصيل المضافة
+- أسطر التفاصيل المحذوفة
+- حقول أسطر التفاصيل المعدَّلة
 :::
 ---
 
-### Discussions
+### المناقشات {#Discussions}
 
-* `discussions`: All related discussions
-* `firstDiscussion`: First discussion
-* `lastDiscussion`: Most recent discussion
-* `preLastDiscussion`: One before last
+* `discussions`: جميع المناقشات المرتبطة
+* `firstDiscussion`: المناقشة الأولى
+* `lastDiscussion`: أحدث مناقشة
+* `preLastDiscussion`: ما قبل الأخيرة
 
-**Example:**
+**مثال:**
 
 ```tempo
 The last added discussion was {lastDiscussion.discussion} at {lastDiscussion.onTime} by {link(lastDiscussion.user)}.
@@ -2033,23 +2030,23 @@ Ref1 code: {lastDiscussion.ref1.code}
 
 ---
 
-### Notification and System Variables
+### متغيرات الإشعارات والنظام {#Notification-and-System-Variables}
 
-* `$notificationTarget`: The employee/user receiving the notification
-* `$notifier`: The notification definition that triggered the message
-* `$currentUsers`: All currently logged-in users
-* `$user`, `$currentUser`: The current user
-* `$loginLegalEntity`, `$loginLegalEntityId`
-* `$loginBranch`, `$loginBranchId`
-* `$loginSector`, `$loginSectorId`
-* `$loginDepartment`, `$loginDepartmentId`
-* `$loginAnalysisSet`, `$loginAnalysisSetId`
+* `$notificationTarget`: الموظف/المستخدم المستقبِل للإشعار
+* `$notifier`: تعريف الإشعار الذي شغَّل الرسالة
+* `$currentUsers`: جميع المستخدمين المسجَّلين حاليًا
+* `$user`، `$currentUser`: المستخدم الحالي
+* `$loginLegalEntity`، `$loginLegalEntityId`
+* `$loginBranch`، `$loginBranchId`
+* `$loginSector`، `$loginSectorId`
+* `$loginDepartment`، `$loginDepartmentId`
+* `$loginAnalysisSet`، `$loginAnalysisSetId`
 
 ---
 
-### Approval-Specific Fields
+### حقول خاصة بالموافقة {#Approval-Specific-Fields}
 
-* `currentApprovalCase`: The current approval context
+* `currentApprovalCase`: سياق الموافقة الحالي
 * `currentApprovalCase.lastStep.comment`
 * `currentApprovalCase.lastStep.actualResponsible`
 * `currentApprovalCase.lastStep.decision`
@@ -2058,15 +2055,15 @@ Ref1 code: {lastDiscussion.ref1.code}
 * `currentApprovalCase.lastStep.approvalReason`
 * `currentApprovalCase.lastStepDefinition.notificationRemark`
 
-Refer to [Approval Case Entity](https://www.namasoft.com/dm/#entity:entity/ApprovalCase&) for more.
+راجع [Approval Case Entity](https://www.namasoft.com/dm/#entity:entity/ApprovalCase&) لمزيد من المعلومات.
 
 ---
 
-### Other Utilities
+### أدوات مساعدة أخرى {#Other-Utilities}
 
-* `retrieverFileId`: Use this to generate customer-accessible file download links
+* `retrieverFileId`: استخدمه لإنشاء روابط تنزيل ملفات يمكن للعملاء الوصول إليها
 
-**Example image URL for employee:**
+**مثال URL صورة للموظف:**
 
 ```
 http://localhost:8080/erp/file.download?entityType=Employee&recordId={empId}

@@ -1,228 +1,224 @@
-# Nama ERP Installation Guide
+# دليل تثبيت Nama ERP {#Nama-ERP-Installation-Guide}
 
-**Nama ERP** is a Java-based web application that runs on Apache Tomcat and uses Microsoft SQL Server as its default database engine.
+**Nama ERP** هو تطبيق ويب مبني على Java يعمل على Apache Tomcat ويستخدم Microsoft SQL Server كمحرك قاعدة بيانات افتراضي.
 
-## System Requirements
+## متطلبات النظام {#System-Requirements}
 
-* **Operating System:** 64-bit (Windows Server recommended)
-* **Java JDK:** Version 21 or higher
-  [Download JDK 21](https://www.oracle.com/eg/java/technologies/downloads/#jdk21-windows)
-* **Apache Tomcat:** Version 10
-  [Download Tomcat 10](https://tomcat.apache.org/download-10.cgi)
-* **Database Engine:** Microsoft SQL Server 2016 or higher (SQL Server 2022 recommended)
-  For test environments, use **SQL Server Developer Edition**
-  [Download SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+* **نظام التشغيل:** 64-bit (يُنصح باستخدام Windows Server)
+* **Java JDK:** الإصدار 21 أو أحدث
+  [تنزيل JDK 21](https://www.oracle.com/eg/java/technologies/downloads/#jdk21-windows)
+* **Apache Tomcat:** الإصدار 10
+  [تنزيل Tomcat 10](https://tomcat.apache.org/download-10.cgi)
+* **محرك قاعدة البيانات:** Microsoft SQL Server 2016 أو أحدث (يُنصح بـ SQL Server 2022)
+  للبيئات التجريبية، استخدم **SQL Server Developer Edition**
+  [تنزيل SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 * **SQL Server Management Studio**
-  [Download SQL Server Management Studio](https://learn.microsoft.com/en-us/ssms/install/install#:~:text=Download%20SSMS)
-* **7-Zip** (for handling compressed files)
-  [Download 7-Zip](https://www.7-zip.org/download.html)
-* **Notepad++** (for viewing logs or editing configuration files)
-  [Download Notepad++](https://notepad-plus-plus.org/downloads/)
-* **Nama ERP Installer**
-  [Download Installer](https://namasoft.com/bin/installer/installer.zip)
+  [تنزيل SQL Server Management Studio](https://learn.microsoft.com/en-us/ssms/install/install#:~:text=Download%20SSMS)
+* **7-Zip** (للتعامل مع الملفات المضغوطة)
+  [تنزيل 7-Zip](https://www.7-zip.org/download.html)
+* **Notepad++** (لعرض السجلات أو تحرير ملفات الإعداد)
+  [تنزيل Notepad++](https://notepad-plus-plus.org/downloads/)
+* **مثبّت Nama ERP**
+  [تنزيل المثبّت](https://namasoft.com/bin/installer/installer.zip)
 
-## Database Setup
+## إعداد قاعدة البيانات {#Database-Setup}
 
-* Enable **Mixed Mode Authentication** in SQL Server.
-* Create a database (avoid using the default name `namaerp` in production).
-* Create a SQL user (or use `sa`) and grant full access to the database.
-* Enable **TCP/IP Protocol** using **SQL Server Configuration Manager**.
-* For **named instances**, assign a static port using the **IPAll** settings.
+* فعّل **Mixed Mode Authentication** في SQL Server.
+* أنشئ قاعدة بيانات (تجنب استخدام الاسم الافتراضي `namaerp` في بيئة الإنتاج).
+* أنشئ مستخدم SQL (أو استخدم `sa`) ومنحه صلاحية كاملة على قاعدة البيانات.
+* فعّل **TCP/IP Protocol** باستخدام **SQL Server Configuration Manager**.
+* لـ **named instances**، عيّن منفذاً ثابتاً باستخدام إعدادات **IPAll**.
 
-::: tip If you are installing SQL Server on a modern SSD drive, you might face an issue after the installation 
-**Sample Log content** (Log is usually in `C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Log\ERRORLOG` )
+::: tip إذا كنت تثبّت SQL Server على قرص SSD حديث، قد تواجه مشكلة بعد التثبيت
+**مثال على محتوى السجل** (السجل عادةً في `C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Log\ERRORLOG`)
 ```log
 Error: 5179, Severity: 16, State: 1.
 Cannot use file 'data file path', because it is on a volume with sector size 8192. SQL Server supports a maximum sector size of 4096 bytes. Move the file to a volume with a compatible sector size.
 ```
-* Solution:
-    1. Unistall SQL Server
-    2. Run the following powershell script:
+* الحل:
+    1. أزل تثبيت SQL Server
+    2. شغّل سكريبت PowerShell التالي:
 ```powershell
 New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\stornvme\Parameters\Device" -Name   "ForcedPhysicalSectorSizeInBytes" -PropertyType MultiString        -Force -Value "* 4095"
 ```
-    3. Restart Windows
-    3. Install SQL Server again 
+    3. أعد تشغيل Windows
+    3. ثبّت SQL Server مجدداً
 :::
 
-## Using the Installer
+## استخدام المثبّت {#Using-the-Installer}
 
-The **Nama ERP Installer** provides a graphical interface with the following key features:
+يوفر **مثبّت Nama ERP** واجهة رسومية بالميزات الرئيسية التالية:
 
-### Core Installation Features
-* Creating database and database users
-* Generating SQL Server Agent **full backup job**
-* Creating **differential backup job** (runs every 2–3 hours)
-* Generating **backup cleanup script** (removes old backups)
-* Option to **upload backups to cloud storage** (Google Drive, Dropbox, OneDrive, etc.)
-* Automatic **SSL certificate** creation using [Let's Encrypt](https://letsencrypt.org/)
+### ميزات التثبيت الأساسية {#Core-Installation-Features}
+* إنشاء قاعدة البيانات ومستخدمي قاعدة البيانات
+* إنشاء **مهمة النسخ الاحتياطي الكامل** في SQL Server Agent
+* إنشاء **مهمة النسخ الاحتياطي التفاضلي** (تعمل كل 2-3 ساعات)
+* إنشاء **سكريبت تنظيف النسخ الاحتياطية** (يحذف النسخ القديمة)
+* خيار **رفع النسخ الاحتياطية إلى التخزين السحابي** (Google Drive، Dropbox، OneDrive، إلخ)
+* إنشاء **شهادة SSL** تلقائياً باستخدام [Let's Encrypt](https://letsencrypt.org/)
 
-### Interface Sections
-1. **License Information**: License key, customer name, sub-server (auto-populated)
-2. **Database Configuration**: Server, port (1433), database name, credentials
-3. **Server Configuration**: Tomcat path (auto-detected), server address
-4. **Installation Paths**: Extras.zip URL/path, download destination
-5. **Progress Monitoring**: Real-time status, logs, and progress bars
+### أقسام الواجهة {#Interface-Sections}
+1. **معلومات الترخيص**: مفتاح الترخيص، اسم العميل، السيرفر الفرعي (يُملأ تلقائياً)
+2. **إعداد قاعدة البيانات**: السيرفر، المنفذ (1433)، اسم قاعدة البيانات، بيانات الاعتماد
+3. **إعداد السيرفر**: مسار Tomcat (يُكتشف تلقائياً)، عنوان السيرفر
+4. **مسارات التثبيت**: رابط/مسار ملف Extras.zip، وجهة التنزيل
+5. **متابعة التقدم**: الحالة الآنية، السجلات، وأشرطة التقدم
 
-### Smart Features
-* **Auto-detection**: Common Tomcat paths, existing configurations
-* **Real-time validation**: Visual feedback (green/red borders) for field inputs
-* **Configuration persistence**: Auto-save/restore settings via `installer.properties`
-* **License key integration**: Automatic customer/sub-server population
+### الميزات الذكية {#Smart-Features}
+* **الاكتشاف التلقائي**: مسارات Tomcat الشائعة والإعدادات الموجودة
+* **التحقق الآني**: ردود فعل بصرية (حدود خضراء/حمراء) لحقول الإدخال
+* **حفظ الإعدادات**: حفظ واستعادة تلقائي للإعدادات عبر `installer.properties`
+* **تكامل مفتاح الترخيص**: ملء تلقائي لبيانات العميل والسيرفر الفرعي
 
-## SSL Certificate Requirements
+## متطلبات شهادة SSL {#SSL-Certificate-Requirements}
 
-To install SSL with Let's Encrypt, you need:
+لتثبيت SSL باستخدام Let's Encrypt، تحتاج إلى:
 
-1. A **static IP address**
-2. A **domain name** that points to the static IP
-3. **Port forwarding** for ports `80` and `443` from your router to your server
+1. **عنوان IP ثابت**
+2. **اسم نطاق** يشير إلى عنوان IP الثابت
+3. **توجيه المنافذ** للمنافذ `80` و`443` من الراوتر إلى السيرفر
 
 ::: tip
-If a static IP is not available, you can use a **Dynamic DNS service** (e.g., selfip, DDNS).
+إذا لم يكن عنوان IP الثابت متاحاً، يمكنك استخدام **خدمة DNS ديناميكي** (مثل selfip، DDNS).
 :::
 
-## Supported Databases
+## قواعد البيانات المدعومة {#Supported-Databases}
 
-While SQL Server is the default, other databases may be supported. Please contact Nama ERP technical support for confirmation before using alternatives.
+رغم أن SQL Server هو الافتراضي، قد تكون قواعد بيانات أخرى مدعومة. يرجى التواصل مع الدعم الفني لـ Nama ERP للتأكيد قبل استخدام بدائل أخرى.
 
 ---
 
-## 📺 Full Installation Walkthrough
+## 📺 شرح التثبيت الكامل {#Full-Installation-Walkthrough}
 
-Watch the full installation tutorial here:
+شاهد الشرح الكامل للتثبيت هنا:
 👉 [https://youtu.be/6UWe9GyZC20](https://youtu.be/6UWe9GyZC20)
 
-## Confirming Nama ERP Installation
+## التحقق من تثبيت Nama ERP {#Confirming-Nama-ERP-Installation}
 
-By default, Apache Tomcat runs on port `8080`. If you did not change the port during setup, you can confirm that Nama ERP is installed correctly by visiting:
+يعمل Apache Tomcat افتراضياً على المنفذ `8080`. إذا لم تغيّر المنفذ أثناء الإعداد، يمكنك التحقق من صحة التثبيت بزيارة:
 
 ```
 http://localhost:8080/erp/
 ```
 
-If the login page appears, the installation was successful.
+إذا ظهرت صفحة تسجيل الدخول، فالتثبيت ناجح.
 
-To allow access for other users on your local network (LAN), make sure port `8080` is open in **Windows Firewall**:
+للسماح لمستخدمين آخرين على الشبكة المحلية (LAN) بالوصول، تأكد من فتح المنفذ `8080` في **جدار حماية Windows**:
 
-* Go to **Windows Defender Firewall** > **Advanced Settings**
-* Under **Inbound Rules**, create a new rule to allow traffic on port `8080`
-
----
-
-Here's the refined version with clearer formatting and corrections:
+* اذهب إلى **Windows Defender Firewall** > **Advanced Settings**
+* تحت **Inbound Rules**، أنشئ قاعدة جديدة للسماح بالمرور على المنفذ `8080`
 
 ---
 
-## Upgrading Nama ERP
+## ترقية Nama ERP {#Upgrading-Nama-ERP}
 
-You can upgrade Nama ERP from the **utils page** within the system interface. Multiple upgrade methods are available depending on your setup.
+يمكنك ترقية Nama ERP من **صفحة utils** داخل واجهة النظام. تتوفر طرق ترقية متعددة حسب إعدادك.
 
-### Manual Upgrade
+### الترقية اليدوية {#Manual-Upgrade}
 
-To upgrade Nama ERP manually:
+لترقية Nama ERP يدوياً:
 
-1. Download the upgrade tool:
+1. نزّل أداة الترقية:
    [https://namasoft.com/bin/upg-wget.jar](https://namasoft.com/bin/upg-wget.jar)
 
-2. Copy the file into your **Tomcat installation folder**
+2. انسخ الملف إلى **مجلد تثبيت Tomcat**
 
-3. You can run the JAR file by:
+3. يمكنك تشغيل ملف JAR عبر:
 
-    * **Double-clicking** it
-      **OR**
-    * Using **Windows Command Prompt**:
+    * **النقر المزدوج** عليه
+      **أو**
+    * باستخدام **موجه أوامر Windows**:
 
-      #### Steps:
+      #### الخطوات:
 
-        * Open Command Prompt (`cmd`)
+        * افتح موجه الأوامر (`cmd`)
 
-        * Navigate to your Tomcat installation folder using the `cd` command, for example:
+        * انتقل إلى مجلد تثبيت Tomcat باستخدام أمر `cd`، مثلاً:
 
           ```cmd
           cd "C:\Program Files\Apache Software Foundation\Tomcat 10"
           ```
 
-        * Run the upgrade tool:
+        * شغّل أداة الترقية:
 
           ```cmd
           java -jar upg-wget.jar
           ```
 
-This tool will automatically download and apply the latest Nama ERP updates.
+ستقوم هذه الأداة بتنزيل وتطبيق آخر تحديثات Nama ERP تلقائياً.
 
-### How to Allow Downloading Releases from Utils Page?
+### كيفية السماح بتنزيل الإصدارات من صفحة Utils؟ {#How-to-Allow-Downloading-Releases-from-Utils-Page}
 
-To enable the system to download and install updates from the **utils** page (i.e., support self-upgrade functionality), the Tomcat service must run under the **Local System Account**.
+لتمكين النظام من تنزيل التحديثات وتثبيتها من صفحة **utils** (أي دعم الترقية الذاتية)، يجب أن تعمل خدمة Tomcat تحت حساب **Local System Account**.
 
 ::: tip
- This configuration is typically set automatically during the Nama ERP installation. If auto-upgrade stops functioning, follow these steps to restore it
+يُعدّ هذا الإعداد عادةً تلقائياً أثناء تثبيت Nama ERP. إذا توقفت الترقية التلقائية عن العمل، اتبع هذه الخطوات لاستعادتها
 :::
 
-1. Open the **Tomcat Service Configuration Utility**:
+1. افتح **أداة إعداد خدمة Tomcat**:
 
-    * Navigate to:
+    * انتقل إلى:
       `C:\Program Files\Apache Software Foundation\Tomcat 10\bin\tomcatw.exe`
-    * Or search in the Windows Start Menu for: **Configure Tomcat**
+    * أو ابحث في قائمة ابدأ في Windows عن: **Configure Tomcat**
 
-2. In the configuration window, go to the **Log On** tab.
+2. في نافذة الإعداد، اذهب إلى تبويب **Log On**.
 
-3. Select the radio option **Local System account**.
+3. اختر خيار **Local System account**.
 
-4. Save the configuration and restart the Tomcat service.
+4. احفظ الإعداد وأعد تشغيل خدمة Tomcat.
 
-![Configure Tomcat Service Logon as](images/installation-configure-logon-to-enable-auto-upgrade.png)
+![إعداد تسجيل دخول خدمة Tomcat](images/installation-configure-logon-to-enable-auto-upgrade.png)
 
-## Troubleshooting
+## استكشاف الأخطاء وإصلاحها {#Troubleshooting}
 
-### Common Issues & Solutions
+### المشاكل الشائعة وحلولها {#Common-Issues--Solutions}
 
-**Pre-Installation Validation**: Use **Perform Checks** (F5) to diagnose problems:
+**التحقق قبل التثبيت**: استخدم **Perform Checks** (F5) لتشخيص المشاكل:
 
-1. **Port Conflicts**: Another program using Tomcat's port (usually 8080)
-2. **Database Problems**: SQL Server not running, TCP/IP disabled, or incorrect credentials  
-3. **Java Issues**: Missing or incorrectly configured Java path
-4. **Invalid Paths**: Non-existent Tomcat directory or malformed URLs
+1. **تعارض المنافذ**: برنامج آخر يستخدم منفذ Tomcat (عادةً 8080)
+2. **مشاكل قاعدة البيانات**: SQL Server لا يعمل، أو TCP/IP معطّل، أو بيانات اعتماد خاطئة
+3. **مشاكل Java**: مسار Java مفقود أو مضبوط بشكل خاطئ
+4. **مسارات غير صالحة**: مجلد Tomcat غير موجود أو روابط غير صحيحة
 
-### Debugging Installer Commands
+### تصحيح أوامر المثبّت {#Debugging-Installer-Commands}
 
-::: tip Viewing Detailed Installer Output
-To see detailed output from commands that run within the installer (useful for debugging installation issues), you can enable process output printing by modifying the installer launcher script.
+::: tip عرض مخرجات المثبّت التفصيلية
+لرؤية المخرجات التفصيلية للأوامر التي تعمل داخل المثبّت (مفيد لتصحيح مشاكل التثبيت)، يمكنك تمكين طباعة مخرجات العملية بتعديل سكريبت تشغيل المثبّت.
 
-Edit the `install-nama-erp.js` file and replace:
+عدّل ملف `install-nama-erp.js` واستبدل:
 ```javascript
 Arguments = " -jar \""+oFolder.path+"\\nama-installer-0.0.1-SNAPSHOT.jar\"";
 ```
 
-With:
+بـ:
 ```javascript
 Arguments = " -Dprint-process-output=true -jar \""+oFolder.path+"\\nama-installer-0.0.1-SNAPSHOT.jar\"";
 ```
 
-This will display the output of all commands executed by the installer, helping you identify the exact point where an installation issue occurs.
+سيعرض هذا مخرجات جميع الأوامر التي ينفّذها المثبّت، مما يساعدك على تحديد نقطة حدوث المشكلة بالضبط.
 :::
 
-### Error Resolution Process
-1. **Run Diagnostics** → **Review Logs** → **Fix Fatal Errors** → **Retry Installation**
-2. Use **Load From Tomcat** to import existing configurations
-3. **Save Config** preserves settings between sessions for troubleshooting
+### عملية حل الأخطاء {#Error-Resolution-Process}
+1. **شغّل التشخيص** → **راجع السجلات** → **أصلح الأخطاء الحرجة** → **أعد التثبيت**
+2. استخدم **Load From Tomcat** لاستيراد الإعدادات الموجودة
+3. **Save Config** يحفظ الإعدادات بين الجلسات لأغراض استكشاف الأخطاء
 
-## Installer Controls & Operations
+## عناصر تحكم المثبّت والعمليات {#Installer-Controls--Operations}
 
-### Main Action Buttons
-* **Start Installation**: Begins installation after validation (Enter key or green button)
-* **Perform Checks** (F5): Validates Tomcat, database, Java, and port configuration
-* **Save Config** (Ctrl+S): Saves settings to `installer.properties`
-* **Load From Tomcat** (Ctrl+L): Imports configuration from existing installation
+### أزرار الإجراءات الرئيسية {#Main-Action-Buttons}
+* **Start Installation**: يبدأ التثبيت بعد التحقق (مفتاح Enter أو الزر الأخضر)
+* **Perform Checks** (F5): يتحقق من Tomcat وقاعدة البيانات وJava وإعداد المنفذ
+* **Save Config** (Ctrl+S): يحفظ الإعدادات في `installer.properties`
+* **Load From Tomcat** (Ctrl+L): يستورد الإعداد من تثبيت موجود
 
-### Advanced Operations  
-* **Request Key**: Automated license key request from Nama servers with approval monitoring
-* **Install SSL**: Launches Let's Encrypt certificate installation wizard
-* **Migrate Tomcat**: Upgrades from Tomcat 9 to Tomcat 10 with configuration preservation
-* **DB Scripts**: Generates database setup scripts
+### العمليات المتقدمة {#Advanced-Operations}
+* **Request Key**: طلب مفتاح ترخيص تلقائي من سيرفرات Nama مع متابعة الموافقة
+* **Install SSL**: يشغّل معالج تثبيت شهادة Let's Encrypt
+* **Migrate Tomcat**: ترقية من Tomcat 9 إلى Tomcat 10 مع الحفاظ على الإعداد
+* **DB Scripts**: يولّد سكريبتات إعداد قاعدة البيانات
 
-### Validation & Auto-Detection
-* **Path Detection**: Automatically finds Tomcat in common locations
-* **Field Validation**: Real-time feedback with colored borders (green=valid, red=invalid)
-* **Configuration Import**: Loads existing settings from `nama.properties`
-* **Progress Monitoring**: Real-time download progress, installation status, and detailed logging
+### التحقق والاكتشاف التلقائي {#Validation--Auto-Detection}
+* **Path Detection**: يعثر تلقائياً على Tomcat في المواقع الشائعة
+* **Field Validation**: ردود فعل آنية بحدود ملوّنة (أخضر=صالح، أحمر=غير صالح)
+* **Configuration Import**: يحمّل الإعدادات الموجودة من `nama.properties`
+* **Progress Monitoring**: تقدم التنزيل الآني وحالة التثبيت والسجلات التفصيلية

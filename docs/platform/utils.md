@@ -1,16 +1,16 @@
-# Utility Links
+# روابط الأدوات المساعدة (Utility Links) {#Utility-Links}
 ::: danger
-This file contains potentially dangerous links. Please proceed with caution when using any of the listed utilities. 
+يحتوي هذا الملف على روابط قد تكون خطرة. يُرجى التعامل بحذر عند استخدام أي من الأدوات المذكورة.
 :::
 
 <ServerBaseURL/>
 ::: tip
-- Enter the server URL of the customer you're working with
-- You can also customize the default parameter values using the input fields provided.
-- Use the Copy button to simplify running the utilities.
+- أدخل عنوان URL للخادم الخاص بالعميل الذي تعمل معه
+- يمكنك أيضًا تخصيص قيم المعاملات الافتراضية باستخدام حقول الإدخال المتوفرة.
+- استخدم زر النسخ لتسهيل تشغيل الأدوات.
 :::
 
-## Recommit From File: (For admin)
+## إعادة الحفظ من ملف - Recommit From File: (للمسؤول) {#Recommit-From-File---For-admin-}
 <UtilityLinkBuilder
 className="com.namasoft.erp.gui.server.RecommitFromFile"
 :params="[
@@ -20,16 +20,16 @@ className="com.namasoft.erp.gui.server.RecommitFromFile"
 ]" :gui = "true"
 />
 
-## ReApply Real Estate Sales Contracts System Entries:
+## إعادة تطبيق قيود عقود مبيعات العقارات: {#ReApply-Real-Estate-Sales-Contracts-System-Entries-}
 
 <UtilityLinkBuilder 
 className="com.namasoft.modules.realstate.domain.utils.RESysEntryMigratorUtility"/>
 
-## ReApply Rent Contracts System Entries:
+## إعادة تطبيق قيود عقود الإيجار: {#ReApply-Rent-Contracts-System-Entries-}
 <UtilityLinkBuilder
 className="com.namasoft.modules.realstate.domain.utils.UpdateREReservationEntryUtil"/>
 
-## Re-Replicate From File: (For admin)
+## إعادة النسخ من ملف - Re-Replicate From File: (للمسؤول) {#Re-Replicate-From-File---For-admin-}
 <UtilityLinkBuilder
 className="com.namasoft.erp.gui.server.ReplicateFromFile"
 :params="[
@@ -39,7 +39,7 @@ className="com.namasoft.erp.gui.server.ReplicateFromFile"
 ]" :gui = "true"
 />
 
-## Delete From File:
+## الحذف من ملف - Delete From File: {#Delete-From-File-}
 <UtilityLinkBuilder
 className="com.namasoft.erp.gui.server.DeleteFromFile"
 :params="[
@@ -50,7 +50,7 @@ className="com.namasoft.erp.gui.server.DeleteFromFile"
 />
 
 
-## Regen Ledger from file - Accounting Effects:
+## إعادة توليد دفتر الأستاذ من ملف - Regen Ledger from file - Accounting Effects: {#Regen-Ledger-from-file---Accounting-Effects-}
 <UtilityLinkBuilder
 className="com.namasoft.erp.gui.server.RegenAccFromFile"
 :params="[
@@ -60,7 +60,7 @@ className="com.namasoft.erp.gui.server.RegenAccFromFile"
 ]" :gui = "true"
 />
 
-## Export To Another Server From File:
+## التصدير إلى خادم آخر من ملف - Export To Another Server From File: {#Export-To-Another-Server-From-File-}
 <UtilityLinkBuilder
 className="com.namasoft.erp.gui.server.ExportToServerFromFileByWS"
 :params="[
@@ -72,7 +72,7 @@ className="com.namasoft.erp.gui.server.ExportToServerFromFileByWS"
 />
 
 
-## Export To Another Server from File Using Excel Sheets:
+## التصدير إلى خادم آخر من ملف باستخدام جداول Excel: {#Export-To-Another-Server-from-File-Using-Excel-Sheets-}
 <UtilityLinkBuilder
 className="com.namasoft.erp.gui.server.ExportToServerFromFileByExcel"
 :params="[
@@ -83,7 +83,7 @@ className="com.namasoft.erp.gui.server.ExportToServerFromFileByExcel"
 ]" :gui = "true"
 />
 
-## Get Not Commited: (can be used with delete, it just compares two files)
+## الحصول على السجلات غير المحفوظة - Get Not Commited: (يمكن استخدامه مع الحذف، يقارن ملفين فقط) {#Get-Not-Commited---can-be-used-with-delete--it-just-compares-two-files-}
 <UtilityLinkBuilder
 className="com.namasoft.erp.gui.server.CompareTwoFiles"
 :params="[
@@ -92,23 +92,23 @@ className="com.namasoft.erp.gui.server.CompareTwoFiles"
 ]" :gui = "true"
 />
 
-## ReCreate Employee State System Entries:
+## إعادة إنشاء قيود حالة الموظف: {#ReCreate-Employee-State-System-Entries-}
 <UtilityLinkBuilder
 className="com.namasoft.modules.humanresource.domain.entities.utils.MigrateEmpStateEntry"
 />
 
-## Employee Vacation System Entries:
-- Recreate All Employees Vacation Sys Entries
+## قيود إجازات الموظفين: {#Employee-Vacation-System-Entries-}
+- إعادة إنشاء قيود الإجازات لجميع الموظفين
 <UtilityLinkBuilder
 className="com.namasoft.modules.humanresource.domain.entities.utils.VacationsSysEntryMigratorForAllEmps"
 />
 
-- To Process Only Working Employees:
+- لمعالجة الموظفين العاملين فقط:
 <UtilityLinkBuilder
 className="com.namasoft.modules.humanresource.domain.entities.utils.VacationsSysEntryMigratorForWorkingEmps"
 />
 
--- To Allow System To Resume After An Error:
+-- للسماح للنظام بالاستئناف بعد حدوث خطأ:
 <UtilityLinkBuilder
 className="com.namasoft.modules.humanresource.domain.entities.utils.VacationsSysEntryMigratorForAllEmps"
 :params="[
@@ -117,10 +117,10 @@ className="com.namasoft.modules.humanresource.domain.entities.utils.VacationsSys
 />
 
 ::: tip
-This will put the processed employee ids in e:/rc/processed-employees.txt
+سيتم وضع معرّفات الموظفين المعالَجين في e:/rc/processed-employees.txt
 :::
 
-- To Allow The system to resume after an error and determine date to start from
+- للسماح للنظام بالاستئناف بعد خطأ وتحديد تاريخ البدء
   <UtilityLinkBuilder
   className="com.namasoft.modules.humanresource.domain.entities.utils.VacationsSysEntryMigratorForAllEmps"
   :params="[
@@ -130,10 +130,10 @@ This will put the processed employee ids in e:/rc/processed-employees.txt
   />
 
 ::: tip
-This will put the processed employee ids in e:/rc/processed-employees.txt, and the date with format yyyyMMdd 
+سيتم وضع معرّفات الموظفين المعالَجين في e:/rc/processed-employees.txt، والتاريخ بصيغة yyyyMMdd
 :::
 
-- To Process Specific Employees by Code:
+- لمعالجة موظفين محددين بالرمز:
   <UtilityLinkBuilder
   className="com.namasoft.modules.humanresource.domain.entities.utils.VacationsSysEntryMigratorForAllEmps"
   :params="[
@@ -141,7 +141,7 @@ This will put the processed employee ids in e:/rc/processed-employees.txt, and t
   ]"
   />
 
-## Recreate Sub Item Status Entries:
+## إعادة إنشاء قيود حالة العناصر الفرعية: {#Recreate-Sub-Item-Status-Entries-}
 <UtilityLinkBuilder
 className="com.namasoft.modules.srvcenter.domain.utils.SubItemStatusSysEntryRecalculateUtil"
 :params="[
@@ -150,17 +150,17 @@ className="com.namasoft.modules.srvcenter.domain.utils.SubItemStatusSysEntryReca
 />
 
 
-## Regenerate Approvals Summary
+## إعادة توليد ملخص الموافقات {#Regenerate-Approvals-Summary}
 <UtilityLinkBuilder
 className="com.namasoft.infra.domainbase.common.approval.RecalcSummaryUtil"
 />
 
-## Remove Zombie Approvals:
+## إزالة الموافقات الوهمية - Remove Zombie Approvals: {#Remove-Zombie-Approvals-}
 <UtilityLinkBuilder
 className="com.namasoft.infra.domainbase.common.approval.FixZombieApprovalUtil"
 />
 
-## Regenerate Inventory Transactions from File:
+## إعادة توليد حركات المخزون من ملف: {#Regenerate-Inventory-Transactions-from-File-}
 <UtilityLinkBuilder
 className="com.namasoft.modules.supplychain.domain.utils.plugnplay.RegenInvTransReqFromFile"
 :params="[
@@ -170,27 +170,27 @@ className="com.namasoft.modules.supplychain.domain.utils.plugnplay.RegenInvTrans
 ]"
 />
 
-## Reprocess All Fixed Assets Documents:
-- Recreate all fixed assets entries
+## إعادة معالجة جميع مستندات الأصول الثابتة: {#Reprocess-All-Fixed-Assets-Documents-}
+- إعادة إنشاء جميع قيود الأصول الثابتة
 <UtilityLinkBuilder
 className="com.namasoft.modules.fixedassets.domain.utils.SWSUpdatePropertyEntryUtil"
 />
 
-- Recreate all fixed assets entries and recalculate depreciation installment values
+- إعادة إنشاء جميع قيود الأصول الثابتة وإعادة حساب أقساط الإهلاك
 ::: danger
-Take care, depreciation values WILL BE CHANGED
+انتبه، ستتغير قيم الإهلاك
 :::
 <UtilityLinkBuilder
   className="com.namasoft.modules.fixedassets.domain.utils.SWSUpdatePropertyEntryAndRecalcDepreciationUtil"
 />
 
-- Recalculate and remove assets that exist in prevent depreciation documents
+- إعادة الحساب وإزالة الأصول الموجودة في مستندات منع الإهلاك
   <UtilityLinkBuilder
   className="com.namasoft.modules.fixedassets.domain.utils.SWSUpdatePropertyEntryAndRecalcDepreciationAndRemovePreventedAssetsUtil"
   />
 
 
-- Reprocess Specific Fixed Assets Documents:
+- إعادة معالجة مستندات أصول ثابتة محددة:
   <UtilityLinkBuilder
   className="com.namasoft.modules.fixedassets.domain.utils.SWSUpdatePropertyEntryUtil"
   :params="[
@@ -198,5 +198,3 @@ Take care, depreciation values WILL BE CHANGED
   { title: 'Asset IDS' , default: 'ffff01,ffff02', id: 'ids' }
   ]"
   />
-
-

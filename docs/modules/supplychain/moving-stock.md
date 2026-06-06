@@ -1,382 +1,382 @@
-# Moving Stock Around
+# تحريك المخزون {#Moving-Stock-Around}
 
-Sometimes items don't come in or go out - they just move from one place to another. Let's explore all the ways inventory moves within your organization and how to track these movements properly.
+في بعض الأحيان لا تدخل الأصناف ولا تخرج - بل تنتقل فقط من مكان إلى آخر. لنستعرض جميع طرق تحريك المخزون داخل مؤسستك وكيفية تتبع هذه الحركات بشكل صحيح.
 
-## Stock Transfers: The Basics
+## تحويلات المخزون: الأساسيات {#Stock-Transfers-The-Basics}
 
-A **stock transfer** is any movement of items from one location to another without changing who owns them. The total inventory stays the same - only the location changes.
+**تحويل المخزون** هو أي حركة للأصناف من موقع إلى آخر دون تغيير الجهة المالكة لها. إجمالي المخزون يبقى كما هو - فقط الموقع يتغير.
 
-Think of it like moving money between your checking and savings accounts. Your total wealth doesn't change, but where the money sits does change, and you need to track that.
+فكّر في الأمر كنقل الأموال بين حساب الجاري وحساب التوفير. ثروتك الإجمالية لا تتغير، لكن مكان تواجد المال يتغير، وتحتاج إلى تتبع ذلك.
 
-## The Simple Transfer: One Document, Complete Movement
+## التحويل البسيط: مستند واحد وحركة كاملة {#The-Simple-Transfer-One-Document-Complete-Movement}
 
-The `StockTransfer` (سند تحويل مخزني) document handles straightforward transfers in a single step.
+يعالج مستند `StockTransfer` (سند تحويل مخزني) التحويلات المباشرة في خطوة واحدة.
 
-### Common Transfer Scenarios
+### سيناريوهات التحويل الشائعة {#Common-Transfer-Scenarios}
 
-**Between Warehouses**
-You have three warehouses: Main (downtown), North Branch, and South Branch. A North Branch customer wants an item you only have at Main. Create a transfer:
-- From: Main Warehouse
-- To: North Branch Warehouse
-- Item: The product
-- Quantity: What they need
+**بين المستودعات**
+لديك ثلاثة مستودعات: الرئيسي (وسط البلد)، الفرع الشمالي، والفرع الجنوبي. عميل في الفرع الشمالي يريد صنفاً موجوداً فقط في المستودع الرئيسي. أنشئ تحويلاً:
+- من: المستودع الرئيسي
+- إلى: مستودع الفرع الشمالي
+- الصنف: المنتج المطلوب
+- الكمية: ما يحتاجونه
 
-The system:
-- Decreases inventory at Main
-- Increases inventory at North Branch
-- Total inventory unchanged
-- Tracks the item's movement history
+سيقوم النظام بـ:
+- تخفيض المخزون في المستودع الرئيسي
+- زيادة المخزون في الفرع الشمالي
+- إجمالي المخزون لا يتغير
+- تتبع سجل حركة الصنف
 
-**Within a Warehouse**
-Even within one building, you might move items:
-- From receiving dock to storage location
-- From storage to picking area
-- From regular storage to promotional display area
-- From one shelf to another (reorganization)
+**داخل مستودع واحد**
+حتى داخل مبنى واحد قد تحتاج إلى نقل الأصناف:
+- من رصيف الاستلام إلى موقع التخزين
+- من التخزين إلى منطقة التجهيز
+- من التخزين العادي إلى منطقة العرض الترويجي
+- من رف إلى آخر (إعادة تنظيم)
 
-**Example**: During warehouse reorganization, you're moving all electronics from Aisle A to the new electronics section in Aisle E. Create transfers to update the system location records to match physical reality.
+**مثال**: خلال إعادة تنظيم المستودع، تنقل جميع الإلكترونيات من الممر A إلى قسم الإلكترونيات الجديد في الممر E. أنشئ تحويلات لتحديث سجلات مواقع النظام بما يطابق الواقع الفعلي.
 
-### How Transfers Work
+### آلية عمل التحويلات {#How-Transfers-Work}
 
-A transfer simultaneously:
-1. **Issues** from the source location (decreases quantity there)
-2. **Receives** at the destination location (increases quantity there)
+يقوم التحويل في آنٍ واحد بـ:
+1. **الصرف** من الموقع المصدر (يخفض الكمية هناك)
+2. **الاستلام** في الموقع الوجهة (يزيد الكمية هناك)
 
-It's atomically both an issue and receipt, wrapped in one document. If the transfer fails or is cancelled, both sides reverse together - you never end up with items lost in limbo.
+هو في جوهره عملية صرف واستلام معاً، مجمّعتان في مستند واحد. إذا فشل التحويل أو ألغي، يتم عكس الجانبين معاً - لن تجد أصنافاً ضائعة في المنتصف.
 
-**Costing Note**: Transfers typically move items at their current cost - no revaluation happens. Items cost the same wherever they sit.
+**ملاحظة التكلفة**: تُنقل الأصناف عادةً بتكلفتها الحالية - لا تتم إعادة تقييم. الأصناف لها نفس التكلفة أينما كانت.
 
-## The Two-Step Transfer: More Control, More Tracking
+## التحويل ذو الخطوتين: مزيد من التحكم والتتبع {#The-Two-Step-Transfer-More-Control-More-Tracking}
 
-Some organizations want tighter control over transfers, especially when:
-- Items travel between distant locations
-- Transit time is significant
-- Custody changes hands
-- Security or compliance requires tracking in-transit inventory
+بعض المؤسسات تريد تحكماً أشد في التحويلات، خاصة عندما:
+- تنتقل الأصناف بين مواقع بعيدة
+- يكون وقت العبور ملحوظاً
+- تتغير الحيازة من يد إلى أخرى
+- يتطلب الأمن أو الامتثال تتبع المخزون أثناء العبور
 
-Enter the two-step transfer process.
+هنا يأتي دور عملية التحويل ذات الخطوتين.
 
-### IssueStockTransfer - Sending Items
+### IssueStockTransfer - إرسال الأصناف {#IssueStockTransfer---Sending-Items}
 
-The `IssueStockTransfer` (صرف تحويل مخزني) documents the **issuing side** of a transfer:
-- Items leave the source warehouse
-- Inventory decreases at source
-- Items are now "in transit"
-- Document records what was sent, when, by whom
+يوثّق `IssueStockTransfer` (صرف تحويل مخزني) **جانب الصرف** في التحويل:
+- الأصناف تغادر المستودع المصدر
+- المخزون ينخفض في المصدر
+- الأصناف أصبحت "في الطريق"
+- المستند يسجل ما أُرسل ومتى وبواسطة من
 
-### ReceiptStockTransfer - Receiving Items
+### ReceiptStockTransfer - استلام الأصناف {#ReceiptStockTransfer---Receiving-Items}
 
-The `ReceiptStockTransfer` (استلام تحويل مخزني) documents the **receiving side**:
-- Items arrive at destination warehouse
-- Inventory increases at destination
-- Items are now "available" at new location
-- Document records what was received, when, by whom
+يوثّق `ReceiptStockTransfer` (استلام تحويل مخزني) **جانب الاستلام**:
+- الأصناف تصل إلى المستودع الوجهة
+- المخزون يزداد في الوجهة
+- الأصناف أصبحت "متاحة" في الموقع الجديد
+- المستند يسجل ما استُلم ومتى وبواسطة من
 
-### Why Two Steps?
+### لماذا خطوتان؟ {#Why-Two-Steps}
 
-**Tracking In-Transit Inventory**
-If items are in a truck for two days between warehouses, you need to know:
-- They're not available at the source (already shipped)
-- They're not available at the destination (not yet arrived)
-- They're in transit (and where: "En route on truck #17")
+**تتبع المخزون أثناء العبور**
+إذا كانت الأصناف في شاحنة لمدة يومين بين المستودعات، تحتاج إلى معرفة:
+- أنها غير متاحة في المصدر (شُحنت بالفعل)
+- أنها غير متاحة في الوجهة (لم تصل بعد)
+- أنها في الطريق (وأين: "في طريقها على الشاحنة رقم 17")
 
-**Discrepancy Management**
-Source warehouse ships 100 items, but destination receives only 98:
-- Issue document shows 100 shipped
-- Receipt document shows 98 received
-- System highlights 2-unit discrepancy for investigation
-- Was there damage in transit? Theft? Miscounting?
+**إدارة الفروقات**
+أرسل المستودع المصدر 100 صنف، لكن الوجهة استلمت 98 فقط:
+- مستند الصرف يظهر 100 مشحونة
+- مستند الاستلام يظهر 98 مستلمة
+- النظام يسلّط الضوء على فارق 2 وحدة للتحقيق
+- هل كان هناك تلف أثناء النقل؟ سرقة؟ خطأ في العد؟
 
-**Custody Transfer**
-When different people/departments are responsible:
-- Source warehouse person signs off (issued)
-- Destination warehouse person signs off (received)
-- Clear accountability at each stage
+**نقل الحيازة**
+عندما تكون أشخاص/أقسام مختلفة مسؤولة:
+- موظف المستودع المصدر يوقّع (صرف)
+- موظف المستودع الوجهة يوقّع (استلام)
+- مساءلة واضحة في كل مرحلة
 
-**Approval Points**
-You might require:
-- Approval to issue (authorize sending items)
-- Separate approval to receive (verify items arrived in good condition)
+**نقاط الاعتماد**
+قد تشترط:
+- اعتماداً للصرف (تخويل إرسال الأصناف)
+- اعتماداً منفصلاً للاستلام (التحقق من وصول الأصناف بحالة جيدة)
 
-### The Transfer Request
+### طلب التحويل {#The-Transfer-Request}
 
-The `StockTransferReq` (طلب تحويل مخزني) adds another layer: requesting a transfer before executing it.
+يضيف `StockTransferReq` (طلب تحويل مخزني) طبقة إضافية: طلب التحويل قبل تنفيذه.
 
-**Workflow:**
-1. **Request**: North Branch: "We need 50 units of Item X from Main"
-2. **Review**: Main Warehouse: "We have it, approved"
-3. **Issue**: Main ships 50 units
-4. **Transit**: Items travel for 1 day
-5. **Receipt**: North receives 50 units (or fewer, with explanation)
+**سير العمل:**
+1. **الطلب**: الفرع الشمالي: "نحتاج 50 وحدة من الصنف X من المستودع الرئيسي"
+2. **المراجعة**: المستودع الرئيسي: "متوفر، موافقة"
+3. **الصرف**: المستودع الرئيسي يشحن 50 وحدة
+4. **العبور**: الأصناف في طريقها ليوم واحد
+5. **الاستلام**: الفرع الشمالي يستلم 50 وحدة (أو أقل مع التفسير)
 
-This ensures:
-- Planned transfers (not reactive)
-- Coordination between locations
-- Visibility of upcoming movements
+هذا يضمن:
+- تحويلات مخططة (وليست تفاعلية)
+- تنسيقاً بين المواقع
+- رؤية للحركات القادمة
 
-## Assembly Operations: Transforming Stock
+## عمليات التجميع: تحويل المخزون {#Assembly-Operations-Transforming-Stock}
 
-Sometimes moving stock involves changing it. This is where **assembly** comes in.
+أحياناً تحريك المخزون ينطوي على تغييره. هنا يأتي دور **التجميع**.
 
-### AssemblyDocument - Building from Components
+### AssemblyDocument - البناء من المكونات {#AssemblyDocument---Building-from-Components}
 
-The `AssemblyDocument` (سند تجميع) simultaneously:
-- **Issues** component items (consumes them from inventory)
-- **Receives** finished/assembled item (creates it in inventory)
+يقوم مستند `AssemblyDocument` (سند تجميع) في آنٍ واحد بـ:
+- **صرف** أصناف المكونات (استهلاكها من المخزون)
+- **استلام** الصنف المجمَّع/المنتهي (إدخاله في المخزون)
 
-**Example: Building Computer Systems**
-You sell pre-configured computers. You have in inventory:
-- 50 computer bases
-- 100 monitors
-- 100 keyboards
-- 100 mice
+**مثال: بناء أنظمة كمبيوتر**
+تبيع حاسوبات مهيأة مسبقاً. لديك في المخزون:
+- 50 وحدة حاسوب أساسية
+- 100 شاشة
+- 100 لوحة مفاتيح
+- 100 فأرة
 
-A customer orders 20 complete systems. Create an assembly document that:
+عميل يطلب 20 نظاماً كاملاً. أنشئ مستند تجميع يقوم بـ:
 
-**Issues (Components)**:
-- 20 computer bases
-- 20 monitors
-- 20 keyboards
-- 20 mice
+**الصرف (المكونات)**:
+- 20 وحدة حاسوب أساسية
+- 20 شاشة
+- 20 لوحة مفاتيح
+- 20 فأرة
 
-**Receives (Finished Product)**:
-- 20 complete computer systems
+**الاستلام (المنتج النهائي)**:
+- 20 نظام كمبيوتر متكامل
 
-The system:
-- Reduces component inventory
-- Increases finished system inventory
-- Accumulates cost (system cost = base + monitor + keyboard + mouse)
-- Maintains total inventory value (value moved from components to systems)
+سيقوم النظام بـ:
+- تخفيض مخزون المكونات
+- زيادة مخزون الأنظمة المنتهية
+- تجميع التكلفة (تكلفة النظام = الأساس + الشاشة + لوحة المفاتيح + الفأرة)
+- الحفاظ على إجمالي قيمة المخزون (القيمة انتقلت من المكونات إلى الأنظمة)
 
-### When to Use Assembly
+### متى تستخدم التجميع {#When-to-Use-Assembly}
 
-**Kitting**
-Creating kits or bundles for sale. Instead of selling 4 separate items, sell one "Computer Kit."
+**التجميع في حزم (Kitting)**
+إنشاء حزم أو مجموعات للبيع. بدلاً من بيع 4 أصناف منفصلة، بيع "حزمة كمبيوتر" واحدة.
 
-**Manufacturing Light**
-Simple manufacturing without complex production orders. You're not tracking labor and overhead - just combining parts.
+**تصنيع خفيف (Manufacturing Light)**
+تصنيع بسيط دون أوامر إنتاج معقدة. لا تتبع للعمالة والمصاريف العامة - مجرد تجميع قطع.
 
-**Custom Configurations**
-Customer orders a laptop with specific RAM and storage. Assemble from base laptop + RAM module + SSD.
+**تهيئات مخصصة (Custom Configurations)**
+العميل يطلب لابتوب بـ RAM وتخزين محددين. يُجمَّع من اللابتوب الأساسي + وحدة RAM + SSD.
 
-**Display Models**
-Assembling components into display models for your showroom.
+**نماذج العرض**
+تجميع المكونات في نماذج عرض لصالة عرضك.
 
-### AssemblyRequest - Planning Assemblies
+### AssemblyRequest - تخطيط التجميعات {#AssemblyRequest---Planning-Assemblies}
 
-The `AssemblyRequest` (طلب تجميع) is the requisition before assembly:
-1. Determine what needs to be assembled
-2. Request approval (do we have the components? is this the right configuration?)
-3. Once approved, create the assembly document
-4. Execute the assembly
+`AssemblyRequest` (طلب تجميع) هو الطلب قبل التجميع:
+1. تحديد ما يحتاج إلى تجميع
+2. طلب الاعتماد (هل لدينا المكونات؟ هل هذه التهيئة صحيحة؟)
+3. بعد الاعتماد، إنشاء مستند التجميع
+4. تنفيذ التجميع
 
-### Disassembly: Going Backwards
+### التفكيك: العودة للخلف {#Disassembly-Going-Backwards}
 
-Sometimes you need to disassemble:
-- A kit isn't selling, break it back into components
-- A configured system needs to be reconfigured differently
-- Returned items need to be broken down for restock
+أحياناً تحتاج إلى التفكيك:
+- حزمة لا تُباع، فككها إلى مكوناتها
+- نظام مهيأ يحتاج إلى إعادة تهيئة مختلفة
+- أصناف مرتجعة تحتاج إلى تفكيك لإعادة التخزين
 
-Create a "negative" assembly or use the item's `deAssemblyBomMethod` configuration to properly reverse the assembly.
+أنشئ تجميعاً "سالباً" أو استخدم إعداد `deAssemblyBomMethod` للصنف لعكس عملية التجميع بشكل صحيح.
 
-## Reservations: Holding Stock in Place
+## الحجوزات: إبقاء المخزون في مكانه {#Reservations-Holding-Stock-in-Place}
 
-A **reservation** doesn't physically move items, but it changes their status from "available" to "committed."
+**الحجز** لا يحرّك الأصناف فعلياً، لكنه يغير حالتها من "متاح" إلى "محجوز".
 
-### ReservationDocument - Claiming Stock
+### ReservationDocument - تخصيص المخزون {#ReservationDocument---Claiming-Stock}
 
-The `ReservationDocument` (حجز مخزني) reserves stock for a specific purpose:
+يحجز مستند `ReservationDocument` (حجز مخزني) المخزون لغرض محدد:
 
-**For a Sales Order**
-Customer places order for 10 laptops. You reserve 10 laptops so:
-- They won't be sold to another customer
-- They won't be transferred to another branch
-- You can confidently promise delivery
+**لأمر بيع**
+عميل يضع طلباً لـ 10 لابتوبات. تحجز 10 لابتوبات حتى:
+- لا تُباع لعميل آخر
+- لا تُحوَّل إلى فرع آخر
+- تتمكن من الوعد بالتسليم بثقة
 
-The laptops still sit in their warehouse location - they're just flagged as "reserved for order #12345."
+اللابتوبات لا تزال في موقع مستودعها - فقط تم وضع علامة عليها "محجوز لأمر رقم 12345".
 
-**For a Production Order**
-Production order requires 500kg of steel. Reserve it so:
-- Purchasing knows not to sell this steel
-- Other production orders can't claim it
-- When production starts, materials are guaranteed available
+**لأمر إنتاج**
+أمر إنتاج يحتاج 500 كجم من الصلب. احجزه حتى:
+- تعلم المشتريات ألا تبيع هذا الصلب
+- أوامر الإنتاج الأخرى لا تطالب به
+- عند بدء الإنتاج، المواد مضمونة التوفر
 
-**For a Specific Customer**
-VIP customer has standing order. You reserve stock at your best warehouse, ready to ship when they call.
+**لعميل محدد**
+عميل VIP لديه طلب دائم. تحجز المخزون في أفضل مستوداتك، جاهزاً للشحن عندما يتصل.
 
-### ReservationCancellationDoc - Releasing Stock
+### ReservationCancellationDoc - تحرير المخزون {#ReservationCancellationDoc---Releasing-Stock}
 
-The `ReservationCancellationDoc` (إلغاء حجز مخزني) cancels a reservation:
-- Order was cancelled
-- Customer changed their mind
-- Production order was postponed
-- Reserved too much, need to release excess
+يلغي مستند `ReservationCancellationDoc` (إلغاء حجز مخزني) الحجز في حالات:
+- إلغاء الأمر
+- تغيير العميل رأيه
+- تأجيل أمر الإنتاج
+- حجز كميات زائدة وتحتاج إلى تحرير الفائض
 
-Cancelled reservation makes items available again for other purposes.
+إلغاء الحجز يجعل الأصناف متاحة مرة أخرى لأغراض أخرى.
 
-### Why Reserve Instead of Issue?
+### لماذا الحجز بدلاً من الصرف؟ {#Why-Reserve-Instead-of-Issue}
 
-**Timing**
-You confirm the order today, but delivery is in two weeks. Don't issue today (customer doesn't have the items yet), but do reserve (so you don't accidentally sell them).
+**التوقيت**
+تؤكد الأمر اليوم، لكن التسليم بعد أسبوعين. لا تصرف اليوم (العميل لم يستلم الأصناف بعد)، لكن احجز (حتى لا تبيعها بالخطأ).
 
-**Flexibility**
-Reserved items can be unreserved. Issued items are gone. If the customer changes the order, you can adjust reservations more easily than reversing issues.
+**المرونة**
+الأصناف المحجوزة يمكن رفع حجزها. الأصناف المصروفة ذهبت. إذا غيّر العميل الطلب، يمكنك تعديل الحجوزات بسهولة أكبر من عكس الصرف.
 
-**Warehouse Operations**
-Reserved items can stay in optimal storage locations until needed. Issue happens only when you're ready to physically pick and pack.
+**عمليات المستودع**
+يمكن أن تبقى الأصناف المحجوزة في مواقع التخزين المثلى حتى وقت الحاجة. الصرف يحدث فقط عندما تكون مستعداً للانتقاء والتغليف الفعلي.
 
-## Loading and Delivery: The Physical Journey
+## التحميل والتسليم: الرحلة الفعلية {#Loading-and-Delivery-The-Physical-Journey}
 
-The final stage of internal movement is preparing items for departure.
+المرحلة الأخيرة من الحركة الداخلية هي تحضير الأصناف للمغادرة.
 
-### LoadingDocument - Staging for Shipment
+### LoadingDocument - التجهيز للشحن {#LoadingDocument---Staging-for-Shipment}
 
-The `LoadingDocument` (مستند تحميل) records that items have been:
-- Picked from warehouse locations
-- Moved to the loading dock
-- Prepared for loading onto delivery vehicle
-- Assigned to a specific shipment
+يسجّل مستند `LoadingDocument` (مستند تحميل) أن الأصناف قد:
+- جُمعت من مواقع المستودع
+- نُقلت إلى رصيف التحميل
+- جُهّزت للتحميل على مركبة التوصيل
+- خُصصت لشحنة محددة
 
-This creates a staging area concept. Items are:
-- No longer in regular storage (can't be sold to someone else)
-- Not yet delivered (still your inventory)
-- Ready for loading (organized by shipment)
+هذا يُنشئ مفهوم منطقة الانتظار (staging area). الأصناف:
+- لم تعد في التخزين العادي (لا يمكن بيعها لشخص آخر)
+- لم تُسلَّم بعد (لا تزال في مخزونك)
+- جاهزة للتحميل (منظمة حسب الشحنة)
 
-### DeliveryDocument - Handoff
+### DeliveryDocument - التسليم {#DeliveryDocument---Handoff}
 
-The `DeliveryDocument` (مستند تسليم) records that items have been:
-- Loaded onto vehicle
-- Delivered to customer/destination
-- Signed for by recipient
-- Now out of your custody
+يسجّل مستند `DeliveryDocument` (مستند تسليم) أن الأصناف قد:
+- حُمّلت على المركبة
+- سُلّمت للعميل/الوجهة
+- وُقّع عليها من قبل المستلم
+- خرجت من حيازتك الآن
 
-This is the final step before items leave your control (usually followed by invoicing, which completes the financial transaction).
+هذه هي الخطوة الأخيرة قبل خروج الأصناف من سيطرتك (يتبعها عادةً الفوترة التي تكمل المعاملة المالية).
 
-### Cancellations
+### الإلغاءات {#Cancellations}
 
-Both have cancellation documents (`LoadingCancellationDoc`, `DeliveryCancellationDoc`) for when:
-- Shipment is cancelled
-- Items need to be returned to regular storage
-- Delivery failed and items came back
+لكليهما مستندات إلغاء (`LoadingCancellationDoc`، `DeliveryCancellationDoc`) في حالات:
+- إلغاء الشحنة
+- الحاجة إلى إعادة الأصناف للتخزين العادي
+- فشل التسليم وعودة الأصناف
 
-## Inventory Adjustments: Fixing Reality
+## تسويات المخزون: تصحيح الواقع {#Inventory-Adjustments-Fixing-Reality}
 
-Sometimes inventory in the system doesn't match physical reality. Stock takes (physical counts) reveal discrepancies.
+أحياناً المخزون في النظام لا يطابق الواقع الفعلي. الجرد (العد الفعلي) يكشف الفروقات.
 
-### StockTakingDetails - Counting Everything
+### StockTakingDetails - عد كل شيء {#StockTakingDetails---Counting-Everything}
 
-The `StockTakingDetails` (جرد مخزني) document records physical count results:
-1. Generate count sheets showing expected quantities
-2. Physically count items
-3. Enter actual counted quantities
-4. System compares expected vs. actual
-5. Generate adjustment documents for differences
+يسجّل مستند `StockTakingDetails` (جرد مخزني) نتائج العد الفعلي:
+1. توليد أوراق العد التي تُظهر الكميات المتوقعة
+2. العد الفعلي للأصناف
+3. إدخال الكميات الفعلية المعدودة
+4. النظام يقارن المتوقع بالفعلي
+5. توليد مستندات التسوية للفروقات
 
-**Why Discrepancies Happen:**
-- Theft or loss
-- Damage not recorded
-- Transactions not entered
-- Count errors
-- Items in wrong locations
+**أسباب حدوث الفروقات:**
+- سرقة أو فقدان
+- تلف غير مسجّل
+- معاملات لم تُدخل
+- أخطاء في العد
+- أصناف في مواقع خاطئة
 
-### Adjustments
+### التسويات {#Adjustments}
 
-For items found during counts:
-- Create receipt documents (increase inventory to match physical)
+للأصناف المكتشفة أثناء العد:
+- أنشئ مستندات استلام (زيادة المخزون ليطابق الواقع)
 
-For items missing:
-- Create issue documents (decrease inventory to match physical)
+للأصناف الناقصة:
+- أنشئ مستندات صرف (تخفيض المخزون ليطابق الواقع)
 
-Always document **why** the adjustment is needed in the remarks field. This helps identify patterns (is one location always short? is one shift having recording issues?).
+دائماً وثّق **سبب** الحاجة إلى التسوية في حقل الملاحظات. هذا يساعد على تحديد الأنماط (هل موقع معين دائماً ناقص؟ هل وردية معينة تواجه مشاكل في التسجيل؟).
 
-## Cost Revaluation: Value Without Movement
+## إعادة تقييم التكلفة: القيمة دون حركة {#Cost-Revaluation-Value-Without-Movement}
 
-The `CostRevaluation` (إعادة تقييم) document is special - it doesn't move items at all, just changes their value.
+مستند `CostRevaluation` (إعادة تقييم) مستند خاص - لا يحرك الأصناف أبداً، فقط يغير قيمتها.
 
-**Use Cases:**
+**حالات الاستخدام:**
 
-**Market Value Changes**
-Electronics you purchased for $1000 each are now worth only $600 (newer model released). Write down the inventory value to match market.
+**تغيرات القيمة السوقية**
+إلكترونيات اشتريتها بـ 1000 دولار للقطعة أصبحت تساوي 600 دولار فقط (صدر طراز أحدث). خفّض قيمة المخزون لتطابق السوق.
 
-**Obsolescence**
-Inventory is aging and won't sell at full price. Adjust value to match expected recoverable amount.
+**التقادم**
+المخزون يشيخ ولن يُباع بالسعر الكامل. عدّل القيمة لتطابق المبلغ القابل للاسترداد المتوقع.
 
-**Currency Revaluation**
-Imported inventory was valued at old exchange rates. Revalue to current rates.
+**إعادة تقييم العملة**
+تم تقييم المخزون المستورد بأسعار صرف قديمة. أعد التقييم بالأسعار الحالية.
 
-**Error Correction**
-Items were received at wrong cost. Revalue to correct cost.
+**تصحيح الأخطاء**
+أصناف استُلمت بتكلفة خاطئة. أعد التقييم بالتكلفة الصحيحة.
 
-This affects accounting only - quantity stays same, location stays same, only value in accounting books changes.
+هذا يؤثر على المحاسبة فقط - الكمية تبقى كما هي، والموقع يبقى كما هو، فقط القيمة في الدفاتر المحاسبية تتغير.
 
-## Tips for Accurate Movement Tracking
+## نصائح لتتبع دقيق لحركات المخزون {#Tips-for-Accurate-Movement-Tracking}
 
-::: tip Best Practices
+::: tip أفضل الممارسات
 
-**Transfer for Physical Moves Only**
-Only create transfers when items physically move. Don't create "virtual" transfers for reporting convenience.
+**التحويل للحركات الفعلية فقط**
+أنشئ التحويلات فقط عند تحرك الأصناف فعلياً. لا تنشئ تحويلات "افتراضية" لأغراض التقارير.
 
-**Batch Transfers Wisely**
-If moving 100 items between warehouses, one transfer document with 100 quantity is cleaner than 100 separate transfers. But if items move at different times, create separate transfers.
+**دمج التحويلات بذكاء**
+إذا كنت تنقل 100 صنف بين المستودعات، مستند تحويل واحد بكمية 100 أنظف من 100 تحويل منفصل. لكن إذا تحركت الأصناف في أوقات مختلفة، أنشئ تحويلات منفصلة.
 
-**Track In-Transit Time**
-For two-step transfers, minimize time between issue and receipt. Long in-transit periods suggest items are lost or the process needs improvement.
+**تتبع وقت العبور**
+في التحويلات ذات الخطوتين، قلّل الوقت بين الصرف والاستلام. فترات العبور الطويلة تشير إلى ضياع الأصناف أو أن العملية تحتاج إلى تحسين.
 
-**Use Assembly for True Transformation**
-Only use assembly when you're actually combining/transforming items. Don't use it as a shortcut for other types of movements.
+**استخدام التجميع للتحويل الحقيقي فقط**
+استخدم التجميع فقط عند تجميع الأصناف/تحويلها فعلياً. لا تستخدمه كاختصار لأنواع أخرى من الحركات.
 
-**Reserve Early, Release Quickly**
-Create reservations as soon as you know stock is committed. Cancel reservations promptly when no longer needed (don't tie up stock unnecessarily).
+**الحجز المبكر والإفراج السريع**
+أنشئ الحجوزات بمجرد علمك بتخصيص المخزون. ألغِ الحجوزات فوراً عند انتفاء الحاجة (لا تعطّل المخزون دون داعٍ).
 
-**Document Adjustment Reasons**
-Never create adjustments without explaining why in the remarks field. "Count discrepancy" is not enough - explain what investigation revealed.
+**توثيق أسباب التسويات**
+لا تنشئ تسويات أبداً دون شرح السبب في حقل الملاحظات. "فارق في العد" لا يكفي - اشرح ما كشف عنه التحقيق.
 
-**Reconcile Regular**
-Don't wait for annual physical count. Do cycle counts regularly and reconcile differences immediately.
+**التسوية الدورية**
+لا تنتظر الجرد السنوي. قم بجردات دورية (cycle counts) بانتظام وسوّ الفروقات فوراً.
 
 :::
 
-## Common Questions
+## أسئلة شائعة {#Common-Questions}
 
-**Q: Can we transfer items between different legal entities?**
+**س: هل يمكننا تحويل الأصناف بين شركات مختلفة؟**
 
-A: Transfers within one legal entity are simple. Between legal entities, you typically need to use intercompany sale/purchase documents to properly account for the ownership change.
+ج: التحويلات داخل شركة واحدة بسيطة. بين الشركات، تحتاج عادةً إلى استخدام مستندات البيع/الشراء بين الشركات لحساب تغيير الملكية بشكل صحيح.
 
-**Q: What happens to reservations when we transfer reserved items?**
+**س: ما الذي يحدث للحجوزات عند تحويل الأصناف المحجوزة؟**
 
-A: Reservations typically move with the items - if you transfer reserved stock to another warehouse, it remains reserved for the same purpose at the new location.
+ج: الحجوزات عادةً تنتقل مع الأصناف - إذا حوّلت مخزوناً محجوزاً إلى مستودع آخر، يبقى محجوزاً لنفس الغرض في الموقع الجديد.
 
-**Q: Can we assemble items from multiple warehouses?**
+**س: هل يمكننا تجميع أصناف من مستودعات متعددة؟**
 
-A: Usually assembly happens in one location - components and finished product must be in the same warehouse. If components are in different warehouses, transfer them to one location first, then assemble.
+ج: عادةً يحدث التجميع في موقع واحد - المكونات والمنتج النهائي يجب أن يكونا في نفس المستودع. إذا كانت المكونات في مستودعات مختلفة، حوّلها إلى موقع واحد أولاً ثم اجمع.
 
-**Q: How do we handle items that are damaged during transfer?**
+**س: كيف نتعامل مع الأصناف التالفة أثناء التحويل؟**
 
-A: When receiving a transfer, receive the good quantity and document the damaged quantity. Create a separate issue or adjustment to account for the damaged items.
+ج: عند استلام تحويل، استلم الكمية السليمة ووثّق الكمية التالفة. أنشئ مستند صرف أو تسوية منفصلاً للأصناف التالفة.
 
-**Q: Should we use two-step or one-step transfers?**
+**س: هل نستخدم التحويل ذو الخطوتين أم الخطوة الواحدة؟**
 
-A: Use one-step for transfers within a single location or between nearby locations with minimal transit time. Use two-step when:
-- Transit time is significant (hours/days)
-- Different people handle shipping vs. receiving
-- You need to track in-transit inventory
-- Security or compliance requires separation of duties
+ج: استخدم الخطوة الواحدة للتحويلات داخل موقع واحد أو بين مواقع قريبة بوقت عبور ضئيل. استخدم الخطوتين عندما:
+- وقت العبور ملحوظ (ساعات/أيام)
+- أشخاص مختلفون يتعاملون مع الشحن مقابل الاستلام
+- تحتاج إلى تتبع المخزون أثناء العبور
+- يتطلب الأمن أو الامتثال الفصل بين المهام
 
-## Integration Points
+## نقاط التكامل {#Integration-Points}
 
-Movement tracking connects to:
+تتصل حركات المخزون بـ:
 
-**Sales**: Reservations ensure you can fulfill orders. Loading and delivery documents prepare items for shipment.
+**المبيعات**: الحجوزات تضمن قدرتك على تنفيذ الأوامر. مستندات التحميل والتسليم تحضّر الأصناف للشحن.
 
-**Manufacturing**: Transfers bring raw materials to production areas. Assemblies create finished products.
+**التصنيع**: التحويلات تجلب المواد الخام إلى مناطق الإنتاج. التجميعات تنشئ المنتجات النهائية.
 
-**Accounting**: Transfers don't change total inventory value but may affect location-specific reporting. Assemblies reallocate cost from components to finished goods.
+**المحاسبة**: التحويلات لا تغير إجمالي قيمة المخزون لكن قد تؤثر على التقارير الخاصة بكل موقع. التجميعات تعيد توزيع التكلفة من المكونات إلى المنتجات النهائية.
 
-**Warehouse Management**: All movements update location tracking, affecting picking efficiency, space utilization, and inventory organization.
+**إدارة المستودع**: جميع الحركات تُحدّث تتبع الموقع، مما يؤثر على كفاءة الانتقاء واستخدام المساحة وتنظيم المخزون.
 
-## Next Steps
+## الخطوات التالية {#Next-Steps}
 
-Now you understand inventory movements. Continue to:
-- [The Purchasing Journey](./purchasing-journey.md) - How items arrive (often leading to receipts)
-- [The Sales Journey](./sales-journey.md) - How items leave (often involving reservations, loading, delivery)
-- [Quality Control](./quality-control.md) - How items move through inspection and approval processes
+الآن تفهم حركات المخزون. تابع إلى:
+- [رحلة الشراء](./purchasing-journey.md) - كيف تصل الأصناف (غالباً تؤدي إلى استلامات)
+- [رحلة المبيعات](./sales-journey.md) - كيف تغادر الأصناف (غالباً تتضمن حجوزات وتحميلاً وتسليماً)
+- [مراقبة الجودة](./quality-control.md) - كيف تنتقل الأصناف عبر عمليات الفحص والاعتماد

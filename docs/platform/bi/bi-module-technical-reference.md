@@ -1,25 +1,25 @@
-# Nama ERP BI Module — Technical Reference
+# وحدة BI في Nama ERP — المرجع التقني
 
-This document is the authoritative technical reference for the Nama ERP BI (Business Intelligence) module's JSON structures. It is written primarily for AI assistants and developers who need to create SQL queries, chart configurations, cross-filter bindings, drill-down mappings, and bulk import files that work out-of-the-box when pasted into Nama ERP.
+هذا المستند هو المرجع التقني الموثوق لبنى JSON في وحدة BI (ذكاء الأعمال) في Nama ERP. يُكتب أساساً للمساعدين الذكيين والمطورين الذين يحتاجون إلى إنشاء استعلامات SQL وإعدادات المخططات وروابط cross-filter وتعيينات drill-down وملفات الاستيراد الجماعي التي تعمل مباشرةً عند لصقها في Nama ERP.
 
-The BI module uses [Apache ECharts](https://echarts.apache.org/) for chart rendering. AI tools already understand standard ECharts options — this document focuses exclusively on **Nama ERP's extensions** on top of ECharts: the `chartConfigJSON` structure, `$DATA` placeholder system, `/*AND-FILTERS*/` SQL injection, cross-filter bindings, drill-down mappings, and the bulk import format.
+تستخدم وحدة BI مكتبة [Apache ECharts](https://echarts.apache.org/) لعرض المخططات. تفهم أدوات الذكاء الاصطناعي خيارات ECharts القياسية بالفعل — يركز هذا المستند حصراً على **امتدادات Nama ERP** فوق ECharts: بنية `chartConfigJSON` ونظام placeholder الخاص بـ`$DATA` وحقن `/*AND-FILTERS*/` في SQL وروابط cross-filter وتعيينات drill-down وصيغة الاستيراد الجماعي.
 
-::: tip Schema Discovery
-The Nama ERP data model is published at [https://dm.namasoft.com](https://dm.namasoft.com). AI tools and developers can use this site to discover entity schemas — table names, column names, data types, join columns, foreign keys, and property paths. This is essential for writing correct SQL queries in widget data sources and for knowing which `fieldId` paths to use in wizard definitions.
+::: tip اكتشاف Schema
+نموذج بيانات Nama ERP منشور على [https://dm.namasoft.com](https://dm.namasoft.com). يمكن لأدوات الذكاء الاصطناعي والمطورين استخدام هذا الموقع لاكتشاف schemas الكيانات — أسماء الجداول والأعمدة وأنواع البيانات وأعمدة الربط والمفاتيح الخارجية ومسارات الخاصية. وهذا ضروري لكتابة استعلامات SQL صحيحة في مصادر بيانات الـwidget ولمعرفة مسارات `fieldId` المناسبة في تعريفات wizard.
 :::
 
-::: info Companion files
-Three deep-dive references sit beside this file. Load them on demand to keep context tight:
-- [`bi-reference-wizard-mode.md`](./bi-reference-wizard-mode.md) — wizard widgets (`wizardDataSource`), drill-by, runtime slot selection
-- [`bi-reference-enhanced-table.md`](./bi-reference-enhanced-table.md) — `EnhancedTable` widget + pivot/cross-tab
-- [`bi-reference-enhanced-metrics-card.md`](./bi-reference-enhanced-metrics-card.md) — `EnhancedMetricsCard` + legacy `MetricsCards`
+::: info الملفات المرافقة
+ثلاثة مراجع تفصيلية موجودة بجانب هذا الملف. حمّلها عند الحاجة للإبقاء على السياق مختصراً:
+- [`bi-reference-wizard-mode.md`](./bi-reference-wizard-mode.md) — wizard widgets (`wizardDataSource`) وdrill-by واختيار الفتحات في وقت التشغيل
+- [`bi-reference-enhanced-table.md`](./bi-reference-enhanced-table.md) — widget `EnhancedTable` وpivot/cross-tab
+- [`bi-reference-enhanced-metrics-card.md`](./bi-reference-enhanced-metrics-card.md) — `EnhancedMetricsCard` والـ`MetricsCards` القديمة
 :::
 
 ---
 
-## 1. The chartConfigJSON Structure
+## 1. بنية chartConfigJSON {#1-The-chartConfigJSON-Structure}
 
-Every BI widget stores its configuration in a single `chartConfigJSON` field (a JSON string). This is the top-level structure:
+يخزّن كل widget في BI إعداداته في حقل واحد هو `chartConfigJSON` (سلسلة JSON). هذا هو الهيكل الرئيسي:
 
 ```json
 {
@@ -34,39 +34,39 @@ Every BI widget stores its configuration in a single `chartConfigJSON` field (a 
 }
 ```
 
-| Key | Required | Description |
+| المفتاح | مطلوب | الوصف |
 |---|---|---|
-| `echartOption` | Yes | A standard ECharts option object with `$DATA.*` placeholders. The server resolves these placeholders using query results before sending to the frontend. |
-| `dataMapping` | Yes | Tells the server how to transform SQL result rows into the `$DATA.*` values that replace the placeholders. |
-| `clickEmitMapping` | No | Defines which cross-filters this widget emits when the user clicks a data point. |
-| `clickAction` | No | Widget-level left-click override for charts (and fallback for tables): emit cross-filters, navigate via link, or trigger drill-down. Defaults to cross-filter emission if absent. For tables, prefer per-entry `onCellClick` on a `linkMappings` / `drillDownMapping` entry — see Section 5a. |
-| `drillDownMapping` | No | Defines which target widgets or dashboards appear in the right-click drill-down menu, and what filter values to pass to them. |
-| `linkMappings` | No | Defines link navigation targets that appear in the right-click context menu under "Navigate To". See Section 5b. |
-| `disableRuntimeDimensionSelection` | No (wizard-mode only) | When `true`, hides the dimension pickers in the widget's runtime slot selector. Defaults to `false`. See Section 13.9. |
-| `disableRuntimeMeasureSelection` | No (wizard-mode only) | When `true`, hides the measure pickers in the widget's runtime slot selector. Defaults to `false`. See Section 13.9. |
+| `echartOption` | نعم | كائن خيارات ECharts قياسي يحتوي على placeholders من نوع `$DATA.*`. يحلّ الخادم هذه الـplaceholders باستخدام نتائج الاستعلام قبل إرسالها إلى الواجهة الأمامية. |
+| `dataMapping` | نعم | يخبر الخادم بكيفية تحويل صفوف نتائج SQL إلى قيم `$DATA.*` التي تحلّ محل الـplaceholders. |
+| `clickEmitMapping` | لا | يحدد cross-filters التي يُصدرها هذا الـwidget عند نقر المستخدم على نقطة بيانات. |
+| `clickAction` | لا | إجراء النقر الأيسر على مستوى الـwidget للمخططات (واحتياطي للجداول): إصدار cross-filters أو التنقل عبر رابط أو تشغيل drill-down. يُفضي إلى إصدار cross-filter إذا كان غائباً. للجداول، يُفضَّل استخدام `onCellClick` لكل مدخل في `linkMappings` / `drillDownMapping` — انظر القسم 5a. |
+| `drillDownMapping` | لا | يحدد الـwidgets أو لوحات البيانات المستهدفة التي تظهر في قائمة السياق بالنقر الأيمن، وقيم الفلاتر التي تُمرَّر إليها. |
+| `linkMappings` | لا | يحدد روابط التنقل التي تظهر في قائمة السياق تحت "Navigate To". انظر القسم 5b. |
+| `disableRuntimeDimensionSelection` | لا (wizard mode فقط) | عندما يكون `true`، يُخفي منتقيات الأبعاد في محدد الفتحات في وقت التشغيل. القيمة الافتراضية `false`. انظر القسم 13.9. |
+| `disableRuntimeMeasureSelection` | لا (wizard mode فقط) | عندما يكون `true`، يُخفي منتقيات المقاييس في محدد الفتحات في وقت التشغيل. القيمة الافتراضية `false`. انظر القسم 13.9. |
 
-### 1.1 Wizard Mode vs SQL Mode
+### 1.1 Wizard Mode مقابل SQL Mode {#11-Wizard-Mode-vs-SQL-Mode}
 
-A widget operates in one of two modes depending on whether it has a `wizardDataSource` set:
+يعمل الـwidget في أحد وضعَين بحسب وجود `wizardDataSource` أم لا:
 
-- **SQL mode** (`widget.dataSource` is set, `widget.wizardDataSource` is null): every column reference in `chartConfigJSON` is a raw result-set column name (e.g., `"categoryColumn": "branchName"`). This is the classic mode and all examples in this document default to it.
-- **Wizard mode** (`widget.wizardDataSource` is set): column slots can instead reference **wizard field IDs** — property paths defined on the wizard (e.g., `"categoryWizardFieldId": "customer.customerCategory"`). The backend resolves each field ID to its SQL alias at runtime using metadata cached on the wizard field line, so you don't write column names or repeat the reference sub-columns yourself.
+- **SQL mode** (الـ`widget.dataSource` محدد والـ`widget.wizardDataSource` فارغ): كل إشارة لعمود في `chartConfigJSON` هي اسم عمود نتيجة خام (مثل `"categoryColumn": "branchName"`). هذا الوضع الكلاسيكي وجميع الأمثلة في هذا المستند تفترضه.
+- **Wizard mode** (الـ`widget.wizardDataSource` محدد): يمكن لفتحات الأعمدة الإشارة إلى **wizard field IDs** — مسارات الخاصية المُعرَّفة على الـwizard (مثل `"categoryWizardFieldId": "customer.customerCategory"`). يحلّ الخادم الخلفي كل field ID إلى اسم مستعار SQL في وقت التشغيل باستخدام البيانات الوصفية المُخزَّنة مؤقتاً على سطر حقل الـwizard.
 
-Wizard mode introduces sibling keys next to each existing column key — `*WizardFieldId` alongside `*Column`. Both shapes coexist in the same JSON; the backend uses whichever is set, preferring the resolved column. Tempo columns and period-comparison columns (which have no wizard field) continue to use the `*Column` keys in both modes.
+يُدخل wizard mode مفاتيح أشقاء بجانب كل مفتاح عمود موجود — `*WizardFieldId` بجانب `*Column`. كلا الشكلَين يتعايشان في نفس JSON؛ يستخدم الخادم الخلفي أيهما كان محدداً مع إعطاء الأولوية للعمود المحلول.
 
-See Section 13 for the full list of wizard-mode key pairs, cross-filter / drill-down interactions, and the dimension drill-by semantics.
+انظر القسم 13 للقائمة الكاملة لأزواج مفاتيح wizard mode وتفاعلات cross-filter / drill-down ودلالات drill-by.
 
 ---
 
-## 2. Data Source Query (SQL)
+## 2. استعلام مصدر البيانات (SQL) {#2-Data-Source-Query-SQL}
 
-Each widget has a `dataSource` field containing a SQL query (T-SQL for SQL Server). The query **must** include the literal placeholder `/*AND-FILTERS*/` in its WHERE clause. The server replaces this with the active cross-filter conditions at runtime. Because the placeholder is a SQL comment, the query is also valid when run directly in SQL Server Management Studio without any modifications.
+يحتوي كل widget على حقل `dataSource` يتضمن استعلام SQL (T-SQL لـSQL Server). **يجب** أن يتضمن الاستعلام placeholder نصي `/*AND-FILTERS*/` في جملة WHERE الخاصة به. يستبدل الخادم هذا بشروط cross-filter النشطة في وقت التشغيل. بما أن الـplaceholder تعليق SQL، يظل الاستعلام صالحاً عند تشغيله مباشرةً في SQL Server Management Studio دون أي تعديلات.
 
-::: tip Reusing complex SQL across widgets
-If the same `UNION` / multi-join / hand-rolled SELECT keeps showing up across several SQL-mode widgets, consider promoting it to a **Virtual Entity** instead. A Virtual Entity wraps the SELECT in a SQL Server view and registers it as a first-class entity, so it becomes pickable from the wizard's main-table picker (`tableType = "VirtualEntity"`) — and from there, every wizard-mode convenience (auto-joins on reference fields, dimension drill-by, auto-inferred cross-filter columns) works against it as if it were a real table. See the [Virtual Entity Guide](../virtual-entity-guide.md).
+::: tip إعادة استخدام SQL المعقد عبر الـwidgets
+إذا ظهر نفس الـ`UNION` / multi-join / SELECT مكتوباً يدوياً عبر عدة widgets بوضع SQL، فكِّر في ترقيته إلى **Virtual Entity** بدلاً من ذلك. يلفّ Virtual Entity الـSELECT في view لـSQL Server ويسجّله ككيان من الدرجة الأولى، فيصبح قابلاً للاختيار من منتقي الجدول الرئيسي في الـwizard (`tableType = "VirtualEntity"`) — ومن هناك تعمل كل ميزات wizard mode (الربط التلقائي على حقول المراجع، وdrill-by الأبعاد، وأعمدة cross-filter المستنتجة تلقائياً) مقابله كما لو كان جدولاً حقيقياً. انظر [دليل Virtual Entity](../virtual-entity-guide.md).
 :::
 
-### Pattern
+### النمط {#Pattern}
 
 ```sql
 SELECT columns
@@ -76,27 +76,27 @@ GROUP BY columns
 ORDER BY columns
 ```
 
-### How `/*AND-FILTERS*/` Works
+### كيف يعمل `/*AND-FILTERS*/` {#How-AND-FILTERS-Works}
 
-At runtime, the server builds WHERE clause expressions from the widget's cross-filter bindings and replaces `/*AND-FILTERS*/` with them:
+في وقت التشغيل، يبني الخادم تعبيرات جملة WHERE من روابط cross-filter الخاصة بالـwidget ويستبدل `/*AND-FILTERS*/` بها:
 
-- If no filters are active: `/*AND-FILTERS*/` is removed (empty string), leaving the query unchanged
-- If filters are active: `/*AND-FILTERS*/` becomes ` AND expr1 AND expr2 AND expr3`
+- إذا لم تكن هناك فلاتر نشطة: يُحذف `/*AND-FILTERS*/` (سلسلة فارغة)، ويبقى الاستعلام كما هو
+- إذا كانت هناك فلاتر نشطة: يصبح `/*AND-FILTERS*/` هو ` AND expr1 AND expr2 AND expr3`
 
-Because `/*AND-FILTERS*/` is a SQL comment, the query is always syntactically valid — you can paste it directly into SQL Server Management Studio and run it without any edits.
+بما أن `/*AND-FILTERS*/` تعليق SQL، فالاستعلام صالح دائماً من الناحية النحوية — يمكنك لصقه مباشرةً في SQL Server Management Studio وتشغيله دون أي تعديلات.
 
-### Query Rules
+### قواعد الاستعلام {#Query-Rules}
 
-1. Always include `/*AND-FILTERS*/` — even if the widget has no cross-filter bindings. The server expects it.
-2. **Multiple `/*AND-FILTERS*/` placeholders are allowed** and are all replaced with the same filter expression. Required for CTE-heavy queries: every CTE body that joins a filtered table needs its own placeholder so the filter applies inside it (e.g. a `WITH months AS (...), hcSeries AS (SELECT ... FROM Employee WHERE ... /*AND-FILTERS*/), ...` must repeat the placeholder in each CTE that touches the filtered table).
-3. The placeholder lives in the WHERE clause only. `HAVING`, `JOIN ON`, and CTE outer `SELECT` aren't injected into. If you need a filter to apply to a `HAVING`, mirror the predicate or restructure into a subquery whose WHERE carries the placeholder.
-4. Use table aliases consistently. The `sqlLeftHandSide` on a cross-filter targets these aliases (e.g., `l.branch_id`). For binding to work, the alias **must exist in the query** at the placeholder's scope.
-5. For EChart widgets, SQL column names must match the names referenced in `dataMapping` (`categoryColumn`, `valueColumn`, series `column`, etc.).
-6. For Table / EnhancedTable widgets, SQL column names become column `field` keys.
-7. `SELECT TOP N` is recommended for ranked-list widgets. Pair with `ORDER BY` — without it the result-set order is undefined.
-8. To reuse a column for entity-link payloads, alias the entity's `entityType` column explicitly (e.g. `SELECT b.id branchId, b.entityType branchEntityType, ...`) so `linkMappings.linkToEntityTypeColumn` can point at it.
+1. دائماً أدرج `/*AND-FILTERS*/` — حتى لو لم يكن للـwidget روابط cross-filter. يتوقعها الخادم.
+2. **يُسمح بوجود عدة placeholders من نوع `/*AND-FILTERS*/`** وكلها تُستبدل بنفس تعبير الفلتر. مطلوب للاستعلامات الثقيلة بـCTE: كل جسم CTE يربط جدولاً مُصفَّى يحتاج placeholder خاصاً به حتى يُطبَّق الفلتر داخله.
+3. يوجد الـplaceholder في جملة WHERE فقط. لا يُحقن في `HAVING` أو `JOIN ON` أو CTE خارجي. إذا احتجت تطبيق فلتر على `HAVING`، أعد هيكلة الاستعلام.
+4. استخدم أسماء مستعارة للجداول باستمرار. يستهدف `sqlLeftHandSide` في cross-filter هذه الأسماء (مثل `l.branch_id`). لكي يعمل الربط، **يجب أن يوجد الاسم المستعار في الاستعلام** عند نطاق الـplaceholder.
+5. بالنسبة لـwidgets EChart، يجب أن تتطابق أسماء أعمدة SQL مع الأسماء المشار إليها في `dataMapping`.
+6. بالنسبة لـwidgets Table / EnhancedTable، تصبح أسماء أعمدة SQL مفاتيح `field` للأعمدة.
+7. يُوصى بـ`SELECT TOP N` للـwidgets ذات القوائم المصنّفة. اقرنها بـ`ORDER BY` — بدونه يكون ترتيب مجموعة النتائج غير محدد.
+8. لإعادة استخدام عمود في payloads روابط الكيانات، استخدم اسماً مستعاراً لعمود `entityType` الخاص بالكيان صراحةً (مثل `SELECT b.id branchId, b.entityType branchEntityType, ...`) حتى يتمكن `linkMappings.linkToEntityTypeColumn` من الإشارة إليه.
 
-### Example
+### مثال {#Example}
 
 ```sql
 SELECT TOP 10
@@ -112,24 +112,24 @@ ORDER BY netValue DESC
 
 ---
 
-## 3. dataMapping — Types and Resolution
+## 3. dataMapping — الأنواع والحل {#3-dataMapping----Types-and-Resolution}
 
-The `dataMapping` object tells the server how to transform query result rows into the data structures that replace `$DATA.*` placeholders in `echartOption`.
+يخبر كائن `dataMapping` الخادمَ بكيفية تحويل صفوف نتائج الاستعلام إلى هياكل البيانات التي تحلّ محل placeholders من نوع `$DATA.*` في `echartOption`.
 
-::: tip Scalar pass-through
-Any key in `dataMapping` that isn't a reserved structural field (like `type`, `*Column`, `series`, `stack`, `format`, etc.) is automatically exposed as `$DATA.<key>`. This lets templates carry constants — e.g., `"target": 150` in dataMapping becomes `$DATA.target` in the echartOption, usable inside a markLine definition. Reserved keys: `type`, `categoryColumn`, `labelColumn`, `valueColumn`, `xColumn`, `yColumn`, `sizeColumn`, `innerLabelColumn`, `outerLabelColumn`, `leftValueColumn`, `rightValueColumn`, `seriesType`, `stack`, `areaStyle`, `percentMode`, `sort`, `series`, `format`.
+::: tip التمرير العددي (Scalar pass-through)
+أي مفتاح في `dataMapping` ليس حقلاً بنيوياً محجوزاً (مثل `type` أو `*Column` أو `series` أو `stack` أو `format` إلخ) يُعرَض تلقائياً بوصفه `$DATA.<key>`. يتيح ذلك للقوالب حمل ثوابت — مثلاً `"target": 150` في dataMapping يصبح `$DATA.target` في echartOption. المفاتيح المحجوزة: `type`, `categoryColumn`, `labelColumn`, `valueColumn`, `xColumn`, `yColumn`, `sizeColumn`, `innerLabelColumn`, `outerLabelColumn`, `leftValueColumn`, `rightValueColumn`, `seriesType`, `stack`, `areaStyle`, `percentMode`, `sort`, `series`, `format`.
 :::
 
-### 3.1 CategoryValue
+### 3.1 CategoryValue {#31-CategoryValue}
 
-The most common type. One column provides category labels (X-axis), and one or more series columns provide numeric values.
+النوع الأكثر شيوعاً. يُوفر عمود واحد تسميات الفئات (محور X)، وعمود سلاسل واحد أو أكثر يوفر قيماً عددية.
 
-**Required fields:**
+**الحقول المطلوبة:**
 - `type`: `"CategoryValue"`
-- `categoryColumn`: column name for X-axis categories
-- `series`: array of series definitions
+- `categoryColumn`: اسم العمود لفئات محور X
+- `series`: مصفوفة من تعريفات السلاسل
 
-**Series definition:**
+**تعريف السلسلة:**
 ```json
 {
   "column": "netValue",
@@ -140,30 +140,30 @@ The most common type. One column provides category labels (X-axis), and one or m
 }
 ```
 
-| Series field | Required | Description |
+| حقل السلسلة | مطلوب | الوصف |
 |---|---|---|
-| `column` | Yes | SQL column name to read numeric values from |
-| `name` | No | Display name for legend. Defaults to column name. |
-| `type` | No | ECharts series type: `"bar"`, `"line"`, `"scatter"`. Defaults to `"bar"`. |
-| `format` | No | Number formatting spec (see Section 7). |
-| `yAxisIndex` | No | Which Y-axis this series binds to (for dual-axis charts). Default `0`. Propagated onto the built series entry. |
-| `stack` | No | Stack group name. Series with the same `stack` value are stacked. Propagated onto the built series entry. |
-| `areaStyle` | No | `true` or an object — turns the series into a filled area (line charts). Propagated onto the built series entry. |
+| `column` | نعم | اسم عمود SQL لقراءة القيم العددية منه |
+| `name` | لا | الاسم المعروض في المفتاح. يُستخدم اسم العمود افتراضياً. |
+| `type` | لا | نوع سلسلة ECharts: `"bar"` أو `"line"` أو `"scatter"`. الافتراضي `"bar"`. |
+| `format` | لا | مواصفات تنسيق الأرقام (انظر القسم 7). |
+| `yAxisIndex` | لا | محور Y الذي ترتبط به هذه السلسلة (للمخططات ذات المحورين). الافتراضي `0`. |
+| `stack` | لا | اسم مجموعة التكديس. السلاسل التي تشترك في نفس قيمة `stack` تُكدَّس. |
+| `areaStyle` | لا | `true` أو كائن — يحوّل السلسلة إلى مساحة مملوءة (للمخططات الخطية). |
 
-**Produces these `$DATA` placeholders:**
+**ينتج placeholders من نوع `$DATA` التالية:**
 
-| Placeholder | Type | Description |
+| الـPlaceholder | النوع | الوصف |
 |---|---|---|
-| `$DATA.categories` | `string[]` | Values from `categoryColumn`, one per row |
-| `$DATA.series` | `object[]` | Array of `{name, type, data}` objects (plus `stack` / `yAxisIndex` / `areaStyle` if set on the series config) |
-| `$DATA.series[0].name` | `string` | Name of first series |
-| `$DATA.series[0].data` | `number[]` | Numeric values of first series |
-| `$DATA.series[N].name` | `string` | Name of Nth series |
-| `$DATA.series[N].data` | `number[]` | Numeric values of Nth series |
-| `$DATA.min` | `number` | Minimum value across all series (useful for visualMap / `bar-ranked`-style charts) |
-| `$DATA.max` | `number` | Maximum value across all series |
+| `$DATA.categories` | `string[]` | قيم `categoryColumn`، واحدة لكل صف |
+| `$DATA.series` | `object[]` | مصفوفة من كائنات `{name, type, data}` |
+| `$DATA.series[0].name` | `string` | اسم السلسلة الأولى |
+| `$DATA.series[0].data` | `number[]` | القيم العددية للسلسلة الأولى |
+| `$DATA.series[N].name` | `string` | اسم السلسلة رقم N |
+| `$DATA.series[N].data` | `number[]` | القيم العددية للسلسلة رقم N |
+| `$DATA.min` | `number` | الحد الأدنى عبر كل السلاسل |
+| `$DATA.max` | `number` | الحد الأقصى عبر كل السلاسل |
 
-**Example:**
+**مثال:**
 
 ```json
 {
@@ -178,7 +178,7 @@ The most common type. One column provides category labels (X-axis), and one or m
 }
 ```
 
-**echartOption using it:**
+**echartOption الذي يستخدمه:**
 
 ```json
 {
@@ -193,33 +193,33 @@ The most common type. One column provides category labels (X-axis), and one or m
 }
 ```
 
-**Shorthand**: If the echartOption uses `"series": "$DATA.series"`, the entire series array (with name, type, and data per series) is injected automatically. This is convenient but gives less control over individual series styling.
+**الاختصار**: إذا استخدم echartOption `"series": "$DATA.series"`، تُحقن مصفوفة السلاسل بأكملها تلقائياً. هذا مريح لكنه يمنح تحكماً أقل في تنسيق كل سلسلة منفردة.
 
-### 3.2 CategoryLabelValue
+### 3.2 CategoryLabelValue {#32-CategoryLabelValue}
 
-Pivot-table style: one column for categories (X-axis), one column whose distinct values become separate series, and one column for the numeric values. The server automatically pivots the flat result set into grouped series.
+نمط جدول pivot: عمود للفئات (محور X)، وعمود تصبح قيمه المتميزة سلاسل منفصلة، وعمود للقيم العددية. يُحوّل الخادم تلقائياً مجموعة النتائج المسطحة إلى سلاسل مجمّعة.
 
-**Required fields:**
+**الحقول المطلوبة:**
 - `type`: `"CategoryLabelValue"`
-- `categoryColumn`: column for X-axis categories
-- `labelColumn`: column whose distinct values become series names
-- `valueColumn`: column for numeric values
-- `seriesType`: default chart type for all series (e.g., `"bar"`, `"line"`)
+- `categoryColumn`: العمود لفئات محور X
+- `labelColumn`: العمود الذي تصبح قيمه المتميزة أسماء السلاسل
+- `valueColumn`: العمود للقيم العددية
+- `seriesType`: نوع المخطط الافتراضي لكل السلاسل (مثل `"bar"` أو `"line"`)
 
-**Optional fields:**
-- `stack`: if set (e.g., `"total"`), all series get this stack group → stacked chart
-- `percentMode`: if `true`, values are normalized to percentages within each category → 100% stacked chart
-- `areaStyle`: if `true`, series get `areaStyle: {}` → stacked area chart
-- `format`: number format applied to all series
+**الحقول الاختيارية:**
+- `stack`: إذا حُدد (مثل `"total"`)، تحصل كل السلاسل على مجموعة التكديس هذه
+- `percentMode`: إذا كان `true`، تُطبَّع القيم كنسب مئوية ضمن كل فئة
+- `areaStyle`: إذا كان `true`، تحصل السلاسل على `areaStyle: {}`
+- `format`: تنسيق أرقام يُطبَّق على كل السلاسل
 
-**Produces these `$DATA` placeholders:**
+**ينتج placeholders من نوع `$DATA` التالية:**
 
-| Placeholder | Type | Description |
+| الـPlaceholder | النوع | الوصف |
 |---|---|---|
-| `$DATA.categories` | `string[]` | Unique values from `categoryColumn` (preserves row order) |
-| `$DATA.series` | `object[]` | One series per unique label. Each has `name`, `type`, `data` — plus `stack` / `areaStyle` when the corresponding top-level dataMapping fields are set. Data arrays are aligned to categories (missing values are `0`). When `percentMode` is `true`, values are normalized per category so each category's series sum to 100. |
+| `$DATA.categories` | `string[]` | القيم الفريدة من `categoryColumn` (يحافظ على ترتيب الصفوف) |
+| `$DATA.series` | `object[]` | سلسلة واحدة لكل تسمية فريدة. كل منها لها `name` و`type` و`data`. |
 
-**Example SQL:**
+**مثال SQL:**
 
 ```sql
 SELECT YEAR(l.valueDate) salesYear, b.name2 branchName, SUM(l.netValue) netValue
@@ -229,7 +229,7 @@ GROUP BY YEAR(l.valueDate), b.name2
 ORDER BY salesYear
 ```
 
-**Example config:**
+**مثال الإعداد:**
 
 ```json
 {
@@ -250,27 +250,27 @@ ORDER BY salesYear
 }
 ```
 
-### 3.3 LabelValue
+### 3.3 LabelValue {#33-LabelValue}
 
-For pie charts, funnels, and similar: one column for labels, one for values. Each row becomes a data point with `{name, value}`.
+للمخططات الدائرية والقمعية وما شابهها: عمود للتسميات وعمود للقيم. يصبح كل صف نقطة بيانات بالشكل `{name, value}`.
 
-**Required fields:**
+**الحقول المطلوبة:**
 - `type`: `"LabelValue"`
-- `labelColumn`: column for item names
-- `valueColumn`: column for numeric values
+- `labelColumn`: العمود لأسماء العناصر
+- `valueColumn`: العمود للقيم العددية
 
-**Optional fields:**
-- `centerText`: text to display in the center of a donut chart (used via `$DATA.centerText`)
-- `format`: number format spec
+**الحقول الاختيارية:**
+- `centerText`: نص يُعرض في وسط مخطط donut (يُستخدم عبر `$DATA.centerText`)
+- `format`: مواصفات تنسيق الأرقام
 
-**Produces these `$DATA` placeholders:**
+**ينتج placeholders من نوع `$DATA` التالية:**
 
-| Placeholder | Type | Description |
+| الـPlaceholder | النوع | الوصف |
 |---|---|---|
-| `$DATA.values` | `{name, value}[]` | Array of objects. `name` from `labelColumn`, `value` (numeric) from `valueColumn`. |
-| `$DATA.centerText` | `string` | Only if `centerText` is set in dataMapping. |
+| `$DATA.values` | `{name, value}[]` | مصفوفة من الكائنات. `name` من `labelColumn`، `value` (عددي) من `valueColumn`. |
+| `$DATA.centerText` | `string` | فقط إذا كان `centerText` محدداً في dataMapping. |
 
-**Example:**
+**مثال:**
 
 ```json
 {
@@ -286,195 +286,195 @@ For pie charts, funnels, and similar: one column for labels, one for values. Eac
 }
 ```
 
-### 3.4 Gauge
+### 3.4 Gauge {#34-Gauge}
 
-For gauge/meter charts. Uses only the first row of the result set.
+لمخططات المقياس. يستخدم الصف الأول فقط من مجموعة النتائج.
 
-**Required fields:**
+**الحقول المطلوبة:**
 - `type`: `"Gauge"`
-- `valueColumn`: column for the gauge value
+- `valueColumn`: العمود لقيمة المقياس
 
-**Optional fields:**
-- `unit`: display unit string (e.g., `"%"`, `"SAR"`)
-- `max`: maximum value for the gauge scale
-- `min`: minimum value for the gauge scale
-- `bands`: color band array (e.g., `[[0.3, "#67e0e3"], [0.7, "#37a2da"], [1, "#fd666d"]]`)
+**الحقول الاختيارية:**
+- `unit`: سلسلة وحدة العرض (مثل `"%"` أو `"SAR"`)
+- `max`: القيمة القصوى لمقياس المؤشر
+- `min`: القيمة الدنيا لمقياس المؤشر
+- `bands`: مصفوفة نطاقات الألوان (مثل `[[0.3, "#67e0e3"], [0.7, "#37a2da"], [1, "#fd666d"]]`)
 
-**Produces these `$DATA` placeholders:**
+**ينتج placeholders من نوع `$DATA` التالية:**
 
-| Placeholder | Type | Description |
+| الـPlaceholder | النوع | الوصف |
 |---|---|---|
-| `$DATA.value` | `number` | Numeric value from first row |
-| `$DATA.unit` | `string` | From `unit` field |
-| `$DATA.max` | `number` | From `max` field |
-| `$DATA.min` | `number` | From `min` field |
-| `$DATA.bands` | `array` | From `bands` field |
+| `$DATA.value` | `number` | القيمة العددية من الصف الأول |
+| `$DATA.unit` | `string` | من حقل `unit` |
+| `$DATA.max` | `number` | من حقل `max` |
+| `$DATA.min` | `number` | من حقل `min` |
+| `$DATA.bands` | `array` | من حقل `bands` |
 
-### 3.5 Scatter
+### 3.5 Scatter {#35-Scatter}
 
-For scatter/bubble plots. Each row becomes an `[x, y]` or `[x, y, size]` point.
+لمخططات الانتشار والفقاعات. يصبح كل صف نقطة `[x, y]` أو `[x, y, size]`.
 
-**Required fields:**
+**الحقول المطلوبة:**
 - `type`: `"Scatter"`
-- `xColumn`: column for X values (numeric)
-- `yColumn`: column for Y values (numeric)
+- `xColumn`: العمود لقيم X (عددية)
+- `yColumn`: العمود لقيم Y (عددية)
 
-**Optional fields:**
-- `sizeColumn`: column for bubble size (numeric)
+**الحقول الاختيارية:**
+- `sizeColumn`: العمود لحجم الفقاعة (عددي)
 
-**Produces:**
+**ينتج:**
 
-| Placeholder | Type | Description |
+| الـPlaceholder | النوع | الوصف |
 |---|---|---|
-| `$DATA.rows` | `number[][]` | Array of `[x, y]` or `[x, y, size]` arrays |
+| `$DATA.rows` | `number[][]` | مصفوفة من مصفوفات `[x, y]` أو `[x, y, size]` |
 
-### 3.6 Heatmap
+### 3.6 Heatmap {#36-Heatmap}
 
-For heatmap/matrix charts. Each row provides an X category, Y category, and numeric value.
+لمخططات الخريطة الحرارية/المصفوفة. يوفر كل صف فئة X وفئة Y وقيمة عددية.
 
-**Required fields:**
+**الحقول المطلوبة:**
 - `type`: `"Heatmap"`
-- `xColumn`: column for X-axis categories
-- `yColumn`: column for Y-axis categories
-- `valueColumn`: column for cell values (numeric)
+- `xColumn`: العمود لفئات محور X
+- `yColumn`: العمود لفئات محور Y
+- `valueColumn`: العمود لقيم الخلايا (عددية)
 
-**Produces:**
+**ينتج:**
 
-| Placeholder | Type | Description |
+| الـPlaceholder | النوع | الوصف |
 |---|---|---|
-| `$DATA.xCategories` | `string[]` | Unique X values |
-| `$DATA.yCategories` | `string[]` | Unique Y values |
-| `$DATA.rows` | `number[][]` | Array of `[xIndex, yIndex, value]` arrays |
-| `$DATA.min` | `number` | Minimum cell value |
-| `$DATA.max` | `number` | Maximum cell value |
+| `$DATA.xCategories` | `string[]` | القيم الفريدة لـX |
+| `$DATA.yCategories` | `string[]` | القيم الفريدة لـY |
+| `$DATA.rows` | `number[][]` | مصفوفة من مصفوفات `[xIndex, yIndex, value]` |
+| `$DATA.min` | `number` | أدنى قيمة خلية |
+| `$DATA.max` | `number` | أعلى قيمة خلية |
 
-### 3.7 Tree
+### 3.7 Tree {#37-Tree}
 
-Generic raw-row context (same as `Custom`). For treemap charts, prefer `LabelValue` — it produces the `{name, value}[]` shape ECharts treemap expects directly.
+سياق الصفوف الخام العام (مثل `Custom`). لمخططات treemap، يُفضَّل استخدام `LabelValue` — فهو ينتج شكل `{name, value}[]` الذي يتوقعه ECharts treemap مباشرةً.
 
-**Required fields:**
+**الحقول المطلوبة:**
 - `type`: `"Tree"`
 
-**Produces:**
+**ينتج:**
 
-| Placeholder | Type | Description |
+| الـPlaceholder | النوع | الوصف |
 |---|---|---|
-| `$DATA.rows` | `string[][]` | All rows as string arrays |
-| `$DATA.columns` | `string[]` | Column headers |
+| `$DATA.rows` | `string[][]` | جميع الصفوف كمصفوفات نصية |
+| `$DATA.columns` | `string[]` | رؤوس الأعمدة |
 
-### 3.8 Waterfall
+### 3.8 Waterfall {#38-Waterfall}
 
-For waterfall (bridge) charts. Given a single value column representing deltas, the server builds two stacked series: an invisible `Placeholder` that steps the base up/down, and a visible `Value` bar showing the magnitude of each delta.
+لمخططات الشلال (bridge). بناءً على عمود قيمة واحد يمثل دلتا، يبني الخادم سلسلتين مكدستين: `Placeholder` غير مرئي يرفع القاعدة ويخفضها، وشريط `Value` مرئي يُظهر حجم كل دلتا.
 
-**Required fields:**
+**الحقول المطلوبة:**
 - `type`: `"Waterfall"`
-- `categoryColumn`: column for X-axis categories (in display order)
-- `valueColumn`: column for the delta at each category (can be positive or negative)
+- `categoryColumn`: العمود لفئات محور X (بترتيب العرض)
+- `valueColumn`: العمود للدلتا عند كل فئة (يمكن أن تكون موجبة أو سالبة)
 
-**Produces:**
+**ينتج:**
 
-| Placeholder | Type | Description |
+| الـPlaceholder | النوع | الوصف |
 |---|---|---|
-| `$DATA.categories` | `string[]` | Unique values from `categoryColumn`, preserving row order |
-| `$DATA.series` | `object[]` | Two entries: `[0]` is the invisible placeholder, `[1]` is the visible value series. Both carry `stack: "Total"`. |
-| `$DATA.series[0].data` | `number[]` | Placeholder heights (the stepped base level per bar) |
-| `$DATA.series[1].data` | `object[]` | `[{value: <abs delta>, _signedValue: <raw delta>}, ...]`. `_signedValue` is available for styling (e.g. red for negative). |
+| `$DATA.categories` | `string[]` | القيم الفريدة من `categoryColumn`، بالحفاظ على ترتيب الصفوف |
+| `$DATA.series` | `object[]` | مدخلان: `[0]` هو placeholder غير المرئي، `[1]` هو سلسلة القيمة المرئية. كلاهما يحمل `stack: "Total"`. |
+| `$DATA.series[0].data` | `number[]` | ارتفاعات الـplaceholder |
+| `$DATA.series[1].data` | `object[]` | `[{value: <abs delta>, _signedValue: <raw delta>}, ...]`. |
 
-### 3.9 Radar
+### 3.9 Radar {#39-Radar}
 
-For radar/spider charts. One column provides indicator names; each series column is a separate metric plotted across indicators.
+لمخططات الرادار/العنكبوت. يوفر عمود واحد أسماء المؤشرات؛ كل عمود سلسلة هو مقياس منفصل مرسوم عبر المؤشرات.
 
-**Required fields:**
+**الحقول المطلوبة:**
 - `type`: `"Radar"`
-- `categoryColumn`: column whose distinct values become the radar indicators (axes)
-- `series`: array of `{column, name}` — one entry per entity being compared
+- `categoryColumn`: العمود الذي تصبح قيمه المتميزة مؤشرات الرادار (المحاور)
+- `series`: مصفوفة من `{column, name}` — مدخل واحد لكل كيان مقارَن
 
-**Produces:**
+**ينتج:**
 
-| Placeholder | Type | Description |
+| الـPlaceholder | النوع | الوصف |
 |---|---|---|
-| `$DATA.indicators` | `{name, max}[]` | One per unique category. `max` is the global maximum across all series (so every axis shares the same scale). |
-| `$DATA.series` | `{name, value}[]` | One per series config. `value` is an array aligned to `$DATA.indicators`. |
+| `$DATA.indicators` | `{name, max}[]` | واحد لكل فئة فريدة. `max` هو الحد الأقصى العام عبر كل السلاسل. |
+| `$DATA.series` | `{name, value}[]` | واحد لكل إعداد سلسلة. `value` مصفوفة محاذية لـ`$DATA.indicators`. |
 
-### 3.10 GaugeMulti
+### 3.10 GaugeMulti {#310-GaugeMulti}
 
-For concentric multi-ring gauges — each row becomes one ring/gauge item.
+لمقاييس متعددة الحلقات المتحدة المركز — يصبح كل صف حلقة/عنصر مقياس.
 
-**Required fields:**
+**الحقول المطلوبة:**
 - `type`: `"GaugeMulti"`
-- `labelColumn`: column for each ring's name
-- `valueColumn`: column for each ring's numeric value
+- `labelColumn`: العمود لاسم كل حلقة
+- `valueColumn`: العمود للقيمة العددية لكل حلقة
 
-**Produces:**
+**ينتج:**
 
-| Placeholder | Type | Description |
+| الـPlaceholder | النوع | الوصف |
 |---|---|---|
-| `$DATA.values` | `object[]` | `[{value, name, title: {show: false}, detail: {show: false}}, ...]`. Per-point `title`/`detail` are pre-hidden to avoid overlapping labels. |
+| `$DATA.values` | `object[]` | `[{value, name, title: {show: false}, detail: {show: false}}, ...]`. |
 
-### 3.11 NestedLabelValue
+### 3.11 NestedLabelValue {#311-NestedLabelValue}
 
-For nested pies / two-level donuts. Each ring is an independent pie — its own dimension and its own measure — and the two rings are rendered at different radii. Because each ring computes percentages against *its own* total, the inner and outer measures don't need to share a total (e.g., outer could be "invoice count by customer class", inner "invoice value by branch").
+للمخططات الدائرية المتداخلة / donuts ثنائية المستوى. كل حلقة مخطط دائري مستقل — بُعدها الخاص ومقياسها الخاص — وتُرسم الحلقتان بأنصاف قطر مختلفة.
 
-**Required fields:**
+**الحقول المطلوبة:**
 - `type`: `"NestedLabelValue"`
-- `innerLabelColumn`: column for inner-ring labels
-- `outerLabelColumn`: column for outer-ring labels
-- `innerValueColumn`: measure aggregated for the inner ring
-- `outerValueColumn`: measure aggregated for the outer ring
+- `innerLabelColumn`: العمود لتسميات الحلقة الداخلية
+- `outerLabelColumn`: العمود لتسميات الحلقة الخارجية
+- `innerValueColumn`: المقياس المجمَّع للحلقة الداخلية
+- `outerValueColumn`: المقياس المجمَّع للحلقة الخارجية
 
-**Optional fields:**
-- `innerSeriesName` / `outerSeriesName`: display names for the two rings (shown in legend / tooltip via ECharts `{a}`). Templates reference them as `name: '$DATA.innerSeriesName'` / `name: '$DATA.outerSeriesName'`.
-- `innerFormat` / `outerFormat`: per-ring format spec (number/currency/percent/date/datetime/duration). If unset, the top-level `format` applies to both. Inner maps to seriesFormat index `"0"`, outer to `"1"`.
+**الحقول الاختيارية:**
+- `innerSeriesName` / `outerSeriesName`: أسماء عرض للحلقتين.
+- `innerFormat` / `outerFormat`: مواصفات تنسيق لكل حلقة.
 
-**Produces:**
+**ينتج:**
 
-| Placeholder | Type | Description |
+| الـPlaceholder | النوع | الوصف |
 |---|---|---|
-| `$DATA.innerValues` | `{name, value}[]` | Aggregated by `innerLabelColumn` over `innerValueColumn` |
-| `$DATA.outerValues` | `{name, value}[]` | Aggregated by `outerLabelColumn` over `outerValueColumn` |
-| `$DATA.innerSeriesName` | `string` | Resolved inner ring name (empty string when unset) |
-| `$DATA.outerSeriesName` | `string` | Resolved outer ring name (empty string when unset) |
+| `$DATA.innerValues` | `{name, value}[]` | مجمَّع حسب `innerLabelColumn` على `innerValueColumn` |
+| `$DATA.outerValues` | `{name, value}[]` | مجمَّع حسب `outerLabelColumn` على `outerValueColumn` |
+| `$DATA.innerSeriesName` | `string` | اسم الحلقة الداخلية المحلول (سلسلة فارغة إذا لم يُحدد) |
+| `$DATA.outerSeriesName` | `string` | اسم الحلقة الخارجية المحلول (سلسلة فارغة إذا لم يُحدد) |
 
-### 3.12 FunnelComparison
+### 3.12 FunnelComparison {#312-FunnelComparison}
 
-For side-by-side comparison funnels. One label column with two value columns (left funnel + right funnel).
+لمقارنة القمعَين جنباً إلى جنب. عمود تسميات واحد مع عمودَي قيمة (قمع أيسر + قمع أيمن).
 
-**Required fields:**
+**الحقول المطلوبة:**
 - `type`: `"FunnelComparison"`
-- `labelColumn`: column for stage names
-- `leftValueColumn`: column for left-side values
-- `rightValueColumn`: column for right-side values
+- `labelColumn`: العمود لأسماء المراحل
+- `leftValueColumn`: العمود لقيم الجانب الأيسر
+- `rightValueColumn`: العمود لقيم الجانب الأيمن
 
-**Produces:**
+**ينتج:**
 
-| Placeholder | Type | Description |
+| الـPlaceholder | النوع | الوصف |
 |---|---|---|
-| `$DATA.leftValues` | `{name, value}[]` | Aggregated from `leftValueColumn` |
-| `$DATA.rightValues` | `{name, value}[]` | Aggregated from `rightValueColumn` |
+| `$DATA.leftValues` | `{name, value}[]` | مجمَّع من `leftValueColumn` |
+| `$DATA.rightValues` | `{name, value}[]` | مجمَّع من `rightValueColumn` |
 
-### 3.13 Custom / Raw
+### 3.13 Custom / Raw {#313-Custom--Raw}
 
-- `Custom`: Same as Tree — provides `$DATA.rows` and `$DATA.columns`.
-- `Raw`: No `$DATA` context is built. The echartOption must not contain `$DATA` placeholders. Useful for fully static charts.
+- `Custom`: مثل Tree — يوفر `$DATA.rows` و`$DATA.columns`.
+- `Raw`: لا يُبنى سياق `$DATA`. يجب ألا يحتوي echartOption على placeholders من نوع `$DATA`. مفيد للمخططات الثابتة تماماً.
 
-### 3.14 Max Results — Top N with Others
+### 3.14 الحد الأقصى للنتائج — Top N مع Others {#314-Max-Results----Top-N-with-Others}
 
-For mapping types where a single dimension produces the bucket rows (category, label, outerLabel), `dataMapping.maxResults` keeps the top N and collapses everything else into a synthetic **Others** bucket. Common long-tail problem: a bar chart of 20 customers where 4 dominate — the Top N limit keeps the chart readable without hiding the rest of the totals.
+بالنسبة لأنواع التعيين حيث يُنتج بُعد واحد صفوف الدلو، يحتفظ `dataMapping.maxResults` بأعلى N ويطوي كل شيء آخر في دلو **Others** اصطناعي.
 
-| Key | Purpose |
+| المفتاح | الغرض |
 |---|---|
-| `maxResults` | Integer. Keep this many buckets; the rest are summed into one "Others" entry. Unset / ≤ 0 = no bucketing |
-| `maxResultsRankBy` | Column used to rank buckets (descending). When empty, defaults to `series[0].column` → `valueColumn` → `leftValueColumn` |
-| `maxResultsRankByWizardFieldId` | Wizard-mode sibling of `maxResultsRankBy` |
-| `othersLabelEn` / `othersLabelAr` | Display text for the Others bucket. When empty, falls back to the `biOthers` translation key |
+| `maxResults` | عدد صحيح. احتفظ بهذا العدد من الدلاء؛ يُجمَّع الباقي في مدخل "Others" واحد. غير محدد / ≤ 0 = لا تجميع |
+| `maxResultsRankBy` | العمود المستخدم لترتيب الدلاء (تنازلياً). عند الفراغ، يُستخدم افتراضياً `series[0].column` ثم `valueColumn` ثم `leftValueColumn` |
+| `maxResultsRankByWizardFieldId` | الشقيق في wizard mode لـ`maxResultsRankBy` |
+| `othersLabelEn` / `othersLabelAr` | نص عرض لدلو Others. عند الفراغ، يستخدم مفتاح الترجمة `biOthers` |
 
-**Supported mapping types:** `CategoryValue`, `LabelValue`, `CategoryLabelValue`, `Radar`, `Waterfall`, `GaugeMulti`, `FunnelComparison`, `NestedLabelValue`. Not applicable to `Scatter`, `Heatmap`, `Gauge` (no ranking dimension) or `Raw`, `Custom`, `Tree`.
+**أنواع التعيين المدعومة:** `CategoryValue` و`LabelValue` و`CategoryLabelValue` و`Radar` و`Waterfall` و`GaugeMulti` و`FunnelComparison` و`NestedLabelValue`. لا ينطبق على `Scatter` أو `Heatmap` أو `Gauge` أو `Raw` أو `Custom` أو `Tree`.
 
-**CategoryLabelValue specifics:** the Top N is computed **across all labels** — i.e., the N categories with the highest summed rank-by across every label win; each keeps its per-label breakdown intact.
+**خصوصية CategoryLabelValue:** يُحسَب Top N **عبر كل التسميات** — أي الفئات N ذات أعلى مجموع مرتَّب عبر كل تسمية تفوز؛ كل منها يحتفظ بتفاصيل كل تسمية سليمة.
 
-**Interaction behavior:** the Others slice emits no cross-filter, drill-down, link, or drill-by — click-emit / drill / link / drill-by payloads for those rows carry `{isOthers: true}` and the frontend skips all interactions on them. Tooltips are blank over the Others slice.
+**سلوك التفاعل:** شريحة Others لا تُصدر أي cross-filter أو drill-down أو رابط أو drill-by.
 
-**Chart templates:** templates apply a per-category default via `chartTemplates.ts → applyDefaultMaxResults()`: pie / funnel = 6, radar = 8, bar / treemap = 15. Users can override in the config editor or remove entirely.
+**قوالب المخططات:** تُطبَّق افتراضياً: pie / funnel = 6، radar = 8، bar / treemap = 15.
 
 ```json
 "dataMapping": {
@@ -490,9 +490,9 @@ For mapping types where a single dimension produces the bucket rows (category, l
 
 ---
 
-## 4. clickEmitMapping — Cross-Filter Emission
+## 4. clickEmitMapping — إصدار Cross-Filter {#4-clickEmitMapping----Cross-Filter-Emission}
 
-When a user clicks a data point on a chart, the widget can emit cross-filter values that filter other widgets on the same dashboard. The `clickEmitMapping` array defines what values to extract from the clicked point and which cross-filter to set.
+عندما ينقر مستخدم على نقطة بيانات في مخطط، يمكن للـwidget إصدار قيم cross-filter تُصفِّي الـwidgets الأخرى في نفس لوحة البيانات. تُعرِّف مصفوفة `clickEmitMapping` القيم التي يجب استخراجها من النقطة المنقورة وأي cross-filter يجب تعيينه.
 
 ```json
 "clickEmitMapping": [
@@ -507,37 +507,36 @@ When a user clicks a data point on a chart, the widget can emit cross-filter val
 ]
 ```
 
-| Field | Required | Description |
+| الحقل | مطلوب | الوصف |
 |---|---|---|
-| `crossFilterCode` | Yes | The `code` of the `BICrossFilter` entity to set |
-| `valueColumn` | No | Column for scalar values (for non-reference filters like dates, numbers) |
-| `idColumn` | No | Column containing the entity ID (binary(16) on SQL Server, converted automatically) |
-| `codeColumn` | No | Column containing the entity code |
-| `name1Column` | No | Column containing Arabic name |
-| `name2Column` | No | Column containing English name |
-| `entityType` | No | Static entity type string (e.g., `"InvItem"`, `"Customer"`) |
-| `entityTypeColumn` | No | Column containing the entity type (for generic references) |
-| `wizardFieldId` | Wizard mode | The wizard field ID this emission is bound to — both as the source of id/code/name sub-columns and as the dimension on which this entry fires. See Section 13. |
+| `crossFilterCode` | نعم | الـ`code` لكيان `BICrossFilter` المراد تعيينه |
+| `valueColumn` | لا | العمود للقيم العددية (للفلاتر غير المرجعية كالتواريخ والأرقام) |
+| `idColumn` | لا | العمود الذي يحتوي على معرّف الكيان (binary(16) على SQL Server، مُحوَّل تلقائياً) |
+| `codeColumn` | لا | العمود الذي يحتوي على كود الكيان |
+| `name1Column` | لا | العمود الذي يحتوي على الاسم العربي |
+| `name2Column` | لا | العمود الذي يحتوي على الاسم الإنجليزي |
+| `entityType` | لا | سلسلة نوع الكيان الثابتة (مثل `"InvItem"` أو `"Customer"`) |
+| `entityTypeColumn` | لا | العمود الذي يحتوي على نوع الكيان (للمراجع العامة) |
+| `wizardFieldId` | wizard mode | معرّف حقل wizard المرتبط بهذا الإصدار. انظر القسم 13. |
 
-**Rules:**
-- For **Reference** type cross-filters: provide `idColumn` (required for the filter to work), plus `codeColumn`/`name1Column`/`name2Column` for display. The `entityType` is needed for binary(16) ID coercion.
-- For **scalar** type cross-filters (Date, Integer, Decimal, Text): provide `valueColumn`.
-- Multiple entries in the array mean the widget emits multiple cross-filters from a single click.
-- The columns referenced here must exist in the widget's SQL query.
-- In **wizard mode**, set `wizardFieldId` instead and omit the `idColumn`/`codeColumn`/`name1Column`/`name2Column`/`entityTypeColumn`/`entityType`/`valueColumn` fields — the backend resolves them from the wizard field's cached metadata. Entries are also filtered per-dimension: an entry fires only on clicks where its `wizardFieldId` is one of the chart's currently-active dimensions.
+**القواعد:**
+- لفلاتر نوع **Reference**: أدرج `idColumn` (مطلوب لكي يعمل الفلتر)، بالإضافة إلى `codeColumn`/`name1Column`/`name2Column` للعرض.
+- لفلاتر نوع **scalar** (Date وInteger وDecimal وText): أدرج `valueColumn`.
+- المدخلات المتعددة في المصفوفة تعني أن الـwidget يُصدر cross-filters متعددة من نقرة واحدة.
+- الأعمدة المشار إليها هنا يجب أن توجد في استعلام SQL الخاص بالـwidget.
 
-**How it works at runtime:**
-1. User clicks a data point (e.g., bar segment for "Branch A")
-2. Frontend reads the `_clickEmitData` metadata (injected by the server into the echartOption)
-3. For the clicked point index, it extracts the values from the pre-built point data
-4. It calls the cross-filter Pinia store to set the filter
-5. All other widgets bound to this cross-filter re-fetch their data with the new filter applied
+**كيف يعمل في وقت التشغيل:**
+1. ينقر المستخدم على نقطة بيانات
+2. تقرأ الواجهة الأمامية بيانات `_clickEmitData` (المُحقنة من الخادم في echartOption)
+3. لفهرس النقطة المنقورة، تستخرج القيم من بيانات النقطة المُبناة مسبقاً
+4. تستدعي متجر cross-filter Pinia لتعيين الفلتر
+5. تعيد جميع الـwidgets الأخرى المرتبطة بهذا الـcross-filter جلب بياناتها مع الفلتر الجديد
 
 ---
 
-## 5. drillDownMapping — Widget Drill-Down
+## 5. drillDownMapping — Drill-Down للـWidget {#5-drillDownMapping----Widget-Drill-Down}
 
-When a user right-clicks a data point, a context menu shows drill-down targets. Clicking one opens a popup showing the target widget's chart, filtered by values from the clicked point.
+عند النقر بزر الماوس الأيمن على نقطة بيانات، تُعرض قائمة سياق بأهداف drill-down. النقر على أحدها يفتح نافذة منبثقة تُظهر مخطط الـwidget المستهدف، مُصفَّى بالقيم من النقطة المنقورة.
 
 ```json
 "drillDownMapping": [
@@ -561,38 +560,36 @@ When a user right-clicks a data point, a context menu shows drill-down targets. 
 ]
 ```
 
-| Target field | Required | Description |
+| حقل الهدف | مطلوب | الوصف |
 |---|---|---|
-| `key` | No | Unique identifier for this target. Required when referenced by `clickAction.targetKey`. |
-| `targetType` | No | `"widget"` (default) or `"dashboard"`. Controls whether the target is a single widget or a full dashboard. |
-| `targetWidgetCode` | If widget | The `code` of the `DashBoardWidget` to open (when `targetType` is `"widget"` or omitted) |
-| `targetDashboardCode` | If dashboard | The `code` of the target `DashBoard` to open (when `targetType` is `"dashboard"`) |
-| `arTitle` | No | Arabic menu item text |
-| `enTitle` | No | English menu item text |
-| `openMode` | No | How to open the target: `"popup"` (default — DrillDownDialog), `"navigate"` (same tab), `"newTab"`. For dashboard targets, popup opens a fullscreen dialog showing all dashboard widgets. |
-| `orderInMenu` | No | Sort order in the context menu (ascending) |
-| `column` | Table widgets only | Scopes the entry to a specific column. Absent = row-level (right-click any cell). |
-| `onCellClick` | No | Table widgets only. When `true`, left-clicking a cell that matches this entry's scope (its `column`, or any cell if row-level) fires the drill-down directly — no right-click needed. See Section 5a. |
-| `filters` | Yes | Array of filter definitions (same structure as `clickEmitMapping` entries) |
-| `wizardFieldId` | Wizard mode | The dimension this drill target belongs to. The menu only shows entries whose `wizardFieldId` matches one of the chart's active dimensions. See Section 13. |
+| `key` | لا | معرّف فريد لهذا الهدف. مطلوب عند الإشارة إليه من `clickAction.targetKey`. |
+| `targetType` | لا | `"widget"` (الافتراضي) أو `"dashboard"`. يتحكم في ما إذا كان الهدف widget واحداً أو لوحة بيانات كاملة. |
+| `targetWidgetCode` | إذا widget | الـ`code` لـ`DashBoardWidget` المراد فتحه |
+| `targetDashboardCode` | إذا dashboard | الـ`code` للـ`DashBoard` المستهدف للفتح |
+| `arTitle` | لا | نص عنصر القائمة بالعربية |
+| `enTitle` | لا | نص عنصر القائمة بالإنجليزية |
+| `openMode` | لا | كيفية فتح الهدف: `"popup"` (الافتراضي)، أو `"navigate"` (نفس التبويب)، أو `"newTab"`. |
+| `orderInMenu` | لا | ترتيب الفرز في قائمة السياق (تصاعدياً) |
+| `column` | widgets الجداول فقط | يحصر المدخل في عمود محدد. الغياب = مستوى الصف. |
+| `onCellClick` | لا | widgets الجداول فقط. عندما `true`، يُطلق النقر الأيسر على خلية مطابقة drill-down مباشرةً. انظر القسم 5a. |
+| `filters` | نعم | مصفوفة من تعريفات الفلاتر (نفس بنية مدخلات `clickEmitMapping`) |
+| `wizardFieldId` | wizard mode | البُعد الذي ينتمي إليه هذا الهدف. انظر القسم 13. |
 
-**Each filter entry** has the same fields as `clickEmitMapping` (crossFilterCode, idColumn, codeColumn, name1Column, name2Column, entityType, entityTypeColumn, valueColumn). In wizard mode each filter may carry `wizardFieldId` instead of the column fields — the backend fills in the sub-columns from the wizard field's cached metadata.
+**كيف يعمل:**
+1. ينقر المستخدم بزر الماوس الأيمن على نقطة بيانات
+2. تُعرض قائمة السياق بأهداف drill-down مرتَّبة حسب `orderInMenu`
+3. يختار المستخدم هدفاً
+4. تبني الواجهة الأمامية `drillDownFilters` من قيم النقطة المنقورة
+5. يستقبل الخادم الطلب ويُطبق فلاتر drill-down كجمل WHERE إضافية
+6. يُعرض مخطط الـwidget المستهدف في نافذة منبثقة
 
-**How it works:**
-1. User right-clicks a data point
-2. Context menu shows drill-down targets sorted by `orderInMenu`
-3. User selects a target
-4. Frontend builds `drillDownFilters` from the clicked point values using the filter column mappings
-5. Server receives the request, applies the drill-down filters as additional WHERE clauses on the target widget's query
-6. The target widget's chart renders in a popup dialog
+**يمكن تعريف أهداف drill-down متعددة** للـwidget نفسه — تُعرض قائمة السياق جميعها.
 
-**Multiple drill-down targets** can be defined for the same widget — the context menu shows all of them.
+### Drill-Down للوحة البيانات {#Dashboard-Drill-Down}
 
-### Dashboard Drill-Down
+`targetType: "dashboard"` يتيح الانتقال إلى لوحة بيانات كاملة بدلاً من widget واحد.
 
-So far we have seen drill-down targets that open a single widget. But what if you want to drill into an entire dashboard — say, a "Regional Analysis" dashboard with its own set of charts? That is what `targetType: "dashboard"` is for.
-
-When `targetType` is `"dashboard"`, you provide `targetDashboardCode` instead of `targetWidgetCode`. The drill-down filters are passed to all widgets on the target dashboard, just as if the user had set those cross-filters manually.
+عند `targetType` هو `"dashboard"`، تُدرج `targetDashboardCode` بدلاً من `targetWidgetCode`. تُمرَّر فلاتر drill-down إلى جميع الـwidgets على لوحة البيانات المستهدفة.
 
 ```json
 "drillDownMapping": [
@@ -618,27 +615,25 @@ When `targetType` is `"dashboard"`, you provide `targetDashboardCode` instead of
 ]
 ```
 
-The `openMode` field controls how the target opens:
-
-| `openMode` | Behavior |
+| `openMode` | السلوك |
 |---|---|
-| `"popup"` | Default. Opens a DrillDownDialog. For dashboard targets, this is a fullscreen dialog that renders all the dashboard's widgets. |
-| `"navigate"` | Navigates in the same browser tab. |
-| `"newTab"` | Opens the target in a new browser tab. |
+| `"popup"` | الافتراضي. يفتح DrillDownDialog. بالنسبة لأهداف لوحة البيانات، هذه نافذة منبثقة بملء الشاشة تُعرض جميع الـwidgets. |
+| `"navigate"` | ينتقل في نفس تبويب المتصفح. |
+| `"newTab"` | يفتح الهدف في تبويب متصفح جديد. |
 
 ::: tip
-Dashboard drill-down is particularly useful for hierarchical analysis — for example, drilling from a company-wide summary into a regional dashboard, and from there into a branch-level dashboard. Each level passes its filters down to the next.
+drill-down للوحة البيانات مفيد بشكل خاص للتحليل الهرمي — مثل الانتقال من ملخص على مستوى الشركة إلى لوحة إقليمية، ومنها إلى لوحة على مستوى الفرع.
 :::
 
 ---
 
-## 5a. Controlling Left-Click Behavior
+## 5a. التحكم في سلوك النقر الأيسر {#5a-Controlling-Left-Click-Behavior}
 
-By default, clicking a data point on a chart (or a cell in a table) emits cross-filters (the values defined in `clickEmitMapping`). Two mechanisms let you override that: the per-entry `onCellClick` flag on links and drill-downs (tables), and the widget-level `clickAction` (charts without columns).
+افتراضياً، يُصدر النقر على نقطة بيانات في مخطط (أو خلية في جدول) cross-filters. آليتان تتيحان تجاوز ذلك: علامة `onCellClick` لكل مدخل على الروابط وdrill-downs (الجداول)، والـ`clickAction` على مستوى الـwidget (المخططات بدون أعمدة).
 
-### 5a.1 onCellClick — Per-Entry Left-Click (Tables + EnhancedTable)
+### 5a.1 onCellClick — النقر الأيسر لكل مدخل (Tables + EnhancedTable) {#5a1-onCellClick----Per-Entry-Left-Click-Tables--EnhancedTable}
 
-The recommended way for Table/EnhancedTable widgets: mark a specific `linkMappings` or `drillDownMapping` entry with `"onCellClick": true`. When a cell is clicked, the dispatcher looks for the first entry whose scope matches the clicked cell and fires it.
+الطريقة الموصى بها لـwidgets Table/EnhancedTable: ضع علامة `"onCellClick": true` على مدخل محدد في `linkMappings` أو `drillDownMapping`.
 
 ```json
 "linkMappings": [
@@ -653,25 +648,25 @@ The recommended way for Table/EnhancedTable widgets: mark a specific `linkMappin
 ]
 ```
 
-**Match rules for `onCellClick: true` entries:**
+**قواعد المطابقة لمدخلات `onCellClick: true`:**
 
-| Entry scope | Matches |
+| نطاق المدخل | يطابق |
 |---|---|
-| `column` set (e.g. `"customerName"`) | Only when the clicked cell is in that column |
-| `column` absent (row-level) | Any cell in the row |
+| `column` محدد (مثل `"customerName"`) | فقط عند وجود الخلية المنقورة في هذا العمود |
+| `column` غائب (مستوى الصف) | أي خلية في الصف |
 
-**Priority order inside one widget** — the dispatcher walks the list in this order and fires the first match:
+**ترتيب الأولوية داخل widget واحد:**
 
-1. Drill-down entries with `onCellClick: true` (drill-down wins over link when both match).
-2. Link entries with `onCellClick: true`.
-3. Widget-level `clickAction` (see below).
-4. Cross-filter emission (`clickEmitMapping`).
+1. مدخلات drill-down مع `onCellClick: true` (drill-down يفوز على الرابط عند التطابق).
+2. مدخلات الرابط مع `onCellClick: true`.
+3. `clickAction` على مستوى الـwidget (انظر أدناه).
+4. إصدار cross-filter (`clickEmitMapping`).
 
-Entries without `onCellClick` still appear in the right-click context menu — the flag only controls left-click auto-fire.
+المدخلات بدون `onCellClick` لا تزال تظهر في قائمة السياق بالنقر الأيمن.
 
-### 5a.2 Widget-Level clickAction (Charts + Fallback)
+### 5a.2 clickAction على مستوى الـWidget (المخططات + الاحتياطي) {#5a2-Widget-Level-clickAction-Charts--Fallback}
 
-For ECharts widgets there's no per-cell concept — a click hits a data point, not a column. The widget-level `clickAction` object defines a single action for the whole widget:
+لـwidgets ECharts لا يوجد مفهوم لكل خلية — النقر يصيب نقطة بيانات لا عموداً. يُعرِّف كائن `clickAction` على مستوى الـwidget إجراءً واحداً للـwidget بأكمله:
 
 ```json
 "clickAction": {
@@ -680,24 +675,22 @@ For ECharts widgets there's no per-cell concept — a click hits a data point, n
 }
 ```
 
-| Field | Required | Description |
+| الحقل | مطلوب | الوصف |
 |---|---|---|
-| `type` | Yes | One of `"crossFilter"`, `"link"`, or `"drillDown"`. |
-| `targetKey` | If link or drillDown | The `key` of the target in `linkMappings` (for `"link"`) or `drillDownMapping` (for `"drillDown"`). Not used for `"crossFilter"`. |
+| `type` | نعم | أحد `"crossFilter"` أو `"link"` أو `"drillDown"`. |
+| `targetKey` | إذا link أو drillDown | الـ`key` للهدف في `linkMappings` (لـ`"link"`) أو `drillDownMapping` (لـ`"drillDown"`). |
 
-The three modes:
+الأوضاع الثلاثة:
 
-- **`"crossFilter"`** — The current default behavior. The widget emits cross-filter values from `clickEmitMapping`. This is what happens when `clickAction` is absent entirely, so you only need to specify it explicitly if you want to be self-documenting.
-- **`"link"`** — Navigates using a link defined in `linkMappings`. The `targetKey` must match the `key` of one of the link entries.
-- **`"drillDown"`** — Triggers drill-down to a target defined in `drillDownMapping`. The `targetKey` must match the `key` of one of the drill-down entries. This is handy when you want a single-click drill-down experience without requiring the user to right-click and choose from a menu.
-
-For Table/EnhancedTable widgets, `clickAction` is still honored but only as a fallback — `onCellClick` entries are checked first. The resolved target's `column` scope is also respected: if `clickAction.targetKey` points to a link/drill entry with `column: "X"`, the action fires only when the clicked cell is in column X. Prefer `onCellClick` for tables so the target scope lives on the mapping itself, not duplicated as a `targetKey` pointer.
+- **`"crossFilter"`** — السلوك الافتراضي الحالي. يُصدر الـwidget قيم cross-filter من `clickEmitMapping`.
+- **`"link"`** — ينتقل باستخدام رابط مُعرَّف في `linkMappings`.
+- **`"drillDown"`** — يُشغِّل drill-down إلى هدف مُعرَّف في `drillDownMapping`.
 
 ::: warning
-If neither `onCellClick` nor `clickAction` is set, the widget falls back to cross-filter emission — exactly the same behavior as before these features were introduced. Existing configurations do not need any changes.
+إذا لم يُحدد `onCellClick` ولا `clickAction`، يُعيد الـwidget إلى إصدار cross-filter — نفس السلوك تماماً قبل تقديم هذه الميزات. الإعدادات الموجودة لا تحتاج إلى أي تغييرات.
 :::
 
-**Example — left-click opens a drill-down widget directly:**
+**مثال — النقر الأيسر يفتح widget drill-down مباشرةً:**
 
 ```json
 {
@@ -717,13 +710,11 @@ If neither `onCellClick` nor `clickAction` is set, the widget falls back to cros
 }
 ```
 
-In this configuration, left-clicking a data point immediately opens the "Invoice Details" drill-down popup. The right-click context menu still shows all drill-down targets as usual.
-
 ---
 
-## 5b. linkMappings — Link Navigation
+## 5b. linkMappings — التنقل بالروابط {#5b-linkMappings----Link-Navigation}
 
-The `linkMappings` array defines navigation links that appear in the right-click context menu under a "Navigate To" group. These links let users jump from a chart data point to an entity edit screen, an external URL, or any internal route.
+تُعرِّف مصفوفة `linkMappings` روابط التنقل التي تظهر في قائمة السياق بالنقر الأيمن تحت مجموعة "Navigate To".
 
 ```json
 "linkMappings": [
@@ -745,46 +736,46 @@ The `linkMappings` array defines navigation links that appear in the right-click
 ]
 ```
 
-There are two kinds of links, distinguished by which fields you provide:
+نوعان من الروابط يتميزان بالحقول التي تُدرجها:
 
-### Direct Link (URL-based)
+### رابط مباشر (قائم على URL) {#Direct-Link-URL-based}
 
-Use the `linkColumn` field to point to a SQL column that contains a URL. The system inspects the URL to decide how to open it:
+استخدم حقل `linkColumn` للإشارة إلى عمود SQL يحتوي على URL. يفحص النظام URL لاتخاذ قرار كيفية فتحه:
 
-- **Absolute URLs** (starting with `http://` or `https://`) open in a new browser tab.
-- **Relative URLs** are treated as internal application routes and navigate within the app.
+- **URLs مطلقة** (تبدأ بـ`http://` أو `https://`) تُفتح في تبويب متصفح جديد.
+- **URLs نسبية** تُعامَل كمسارات تطبيق داخلية وتتنقل داخل التطبيق.
 
-| Field | Required | Description |
+| الحقل | مطلوب | الوصف |
 |---|---|---|
-| `key` | Yes | Unique identifier for the link. Referenced by `clickAction.targetKey`. |
-| `enLabel` | No | English label in the context menu |
-| `arLabel` | No | Arabic label in the context menu |
-| `linkColumn` | Yes | SQL column containing the URL |
-| `column` | Table widgets only | Scopes the entry to a specific column (absent = row-level, any cell). |
-| `onCellClick` | No | Table widgets only. When `true`, left-clicking a matching cell fires this link without needing the right-click menu. See Section 5a.1. |
+| `key` | نعم | معرّف فريد للرابط. مُشار إليه من `clickAction.targetKey`. |
+| `enLabel` | لا | التسمية الإنجليزية في قائمة السياق |
+| `arLabel` | لا | التسمية العربية في قائمة السياق |
+| `linkColumn` | نعم | عمود SQL يحتوي على URL |
+| `column` | widgets الجداول فقط | يحصر المدخل في عمود محدد. |
+| `onCellClick` | لا | widgets الجداول فقط. عندما `true`، يُطلق النقر الأيسر على الخلية المطابقة هذا الرابط. انظر القسم 5a.1. |
 
-### Entity Navigation Link
+### رابط تنقل الكيان {#Entity-Navigation-Link}
 
-Use `linkToEntityTypeColumn` + `linkToIdColumn` to build a link that opens an entity's edit view — for example, opening the Customer record that a chart bar represents.
+استخدم `linkToEntityTypeColumn` + `linkToIdColumn` لبناء رابط يفتح واجهة تعديل الكيان.
 
-| Field | Required | Description |
+| الحقل | مطلوب | الوصف |
 |---|---|---|
-| `key` | Yes | Unique identifier for the link. Referenced by `clickAction.targetKey`. |
-| `enLabel` | No | English label in the context menu |
-| `arLabel` | No | Arabic label in the context menu |
-| `linkToEntityTypeColumn` | Yes | SQL column containing the entity type string (e.g., `"Customer"`) |
-| `linkToIdColumn` | Yes | SQL column containing the entity ID |
-| `entityType` | No | Static entity type string. Use this instead of `linkToEntityTypeColumn` when every row links to the same entity type. |
-| `openMode` | No | How to open the entity: `"popup"` (Quasar dialog, default), `"navigate"` (same tab), `"newTab"`. |
-| `labelColumn` | No | SQL column used to enrich the context menu label. For example, if `enLabel` is `"Open Customer"` and `labelColumn` resolves to `"ABC Trading"`, the menu shows `"Open Customer 'ABC Trading'"`. |
-| `column` | Table widgets only | Scopes the entry to a specific column (absent = row-level, any cell). |
-| `onCellClick` | No | Table widgets only. When `true`, left-clicking a matching cell opens the link without needing the right-click menu. See Section 5a.1. |
+| `key` | نعم | معرّف فريد للرابط. مُشار إليه من `clickAction.targetKey`. |
+| `enLabel` | لا | التسمية الإنجليزية في قائمة السياق |
+| `arLabel` | لا | التسمية العربية في قائمة السياق |
+| `linkToEntityTypeColumn` | نعم | عمود SQL يحتوي على سلسلة نوع الكيان (مثل `"Customer"`) |
+| `linkToIdColumn` | نعم | عمود SQL يحتوي على معرّف الكيان |
+| `entityType` | لا | سلسلة نوع الكيان الثابتة. استخدمها بدلاً من `linkToEntityTypeColumn` عند ارتباط كل الصفوف بنفس نوع الكيان. |
+| `openMode` | لا | كيفية فتح الكيان: `"popup"` (نافذة Quasar، الافتراضي)، أو `"navigate"` (نفس التبويب)، أو `"newTab"`. |
+| `labelColumn` | لا | عمود SQL يُستخدم لإثراء تسمية قائمة السياق. |
+| `column` | widgets الجداول فقط | يحصر المدخل في عمود محدد. |
+| `onCellClick` | لا | widgets الجداول فقط. عندما `true`، يفتح النقر الأيسر على الخلية المطابقة الرابط. انظر القسم 5a.1. |
 
 ::: tip
-The `labelColumn` field is a small touch that makes a big difference in usability. Instead of a generic "Open Customer" menu item, the user sees "Open Customer 'ABC Trading'" — they know exactly where the link will take them before they click.
+حقل `labelColumn` لمسة صغيرة تُحدث فارقاً كبيراً في قابلية الاستخدام. بدلاً من عنصر قائمة عام "Open Customer"، يرى المستخدم "Open Customer 'ABC Trading'" — يعرف تماماً إلى أين سيأخذه الرابط قبل النقر.
 :::
 
-**Example — chart widget, left-click navigates to a customer entity (widget-level clickAction):**
+**مثال — widget مخطط، النقر الأيسر ينتقل إلى كيان عميل:**
 
 ```json
 {
@@ -806,9 +797,7 @@ The `labelColumn` field is a small touch that makes a big difference in usabilit
 }
 ```
 
-Here, left-clicking any data point on the chart opens the customer's edit form. The same link also appears in the right-click context menu under "Navigate To".
-
-**Example — EnhancedTable, click the customer-name cell to open its record (per-entry onCellClick):**
+**مثال — EnhancedTable، النقر على خلية اسم العميل يفتح سجله:**
 
 ```json
 {
@@ -832,15 +821,13 @@ Here, left-clicking any data point on the chart opens the customer's edit form. 
 }
 ```
 
-Clicking the customer-name cell opens the entity; clicking any other cell falls through to cross-filter emission. No `clickAction` needed — the link's own `column` + `onCellClick` flag carry all the information.
-
 ---
 
-## 6. Cross-Filter Bindings
+## 6. روابط Cross-Filter {#6-Cross-Filter-Bindings}
 
-Cross-filter bindings define which cross-filters a widget **responds to** (not emits — that's `clickEmitMapping`). They live in two places, with **different shapes**:
+تُعرِّف روابط cross-filter الفلاتر التي **يستجيب** لها الـwidget (لا يُصدرها — ذلك هو `clickEmitMapping`). توجد في مكانين بـ**شكلين مختلفين**:
 
-### Widget-level (`DashBoardWidget.crossFilterBindings`) — the common form
+### مستوى الـWidget (`DashBoardWidget.crossFilterBindings`) — الشكل الشائع {#Widget-level-DashBoardWidgetcrossFilterBindings----the-common-form}
 
 ```json
 "crossFilterBindings": [
@@ -850,9 +837,9 @@ Cross-filter bindings define which cross-filters a widget **responds to** (not e
 ]
 ```
 
-Each entry references a `BICrossFilter` by `code`. When the filter has a value, the server injects a WHERE clause into the widget's SQL using the filter's `sqlLeftHandSide` and `operator`. Optional fields per entry: `sqlLeftHandSide` (override), `operator` (override), `customWhereClause`, `localScope`.
+كل مدخل يُشير إلى `BICrossFilter` بالـ`code`. عند وجود قيمة للفلتر، يُحقن الخادم جملة WHERE في SQL الخاص بالـwidget. الحقول الاختيارية لكل مدخل: `sqlLeftHandSide` (تجاوز)، و`operator` (تجاوز)، و`customWhereClause`، و`localScope`.
 
-### Dashboard-level (`DashBoard.crossFilterBindings`) — overrides only, **`element` required**
+### مستوى لوحة البيانات (`DashBoard.crossFilterBindings`) — التجاوزات فقط، **`element` مطلوب** {#Dashboard-level-DashBoardcrossFilterBindings----overrides-only-element-required}
 
 ```json
 "crossFilterBindings": [
@@ -860,33 +847,33 @@ Each entry references a `BICrossFilter` by `code`. When the filter has a value, 
 ]
 ```
 
-Dashboard-level entries carry an extra **required** `element` field naming the target widget (`DashBoardWidget.code`). They exist solely to override a single binding for one specific widget on this dashboard — typical use is changing the `operator` or `sqlLeftHandSide` for that widget without touching its widget-level binding.
+تحمل مدخلات مستوى لوحة البيانات حقل `element` **مطلوباً** إضافياً يُسمّي الـwidget المستهدف. توجد فقط لتجاوز ربط واحد لـwidget محدد على هذه اللوحة.
 
-**Don't use dashboard-level bindings as a substitute for widget-level ones.** A bare `{"crossFilter": "X"}` at dashboard scope is malformed — it'll fail validation because `element` is required. If every widget on the dashboard needs the same binding, declare it at the widget level on each widget. Most dashboards have `crossFilterBindings: []` at the dashboard root.
+**لا تستخدم روابط مستوى لوحة البيانات بديلاً عن روابط مستوى الـwidget.** مدخل مجرد `{"crossFilter": "X"}` في نطاق لوحة البيانات غير صالح.
 
-**Example flow:**
-1. `BICrossFilter` with code `"branchFilter"` has `sqlLeftHandSide: "l.branch_id"` and `operator: "Equal"`
-2. Widget X has `crossFilterBindings: [{"crossFilter": "branchFilter"}]`
-3. User clicks a branch on another widget, setting the `branchFilter` cross-filter
-4. Widget X re-fetches data; the server replaces `/*AND-FILTERS*/` with `AND l.branch_id = <selected branch ID>`
+**مثال على التدفق:**
+1. `BICrossFilter` بكود `"branchFilter"` لديه `sqlLeftHandSide: "l.branch_id"` و`operator: "Equal"`
+2. Widget X لديه `crossFilterBindings: [{"crossFilter": "branchFilter"}]`
+3. ينقر المستخدم على فرع في widget آخر، مُعيِّناً `branchFilter`
+4. يُعيد Widget X جلب البيانات؛ يستبدل الخادم `/*AND-FILTERS*/` بـ`AND l.branch_id = <selected branch ID>`
 
-### Supported Operators
+### المشغِّلات المدعومة {#Supported-Operators}
 
-| Operator | SQL | Use case |
+| المشغِّل | SQL | حالة الاستخدام |
 |---|---|---|
-| `Equal` | `=` | Exact match (default) |
-| `In` | `IN (...)` | Multi-value selection |
-| `GreaterThanOrEqual` | `>=` | Date from, minimum value |
-| `LessThanOrEqual` | `<=` | Date to, maximum value |
-| `GreaterThan` | `>` | Strict greater than |
-| `LessThan` | `<` | Strict less than |
-| `NotEqual` | `<>` | Exclusion |
-| `Contains` | `LIKE '%value%'` | Text search |
-| `StartsWith` | `LIKE 'value%'` | Text prefix match |
+| `Equal` | `=` | مطابقة تامة (الافتراضي) |
+| `In` | `IN (...)` | تحديد متعدد القيم |
+| `GreaterThanOrEqual` | `>=` | من تاريخ، الحد الأدنى للقيمة |
+| `LessThanOrEqual` | `<=` | إلى تاريخ، الحد الأقصى للقيمة |
+| `GreaterThan` | `>` | أكبر بشكل صارم |
+| `LessThan` | `<` | أصغر بشكل صارم |
+| `NotEqual` | `<>` | الاستبعاد |
+| `Contains` | `LIKE '%value%'` | البحث النصي |
+| `StartsWith` | `LIKE 'value%'` | مطابقة بادئة النص |
 
-### Widget-Local Scope (`localScope`)
+### النطاق المحلي للـWidget (`localScope`) {#Widget-Local-Scope-localScope}
 
-Cross-filter bindings — both at the widget level (`DashBoardWidget.crossFilterBindings`) and at the dashboard level (`DashBoard.crossFilterBindings`) — carry an optional `localScope` flag:
+تحمل روابط cross-filter علامة `localScope` اختيارية:
 
 ```json
 "crossFilterBindings": [
@@ -895,32 +882,30 @@ Cross-filter bindings — both at the widget level (`DashBoardWidget.crossFilter
 ]
 ```
 
-When `localScope` is `true` for a binding, that filter belongs to the widget's own filter popup instead of the dashboard's global filter bar. Specifically:
+عندما يكون `localScope` هو `true` لربط ما، فإن الفلتر ينتمي إلى نافذة الفلتر المنبثقة الخاصة بالـwidget بدلاً من شريط الفلتر العام للوحة البيانات. تحديداً:
 
-- The widget exposes a filter button on its header. Clicking it opens a popup with one input per `localScope` binding. Values entered there apply only to this widget.
-- Click-emitted cross-filters from other charts, and values typed into the dashboard filter bar, are **ignored** for `localScope` bindings — only the widget's own popup can drive them.
-- If every binding for a given cross-filter code (across all widgets and the dashboard) is `localScope`, that code disappears from the dashboard filter bar entirely.
-- A drill-down request that targets a `localScope`-bound code still passes its value through (drill-down takes precedence over local scope, since it is an explicit user action).
-- Period-comparison shifting still applies — the resolved local value flows through `BIPeriodComparisonExecutor` like any other.
-- The widget's local filter values are serialized into the shareable dashboard URL via `localToChart`, so a copied URL restores the same per-widget filter state.
+- يُظهر الـwidget زر فلتر في رأسه. النقر عليه يفتح نافذة منبثقة بإدخال واحد لكل ربط `localScope`.
+- cross-filters المُصدَرة بالنقر من مخططات أخرى، والقيم المُدخَلة في شريط فلتر لوحة البيانات، **تُتجاهل** لروابط `localScope`.
+- إذا كان كل ربط لكود cross-filter معين `localScope`، يختفي ذلك الكود من شريط فلتر لوحة البيانات تماماً.
+- طلب drill-down الذي يستهدف كود مرتبطاً بـ`localScope` لا يزال يُمرر قيمته.
 
-Use `localScope` when one chart needs an independent slicer (e.g. "show this KPI for Region X") that should not propagate to its sibling widgets.
+استخدم `localScope` عندما يحتاج مخطط واحد إلى محدد مستقل لا يجب أن ينتشر إلى الـwidgets الشقيقة.
 
 ---
 
-## 7. Number Format Spec
+## 7. مواصفات تنسيق الأرقام {#7-Number-Format-Spec}
 
-Two formatter shapes exist — pick by widget family:
+يوجد شكلان للتنسيق — اختر بحسب فئة الـwidget:
 
-| Where it's used | Shape | Field for currency symbol |
+| أين يُستخدم | الشكل | حقل رمز العملة |
 |---|---|---|
-| ECharts `dataMapping.series[].format` (Section 3) | `format` object below | `currency` |
-| EnhancedTable column / EnhancedMetricsCard slot `formatting` (Section 14.4.1, 15.2) | Richer `formatting` object | `currencySymbol` (also `currencyCode`, `currencyPlacement`) |
-| Legacy `MetricsCards` `metricsCardConfig.numberFormat` | numeral.js mask string (e.g. `"0,0"`, `"0,0.00"`) plus separate `suffix` | n/a |
+| ECharts `dataMapping.series[].format` (القسم 3) | كائن `format` أدناه | `currency` |
+| عمود EnhancedTable / فتحة EnhancedMetricsCard `formatting` (القسمان 14.4.1 و15.2) | كائن `formatting` أغنى | `currencySymbol` (أيضاً `currencyCode` و`currencyPlacement`) |
+| `MetricsCards` القديمة `metricsCardConfig.numberFormat` | سلسلة قناع numeral.js (مثل `"0,0"`) بالإضافة إلى `suffix` منفصل | لا ينطبق |
 
-The two are **not interchangeable** — putting `currency: "SAR"` on an EnhancedTable column does nothing; putting `currencySymbol: "SAR"` in an ECharts series format does nothing.
+الشكلان **غير قابلَين للتبادل** — وضع `currency: "SAR"` على عمود EnhancedTable لا يُنتج شيئاً؛ ووضع `currencySymbol: "SAR"` في تنسيق سلسلة ECharts لا يُنتج شيئاً.
 
-### ECharts series format (`dataMapping.series[].format`)
+### تنسيق سلسلة ECharts (`dataMapping.series[].format`) {#ECharts-series-format-dataMappingseriesformat}
 
 ```json
 "format": {
@@ -931,18 +916,18 @@ The two are **not interchangeable** — putting `currency: "SAR"` on an Enhanced
 }
 ```
 
-| Field | Values | Description |
+| الحقل | القيم | الوصف |
 |---|---|---|
-| `type` | `"number"`, `"currency"`, `"percent"`, `"compact"` | Formatting mode |
-| `decimals` | `0`, `1`, `2`, ... | Decimal places |
-| `compact` | `true` / `false` | Use compact notation (1K, 1M, 1B) |
-| `currency` | `"SAR"`, `"USD"`, etc. | Currency symbol. If omitted and type is `"currency"`, the system's default currency is used. |
+| `type` | `"number"` أو `"currency"` أو `"percent"` أو `"compact"` | وضع التنسيق |
+| `decimals` | `0` أو `1` أو `2` إلخ | الخانات العشرية |
+| `compact` | `true` / `false` | استخدام الترميز المضغوط (1K و1M و1B) |
+| `currency` | `"SAR"` أو `"USD"` إلخ | رمز العملة. إذا حُذف والنوع `"currency"`، يُستخدم العملة الافتراضية للنظام. |
 
 ---
 
-## 8. BICrossFilter Entity
+## 8. كيان BICrossFilter {#8-BICrossFilter-Entity}
 
-Cross-filters are master-file entities that define reusable filter parameters. They produce `QuestionField` metadata for rendering filter UI controls, and carry default SQL bindings.
+cross-filters كيانات ملف رئيسي تُعرِّف معاملات فلتر قابلة لإعادة الاستخدام. تُنتج بيانات وصفية من نوع `QuestionField` لعرض عناصر تحكم واجهة مستخدم الفلتر.
 
 ```json
 {
@@ -960,61 +945,61 @@ Cross-filters are master-file entities that define reusable filter parameters. T
 }
 ```
 
-| Field | Required | Description |
+| الحقل | مطلوب | الوصف |
 |---|---|---|
-| `code` | Yes | Unique identifier, referenced by widgets |
-| `name1` / `name2` | Yes | Arabic / English name |
-| `paramType` | Yes | Base scalar type. Allowed values: `"Text"`, `"Integer"`, `"Long"`, `"Decimal"`, `"Boolean"`, `"Date"`, `"Time"`, `"Reference"`, `"Genericreference"`, `"BigText"`, `"Enum"`, `"ID"`, `"EntityType"`, `"Password"`, `"LatLng"`. (There is no `"ListParam"` value — multi-value mode is the orthogonal `listParam` flag below.) |
-| `listParam` | No | When `true`, the filter accepts multiple values. **Required** when `operator` is `"In"` or `"NotIn"`. Pair with `listDisplayType` to control the UI affordance. |
-| `listDisplayType` | No | UI affordance for `listParam: true` filters: `"Default"`, `"Dropdown"`, or `"Chips"` (the chip strip is the most common). |
-| `referencedEntityType` | If `paramType=Reference` | Entity type (e.g., `"Branch"`, `"Customer"`, `"InvItem"`) |
-| `arTitle` / `enTitle` | No | Localized labels shown in the filter bar. |
-| `sqlLeftHandSide` | Yes | SQL expression on the left of the WHERE condition (e.g., `"l.branch_id"`). For `Reference` filters, point at the **ID column** — never a name/code column; binary(16) encoding is handled automatically. |
-| `operator` | Yes | Comparison operator (see §6). `"In"`/`"NotIn"` require `listParam: true`. |
-| `customWhereClause` | No | Full custom WHERE fragment (overrides `sqlLeftHandSide` + `operator`). |
-| `required` | No | Filter must have a value before any widget query runs. |
-| `defaultValue` | No | Initial value applied when the dashboard loads. |
-| `allowedValues` | No | Long-text whitelist of accepted literal values (validation only). |
-| `hidden` | No | Hide from the filter bar (still appliable via URL or click-emit). |
-| `requiredGroup` | No | Multi-filter "at least one of" group code — any filter in the group satisfies the requirement. |
-| `criteriaExpression` | No | Server-side criteria for the filter's reference picker (`Reference` filters). |
-| `suggestionQuery` | No | Custom SQL that returns suggestion rows for autocomplete pickers. |
-| `comparisonConfig` | No | Period-comparison config (offset, baseline label) — see `BIPeriodComparisonExecutor`. |
-| `showAsDateRange` | No | Date filters only: render as a single from/to range picker that sets two paired filters at once. |
-| `autoCreateWidget` | No | When true, saving the cross-filter also creates a paired `CrossFilterControl` widget with the same `code`/`name1`/`name2` and `crossFilterRef` set. |
-| `hideFilterTitle` | No | Suppress the title label across all renderings (popup, bar dialog, `CrossFilterControl` legend). |
+| `code` | نعم | معرّف فريد، مُشار إليه من الـwidgets |
+| `name1` / `name2` | نعم | الاسم العربي / الإنجليزي |
+| `paramType` | نعم | النوع العددي الأساسي. القيم المسموح بها: `"Text"` و`"Integer"` و`"Long"` و`"Decimal"` و`"Boolean"` و`"Date"` و`"Time"` و`"Reference"` و`"Genericreference"` و`"BigText"` و`"Enum"` و`"ID"` و`"EntityType"` و`"Password"` و`"LatLng"`. (لا توجد قيمة `"ListParam"` — وضع متعدد القيم هو علامة `listParam` الأعمدية المنفصلة.) |
+| `listParam` | لا | عندما `true`، يقبل الفلتر قيماً متعددة. **مطلوب** عند `operator` هو `"In"` أو `"NotIn"`. |
+| `listDisplayType` | لا | واجهة العرض لفلاتر `listParam: true`: `"Default"` أو `"Dropdown"` أو `"Chips"`. |
+| `referencedEntityType` | إذا `paramType=Reference` | نوع الكيان (مثل `"Branch"` أو `"Customer"` أو `"InvItem"`) |
+| `arTitle` / `enTitle` | لا | التسميات المُترجَمة المعروضة في شريط الفلتر. |
+| `sqlLeftHandSide` | نعم | تعبير SQL على يسار شرط WHERE (مثل `"l.branch_id"`). لفلاتر `Reference`، أشر إلى **عمود ID** — ليس عمود اسم أو كود. |
+| `operator` | نعم | مشغِّل المقارنة (انظر §6). `"In"`/`"NotIn"` يتطلبان `listParam: true`. |
+| `customWhereClause` | لا | جزء WHERE مخصص كامل (يُلغي `sqlLeftHandSide` + `operator`). |
+| `required` | لا | يجب أن يكون للفلتر قيمة قبل تشغيل أي استعلام widget. |
+| `defaultValue` | لا | القيمة الأولية المُطبَّقة عند تحميل لوحة البيانات. |
+| `allowedValues` | لا | قائمة بيضاء من القيم الحرفية المقبولة (للتحقق فقط). |
+| `hidden` | لا | إخفاء من شريط الفلتر (لا يزال قابلاً للتطبيق عبر URL أو click-emit). |
+| `requiredGroup` | لا | كود مجموعة "واحد على الأقل من" للفلاتر المتعددة. |
+| `criteriaExpression` | لا | معايير من جانب الخادم لمنتقي مرجع الفلتر. |
+| `suggestionQuery` | لا | SQL مخصص يُعيد صفوف اقتراحات للمنتقيات التلقائية. |
+| `comparisonConfig` | لا | إعداد مقارنة الفترة (الإزاحة، التسمية الأساسية). |
+| `showAsDateRange` | لا | فلاتر التواريخ فقط: عرض منتقي نطاق واحد من/إلى يُعيّن فلترَين مقترنَين دفعةً واحدة. |
+| `autoCreateWidget` | لا | عند true، يُنشئ حفظ cross-filter أيضاً widget `CrossFilterControl` مقترناً. |
+| `hideFilterTitle` | لا | إخفاء تسمية العنوان عبر جميع طرق العرض. |
 
-**Operator/listParam contract** — these combinations matter:
+**عقد Operator/listParam:**
 
-| `operator` | `listParam` | Behavior |
+| `operator` | `listParam` | السلوك |
 |---|---|---|
-| `Equal` / `NotEqual` / `>` / `>=` / `<` / `<=` / `Contains` / `StartsWith` | `false` (or omitted) | Single value. |
-| `In` / `NotIn` | `true` (required) | Multi-value; emits `IN (...)` / `NOT IN (...)`. Setting `In` without `listParam: true` is a configuration error. |
+| `Equal` / `NotEqual` / `>` / `>=` / `<` / `<=` / `Contains` / `StartsWith` | `false` (أو محذوف) | قيمة واحدة. |
+| `In` / `NotIn` | `true` (مطلوب) | متعدد القيم؛ يُصدر `IN (...)` / `NOT IN (...)`. |
 
 ---
 
-## 9. Widget Types
+## 9. أنواع الـWidget {#9-Widget-Types}
 
-| Type | Rendering | chartConfigJSON needed? |
+| النوع | طريقة العرض | هل chartConfigJSON مطلوب؟ |
 |---|---|---|
-| `EChart` | ECharts chart (uses echartOption + dataMapping) | Yes |
-| `Table` | AG Grid table (columns from SQL, rows from data) | No |
-| `EnhancedTable` | AG Grid table driven entirely by `chartConfigJSON.columns` — per-column formatting, renderers, conditional formatting, column groups, pinning, aggregation. See Section 14. | Yes |
-| `CrossFilterControl` | Slicer-style filter widget — renders one `BICrossFilter` as an editor on the dashboard grid. Requires only `crossFilterRef`. See Section 9a. | No |
-| `TextBlock` | Non-data rich-HTML widget. Main usage: section headers and titles between data widgets. Also: subtitles, descriptions, instructions. See Section 9b. | Yes |
-| `PieChart`, `ColumnWithRotatedLabels`, etc. | Legacy Highcharts types (auto-translated to ECharts server-side) | No |
+| `EChart` | مخطط ECharts (يستخدم echartOption + dataMapping) | نعم |
+| `Table` | جدول AG Grid (الأعمدة من SQL، الصفوف من البيانات) | لا |
+| `EnhancedTable` | جدول AG Grid مُشغَّل بالكامل بواسطة `chartConfigJSON.columns`. انظر القسم 14. | نعم |
+| `CrossFilterControl` | widget فلتر slicer — يُعرض `BICrossFilter` واحد كمحرر على شبكة لوحة البيانات. يتطلب فقط `crossFilterRef`. انظر القسم 9a. | لا |
+| `TextBlock` | widget HTML غني غير بياني. الاستخدام الرئيسي: رؤوس أقسام وعناوين. انظر القسم 9b. | نعم |
+| `PieChart` و`ColumnWithRotatedLabels` إلخ | أنواع Highcharts القديمة (تُترجم تلقائياً إلى ECharts من جانب الخادم) | لا |
 
-For `Table` widgets, the SQL column names become the grid column headers. No `chartConfigJSON` is needed — just provide the `dataSource` SQL and `crossFilterBindings`.
+بالنسبة لـwidgets `Table`، تصبح أسماء أعمدة SQL رؤوس أعمدة الشبكة. لا يلزم `chartConfigJSON` — فقط أدرج `dataSource` بـSQL و`crossFilterBindings`.
 
-For `EnhancedTable` widgets, every column is declared explicitly in `chartConfigJSON` with its own formatting spec, cell renderer, and conditional-formatting rules. See Section 14 for the full schema.
+بالنسبة لـwidgets `EnhancedTable`، كل عمود مُعلَن صراحةً في `chartConfigJSON` مع مواصفات التنسيق ومُصيِّر الخلية وقواعد التنسيق الشرطي. انظر القسم 14 للـschema الكامل.
 
-For `CrossFilterControl` widgets, no `dataSource`, no `chartConfigJSON`, no `crossFilterBindings`. Only `crossFilterRef` is required.
+بالنسبة لـwidgets `CrossFilterControl`، لا `dataSource` ولا `chartConfigJSON` ولا `crossFilterBindings`. فقط `crossFilterRef` مطلوب.
 
 ---
 
-## 9a. CrossFilterControl Widget
+## 9a. Widget CrossFilterControl {#9a-CrossFilterControl-Widget}
 
-Renders one `BICrossFilter` as a slicer on the dashboard grid. The same cross-filter may be placed in more than one widget; multiple `CrossFilterControl` widgets per dashboard are allowed.
+يُعرض `BICrossFilter` واحد كـslicer على شبكة لوحة البيانات. يمكن وضع نفس cross-filter في أكثر من widget؛ يُسمح بوجود عدة widgets `CrossFilterControl` لكل لوحة بيانات.
 
 ```json
 {
@@ -1026,17 +1011,17 @@ Renders one `BICrossFilter` as a slicer on the dashboard grid. The same cross-fi
 }
 ```
 
-The fastest way to author one is to set `autoCreateWidget: true` on the `BICrossFilter` (Section 8) — saving the cross-filter creates the paired widget. Otherwise create the widget manually with the JSON above.
+أسرع طريقة لإنشائه هي تعيين `autoCreateWidget: true` على `BICrossFilter` (القسم 8) — حفظ cross-filter يُنشئ الـwidget المقترن. وإلا أنشئ الـwidget يدوياً باستخدام JSON أعلاه.
 
-When the dashboard has a `CrossFilterControl` for a code, that filter is hidden from the global-bar edit dialog; an active value still appears as a chip in the bar.
+عندما تحتوي لوحة البيانات على `CrossFilterControl` لكود ما، يُخفى ذلك الفلتر من نافذة تعديل الشريط العام؛ لا تزال القيمة النشطة تظهر كـchip في الشريط.
 
 ---
 
-## 9b. TextBlock Widget
+## 9b. Widget TextBlock {#9b-TextBlock-Widget}
 
-Non-data rich-HTML widget. Main usage: section headers separating groups of data widgets on a dashboard. Also subtitles, descriptions, instructions.
+widget HTML غني غير بياني. الاستخدام الرئيسي: رؤوس أقسام تفصل مجموعات الـwidgets البيانية على لوحة بيانات. أيضاً العناوين الفرعية والأوصاف والتعليمات.
 
-No `dataSource`, no `crossFilterBindings`, no `wizardDataSource`. The widget is a static renderer; `chartConfigJSON` carries the content + frame styles.
+لا `dataSource`، ولا `crossFilterBindings`، ولا `wizardDataSource`. الـwidget مُصيِّر ثابت؛ `chartConfigJSON` يحمل المحتوى وأنماط الإطار.
 
 ```json
 {
@@ -1048,29 +1033,29 @@ No `dataSource`, no `crossFilterBindings`, no `wizardDataSource`. The widget is 
 }
 ```
 
-`chartConfigJSON` keys (all optional except `html`):
+مفاتيح `chartConfigJSON` (جميعها اختيارية عدا `html`):
 
-| Key | Effect |
+| المفتاح | التأثير |
 |---|---|
-| `html` | Rendered via `v-html`. Authored through the q-editor or the raw-HTML textarea. |
-| `bgColor` | Wrapper `background-color`. |
-| `color` | Wrapper `color` (default text color). |
-| `padding` | CSS shorthand (e.g. `8px` or `8px 12px`). |
-| `fontSize` | Wrapper `font-size`. |
-| `borderColor`, `borderWidth`, `borderRadius` | Wrapper border. |
+| `html` | مُصيَّر عبر `v-html`. مُؤلَّف من خلال q-editor أو textarea HTML الخام. |
+| `bgColor` | `background-color` للغلاف. |
+| `color` | `color` للغلاف (لون النص الافتراضي). |
+| `padding` | اختصار CSS (مثل `8px` أو `8px 12px`). |
+| `fontSize` | `font-size` للغلاف. |
+| `borderColor` و`borderWidth` و`borderRadius` | حدود الغلاف. |
 | `textAlign` | `left` / `center` / `right` / `justify`. |
 
 ---
 
-## 10. Bulk Import JSON Format
+## 10. صيغة الاستيراد الجماعي JSON {#10-Bulk-Import-JSON-Format}
 
-Nama ERP supports importing a complete dashboard setup (cross-filters, widgets, wizards, and dashboard layout) from a single JSON file. This is the fastest way to create a full dashboard with multiple interconnected charts.
+يدعم Nama ERP استيراد إعداد لوحة بيانات كاملة (cross-filters وwidgets وwizards وتخطيط لوحة البيانات) من ملف JSON واحد.
 
-::: tip Sample file
-A working end-to-end example is available: [HR_DASHBOARD_IMPORT.json](/HR_DASHBOARD_IMPORT.json). Download it and import via the bulk-import flow described in [How to Import](#How-to-Import) to see cross-filters, widgets, wizards, and the dashboard layout wired together.
+::: tip ملف نموذجي
+مثال كامل يعمل من البداية إلى النهاية متاح: [HR_DASHBOARD_IMPORT.json](/HR_DASHBOARD_IMPORT.json). نزّله واستورده عبر تدفق الاستيراد الجماعي الموضح في [كيفية الاستيراد](#How-to-Import).
 :::
 
-### Top-Level Structure
+### الهيكل الرئيسي {#Top-Level-Structure}
 
 ```json
 {
@@ -1081,11 +1066,11 @@ A working end-to-end example is available: [HR_DASHBOARD_IMPORT.json](/HR_DASHBO
 }
 ```
 
-All four keys are optional — include only the entity types you need. Entities are created in order: cross-filters first, then widgets, then wizards, then dashboards. References between entities use `code` (business key), not IDs.
+جميع المفاتيح الأربعة اختيارية — أدرج فقط أنواع الكيانات التي تحتاجها. تُنشأ الكيانات بالترتيب: cross-filters أولاً، ثم widgets، ثم wizards، ثم لوحات البيانات.
 
-### 11.1 BICrossFilter Array
+### 11.1 مصفوفة BICrossFilter {#111-BICrossFilter-Array}
 
-Each entry creates a `BICrossFilter` master file entity. See Section 8 for field definitions.
+كل مدخل يُنشئ كيان ملف رئيسي `BICrossFilter`. انظر القسم 8 لتعريفات الحقول.
 
 ```json
 {
@@ -1101,9 +1086,9 @@ Each entry creates a `BICrossFilter` master file entity. See Section 8 for field
 }
 ```
 
-### 11.2 DashBoardWidget Array
+### 11.2 مصفوفة DashBoardWidget {#112-DashBoardWidget-Array}
 
-Each entry creates a `DashBoardWidget` entity. Key fields:
+كل مدخل يُنشئ كيان `DashBoardWidget`. الحقول الرئيسية:
 
 ```json
 {
@@ -1123,29 +1108,29 @@ Each entry creates a `DashBoardWidget` entity. Key fields:
 }
 ```
 
-| Field | Required | Description |
+| الحقل | مطلوب | الوصف |
 |---|---|---|
-| `code` | Yes | Unique widget code |
-| `name1` / `name2` | Yes | Arabic / English name |
-| `chartTitle` / `englishChartTitle` | No | Localized title shown above the chart. Emoji prefixes are fine. |
-| `type` | Yes | One of: `"EChart"`, `"Table"`, `"EnhancedTable"`, `"EnhancedMetricsCard"`, `"MetricsCards"` (legacy), `"CrossFilterControl"`, `"TextBlock"`, `"PieChart"`, `"ColumnWithRotatedLabels"`, `"ColumnWithCategsAndLabels"`, `"CombinationChart"`, `"BasicAreaChart"`, `"Gauge"`, `"HeatMap"`, `"HTML"`, `"ThreeDPieChart"`, `"ColumnRange"`, `"Calendar"`, `"ResourceView"`, `"Report"`, `"StackedAndGroupedColumn"`, `"CardMenu"`, `"Timeline"`, `"RecentVisits"`. See §9 for which need `chartConfigJSON`. |
-| `dataSource` | Most types | SQL query with `/*AND-FILTERS*/` placeholder. Skipped for `CrossFilterControl`, `TextBlock`. |
-| `chartConfigJSON` | If EChart / EnhancedTable / EnhancedMetricsCard / TextBlock | JSON **string** (escaped), not a nested object. |
-| `wizardDataSource` | No | Code of a `DashBoardWidgetWizard` entity (alternative to raw SQL). See §13. |
-| `horizontalMode` | No | Layout hint. On `CrossFilterControl` widgets, true = inline chip strip, false = stacked editor. |
-| `crossFilterBindings` | No | Array of `{"crossFilter": "filterCode"}` (widget-level — see §6). |
-| `metricsCardConfig` | If type=`MetricsCards` | Top-level value object (not inside `chartConfigJSON`) carrying the legacy card template — see §15.1 for the shape. |
-| `crossFilterRef` | If type=`CrossFilterControl` | Either bare string `"filterCode"` or object `{"code": "filterCode"}`. See §9a. |
-| `enableComparison` | No | Toggles period-comparison execution (`BIPeriodComparisonExecutor`). |
-| `mergeComparisonByColumns` | No | CSV of column names that key the merge between baseline and comparison rows. |
+| `code` | نعم | كود widget فريد |
+| `name1` / `name2` | نعم | الاسم العربي / الإنجليزي |
+| `chartTitle` / `englishChartTitle` | لا | العنوان المُترجَم المعروض فوق المخطط. |
+| `type` | نعم | أحد: `"EChart"` أو `"Table"` أو `"EnhancedTable"` أو `"EnhancedMetricsCard"` أو `"MetricsCards"` (قديم) أو `"CrossFilterControl"` أو `"TextBlock"` أو `"PieChart"` وغيرها. انظر §9. |
+| `dataSource` | معظم الأنواع | استعلام SQL مع placeholder `/*AND-FILTERS*/`. يُتخطى لـ`CrossFilterControl` و`TextBlock`. |
+| `chartConfigJSON` | إذا EChart / EnhancedTable / EnhancedMetricsCard / TextBlock | **سلسلة** JSON (مُهرَّبة)، ليس كائناً متداخلاً. |
+| `wizardDataSource` | لا | كود كيان `DashBoardWidgetWizard` (بديل لـSQL الخام). انظر §13. |
+| `horizontalMode` | لا | تلميح تخطيط. على widgets `CrossFilterControl`، true = شريط chip مضمَّن، false = محرر مكدَّس. |
+| `crossFilterBindings` | لا | مصفوفة من `{"crossFilter": "filterCode"}` (مستوى widget — انظر §6). |
+| `metricsCardConfig` | إذا type=`MetricsCards` | كائن قيمة على المستوى الرئيسي (ليس داخل `chartConfigJSON`). انظر §15.1. |
+| `crossFilterRef` | إذا type=`CrossFilterControl` | إما سلسلة مجردة `"filterCode"` أو كائن `{"code": "filterCode"}`. انظر §9a. |
+| `enableComparison` | لا | يُبدِّل تنفيذ مقارنة الفترة. |
+| `mergeComparisonByColumns` | لا | CSV لأسماء الأعمدة التي تُشكِّل مفتاح الدمج. |
 
 ::: warning
-The `chartConfigJSON` value is a **JSON string** (escaped), not a nested object. When writing import files, you must serialize the chart config object to a string.
+قيمة `chartConfigJSON` هي **سلسلة JSON** (مُهرَّبة)، ليست كائناً متداخلاً. عند كتابة ملفات الاستيراد، يجب تسلسل كائن إعداد المخطط إلى سلسلة.
 :::
 
-### 11.3 DashBoardWidgetWizard Array (Optional)
+### 11.3 مصفوفة DashBoardWidgetWizard (اختيارية) {#113-DashBoardWidgetWizard-Array-Optional}
 
-Wizards define data sources using field IDs rather than raw SQL. The system generates SQL from the wizard definition and enables several features (dimension drill-by, auto-inferred cross-filter columns, per-dimension drill menus) that raw-SQL widgets don't get. See Section 13 for the wizard-mode chart-config shape.
+تُعرِّف Wizards مصادر البيانات باستخدام معرّفات الحقول بدلاً من SQL الخام. يُنشئ النظام SQL من تعريف wizard ويُتيح عدة ميزات. انظر القسم 13.
 
 ```json
 {
@@ -1163,21 +1148,21 @@ Wizards define data sources using field IDs rather than raw SQL. The system gene
 }
 ```
 
-| Field | Required | Description |
+| الحقل | مطلوب | الوصف |
 |---|---|---|
-| `code` | Yes | Unique wizard code (referenced by widget's `wizardDataSource`) |
-| `type` | Yes | Always `"EChartDataSource"` |
-| `tableType` | Yes | `"MasterFile"`, `"DocumentHeader"`, or `"DetailLine"` |
-| `mainTable` | Yes | Database table/entity type name |
-| `fields[].fieldId` | Yes | Property path (e.g., `"customer.customerCategory"`, `"price.netValue"`) |
-| `fields[].chartUsageType` | Yes | `"Dimension"` or `"Measure"` |
-| `fields[].sqlAggregationType` | If Measure | `"Sum"`, `"Count"`, `"Average"`, `"Min"`, `"Max"` |
+| `code` | نعم | كود wizard فريد (مُشار إليه من `wizardDataSource` للـwidget) |
+| `type` | نعم | دائماً `"EChartDataSource"` |
+| `tableType` | نعم | `"MasterFile"` أو `"DocumentHeader"` أو `"DetailLine"` |
+| `mainTable` | نعم | اسم جدول/نوع كيان قاعدة البيانات |
+| `fields[].fieldId` | نعم | مسار الخاصية (مثل `"customer.customerCategory"`) |
+| `fields[].chartUsageType` | نعم | `"Dimension"` أو `"Measure"` |
+| `fields[].sqlAggregationType` | إذا Measure | `"Sum"` أو `"Count"` أو `"Average"` أو `"Min"` أو `"Max"` |
 
-### 11.4 DashBoard Array
+### 11.4 مصفوفة DashBoard {#114-DashBoard-Array}
 
-Each entry creates a `DashBoard` entity. There are two kinds: **`Single`** (a grid of widgets) and **`Tabbed`** (a parent that composes other Single dashboards as tabs).
+كل مدخل يُنشئ كيان `DashBoard`. نوعان: **`Single`** (شبكة widgets) و**`Tabbed`** (أب يؤلف لوحات Single كتبويبات).
 
-#### Single dashboard (grid of widgets)
+#### لوحة بيانات Single (شبكة widgets) {#Single-dashboard-grid-of-widgets}
 
 ```json
 {
@@ -1195,7 +1180,7 @@ Each entry creates a `DashBoard` entity. There are two kinds: **`Single`** (a gr
 }
 ```
 
-#### Tabbed dashboard (composes Single sub-dashboards)
+#### لوحة بيانات Tabbed (تؤلف لوحات Single فرعية) {#Tabbed-dashboard-composes-Single-sub-dashboards}
 
 ```json
 {
@@ -1212,30 +1197,30 @@ Each entry creates a `DashBoard` entity. There are two kinds: **`Single`** (a gr
 }
 ```
 
-A Tabbed parent has no `charts` of its own — it lists `subDashboards` (each a Single dashboard by `code`) with localized tab titles. Each tab is loaded independently. `rowsCount`/`colsCount` on the parent are required by the schema but unused; set both to `1`.
+لا تحتوي اللوحة الأب Tabbed على `charts` خاصة بها — بل تُدرج `subDashboards` مع عناوين تبويب مُترجَمة. `rowsCount`/`colsCount` على الأب مطلوبان بالـschema لكنهما غير مستخدمَين؛ اضبط كليهما على `1`.
 
-**Sharing filters across tabs:** declare a `CrossFilterControl` widget for the shared filter and place it on each Single sub-dashboard (typically as the first row). The cross-filter is the same `BICrossFilter` entity, so a value picked on one tab is visible on others when they bind the same filter. Period-comparison and global-bar chips work across tabs identically.
+**مشاركة الفلاتر عبر التبويبات:** أعلن عن widget `CrossFilterControl` للفلتر المشترك وضعه على كل لوحة Single فرعية. نفس كيان `BICrossFilter` يجعل القيمة المختارة في أحد التبويبات مرئية في غيره.
 
-#### Field reference
+#### مرجع الحقول {#Field-reference}
 
-| Field | Required | Description |
+| الحقل | مطلوب | الوصف |
 |---|---|---|
-| `code` | Yes | Unique dashboard code |
-| `name1` / `name2` | Yes | Arabic / English name |
-| `kind` | Yes | `"Single"` or `"Tabbed"` |
-| `rowsCount` / `colsCount` | Yes | Grid dimensions (1-based widget placement). Tabbed parent: set both to `1`. |
-| `charts` | Single only | Array of widget placements (`element`, `rowNumber`, `columnNumber`, `heightInRows`, `widthInColumns`). |
-| `subDashboards` | Tabbed only | Array of `{subDashboard, arTitle, enTitle}`. `subDashboard` is the `code` of another `DashBoard` (must be `kind: "Single"`). |
-| `crossFilterBindings` | No | Dashboard-level **overrides** — each entry needs `element` (target widget code) plus `crossFilter`, with optional `operator`/`sqlLeftHandSide`/`customWhereClause`/`localScope`. Usually `[]`. See §6 for shape. |
-| `totalDashboardRowsCount` | No | Pre-computed total row count cache. The system fills this; authors leave it out. |
-| `mobileMaxRowsCount` | No | Cap on rows shown in compact/mobile rendering. |
-| `refreshDashboardPer` | No | `TimePeriod` value-object (e.g. `{magnitude: 5, unit: "Minutes"}`) — auto-refresh interval. |
+| `code` | نعم | كود لوحة بيانات فريد |
+| `name1` / `name2` | نعم | الاسم العربي / الإنجليزي |
+| `kind` | نعم | `"Single"` أو `"Tabbed"` |
+| `rowsCount` / `colsCount` | نعم | أبعاد الشبكة (الوضع الأبي Tabbed: اضبط كليهما على `1`). |
+| `charts` | Single فقط | مصفوفة من أماكن الـwidgets (`element` و`rowNumber` و`columnNumber` و`heightInRows` و`widthInColumns`). |
+| `subDashboards` | Tabbed فقط | مصفوفة من `{subDashboard, arTitle, enTitle}`. |
+| `crossFilterBindings` | لا | **تجاوزات** مستوى لوحة البيانات — كل مدخل يحتاج `element` بالإضافة إلى `crossFilter`. عادةً `[]`. انظر §6. |
+| `totalDashboardRowsCount` | لا | ذاكرة cache لعدد الصفوف الكلي. يملأها النظام؛ يتركها المؤلفون فارغة. |
+| `mobileMaxRowsCount` | لا | حد للصفوف المعروضة في التصيير المضغوط/المحمول. |
+| `refreshDashboardPer` | لا | كائن قيمة `TimePeriod` (مثل `{magnitude: 5, unit: "Minutes"}`) — فترة التحديث التلقائي. |
 
 ---
 
-## 11. Complete Example — Sales Dashboard
+## 11. مثال كامل — لوحة بيانات المبيعات {#11-Complete-Example----Sales-Dashboard}
 
-Here is a complete, working import JSON that creates a sales analysis dashboard with 3 cross-filters, 3 widgets (pie + bar + table), cross-filter emission, and drill-down navigation.
+فيما يلي JSON استيراد كامل يعمل لإنشاء لوحة تحليل مبيعات مع 3 cross-filters و3 widgets (دائري + شريطي + جدول) وإصدار cross-filter وتنقل drill-down.
 
 ```json
 {
@@ -1335,26 +1320,26 @@ Here is a complete, working import JSON that creates a sales analysis dashboard 
 }
 ```
 
-### What This Creates
+### ما الذي يُنشئه هذا {#What-This-Creates}
 
-- **3 cross-filters**: Customer Category (reference picker), Date From, Date To (date pickers)
-- **Pie chart** (`ex-sales-by-category`): Shows sales distribution by customer category. Clicking a slice sets the `custCategoryFilter`, which filters the other two widgets.
-- **Horizontal bar chart** (`ex-top-items`): Top 10 items by net value. Responds to the category filter and date filters.
-- **Table** (`ex-invoice-details`): Invoice line details. Responds to all three filters.
-- **Dashboard** (`ex-sales-dashboard`): 2-row, 3-column grid. Pie on top-left, bar chart spanning top-right, table spanning the full bottom row.
+- **3 cross-filters**: تصنيف العميل (منتقي مرجع)، من تاريخ، إلى تاريخ (منتقيات تاريخ)
+- **مخطط دائري** (`ex-sales-by-category`): يُظهر توزيع المبيعات حسب تصنيف العميل. النقر على شريحة يُعيِّن `custCategoryFilter`، الذي يُصفِّي الـwidgets الأخرَين.
+- **مخطط شريطي أفقي** (`ex-top-items`): أعلى 10 أصناف حسب صافي القيمة. يستجيب لفلتر التصنيف وفلاتر التاريخ.
+- **جدول** (`ex-invoice-details`): تفاصيل سطور الفواتير. يستجيب للفلاتر الثلاثة.
+- **لوحة البيانات** (`ex-sales-dashboard`): شبكة صفَّين و3 أعمدة. الدائري في أعلى اليسار، والشريطي يمتد على أعلى اليمين، والجدول يمتد على الصف السفلي بأكمله.
 
-### How to Import
+### كيفية الاستيراد {#How-to-Import}
 
-1. Save the JSON to a file
-2. In Nama ERP, navigate to **BI Dashboard Import** (or use the developer tools import endpoint)
-3. Upload the file — all entities are created in one operation
-4. Open the dashboard by its code (`ex-sales-dashboard`)
+1. احفظ JSON في ملف
+2. في Nama ERP، انتقل إلى **BI Dashboard Import** (أو استخدم endpoint استيراد أدوات المطور)
+3. ارفع الملف — تُنشأ جميع الكيانات في عملية واحدة
+4. افتح لوحة البيانات بكودها (`ex-sales-dashboard`)
 
 ---
 
-## 12. Quick Reference — Common Patterns
+## 12. مرجع سريع — الأنماط الشائعة {#12-Quick-Reference----Common-Patterns}
 
-### Vertical Bar Chart (CategoryValue)
+### مخطط شريطي عمودي (CategoryValue) {#Vertical-Bar-Chart-CategoryValue}
 ```json
 {
   "echartOption": {
@@ -1367,7 +1352,7 @@ Here is a complete, working import JSON that creates a sales analysis dashboard 
 }
 ```
 
-### Horizontal Bar Chart (CategoryValue with swapped axes)
+### مخطط شريطي أفقي (CategoryValue مع محاور مقلوبة) {#Horizontal-Bar-Chart-CategoryValue-with-swapped-axes}
 ```json
 {
   "echartOption": {
@@ -1381,7 +1366,7 @@ Here is a complete, working import JSON that creates a sales analysis dashboard 
 }
 ```
 
-### Stacked Bar (CategoryLabelValue)
+### شريطي مكدَّس (CategoryLabelValue) {#Stacked-Bar-CategoryLabelValue}
 ```json
 {
   "echartOption": {
@@ -1395,7 +1380,7 @@ Here is a complete, working import JSON that creates a sales analysis dashboard 
 }
 ```
 
-### Line Chart with Area Fill
+### مخطط خطي مع تعبئة المساحة {#Line-Chart-with-Area-Fill}
 ```json
 {
   "echartOption": {
@@ -1408,7 +1393,7 @@ Here is a complete, working import JSON that creates a sales analysis dashboard 
 }
 ```
 
-### Pie Chart (LabelValue)
+### مخطط دائري (LabelValue) {#Pie-Chart-LabelValue}
 ```json
 {
   "echartOption": {
@@ -1420,7 +1405,7 @@ Here is a complete, working import JSON that creates a sales analysis dashboard 
 }
 ```
 
-### Donut Chart with Center Label
+### مخطط Donut مع تسمية وسطية {#Donut-Chart-with-Center-Label}
 ```json
 {
   "echartOption": {
@@ -1432,7 +1417,7 @@ Here is a complete, working import JSON that creates a sales analysis dashboard 
 }
 ```
 
-### Gauge
+### مقياس (Gauge) {#Gauge}
 ```json
 {
   "echartOption": {
@@ -1442,7 +1427,7 @@ Here is a complete, working import JSON that creates a sales analysis dashboard 
 }
 ```
 
-### Combination Chart (Bar + Line, Dual Axis)
+### مخطط مدمج (شريطي + خطي، محور مزدوج) {#Combination-Chart-Bar--Line-Dual-Axis}
 ```json
 {
   "echartOption": {
@@ -1463,7 +1448,7 @@ Here is a complete, working import JSON that creates a sales analysis dashboard 
 }
 ```
 
-### Heatmap
+### خريطة حرارية (Heatmap) {#Heatmap}
 ```json
 {
   "echartOption": {
@@ -1479,42 +1464,41 @@ Here is a complete, working import JSON that creates a sales analysis dashboard 
 
 ---
 
-## 13. Wizard Mode
+## 13. Wizard Mode {#13-Wizard-Mode}
 
-Detail moved to a companion file to keep this reference compact. Load only when authoring a widget with `wizardDataSource` set.
+التفاصيل نُقلت إلى ملف مرافق للحفاظ على هذا المرجع مختصراً. حمِّله فقط عند تأليف widget مع تعيين `wizardDataSource`.
 
 → [`bi-reference-wizard-mode.md`](./bi-reference-wizard-mode.md)
 
-Covers: metadata caching, `*WizardFieldId` keys, click-emit / drill-down with `wizardFieldId`, active-dimensions list, drill-by semantics (Option A), wizard-path cross-filter LHS, runtime slot selection, opt-out flags.
+يغطي: التخزين المؤقت للبيانات الوصفية، ومفاتيح `*WizardFieldId`، وclick-emit / drill-down مع `wizardFieldId`، وقائمة الأبعاد النشطة، ودلالات drill-by (الخيار A)، وLHS cross-filter لمسار wizard، واختيار الفتحات في وقت التشغيل، وعلامات إلغاء الاشتراك.
 
 ---
 
-## 14. EnhancedTable — JSON-Driven Grid
+## 14. EnhancedTable — شبكة مُشغَّلة بـJSON {#14-EnhancedTable----JSON-Driven-Grid}
 
-Detail moved to a companion file. Load when authoring `type: "EnhancedTable"` widgets (or pivot/cross-tab mode).
+التفاصيل نُقلت إلى ملف مرافق. حمِّله عند تأليف widgets من نوع `type: "EnhancedTable"` (أو وضع pivot/cross-tab).
 
 → [`bi-reference-enhanced-table.md`](./bi-reference-enhanced-table.md)
 
-Covers: `tableOptions`, column definitions, `formatting` (with `currencySymbol`/`currencyPlacement`), renderers (`badge`/`bar`/`progress`/`sparkline`/`icon`), conditional formatting (cell + row, traffic-light recipe), pivot (cross-tab) layout — row/col dimensions, measures, subtotals, grand totals.
+يغطي: `tableOptions`، وتعريفات الأعمدة، و`formatting` (مع `currencySymbol`/`currencyPlacement`)، والمُصيِّرات (`badge`/`bar`/`progress`/`sparkline`/`icon`)، والتنسيق الشرطي (خلية + صف، وصفة traffic-light)، وتخطيط pivot (cross-tab) — أبعاد الصفوف/الأعمدة والمقاييس والإجماليات الجزئية والإجماليات الكلية.
 
 ---
 
-## 15. EnhancedMetricsCard (and legacy MetricsCards)
+## 15. EnhancedMetricsCard (والـMetricsCards القديمة) {#15-EnhancedMetricsCard-and-legacy-MetricsCards}
 
-Detail moved to a companion file. Load when authoring metric-card widgets (`type: "EnhancedMetricsCard"` or legacy `type: "MetricsCards"`).
+التفاصيل نُقلت إلى ملف مرافق. حمِّله عند تأليف widgets من نوع (`type: "EnhancedMetricsCard"` أو `type: "MetricsCards"` القديم).
 
 → [`bi-reference-enhanced-metrics-card.md`](./bi-reference-enhanced-metrics-card.md)
 
-Covers: when-to-use-which, legacy `metricsCardConfig` value-object shape (top-level on the widget, `numberFormat` mask string), `chartConfigJSON` shape (cardLayout, value/subtitle/icon/badge/sparkline slots), card-to-row vs partition mode (N rows → 1 card), inline sparkline + STUFF/FOR XML PATH recipe, conditional card bg + icon swap, chip-strip recipe.
+يغطي: متى تستخدم أيهما، وشكل كائن قيمة `metricsCardConfig` القديم، وشكل `chartConfigJSON` (cardLayout وفتحات value/subtitle/icon/badge/sparkline)، ووضع card-to-row مقابل partition (N صفوف → بطاقة واحدة)، وsparkline مضمَّن + وصفة STUFF/FOR XML PATH، وتبديل bg + icon للبطاقة الشرطي، ووصفة شريط chip.
 
 ---
 
-## Companion files — quick map
+## الملفات المرافقة — خريطة سريعة {#Companion-files----quick-map}
 
-| When the task involves… | Load |
+| عندما تتضمن المهمة… | حمِّل |
 |---|---|
-| Widget with `wizardDataSource` set, drill-by, runtime slot selection | [`bi-reference-wizard-mode.md`](./bi-reference-wizard-mode.md) |
-| `type: "EnhancedTable"` — columns, renderers, conditional formatting, pivot | [`bi-reference-enhanced-table.md`](./bi-reference-enhanced-table.md) |
-| `type: "EnhancedMetricsCard"` or legacy `type: "MetricsCards"` | [`bi-reference-enhanced-metrics-card.md`](./bi-reference-enhanced-metrics-card.md) |
-| Anything else (chartConfigJSON, SQL, dataMapping, BICrossFilter, DashBoard, bulk import) | This file |
-
+| Widget مع `wizardDataSource` محدد، وdrill-by، واختيار الفتحات في وقت التشغيل | [`bi-reference-wizard-mode.md`](./bi-reference-wizard-mode.md) |
+| `type: "EnhancedTable"` — الأعمدة والمُصيِّرات والتنسيق الشرطي وpivot | [`bi-reference-enhanced-table.md`](./bi-reference-enhanced-table.md) |
+| `type: "EnhancedMetricsCard"` أو `type: "MetricsCards"` القديم | [`bi-reference-enhanced-metrics-card.md`](./bi-reference-enhanced-metrics-card.md) |
+| أي شيء آخر (chartConfigJSON وSQL وdataMapping وBICrossFilter وDashBoard والاستيراد الجماعي) | هذا الملف |

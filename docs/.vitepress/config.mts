@@ -24,6 +24,9 @@ function writeRedirectsMap(destDir) {
         for (const entry of fs.readdirSync(dir, {withFileTypes: true})) {
             const full = path.join(dir, entry.name)
             if (entry.isDirectory()) {
+                // Legacy basename short-links always point at the Arabic (root) pages;
+                // the /en/ mirror would otherwise collide with every translated page
+                if (dir === destDir && entry.name === 'en') continue
                 walk(full)
                 continue
             }
@@ -64,8 +67,33 @@ function pageUrl(relativePath) {
 export default defineConfig({
     title: 'Nama ERP Docs',
     description: 'Nama ERP Documentation',
-    lang: 'ar',
-    dir: 'rtl',
+    locales: {
+        root: {
+            label: 'العربية',
+            lang: 'ar',
+            dir: 'rtl',
+            themeConfig: {
+                nav: [
+                    {text: 'الرئيسية', link: '/'},
+                    {text: 'Namasoft.com', link: 'https://namasoft.com'},
+                    {text: 'Data Model', link: 'https://dm.namasoft.com'}
+                ]
+            }
+        },
+        en: {
+            label: 'English',
+            lang: 'en',
+            dir: 'ltr',
+            link: '/en/',
+            themeConfig: {
+                nav: [
+                    {text: 'Home', link: '/en/'},
+                    {text: 'Namasoft.com', link: 'https://namasoft.com'},
+                    {text: 'Data Model', link: 'https://dm.namasoft.com'}
+                ]
+            }
+        }
+    },
     vite: {
         css: {
             postcss: {
@@ -104,11 +132,6 @@ export default defineConfig({
     },
     themeConfig: {
         logo: '/hero.svg',
-        nav: [
-            {text: 'Home', link: '/'},
-            {text: 'Namasoft.com', link: 'https://namasoft.com'},
-            {text: 'Data Model', link: 'https://dm.namasoft.com'}
-        ],
         sidebar: SIDEBAR_CONFIG,
         editLink: {
             pattern: 'https://github.com/ahmedqasid/namaerp-docs/edit/master/docs/:path',

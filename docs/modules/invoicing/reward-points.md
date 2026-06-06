@@ -1,14 +1,14 @@
-# Customer Reward Points (Loyalty Points)
+# نقاط مكافآت العملاء (Customer Reward Points / Loyalty Points)
 
-## Send a notification to the customer with each invoice with rewarded points, redeemed, and total points
-* English Version
+## إرسال إشعار للعميل مع كل فاتورة يتضمن النقاط المكتسبة والمستردة والرصيد الإجمالي {#Send-a-notification-to-the-customer-with-each-invoice-with-rewarded-points-redeemed-and-total-points}
+* النسخة الإنجليزية
 ```
 Dear {customer.name2},
 Thanks for visiting {branch.name2}.
 You earned {$earnedPoints} points. Your current balance is {customer.$availableRewardPoints} points (SAR {customer.$availableRewardAmount}).
 Thanks for shopping with us!
 ```
-* Arabic Version
+* النسخة العربية
 ```
 عزيزي {customer.name1}،
 شكرًا لزيارتك فرع {branch.name1}.
@@ -16,38 +16,38 @@ Thanks for shopping with us!
 شكرًا لتسوقك معنا.
 ```
 
-### Steps to Notify Customers with the reward points OTP:
-* Create a Notification Definition for any entity (preferably Customer) and check the "Manual" option.
-* In the Reward Points Configuration file, set the "OTP Notification" field to the notification definition you just created.
+### خطوات إرسال إشعار OTP لنقاط المكافآت للعملاء: {#Steps-to-Notify-Customers-with-the-reward-points-OTP}
+* أنشئ تعريف إشعار (Notification Definition) لأي كيان (يُفضَّل العميل) وفعّل خيار "Manual".
+* في ملف إعداد نقاط المكافآت (Reward Points Configuration)، عيّن حقل "OTP Notification" على تعريف الإشعار الذي أنشأته للتو.
 
-### Sample SMS/Email Templates
+### نماذج رسائل SMS/بريد إلكتروني {#Sample-SMSEmail-Templates}
 
-- English Version
+- النسخة الإنجليزية
 ```
 To redeeem {rewardInfo.amount} {rewardInfo.currency.altCode} ({rewardInfo.redeemedPoints} points), please use the following OTP: {otpCode} 
 ```
-- Arabic Version
+- النسخة العربية
 ```
 لاسترداد {rewardInfo.amount} ({rewardInfo.redeemedPoints} نقطة) {rewardInfo.currency.code}، يرجى استخدام رمز التحقق (OTP) التالي: {otpCode}.
 ```
 
-::: tip The OTP tempo is run against the customer record
-- You can access any information from the customer, like name1, name2, email, and so on.
+::: tip يُنفَّذ OTP tempo مقابل سجل العميل
+- يمكنك الوصول إلى أي معلومات من سجل العميل، مثل name1 وname2 والبريد الإلكتروني وغيرها.
 :::
 
-## STC Qitaf Integration Setup
+## إعداد التكامل مع STC Qitaf {#STC-Qitaf-Integration-Setup}
 
-### Generating CSR for STC Qitaf Certificate
+### توليد CSR لشهادة STC Qitaf {#Generating-CSR-for-STC-Qitaf-Certificate}
 
-When integrating with STC Qitaf loyalty program, STC will request a CSR (Certificate Signing Request) file. They will provide you with the following information:
-- **Partner ID** - Your unique partner identifier
-- **Country** - Country code (e.g., SA)
-- **City** - City name (e.g., Riyadh)
-- **Organization** - Your organization name
+عند التكامل مع برنامج ولاء STC Qitaf، ستطلب STC ملف CSR (Certificate Signing Request). ستزودك بالمعلومات التالية:
+- **Partner ID** - معرّف الشريك الفريد الخاص بك
+- **Country** - رمز الدولة (مثال: SA)
+- **City** - اسم المدينة (مثال: Riyadh)
+- **Organization** - اسم مؤسستك
 
-#### Step 1: Generate the CSR and Private Key
+#### الخطوة الأولى: توليد CSR والمفتاح الخاص {#Step-1-Generate-the-CSR-and-Private-Key}
 
-Run the following OpenSSL command, replacing the values with your information:
+شغّل أمر OpenSSL التالي، مستبدلًا القيم بمعلوماتك:
 
 ```bash
 openssl req -newkey rsa:2048 -nodes \
@@ -56,7 +56,7 @@ openssl req -newkey rsa:2048 -nodes \
   -subj "/C=SA/ST={State}/L={City}/O={OrganizationName}/CN=qitaf-{PartnerID}"
 ```
 
-For example, if your partner ID is 2244 and you're located in Riyadh:
+على سبيل المثال، إذا كان معرّف شريكك هو 2244 وتقع في الرياض:
 
 ```bash
 openssl req -newkey rsa:2048 -nodes \
@@ -65,51 +65,51 @@ openssl req -newkey rsa:2048 -nodes \
   -subj "/C=SA/ST=Riyadh/L=Riyadh/O=YourCompanyName/CN=qitaf-2244"
 ```
 
-This creates two files:
-- `qitaf-2244.key` - Your private key (keep this secure and never share it)
-- `qitaf-2244.csr` - The CSR file to send to STC
+ينشئ هذا الأمر ملفين:
+- `qitaf-2244.key` - مفتاحك الخاص (احتفظ به بأمان ولا تشاركه مطلقًا)
+- `qitaf-2244.csr` - ملف CSR الذي ترسله إلى STC
 
-::: warning Keep Your Private Key Secure
-Never share the `.key` file with anyone. Only send the `.csr` file to STC.
+::: warning احتفظ بأمان مفتاحك الخاص (Keep Your Private Key Secure)
+لا تشارك ملف `.key` مع أي أحد. أرسل ملف `.csr` فقط إلى STC.
 :::
 
-#### Step 2: Send CSR to STC
+#### الخطوة الثانية: إرسال CSR إلى STC {#Step-2-Send-CSR-to-STC}
 
-Send only the `.csr` file to STC. They will process it and send back a signed certificate file.
+أرسل ملف `.csr` فقط إلى STC. ستعالجه وترسل لك ملف شهادة موقّعة.
 
-#### Step 3: Configure in Nama ERP
+#### الخطوة الثالثة: الإعداد في نظام Nama ERP {#Step-3-Configure-in-Nama-ERP}
 
-1. Open the **Reward Points Config** screen
-2. Upload the certificate file (received from STC) to the **Certificate** field - the file is usually named `qitaf-{YourPartnerID}-{SomeSerialNumber}.pem.txt`
-3. Upload your private key file (e.g., `qitaf-2244.key`) to the **Private Key** field
-4. Fill in the remaining configuration:
+1. افتح شاشة **Reward Points Config**
+2. ارفع ملف الشهادة (المستلم من STC) في حقل **Certificate** - يُسمى الملف عادةً `qitaf-{YourPartnerID}-{SomeSerialNumber}.pem.txt`
+3. ارفع ملف مفتاحك الخاص (مثال: `qitaf-2244.key`) في حقل **Private Key**
+4. أكمل بقية الإعدادات:
    - API URL
    - Client ID (Username)
    - Client Password
    - Merchant Token (API Token)
-   - Branch and Terminal ID mappings
+   - تعيينات Branch و Terminal ID
 
-::: tip Backup Your Files
-Keep secure backups of your private key file and the certificate file from STC.
+::: tip احتفظ بنسخ احتياطية من ملفاتك (Backup Your Files)
+احتفظ بنسخ احتياطية آمنة من ملف مفتاحك الخاص وملف الشهادة الصادر من STC.
 :::
 
-### Debugging STC Qitaf Requests
+### تصحيح أخطاء طلبات STC Qitaf {#Debugging-STC-Qitaf-Requests}
 
-If you encounter issues with the STC Qitaf integration, you can enable debug logging to capture the full request and response details.
+إذا واجهت مشكلات في التكامل مع STC Qitaf، يمكنك تفعيل تسجيل التصحيح (debug logging) لالتقاط تفاصيل الطلب والاستجابة الكاملة.
 
-#### Enabling Debug Logging
+#### تفعيل تسجيل التصحيح {#Enabling-Debug-Logging}
 
-Add the following property to your `nama.properties` file:
+أضف الخاصية التالية إلى ملف `nama.properties`:
 
 ```properties
 debug-stc-qitaf=true
 ```
 
-When enabled, the system logs each API request as a curl command along with the full response. This makes it easy to share the exact request details with STC support or reproduce the request manually.
+عند التفعيل، يسجّل النظام كل طلب API كأمر curl مع الاستجابة الكاملة. يُسهّل ذلك مشاركة تفاصيل الطلب الدقيقة مع دعم STC أو إعادة تنفيذ الطلب يدويًا.
 
-#### Sample Log Output
+#### نموذج لمخرجات السجل {#Sample-Log-Output}
 
-The logged curl command includes the `--cert` and `--key` arguments with the file names from the Reward Points Config, making it easy to reproduce the request:
+يتضمن أمر curl المسجَّل وسيطَي `--cert` و`--key` مع أسماء الملفات من Reward Points Config، مما يُسهّل إعادة تنفيذ الطلب:
 
 ```
 ========== STC QITAF REQUEST ==========
@@ -132,14 +132,14 @@ Body:
 =========================================
 ```
 
-#### Running the curl Command
+#### تشغيل أمر curl {#Running-the-curl-Command}
 
-To run the logged curl command:
+لتشغيل أمر curl المسجَّل:
 
-1. Download the **Certificate** and **Private Key** files from the Reward Points Config
-2. Place them in the directory where you'll run the curl command
-3. Copy and run the curl command from the logs
+1. حمّل ملفَي **Certificate** و**Private Key** من Reward Points Config
+2. ضعهما في المجلد الذي ستشغّل منه أمر curl
+3. انسخ أمر curl من السجلات وشغّله
 
-::: warning Sensitive Information
-The debug logs contain sensitive information including authorization headers and API tokens. Disable debug logging in production after troubleshooting is complete.
+::: warning معلومات حساسة (Sensitive Information)
+تحتوي سجلات التصحيح على معلومات حساسة تشمل ترويسات التفويض ورموز API. عطّل تسجيل التصحيح في بيئة الإنتاج بعد الانتهاء من استكشاف الأخطاء وإصلاحها.
 :::

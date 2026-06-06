@@ -1,72 +1,72 @@
-# Carton Orders: From Customer Request to Production Plan
+# طلبيات الكرتون (Carton Orders): من طلب العميل إلى خطة الإنتاج
 
-## What a Carton Order Is
+## ما هي طلبية الكرتون {#What-a-Carton-Order-Is}
 
-A carton order is your sales document - it's how customers purchase cartons from you. Think of it as a sales order specialized for the carton manufacturing business.
+طلبية الكرتون هي مستند المبيعات الخاص بك - وهي الطريقة التي يشتري بها العملاء الكراتين منك. فكّر فيها كأمر بيع متخصص في أعمال تصنيع الكرتون.
 
-On the surface, it looks like any sales document: customer, quantities, prices, delivery date. But behind the scenes, it's doing something smarter - translating customer requirements into manufacturing requirements.
+على السطح، تبدو كأي مستند مبيعات: عميل، وكميات، وأسعار، وتاريخ تسليم. لكن خلف الكواليس، تقوم بشيء أذكى - ترجمة متطلبات العميل إلى متطلبات تصنيع.
 
-When a customer orders assembled cartons, Nama automatically figures out all the component cartons that need to be manufactured. When they order 5000 units, Nama tracks which of those units have been planned for production, which are still pending, and prevents you from accidentally planning the same order twice.
+عندما يطلب العميل كراتين مجمّعة (Assembled Cartons)، يحدد Nama تلقائيًا جميع الكراتين المكوّنة التي يجب تصنيعها. وعندما يطلب 5000 وحدة، يتتبع Nama أي الوحدات تم تخطيطها للإنتاج، وأيها لا يزال معلقًا، ويمنعك من التخطيط للأمر ذاته مرتين بالخطأ.
 
-You'll find carton orders under **Manufacturing > Documents > CRTN Order** (التصنيع > المستندات > طلبية كرتون).
+ستجد طلبيات الكرتون ضمن **التصنيع > المستندات > طلبية كرتون** (Manufacturing > Documents > CRTN Order).
 
-## Creating a Basic Carton Order
+## إنشاء طلبية كرتون أساسية {#Creating-a-Basic-Carton-Order}
 
-Let's walk through a typical order entry.
+دعنا نتعرف على إدخال طلبية نموذجية.
 
-### Step 1: Header Information
+### الخطوة 1: معلومات الرأس {#Step-1--Header-Information}
 
-Start a new carton order and fill in the essentials:
+ابدأ طلبية كرتون جديدة واملأ البيانات الأساسية:
 
-**Customer** (العميل): Select the customer placing the order. This is required - you can't create orders without a customer.
+**العميل** (Customer): اختر العميل الذي يضع الطلب. هذا الحقل مطلوب - لا يمكنك إنشاء طلبيات بدون عميل.
 
-**Issue Date** (تاريخ الإصدار): When the order was placed
+**تاريخ الإصدار** (Issue Date): تاريخ تقديم الطلب
 
-**Value Date** (تاريخ القيمة): When the order should be valued (for accounting purposes)
+**تاريخ القيمة** (Value Date): تاريخ احتساب قيمة الطلب (لأغراض المحاسبة)
 
-**Sales Person** (م.المبيعات): The salesperson handling this account (optional)
+**م.المبيعات** (Sales Person): مندوب المبيعات المسؤول عن هذا الحساب (اختياري)
 
-**Book** (الدفتر) and **Term** (الشرط): These control numbering and automatic document generation settings
+**الدفتر** (Book) **والشرط** (Term): يتحكمان في الترقيم وإعدادات إنشاء المستندات التلقائية
 
-**Subsidiary**: If this order should post to a specific subsidiary account (advanced accounting feature)
+**الشركة الفرعية** (Subsidiary): إذا كان يجب أن ترحّل هذه الطلبية إلى حساب فرعي محدد (ميزة محاسبية متقدمة)
 
-**Tax Plan**: If sales taxes apply, select the tax plan
+**خطة الضريبة** (Tax Plan): إذا كانت تنطبق ضرائب المبيعات، اختر خطة الضريبة
 
-### Step 2: Order Lines - Selecting Cartons
+### الخطوة 2: سطور الطلبية - اختيار الكراتين {#Step-2--Order-Lines---Selecting-Cartons}
 
-In the **Details** (التفاصيل) grid, add lines for each carton the customer wants:
+في شبكة **التفاصيل** (Details)، أضف سطورًا لكل كرتونة يريدها العميل:
 
-**Carton Specs** (مواصفات الكرتونة): Select the carton specification. Here's the smart part - Nama filters the list to show only specifications for this customer. You won't accidentally see specs for other customers.
+**مواصفات الكرتونة** (Carton Specs): اختر مواصفة الكرتونة. هنا يكمن الذكاء - يفلتر Nama القائمة لعرض المواصفات الخاصة بهذا العميل فقط. لن ترى مواصفات العملاء الآخرين بالخطأ.
 
-When you select a specification, Nama automatically:
-- Fills in the **Item** field (if the spec is linked to an inventory item)
-- Sets up pricing (if a price is defined in the spec)
-- Populates descriptions
+عند اختيار مواصفة، يقوم Nama تلقائيًا بـ:
+- تعبئة حقل **الصنف** (Item) إذا كانت المواصفة مرتبطة بصنف مخزني
+- ضبط التسعير إذا كان سعر محددًا في المواصفة
+- تعبئة الأوصاف
 
-**Quantity** (الكمية): How many cartons the customer wants
+**الكمية** (Quantity): عدد الكراتين التي يريدها العميل
 
-**Price fields**: Unit price, discounts, taxes - standard invoicing fields
+**حقول السعر** (Price fields): سعر الوحدة، والخصومات، والضرائب - حقول الفوترة الاعتيادية
 
-The system calculates line totals, applies discounts, calculates taxes, and updates the document money totals automatically.
+يحسب النظام إجماليات السطور، ويطبّق الخصومات، ويحسب الضرائب، ويحدّث الإجماليات المالية للمستند تلقائيًا.
 
-**Important**: You can only select carton specifications with manufacturing types:
-- Normal Carton (كرتونة عادية)
-- Assembled Carton (كرتونة مجمعة)
-- Normal Separator (فاصل عادي)
+**مهم**: يمكنك فقط اختيار مواصفات الكرتون من أنواع التصنيع التالية:
+- كرتونة عادية (Normal Carton)
+- كرتونة مجمّعة (Assembled Carton)
+- فاصل عادي (Normal Separator)
 
-You can't directly order "Small Separators" or "Assembled Separators" in orders - those are components manufactured as part of other products.
+لا يمكنك طلب "فواصل صغيرة" أو "فواصل مجمّعة" مباشرة في الطلبيات - فهي مكونات تُصنَّع كجزء من منتجات أخرى.
 
-### Step 3: Review Manufacturing Details
+### الخطوة 3: مراجعة تفاصيل التصنيع {#Step-3--Review-Manufacturing-Details}
 
-Here's where it gets interesting. Once you save the order, look at the **Manufacturing Details** (تفاصيل التصنيع) tab (read-only grid).
+هنا يصبح الأمر مثيرًا للاهتمام. بمجرد حفظ الطلبية، انظر إلى تبويب **تفاصيل التصنيع** (Manufacturing Details) (شبكة للقراءة فقط).
 
-This grid shows what actually needs to be manufactured to fulfill the order.
+تُظهر هذه الشبكة ما يحتاج فعليًا إلى تصنيع لتنفيذ الطلبية.
 
-**For normal cartons**: Manufacturing details match order details. One order line = one manufacturing line.
+**للكراتين العادية**: تتطابق تفاصيل التصنيع مع تفاصيل الطلبية. سطر طلبية واحد = سطر تصنيع واحد.
 
-**For assembled cartons**: Nama explodes the assembly into components. If you ordered an assembled carton with two child components, you'll see two manufacturing detail lines - one for each child carton that needs to be produced.
+**للكراتين المجمّعة**: يفكك Nama التجميع إلى مكوناته. إذا طلبت كرتونة مجمّعة بمكونَين فرعيَّين، سترى سطرَي تفاصيل تصنيع - واحد لكل كرتونة فرعية يجب إنتاجها.
 
-**Example**:
+**مثال**:
 ```
 Order Details:
 - 1000 units of "Display Shipper Full" (assembled carton)
@@ -76,211 +76,211 @@ Manufacturing Details:
 - 1000 units of "Display Lid" (child component 2)
 ```
 
-The manufacturing details are what feeds into material planning. When you plan materials, you're planning for the manufacturing details, not the order details.
+تفاصيل التصنيع هي ما يُغذّي تخطيط المواد. عند تخطيط المواد، تخطط لتفاصيل التصنيع وليس لتفاصيل الطلبية.
 
-**Used In Document** (مستعمل في سند): This field in manufacturing details shows if a manufacturing line has been included in a material planning document. Once planned, it's marked to prevent duplicate planning.
+**مستعمل في سند** (Used In Document): يُظهر هذا الحقل في تفاصيل التصنيع ما إذا كان سطر التصنيع مُدرجًا في مستند تخطيط مواد. بمجرد تخطيطه يُوسَم لمنع التخطيط المكرر.
 
-### Step 4: Money Calculations
+### الخطوة 4: الحسابات المالية {#Step-4--Money-Calculations}
 
-The **Money** section shows financial totals:
+يعرض قسم **المال** (Money) الإجماليات المالية:
 
-**Net Value** (القيمة الصافية): Subtotal before taxes
-**Taxes**: Tax amounts if tax plan is applied
-**Total** (الإجمالي): Final amount due
+**القيمة الصافية** (Net Value): الإجمالي قبل الضرائب
+**الضرائب** (Taxes): مبالغ الضريبة إذا طُبّقت خطة ضريبية
+**الإجمالي** (Total): المبلغ النهائي المستحق
 
-All calculations happen automatically as you enter order lines. Discount percentages, tax rates, everything flows from the term configuration and tax plan.
+تتم جميع الحسابات تلقائيًا عند إدخال سطور الطلبية. تسري نسب الخصم ومعدلات الضريبة من توجيه المستند وخطة الضريبة.
 
-### Step 5: Commit the Order
+### الخطوة 5: إثبات الطلبية {#Step-5--Commit-the-Order}
 
-Once everything looks good, commit the order. Nama validates:
+بمجرد أن يبدو كل شيء صحيحًا، أثبت الطلبية. يتحقق Nama من:
 
-**Customer consistency**: Every carton specification in the order must be for the selected customer. You can't order Customer A's specs on Customer B's order.
+**تطابق العميل** (Customer consistency): يجب أن تكون كل مواصفة كرتون في الطلبية خاصة بالعميل المحدد. لا يمكنك طلب مواصفات العميل (أ) على طلبية العميل (ب).
 
-**No assembled separators**: Can't order assembled separator specs directly (they're manufacturing components only).
+**عدم وجود فواصل مجمّعة** (No assembled separators): لا يمكن طلب مواصفات فاصل مجمّع مباشرة (فهي مكونات تصنيع فقط).
 
-If validation passes, the order commits and is ready for planning.
+إذا اجتاز التحقق، تثبت الطلبية وتصبح جاهزة للتخطيط.
 
-## The Planning Status: Fully Planned vs. Partially Planned
+## حالة التخطيط: مخطط بالكامل مقابل مخطط جزئيًا {#The-Planning-Status--Fully-Planned-vs--Partially-Planned}
 
-Once an order is committed, Nama tracks its planning status with two fields (visible in the header):
+بمجرد إثبات الطلبية، يتتبع Nama حالة تخطيطها بحقلَين (مرئيَّين في الرأس):
 
-**Used In Document** (مستعمل في سند): Shows the material planning document that this order is part of (or null if not yet planned)
+**مستعمل في سند** (Used In Document): يُظهر مستند تخطيط المواد الذي تنتمي إليه الطلبية (أو null إذا لم يُخطَّط لها بعد)
 
-**Fully Planned** (مخطط بالكامل): True if all manufacturing detail lines have been included in material planning, false if any lines are still pending
+**مخطط بالكامل** (Fully Planned): صحيح إذا تم إدراج كل سطور تفاصيل التصنيع في تخطيط المواد، وخاطئ إذا كانت أي سطور لا تزال معلقة
 
-Here's how it works:
+إليك كيفية عمله:
 
-### Scenario 1: New Order, Not Yet Planned
+### السيناريو 1: طلبية جديدة لم يُخطَّط لها بعد {#Scenario-1--New-Order--Not-Yet-Planned}
 
-You just committed Carton Order #5001 with 5000 tomato boxes.
+أثبتّ للتو طلبية الكرتون رقم #5001 بـ 5000 صندوق طماطم.
 
-- Manufacturing Details: 1 line, "Tomato Box 250", 5000 units, Used In Document = null
-- Order Header: Used In Document = null, Fully Planned = False
+- تفاصيل التصنيع: سطر واحد، "Tomato Box 250"، 5000 وحدة، مستعمل في سند = null
+- رأس الطلبية: مستعمل في سند = null، مخطط بالكامل = False
 
-This order appears in searches for "unplanned orders" when creating material planning documents.
+تظهر هذه الطلبية في عمليات البحث عن "الطلبيات غير المخططة" عند إنشاء مستندات تخطيط المواد.
 
-### Scenario 2: Order Fully Planned
+### السيناريو 2: طلبية مخططة بالكامل {#Scenario-2--Order-Fully-Planned}
 
-You created Material Planning #MP-001, added Order #5001, ran optimization, committed the planning document.
+أنشأت تخطيط المواد #MP-001، وأضفت الطلبية #5001، وشغّلت التحسين، وأثبتّ مستند التخطيط.
 
-Nama marks:
-- Manufacturing Details: Used In Document = Material Planning #MP-001
-- Order Header: Used In Document = Material Planning #MP-001, Fully Planned = True
+يضع Nama العلامات:
+- تفاصيل التصنيع: مستعمل في سند = تخطيط المواد #MP-001
+- رأس الطلبية: مستعمل في سند = تخطيط المواد #MP-001، مخطط بالكامل = True
 
-This order no longer appears in searches for unplanned orders. You won't accidentally plan it again.
+لا تظهر هذه الطلبية بعد الآن في عمليات البحث عن الطلبيات غير المخططة. لن تخطط لها مرة أخرى بالخطأ.
 
-### Scenario 3: Assembled Carton, Partially Planned
+### السيناريو 3: كرتونة مجمّعة، مخططة جزئيًا {#Scenario-3--Assembled-Carton--Partially-Planned}
 
-You have Order #5002 for 1000 assembled cartons (base + lid components).
+لديك الطلبية #5002 لـ 1000 كرتونة مجمّعة (مكونات القاعدة + الغطاء).
 
-Manufacturing Details show:
-- Line 1: Base component, 1000 units
-- Line 2: Lid component, 1000 units
+تُظهر تفاصيل التصنيع:
+- السطر 1: مكون القاعدة (Base)، 1000 وحدة
+- السطر 2: مكون الغطاء (Lid)، 1000 وحدة
 
-You create Material Planning #MP-002 and add only the base component (maybe lids are in stock, you just need to manufacture bases).
+تنشئ تخطيط المواد #MP-002 وتضيف فقط مكون القاعدة (ربما الأغطية موجودة في المخزون، تحتاج فقط لتصنيع القواعد).
 
-After committing MP-002:
-- Line 1 (Base): Used In Document = MP-002
-- Line 2 (Lid): Used In Document = null
-- Order Header: Used In Document = MP-002, Fully Planned = False
+بعد إثبات MP-002:
+- السطر 1 (Base): مستعمل في سند = MP-002
+- السطر 2 (Lid): مستعمل في سند = null
+- رأس الطلبية: مستعمل في سند = MP-002، مخطط بالكامل = False
 
-The order is partially planned. It still appears in searches (because Fully Planned = False), but when you look at it, you'll see the base is already planned.
+الطلبية مخططة جزئيًا. لا تزال تظهر في عمليات البحث (لأن مخطط بالكامل = False)، لكن عند الاطلاع عليها سترى أن القاعدة مخططة بالفعل.
 
-Later, you create MP-003 for the lids. After committing:
-- Line 1 (Base): Used In Document = MP-002
-- Line 2 (Lid): Used In Document = MP-003
-- Order Header: Used In Document = MP-002 (first planning document), Fully Planned = True
+لاحقًا، تنشئ MP-003 للأغطية. بعد الإثبات:
+- السطر 1 (Base): مستعمل في سند = MP-002
+- السطر 2 (Lid): مستعمل في سند = MP-003
+- رأس الطلبية: مستعمل في سند = MP-002 (أول مستند تخطيط)، مخطط بالكامل = True
 
-Now it's fully planned and drops off the unplanned list.
+الآن اكتمل تخطيطها وتختفي من قائمة الطلبيات غير المخططة.
 
-### Scenario 4: Planning Document Cancelled
+### السيناريو 4: إلغاء مستند التخطيط {#Scenario-4--Planning-Document-Cancelled}
 
-If you cancel or delete a material planning document, Nama automatically updates all orders that were included in it:
+إذا ألغيت أو حذفت مستند تخطيط مواد، يحدّث Nama تلقائيًا جميع الطلبيات المُدرجة فيه:
 
-- Used In Document fields are cleared
-- Fully Planned status recalculates
+- تُمسح حقول "مستعمل في سند"
+- تُعاد حسابة حالة "مخطط بالكامل"
 
-The orders become available for planning again.
+تصبح الطلبيات متاحة للتخطيط مجددًا.
 
-## Generating Material Planning from an Order
+## إنشاء تخطيط المواد من طلبية {#Generating-Material-Planning-from-an-Order}
 
-Once you have a committed order, there's a quick path to material planning:
+بمجرد وجود طلبية مثبتة، هناك مسار سريع لتخطيط المواد:
 
-Click the **Generate CRTN Material Planning** (إنشاء تخطيط خامات الكرتون) action button on the order.
+انقر زر المسار **إنشاء تخطيط خامات الكرتون** (Generate CRTN Material Planning) في الطلبية.
 
-Nama:
-1. Creates a new material planning document
-2. Adds this order to the planning document
-3. Opens the planning document for you
+يقوم Nama بـ:
+1. إنشاء مستند تخطيط مواد جديد
+2. إضافة هذه الطلبية إلى مستند التخطيط
+3. فتح مستند التخطيط أمامك
 
-You're now in material planning, ready to run optimization. This shortcut saves you from manually creating a planning document and selecting the order - it does it in one click.
+أنت الآن في تخطيط المواد، جاهزًا لتشغيل التحسين. يوفر عليك هذا الاختصار إنشاء مستند تخطيط يدويًا واختيار الطلبية - يتم ذلك بنقرة واحدة.
 
-**Note**: This button requires a document term configuration that specifies which book and term to use for generating planning documents.
+**ملاحظة**: يتطلب هذا الزر توجيه مستند يحدد الدفتر والشرط المستخدمَين لإنشاء مستندات التخطيط.
 
-## Understanding Assembled Cartons in Orders
+## فهم الكراتين المجمّعة في الطلبيات {#Understanding-Assembled-Cartons-in-Orders}
 
-When you order assembled cartons, here's what happens step by step:
+عند طلب كراتين مجمّعة، إليك ما يحدث خطوة بخطوة:
 
-### Order Entry
+### إدخال الطلبية {#Order-Entry}
 
-You add one line:
-- Carton Specs: "Display Shipper Full" (an assembled carton with 2 child components)
-- Quantity: 500
+تضيف سطرًا واحدًا:
+- مواصفات الكرتونة: "Display Shipper Full" (كرتونة مجمّعة بمكونَين فرعيَّين)
+- الكمية: 500
 
-That's it from a sales perspective. The customer ordered 500 display shippers.
+هذا كل شيء من منظور المبيعات. طلب العميل 500 شاحنة عرض (display shipper).
 
-### Manufacturing Details Generation
+### إنشاء تفاصيل التصنيع {#Manufacturing-Details-Generation}
 
-Nama looks at the specification for "Display Shipper Full" and sees it has two child carton lines:
-1. "Display Base" - quantity per assembly: 1
-2. "Display Lid" - quantity per assembly: 1
+يطّلع Nama على المواصفة "Display Shipper Full" ويرى أن لها سطرَي كرتون فرعيَّين:
+1. "Display Base" - الكمية لكل تجميعة: 1
+2. "Display Lid" - الكمية لكل تجميعة: 1
 
-So manufacturing details show:
-- 500 units of "Display Base" needed
-- 500 units of "Display Lid" needed
+لذا تُظهر تفاصيل التصنيع:
+- 500 وحدة من "Display Base" مطلوبة
+- 500 وحدة من "Display Lid" مطلوبة
 
-Both lines reference the order detail line ID, so you can trace back to which order line drove these requirements.
+يشير كلا السطرَين إلى معرف سطر تفصيل الطلبية، مما يتيح تتبع أي سطر طلبية أوجد هذه المتطلبات.
 
-### Material Planning
+### تخطيط المواد {#Material-Planning}
 
-When you plan materials for this order, you're planning for 500 bases and 500 lids. The optimizer finds materials for both components independently - they might use different paper grades, different roll widths.
+عند تخطيط المواد لهذه الطلبية، تخطط لـ 500 قاعدة و500 غطاء. يجد المحسّن مواد لكلا المكونَين بشكل مستقل - قد يستخدمان درجات ورق مختلفة وعروض لفات مختلفة.
 
-The cutting plan will show separate material requirements for each component.
+ستُظهر خطة القطع متطلبات المواد المنفصلة لكل مكون.
 
-### Production
+### الإنتاج {#Production}
 
-If you generate production orders from the material planning, you get:
-- One production order for 500 "Display Base" cartons
-- One production order for 500 "Display Lid" cartons
+إذا أنشأت أوامر إنتاج من تخطيط المواد، ستحصل على:
+- أمر إنتاج واحد لـ 500 كرتونة "Display Base"
+- أمر إنتاج واحد لـ 500 كرتونة "Display Lid"
 
-Each has its own BOM, routing, and material requirements.
+لكل منها BOM ومسار وعملية ومتطلبات مواد خاصة.
 
-### Assembly
+### التجميع {#Assembly}
 
-The actual assembly of bases + lids into complete shippers typically happens outside the carton manufacturing module (maybe in a packaging/fulfillment operation, or the customer assembles them). The carton manufacturing system tracks that you produced the components.
+يتم التجميع الفعلي للقواعد والأغطية في شاحنات عرض كاملة عادةً خارج وحدة تصنيع الكرتون (ربما في عملية تعبئة/تلبية الطلبات، أو يجمّعها العميل بنفسه). يتتبع نظام تصنيع الكرتون أنك أنتجت المكونات.
 
-## Small Separator Handling
+## معالجة الفواصل الصغيرة {#Small-Separator-Handling}
 
-Assembled separators work similarly but with an extra twist:
+تعمل الفواصل المجمّعة بطريقة مشابهة لكن مع تعقيد إضافي:
 
-If you order an assembled separator specification, Nama finds all the small separator children and marks them as needing manufacturing. However, it groups by the assembled parent.
+إذا طلبت مواصفة فاصل مجمّع، يجد Nama جميع الفواصل الصغيرة الفرعية ويضع علامة عليها لتحتاج إلى تصنيع. غير أنه يجمّع حسب المكوّن الأصلي المجمّع.
 
-If you have multiple assembled separator specs that use the same small separator child, Nama makes sure you don't double-count that child - it only manufactures the required quantity once to support all assemblies.
+إذا كانت لديك مواصفات فاصل مجمّع متعددة تستخدم الفاصل الصغير الفرعي ذاته، يتأكد Nama من عدم الاحتساب المزدوج لهذا الفاصل - ويصنّع الكمية المطلوبة مرة واحدة فقط لدعم جميع التجميعات.
 
-This is an advanced scenario - most factories don't use assembled separators heavily.
+هذا سيناريو متقدم - لا تستخدم معظم المصانع الفواصل المجمّعة بكثرة.
 
-## Pricing and Invoicing Integration
+## التكامل مع التسعير والفوترة {#Pricing-and-Invoicing-Integration}
 
-Carton orders are full invoicing documents. They implement the standard Nama invoicing interface, which means:
+طلبيات الكرتون مستندات فوترة كاملة. تنفّذ واجهة الفوترة القياسية في Nama، مما يعني:
 
-**Discount support**: Line-level and header-level discounts, cascading calculations
-**Tax integration**: Tax plans with multiple tax types (VAT, local taxes, etc.)
-**Payment tracking**: Link to payment receipts (if configured)
-**Accounting effects**: Can generate accounting entries when committed (if term is configured)
-**Subsidiary accounting**: Can post to customer subsidiary ledgers
+**دعم الخصم** (Discount support): خصومات على مستوى السطر والرأس، وحسابات متسلسلة
+**تكامل الضرائب** (Tax integration): خطط ضريبية بأنواع ضريبية متعددة (ضريبة القيمة المضافة، والضرائب المحلية، إلخ)
+**تتبع المدفوعات** (Payment tracking): ربط بإيصالات الدفع (إذا تم التهيئة)
+**التأثيرات المحاسبية** (Accounting effects): يمكن أن تنشئ قيودًا محاسبية عند الإثبات (إذا تم تهيئة الشرط)
+**المحاسبة الفرعية** (Subsidiary accounting): يمكن الترحيل إلى دفاتر أستاذ العملاء الفرعية
 
-The **Money** section calculates exactly like a sales invoice. Discounts reduce prices, taxes apply to after-discount amounts, and the total matches what you'd invoice the customer.
+يحسب قسم **المال** (Money) تمامًا كفاتورة المبيعات. تخفّض الخصوماتُ الأسعارَ، وتطبّق الضرائب على المبالغ بعد الخصم، والإجمالي يطابق ما ستفاتر به العميل.
 
-## Tips for Effective Order Entry
+## نصائح لإدخال طلبيات فعّالة {#Tips-for-Effective-Order-Entry}
 
-**Confirm specs with customer**: Before creating an order, make sure you and the customer agree on which specification to use. If they ordered "250mm tomato box" but you have three different 250mm specs with different fluting or printing, clarify which one.
+**تأكيد المواصفات مع العميل**: قبل إنشاء طلبية، تأكد من اتفاقك أنت والعميل على المواصفة المراد استخدامها. إذا طلبوا "صندوق طماطم 250مم" لكن لديك ثلاث مواصفات 250مم مختلفة بتموّج أو طباعة مختلفة، وضّح أيها يريدون.
 
-**Check inventory before committing large orders**: If the order is large and has tight delivery timing, do a quick material availability check before committing. Create a draft planning document to see if you have materials in stock.
+**التحقق من المخزون قبل إثبات الطلبيات الكبيرة**: إذا كانت الطلبية كبيرة وبها ضيق في مواعيد التسليم، أجرِ فحصًا سريعًا لتوافر المواد قبل الإثبات. أنشئ مستند تخطيط مسوّدة لترى هل لديك مواد في المخزون.
 
-**Use consistent customers on specs**: Make sure the specification is tagged with the right customer. If it's not, you won't be able to select it when creating orders for that customer.
+**استخدام عملاء متسقين على المواصفات**: تأكد من وسم المواصفة بالعميل الصحيح. إذا لم يكن كذلك، لن تتمكن من اختيارها عند إنشاء طلبيات لذلك العميل.
 
-**Batch similar orders**: If you have multiple small orders for the same customer, consider whether they can be combined into one order with multiple lines. This makes material planning more efficient (the optimizer sees all requirements together).
+**تجميع الطلبيات المتشابهة**: إذا كان لديك طلبيات صغيرة متعددة للعميل ذاته، فكّر في إمكانية دمجها في طلبية واحدة بسطور متعددة. هذا يجعل تخطيط المواد أكثر كفاءة (يرى المحسّن جميع المتطلبات معًا).
 
-**Monitor planning status**: Before promising delivery dates, check if the order has been planned. An unplanned order doesn't have confirmed material availability or production scheduling.
+**مراقبة حالة التخطيط**: قبل الوعد بمواعيد التسليم، تحقق مما إذا كانت الطلبية مخططة. الطلبية غير المخططة ليس لها توافر مواد مؤكد أو جدولة إنتاج.
 
-**Document special requirements**: Use the remarks and description fields for anything unusual - special printing, rush delivery, customer-specific packaging instructions. This information travels with the order through production.
+**توثيق المتطلبات الخاصة**: استخدم حقول الملاحظات والوصف لأي شيء غير معتاد - طباعة خاصة، تسليم عاجل، تعليمات تغليف خاصة بالعميل. تسافر هذه المعلومات مع الطلبية خلال الإنتاج.
 
-## Common Questions
+## أسئلة شائعة {#Common-Questions}
 
-**Q: Can I edit an order after it's been planned?**
-A: You can edit the order, but if manufacturing details are already in material planning documents, you need to handle those separately. Safer approach: delete the planning document, edit the order, re-plan.
+**س: هل يمكنني تعديل طلبية بعد تخطيطها؟**
+ج: يمكنك تعديل الطلبية، لكن إذا كانت تفاصيل التصنيع مُدرجة بالفعل في مستندات تخطيط المواد، يجب التعامل مع تلك المستندات بشكل منفصل. النهج الأكثر أمانًا: احذف مستند التخطيط، وعدّل الطلبية، وأعد التخطيط.
 
-**Q: What if I order an assembled carton but only need to manufacture one of the child components (the other is in stock)?**
-A: When you create the material planning document, you can selectively add just the manufacturing detail lines you want to plan. The order stays partially planned until all lines are planned.
+**س: ماذا لو طلبت كرتونة مجمّعة لكنني أحتاج فقط لتصنيع أحد المكونات الفرعية (الآخر في المخزون)؟**
+ج: عند إنشاء مستند تخطيط المواد، يمكنك إضافة فقط سطور تفاصيل التصنيع التي تريد تخطيطها. تبقى الطلبية مخططة جزئيًا حتى يُخطَّط لجميع السطور.
 
-**Q: Can I mix multiple customers' orders in one material planning document?**
-A: Yes. Material planning documents don't care about customers - they care about carton specs and material efficiency. You can batch orders from different customers if it makes sense for production efficiency.
+**س: هل يمكنني دمج طلبيات عملاء متعددين في مستند تخطيط مواد واحد؟**
+ج: نعم. مستندات تخطيط المواد لا تهتم بالعملاء - بل تهتم بمواصفات الكرتون وكفاءة المواد. يمكنك تجميع طلبيات من عملاء مختلفين إذا كان ذلك منطقيًا لكفاءة الإنتاج.
 
-**Q: What happens if I delete an order that's been planned?**
-A: Nama prevents deletion if it's referenced in committed planning documents. You'd need to cancel/delete the planning documents first. This protects you from breaking the link between orders and production plans.
+**س: ماذا يحدث إذا حذفت طلبية تم تخطيطها؟**
+ج: يمنع Nama الحذف إذا كانت الطلبية مُشار إليها في مستندات تخطيط مثبتة. ستحتاج إلى إلغاء/حذف مستندات التخطيط أولًا. هذا يحميك من كسر الرابط بين الطلبيات وخطط الإنتاج.
 
-**Q: Why can't I select my assembled separator specification in an order?**
-A: Assembled separators aren't sold directly - they're manufacturing structures. You'd order the normal separator specification that uses the assembled separator internally, or you'd order the final product that incorporates the separators.
+**س: لماذا لا أستطيع اختيار مواصفة الفاصل المجمّع في طلبية؟**
+ج: الفواصل المجمّعة لا تُباع مباشرة - فهي هياكل تصنيع. ستطلب مواصفة الفاصل العادي الذي يستخدم الفاصل المجمّع داخليًا، أو ستطلب المنتج النهائي الذي يتضمن الفواصل.
 
-**Q: How do I handle rush orders?**
-A: Enter the order normally, then use the "Find Companion Orders" feature in material planning to see if batching with other orders would delay the rush order too much. You might choose to plan the rush order alone to prioritize it.
+**س: كيف أتعامل مع الطلبيات العاجلة؟**
+ج: أدخل الطلبية بشكل اعتيادي، ثم استخدم ميزة "البحث عن الطلبيات المصاحبة" (Find Companion Orders) في تخطيط المواد لمعرفة ما إذا كان تجميعها مع طلبيات أخرى سيؤخر الطلبية العاجلة كثيرًا. قد تختار تخطيط الطلبية العاجلة منفردة لإعطائها أولوية.
 
 ---
 
-::: tip Next Step
-With orders entered, you're ready for the most powerful part of the carton module - material planning and optimization. See [Carton Material Planning](./carton-material-planning.md).
+::: tip الخطوة التالية
+بعد إدخال الطلبيات، أنت جاهز للجزء الأقوى في وحدة الكرتون - تخطيط المواد والتحسين. انظر [تخطيط خامات الكرتون](./carton-material-planning.md).
 :::
 
-::: info Order Status Tracking
-The "Fully Planned" flag is your quick indicator of order readiness. Use it to filter pending orders when creating production schedules.
+::: info تتبع حالة الطلبية
+علامة "مخطط بالكامل" هي مؤشرك السريع لجاهزية الطلبية. استخدمها لتصفية الطلبيات المعلقة عند إنشاء جداول الإنتاج.
 :::

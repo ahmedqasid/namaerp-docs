@@ -1,29 +1,29 @@
-# Importing Data from Excel or Queries
+# استيراد البيانات من Excel أو الاستعلامات {#Importing-Data-from-Excel-or-Queries}
 
-## Importing Data from Excel into Nama ERP
+## استيراد البيانات من Excel إلى Nama ERP {#Importing-Data-from-Excel-into-Nama-ERP}
 
-Nama ERP allows you to import data directly from Excel sheets. Here are some key points and best practices to ensure a smooth import process:
+يتيح Nama ERP استيراد البيانات مباشرةً من ملفات Excel. فيما يلي أبرز النقاط والتوصيات لضمان عملية استيراد سلسة:
 
-### General Guidelines
+### إرشادات عامة {#General-Guidelines}
 
-* **Formula Support**: You can use standard Excel formulas in cells when preparing your data.
-* **Recommended Practice**: It’s best to first export sample data from Nama ERP. Use the exported sheet as a template for formatting and structure.
+* **دعم الصيغ (Formulas)**: يمكنك استخدام صيغ Excel القياسية في الخلايا عند إعداد بياناتك.
+* **الممارسة الموصى بها**: من الأفضل أولاً تصدير بيانات نموذجية من Nama ERP واستخدام الملف المُصدَّر كقالب للتنسيق والبنية.
 
 ---
 
-### Special Import Functions
+### دوال الاستيراد الخاصة {#Special-Import-Functions}
 
 - `evalsql(sql statement)`
 
-This function executes a SQL statement and uses the result as the value of the cell during import.
+تنفذ هذه الدالة جملة SQL وتستخدم النتيجة كقيمة للخلية أثناء الاستيراد.
 
-**Examples**:
+**أمثلة**:
 
 ```excel
 evalsql(select top 1 id from SalesInvoice order by valueDate desc)
 ```
 
-**With Excel formula**:
+**مع صيغة Excel**:
 
 ```excel
 ="evalsql(select code from Account where subsidiaryType = '" & U13 & "')"
@@ -31,74 +31,74 @@ evalsql(select top 1 id from SalesInvoice order by valueDate desc)
 
 ---
 
-* `findByCode` and `altCode` Columns
+* أعمدة `findByCode` و`altCode`
 
-If your dataset includes a special-purpose field (e.g., `contactInfo.mobile`) that serves as a unique identifier, you can include a column named `findByCode` containing that value. The system will use it to find the corresponding record **only if a `code` field is not available**.
+إذا كانت مجموعة البيانات تحتوي على حقل ذي غرض خاص (مثل `contactInfo.mobile`) يعمل كمعرف فريد، يمكنك إضافة عمود باسم `findByCode` يحتوي على تلك القيمة. سيستخدمه النظام للعثور على السجل المقابل **فقط إذا لم يكن حقل `code` متاحًا**.
 
-This same logic also applies to the `altCode` column.
-
----
-
-### Advanced Excel Import
-
-For a visual walkthrough, watch the following video introduction:
-📺 [Excel Import Tutorial](https://www.youtube.com/watch?v=FlKdarW1vJI)
+ينطبق نفس المنطق على عمود `altCode`.
 
 ---
 
-* Working with Numbers in Groovy Scripts
+### الاستيراد المتقدم من Excel {#Advanced-Excel-Import}
 
-When using Groovy expressions during import:
+لمشاهدة شرح مرئي، شاهد الفيديو التعريفي التالي:
+📺 [شرح الاستيراد من Excel](https://www.youtube.com/watch?v=FlKdarW1vJI)
 
-* Numeric fields (`Long`, `Integer`, `Decimal`) are automatically parsed from cell values.
-* To explicitly parse a cell as a number, prefix the cell name with `$`.
+---
 
-**Examples**:
+* التعامل مع الأرقام في سكريبتات Groovy
+
+عند استخدام تعبيرات Groovy أثناء الاستيراد:
+
+* تُحلَّل الحقول الرقمية (`Long` و`Integer` و`Decimal`) تلقائيًا من قيم الخلايا.
+* لتحليل خلية كرقم بشكل صريح، أضف البادئة `$` قبل اسم الخلية.
+
+**أمثلة**:
 
 ```groovy
 A + 5 * C
 $A - 10 / $C
 ```
-::: tip Note
-Cell references are case-insensitive. For example, `a+2` and `$a` are valid.
+::: tip ملاحظة
+مراجع الخلايا غير حساسة لحالة الأحرف. على سبيل المثال، `a+2` و`$a` صيغتان صحيحتان.
 :::
 
 
-## Import by Entity Flow From Excel Sheets or SQL Statement
+## الاستيراد عبر مسار كيان (Entity Flow) من ملفات Excel أو جملة SQL {#Import-by-Entity-Flow-From-Excel-Sheets-or-SQL-Statement}
 
 - `excel.importFrom="attachment"`
-- Loads the excel sheet in attachment, note that you can use any field that returns a valid name of an attachment field. For example you can put attachment1,attachment2,attachment3 in description 1 as a combo, and then use the following `excel.importFrom=description1`
+- يحمّل ملف Excel المرفق. يمكنك استخدام أي حقل يُرجع اسمًا صالحًا لحقل مرفق. مثلاً، يمكنك وضع attachment1,attachment2,attachment3 في description 1 كقائمة منسدلة ثم استخدام `excel.importFrom=description1`
 
 - `excel.activatedSheet="1"`
-- Makes sheet number 1 the current sheet, you also can use the sheet name
+- يجعل الورقة رقم 1 هي الورقة الحالية. يمكنك أيضًا استخدام اسم الورقة.
 
 - `excel.activatedSheet="invoices-sheet"`
-- Same as previous, but uses the sheet name instead of its index
+- نفس السابق، لكن باستخدام اسم الورقة بدلاً من فهرسها.
 
 - `excel.ignoreLinesFromTop="1"`
-- If you have titles row in the sheet
+- في حال وجود صف عناوين في الورقة.
 
 - `excel.ignoreLinesFromBottom="1"
 `
-- Same as ignoreLinesFromTop, but from bottom 
+- نفس ignoreLinesFromTop، لكن من الأسفل.
 
 - `details=[excel.rows]
 `
-- Makes details the same size as the current sheet rows, it considers ignoreLinesFromTop and bottom
+- يجعل details بنفس حجم صفوف الورقة الحالية، مع مراعاة إعدادات ignoreLinesFromTop وBottom.
 
 - `details.item.item=excel.rows.A
 `
-- Copies whatever in cell A in every row to the same line in the grid details
-- Cells are: A,B,C, ……, AA,AB,AC,AD, ……, AZ,BA,BC,BD,...,BX,BY,BZ. CA and upper are not implemented, and we do not think this is practical
+- ينسخ محتوى الخلية A في كل صف إلى السطر المقابل في الجدول details.
+- الخلايا هي: A,B,C, ……, AA,AB,AC,AD, ……, AZ,BA,BC,BD,...,BX,BY,BZ. لم يتم تطبيق CA وما فوقها، ولا نرى ذلك عمليًا.
 
 - `details.text1=sql(select case when {excel.row1.A} = 'item' then 'ABC' when {excel.row1.B} = 'item' then 'BAC' else 'CAB' end)`
-- `exel.row1 ` gives you access to the first row, even if that row was ignored, to facilitate header rows querying
+- `exel.row1` يمنحك الوصول إلى الصف الأول حتى لو كان مُتجاهَلاً، لتسهيل الاستعلام عن صفوف العناوين.
 
 
-## Import From SQL Statement by Entity Flow or GUI Post Action
+## الاستيراد من جملة SQL عبر مسار كيان (Entity Flow) أو إجراء واجهة مستخدم {#Import-From-SQL-Statement-by-Entity-Flow-or-GUI-Post-Action}
 
-- [Watch this video for detailed steps](https://youtu.be/XAOituWQqsg)
-- Example 
+- [شاهد هذا الفيديو للاطلاع على الخطوات التفصيلية](https://youtu.be/XAOituWQqsg)
+- مثال 
 
 ```sql
 sql.rows=sql(select top 10 id,code,n2,configuration_id from InvItem where section_id = {ref1.id})
@@ -109,31 +109,24 @@ details.quantity.quantity.primeQty.value=sql.rows.n2
 details.ref1=ref("ItemConfiguration",sql.rows.configuration_id)
 ```
 
-- In this example we run a statement by `sql.rows=sql(statement here)`, you can also use multi-line sql statements by changing it to:
+- في هذا المثال نُنفّذ جملة SQL بـ `sql.rows=sql(statement here)`. يمكنك أيضًا استخدام جمل SQL متعددة الأسطر بتغييرها إلى:
 ```sql
 sql.rows=mlsql(select
 Column1, column2 from Table
 )endmlsql
 ```
 
-- You can access any column returned by the query using sql.rows.columnAlias
-- Also, you can use column index as follows: sql.rows.c1 , sql.rows.c2, and so on
+- يمكنك الوصول إلى أي عمود تُرجعه الاستعلام باستخدام sql.rows.columnAlias.
+- يمكنك أيضًا استخدام فهرس العمود كالتالي: sql.rows.c1 ، sql.rows.c2، وهكذا.
 ***
 
-::: rtl
-
-- عند استيراد ملف العملاء والذي يحتوي على موقع جغرافي contactInfo.address.region ، مطلوب ملئ الحقول التالية بناء على الموقع جغرافي :
-:::
+- عند استيراد ملف العملاء والذي يحتوي على موقع جغرافي `contactInfo.address.region`، مطلوب ملء الحقول التالية بناءً على الموقع الجغرافي:
 
 `contactInfo.address.country , contactInfo.address.city , contactInfo.address.state , contactInfo.address.area`
 
-::: rtl
+- وبالمثل في عنوان الشحن والدفع.
 
-- وبالمثل في عنوان الشحن والدفع
-
-- يمكنك استعمال التالي في مسار كيان EAFieldValuesCalculator لنسخ المسميات باللغة العربية
-
-:::
+- يمكنك استعمال التالي في مسار كيان `EAFieldValuesCalculator` لنسخ المسميات باللغة العربية:
 
 ```ini
 contactInfo.address.country=contactInfo.address.region.$countryAr
@@ -142,10 +135,7 @@ contactInfo.address.state=contactInfo.address.region.$stateAr
 contactInfo.address.area=contactInfo.address.region.$areaAr
 ```
 
-::: rtl
-
-- لنسخ المسميات باللغة الإنجليزية
-:::
+- لنسخ المسميات باللغة الإنجليزية:
 
 ```ini
 contactInfo.address.country=contactInfo.address.region.$countryEn
@@ -153,11 +143,8 @@ contactInfo.address.city=contactInfo.address.region.$cityEn
 contactInfo.address.state=contactInfo.address.region.$stateEn
 contactInfo.address.area=contactInfo.address.region.$areaEn
 ```
-::: rtl
 
-- لنسخ المسميات حسب اللغة الحالية للمدخول
-
-:::
+- لنسخ المسميات حسب اللغة الحالية للمستخدم:
 
 ```ini
 contactInfo.address.country=contactInfo.address.region.$country
@@ -167,7 +154,4 @@ contactInfo.address.area=contactInfo.address.region.$area
 
 ```
 
-::: rtl
-
-- بالطبع يمكنك تغيير contactInfo إلى أي حقل آخر
-:::
+- بالطبع يمكنك تغيير `contactInfo` إلى أي حقل آخر.

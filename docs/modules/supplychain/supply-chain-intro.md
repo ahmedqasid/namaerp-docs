@@ -1,113 +1,113 @@
-# Supply Chain Management
+# إدارة سلسلة التوريد (Supply Chain Management)
 
-Welcome to the Supply Chain Management module - the heart of how NaMa ERP helps you track, manage, and control the flow of goods through your organization.
+مرحبًا بك في وحدة إدارة سلسلة التوريد - القلب النابض الذي يساعدك في تتبع تدفق البضائع وإدارتها والتحكم فيها داخل مؤسستك عبر نظام Nama ERP.
 
-## What This Module Does
+## ما الذي تفعله هذه الوحدة؟ {#What-This-Module-Does}
 
-Think of the Supply Chain module as the central nervous system for everything related to inventory, purchasing, and sales in your business. Whether you're receiving raw materials from suppliers, manufacturing products, selling to customers, or simply moving items between warehouses, this module orchestrates all these activities and ensures everything is properly tracked and accounted for.
+فكّر في وحدة سلسلة التوريد باعتبارها الجهاز العصبي المركزي لكل ما يتعلق بالمخزون والمشتريات والمبيعات في عملك. سواء كنت تستلم مواد خام من موردين، أو تصنّع منتجات، أو تبيع للعملاء، أو تنقل أصنافًا بين المستودعات، تتولى هذه الوحدة تنسيق كل هذه الأنشطة وضمان تتبعها ومحاسبتها بدقة.
 
-## The Big Picture
+## الصورة الكبيرة (The Big Picture) {#The-Big-Picture}
 
-Let's start with a simple story to understand how everything fits together.
+لنبدأ بقصة بسيطة لنفهم كيف تتلاءم الأجزاء مع بعضها.
 
-Imagine you run a manufacturing company that makes furniture. Your journey with the Supply Chain module begins when you realize you need wood to make tables. You create a **purchase request** for wood, get **quotations** from suppliers, place a **purchase order**, and when the wood arrives, you create a **receipt document** that brings the wood into your inventory and updates your accounting books automatically.
+تخيّل أنك تدير شركة تصنيع للأثاث. تبدأ رحلتك مع وحدة سلسلة التوريد حين تدرك حاجتك إلى الخشب لصنع الطاولات. تُنشئ **طلب شراء** للخشب، وتحصل على **عروض أسعار** من الموردين، وتُصدر **أمر شراء**، وعندما يصل الخشب تُنشئ **مستند استلام** يُدرج الخشب في مخزونك ويُحدّث دفاتر المحاسبة تلقائيًا.
 
-Now you're ready to make tables. You **issue** the wood to your production department (which reduces your raw materials inventory), and when the tables are ready, you **receive** them back as finished products (which increases your finished goods inventory). The costs of the wood automatically flow into the value of your tables.
+الآن أنت جاهز لصنع الطاولات. تُصرف الخشب إلى قسم الإنتاج (مما يُخفّض مخزون المواد الخام)، وحين تكتمل الطاولات تُستلم كمنتجات نهائية (مما يرفع مخزون المنتجات الجاهزة). وتنتقل تكاليف الخشب تلقائيًا إلى تكلفة الطاولات.
 
-When a customer places an order, you create a **sales quotation**, convert it to a **sales order**, and eventually issue a **sales invoice** that simultaneously records the sale in accounting and issues the table from your warehouse. The system tracks every step, ensures you have enough stock, and even helps you reserve items for specific customers.
+حين يُقدّم عميل طلبًا، تُنشئ **عرض أسعار للمبيعات**، وتحوّله إلى **أمر مبيعات**، ثم تُصدر **فاتورة مبيعات** تسجّل البيع في المحاسبة وتصرف الطاولة من مستودعك في آنٍ واحد. يتتبع النظام كل خطوة، ويضمن توافر الكميات الكافية، ويساعدك على حجز الأصناف لعملاء بعينهم.
 
-Throughout this entire journey, the system is doing much more than just tracking numbers. It's:
-- Making sure you don't sell what you don't have
-- Calculating costs and profits automatically
-- Creating accounting entries so your books are always up to date
-- Tracking serial numbers and batch numbers where needed
-- Managing multiple warehouses and locations
-- Handling returns, replacements, and quality control
-- Supporting multiple units of measure (selling by piece but buying by carton)
-- And so much more...
+طوال هذه الرحلة، يقوم النظام بأكثر من مجرد تتبع الأرقام؛ فهو:
+- يتأكد من أنك لا تبيع ما لا تملكه
+- يحسب التكاليف والأرباح تلقائيًا
+- يُنشئ قيود محاسبية لتبقى دفاترك محدّثة دائمًا
+- يتتبع الأرقام التسلسلية وأرقام الدُفعات عند الحاجة
+- يدير مستودعات ومواقع متعددة
+- يعالج المرتجعات والاستبدالات ومراقبة الجودة
+- يدعم وحدات القياس المتعددة (البيع بالقطعة والشراء بالكرتون)
+- وأكثر من ذلك بكثير...
 
-## How Documents Work in NaMa ERP
+## كيف تعمل المستندات في Nama ERP {#How-Documents-Work-in-NaMa-ERP}
 
-::: tip Understanding Document States
-Unlike some systems that require "posting" documents, NaMa ERP works differently:
+::: tip فهم حالات المستند
+على خلاف بعض الأنظمة التي تتطلب "ترحيل" المستندات، يعمل Nama ERP بأسلوب مختلف:
 
-**Draft Mode**: Create and edit documents without affecting inventory or accounting. Perfect for preparation and review.
+**وضع المسودة (Draft Mode)**: أنشئ المستندات وعدّلها دون أي تأثير على المخزون أو المحاسبة. مثالي للإعداد والمراجعة.
 
-**Saved**: Once you save a document (not in draft), it **immediately** affects:
-- Inventory quantities
-- Accounting balances
-- Customer/supplier accounts
-- Available stock calculations
+**محفوظ (Saved)**: بمجرد حفظ المستند (خارج وضع المسودة)، يُؤثر **فورًا** على:
+- كميات المخزون
+- الأرصدة المحاسبية
+- حسابات العملاء والموردين
+- حسابات المخزون المتاح
 
-**Updates**: Any changes you make to saved documents are reflected immediately in the system. There's no separate "post" or "commit" step.
+**التعديلات**: تظهر أي تغييرات تُجريها على المستندات المحفوظة فورًا في النظام دون حاجة لخطوة "ترحيل" أو "تأكيد" منفصلة.
 :::
 
-This immediate-effect approach means:
-- Real-time inventory accuracy
-- Up-to-date accounting at all times
-- No batch posting delays
-- Immediate visibility of changes
+يعني هذا النهج الفوري:
+- دقة المخزون في الوقت الفعلي
+- محاسبة محدّثة في جميع الأوقات
+- لا تأخيرات بسبب الترحيل الدوري
+- رؤية فورية للتغييرات
 
-But it also means you need to be careful - once you save (not in draft), the document has real impact!
+لكنه يعني أيضًا ضرورة الحذر - فبمجرد الحفظ (خارج المسودة) يكون للمستند تأثير حقيقي!
 
-## How This Documentation Works
+## كيف يعمل هذا التوثيق {#How-This-Documentation-Works}
 
-We've organized this guide to follow the natural flow of how you'll use the system. Instead of throwing technical terms at you, we'll walk through real-world scenarios and explain how the system supports your business processes.
+رتّبنا هذا الدليل ليتبع السير الطبيعي لاستخدامك للنظام. بدلًا من إغراقك بالمصطلحات التقنية، سنستعرض سيناريوهات من الواقع ونشرح كيف يدعم النظام عمليات أعمالك.
 
-Here's what we'll cover:
+إليك ما سنتناوله:
 
-### [Understanding Inventory Items](./understanding-items.md)
-Before you can buy or sell anything, you need to define what "things" exist in your system. We call these **Items** (or صنف in Arabic). This section explains how items work and all the clever ways you can classify, track, and manage them.
+### [فهم أصناف المخزون](./understanding-items.md)
+قبل الشراء أو البيع، عليك تعريف "الأصناف" الموجودة في نظامك. نسميها **Items** (أو صنف بالعربية). يشرح هذا القسم آلية عمل الأصناف وطرق تصنيفها وتتبعها وإدارتها.
 
-### [Receiving Stock](./receiving-stock.md)
-Learn about all the different ways items come into your warehouse - from supplier purchases to production output to simple stock adjustments. We'll explain when to use each type of receipt document and how they affect your inventory.
+### [استلام المخزون](./receiving-stock.md)
+تعرّف على كل الطرق التي تدخل بها الأصناف إلى مستودعك - من مشتريات الموردين إلى مخرجات الإنتاج وتسويات المخزون البسيطة. سنوضح متى تستخدم كل نوع من مستندات الاستلام وتأثيره على مخزونك.
 
-### [Issuing Stock](./issuing-stock.md)
-What goes in must (usually) come out! This section covers how to release items from your warehouse for production, sales, internal use, or other purposes.
+### [صرف المخزون](./issuing-stock.md)
+ما يدخل يجب (في الغالب) أن يخرج! يُغطي هذا القسم كيفية إصدار الأصناف من مستودعك للإنتاج والمبيعات والاستخدام الداخلي وغيرها.
 
-### [Moving Stock Around](./moving-stock.md)
-Sometimes you just need to move items from one warehouse to another, or from one location to another within the same warehouse. Learn about transfers, assembly operations, and how the system tracks items in transit.
+### [تنقل المخزون](./moving-stock.md)
+أحيانًا تحتاج فقط إلى نقل أصناف من مستودع إلى آخر، أو من موقع إلى آخر داخل المستودع ذاته. تعرّف على عمليات التحويل والتجميع وكيف يتتبع النظام الأصناف أثناء نقلها.
 
-### [The Purchasing Journey](./purchasing-journey.md)
-Follow the complete lifecycle of a purchase - from identifying what you need, through getting quotes from suppliers, placing orders, receiving goods, and paying invoices. This is where you'll spend a lot of time if you're in procurement!
+### [رحلة الشراء](./purchasing-journey.md)
+تابع دورة حياة عملية الشراء كاملةً - من تحديد الاحتياجات، مرورًا بالحصول على عروض الأسعار من الموردين وإصدار أوامر الشراء واستلام البضاعة، وصولًا إلى سداد الفواتير. ستقضي وقتًا طويلًا هنا إن كنت في قسم المشتريات!
 
-### [The Sales Journey](./sales-journey.md)
-Mirror image of purchasing - this covers everything from generating quotations for customers, through taking orders, fulfilling them, invoicing, and handling returns or exchanges.
+### [رحلة المبيعات](./sales-journey.md)
+صورة معكوسة للمشتريات - يُغطي كل شيء بدءًا من تقديم عروض الأسعار للعملاء، مرورًا بتلقي الطلبات وتنفيذها والفوترة، وصولًا إلى معالجة المرتجعات والاستبدال.
 
-### [Quality Control](./quality-control.md)
-Not every item that comes in meets your standards, and sometimes you need to inspect items before they go to customers. Learn how the quality control system works and integrates with receiving and shipping.
+### [مراقبة الجودة](./quality-control.md)
+ليس كل ما يصل يستوفي معاييرك، وأحيانًا تحتاج إلى فحص الأصناف قبل وصولها للعملاء. تعرّف على كيفية عمل نظام مراقبة الجودة وتكامله مع الاستلام والشحن.
 
-### [Specialized Scenarios](./specialized-scenarios.md)
-The Supply Chain module supports many specific industries and use cases - from hospital pharmacies to point-of-sale systems to job order manufacturing. We'll explore these special cases and how they extend the core concepts.
+### [سيناريوهات متخصصة](./specialized-scenarios.md)
+تدعم وحدة سلسلة التوريد صناعات وحالات استخدام محددة كثيرة - من صيدليات المستشفيات إلى أنظمة نقاط البيع (POS) إلى تصنيع أوامر العمل. سنستعرض هذه الحالات الخاصة وكيف تمتد على المفاهيم الأساسية.
 
-## A Note About Document Types
+## ملاحظة حول أنواع المستندات {#A-Note-About-Document-Types}
 
-As you read through this documentation, you'll encounter many different "document types" - PurchaseInvoice, StockReceipt, SalesOrder, etc. Don't let this overwhelm you!
+خلال قراءتك لهذا التوثيق ستصادف أنواع "مستندات" كثيرة مثل PurchaseInvoice وStockReceipt وSalesOrder وغيرها. لا تدع ذلك يُربكك!
 
-Think of these as different types of forms you fill out to record different business events. Just like in a paper-based system where you'd have a "Purchase Order Form" and a "Receipt Note Form", the system has different document types for different purposes.
+فكّر فيها كأنواع مختلفة من النماذج التي تملأها لتسجيل أحداث تجارية مختلفة. تمامًا كما في النظام الورقي حيث يكون لديك "نموذج أمر شراء" و"نموذج إشعار استلام"، كذلك في النظام أنواع مستندات مختلفة لأغراض مختلفة.
 
-Each document type is designed for a specific business transaction and includes exactly the fields and features needed for that transaction. But they all follow similar patterns, so once you understand a few, the rest become intuitive.
+كل نوع مستند مصمم لمعاملة تجارية بعينها ويحتوي على الحقول والميزات المناسبة لها تمامًا. لكنها جميعًا تتبع أنماطًا متشابهة، لذا بمجرد فهم بعضها يصبح الباقي بديهيًا.
 
-## Integration with Other Modules
+## التكامل مع وحدات أخرى {#Integration-with-Other-Modules}
 
-The Supply Chain module doesn't work in isolation. It's deeply integrated with:
+لا تعمل وحدة سلسلة التوريد بمعزل عن غيرها؛ فهي متكاملة بعمق مع:
 
-**Accounting**: Every inventory transaction creates accounting entries automatically. When you receive a purchase, your inventory asset increases and your payables increase. When you make a sale, your revenue increases and your inventory decreases. You don't have to think about it - it just happens.
+**المحاسبة (Accounting)**: تُنشئ كل معاملة مخزنية قيودًا محاسبية تلقائيًا. عند استلام مشتريات يرتفع أصل المخزون وترتفع الذمم الدائنة. عند البيع ترتفع الإيرادات وينخفض المخزون. لا داعي للتفكير في ذلك - يحدث من تلقاء نفسه.
 
-**Manufacturing**: When you issue raw materials to production and receive finished products, the system tracks costs and ensures materials are available for production orders.
+**التصنيع (Manufacturing)**: عند صرف المواد الخام للإنتاج واستلام المنتجات النهائية، يتتبع النظام التكاليف ويضمن توافر المواد لأوامر الإنتاج.
 
-**CRM**: Sales quotations and orders can originate from CRM opportunities, and customer service cases can trigger returns or replacements.
+**إدارة علاقات العملاء (CRM)**: يمكن أن تنشأ عروض أسعار المبيعات وأوامرها من فرص CRM، كما يمكن لحالات خدمة العملاء أن تُطلق المرتجعات والاستبدالات.
 
-**Fixed Assets**: Some items you purchase become fixed assets rather than inventory. The system handles this distinction automatically.
+**الأصول الثابتة (Fixed Assets)**: بعض الأصناف التي تشتريها تصبح أصولًا ثابتة وليس مخزونًا. يعالج النظام هذا التمييز تلقائيًا.
 
-**Hospital Management**: Pharmacies, blood banks, and medical supplies have special requirements that the system handles natively.
+**إدارة المستشفيات (Hospital Management)**: للصيدليات وبنوك الدم والمستلزمات الطبية متطلبات خاصة يعالجها النظام بصورة مدمجة.
 
-## Let's Get Started
+## لنبدأ {#Lets-Get-Started}
 
-Ready to dive in? Start with [Understanding Inventory Items](./understanding-items.md) to learn the foundation, or jump directly to the section that matches what you're trying to accomplish right now.
+هل أنت مستعد للانطلاق؟ ابدأ بـ[فهم أصناف المخزون](./understanding-items.md) لتكتسب الأساس، أو انتقل مباشرةً إلى القسم الذي يتوافق مع ما تحاول إنجازه الآن.
 
-Remember: this documentation focuses on helping you understand **how** and **why** the system works the way it does, not just listing features. If you're looking for a specific field or technical detail, those references exist elsewhere. Here, we're telling the story of your supply chain.
+تذكّر: يركز هذا التوثيق على مساعدتك في فهم **كيف** و**لماذا** يعمل النظام بهذه الطريقة، لا مجرد سرد الميزات. إن كنت تبحث عن حقل معين أو تفصيل تقني، فتلك المراجع موجودة في مكان آخر. هنا نحكي قصة سلسلة التوريد الخاصة بك.
 
-::: tip Navigation Tip
-Use the sidebar to jump between sections, and don't feel obligated to read everything in order. Each section is written to stand alone while building on the foundational concepts introduced here.
+::: tip نصيحة للتنقل
+استخدم الشريط الجانبي للانتقال بين الأقسام، ولا تشعر بالإلزام بقراءة كل شيء بالترتيب. كل قسم مكتوب ليكون مستقلًا مع استنادته إلى المفاهيم الأساسية المقدَّمة هنا.
 :::

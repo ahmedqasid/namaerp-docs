@@ -1,176 +1,174 @@
-# Jasper Reports Complete Guide for Nama ERP
+# دليل Jasper Reports الشامل لنظام Nama ERP {#Jasper-Reports-Complete-Guide-for-Nama-ERP}
 
-## Overview
-This comprehensive guide covers all aspects of developing Jasper Reports in Nama ERP, including the powerful NamaRep utility class that extends ServerNamaRep. NamaRep provides essential functions for localization, data retrieval, entity linking, pricing calculations, and more.
+## نظرة عامة (Overview) {#Overview}
+يغطي هذا الدليل الشامل جميع جوانب تطوير Jasper Reports في نظام Nama ERP، بما فيها فئة NamaRep الأداتية القوية التي تمتد من ServerNamaRep. توفر NamaRep وظائف أساسية للترجمة والتوطين، واسترجاع البيانات، وربط الكيانات، وحسابات الأسعار، وغير ذلك.
 
-## Quick Start: Adding Company Logo to Reports
+## البداية السريعة: إضافة شعار الشركة إلى التقارير {#Quick-Start--Adding-Company-Logo-to-Reports}
 
-To display the company logo in your reports:
+لعرض شعار الشركة في تقاريرك:
 
-1. Create a parameter named `loginLegalEntityLogo` with type `java.lang.Object` or `java.io.InputStream`
-2. Add an image component to your report
-3. Set the image expression to `$P{loginLegalEntityLogo}`
+1. أنشئ معاملاً باسم `loginLegalEntityLogo` من النوع `java.lang.Object` أو `java.io.InputStream`
+2. أضف مكوّن صورة إلى تقريرك
+3. اضبط تعبير الصورة على `$P{loginLegalEntityLogo}`
 
-The logo is automatically provided by the system when the report runs.
+يُوفَّر الشعار تلقائياً من قِبل النظام عند تشغيل التقرير.
 
-### Adding Any Attachment/Image to Reports
+### إضافة أي مرفق أو صورة إلى التقارير {#Adding-Any-AttachmentImage-to-Reports}
 ```groovy
-// To retrieve any attachment by ID
+// لاسترجاع أي مرفق بواسطة معرّفه
 NamaRep.getFile($F{attachmentId})
-// OR
+// أو
 NamaRep.getAttachment($F{attachmentId})
 ```
 
-## Subreports
+## التقارير الفرعية (Subreports) {#Subreports}
 
-You can include subreports within a main report. A subreport can be either another existing report or an external report file.
+يمكنك تضمين تقارير فرعية داخل التقرير الرئيسي. يمكن أن يكون التقرير الفرعي تقريراً آخر موجوداً أو ملف تقرير خارجياً.
 
-### Linking Subreports
-To link a subreport:
-1. Create a parameter with the **same ID** as the subreport
-2. Set the parameter type to `java.io.InputStream` or `java.lang.Object`
-3. The system will automatically pass the subreport to this parameter
+### ربط التقارير الفرعية {#Linking-Subreports}
+لربط تقرير فرعي:
+1. أنشئ معاملاً بـ **نفس معرّف** التقرير الفرعي
+2. اضبط نوع المعامل على `java.io.InputStream` أو `java.lang.Object`
+3. سيمرّر النظام التقرير الفرعي إلى هذا المعامل تلقائياً
 
-### Extra Resources (Images, Files)
-You can attach additional resources such as images to a report:
-1. Define a parameter with the **same ID** as the resource
-2. Set the parameter type to `java.lang.Object`
-3. The resource will be available through this parameter
+### موارد إضافية (صور، ملفات) {#Extra-Resources-Images-Files}
+يمكنك إرفاق موارد إضافية كالصور بتقرير:
+1. عرّف معاملاً بـ **نفس معرّف** المورد
+2. اضبط نوع المعامل على `java.lang.Object`
+3. سيكون المورد متاحاً من خلال هذا المعامل
+## مرجع NamaRep API {#NamaRep-API-Reference}
 
-## NamaRep API Reference
+### التوطين والترجمة الأساسية {#Core-Localization--Translation}
 
-### Core Localization & Translation
-
-#### Name Selection Based on Language
+#### اختيار الاسم بناءً على اللغة {#Name-Selection-Based-on-Language}
 ```groovy
-// Automatically selects Arabic or English name based on current language
-NamaRep.name(name1, name2)  // Returns name1 for Arabic, name2 for English
+// اختيار الاسم العربي أو الإنجليزي تلقائياً بحسب اللغة الحالية
+NamaRep.name(name1, name2)  // يُرجع name1 للعربية، name2 للإنجليزية
 
-// With fallback to code if names are empty
+// مع الرجوع إلى الكود إذا كانت الأسماء فارغة
 NamaRep.nameOrCode(code, name1, name2)
 
-// Direct language selection
-NamaRep.name(arabic, english)  // where arabic = name1 or code, english = name2 or altCode
+// اختيار اللغة مباشرةً
+NamaRep.name(arabic, english)  // حيث arabic = name1 أو code، و english = name2 أو altCode
 ```
 
-#### Translation Methods
+#### دوال الترجمة {#Translation-Methods}
 ```groovy
-// Translate any value (strings, booleans, enums)
+// ترجمة أي قيمة (نصوص، قيم منطقية، enums)
 NamaRep.translate(value)
 
-// Translate enum values
+// ترجمة قيم enum
 NamaRep.translate(enumValue)
 
-// Translate boolean values to localized text
-NamaRep.translate(true)  // Returns localized "Yes" or "نعم"
+// ترجمة القيم المنطقية إلى نص محلّي
+NamaRep.translate(true)  // يُرجع "Yes" أو "نعم" بحسب اللغة
 
-// Translate field IDs with entity context
+// ترجمة معرّفات الحقول مع سياق الكيان
 NamaRep.title(entityType, fieldId)
 NamaRep.translate(entityType, fieldId)
 
-// Translate with prefix
-NamaRep.translate("prefix", "value")  // Translates "prefix.value"
+// الترجمة مع بادئة
+NamaRep.translate("prefix", "value")  // يترجم "prefix.value"
 
-// Split translated text with pipe separator
-NamaRep.head("header|subtitle")  // Returns "header"
-NamaRep.sub("header|subtitle")   // Returns "subtitle"
+// تقسيم النص المترجم بفاصل الأنبوب
+NamaRep.head("header|subtitle")  // يُرجع "header"
+NamaRep.sub("header|subtitle")   // يُرجع "subtitle"
 ```
 
-### Date & Time Functions
+### دوال التاريخ والوقت {#Date--Time-Functions}
 
-#### Day Names
+#### أسماء الأيام {#Day-Names}
 ```groovy
-NamaRep.dayName($F{dateField})     // Returns day name in current language
-NamaRep.arDayName($F{dateField})   // Arabic day name
-NamaRep.enDayName($F{dateField})   // English day name
-NamaRep.dayName(dayNumber)         // 1=Sunday, 2=Monday, etc.
+NamaRep.dayName($F{dateField})     // يُرجع اسم اليوم باللغة الحالية
+NamaRep.arDayName($F{dateField})   // اسم اليوم بالعربية
+NamaRep.enDayName($F{dateField})   // اسم اليوم بالإنجليزية
+NamaRep.dayName(dayNumber)         // 1=الأحد، 2=الاثنين، إلخ.
 ```
 
-#### Hijri Calendar Support
+#### دعم التقويم الهجري {#Hijri-Calendar-Support}
 ```groovy
-// Convert Gregorian to Hijri
-NamaRep.toHijri($F{date})                    // Full Hijri date string
-NamaRep.toHijriDate($F{date})                // HijriDate object
-NamaRep.hijriDay($F{date})                   // Day in Hijri (padded)
-NamaRep.hijriMonth($F{date})                 // Month in Hijri (padded)
-NamaRep.hijriYear($F{date})                  // Year in Hijri
-NamaRep.hijri_yyyyMMdd($F{date})            // Format: yyyyMMdd
+// تحويل التاريخ الميلادي إلى هجري
+NamaRep.toHijri($F{date})                    // نص التاريخ الهجري الكامل
+NamaRep.toHijriDate($F{date})                // كائن HijriDate
+NamaRep.hijriDay($F{date})                   // اليوم الهجري (مع حشو)
+NamaRep.hijriMonth($F{date})                 // الشهر الهجري (مع حشو)
+NamaRep.hijriYear($F{date})                  // السنة الهجرية
+NamaRep.hijri_yyyyMMdd($F{date})            // التنسيق: yyyyMMdd
 
-// Custom formatting
+// تنسيق مخصص
 NamaRep.hijriDay($F{date})+"/"+NamaRep.hijriMonth($F{date})+"/"+NamaRep.hijriYear($F{date})
 ```
 
-#### Time Conversion
+#### تحويل الوقت {#Time-Conversion}
 ```groovy
-// Convert decimal hours to time format
-NamaRep.decimalToTime(9.5)                      // Returns "09:30"
-NamaRep.decimalToTimeWithSeconds(9.5)           // Returns "09:30:00" (includes seconds)
-NamaRep.decimalToTimeNullable(0)                // Returns null instead of "00:00"
-NamaRep.decimalToTimeWithSecondsNullable(0)     // Returns null instead of "00:00:00"
+// تحويل الساعات العشرية إلى تنسيق الوقت
+NamaRep.decimalToTime(9.5)                      // يُرجع "09:30"
+NamaRep.decimalToTimeWithSeconds(9.5)           // يُرجع "09:30:00" (يتضمن الثواني)
+NamaRep.decimalToTimeNullable(0)                // يُرجع null بدلاً من "00:00"
+NamaRep.decimalToTimeWithSecondsNullable(0)     // يُرجع null بدلاً من "00:00:00"
 
-// Convert milliseconds to time format
-NamaRep.timeToString(9120000)        // Returns "02:32"
-NamaRep.timeToStringNullable(0)      // Returns null instead of "00:00"
+// تحويل المللي ثانية إلى تنسيق الوقت
+NamaRep.timeToString(9120000)        // يُرجع "02:32"
+NamaRep.timeToStringNullable(0)      // يُرجع null بدلاً من "00:00"
 ```
 
-#### Date Period Calculations
+#### حسابات فترات التاريخ {#Date-Period-Calculations}
 ```groovy
-// Calculate period between dates (years, months, days)
-// 1. Create variable with reset type none, increment type none
+// حساب الفترة بين تاريخين (سنوات، أشهر، أيام)
+// 1. أنشئ متغيراً بنوع إعادة تعيين none وزيادة none
 java.time.Period.between(
   new java.util.Date($F{FromDate}.getTime()).toInstant()
     .atZone(java.time.ZoneId.systemDefault()).toLocalDate(), 
   java.time.LocalDate.now()
 )
 
-// 2. Use in text field expression
+// 2. الاستخدام في تعبير حقل نصي
 $V{period}.getYears()+" سنة "+$V{period}.getMonths()+" شهر "+$V{period}.getDays()+" يوم"
 
-// Calculate months between dates
+// حساب الأشهر بين تاريخين
 NamaRep.dateDiffInMonth(date1, date2)
 ```
 
-### Number Formatting & Conversion
+### تنسيق الأرقام وتحويلها {#Number-Formatting--Conversion}
 
-#### Arabic Numerals
+#### الأرقام العربية {#Arabic-Numerals}
 ```groovy
-// Convert Western to Arabic-Hindi numerals (٠,١,٢,٣,٤,٥,٦,٧,٨,٩)
-NamaRep.arNumbers("123")  // Returns "١٢٣"
+// تحويل الأرقام الغربية إلى أرقام عربية-هندية (٠،١،٢،٣،٤،٥،٦،٧،٨،٩)
+NamaRep.arNumbers("123")  // يُرجع "١٢٣"
 NamaRep.arNumbers(value)
 ```
 
-#### Numeric Field Helpers
+#### مساعدات الحقول الرقمية {#Numeric-Field-Helpers}
 ```groovy
-// Null-safe operations
-NamaRep.zeroIfNull(fieldOrVariable)        // Returns 0 if null
-NamaRep.oneIfZero(fieldOrVariable)          // Returns 1 if zero
-NamaRep.nullIfZero(fieldOrVariable)         // Returns null if zero
+// عمليات آمنة من القيم الفارغة
+NamaRep.zeroIfNull(fieldOrVariable)        // يُرجع 0 إذا كانت null
+NamaRep.oneIfZero(fieldOrVariable)          // يُرجع 1 إذا كانت صفراً
+NamaRep.nullIfZero(fieldOrVariable)         // يُرجع null إذا كانت صفراً
 
-// Convert to BigDecimal
-NamaRep.objectToDecimal(value)   // Safe conversion to BigDecimal
+// تحويل إلى BigDecimal
+NamaRep.objectToDecimal(value)   // تحويل آمن إلى BigDecimal
 ```
 
-#### Saudi Riyal Symbol
+#### رمز الريال السعودي {#Saudi-Riyal-Symbol}
 ```groovy
-// Returns SAR symbol as InputStream for image component
+// يُرجع رمز SAR كـ InputStream لمكوّن الصورة
 NamaRep.sar()
 ```
 
-### Tafqeet (Number to Words)
+### التفقيط (تحويل الأرقام إلى كلمات) {#Tafqeet-Number-to-Words}
 ```groovy
-// Convert numbers to words in different languages
-NamaRep.tafqeet(currencyCode, amount)        // Current language
-NamaRep.tafqeetArabic(currencyCode, amount)  // Arabic
-NamaRep.tafqeetEnglish(currencyCode, amount) // English
-NamaRep.tafqeetFrench(currencyCode, amount)  // French
+// تحويل الأرقام إلى كلمات بلغات مختلفة
+NamaRep.tafqeet(currencyCode, amount)        // اللغة الحالية
+NamaRep.tafqeetArabic(currencyCode, amount)  // العربية
+NamaRep.tafqeetEnglish(currencyCode, amount) // الإنجليزية
+NamaRep.tafqeetFrench(currencyCode, amount)  // الفرنسية
 ```
-The configuration for currencies tafqeet can be found in Global Configuration under `value.info.tafqeetInfo.currencyCode`
+يمكن إيجاد إعداد تفقيط العملات في الإعداد العام تحت `value.info.tafqeetInfo.currencyCode`
+## حسابات الأسعار {#Price-Calculations}
 
-## Price Calculations
-
-### Price Calculator Usage
+### استخدام حاسبة الأسعار {#Price-Calculator-Usage}
 ```groovy
-// Basic unit price calculation
+// حساب سعر الوحدة الأساسي
 NamaRep.priceCalculator()
   .item($F{item})
   .uom($F{UOM})
@@ -179,36 +177,36 @@ NamaRep.priceCalculator()
   .price()
 ```
 
-::: tip Creating Price Variables
-This expression returns a full price Object. You should store it in a variable:
-- Variable Class: `java.lang.Object`
-- Calculation: `No Calculation Function`
-- Increment type: `None`
-- Reset type: `None`
+::: tip إنشاء متغيرات الأسعار
+يُرجع هذا التعبير كائن سعر كاملاً. يجب تخزينه في متغير:
+- فئة المتغير: `java.lang.Object`
+- الحساب: `No Calculation Function`
+- نوع الزيادة: `None`
+- نوع الإعادة: `None`
 :::
 
-#### Complete Price Calculator Functions
+#### دوال حاسبة الأسعار الكاملة {#Complete-Price-Calculator-Functions}
 ```groovy
-// All available builder functions
+// جميع دوال البنّاء المتاحة
 NamaRep.priceCalculator()
   .item($F{itemIdOrCode})
   .customer($F{customerIdOrCode})
   .supplier($F{supplierIdOrCode})
   .uom($F{uomIdOrCode})
   .invoiceClassification($F{classificationIdOrCode})
-  .ic($F{classificationIdOrCode})              // Short for invoiceClassification
+  .ic($F{classificationIdOrCode})              // اختصار invoiceClassification
   .legalEntity($F{legalEntityIdOrCode})
-  .le($F{legalEntityIdOrCode})                  // Short for legalEntity
+  .le($F{legalEntityIdOrCode})                  // اختصار legalEntity
   .sector($F{sectorIdOrCode})
-  .sc($F{sectorIdOrCode})                       // Short for sector
+  .sc($F{sectorIdOrCode})                       // اختصار sector
   .branch($F{branchIdOrCode})
-  .br($F{branchIdOrCode})                       // Short for branch
+  .br($F{branchIdOrCode})                       // اختصار branch
   .department($F{departmentIdOrCode})
-  .dep($F{departmentIdOrCode})                  // Short for department
+  .dep($F{departmentIdOrCode})                  // اختصار department
   .analysisSet($F{analysisSetIdOrCode})
-  .anset($F{analysisSetIdOrCode})               // Short for analysisSet
+  .anset($F{analysisSetIdOrCode})               // اختصار analysisSet
   .priceClassifier1($F{priceClassifier1IdOrCode})
-  .pc1($F{priceClassifier1IdOrCode})            // Short for priceClassifier1
+  .pc1($F{priceClassifier1IdOrCode})            // اختصار priceClassifier1
   .priceClassifier2($F{priceClassifier2IdOrCode})
   .pc2($F{priceClassifier2IdOrCode})
   .priceClassifier3($F{priceClassifier3IdOrCode})
@@ -223,47 +221,47 @@ NamaRep.priceCalculator()
   .qty($F{qty})
   .date($F{date})
   .unitPriceOnly()
-  .price()  // Must be last in chain
+  .price()  // يجب أن يكون آخر عنصر في السلسلة
 ```
 
-#### Accessing Price Components
-After storing price in variable `$V{price}`, access components:
+#### الوصول إلى مكوّنات السعر {#Accessing-Price-Components}
+بعد تخزين السعر في المتغير `$V{price}`، الوصول إلى المكوّنات:
 
 ```groovy
-// Main values
+// القيم الرئيسية
 $V{price}.unitPrice.primitiveValue
 $V{price}.netValue.primitiveValue
 $V{price}.custom.primitiveValue
 $V{price}.totalCashShare.primitiveValue
 $V{price}.totalPaymentMethodShare.primitiveValue
 
-// Discount components (1-8 available)
+// مكوّنات الخصم (1-8 متاحة)
 $V{price}.discount1.percentage.primitiveValue
 $V{price}.discount1.value.primitiveValue
 $V{price}.discount1.afterValue.primitiveValue
 $V{price}.discount1.maxNormalPercent.primitiveValue
 
-// Header discount
+// خصم الرأسية (Header discount)
 $V{price}.headerDicount.percentage.primitiveValue
 $V{price}.headerDicount.value.primitiveValue
 $V{price}.headerDicount.afterValue.primitiveValue
 
-// Tax components (1-4 available)
+// مكوّنات الضريبة (1-4 متاحة)
 $V{price}.tax1.percentage.primitiveValue
 $V{price}.tax1.value.primitiveValue
 $V{price}.tax1.afterValue.primitiveValue
 $V{price}.tax1.maxNormalPercent.primitiveValue
 ```
 
-## Entity Links & Navigation
+## روابط الكيانات والتنقل {#Entity-Links--Navigation}
 
-### Basic Entity Links
+### روابط الكيانات الأساسية {#Basic-Entity-Links}
 ```groovy
-// Simple link to entity
+// رابط بسيط للكيان
 NamaRep.link(entityType, id)
 NamaRep.link(serverUrl, entityType, id)
 
-// Advanced link builder with menu and view
+// بنّاء روابط متقدم مع القائمة والعرض
 NamaRep.link()
   .entityType($F{entityType})
   .id($F{id})
@@ -273,43 +271,43 @@ NamaRep.link()
   .toString()
 ```
 
-### Attachment Links
+### روابط المرفقات {#Attachment-Links}
 ```groovy
-// Create link to attachment/document
+// إنشاء رابط لمرفق/مستند
 NamaRep.attachmentLink(id)
 NamaRep.attachmentLink(serverUrl, attachmentId)
 ```
 
-### Report Links
+### روابط التقارير {#Report-Links}
 ```groovy
-// Link to another report by code
+// رابط لتقرير آخر بواسطة الكود
 NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP}, "ReportCode")
   .p("p1 id").v(value expression)
   .p("p2 id").v(value expression)
-  .copyParams()  // Copy all shared parameters from current report
+  .copyParams()  // نسخ جميع المعاملات المشتركة من التقرير الحالي
   .toString()
 
-// Reference parameters - multiple formats available
+// معاملات المرجع - تنسيقات متعددة متاحة
 .p("param").v($F{id}, $F{entity}, $F{code}, $F{name1}, $F{name2})
 .p("param").v($F{id}, $F{entity}, $F{code})
 .p("param").ref($F{entityType}, $F{id})
 .p("param").refCode($F{entityType}, $F{code})
 
-// If you do not want to add the server url (the link will be #rpt:xxx instead of https://abc.namasoft.com/erp/#rpt:xxx) use the following
+// إذا كنت لا تريد إضافة عنوان URL الخادم (سيكون الرابط #rpt:xxx بدلاً من https://abc.namasoft.com/erp/#rpt:xxx) استخدم التالي
 .directLink()
 
 ```
 
-#### Report Link Examples
+#### أمثلة روابط التقارير {#Report-Link-Examples}
 ```groovy
-// Example 1: Account Statement
+// المثال 1: كشف حساب
 NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP}, "Statement")
   .copyParams()
   .p("fromAccount").v($F{accountId}, $F{accountEntityType}, $F{accountCode})
   .p("toAccount").v($F{accountId}, "Account", $F{accountCode})
   .toString()
 
-// Example 2: Sales Profit Summary
+// المثال 2: ملخص أرباح المبيعات
 NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP}, "SalesProfitSummary")
   .copyParams($P{REPORT_PARAMETERS_MAP})
   .p("SalesInvoice").ref("SalesInvoice", $F{SSIid})
@@ -318,7 +316,7 @@ NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP}, "SalesProfitSummary")
   .p("showDetails").v("true")
   .toString()
 
-// Example 3: Subsidiary Account Statement
+// المثال 3: كشف حساب فرعي
 NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP}, "SubsidiaryAccountStatement")
   .p("subsidiaryType").v($F{CustomerEntityType})
   .p("fromSubsidiary").v($F{customerId}, $F{CustomerEntityType}, $F{customerCode})
@@ -327,20 +325,19 @@ NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP}, "SubsidiaryAccountStatement")
   .toString()
 ```
 
-### Public Report Links (No Authentication)
-To share a report link externally (e.g., to customers) without requiring login:
+### روابط التقارير العامة (بدون مصادقة) {#Public-Report-Links-No-Authentication}
+لمشاركة رابط تقرير خارجياً (مثلاً مع العملاء) دون الحاجة إلى تسجيل دخول:
 
 ```groovy
 NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP}, "ARG000046-report")
   .p("Code_Equals").ref($F{entityType}, $F{id})
   .toNoAuthResultLink()
 ```
+### روابط عرض القائمة المفلترة {#Filtered-List-View-Links}
 
-### Filtered List View Links
+يمكنك إنشاء روابط تشعبية تفتح عرض قائمة مفلتراً لأي نوع كيان. وهذا مفيد عندما تريد أن ينقر المستخدمون على رابط في التقرير ليروا قائمة سجلات مُصفّاة مسبقاً.
 
-You can create hyperlinks that open a filtered list view for any entity type. This is useful when you want users to click a link in a report and see a pre-filtered list of records.
-
-#### Basic Usage
+#### الاستخدام الأساسي {#Basic-Usage}
 ```groovy
 NamaRep.listView()
   .entityType("SalesInvoice")
@@ -350,28 +347,28 @@ NamaRep.listView()
     """))
   .toString()
 
-// To enable direct link to list view, use the following
+// لتفعيل الرابط المباشر لعرض القائمة، استخدم التالي
 .directLink()
 ```
 
-#### Builder Methods
+#### دوال البنّاء {#Builder-Methods}
 
-| Method | Description |
+| الدالة | الوصف |
 |--------|-------------|
-| `.entityType(String)` | The entity type to display (e.g., "SalesInvoice", "Customer") |
-| `.criteria(String)` | Filter criteria in text format (see below) |
-| `.listViewName(String)` | Specific list view name to use |
-| `.menuCode(String)` | Menu code to open the list view in |
-| `.orderBy(String)` | Field to sort by |
-| `.ascending(Boolean)` | Sort direction (true = ascending) |
-| `.currentPage(Integer)` | Page number to display |
-| `.pageSize(Integer)` | Number of records per page (-1 for all) |
-| `.showTree(Boolean)` | Show as tree view |
-| `.extraCriteriaId(String)` | Additional criteria definition ID |
+| `.entityType(String)` | نوع الكيان للعرض (مثلاً "SalesInvoice"، "Customer") |
+| `.criteria(String)` | معايير الفلترة بتنسيق نصي (انظر أدناه) |
+| `.listViewName(String)` | اسم عرض القائمة المحدد للاستخدام |
+| `.menuCode(String)` | كود القائمة لفتح عرض القائمة فيه |
+| `.orderBy(String)` | الحقل للترتيب حسبه |
+| `.ascending(Boolean)` | اتجاه الترتيب (true = تصاعدي) |
+| `.currentPage(Integer)` | رقم الصفحة للعرض |
+| `.pageSize(Integer)` | عدد السجلات في الصفحة (-1 للكل) |
+| `.showTree(Boolean)` | العرض كشجرة |
+| `.extraCriteriaId(String)` | معرّف تعريف معايير إضافية |
 
-#### Using Tempo for Dynamic Criteria
+#### استخدام Tempo للمعايير الديناميكية {#Using-Tempo-for-Dynamic-Criteria}
 
-The most powerful feature is combining the list view builder with Tempo syntax to dynamically inject report field values into the criteria:
+الميزة الأقوى هي دمج بنّاء عرض القائمة مع صيغة Tempo لحقن قيم حقول التقرير ديناميكياً في المعايير:
 
 ```groovy
 $P{REPORT_SCRIPTLET}.tempo("""
@@ -379,14 +376,14 @@ $P{REPORT_SCRIPTLET}.tempo("""
   """)
 ```
 
-Inside the curly brackets `{...}`, you can reference:
-- **Fields**: `{fieldName}` - directly use field names without `$F{}`
-- **Parameters**: `{paramName}` - directly use parameter names without `$P{}`
-- **Variables**: `{varName}` - directly use variable names without `$V{}`
+داخل الأقواس المعقوفة `{...}`، يمكنك الإشارة إلى:
+- **الحقول**: `{fieldName}` - استخدم أسماء الحقول مباشرةً دون `$F{}`
+- **المعاملات**: `{paramName}` - استخدم أسماء المعاملات مباشرةً دون `$P{}`
+- **المتغيرات**: `{varName}` - استخدم أسماء المتغيرات مباشرةً دون `$V{}`
 
-#### Complete Example
+#### مثال كامل {#Complete-Example}
 
-Suppose you have a report showing customers and want to add a link that opens all sales invoices for that customer:
+لنفترض أن لديك تقريراً يعرض العملاء وتريد إضافة رابط يفتح كل فواتير المبيعات لهذا العميل:
 
 ```groovy
 NamaRep.listView()
@@ -402,50 +399,50 @@ NamaRep.listView()
   .toString()
 ```
 
-This creates a clickable link that opens the Sales Invoice list view filtered by:
-- Customer code matching the current row's `customerCode` field
-- Value date between the report's `fromDate` and `toDate` parameters
+يُنشئ هذا رابطاً قابلاً للنقر يفتح عرض قائمة فاتورة المبيعات مفلتراً بـ:
+- كود العميل المطابق لحقل `customerCode` في الصف الحالي
+- تاريخ القيمة بين معاملات `fromDate` و`toDate` في التقرير
 
-#### Criteria Format Reference
+#### مرجع تنسيق المعايير {#Criteria-Format-Reference}
 
-The criteria string follows the [Text Criteria format](../text-criteria-guide.md):
+يتبع نص المعايير [تنسيق معايير النص](../text-criteria-guide.md):
 
 ```
 fieldID,operator,value,logic;
 ```
 
-**Available Operators:**
-- `Equal`, `NotEqual`
-- `GreaterThan`, `GreaterThanOrEqual`
-- `LessThan`, `LessThanOrEqual`
-- `StartsWith`, `NotStartsWith`
-- `EndsWith`, `NotEndWith`
-- `Contains`, `NotContain`
-- `In`, `NotIn`
+**العوامل المتاحة:**
+- `Equal`، `NotEqual`
+- `GreaterThan`، `GreaterThanOrEqual`
+- `LessThan`، `LessThanOrEqual`
+- `StartsWith`، `NotStartsWith`
+- `EndsWith`، `NotEndWith`
+- `Contains`، `NotContain`
+- `In`، `NotIn`
 
-**Logic Connectors:** `AND`, `OR`
+**روابط المنطق:** `AND`، `OR`
 
-**Date Format:** `dd-MM-yyyy`
+**تنسيق التاريخ:** `dd-MM-yyyy`
 
-**Reference Format:** `id:entityType:code` (code is optional)
+**تنسيق المرجع:** `id:entityType:code` (الكود اختياري)
 
 ::: tip
-You can use the **Criteria Definition** screen to visually build filter conditions, then click **Convert to Text** to get the text format. This text can then be used as a template for your Tempo-enabled criteria.
+يمكنك استخدام شاشة **Criteria Definition** لبناء شروط الفلترة بصرياً، ثم النقر على **Convert to Text** للحصول على التنسيق النصي. يمكن بعد ذلك استخدام هذا النص كقالب لمعاييرك المدعومة بـ Tempo.
 :::
 
-::: tip URL Shortening
-You can shorten report URLs using:
+::: tip اختصار عناوين URL
+يمكنك اختصار عناوين URL للتقارير باستخدام:
 ```groovy
 NamaRep.shortenURL(serverurl, signature, url)
 ```
-See `{shortenurl()}` section in Tempo documentation for more info.
+انظر قسم `{shortenurl()}` في وثائق Tempo لمزيد من المعلومات.
 :::
 
-## Entity Creation (Creators)
+## إنشاء الكيانات (Creators) {#Entity-Creation-Creators}
 
-### Basic Creator
+### Creator الأساسي {#Basic-Creator}
 ```groovy
-// Create new entity with fields
+// إنشاء كيان جديد بحقوله
 NamaRep.newWithFields("ReceiptVoucher")
   .f("term").value("POTermCode")
   .f("book").value("POBook1")
@@ -456,23 +453,23 @@ NamaRep.newWithFields("ReceiptVoucher")
   .viewName("NormalReceipts")
   .toString()
 
-// Alternative syntax
+// صيغة بديلة
 NamaRep.creator("ReceiptVoucher")
   .field("supplier").value(supplierId)
   .toString()
 ```
 
-### Creator with Line Details
-For reports with detail bands that need to create entities with line items:
+### Creator مع تفاصيل الأسطر {#Creator-with-Line-Details}
+للتقارير ذات أحزمة التفاصيل التي تحتاج إلى إنشاء كيانات مع بنود:
 
-1. **Create variable** `creatorLink` with initial value expression:
+1. **أنشئ المتغير** `creatorLink` مع تعبير القيمة الأولية:
 ```groovy
 NamaRep.newWithFields("PurchaseOrder")
   .field("term").value("P.Order.Term")
   .root()
 ```
 
-2. **In detail band**, add line items:
+2. **في حزمة التفاصيل**، أضف بنود الأسطر:
 ```groovy
 $V{creatorLink}
   .field("details.item.itemCode").value($F{code})
@@ -480,144 +477,142 @@ $V{creatorLink}
   .row($V{REPORT_COUNT})
 ```
 
-3. **Generate final link**:
+3. **أنشئ الرابط النهائي**:
 ```groovy
 $V{creatorLink}.toString()
 ```
 
-## Approval System
+## نظام الموافقة {#Approval-System}
 
-### Document Approval Links
+### روابط موافقة المستندات {#Document-Approval-Links}
 ```groovy
-// Approve/Reject/Return all lines
+// الموافقة/الرفض/الإرجاع لجميع الأسطر
 NamaRep.approveAllLink($P{REPORT_PARAMETERS_MAP})
 NamaRep.rejectAllLink($P{REPORT_PARAMETERS_MAP})
 NamaRep.returnAllLink($P{REPORT_PARAMETERS_MAP})
 NamaRep.returnAllToPreviousStepLink($P{REPORT_PARAMETERS_MAP})
 
-// With decision parameter
-NamaRep.approveAllLink($P{REPORT_PARAMETERS_MAP}, decision)  // decision: "Approve", "Reject", or "Return"
+// مع معامل القرار
+NamaRep.approveAllLink($P{REPORT_PARAMETERS_MAP}, decision)  // decision: "Approve"، "Reject"، أو "Return"
 ```
 
-### Per-Line Approval (Concerned Lines)
-For documents with line-level approvals:
+### الموافقة لكل سطر (الأسطر المعنية) {#Per-Line-Approval-Concerned-Lines}
+للمستندات ذات الموافقات على مستوى الأسطر:
 
 ```groovy
-// Approve/Reject specific line
+// الموافقة/الرفض لسطر محدد
 NamaRep.approveLink($P{REPORT_PARAMETERS_MAP}, $F{lineNumber})
 NamaRep.rejectLink($P{REPORT_PARAMETERS_MAP}, $F{lineNumber})
 NamaRep.returnLink($P{REPORT_PARAMETERS_MAP}, $F{lineNumber})
 NamaRep.returnToPreviousStepLink($P{REPORT_PARAMETERS_MAP}, $F{lineNumber})
 
-// With reason code
+// مع كود السبب
 NamaRep.approveLink($P{REPORT_PARAMETERS_MAP}, $F{lineNumber}, reasonCodeOrId)
 NamaRep.rejectLink($P{REPORT_PARAMETERS_MAP}, $F{lineNumber}, reasonCodeOrId)
 
-// Check if line needs approval
+// التحقق إذا كان السطر يحتاج إلى موافقة
 NamaRep.isConcernedLine($P{REPORT_PARAMETERS_MAP}, $F{lineNumber})
 ```
 
-### JavaScript Approval Dialog
+### حوار موافقة JavaScript {#JavaScript-Approval-Dialog}
 ```groovy
-// Show approval dialog in browser
+// عرض حوار الموافقة في المتصفح
 NamaRep.approveFromJS(entityType, entityId, nextStepName, 
                       concernedLines, nextStepSeq, summary)
 ```
 
-## Employee & HR Functions
+## وظائف الموظفين والموارد البشرية {#Employee--HR-Functions}
 
-### Vacation Balances
+### أرصدة الإجازات {#Vacation-Balances}
 ```groovy
-// Default vacation types (1, 2, 3)
+// أنواع الإجازات الافتراضية (1، 2، 3)
 NamaRep.getVacation1RemainderBalance(empIdOrCode)
 NamaRep.getVacation2RemainderBalance(empIdOrCode)
 NamaRep.getVacation3RemainderBalance(empIdOrCode)
 
-// Specific vacation type
+// نوع إجازة محدد
 NamaRep.getVacationRemainderBalance(empCodeOrId, vacationTypeIdOrCode)
 NamaRep.getVacationRemainderBalance(empCodeOrId, vacationTypeIdOrCode, atDate)
 
-// Detailed vacation information
+// معلومات الإجازة التفصيلية
 NamaRep.getVacationAssignedConsumedRemainder(employeeId, vacationType)
 NamaRep.getVacationAssignedConsumedRemainder(employeeId, vacationType, atDate)
 
-// Balance per years
+// الرصيد لكل السنوات
 NamaRep.getRemainderBalancePerYears(employeeId, atDate, yearsCount)
 ```
 
-## Reward Points
+## نقاط المكافأة {#Reward-Points}
 
-### Available Reward Points & Amounts
+### نقاط ومبالغ المكافأة المتاحة {#Available-Reward-Points--Amounts}
 ```groovy
-// Get available reward points for an entity (e.g., Customer, Supplier)
+// الحصول على نقاط المكافأة المتاحة لكيان (مثلاً Customer، Supplier)
 NamaRep.availableRewardPoints("Customer", $F{customerId})
 NamaRep.availableRewardPoints("Customer", $F{customerCode})
 
-// Get available reward amount for an entity
+// الحصول على مبلغ المكافأة المتاح لكيان
 NamaRep.availableRewardAmount("Customer", $F{customerId})
 NamaRep.availableRewardAmount("Customer", $F{customerCode})
 ```
 
-### Earned Points (Documents)
+### النقاط المكتسبة (المستندات) {#Earned-Points-Documents}
 ```groovy
-// Get earned points from a document (e.g., SalesInvoice)
+// الحصول على النقاط المكتسبة من مستند (مثلاً SalesInvoice)
 NamaRep.earnedPoints("SalesInvoice", $F{invoiceId})
 NamaRep.earnedPoints("SalesInvoice", $F{invoiceCode})
 ```
 
 ::: tip
-- `availableRewardPoints` and `availableRewardAmount` work with any master file.
-- `earnedPoints` only works with document entities (e.g., SalesInvoice, NamaPOSSalesInvoice). It returns `null` for master files.
-- All three methods accept either an ID or a code as the second parameter.
+- تعمل `availableRewardPoints` و`availableRewardAmount` مع أي ملف رئيسي.
+- تعمل `earnedPoints` فقط مع كيانات المستندات (مثلاً SalesInvoice، NamaPOSSalesInvoice). تُرجع `null` للملفات الرئيسية.
+- تقبل الدوال الثلاث معرّفاً أو كوداً كمعامل ثانٍ.
 :::
+## عمليات قاعدة البيانات {#Database-Operations}
 
-## Database Operations
-
-### SQL Query Execution
+### تنفيذ استعلامات SQL {#SQL-Query-Execution}
 ```groovy
-// Execute SQL query with parameters
+// تنفيذ استعلام SQL مع معاملات
 NamaRep.runSQLQuery(sql, paramName, paramValue, paramName, paramValue)
 
-// Example with named parameters
+// مثال مع معاملات مسمّاة
 NamaRep.executeQuery(
   "SELECT cast(w.name1 collate Arabic_CI_AI_KS_WS as varchar(250)) 
    FROM warehouse w WHERE w.id = :wid",
   "wid", $F{wid}
 )
 
-// Format query results
-NamaRep.formatQueryResult(results, "\n", ",")  // Row separator, column separator
+// تنسيق نتائج الاستعلام
+NamaRep.formatQueryResult(results, "
+", ",")  // فاصل الصفوف، فاصل الأعمدة
 ```
 
-### Module Configuration Access
+### الوصول إلى إعداد الوحدة {#Module-Configuration-Access}
 ```groovy
-// Get configuration value
+// الحصول على قيمة الإعداد
 NamaRep.getValueFromModuleConfig(moduleId, fieldId)
 
-// Example
+// مثال
 NamaRep.getValueFromModuleConfig("basic", "value.info.useCurrentUserAsSalesMan")
 ```
 
-Available module names:
-- accounting, basic, supplychain, fixedassets
-- humanresource, dms, project, ecpa
-- manufacturing, srvcenter, crm, contracting
-- travel, realestate, housing, auditing
-- education, namapos, mc
+أسماء الوحدات المتاحة:
+- accounting، basic، supplychain، fixedassets
+- humanresource، dms، project، ecpa
+- manufacturing، srvcenter، crm، contracting
+- travel، realestate، housing، auditing
+- education، namapos، mc
 
-## Security & Permissions
+## الأمان والصلاحيات {#Security--Permissions}
 
-### Security Constraints for Reports
+### قيود الأمان للتقارير {#Security-Constraints-for-Reports}
 
-::: rtl
-### كيفية التصفية حسب الشركة، أو القطاع، أو أي مُحدد آخر
+### كيفية التصفية حسب الشركة، أو القطاع، أو أي مُحدد آخر {#How-to-Filter-by-Legal-Entity-Sector-or-Any-Other-Dimension}
 
 نفترض أنك ترغب في تصفية البيانات بناءً على منشئ السجل، وصلاحيات التعديل أو العرض، وكذلك حسب الشركة أو القطاع أو الفرع أو غير ذلك من المُحددات ضمن سجل الحساب. للقيام بذلك، اتبع الخطوات التالية:
-:::
 
-#### 1. Create Hidden Parameter `SECURITY_CONSTRAINTS`
+#### 1. إنشاء المعامل المخفي `SECURITY_CONSTRAINTS` {#1-Create-Hidden-Parameter-SECURITYCONSTRAINTS}
 
-Create a `String` parameter with "Not For Prompting" and default expression:
+أنشئ معامل `String` مع "Not For Prompting" والتعبير الافتراضي:
 
 ```groovy
 NamaRep.security()
@@ -628,19 +623,19 @@ NamaRep.security()
                 "sector", "department", "analysisSet")
 ```
 
-**Expression Components:**
-- `.fieldEntityType("Account")` - Specifies the entity type for security filtering
-- `.tableAlias("acc")` - Table alias in your SQL query
-- `.capabilities(...)` - List of security dimensions to filter by
+**مكوّنات التعبير:**
+- `.fieldEntityType("Account")` - يحدد نوع الكيان للتصفية الأمنية
+- `.tableAlias("acc")` - الاسم المستعار للجدول في استعلام SQL
+- `.capabilities(...)` - قائمة المحددات الأمنية للتصفية بها
 
-Available capabilities:
-- `firstAuthor` - Filter by record creator
-- `viewCapability`, `updateCapability`, `usageCapability` - Permission-based filtering
-- `legalEntity`, `branch`, `sector`, `department`, `analysisSet` - Organizational filtering
+القدرات المتاحة:
+- `firstAuthor` - التصفية حسب منشئ السجل
+- `viewCapability`، `updateCapability`، `usageCapability` - التصفية المبنية على الصلاحيات
+- `legalEntity`، `branch`، `sector`، `department`، `analysisSet` - التصفية التنظيمية
 
-#### 2. Use in SQL Query
+#### 2. الاستخدام في استعلام SQL {#2-Use-in-SQL-Query}
 
-Include the parameter in your WHERE clause:
+أدرج المعامل في جملة WHERE:
 
 ```sql
 SELECT a, b, c 
@@ -650,9 +645,9 @@ WHERE acc.code <> 'abc'
   AND $P!{SECURITY_CONSTRAINTS}
 ```
 
-#### 3. Multiple Table Security
+#### 3. أمان جداول متعددة {#3-Multiple-Table-Security}
 
-For filtering on multiple tables:
+للتصفية على جداول متعددة:
 
 ```groovy
 NamaRep.security()
@@ -666,64 +661,64 @@ NamaRep.security()
   .capabilities("legalEntity", "branch", "sector")
 ```
 
-::: tip Summary
-This security filtering approach dynamically applies data visibility and editing rights based on user roles and organizational structure. The system automatically generates appropriate WHERE clauses based on user permissions.
+::: tip ملخص
+يُطبّق أسلوب التصفية الأمنية هذا قواعد رؤية البيانات وحقوق التعديل ديناميكياً بناءً على أدوار المستخدم والهيكل التنظيمي. يولّد النظام تلقائياً جمل WHERE المناسبة بناءً على صلاحيات المستخدم.
 :::
 
-### Display Permissions
+### صلاحيات العرض {#Display-Permissions}
 ```groovy
-// Check if user can display parameter/field
+// التحقق إذا كان بإمكان المستخدم عرض المعامل/الحقل
 NamaRep.canDisplay($P{param})
 ```
 
-## Utility Functions
+## الوظائف المساعدة {#Utility-Functions}
 
-### HTML to Text Conversion
+### تحويل HTML إلى نص {#HTML-to-Text-Conversion}
 ```groovy
 NamaRep.htmlToText(htmlContent)
 ```
 
-### Serial Numbers
+### الأرقام التسلسلية {#Serial-Numbers}
 ```groovy
-// Expand compressed serials
-NamaRep.expandSerials(serials)                      // Default newline separator
-NamaRep.expandSerials(serials, separator)           // Custom separator
-NamaRep.unzipSerials(serials)                      // Returns List<String>
+// توسيع الأرقام التسلسلية المضغوطة
+NamaRep.expandSerials(serials)                      // فاصل السطر الافتراضي
+NamaRep.expandSerials(serials, separator)           // فاصل مخصص
+NamaRep.unzipSerials(serials)                      // يُرجع List<String>
 NamaRep.unzipSerialsWithNewLines(serials)
 NamaRep.unzipSerialsWithComma(serials)
 NamaRep.unzipSerialsWithSeparator(serials, ";")
 
-// Compress serial ranges
+// ضغط نطاقات الأرقام التسلسلية
 NamaRep.zipSerialsRange(serials)
 ```
 
-### ZATCA QR Codes (Saudi Tax Authority)
+### رموز QR لزاتكا (هيئة الزكاة والضريبة والجمارك) {#ZATCA-QR-Codes-Saudi-Tax-Authority}
 ```groovy
-// Generate ZATCA QR code
+// توليد رمز QR لزاتكا
 NamaRep.genZATCAQR(sellerName, vatNumber, timestamp, 
                    invoiceAmount, vatAmount)
 
-// With separate value and creation dates
+// مع تواريخ القيمة والإنشاء المنفصلة
 NamaRep.genZATCAQRWithCreationDate(sellerName, vatNumber, 
                                    valueDate, creationDate, 
                                    invoiceAmount, vatAmount)
 
-// From entity
+// من كيان
 NamaRep.genZatcaQrCodeFromEntity(entityType, idOrCode)
 NamaRep.zatcaHashedInvoice(entityType, id)
 ```
 
 ### Mobile QR Integrator
 ```groovy
-// Create QR code for mobile scanning and entity creation/update
-// The QR code will be processed by Mobile QR Integrator when scanned
+// إنشاء رمز QR للمسح الضوئي بالجوال وإنشاء/تحديث الكيانات
+// سيتم معالجة رمز QR بواسطة Mobile QR Integrator عند المسح
 
-// Basic QR with integrator code
+// رمز QR أساسي مع كود الـ integrator
 NamaRep.mobileQr()
     .code("IntegratorCode")
     .toString()
 
-// QR with parameters
+// رمز QR مع معاملات
 NamaRep.mobileQr()
     .code("CustomerAttendance")
     .addParam("customer", $F{customerCode})
@@ -731,7 +726,7 @@ NamaRep.mobileQr()
     .addParam("amount", $F{totalAmount})
     .toString()
 
-// Encrypted QR (Base64 encoded)
+// رمز QR مشفّر (Base64 encoded)
 NamaRep.mobileQr()
     .code("SecureIntegrator")
     .addParam("sensitive", $F{confidentialData})
@@ -739,95 +734,93 @@ NamaRep.mobileQr()
     .toString()
 ```
 
-**Usage Notes:**
-- The QR code contains JSON with the integrator code/ID and parameters
-- Parameters are accessible in entity flows via `$map.paramName`
-- Encrypted QRs are automatically decrypted by the mobile app
-- The integrator must be configured in MobileQRIntegrator entity
+**ملاحظات الاستخدام:**
+- يحتوي رمز QR على JSON مع كود/معرّف الـ integrator والمعاملات
+- المعاملات متاحة في مسارات الكيان عبر `$map.paramName`
+- يتم فك تشفير رموز QR المشفّرة تلقائياً بواسطة تطبيق الجوال
+- يجب تهيئة الـ integrator في كيان MobileQRIntegrator
+## معاملات النظام في التقارير {#System-Parameters-in-Reports}
 
-## System Parameters in Reports
+جميع التقارير لديها إمكانية الوصول إلى هذه المعاملات:
 
-All reports have access to these system parameters:
-
-::: details Click to see all system parameters
-### User & Login Information
-- `loginLanguage` - Current language (Arabic/English)
-- `originalLoginLanguage` - Original login language
-- `loginUserId`, `loginUserCode`, `loginUserName1`, `loginUserName2`
-- `loginUserTreatAsAuthorIds` - Delegate user IDs
+::: details انقر لرؤية جميع معاملات النظام
+### معلومات المستخدم وتسجيل الدخول
+- `loginLanguage` - اللغة الحالية (عربي/إنجليزي)
+- `originalLoginLanguage` - لغة تسجيل الدخول الأصلية
+- `loginUserId`، `loginUserCode`، `loginUserName1`، `loginUserName2`
+- `loginUserTreatAsAuthorIds` - معرّفات المستخدمين المفوّضين
 - `loginEmployeeId`
-- `currentUser` - Current user object
+- `currentUser` - كائن المستخدم الحالي
 
-### Organization Structure
-- `loginLegalEntityId`, `loginLegalEntityCode`, `loginLegalEntityName1`, `loginLegalEntityName2`
-- `loginSectorId`, `loginSectorCode`, `loginSectorName1`, `loginSectorName2`
-- `loginBranchId`, `loginBranchCode`, `loginBranchName1`, `loginBranchName2`
-- `loginDepartmentId`, `loginDepartmentCode`, `loginDepartmentName1`, `loginDepartmentName2`
-- `loginAnalysisSetId`, `loginAnalysisSetCode`, `loginAnalysisSetName1`, `loginAnalysisSetName2`
+### الهيكل التنظيمي
+- `loginLegalEntityId`، `loginLegalEntityCode`، `loginLegalEntityName1`، `loginLegalEntityName2`
+- `loginSectorId`، `loginSectorCode`، `loginSectorName1`، `loginSectorName2`
+- `loginBranchId`، `loginBranchCode`، `loginBranchName1`، `loginBranchName2`
+- `loginDepartmentId`، `loginDepartmentCode`، `loginDepartmentName1`، `loginDepartmentName2`
+- `loginAnalysisSetId`، `loginAnalysisSetCode`، `loginAnalysisSetName1`، `loginAnalysisSetName2`
 
-### Public Organization IDs
-- `publicLegalEntityId`, `publicSectorId`, `publicBranchId`
-- `publicDepartmentId`, `publicAnalysisSetId`
+### معرّفات المنظمة العامة
+- `publicLegalEntityId`، `publicSectorId`، `publicBranchId`
+- `publicDepartmentId`، `publicAnalysisSetId`
 
-### Logos & Branding
-- `loginLegalEntityLogo` - Primary logo (InputStream)
-- `loginLegalEntityLogo2` through `loginLegalEntityLogo5` - Additional logos
-- `reportsFooterNote1`, `reportsFooterNote2` - Footer text
+### الشعارات والعلامة التجارية
+- `loginLegalEntityLogo` - الشعار الرئيسي (InputStream)
+- `loginLegalEntityLogo2` حتى `loginLegalEntityLogo5` - شعارات إضافية
+- `reportsFooterNote1`، `reportsFooterNote2` - نص التذييل
 
-### Report Context
-- `formEntityType` - Entity type for the form (can be used for translation)
-- `reportCode`, `reportId`, `reportName1`, `reportName2`
-- `namaReportInstance` - Report instance object
-- `runId` - Unique run identifier
+### سياق التقرير
+- `formEntityType` - نوع الكيان للنموذج (يمكن استخدامه للترجمة)
+- `reportCode`، `reportId`، `reportName1`، `reportName2`
+- `namaReportInstance` - كائن instance التقرير
+- `runId` - معرّف فريد للتشغيل
 
-### URLs
-- `guiServerURL` - GUI server URL
-- `externalServerURL` - External server URL
-- `currentGUIURL` - Current GUI URL
+### عناوين URL
+- `guiServerURL` - عنوان URL لخادم الواجهة
+- `externalServerURL` - عنوان URL للخادم الخارجي
+- `currentGUIURL` - عنوان URL الحالي للواجهة
 
-### Approval System
-- `concernedLines` - Lines requiring approval
-- `candidateEmployeeId`, `candidateEmployeeCode`, `candidateEmployeeName1`, `candidateEmployeeName2`
-- `approvedRecordId`, `approvedRecordType`, `approvedRecordCode`
-- `approvalSecret`, `approvalStepSeq`
+### نظام الموافقة
+- `concernedLines` - الأسطر التي تحتاج إلى موافقة
+- `candidateEmployeeId`، `candidateEmployeeCode`، `candidateEmployeeName1`، `candidateEmployeeName2`
+- `approvedRecordId`، `approvedRecordType`، `approvedRecordCode`
+- `approvalSecret`، `approvalStepSeq`
 
-### Security & Permissions
-- `allowedCapabilities`, `allowedEntities`, `allowedDocuments`, `allowedFiles`
-- `notAllowedEntities`, `notAllowedDocuments`, `notAllowedFiles`
-- `accessibleLegalEntityIds`, `accessibleSectorIds`, `accessibleBranchIds`
-- `accessibleDepartmentIds`, `accessibleAnalysisSetIds`
+### الأمان والصلاحيات
+- `allowedCapabilities`، `allowedEntities`، `allowedDocuments`، `allowedFiles`
+- `notAllowedEntities`، `notAllowedDocuments`، `notAllowedFiles`
+- `accessibleLegalEntityIds`، `accessibleSectorIds`، `accessibleBranchIds`
+- `accessibleDepartmentIds`، `accessibleAnalysisSetIds`
 
-### Security Flags
-- `legalEntityNotUsedInSecurity`, `sectorNotUsedInSecurity`
-- `branchNotUsedInSecurity`, `departmentNotUsedInSecurity`
+### علامات الأمان
+- `legalEntityNotUsedInSecurity`، `sectorNotUsedInSecurity`
+- `branchNotUsedInSecurity`، `departmentNotUsedInSecurity`
 - `analysisSetNotUsedInSecurity`
 
-### Other
-- `posShiftCode` - POS shift code
-- `currentReplicationSiteId`, `currentReplicationSiteCode`
-- `currentReplicationSiteName1`, `currentReplicationSiteName2`
+### أخرى
+- `posShiftCode` - كود وردية نقطة البيع
+- `currentReplicationSiteId`، `currentReplicationSiteCode`
+- `currentReplicationSiteName1`، `currentReplicationSiteName2`
 :::
+## معاملات التقرير {#Report-Parameters}
 
-## Report Parameters
+### معاملات القائمة (التحديد المتعدد) {#List-Parameters-Multi-Selection}
 
-### List Parameters (Multi-Selection)
+لتعريف معامل يدعم تحديدات متعددة:
 
-To define a parameter that supports multiple selections:
+1. اضبط الخاصية `list = true`
+2. للأنواع غير المرجعية، حدد الخاصية `listType`
+3. التقاط القيم المحددة للعرض:
+   - `<parameterName>_csv`: القيم المترجمة كسلسلة CSV
+   - `<parameterName>_codecsv`: الأكواد كسلسلة CSV
+   - `<parameterName>_name1csv`: حقول Name1 كسلسلة CSV
+   - `<parameterName>_name2csv`: حقول Name2 كسلسلة CSV
+4. لمنع العرض التلقائي للشبكة: `doNotAutoShowList = true`
+5. للتحكم في أداة العرض للقائمة، اضبط `listDisplayType`:
+   - `Default` — إدخال التحديد المتعدد القياسي (يُستخدم عند حذف الخاصية)
+   - `Dropdown` — تُعرض القيم المحددة كشرائح قابلة للإزالة داخل إدخال؛ تفتح قائمة الخيارات الكاملة في قائمة منسدلة قابلة للبحث. مثالي عندما تكون مجموعة القيم كبيرة
+   - `Chips` — تُعرض جميع القيم المسموحة كشرائح قابلة للنقر مع تبديل التحديد بالنقر. مثالي عند وجود خيارات قليلة فقط وتريد رؤيتها دون فتح قائمة
 
-1. Set the property `list = true`
-2. For non-reference types, specify `listType` property
-3. Capture selected values for display:
-   - `<parameterName>_csv`: Translated values as CSV string
-   - `<parameterName>_codecsv`: Codes as CSV string
-   - `<parameterName>_name1csv`: Name1 fields as CSV string
-   - `<parameterName>_name2csv`: Name2 fields as CSV string
-4. To prevent automatic grid display: `doNotAutoShowList = true`
-5. To control the display widget for the list, set `listDisplayType`:
-   - `Default` — the standard multi-selection input (used when the property is omitted)
-   - `Dropdown` — selected values render as removable chips inside an input; the full options list opens in a searchable dropdown menu. Ideal when the value set is large
-   - `Chips` — all allowed values render as inline clickable chips with selection toggled on click. Ideal when there are only a few options and you want them visible without opening a menu
-
-   Example:
+   مثال:
    ```xml
    <parameter name="MultiEmployee" class="java.util.List">
        <property name="entityType" value="Employee"/>
@@ -836,9 +829,9 @@ To define a parameter that supports multiple selections:
    </parameter>
    ```
 
-::: details Example: Multi-Selection Parameters
+::: details مثال: معاملات التحديد المتعدد
 ```xml
-<!-- Reference type list parameter -->
+<!-- معامل قائمة من نوع مرجعي -->
 <parameter name="MultiEmployee" class="java.util.List">
     <property name="entityType" value="Employee"/>
     <property name="arabic" value="الموظفين"/>
@@ -849,7 +842,7 @@ To define a parameter that supports multiple selections:
 </parameter>
 <parameter name="MultiEmployee_csv" class="java.lang.String" isForPrompting="false"/>
 
-<!-- Non-reference type list parameter -->
+<!-- معامل قائمة من نوع غير مرجعي -->
 <parameter name="MultiDate" class="java.util.Date">
     <property name="english" value="Dates"/>
     <property name="arabic" value="التواريخ"/>
@@ -861,19 +854,19 @@ To define a parameter that supports multiple selections:
 ```
 :::
 
-### Date Range Parameters
+### معاملات نطاق التاريخ {#Date-Range-Parameters}
 
-When users filter a report by a date range, defining two separate "From Date" and "To Date" parameters works, but it takes up two prompt rows and the relationship between them isn't visually obvious. The `showAsDateRange` option lets you present a single, unified range picker in the prompt UI while keeping two real date parameters underneath for your SQL query to use.
+عند تصفية المستخدمين للتقرير بنطاق تاريخ، يعمل تعريف معاملَي "من تاريخ" و"إلى تاريخ" منفصلَين، لكنه يشغل صفّي مطالبة ولا تكون العلاقة بينهما واضحة بصرياً. يتيح خيار `showAsDateRange` تقديم منتقٍ موحّد لنطاق التاريخ في واجهة المطالبة مع الإبقاء على معاملَي التاريخ الفعليَّين كما هما لاستخدامهما في استعلام SQL.
 
-The pattern relies on three parameters working together:
+يعتمد النمط على ثلاثة معاملات تعمل معاً:
 
-1. **A controller string parameter** with `showAsDateRange = true`. This is what the user sees and interacts with; it doesn't carry a value of its own.
-2. **A "from date" parameter** with `isForPrompting="false"` — referenced by the controller's `fromDateId` property.
-3. **A "to date" parameter** with `isForPrompting="false"` — referenced by the controller's `toDateId` property.
+1. **معامل نصي تحكّمي** مع `showAsDateRange = true`. هذا ما يراه المستخدم ويتفاعل معه؛ لا يحمل قيمة خاصة به.
+2. **معامل "من تاريخ"** مع `isForPrompting="false"` — مُشار إليه بخاصية `fromDateId` للمعامل التحكّمي.
+3. **معامل "إلى تاريخ"** مع `isForPrompting="false"` — مُشار إليه بخاصية `toDateId` للمعامل التحكّمي.
 
-When the user picks a range, the system writes the chosen dates into the two underlying date parameters. From your query's perspective, nothing changes — you reference `$P{FromValueDate}` and `$P{ToValueDate}` exactly as you would any other date parameter.
+عندما يختار المستخدم نطاقاً، يكتب النظام التواريخ المختارة في معاملَي التاريخ الأساسيَّين. من منظور الاستعلام، لا شيء يتغير — تُشير إلى `$P{FromValueDate}` و`$P{ToValueDate}` تماماً كأي معامل تاريخ آخر.
 
-* Example
+* مثال
 
 ```xml
 <parameter name="FromValueDate" class="java.util.Date" isForPrompting="false">
@@ -895,47 +888,46 @@ When the user picks a range, the system writes the chosen dates into the two und
 </parameter>
 ```
 
-Then in your SQL query, reference the underlying date parameters directly:
+ثم في استعلام SQL، أشر إلى معاملات التاريخ الأساسية مباشرةً:
 
 ```sql
 WHERE valueDate >= $P{FromValueDate}
   AND valueDate <= $P{ToValueDate}
 ```
 
-Or using $X{[BETWEEN syntax]}
+أو باستخدام صيغة $X{[BETWEEN]}
 
 ```sql
 where $X{[BETWEEN],valueDate,FromValueDate,ToValueDate}
 ```
 
-* Requirements
+* المتطلبات
 
-- The controller parameter must be of type `java.lang.String`.
-- Both date parameters must set `isForPrompting="false"` so they don't appear as separate prompts alongside the range picker.
-- The values of `fromDateId` and `toDateId` must match the names of the two date parameters exactly.
+- يجب أن يكون المعامل التحكّمي من النوع `java.lang.String`.
+- يجب أن يضبط كلا معاملَي التاريخ `isForPrompting="false"` حتى لا يظهرا كمطالبات منفصلة إلى جانب منتقي النطاق.
+- يجب أن تتطابق قيم `fromDateId` و`toDateId` مع أسماء معاملَي التاريخ بالضبط.
+### مرجع خصائص المعاملات {#Parameter-Properties-Reference}
 
-### Parameter Properties Reference
+#### الخصائص الأساسية {#Basic-Properties}
+- **`list`**: `true`/`false` - تفعيل التحديد المتعدد
+- **`listType`**: مطلوب للأنواع غير المرجعية (مثلاً `java.util.Date`)
+- **`listDisplayType`**: الأداة المستخدمة لعرض معامل القائمة. إحدى `Default`، `Dropdown`، `Chips`.
+- **`showAsDateRange`**: `true`/`false` - عرض معامل نصي كمنتقٍ موحّد لنطاق التاريخ. يُستخدم مع `fromDateId` و`toDateId`. انظر [معاملات نطاق التاريخ](#Date-Range-Parameters).
+- **`fromDateId`**: اسم معامل "من تاريخ" الأساسي عند تفعيل `showAsDateRange`.
+- **`toDateId`**: اسم معامل "إلى تاريخ" الأساسي عند تفعيل `showAsDateRange`.
+- **`layout`**: تخطيط العرض (`alone`، `spanned`، `normal`، `spanned2`)
+- **`required`**: `true`/`false` - وضع علامة إلزامي
+- **`requiredGroup`**: تجميع المعاملات حيث يجب ملء واحد على الأقل
+- **`hijri`**: `true`/`false` - استخدام التقويم الهجري للتواريخ
+- **`nama-id`**: معرّف داخلي لوظائف Nama المحددة (معالج التقرير)
 
-#### Basic Properties
-- **`list`**: `true`/`false` - Enable multi-selection
-- **`listType`**: Required for non-reference types (e.g., `java.util.Date`)
-- **`listDisplayType`**: Widget used to render a list parameter. One of `Default`, `Dropdown`, `Chips`.
-- **`showAsDateRange`**: `true`/`false` - Render a string parameter as a unified date range picker. Used together with `fromDateId` and `toDateId`. See [Date Range Parameters](#Date-Range-Parameters).
-- **`fromDateId`**: Name of the underlying "from date" parameter when `showAsDateRange` is enabled.
-- **`toDateId`**: Name of the underlying "to date" parameter when `showAsDateRange` is enabled.
-- **`layout`**: Display layout (`alone`, `spanned`, `normal`, `spanned2`)
-- **`required`**: `true`/`false` - Mark as mandatory
-- **`requiredGroup`**: Group parameters where at least one must be filled
-- **`hijri`**: `true`/`false` - Use Hijri calendar for dates
-- **`nama-id`**: Internal identifier for Nama-specific functionality (Report Wizard)
-
-#### Suggestions for Text Fields
-- **`suggestionquery`**: SQL query for autocomplete
-  - Two columns: Code and Arabic display
-  - Three columns: Code, Arabic, and English
+#### الاقتراحات للحقول النصية {#Suggestions-for-Text-Fields}
+- **`suggestionquery`**: استعلام SQL للإكمال التلقائي
+  - عمودان: الكود والعرض بالعربية
+  - ثلاثة أعمدة: الكود، العربية، والإنجليزية
 
 ```sql
--- Example suggestion query
+-- مثال استعلام اقتراح
 SELECT DISTINCT TOP 25 revisionId, revisionName 
 FROM ItemRevision 
 WHERE invItem_id = {fItem} 
@@ -943,15 +935,15 @@ WHERE invItem_id = {fItem}
        OR revisionName LIKE '%' + {revision} + '%')
 ```
 
-#### Reference Selection
-- **`entityType`**: Entity to select from
-- **`property`**: Field to extract (`code`, `name1`, `name2`, `startDate`)
+#### اختيار المرجع {#Reference-Selection}
+- **`entityType`**: الكيان للاختيار منه
+- **`property`**: الحقل للاستخراج (`code`، `name1`، `name2`، `startDate`)
 
-#### Combo Box (Drop Down)
-- **`enumType`**: Enum type for allowed values
-- **`allowedValues`**: Comma-separated allowed values (renders as combo box)
-- **`allowedValuesAr`**: Arabic translations for dropdown values (comma-separated, same order as `allowedValues`)
-- **`allowedValuesEn`**: English translations for dropdown values (comma-separated, same order as `allowedValues`)
+#### القائمة المنسدلة (Combo Box) {#Combo-Box-Drop-Down}
+- **`enumType`**: نوع enum للقيم المسموحة
+- **`allowedValues`**: القيم المسموحة مفصولة بفواصل (تُعرض كـ combo box)
+- **`allowedValuesAr`**: الترجمات العربية لقيم القائمة المنسدلة (مفصولة بفواصل، بنفس ترتيب `allowedValues`)
+- **`allowedValuesEn`**: الترجمات الإنجليزية لقيم القائمة المنسدلة (مفصولة بفواصل، بنفس ترتيب `allowedValues`)
 
 ```xml
 <parameter name="entityType" class="java.lang.String">
@@ -962,13 +954,13 @@ WHERE invItem_id = {fItem}
 </parameter>
 ```
 
-#### Filtering Values
-- **`filter`**: Field filtering syntax: `field,operator,value[,relation]`
-  - Multiple filters separated by semicolons
-  - Default relation is `AND`
-  - Use `${parameterId}` to reference other parameters
+#### تصفية القيم {#Filtering-Values}
+- **`filter`**: صيغة تصفية الحقول: `field,operator,value[,relation]`
+  - فلاتر متعددة مفصولة بفاصلة منقوطة
+  - العلاقة الافتراضية `AND`
+  - استخدم `${parameterId}` للإشارة إلى معاملات أخرى
 
-Available operators:
+العوامل المتاحة:
 ```
 Equal, EqualOrEmpty, NotEqual, NotEqualOrEmpty,
 GreaterThan, GreaterThanOrEmpty, GreaterThanOrEqual, GreaterThanOrEqualOrEmpty,
@@ -979,20 +971,20 @@ Contains, ContainsOrEmpty, NotContain, NotContainOrEmpty,
 OpenBracket, CloseBracket, In
 ```
 
-Examples:
+أمثلة:
 ```
 forType,Equal,Department,AND;isLeaf,Equal,true
 documentType,Equal,ReceiptVoucher
 forType,Equal,${subsidiaryType}
 ```
 
-#### Default Values
-- **`defaultValue`**: String value based on parameter type
-  - Date: `dd-MM-yyyy`
-  - Time: `yyyy-MM-dd'T'HH:mm:ss.SSS`
-  - Reference: `id:entityType:code`
+#### القيم الافتراضية {#Default-Values}
+- **`defaultValue`**: قيمة نصية بناءً على نوع المعامل
+  - التاريخ: `dd-MM-yyyy`
+  - الوقت: `yyyy-MM-dd'T'HH:mm:ss.SSS`
+  - المرجع: `id:entityType:code`
 
-::: details Dynamic Default Functions
+::: details دوال الإعداد الافتراضي الديناميكية
 ```
 $now()                  $today()
 $monthStart()           $monthEnd()
@@ -1011,18 +1003,18 @@ $todayPlusMonths(n)     $todayPlusYears(n)
 ```
 :::
 
-For multi-value parameters, use `@A=@X` separator:
+للمعاملات متعددة القيم، استخدم الفاصل `@A=@X`:
 ```
 id:entityType:code@A=@Xid:entityType:code@A=@X...
 ```
 
-#### Display Control & Validation
-- **`NamaRep.canDisplay($P{param})`**: Use in `printWhenExpression`
-- **`no-mirror = true`**: Prevent element mirroring
+#### التحكم في العرض والتحقق {#Display-Control--Validation}
+- **`NamaRep.canDisplay($P{param})`**: استخدم في `printWhenExpression`
+- **`no-mirror = true`**: منع انعكاس العنصر
 
-#### Range Validation
-- **`fromParam`**: Link "to" parameter to "from" parameter
-- **`fromParamMaxGapInDays`**: Maximum gap in days between dates
+#### التحقق من النطاق {#Range-Validation}
+- **`fromParam`**: ربط معامل "إلى" بمعامل "من"
+- **`fromParamMaxGapInDays`**: الحد الأقصى للفجوة بالأيام بين التواريخ
 
 ```xml
 <parameter name="toDate" class="java.util.Date">
@@ -1033,114 +1025,108 @@ id:entityType:code@A=@Xid:entityType:code@A=@X...
 </parameter>
 ```
 
-#### Other Properties
-- **`arabic`/`english`**: Display labels
-- **`resource`**: Resource key for translation
-- **`src`**: Reuse property from another parameter
-- **`ignore`**: Exclude from prompting
-- **`type`**: Special null handling or comparison type (e.g., for date comparisons with `>`, `<` operators)
+#### خصائص أخرى {#Other-Properties}
+- **`arabic`/`english`**: تسميات العرض
+- **`resource`**: مفتاح المورد للترجمة
+- **`src`**: إعادة استخدام خاصية من معامل آخر
+- **`ignore`**: استبعاد من المطالبة
+- **`type`**: معالجة خاصة للقيم الفارغة أو نوع المقارنة (مثلاً لمقارنات التاريخ مع عوامل `>`، `<`)
 
-### Report Properties
-Special report-level properties (consult development team for usage):
-- `preRunUtil` - Pre-execution utility
-- `questionsChangeUtil` - Question change handler
-- `comparisonType` - Comparison type configuration
+### خصائص التقرير {#Report-Properties}
+خصائص خاصة على مستوى التقرير (استشر فريق التطوير للاستخدام):
+- `preRunUtil` - أداة ما قبل التنفيذ
+- `questionsChangeUtil` - معالج تغيير الأسئلة
+- `comparisonType` - إعداد نوع المقارنة
+## إنشاء تقارير بأحجام صفحات مختلفة {#Creating-Reports-with-Different-Page-Sizes}
 
-## Creating Reports with Different Page Sizes
-
-::: rtl
-### كيفية إنشاء تقرير يحتوي على تقارير فرعية بأحجام صفحات مختلفة باستخدام JasperReports
+### كيفية إنشاء تقرير يحتوي على تقارير فرعية بأحجام صفحات مختلفة باستخدام JasperReports {#How-to-Create-a-Report-with-Subreports-of-Different-Page-Sizes-Using-JasperReports}
 
 يمكنك تنفيذ هذا النوع من التقارير بسهولة باستخدام JasperReports من خلال الخطوات التالية:
-:::
 
-### Using Book Reports for Multiple Page Sizes
+### استخدام تقارير Book لأحجام صفحات متعددة {#Using-Book-Reports-for-Multiple-Page-Sizes}
 
-1. **Create a Book Report**: Start with a main report of type *Book Report*
-2. **Add SQL Query**: Write a simple SQL query with fields for conditional display
-3. **Add Report Parts**: Use **Add Part to Content** to add each subreport
-4. **Set Print Conditions**: Use **Print When Expression** for each part
-5. **Pass Parameters**: Define all required parameters and pass them to each part
+1. **إنشاء تقرير Book**: ابدأ بتقرير رئيسي من النوع *Book Report*
+2. **إضافة استعلام SQL**: اكتب استعلام SQL بسيطاً مع حقول للعرض الشرطي
+3. **إضافة أجزاء التقرير**: استخدم **Add Part to Content** لإضافة كل تقرير فرعي
+4. **ضبط شروط الطباعة**: استخدم **Print When Expression** لكل جزء
+5. **تمرير المعاملات**: عرّف جميع المعاملات المطلوبة ومررها إلى كل جزء
 
-### Example: Mixed A4 and A3 Pages
-Create a print template with two parts having different page sizes (A4 and A3), displayed based on a condition from the document's notes field. Each part can contain its own subreports.
+### مثال: صفحات A4 و A3 مختلطة {#Example--Mixed-A4-and-A3-Pages}
+أنشئ قالب طباعة بجزأين بأحجام صفحات مختلفة (A4 وA3)، يُعرض بناءً على شرط من حقل ملاحظات المستند. يمكن أن يحتوي كل جزء على تقاريره الفرعية.
 
-- 📥 [Download Excel template for import](https://docs.google.com/spreadsheets/d/1TPjsTwB2fcCIth0JB30AqbmIxPymgEbG/edit)
-- 📎 [Download attachment for import](https://drive.google.com/file/d/1r1FraUmyLue9xyOHURnzzKTKoap_hxQQ/view)
+- 📥 [تنزيل قالب Excel للاستيراد](https://docs.google.com/spreadsheets/d/1TPjsTwB2fcCIth0JB30AqbmIxPymgEbG/edit)
+- 📎 [تنزيل المرفق للاستيراد](https://drive.google.com/file/d/1r1FraUmyLue9xyOHURnzzKTKoap_hxQQ/view)
 
-Reference: Development request [SRDRQ05261](https://namasoft.com/reqs/SRDRQ05261)
+مرجع: طلب تطوير [SRDRQ05261](https://namasoft.com/reqs/SRDRQ05261)
 
-## Kill Reports Running for More Than N Seconds
+## إيقاف التقارير التي تجاوزت وقت التنفيذ {#Kill-Reports-Running-for-More-Than-N-Seconds}
 
-::: rtl
-### ⏱️ إيقاف التقارير التي تجاوزت وقت تنفيذ معين
+### إيقاف التقارير التي تجاوزت وقت تنفيذ معين {#Stopping-Reports-That-Have-Exceeded-a-Set-Execution-Time}
 
-عند تشغيل تقارير كبيرة، قد يؤدي الضغط على النظام أحيانًا إلى عدم قدرة المستخدمين الجدد على تسجيل الدخول. وفي بعض الحالات، نضطر إلى إيقاف خدمة **Tomcat** وإعادة تشغيلها لحل المشكلة.
+عند تشغيل تقارير كبيرة، قد يؤدي الضغط على النظام أحياناً إلى عدم قدرة المستخدمين الجدد على تسجيل الدخول. وفي بعض الحالات، نضطر إلى إيقاف خدمة **Tomcat** وإعادة تشغيلها لحل المشكلة.
 
 لذا تم إنشاء أداة تقوم بإيقاف أي تقرير تجاوز وقت تنفيذ معين (مثلاً 10 أو 120 ثانية)، دون الحاجة لإعادة تشغيل الخادم.
-:::
 
-### Configuration Steps
+### خطوات الإعداد {#Configuration-Steps}
 
-1. **Edit `nama.properties`**:
+1. **تعديل `nama.properties`**:
 ```ini
 kill-reports-running-more-than-seconds=120
 ```
-The number `120` represents the maximum seconds allowed for report execution.
+الرقم `120` يمثل الحد الأقصى المسموح به من الثواني لتنفيذ التقرير.
 
-2. **Apply Configuration**:
-Navigate to: `/basic-services/monitorlogin?reload-config-and-kill-running-reports=true`
+2. **تطبيق الإعداد**:
+انتقل إلى: `/basic-services/monitorlogin?reload-config-and-kill-running-reports=true`
 
-This reloads the configuration and kills all reports exceeding the time limit.
+يُعيد هذا تحميل الإعداد ويوقف جميع التقارير التي تجاوزت الحد الزمني.
 
-Reference: Development request [ECPADR00932](https://namasoft.com/reqs/ECPADR00932)
+مرجع: طلب تطوير [ECPADR00932](https://namasoft.com/reqs/ECPADR00932)
 
-## Adding Extra Fonts for PDF Printing
+## إضافة خطوط إضافية لطباعة PDF {#Adding-Extra-Fonts-for-PDF-Printing}
 
-- [Watch this video for detailed steps](https://youtu.be/n08xmWekB1s)
+- [شاهد هذا الفيديو للخطوات التفصيلية](https://youtu.be/n08xmWekB1s)
 
-Nama ERP supports **Times New Roman** by default for Arabic text. To use different Arabic-supporting fonts (Cairo, Amiri, Droid Arabic Naskh, etc.):
+يدعم نظام Nama ERP **Times New Roman** افتراضياً للنصوص العربية. لاستخدام خطوط تدعم العربية بشكل مختلف (Cairo، Amiri، Droid Arabic Naskh، إلخ):
 
-### 1. Add Font in Jaspersoft Studio
-- Open **Jaspersoft Studio**
-- Go to `Window > Preferences`
-- Navigate to `Jaspersoft Studio > Fonts`
-- Click **Add**
+### 1. إضافة الخط في Jaspersoft Studio {#1-Add-Font-in-Jaspersoft-Studio}
+- افتح **Jaspersoft Studio**
+- اذهب إلى `Window > Preferences`
+- انتقل إلى `Jaspersoft Studio > Fonts`
+- انقر على **Add**
 
-### 2. Configure Font Properties
-In the **Font Family** dialog:
-- Choose the `.ttf` or `.otf` font file(s)
-- Check ✅ **Embed this font in PDF documents**
-- Set **PDF Encoding** to: `Identity-H`
+### 2. إعداد خصائص الخط {#2-Configure-Font-Properties}
+في مربع حوار **Font Family**:
+- اختر ملف (ملفات) الخط `.ttf` أو `.otf`
+- ضع علامة ✅ على **Embed this font in PDF documents**
+- اضبط **PDF Encoding** على: `Identity-H`
 
 ![Jasper Reports Font Family Dialog for Arabic Fonts](images/jasper-reports-font-family.png)
 
-- Click **Finish**
+- انقر على **Finish**
 
-### 3. Export Font as JAR
-- After adding the font, click **Export**
-- Save the generated `.jar` file
+### 3. تصدير الخط كملف JAR {#3-Export-Font-as-JAR}
+- بعد إضافة الخط، انقر على **Export**
+- احفظ ملف `.jar` المولَّد
 
-### 4. Deploy Font JAR in Tomcat
-- Copy the exported `.jar` file to `tomcat/lib` folder
-- Restart the **Tomcat** service
+### 4. نشر ملف JAR للخط في Tomcat {#4-Deploy-Font-JAR-in-Tomcat}
+- انسخ ملف `.jar` المصدَّر إلى مجلد `tomcat/lib`
+- أعد تشغيل خدمة **Tomcat**
 
-::: tip For POS Applications
-For **POS** applications, upload the exported font JAR file to the **Jasper Fonts** field in **POS UI Settings** (إعدادات واجهة نقطة البيع). The system will automatically create the font extension file in the `jasper-fonts-extension` folder:
-- When the POS application starts up
-- When the POS UI Settings record is saved
+::: tip لتطبيقات نقطة البيع (POS)
+لتطبيقات **POS**، ارفع ملف JAR للخط المصدَّر إلى حقل **Jasper Fonts** في **إعدادات واجهة نقطة البيع** (POS UI Settings). سينشئ النظام تلقائياً ملف امتداد الخط في مجلد `jasper-fonts-extension`:
+- عند بدء تشغيل تطبيق POS
+- عند حفظ سجل إعدادات واجهة نقطة البيع
 
-**Important:** After updating POS machines to a version that supports jasper-fonts-extension, you must re-save the POS UI Settings record to trigger the font file deployment on each machine.
+**مهم:** بعد تحديث أجهزة POS إلى إصدار يدعم jasper-fonts-extension، يجب إعادة حفظ سجل إعدادات واجهة نقطة البيع لتشغيل نشر ملف الخط على كل جهاز.
 :::
 
-### 5. Use the Font in Reports
-- Assign the new font family to text fields in your `.jrxml` files
-- The font will be embedded and rendered properly in PDFs, including Arabic characters
+### 5. استخدام الخط في التقارير {#5-Use-the-Font-in-Reports}
+- عيّن عائلة الخط الجديدة لحقول النص في ملفات `.jrxml`
+- سيتم تضمين الخط وعرضه بشكل صحيح في ملفات PDF، بما فيها الأحرف العربية
+## أفضل الممارسات {#Best-Practices}
 
-## Best Practices
-
-### 1. Variable Creation for Complex Objects
-When working with price calculations or report links, create variables:
+### 1. إنشاء المتغيرات للكائنات المعقدة {#1-Variable-Creation-for-Complex-Objects}
+عند العمل مع حسابات الأسعار أو روابط التقارير، أنشئ متغيرات:
 ```xml
 <variable name="price" class="java.lang.Object" calculation="No Calculation Function">
   <initialValueExpression>
@@ -1149,133 +1135,133 @@ When working with price calculations or report links, create variables:
 </variable>
 ```
 
-### 2. Null Safety
-Always use null-safe methods when dealing with potentially null values:
+### 2. الأمان من القيم الفارغة {#2-Null-Safety}
+استخدم دائماً الدوال الآمنة من القيم الفارغة عند التعامل مع قيم محتملة الفراغ:
 ```groovy
-NamaRep.zeroIfNull(value)              // Instead of direct value access
-NamaRep.nameOrCode(code, name1, name2) // Fallback to code
+NamaRep.zeroIfNull(value)              // بدلاً من الوصول المباشر للقيمة
+NamaRep.nameOrCode(code, name1, name2) // الرجوع إلى الكود
 ```
 
-### 3. Localization
-Always use translation methods for user-facing text:
+### 3. التوطين {#3-Localization}
+استخدم دائماً دوال الترجمة للنصوص التي يراها المستخدم:
 ```groovy
-NamaRep.translate(enumValue)   // For enums
-NamaRep.name(arabic, english)  // For dual-language fields
+NamaRep.translate(enumValue)   // لقيم enum
+NamaRep.name(arabic, english)  // للحقول ثنائية اللغة
 ```
 
-### 4. Performance Optimization
-- Cache complex calculations in variables
-- Use `copyParams()` when linking reports to avoid parameter duplication
-- Batch SQL queries when possible
+### 4. تحسين الأداء {#4-Performance-Optimization}
+- خزّن الحسابات المعقدة في متغيرات
+- استخدم `copyParams()` عند ربط التقارير لتجنب تكرار المعاملات
+- جمّع استعلامات SQL عند الإمكان
 
-### 5. Security Constraints
-Always apply security constraints when querying sensitive data:
+### 5. قيود الأمان {#5-Security-Constraints}
+طبّق دائماً قيود الأمان عند الاستعلام عن بيانات حساسة:
 ```sql
 SELECT * FROM Account acc 
 WHERE acc.active = true 
   AND $P!{SECURITY_CONSTRAINTS}
 ```
 
-## Migration from Legacy Methods
+## الترحيل من الدوال القديمة {#Migration-from-Legacy-Methods}
 
-Common replacements when updating old reports:
+الاستبدالات الشائعة عند تحديث التقارير القديمة:
 
-| Old Method | New Method |
+| الدالة القديمة | الدالة الجديدة |
 |------------|------------|
-| Direct field access | `NamaRep.name(name1, name2)` |
-| Manual date formatting | `NamaRep.datePattern()` |
-| Custom price queries | `NamaRep.priceCalculator()` |
-| Manual translation | `NamaRep.translate()` |
+| الوصول المباشر للحقل | `NamaRep.name(name1, name2)` |
+| تنسيق التاريخ يدوياً | `NamaRep.datePattern()` |
+| استعلامات الأسعار المخصصة | `NamaRep.priceCalculator()` |
+| الترجمة اليدوية | `NamaRep.translate()` |
 
-## Troubleshooting
+## استكشاف الأخطاء وإصلاحها {#Troubleshooting}
 
-### Common Issues and Solutions
+### المشكلات الشائعة وحلولها {#Common-Issues-and-Solutions}
 
-1. **Arabic text not displaying**: Ensure font supports Arabic and PDF encoding is set to `Identity-H`
-2. **Null pointer exceptions**: Use null-safe methods like `zeroIfNull()`
-3. **Price calculations returning null**: Verify all required parameters are provided
-4. **Links not working**: Check that entity type and ID are valid
-5. **Security constraints not applying**: Ensure parameter name matches exactly in query
-6. **Multi-selection not working**: Verify `list` and `listType` properties are set correctly
-7. **Subreports not loading**: Check parameter ID matches subreport name exactly
+1. **النص العربي لا يظهر**: تأكد من أن الخط يدعم العربية وأن ترميز PDF مضبوط على `Identity-H`
+2. **استثناءات المؤشر الفارغ**: استخدم الدوال الآمنة مثل `zeroIfNull()`
+3. **حسابات الأسعار تُرجع قيمة فارغة**: تحقق من توفير جميع المعاملات المطلوبة
+4. **الروابط لا تعمل**: تحقق من صحة نوع الكيان والمعرّف
+5. **قيود الأمان لا تُطبَّق**: تأكد من تطابق اسم المعامل تماماً في الاستعلام
+6. **التحديد المتعدد لا يعمل**: تحقق من ضبط خصائص `list` و`listType` بشكل صحيح
+7. **التقارير الفرعية لا تُحمَّل**: تحقق من تطابق معرّف المعامل مع اسم التقرير الفرعي تماماً
 
-## Advanced Features Reference
+## مرجع الميزات المتقدمة {#Advanced-Features-Reference}
 
-### Audit Trail (Version History)
+### مسار المراجعة (سجل الإصدارات) {#Audit-Trail-Version-History}
 
-The audit trail feature allows you to display detailed change history for any entity record in reports. This is useful for compliance, tracking modifications, and understanding how data evolved over time.
+تتيح ميزة مسار المراجعة عرض سجل تغييرات مفصّل لأي سجل كيان في التقارير. هذا مفيد للامتثال وتتبع التعديلات وفهم كيفية تطور البيانات عبر الزمن.
 
-#### Basic Audit Trail Function
+#### دالة مسار المراجعة الأساسية {#Basic-Audit-Trail-Function}
 
 ```groovy
 NamaRep.audit(entityType, id, versionNumber, actionType, language, outputFormat)
 ```
 
-**Parameters:**
-- `entityType` - The entity type (e.g., "SalesInvoice", "Customer")
-- `id` - The record ID
-- `versionNumber` - The version number to compare (usually current version)
-- `actionType` - The action type (typically "Update")
-- `language` - Output language: `"arabic"` or `"english"`
-- `outputFormat` - Format type: `"html"` or `"text"`
+**المعاملات:**
+- `entityType` - نوع الكيان (مثلاً "SalesInvoice"، "Customer")
+- `id` - معرّف السجل
+- `versionNumber` - رقم الإصدار للمقارنة (عادةً الإصدار الحالي)
+- `actionType` - نوع الإجراء (عادةً "Update")
+- `language` - لغة الإخراج: `"arabic"` أو `"english"`
+- `outputFormat` - نوع التنسيق: `"html"` أو `"text"`
 
-**Example - Display audit trail in Arabic HTML:**
+**مثال - عرض مسار المراجعة بالعربية HTML:**
 ```groovy
 NamaRep.audit($F{entityType}, $F{id}, $F{versionNumber}, "Update", "arabic", "html")
 ```
 
-**Example - Display audit trail in English text:**
+**مثال - عرض مسار المراجعة بالإنجليزية نصاً:**
 ```groovy
 NamaRep.audit("Customer", $F{customerId}, $F{currentVersion}, "Update", "english", "text")
 ```
 
-#### What the Audit Trail Shows
+#### ما يعرضه مسار المراجعة {#What-the-Audit-Trail-Shows}
 
-The audit trail displays:
-- **Header Changes**: Field modifications in the main record
-  - Field name
-  - Old value
-  - New value
-- **Detail Line Changes**: Changes to collection items (e.g., invoice lines)
-  - Lines added
-  - Lines removed
-  - Lines modified
-- **Modification Info**:
-  - Who made the change
-  - When the change was made
+يعرض مسار المراجعة:
+- **تغييرات الرأسية**: تعديلات الحقول في السجل الرئيسي
+  - اسم الحقل
+  - القيمة القديمة
+  - القيمة الجديدة
+- **تغييرات أسطر التفاصيل**: التغييرات على عناصر المجموعة (مثلاً أسطر الفاتورة)
+  - الأسطر المضافة
+  - الأسطر المحذوفة
+  - الأسطر المعدَّلة
+- **معلومات التعديل**:
+  - من أجرى التغيير
+  - متى أُجري التغيير
 
-#### Output Formats
+#### تنسيقات الإخراج {#Output-Formats}
 
-**HTML Format:**
-- Produces formatted HTML tables with CSS styling
-- Includes headers and organized sections
-- Ideal for embedded display in reports and emails
+**تنسيق HTML:**
+- يُنتج جداول HTML منسقة مع تنسيق CSS
+- يتضمن رؤوساً وأقساماً منظمة
+- مثالي للعرض المضمّن في التقارير والبريد الإلكتروني
 
-**Text Format:**
-- Plain text output with indentation
-- Line-by-line change description
-- Suitable for SMS, plain text emails, or simple displays
+**تنسيق النص:**
+- إخراج نصي عادي مع مسافة بادئة
+- وصف التغيير سطراً بسطر
+- مناسب للرسائل القصيرة SMS، والبريد الإلكتروني النصي، أو العروض البسيطة
 
-#### Language Options
+#### خيارات اللغة {#Language-Options}
 
-- **Arabic**: All labels and field names in Arabic
-- **English**: All labels and field names in English
+- **العربية**: جميع التسميات وأسماء الحقول بالعربية
+- **الإنجليزية**: جميع التسميات وأسماء الحقول بالإنجليزية
 
 
-### Other Advanced Features
+### ميزات متقدمة أخرى {#Other-Advanced-Features}
 
-For additional advanced features, consult the development team:
+للاطلاع على ميزات متقدمة إضافية، استشر فريق التطوير:
 
-- Group Expressions: `NamaRep.groupExpression(field1, field2, field3)`
-- Order By Builder for complex sorting
-- Encryption/Decryption utilities
-- Values Holder for complex operations
-- Report References with custom ordering
-- Map creation utilities
-- File operations and retrieval
+- تعبيرات التجميع: `NamaRep.groupExpression(field1, field2, field3)`
+- بنّاء Order By للفرز المعقد
+- أدوات التشفير وفك التشفير
+- Values Holder للعمليات المعقدة
+- مراجع التقرير مع الترتيب المخصص
+- أدوات إنشاء الخرائط (Map)
+- عمليات الملفات واسترجاعها
 
-## Conclusion
+## خلاصة {#Conclusion}
 
-This guide provides comprehensive coverage of Jasper Reports development in Nama ERP. The NamaRep utility class offers powerful tools for creating localized, secure, and feature-rich reports that integrate seamlessly with the ERP system. Always refer to this guide when developing new reports or maintaining existing ones.
+يوفر هذا الدليل تغطية شاملة لتطوير Jasper Reports في نظام Nama ERP. تقدم فئة NamaRep الأداتية أدوات قوية لإنشاء تقارير محلّية وآمنة وغنية بالميزات تتكامل بسلاسة مع نظام ERP. ارجع دائماً إلى هذا الدليل عند تطوير تقارير جديدة أو صيانة القائمة منها.
 
-For additional support or undocumented features, consult the Nama ERP development team.
+للحصول على دعم إضافي أو للاطلاع على ميزات غير موثقة، استشر فريق تطوير Nama ERP.

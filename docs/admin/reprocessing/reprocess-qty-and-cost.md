@@ -1,8 +1,8 @@
-# Reprocessing Quantity, Cost, and Stock Ages
+# إعادة معالجة الكميات والتكاليف وأعمار المخزون (Reprocessing Quantity, Cost, and Stock Ages)
 
 <ServerBaseURL/>
 
-## Reprocess All Quantity Transactions (Tomcat must be shutdown)
+## إعادة معالجة جميع حركات الكميات (يجب إيقاف Tomcat أولاً) (Reprocess All Quantity Transactions (Tomcat must be shutdown)) {#Reprocess-All-Quantity-Transactions-Tomcat-must-be-shutdown}
 ::: details
 ```sql
 update FiscalYear set allowCostProcessingWithClosingEntry = 1 where commitedBefore = 1
@@ -92,7 +92,8 @@ delete from StockAgesTrans
 
 ```
 :::
-### Partial Reprocess of Average Cost (Fast)
+
+### إعادة معالجة جزئية للتكلفة المتوسطة (سريعة) (Partial Reprocess of Average Cost (Fast)) {#Partial-Reprocess-of-Average-Cost-Fast}
 <UtilityLinkBuilder
 className="com.namasoft.modules.supplychain.domain.utils.FastReprocessCostFromDate"
 :params="[
@@ -100,9 +101,10 @@ className="com.namasoft.modules.supplychain.domain.utils.FastReprocessCostFromDa
 ]"
 />
 
-## Reprocess Stock Ages
-### Method 1:
-- Use Fast Reprocess Util
+## إعادة معالجة أعمار المخزون (Reprocess Stock Ages) {#Reprocess-Stock-Ages}
+
+### الطريقة الأولى (Method 1) {#Method-1}
+- استخدام أداة إعادة المعالجة السريعة (Fast Reprocess Util)
   <UtilityLinkBuilder
   className="com.namasoft.modules.supplychain.domain.utils.plugnplay.StockAgesFastReprocess"
   :params="[
@@ -110,13 +112,14 @@ className="com.namasoft.modules.supplychain.domain.utils.FastReprocessCostFromDa
   ]"
   />
 ::: warning
-  - Make sure to clear the stock-ages-done file before running the utility, The system will ignore all requests mentioned in the file
-  - Make sure that you are on a release after April 21st
-  - There are no currentNetCost errors displayed in the system
+  - تأكد من مسح ملف stock-ages-done قبل تشغيل الأداة، إذ سيتجاهل النظام جميع الطلبات المذكورة في الملف
+  - تأكد من أنك تستخدم إصداراً بعد 21 أبريل
+  - لا توجد أخطاء currentNetCost معروضة في النظام
 
 :::
-### Method 2:
-- Use Following Query (Slower than method 1)
+
+### الطريقة الثانية (Method 2) {#Method-2}
+- استخدام الاستعلام التالي (أبطأ من الطريقة الأولى)
 ::: details
 ```sql
 truncate table StockAgesMatcher
@@ -135,8 +138,9 @@ inner join InvItem i on i.id = l.item_id
 where i.stockAgesPolicy = 'Yes' and r.transStatus  ='Processed'
 ```
 :::
-### Method 3:
-Use Process Of Certain Dimensions Util
+
+### الطريقة الثالثة (Method 3) {#Method-3}
+استخدام أداة معالجة محددات معينة (Process Of Certain Dimensions Util)
 
 <UtilityLinkBuilder
 className="com.namasoft.modules.supplychain.domain.utils.plugnplay.StockAgesProcessDimensions"

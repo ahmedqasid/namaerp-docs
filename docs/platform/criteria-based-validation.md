@@ -1,18 +1,18 @@
-# Criteria Based Validation
+# التحقق المبني على المعايير (Criteria Based Validation)
 
-### You can display error line numbers by including the following in the error message template:
+### يمكنك عرض أرقام الأسطر التي بها أخطاء عن طريق تضمين ما يلي في قالب رسالة الخطأ:
 ###  LineNumber - Error Line Number - Criteria Based Validation Error Lines
 
 ```tempo
  The error happened at Line Number {$map.errorLines}
 ```
 
-## Check old data:
-### Example: 
+## التحقق من البيانات القديمة (Check old data): {#Check-old-data}
+### مثال: 
 ```sql
 select case when {remarks}<>{oldData.remarks} then 1 else 0 end
 ```
-#### Don't ignore spaces: Example:
+#### لا تتجاهل المسافات: مثال:
 ```sql
 select case when {remarks}<>{oldData.remarks} and coalesce({oldData.remarks},'')<>'' then 1 else 0 end
 ```

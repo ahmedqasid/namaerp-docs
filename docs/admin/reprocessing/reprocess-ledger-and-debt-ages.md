@@ -1,5 +1,6 @@
-# Accounting Utilities - Ledger and Debt Ages Reprocessing
-## Reprocess All Ledger Transactions
+# أدوات المحاسبة - إعادة معالجة دفتر الأستاذ وأعمار الديون (Accounting Utilities - Ledger and Debt Ages Reprocessing)
+
+## إعادة معالجة جميع حركات دفتر الأستاذ (Reprocess All Ledger Transactions) {#Reprocess-All-Ledger-Transactions}
 ::: details
 ```sql
 truncate table AccountBalance
@@ -25,7 +26,8 @@ delete from DebtLine
 go
 ```
 :::
-## Reprocess Unmatched Debt Ages Only
+
+## إعادة معالجة أعمار الديون غير المطابقة فقط (Reprocess Unmatched Debt Ages Only) {#Reprocess-Unmatched-Debt-Ages-Only}
 ::: details
 ```sql
 with debtAgeReqs as  (
@@ -37,7 +39,8 @@ update lr set transStatus = 'Retry',hasDebtAges=1,debtAgesProcessed=0,reqProcess
 LedgerTransReq lr inner join debtAgeReqs dar on dar.id = lr.id
 ```
 :::
-## Reprocess Debt Ages
+
+## إعادة معالجة أعمار الديون (Reprocess Debt Ages) {#Reprocess-Debt-Ages}
 ::: details
 ```sql
 truncate table DebtLineMatcher
@@ -56,7 +59,8 @@ update lr set transStatus = 'Retry',hasDebtAges=1,debtAgesProcessed=0,priority =
 LedgerTransReq lr inner join debtAgeReqs dar on dar.id = lr.id
 ```
 :::
-## Delete Zombie AllManualDebtLines
+
+## حذف سجلات AllManualDebtLines الوهمية (Delete Zombie AllManualDebtLines) {#Delete-Zombie-AllManualDebtLines}
 ::: details 
 ```sql
 delete l from AllManualDebtLines l left join EntitySystemEntry e on e.targetId = l.originId
@@ -64,7 +68,8 @@ where e.id is null
 
 ```
 :::
-## Fix Contracting Reprocessing Failure
+
+## إصلاح فشل إعادة معالجة المقاولات (Fix Contracting Reprocessing Failure) {#Fix-Contracting-Reprocessing-Failure}
 - Could not find class com.namasoft.modules.supplychain.domain.entities.ContractingMaterialIssue$ContractingMaterialIssueCostCallback
 ::: details
 ```sql
@@ -74,7 +79,8 @@ where costCallbackClass = 'com.namasoft.modules.supplychain.domain.entities.Cont
 
 ```
 :::
-## Allow Changing Currency of An Account After Deleting All its transactions
+
+## السماح بتغيير عملة الحساب بعد حذف جميع حركاته (Allow Changing Currency of An Account After Deleting All its transactions) {#Allow-Changing-Currency-of-An-Account-After-Deleting-All-its-transactions}
 ::: details
 ```sql
 delete b from AccountBalance b left join Account acc on acc.id = b.account_id where b.creditAmount = 0 and b.debitAmount = 0 and b.localCreditAmount = 0 and b.localDebitAmount = 0
@@ -82,13 +88,12 @@ delete b from DimensionsBalance b left join Account acc on acc.id = b.account_id
 ```
 :::
 ::: tip
-You can use `Alt Ctrl X` shortcut, then open More Menu of Account Screen, and click on Change Balances Currency 
-<rtl>تغيير عملة الأرصدة</rtl>
-Then recommit all transactions of the account
+يمكنك استخدام اختصار `Alt Ctrl X`، ثم فتح القائمة الإضافية من شاشة الحساب، والنقر على تغيير عملة الأرصدة
+ثم أعد ترحيل جميع حركات الحساب
 :::
 
-## Find and Remove zombie ledger transactions
-::: details Find Zombie Transactions
+## البحث عن حركات دفتر الأستاذ الوهمية وحذفها (Find and Remove zombie ledger transactions) {#Find-and-Remove-zombie-ledger-transactions}
+::: details البحث عن الحركات الوهمية (Find Zombie Transactions)
 
 ```sql
 select distinct r.originType,r.originId from LedgerTransReq r 
@@ -99,7 +104,7 @@ where (e.id is null or e.fileStatus = 'Cancelled' or r.requestType = 'Delete')
 
 ```
 :::
-::: details Remove Zombie Transactions
+::: details حذف الحركات الوهمية (Remove Zombie Transactions)
 ```sql
 update r set requestType ='Delete',transStatus = 'Retry',reqProcessed=0,debtAgesProcessed=0 from LedgerTransReq r 
 inner join LedgerTrans lr on lr.requestId = r.id
@@ -109,7 +114,8 @@ where (e.id is null or e.fileStatus = 'Cancelled' or r.requestType = 'Delete')
 
 ```
 :::
-## Find Unbalanced Transactions (Total Debit <> Total Credit>
+
+## البحث عن الحركات غير المتوازنة (إجمالي المدين <> إجمالي الدائن) (Find Unbalanced Transactions (Total Debit <> Total Credit>) {#Find-Unbalanced-Transactions-Total-Debit--Total-Credit}
 ::: details
 ```sql
 select originType,originId,originCode,valueDate,SUM(creditLocalAmount) cr,SUM(debitLocalAmount) dr from LedgerTransLine group by originType,originId,originCode,valueDate
@@ -118,7 +124,8 @@ order by valueDate
 
 ```
 :::
-## Find Transactions for deleted subsidiaries
+
+## البحث عن حركات لجهات مساندة محذوفة (Find Transactions for deleted subsidiaries) {#Find-Transactions-for-deleted-subsidiaries}
 ::: details
 ```sql
 select l.originCode,l.originType,l.lineNumber+1,l.subsidiaryCode
@@ -126,8 +133,9 @@ from LedgerTransLine l left join EntitySystemEntry e on e.targetId = l.subsidiar
 
 ```
 :::
-## Find LedgerTransLine Entries Without Matching DimensionsBalance Records
-::: details Identify Orphaned LedgerTransLine Records (No Matching DimensionsBalance)
+
+## البحث عن إدخالات LedgerTransLine بدون سجلات DimensionsBalance مطابقة (Find LedgerTransLine Entries Without Matching DimensionsBalance Records) {#Find-LedgerTransLine-Entries-Without-Matching-DimensionsBalance-Records}
+::: details تحديد سجلات LedgerTransLine المعلقة (بدون DimensionsBalance مطابق) (Identify Orphaned LedgerTransLine Records (No Matching DimensionsBalance))
 
 ```sql
 select originType,originId from LedgerTransLine d
@@ -147,10 +155,10 @@ where b.id is null
 ```
 :::
 ::: warning
-You should recommit the result of the previous query
+يجب إعادة ترحيل نتيجة الاستعلام السابق
 :::
 
-::: details Find Mismatch in Ledger vs DimensionsBalance (By Period, Entity, Account)
+::: details البحث عن عدم التطابق بين دفتر الأستاذ وأرصدة المحددات (حسب الفترة والكيان والحساب) (Find Mismatch in Ledger vs DimensionsBalance (By Period, Entity, Account))
 ```sql
 with ledger as (
 select sum(l.debitValueAmount) dr,sum(l.creditValueAmount) cr,sum(l.debitValueAmount)  - sum(l.creditValueAmount) dr_cr 
@@ -179,9 +187,9 @@ full join ledger on ledger.fpId = dimbal.fpId
 where coalesce(dimbal.dr_cr,0) <> coalesce(ledger.dr_cr,0)
 ```
 :::
-- Fix Incorrect Dimension Balances
+- إصلاح أرصدة المحددات غير الصحيحة
 ::: danger
-Please be careful before running the following query
+يرجى الحذر قبل تنفيذ الاستعلام التالي
 :::
 ::: details
 ```sql
@@ -217,8 +225,9 @@ or coalesce(d.localCreditAmount,0) <> b.localCreditAmount
 ```
 :::
 
-## Financial Paper Utilities
-### Fix Financial Paper Entries after delete:
+## أدوات الأوراق المالية (Financial Paper Utilities) {#Financial-Paper-Utilities}
+
+### إصلاح إدخالات الأوراق المالية بعد الحذف (Fix Financial Paper Entries after delete) {#Fix-Financial-Paper-Entries-after-delete}
 ::: details
 ```sql
 update fp set lastStatusEntry_id = null from FinancialPaperStatusEntry e left join EntitySystemEntry est on est.targetId = e.originDocId left join FinancialPaper fp on fp.id = e.financialPaper_id
@@ -234,12 +243,13 @@ where fp.lastStatusEntry_id is null and fpe.id is not null
 
 ```
 :::
-### Fix Cancel of Financial Papers
+
+### إصلاح إلغاء الأوراق المالية (Fix Cancel of Financial Papers) {#Fix-Cancel-of-Financial-Papers}
 ```sql
 update l set cancelValue = fp.valueAmount from FinancialPaperCancelLine l left join FinancialPaper fp on fp.id = l.paper_id where l.cancelValue is null
 ```
 
-### Fix Financial Paper Bad Last Status Entry:
+### إصلاح آخر إدخال حالة خاطئ للأوراق المالية (Fix Financial Paper Bad Last Status Entry) {#Fix-Financial-Paper-Bad-Last-Status-Entry}
 ::: details
 ```sql
 select code,fp.creationDate from FinancialPaper fp left join FinancialPaperStatusEntry e on e.id = fp.lastStatusEntry_id
@@ -250,7 +260,7 @@ update FinancialPaper set lastStatusEntry_id = (select top 1 id from FinancialPa
 ```
 :::
 
-### Allow Deleting Zombie Journal Entries After Deleting Closing Entry
+### السماح بحذف قيود اليومية الوهمية بعد حذف قيد الإقفال (Allow Deleting Zombie Journal Entries After Deleting Closing Entry) {#Allow-Deleting-Zombie-Journal-Entries-After-Deleting-Closing-Entry}
 ::: details
 ```sql
 update je set fromDoc_id = null,fromDoc_type = null,fromDoc_code = null,fromDoc_actualCode = null from JournalEntry je left join ClosingEntry ce on ce.id = je.fromDoc_id
@@ -258,7 +268,8 @@ where je.fromDoc_type = 'ClosingEntry' and ce.id is null
 
 ```
 :::
-## Get Accounts Tree
+
+## الحصول على شجرة الحسابات (Get Accounts Tree) {#Get-Accounts-Tree}
 ::: details
 ```sql
 with x AS
@@ -350,9 +361,10 @@ ORDER BY t.nodeCode,t2.nodeCode
 
 ```
 :::
-## Fix Deleting Account Problem
-If you try to delete an account and then you get a database error “Query optimizer ran out of space”, then do the following:
-Run the following query, then copy the lines and paste them in a new window and run it
+
+## إصلاح مشكلة حذف الحساب (Fix Deleting Account Problem) {#Fix-Deleting-Account-Problem}
+إذا حاولت حذف حساب وظهر خطأ في قاعدة البيانات "Query optimizer ran out of space"، فاتبع الخطوات التالية:
+نفّذ الاستعلام أدناه، ثم انسخ النتائج والصقها في نافذة جديدة ونفّذها
 ::: details
 ```sql
 with x as (
