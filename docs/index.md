@@ -1,9 +1,6 @@
----
-home: true
-heroImage: hero.svg
----
-
 <div class="ignore-in-full-text-search">
+
+<img src="/hero.svg" alt="Nama ERP" class="home-hero-image">
 
 
 # Home

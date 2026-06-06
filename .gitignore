@@ -2,6 +2,8 @@ node_modules/
 docs/.vuepress/dist/
 docs/.vuepress/.cache/
 docs/.vuepress/.temp/
+docs/.vitepress/dist/
+docs/.vitepress/cache/
 .idea/
 package-lock.json
 *.log

@@ -1,0 +1,486 @@
+{
+  "_comment": "HR Overview Dashboard v3 — fresh redesign. 6 tabs, all rowsCount=15 colsCount=12 with identical row 1 (branch filter) + rows 2-3 (date-range + info-bar, heightInRows=2 so the info-bar has room for a per-chip header + value) so cross-filter widgets don't flicker on tab switch. Summary-card widgets use heightInRows=3 to give cards (and sparklines on the KPI strip) room — no scrollbars inside cards. Info-bar chips carry per-row headers (As of / Branch / Last pay period) plus a material icon so each value is self-explanatory. Tabs that need more space (Leave & EOS) place widgets below row 14 to trigger vertical scroll. All metric-card widgets use EnhancedMetricsCard (legacy MetricsCards retired here). New widgets vs v2: hrdDateRange cross-filter (paramType=Date, showAsDateRange=true) and its CrossFilterControl, plus a 12-month payroll-trend EChart on the Compensation tab. Salary summary (hrd-comp-summary-cards) lives only on the Compensation tab. Date range binds only to widgets where it is contextually meaningful (compensation, hires/exits, leave, EOS) via per-widget sqlLeftHandSide overrides; snapshot widgets (workforce, demographics, doc-expiry, contracts-ending, currently-on-leave) stay unbound.",
+
+  "BICrossFilter": [
+    {
+      "code": "hrdBranchFilter",
+      "name1": "فلتر الفرع - لوحة الموارد البشرية",
+      "name2": "Branch Filter (HR Dashboard)",
+      "paramType": "Reference",
+      "listParam": true,
+      "listDisplayType": "Chips",
+      "referencedEntityType": "Branch",
+      "arTitle": "الفرع",
+      "enTitle": "Branch",
+      "sqlLeftHandSide": "e.branch_id",
+      "operator": "In",
+      "autoCreateWidget": false
+    },
+    {
+      "code": "hrdDocTypeFilter",
+      "name1": "فلتر نوع الوثيقة - لوحة الموارد البشرية",
+      "name2": "Document Type Filter (HR Dashboard)",
+      "paramType": "Text",
+      "arTitle": "نوع الوثيقة",
+      "enTitle": "Document Type",
+      "sqlLeftHandSide": "docType",
+      "operator": "Equal",
+      "autoCreateWidget": false
+    },
+    {
+      "code": "hrdDateRange",
+      "name1": "نطاق التاريخ",
+      "name2": "Date Range",
+      "paramType": "Date",
+      "showAsDateRange": true,
+      "arTitle": "نطاق التاريخ",
+      "enTitle": "Date Range",
+      "sqlLeftHandSide": "sd.valueDate",
+      "autoCreateWidget": false
+    }
+  ],
+
+  "DashBoardWidget": [
+    {
+      "code": "hrd-branch-filter-control",
+      "name1": "اختيار الفرع",
+      "name2": "Branch Selector",
+      "type": "CrossFilterControl",
+      "crossFilterRef": "hrdBranchFilter",
+      "horizontalMode": true
+    },
+
+    {
+      "code": "hrd-date-range-control",
+      "name1": "اختيار نطاق التاريخ",
+      "name2": "Date Range Selector",
+      "type": "CrossFilterControl",
+      "crossFilterRef": "hrdDateRange",
+      "horizontalMode": true
+    },
+
+    {
+      "code": "hrd-info-bar",
+      "name1": "شريط المعلومات",
+      "name2": "Filter Status Bar",
+      "type": "EnhancedMetricsCard",
+      "dataSource": "SELECT 1 sortOrder, 'date' chipKind, N'بتاريخ' headerAr, N'As of' headerEn, 'event' iconCode, CONVERT(NVARCHAR(20), GETDATE(), 23) chipText UNION ALL SELECT 2, 'branch', N'الفرع', N'Branch', 'business', ISNULL((SELECT TOP 1 br.name1 FROM Branch br WHERE br.id = (SELECT MIN(e.branch_id) FROM Employee e WHERE 1=1 /*AND-FILTERS*/)), N'كل الفروع') UNION ALL SELECT 3, 'payday', N'آخر فترة راتب', N'Last pay period', 'paid', ISNULL((SELECT TOP 1 CONVERT(NVARCHAR(20), MAX(sd.valueDate), 23) FROM SalaryDocument sd LEFT JOIN Employee e ON e.id = sd.employee_id WHERE sd.commitedBefore = 1 /*AND-FILTERS*/), N'لا توجد') ORDER BY sortOrder",
+      "chartConfigJSON": "{\"cardLayout\":{\"direction\":\"row\",\"gap\":10,\"minCardWidth\":220},\"card\":{\"headerArField\":\"headerAr\",\"headerEnField\":\"headerEn\",\"value\":{\"field\":\"chipText\",\"fontSize\":\"16px\"},\"icon\":{\"field\":\"iconCode\"},\"cardStyle\":{\"borderRadius\":\"10px\",\"padding\":\"10px 14px\",\"shadow\":\"none\",\"borderWidth\":\"1px\"},\"cardConditionalFormatting\":{\"rules\":[{\"when\":{\"type\":\"enum\",\"column\":\"chipKind\",\"values\":[\"date\"]},\"style\":{\"bg\":\"#dbeafe\",\"borderColor\":\"#bfdbfe\",\"iconColor\":\"#1d4ed8\",\"iconBg\":\"#bfdbfe\"}},{\"when\":{\"type\":\"enum\",\"column\":\"chipKind\",\"values\":[\"branch\"]},\"style\":{\"bg\":\"#f1f5f9\",\"borderColor\":\"#e2e8f0\",\"iconColor\":\"#475569\",\"iconBg\":\"#e2e8f0\"}},{\"when\":{\"type\":\"enum\",\"column\":\"chipKind\",\"values\":[\"payday\"]},\"style\":{\"bg\":\"#fef3c7\",\"borderColor\":\"#fde68a\",\"iconColor\":\"#b45309\",\"iconBg\":\"#fde68a\"}}]}}}",
+      "crossFilterBindings": [{ "crossFilter": "hrdBranchFilter" }]
+    },
+
+    {
+      "code": "hrd-kpi-strip",
+      "name1": "شريط المؤشرات الرئيسية",
+      "name2": "Executive KPI Strip",
+      "type": "EnhancedMetricsCard",
+      "dataSource": "WITH months AS (SELECT idx, DATEFROMPARTS(YEAR(EOMONTH(DATEADD(MONTH,-11+idx,GETDATE()))), MONTH(EOMONTH(DATEADD(MONTH,-11+idx,GETDATE()))), 1) mStart, EOMONTH(DATEADD(MONTH,-11+idx,GETDATE())) mEnd FROM (VALUES (0),(1),(2),(3),(4),(5),(6),(7),(8),(9),(10),(11)) n(idx)), hcSeries AS (SELECT m.idx, ISNULL((SELECT COUNT(*) FROM Employee e WHERE e.hiring <= m.mEnd AND (e.firingDate IS NULL OR e.firingDate > m.mEnd) /*AND-FILTERS*/),0) v FROM months m), hireSeries AS (SELECT m.idx, ISNULL((SELECT COUNT(*) FROM Employee e WHERE e.hiring BETWEEN m.mStart AND m.mEnd /*AND-FILTERS*/),0) v FROM months m), exitSeries AS (SELECT m.idx, ISNULL((SELECT COUNT(*) FROM Employee e WHERE e.firingDate BETWEEN m.mStart AND m.mEnd /*AND-FILTERS*/),0) v FROM months m), paySeries AS (SELECT m.idx, ISNULL((SELECT SUM(sd.netSalary) FROM SalaryDocument sd LEFT JOIN Employee e ON e.id = sd.employee_id WHERE sd.commitedBefore = 1 AND sd.valueDate BETWEEN m.mStart AND m.mEnd /*AND-FILTERS*/),0) v FROM months m) SELECT 1 sortOrder, N'إجمالي الموظفين النشطين' headerAr, N'Active Headcount' headerEn, (SELECT COUNT(*) FROM Employee e WHERE e.firingDate IS NULL /*AND-FILTERS*/) cardValue, 'people' iconCode, '#3b82f6' iconColor, '#dbeafe' iconBg, STUFF((SELECT ',' + CAST(v AS NVARCHAR(20)) FROM hcSeries ORDER BY idx FOR XML PATH('')), 1, 1, '') trendCsv UNION ALL SELECT 2, N'تعيينات منذ بداية العام', N'Hires YTD', (SELECT COUNT(*) FROM Employee e WHERE e.hiring >= DATEFROMPARTS(YEAR(GETDATE()),1,1) /*AND-FILTERS*/), 'trending_up', '#10b981', '#ecfdf5', STUFF((SELECT ',' + CAST(v AS NVARCHAR(20)) FROM hireSeries ORDER BY idx FOR XML PATH('')), 1, 1, '') UNION ALL SELECT 3, N'إنهاءات منذ بداية العام', N'Exits YTD', (SELECT COUNT(*) FROM Employee e WHERE e.firingDate >= DATEFROMPARTS(YEAR(GETDATE()),1,1) /*AND-FILTERS*/), 'trending_down', '#ef4444', '#fef2f2', STUFF((SELECT ',' + CAST(v AS NVARCHAR(20)) FROM exitSeries ORDER BY idx FOR XML PATH('')), 1, 1, '') UNION ALL SELECT 4, N'إجمالي رواتب آخر شهر', N'Latest-Month Payroll', (SELECT ISNULL(SUM(sd.netSalary),0) FROM SalaryDocument sd LEFT JOIN Employee e ON e.id = sd.employee_id WHERE sd.commitedBefore = 1 AND sd.valueDate >= DATEADD(MONTH,-1,GETDATE()) /*AND-FILTERS*/), 'attach_money', '#f59e0b', '#fffbeb', STUFF((SELECT ',' + CAST(v AS NVARCHAR(20)) FROM paySeries ORDER BY idx FOR XML PATH('')), 1, 1, '') ORDER BY sortOrder",
+      "chartConfigJSON": "{\"cardLayout\":{\"direction\":\"grid\",\"gap\":12,\"minCardWidth\":220,\"columnsPerRow\":4},\"card\":{\"headerArField\":\"headerAr\",\"headerEnField\":\"headerEn\",\"value\":{\"field\":\"cardValue\",\"formatting\":{\"type\":\"number\",\"decimals\":0,\"thousandSeparator\":true},\"fontSize\":\"30px\"},\"icon\":{\"field\":\"iconCode\",\"colorField\":\"iconColor\",\"bgField\":\"iconBg\"},\"sparkline\":{\"mode\":\"inline\",\"type\":\"area\",\"valuesField\":\"trendCsv\",\"color\":\"#3b82f6\",\"smooth\":true,\"height\":40},\"cardStyle\":{\"bg\":\"#ffffff\",\"borderColor\":\"#e2e8f0\",\"borderWidth\":\"1px\",\"borderRadius\":\"12px\",\"padding\":\"16px\",\"shadow\":\"sm\"}}}",
+      "crossFilterBindings": [{ "crossFilter": "hrdBranchFilter" }]
+    },
+
+    {
+      "code": "hrd-workforce-by-branch",
+      "name1": "توزيع القوى العاملة حسب الفرع",
+      "name2": "Workforce by Branch",
+      "chartTitle": "حسب الفرع",
+      "englishChartTitle": "By Branch",
+      "type": "EChart",
+      "dataSource": "SELECT br.id branchId, br.code branchCode, br.name1 branchName1, br.name2 branchName2, COUNT(e.id) headcount FROM Branch br LEFT JOIN Employee e ON e.branch_id = br.id AND e.firingDate IS NULL WHERE 1=1 /*AND-FILTERS*/ GROUP BY br.id, br.code, br.name1, br.name2 HAVING COUNT(e.id) > 0 ORDER BY headcount DESC",
+      "chartConfigJSON": "{\"echartOption\":{\"tooltip\":{\"trigger\":\"item\",\"formatter\":\"{b}: {c} ({d}%)\"},\"legend\":{\"orient\":\"vertical\",\"right\":\"5%\",\"top\":\"middle\"},\"series\":[{\"type\":\"pie\",\"radius\":[\"45%\",\"70%\"],\"center\":[\"35%\",\"50%\"],\"data\":\"$DATA.values\",\"label\":{\"show\":false},\"itemStyle\":{\"borderRadius\":4,\"borderColor\":\"#fff\",\"borderWidth\":2}}]},\"dataMapping\":{\"type\":\"LabelValue\",\"labelColumn\":\"branchName1\",\"valueColumn\":\"headcount\",\"maxResults\":7,\"maxResultsRankBy\":\"headcount\",\"othersLabelAr\":\"فروع أخرى\",\"othersLabelEn\":\"Other branches\"},\"clickEmitMapping\":[{\"crossFilterCode\":\"hrdBranchFilter\",\"idColumn\":\"branchId\",\"codeColumn\":\"branchCode\",\"name1Column\":\"branchName1\",\"name2Column\":\"branchName2\",\"entityType\":\"Branch\"}]}",
+      "crossFilterBindings": [{ "crossFilter": "hrdBranchFilter" }]
+    },
+
+    {
+      "code": "hrd-12mo-movement",
+      "name1": "حركة العمالة آخر 12 شهر",
+      "name2": "12-Month Workforce Movement",
+      "chartTitle": "حركة العمالة (تعيينات / إنهاءات / إجمالي)",
+      "englishChartTitle": "Hires / Exits / Headcount (last 12 months)",
+      "type": "EChart",
+      "dataSource": "WITH months AS (SELECT n.idx, DATEFROMPARTS(YEAR(EOMONTH(DATEADD(MONTH,-11+n.idx,GETDATE()))), MONTH(EOMONTH(DATEADD(MONTH,-11+n.idx,GETDATE()))), 1) mStart, EOMONTH(DATEADD(MONTH,-11+n.idx,GETDATE())) mEnd FROM (VALUES (0),(1),(2),(3),(4),(5),(6),(7),(8),(9),(10),(11)) n(idx)) SELECT m.idx, FORMAT(m.mStart,'MMM yy') monthLabel, ISNULL((SELECT COUNT(*) FROM Employee e WHERE e.hiring <= m.mEnd AND (e.firingDate IS NULL OR e.firingDate > m.mEnd) /*AND-FILTERS*/),0) headcount, ISNULL((SELECT COUNT(*) FROM Employee e WHERE e.hiring BETWEEN m.mStart AND m.mEnd /*AND-FILTERS*/),0) hires, ISNULL((SELECT COUNT(*) FROM Employee e WHERE e.firingDate BETWEEN m.mStart AND m.mEnd /*AND-FILTERS*/),0) exits FROM months m ORDER BY m.idx",
+      "chartConfigJSON": "{\"echartOption\":{\"tooltip\":{\"trigger\":\"axis\",\"axisPointer\":{\"type\":\"cross\"}},\"legend\":{\"data\":[\"Hires\",\"Exits\",\"Headcount\"]},\"grid\":{\"left\":50,\"right\":50,\"top\":40,\"bottom\":30},\"xAxis\":{\"type\":\"category\",\"data\":\"$DATA.categories\"},\"yAxis\":[{\"type\":\"value\",\"name\":\"Movement\",\"position\":\"left\"},{\"type\":\"value\",\"name\":\"Headcount\",\"position\":\"right\",\"splitLine\":{\"show\":false}}],\"series\":[{\"name\":\"$DATA.series[0].name\",\"type\":\"bar\",\"data\":\"$DATA.series[0].data\",\"itemStyle\":{\"color\":\"#10b981\",\"borderRadius\":[3,3,0,0]}},{\"name\":\"$DATA.series[1].name\",\"type\":\"bar\",\"data\":\"$DATA.series[1].data\",\"itemStyle\":{\"color\":\"#ef4444\",\"borderRadius\":[3,3,0,0]}},{\"name\":\"$DATA.series[2].name\",\"type\":\"line\",\"data\":\"$DATA.series[2].data\",\"yAxisIndex\":1,\"smooth\":true,\"symbolSize\":6,\"itemStyle\":{\"color\":\"#3b82f6\"},\"lineStyle\":{\"width\":2.5,\"color\":\"#3b82f6\"}}]},\"dataMapping\":{\"type\":\"CategoryValue\",\"categoryColumn\":\"monthLabel\",\"series\":[{\"column\":\"hires\",\"name\":\"Hires\",\"type\":\"bar\"},{\"column\":\"exits\",\"name\":\"Exits\",\"type\":\"bar\"},{\"column\":\"headcount\",\"name\":\"Headcount\",\"type\":\"line\",\"yAxisIndex\":1}]}}",
+      "crossFilterBindings": [{ "crossFilter": "hrdBranchFilter" }]
+    },
+
+    {
+      "code": "hrd-doc-expiry-cards",
+      "name1": "بطاقات تنبيه الوثائق",
+      "name2": "Document Expiry Alerts",
+      "type": "EnhancedMetricsCard",
+      "dataSource": "SELECT 1 sortOrder, N'جواز السفر' headerAr, N'Passport' headerEn, 'description' iconCode, (SELECT COUNT(*) FROM Employee e WHERE e.firingDate IS NULL AND e.passportEnd BETWEEN GETDATE() AND DATEADD(DAY,30,GETDATE()) /*AND-FILTERS*/) expiringSoonCount, (SELECT COUNT(*) FROM Employee e WHERE e.firingDate IS NULL AND e.passportEnd IS NOT NULL AND e.passportEnd < GETDATE() /*AND-FILTERS*/) expiredCount, N'جواز السفر' docType UNION ALL SELECT 2, N'الإقامة', N'Iqama', 'badge', (SELECT COUNT(*) FROM Employee e WHERE e.firingDate IS NULL AND e.residencyEnd BETWEEN GETDATE() AND DATEADD(DAY,30,GETDATE()) /*AND-FILTERS*/), (SELECT COUNT(*) FROM Employee e WHERE e.firingDate IS NULL AND e.residencyEnd IS NOT NULL AND e.residencyEnd < GETDATE() /*AND-FILTERS*/), N'الإقامة' UNION ALL SELECT 3, N'رخصة العمل', N'Work License', 'work', (SELECT COUNT(*) FROM Employee e WHERE e.firingDate IS NULL AND e.workLicenseEnd BETWEEN GETDATE() AND DATEADD(DAY,30,GETDATE()) /*AND-FILTERS*/), (SELECT COUNT(*) FROM Employee e WHERE e.firingDate IS NULL AND e.workLicenseEnd IS NOT NULL AND e.workLicenseEnd < GETDATE() /*AND-FILTERS*/), N'رخصة العمل' UNION ALL SELECT 4, N'التأمين الصحي', N'Health Insurance', 'health_and_safety', (SELECT COUNT(*) FROM Employee e WHERE e.firingDate IS NULL AND e.healthInsuranceEnd BETWEEN GETDATE() AND DATEADD(DAY,30,GETDATE()) /*AND-FILTERS*/), (SELECT COUNT(*) FROM Employee e WHERE e.firingDate IS NULL AND e.healthInsuranceEnd IS NOT NULL AND e.healthInsuranceEnd < GETDATE() /*AND-FILTERS*/), N'التأمين الصحي' ORDER BY sortOrder",
+      "chartConfigJSON": "{\"cardLayout\":{\"direction\":\"grid\",\"gap\":12,\"minCardWidth\":220,\"columnsPerRow\":4},\"card\":{\"headerArField\":\"headerAr\",\"headerEnField\":\"headerEn\",\"value\":{\"field\":\"expiringSoonCount\",\"formatting\":{\"type\":\"number\",\"decimals\":0},\"fontSize\":\"32px\"},\"subtitle\":{\"tempoAr\":\"{expiredCount} منتهية · ينتهي خلال 30 يوم\",\"tempoEn\":\"{expiredCount} expired · expiring in 30 days\"},\"icon\":{\"field\":\"iconCode\",\"color\":\"#3b82f6\",\"bg\":\"#dbeafe\"},\"cardStyle\":{\"bg\":\"#ffffff\",\"borderColor\":\"#e2e8f0\",\"borderWidth\":\"1px\",\"borderRadius\":\"12px\",\"padding\":\"16px\",\"shadow\":\"sm\"},\"cardConditionalFormatting\":{\"rules\":[{\"when\":{\"type\":\"threshold\",\"column\":\"expiredCount\",\"op\":\">\",\"value\":0},\"style\":{\"bg\":\"#fef2f2\",\"borderColor\":\"#fecaca\",\"iconColor\":\"#dc2626\",\"iconBg\":\"#fee2e2\"}},{\"when\":{\"type\":\"threshold\",\"column\":\"expiringSoonCount\",\"op\":\">\",\"value\":0},\"style\":{\"bg\":\"#fffbeb\",\"borderColor\":\"#fde68a\",\"iconColor\":\"#d97706\",\"iconBg\":\"#fef3c7\"}}]}},\"clickEmitMapping\":[{\"crossFilterCode\":\"hrdDocTypeFilter\",\"valueColumn\":\"docType\"}]}",
+      "crossFilterBindings": [{ "crossFilter": "hrdBranchFilter" }]
+    },
+
+    {
+      "code": "hrd-doc-expiry-detail",
+      "name1": "تفاصيل وثائق الموظفين قرب الانتهاء",
+      "name2": "Employee Document Expiry Detail",
+      "chartTitle": "الوثائق المستحقة للتجديد",
+      "englishChartTitle": "Documents Expiring Soon",
+      "type": "EnhancedTable",
+      "dataSource": "SELECT TOP 100 * FROM ( SELECT e.name1 employeeName, e.code employeeCode, ISNULL(b.name1,'') branchName, N'جواز السفر' docType, e.passportNumber docNumber, e.passportEnd expiryDate, DATEDIFF(DAY, GETDATE(), e.passportEnd) daysLeft FROM Employee e LEFT JOIN Branch b ON b.id = e.branch_id WHERE e.firingDate IS NULL AND e.passportEnd IS NOT NULL AND e.passportEnd <= DATEADD(DAY, 90, GETDATE()) /*AND-FILTERS*/ UNION ALL SELECT e.name1, e.code, ISNULL(b.name1,''), N'الإقامة', e.residencyNumber, e.residencyEnd, DATEDIFF(DAY, GETDATE(), e.residencyEnd) FROM Employee e LEFT JOIN Branch b ON b.id = e.branch_id WHERE e.firingDate IS NULL AND e.residencyEnd IS NOT NULL AND e.residencyEnd <= DATEADD(DAY, 90, GETDATE()) /*AND-FILTERS*/ UNION ALL SELECT e.name1, e.code, ISNULL(b.name1,''), N'رخصة العمل', e.workLicenseNumber, e.workLicenseEnd, DATEDIFF(DAY, GETDATE(), e.workLicenseEnd) FROM Employee e LEFT JOIN Branch b ON b.id = e.branch_id WHERE e.firingDate IS NULL AND e.workLicenseEnd IS NOT NULL AND e.workLicenseEnd <= DATEADD(DAY, 90, GETDATE()) /*AND-FILTERS*/ UNION ALL SELECT e.name1, e.code, ISNULL(b.name1,''), N'التأمين الصحي', e.healthInsuranceNumber, e.healthInsuranceEnd, DATEDIFF(DAY, GETDATE(), e.healthInsuranceEnd) FROM Employee e LEFT JOIN Branch b ON b.id = e.branch_id WHERE e.firingDate IS NULL AND e.healthInsuranceEnd IS NOT NULL AND e.healthInsuranceEnd <= DATEADD(DAY, 90, GETDATE()) /*AND-FILTERS*/) docs ORDER BY daysLeft ASC",
+      "chartConfigJSON": "{\"tableOptions\":{\"pagination\":true,\"pageSize\":20,\"rowNumbers\":false,\"enableRowGroup\":false,\"wrapText\":true,\"autoHeight\":false},\"columns\":[{\"id\":\"employeeName\",\"field\":\"employeeName\",\"headerArTitle\":\"الموظف\",\"headerEnTitle\":\"Employee\",\"pinned\":\"start\",\"width\":180},{\"id\":\"employeeCode\",\"field\":\"employeeCode\",\"headerArTitle\":\"الكود\",\"headerEnTitle\":\"Code\",\"width\":100},{\"id\":\"branchName\",\"field\":\"branchName\",\"headerArTitle\":\"الفرع\",\"headerEnTitle\":\"Branch\",\"width\":140},{\"id\":\"docType\",\"field\":\"docType\",\"headerArTitle\":\"نوع الوثيقة\",\"headerEnTitle\":\"Doc Type\",\"renderer\":{\"type\":\"badge\",\"badge\":{\"shape\":\"pill\",\"variant\":\"outline\"}},\"width\":120,\"conditionalFormatting\":{\"rules\":[{\"when\":{\"type\":\"enum\",\"values\":[\"جواز السفر\"]},\"style\":{\"bg\":\"#dbeafe\",\"color\":\"#1e40af\"}},{\"when\":{\"type\":\"enum\",\"values\":[\"الإقامة\"]},\"style\":{\"bg\":\"#fef3c7\",\"color\":\"#92400e\"}},{\"when\":{\"type\":\"enum\",\"values\":[\"رخصة العمل\"]},\"style\":{\"bg\":\"#fce7f3\",\"color\":\"#9d174d\"}},{\"when\":{\"type\":\"enum\",\"values\":[\"التأمين الصحي\"]},\"style\":{\"bg\":\"#dcfce7\",\"color\":\"#166534\"}}]}},{\"id\":\"docNumber\",\"field\":\"docNumber\",\"headerArTitle\":\"رقم الوثيقة\",\"headerEnTitle\":\"Doc Number\",\"width\":140},{\"id\":\"expiryDate\",\"field\":\"expiryDate\",\"headerArTitle\":\"تاريخ الانتهاء\",\"headerEnTitle\":\"Expires\",\"formatting\":{\"type\":\"date\",\"dateFormat\":\"yyyy-MM-dd\"},\"width\":120},{\"id\":\"daysLeft\",\"field\":\"daysLeft\",\"headerArTitle\":\"المتبقي (يوم)\",\"headerEnTitle\":\"Days Left\",\"renderer\":{\"type\":\"badge\",\"badge\":{\"shape\":\"pill\",\"variant\":\"solid\"}},\"formatting\":{\"type\":\"number\",\"decimals\":0},\"width\":110,\"conditionalFormatting\":{\"cascade\":false,\"rules\":[{\"when\":{\"type\":\"threshold\",\"op\":\"<\",\"value\":0},\"style\":{\"bg\":\"#991b1b\",\"color\":\"#ffffff\",\"bold\":true}},{\"when\":{\"type\":\"threshold\",\"op\":\"<=\",\"value\":30},\"style\":{\"bg\":\"#fecaca\",\"color\":\"#991b1b\",\"bold\":true}},{\"when\":{\"type\":\"threshold\",\"op\":\"<=\",\"value\":60},\"style\":{\"bg\":\"#fde68a\",\"color\":\"#92400e\"}},{\"when\":{\"type\":\"threshold\",\"op\":\">\",\"value\":60},\"style\":{\"bg\":\"#bfdbfe\",\"color\":\"#1e40af\"}}]}}],\"rowConditionalFormatting\":{\"rules\":[{\"when\":{\"type\":\"threshold\",\"column\":\"daysLeft\",\"op\":\"<\",\"value\":0},\"style\":{\"bg\":\"#fef2f2\"}}]}}",
+      "crossFilterBindings": [
+        { "crossFilter": "hrdBranchFilter" },
+        { "crossFilter": "hrdDocTypeFilter" }
+      ]
+    },
+
+    {
+      "code": "hrd-headcount-by-branch",
+      "name1": "العمالة حسب الفرع",
+      "name2": "Headcount by Branch",
+      "chartTitle": "حسب الفرع",
+      "englishChartTitle": "By Branch",
+      "type": "EnhancedTable",
+      "dataSource": "SELECT br.id branchId, br.entityType branchEntityType, br.name1 branchName, br.code branchCode, ISNULL((SELECT COUNT(*) FROM Employee e WHERE e.branch_id = br.id AND e.firingDate IS NULL),0) headcount, ISNULL((SELECT SUM(sd.netSalary) FROM SalaryDocument sd LEFT JOIN Employee e ON e.id = sd.employee_id WHERE sd.branch_id = br.id AND sd.commitedBefore = 1 AND sd.valueDate >= DATEADD(MONTH,-1,GETDATE())),0) lastMonthPayroll FROM Branch br WHERE EXISTS (SELECT 1 FROM Employee e WHERE e.branch_id = br.id) /*AND-FILTERS*/ ORDER BY headcount DESC",
+      "chartConfigJSON": "{\"tableOptions\":{\"pagination\":false,\"rowNumbers\":false,\"grandTotalRow\":\"bottom\"},\"columns\":[{\"id\":\"branchName\",\"field\":\"branchName\",\"headerArTitle\":\"الفرع\",\"headerEnTitle\":\"Branch\",\"pinned\":\"start\",\"width\":200},{\"id\":\"branchCode\",\"field\":\"branchCode\",\"headerArTitle\":\"الكود\",\"headerEnTitle\":\"Code\",\"width\":110},{\"id\":\"headcount\",\"field\":\"headcount\",\"headerArTitle\":\"عدد الموظفين\",\"headerEnTitle\":\"Headcount\",\"renderer\":{\"type\":\"bar\",\"bar\":{\"min\":0,\"color\":\"#3b82f6\"}},\"formatting\":{\"type\":\"number\",\"decimals\":0,\"thousandSeparator\":true},\"aggFunc\":\"sum\",\"width\":180},{\"id\":\"lastMonthPayroll\",\"field\":\"lastMonthPayroll\",\"headerArTitle\":\"رواتب آخر شهر\",\"headerEnTitle\":\"Last-Month Payroll\",\"formatting\":{\"type\":\"currency\",\"decimals\":0,\"currencySymbol\":\"SAR\",\"currencyPlacement\":\"suffix\",\"thousandSeparator\":true},\"aggFunc\":\"sum\",\"width\":180}],\"linkMappings\":[{\"key\":\"openBranch\",\"column\":\"branchName\",\"onCellClick\":true,\"enLabel\":\"Open Branch\",\"arLabel\":\"فتح الفرع\",\"linkToEntityTypeColumn\":\"branchEntityType\",\"linkToIdColumn\":\"branchId\",\"openMode\":\"popup\",\"labelColumn\":\"branchName\"}],\"clickEmitMapping\":[{\"crossFilterCode\":\"hrdBranchFilter\",\"idColumn\":\"branchId\",\"codeColumn\":\"branchCode\",\"name1Column\":\"branchName\",\"name2Column\":\"branchName\",\"entityType\":\"Branch\"}]}",
+      "crossFilterBindings": [{ "crossFilter": "hrdBranchFilter" }]
+    },
+
+    {
+      "code": "hrd-headcount-by-department",
+      "name1": "العمالة حسب الإدارة",
+      "name2": "Headcount by Department",
+      "chartTitle": "حسب الإدارة (أعلى 10)",
+      "englishChartTitle": "By Department (top 10)",
+      "type": "EnhancedTable",
+      "dataSource": "SELECT TOP 10 d.id deptId, d.entityType deptEntityType, d.name1 deptName, d.code deptCode, ISNULL((SELECT COUNT(*) FROM Employee e WHERE e.department_id = d.id AND e.firingDate IS NULL /*AND-FILTERS*/),0) headcount, ISNULL((SELECT SUM(sd.netSalary) FROM SalaryDocument sd LEFT JOIN Employee e ON e.id = sd.employee_id WHERE sd.department_id = d.id AND sd.commitedBefore = 1 AND sd.valueDate >= DATEADD(MONTH,-1,GETDATE()) /*AND-FILTERS*/),0) lastMonthPayroll FROM Department d WHERE EXISTS (SELECT 1 FROM Employee e WHERE e.department_id = d.id) ORDER BY headcount DESC",
+      "chartConfigJSON": "{\"tableOptions\":{\"pagination\":false,\"rowNumbers\":true,\"grandTotalRow\":\"bottom\"},\"columns\":[{\"id\":\"deptName\",\"field\":\"deptName\",\"headerArTitle\":\"الإدارة\",\"headerEnTitle\":\"Department\",\"pinned\":\"start\",\"width\":220},{\"id\":\"headcount\",\"field\":\"headcount\",\"headerArTitle\":\"عدد الموظفين\",\"headerEnTitle\":\"Headcount\",\"renderer\":{\"type\":\"bar\",\"bar\":{\"min\":0,\"color\":\"#8b5cf6\"}},\"formatting\":{\"type\":\"number\",\"decimals\":0,\"thousandSeparator\":true},\"aggFunc\":\"sum\",\"width\":180},{\"id\":\"lastMonthPayroll\",\"field\":\"lastMonthPayroll\",\"headerArTitle\":\"رواتب آخر شهر\",\"headerEnTitle\":\"Last-Month Payroll\",\"formatting\":{\"type\":\"currency\",\"decimals\":0,\"currencySymbol\":\"SAR\",\"currencyPlacement\":\"suffix\",\"thousandSeparator\":true},\"aggFunc\":\"sum\",\"width\":180}],\"linkMappings\":[{\"key\":\"openDept\",\"column\":\"deptName\",\"onCellClick\":true,\"enLabel\":\"Open Department\",\"arLabel\":\"فتح الإدارة\",\"linkToEntityTypeColumn\":\"deptEntityType\",\"linkToIdColumn\":\"deptId\",\"openMode\":\"popup\",\"labelColumn\":\"deptName\"}]}",
+      "crossFilterBindings": [{ "crossFilter": "hrdBranchFilter" }]
+    },
+
+    {
+      "code": "hrd-gender-distribution",
+      "name1": "التوزيع حسب النوع",
+      "name2": "Gender Distribution",
+      "chartTitle": "حسب النوع",
+      "englishChartTitle": "By Gender",
+      "type": "EChart",
+      "dataSource": "SELECT CASE WHEN e.gender = N'Male' THEN N'ذكور' WHEN e.gender = N'Female' THEN N'إناث' ELSE N'غير محدد' END genderLabel, COUNT(*) cnt FROM Employee e WHERE e.firingDate IS NULL /*AND-FILTERS*/ GROUP BY e.gender",
+      "chartConfigJSON": "{\"echartOption\":{\"tooltip\":{\"trigger\":\"item\",\"formatter\":\"{b}: {c} ({d}%)\"},\"legend\":{\"orient\":\"horizontal\",\"bottom\":0},\"series\":[{\"type\":\"pie\",\"radius\":[\"40%\",\"70%\"],\"center\":[\"50%\",\"45%\"],\"data\":\"$DATA.values\",\"label\":{\"show\":true,\"formatter\":\"{b}\\n{d}%\"},\"itemStyle\":{\"borderRadius\":4,\"borderColor\":\"#fff\",\"borderWidth\":2}}],\"color\":[\"#3b82f6\",\"#ec4899\",\"#94a3b8\"]},\"dataMapping\":{\"type\":\"LabelValue\",\"labelColumn\":\"genderLabel\",\"valueColumn\":\"cnt\"}}",
+      "crossFilterBindings": [{ "crossFilter": "hrdBranchFilter" }]
+    },
+
+    {
+      "code": "hrd-nationality-top7",
+      "name1": "أعلى 7 جنسيات",
+      "name2": "Top 7 Nationalities",
+      "chartTitle": "حسب الجنسية (أعلى 7)",
+      "englishChartTitle": "By Nationality (top 7)",
+      "type": "EChart",
+      "dataSource": "SELECT ISNULL(n.name1, N'غير محدد') natName, COUNT(e.id) cnt FROM Employee e LEFT JOIN Nationality n ON n.id = e.nationality2_id WHERE e.firingDate IS NULL /*AND-FILTERS*/ GROUP BY e.nationality2_id, n.name1 ORDER BY cnt DESC",
+      "chartConfigJSON": "{\"echartOption\":{\"tooltip\":{\"trigger\":\"axis\",\"axisPointer\":{\"type\":\"shadow\"}},\"grid\":{\"left\":120,\"right\":40,\"top\":10,\"bottom\":20},\"xAxis\":{\"type\":\"value\"},\"yAxis\":{\"type\":\"category\",\"data\":\"$DATA.categories\",\"inverse\":true,\"axisLabel\":{\"width\":110,\"overflow\":\"truncate\"}},\"series\":[{\"name\":\"$DATA.series[0].name\",\"type\":\"bar\",\"data\":\"$DATA.series[0].data\",\"itemStyle\":{\"color\":\"#10b981\",\"borderRadius\":[0,4,4,0]},\"label\":{\"show\":true,\"position\":\"right\"}}]},\"dataMapping\":{\"type\":\"CategoryValue\",\"categoryColumn\":\"natName\",\"series\":[{\"column\":\"cnt\",\"name\":\"Headcount\",\"type\":\"bar\"}],\"maxResults\":7,\"maxResultsRankBy\":\"cnt\",\"othersLabelAr\":\"جنسيات أخرى\",\"othersLabelEn\":\"Other nationalities\"}}",
+      "crossFilterBindings": [{ "crossFilter": "hrdBranchFilter" }]
+    },
+
+    {
+      "code": "hrd-age-bands",
+      "name1": "التوزيع حسب الفئة العمرية",
+      "name2": "Age Band Distribution",
+      "chartTitle": "حسب الفئة العمرية",
+      "englishChartTitle": "By Age Band",
+      "type": "EChart",
+      "dataSource": "SELECT band, sortIdx, cnt FROM (SELECT N'< 25' band, 1 sortIdx, COUNT(*) cnt FROM Employee e WHERE e.firingDate IS NULL AND e.birthDate IS NOT NULL AND DATEDIFF(YEAR, e.birthDate, GETDATE()) < 25 /*AND-FILTERS*/ UNION ALL SELECT N'25-34', 2, COUNT(*) FROM Employee e WHERE e.firingDate IS NULL AND e.birthDate IS NOT NULL AND DATEDIFF(YEAR, e.birthDate, GETDATE()) BETWEEN 25 AND 34 /*AND-FILTERS*/ UNION ALL SELECT N'35-44', 3, COUNT(*) FROM Employee e WHERE e.firingDate IS NULL AND e.birthDate IS NOT NULL AND DATEDIFF(YEAR, e.birthDate, GETDATE()) BETWEEN 35 AND 44 /*AND-FILTERS*/ UNION ALL SELECT N'45-54', 4, COUNT(*) FROM Employee e WHERE e.firingDate IS NULL AND e.birthDate IS NOT NULL AND DATEDIFF(YEAR, e.birthDate, GETDATE()) BETWEEN 45 AND 54 /*AND-FILTERS*/ UNION ALL SELECT N'55+', 5, COUNT(*) FROM Employee e WHERE e.firingDate IS NULL AND e.birthDate IS NOT NULL AND DATEDIFF(YEAR, e.birthDate, GETDATE()) >= 55 /*AND-FILTERS*/) ageBands ORDER BY sortIdx",
+      "chartConfigJSON": "{\"echartOption\":{\"tooltip\":{\"trigger\":\"axis\",\"axisPointer\":{\"type\":\"shadow\"}},\"grid\":{\"left\":50,\"right\":20,\"top\":20,\"bottom\":30},\"xAxis\":{\"type\":\"category\",\"data\":\"$DATA.categories\"},\"yAxis\":{\"type\":\"value\"},\"series\":[{\"name\":\"$DATA.series[0].name\",\"type\":\"bar\",\"data\":\"$DATA.series[0].data\",\"itemStyle\":{\"color\":\"#f59e0b\",\"borderRadius\":[4,4,0,0]},\"label\":{\"show\":true,\"position\":\"top\"}}]},\"dataMapping\":{\"type\":\"CategoryValue\",\"categoryColumn\":\"band\",\"series\":[{\"column\":\"cnt\",\"name\":\"Headcount\",\"type\":\"bar\"}]}}",
+      "crossFilterBindings": [{ "crossFilter": "hrdBranchFilter" }]
+    },
+
+    {
+      "code": "hrd-comp-summary-cards",
+      "name1": "ملخص الرواتب",
+      "name2": "Compensation Summary",
+      "type": "EnhancedMetricsCard",
+      "dataSource": "SELECT 1 sortOrder, N'إجمالي الرواتب' headerAr, N'Total Payroll' headerEn, ISNULL((SELECT SUM(sd.netSalary) FROM SalaryDocument sd LEFT JOIN Employee e ON e.id = sd.employee_id WHERE sd.commitedBefore = 1 AND sd.valueDate >= DATEFROMPARTS(YEAR(GETDATE()),1,1) /*AND-FILTERS*/),0) cardValue, N'في الفترة المختارة (افتراضي: منذ بداية العام)' subtitleAr, N'In selected period (default: YTD)' subtitleEn, 'attach_money' iconCode, '#10b981' iconColor, '#ecfdf5' iconBg UNION ALL SELECT 2, N'إجمالي الإضافات', N'Total Additions', ISNULL((SELECT SUM(sd.totalAdditions) FROM SalaryDocument sd LEFT JOIN Employee e ON e.id = sd.employee_id WHERE sd.commitedBefore = 1 AND sd.valueDate >= DATEADD(MONTH,-1,GETDATE()) /*AND-FILTERS*/),0), N'مكافآت وبدلات', N'Bonuses & allowances', 'add_circle', '#3b82f6', '#dbeafe' UNION ALL SELECT 3, N'إجمالي الاستقطاعات', N'Total Deductions', ISNULL((SELECT SUM(sd.totalDeductions) FROM SalaryDocument sd LEFT JOIN Employee e ON e.id = sd.employee_id WHERE sd.commitedBefore = 1 AND sd.valueDate >= DATEADD(MONTH,-1,GETDATE()) /*AND-FILTERS*/),0), N'جزاءات وأقساط', N'Penalties & instalments', 'remove_circle', '#ef4444', '#fef2f2' ORDER BY sortOrder",
+      "chartConfigJSON": "{\"cardLayout\":{\"direction\":\"grid\",\"gap\":12,\"minCardWidth\":260,\"columnsPerRow\":3},\"card\":{\"headerArField\":\"headerAr\",\"headerEnField\":\"headerEn\",\"value\":{\"field\":\"cardValue\",\"formatting\":{\"type\":\"currency\",\"decimals\":0,\"currencySymbol\":\"SAR\",\"currencyPlacement\":\"suffix\",\"thousandSeparator\":true},\"fontSize\":\"30px\"},\"subtitle\":{\"tempoAr\":\"{subtitleAr}\",\"tempoEn\":\"{subtitleEn}\"},\"icon\":{\"field\":\"iconCode\",\"colorField\":\"iconColor\",\"bgField\":\"iconBg\"},\"cardStyle\":{\"bg\":\"#ffffff\",\"borderColor\":\"#e2e8f0\",\"borderWidth\":\"1px\",\"borderRadius\":\"12px\",\"padding\":\"16px\",\"shadow\":\"sm\"}}}",
+      "crossFilterBindings": [
+        { "crossFilter": "hrdBranchFilter" },
+        { "crossFilter": "hrdDateRange", "sqlLeftHandSide": "sd.valueDate" }
+      ]
+    },
+
+    {
+      "code": "hrd-payroll-trend",
+      "name1": "حركة الرواتب آخر 12 شهر",
+      "name2": "12-Month Payroll Trend",
+      "chartTitle": "حركة الرواتب (صافي / إضافات / استقطاعات)",
+      "englishChartTitle": "Payroll Trend (Net / Additions / Deductions)",
+      "type": "EChart",
+      "dataSource": "WITH months AS (SELECT idx, DATEFROMPARTS(YEAR(EOMONTH(DATEADD(MONTH,-11+idx,GETDATE()))), MONTH(EOMONTH(DATEADD(MONTH,-11+idx,GETDATE()))), 1) mStart, EOMONTH(DATEADD(MONTH,-11+idx,GETDATE())) mEnd FROM (VALUES (0),(1),(2),(3),(4),(5),(6),(7),(8),(9),(10),(11)) n(idx)) SELECT m.idx, FORMAT(m.mStart,'MMM yy') monthLabel, ISNULL((SELECT SUM(sd.netSalary) FROM SalaryDocument sd LEFT JOIN Employee e ON e.id = sd.employee_id WHERE sd.commitedBefore = 1 AND sd.valueDate BETWEEN m.mStart AND m.mEnd /*AND-FILTERS*/),0) netPay, ISNULL((SELECT SUM(sd.totalAdditions) FROM SalaryDocument sd LEFT JOIN Employee e ON e.id = sd.employee_id WHERE sd.commitedBefore = 1 AND sd.valueDate BETWEEN m.mStart AND m.mEnd /*AND-FILTERS*/),0) additions, ISNULL((SELECT SUM(sd.totalDeductions) FROM SalaryDocument sd LEFT JOIN Employee e ON e.id = sd.employee_id WHERE sd.commitedBefore = 1 AND sd.valueDate BETWEEN m.mStart AND m.mEnd /*AND-FILTERS*/),0) deductions FROM months m ORDER BY m.idx",
+      "chartConfigJSON": "{\"echartOption\":{\"tooltip\":{\"trigger\":\"axis\",\"axisPointer\":{\"type\":\"cross\"}},\"legend\":{\"data\":[\"Net Payroll\",\"Additions\",\"Deductions\"]},\"grid\":{\"left\":70,\"right\":30,\"top\":40,\"bottom\":30},\"xAxis\":{\"type\":\"category\",\"data\":\"$DATA.categories\"},\"yAxis\":{\"type\":\"value\"},\"series\":[{\"name\":\"$DATA.series[0].name\",\"type\":\"line\",\"data\":\"$DATA.series[0].data\",\"smooth\":true,\"itemStyle\":{\"color\":\"#3b82f6\"},\"lineStyle\":{\"width\":2.5},\"areaStyle\":{\"opacity\":0.15,\"color\":\"#3b82f6\"}},{\"name\":\"$DATA.series[1].name\",\"type\":\"bar\",\"data\":\"$DATA.series[1].data\",\"itemStyle\":{\"color\":\"#10b981\",\"borderRadius\":[3,3,0,0]}},{\"name\":\"$DATA.series[2].name\",\"type\":\"bar\",\"data\":\"$DATA.series[2].data\",\"itemStyle\":{\"color\":\"#ef4444\",\"borderRadius\":[3,3,0,0]}}]},\"dataMapping\":{\"type\":\"CategoryValue\",\"categoryColumn\":\"monthLabel\",\"series\":[{\"column\":\"netPay\",\"name\":\"Net Payroll\",\"type\":\"line\",\"format\":{\"type\":\"currency\",\"decimals\":0,\"compact\":true,\"currency\":\"SAR\"}},{\"column\":\"additions\",\"name\":\"Additions\",\"type\":\"bar\",\"format\":{\"type\":\"currency\",\"decimals\":0,\"compact\":true,\"currency\":\"SAR\"}},{\"column\":\"deductions\",\"name\":\"Deductions\",\"type\":\"bar\",\"format\":{\"type\":\"currency\",\"decimals\":0,\"compact\":true,\"currency\":\"SAR\"}}]}}",
+      "crossFilterBindings": [{ "crossFilter": "hrdBranchFilter" }]
+    },
+
+    {
+      "code": "hrd-top-paid",
+      "name1": "أعلى 5 رواتب آخر شهر",
+      "name2": "Top 5 Paid (Latest Month)",
+      "chartTitle": "🏆 أعلى 5 رواتب",
+      "englishChartTitle": "🏆 Top 5 Paid",
+      "type": "EnhancedTable",
+      "dataSource": "SELECT TOP 5 e.id employeeId, e.entityType employeeEntityType, e.name1 employeeName, e.code employeeCode, ISNULL(b.name1,'') branchName, ISNULL(d.name1,'') deptName, sd.netSalary FROM SalaryDocument sd LEFT JOIN Employee e ON e.id = sd.employee_id LEFT JOIN Branch b ON b.id = sd.branch_id LEFT JOIN Department d ON d.id = sd.department_id WHERE sd.commitedBefore = 1 AND sd.valueDate >= DATEADD(MONTH,-1,GETDATE()) /*AND-FILTERS*/ ORDER BY sd.netSalary DESC",
+      "chartConfigJSON": "{\"tableOptions\":{\"pagination\":false,\"rowNumbers\":true},\"columns\":[{\"id\":\"employeeName\",\"field\":\"employeeName\",\"headerArTitle\":\"الموظف\",\"headerEnTitle\":\"Employee\",\"pinned\":\"start\",\"width\":200},{\"id\":\"employeeCode\",\"field\":\"employeeCode\",\"headerArTitle\":\"الكود\",\"headerEnTitle\":\"Code\",\"width\":100},{\"id\":\"branchName\",\"field\":\"branchName\",\"headerArTitle\":\"الفرع\",\"headerEnTitle\":\"Branch\",\"width\":140},{\"id\":\"deptName\",\"field\":\"deptName\",\"headerArTitle\":\"الإدارة\",\"headerEnTitle\":\"Department\",\"width\":160},{\"id\":\"netSalary\",\"field\":\"netSalary\",\"headerArTitle\":\"صافي المرتب\",\"headerEnTitle\":\"Net Salary\",\"formatting\":{\"type\":\"currency\",\"decimals\":2,\"currencySymbol\":\"SAR\",\"currencyPlacement\":\"suffix\",\"thousandSeparator\":true},\"width\":160,\"conditionalFormatting\":{\"rules\":[{\"when\":{\"type\":\"threshold\",\"op\":\">=\",\"value\":20000},\"style\":{\"bg\":\"#dcfce7\",\"color\":\"#166534\",\"bold\":true}}]}}],\"linkMappings\":[{\"key\":\"openEmployee\",\"column\":\"employeeName\",\"onCellClick\":true,\"enLabel\":\"Open Employee\",\"arLabel\":\"فتح الموظف\",\"linkToEntityTypeColumn\":\"employeeEntityType\",\"linkToIdColumn\":\"employeeId\",\"openMode\":\"popup\",\"labelColumn\":\"employeeName\"}]}",
+      "crossFilterBindings": [
+        { "crossFilter": "hrdBranchFilter" },
+        { "crossFilter": "hrdDateRange", "sqlLeftHandSide": "sd.valueDate" }
+      ]
+    },
+
+    {
+      "code": "hrd-tenure-summary-cards",
+      "name1": "ملخص الأقدمية",
+      "name2": "Tenure Summary",
+      "chartTitle": "ملخص الأقدمية",
+      "englishChartTitle": "Tenure Summary",
+      "type": "EnhancedMetricsCard",
+      "dataSource": "SELECT 1 sortOrder, N'متوسط الأقدمية' headerAr, N'Average Tenure' headerEn, CAST(ISNULL((SELECT AVG(CAST(DATEDIFF(MONTH, e.hiring, GETDATE()) AS DECIMAL(18,4))) / 12.0 FROM Employee e WHERE e.hiring IS NOT NULL AND e.firingDate IS NULL /*AND-FILTERS*/),0) AS DECIMAL(10,1)) cardValue, N'سنة - للموظفين النشطين' subtitleAr, N'years - active employees' subtitleEn, 'history' iconCode, '#8b5cf6' iconColor, '#f3e8ff' iconBg UNION ALL SELECT 2, N'عقود تنتهي قريبا', N'Contracts Ending Soon', ISNULL((SELECT COUNT(*) FROM Employee e WHERE e.contractEndDate IS NOT NULL AND e.contractEndDate BETWEEN GETDATE() AND DATEADD(DAY,60,GETDATE()) AND e.firingDate IS NULL /*AND-FILTERS*/),0), N'خلال 60 يوم القادمة', N'In the next 60 days', 'event_busy', '#f59e0b', '#fffbeb' UNION ALL SELECT 3, N'صافي حركة آخر 30 يوم', N'Net Movement (30d)', ISNULL((SELECT COUNT(*) FROM Employee e WHERE e.hiring >= DATEADD(DAY,-30,GETDATE()) /*AND-FILTERS*/),0) - ISNULL((SELECT COUNT(*) FROM Employee e WHERE e.firingDate >= DATEADD(DAY,-30,GETDATE()) /*AND-FILTERS*/),0), N'تعيينات ناقص إنهاءات', N'Hires minus exits', 'swap_horiz', '#3b82f6', '#dbeafe' ORDER BY sortOrder",
+      "chartConfigJSON": "{\"cardLayout\":{\"direction\":\"grid\",\"gap\":12,\"minCardWidth\":260,\"columnsPerRow\":3},\"card\":{\"headerArField\":\"headerAr\",\"headerEnField\":\"headerEn\",\"value\":{\"field\":\"cardValue\",\"formatting\":{\"type\":\"number\",\"decimals\":1,\"thousandSeparator\":true},\"fontSize\":\"30px\"},\"subtitle\":{\"tempoAr\":\"{subtitleAr}\",\"tempoEn\":\"{subtitleEn}\"},\"icon\":{\"field\":\"iconCode\",\"colorField\":\"iconColor\",\"bgField\":\"iconBg\"},\"cardStyle\":{\"bg\":\"#ffffff\",\"borderColor\":\"#e2e8f0\",\"borderWidth\":\"1px\",\"borderRadius\":\"12px\",\"padding\":\"16px\",\"shadow\":\"sm\"}}}",
+      "crossFilterBindings": [{ "crossFilter": "hrdBranchFilter" }]
+    },
+
+    {
+      "code": "hrd-longest-serving",
+      "name1": "أطول 5 موظفين خدمة",
+      "name2": "Longest Serving (Top 5)",
+      "chartTitle": "🏅 أطول 5 موظفين خدمة",
+      "englishChartTitle": "🏅 Longest Serving (Top 5)",
+      "type": "EnhancedTable",
+      "dataSource": "SELECT TOP 5 e.id employeeId, e.entityType employeeEntityType, e.name1 employeeName, e.code employeeCode, ISNULL(b.name1,'') branchName, ISNULL(d.name1,'') deptName, e.hiring hiringDate, CAST(DATEDIFF(MONTH, e.hiring, GETDATE()) / 12.0 AS DECIMAL(10,1)) tenureYears FROM Employee e LEFT JOIN Branch b ON b.id = e.branch_id LEFT JOIN Department d ON d.id = e.department_id WHERE e.firingDate IS NULL AND e.hiring IS NOT NULL /*AND-FILTERS*/ ORDER BY e.hiring ASC",
+      "chartConfigJSON": "{\"tableOptions\":{\"pagination\":false,\"rowNumbers\":true},\"columns\":[{\"id\":\"employeeName\",\"field\":\"employeeName\",\"headerArTitle\":\"الموظف\",\"headerEnTitle\":\"Employee\",\"pinned\":\"start\",\"width\":200},{\"id\":\"employeeCode\",\"field\":\"employeeCode\",\"headerArTitle\":\"الكود\",\"headerEnTitle\":\"Code\",\"width\":100},{\"id\":\"branchName\",\"field\":\"branchName\",\"headerArTitle\":\"الفرع\",\"headerEnTitle\":\"Branch\",\"width\":140},{\"id\":\"deptName\",\"field\":\"deptName\",\"headerArTitle\":\"الإدارة\",\"headerEnTitle\":\"Department\",\"width\":160},{\"id\":\"hiringDate\",\"field\":\"hiringDate\",\"headerArTitle\":\"تاريخ التعيين\",\"headerEnTitle\":\"Hired\",\"formatting\":{\"type\":\"date\",\"dateFormat\":\"yyyy-MM-dd\"},\"width\":120},{\"id\":\"tenureYears\",\"field\":\"tenureYears\",\"headerArTitle\":\"الأقدمية (سنة)\",\"headerEnTitle\":\"Tenure (yrs)\",\"renderer\":{\"type\":\"badge\",\"badge\":{\"shape\":\"pill\",\"variant\":\"solid\"}},\"formatting\":{\"type\":\"number\",\"decimals\":1},\"width\":140,\"conditionalFormatting\":{\"rules\":[{\"when\":{\"type\":\"threshold\",\"op\":\">=\",\"value\":10},\"style\":{\"bg\":\"#fde68a\",\"color\":\"#92400e\",\"bold\":true}},{\"when\":{\"type\":\"threshold\",\"op\":\">=\",\"value\":5},\"style\":{\"bg\":\"#dbeafe\",\"color\":\"#1e40af\"}}]}}],\"linkMappings\":[{\"key\":\"openEmployee\",\"column\":\"employeeName\",\"onCellClick\":true,\"enLabel\":\"Open Employee\",\"arLabel\":\"فتح الموظف\",\"linkToEntityTypeColumn\":\"employeeEntityType\",\"linkToIdColumn\":\"employeeId\",\"openMode\":\"popup\",\"labelColumn\":\"employeeName\"}]}",
+      "crossFilterBindings": [{ "crossFilter": "hrdBranchFilter" }]
+    },
+
+    {
+      "code": "hrd-recent-hires",
+      "name1": "تعيينات حديثة",
+      "name2": "Recent Hires",
+      "chartTitle": "📈 تعيينات حديثة (آخر 30 يوم افتراضياً)",
+      "englishChartTitle": "📈 Recent Hires (last 30 days by default)",
+      "type": "EnhancedTable",
+      "dataSource": "SELECT TOP 10 e.id employeeId, e.entityType employeeEntityType, e.name1 employeeName, e.code employeeCode, ISNULL(b.name1,'') branchName, ISNULL(jp.name1,'') jobPosition, e.hiring hiringDate, DATEDIFF(DAY, e.hiring, GETDATE()) daysAgo FROM Employee e LEFT JOIN Branch b ON b.id = e.branch_id LEFT JOIN JobPosition jp ON jp.id = e.jobPosition_id WHERE e.hiring >= DATEADD(DAY,-30,GETDATE()) /*AND-FILTERS*/ ORDER BY e.hiring DESC",
+      "chartConfigJSON": "{\"tableOptions\":{\"pagination\":false,\"rowNumbers\":false},\"columns\":[{\"id\":\"employeeName\",\"field\":\"employeeName\",\"headerArTitle\":\"الموظف\",\"headerEnTitle\":\"Employee\",\"pinned\":\"start\",\"width\":180},{\"id\":\"employeeCode\",\"field\":\"employeeCode\",\"headerArTitle\":\"الكود\",\"headerEnTitle\":\"Code\",\"width\":100},{\"id\":\"branchName\",\"field\":\"branchName\",\"headerArTitle\":\"الفرع\",\"headerEnTitle\":\"Branch\",\"width\":140},{\"id\":\"jobPosition\",\"field\":\"jobPosition\",\"headerArTitle\":\"المسمى\",\"headerEnTitle\":\"Position\",\"width\":160},{\"id\":\"hiringDate\",\"field\":\"hiringDate\",\"headerArTitle\":\"التاريخ\",\"headerEnTitle\":\"Hired\",\"formatting\":{\"type\":\"date\",\"dateFormat\":\"yyyy-MM-dd\"},\"width\":120},{\"id\":\"daysAgo\",\"field\":\"daysAgo\",\"headerArTitle\":\"منذ (يوم)\",\"headerEnTitle\":\"Days Ago\",\"renderer\":{\"type\":\"badge\",\"badge\":{\"shape\":\"pill\",\"variant\":\"solid\"}},\"formatting\":{\"type\":\"number\",\"decimals\":0},\"width\":100,\"conditionalFormatting\":{\"rules\":[{\"when\":{\"type\":\"threshold\",\"op\":\"<=\",\"value\":7},\"style\":{\"bg\":\"#dcfce7\",\"color\":\"#065f46\",\"bold\":true}},{\"when\":{\"type\":\"threshold\",\"op\":\"<=\",\"value\":30},\"style\":{\"bg\":\"#ecfdf5\",\"color\":\"#065f46\"}}]}}],\"linkMappings\":[{\"key\":\"openEmployee\",\"column\":\"employeeName\",\"onCellClick\":true,\"enLabel\":\"Open Employee\",\"arLabel\":\"فتح الموظف\",\"linkToEntityTypeColumn\":\"employeeEntityType\",\"linkToIdColumn\":\"employeeId\",\"openMode\":\"popup\",\"labelColumn\":\"employeeName\"}]}",
+      "crossFilterBindings": [
+        { "crossFilter": "hrdBranchFilter" },
+        { "crossFilter": "hrdDateRange", "sqlLeftHandSide": "e.hiring" }
+      ]
+    },
+
+    {
+      "code": "hrd-recent-exits",
+      "name1": "إنهاءات حديثة",
+      "name2": "Recent Exits",
+      "chartTitle": "📉 إنهاءات حديثة (آخر 30 يوم افتراضياً)",
+      "englishChartTitle": "📉 Recent Exits (last 30 days by default)",
+      "type": "EnhancedTable",
+      "dataSource": "SELECT TOP 10 e.id employeeId, e.entityType employeeEntityType, e.name1 employeeName, e.code employeeCode, ISNULL(b.name1,'') branchName, ISNULL(d.name1,'') deptName, e.firingDate, DATEDIFF(DAY, e.firingDate, GETDATE()) daysAgo, ISNULL((SELECT TOP 1 fd.firingReason FROM FiringDocument fd WHERE fd.employee_id = e.id AND fd.commitedBefore = 1 ORDER BY fd.workEndDate DESC),'') firingReason FROM Employee e LEFT JOIN Branch b ON b.id = e.branch_id LEFT JOIN Department d ON d.id = e.department_id WHERE e.firingDate >= DATEADD(DAY,-30,GETDATE()) /*AND-FILTERS*/ ORDER BY e.firingDate DESC",
+      "chartConfigJSON": "{\"tableOptions\":{\"pagination\":false,\"rowNumbers\":false},\"columns\":[{\"id\":\"employeeName\",\"field\":\"employeeName\",\"headerArTitle\":\"الموظف\",\"headerEnTitle\":\"Employee\",\"pinned\":\"start\",\"width\":180},{\"id\":\"employeeCode\",\"field\":\"employeeCode\",\"headerArTitle\":\"الكود\",\"headerEnTitle\":\"Code\",\"width\":100},{\"id\":\"branchName\",\"field\":\"branchName\",\"headerArTitle\":\"الفرع\",\"headerEnTitle\":\"Branch\",\"width\":140},{\"id\":\"firingReason\",\"field\":\"firingReason\",\"headerArTitle\":\"السبب\",\"headerEnTitle\":\"Reason\",\"width\":180},{\"id\":\"firingDate\",\"field\":\"firingDate\",\"headerArTitle\":\"التاريخ\",\"headerEnTitle\":\"Date\",\"formatting\":{\"type\":\"date\",\"dateFormat\":\"yyyy-MM-dd\"},\"width\":120},{\"id\":\"daysAgo\",\"field\":\"daysAgo\",\"headerArTitle\":\"منذ (يوم)\",\"headerEnTitle\":\"Days Ago\",\"renderer\":{\"type\":\"badge\",\"badge\":{\"shape\":\"pill\",\"variant\":\"solid\"}},\"formatting\":{\"type\":\"number\",\"decimals\":0},\"width\":100,\"conditionalFormatting\":{\"rules\":[{\"when\":{\"type\":\"threshold\",\"op\":\"<=\",\"value\":7},\"style\":{\"bg\":\"#fecaca\",\"color\":\"#991b1b\",\"bold\":true}},{\"when\":{\"type\":\"threshold\",\"op\":\"<=\",\"value\":30},\"style\":{\"bg\":\"#fef2f2\",\"color\":\"#991b1b\"}}]}}],\"linkMappings\":[{\"key\":\"openEmployee\",\"column\":\"employeeName\",\"onCellClick\":true,\"enLabel\":\"Open Employee\",\"arLabel\":\"فتح الموظف\",\"linkToEntityTypeColumn\":\"employeeEntityType\",\"linkToIdColumn\":\"employeeId\",\"openMode\":\"popup\",\"labelColumn\":\"employeeName\"}]}",
+      "crossFilterBindings": [
+        { "crossFilter": "hrdBranchFilter" },
+        { "crossFilter": "hrdDateRange", "sqlLeftHandSide": "e.firingDate" }
+      ]
+    },
+
+    {
+      "code": "hrd-contracts-ending",
+      "name1": "عقود تنتهي خلال 60 يوم",
+      "name2": "Contracts Ending in 60 Days",
+      "chartTitle": "📋 عقود تنتهي خلال 60 يوم",
+      "englishChartTitle": "📋 Contracts Ending in 60 Days",
+      "type": "EnhancedTable",
+      "dataSource": "SELECT TOP 15 e.id employeeId, e.entityType employeeEntityType, e.name1 employeeName, e.code employeeCode, ISNULL(b.name1,'') branchName, ISNULL(d.name1,'') deptName, e.contractEndDate, DATEDIFF(DAY, GETDATE(), e.contractEndDate) daysLeft FROM Employee e LEFT JOIN Branch b ON b.id = e.branch_id LEFT JOIN Department d ON d.id = e.department_id WHERE e.contractEndDate IS NOT NULL AND e.contractEndDate >= GETDATE() AND e.contractEndDate <= DATEADD(DAY,60,GETDATE()) AND e.firingDate IS NULL /*AND-FILTERS*/ ORDER BY e.contractEndDate ASC",
+      "chartConfigJSON": "{\"tableOptions\":{\"pagination\":false,\"rowNumbers\":false},\"columns\":[{\"id\":\"employeeName\",\"field\":\"employeeName\",\"headerArTitle\":\"الموظف\",\"headerEnTitle\":\"Employee\",\"pinned\":\"start\",\"width\":200},{\"id\":\"employeeCode\",\"field\":\"employeeCode\",\"headerArTitle\":\"الكود\",\"headerEnTitle\":\"Code\",\"width\":100},{\"id\":\"branchName\",\"field\":\"branchName\",\"headerArTitle\":\"الفرع\",\"headerEnTitle\":\"Branch\",\"width\":140},{\"id\":\"deptName\",\"field\":\"deptName\",\"headerArTitle\":\"الإدارة\",\"headerEnTitle\":\"Department\",\"width\":160},{\"id\":\"contractEndDate\",\"field\":\"contractEndDate\",\"headerArTitle\":\"تاريخ الانتهاء\",\"headerEnTitle\":\"Ends\",\"formatting\":{\"type\":\"date\",\"dateFormat\":\"yyyy-MM-dd\"},\"width\":120},{\"id\":\"daysLeft\",\"field\":\"daysLeft\",\"headerArTitle\":\"المتبقي (يوم)\",\"headerEnTitle\":\"Days Left\",\"renderer\":{\"type\":\"badge\",\"badge\":{\"shape\":\"pill\",\"variant\":\"solid\"}},\"formatting\":{\"type\":\"number\",\"decimals\":0},\"width\":120,\"conditionalFormatting\":{\"rules\":[{\"when\":{\"type\":\"threshold\",\"op\":\"<=\",\"value\":30},\"style\":{\"bg\":\"#fecaca\",\"color\":\"#991b1b\",\"bold\":true}},{\"when\":{\"type\":\"threshold\",\"op\":\"<=\",\"value\":60},\"style\":{\"bg\":\"#fde68a\",\"color\":\"#92400e\"}}]}}],\"linkMappings\":[{\"key\":\"openEmployee\",\"column\":\"employeeName\",\"onCellClick\":true,\"enLabel\":\"Open Employee\",\"arLabel\":\"فتح الموظف\",\"linkToEntityTypeColumn\":\"employeeEntityType\",\"linkToIdColumn\":\"employeeId\",\"openMode\":\"popup\",\"labelColumn\":\"employeeName\"}]}",
+      "crossFilterBindings": [{ "crossFilter": "hrdBranchFilter" }]
+    },
+
+    {
+      "code": "hrd-leave-summary-cards",
+      "name1": "ملخص الإجازات",
+      "name2": "Leave Summary",
+      "chartTitle": "ملخص الإجازات",
+      "englishChartTitle": "Leave Summary",
+      "type": "EnhancedMetricsCard",
+      "dataSource": "SELECT 1 sortOrder, N'في إجازة الآن' headerAr, N'Currently on Leave' headerEn, ISNULL((SELECT COUNT(*) FROM VacationDocument vd LEFT JOIN Employee e ON e.id = vd.employee_id WHERE vd.commitedBefore = 1 AND GETDATE() BETWEEN vd.startDate AND ISNULL(vd.returnDate, vd.startDate) /*AND-FILTERS*/),0) cardValue, N'موظف' subtitleAr, N'employees' subtitleEn, 'beach_access' iconCode, '#0ea5e9' iconColor, '#e0f2fe' iconBg UNION ALL SELECT 2, N'إجمالي أيام الإجازات', N'Total Leave Days', ISNULL((SELECT CAST(SUM(vd.vacationPeriod) AS DECIMAL(10,1)) FROM VacationDocument vd LEFT JOIN Employee e ON e.id = vd.employee_id WHERE vd.commitedBefore = 1 AND vd.startDate >= DATEFROMPARTS(YEAR(GETDATE()),1,1) /*AND-FILTERS*/),0), N'يوم - في الفترة المختارة', N'days - in selected period', 'event_available', '#10b981', '#ecfdf5' ORDER BY sortOrder",
+      "chartConfigJSON": "{\"cardLayout\":{\"direction\":\"grid\",\"gap\":12,\"minCardWidth\":280,\"columnsPerRow\":2},\"card\":{\"headerArField\":\"headerAr\",\"headerEnField\":\"headerEn\",\"value\":{\"field\":\"cardValue\",\"formatting\":{\"type\":\"number\",\"decimals\":0,\"thousandSeparator\":true},\"fontSize\":\"30px\"},\"subtitle\":{\"tempoAr\":\"{subtitleAr}\",\"tempoEn\":\"{subtitleEn}\"},\"icon\":{\"field\":\"iconCode\",\"colorField\":\"iconColor\",\"bgField\":\"iconBg\"},\"cardStyle\":{\"bg\":\"#ffffff\",\"borderColor\":\"#e2e8f0\",\"borderWidth\":\"1px\",\"borderRadius\":\"12px\",\"padding\":\"16px\",\"shadow\":\"sm\"}}}",
+      "crossFilterBindings": [
+        { "crossFilter": "hrdBranchFilter" },
+        { "crossFilter": "hrdDateRange", "sqlLeftHandSide": "vd.startDate" }
+      ]
+    },
+
+    {
+      "code": "hrd-currently-on-leave",
+      "name1": "موظفون في إجازة حالياً",
+      "name2": "Currently on Leave",
+      "chartTitle": "🏖️ موظفون في إجازة حالياً",
+      "englishChartTitle": "🏖️ Currently on Leave",
+      "type": "EnhancedTable",
+      "dataSource": "SELECT TOP 50 e.id employeeId, e.entityType employeeEntityType, ISNULL(e.name1,'') employeeName, ISNULL(e.code,'') employeeCode, ISNULL(b.name1,'') branchName, ISNULL(vt.name1,'') vacType, vd.startDate, vd.returnDate, DATEDIFF(DAY, vd.startDate, GETDATE()) + 1 daysOnLeave FROM VacationDocument vd LEFT JOIN Employee e ON e.id = vd.employee_id LEFT JOIN Branch b ON b.id = vd.branch_id LEFT JOIN VacationType vt ON vt.id = vd.vacationType_id WHERE vd.commitedBefore = 1 AND GETDATE() BETWEEN vd.startDate AND ISNULL(vd.returnDate, vd.startDate) /*AND-FILTERS*/ ORDER BY vd.startDate DESC",
+      "chartConfigJSON": "{\"tableOptions\":{\"pagination\":true,\"pageSize\":15,\"rowNumbers\":false},\"columns\":[{\"id\":\"employeeName\",\"field\":\"employeeName\",\"headerArTitle\":\"الموظف\",\"headerEnTitle\":\"Employee\",\"pinned\":\"start\",\"width\":180},{\"id\":\"employeeCode\",\"field\":\"employeeCode\",\"headerArTitle\":\"الكود\",\"headerEnTitle\":\"Code\",\"width\":100},{\"id\":\"branchName\",\"field\":\"branchName\",\"headerArTitle\":\"الفرع\",\"headerEnTitle\":\"Branch\",\"width\":140},{\"id\":\"vacType\",\"field\":\"vacType\",\"headerArTitle\":\"نوع الإجازة\",\"headerEnTitle\":\"Vacation Type\",\"renderer\":{\"type\":\"badge\",\"badge\":{\"shape\":\"pill\",\"variant\":\"outline\"}},\"width\":140},{\"id\":\"startDate\",\"field\":\"startDate\",\"headerArTitle\":\"من\",\"headerEnTitle\":\"From\",\"formatting\":{\"type\":\"date\",\"dateFormat\":\"yyyy-MM-dd\"},\"width\":120},{\"id\":\"returnDate\",\"field\":\"returnDate\",\"headerArTitle\":\"إلى\",\"headerEnTitle\":\"To\",\"formatting\":{\"type\":\"date\",\"dateFormat\":\"yyyy-MM-dd\"},\"width\":120},{\"id\":\"daysOnLeave\",\"field\":\"daysOnLeave\",\"headerArTitle\":\"منذ (يوم)\",\"headerEnTitle\":\"Days On Leave\",\"formatting\":{\"type\":\"number\",\"decimals\":0},\"width\":120}],\"linkMappings\":[{\"key\":\"openEmployee\",\"column\":\"employeeName\",\"onCellClick\":true,\"enLabel\":\"Open Employee\",\"arLabel\":\"فتح الموظف\",\"linkToEntityTypeColumn\":\"employeeEntityType\",\"linkToIdColumn\":\"employeeId\",\"openMode\":\"popup\",\"labelColumn\":\"employeeName\"}]}",
+      "crossFilterBindings": [{ "crossFilter": "hrdBranchFilter" }]
+    },
+
+    {
+      "code": "hrd-eos-summary-cards",
+      "name1": "ملخص نهاية الخدمة",
+      "name2": "EOS Summary",
+      "chartTitle": "ملخص نهاية الخدمة",
+      "englishChartTitle": "EOS Summary",
+      "type": "EnhancedMetricsCard",
+      "dataSource": "SELECT 1 sortOrder, N'إجمالي تصفيات' headerAr, N'Total EOS' headerEn, ISNULL((SELECT SUM(dl.allNetValue) FROM DuesLiquidationDoc dl LEFT JOIN Employee e ON e.id = dl.employee_id WHERE dl.commitedBefore = 1 AND dl.valueDate >= DATEFROMPARTS(YEAR(GETDATE()),1,1) /*AND-FILTERS*/),0) cardValue, N'في الفترة المختارة' subtitleAr, N'In selected period' subtitleEn, 'logout' iconCode, '#ef4444' iconColor, '#fef2f2' iconBg UNION ALL SELECT 2, N'متوسط قيمة التصفية', N'Average EOS Value', CAST(ISNULL((SELECT SUM(dl.allNetValue) / NULLIF(COUNT(*),0) FROM DuesLiquidationDoc dl LEFT JOIN Employee e ON e.id = dl.employee_id WHERE dl.commitedBefore = 1 AND dl.valueDate >= DATEFROMPARTS(YEAR(GETDATE()),1,1) /*AND-FILTERS*/),0) AS DECIMAL(20,2)), N'للتصفية الواحدة', N'per settlement', 'calculate', '#f59e0b', '#fffbeb' ORDER BY sortOrder",
+      "chartConfigJSON": "{\"cardLayout\":{\"direction\":\"grid\",\"gap\":12,\"minCardWidth\":280,\"columnsPerRow\":2},\"card\":{\"headerArField\":\"headerAr\",\"headerEnField\":\"headerEn\",\"value\":{\"field\":\"cardValue\",\"formatting\":{\"type\":\"currency\",\"decimals\":0,\"currencySymbol\":\"SAR\",\"currencyPlacement\":\"suffix\",\"thousandSeparator\":true},\"fontSize\":\"30px\"},\"subtitle\":{\"tempoAr\":\"{subtitleAr}\",\"tempoEn\":\"{subtitleEn}\"},\"icon\":{\"field\":\"iconCode\",\"colorField\":\"iconColor\",\"bgField\":\"iconBg\"},\"cardStyle\":{\"bg\":\"#ffffff\",\"borderColor\":\"#e2e8f0\",\"borderWidth\":\"1px\",\"borderRadius\":\"12px\",\"padding\":\"16px\",\"shadow\":\"sm\"}}}",
+      "crossFilterBindings": [
+        { "crossFilter": "hrdBranchFilter" },
+        { "crossFilter": "hrdDateRange", "sqlLeftHandSide": "dl.valueDate" }
+      ]
+    },
+
+    {
+      "code": "hrd-recent-eos",
+      "name1": "آخر تصفيات نهاية الخدمة",
+      "name2": "Recent EOS Settlements",
+      "chartTitle": "📑 آخر تصفيات نهاية الخدمة",
+      "englishChartTitle": "📑 Recent EOS Settlements",
+      "type": "EnhancedTable",
+      "dataSource": "SELECT TOP 10 e.id employeeId, e.entityType employeeEntityType, ISNULL(e.name1,'') employeeName, ISNULL(e.code,'') employeeCode, ISNULL(b.name1,'') branchName, dl.lastWorkDay, dl.allNetValue, CAST(dl.tmTotalWorkDays / 365.0 AS DECIMAL(10,1)) workYears FROM DuesLiquidationDoc dl LEFT JOIN Employee e ON e.id = dl.employee_id LEFT JOIN Branch b ON b.id = dl.branch_id WHERE dl.commitedBefore = 1 AND dl.valueDate >= DATEFROMPARTS(YEAR(GETDATE()),1,1) /*AND-FILTERS*/ ORDER BY dl.valueDate DESC",
+      "chartConfigJSON": "{\"tableOptions\":{\"pagination\":false,\"rowNumbers\":false,\"grandTotalRow\":\"bottom\"},\"columns\":[{\"id\":\"employeeName\",\"field\":\"employeeName\",\"headerArTitle\":\"الموظف\",\"headerEnTitle\":\"Employee\",\"pinned\":\"start\",\"width\":200},{\"id\":\"employeeCode\",\"field\":\"employeeCode\",\"headerArTitle\":\"الكود\",\"headerEnTitle\":\"Code\",\"width\":100},{\"id\":\"branchName\",\"field\":\"branchName\",\"headerArTitle\":\"الفرع\",\"headerEnTitle\":\"Branch\",\"width\":140},{\"id\":\"lastWorkDay\",\"field\":\"lastWorkDay\",\"headerArTitle\":\"آخر يوم عمل\",\"headerEnTitle\":\"Last Work Day\",\"formatting\":{\"type\":\"date\",\"dateFormat\":\"yyyy-MM-dd\"},\"width\":140},{\"id\":\"workYears\",\"field\":\"workYears\",\"headerArTitle\":\"مدة الخدمة (سنة)\",\"headerEnTitle\":\"Years Worked\",\"formatting\":{\"type\":\"number\",\"decimals\":1},\"width\":140},{\"id\":\"allNetValue\",\"field\":\"allNetValue\",\"headerArTitle\":\"صافي التصفية\",\"headerEnTitle\":\"Net Settlement\",\"formatting\":{\"type\":\"currency\",\"decimals\":2,\"currencySymbol\":\"SAR\",\"currencyPlacement\":\"suffix\",\"thousandSeparator\":true},\"aggFunc\":\"sum\",\"width\":180,\"conditionalFormatting\":{\"rules\":[{\"when\":{\"type\":\"threshold\",\"op\":\">=\",\"value\":50000},\"style\":{\"bg\":\"#dcfce7\",\"color\":\"#166534\",\"bold\":true}}]}}],\"linkMappings\":[{\"key\":\"openEmployee\",\"column\":\"employeeName\",\"onCellClick\":true,\"enLabel\":\"Open Employee\",\"arLabel\":\"فتح الموظف\",\"linkToEntityTypeColumn\":\"employeeEntityType\",\"linkToIdColumn\":\"employeeId\",\"openMode\":\"popup\",\"labelColumn\":\"employeeName\"}]}",
+      "crossFilterBindings": [
+        { "crossFilter": "hrdBranchFilter" },
+        { "crossFilter": "hrdDateRange", "sqlLeftHandSide": "dl.valueDate" }
+      ]
+    }
+  ],
+
+  "DashBoard": [
+    {
+      "code": "hrd-hr-overview",
+      "name1": "لوحة الموارد البشرية الشاملة",
+      "name2": "HR Overview Dashboard",
+      "kind": "Tabbed",
+      "rowsCount": 1,
+      "colsCount": 1,
+      "subDashboards": [
+        { "subDashboard": "hrd-tab-overview",     "arTitle": "نظرة عامة",            "enTitle": "Overview" },
+        { "subDashboard": "hrd-tab-doc-expiry",   "arTitle": "انتهاء الوثائق",      "enTitle": "Doc Expiry" },
+        { "subDashboard": "hrd-tab-workforce",    "arTitle": "توزيع العمالة",       "enTitle": "Workforce" },
+        { "subDashboard": "hrd-tab-compensation", "arTitle": "الرواتب",              "enTitle": "Compensation" },
+        { "subDashboard": "hrd-tab-tenure",       "arTitle": "الأقدمية والحركة",    "enTitle": "Tenure & Movement" },
+        { "subDashboard": "hrd-tab-leave-eos",    "arTitle": "الإجازات ونهاية الخدمة", "enTitle": "Leave & EOS" }
+      ]
+    },
+
+    {
+      "code": "hrd-tab-overview",
+      "name1": "HR - نظرة عامة",
+      "name2": "HR - Overview",
+      "kind": "Single",
+      "rowsCount": 15,
+      "colsCount": 12,
+      "crossFilterBindings": [],
+      "charts": [
+        { "element": "hrd-branch-filter-control", "rowNumber": 1,  "columnNumber": 1, "heightInRows": 1, "widthInColumns": 12 },
+        { "element": "hrd-date-range-control",    "rowNumber": 2,  "columnNumber": 1, "heightInRows": 2, "widthInColumns": 6  },
+        { "element": "hrd-info-bar",              "rowNumber": 2,  "columnNumber": 7, "heightInRows": 2, "widthInColumns": 6  },
+        { "element": "hrd-doc-expiry-cards",      "rowNumber": 4,  "columnNumber": 1, "heightInRows": 3, "widthInColumns": 12 },
+        { "element": "hrd-kpi-strip",             "rowNumber": 7,  "columnNumber": 1, "heightInRows": 3, "widthInColumns": 12 },
+        { "element": "hrd-workforce-by-branch",   "rowNumber": 10, "columnNumber": 1, "heightInRows": 6, "widthInColumns": 5  },
+        { "element": "hrd-12mo-movement",         "rowNumber": 10, "columnNumber": 6, "heightInRows": 6, "widthInColumns": 7  }
+      ]
+    },
+
+    {
+      "code": "hrd-tab-doc-expiry",
+      "name1": "HR - انتهاء الوثائق",
+      "name2": "HR - Doc Expiry",
+      "kind": "Single",
+      "rowsCount": 15,
+      "colsCount": 12,
+      "crossFilterBindings": [],
+      "charts": [
+        { "element": "hrd-branch-filter-control", "rowNumber": 1, "columnNumber": 1, "heightInRows": 1, "widthInColumns": 12 },
+        { "element": "hrd-date-range-control",    "rowNumber": 2, "columnNumber": 1, "heightInRows": 2, "widthInColumns": 6  },
+        { "element": "hrd-info-bar",              "rowNumber": 2, "columnNumber": 7, "heightInRows": 2, "widthInColumns": 6  },
+        { "element": "hrd-doc-expiry-cards",      "rowNumber": 4, "columnNumber": 1, "heightInRows": 3, "widthInColumns": 12 },
+        { "element": "hrd-doc-expiry-detail",     "rowNumber": 7, "columnNumber": 1, "heightInRows": 9, "widthInColumns": 12 }
+      ]
+    },
+
+    {
+      "code": "hrd-tab-workforce",
+      "name1": "HR - توزيع العمالة",
+      "name2": "HR - Workforce Distribution",
+      "kind": "Single",
+      "rowsCount": 15,
+      "colsCount": 12,
+      "crossFilterBindings": [],
+      "charts": [
+        { "element": "hrd-branch-filter-control",   "rowNumber": 1, "columnNumber": 1, "heightInRows": 1, "widthInColumns": 12 },
+        { "element": "hrd-date-range-control",      "rowNumber": 2, "columnNumber": 1, "heightInRows": 2, "widthInColumns": 6  },
+        { "element": "hrd-info-bar",                "rowNumber": 2, "columnNumber": 7, "heightInRows": 2, "widthInColumns": 6  },
+        { "element": "hrd-headcount-by-branch",     "rowNumber": 4, "columnNumber": 1, "heightInRows": 5, "widthInColumns": 6  },
+        { "element": "hrd-headcount-by-department", "rowNumber": 4, "columnNumber": 7, "heightInRows": 5, "widthInColumns": 6  },
+        { "element": "hrd-gender-distribution",     "rowNumber": 9, "columnNumber": 1, "heightInRows": 7, "widthInColumns": 4  },
+        { "element": "hrd-nationality-top7",        "rowNumber": 9, "columnNumber": 5, "heightInRows": 7, "widthInColumns": 4  },
+        { "element": "hrd-age-bands",               "rowNumber": 9, "columnNumber": 9, "heightInRows": 7, "widthInColumns": 4  }
+      ]
+    },
+
+    {
+      "code": "hrd-tab-compensation",
+      "name1": "HR - الرواتب",
+      "name2": "HR - Compensation",
+      "kind": "Single",
+      "rowsCount": 15,
+      "colsCount": 12,
+      "crossFilterBindings": [],
+      "charts": [
+        { "element": "hrd-branch-filter-control", "rowNumber": 1,  "columnNumber": 1, "heightInRows": 1, "widthInColumns": 12 },
+        { "element": "hrd-date-range-control",    "rowNumber": 2,  "columnNumber": 1, "heightInRows": 2, "widthInColumns": 6  },
+        { "element": "hrd-info-bar",              "rowNumber": 2,  "columnNumber": 7, "heightInRows": 2, "widthInColumns": 6  },
+        { "element": "hrd-comp-summary-cards",    "rowNumber": 4,  "columnNumber": 1, "heightInRows": 3, "widthInColumns": 12 },
+        { "element": "hrd-payroll-trend",         "rowNumber": 7,  "columnNumber": 1, "heightInRows": 4, "widthInColumns": 12 },
+        { "element": "hrd-top-paid",              "rowNumber": 11, "columnNumber": 1, "heightInRows": 5, "widthInColumns": 12 }
+      ]
+    },
+
+    {
+      "code": "hrd-tab-tenure",
+      "name1": "HR - الأقدمية والحركة",
+      "name2": "HR - Tenure & Movement",
+      "kind": "Single",
+      "rowsCount": 15,
+      "colsCount": 12,
+      "crossFilterBindings": [],
+      "charts": [
+        { "element": "hrd-branch-filter-control", "rowNumber": 1,  "columnNumber": 1, "heightInRows": 1, "widthInColumns": 12 },
+        { "element": "hrd-date-range-control",    "rowNumber": 2,  "columnNumber": 1, "heightInRows": 2, "widthInColumns": 6  },
+        { "element": "hrd-info-bar",              "rowNumber": 2,  "columnNumber": 7, "heightInRows": 2, "widthInColumns": 6  },
+        { "element": "hrd-tenure-summary-cards",  "rowNumber": 4,  "columnNumber": 1, "heightInRows": 3, "widthInColumns": 12 },
+        { "element": "hrd-recent-hires",          "rowNumber": 7,  "columnNumber": 1, "heightInRows": 4, "widthInColumns": 6  },
+        { "element": "hrd-recent-exits",          "rowNumber": 7,  "columnNumber": 7, "heightInRows": 4, "widthInColumns": 6  },
+        { "element": "hrd-longest-serving",       "rowNumber": 11, "columnNumber": 1, "heightInRows": 5, "widthInColumns": 6  },
+        { "element": "hrd-contracts-ending",      "rowNumber": 11, "columnNumber": 7, "heightInRows": 5, "widthInColumns": 6  }
+      ]
+    },
+
+    {
+      "code": "hrd-tab-leave-eos",
+      "name1": "HR - الإجازات ونهاية الخدمة",
+      "name2": "HR - Leave & End of Service",
+      "kind": "Single",
+      "rowsCount": 15,
+      "colsCount": 12,
+      "crossFilterBindings": [],
+      "charts": [
+        { "element": "hrd-branch-filter-control", "rowNumber": 1,  "columnNumber": 1, "heightInRows": 1, "widthInColumns": 12 },
+        { "element": "hrd-date-range-control",    "rowNumber": 2,  "columnNumber": 1, "heightInRows": 2, "widthInColumns": 6  },
+        { "element": "hrd-info-bar",              "rowNumber": 2,  "columnNumber": 7, "heightInRows": 2, "widthInColumns": 6  },
+        { "element": "hrd-leave-summary-cards",   "rowNumber": 4,  "columnNumber": 1, "heightInRows": 3, "widthInColumns": 12 },
+        { "element": "hrd-currently-on-leave",    "rowNumber": 7,  "columnNumber": 1, "heightInRows": 5, "widthInColumns": 12 },
+        { "element": "hrd-eos-summary-cards",     "rowNumber": 12, "columnNumber": 1, "heightInRows": 3, "widthInColumns": 12 },
+        { "element": "hrd-recent-eos",            "rowNumber": 15, "columnNumber": 1, "heightInRows": 4, "widthInColumns": 12 }
+      ]
+    }
+  ]
+}

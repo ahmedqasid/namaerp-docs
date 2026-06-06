@@ -58,8 +58,8 @@ select entityType,id from StockIssue where fromDoc_id = {id}
 
 **Related Actions:**
 - [EARecommitFromQuery](../core/EARecommitFromQuery.md) - Parent class for bulk operations
-- [EAMakeCreationDateAlwaysAfter](EAMakeCreationDateAlwaysAfter.md) - Used for StockIssue documents
-- [EAMakeCreationDateAlwaysBefore](EAMakeCreationDateAlwaysBefore.md) - Used for other documents
+- [EAMakeCreationDateAlwaysAfter](../core/EAMakeCreationDateAlwaysAfter.md) - Used for StockIssue documents
+- [EAMakeCreationDateAlwaysBefore](../core/EAMakeCreationDateAlwaysBefore.md) - Used for other documents
 
 
 </div>

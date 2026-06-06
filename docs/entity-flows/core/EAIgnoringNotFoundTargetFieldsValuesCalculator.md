@@ -42,7 +42,7 @@ Same parameters as [EAFieldsValuesCalculator](EAFieldsValuesCalculator.md) with 
 
 **Related Actions:**
 - [EAFieldsValuesCalculator](EAFieldsValuesCalculator.md) - Standard field value calculator without error tolerance
-- [EAAutomaticFieldsValuesCalculator](EAAutomaticFieldsValuesCalculator.md) - Automatic field value calculation
+- `EAAutomaticFieldsValuesCalculator` - Automatic field value calculation
 
 
 </div>
