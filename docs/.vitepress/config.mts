@@ -4,10 +4,14 @@ import {transliterate} from 'transliteration'
 import postcssRTLCSS from 'postcss-rtlcss'
 import {Mode} from 'postcss-rtlcss/options'
 import {SIDEBAR_CONFIG} from './sidebar.js'
+import {collectPageForSearchIndex, devSearchIndexPlugin, writeSearchIndexJSON} from './search-index-builder.mts'
+import {normalizeArabic} from './theme/arabic-normalization'
 import fs from 'node:fs'
 import path from 'node:path'
+import {fileURLToPath} from 'node:url'
 
 const HOSTNAME = 'https://docs.namasoft.com/'
+const SEARCH_INDEX_STABLE_PATH = path.join(path.dirname(fileURLToPath(import.meta.url)), 'search-index.json')
 
 function rtlLtrContainer(md, type) {
     md.use(container, type, {
@@ -75,6 +79,7 @@ export default defineConfig({
             themeConfig: {
                 nav: [
                     {text: 'الرئيسية', link: '/'},
+                    {text: 'Q&A', link: 'https://ask.namasoft.com'},
                     {text: 'Namasoft.com', link: 'https://namasoft.com'},
                     {text: 'Data Model', link: 'https://dm.namasoft.com'}
                 ]
@@ -88,6 +93,7 @@ export default defineConfig({
             themeConfig: {
                 nav: [
                     {text: 'Home', link: '/en/'},
+                    {text: 'Q&A', link: 'https://ask.namasoft.com'},
                     {text: 'Namasoft.com', link: 'https://namasoft.com'},
                     {text: 'Data Model', link: 'https://dm.namasoft.com'}
                 ]
@@ -102,7 +108,8 @@ export default defineConfig({
                 // ready for the /en/ locale later.
                 plugins: [postcssRTLCSS({mode: Mode.override})]
             }
-        }
+        },
+        plugins: [devSearchIndexPlugin(SEARCH_INDEX_STABLE_PATH)]
     },
     head: [
         ['link', {rel: 'shortcut icon', type: 'image/png', href: '/namasoft.png'}]
@@ -140,10 +147,47 @@ export default defineConfig({
         socialLinks: [
             {icon: 'github', link: 'https://github.com/ahmedqasid/namaerp-docs'}
         ],
-        // Temporary built-in search until the custom full-text/AI search is ported (separate task)
-        search: {provider: 'local'}
+        // Built-in minisearch handles quick keyword search; the AI/advanced search
+        // (semantic / fuzzy / exact substring via the nlm servlet) lives in
+        // EmbeddableSearchBox (navbar button + /full-search.html pages).
+        search: {
+            provider: 'local',
+            options: {
+                detailedView: true,
+                miniSearch: {
+                    options: {
+                        // minisearch's default processTerm only lowercases; add Arabic
+                        // folding so hamza/taa-marbuta variants match. Search-time terms
+                        // go through the same function (minisearch reuses it by default).
+                        processTerm: (term) => normalizeArabic(term.toLowerCase())
+                    }
+                },
+                locales: {
+                    root: {
+                        translations: {
+                            button: {buttonText: 'بحث', buttonAriaLabel: 'بحث'},
+                            modal: {
+                                displayDetails: 'عرض التفاصيل',
+                                resetButtonTitle: 'مسح البحث',
+                                backButtonTitle: 'إغلاق',
+                                noResultsText: 'لا توجد نتائج عن',
+                                footer: {
+                                    selectText: 'اختيار',
+                                    navigateText: 'تنقل',
+                                    closeText: 'إغلاق'
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    transformHtml: (html, id, ctx) => {
+        collectPageForSearchIndex(html, ctx.page, ctx.pageData.title)
     },
     buildEnd: (siteConfig) => {
         writeRedirectsMap(siteConfig.outDir)
+        writeSearchIndexJSON(siteConfig.outDir, SEARCH_INDEX_STABLE_PATH)
     }
 })

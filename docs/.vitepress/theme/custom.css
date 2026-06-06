@@ -66,20 +66,16 @@
     max-width: 100% !important;
 }
 
-/* ===== Full-Text Search Box Dark Mode Fixes ===== */
-/* VitePress toggles dark mode via the .dark class on <html> (VuePress used [data-theme="dark"]) */
-html.dark .embeddable-search-box {
-    border-color: #444;
-    background: #1a1a1a;
-}
+/* The embeddable/AI search box styles itself with VitePress CSS vars (--vp-c-*),
+   so dark mode and RTL need no extra rules here. */
 
-html.dark .embeddable-search-box .search-index-selector {
-    background-color: #2a2a2a;
-    border-color: #666;
-    color: #e0e0e0;
-}
-
-html.dark .embeddable-search-box .inline-results {
-    background: #1a1a1a;
-    border-color: #444;
+/* ===== Locale toggle =====
+ * With only two locales (ar/en), the default translations dropdown is replaced
+ * by a direct toggle link (LocaleToggleLink, injected via the nav-bar-content-after
+ * slot). Hide the dropdown in all three places the theme renders it:
+ * wide navbar, the "⋯ extra" flyout on medium screens, and the mobile screen menu. */
+.VPNavBarTranslations,
+.VPNavBarExtra .group.translations,
+.VPNavScreenTranslations {
+    display: none !important;
 }

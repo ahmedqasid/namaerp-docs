@@ -4,7 +4,7 @@ docs/.vuepress/.cache/
 docs/.vuepress/.temp/
 docs/.vitepress/dist/
 docs/.vitepress/cache/
+docs/.vitepress/search-index.json
 .idea/
 package-lock.json
 *.log
-typesense-data/*

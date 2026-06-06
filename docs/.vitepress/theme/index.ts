@@ -1,6 +1,9 @@
+import {h} from 'vue'
 import DefaultTheme from 'vitepress/theme'
 import type {Theme} from 'vitepress'
 import './custom.css'
+import AiSearchNavButton from './components/AiSearchNavButton.vue'
+import LocaleToggleLink from './components/LocaleToggleLink.vue'
 
 import RTLBlock from './components/RTLBlock.vue'
 import LTRBlock from './components/LTRBlock.vue'
@@ -17,6 +20,12 @@ import EmbeddableSearchBox from './components/EmbeddableSearchBox.vue'
 
 export default {
     extends: DefaultTheme,
+    // Adds the AI/advanced search button next to the built-in (minisearch) navbar search,
+    // and a direct ar/en toggle link (the default translations dropdown is hidden in custom.css)
+    Layout: () => h(DefaultTheme.Layout, null, {
+        'nav-bar-content-before': () => h(AiSearchNavButton),
+        'nav-bar-content-after': () => h(LocaleToggleLink)
+    }),
     enhanceApp({app}) {
         app.component('RTLBlock', RTLBlock)
         app.component('rtl', RTLBlock)
