@@ -1,5 +1,5 @@
-# استعلامات للكشف عن مشاكل التكلفة والكميات (وإصلاحها) {#Queries-to-Check-for-and-Fix-Cost-And-Qty-Problems}
-## التحقق من تطابق التكلفة مع دفتر الأستاذ {#Check-Cost-and-Ledger-are-consistent}
+# استعلامات للكشف عن مشاكل التكلفة والكميات (وإصلاحها)
+## التحقق من تطابق التكلفة مع دفتر الأستاذ
 ::: details
 ```sql
 with Costs as
@@ -16,7 +16,7 @@ select  c.originType,c.originId,ledgerValue,costValue,abs(ledgerValue-costValue)
 order by diff desc
 ```
 :::
-## إعادة جلب إعدادات المحاسبة لكود توجيه محدد {#Refetch-Accounting--Config-For-a-specific-term-code}
+## إعادة جلب إعدادات المحاسبة لكود توجيه محدد
 ::: details
 ```sql
 update r set transStatus = 'Retry',regenerateLedgerReq = 1, reFetchAccConfig = 1
@@ -26,21 +26,21 @@ left join DocumentTerm t on t.id = e.term_id
  and t.code = 'term_code_here'
 ```
 :::
-## إعادة جلب إعدادات المحاسبة في InvTransReq الفاشلة {#Refetch-Accounting--Config-in-Failed--InvTransReq}
+## إعادة جلب إعدادات المحاسبة في InvTransReq الفاشلة
 ::: details
 ```sql
 update InvTransReq set transStatus = 'Retry',regenerateLedgerReq = 1, reFetchAccConfig = 1 
                    where transStatus = 'Processed' and requestType <> 'Delete'
 ```
 :::
-## إعادة جلب إعدادات المحاسبة في جميع الفواتير والمصروفات والصرف والاستلام والتحويلات {#Refetch-Accounting--Config-in-All-Invoices-Expenses-Issues-Receipts-and-Transfers}
+## إعادة جلب إعدادات المحاسبة في جميع الفواتير والمصروفات والصرف والاستلام والتحويلات
 ::: details
 ```sql
 update InvTransReq set transStatus = 'Retry',regenerateLedgerReq = 1, reFetchAccConfig = 1 
                    where transStatus = 'Processed' and requestType <> 'Delete'
 ```
 :::
-## البحث عن InvTransReq الوهمية وإزالتها {#Find-and-Remove-Zombie-InvTransReq}
+## البحث عن InvTransReq الوهمية وإزالتها
 
 ::: details استعلام للمراجعة
 ```sql
@@ -82,7 +82,7 @@ where e.id is null or e.fileStatus = 'Cancelled'
 
 ```
 :::
-## البحث عن حركات بها فروقات أدت إلى "كمية صفر مع وجود تكلفة" {#Find-Transactions-with-differences-that-led-to-zero-quantity-but-have-cost}
+## البحث عن حركات بها فروقات أدت إلى "كمية صفر مع وجود تكلفة"
 ::: details استعلام للمراجعة
 ```sql
 with x as (
@@ -116,7 +116,7 @@ group by dimensionCost,item_id
 update r set transStatus = 'Retry', costTransStatus = 'Retry' from reproceess rp inner join InvTransReq  r on r.originId = rp.originId
 ```
 :::
-### البحث عن المستندات التي تحتاج إلى إعادة الترحيل لإصلاح مشكلة كمية صفر مع وجود تكلفة {#Find-Documents-that-need-to-be-recommited-to-fix-zero-quantity-but-have-cost}
+### البحث عن المستندات التي تحتاج إلى إعادة الترحيل لإصلاح مشكلة كمية صفر مع وجود تكلفة
 ::: details
 ```sql
 with x as (
@@ -140,7 +140,7 @@ order by item_id,strSequence*/
 ```
 :::
 
-## البحث عن حركات المخزون التي لا تؤثر على حركات دفتر الأستاذ {#Find-Inventory-Transactions-that-do-not-affect-on-ledger-transactions}
+## البحث عن حركات المخزون التي لا تؤثر على حركات دفتر الأستاذ
 ::: details
 ```sql
 declare @valueDate as date = '20211231';
@@ -236,7 +236,7 @@ order by diff desc
 
 ```
 :::
-## التحقق من تطابق التكلفة مع دفتر الأستاذ (الإجماليات) {#Check-Cost-and-Ledger-are-consistent-totals}
+## التحقق من تطابق التكلفة مع دفتر الأستاذ (الإجماليات)
 ::: details
 ```sql
 declare @onDate as date = '20231231'
@@ -269,7 +269,7 @@ select costs,acc,costs-acc diff from acc inner join costs on 1 = 1
 
 ```
 :::
-# التحقق من تطابق التكلفة مع دفتر الأستاذ لكل مستند {#Check-Cost-and-Ledger-are-consistent-per-each-document}
+# التحقق من تطابق التكلفة مع دفتر الأستاذ لكل مستند
 ::: details
 ```sql
 declare @onDate as date = '20231231'
@@ -323,7 +323,7 @@ order by diff desc
 ```
 :::
 
-## إعادة توليد حركات دفتر الأستاذ للطلبات ذات تعارض بين التكلفة ودفتر الأستاذ {#ReGenerate-Ledger-Transactions-for-Inconsistent-Cost-Ledger-Requests}
+## إعادة توليد حركات دفتر الأستاذ للطلبات ذات تعارض بين التكلفة ودفتر الأستاذ
 ::: details
 ```sql
 with Costs as
@@ -342,7 +342,7 @@ where ABS(c.costValue-acc.ledgerValue)>0.1 and r.requestType <> 'Delete'
 
 ```
 :::
-## البحث عن أصناف بكمية صفر مع وجود تكلفة {#Find-items-with-zero-quantity-but-have-cost}
+## البحث عن أصناف بكمية صفر مع وجود تكلفة
 ::: details
 ```sql
 with costs as (
@@ -375,11 +375,11 @@ order by abs(sum(netCost)) desc
 
 ```
 :::
-## إصلاح حقول CurrentNetQty غير الصحيحة {#Fix-Invalid-CurrentNetQty-fields}
+## إصلاح حقول CurrentNetQty غير الصحيحة
 <UtilityLinkBuilder className="com.namasoft.modules.supplychain.domain.utils.UpdateCurrentNetCostAndCurrentNetQty"
 />
 
-## مشكلة تكلفة تسليم الإنتاج (Cost Callback) {#Production-Delivery-Cost-Problem-Cost-Callback}
+## مشكلة تكلفة تسليم الإنتاج (Cost Callback)
 ::: details
 ```sql
 with delivery as (
@@ -411,7 +411,7 @@ where abs(receiptCost-(materialCost+resourceCost-coalesce(retCost,0)))>1.5 and c
 ```
 :::
 
-## إعادة معالجة حركات تكلفة Fifo التالفة {#Reprocess-Bad-Fifo-Cost-Transactions}
+## إعادة معالجة حركات تكلفة Fifo التالفة
 ::: details
 ```sql
 with toReproocess as (

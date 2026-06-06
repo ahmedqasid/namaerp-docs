@@ -22,7 +22,7 @@ Price: {itemprice(itemIdOrCode=item,colorCode=invItemCode.color,sizeCode=invItem
 Price Including Tax: {itemprice(itemIdOrCode=item,colorCode=invItemCode.color,sizeCode=invItemCode.size,legalEntityCodeOrId="01",fieldToDisplay=netValue)}{enter}
 ```
 يمكنك معرفة المزيد عند دالة الأسعار `itemprice` من دليل استعمل tempo
-[Sales Price Tempo Function](../../admin/tempo.md#Getting-the-Sales-Price-of-an-Item)
+[Sales Price Tempo Function](../../admin/tempo.md#lHSwl-aal-saar-byaa-Snf)
 يمكنك أيضاً كتابة استعلامات SQL مخصصة لجلب بيانات إضافية وعرضها في القالب.
 
 **مثال استعلام لحساب الكميات بكل مخزن:**

@@ -1,6 +1,6 @@
 # أدوات النسخ المتطابق (Replication Utilities)
 
-## تنظيف النسخ المتطابق (Replication Clean Up) {#Replication-Clean-Up}
+## تنظيف النسخ المتطابق (Replication Clean Up)
 ::: details
 ```sql
 update m set messageSent = 1 from SiteOutMessage m left join ReplicationSite rs on rs.code = m.siteCode where rs.inActive = 1 and m.messageSent = 0
@@ -31,7 +31,7 @@ go
 ```
 :::
 
-## خطوات أخذ نسخة احتياطية واستعادتها في الفرع (Take Backup and Restore It in Branch Steps) {#Take-Backup-and-Restore-It-in-Branch-Steps}
+## خطوات أخذ نسخة احتياطية واستعادتها في الفرع (Take Backup and Restore It in Branch Steps)
 - تجهيز النسخة الاحتياطية ونسخها إلى الفرع
 - إيقاف Tomcat في الفرع
 - استعادة النسخة الاحتياطية في الفرع

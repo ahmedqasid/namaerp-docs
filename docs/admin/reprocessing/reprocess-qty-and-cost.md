@@ -2,7 +2,7 @@
 
 <ServerBaseURL/>
 
-## إعادة معالجة جميع حركات الكميات (يجب إيقاف Tomcat أولاً) (Reprocess All Quantity Transactions (Tomcat must be shutdown)) {#Reprocess-All-Quantity-Transactions-Tomcat-must-be-shutdown}
+## إعادة معالجة جميع حركات الكميات (يجب إيقاف Tomcat أولاً) (Reprocess All Quantity Transactions (Tomcat must be shutdown))
 ::: details
 ```sql
 update FiscalYear set allowCostProcessingWithClosingEntry = 1 where commitedBefore = 1
@@ -93,7 +93,7 @@ delete from StockAgesTrans
 ```
 :::
 
-### إعادة معالجة جزئية للتكلفة المتوسطة (سريعة) (Partial Reprocess of Average Cost (Fast)) {#Partial-Reprocess-of-Average-Cost-Fast}
+### إعادة معالجة جزئية للتكلفة المتوسطة (سريعة) (Partial Reprocess of Average Cost (Fast))
 <UtilityLinkBuilder
 className="com.namasoft.modules.supplychain.domain.utils.FastReprocessCostFromDate"
 :params="[
@@ -101,9 +101,9 @@ className="com.namasoft.modules.supplychain.domain.utils.FastReprocessCostFromDa
 ]"
 />
 
-## إعادة معالجة أعمار المخزون (Reprocess Stock Ages) {#Reprocess-Stock-Ages}
+## إعادة معالجة أعمار المخزون (Reprocess Stock Ages)
 
-### الطريقة الأولى (Method 1) {#Method-1}
+### الطريقة الأولى (Method 1)
 - استخدام أداة إعادة المعالجة السريعة (Fast Reprocess Util)
   <UtilityLinkBuilder
   className="com.namasoft.modules.supplychain.domain.utils.plugnplay.StockAgesFastReprocess"
@@ -118,7 +118,7 @@ className="com.namasoft.modules.supplychain.domain.utils.FastReprocessCostFromDa
 
 :::
 
-### الطريقة الثانية (Method 2) {#Method-2}
+### الطريقة الثانية (Method 2)
 - استخدام الاستعلام التالي (أبطأ من الطريقة الأولى)
 ::: details
 ```sql
@@ -139,7 +139,7 @@ where i.stockAgesPolicy = 'Yes' and r.transStatus  ='Processed'
 ```
 :::
 
-### الطريقة الثالثة (Method 3) {#Method-3}
+### الطريقة الثالثة (Method 3)
 استخدام أداة معالجة محددات معينة (Process Of Certain Dimensions Util)
 
 <UtilityLinkBuilder

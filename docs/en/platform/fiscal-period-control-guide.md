@@ -22,7 +22,7 @@ Each accounting period has a default status: **Opened** or **Closed**. When a pe
 
 ---
 
-## Part One: Fiscal Year Status Update — Selective Closing {#Part-One-Fiscal-Year-Status-Update--Selective-Closing}
+## Part One: Fiscal Year Status Update — Selective Closing
 
 This is a master file that lets you close (or open) periods in a precise, granular way based on **permission file or user**, **document type**, and **Dimensions** (Legal Entity / Sector / Branch / Department / Analysis Group) — instead of a blanket close.
 
@@ -90,7 +90,7 @@ You can also combine a permission file, a document type, and a dimension (branch
 
 ---
 
-## Part Two: Ignore Closed Periods — Exceptions {#Part-Two-Ignore-Closed-Periods--Exceptions}
+## Part Two: Ignore Closed Periods — Exceptions
 
 Sometimes a period is closed for everyone, but you want to **allow** a specific party or document to work in it (a corrective entry, a late adjustment, a special privilege for the Finance Manager). This is what **Ignore Closed Periods** does: an exception rule that makes the system treat a closed period as open — but only for those to whom the rule applies.
 
@@ -136,7 +136,7 @@ Inside the Fiscal Year record, add a line in "Ignore Closed Periods": specify th
 
 ---
 
-## Application Priority (How the Layers Interact) {#Application-Priority-How-the-Layers-Interact}
+## Application Priority (How the Layers Interact)
 
 When attempting to save a document in a period, the system decides to allow or block in the following order:
 

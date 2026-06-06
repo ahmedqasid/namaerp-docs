@@ -48,7 +48,7 @@ When the formula is set up this way, the Nama system expects the data in the imp
 
 Below is an explanation of all field formulas that can be used when importing attendance and departure data in the Nama system.
 
-## Table of All Attendance Formula Components {#Table-of-All-Attendance-Formula-Components}
+## Table of All Attendance Formula Components
 
 ---
 

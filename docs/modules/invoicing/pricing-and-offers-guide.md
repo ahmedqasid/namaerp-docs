@@ -1,8 +1,8 @@
-# دليل إدارة الأسعار والعروض (Pricing and Offers Management Guide) {#Pricing-and-Offers-Management-Guide}
+# دليل إدارة الأسعار والعروض (Pricing and Offers Management Guide)
 
 يغطي هذا الدليل الشامل نظام التسعير في Nama ERP، بما في ذلك قوائم الأسعار وعروض المبيعات وآليات التسعير الآلي التي تساعد على الحفاظ على أسعار دقيقة وتنافسية طوال عمليات البيع.
 
-## نظرة عامة (Overview) {#Overview}
+## نظرة عامة (Overview)
 
 يوفر Nama ERP محرك تسعير متطوراً يدعم:
 - **قوائم أسعار المبيعات** (Sales Price Lists) - هياكل تسعير ثابتة للأصناف
@@ -10,17 +10,17 @@
 - **تحديثات الأسعار الآلية** (Automated Price Updates) - تعديلات أسعار يقودها النظام
 - **التسعير متعدد المحددات** (Multi-dimensional Pricing) - دعم لفئات العملاء والمواسم والتصنيفات
 
-## قوائم أسعار المبيعات (Sales Price Lists) {#Sales-Price-Lists}
+## قوائم أسعار المبيعات (Sales Price Lists)
 
-### التنقل (Navigation) {#Navigation}
+### التنقل (Navigation)
 **مسار القائمة**: المبيعات > قوائم الأسعار والعروض > قائمة أسعار
 
-### الغرض (Purpose) {#Purpose}
+### الغرض (Purpose)
 تحدد قوائم أسعار المبيعات هياكل تسعير موحدة لأصناف المخزون، مما يتيح للشركات الحفاظ على أسعار متسقة عبر شرائح العملاء المختلفة والفترات الزمنية وسيناريوهات الأعمال.
 
-### الميزات الرئيسية (Key Features) {#Key-Features}
+### الميزات الرئيسية (Key Features)
 
-#### إعداد الرأسية (Header Configuration) {#Header-Configuration}
+#### إعداد الرأسية (Header Configuration)
 
 **المعلومات الأساسية:**
 - **الرمز** (Code) - معرّف فريد لقائمة الأسعار
@@ -38,7 +38,7 @@
 - **تصنيف الفاتورة** (Invoice Classification) - تطبيق على أنواع فواتير محددة
 - **محددات السعر 1-5** (Price Classifiers 1-5) - نظام تصنيف متعدد المحددات
 
-#### تفاصيل قائمة الأسعار (Price List Details) {#Price-List-Details}
+#### تفاصيل قائمة الأسعار (Price List Details)
 
 تحتوي كل قائمة أسعار على سطور تفصيلية شاملة مع خيارات إعداد واسعة:
 
@@ -98,7 +98,7 @@
 **تتبع النظام:**
 - **معرّف الأمر/معرّف السطر المنشأ منه** (Created From Order ID/Line ID) - يتتبع إنشاء قائمة الأسعار من أوامر البيع لأغراض التدقيق
 
-#### ميزات التسعير المتقدمة (Advanced Pricing Features) {#Advanced-Pricing-Features}
+#### ميزات التسعير المتقدمة (Advanced Pricing Features)
 
 **محدثات الأسعار (Price Updaters):**
 يوفر النظام آلية تحديث أسعار متطورة من 5 مراحل مع قدرات حساب وتقريب شاملة:
@@ -195,9 +195,9 @@
 - **نشر المراجعات** (Spread Revisions) - تضمين جميع مراجعات الصنف
 - **نشر الأحجام/الألوان** (Spread Sizes/Colors) - توسيع لجميع المتغيرات
 
-### إدارة قوائم الأسعار (Price List Management) {#Price-List-Management}
+### إدارة قوائم الأسعار (Price List Management)
 
-#### إنشاء قوائم الأسعار (Creating Price Lists) {#Creating-Price-Lists}
+#### إنشاء قوائم الأسعار (Creating Price Lists)
 
 1. **الانتقال** إلى المبيعات > قوائم الأسعار والعروض > قائمة أسعار
 2. **تعيين معلومات الرأسية**:
@@ -216,7 +216,7 @@
    - أعدّ محددات الصنف والكميات
    - اضبط الأسعار أو استخدم المحدثات للحساب التلقائي
 
-#### تحديثات الأسعار الجماعية (Bulk Price Updates) {#Bulk-Price-Updates}
+#### تحديثات الأسعار الجماعية (Bulk Price Updates)
 
 **من المستندات المصدر:**
 - **المصدر** (Source) - استيراد من قوائم أسعار أو فواتير أو أوامر قائمة
@@ -229,9 +229,9 @@
 - تصفية الإدارة والفرع والقطاع
 - قيود مجموعة التحليل
 
-### تكامل النظام (System Integration) {#System-Integration}
+### تكامل النظام (System Integration)
 
-#### منطق تحديد السعر (Price Resolution Logic) {#Price-Resolution-Logic}
+#### منطق تحديد السعر (Price Resolution Logic)
 
 عند تحديد الأسعار، يتبع النظام هذا التسلسل الهرمي:
 
@@ -241,7 +241,7 @@
 4. **سعر بطاقة الصنف** (Item Master Price) - سعر بيع الصنف الافتراضي
 5. **التسعير على أساس التكلفة** (Cost-Plus Pricing) - محسوب من تكلفة الصنف مع هامش ربح
 
-#### تحديثات الأسعار في الوقت الفعلي (Real-Time Price Updates) {#Real-Time-Price-Updates}
+#### تحديثات الأسعار في الوقت الفعلي (Real-Time Price Updates)
 
 محرك التسعير يعمل تلقائياً على:
 - التحقق من نطاقات التاريخ وأهلية العميل
@@ -250,17 +250,17 @@
 - مراعاة اتفاقيات تسعير العقود
 - الأخذ بالعروض الترويجية والخصومات
 
-## عروض المبيعات (Sales Offers) {#Sales-Offers}
+## عروض المبيعات (Sales Offers)
 
-### التنقل (Navigation) {#Navigation-1}
+### التنقل (Navigation)
 **مسار القائمة**: المبيعات > قوائم الأسعار والعروض > عرض
 
-### الغرض (Purpose) {#Purpose-1}
+### الغرض (Purpose)
 توفر عروض المبيعات إدارة متطورة للخصومات والعروض الترويجية، مما يمكّن الشركات من إنشاء حملات ترويجية معقدة مع أنواع خصومات متعددة وأصناف مجانية وتطبيقات مشروطة.
 
-### أنواع العروض والتجميعات (Offer Types and Collections) {#Offer-Types-and-Collections}
+### أنواع العروض والتجميعات (Offer Types and Collections)
 
-#### 1. خصومات الأصناف (Item Discounts) {#1-Item-Discounts}
+#### 1. خصومات الأصناف (Item Discounts)
 **التجميع**: `details`
 **الجدول**: `ItemDiscountLine`
 
@@ -318,7 +318,7 @@
 - **الصلاحية الأمنية** (Security Capability) - متطلبات صلاحيات المستخدم
 - **التابعة** (Subsidiary) - استهداف وحدة أعمال متعددة الكيانات
 
-#### 2. الأصناف المجانية (Free Items) {#2-Free-Items}
+#### 2. الأصناف المجانية (Free Items)
 **التجميع**: `freeItems`
 **الجدول**: `FreeItemLine`
 
@@ -382,7 +382,7 @@
 - **حقول نصية (text1-text5)** - معلومات نصية مخصصة
 - **حقول تاريخ (date1-date5)** - تتبع تواريخ مخصصة
 
-#### 3. خصومات الفاتورة (Invoice-Level Discounts) {#3-Invoice-Level-Discounts}
+#### 3. خصومات الفاتورة (Invoice-Level Discounts)
 **التجميع**: `invDiscountLines`
 **الجدول**: `InvoiceDiscountLine`
 
@@ -416,7 +416,7 @@
 - **الصلاحية الأمنية** (Security Capability) - متطلبات صلاحيات المستخدم
 - **التابعة** (Subsidiary) - استهداف وحدة أعمال متعددة الكيانات
 
-#### 4. أصناف مجانية للفاتورة (Invoice Free Items) {#4-Invoice-Free-Items}
+#### 4. أصناف مجانية للفاتورة (Invoice Free Items)
 **التجميع**: `invOffersLines`
 **الجدول**: `InvoiceFreeItemLine`
 
@@ -450,7 +450,7 @@
 - **الصلاحية الأمنية** (Security Capability) - متطلبات صلاحيات المستخدم
 - **التابعة** (Subsidiary) - استهداف وحدة أعمال متعددة الكيانات
 
-#### 5. عروض عدد الأصناف (Items Count Offers) {#5-Items-Count-Offers}
+#### 5. عروض عدد الأصناف (Items Count Offers)
 **التجميع**: `itemsCountOffers`
 **الجدول**: `OfferOnItemsCountLine`
 
@@ -492,7 +492,7 @@
 - **المحددات** (Dimensions) - قيود محددات عامة (الفرع، الإدارة، الشركة، إلخ)
 - **التابعة** (Subsidiary) - استهداف وحدة أعمال متعددة الكيانات
 
-#### 6. إدارة قسائم الخصم (Coupon Management) {#6-Coupon-Management}
+#### 6. إدارة قسائم الخصم (Coupon Management)
 **التجميع**: `coupons`
 **الجدول**: `OfferCouponLine`
 
@@ -526,9 +526,9 @@
 - **المحددات** (Dimensions) - قيود محددات عامة (الفرع، الإدارة، الشركة، إلخ)
 - **التابعة** (Subsidiary) - استهداف وحدة أعمال متعددة الكيانات
 
-### إعداد العروض (Offer Configuration) {#Offer-Configuration}
+### إعداد العروض (Offer Configuration)
 
-#### إعدادات الرأسية (Header Settings) {#Header-Settings}
+#### إعدادات الرأسية (Header Settings)
 
 **الإعداد الأساسي:**
 - **الرمز/الاسم** (Code/Name) - تعريف العرض
@@ -546,7 +546,7 @@
 - **قيود الموظفين** (Employee Restrictions) - تحديد العروض لموظفي مبيعات محددين
 - **ضوابط التابعة** (Subsidiary Controls) - دعم أعمال متعددة الكيانات
 
-#### تنفيذ منطق العروض (Offer Logic Implementation) {#Offer-Logic-Implementation}
+#### تنفيذ منطق العروض (Offer Logic Implementation)
 
 **تتالي الخصومات:**
 يُنفذ النظام تتالياً متطوراً للخصومات حيث:
@@ -561,13 +561,13 @@
 - **العمليات الرياضية** (Mathematical Operations) - جمع، طرح، ضرب، قسمة
 - **ضبط التقريب** (Rounding Control) - إدارة الدقة
 
-## آليات تحديث أسعار النظام (System Price Update Mechanisms) {#System-Price-Update-Mechanisms}
+## آليات تحديث أسعار النظام (System Price Update Mechanisms)
 
-### الحساب الآلي للأسعار (Automated Price Calculation) {#Automated-Price-Calculation}
+### الحساب الآلي للأسعار (Automated Price Calculation)
 
 تُنسّق طريقة `SalesPriceUtils.updateLinePriceAndDiscounts()` في النظام حسابات تسعير معقدة:
 
-#### عملية تحديد السعر (Price Resolution Process) {#Price-Resolution-Process}
+#### عملية تحديد السعر (Price Resolution Process)
 
 1. **حساب الضريبة** (Tax Calculation) - يعيد حساب نسب الضريبة عند الحاجة
 2. **التحقق من التفاصيل** (Detail Validation) - يزيل السطور بدون أصناف
@@ -578,7 +578,7 @@
    - أسعار بطاقة الصنف
    - حسابات التكلفة مع هامش ربح
 
-#### تسلسل تطبيق الخصم (Discount Application Sequence) {#Discount-Application-Sequence}
+#### تسلسل تطبيق الخصم (Discount Application Sequence)
 
 1. **خصومات مستوى الصنف** (Item-Level Discounts) - تُطبق أولاً من العروض
 2. **حساب خصم الرأسية** (Header Discount Calculation) - تحديد الخصم على مستوى المستند
@@ -587,22 +587,22 @@
 5. **معالجة الأصناف المجانية** (Free Item Processing) - إضافة الأصناف المجانية المؤهلة
 6. **التحقق من الحدود** (Boundary Validation) - يضمن الامتثال لأدنى/أعلى سعر
 
-### نقاط التكامل (Integration Points) {#Integration-Points}
+### نقاط التكامل (Integration Points)
 
-#### معالجة مستندات المبيعات (Sales Document Processing) {#Sales-Document-Processing}
+#### معالجة مستندات المبيعات (Sales Document Processing)
 
 طريقة `updateLinesPrices()` في `SalesOrderInvoicePostActions` توضح تحديث الأسعار في العالم الحقيقي:
 
-#### ضوابط الإعداد (Configuration Controls) {#Configuration-Controls}
+#### ضوابط الإعداد (Configuration Controls)
 
 يحترم النظام علامات إعداد متنوعة:
 - **doNotUpdatePricesAtAll** - تعطيل التسعير الآلي بالكامل
 - **doNotUpdatePricesWhenThereSalesDocInFromDoc** - الحفاظ على الأسعار من المستندات المصدر
 - **considerValueDateFromFromDocInPricingAndOffers** - استخدام تواريخ المستند المصدر لأهلية السعر/العرض
 
-## الإعداد المتقدم (Advanced Configuration) {#Advanced-Configuration}
+## الإعداد المتقدم (Advanced Configuration)
 
-### التسعير متعدد العملات (Multi-Currency Pricing) {#Multi-Currency-Pricing}
+### التسعير متعدد العملات (Multi-Currency Pricing)
 
 عند العمل عبر عملات متعددة:
 - اضبط العملة الأساسية على مستوى قائمة الأسعار
@@ -610,7 +610,7 @@
 - ضع في الاعتبار تأثير تقلبات أسعار الصرف
 - نفذ استراتيجيات عروض خاصة بكل عملة
 
-### التكامل مع الوحدات الأخرى (Integration with Other Modules) {#Integration-with-Other-Modules}
+### التكامل مع الوحدات الأخرى (Integration with Other Modules)
 
 **إدارة المخزون:**
 - تصفّي قوائم الأسعار الأصناف القابلة للبيع تلقائياً

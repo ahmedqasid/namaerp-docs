@@ -3,7 +3,7 @@
 
 يُقدّم هذا الدليل **لغة Tempo**، التي طوّرها **فريق Nama**، لمساعدة المنفّذين في إنشاء رسائل ديناميكية للـ**عملاء** والـ**موظفين** والـ**موردين**. تُستخدم Tempo في مخرجات متنوعة مثل **الإشعارات** والـ**بريد الإلكتروني** ورسائل **SMS** و**رسائل خطأ التحقق**.
 
-## ما هي Tempo؟ {#What-is-Tempo}
+## ما هي Tempo؟
 
 تتيح لك Tempo تضمين قيم ديناميكية في قوالب نصية. مثلًا، لعرض رسالة خطأ تفيد بأن موظفًا لا يمكنه أخذ أكثر من خمسة أيام إجازة، يمكنك تضمين اسم الموظف ديناميكيًا:
 
@@ -19,7 +19,7 @@ Employee {employee.name1} cannot take more than five days of vacation.
 
 ---
 
-## كيفية اكتشاف أسماء الحقول {#How-to-Discover-Field-Names}
+## كيفية اكتشاف أسماء الحقول
 
 للعثور على أسماء الحقول في أي شاشة:
 
@@ -28,7 +28,7 @@ Employee {employee.name1} cannot take more than five days of vacation.
 
 ---
 
-## استخدام محرّر Tempo على الويب {#Using-the-Tempo-Web-Editor}
+## استخدام محرّر Tempo على الويب
 
 توفّر Nama محرّرًا عبر الويب لكتابة صياغة Tempo واختبارها:
 
@@ -40,7 +40,7 @@ Employee {employee.name1} cannot take more than five days of vacation.
 
 ---
 
-## متى تستخدم Tempo {#When-to-Use-Tempo}
+## متى تستخدم Tempo
 
 يمكن استخدام Tempo في سياقين رئيسيين:
 
@@ -58,9 +58,9 @@ Employee {employee.name1} cannot take more than five days of vacation.
 
 ---
 
-## نظرة عامة على صياغة Tempo {#Tempo-Syntax-Overview}
+## نظرة عامة على صياغة Tempo
 
-### 1. الوصول إلى حقول السجل {#1--Accessing-Record-Fields}
+### 1. الوصول إلى حقول السجل
 
 * استخدم `{fieldName}` لعرض حقل من السجل الحالي:
 
@@ -82,7 +82,7 @@ This Employee's Arabic name is {subsidiary.$toReal.name1}
 
 ---
 
-### 2. كتابة التعليقات {#2--Writing-Comments}
+### 2. كتابة التعليقات
 
 لإضافة تعليقات في كود Tempo:
 
@@ -92,7 +92,7 @@ This Employee's Arabic name is {subsidiary.$toReal.name1}
 
 ---
 
-### 3. تعطيل تحليل Tempo {#3--Disabling-Tempo-Parsing}
+### 3. تعطيل تحليل Tempo
 
 إذا أردت منع تحليل القالب بأكمله أو جزء منه:
 
@@ -102,7 +102,7 @@ This Employee's Arabic name is {subsidiary.$toReal.name1}
 
 ---
 
-### 4. تحليل حقل كقالب Tempo {#4--Parsing-a-Field-as-Tempo-Template}
+### 4. تحليل حقل كقالب Tempo
 
 لتحليل محتوى حقل (مثل الملاحظات) كقالب Tempo:
 
@@ -112,7 +112,7 @@ This Employee's Arabic name is {subsidiary.$toReal.name1}
 
 ---
 
-### 5. إفلات الأقواس المعقوفة {#5--Escaping-Curly-Brackets}
+### 5. إفلات الأقواس المعقوفة
 
 إذا أردت عرض `{code}` حرفيًا دون تفسيره:
 
@@ -122,7 +122,7 @@ This Employee's Arabic name is {subsidiary.$toReal.name1}
 
 ---
 
-### 6. أقواس متوافقة مع CSS {#6--CSS-Friendly-Brackets}
+### 6. أقواس متوافقة مع CSS
 
 لتجنب مشكلات العمل مع HTML/CSS، فعّل الأقواس المتوافقة مع CSS:
 
@@ -144,7 +144,7 @@ This Employee's Arabic name is {subsidiary.$toReal.name1}
 
 ---
 
-### 7. التعامل مع أخطاء المحرّر {#7--Handling-Editor-Errors}
+### 7. التعامل مع أخطاء المحرّر
 
 أحيانًا يُبلّغ محرّر Tempo بشكل خاطئ عن صياغة صحيحة. يمكنك إضافة البادئة `#` لتجاهل الخطأ:
 
@@ -162,7 +162,7 @@ This Employee's Arabic name is {subsidiary.$toReal.name1}
 
 ---
 
-### 8. إنشاء فواصل أسطر {#8--Creating-Line-Breaks}
+### 8. إنشاء فواصل أسطر
 
 استخدم `{enter}` لإدراج فاصل سطر في رسائل HTML:
 
@@ -171,9 +171,9 @@ Line 1{enter}
 Line 2
 ```
 
-## إنشاء الروابط التشعبية في Tempo {#Creating-Hyperlinks-in-Tempo}
+## إنشاء الروابط التشعبية في Tempo
 
-### 1. رابط لحقل أو سجل {#1--Link-to-a-Field-or-Record}
+### 1. رابط لحقل أو سجل
 
 يمكنك إنشاء روابط قابلة للنقر للحقول أو السجلات باستخدام أسلوبين:
 
@@ -211,7 +211,7 @@ Line 2
 
 ---
 
-### 2. الروابط النسبية للإشعارات على الويب {#2--Relative-Links-for-Web-Notifications}
+### 2. الروابط النسبية للإشعارات على الويب
 
 عند إنشاء روابط للإشعارات (وليس البريد الإلكتروني)، استخدم المسارات النسبية للحصول على أفضل سلوك:
 
@@ -238,7 +238,7 @@ The user {#firstAuthor.name2} created the document {link($this)}
 
 ---
 
-### 3. الربط من نتائج الاستعلام {#3--Linking-from-Query-Results}
+### 3. الربط من نتائج الاستعلام
 
 إذا كنت ترسل إشعارًا استنادًا إلى استعلام:
 
@@ -250,7 +250,7 @@ The user {#firstAuthor.name2} created the document {link($this)}
 
 ---
 
-### 4. فتح السجل في قائمة أو عرض محدد {#4--Open-Record-in-Specific-Menu-or-View}
+### 4. فتح السجل في قائمة أو عرض محدد
 
 يمكنك تخصيص طريقة فتح الرابط بتحديد معاملات إضافية:
 
@@ -283,7 +283,7 @@ Employee code {code}, Name {name1}
 
 ---
 
-### 5. استخدام عنوان URL أساسي محدد لجميع الروابط {#5--Using-a-Specific-Base-URL-for-All-Links}
+### 5. استخدام عنوان URL أساسي محدد لجميع الروابط
 
 لإجبار جميع الروابط على استخدام عنوان خادم معين، استخدم الوسم `{appurl()}` في **بداية** القالب:
 
@@ -293,9 +293,9 @@ Employee code {code}, Name {name1}
 
 يضمن هذا أن جميع الروابط اللاحقة تستند إلى العنوان المقدَّم.
 
-## استخدام الحلقات (Loops) في Tempo {#Using-Loops-in-Tempo}
+## استخدام الحلقات (Loops) في Tempo
 
-### التكرار على بيانات متكررة (مثل تفاصيل المستند) {#Looping-Through-Repeated-Data--e-g--Document-Details-}
+### التكرار على بيانات متكررة (مثل تفاصيل المستند)
 
 لعرض قائمة من الصفوف المتكررة (مثل الأصناف في مستند)، استخدم كتلة `loop`:
 
@@ -316,7 +316,7 @@ Employee code {code}, Name {name1}
 
 ---
 
-### الوصول إلى حقول SQL في مجموعات التفاصيل {#Accessing-SQL-Fields-in-Detail-Collections}
+### الوصول إلى حقول SQL في مجموعات التفاصيل
 
 للوصول إلى حقول SQL (`sqlField1`، `sqlField2`، إلخ) ضمن مجموعات التفاصيل، فعّلها أولًا:
 
@@ -330,7 +330,7 @@ Employee code {code}, Name {name1}
 
 ---
 
-### رصيد الإجازات المتبقي {#Vacation-Remainder}
+### رصيد الإجازات المتبقي
 
 لحساب رصيد الإجازات المتبقي للموظف:
 
@@ -352,9 +352,9 @@ Employee {name1} has {vacationremainder(id, "001", "2024-12-28")} days remaining
 Employee {name1} has {vacationremainder("E00147", "ffff0001-8d64-70c9-e300-0000ff2854df")} days remaining
 ```
 
-### أشكال الحلقات {#Loop-Variants}
+### أشكال الحلقات
 
-#### 1. **السطر الأخير فقط** {#1--Last-Line-Only}
+#### 1. **السطر الأخير فقط**
 
 التكرار على السطر الأخير فقط:
 
@@ -366,7 +366,7 @@ Employee {name1} has {vacationremainder("E00147", "ffff0001-8d64-70c9-e300-0000f
 
 ---
 
-#### 2. **نطاق من الأسطر** {#2--Range-of-Lines}
+#### 2. **نطاق من الأسطر**
 
 التكرار على نطاق محدد من أرقام الأسطر:
 
@@ -378,7 +378,7 @@ Employee {name1} has {vacationremainder("E00147", "ffff0001-8d64-70c9-e300-0000f
 
 ---
 
-#### 3. **من سطر محدد حتى النهاية** {#3--From-Specific-Line-to-End}
+#### 3. **من سطر محدد حتى النهاية**
 
 التكرار من سطر بداية حتى السطر الأخير:
 
@@ -394,11 +394,11 @@ Employee {name1} has {vacationremainder("E00147", "ffff0001-8d64-70c9-e300-0000f
 
 ---
 
-### العدّادات اليدوية {#Manual-Counters}
+### العدّادات اليدوية
 
 يمكنك تعريف عدّاداتك الخاصة والتحكم فيها لترقيم الصفوف المخصص والمرجعية:
 
-#### صياغة العدّاد {#Counter-Syntax}
+#### صياغة العدّاد
 
 ```tempo
 {incrementcounter(counterName)}
@@ -406,7 +406,7 @@ Employee {name1} has {vacationremainder("E00147", "ffff0001-8d64-70c9-e300-0000f
 {countervalue(counterName)}
 ```
 
-#### الاستخدام في Quick Creators {#Use-in-Quick-Creators}
+#### الاستخدام في Quick Creators
 
 لاستخدام العدّاد في تعبير الصف:
 
@@ -416,7 +416,7 @@ Employee {name1} has {vacationremainder("E00147", "ffff0001-8d64-70c9-e300-0000f
 
 ---
 
-### مثال كامل: إنشاء تحويل مخزني من MnOrder {#Full-Example--Creating-Stock-Transfer-from-MnOrder}
+### مثال كامل: إنشاء تحويل مخزني من MnOrder
 
 يوضّح هذا المثال:
 
@@ -450,7 +450,7 @@ Employee {name1} has {vacationremainder("E00147", "ffff0001-8d64-70c9-e300-0000f
 {endcreator}
 ```
 
-### مثال 2: إنشاء طلب تحويل مخزني من SalesOrder إذا لم يكن الحقل totalUnsatisfiedQty صفرًا {#Example-2--Creating-Stock-Transfer-Request-from-SalesOrder-if-totalUnsatisfiedQty-field-is-not-zero}
+### مثال 2: إنشاء طلب تحويل مخزني من SalesOrder إذا لم يكن الحقل totalUnsatisfiedQty صفرًا
 
 يوضّح هذا المثال استخدام جمل if.
 
@@ -465,9 +465,9 @@ Employee {name1} has {vacationremainder("E00147", "ffff0001-8d64-70c9-e300-0000f
 {endif}
 ```
 
-## استخدام Tempo في قوالب إشعارات الموافقة {#Using-Tempo-in-Approval-Notification-Templates}
+## استخدام Tempo في قوالب إشعارات الموافقة
 
-### 1. عرض الأسطر المتعلقة بالموافقة {#1--Displaying-Approval-Related-Lines}
+### 1. عرض الأسطر المتعلقة بالموافقة
 
 لإعلام المستخدمين بالأسطر المحددة المتأثرة بقاعدة موافقة (مثل الأسعار الأقل من الحد)، استخدم حلقة `loop` على أسطر قاعدة الموافقة:
 
@@ -482,7 +482,7 @@ The lines that are below the default sales price:
 
 ---
 
-### 2. إضافة روابط إجراءات الموافقة {#2--Adding-Approval-Action-Links}
+### 2. إضافة روابط إجراءات الموافقة
 
 لتضمين أزرار الإجراءات في قوالب البريد الإلكتروني أو SMS لمسارات الموافقة، استخدم العناصر النائبة التالية:
 
@@ -499,7 +499,7 @@ The lines that are below the default sales price:
 * من الشائع تضمين عدة روابط إجراءات معًا في رسالة (مثل: موافقة، رفض، إرجاع).
 :::
 
-#### الخصائص الاختيارية {#Optional-Attributes}
+#### الخصائص الاختيارية
 
 يقبل كل من الروابط الأربعة الخصائص الاختيارية التالية داخل الأقواس:
 
@@ -527,13 +527,13 @@ The lines that are below the default sales price:
 مع `plain=true` لا يُصدَر نص القرار (إذ لا يوجد رابط لوضع العنوان فيه)، لذا أنت المسؤول عن توفير نص الزر/الشريحة المرئي.
 :::
 
-## إنشاء جداول في Tempo {#Creating-Tables-in-Tempo}
+## إنشاء جداول في Tempo
 
 تتيح Tempo تنسيق البيانات الجدولية باستخدام كتل صياغة خاصة. هذا مفيد لتقديم بيانات منظمة كأسطر المستند والإجماليات المجمَّعة أو الملخصات بتنسيق أنيق.
 
 ---
 
-### 1. هيكل الجدول الأساسي {#1--Basic-Table-Structure}
+### 1. هيكل الجدول الأساسي
 
 لإنشاء جدول، غلّف محتواك بين وسمَي `{opentable}` و`{closetable}`.
 
@@ -560,9 +560,9 @@ The lines that are below the default sales price:
 
 ---
 
-### 2. الصفوف والخلايا {#2--Rows-and-Cells}
+### 2. الصفوف والخلايا
 
-#### رسم الصفوف {#Drawing-Rows}
+#### رسم الصفوف
 
 استخدم `{row}` و`{endrow}` لتعريف صف جدول.
 
@@ -572,7 +572,7 @@ The lines that are below the default sales price:
 {row}{cell}#{cell}Item Code{cell}Item Name{cell}Quantity{cell}Net Value{endrow}
 ```
 
-#### رسم الخلايا {#Drawing-Cells}
+#### رسم الخلايا
 
 استخدم `{cell}` لإنشاء خلايا الجدول. يمكنك اختياريًا إغلاق كل خلية بـ`{endcell}`.
 
@@ -588,11 +588,11 @@ The lines that are below the default sales price:
 
 ---
 
-### 3. تجميع البيانات في الجداول {#3--Grouping-Data-in-Tables}
+### 3. تجميع البيانات في الجداول
 
 تدعم Tempo تجميع الصفوف مع رؤوس وتذييلات باستخدام الصياغة التالية:
 
-#### رأس المجموعة {#Group-Header}
+#### رأس المجموعة
 
 ```tempo
 {header(groupingField)}
@@ -600,7 +600,7 @@ The lines that are below the default sales price:
 {endheader}
 ```
 
-#### تذييل المجموعة {#Group-Footer}
+#### تذييل المجموعة
 
 ```tempo
 {footer(groupingField)}
@@ -635,9 +635,9 @@ The lines that are below the default sales price:
 * يُفتح الجدول في الرأس ويُغلق في التذييل
 * تُدرج صفوف الأصناف الفردية ضمن الحلقة
 
-## الدوال المتاحة في Tempo {#Functions-Available-in-Tempo}
+## الدوال المتاحة في Tempo
 
-### الوصول إلى بيانات المستخدم الحالي {#Accessing-Current-User-Data}
+### الوصول إلى بيانات المستخدم الحالي
 
 استخدم الصياغة التالية للحصول على خصائص المستخدم الحالي المسجّل دخوله:
 
@@ -653,9 +653,9 @@ The lines that are below the default sales price:
 
 ---
 
-## دوال التاريخ والوقت {#Date-and-Time-Functions}
+## دوال التاريخ والوقت
 
-### التنسيق العام للتاريخ {#General-Date-Formatting}
+### التنسيق العام للتاريخ
 
 ```tempo
 {formatDate(dateExpression, formatExpression)}
@@ -669,7 +669,7 @@ The lines that are below the default sales price:
 
 ---
 
-### بيانات وصف السجل {#Record-Metadata}
+### بيانات وصف السجل
 
 * تاريخ ووقت الإنشاء: `{$creationDate}`
 * تاريخ الإنشاء فقط: `{$creationDate.$toDate}`
@@ -678,7 +678,7 @@ The lines that are below the default sales price:
 
 ---
 
-### التنقل بين التواريخ {#Navigating-Dates}
+### التنقل بين التواريخ
 
 * الشهر التالي: `{date.$nextMonth}`
 * الشهر السابق: `{date.$previousMonth}`
@@ -691,7 +691,7 @@ The lines that are below the default sales price:
 
 ---
 
-### استخراج أجزاء التاريخ {#Extracting-Parts-of-a-Date}
+### استخراج أجزاء التاريخ
 
 * اليوم: `{valueDate.day}`
 * الشهر: `{valueDate.month}`
@@ -699,7 +699,7 @@ The lines that are below the default sales price:
 
 ---
 
-### اسم اليوم {#Day-Name}
+### اسم اليوم
 
 * بالعربية: `{valueDate.$arDayName}`
 * بالإنجليزية: `{valueDate.$enDayName}`
@@ -707,7 +707,7 @@ The lines that are below the default sales price:
 
 ---
 
-### صيغ التاريخ الهجري والنصي {#Hijri-and-String-Formats}
+### صيغ التاريخ الهجري والنصي
 
 * التاريخ الهجري: `{valueDate.$asHijriString}`
 * `DD-MM-YYYY`: `{valueDate.$toStringDD_MM_YYYY}`
@@ -717,7 +717,7 @@ The lines that are below the default sales price:
 
 ---
 
-### وقت إنشاء السجل {#Record-Creation-Time}
+### وقت إنشاء السجل
 
 * الوقت فقط: `{$creationDate.$toTime.$toStringNormal}`
 
@@ -727,7 +727,7 @@ The lines that are below the default sales price:
 
 ---
 
-### دوال حقل الوقت (وضع السجل) {#Time-Field-Functions--Record-Mode-}
+### دوال حقل الوقت (وضع السجل)
 
 ::: tip
 افترض أن الحقل يسمى `time`
@@ -740,7 +740,7 @@ The lines that are below the default sales price:
 
 ---
 
-### دوال حقل الوقت (وضع الاستعلام) {#Time-Field-Functions--Query-Mode-}
+### دوال حقل الوقت (وضع الاستعلام)
 
 لتنسيق حقل وقت من استعلام:
 
@@ -768,9 +768,9 @@ The lines that are below the default sales price:
 
 ---
 
-## أدوات المصفوفات والنصوص {#Array-and-Text-Utilities}
+## أدوات المصفوفات والنصوص
 
-### الوصول إلى عناصر المصفوفة {#Accessing-Array-Elements}
+### الوصول إلى عناصر المصفوفة
 
 ```tempo
 {details.$get(index)}
@@ -782,7 +782,7 @@ The lines that are below the default sales price:
 
 ---
 
-### أدوات النصوص {#Text-Utilities}
+### أدوات النصوص
 
 * إزالة جميع المسافات البيضاء — بما فيها بين الكلمات (يدعم Unicode):
 
@@ -803,7 +803,7 @@ The lines that are below the default sales price:
 ```
 
 ::: tip
-المجموعة الكاملة من مساعدات المسافات البيضاء (`$strip`، `$stripLeading`، `$stripTrailing`، `$normalizeSpace`، `$removeAllSpaces`) موثَّقة تحت [Trimming and Replacements](#Trimming-and-Replacements).
+المجموعة الكاملة من مساعدات المسافات البيضاء (`$strip`، `$stripLeading`، `$stripTrailing`، `$normalizeSpace`، `$removeAllSpaces`) موثَّقة تحت [Trimming and Replacements](#lqS-wlstbdl).
 :::
 
 **مثال:**
@@ -817,9 +817,9 @@ The lines that are below the default sales price:
 ```
 مني ذهبت الي المدرسه مع فواد
 ```
-### الترجمات في Tempo {#Translations-in-Tempo}
+### الترجمات في Tempo
 
-#### ترجمة حقول التعداد (Enumeration Fields) {#Translating-Enumeration-Fields}
+#### ترجمة حقول التعداد (Enumeration Fields)
 
 * الترجمة العربية:
 
@@ -865,7 +865,7 @@ The lines that are below the default sales price:
 
 ---
 
-#### مفاتيح العلامة التجارية: اسم التطبيق وعنوانه {#Branding-Keys--Application-Name-and-URL}
+#### مفاتيح العلامة التجارية: اسم التطبيق وعنوانه
 
 يتيح لك مفتاحان خاصان الإشارة إلى **العلامة التجارية** للتثبيت الحالي بدلًا من ترجمة حقل. تعتمد القيم الفعلية على الترخيص — يُصيَّر نفس القالب بشكل مختلف على تثبيت Nama ERP أو Capital Solutions ERP أو Exceed ERP وما إلى ذلك.
 
@@ -898,9 +898,9 @@ For more information, visit {translate("appUrl")}.
 
 ---
 
-### الدوال المتعلقة بالأرقام في Tempo {#Number-Related-Functions-in-Tempo}
+### الدوال المتعلقة بالأرقام في Tempo
 
-#### تحويل النص إلى رقم (إن أمكن) {#Convert-Text-to-Number--if-possible-}
+#### تحويل النص إلى رقم (إن أمكن)
 
 * التحويل إلى عدد صحيح:
 
@@ -916,7 +916,7 @@ For more information, visit {translate("appUrl")}.
 
 ---
 
-### تنسيق التواريخ والأرقام {#Formatting-Dates-and-Numbers}
+### تنسيق التواريخ والأرقام
 
 استخدم دالة `$format` على التواريخ أو الأرقام مع النمط المطلوب:
 
@@ -924,13 +924,13 @@ For more information, visit {translate("appUrl")}.
 {creationDate.$format."yyyy-MM-dd HH:mm:ss"}
 {money.total.$format."###,###.00"}
 ```
-## جمل الشرط (Conditionals) في Tempo {#If-Statements--Conditionals--in-Tempo}
+## جمل الشرط (Conditionals) في Tempo
 
 توفّر Tempo منطقًا شرطيًا مرنًا باستخدام `{if}` و`{ifnot}` والصياغات ذات الصلة للتحكم في وقت عرض المحتوى.
 
 ---
 
-### الشروط الأساسية {#Basic-Conditions}
+### الشروط الأساسية
 
 * **إذا لم يكن الحقل فارغًا**:
 
@@ -965,7 +965,7 @@ For more information, visit {translate("appUrl")}.
 
 ---
 
-### مرجع الصياغة الكامل {#Full-Syntax-Reference}
+### مرجع الصياغة الكامل
 
 | الصياغة | الوصف |
 | ------- | ----- |
@@ -980,7 +980,7 @@ For more information, visit {translate("appUrl")}.
 
 ---
 
-### الشروط الخاصة بالأرقام {#Number-Specific-Conditions}
+### الشروط الخاصة بالأرقام
 
 | الصياغة | الوصف |
 | ------- | ----- |
@@ -995,7 +995,7 @@ For more information, visit {translate("appUrl")}.
 
 ---
 
-### استخدام else و else if {#Using--else--and--else-if-}
+### استخدام else و else if
 
 يمكنك ربط شروط متعددة باستخدام `else if=` أو `elseif=` أو `else`.
 
@@ -1016,11 +1016,11 @@ For more information, visit {translate("appUrl")}.
 
 يتيح هذا الهيكل تحكمًا كاملًا في عرض المحتوى الشرطي ضمن قوالب Tempo.
 
-## التفقيط (Tafqeet) في Tempo {#Tafqeet-in-Tempo}
+## التفقيط (Tafqeet) في Tempo
 
 تُحوّل دالة `tafqeet` القيم الرقمية إلى كلمات، باستخدام تنسيق العملة المحدَّد في الإعداد العام.
 
-### الصياغة {#Syntax}
+### الصياغة
 
 ```tempo
 {tafqeet("Number", "CurrencyCode")}
@@ -1028,9 +1028,9 @@ For more information, visit {translate("appUrl")}.
 
 ---
 
-### الأمثلة {#Examples}
+### الأمثلة
 
-#### مثال 1: قيم ثابتة {#Example-1--Hardcoded-Values}
+#### مثال 1: قيم ثابتة
 
 ```tempo
 {tafqeet("500", "EGP")}
@@ -1039,7 +1039,7 @@ For more information, visit {translate("appUrl")}.
 * على الواجهة الإنجليزية → `five hundred Egyptian Pounds`
 * على الواجهة العربية → `خمسمائة جنيه مصري`
 
-#### مثال 2: استخدام قيم الحقول {#Example-2--Using-Field-Values}
+#### مثال 2: استخدام قيم الحقول
 
 ```tempo
 {tafqeet(money.netValue, money.currency.code)}
@@ -1049,7 +1049,7 @@ For more information, visit {translate("appUrl")}.
 
 ---
 
-### ملاحظات {#Notes}
+### ملاحظات
 
 ::: tip
 إذا كان الإعداد العام يُعرّف:
@@ -1067,7 +1067,7 @@ For more information, visit {translate("appUrl")}.
 
 ---
 
-### إجبار اللغة باستخدام tafqeetAr أو tafqeetEn {#Force-Language-with--tafqeetAr--or--tafqeetEn-}
+### إجبار اللغة باستخدام tafqeetAr أو tafqeetEn
 
 * التصيير دائمًا **بالعربية**:
 
@@ -1080,7 +1080,7 @@ For more information, visit {translate("appUrl")}.
 ```tempo
 {tafqeetEn(money.netValue, money.currency.code)}
 ```
-## تنفيذ مسارات الكيان عبر روابط Tempo {#Executing-Entity-Flows-via-Tempo-Links}
+## تنفيذ مسارات الكيان عبر روابط Tempo
 
 لتشغيل مسار كيان من قالب Tempo (مثلًا في بريد إلكتروني)، استخدم الصياغة التالية:
 
@@ -1098,11 +1098,11 @@ For more information, visit {translate("appUrl")}.
 
 ---
 
-## الدوال المتعلقة بالبريد الإلكتروني {#Email-Related-Functions}
+## الدوال المتعلقة بالبريد الإلكتروني
 
-### 1. تعيين موضوع البريد الإلكتروني {#1--Setting-the-Email-Subject}
+### 1. تعيين موضوع البريد الإلكتروني
 
-#### الأسلوب الأول: استخدام `subject:` في بداية السطر الأول {#Method-1--Using--subject---at-the-Start-of-the-First-Line}
+#### الأسلوب الأول: استخدام `subject:` في بداية السطر الأول
 
 ```tempo
 subject:The employee {name2} was updated by {$user.name2}
@@ -1110,7 +1110,7 @@ subject:The employee {name2} was updated by {$user.name2}
 
 > يجب وضعه في بداية نص البريد الإلكتروني تمامًا.
 
-#### الأسلوب الثاني: استخدام كتلة `{subject}` {#Method-2--Using---subject---Block}
+#### الأسلوب الثاني: استخدام كتلة `{subject}`
 
 ```tempo
 {subject}The employee {name2} was updated by {$user.name2}{endsubject}
@@ -1118,7 +1118,7 @@ subject:The employee {name2} was updated by {$user.name2}
 
 ---
 
-### 2. إضافة المرفقات {#2--Adding-Attachments}
+### 2. إضافة المرفقات
 
 استخدم وسمًا أو أكثر من `emailattachment` للحقول أو مسارات الخادم:
 
@@ -1152,7 +1152,7 @@ Attached our catalog {emailattachment("E:\Media\Prochures\catalog.pdf")}
 
 ---
 
-### 3. منع الإرفاق التلقائي للصور {#3--Prevent-Auto-Attaching-Images}
+### 3. منع الإرفاق التلقائي للصور
 
 لرسائل HTML التي لا ينبغي أن ترفق الصور تلقائيًا، أضف:
 
@@ -1162,9 +1162,9 @@ Attached our catalog {emailattachment("E:\Media\Prochures\catalog.pdf")}
 
 ---
 
-### 4. إنشاء الرسائل وإرسالها {#4--Creating-and-Sending-Messages}
+### 4. إنشاء الرسائل وإرسالها
 
-#### كتلة نص الرسالة {#Message-Body-Block}
+#### كتلة نص الرسالة
 
 ```tempo
 {openmsg}
@@ -1172,7 +1172,7 @@ Message content here
 {closemsg}
 ```
 
-#### تعريف عنوان المستلم {#Define-Recipient-Address}
+#### تعريف عنوان المستلم
 
 ```tempo
 {sendto}email-or-phone{endsendto}
@@ -1198,7 +1198,7 @@ Message content here
 
 ---
 
-### مثال: إرسال إشعارات بريد إلكتروني للعملاء ذوي الفواتير المتأخرة {#Example--Send-Email-Notifications-to-Customers-with-Overdue-Invoices}
+### مثال: إرسال إشعارات بريد إلكتروني للعملاء ذوي الفواتير المتأخرة
 
 **الخطوة 1: استعلام قالب البريد الإلكتروني**
 
@@ -1235,9 +1235,9 @@ order by customerCode
   {endfooter}
 {endloop}
 ```
-## دوال معالجة النصوص في Tempo {#String-Manipulation-Functions-in-Tempo}
+## دوال معالجة النصوص في Tempo
 
-### القص والاستبدال {#Trimming-and-Replacements}
+### القص والاستبدال
 
 * **قص المسافات من البداية والنهاية** (مسافات ASCII فقط، أسلوب قديم):
 
@@ -1288,7 +1288,7 @@ order by customerCode
 {mobile.$replaceArNumerals}
 ```
 
-### حالة الأحرف {#Letter-Case}
+### حالة الأحرف
 
 * **تحويل جميع الأحرف إلى أحرف كبيرة:**
 
@@ -1310,7 +1310,7 @@ order by customerCode
 
 ---
 
-### التحليل والتحويلات {#Parsing-and-Conversions}
+### التحليل والتحويلات
 
 * **تحليل نص JSON إلى map:**
 
@@ -1326,7 +1326,7 @@ order by customerCode
 
 ---
 
-### دوال السلاسل الفرعية {#Substring-Functions}
+### دوال السلاسل الفرعية
 
 * **استخراج أحرف من اليسار:**
 
@@ -1366,7 +1366,7 @@ order by customerCode
 
 ---
 
-### الحشو (Padding) (قص أو إضافة مسافات) {#Padding--Truncating-or-Adding-Spaces-}
+### الحشو (Padding) (قص أو إضافة مسافات)
 
 * **حشو أو قص من اليسار:**
 
@@ -1391,9 +1391,9 @@ order by customerCode
 
 ---
 
-## دوال الحقول الرقمية {#Numeric-Field-Functions}
+## دوال الحقول الرقمية
 
-### التقريب إلى عدد ثابت من الخانات العشرية {#Fixed-Decimal-Rounding}
+### التقريب إلى عدد ثابت من الخانات العشرية
 
 * **التقريب إلى 0–5 خانات عشرية:**
 
@@ -1415,7 +1415,7 @@ order by customerCode
 
 ---
 
-### التقريب الديناميكي {#Dynamic-Rounding}
+### التقريب الديناميكي
 
 ```tempo
 {round(numberExpression, decimalPlacesExpression)}
@@ -1430,7 +1430,7 @@ order by customerCode
 
 ---
 
-### تنسيق الأرقام {#Number-Formatting}
+### تنسيق الأرقام
 
 ```tempo
 {formatNumber(numberExpression, formatExpression)}
@@ -1441,14 +1441,14 @@ order by customerCode
 ```tempo
 {formatNumber(n1, "###,###.00")} → 1,234.50
 ```
-## اختصار URL في Tempo {#URL-Shortening-in-Tempo}
+## اختصار URL في Tempo
 
 اختصار URL مفيد بشكل خاص لرسائل SMS حيث لا تكون الروابط الطويلة عملية.
 
 * لاستخدام هذه الميزة، تحتاج إلى خادم [YOURLS](https://yourls.org) أو الاشتراك في خدمة الاختصار من Namasoft.
 * تحتاج أيضًا إلى **توقيع** API من خادم YOURLS.
 
-### الصياغة {#Syntax-1}
+### الصياغة
 
 ```tempo
 {shortenurl(server="https://your-shortener.com/", signature="SIGNATURE_HERE")}
@@ -1466,11 +1466,11 @@ order by customerCode
 
 ---
 
-## روابط التقارير الديناميكية في الإشعارات ولوحات المعلومات {#Dynamic-Report-Links-in-Notifications-and-Dashboards}
+## روابط التقارير الديناميكية في الإشعارات ولوحات المعلومات
 
 يمكنك إضافة روابط ديناميكية للتقارير من الإشعارات أو لوحات المعلومات. هذا مفيد لإنشاء تقارير سياقية استنادًا إلى معاملات محددة.
 
-### مثال الإشعار {#Notification-Example}
+### مثال الإشعار
 
 ```tempo
 {reportlink(reportCode="1000", runType="launch", newwindow="true")}
@@ -1479,7 +1479,7 @@ order by customerCode
 {endreportlink}
 ```
 
-### مثال لوحة المعلومات {#Dashboard-Example}
+### مثال لوحة المعلومات
 
 ```tempo
 {reportlink(reportCode="1000", runType="launch", plainLink=true)}
@@ -1490,7 +1490,7 @@ order by customerCode
 
 ---
 
-### العقد المدعومة {#Supported-Nodes}
+### العقد المدعومة
 
 * **المعامل بالاسم:**
 
@@ -1512,11 +1512,11 @@ order by customerCode
 
 ---
 
-## روابط عرض القائمة المفلترة {#Filtered-List-View-Links}
+## روابط عرض القائمة المفلترة
 
 يمكنك إنشاء روابط تشعبية تفتح عرض قائمة مفلترة لأي نوع كيان. هذا مفيد في الإشعارات والبريد الإلكتروني ولوحات المعلومات للسماح للمستخدمين بالنقر ورؤية قائمة مسجلات مرشَّحة مسبقًا.
 
-### الصياغة الأساسية {#Basic-Syntax}
+### الصياغة الأساسية
 
 ```tempo
 {listviewlink(title="View Invoices", newwindow="true")}
@@ -1528,7 +1528,7 @@ order by customerCode
 {endlistviewlink}
 ```
 
-### عقد الخصائص المتاحة {#Available-Property-Nodes}
+### عقد الخصائص المتاحة
 
 | العقدة | الوصف |
 |--------|-------|
@@ -1542,7 +1542,7 @@ order by customerCode
 | `{listshowtree("true")}` | عرض كشجرة |
 | `{listextracriteriaid("criteriaId")}` | معرّف تعريف معايير إضافية |
 
-### كتلة المعايير {#Criteria-Block}
+### كتلة المعايير
 
 تحتوي كتلة `{listcriteria}...{endlistcriteria}` على شروط التصفية بتنسيق نصي. يمكنك داخل هذه الكتلة استخدام قيم الحقول الديناميكية بالأقواس المعقوفة:
 
@@ -1564,7 +1564,7 @@ order by customerCode
 
 **موصلات المنطق:** `AND`، `OR`
 
-### خيارات العقدة الرئيسية {#Main-Node-Options}
+### خيارات العقدة الرئيسية
 
 تقبل عقدة `{listviewlink}` معاملات اختيارية:
 
@@ -1574,7 +1574,7 @@ order by customerCode
 | `newwindow="true"` | الفتح في تبويب متصفح جديد |
 | `plainlink="true"` | إخراج URL فقط دون وسم HTML للرابط |
 
-### مثال كامل {#Complete-Example}
+### مثال كامل
 
 ينشئ هذا المثال رابطًا في إشعار عميل يعرض جميع فواتير المبيعات غير المدفوعة لذلك العميل:
 
@@ -1595,7 +1595,7 @@ You have unpaid invoices. Click below to view them:
 {endlistviewlink}
 ```
 
-### مثال لوحة المعلومات برابط عادي {#Dashboard-Example-with-Plain-Link}
+### مثال لوحة المعلومات برابط عادي
 
 للوحات المعلومات التي تحتاج فقط إلى URL:
 
@@ -1615,9 +1615,9 @@ You have unpaid invoices. Click below to view them:
 
 ---
 
-## إرسال استبيانات CRM {#CRM-Questionnaire-Sending}
+## إرسال استبيانات CRM
 
-### 1. تضمين الاستبيان في البريد الإلكتروني {#1--Embed-Survey-in-Email}
+### 1. تضمين الاستبيان في البريد الإلكتروني
 
 ```tempo
 Dear Sir,{enter}
@@ -1626,20 +1626,20 @@ We would love you to answer the following survey.{enter}
 Thanks and Best Regards
 ```
 
-### 2. إرسال الاستبيان كرابط {#2--Send-Survey-as-Link}
+### 2. إرسال الاستبيان كرابط
 
 ```tempo
 Dear Sir,{enter}
 We would love you to answer a quick survey on the following <a href='{$questionsURL}'>URL</a>.{enter}
 Thanks and Best Regards
 ```
-## إرسال طلبات HTTP من Tempo {#Sending-HTTP-Requests-from-Tempo}
+## إرسال طلبات HTTP من Tempo
 
 يمكنك إرسال طلبات HTTP من داخل Tempo باستخدام مسار الكيان `EASendHttpRequestByTempo`. هذا مفيد لدمج APIs خارجية (مثل WhatsApp وSMS وأنظمة ERP) مباشرةً من السجلات أو البيانات المتكررة كأسطر المستند.
 
 ---
 
-### مثال 1: هيكل body بمعاملات مسمّاة {#Example-1--Structured-Body-with-Named-Parameters}
+### مثال 1: هيكل body بمعاملات مسمّاة
 
 يرسل هذا المثال طلب POST لكل سطر في `details`، مع تعريف أجزاء الـ body بشكل فردي:
 
@@ -1681,7 +1681,7 @@ Thanks and Best Regards
 
 ---
 
-### مثال 2: نص JSON مخصص للـ body {#Example-2--Custom-JSON-Body-String}
+### مثال 2: نص JSON مخصص للـ body
 
 يستخدم هذا الإصدار نص JSON مكتوبًا يدويًا في جسم الطلب:
 
@@ -1714,13 +1714,13 @@ Thanks and Best Regards
 يوضّح كلا المثالين إرسال طلب لكل صف في `details`، مع المرونة في تضمين الرؤوس والمعاملات وحقول الـ body الفردية أو JSON مخصص كامل.
 
 
-## المنشئون (Creators) في Tempo {#Creators-in-Tempo}
+## المنشئون (Creators) في Tempo
 
 في Tempo، يُستخدم **المنشئ (creator)** لإنشاء سجل كيان جديد وملئه (مثل فاتورة مبيعات أو عميل وما إلى ذلك) مباشرةً من القوالب.
 
 ---
 
-### صياغة المنشئ الأساسية {#Basic-Creator-Syntax}
+### صياغة المنشئ الأساسية
 
 ```tempo
 {creator(entity="EntityName", menu="MenuName", title="Link Title", view="ViewName", newwindow="true/false")}
@@ -1743,7 +1743,7 @@ Thanks and Best Regards
 
 ---
 
-### تعيين قيم الحقول {#Setting-Field-Values}
+### تعيين قيم الحقول
 
 استخدم `{f("FieldName")}` و`{v("Value")}` لتعيين قيمة.
 
@@ -1755,7 +1755,7 @@ Thanks and Best Regards
 
 ---
 
-### محتوى الحقل الديناميكي {#Dynamic-Field-Content}
+### محتوى الحقل الديناميكي
 
 استخدم `{creatorvalue}...{endvalue}` لتضمين نص ديناميكي أو محسوب.
 
@@ -1773,29 +1773,29 @@ Thanks and Best Regards
 
 ---
 
-### تعيين قيم أسطر التفاصيل {#Assigning-Detail-Line-Values}
+### تعيين قيم أسطر التفاصيل
 
 يمكنك إدراج بيانات في صفوف محددة في جداول التفاصيل:
 
-#### الأسلوب 1: برقم الصف {#Method-1--By-row-number}
+#### الأسلوب 1: برقم الصف
 
 ```tempo
 {f("details.item.itemCode")}{v("ITEM005")}{r("2")}
 ```
 
-#### الأسلوب 2: الإضافة إلى صف جديد عند الحاجة (`@@end`) {#Method-2--Append-to-new-row-if-needed----end--}
+#### الأسلوب 2: الإضافة إلى صف جديد عند الحاجة (`@@end`)
 
 ```tempo
 {f("details.item.itemCode")}{v("ITEM005")}{r("@@end")}
 ```
 
-#### الأسلوب 3: استخدام الصف الأخير دائمًا (`@@last`) {#Method-3--Always-use-last-row----last--}
+#### الأسلوب 3: استخدام الصف الأخير دائمًا (`@@last`)
 
 ```tempo
 {f("details.item.itemCode")}{v("ITEM005")}{r("@@last")}
 ```
 
-#### الأسلوب 4: استخدام رقم الصف الحالي في الحلقة {#Method-4--Use-current-loop-row-number}
+#### الأسلوب 4: استخدام رقم الصف الحالي في الحلقة
 
 ```tempo
 {f("details.item.itemCode")}{v(details.item.itemCode)}{r(@rownumber)}
@@ -1814,7 +1814,7 @@ Thanks and Best Regards
 
 ---
 
-### مثال حالة استخدام: نسخ الأصناف غير الخدمية فقط {#Use-Case-Example--Copying-Only-Non-Service-Items}
+### مثال حالة استخدام: نسخ الأصناف غير الخدمية فقط
 
 ```tempo
 {creator(entity="SalesInvoice")}
@@ -1837,7 +1837,7 @@ Thanks and Best Regards
 
 ---
 
-### استدعاء إجراءات GUI النظام من المنشئ {#Calling-System-GUI-Actions-from-Creator}
+### استدعاء إجراءات GUI النظام من المنشئ
 
 يمكنك استدعاء إجراءات الواجهة (مثل حفظ وطباعة وحذف):
 
@@ -1853,9 +1853,9 @@ print, listView, showHelpMsgs, treeView, newRecord, delete,
 more, refresh, homePage, goToRecord
 ```
 
-## أسعار المبيعات والمشتريات في Tempo {#Sales-and-Purchase-Prices-in-Tempo}
+## أسعار المبيعات والمشتريات في Tempo
 
-### الحصول على سعر بيع صنف {#Getting-the-Sales-Price-of-an-Item}
+### الحصول على سعر بيع صنف
 
 استخدم دالة `itemprice`:
 
@@ -1865,7 +1865,7 @@ more, refresh, homePage, goToRecord
 
 تُرجع هذه الدالة سعر بيع الصنف. المعامل `itemIdOrCode` فقط مطلوب. جميع المعاملات الأخرى اختيارية ويمكن ذكرها بأي ترتيب.
 
-#### الصياغة الكاملة {#Full-Syntax}
+#### الصياغة الكاملة
 
 ```tempo
 {itemprice(
@@ -1942,7 +1942,7 @@ more, refresh, homePage, goToRecord
 - tax4.maxNormalPercent
 - tax4.value
  
-#### أمثلة {#Examples-1}
+#### أمثلة
 
 ```tempo
 {loop(details)}
@@ -1954,7 +1954,7 @@ more, refresh, homePage, goToRecord
 
 ---
 
-### الحصول على سعر شراء صنف {#Getting-the-Purchase-Price-of-an-Item}
+### الحصول على سعر شراء صنف
 
 استخدم دالة `itempurchaseprice`:
 
@@ -1962,7 +1962,7 @@ more, refresh, homePage, goToRecord
 {itempurchaseprice(itemIdOrCode=..., supplierIdOrCode=...)}
 ```
 
-#### الصياغة الكاملة {#Full-Syntax-1}
+#### الصياغة الكاملة
 
 ```tempo
 {itempurchaseprice(
@@ -1992,13 +1992,13 @@ more, refresh, homePage, goToRecord
 
 ---
 
-## الحقول المساعدة للقوالب والإشعارات ومسارات الكيان {#Utility-Fields-for-Templates--Notifications--and-Entity-Flows}
+## الحقول المساعدة للقوالب والإشعارات ومسارات الكيان
 
-### سجل التدقيق (تاريخ التغييرات) {#Audit-Trail--Change-History-}
+### سجل التدقيق (تاريخ التغييرات)
 
 كل كيان في Nama ERP يمتلك حقول سجل تدقيق مدمجة تُظهر ما تغيّر في السجل. تفيد هذه الحقول بشكل خاص في الإشعارات والبريد الإلكتروني ومسارات الموافقة.
 
-#### حقول سجل التدقيق المتاحة {#Available-Audit-Trail-Fields}
+#### حقول سجل التدقيق المتاحة
 
 * `{$changesAsHtmlAr}` - التغييرات بتنسيق HTML (عربي)
 * `{$changesAsHtmlEn}` - التغييرات بتنسيق HTML (إنجليزي)
@@ -2014,7 +2014,7 @@ more, refresh, homePage, goToRecord
 :::
 ---
 
-### المناقشات {#Discussions}
+### المناقشات
 
 * `discussions`: جميع المناقشات المرتبطة
 * `firstDiscussion`: المناقشة الأولى
@@ -2030,7 +2030,7 @@ Ref1 code: {lastDiscussion.ref1.code}
 
 ---
 
-### متغيرات الإشعارات والنظام {#Notification-and-System-Variables}
+### متغيرات الإشعارات والنظام
 
 * `$notificationTarget`: الموظف/المستخدم المستقبِل للإشعار
 * `$notifier`: تعريف الإشعار الذي شغَّل الرسالة
@@ -2044,7 +2044,7 @@ Ref1 code: {lastDiscussion.ref1.code}
 
 ---
 
-### حقول خاصة بالموافقة {#Approval-Specific-Fields}
+### حقول خاصة بالموافقة
 
 * `currentApprovalCase`: سياق الموافقة الحالي
 * `currentApprovalCase.lastStep.comment`
@@ -2059,7 +2059,7 @@ Ref1 code: {lastDiscussion.ref1.code}
 
 ---
 
-### أدوات مساعدة أخرى {#Other-Utilities}
+### أدوات مساعدة أخرى
 
 * `retrieverFileId`: استخدمه لإنشاء روابط تنزيل ملفات يمكن للعملاء الوصول إليها
 

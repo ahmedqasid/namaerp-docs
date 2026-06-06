@@ -1,23 +1,23 @@
-# دليل التكامل مع Omniful {#Omniful-Integration-Guide}
+# دليل التكامل مع Omniful
 
-## نظرة عامة (Overview) {#Overview}
+## نظرة عامة (Overview)
 
 يتكامل نظام نما ERP مع [Omniful](https://www.omniful.ai/)، وهي منصة موحدة لسلسلة التوريد توفر إمكانات شاملة لإدارة المستودعات وتنفيذ الطلبات. يتيح هذا التكامل مزامنة البيانات بسلاسة بين نما ERP و Omniful لإدارة المخزون ومعالجة الطلبات وعمليات سلسلة التوريد.
 
-## بنية التكامل (Integration Architecture) {#Integration-Architecture}
+## بنية التكامل (Integration Architecture)
 
 يعمل التكامل في اتجاهين:
 
 1. **صادر (Nama ERP → Omniful)**: يتم إرسال البيانات الرئيسية والمعاملات من نما ERP إلى Omniful باستخدام مسارات الكيانات (Entity Flows)
 2. **وارد (Omniful → Nama ERP)**: يتم استقبال الطلبات وتحويلات المخزون وأوامر الشراء والإيصالات من Omniful عبر webhooks
 
-## إعداد التكوين (Configuration Setup) {#Configuration-Setup}
+## إعداد التكوين (Configuration Setup)
 
-### 1. كيان إعداد Omniful {#1-Omniful-Configuration-Entity}
+### 1. كيان إعداد Omniful
 
 انتقل إلى **Magento → Omniful Configuration** لإنشاء وضبط إعدادات التكامل.
 
-#### الحقول المطلوبة {#Required-Fields}
+#### الحقول المطلوبة
 
 | الحقل | الاسم العربي | الوصف |
 |-------|-------------|-------------|
@@ -29,7 +29,7 @@
 | Tenant API Password | كلمة المرور | كلمة مرور Tenant API |
 | Nama API Key | - | بيانات اعتماد API للوصول إلى نما ERP |
 
-#### إعداد حقول المرجع {#Reference-Field-Configuration}
+#### إعداد حقول المرجع
 
 تربط هذه الحقول معرفات Omniful بحقول محددة في كيانات نما ERP:
 
@@ -42,11 +42,11 @@
 | Omniful Reference Field For Stock Transfer Request | حقل مرجع أومنيفل في طلب التحويل المخزني | ربط طلبات تحويل المخزون |
 | Omniful Reference Field For Stock Receipt | حقل مرجع أومنيفل في التوريد المخزني | ربط إيصالات المخزون |
 
-### 2. إعداد توليد المستندات {#2-Document-Generation-Configuration}
+### 2. إعداد توليد المستندات
 
 لكل نوع مستند سيُستقبل من Omniful، قم بضبط سطور Document Generation Info:
 
-#### أنواع المستندات المدعومة {#Supported-Document-Types}
+#### أنواع المستندات المدعومة
 
 - **أمر بيع** (`SalesOrder`)
 - **صرف تحويل مخزني** (`IssueStockTransfer`)
@@ -55,7 +55,7 @@
 - **أمر شراء** (`PurchaseOrder`)
 - **توريد مخزني** (`StockReceipt`)
 
-#### حقول الإعداد {#Configuration-Fields}
+#### حقول الإعداد
 
 | الحقل | الوصف |
 |-------|-------------|
@@ -71,13 +71,13 @@
 - جميع حقول المرجع مطلوبة ويجب أن تشير إلى حقول مخصصة صالحة في الكيانات المعنية
 :::
 
-## مزامنة البيانات الصادرة (Nama ERP → Omniful) {#Outbound-Data-Synchronization-Nama-ERP--Omniful-}
+## مزامنة البيانات الصادرة (Nama ERP → Omniful)
 
-### مسارات الكيانات المتاحة {#Available-Entity-Flows}
+### مسارات الكيانات المتاحة
 
 يمكن استخدام مسارات الكيانات التالية لإرسال البيانات من نما ERP إلى Omniful:
 
-#### مسارات البيانات الرئيسية {#Master-Data-Flows}
+#### مسارات البيانات الرئيسية
 
 1. **EASendCustomerToOmniful**
    - يرسل معلومات العميل بما في ذلك تفاصيل الاتصال والعناوين والمستندات
@@ -98,7 +98,7 @@
    - يضبط إعدادات المستودع لإدارة المخزون
    - المدخلات: Omniful Config Code/ID، Update Flag Field
 
-#### مسارات المعاملات {#Transaction-Flows}
+#### مسارات المعاملات
 
 5. **EASendSalesInvoiceToOmniful**
    - يرسل فواتير البيع كطلبات إلى Omniful
@@ -125,13 +125,13 @@
     - يرسل تحويلات صرف المخزون إلى Omniful
     - المدخلات: Omniful Config Code/ID، Omniful Reference Field ID
 
-## مزامنة البيانات الواردة (Omniful → Nama ERP) {#Inbound-Data-Synchronization-Omniful--Nama-ERP-}
+## مزامنة البيانات الواردة (Omniful → Nama ERP)
 
-#### نقطة نهاية Webhook {#Webhook-Endpoint}
+#### نقطة نهاية Webhook
 
 قم بإعداد Omniful لإرسال webhooks إلى نقطة نهاية webhook الخاصة بنما ERP للأحداث التالية:
 
-#### الأحداث المدعومة {#Supported-Events}
+#### الأحداث المدعومة
 
 1. **أحداث الطلبات (Order Events)**
    - `order.*` مع `type: "sto"` ← ينشئ طلبات تحويل مخزني أو صرف تحويل مخزني
@@ -143,27 +143,27 @@
 3. **أحداث GRN**
    - `grn.*` ← ينشئ توريدات مخزنية أو استلام تحويل مخزني
 
-### منطق إنشاء المستندات {#Document-Creation-Logic}
+### منطق إنشاء المستندات
 
-#### أوامر البيع {#Sales-Orders}
+#### أوامر البيع
 - تُنشأ عند استقبال أحداث `order` (من النوع غير STO) بحالة ≠ "new_order"
 - تربط معلومات العميل وعناوين الفوترة/الشحن وأصناف الطلب
 - تربط بعروض الأسعار الموجودة إذا تم توفير `order_alias`
 
-#### عمليات تحويل المخزون {#Stock-Transfer-Operations}
+#### عمليات تحويل المخزون
 - **طلب تحويل مخزني**: يُنشأ لطلبات STO بحالة "new_order"
 - **صرف تحويل مخزني**: يُنشأ لطلبات STO بحالة ≠ "new_order"
 - **استلام تحويل مخزني**: يُنشأ من أحداث GRN عند وجود صرف تحويل مخزني مطابق
 
-#### أوامر الشراء {#Purchase-Orders}
+#### أوامر الشراء
 - تُنشأ من أحداث `purchase`
 - تتضمن معلومات المورد وتفاصيل المستودع وأصناف الشراء
 
-#### التوريدات المخزنية {#Stock-Receipts}
+#### التوريدات المخزنية
 - تُنشأ من أحداث GRN عند عدم وجود صرف تحويل مخزني مطابق
 - تربط بأوامر الشراء الموجودة عبر مرجع `entity_id`
 
-### معالجة محتوى Webhook {#Webhook-Payload-Processing}
+### معالجة محتوى Webhook
 
 يقوم معالج webhook بما يلي:
 1. التحقق من صحة المفتاح السري لـ webhook مقابل الإعداد
@@ -173,9 +173,9 @@
 5. حفظ المستندات وفقاً لإعداد Document Generation Info
 6. تحديث حقول المرجع بمعرفات Omniful للمزامنة المستقبلية
 
-## ربط البيانات (Data Mapping) {#Data-Mapping}
+## ربط البيانات (Data Mapping)
 
-### ربط بيانات العميل {#Customer-Data-Mapping}
+### ربط بيانات العميل
 
 | حقل نما ERP | حقل Omniful |
 |----------------|---------------|
@@ -188,7 +188,7 @@
 | Contact Info → Address | address object |
 | Passport Details | documents array |
 
-### ربط بيانات الأصناف {#Item-Data-Mapping}
+### ربط بيانات الأصناف
 
 | حقل نما ERP | حقل Omniful |
 |----------------|---------------|
@@ -200,7 +200,7 @@
 | Net Purchase Value | cost |
 | Current Price | selling_price, retail_price |
 
-### ربط بيانات الطلبات {#Order-Data-Mapping}
+### ربط بيانات الطلبات
 
 | حقل نما ERP | حقل Omniful |
 |----------------|---------------|
@@ -213,16 +213,16 @@
 | Order Items | order_items array |
 | Payment Method | payment_method |
 
-## معالجة الأخطاء (Error Handling) {#Error-Handling}
+## معالجة الأخطاء (Error Handling)
 
-### أخطاء إنشاء المستندات {#Document-Creation-Errors}
+### أخطاء إنشاء المستندات
 
 عند مواجهة أخطاء أثناء معالجة webhook:
 
 1. **الحفظ كمسودة**: إذا كان خيار "Save Doc With Errors As Draft" مفعّلاً في الإعداد، يُحفظ المستند كمسودة
 2. **رمي الاستثناء**: إذا كان حفظ المسودة معطّلاً، تطرح العملية استثناءً وتُعيد استجابة خطأ
 
-### متطلبات التحقق {#Validation-Requirements}
+### متطلبات التحقق
 
 قبل المعالجة، يتحقق النظام من:
 - وجود إعداد Omniful وضبطه بشكل صحيح
@@ -230,16 +230,16 @@
 - إعداد حقول المرجع المطلوبة
 - تطابق المفتاح السري لـ webhook مع الإعداد
 
-## عملاء API {#API-Clients}
+## عملاء API
 
 يستخدم التكامل نوعين من عملاء API:
 
-### OmnifulSalesChannelAPIClient {#OmnifulSalesChannelAPIClient}
+### OmnifulSalesChannelAPIClient
 - يُستخدم للعمليات المتعلقة بالعملاء والطلبات
 - يتعامل مع نقاط نهاية API لقناة البيع
 - يدير إنشاء العملاء وتحديثهم
 
-### OmnifulTenantAPIClient {#OmnifulTenantAPIClient}
+### OmnifulTenantAPIClient
 - يُستخدم لإدارة المستودعات وعمليات المخزون
 - يتعامل مع نقاط نهاية API على مستوى Tenant
 - يدير الأصناف والمستودعات وعمليات سلسلة التوريد

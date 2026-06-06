@@ -9,14 +9,14 @@
 
 ## محتويات الشرح
 
-1. [مقدمة عن الجروبنج](#section-1)
-2. [إعداد الجروبنج حسب العملاء والفروع](#section-2)
-3. [تطبيق التجميع وعرض المجاميع](#section-3)
-4. [التحكم في الترتيب Sorting](#section-4)
-5. [مصادر البيانات وكيفية التعامل معها Data Sources](#section-5)
-6. [تجميع المبيعات والمردودات والتحصيلات](#section-6)
-7. [إعداد تقارير كشف الحساب](#section-7)
-8. [أمثلة عملية وملاحظات هامة](#section-8)
+1. [مقدمة عن الجروبنج](#1-mqdm-aan-ljrwbnj)
+2. [إعداد الجروبنج حسب العملاء والفروع](#2-aadd-ljrwbnj-Hsb-laaml-wlfrwaa)
+3. [تطبيق التجميع وعرض المجاميع](#3-tTbyq-ltjmyaa-waarD-lmjmyaa)
+4. [التحكم في الترتيب Sorting](#4-ltHkm-fy-ltrtyb-Sorting)
+5. [مصادر البيانات وكيفية التعامل معها Data Sources](#5-mSdr-lbynt-wkyfy-ltaaml-maah-Data-Sources)
+6. [تجميع المبيعات والمردودات والتحصيلات](#6-tjmyaa-lmbyaat-wlmrdwdt-wltHSylt)
+7. [إعداد تقارير كشف الحساب](#7-aadd-tqryr-kshf-lHsb)
+8. [أمثلة عملية وملاحظات هامة](#8-mthl-aamly-wmlHZt-hm)
 
 ---
 

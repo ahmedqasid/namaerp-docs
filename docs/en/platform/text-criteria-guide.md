@@ -13,7 +13,7 @@ Each filter condition in Nama ERP consists of the following components:
     * `StartsWith`, `NotStartsWith`
     * `EndsWith`, `NotEndWith`
     * `Contains`, `NotContain`
-    * `In`, `NotIn` (see [Multiple Values with In/NotIn](#Multiple-Values-with-In-NotIn) below)
+    * `In`, `NotIn` (see [Multiple Values with In/NotIn](#Multiple-Values-with-InNotIn) below)
     * `OpenBracket`, `CloseBracket` (used for grouping expressions, and do not require a field ID or value)
 * **Compared Value**: The value to compare against.
 * **Logical Relationship**: The logical connector to the next condition (`AND` or `OR`).

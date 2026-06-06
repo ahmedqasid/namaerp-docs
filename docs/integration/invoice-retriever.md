@@ -1,18 +1,18 @@
-# إرسال الفواتير والمستندات للعملاء {#Sending-Invoices-and-Documents-to-Customers}
+# إرسال الفواتير والمستندات للعملاء
 
 تتيح ميزة **Invoice Retriever** في Nama ERP إرسال روابط للعملاء (أو الموردين) تقوم بإنشاء التقارير (مثل الفواتير والإيصالات) وتقديمها عند الطلب.
 
 عندما يضغط العميل على الرابط للمرة الأولى، يقوم النظام بتشغيل التقرير المرتبط وحفظ الملف الناتج، ثم يقدم نفس الملف في الزيارات اللاحقة لتحسين الأداء.
 
-## خطوات الإعداد {#Configuration-Steps}
+## خطوات الإعداد
 
-### 1. إعداد Invoice Retriever {#1-Configure-Invoice-Retriever}
+### 1. إعداد Invoice Retriever
 
 * انتقل إلى شاشة **إعدادات الحقول والكيانات**.
 * في جدول **Invoice Retriever Lines**، أضف سطرًا جديدًا.
 * اختر النموذج الذي تريد استخدامه لإنشاء الفاتورة أو المستند.
 
-### 2. تحديد مجلد الإخراج {#2-Set-Output-Folder}
+### 2. تحديد مجلد الإخراج
 
 * حدد مسار المجلد الذي سيتم تخزين الملفات الناتجة فيه.
 * سيخزن النظام نتيجة التقرير هنا لتقديمها في زيارات الرابط اللاحقة دون إعادة الإنشاء.
@@ -22,45 +22,45 @@
 بشكل افتراضي، يعمل التقرير مرة واحدة فقط. إذا تم تحديث الفاتورة لاحقًا، **لن** تظهر التغييرات في الرابط إلا بعد حذف الملف المحفوظ يدويًا.
 :::
 
-### 3. إجبار إعادة التنفيذ (تعطيل التخزين المؤقت) {#3-Force-Re-Execution-Disable-Caching}
+### 3. إجبار إعادة التنفيذ (تعطيل التخزين المؤقت)
 
 * إذا أردت أن يعمل التقرير **في كل مرة** يتم فيها الوصول إلى الرابط، فعّل خيار `Do Not Cache` في سطر Invoice Retriever.
 
-### 4. دعم نماذج متعددة {#4-Support-for-Multiple-Forms}
+### 4. دعم نماذج متعددة
 
 * يمكنك تعريف عدة retrievers لنفس الكيان باستخدام حقل **URL Prefix**.
 * هذا يتيح دعم أنواع مستندات متعددة تحت مسارات URL مختلفة (مثل `invoices` و`receipts`).
 
-## إرسال الرابط في الإشعارات {#Sending-the-Link-in-Notifications}
+## إرسال الرابط في الإشعارات
 
 استخدم تعريفات الإشعارات (SMS، بريد إلكتروني، وغيرها) لإرسال روابط للعملاء باستخدام المتغير `{retrieverFileId}`.
 
-### مثال أساسي (SMS): {#Basic-Example-SMS}
+### مثال أساسي (SMS):
 
 ```
 Thanks for visiting us, view your invoice by clicking on this link:
 https://my.swsg.co/erp/r/{retrieverFileId}
 ```
 
-### مع امتداد الملف: {#With-File-Extension}
+### مع امتداد الملف:
 
 ```
 https://my.swsg.co/erp/r/{retrieverFileId}.pdf
 ```
 
-### مع كود ديناميكي: {#With-Dynamic-Code}
+### مع كود ديناميكي:
 
 ```
 https://my.swsg.co/erp/r/{retrieverFileId}.{code}.pdf
 ```
 
-### أسلوب URL أنظف: {#Cleaner-URL-Style}
+### أسلوب URL أنظف:
 
 ```
 https://my.swsg.co/erp/r/{retrieverFileId}/{code}.pdf
 ```
 
-### مع URL Prefix (مثل invoices): {#With-URL-Prefix-eg-invoices}
+### مع URL Prefix (مثل invoices):
 
 ```
 https://my.swsg.co/erp/r/invoices/{retrieverFileId}

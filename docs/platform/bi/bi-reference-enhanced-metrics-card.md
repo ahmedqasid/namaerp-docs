@@ -1,15 +1,15 @@
-# مرجع BI — EnhancedMetricsCard (وwidget المقاييس القديم MetricsCards) {#BI-Reference----EnhancedMetricsCard-and-legacy-MetricsCards}
+# مرجع BI — EnhancedMetricsCard (وwidget المقاييس القديم MetricsCards)
 
 مرافق لـ [`bi-module-technical-reference.md`](./bi-module-technical-reference.md). استخدم هذا الملف مع `type: "EnhancedMetricsCard"` (الحديث، يعتمد على JSON) أو `type: "MetricsCards"` (القديم، يعتمد على value-object).
 
 يقرأ `EnhancedMetricsCard` الحقل `chartConfigJSON` بالكامل، ويدعم sparklines مدمجة، وخلفيات بطاقة شرطية، وتبديل الأيقونات، وكامل مكدس التفاعل في BI (cross-filter / drill-down / link). يستمر widget المقاييس القديم `MetricsCards` في العمل جنبًا إلى جنب؛ للتحويل إلى النوع الجديد استخدم `type: "EnhancedMetricsCard"`.
 
-## 1. متى تستخدم كل منهما {#1-When-to-use-which}
+## 1. متى تستخدم كل منهما
 
 - **شريط KPI سريع — header / value / subtitle / icon، مع شارة نسبة اختيارية** → `MetricsCards` القديم (لا يتطلب كتابة JSON؛ ولا يدعم sparklines أو خلفية شرطية).
 - **أي شيء أغنى** — sparklines، ألوان بطاقة شرطية، drill-down لكل بطاقة، تجميع قائم على partition عبر صفوف SQL متعددة → `EnhancedMetricsCard`.
 
-## 2. الـ `MetricsCards` القديم (`type: "MetricsCards"`) {#2-Legacy-MetricsCards-type-MetricsCards}
+## 2. الـ `MetricsCards` القديم (`type: "MetricsCards"`)
 
 يقرأ كائن القيمة `metricsCardConfig` على مستوى **أعلى** من `DashBoardWidget` مباشرة — **وليس** `chartConfigJSON`. بطاقة واحدة لكل صف SQL. تستبدل سلاسل Tempo الصيغة `{columnName}` بقيم الصف.
 
@@ -47,7 +47,7 @@
 
 عندما يكون هذا الشكل كافيًا، يكون widget القديم أقصر من `EnhancedMetricsCard`. انتقل إلى `EnhancedMetricsCard` عند الحاجة إلى sparklines أو ألوان بطاقة شرطية أو click-emit/drill-down.
 
-## 3. الـ `chartConfigJSON` الخاص بـ EnhancedMetricsCard {#3-EnhancedMetricsCard-chartConfigJSON}
+## 3. الـ `chartConfigJSON` الخاص بـ EnhancedMetricsCard
 
 ```jsonc
 {
@@ -144,14 +144,14 @@
 }
 ```
 
-### `cardLayout.direction` {#cardLayout-direction}
+### `cardLayout.direction`
 
 | القيمة | السلوك |
 |---|---|
 | `"row"` | شريط يلتف تلقائيًا. يستخدم `minCardWidth` + `gap`. مناسب لأشرطة chip. |
 | `"grid"` | شبكة ثابتة بعدد N لكل صف (حدد `columnsPerRow`). يعود إلى auto-fit إذا كان `columnsPerRow` فارغًا. مناسب للـ KPI tiles المحاذاة لشبكة. |
 
-## 4. ربط البطاقة بالصف (الافتراضي — صف واحد → بطاقة واحدة) {#4-Card-to-row-mapping-default----1-row---1-card}
+## 4. ربط البطاقة بالصف (الافتراضي — صف واحد → بطاقة واحدة)
 
 بشكل افتراضي، **ينتج كل صف من مجموعة النتائج بطاقة واحدة**. التمييز بين البطاقات يعتمد على الأعمدة (`iconCode`، `iconColor`، `valueColor`، إلخ) — اكتب UNION ALL بصف واحد لكل بطاقة واربط كل slot بعمودها.
 
@@ -177,7 +177,7 @@ ORDER BY sortOrder
 }
 ```
 
-## 5. وضع Partition — N صفوف → بطاقة واحدة {#5-Partition-mode----N-rows---1-card}
+## 5. وضع Partition — N صفوف → بطاقة واحدة
 
 عندما ينتج SQL صفًا واحدًا لكل `(كيان، دلو-زمني)` وتريد بطاقة واحدة لكل كيان مع sparkline عبر الدلاء، اضبط `cardLayout.partitionKeys` على أعمدة معرّف الكيان:
 
@@ -207,7 +207,7 @@ ORDER BY sortOrder
 
 **Sparkline مضمّن** (`mode: "inline"`) — مخرج طارئ عندما تكون السلسلة مجمّعة مسبقًا. اضبط `valuesField` على عمود قيمته CSV `"3,5,4,8,6"` أو مصفوفة JSON `"[3,5,4,8,6]"`.
 
-### وصفة Inline sparkline + SQL Server STUFF {#Inline-sparkline--SQL-Server-STUFF-recipe}
+### وصفة Inline sparkline + SQL Server STUFF
 
 لبناء sparklines من البيانات الأساسية في وضع inline، استخدم صيغة `STUFF / FOR XML PATH('')` داخل SQL:
 
@@ -242,7 +242,7 @@ ORDER BY sortOrder
 }
 ```
 
-## 6. العناوين الفرعية بـ Tempo {#6-Tempo-subtitles}
+## 6. العناوين الفرعية بـ Tempo
 
 تستبدل قوالب العنوان الفرعي `{columnName}` بقيم أعمدة الصف:
 
@@ -255,13 +255,13 @@ ORDER BY sortOrder
 
 في وضع partition، يتم الاستبدال من الصف الممثل. النمط الشائع: يعرض slot القيمة المقياس الأساسي، بينما يضم `tempoAr/En` عمودًا *ثانويًا* لإضافة السياق (مثل `"{expiredCount} منتهية · تنتهي خلال 30 يومًا"`).
 
-## 7. خلفية البطاقة الشرطية وتبديل الأيقونة {#7-Conditional-card-background-and-icon-swap}
+## 7. خلفية البطاقة الشرطية وتبديل الأيقونة
 
 يستخدم `cardConditionalFormatting` نفس شكل القاعدة في `rowConditionalFormatting` الخاص بـ EnhancedTable (`threshold` / `range` / `enum` / `compareColumn` / `isNull` / `isNotNull`) — لكن مفاتيح `style` المعترف بها في الإخراج تشمل على مستوى البطاقة: `bg`، `borderColor`، `borderWidth`، `borderRadius`، `padding`، `color`، بالإضافة إلى تبديل الأيقونة: `iconCode`، `iconColor`، `iconBg`.
 
 اضبط `"cascade": true` لدمج قواعد متطابقة متعددة؛ وإلا تفوز أول قاعدة مطابقة.
 
-### وصفة شريط Chip (enum على عمود discriminator) {#Chip-strip-recipe-enum-on-discriminator-column}
+### وصفة شريط Chip (enum على عمود discriminator)
 
 مناسب لصفوف "حالة الفلتر" أو "رأس chip" — بطاقة واحدة لكل chip، كل منها بلون مختلف بناءً على عمود discriminator.
 
@@ -289,14 +289,14 @@ ORDER BY sortOrder
 }
 ```
 
-## 8. Cross-filtering وDrill-down والروابط {#8-Cross-filtering-drill-down-links}
+## 8. Cross-filtering وDrill-down والروابط
 
 يستخدم `clickEmitMapping` و`drillDownMapping` و`linkMappings` و`clickAction` نفس الشكل تمامًا كما في EnhancedTable / legacy Table (المرجع الرئيسي §4 / §5 / §5b). مصفوفة `points` تتوافق 1:1 مع البطاقات المعروضة بالترتيب. في وضع partition، تتوفر فقط أعمدة الصف الممثل لحمولات النقر — أعمدة الصفوف الأخرى في الـ partition غير المفتاحية تُتجاهل.
 
-## 9. وضع Wizard {#9-Wizard-mode}
+## 9. وضع Wizard
 
 كل slot من نوع `*field` يقبل عنصرًا شقيقًا `wizardFieldId` يُحلَّل إلى `displayAlias` الخاص بالـ wizard عند وقت العرض، مطابقًا لنمط wizard في EnhancedTable / EChart. **استثناء**: `sparkline.valuesField` (وضع inline) — أعمدة CSV / JSON-array لا تتلاءم مع تجريد wizard-field؛ مراجع الأعمدة الخام فقط هناك.
 
-## 10. المصمم (Designer) {#10-Designer}
+## 10. المصمم (Designer)
 
 افتح مربع حوار chart-config من شاشة تعديل الـ widget. يكتشف مربع الحوار `type: "EnhancedMetricsCard"` ويعرض تبويب **Card Template** إلى جانب **Click & Links** و**Drill-Down**. يحتوي تبويب Card Template على أقسام قابلة للتوسع: Layout، Header، Value Slot، Subtitle، Icon، Badge، Sparkline، بالإضافة إلى محرري JSON خام لـ Card Style وCard Conditional Formatting. يتبدّل محدد الحقول تلقائيًا بين أعمدة SQL (الوضع الخام) وحقول wizard (عند ضبط `wizardDataSource`).

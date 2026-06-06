@@ -1,4 +1,4 @@
-# إعدادات Nama Properties {#Nama-Properties}
+# إعدادات Nama Properties
 ```xml
 dbtype: sqlserve
 ```
@@ -8,7 +8,7 @@ dbtype: sqlserve
 
 ***
 
-# إعدادات REPLICATION و BRACODE {#REPLICATION-AND-BRACODE}
+# إعدادات REPLICATION و BRACODE
 #### `guiserver` : يستخدم للروابط في التقارير (مثال: http://192.168.1.5:8080/erp/)
 
 #### `logsql` : true أو false
@@ -74,7 +74,7 @@ prevent-login-of-ips-msg=You can not login from IP {0}, because IP prefix {0} is
 ```
 
 
-## ملف إعدادات replication.properties (في tomcat/lib) {#replication-properties-settings-file-in-tomcat-lib-}
+## ملف إعدادات replication.properties (في tomcat/lib)
 ### siteid: كود الموقع الحالي
 ### enable: هل التكرار (replication) مفعّل أم لا
 ### headofficeip: عنوان IP لـ bus المكتب الرئيسي

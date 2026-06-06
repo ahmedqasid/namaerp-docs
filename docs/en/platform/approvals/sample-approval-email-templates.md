@@ -163,11 +163,11 @@ It uses these fields, all confirmed against the `SalesInvoice` entity (and share
 | Line net value (in loop) | `{#details.price.netValue}` | الصافي |
 
 ::: tip Why the `#` and `loop` for line fields
-The header money fields (`{money.total}`, …) are read straight off the document. The **line** fields live inside the `details` collection, so they must appear inside a `{loop(details)}…{endloop}` block, and each is prefixed with `#` (e.g. `{#details.price.netValue}`) so Tempo resolves it against the *current row* of the loop. See [Looping Through Repeated Data](../../admin/tempo.md#Looping-Through-Repeated-Data-e-g-Document-Details).
+The header money fields (`{money.total}`, …) are read straight off the document. The **line** fields live inside the `details` collection, so they must appear inside a `{loop(details)}…{endloop}` block, and each is prefixed with `#` (e.g. `{#details.price.netValue}`) so Tempo resolves it against the *current row* of the loop. See [Looping Through Repeated Data](../../admin/tempo.md#Looping-Through-Repeated-Data-eg-Document-Details).
 :::
 
 ::: tip Formatting the money values
-The amounts are wrapped in `{formatNumber(…, "###,##0.00")}` so they render as grouped, two-decimal figures (e.g. *12,500.00*) instead of raw numbers. See [Formatting Numbers](../../admin/tempo.md#Formatting-Numbers).
+The amounts are wrapped in `{formatNumber(…, "###,##0.00")}` so they render as grouped, two-decimal figures (e.g. *12,500.00*) instead of raw numbers. See [Formatting Numbers](../../admin/tempo.md#Number-Formatting).
 :::
 
 ::: details HTML Code

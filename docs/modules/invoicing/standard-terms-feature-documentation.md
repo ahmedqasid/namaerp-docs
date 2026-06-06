@@ -1,22 +1,22 @@
-# توثيق خاصية الشروط والأحكام القياسية (Standard Terms and Conditions Feature Documentation) {#Standard-Terms-and-Conditions-Feature-Documentation}
+# توثيق خاصية الشروط والأحكام القياسية (Standard Terms and Conditions Feature Documentation)
 ::: tip
 محتوى هذا الملف تم إنشاؤه تلقائيًا باستخدام Claude.ai بمراجعة الكود المصدري، إذا وجدت أي معلومات غير صحيحة يرجى التواصل مع فريق تطوير Nama ERP.
 :::
 
-## نظرة عامة (Overview) {#Overview}
+## نظرة عامة (Overview)
 
 تتيح خاصية الشروط القياسية في Nama ERP آلية شاملة لتتبع الشروط والأحكام في وثائق المبيعات (الفواتير والعروض وما إليها) ومراقبة مدى الوفاء بها. يمكّن هذا النظام الشركات من تحديد شروط موحدة وإرفاقها بالوثائق وتتبع حالة الوفاء بها وإدارة التمديدات عند الحاجة.
 
-## المكونات الرئيسية (Key Components) {#Key-Components}
+## المكونات الرئيسية (Key Components)
 
-### 1. الشرط القياسي للمبيعات - ملف رئيسي (Sales Standard Term - Master File) {#1-Sales-Standard-Term-Master-File}
+### 1. الشرط القياسي للمبيعات - ملف رئيسي (Sales Standard Term - Master File)
 **الكيان**: `SalesStandardTerm`  
 **الجدول**: `SalesStandardTerm`  
 **النوع**: ملف رئيسي
 
 هذا هو التعريف الرئيسي للشروط القياسية التي يمكن إرفاقها بوثائق المبيعات.
 
-#### حقول الإعداد (Configuration Fields): {#Configuration-Fields}
+#### حقول الإعداد (Configuration Fields):
 - **الكود** (`code`): معرّف فريد للشرط
 - **الاسم 1** (`name1`): الاسم/الوصف الرئيسي للشرط
 - **يتطلب وثيقة إتمام الشرط القياسي** (`requiresTermFulfillment`): علامة منطقية تشير إلى ما إذا كان هذا الشرط يحتاج إلى تتبع رسمي للوفاء به
@@ -24,43 +24,43 @@
 - **فترة العمل الأولية للشرط** (`initialTermWorkPeriod`): المدة الافتراضية للشرط (تشمل القيمة ووحدة القياس)
 - **ملاحظات 2** (`remarks2`): ملاحظات إضافية أو وصف تفصيلي للشرط
 
-### 2. وثيقة إتمام الشرط القياسي (Standard Term Fulfillment Document) {#2-Standard-Term-Fulfillment-Document}
+### 2. وثيقة إتمام الشرط القياسي (Standard Term Fulfillment Document)
 **الكيان**: `StandardTermFulfillment`  
 **الجدول**: `StandardTermFulfillment`  
 **النوع**: ملف وثيقة
 
 وثيقة تُستخدم لتسجيل الوفاء بشروط محددة رسميًا.
 
-#### الحقول الرئيسية (Key Fields): {#Key-Fields}
+#### الحقول الرئيسية (Key Fields):
 - **من وثيقة** (`fromDoc`): مرجع عام للوثيقة المصدر (مثل فاتورة المبيعات)
 - **التفاصيل** (`details`): مجموعة من سطور الوفاء
 
-#### حقول سطر الوفاء (Fulfillment Line Fields): {#Fulfillment-Line-Fields}
+#### حقول سطر الوفاء (Fulfillment Line Fields):
 - **الشرط القياسي** (`standardTerm`): حقل مرجع للشرط القياسي للمبيعات الذي تم الوفاء به
 - **تاريخ الوفاء** (`fulfillmentDate`): التاريخ الذي تم فيه الوفاء بالشرط
 
-### 3. وثيقة تمديد الشرط القياسي (Standard Term Extension Document) {#3-Standard-Term-Extension-Document}
+### 3. وثيقة تمديد الشرط القياسي (Standard Term Extension Document)
 **الكيان**: `StandardTermExtension`  
 **الجدول**: `StandardTermExtension`  
 **النوع**: ملف وثيقة
 
 وثيقة تُستخدم لتمديد الموعد النهائي للشروط القياسية التي تسمح بالتمديد.
 
-#### الحقول الرئيسية (Key Fields): {#Key-Fields-2}
+#### الحقول الرئيسية (Key Fields):
 - **من وثيقة** (`fromDoc`): مرجع عام للوثيقة المصدر
 - **التفاصيل** (`details`): مجموعة من سطور التمديد
 
-#### حقول سطر التمديد (Extension Line Fields): {#Extension-Line-Fields}
+#### حقول سطر التمديد (Extension Line Fields):
 - **الشرط القياسي** (`standardTerm`): حقل مرجع للشرط القياسي للمبيعات المراد تمديده
 - **فترة التمديد** (`extensionPeriod`): مدة إضافية للتمديد
 - **غرامة التمديد** (`extensionFine`): غرامة مالية مقابل التمديد
 
-## التطبيق في وثائق المبيعات (Implementation in Sales Documents) {#Implementation-in-Sales-Documents}
+## التطبيق في وثائق المبيعات (Implementation in Sales Documents)
 
-### سطر الشروط القياسية في فاتورة المبيعات (Sales Invoice Standard Terms Line) {#Sales-Invoice-Standard-Terms-Line}
+### سطر الشروط القياسية في فاتورة المبيعات (Sales Invoice Standard Terms Line)
 يمكن للوثائق كفواتير المبيعات تضمين الشروط القياسية من خلال سطور التفاصيل.
 
-#### حقول السطر (Line Fields): {#Line-Fields}
+#### حقول السطر (Line Fields):
 - **الشرط القياسي** (`standardTerm`): حقل مرجع للشرط القياسي للمبيعات
 - **ملاحظات** (`remarks`): ملاحظات إضافية خاصة بهذه الحالة
 - **تاريخ انتهاء الشرط القياسي المخطط** (`termPlannedEndDate`): الموعد النهائي الأصلي للشرط
@@ -69,7 +69,7 @@
 - **إجمالي غرامات التمديد** (`extensionFines`): الغرامات المتراكمة من جميع التمديدات (يحسبها النظام)
 - **وثيقة الوفاء** (`fulfillmentDoc`): حقل مرجع لوثيقة إتمام الشرط القياسي (يحدّثه النظام)
 
-#### حقول مخصصة إضافية (Additional Custom Fields): {#Additional-Custom-Fields}
+#### حقول مخصصة إضافية (Additional Custom Fields):
 يوفر النظام حقولًا مرنة للبيانات المخصصة:
 - **حقول مرجع** (`ref1` إلى `ref5`): مراجع عامة للربط بكيانات أخرى
 - **حقول رقمية** (`n1` إلى `n5`): قيم عشرية للحسابات المخصصة
@@ -77,23 +77,23 @@
 - **حقول التاريخ** (`date1` إلى `date5`): قيم تاريخ لتتبع المعالم
 - **المرفقات** (`attachment1` إلى `attachment3`): بيانات ثنائية للوثائق الداعمة
 
-## مسار العمل التجاري (Business Process Flow) {#Business-Process-Flow}
+## مسار العمل التجاري (Business Process Flow)
 
-### 1. مرحلة الإعداد (Setup Phase) {#1-Setup-Phase}
+### 1. مرحلة الإعداد (Setup Phase)
 1. أنشئ الشروط القياسية للمبيعات في الملف الرئيسي
 2. قم بتهيئة كل شرط بما يلي:
    - هل يتطلب تتبع الوفاء
    - هل يمكن تمديده
    - مدة العمل الافتراضية
 
-### 2. إنشاء الوثيقة (Document Creation) {#2-Document-Creation}
+### 2. إنشاء الوثيقة (Document Creation)
 1. أضف الشروط القياسية إلى وثائق المبيعات (الفواتير والعروض وما إليها)
 2. يحسب النظام تلقائيًا `termPlannedEndDate` بناءً على:
    - تاريخ قيمة الوثيقة
    - الفترة الأولية للشرط
 3. بالنسبة للشروط القابلة للتمديد، يحسب النظام `termExtendedEndDate` مع مراعاة أي تمديدات قائمة
 
-### 3. عملية تمديد الشرط (Term Extension Process) {#3-Term-Extension-Process}
+### 3. عملية تمديد الشرط (Term Extension Process)
 1. أنشئ وثيقة تمديد الشرط القياسي
 2. أشر إلى الوثيقة المصدر
 3. أضف سطور تمديد محددةً:
@@ -104,7 +104,7 @@
    - `termExtendedEndDate` في الوثيقة الأصلية
    - تراكم `extensionFines`
 
-### 4. عملية الوفاء بالشرط (Term Fulfillment Process) {#4-Term-Fulfillment-Process}
+### 4. عملية الوفاء بالشرط (Term Fulfillment Process)
 1. أنشئ وثيقة إتمام الشرط القياسي
 2. أشر إلى الوثيقة المصدر
 3. أضف سطور وفاء محددةً:
@@ -114,25 +114,25 @@
    - `fulfillmentDate` في الوثيقة الأصلية
    - حقل مرجع `fulfillmentDoc`
 
-## قواعد التحقق (Validation Rules) {#Validation-Rules}
+## قواعد التحقق (Validation Rules)
 
-### تفرد الشروط (Term Uniqueness) {#Term-Uniqueness}
+### تفرد الشروط (Term Uniqueness)
 - يمكن أن يظهر كل شرط قياسي مرة واحدة فقط لكل وثيقة (للشروط التي تتطلب وفاءً أو تمديدًا)
 - يتحقق النظام من ذلك عند حفظ الوثيقة
 
-### التحقق من التمديد (Extension Validation) {#Extension-Validation}
+### التحقق من التمديد (Extension Validation)
 - لا يمكن تطبيق التمديدات بعد الوفاء بالشرط
 - تتم معالجة التمديدات بالترتيب الزمني بناءً على تاريخ الإنشاء
 - يمنع النظام التمديدات المتعارضة
 
-### التحقق من الوفاء (Fulfillment Validation) {#Fulfillment-Validation}
+### التحقق من الوفاء (Fulfillment Validation)
 - لا يمكن الوفاء بالشرط إلا مرة واحدة
 - إذا كانت وثيقة وفاء موجودة بالفعل لشرط ما، فلا يمكن لوثيقة أخرى الوفاء به
 - يتحقق النظام من تواريخ الوفاء مقارنةً بفترات التمديد
 
-## التطبيق التقني (Technical Implementation) {#Technical-Implementation}
+## التطبيق التقني (Technical Implementation)
 
-### الواجهات الرئيسية (Key Interfaces) {#Key-Interfaces}
+### الواجهات الرئيسية (Key Interfaces)
 
 #### IHasStandardTerms
 تُطبَّق في الوثائق التي تدعم الشروط القياسية:
@@ -146,7 +146,7 @@
 - أدوات الوصول والتعيين لجميع الحقول المتعلقة بالشروط
 - تُدار الحقول الخاصة بالنظام تلقائيًا
 
-### فئة الأداة المساعدة: StandardTermUtils {#Utility-Class-StandardTermUtils}
+### فئة الأداة المساعدة: StandardTermUtils
 توفر المنطق التجاري الأساسي:
 - `markStandardTermAsFulfilled()`: يعالج وثائق الوفاء
 - `extendStandardTerm()`: يعالج وثائق التمديد
@@ -154,9 +154,9 @@
 - `cancelExtendStandardTerm()`: يعكس التمديد
 - `calcTermEndDatesAfterExtension()`: يعيد حساب التواريخ
 
-## أمثلة الإعداد (Configuration Examples) {#Configuration-Examples}
+## أمثلة الإعداد (Configuration Examples)
 
-### مثال 1: شروط الدفع (Payment Terms) {#Example-1-Payment-Terms}
+### مثال 1: شروط الدفع (Payment Terms)
 **إعداد الشرط**:
 - الكود: `PAY30`
 - الاسم: "السداد خلال 30 يومًا"
@@ -166,7 +166,7 @@
 
 **الاستخدام**: يُرفق بفواتير المبيعات لتتبع مواعيد الدفع النهائية والتمديدات.
 
-### مثال 2: شروط التسليم (Delivery Terms) {#Example-2-Delivery-Terms}
+### مثال 2: شروط التسليم (Delivery Terms)
 **إعداد الشرط**:
 - الكود: `DEL7`
 - الاسم: "التسليم خلال 7 أيام"
@@ -176,7 +176,7 @@
 
 **الاستخدام**: يُرفق بأوامر المبيعات لتتبع التزامات التسليم.
 
-### مثال 3: شروط الضمان (Warranty Terms) {#Example-3-Warranty-Terms}
+### مثال 3: شروط الضمان (Warranty Terms)
 **إعداد الشرط**:
 - الكود: `WAR365`
 - الاسم: "ضمان لمدة سنة"
@@ -186,6 +186,6 @@
 
 **الاستخدام**: يُرفق بفواتير المبيعات لتتبع الضمان.
 
-## ملخص (Summary) {#Summary}
+## ملخص (Summary)
 
 تتيح خاصية الشروط القياسية تتبعًا شاملًا وإدارةً كاملة للشروط والأحكام التعاقدية في Nama ERP. من خلال إعدادها المرن والحسابات الآلية وقواعد التحقق، تضمن هذه الخاصية للشركات مراقبة التزاماتها والوفاء بها بفاعلية مع الحفاظ على توثيق واضح لجميع التمديدات والإنجازات.

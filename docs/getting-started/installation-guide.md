@@ -1,8 +1,8 @@
-# دليل تثبيت Nama ERP {#Nama-ERP-Installation-Guide}
+# دليل تثبيت Nama ERP
 
 **Nama ERP** هو تطبيق ويب مبني على Java يعمل على Apache Tomcat ويستخدم Microsoft SQL Server كمحرك قاعدة بيانات افتراضي.
 
-## متطلبات النظام {#System-Requirements}
+## متطلبات النظام
 
 * **نظام التشغيل:** 64-bit (يُنصح باستخدام Windows Server)
 * **Java JDK:** الإصدار 21 أو أحدث
@@ -21,7 +21,7 @@
 * **مثبّت Nama ERP**
   [تنزيل المثبّت](https://namasoft.com/bin/installer/installer.zip)
 
-## إعداد قاعدة البيانات {#Database-Setup}
+## إعداد قاعدة البيانات
 
 * فعّل **Mixed Mode Authentication** في SQL Server.
 * أنشئ قاعدة بيانات (تجنب استخدام الاسم الافتراضي `namaerp` في بيئة الإنتاج).
@@ -45,11 +45,11 @@ New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\stornvme\Paramet
     3. ثبّت SQL Server مجدداً
 :::
 
-## استخدام المثبّت {#Using-the-Installer}
+## استخدام المثبّت
 
 يوفر **مثبّت Nama ERP** واجهة رسومية بالميزات الرئيسية التالية:
 
-### ميزات التثبيت الأساسية {#Core-Installation-Features}
+### ميزات التثبيت الأساسية
 * إنشاء قاعدة البيانات ومستخدمي قاعدة البيانات
 * إنشاء **مهمة النسخ الاحتياطي الكامل** في SQL Server Agent
 * إنشاء **مهمة النسخ الاحتياطي التفاضلي** (تعمل كل 2-3 ساعات)
@@ -57,20 +57,20 @@ New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\stornvme\Paramet
 * خيار **رفع النسخ الاحتياطية إلى التخزين السحابي** (Google Drive، Dropbox، OneDrive، إلخ)
 * إنشاء **شهادة SSL** تلقائياً باستخدام [Let's Encrypt](https://letsencrypt.org/)
 
-### أقسام الواجهة {#Interface-Sections}
+### أقسام الواجهة
 1. **معلومات الترخيص**: مفتاح الترخيص، اسم العميل، السيرفر الفرعي (يُملأ تلقائياً)
 2. **إعداد قاعدة البيانات**: السيرفر، المنفذ (1433)، اسم قاعدة البيانات، بيانات الاعتماد
 3. **إعداد السيرفر**: مسار Tomcat (يُكتشف تلقائياً)، عنوان السيرفر
 4. **مسارات التثبيت**: رابط/مسار ملف Extras.zip، وجهة التنزيل
 5. **متابعة التقدم**: الحالة الآنية، السجلات، وأشرطة التقدم
 
-### الميزات الذكية {#Smart-Features}
+### الميزات الذكية
 * **الاكتشاف التلقائي**: مسارات Tomcat الشائعة والإعدادات الموجودة
 * **التحقق الآني**: ردود فعل بصرية (حدود خضراء/حمراء) لحقول الإدخال
 * **حفظ الإعدادات**: حفظ واستعادة تلقائي للإعدادات عبر `installer.properties`
 * **تكامل مفتاح الترخيص**: ملء تلقائي لبيانات العميل والسيرفر الفرعي
 
-## متطلبات شهادة SSL {#SSL-Certificate-Requirements}
+## متطلبات شهادة SSL
 
 لتثبيت SSL باستخدام Let's Encrypt، تحتاج إلى:
 
@@ -82,18 +82,18 @@ New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\stornvme\Paramet
 إذا لم يكن عنوان IP الثابت متاحاً، يمكنك استخدام **خدمة DNS ديناميكي** (مثل selfip، DDNS).
 :::
 
-## قواعد البيانات المدعومة {#Supported-Databases}
+## قواعد البيانات المدعومة
 
 رغم أن SQL Server هو الافتراضي، قد تكون قواعد بيانات أخرى مدعومة. يرجى التواصل مع الدعم الفني لـ Nama ERP للتأكيد قبل استخدام بدائل أخرى.
 
 ---
 
-## 📺 شرح التثبيت الكامل {#Full-Installation-Walkthrough}
+## 📺 شرح التثبيت الكامل
 
 شاهد الشرح الكامل للتثبيت هنا:
 👉 [https://youtu.be/6UWe9GyZC20](https://youtu.be/6UWe9GyZC20)
 
-## التحقق من تثبيت Nama ERP {#Confirming-Nama-ERP-Installation}
+## التحقق من تثبيت Nama ERP
 
 يعمل Apache Tomcat افتراضياً على المنفذ `8080`. إذا لم تغيّر المنفذ أثناء الإعداد، يمكنك التحقق من صحة التثبيت بزيارة:
 
@@ -110,11 +110,11 @@ http://localhost:8080/erp/
 
 ---
 
-## ترقية Nama ERP {#Upgrading-Nama-ERP}
+## ترقية Nama ERP
 
 يمكنك ترقية Nama ERP من **صفحة utils** داخل واجهة النظام. تتوفر طرق ترقية متعددة حسب إعدادك.
 
-### الترقية اليدوية {#Manual-Upgrade}
+### الترقية اليدوية
 
 لترقية Nama ERP يدوياً:
 
@@ -147,7 +147,7 @@ http://localhost:8080/erp/
 
 ستقوم هذه الأداة بتنزيل وتطبيق آخر تحديثات Nama ERP تلقائياً.
 
-### كيفية السماح بتنزيل الإصدارات من صفحة Utils؟ {#How-to-Allow-Downloading-Releases-from-Utils-Page}
+### كيفية السماح بتنزيل الإصدارات من صفحة Utils؟
 
 لتمكين النظام من تنزيل التحديثات وتثبيتها من صفحة **utils** (أي دعم الترقية الذاتية)، يجب أن تعمل خدمة Tomcat تحت حساب **Local System Account**.
 
@@ -169,9 +169,9 @@ http://localhost:8080/erp/
 
 ![إعداد تسجيل دخول خدمة Tomcat](images/installation-configure-logon-to-enable-auto-upgrade.png)
 
-## استكشاف الأخطاء وإصلاحها {#Troubleshooting}
+## استكشاف الأخطاء وإصلاحها
 
-### المشاكل الشائعة وحلولها {#Common-Issues--Solutions}
+### المشاكل الشائعة وحلولها
 
 **التحقق قبل التثبيت**: استخدم **Perform Checks** (F5) لتشخيص المشاكل:
 
@@ -180,7 +180,7 @@ http://localhost:8080/erp/
 3. **مشاكل Java**: مسار Java مفقود أو مضبوط بشكل خاطئ
 4. **مسارات غير صالحة**: مجلد Tomcat غير موجود أو روابط غير صحيحة
 
-### تصحيح أوامر المثبّت {#Debugging-Installer-Commands}
+### تصحيح أوامر المثبّت
 
 ::: tip عرض مخرجات المثبّت التفصيلية
 لرؤية المخرجات التفصيلية للأوامر التي تعمل داخل المثبّت (مفيد لتصحيح مشاكل التثبيت)، يمكنك تمكين طباعة مخرجات العملية بتعديل سكريبت تشغيل المثبّت.
@@ -198,26 +198,26 @@ Arguments = " -Dprint-process-output=true -jar \""+oFolder.path+"\\nama-installe
 سيعرض هذا مخرجات جميع الأوامر التي ينفّذها المثبّت، مما يساعدك على تحديد نقطة حدوث المشكلة بالضبط.
 :::
 
-### عملية حل الأخطاء {#Error-Resolution-Process}
+### عملية حل الأخطاء
 1. **شغّل التشخيص** → **راجع السجلات** → **أصلح الأخطاء الحرجة** → **أعد التثبيت**
 2. استخدم **Load From Tomcat** لاستيراد الإعدادات الموجودة
 3. **Save Config** يحفظ الإعدادات بين الجلسات لأغراض استكشاف الأخطاء
 
-## عناصر تحكم المثبّت والعمليات {#Installer-Controls--Operations}
+## عناصر تحكم المثبّت والعمليات
 
-### أزرار الإجراءات الرئيسية {#Main-Action-Buttons}
+### أزرار الإجراءات الرئيسية
 * **Start Installation**: يبدأ التثبيت بعد التحقق (مفتاح Enter أو الزر الأخضر)
 * **Perform Checks** (F5): يتحقق من Tomcat وقاعدة البيانات وJava وإعداد المنفذ
 * **Save Config** (Ctrl+S): يحفظ الإعدادات في `installer.properties`
 * **Load From Tomcat** (Ctrl+L): يستورد الإعداد من تثبيت موجود
 
-### العمليات المتقدمة {#Advanced-Operations}
+### العمليات المتقدمة
 * **Request Key**: طلب مفتاح ترخيص تلقائي من سيرفرات Nama مع متابعة الموافقة
 * **Install SSL**: يشغّل معالج تثبيت شهادة Let's Encrypt
 * **Migrate Tomcat**: ترقية من Tomcat 9 إلى Tomcat 10 مع الحفاظ على الإعداد
 * **DB Scripts**: يولّد سكريبتات إعداد قاعدة البيانات
 
-### التحقق والاكتشاف التلقائي {#Validation--Auto-Detection}
+### التحقق والاكتشاف التلقائي
 * **Path Detection**: يعثر تلقائياً على Tomcat في المواقع الشائعة
 * **Field Validation**: ردود فعل آنية بحدود ملوّنة (أخضر=صالح، أحمر=غير صالح)
 * **Configuration Import**: يحمّل الإعدادات الموجودة من `nama.properties`

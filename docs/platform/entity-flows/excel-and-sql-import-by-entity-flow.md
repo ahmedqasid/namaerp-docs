@@ -1,17 +1,17 @@
-# استيراد البيانات من Excel أو الاستعلامات {#Importing-Data-from-Excel-or-Queries}
+# استيراد البيانات من Excel أو الاستعلامات
 
-## استيراد البيانات من Excel إلى Nama ERP {#Importing-Data-from-Excel-into-Nama-ERP}
+## استيراد البيانات من Excel إلى Nama ERP
 
 يتيح Nama ERP استيراد البيانات مباشرةً من ملفات Excel. فيما يلي أبرز النقاط والتوصيات لضمان عملية استيراد سلسة:
 
-### إرشادات عامة {#General-Guidelines}
+### إرشادات عامة
 
 * **دعم الصيغ (Formulas)**: يمكنك استخدام صيغ Excel القياسية في الخلايا عند إعداد بياناتك.
 * **الممارسة الموصى بها**: من الأفضل أولاً تصدير بيانات نموذجية من Nama ERP واستخدام الملف المُصدَّر كقالب للتنسيق والبنية.
 
 ---
 
-### دوال الاستيراد الخاصة {#Special-Import-Functions}
+### دوال الاستيراد الخاصة
 
 - `evalsql(sql statement)`
 
@@ -39,7 +39,7 @@ evalsql(select top 1 id from SalesInvoice order by valueDate desc)
 
 ---
 
-### الاستيراد المتقدم من Excel {#Advanced-Excel-Import}
+### الاستيراد المتقدم من Excel
 
 لمشاهدة شرح مرئي، شاهد الفيديو التعريفي التالي:
 📺 [شرح الاستيراد من Excel](https://www.youtube.com/watch?v=FlKdarW1vJI)
@@ -64,7 +64,7 @@ $A - 10 / $C
 :::
 
 
-## الاستيراد عبر مسار كيان (Entity Flow) من ملفات Excel أو جملة SQL {#Import-by-Entity-Flow-From-Excel-Sheets-or-SQL-Statement}
+## الاستيراد عبر مسار كيان (Entity Flow) من ملفات Excel أو جملة SQL
 
 - `excel.importFrom="attachment"`
 - يحمّل ملف Excel المرفق. يمكنك استخدام أي حقل يُرجع اسمًا صالحًا لحقل مرفق. مثلاً، يمكنك وضع attachment1,attachment2,attachment3 في description 1 كقائمة منسدلة ثم استخدام `excel.importFrom=description1`
@@ -95,7 +95,7 @@ $A - 10 / $C
 - `exel.row1` يمنحك الوصول إلى الصف الأول حتى لو كان مُتجاهَلاً، لتسهيل الاستعلام عن صفوف العناوين.
 
 
-## الاستيراد من جملة SQL عبر مسار كيان (Entity Flow) أو إجراء واجهة مستخدم {#Import-From-SQL-Statement-by-Entity-Flow-or-GUI-Post-Action}
+## الاستيراد من جملة SQL عبر مسار كيان (Entity Flow) أو إجراء واجهة مستخدم
 
 - [شاهد هذا الفيديو للاطلاع على الخطوات التفصيلية](https://youtu.be/XAOituWQqsg)
 - مثال 

@@ -2,15 +2,15 @@
 هذا المستند لا يزال قيد الإعداد ولم يكتمل بعد
 :::
 
-# الربط مع الفاتورة الإلكترونية في الإمارات عبر Orchida osTax {#UAE-E-Invoicing-Integration-via-Orchida-osTax}
+# الربط مع الفاتورة الإلكترونية في الإمارات عبر Orchida osTax
 
-## نظرة عامة (Overview) {#Overview}
+## نظرة عامة (Overview)
 
 يدعم NamaERP إرسال الفواتير الإلكترونية إلى الهيئة الاتحادية للضرائب في الإمارات (FTA) عبر مزوّد الخدمة Orchida osTax. تعمل Orchida بصفتها مزوّد خدمة معتمدًا (ASP) ضمن نموذج الفوترة الإلكترونية ذي الخمسة أطراف المبني على شبكة Peppol في الإمارات.
 
 يُرسل النظام الفواتير بصيغة JSON إلى Orchida التي تتحقق منها وتُبلّغ بيانات الضريبة إلى الهيئة الاتحادية للضرائب وتوجّهها إلى المشتري عبر شبكة Peppol.
 
-## المتطلبات الأساسية (Prerequisites) {#Prerequisites}
+## المتطلبات الأساسية (Prerequisites)
 
 قبل البدء في الإعداد، تحتاج إلى:
 
@@ -18,7 +18,7 @@
 - مفتاح API (Bearer Token) من لوحة تحكم Orchida
 - معرّف الشركة (Company ID) من لوحة تحكم Orchida
 
-### الحصول على بيانات الاعتماد من Orchida {#Getting-Credentials-from-Orchida}
+### الحصول على بيانات الاعتماد من Orchida
 
 1. سجّل الدخول إلى لوحة تحكم Orchida
 2. أدخل رمز OTP المُرسَل إلى بريدك الإلكتروني
@@ -27,26 +27,26 @@
 5. أنشئ مفتاحًا جديدًا (حدد تاريخ انتهاء الصلاحية والاسم)
 6. انسخ مفتاح API ومعرّف الشركة
 
-## إعداد النظام (System Setup) {#System-Setup}
+## إعداد النظام (System Setup)
 
-### الخطوة الأولى: إعدادات الفاتورة الإلكترونية العامة (Step 1: Global E-Invoice Settings) {#Step-1-Global-E-Invoice-Settings}
+### الخطوة الأولى: إعدادات الفاتورة الإلكترونية العامة (Step 1: Global E-Invoice Settings)
 
 من الإعدادات العامة > الصفحة الثانية:
 - اضبط `e-Invoice Page To Show` على `UAE Page`
 - بعد تغيير القيمة قم بعمل Regen UI
 
-### الخطوة الثانية: إعداد مصلحة الضرائب (Step 2: Tax Payer Configuration) {#Step-2-Tax-Payer-Configuration}
+### الخطوة الثانية: إعداد مصلحة الضرائب (Step 2: Tax Payer Configuration)
 
 أنشئ إعداد مصلحة ضرائب جديدًا أو عدّل إعدادًا قائمًا.
 
-#### المعلومات الأساسية (Basic Information) {#Basic-Information}
+#### المعلومات الأساسية (Basic Information)
 
 | الحقل          | القيمة |
 |----------------|-------|
 | taxPayerType | `UAE - Electronic Invoice Staging` (للاختبار) أو `UAE - Electronic Invoice` (للإنتاج) |
 | TaxRegNo     | رقم التسجيل الضريبي للمنشأة |
 
-#### إعدادات التكامل (Integration Settings) {#Integration-Settings}
+#### إعدادات التكامل (Integration Settings)
 
 | الحقل              | الوصف |
 |--------------------|-------------|
@@ -54,7 +54,7 @@
 | password           | مفتاح API من Orchida (Bearer Token) |
 | orchidaCompanyID | معرّف الشركة من لوحة تحكم Orchida |
 
-#### إعداد أكواد الضريبة (Tax Code Configuration) {#Tax-Code-Configuration}
+#### إعداد أكواد الضريبة (Tax Code Configuration)
 
 تتبع أكواد الضريبة في الإمارات معيار UN/EDIFACT 5305 (أكواد فئة الضريبة المنسَّقة).
 
@@ -78,11 +78,11 @@
 عند استخدام الكود `S` (النسبة القياسية)، يجب أن تكون نسبة ضريبة القيمة المضافة بالضبط `5.00`
 :::
 
-### الخطوة الثالثة: إعداد العميل (Step 3: Customer Setup) {#Step-3-Customer-Setup}
+### الخطوة الثالثة: إعداد العميل (Step 3: Customer Setup)
 
 لكل عميل سيستقبل فواتير إلكترونية، أكمل الحقول التالية:
 
-#### البيانات الضريبية (Tax Information) {#Tax-Information}
+#### البيانات الضريبية (Tax Information)
 
 | الحقل        | الوصف |
 |--------------|-------------|
@@ -91,7 +91,7 @@
 | description4 | معرّف الجهة (مثلًا `TL`) |
 | description5 | اسم الجهة (مثلًا اسم الشركة) |
 
-#### العنوان (Address) {#Address}
+#### العنوان (Address)
 
 | الحقل       | الوصف |
 |-------------|-------------|
@@ -113,7 +113,7 @@
 | FUJ | الفجيرة |
 :::
 
-### الخطوة الرابعة: إعداد وحدات القياس (Step 4: Unit of Measure Setup) {#Step-4-Unit-of-Measure-Setup}
+### الخطوة الرابعة: إعداد وحدات القياس (Step 4: Unit of Measure Setup)
 
 يجب أن تمتلك كل وحدة قياس مستخدمة في الفواتير كودًا صالحًا لدى مصلحة الضرائب وفق معيار UN/ECE Rec 20:
 
@@ -126,25 +126,25 @@
 | XBX | صندوق |
 | PCE | قطعة |
 
-### الخطوة الخامسة: إعداد العملة (Step 5: Currency Setup) {#Step-5-Currency-Setup}
+### الخطوة الخامسة: إعداد العملة (Step 5: Currency Setup)
 
 تأكد من وجود عملة بكود مصلحة الضرائب `AED` وأنها مضبوطة كعملة افتراضية.
 
-## إرسال الفواتير (Sending Invoices) {#Sending-Invoices}
+## إرسال الفواتير (Sending Invoices)
 
-### إنشاء وثيقة إرسال لمصلحة الضرائب (Creating a Tax Authority Submission Document) {#Creating-a-Tax-Authority-Submission-Document}
+### إنشاء وثيقة إرسال لمصلحة الضرائب (Creating a Tax Authority Submission Document)
 
 1. اذهب إلى وثيقة إرسال مصلحة الضرائب
 2. انقر على "تجميع الوثائق" لإضافة الفواتير المراد إرسالها
 3. انقر على "إرسال" لتقديم الفواتير إلى Orchida
 
-### حالات الإرسال (Submission Statuses) {#Submission-Statuses}
+### حالات الإرسال (Submission Statuses)
 
 بعد الإرسال تُضبط حالة الوثيقة إلى:
 - **Sent**: قبلت Orchida الفاتورة للمعالجة
 - **NotValidSent**: رُفضت الفاتورة — راجع حقل الأخطاء للاطلاع على التفاصيل
 
-### التحقق من حالة الفاتورة في Orchida {#Checking-Invoice-Status-from-Orchida}
+### التحقق من حالة الفاتورة في Orchida
 
 بعد الإرسال يمكنك التحقق من الحالة النهائية للفاتورة لدى مصلحة الضرائب:
 
@@ -158,7 +158,7 @@
 قد تحتاج Orchida إلى بعض الوقت لمعالجة الفاتورة. إذا كانت الحالة `pending`، انتظر ثم تحقق مجددًا لاحقًا.
 :::
 
-## أنواع الوثائق المدعومة (Supported Document Types) {#Supported-Document-Types}
+## أنواع الوثائق المدعومة (Supported Document Types)
 
 | النوع | مدعوم |
 |------|-----------|
@@ -166,6 +166,6 @@
 | إشعار دائن | نعم |
 | إشعار مدين | لا |
 
-## الحد الأقصى لأيام الإرسال (Maximum Days to Send) {#Maximum-Days-to-Send}
+## الحد الأقصى لأيام الإرسال (Maximum Days to Send)
 
 العدد الافتراضي للأيام المسموح بها لإرسال الفاتورة بعد تاريخ قيمتها هو **14 يومًا**. يمكن تغيير هذا الإعداد في إعداد مصلحة الضرائب ضمن حقل "Max Days To Send Invoice".

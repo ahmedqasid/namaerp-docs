@@ -1,5 +1,5 @@
-# استعلامات الأدوات المساعدة للمخزون {#Inventory-Related-Utility-Queries}
-## إعادة فتح الجرد للتعديل بعد المعالجة {#Re-Open-Stock-Taking-for-updates-after-editing}
+# استعلامات الأدوات المساعدة للمخزون
+## إعادة فتح الجرد للتعديل بعد المعالجة
 ::: details
 ```sql
 declare @startdoccode as nvarchar(50)
@@ -13,7 +13,7 @@ update std set status = 'Started' from StockTakingDetails std inner join StartSt
 update StartStockTaking set status = 'Started' where code = @startdoccode
 ```
 :::
-## السماح بالسحب على المكشوف لجميع الأصناف دفعة واحدة وإغلاقه مجددًا {#Allow-overdraft-for-all-items-at-once-and-closing-it-again}
+## السماح بالسحب على المكشوف لجميع الأصناف دفعة واحدة وإغلاقه مجددًا
 ::: tip
  يُستخدم الحقل description5 لحفظ قيمة overDraftPolicy الحالية
 :::
@@ -32,7 +32,7 @@ update InvItem set overDraftPolicy = 'No',description5 = '' where description5 =
 يرجى ملاحظة أنه يجب مسح الكاش بعد تنفيذ الاستعلام (من <NamaURL url="utils?evict=true"/>)
 :::
 
-## البحث عن جميع المستندات التي تغيّرت وحدة قياسها الأساسية {#Find-All-Documents-with-changed-base-unit}
+## البحث عن جميع المستندات التي تغيّرت وحدة قياسها الأساسية
 ::: details
 ```sql
 select si.entityType,si.id,si.code from StockIssueLine l left join StockIssue si on si.id = l.stockIssue_id left join InvItem i on i.id = l.item_id 
@@ -45,7 +45,7 @@ select si.entityType,si.id,si.code from StockTransferLine l left join StockTrans
 where i.primBaseUnit_id <> l.quantityBaseUom_id
 ```
 :::
-## البحث عن الحركات التي تختلف فيها وحدة قياس الكمية عن وحدة قياس التكلفة {#Find-Transactions-with-different-qty-and-cost-base-unit}
+## البحث عن الحركات التي تختلف فيها وحدة قياس الكمية عن وحدة قياس التكلفة
 ::: details
 ```sql
 select distinct c.originType,c.originId,c.origincode from costouttransline c left join qtytransline q  on c.originlineid = q.originlineid
@@ -55,7 +55,7 @@ select distinct c.originType,c.originId,c.origincode from costintransline c left
 where c.totalQty <> q.inBasePValue and q.inBasePValue > 0
 ```
 :::
-## تصحيح وحدة القياس المتغيرة لصنف معين {#Fix-changed-Unit-for-an-Item}
+## تصحيح وحدة القياس المتغيرة لصنف معين
 ::: details
 ```sql
 declare @icode as nvarchar(250)
@@ -90,7 +90,7 @@ update q set quantityPUom_id = i.primBaseUnit_id from SalesInvoiceLine q left jo
  update q set quantityPUom_id = i.primBaseUnit_id from StockTransferLine q left join InvItem i on i.id = q.item_id  where i.code = @icode
 ```
 :::
-## استعلام لعرض المستندات التي يجب إعادة ترحيلها بعد تغيير وحدة القياس الأساسية للصنف: {#Query-To-List-Documents-That-should-be-recommitted-after-changing-Base-Unit-in-Item}
+## استعلام لعرض المستندات التي يجب إعادة ترحيلها بعد تغيير وحدة القياس الأساسية للصنف:
 ::: details
 ```sql
 select distinct h.entityType,h.id,h.code from StockIssue h  left join StockIssueLine q on q.stockIssue_id = h.id left join InvItem i on i.id = q.item_id where q.quantityBaseUom_id <> i.primBaseUnit_id and h.generationType <> 'GeneratedFinal'
@@ -104,7 +104,7 @@ union all
 select distinct h.entityType,h.id,h.code from StockTransfer h  left join StockTransferLine q on q.StockTransfer_id = h.id left join InvItem i on i.id = q.item_id where q.quantityBaseUom_id <> i.primBaseUnit_id and h.generationType <> 'GeneratedFinal'
 ```
 :::
-## البحث عن الكيانات التي سببت إعادة محاولات على نطاق واسع في سجلات invtransreq {#Find-Entities-that-caused-retries-on-a-massive-scale-of-invtransreq-records}
+## البحث عن الكيانات التي سببت إعادة محاولات على نطاق واسع في سجلات invtransreq
 ::: details
 ```sql
 select e.lastUpdateDate,r2 .originType,r2.originCode,r2.originId,r.originType retryType,r.originCode retryCode,r.originId retryId
@@ -117,7 +117,7 @@ order by e.lastUpdateDate desc
 
 ```
 :::
-## البحث عن التواريخ التي حدث فيها سحب على المكشوف {#Find-dates-where-overdraft-happened}
+## البحث عن التواريخ التي حدث فيها سحب على المكشوف
 ::: details
 ```sql
 with cost as (
@@ -145,7 +145,7 @@ where qtyToDate < 0
 
 ```
 :::
-## البحث عن بيانات itemdimensionsqty غير الصحيحة {#Find-incorrect-itemdimensionsqty}
+## البحث عن بيانات itemdimensionsqty غير الصحيحة
 ::: details
 ```sql
 with qty as (
@@ -168,7 +168,7 @@ where coalesce(qty.net,0) <> coalesce(dim.net,0)
 
 ```
 :::
-## تصحيح مشكلة تاريخ الإنتاج/الصلاحية (Healthy, Watania, Liptis) {#Fix-ProductionExpiry-Date-Problem-Healthy-Watania-Liptis}
+## تصحيح مشكلة تاريخ الإنتاج/الصلاحية (Healthy, Watania, Liptis)
 ::: details
 ```sql
 update itemlot  set productionDate =  q.productionDate from ItemLot left join QtyTransLine q on q.item_id = ItemLot.invItem_id and q.lotId = itemlot.lotId
@@ -179,7 +179,7 @@ where itemlot.expiryDate = itemlot.productionDate and q.expiryDate <> q.producti
 استخدم مسار الكيان `EAUpdateLotIdDates` للحصول على تحكم أكبر
 :::
 
-## إدخالات QtyTrackingTransactionEntry الوهمية (Zombie) {#Zombie-QtyTrackingTransactionEntry}
+## إدخالات QtyTrackingTransactionEntry الوهمية (Zombie)
 ::: details
 ```sql
 delete e from EntitySystemEntry e left join stockissue si on si.id = e.targetId where e.targetType = 'StockIssue' and si.id is null
@@ -190,7 +190,7 @@ where e.id is null
 
 ```
 :::
-## أدوات البحث عن مشاكل إعادة تقييم التكلفة (Cost Revaluation) {#Cost-Revaluatoin-Problem-Finders}
+## أدوات البحث عن مشاكل إعادة تقييم التكلفة (Cost Revaluation)
 ::: details
 ```sql
 select  i.itemCode,i.originCode  from CostInTransLine i left join CostOutTransLine o on i.originLineId = o.originLineId and o.originId = i.originId where i.originType = 'CostRevaluation' and i.netQty <> o.netQty;
@@ -205,7 +205,7 @@ left join InvItem i on i.id = l1.item_id
 
 ```
 :::
-## البحث عن تحويلات المخزون العكسية {#Find-Reverse-Stock-Transfers}
+## البحث عن تحويلات المخزون العكسية
 ::: details
 ```sql
 select co1.originCode,co2.originCode from CostOutTransLine co1 left join CostInTransLine ci1 on ci1.originLineId = co1.originLineId 
@@ -215,7 +215,7 @@ where co1.originType = 'StockTransfer' and co1.overdraftSatisQty >0 and ci1.id i
 
 ```
 :::
-## البحث عن إيصالات الاستلام من مرتجعات المبيعات كأول حركة {#Find-Receipts-from-Sales-Returns-as-first-in-transaction}
+## البحث عن إيصالات الاستلام من مرتجعات المبيعات كأول حركة
 ::: details
 ```sql
 with start as(
@@ -226,7 +226,7 @@ left join InvItem i on i.id = c.item_id
 where c.invoiceType = 'SalesReturn'
 ```
 :::
-## تعبئة تاريخ الصلاحية ورقم الدفعة (عميل بدأ بدون صلاحية ويريد تفعيلها بعد إدخال كثير من الحركات) {#Fill-expiry-date-and-lot-id-customer-started-without-expiry-and-wants-to-activate-it-after-doing-many-transaction}
+## تعبئة تاريخ الصلاحية ورقم الدفعة (عميل بدأ بدون صلاحية ويريد تفعيلها بعد إدخال كثير من الحركات)
 ::: details شغّل الاستعلام التالي (انتبه: هناك 3 خطوات إضافية أسفل الاستعلام)
 
 ```sql
@@ -367,7 +367,7 @@ select originType,originId,originCode from InvTransReq where requestType <> 'Del
   ]"
   />
 - بعد انتهاء الأداة، أعد معالجة جميع حركات الكميات (يجب إيقاف Tomcat)
-## تصحيح تواريخ الصلاحية الفارغة من جدول أرقام الدفعات في المبيعات والمشتريات {#Fix-null-expiry-dates-from-item-lot-table-in-sales-and-purchases}
+## تصحيح تواريخ الصلاحية الفارغة من جدول أرقام الدفعات في المبيعات والمشتريات
 ::: details
 ```sql
 update l set expiryDate = lo.expiryDate from PurchaseInvoiceLine l inner join ItemLot lo on lo.lotId = l.lotId and lo.invItem_id = l.item_id
@@ -397,7 +397,7 @@ go
 
 ```
 :::
-## نسخ تاريخ الصلاحية من QtyTransLine إلى ItemLot و ItemDimensionsQty {#Copy-Expiry-Date-From-QtyTransLine-to-ItemLot-and-ItemDimensionsQty}
+## نسخ تاريخ الصلاحية من QtyTransLine إلى ItemLot و ItemDimensionsQty
 ::: details
 ```sql
 update q set expiryDate = lo.expiryDate from ItemDimensionsQty q inner join ItemLot lo on lo.invItem_id = q.item_id and lo.lotId = q.lotId
@@ -423,7 +423,7 @@ go
 
 ```
 :::
-## تصحيح تاريخ الإنتاج الأصغر من تاريخ الصلاحية {#Fix-Production-date-less-than-expiry-date}
+## تصحيح تاريخ الإنتاج الأصغر من تاريخ الصلاحية
 ::: details
 ```sql
 update l set productionDate = dateadd(YEAR,-1,expiryDate) from ItemLot l where productionDate >=expiryDate and expiryDate > '20000101'
@@ -441,7 +441,7 @@ update l set productionDate = dateadd(YEAR,-1,expiryDate) from StockReceiptLine 
 update l set productionDate = dateadd(YEAR,-1,expiryDate) from StockTransferLine l where productionDate >=expiryDate and expiryDate > '20000101'
 ```
 :::
-## تحديث أكواد الأصناف من جدول InvItem {#Update-Item-Codes-from-InvItem}
+## تحديث أكواد الأصناف من جدول InvItem
 ::: details
 ```sql
 update  l set itemcode = i.code , itemName1 = i.name1,itemName2 = i.name2
@@ -483,7 +483,7 @@ update  l set itemcode = i.code , itemName1 = i.name1,itemName2 = i.name2
  from CostOutTransLine l left join InvItem i on i.id = l.item_id 
 ```
 :::
-## حذف الطلبات غير الضرورية (LedgerTransReq و InvTransReq) {#Delete-Unnecessary-Requests-LedgerTransReq-and-InvTransReq}
+## حذف الطلبات غير الضرورية (LedgerTransReq و InvTransReq)
 ::: details
 ```sql
 WHILE exists (select top 1 id from InvTransReq where requestType = 'Delete' and transStatus ='Processed')
@@ -503,7 +503,7 @@ Commit transaction x;
 END;
 ```
 :::
-## استعلام لعرض الحركات التي لا تحتوي على موقع تخزين في مخزن يستخدم المواقع: {#Query-that-list-transaction-without-a-locator-on-a-warehouse-with-locators}
+## استعلام لعرض الحركات التي لا تحتوي على موقع تخزين في مخزن يستخدم المواقع:
 ::: details
 ```sql
 with x as (

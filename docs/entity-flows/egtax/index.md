@@ -1,6 +1,6 @@
 <div class="ignore-in-full-text-search">
 
-# EGTax Reader Module
+# وحدة قراءة الفواتير الإلكترونية
   - [EAReadRecentTaxEInvoices](/entity-flows/egtax/EAReadRecentTaxEInvoices.md)
 
 </div>

@@ -1,4 +1,4 @@
-# واجهة برمجية REST لنظام نما ERP {#Nama-ERP-REST-API}
+# واجهة برمجية REST لنظام نما ERP
 
 يوفر نظام نما ERP واجهة برمجية REST شاملة لإجراء عمليات CRUD على جميع كيانات النظام، مع دعم كامل لمواصفة OpenAPI 3.0 لتحقيق تكامل سلس مع الأنظمة الخارجية.
 
@@ -8,27 +8,27 @@
 قبل الغوص في تفاصيل الواجهة البرمجية، قد ترغب في قراءة المقال [سيناريوهات الربط بين نظام نما والأنظمة الأخرى](./system-integration-scenarios.md). يُحدد المقال الاتجاهات الأربعة الممكنة للتكامل (قراءة/كتابة × نما/النظام الآخر)، ويوضح أي السيناريوهات متاحة مجاناً من الصندوق وأيها يستلزم تطويراً مخصصاً، مع قائمة بالأسئلة التي ينبغي طرحها على العميل قبل تسعير أي تكامل.
 :::
 
-## نظرة عامة على متصفح الواجهة البرمجية (API Browser) {#API-Browser-Overview}
+## نظرة عامة على متصفح الواجهة البرمجية (API Browser)
 
 يوفر متصفح الواجهة البرمجية في نما ERP واجهة تفاعلية لاستعراض جميع واجهات REST المتاحة في نظامك واختبارها.
 
-### الوصول إلى متصفح الواجهة البرمجية {#Accessing-the-API-Browser}
+### الوصول إلى متصفح الواجهة البرمجية
 
 يمكن الوصول إلى متصفح الواجهة البرمجية عبر عدة نقاط:
 
-#### الصفحة الرئيسية لمتصفح الواجهة البرمجية {#Main-API-Browser--Router-Page-}
+#### الصفحة الرئيسية لمتصفح الواجهة البرمجية
 ```
 http[s]://<server-ip-or-domain>/erp/browseapi/
 ```
 تعرض الصفحة الرئيسية مع روابط لأقسام الواجهات البرمجية المختلفة.
 
-#### متصفح واجهات الكيانات {#Entity-APIs-Browser}
+#### متصفح واجهات الكيانات
 ```
 http[s]://<server-ip-or-domain>/erp/browseapi/browseentitiesapi.html
 ```
 يسرد جميع واجهات الكيانات المتاحة بأسمائها العربية والإنجليزية.
 
-#### متصفح الواجهات ذات الأغراض الخاصة {#Special-Purpose-APIs-Browser}
+#### متصفح الواجهات ذات الأغراض الخاصة
 ```
 http[s]://<server-ip-or-domain>/erp/browseapi/browsespecialpurposesapi.html
 ```
@@ -36,7 +36,7 @@ http[s]://<server-ip-or-domain>/erp/browseapi/browsespecialpurposesapi.html
 
 ![Rest API Browser Screenshot](images/rest-api-browser.png)
 
-### مميزات متصفح الواجهة البرمجية {#Features-of-the-API-Browser}
+### مميزات متصفح الواجهة البرمجية
 
 يولّد متصفح الواجهة البرمجية التوثيق تلقائياً بناءً على إعدادات نظامك:
 
@@ -52,14 +52,14 @@ http[s]://<server-ip-or-domain>/erp/browseapi/browsespecialpurposesapi.html
   1. **مواصفة OpenAPI بصيغة JSON**: تعريف الواجهة البرمجية بصيغة قابلة للقراءة آلياً
   2. **Swagger UI**: توثيق تفاعلي وواجهة اختبار
 
-### مواصفات OpenAPI بصيغة JSON {#OpenAPI-JSON-Specifications}
+### مواصفات OpenAPI بصيغة JSON
 
-#### نقطة OpenAPI الأساسية {#Basic-OpenAPI-Endpoint}
+#### نقطة OpenAPI الأساسية
 ```
 http[s]://<server-ip-or-domain>/erp/browseapi/openapi/{EntityName}.json
 ```
 
-#### OpenAPI مع بيانات مثال {#OpenAPI-with-Example-Data}
+#### OpenAPI مع بيانات مثال
 ```
 http[s]://<server-ip-or-domain>/erp/browseapi/openapi/{EntityName}.json?exampleCode={code}
 ```
@@ -85,11 +85,11 @@ http://localhost:8080/erp/browseapi/openapi/Item.json
 ```
 :::
 
-### بنية استجابة الواجهة البرمجية {#API-Response-Structure}
+### بنية استجابة الواجهة البرمجية
 
 تتضمن مواصفة OpenAPI تعريفات مخطط تفصيلية لكل كيان:
 
-#### تعيين أنواع الحقول {#Field-Types-Mapping}
+#### تعيين أنواع الحقول
 - **حقول النص**: Text وBigText وDate وDateTime وTime وEmail وColor وLatLng وEnum
 - **حقول الأرقام**: Decimal وInteger
 - **حقول القيم المنطقية**: حقول من نوع Boolean
@@ -97,14 +97,14 @@ http://localhost:8080/erp/browseapi/openapi/Item.json
 - **المراجع العامة**: كائن يحتوي على `entityType` و`code`
 - **Collections/التفاصيل**: مصفوفات من الكائنات (مثل بنود الفاتورة وتفاصيل الدفع)
 
-#### الحقول المستثناة {#Excluded-Fields}
+#### الحقول المستثناة
 تستثني الواجهة البرمجية تلقائياً:
 - الحقول التي يولدها النظام (ما لم يُطلب ذلك تحديداً)
 - الحقول المحسوبة
 - الحقول الثنائية (الصور والمستندات)
 - حقول تتبع المستخدمين الداخلية
 
-### التعامل مع collections الكيانات {#Working-with-Entity-Collections}
+### التعامل مع collections الكيانات
 
 تتضمن كثير من الكيانات collections تفصيلية (علاقات one-to-many):
 
@@ -131,13 +131,13 @@ http://localhost:8080/erp/browseapi/openapi/Item.json
 
 ---
 
-## المصادقة والوصول إلى الواجهة البرمجية {#API-Authentication---Access}
+## المصادقة والوصول إلى الواجهة البرمجية
 
-### طرق المصادقة {#Authentication-Methods}
+### طرق المصادقة
 
 تدعم واجهة REST لنما ERP طريقتين للمصادقة:
 
-#### 1. المصادقة بمفتاح الواجهة البرمجية API Key (موصى بها) {#1--API-Key-Authentication--Recommended-}
+#### 1. المصادقة بمفتاح الواجهة البرمجية API Key (موصى بها)
 
 تعد API Keys الطريقة الأساسية للمصادقة في تكاملات الإنتاج.
 
@@ -155,11 +155,11 @@ http://localhost:8080/erp/browseapi/openapi/SalesInvoice.json?apiKey={your-api-k
 يجب استخدام المصادقة عبر معامل الاستعلام للاختبار في متصفح الواجهة البرمجية فقط. يجب أن تستخدم تكاملات الإنتاج المصادقة عبر الترويسة لأسباب أمنية.
 :::
 
-#### 2. المصادقة بالجلسة {#2--Session-based-Authentication}
+#### 2. المصادقة بالجلسة
 
 في الاختبار عبر المتصفح، يمكن استخدام ملفات تعريف الارتباط (cookies) من جلسة مستخدم مُسجَّل دخوله.
 
-### كيفية إنشاء مفتاح الواجهة البرمجية {#How-to-Generate-an-API-Key}
+### كيفية إنشاء مفتاح الواجهة البرمجية
 
 يستطيع **مسؤول النظام** إنشاء API Keys عبر شاشة **API Credentials**:
 
@@ -180,7 +180,7 @@ http://localhost:8080/erp/browseapi/openapi/SalesInvoice.json?apiKey={your-api-k
 - قيود الشركة/الفرع
 :::
 
-### عرض API Keys بعد الإنشاء {#Viewing-API-Keys-After-Creation}
+### عرض API Keys بعد الإنشاء
 
 لعرض API Key مجدداً بعد إنشائه:
 
@@ -193,7 +193,7 @@ http://localhost:8080/erp/browseapi/openapi/SalesInvoice.json?apiKey={your-api-k
 يُسجَّل إعادة عرض API Key في سجل التدقيق لأغراض التتبع الأمني.
 :::
 
-### أفضل الممارسات لـ API Keys {#API-Key-Best-Practices}
+### أفضل الممارسات لـ API Keys
 
 1. **أنشئ مفاتيح منفصلة** لكل تكامل
 2. **استخدم أسماء وصفية** لتحديد كل تكامل
@@ -204,7 +204,7 @@ http://localhost:8080/erp/browseapi/openapi/SalesInvoice.json?apiKey={your-api-k
 
 ---
 
-## إعداد CORS {#CORS-Configuration}
+## إعداد CORS
 
 يتولى متصفح الواجهة البرمجية تلقائياً إدارة Cross-Origin Resource Sharing (CORS) لطلبات الواجهة البرمجية:
 
@@ -218,9 +218,9 @@ http://localhost:8080/erp/browseapi/openapi/SalesInvoice.json?apiKey={your-api-k
 
 ---
 
-## نقاط نهاية REST API {#REST-API-Endpoints}
+## نقاط نهاية REST API
 
-### بنية رابط الأساس {#Base-URL-Structure}
+### بنية رابط الأساس
 ```
 http[s]://<server>/erp/rest/v1/{entity}/{operation}/{idOrCode}
 ```
@@ -230,7 +230,7 @@ http[s]://<server>/erp/rest/v1/{entity}/{operation}/{idOrCode}
 - `{operation}`: العملية المراد تنفيذها (findByIdOrCode وlist وsave وdelete)
 - `{idOrCode}`: اختياري - UUID الكيان أو كود الأعمال
 
-### دعم أساليب HTTP {#HTTP-Methods-Support}
+### دعم أساليب HTTP
 
 تدعم الواجهة البرمجية عدة أساليب HTTP للمرونة:
 
@@ -245,9 +245,9 @@ http[s]://<server>/erp/rest/v1/{entity}/{operation}/{idOrCode}
 بينما تدعم الواجهة البرمجية اتفاقيات RESTful، يمكن تنفيذ جميع العمليات باستخدام أسلوب POST للتوافق مع مختلف تطبيقات العملاء.
 :::
 
-### العمليات المدعومة {#Supported-Operations}
+### العمليات المدعومة
 
-#### 1. استرجاع كيان (GET) {#1--Retrieve-Entity--GET-}
+#### 1. استرجاع كيان (GET)
 ```http
 GET /erp/rest/v1/{entity}/findByIdOrCode/{idOrCode}
 apiKey: {api-key}
@@ -263,7 +263,7 @@ Content-Type: application/json
 ["CUST001", "CUST002", "550e8400-e29b-41d4-a716-446655440000"]
 ```
 
-#### 2. سرد الكيانات مع التصفيح (POST) {#2--List-Entities-with-Pagination--POST-}
+#### 2. سرد الكيانات مع التصفيح (POST)
 ```http
 POST /erp/rest/v1/{entity}/list
 apiKey: {api-key}
@@ -282,7 +282,7 @@ Content-Type: application/json
 - `records`: مصفوفة السجلات المطلوبة
 - `records_count`: عدد السجلات في الاستجابة
 
-#### 3. إنشاء/تحديث كيان (POST/PUT) {#3--Create-Update-Entity--POST-PUT-}
+#### 3. إنشاء/تحديث كيان (POST/PUT)
 ```http
 POST /erp/rest/v1/{entity}/save
 apiKey: {api-key}
@@ -332,7 +332,7 @@ responseFields: code,id      # الحقول المُرجَعة بعد الحفظ
 }
 ```
 
-#### 4. حذف كيان (DELETE) {#4--Delete-Entity--DELETE-}
+#### 4. حذف كيان (DELETE)
 ```http
 DELETE /erp/rest/v1/{entity}/delete/{idOrCode}
 apiKey: {api-key}
@@ -368,37 +368,37 @@ Content-Type: application/json
 }
 ```
 
-## اختبار الواجهات البرمجية {#Testing-APIs}
+## اختبار الواجهات البرمجية
 
-### استخدام متصفح الواجهة البرمجية للاختبار {#Using-the-API-Browser-for-Testing}
+### استخدام متصفح الواجهة البرمجية للاختبار
 
 يوفر متصفح الواجهة البرمجية عدة طرق لاختبار الواجهات:
 
-#### 1. الوصول المباشر إلى OpenAPI JSON {#1--Direct-OpenAPI-JSON-Access}
+#### 1. الوصول المباشر إلى OpenAPI JSON
 ```bash
 # الحصول على مواصفة OpenAPI مع أمثلة
 curl -H "apiKey: {api-key}" \
   "http://localhost:8080/erp/browseapi/openapi/Customer.json?exampleCode=Find@First"
 ```
 
-#### 2. الاستيراد إلى Postman {#2--Import-to-Postman}
+#### 2. الاستيراد إلى Postman
 1. انسخ رابط OpenAPI JSON
 2. في Postman: Import → Link → الصق الرابط
 3. أضف API Key إلى مصادقة المجموعة
 4. اختبر جميع عمليات CRUD
 
-#### 3. Swagger UI التفاعلي {#3--Interactive-Swagger-UI}
+#### 3. Swagger UI التفاعلي
 ادخل إلى واجهة Swagger للاختبار التفاعلي (إن كانت مُهيَّأة).
 
-### أمثلة على صيغ الطلبات {#Example-Request-Formats}
+### أمثلة على صيغ الطلبات
 
-#### البحث عن سجل واحد {#Finding-Single-Record}
+#### البحث عن سجل واحد
 ```http
 GET /erp/rest/v1/Customer/findByIdOrCode/CUST001
 apiKey: {api-key}
 ```
 
-#### البحث عن سجلات متعددة {#Finding-Multiple-Records}
+#### البحث عن سجلات متعددة
 ```http
 POST /erp/rest/v1/Customer/findByIdOrCode
 apiKey: {api-key}
@@ -407,7 +407,7 @@ Content-Type: application/json
 ["CUST001", "CUST002", "CUST003"]
 ```
 
-#### إنشاء سجل جديد {#Creating-New-Record}
+#### إنشاء سجل جديد
 ```http
 POST /erp/rest/v1/Customer/save
 apiKey: {api-key}
@@ -425,7 +425,7 @@ updateRecord: false
 }
 ```
 
-#### تحديث سجل موجود {#Updating-Existing-Record}
+#### تحديث سجل موجود
 ```http
 POST /erp/rest/v1/Customer/save
 apiKey: {api-key}
@@ -442,7 +442,7 @@ updateRecord: true
 }
 ```
 
-#### السرد مع الفلاتر {#Listing-with-Filters}
+#### السرد مع الفلاتر
 ```http
 POST /erp/rest/v1/Customer/list
 apiKey: {api-key}
@@ -458,11 +458,11 @@ Content-Type: application/json
 
 ---
 
-## معالجة الأخطاء {#Error-Handling}
+## معالجة الأخطاء
 
 تُرجع الواجهة البرمجية رموز حالة HTTP قياسية ورسائل خطأ تفصيلية:
 
-### رموز الاستجابة الشائعة {#Common-Response-Codes}
+### رموز الاستجابة الشائعة
 - **200 OK**: طلب ناجح
 - **201 Created**: تم إنشاء المورد بنجاح
 - **400 Bad Request**: معاملات طلب غير صالحة
@@ -471,7 +471,7 @@ Content-Type: application/json
 - **404 Not Found**: المورد غير موجود
 - **500 Internal Server Error**: خطأ على جانب الخادم
 
-### صيغة استجابة الخطأ {#Error-Response-Format}
+### صيغة استجابة الخطأ
 ```json
 {
   "error": {
@@ -484,30 +484,30 @@ Content-Type: application/json
 
 ---
 
-## الواجهات البرمجية ذات الأغراض الخاصة {#Special-Purpose-APIs}
+## الواجهات البرمجية ذات الأغراض الخاصة
 
 بالإضافة إلى عمليات CRUD القياسية، يوفر نما ERP واجهات متخصصة:
 
-### تكامل أجهزة الحضور والانصراف {#Attendance-Machine-Integration}
+### تكامل أجهزة الحضور والانصراف
 - نقطة النهاية: `attcron-open-api-template`
 - الغرض: مزامنة بيانات الحضور من أجهزة البصمة البيومترية
 - يدعم المعالجة الدفعية لسجلات الحضور
 
-### واجهة برمجية لتصدير البيانات {#Data-Export-API}
+### واجهة برمجية لتصدير البيانات
 - تصدير السجلات بصيغة JSON مع بيانات العلاقات الكاملة
 - يدعم الفلترة والتصفيح
 - يحافظ على سلامة البيانات للنسخ الاحتياطي/الترحيل
 
-### العمليات الدفعية {#Batch-Operations}
+### العمليات الدفعية
 - معالجة سجلات متعددة في طلب واحد
 - معالجة تعاملية مع التراجع عند الأخطاء
 - محسَّنة للتكاملات ذات الحجم الكبير
 
 ---
 
-## اعتبارات الأداء {#Performance-Considerations}
+## اعتبارات الأداء
 
-### التصفيح {#Pagination}
+### التصفيح
 تدعم جميع نقاط نهاية السرد التصفيح بحجم صفحة قابل للتهيئة:
 
 ```http
@@ -529,7 +529,7 @@ Content-Type: application/json
 }
 ```
 
-### اختيار الحقول {#Field-Selection}
+### اختيار الحقول
 تحكم في الحقول المُرجَعة لتحسين حجم البيانات:
 
 ```http
@@ -543,10 +543,10 @@ responseFields: code,name1,status,balance
 - تدعم الحقول المتداخلة: `contactInfo.email,address.city`
 - الحقول الافتراضية إذا لم تُحدَّد: `code,id`
 
-### العمليات الدفعية {#Batch-Operations-1}
+### العمليات الدفعية
 عالج سجلات متعددة في طلب واحد لأداء أفضل:
 
-#### الاسترجاع الدفعي {#Batch-Retrieval}
+#### الاسترجاع الدفعي
 ```http
 POST /erp/rest/v1/Customer/findByIdOrCode
 Content-Type: application/json
@@ -554,7 +554,7 @@ Content-Type: application/json
 ["CUST001", "CUST002", "550e8400-e29b-41d4-a716-446655440000"]
 ```
 
-#### الاستيراد/الحفظ الدفعي {#Batch-Import-Save}
+#### الاستيراد/الحفظ الدفعي
 ```http
 POST /erp/rest/v1/Customer/save
 Content-Type: application/json
@@ -572,7 +572,7 @@ continueOnErrors: true
 ]
 ```
 
-### المعايير والترتيب {#Query-Criteria---Sorting}
+### المعايير والترتيب
 استخدم صيغة المعايير النصية المنظَّمة في نما ERP للفلترة والترتيب:
 
 ```json
@@ -618,7 +618,7 @@ type,In,Type1|Type2|Type3,AND;
 استخدم شاشة **Criteria Definition** في نما ERP لبناء شروط الفلتر بصرياً، ثم انقر **Convert to Text** للحصول على التمثيل النصي للاستخدام في الواجهة البرمجية.
 :::
 
-### صيغة الترتيب {#Order-By-Format}
+### صيغة الترتيب
 حدد ترتيب الفرز لحقل واحد أو أكثر باستخدام قيم مفصولة بفواصل:
 
 **الصيغة:** `fieldName:direction,fieldName2:direction,fieldName3`
@@ -639,7 +639,7 @@ type,In,Type1|Type2|Type3,AND;
 - يمكن لكل حقل أن يملك اتجاه فرز خاص به
 - يُزال تلقائياً أي تكرار في الحقول
 
-### خيارات الاستيراد {#Import-Options}
+### خيارات الاستيراد
 ضبط دقيق لسلوك الاستيراد عبر ترويسات الطلب:
 
 | المعامل | الافتراضي | الوصف |
@@ -655,21 +655,21 @@ type,In,Type1|Type2|Type3,AND;
 
 ---
 
-## استكشاف الأخطاء وإصلاحها {#Troubleshooting}
+## استكشاف الأخطاء وإصلاحها
 
-### المشكلات الشائعة وحلولها {#Common-Issues-and-Solutions}
+### المشكلات الشائعة وحلولها
 
-#### API Key لا يعمل {#API-Key-Not-Working}
+#### API Key لا يعمل
 - تحقق من أن المفتاح نشط في شاشة API Credentials
 - تحقق من صلاحيات المستخدم على الكيان
 - تأكد من صحة صيغة ترويسة Authorization
 
-#### بيانات مثال فارغة {#Empty-Example-Data}
+#### بيانات مثال فارغة
 - تحقق من وجود سجلات للكيان
 - تحقق من صلاحيات رؤية البيانات للمستخدم
 - استخدم `Find@First` للحصول على أي سجل متاح
 
-#### حقول مفقودة في الاستجابة {#Missing-Fields-in-Response}
+#### حقول مفقودة في الاستجابة
 - حقول النظام مستثناة افتراضياً
 - الحقول الثنائية غير مدرجة في استجابات الواجهة البرمجية
 - الحقول المحسوبة غير متاحة عبر الواجهة البرمجية

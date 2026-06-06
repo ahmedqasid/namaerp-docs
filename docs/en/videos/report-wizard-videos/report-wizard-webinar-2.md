@@ -7,14 +7,14 @@ This educational video provides a detailed and precise walkthrough of how to wor
 
 ## Table of Contents
 
-1. [Introduction to Grouping](#section-1)
-2. [Setting Up Grouping by Customers and Branches](#section-2)
-3. [Applying Grouping and Displaying Totals](#section-3)
-4. [Controlling Sorting](#section-4)
-5. [Data Sources and How to Work with Them](#section-5)
-6. [Aggregating Sales, Returns, and Collections](#section-6)
-7. [Setting Up Account Statement Reports](#section-7)
-8. [Practical Examples and Important Notes](#section-8)
+1. [Introduction to Grouping](#1-Introduction-to-Grouping)
+2. [Setting Up Grouping by Customers and Branches](#2-Setting-Up-Grouping-by-Customers-and-Branches)
+3. [Applying Grouping and Displaying Totals](#3-Applying-Grouping-and-Displaying-Totals)
+4. [Controlling Sorting](#4-Controlling-Sorting)
+5. [Data Sources and How to Work with Them](#5-Data-Sources-and-How-to-Work-with-Them)
+6. [Aggregating Sales, Returns, and Collections](#6-Aggregating-Sales-Returns-and-Collections)
+7. [Setting Up Account Statement Reports](#7-Setting-Up-Account-Statement-Reports)
+8. [Practical Examples and Important Notes](#8-Practical-Examples-and-Important-Notes)
 
 ---
 

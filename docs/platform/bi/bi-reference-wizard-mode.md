@@ -4,7 +4,7 @@
 
 عندما يحتوي widget على `wizardDataSource`، يشير `chartConfigJSON` إلى **معرّفات حقول المعالج (wizard field IDs)** بدلاً من أسماء أعمدة SQL الخام. يُحلّل الخادم كل معرّف إلى اسم مستعار SQL من البيانات الوصفية المخزّنة مؤقتاً؛ لا تتأثر widgets وضع SQL بأي شيء هنا.
 
-## 1. التخزين المؤقت للبيانات الوصفية (Metadata caching) {#1-Metadata-caching}
+## 1. التخزين المؤقت للبيانات الوصفية (Metadata caching)
 
 عند حفظ `DashBoardWidgetWizard`، يُشغِّل `postCommitAction` دالة `ReportWizardQuery.build()` مرة واحدة ويخزّن البيانات الوصفية لكل حقل في JSON الخاصة بالنظام `fieldMetadata` في كل سطر:
 
@@ -20,7 +20,7 @@
 
 يُفكّك البحث عند التصيير السجلات المخزّنة مؤقتاً — دون إعادة بناء `ReportWizardQuery`.
 
-## 2. مفاتيح تعيين البيانات (Data-mapping keys) {#2-Data-mapping-keys}
+## 2. مفاتيح تعيين البيانات (Data-mapping keys)
 
 لكل فتحة عمود في §3 من المرجع الرئيسي، يضيف وضع المعالج نظيراً `*WizardFieldId`:
 
@@ -49,7 +49,7 @@
 }
 ```
 
-## 3. إصدار النقر والتنقل التفصيلي مع `wizardFieldId` {#3-Click-emit---drill-down-with-wizardFieldId}
+## 3. إصدار النقر والتنقل التفصيلي مع `wizardFieldId`
 
 ```json
 "clickEmitMapping": [
@@ -64,7 +64,7 @@
 
 الإدخالات التي لا تحتوي على `wizardFieldId` دائماً نشطة (سلوك وضع SQL القديم).
 
-## 4. المحددات النشطة (Active dimensions) {#4-Active-dimensions}
+## 4. المحددات النشطة (Active dimensions)
 
 قائمة "المحددات النشطة حالياً" بالترتيب:
 
@@ -77,7 +77,7 @@
 - **فلترة النقر/التفصيل** (§3 أعلاه).
 - **استبعاد قائمة التنقل التفصيلي** — المحددات النشطة بالفعل مخفية من قائمة "Drill Down By" عند النقر بالزر الأيمن.
 
-## 5. دلالات التنقل التفصيلي — الخيار أ (Drill-by semantics - Option A) {#5-Drill-by-semantics-Option-A}
+## 5. دلالات التنقل التفصيلي — الخيار أ (Drill-by semantics - Option A)
 
 عندما ينقر المستخدم بالزر الأيمن ← "Drill Down By X":
 
@@ -90,7 +90,7 @@
 
 بعد التنقل، يقرأ الخادم `chartConfigJSON` الموجود ويُعيد كتابة `dataMapping.categoryColumn` بـ `displayAlias` الخاص بالمحدد المُنقَّل إليه (ويحذف `categoryWizardFieldId`). كل شيء آخر — `echartOption`، `valueColumn`/`valueWizardFieldId`، تنسيق السلاسل، الألوان، التعيينات — يُنقل كما هو.
 
-## 6. جانب الفلتر المتقاطع الأيسر SQL (Cross-filter SQL LHS) {#6-Cross-filter-SQL-LHS}
+## 6. جانب الفلتر المتقاطع الأيسر SQL (Cross-filter SQL LHS)
 
 يقبل الجانب الأيسر للفلتر المتقاطع في widget المعالج (على الربط أو على `BICrossFilter`) **مسار حقل المعالج** بالإضافة إلى `alias.column` الخام. أي حقل يمكن الوصول إليه من الكيان الرئيسي للمعالج صالح — لا يلزم عرضه.
 
@@ -102,11 +102,11 @@
 
 يُعامل المصنّف نقطتين أو أكثر، أو قيمة يتم حلّها مقابل نموذج بيانات الجدول الرئيسي، كمسار معالج؛ وإلا فهو SQL خام.
 
-## 7. التعايش مع الـ widgets القديمة (Coexistence with legacy widgets) {#7-Coexistence-with-legacy-widgets}
+## 7. التعايش مع الـ widgets القديمة (Coexistence with legacy widgets)
 
 الـ widgets ذات المعالج الموجودة مسبقاً (بدون مفاتيح `*WizardFieldId`، فقط `*Column`) تُقرأ كما كانت — أسماء أعمدة، بدون فلترة لكل محدد. إعادة الحفظ عبر مصمم الرسوم البيانية يُرقّي الـ widget إذا اختار المستخدم معرّفات الحقول.
 
-## 8. مثال كامل (Complete example) {#8-Complete-example}
+## 8. مثال كامل (Complete example)
 
 ```json
 {
@@ -159,7 +159,7 @@
 }
 ```
 
-## 9. اختيار الفتحة في وقت التشغيل (Runtime slot selection) {#9-Runtime-slot-selection}
+## 9. اختيار الفتحة في وقت التشغيل (Runtime slot selection)
 
 تعرض widgets المعالج أداة اختيار في وقت التشغيل (شريط الأدوات / أيقونة صندوق أدوات echarts) حتى يتمكن المشاهدون من تبديل محدد الفئة، وتغيير القياسات، أو إضافة سلاسل — لجلسة العمل الحالية فقط.
 

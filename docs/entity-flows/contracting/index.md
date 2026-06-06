@@ -1,6 +1,6 @@
 <div class="ignore-in-full-text-search">
 
-# Contracting Module
+# وحدة المقاولات
   - [EAUpdateExtractsEffectsOnPaymentDocs](/entity-flows/contracting/EAUpdateExtractsEffectsOnPaymentDocs.md)
   - [EAUpdateRemarksInContractorExtractFromProjectContractTermDescription](/entity-flows/contracting/EAUpdateRemarksInContractorExtractFromProjectContractTermDescription.md)
   - [EAUpdateRemarksInExtractFromContractTermDescription](/entity-flows/contracting/EAUpdateRemarksInExtractFromContractTermDescription.md)

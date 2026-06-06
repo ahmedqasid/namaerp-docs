@@ -1,7 +1,7 @@
-# أعدادات الحقول و الشاشات (Generic Reference Overrider User Guide) {#Fields-and-Entities-Settings---Generic-Reference-Overrider-User-Guide}
-## إعدادات الحقول والشاشات (Fields and Entities Settings) {#Fields-and-Entities-Settings}
+# أعدادات الحقول و الشاشات (Generic Reference Overrider User Guide)
+## إعدادات الحقول والشاشات (Fields and Entities Settings)
 
-## معلومات الكيان (Entity Information) {#Entity-Information}
+## معلومات الكيان (Entity Information)
 - **نوع الكيان**: `GenericReferenceOverrider`
 - **الاسم العربي**: أعدادات الحقول و الشاشات
 - **الاسم الإنجليزي**: Fields and Entities Settings
@@ -10,15 +10,15 @@
 - **مسار القائمة**: الأساسيات > الإعدادات > أعدادات الحقول و الشاشات
 - **مسار القائمة (إنجليزي)**: Basic > Settings > Fields and Entities Settings
 
-## نظرة عامة (Overview) {#Overview}
+## نظرة عامة (Overview)
 يُعدّ Generic Reference Overrider كياناً قوياً لإعداد النظام في Nama ERP، يُتيح للمسؤولين تخصيص وتجاوز سلوكيات الحقول المختلفة والتحقق من صحتها وخصائص العرض عبر كيانات متعددة دون الحاجة إلى تعديل كود المصدر. يوفر هذا المرونة اللازمة لتكييف النظام وفق متطلبات العمل المحددة.
 
-### المفهوم الأساسي (Core Concept) {#Core-Concept}
+### المفهوم الأساسي (Core Concept)
 في الأنظمة المؤسسية، تتباين قواعد العمل ومتطلبات التحقق وتفضيلات العرض بين المؤسسات المختلفة. بدلاً من إنشاء نسخ متعددة من البرنامج أو تعديل كود المصدر، يوفر Generic Reference Overrider نهجاً قائماً على الإعداد لتخصيص سلوك النظام.
 
 يعمل النظام عبر اعتراض عمليات الحقول القياسية (التحقق، العرض، البحث، إلخ) وتطبيق قواعد مخصصة مُعرَّفة في إعدادات التجاوز. تُحمَّل هذه الإعدادات في الذاكرة عند بدء التشغيل وتُخزَّن مؤقتاً لتحسين الأداء، مع إلغاء تلقائي للتخزين المؤقت عند تغيير الإعدادات.
 
-### نظرة عامة على البنية (Architecture Overview) {#Architecture-Overview}
+### نظرة عامة على البنية (Architecture Overview)
 يعمل Generic Reference Overrider من خلال عدة مكونات رئيسية:
 
 1. **تعريف كيان DSL** (`GenericReferenceOverrider.java`): يُعرِّف كيان الإعداد الرئيسي بأنواع سطور التفاصيل المتعددة
@@ -35,16 +35,16 @@
 - تكامل بيانات النظام الوصفية
 :::
 
-## الغرض والفوائد (Purpose and Benefits) {#Purpose-and-Benefits}
+## الغرض والفوائد (Purpose and Benefits)
 
-### الفوائد الرئيسية: {#Key-Benefits}
+### الفوائد الرئيسية:
 - **تخصيص بدون كود (No-Code Customization)**: تعديل سلوك النظام دون معرفة برمجية
 - **قواعد خاصة بكل كيان (Entity-Specific Rules)**: تطبيق قواعد مختلفة على أنواع كيانات مختلفة
 - **إعداد مركزي (Centralized Configuration)**: جميع التخصيصات في مكان واحد
 - **تأثير فوري (Immediate Effect)**: تُطبَّق التغييرات فوراً دون إعادة تشغيل النظام
 - **التحكم في المحددات (Dimension Control)**: تجاوز قواعد التحقق من المحددات حسب احتياجات العمل
 
-## نظرة عامة على مخطط قاعدة البيانات (Database Schema Overview) {#Database-Schema-Overview}
+## نظرة عامة على مخطط قاعدة البيانات (Database Schema Overview)
 
 ::: details هيكل المجموعات الكاملة (38 مجموعة)
 يحتوي كيان GenericReferenceOverrider على 38 مجموعة تفاصيل، كل منها مخزنة في جداول قاعدة بيانات منفصلة:
@@ -95,15 +95,15 @@
 جميع مجموعات التفاصيل تستخدم `genericReferenceOverrider_id` كمفتاح خارجي للربط بسجل الإعداد الرئيسي.
 :::
 
-## أوصاف الميزات التفصيلية (Detailed Feature Descriptions) {#Detailed-Feature-Descriptions}
+## أوصاف الميزات التفصيلية (Detailed Feature Descriptions)
 
-### 1. تجاوزات حقول المرجع العام (`details`) {#1-Generic-Reference-Field-Overrides-details}
+### 1. تجاوزات حقول المرجع العام (`details`)
 **المجموعة**: القيم المسموح بها للمراجع (Allowed Values For Generic References)
 
-#### المفهوم والغرض {#Concept-and-Purpose}
+#### المفهوم والغرض
 تتيح حقول المرجع العام في النظام عادةً الاختيار من أنواع كيانات متعددة. على سبيل المثال، قد يقبل حقل "Reference" عملاء أو موردين أو موظفين أو أصنافاً. يتيح لك Generic Reference Override تقييد أو تعديل أنواع الكيانات المتاحة للاختيار في سياقات محددة.
 
-#### كيفية العمل {#How-It-Works}
+#### كيفية العمل
 يحتفظ النظام بخريطة مخزنة مؤقتاً (`genRefTypesMap`) تخزن قيود نوع الكيان لكل حقل. عند فتح المستخدم لبحث حقل مرجع، يتحقق النظام من هذه الخريطة لتحديد أنواع الكيانات المتاحة للاختيار.
 
 ::: details الهيكل التقني للحقول
@@ -124,7 +124,7 @@
 - **حقول النقاش**: تتضمن اختيارياً الحقول المتعلقة بالنقاش في الاقتراحات
 :::
 
-#### خيارات الإعداد {#Configuration-Options}
+#### خيارات الإعداد
 - **للنوع (For Type)**: تطبيق التجاوز على نوع كيان محدد (مثلاً SalesInvoice فقط)
 - **قائمة الكيانات (Entity List)**: تطبيق على أنواع كيانات متعددة باستخدام قائمة محددة مسبقاً
 - **معرّف الحقل (Field ID)**: الحقل المحدد الذي يتم تجاوزه (مثلاً "customer"، "item"، "reference")
@@ -134,7 +134,7 @@
 - **إضافة إلى الموجود (Add to Existing)**: ما إذا كان يضاف إلى الأنواع المسموح بها الموجودة أم يستبدلها كلياً
 
 
-### 2. المؤشرات البصرية والأيقونات (Visual Indicators and Icons) {#2-Visual-Indicators-and-Icons}
+### 2. المؤشرات البصرية والأيقونات (Visual Indicators and Icons)
 
 ::: tip أنواع الحقول المدعومة (Supported Field Types)
 تدعم إعدادات الأيقونات أنواع حقول مختلفة حسب نوع الأيقونة:
@@ -143,7 +143,7 @@
 - **Enum Icons**: خاصة بحقول التعداد مع اقتراحات ديناميكية للقيم
 :::
 
-#### أيقونات الحقول (`fieldIcons`) {#Field-Icons-fieldIcons}
+#### أيقونات الحقول (`fieldIcons`)
 **المجموعة**: Field Icons
 **المفهوم**: إضافة أيقونات سياقية إلى تسميات الحقول لتوفير تغذية راجعة بصرية فورية حول الحالة أو الأولوية أو النوع.
 
@@ -156,12 +156,12 @@
 - **كود اللون (Color Code)**: اللون المرتبط (hex أو اسم لون)
 
 
-#### أيقونات الكيانات (`entityIcons`) {#Entity-Icons-entityIcons}
+#### أيقونات الكيانات (`entityIcons`)
 **المجموعة**: Entity Icons
 **المفهوم**: تطبيق أيقونات على أنواع الكيانات بأكملها، تظهر عادةً في القوائم ونتائج البحث.
 
 
-#### أيقونات ثوابت التعداد (`enumIcons`) {#Enum-Constant-Icons-enumIcons}
+#### أيقونات ثوابت التعداد (`enumIcons`)
 **المجموعة**: Enum Icons
 **المفهوم**: إضافة أيقونات إلى قيم التعداد (القوائم المنسدلة) عبر النظام.
 
@@ -185,9 +185,9 @@
 - حالة الطلب: "Draft" = دائرة صفراء، "Approved" = علامة خضراء، "Cancelled" = X أحمر
 - مستوى الأولوية: "High" = علامة تعجب حمراء، "Medium" = شرطة برتقالية، "Low" = نقطة خضراء
 
-### 3. عرض الحقول والتنسيق (Field Display and Formatting) {#3-Field-Display-and-Formatting}
+### 3. عرض الحقول والتنسيق (Field Display and Formatting)
 
-#### أقنعة العرض (`displayMasks`) {#Display-Masks-displayMasks}
+#### أقنعة العرض (`displayMasks`)
 **المجموعة**: Display Masks
 
 **المفهوم**: تطبيق أنماط تنسيق على قيم الحقول لعرض متسق دون تغيير البيانات المخزنة.
@@ -219,7 +219,7 @@
 - `##,#.00` → "1234567.56 → 1,234,567.56" (تنسيق رقم كامل)
 :::
 
-#### تنسيقات الحقول (`fieldFormats`) {#Field-Formats-fieldFormats}
+#### تنسيقات الحقول (`fieldFormats`)
 **المجموعة**: Field Formats
 **المفهوم**: التحكم في قواعد التحقق من إدخال الحقل وتنسيقه. يمكن تطبيق ذلك بشكل مشروط بناءً على استعلامات ديناميكية أو تعريفات معايير.
 
@@ -237,7 +237,7 @@
 - السماح بالحروف فقط في حقول الاسم
 - تطبيق قواعد تحقق مختلفة بناءً على نوع المستند أو حالته
 
-#### أنماط الحقول (`fieldStyles`) {#Field-Styles-fieldStyles}
+#### أنماط الحقول (`fieldStyles`)
 **المجموعة**: Field Styles
 **المفهوم**: التحكم في خصائص عرض الحقل وسلوكه. هذا ليس تنسيقاً مشروطاً، بل إعداد مباشر لخصائص الحقل.
 
@@ -254,9 +254,9 @@
 - إبراز الحقول المهمة بألوان خلفية
 - ضمان اتجاه النص الصحيح للتطبيقات متعددة اللغات
 
-### 4. التحقق من البيانات والقيود (Data Validation and Restrictions) {#4-Data-Validation-and-Restrictions}
+### 4. التحقق من البيانات والقيود (Data Validation and Restrictions)
 
-#### القيم المسموح بها للحقول (`fieldAllowedValues`) {#Field-Allowed-Values-fieldAllowedValues}
+#### القيم المسموح بها للحقول (`fieldAllowedValues`)
 **المجموعة**: القيم المسموح بها للحقول (Field Allowed Values)
 
 **المفهوم**: إنشاء قوائم منسدلة مخصصة وتقييد قيم الحقول بخيارات محددة مسبقاً.
@@ -291,7 +291,7 @@
 - توحيد المصطلحات عبر الأقسام
 - الامتثال للمتطلبات التنظيمية
 
-#### الحد الأقصى لطول الحقل (`maxFieldsLengthInDB`) {#Maximum-Field-Length-maxFieldsLengthInDB}
+#### الحد الأقصى لطول الحقل (`maxFieldsLengthInDB`)
 **المجموعة**: Max Fields Length In DB
 **المفهوم**: تجاوز أطوال حقول قاعدة البيانات الافتراضية بحدود خاصة بالعمل للأنظمة العادية.
 
@@ -312,7 +312,7 @@
 - فرض اتساق البيانات عبر الأنظمة
 - منع الإدخالات الطويلة بشكل مفرط
 
-#### الحد الأقصى لطول حقل نقاط البيع (`maxPOSFieldsLengthInDB`) {#Maximum-POS-Field-Length-maxPOSFieldsLengthInDB}
+#### الحد الأقصى لطول حقل نقاط البيع (`maxPOSFieldsLengthInDB`)
 **المجموعة**: Max POS Fields Length In DB
 
 **المفهوم**: تعيين حدود طول حقل محددة لأنظمة نقاط البيع (POS)، تكون عادةً أقصر من الأنظمة العادية.
@@ -356,7 +356,7 @@
 - الحفاظ على قابلية القراءة على الشاشات الصغيرة
 - الامتثال لمتطلبات الطابعات المالية
 
-#### الحد الأقصى لعدد السطور (`maxLinesCounts`) {#Maximum-Line-Count-maxLinesCounts}
+#### الحد الأقصى لعدد السطور (`maxLinesCounts`)
 **المجموعة**: أقصى عدد لسطور السندات والملفات (Max Lines Counts For Documents And Files)
 **المفهوم**: تحديد عدد سطور التفاصيل المسموح بها في المستندات.
 
@@ -372,16 +372,16 @@
 - التحكم في تعقيد المستند
 - إدارة قيود الطباعة والعرض
 
-### 5. إدارة اتساق المحددات (Dimension Consistency Management) {#5-Dimension-Consistency-Management}
+### 5. إدارة اتساق المحددات (Dimension Consistency Management)
 
-#### فهم المحددات (Understanding Dimensions) {#Understanding-Dimensions}
+#### فهم المحددات (Understanding Dimensions)
 في أنظمة ERP، تمثل المحددات الهياكل التنظيمية:
 - **الفرع (Branch)**: المواقع المادية أو وحدات الأعمال
 - **القسم (Department)**: الأقسام الوظيفية
 - **الشركة (Legal Entity)**: شركات قانونية منفصلة
 - **مجموعة التحليل (Analysis Set)**: تجميعات تحليلية مخصصة
 
-#### قواعد اتساق المحددات (`dimensionsConsistency`) {#Dimension-Consistency-Rules-dimensionsConsistency}
+#### قواعد اتساق المحددات (`dimensionsConsistency`)
 **المجموعة**: تجاهل تناسق المحددات لحقول (Ignore Dimensions Consistency for Fields)
 **السلوك الافتراضي**: يفرض النظام اتساق المحددات، مما يضمن أن جميع البيانات المرتبطة تنتمي إلى نفس الوحدة التنظيمية.
 
@@ -398,9 +398,9 @@
 - القروض والتحويلات بين الشركات
 - متطلبات إعداد التقارير الموحدة
 
-### 6. ضوابط حالة الحقل وسلوكه (Field State and Behavior Controls) {#6-Field-State-and-Behavior-Controls}
+### 6. ضوابط حالة الحقل وسلوكه (Field State and Behavior Controls)
 
-#### الحقول المعطلة (`disabledFields`) {#Disabled-Fields-disabledFields}
+#### الحقول المعطلة (`disabledFields`)
 **المجموعة**: Disabled Fields
 **المفهوم**: جعل حقول محددة للقراءة فقط أو معطلة في واجهة المستخدم.
 
@@ -414,7 +414,7 @@
 - قفل القيم المولدة من النظام
 - حماية البيانات الحرجة من التعديل غير المقصود
 
-#### السماح باستعمال السجلات الممنوعة (`allowUsageOfPreventedRecords`) {#Allow-Usage-of-Prevented-Records-allowUsageOfPreventedRecords}
+#### السماح باستعمال السجلات الممنوعة (`allowUsageOfPreventedRecords`)
 **المجموعة**: السماح باستعمال السجلات الممنوعة من الاستعمال (Allow Usage Of Prevented Records)
 **المفهوم**: تجاوز منع النظام لاستخدام سجلات معينة تكون محجوبة عادةً (السجلات التي تحتوي على الحقل preventUsage = true).
 
@@ -426,15 +426,15 @@
 - تمكين العقود المنتهية لأغراض المرجع
 - السماح بالمستندات المسودة في مسارات عمل معينة
 
-#### الحقول التي ليست حقول ألوان (`notColorFields`) {#Not-Color-Fields-notColorFields}
+#### الحقول التي ليست حقول ألوان (`notColorFields`)
 **المجموعة**: ليست حقول ألوان (Not Color Fields)
 **المفهوم**: منع معاملة حقول محددة كحقول ألوان، حتى لو كانت تحتوي على قيم تشبه الألوان.
 
 **الغرض**: قد تحتوي بعض حقول النص على قيم تبدو ككودات ألوان (مثلاً "#123456") لكن لا ينبغي عرضها كألوان.
 
-### 7. سلوكيات الحقول المتقدمة (Advanced Field Behaviors) {#7-Advanced-Field-Behaviors}
+### 7. سلوكيات الحقول المتقدمة (Advanced Field Behaviors)
 
-#### حقول النص المنسق (`richTextFields`) {#Rich-Text-Fields-richTextFields}
+#### حقول النص المنسق (`richTextFields`)
 **المجموعة**: Rich Text Fields
 
 **المفهوم**: تمكين تحرير النص المنسق (عريض، مائل، نقاط، إلخ) لحقول نصية محددة.
@@ -457,7 +457,7 @@
 - قوالب البريد الإلكتروني بالتنسيق
 - روايات التقارير بالهيكل
 
-#### حقول التوقيع (`signatures`) {#Signature-Fields-signatures}
+#### حقول التوقيع (`signatures`)
 **المجموعة**: Signatures
 
 **المفهوم**: تحويل حقول المرفقات لعرض أيقونات التوقيع بدلاً من أيقونات الرفع القياسية، مما يتيح التقاط التوقيعات الرقمية.
@@ -488,7 +488,7 @@
 - إقرارات المستندات القانونية
 - نماذج موافقة العملاء
 
-#### تكامل الماسح الضوئي (`useScannerInFields`) {#Scanner-Integration-useScannerInFields}
+#### تكامل الماسح الضوئي (`useScannerInFields`)
 **المجموعة**: Use Scanner In Fields
 **المفهوم**: إعداد حقول المرفقات لدعم المسح المباشر للمستندات من أجهزة الماسح الضوئي المتصلة أو الطابعات متعددة الوظائف ذات قدرة المسح.
 
@@ -516,9 +516,9 @@
 - أرشفة الإيصالات المادية والوثائق
 - تبسيط عمليات سير مستندات العمل
 
-### 8. إدارة حقول الكود (Code Fields Management) {#8-Code-Fields-Management}
+### 8. إدارة حقول الكود (Code Fields Management)
 
-#### حقول كود إضافية (`extraCodes`) {#Extra-Code-Fields-extraCodes}
+#### حقول كود إضافية (`extraCodes`)
 **المجموعة**: Extra Codes
 **المفهوم**: تعيين حقول إضافية لتعمل كحقول كود جنباً إلى جنب مع حقل الكود الأساسي.
 
@@ -543,7 +543,7 @@
 - تمكين معايير الترميز الخاصة بالصناعة
 - تسهيل التكامل مع الأنظمة الخارجية
 
-#### حقول التدقيق التفصيلي (`auditFields`) {#Detailed-Audit-Fields-auditFields}
+#### حقول التدقيق التفصيلي (`auditFields`)
 **المجموعة**: Audit Fields
 **المفهوم**: تمكين تتبع التدقيق التفصيلي لحقول محددة، مع تسجيل كل تغيير بطابع زمني ومعلومات المستخدم.
 
@@ -567,9 +567,9 @@
 - تسجيل تعديلات البيانات الحساسة
 - الحفاظ على مسارات تدقيق الامتثال
 
-### 9. تحسين البحث والمرجع (Search and Reference Enhancement) {#9-Search-and-Reference-Enhancement}
+### 9. تحسين البحث والمرجع (Search and Reference Enhancement)
 
-#### واصفات المرجع (`descriptors`) {#Reference-Descriptors-descriptors}
+#### واصفات المرجع (`descriptors`)
 **المجموعة**: Descriptors
 **المفهوم**: تخصيص كيفية ظهور سجلات الكيانات في نتائج البحث والقوائم المنسدلة.
 
@@ -585,7 +585,7 @@
 
 **مثال**: `{code} - {name} ({branch})` يظهر كـ "CUST001 - ABC Company (Branch A)"
 
-#### حقول البحث الإضافية في المرجع (`extraReferenceSearchFields`) {#Extra-Reference-Search-Fields-extraReferenceSearchFields}
+#### حقول البحث الإضافية في المرجع (`extraReferenceSearchFields`)
 **المجموعة**: حقول البحث الإضافية عند البحث عن مرجع (Extra Reference Search Fields)
 **المفهوم**: تضمين حقول إضافية في عمليات بحث حقل المرجع تتخطى الكود والاسم القياسيين.
 
@@ -599,15 +599,15 @@
 - **معرّف الحقل (Field ID)**: حقل إضافي للبحث فيه
 - **معامل البحث (Search Operator)**: طريقة المطابقة (يحتوي، يساوي، يبدأ بـ)
 
-#### البحث في الاسم عند إيجاد الكود (`searchInNameInFindByCode`) {#Search-in-Name-for-Find-by-Code-searchInNameInFindByCode}
+#### البحث في الاسم عند إيجاد الكود (`searchInNameInFindByCode`)
 **المجموعة**: البحث في الأسم العربى والانجليزى عند كتابة كود ملف (Search In Name In Find By Code)
 **المفهوم**: عندما يبحث المستخدمون بالكود، يبحث النظام أيضاً في حقل الاسم عن تطابقات.
 
 **حالة الاستخدام**: يكتب المستخدم "ABC" متوقعاً إيجاد "ABC Company" رغم أن الكود هو "CUST001"
 
-### 10. ضوابط الاستعلام والعرض المتقدمة (Advanced Query and Display Controls) {#10-Advanced-Query-and-Display-Controls}
+### 10. ضوابط الاستعلام والعرض المتقدمة (Advanced Query and Display Controls)
 
-#### حقول الشاشة القائمة على الاستعلام (`queryBasedScreenField`) {#Query-Based-Screen-Fields-queryBasedScreenField}
+#### حقول الشاشة القائمة على الاستعلام (`queryBasedScreenField`)
 **المجموعة**: استعلامات الحقول المحسوبة (Calculated Fields Queries)
 
 **المفهوم**: إنشاء حقول ديناميكية محسوبة تنفذ استعلامات لعرض قيم مجمعة أو محسوبة.
@@ -641,7 +641,7 @@
 - عرض نسبة التقدم في الموافقة على المستند
 - عرض عدد المعاملات المرتبطة
 
-#### الفلاتر الإضافية للحقل (`extraFilter`) {#Field-Extra-Filters-extraFilter}
+#### الفلاتر الإضافية للحقل (`extraFilter`)
 **المجموعة**: Extra Filter
 **المفهوم**: تطبيق معايير تصفية إضافية على عمليات بحث حقل المرجع بناءً على شروط ديناميكية.
 
@@ -661,7 +661,7 @@
 - عرض المستندات ضمن نطاق تاريخي
 - تصفية الموردين حسب شروط الدفع
 
-#### متجاوز نمط الصف (`styleOverriderLines`) {#Row-Style-Overrider-styleOverriderLines}
+#### متجاوز نمط الصف (`styleOverriderLines`)
 **المجموعة**: Style Overrider Details
 **المفهوم**: تطبيق ألوان خلفية ديناميكية على صفوف كاملة في الشبكات والقوائم بناءً على نتائج الاستعلام.
 
@@ -680,9 +680,9 @@
 - تمييز عملاء VIP باللون الذهبي
 - الإشارة إلى المهام العاجلة باللون البرتقالي
 
-### 11. إدارة المستندات والسجلات (Document and Record Management) {#11-Document-and-Record-Management}
+### 11. إدارة المستندات والسجلات (Document and Record Management)
 
-#### معالجة حقول النسخ المماثل (`lines`) {#Duplicate-Field-Handling-lines}
+#### معالجة حقول النسخ المماثل (`lines`)
 **المجموعة**: Clear On Duplicate
 **المفهوم**: تحديد الحقول التي يجب مسحها عند إنشاء نسخة مماثلة من مستند.
 
@@ -694,7 +694,7 @@
 - إعادة تعيين حالات الموافقة
 - مسح الأرقام المرجعية
 
-#### الفتح في نافذة منبثقة (`openInPopups`) {#Open-in-Popup-openInPopups}
+#### الفتح في نافذة منبثقة (`openInPopups`)
 **المجموعة**: Open Reference In Popup
 **المفهوم**: إجبار أنواع كيانات محددة على الفتح في نوافذ منبثقة بدلاً من التنقل بالشاشة الكاملة.
 
@@ -704,13 +704,13 @@
 - تحسين كفاءة سير عمل المستخدم
 - تقليل تعقيد التنقل بين الشاشات
 
-#### حقول الإنشاء المفتوح (`openCreateFields`) {#Open-Create-Fields-openCreateFields}
+#### حقول الإنشاء المفتوح (`openCreateFields`)
 **المجموعة**: الحقول التي يتم فتح الإنشاء عند ادخال كود غير موجود (Fields that open Edit Screen when code not found)
 **المفهوم**: تمكين المستخدمين من إنشاء سجلات جديدة مباشرةً من عمليات بحث حقل المرجع.
 
 **مسار العمل**: يبدأ المستخدم الكتابة في حقل مرجع، فإذا لم يُعثَر على تطابق، يعرض النظام إنشاء سجل جديد بالقيمة المكتوبة كنقطة بداية.
 
-#### حقول النص المحوَّلة إلى روابط (`textToLinkFields`) {#Text-to-Link-Fields-textToLinkFields}
+#### حقول النص المحوَّلة إلى روابط (`textToLinkFields`)
 **المجموعة**: الحقول النصية المحوله الي روابط (Text To Link Fields)
 **المفهوم**: تحويل حقول النص إلى روابط تشعبية قابلة للنقر بأنواع روابط مختلفة.
 
@@ -734,9 +734,9 @@
 - الربط بالمستندات ذات الصلة
 - الاتصال بأنظمة التتبع الخارجية
 
-### 12. تخطيط الشاشة ومكونات واجهة المستخدم (Layout and UI Components) {#12-Layout-and-UI-Components}
+### 12. تخطيط الشاشة ومكونات واجهة المستخدم (Layout and UI Components)
 
-#### إضافة نقاش (`addDiscussionTo`) {#Add-Discussion-To-addDiscussionTo}
+#### إضافة نقاش (`addDiscussionTo`)
 **المجموعة**: إضافة النقاش إلي (Add Discussion To)
 
 **المفهوم**: إضافة أقسام نقاش/تعليقات إلى شاشات الكيانات حيث لا تكون موجودة بشكل افتراضي.
@@ -770,7 +770,7 @@
 - إضافة سلاسل تواصل إلى المستندات
 - تمكين التعاون الجماعي على المشاريع
 
-#### إضافة مستندات ذات صلة (`addRelatedDocumentsTo`) {#Add-Related-Documents-To-addRelatedDocumentsTo}
+#### إضافة مستندات ذات صلة (`addRelatedDocumentsTo`)
 **المجموعة**: إضافة المستندات المرتبطة إلى (Add Related Documents To)
 **المفهوم**: إضافة قسم مستندات ذات صلة إلى شاشات الكيانات لإدارة المستندات.
 
@@ -780,9 +780,9 @@
 - **إضافة إلى صفحة (Add To Page)**: أي صفحة/تبويب لإضافة اللوحة
 - **إضافة في (Insert At)**: الموضع في التخطيط
 
-### 13. دعم التكامل والأنظمة الخارجية (Integration and External System Support) {#13-Integration-and-External-System-Support}
+### 13. دعم التكامل والأنظمة الخارجية (Integration and External System Support)
 
-#### الكيانات العامة (`publicEntitiesLines`) {#Public-Entities-publicEntitiesLines}
+#### الكيانات العامة (`publicEntitiesLines`)
 **المجموعة**: Public Entities
 **المفهوم**: إجبار سجلات محددة على تعيين جميع محدداتها كعامة، متجاوزةً القيود البعدية العادية.
 
@@ -801,7 +801,7 @@
 
 **اعتبارات الأمان**: استخدم بحذر إذ يتجاوز هذا حدود الأمان المهمة التي أنشأها الهيكل البعدي
 
-#### إعداد المكامل (`integratorConfig`) {#Integrator-Config-integratorConfig}
+#### إعداد المكامل (`integratorConfig`)
 **المجموعة**: Integrator Config
 **المفهوم**: إعداد نقاط نهاية REST API لإنشاء وتحديث الكيانات من خلال عمليات التكامل الخارجية.
 
@@ -825,7 +825,7 @@
 - تكامل نظام الشريك
 - استيراد البيانات الآلي
 
-#### مكامل الاستيراد (`importIntegratorLines`) {#Import-Integrator-importIntegratorLines}
+#### مكامل الاستيراد (`importIntegratorLines`)
 **المجموعة**: Import Integrators
 **المفهوم**: إعداد كيفية استيراد البيانات الخارجية وتعيينها لكيانات داخلية.
 
@@ -853,7 +853,7 @@
 - متطلبات التحقق
 - إجراءات معالجة الأخطاء
 
-#### أنواع مرسلي البريد الإلكتروني (`emailSendToTypes`) {#Email-Send-To-Types-emailSendToTypes}
+#### أنواع مرسلي البريد الإلكتروني (`emailSendToTypes`)
 **المجموعة**: أنواع المراجع في نافذة ارسال بريد الكترونى (Email Send To Types)
 **المفهوم**: إعداد أنواع الكيانات التي يمكن اختيارها كمستلمي بريد إلكتروني لحقول بريد إلكتروني محددة.
 
@@ -877,7 +877,7 @@
 - إنشاء حقول بريد متعددة الأطراف
 - التحكم في قوائم توزيع البريد
 
-#### سطور استرداد الفواتير (`invoiceRetrieverLines`) {#Invoice-Retriever-Lines-invoiceRetrieverLines}
+#### سطور استرداد الفواتير (`invoiceRetrieverLines`)
 **المجموعة**: Invoice Retriever Lines
 **المفهوم**: إعداد إنشاء المستندات واستردادها تلقائياً للكيانات.
 
@@ -897,9 +897,9 @@
 - إنتاج مستندات الشحن
 - إنشاء تقارير الامتثال
 
-### 14. الترميز والترقيم التلقائي (Auto-Coding and Numbering) {#14-Auto-Coding-and-Numbering}
+### 14. الترميز والترقيم التلقائي (Auto-Coding and Numbering)
 
-#### الترميز التلقائي (`autoCodingLines`) {#Automatic-Coding-autoCodingLines}
+#### الترميز التلقائي (`autoCodingLines`)
 **المجموعة**: التكويد الالي للملفات (Files Auto Coding)
 **المفهوم**: إنشاء أكواد تلقائية للسجلات الجديدة بناءً على أنماط قابلة للإعداد.
 
@@ -922,9 +922,9 @@
 - الفاتورة: `INV-{valueDate.year}-` → "INV-2024-000001"
 - أمر الشراء: `PO-{branch.code}-{fiscalPeriod.shortCode}-` → "PO-HQ-2503-0001"
 
-### 15. ميزات تكامل النظام والمستودع (System Integration and Repository Features) {#15-System-Integration-and-Repository-Features}
+### 15. ميزات تكامل النظام والمستودع (System Integration and Repository Features)
 
-#### تكامل مستودع التطبيق (Implementation Repository Integration) {#Implementation-Repository-Integration}
+#### تكامل مستودع التطبيق (Implementation Repository Integration)
 **المفهوم**: دمج الإعدادات مع نظام مستودع التطبيق للإدارة المركزية.
 
 ::: info حقول المستودع

@@ -1,6 +1,6 @@
-# أدوات وحدة الأصول الثابتة (Fixed Assets Module Utilities) {#Fixed-Assets-Module-Utilities}
+# أدوات وحدة الأصول الثابتة (Fixed Assets Module Utilities)
 
-## إصلاح تاريخ آخر إهلاك للأصول الثابتة التي حُذف إهلاكها {#Fix-Last-Depreciation-date-of-fixed-assets-whose-depreciation-was-deleted}
+## إصلاح تاريخ آخر إهلاك للأصول الثابتة التي حُذف إهلاكها
 ::: details
 ```sql
 update f set lastdepreciationdate = null from FixedAsset f left join FADepreciationLine l on l.fixedAsset_id = f.id
@@ -14,7 +14,7 @@ where od.commitedBefore = 1 and fa.lastDepreciationDate is null
 ```
 :::
 
-## إصلاح مشكلة FAAdditionDeduction - قيم الإضافة/الخصم دائماً صفر {#Fix-FAAdditionDeduction-problem---entries-always-have-zero-additiondeduction}
+## إصلاح مشكلة FAAdditionDeduction - قيم الإضافة/الخصم دائماً صفر
 ::: details
 ```sql
 update d set moneyLocalAmount = moneyRate*moneyValueAmount, addedOrDeductedValue = moneyRate*moneyValueAmount from FAAdditionDeduction d

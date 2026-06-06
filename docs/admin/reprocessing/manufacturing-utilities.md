@@ -1,6 +1,6 @@
 # أدوات التصنيع (Manufacturing Utilities)
 
-## مشكلة تكلفة تسليم الإنتاج (Production Delivery Cost Problem - Cost Callback) {#Production-Delivery-Cost-Problem-Cost-Callback}
+## مشكلة تكلفة تسليم الإنتاج (Production Delivery Cost Problem - Cost Callback)
 ::: details
 ```sql
 with delivery as (
@@ -31,7 +31,7 @@ where abs(receiptCost-(materialCost+resourceCost-coalesce(retCost,0)))>1.5 and c
 ```
 :::
 
-## إدخالات ProductionMovementSysEntry الوهمية (Zombie ProductionMovementSysEntry) {#Zombie-ProductionMovementSysEntry}
+## إدخالات ProductionMovementSysEntry الوهمية (Zombie ProductionMovementSysEntry)
 ::: details
 ```sql
 delete e from ProductionMovementSysEntry e left join EntitySystemEntry ese on ese.targetId = e.ownerid

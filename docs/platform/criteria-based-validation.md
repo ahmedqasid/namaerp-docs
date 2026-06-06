@@ -7,7 +7,7 @@
  The error happened at Line Number {$map.errorLines}
 ```
 
-## التحقق من البيانات القديمة (Check old data): {#Check-old-data}
+## التحقق من البيانات القديمة (Check old data):
 ### مثال: 
 ```sql
 select case when {remarks}<>{oldData.remarks} then 1 else 0 end

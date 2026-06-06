@@ -1,8 +1,8 @@
-# دليل نظام الحجوزات الشامل (Comprehensive Reservation System Guide) {#Comprehensive-Reservation-System-Guide}
+# دليل نظام الحجوزات الشامل (Comprehensive Reservation System Guide)
 
 يوفر هذا الدليل توثيقاً شاملاً لنظام الحجوزات في Nama ERP، وهو موجّه لفريق الدعم الفني ومسؤولي النظام.
 
-## نظرة عامة (Overview) {#Overview}
+## نظرة عامة (Overview)
 
 نظام الحجوزات في Nama ERP هو ميزة متقدمة لإدارة المخزون تتيح للمؤسسات حجز أصناف المخزون عبر أنواع مختلفة من مستندات سلسلة التوريد. يدير النظام تأثيرات الحجز بشكل مختلف بناءً على نوع المستند، ويتكامل مع آليات تتبع الكميات لتوفير تحكم فوري في تخصيص المخزون.
 
@@ -11,9 +11,9 @@
 **مسار القائمة:** المخازن > سندات الحجوزات > سند حجز  
 **Arabic Menu Path:** المخازن > سندات الحجوزات > سند حجز
 
-## المفاهيم الأساسية (Fundamental Concepts) {#Fundamental-Concepts}
+## المفاهيم الأساسية (Fundamental Concepts)
 
-### اتجاه الحجز حسب نوع المستند (Reservation Direction by Document Type) {#Reservation-Direction-by-Document-Type}
+### اتجاه الحجز حسب نوع المستند (Reservation Direction by Document Type)
 
 يؤثر نظام الحجوزات على كميات المخزون بشكل مختلف بحسب نوع المستند:
 
@@ -38,7 +38,7 @@
 
 **مثال:** إنشاء صرف مخزني من أمر بيع يجب أن يلغي حجز Pre-Out الخاص بأمر البيع، لأن الأصناف قد صُرفت فعلياً (تحوّلت من الكميات المحجوزة إلى الكميات الفعلية الخارجة).
 
-### أنواع الكميات في نظام الحجوزات (Quantity Types in Reservation System) {#Quantity-Types-in-Reservation-System}
+### أنواع الكميات في نظام الحجوزات (Quantity Types in Reservation System)
 
 يدير النظام أربعة أنواع من الكميات لكل بُعد من أبعاد الصنف:
 
@@ -56,15 +56,15 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 
 *ملاحظة: إدراج Pre-In وPre-Out في الرصيد يعتمد على إعداد الصنف.*
 
-## هيكل سند الحجز (Reservation Document Structure) {#Reservation-Document-Structure}
+## هيكل سند الحجز (Reservation Document Structure)
 
-### الكيان الرئيسي: ReservationDocument (سند حجز) {#Main-Entity-ReservationDocument}
+### الكيان الرئيسي: ReservationDocument (سند حجز)
 
 **نوع الكيان:** ReservationDocument  
 **جدول قاعدة البيانات:** ReservationDocument  
 **التصنيف:** ملف مستند (وليس ملف رئيسي)
 
-### الحقول الرئيسية في الرأسية (Key Header Fields) {#Key-Header-Fields}
+### الحقول الرئيسية في الرأسية (Key Header Fields)
 
 - **حالة الحجز (Reservation Status):** يتحكم في الحالة الراهنة للمستند بأكمله
 - **تاريخ الاستحقاق (Due Date):** موعد انتهاء الحجز أو الوفاء به
@@ -75,7 +75,7 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 - **العميل (Customer):** العميل المرتبط بالحجز
 - **بناءاً على (From Document):** المستند المصدر الذي أنشأ هذا الحجز
 
-### سطور التفاصيل (Detail Lines) {#Detail-Lines}
+### سطور التفاصيل (Detail Lines)
 
 يحتوي كل سند حجز على سطور تفاصيل تحدد:
 
@@ -85,7 +85,7 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 - **تفاصيل الحجز:** حالة الحجز على مستوى السطر، التاريخ، والمخزن/الموقع المحدد
 - **معلومات التتبع:** الكميات المنفذة وغير المنفذة للمستندات المرتبطة
 
-## قيم حالة الحجز (Reservation Status Values) {#Reservation-Status-Values}
+## قيم حالة الحجز (Reservation Status Values)
 
 | الإنجليزي | العربي | الوصف |
 |-----------|--------|-------|
@@ -95,7 +95,7 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 | Confirmed | مؤكد | الحجز مؤكد ومقفل |
 | PartialyReserved | PartialyReserved | جزء فقط من الكميات محجوز |
 
-### الحجز الانتقائي للسطور (Selective Line Reservation) {#Selective-Line-Reservation}
+### الحجز الانتقائي للسطور (Selective Line Reservation)
 
 بشكل افتراضي، لا تؤثر حالة الحجز على ما إذا كان السطر محجوزاً. غير أنه عند دمجها مع إعداد **reservationCriteria** في توجيه المستند، يمكن استخدام حالة الحجز لتطبيق الحجوزات بصورة انتقائية على سطور محددة.
 
@@ -106,19 +106,19 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 
 يتيح ذلك تحكماً دقيقاً في السطور المشاركة في نظام الحجوزات.
 
-## تتبع كميات المستند والكميات المنفذة (Document Quantity Tracking and Satisfied Quantities) {#Document-Quantity-Tracking-and-Satisfied-Quantities}
+## تتبع كميات المستند والكميات المنفذة (Document Quantity Tracking and Satisfied Quantities)
 
-### آلية الكمية المنفذة (The Satisfied Quantity Mechanism) {#The-Satisfied-Quantity-Mechanism}
+### آلية الكمية المنفذة (The Satisfied Quantity Mechanism)
 
 يتضمن نظام الحجوزات آلية متقدمة لتتبع الكميات ترصد مقدار الكميات التي تم الوفاء بها عبر المستندات اللاحقة.
 
-#### المفاهيم الأساسية (Key Concepts) {#Key-Concepts}
+#### المفاهيم الأساسية (Key Concepts)
 
 **الكمية المنفذة (Satisfied Quantity):** مقدار سطر المستند الذي وفّت به مستندات أخرى  
 **الكمية غير المنفذة (Unsatisfied Quantity):** المقدار المتبقي الذي لا يزال يحتاج إلى وفاء  
 **الكمية المنفذة يدوياً (User Satisfied Quantity):** الكميات المنفذة المعدَّلة يدوياً
 
-#### مثال عملي: من عرض السعر إلى أوامر البيع (Practical Example: Sales Quotation to Orders) {#Practical-Example-Sales-Quotation-to-Orders}
+#### مثال عملي: من عرض السعر إلى أوامر البيع (Practical Example: Sales Quotation to Orders)
 
 1. **إنشاء عرض السعر:** 100 قطعة من الصنف A مع تفعيل الحجز
    - **التأثير:** ينشئ حجز Pre-Out لـ 100 قطعة
@@ -136,7 +136,7 @@ Available = (In + Pre-In) - (Out + Pre-Out)
    - **يحدّث النظام الحجز:** يقلل حجز عرض السعر إلى 30 قطعة
    - **ينشئ الأمر:** حجز Pre-Out جديد لـ 20 قطعة
 
-#### إعداد تتبع الكميات (Configuration for Quantity Tracking) {#Configuration-for-Quantity-Tracking}
+#### إعداد تتبع الكميات (Configuration for Quantity Tracking)
 
 **إعداد توجيه المستند:**
 - **forceTrackQtyOfRelatedDocs:** تفعيل تتبع الكميات الإجباري
@@ -148,16 +148,16 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 - **reservationSatisfiedFields:** حقول الكمية التي تتبع الوفاء بالحجوزات
 - **updateReservationOfRelatedDocs:** تفعيل تحديثات الحجز عند تتبع الكميات
 
-## إعداد الحجز على مستوى الصنف (Item-Level Reservation Configuration) {#Item-Level-Reservation-Configuration}
+## إعداد الحجز على مستوى الصنف (Item-Level Reservation Configuration)
 
 يمكن تهيئة الأصناف بسلوكيات حجز محددة عبر `ItemConfigurations`:
 
-### إعدادات الحجز الأساسية (Core Reservation Settings) {#Core-Reservation-Settings}
+### إعدادات الحجز الأساسية (Core Reservation Settings)
 
 - **includeReservedInBalance:** هل تؤثر الكميات المحجوزة على حسابات الرصيد المتاح
 - **allowOverdraftInReservation:** السماح بالحجوزات حتى عند نقص الكميات
 
-### تسلسل سياسة السحب على المكشوف (Overdraft Policy Hierarchy) {#Overdraft-Policy-Hierarchy}
+### تسلسل سياسة السحب على المكشوف (Overdraft Policy Hierarchy)
 
 يستخدم النظام نهجاً هرمياً لتحديد صلاحيات السحب على المكشوف:
 
@@ -170,9 +170,9 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 - **No:** منع السحب على المكشوف
 - **Inherited:** استخدام سياسة المستوى الأعلى
 
-## خيارات الإعداد الشاملة (Comprehensive Configuration Options) {#Comprehensive-Configuration-Options}
+## خيارات الإعداد الشاملة (Comprehensive Configuration Options)
 
-### إعداد توجيه المستند (InvDocTermConfig) {#Document-Term-Configuration-InvDocTermConfig}
+### إعداد توجيه المستند (InvDocTermConfig)
 
 #### التحكم الأساسي في الحجز (Basic Reservation Control)
 - **reserve:** تفعيل/تعطيل وظيفة الحجز
@@ -211,16 +211,16 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 - **reserveFromDeliveryEntryQty:** الحجز بناءً على كميات التوصيل
 - **rootDeliveryDocument:** ربط بمستند التوصيل الرئيسي
 
-## مسار عملية الحجز (Reservation Process Flow) {#Reservation-Process-Flow}
+## مسار عملية الحجز (Reservation Process Flow)
 
-### 1. إنشاء المستند والإعداد (Document Creation and Setup) {#1-Document-Creation-and-Setup}
+### 1. إنشاء المستند والإعداد (Document Creation and Setup)
 
 1. **تحديد نوع المستند:** يحدد النظام إذا كان المستند مبيعات/صرف (Pre-Out) أو مشتريات/استلام (Pre-In)
 2. **تحميل إعداد التوجيه:** استرداد إعدادات الحجز من إعداد توجيه المستند
 3. **فحص إعداد الصنف:** التحقق من صلاحيات الحجز وسياسات السحب على المكشوف على مستوى الصنف
 4. **تعيين المخزن/الموقع:** تطبيق قواعد المخزن والموقع الخاصة بالحجز
 
-### 2. توليد طلب الحجز (Reservation Request Generation) {#2-Reservation-Request-Generation}
+### 2. توليد طلب الحجز (Reservation Request Generation)
 
 عند حفظ مستند بحجوزات:
 
@@ -233,7 +233,7 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 
 **مرجع الكود:** `InvSystemFilesUtils.addRequestLine:354-373`
 
-### 3. فحص الكميات والتأثيرات (Quantity Validation and Effects) {#3-Quantity-Validation-and-Effects}
+### 3. فحص الكميات والتأثيرات (Quantity Validation and Effects)
 
 تُجري طريقة `setIdAndValidateQtyEffects` فحصاً شاملاً:
 
@@ -246,7 +246,7 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 
 **مرجع الكود:** `QtyTransUtils.setIdAndValidateQtyEffects:154-285`
 
-### 4. تحديثات الكمية المنفذة (للمستندات المرتبطة) {#4-Satisfied-Quantity-Updates-For-Related-Documents}
+### 4. تحديثات الكمية المنفذة (للمستندات المرتبطة)
 
 عند إنشاء مستند من مستند آخر بحجوزات:
 
@@ -258,7 +258,7 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 
 **مرجع الكود:** `SCRelatedQtiesUtil.updateSatisfiedQtiesd:80-149`
 
-### 5. إلغاء الحجز (Reservation Cancellation) {#5-Reservation-Cancellation}
+### 5. إلغاء الحجز (Reservation Cancellation)
 
 #### مشغلات الإلغاء التلقائي (Automatic Cancellation Triggers)
 - **حذف المستند:** يلغي تلقائياً جميع تأثيرات الحجز
@@ -273,9 +273,9 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 
 **مرجع الكود:** `BasicSCDocument.cancelReservationOfRelatedIfNeeded`
 
-## نقاط التكامل مع النظام (System Integration Points) {#System-Integration-Points}
+## نقاط التكامل مع النظام (System Integration Points)
 
-### تكامل إدارة المخزون (Inventory Management Integration) {#Inventory-Management-Integration}
+### تكامل إدارة المخزون (Inventory Management Integration)
 
 #### تأثيرات الكميات (Quantity Effects)
 - **سجلات ItemDimensionsQty:** تخزن تأثيرات الحجز لكل تركيبة صنف/محدد
@@ -286,7 +286,7 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 - **ReservationTransLine:** يدير سطور معاملات الحجز
 
 
-### تكامل سير عمل المستندات (Document Workflow Integration) {#Document-Workflow-Integration}
+### تكامل سير عمل المستندات (Document Workflow Integration)
 
 #### علاقات المستند المصدر (Source Document Relationships)
 - **معالجة "بناءاً على":** الإنشاء التلقائي من أوامر البيع، أوامر الشراء، وغيرها
@@ -299,7 +299,7 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 - **تأثيرات الكميات الفعلية:** تعدّل الكميات الفعلية الداخلة والخارجة فقط
 - **إلغاء الحجز:** يمكنها إلغاء حجوزات المستندات الأعلى
 
-### تكامل نظام التوصيل (Delivery System Integration) {#Delivery-System-Integration}
+### تكامل نظام التوصيل (Delivery System Integration)
 
 #### الحجوزات القائمة على التوصيل (Delivery-Based Reservations)
 - **تكامل DeliverySysEntry:** استخدام كميات نظام التوصيل بدلاً من كميات المستند
@@ -308,9 +308,9 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 
 **مرجع الكود:** `InvSystemFilesUtils.createInvReqLinesFromEntries`
 
-## واجهة المستخدم والعمليات (User Interface and Operations) {#User-Interface-and-Operations}
+## واجهة المستخدم والعمليات (User Interface and Operations)
 
-### تخطيط شاشة التحرير الرئيسية (Main Edit Screen Layout) {#Main-Edit-Screen-Layout}
+### تخطيط شاشة التحرير الرئيسية (Main Edit Screen Layout)
 
 #### شبكة التفاصيل (Details Grid)
 توفر شبكة التفاصيل إدارة شاملة للأصناف:
@@ -337,17 +337,17 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 - حالة الحجز على مستوى السطر
 - تاريخ الحجز وتعيين المخزن
 
-#### الإجراءات المتاحة (Available Actions) {#Available-Actions}
+#### الإجراءات المتاحة (Available Actions)
 
 **إجراءات الحجز الأساسية:**
 1. **تطبيق الحجز (Apply Reservation)** - تنفيذ تأثيرات الحجز على المخزون
 2. **إلغاء الحجز (Cancel Reservation)** - إلغاء تأثيرات الحجز للمستندات المرتبطة
 
-## دليل استكشاف الأخطاء وإصلاحها (Troubleshooting Guide) {#Troubleshooting-Guide}
+## دليل استكشاف الأخطاء وإصلاحها (Troubleshooting Guide)
 
-### المشكلات الشائعة والحلول (Common Issues and Solutions) {#Common-Issues-and-Solutions}
+### المشكلات الشائعة والحلول (Common Issues and Solutions)
 
-#### مشكلة: أخطاء نقص الكمية (Issue: Insufficient Quantity Errors) {#Issue-Insufficient-Quantity-Errors}
+#### مشكلة: أخطاء نقص الكمية (Issue: Insufficient Quantity Errors)
 
 **رسالة الخطأ:** "Insufficient quantity for item [ItemCode], Available Quantity is [X], Reserved quantity is [Y]"
 
@@ -371,7 +371,7 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 3. **إلغاء الحجوزات المنافسة:** مراجعة وإلغاء الحجوزات غير الضرورية
 4. **تعديل المحددات:** تعديل المخزن، الموقع، أو متطلبات المحددات الأخرى
 
-#### مشكلة: انتهاكات تسلسل الحجز (Issue: Reservation Sequentiality Violations) {#Issue-Reservation-Sequentiality-Violations}
+#### مشكلة: انتهاكات تسلسل الحجز (Issue: Reservation Sequentiality Violations)
 
 **المشكلة:** رفض النظام للحجز بسبب قواعد التسلسل
 
@@ -386,7 +386,7 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 3. **تعديل الإعداد:** النظر في تخفيف متطلبات التسلسل إذا سمح العمل بذلك
 4. **مراجعة سير العمل:** التأكد من اكتمال سلسلة المستندات
 
-#### مشكلة: عدم عمل تحديثات المستندات المرتبطة (Issue: Related Document Updates Not Working) {#Issue-Related-Document-Updates-Not-Working}
+#### مشكلة: عدم عمل تحديثات المستندات المرتبطة (Issue: Related Document Updates Not Working)
 
 **المشكلة:** التغييرات في سند الحجز لا تُحدّث المستندات المصدر
 
@@ -402,7 +402,7 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 3. **تعيين الحقول:** إعداد حقول كمية الوفاء المناسبة
 4. **اختبار السلسلة:** التحقق من تدفق التحديثات عبر التسلسل الهرمي للمستندات
 
-#### مشكلة: أخطاء تتبع الكميات المنفذة (Issue: Satisfied Quantity Tracking Errors) {#Issue-Satisfied-Quantity-Tracking-Errors}
+#### مشكلة: أخطاء تتبع الكميات المنفذة (Issue: Satisfied Quantity Tracking Errors)
 
 **المشكلة:** الكميات المنفذة لا تُحدَّث بشكل صحيح بين المستندات
 
@@ -418,11 +418,11 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 3. **إعداد وحدات القياس:** ضمان وجود تحويلات وحدات القياس الصحيحة
 4. **التحقق من العلاقة:** فحص سلامة سلسلة المستندات
 
-## مرجع التنفيذ التقني (Technical Implementation Reference) {#Technical-Implementation-Reference}
+## مرجع التنفيذ التقني (Technical Implementation Reference)
 
-### الكلاسات والطرق الرئيسية (Key Classes and Methods) {#Key-Classes-and-Methods}
+### الكلاسات والطرق الرئيسية (Key Classes and Methods)
 
-#### كلاسات المعالجة الأساسية (Core Processing Classes) {#Core-Processing-Classes}
+#### كلاسات المعالجة الأساسية (Core Processing Classes)
 
 **InvSystemFilesUtils**
 - **الموقع:** `supplychain/supplychaindomain/utils/InvSystemFilesUtils.java`
@@ -441,7 +441,7 @@ Available = (In + Pre-In) - (Out + Pre-Out)
   - `updateSatisfiedQtiesd()` - تحديث الكميات المنفذة بين المستندات المرتبطة
   - `createSatisfier()` - إنشاء كائنات تتبع الوفاء بالكميات
 
-#### كلاسات الإعداد (Configuration Classes) {#Configuration-Classes}
+#### كلاسات الإعداد (Configuration Classes)
 
 **InvDocTermConfig**
 - **الموقع:** `supplychain/supplychaindsl/inventory/terms/InvDocTermConfig.java`
@@ -451,15 +451,15 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 - **الموقع:** `supplychain/supplychaindsl/inventory/entities/ItemConfigurations.java`
 - **الحقول الرئيسية:** `includeReservedInBalance`، `allowOverdraftInReservation`
 
-### هيكل قاعدة البيانات (Database Structure) {#Database-Structure}
+### هيكل قاعدة البيانات (Database Structure)
 
-#### الجداول الأساسية (Primary Tables) {#Primary-Tables}
+#### الجداول الأساسية (Primary Tables)
 
 **ItemDimensionsQty:** تتبع كميات المخزون
 - يتتبع كميات الداخل/الخارج/Pre-In/Pre-Out لكل محدد صنف
 - الجدول الأساسي لتأثيرات الحجز وحسابات الرصيد
 
-#### الجداول الداعمة (Supporting Tables) {#Supporting-Tables}
+#### الجداول الداعمة (Supporting Tables)
 
 **BasicSCDocumentLine:** القاعدة لجميع سطور مستندات سلسلة التوريد
 - يحتوي على حقول الكميات المنفذة/غير المنفذة
@@ -471,11 +471,11 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 
 ---
 
-## مرجع الإعداد الشامل (Complete Configuration Reference) {#Complete-Configuration-Reference}
+## مرجع الإعداد الشامل (Complete Configuration Reference)
 
 يوفر هذا القسم قائمة شاملة بجميع خيارات الإعداد المرتبطة بنظام الحجوزات، مرتبةً حسب موقعها في النظام.
 
-### إعداد توجيه المستند (InvDocTermConfig) {#Document-Term-Configuration-InvDocTermConfig-2}
+### إعداد توجيه المستند (InvDocTermConfig)
 **الموقع:** توجيه المستند > تبويب إعداد التوجيه
 
 #### إعدادات الحجز الأساسية (Basic Reservation Settings)
@@ -543,7 +543,7 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 | `reserveFromDeliveryEntryQty` | حجز من كمية جدول التوصيل النظامي | الحجز بناءً على كميات نظام التوصيل |
 | `rootDeliveryDocument` | مستند توصيل رئيسي | ربط بمستند التوصيل الرئيسي |
 
-### إعداد الصنف (ItemConfigurations) {#Item-Configuration-ItemConfigurations}
+### إعداد الصنف (ItemConfigurations)
 **الموقع:** الصنف الرئيسي > تبويب إعداد الصنف
 
 | حقل الإعداد | الترجمة العربية | الوصف |
@@ -552,7 +552,7 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 | `allowOverdraftInReservation` | السماح بالسحب على المكشوف في الحجز | السماح بالحجوزات حتى عند نقص الكميات |
 | `overDraftPolicy` | سياسة السحب على المكشوف | سياسة السحب على المكشوف على مستوى الصنف (Yes/No/Inherited) |
 
-### إعداد سلسلة التوريد (SupplyChainConfigurations) {#Supply-Chain-Configuration-SupplyChainConfigurations}
+### إعداد سلسلة التوريد (SupplyChainConfigurations)
 **الموقع:** إعداد النظام > إعدادات سلسلة التوريد
 
 #### إعدادات الحجز الأساسية (Core Reservation Settings)
@@ -600,16 +600,16 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 | `checkOverdraftNextTransCount` | عدد المعاملات التالية لفحص السحب على المكشوف | عدد المعاملات التالية لفحص السحب على المكشوف |
 | `doNotCheckOverdraftWithRecommit` | عدم فحص السحب على المكشوف مع إعادة الحفظ | عدم فحص السحب على المكشوف مع عمليات إعادة الحفظ |
 
-### إعداد مجموعة الأصناف (Item Section Configuration) {#Item-Section-Configuration}
+### إعداد مجموعة الأصناف (Item Section Configuration)
 **الموقع:** الصنف الرئيسي > مجموعة الأصناف > الإعداد
 
 | حقل الإعداد | الترجمة العربية | الوصف |
 |-------------|-----------------|-------|
 | `overDraftPolicy` | سياسة السحب على المكشوف | سياسة السحب على المكشوف على مستوى المجموعة (Yes/No/Inherited) |
 
-### قيم Enum وقيم الحجز على مستوى النظام (System-Wide Reservation Enums and Values) {#System-Wide-Reservation-Enums-and-Values}
+### قيم Enum وقيم الحجز على مستوى النظام (System-Wide Reservation Enums and Values)
 
-### التسلسل الهرمي للإعداد والتوارث (Configuration Hierarchy and Inheritance) {#Configuration-Hierarchy-and-Inheritance}
+### التسلسل الهرمي للإعداد والتوارث (Configuration Hierarchy and Inheritance)
 
 يستخدم نظام الحجوزات نهجاً هرمياً للإعداد:
 
@@ -626,7 +626,7 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 4. إعداد مجموعة الأصناف
 5. إعداد النظام
 
-### قواعد التحقق من الإعداد (Configuration Validation Rules) {#Configuration-Validation-Rules}
+### قواعد التحقق من الإعداد (Configuration Validation Rules)
 
 #### الإعدادات المطلوبة للحجز الأساسي (Required Configurations for Basic Reservation)
 - توجيه المستند: `reserve = true`

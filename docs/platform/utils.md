@@ -1,4 +1,4 @@
-# روابط الأدوات المساعدة (Utility Links) {#Utility-Links}
+# روابط الأدوات المساعدة (Utility Links)
 ::: danger
 يحتوي هذا الملف على روابط قد تكون خطرة. يُرجى التعامل بحذر عند استخدام أي من الأدوات المذكورة.
 :::
@@ -10,7 +10,7 @@
 - استخدم زر النسخ لتسهيل تشغيل الأدوات.
 :::
 
-## إعادة الحفظ من ملف - Recommit From File: (للمسؤول) {#Recommit-From-File---For-admin-}
+## إعادة الحفظ من ملف - Recommit From File: (للمسؤول)
 <UtilityLinkBuilder
 className="com.namasoft.erp.gui.server.RecommitFromFile"
 :params="[
@@ -20,16 +20,16 @@ className="com.namasoft.erp.gui.server.RecommitFromFile"
 ]" :gui = "true"
 />
 
-## إعادة تطبيق قيود عقود مبيعات العقارات: {#ReApply-Real-Estate-Sales-Contracts-System-Entries-}
+## إعادة تطبيق قيود عقود مبيعات العقارات:
 
 <UtilityLinkBuilder 
 className="com.namasoft.modules.realstate.domain.utils.RESysEntryMigratorUtility"/>
 
-## إعادة تطبيق قيود عقود الإيجار: {#ReApply-Rent-Contracts-System-Entries-}
+## إعادة تطبيق قيود عقود الإيجار:
 <UtilityLinkBuilder
 className="com.namasoft.modules.realstate.domain.utils.UpdateREReservationEntryUtil"/>
 
-## إعادة النسخ من ملف - Re-Replicate From File: (للمسؤول) {#Re-Replicate-From-File---For-admin-}
+## إعادة النسخ من ملف - Re-Replicate From File: (للمسؤول)
 <UtilityLinkBuilder
 className="com.namasoft.erp.gui.server.ReplicateFromFile"
 :params="[
@@ -39,7 +39,7 @@ className="com.namasoft.erp.gui.server.ReplicateFromFile"
 ]" :gui = "true"
 />
 
-## الحذف من ملف - Delete From File: {#Delete-From-File-}
+## الحذف من ملف - Delete From File:
 <UtilityLinkBuilder
 className="com.namasoft.erp.gui.server.DeleteFromFile"
 :params="[
@@ -50,7 +50,7 @@ className="com.namasoft.erp.gui.server.DeleteFromFile"
 />
 
 
-## إعادة توليد دفتر الأستاذ من ملف - Regen Ledger from file - Accounting Effects: {#Regen-Ledger-from-file---Accounting-Effects-}
+## إعادة توليد دفتر الأستاذ من ملف - Regen Ledger from file - Accounting Effects:
 <UtilityLinkBuilder
 className="com.namasoft.erp.gui.server.RegenAccFromFile"
 :params="[
@@ -60,7 +60,7 @@ className="com.namasoft.erp.gui.server.RegenAccFromFile"
 ]" :gui = "true"
 />
 
-## التصدير إلى خادم آخر من ملف - Export To Another Server From File: {#Export-To-Another-Server-From-File-}
+## التصدير إلى خادم آخر من ملف - Export To Another Server From File:
 <UtilityLinkBuilder
 className="com.namasoft.erp.gui.server.ExportToServerFromFileByWS"
 :params="[
@@ -72,7 +72,7 @@ className="com.namasoft.erp.gui.server.ExportToServerFromFileByWS"
 />
 
 
-## التصدير إلى خادم آخر من ملف باستخدام جداول Excel: {#Export-To-Another-Server-from-File-Using-Excel-Sheets-}
+## التصدير إلى خادم آخر من ملف باستخدام جداول Excel:
 <UtilityLinkBuilder
 className="com.namasoft.erp.gui.server.ExportToServerFromFileByExcel"
 :params="[
@@ -83,7 +83,7 @@ className="com.namasoft.erp.gui.server.ExportToServerFromFileByExcel"
 ]" :gui = "true"
 />
 
-## الحصول على السجلات غير المحفوظة - Get Not Commited: (يمكن استخدامه مع الحذف، يقارن ملفين فقط) {#Get-Not-Commited---can-be-used-with-delete--it-just-compares-two-files-}
+## الحصول على السجلات غير المحفوظة - Get Not Commited: (يمكن استخدامه مع الحذف، يقارن ملفين فقط)
 <UtilityLinkBuilder
 className="com.namasoft.erp.gui.server.CompareTwoFiles"
 :params="[
@@ -92,12 +92,12 @@ className="com.namasoft.erp.gui.server.CompareTwoFiles"
 ]" :gui = "true"
 />
 
-## إعادة إنشاء قيود حالة الموظف: {#ReCreate-Employee-State-System-Entries-}
+## إعادة إنشاء قيود حالة الموظف:
 <UtilityLinkBuilder
 className="com.namasoft.modules.humanresource.domain.entities.utils.MigrateEmpStateEntry"
 />
 
-## قيود إجازات الموظفين: {#Employee-Vacation-System-Entries-}
+## قيود إجازات الموظفين:
 - إعادة إنشاء قيود الإجازات لجميع الموظفين
 <UtilityLinkBuilder
 className="com.namasoft.modules.humanresource.domain.entities.utils.VacationsSysEntryMigratorForAllEmps"
@@ -141,7 +141,7 @@ className="com.namasoft.modules.humanresource.domain.entities.utils.VacationsSys
   ]"
   />
 
-## إعادة إنشاء قيود حالة العناصر الفرعية: {#Recreate-Sub-Item-Status-Entries-}
+## إعادة إنشاء قيود حالة العناصر الفرعية:
 <UtilityLinkBuilder
 className="com.namasoft.modules.srvcenter.domain.utils.SubItemStatusSysEntryRecalculateUtil"
 :params="[
@@ -150,17 +150,17 @@ className="com.namasoft.modules.srvcenter.domain.utils.SubItemStatusSysEntryReca
 />
 
 
-## إعادة توليد ملخص الموافقات {#Regenerate-Approvals-Summary}
+## إعادة توليد ملخص الموافقات
 <UtilityLinkBuilder
 className="com.namasoft.infra.domainbase.common.approval.RecalcSummaryUtil"
 />
 
-## إزالة الموافقات الوهمية - Remove Zombie Approvals: {#Remove-Zombie-Approvals-}
+## إزالة الموافقات الوهمية - Remove Zombie Approvals:
 <UtilityLinkBuilder
 className="com.namasoft.infra.domainbase.common.approval.FixZombieApprovalUtil"
 />
 
-## إعادة توليد حركات المخزون من ملف: {#Regenerate-Inventory-Transactions-from-File-}
+## إعادة توليد حركات المخزون من ملف:
 <UtilityLinkBuilder
 className="com.namasoft.modules.supplychain.domain.utils.plugnplay.RegenInvTransReqFromFile"
 :params="[
@@ -170,7 +170,7 @@ className="com.namasoft.modules.supplychain.domain.utils.plugnplay.RegenInvTrans
 ]"
 />
 
-## إعادة معالجة جميع مستندات الأصول الثابتة: {#Reprocess-All-Fixed-Assets-Documents-}
+## إعادة معالجة جميع مستندات الأصول الثابتة:
 - إعادة إنشاء جميع قيود الأصول الثابتة
 <UtilityLinkBuilder
 className="com.namasoft.modules.fixedassets.domain.utils.SWSUpdatePropertyEntryUtil"

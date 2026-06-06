@@ -37,7 +37,7 @@ The Virtual Entity screen lives in the **Basic** module's menu. Open it like you
 
 The header has just a handful of fields:
 
-- **Code** — short identifier, letters/digits/underscore only, must start with a letter. The system uses this to name the underlying view (`vw_<code>`) and as the entity's type name. Once you save, the code can't be changed (renaming would mean dropping and re-creating the view, which Phase 1 doesn't do — see [What's Coming Later](#What-s-Coming-Later)).
+- **Code** — short identifier, letters/digits/underscore only, must start with a letter. The system uses this to name the underlying view (`vw_<code>`) and as the entity's type name. Once you save, the code can't be changed (renaming would mean dropping and re-creating the view, which Phase 1 doesn't do — see [What's Coming Later](#Whats-Coming-Later)).
 - **Arabic Name** / **English Name** — what users will see in the wizard's table picker, in field labels, and in screen titles.
 - **SQL Query** — the SELECT statement that defines the entity. Multi-line; use `UNION`, `JOIN`, expressions, aggregates — whatever you need.
 - **Materialization** — for now, only `View` is allowed. The `Table` option is reserved for a future phase that will materialize the data into a refreshable physical table.
@@ -157,7 +157,7 @@ In the Dashboard module, when you create a widget backed by a wizard data source
 
 This is where Virtual Entities pay off the most: you build one once, and from then on you can spin up new dashboard widgets visually without touching SQL again.
 
-For details on how wizard-backed widgets behave, see the [BI Module Guide](./bi/bi-module-guide.md#Data-Sources) and the [Wizard Mode reference](./bi/bi-module-technical-reference.md#13-Wizard-Mode---Chart-Config-Shape).
+For details on how wizard-backed widgets behave, see the [BI Module Guide](./bi/bi-module-guide.md#Data-Sources) and the [Wizard Mode reference](./bi/bi-module-technical-reference.md#13-Wizard-Mode).
 
 ---
 

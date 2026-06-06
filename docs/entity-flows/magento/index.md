@@ -1,6 +1,6 @@
 <div class="ignore-in-full-text-search">
 
-# e-commerce Integration Module
+# وحدة تكامل التجارة الإلكترونية
   - [EAEcommerceAddItemToLinker](/entity-flows/magento/EAEcommerceAddItemToLinker.md)
   - [EAEcommerceGuessItemBySKU](/entity-flows/magento/EAEcommerceGuessItemBySKU.md)
   - [EAEcommerceReadAbandonedCarts](/entity-flows/magento/EAEcommerceReadAbandonedCarts.md)

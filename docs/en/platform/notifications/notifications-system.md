@@ -135,7 +135,7 @@ Include detailed change information in notifications (for update notifications):
 {changesAsTextEn}  {comment}Changes in plain text (English){endcomment}
 ```
 
-See the [Tempo documentation](../../admin/tempo.md#audit-trail-change-history) for detailed examples and usage.
+See the [Tempo documentation](../../admin/tempo.md#Audit-Trail-Change-History) for detailed examples and usage.
 
 ## Notification Channels in Detail
 

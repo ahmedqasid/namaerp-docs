@@ -1,6 +1,6 @@
 # أدوات العقارات (Real Estate Utilities)
 
-## إصلاح المدفوع من النظام وطلب التحصيل والمحصّل بالأوراق المالية في العقود {#Fix-System-Paid-Collect-Requested-and-Collected-by-Financial-Papers-in-Contracts}
+## إصلاح المدفوع من النظام وطلب التحصيل والمحصّل بالأوراق المالية في العقود
 ::: details أولاً: نفّذ الاستعلام التالي ثم ضع المخرجات في ملف إعادة الترحيل:
  ```sql
 select distinct paymentDocEntityType,paymentDocId from InstallmentPaymentEntry where refid is null

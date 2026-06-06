@@ -1,6 +1,6 @@
 # نقاط مكافآت العملاء (Customer Reward Points / Loyalty Points)
 
-## إرسال إشعار للعميل مع كل فاتورة يتضمن النقاط المكتسبة والمستردة والرصيد الإجمالي {#Send-a-notification-to-the-customer-with-each-invoice-with-rewarded-points-redeemed-and-total-points}
+## إرسال إشعار للعميل مع كل فاتورة يتضمن النقاط المكتسبة والمستردة والرصيد الإجمالي
 * النسخة الإنجليزية
 ```
 Dear {customer.name2},
@@ -16,11 +16,11 @@ Thanks for shopping with us!
 شكرًا لتسوقك معنا.
 ```
 
-### خطوات إرسال إشعار OTP لنقاط المكافآت للعملاء: {#Steps-to-Notify-Customers-with-the-reward-points-OTP}
+### خطوات إرسال إشعار OTP لنقاط المكافآت للعملاء:
 * أنشئ تعريف إشعار (Notification Definition) لأي كيان (يُفضَّل العميل) وفعّل خيار "Manual".
 * في ملف إعداد نقاط المكافآت (Reward Points Configuration)، عيّن حقل "OTP Notification" على تعريف الإشعار الذي أنشأته للتو.
 
-### نماذج رسائل SMS/بريد إلكتروني {#Sample-SMSEmail-Templates}
+### نماذج رسائل SMS/بريد إلكتروني
 
 - النسخة الإنجليزية
 ```
@@ -35,9 +35,9 @@ To redeeem {rewardInfo.amount} {rewardInfo.currency.altCode} ({rewardInfo.redeem
 - يمكنك الوصول إلى أي معلومات من سجل العميل، مثل name1 وname2 والبريد الإلكتروني وغيرها.
 :::
 
-## إعداد التكامل مع STC Qitaf {#STC-Qitaf-Integration-Setup}
+## إعداد التكامل مع STC Qitaf
 
-### توليد CSR لشهادة STC Qitaf {#Generating-CSR-for-STC-Qitaf-Certificate}
+### توليد CSR لشهادة STC Qitaf
 
 عند التكامل مع برنامج ولاء STC Qitaf، ستطلب STC ملف CSR (Certificate Signing Request). ستزودك بالمعلومات التالية:
 - **Partner ID** - معرّف الشريك الفريد الخاص بك
@@ -45,7 +45,7 @@ To redeeem {rewardInfo.amount} {rewardInfo.currency.altCode} ({rewardInfo.redeem
 - **City** - اسم المدينة (مثال: Riyadh)
 - **Organization** - اسم مؤسستك
 
-#### الخطوة الأولى: توليد CSR والمفتاح الخاص {#Step-1-Generate-the-CSR-and-Private-Key}
+#### الخطوة الأولى: توليد CSR والمفتاح الخاص
 
 شغّل أمر OpenSSL التالي، مستبدلًا القيم بمعلوماتك:
 
@@ -73,11 +73,11 @@ openssl req -newkey rsa:2048 -nodes \
 لا تشارك ملف `.key` مع أي أحد. أرسل ملف `.csr` فقط إلى STC.
 :::
 
-#### الخطوة الثانية: إرسال CSR إلى STC {#Step-2-Send-CSR-to-STC}
+#### الخطوة الثانية: إرسال CSR إلى STC
 
 أرسل ملف `.csr` فقط إلى STC. ستعالجه وترسل لك ملف شهادة موقّعة.
 
-#### الخطوة الثالثة: الإعداد في نظام Nama ERP {#Step-3-Configure-in-Nama-ERP}
+#### الخطوة الثالثة: الإعداد في نظام Nama ERP
 
 1. افتح شاشة **Reward Points Config**
 2. ارفع ملف الشهادة (المستلم من STC) في حقل **Certificate** - يُسمى الملف عادةً `qitaf-{YourPartnerID}-{SomeSerialNumber}.pem.txt`
@@ -93,11 +93,11 @@ openssl req -newkey rsa:2048 -nodes \
 احتفظ بنسخ احتياطية آمنة من ملف مفتاحك الخاص وملف الشهادة الصادر من STC.
 :::
 
-### تصحيح أخطاء طلبات STC Qitaf {#Debugging-STC-Qitaf-Requests}
+### تصحيح أخطاء طلبات STC Qitaf
 
 إذا واجهت مشكلات في التكامل مع STC Qitaf، يمكنك تفعيل تسجيل التصحيح (debug logging) لالتقاط تفاصيل الطلب والاستجابة الكاملة.
 
-#### تفعيل تسجيل التصحيح {#Enabling-Debug-Logging}
+#### تفعيل تسجيل التصحيح
 
 أضف الخاصية التالية إلى ملف `nama.properties`:
 
@@ -107,7 +107,7 @@ debug-stc-qitaf=true
 
 عند التفعيل، يسجّل النظام كل طلب API كأمر curl مع الاستجابة الكاملة. يُسهّل ذلك مشاركة تفاصيل الطلب الدقيقة مع دعم STC أو إعادة تنفيذ الطلب يدويًا.
 
-#### نموذج لمخرجات السجل {#Sample-Log-Output}
+#### نموذج لمخرجات السجل
 
 يتضمن أمر curl المسجَّل وسيطَي `--cert` و`--key` مع أسماء الملفات من Reward Points Config، مما يُسهّل إعادة تنفيذ الطلب:
 
@@ -132,7 +132,7 @@ Body:
 =========================================
 ```
 
-#### تشغيل أمر curl {#Running-the-curl-Command}
+#### تشغيل أمر curl
 
 لتشغيل أمر curl المسجَّل:
 

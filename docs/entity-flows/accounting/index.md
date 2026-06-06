@@ -1,6 +1,6 @@
 <div class="ignore-in-full-text-search">
 
-# Accounting Module
+# وحدة الحسابات
   - [EAAddAccountingEffect](/entity-flows/accounting/EAAddAccountingEffect.md)
   - [EAClearLedgerLines](/entity-flows/accounting/EAClearLedgerLines.md)
   - [EAGenInvestmentDocClaimingDoc](/entity-flows/accounting/EAGenInvestmentDocClaimingDoc.md)

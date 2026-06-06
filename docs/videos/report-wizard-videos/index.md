@@ -1,6 +1,6 @@
 <div class="ignore-in-full-text-search">
 
-# Report Wizard Videos
+# فيديوهات أداة إنشاء التقارير
   - [فيديو (1) شرح أداة انشاء التقار](/videos/report-wizard-videos/report-wizard-webinar-1.md)
   - [شرح تفصيلي لجروبنج (Grouping) ومصادر البيانات وترتيب التقارير في Nama ERP](/videos/report-wizard-videos/report-wizard-webinar-2.md)
   - [توثيق كامل لإنشاء تقارير الكروس تاب، كشف الحساب، وحركة المخزون باستخدام أداة إنشاء التقارير](/videos/report-wizard-videos/report-wizard-webinar-3.md)

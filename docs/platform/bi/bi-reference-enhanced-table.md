@@ -1,10 +1,10 @@
-# مرجع BI — EnhancedTable {#BI-Reference----EnhancedTable}
+# مرجع BI — EnhancedTable
 
 مرجع مكمّل لـ [`bi-module-technical-reference.md`](./bi-module-technical-reference.md). استخدمه عند تأليف widget من نوع `type: "EnhancedTable"` (أو وضع الـ pivot/cross-tab).
 
 `EnhancedTable` هو جدول مدفوع بـ JSON — كل عمود معرَّف في `chartConfigJSON` له تنسيقه الخاص، وrenderer، وتنسيق شرطي، وتثبيت، وتجميع، وإجماليات. يعيد استخدام آلية تفاعل BI (`clickEmitMapping`، `drillDownMapping`، `linkMappings`، `clickAction` — المرجع الرئيسي §4–5b) مع حقل `column` اختياري في كل مدخل للتحديد إلى خلية بعينها. يبقى widget الكلاسيكي `Table` متاحاً؛ للانتقال استخدم `"type": "EnhancedTable"`.
 
-## 1. بنية chartConfigJSON {#1-chartConfigJSON-structure}
+## 1. بنية chartConfigJSON
 
 ```json
 {
@@ -29,7 +29,7 @@
 
 لا يوجد `dataMapping` / `echartOption` — لا يستخدم EnhancedTable مكتبة ECharts.
 
-## 2. tableOptions {#2-tableOptions}
+## 2. tableOptions
 
 ```json
 "tableOptions": {
@@ -57,7 +57,7 @@
 | `grandTotalRow` | `null` | `"top"` / `"bottom"` / `null`. يُحسَب من جانب العميل من الصفوف المرئية. **الأعمدة التي لها `aggFunc` فقط تُظهر قيمة في صف الإجمالي الكلي** — غيرها يبقى فارغاً. |
 | `enableRowGroup` / `enablePivot` | `true` / `false` | وضعَا تجميع الصفوف والـ pivot في AG Grid. الأعمدة تحتاج `rowGroup: true` / `pivot: true` لتُجمَّع/تُحوَّل pivot افتراضياً. |
 
-## 3. تعريف العمود (Column definition) {#3-Column-definition}
+## 3. تعريف العمود (Column definition)
 
 ```json
 {
@@ -102,9 +102,9 @@
 | `renderer` | لا | §4.2 أدناه. الافتراضي `text`. |
 | `conditionalFormatting` | لا | §5 أدناه. |
 
-## 4. التنسيق والـ renderers (Formatting & renderers) {#4-Formatting--renderers}
+## 4. التنسيق والـ renderers (Formatting & renderers)
 
-### 4.1 `formatting` {#41-formatting}
+### 4.1 `formatting`
 
 سلسلة عرض تُحسَب من جانب الخادم؛ يستخدمها العميل كما هي.
 
@@ -138,7 +138,7 @@
 
 **ملاحظة:** حقل رمز العملة هنا هو `currencySymbol`. الكتلة `dataMapping.series[].format` في ECharts تستخدم `currency` بدلاً منه — ليسا قابلَين للتبادل. انظر المرجع الرئيسي §7.
 
-### 4.2 `renderer` {#42-renderer}
+### 4.2 `renderer`
 
 ```json
 "renderer": {
@@ -172,7 +172,7 @@
 | `sparkline` | رسم ECharts مصغَّر متعدد النقاط | يقرأ السلسلة من حقل SQL الخاص بالعمود — سلسلة CSV مثل `1,5,9,12` أو مصفوفة JSON `[1,5,9,12]`. |
 | `icon` | قيمة الخلية مطابَقة مع `mapping[].when` | المدخل المطابق يُظهر أيقونة (يحلّ محل النص عند `position: "replace"`). |
 
-## 5. التنسيق الشرطي (Conditional formatting) {#5-Conditional-formatting}
+## 5. التنسيق الشرطي (Conditional formatting)
 
 القواعد تُقيَّم من جانب الخادم؛ النمط الفائز مضمَّن في حمولة الاتصال — العميل لا يُقيِّم أي قواعد.
 
@@ -233,7 +233,7 @@
 | `border` | `border` (اختصار، سلسلة موثوقة) |
 | `align` | `text-align` (`start`/`center`/`end`) |
 
-### 5.1 `rowConditionalFormatting` {#51-rowConditionalFormatting}
+### 5.1 `rowConditionalFormatting`
 
 نفس المفردات، تُطبَّق على مستوى الصف. **يجب أن تسمّي كل قاعدة عمود الاختبار عبر `when.column`** — لا يوجد "هذه الخلية" ضمني. النمط الفائز يُطبَّق على الصف كاملاً عبر `getRowStyle` في AG Grid.
 
@@ -249,7 +249,7 @@
 }
 ```
 
-## 6. مثال كامل (Complete example) {#6-Complete-example}
+## 6. مثال كامل (Complete example)
 
 ```json
 {
@@ -293,7 +293,7 @@
 }
 ```
 
-## 7. الترحيل من `Table` {#7-Migration-from-Table}
+## 7. الترحيل من `Table`
 
 لا يوجد ترقية تلقائية. التفعيل يتم لكل widget على حدة:
 
@@ -303,11 +303,11 @@
 
 تستمر `clickEmitMapping` / `drillDownMapping` / `linkMappings` الموجودة في العمل — يطابق `column` معرِّفات الأعمدة المُولَّدة تلقائياً (التي تأخذ اسم عمود SQL افتراضياً).
 
-## 8. تخطيط الـ Pivot (cross-tab) {#8-Pivot-cross-tab-layout}
+## 8. تخطيط الـ Pivot (cross-tab)
 
 يحوِّل وضع الـ pivot الـ `EnhancedTable` إلى cross-tab بأسلوب JasperReports: محددات الصفوف تصبح مجموعات صفوف، ومحددات الأعمدة تصبح رؤوس أعمدة متداخلة، والمقاييس تملأ تقاطعات الخلايا — مع إجماليات جزئية اختيارية في كل مستوى وإجمالي كلي. تُتجاهَل كتلة `columns` المكتوبة يدوياً عند تعيين `pivot`؛ يُركِّب المحرك الأعمدة والمجموعات المتداخلة وخطة الصفوف من جانب الخادم.
 
-### 8.1 الإعداد (Configuration) {#81-Configuration}
+### 8.1 الإعداد (Configuration)
 
 ```json
 {
@@ -345,7 +345,7 @@
 | `emptyCellAs` | `null` | ما تعرضه خلايا بلا بيانات: `null` (فارغة)، `0`، `"-"`، إلخ. |
 | `zeroAsEmpty` | `false` | المقياس الذي يُجمِّع إلى صفر بالضبط ← يُعرَض كـ `emptyCellAs`. |
 
-### 8.2 ما يُصدره المحرك {#82-What-the-engine-emits}
+### 8.2 ما يُصدره المحرك
 
 يمر على الصفوف مرة واحدة، يبني أشجاراً متميزة من tuples الصفوف/الأعمدة (مرتبة أبجدياً لكل مستوى)، يُعيد تجميع `(rowTuple, colTuple) → measures` عبر `sum`، ويُصدر:
 
@@ -355,19 +355,19 @@
 - **`enhancedTableData.styles`**: الصفوف/الأعمدة الإجمالية مُوسَمة عبر علامة `t` (`0`=كلي، `n>0`=جزئي عند العمق `n`)؛ يُطبَّق عريض + صبغة افتراضياً. `conditionalFormatting` الصريح يفوز دائماً.
 - **`agColumnCellDataTypes`**: كل عمود مقياس مُوسَم `"number"` حتى تتدفق قيم الخلايا كأرقام JSON (مطلوب لتجميعات `aggFunc` في صفوف المجموعات).
 
-### 8.3 وضع Wizard {#83-Wizard-mode}
+### 8.3 وضع Wizard
 
 في وضع wizard (الـ widget له `wizardDataSource`)، استخدم `wizardFieldId` بدلاً من `field` في كل محدد/مقياس. `WizardChartConfigRewriter` يحلّه إلى SQL alias المخزَّن مؤقتاً (`displayAlias`) قبل تشغيل المحرك.
 
-### 8.4 تخطي التفاعل على الإجماليات {#84-Interaction-skipping-on-totals}
+### 8.4 تخطي التفاعل على الإجماليات
 
 صفوف وأعمدة الإجمالي الجزئي والكلي هي تجميعات مشتقة بلا صف مصدر أساسي، لذا تتجاوزها click-emit / drill-down / link / drill-down-by جميعها. تُكشَف عبر علامة `t` في بيانات الصف (`_totalLevel`) وإعداد العمود (`t`). تلميح المؤشر مُعطَّل أيضاً.
 
-### 8.5 التعايش مع pivot من جانب العميل في AG Grid {#85-Coexistence-with-AG-Grid-client-side-pivot}
+### 8.5 التعايش مع pivot من جانب العميل في AG Grid
 
 `tableOptions.enablePivot` (pivot بالسحب في وقت التشغيل) مستقل تماماً ويبقى كما هو. استخدمه للاستكشاف الحر؛ استخدم كتلة `pivot` للتقارير cross-tab التي يحددها المؤلف.
 
-### 8.6 مثال pivot كامل {#86-Complete-pivot-example}
+### 8.6 مثال pivot كامل
 
 ```sql
 select w.code wCode, b.code bCode, i.code iCode, s.code sCode,

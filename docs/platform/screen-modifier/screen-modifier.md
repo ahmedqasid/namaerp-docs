@@ -1,9 +1,9 @@
-# أسماء التخطيط (Layout Names): {#Layout-Names}
+# أسماء التخطيط (Layout Names):
 
 #### يمكنك تجاوز التخطيطات الافتراضية للنظام (ذات المعرف default) بإنشاء تخطيطات بالمعرف (dbdefault)، أو يمكنك تحديد تخطيطات افتراضية لكل شركة باستخدام (legalentitycodedefault). تذكر دائمًا تغيير المسار إلى الكود الجديد الذي تستخدمه.
 
 
-# الأعمدة الخاصة في Screen Modifier: {#Screen-Modifier-Special-Columns}
+# الأعمدة الخاصة في Screen Modifier:
 
  - #### يمكنك إضافة كود المرجع بإلحاق .code باسم العمود، مثال: lines.account.code
  - #### يمكنك إضافة اسم المرجع بإلحاق .name باسم العمود، مثال: lines.account.name

@@ -1,8 +1,8 @@
-# دليل نظام الخصومات وحساب الضرائب على الفواتير - دليل شامل {#Invoice-Discounts-and-Tax-Calculation-System---Comprehensive-Guide}
+# دليل نظام الخصومات وحساب الضرائب على الفواتير - دليل شامل
 ::: tip
 تم إنشاء محتوى هذا الملف تلقائياً باستخدام Claude.ai من خلال مراجعة الكود المصدري لحسابات الخصومات والضرائب. إذا وجدت أي معلومات غير صحيحة، يرجى التواصل مع فريق تطوير Nama ERP.
 :::
-## نظرة عامة {#Overview}
+## نظرة عامة
 
 يوفر Nama ERP نظاماً متطوراً لحساب خصومات الفواتير والضرائب يدعم متطلبات الأعمال المعقدة. يشرح هذا الدليل كيفية حساب الخصومات والضرائب وإعدادها وتطبيقها على الفواتير، مع معلومات تفصيلية على مستوى الحقول.
 
@@ -15,9 +15,9 @@
 - يمكن إعداد الضريبة كإضافة أو خصم
 :::
 
-## فهم تدفق الحساب {#Understanding-the-Calculation-Flow}
+## فهم تدفق الحساب
 
-### تسلسل الحساب الأساسي {#Basic-Calculation-Sequence}
+### تسلسل الحساب الأساسي
 
 عند معالجة فاتورة، يتبع Nama ERP تسلسل الحساب العام التالي:
 
@@ -31,9 +31,9 @@
 يمكن تخصيص التسلسل الدقيق من خلال حقل `effectsConfig` في TaxConfiguration، مما يتيح ترتيبات مختلفة لتطبيق الخصومات والضرائب بناءً على متطلبات الأعمال.
 :::
 
-## نظام حل إعدادات الضرائب {#Tax-Configuration-Resolution-System}
+## نظام حل إعدادات الضرائب
 
-### فهم طريقة fetchTaxConfiguration {#Understanding-fetchTaxConfiguration-Method}
+### فهم طريقة fetchTaxConfiguration
 
 تحدد طريقة `fetchTaxConfiguration` في `TaxPlan.java` إعدادات الضريبة المستخدمة من خلال عملية حل هرمية:
 
@@ -46,7 +46,7 @@ public static TaxConfiguration fetchTaxConfiguration(
     EntityTypeDF entityType)
 ```
 
-#### التسلسل الهرمي للحل {#Resolution-Hierarchy}
+#### التسلسل الهرمي للحل
 
 1. **أولوية خطة الضريبة في الرأس**
    - يتحقق أولاً من وجود خطة ضريبة في الرأس
@@ -62,9 +62,9 @@ public static TaxConfiguration fetchTaxConfiguration(
 3. **الإعداد الافتراضي العام**
    - إذا لم توفر أي خطة إعداداً، يستخدم إعداد النظام العام
 
-### حقول إعداد خطة الضريبة {#Tax-Plan-Configuration-Fields}
+### حقول إعداد خطة الضريبة
 
-#### حقول خطة الضريبة الأساسية {#Core-Tax-Plan-Fields}
+#### حقول خطة الضريبة الأساسية
 
 | اسم الحقل | حقل قاعدة البيانات | الوصف | التأثير |
 |------------|------------------|-------|---------|
@@ -77,7 +77,7 @@ public static TaxConfiguration fetchTaxConfiguration(
 | **Legal Entity Taxes** | `legalEntityTaxes` | معدلات الضريبة حسب الشركة والتاريخ | قائمة بمعدلات الضريبة الخاصة بكل شركة |
 | **Subsidiary Accounts** | `subsidiaryAccounts` | إعدادات على مستوى الحساب | تحتوي على علامات الإعفاء الضريبي |
 
-#### حقول ضريبة الشركة {#Legal-Entity-Tax-Fields}
+#### حقول ضريبة الشركة
 
 يحتوي كل سجل `LegalEntityTax` على:
 
@@ -93,24 +93,24 @@ public static TaxConfiguration fetchTaxConfiguration(
 | **Revision ID** | `revisionId` | التحكم في إصدار المعدلات |
 | **Tax Configuration** | `taxConfiguration` | إعداد تجاوز لهذه الشركة |
 
-## إعداد نظام الخصومات {#Discount-System-Configuration}
+## إعداد نظام الخصومات
 
-### أنواع الخصومات {#Types-of-Discounts}
+### أنواع الخصومات
 
-#### خصومات السطر (Discount 1-8) {#Line-Discounts-Discount-1-8}
+#### خصومات السطر (Discount 1-8)
 - **التطبيق التسلسلي**: يُطبَّق كل خصم بعد السابق
 - **قاعدة قابلة للإعداد**: يمكن لكل خصم تطبيق مبالغ أساسية مختلفة
 - **نسبة مئوية أو قيمة**: يمكن تحديده كنسبة مئوية أو مبلغ ثابت
 - **تحكم فردي**: لكل خصم إعداد مستقل
 
-#### خصم الرأس {#Header-Discount}
+#### خصم الرأس
 - **على مستوى الفاتورة**: يُطبَّق على إجمالي الفاتورة بالكامل
 - **التوزيع النسبي**: يُوزَّع على جميع سطور الفاتورة بشكل نسبي
 - **توقيت قابل للإعداد**: يمكن تطبيقه في نقاط مختلفة من تسلسل الحساب
 
-### حقول إعداد الخصم {#Discount-Configuration-Fields}
+### حقول إعداد الخصم
 
-#### الإعداد العام - أنواع تطبيق الخصم {#Global-Configuration---Discount-Apply-Types}
+#### الإعداد العام - أنواع تطبيق الخصم
 
 موجود في `GlobalConfigInfo.java`:
 
@@ -126,7 +126,7 @@ public static TaxConfiguration fetchTaxConfiguration(
 | **Discount 8 Apply Type** | `discount8ApplyType` | المبلغ الأساسي لـ Discount 8 | كما أعلاه |
 | **Header Discount Apply Type** | `headerDiscountApplyType` | المبلغ الأساسي لخصم الرأس | كما أعلاه |
 
-#### حقول طريقة حساب الخصم {#Discount-Calculation-Method-Fields}
+#### حقول طريقة حساب الخصم
 
 | اسم الحقل | حقل قاعدة البيانات | الوصف | التأثير |
 |------------|------------------|-------|---------|
@@ -139,7 +139,7 @@ public static TaxConfiguration fetchTaxConfiguration(
 | **Calculate discount 7 percentage from value** | `calcDisc7PercentFromValue` | اتجاه الحساب لـ Discount 7 | كما أعلاه |
 | **Calculate discount 8 percentage from value** | `calcDisc8PercentFromValue` | اتجاه الحساب لـ Discount 8 | كما أعلاه |
 
-#### إعداد تأثير الضريبة على الخصم {#Tax-Effect-on-Discount-Configuration}
+#### إعداد تأثير الضريبة على الخصم
 
 لكل خصم (1-8) إعداد `TaxEffectOnDiscount` بهذه الحقول:
 
@@ -150,33 +150,33 @@ public static TaxConfiguration fetchTaxConfiguration(
 | **Consider Tax 3** | `discount[N].considerTax3` | خصم Tax3 من قاعدة الخصم | عند التفعيل، تُخصم Tax3 قبل تطبيق الخصم |
 | **Consider Tax 4** | `discount[N].considerTax4` | خصم Tax4 من قاعدة الخصم | عند التفعيل، تُخصم Tax4 قبل تطبيق الخصم |
 
-### كيفية حساب الخصومات {#How-Discounts-Are-Calculated}
+### كيفية حساب الخصومات
 
-#### الخصومات النسبية {#Percentage-Based-Discounts}
+#### الخصومات النسبية
 ```
 Discount Amount = (Base Amount × Discount Percentage) ÷ 100
 New Total = Base Amount - Discount Amount
 ```
 
-#### الخصومات بقيمة ثابتة {#Value-Based-Discounts}
+#### الخصومات بقيمة ثابتة
 ```
 Discount Amount = Fixed Discount Value
 New Total = Base Amount - Discount Amount
 ```
 
-#### الخصومات الشاملة للضريبة {#Tax-Inclusive-Discounts}
+#### الخصومات الشاملة للضريبة
 عند تضمين الضرائب في السعر، يُعدَّل حساب الخصم كالتالي:
 ```
 Discount Amount = Base Amount - (Base Amount × 100) ÷ (100 + Tax Percentage)
 ```
 
-## إعداد نظام الضرائب {#Tax-System-Configuration}
+## إعداد نظام الضرائب
 
-### حقول إعداد الضريبة في كائن TaxConfiguration {#Tax-Configuration-Fields-in-TaxConfiguration-Object}
+### حقول إعداد الضريبة في كائن TaxConfiguration
 
 يحتوي كائن `TaxConfiguration` على جميع إعدادات سلوك الضريبة:
 
-#### حقول موقع الضريبة {#Tax-Location-Fields}
+#### حقول موقع الضريبة
 
 | اسم الحقل | حقل قاعدة البيانات | الوصف | التأثير |
 |------------|------------------|-------|---------|
@@ -190,7 +190,7 @@ Discount Amount = Base Amount - (Base Amount × 100) ÷ (100 + Tax Percentage)
 - `Discount1` حتى `Discount8`: تُطبَّق بعد خصم محدد
 - `HeaderDiscount`: تُطبَّق بعد خصم الرأس
 
-#### حقول نوع تطبيق الضريبة {#Tax-Apply-Type-Fields}
+#### حقول نوع تطبيق الضريبة
 
 | اسم الحقل | حقل قاعدة البيانات | الوصف | التأثير |
 |------------|------------------|-------|---------|
@@ -199,7 +199,7 @@ Discount Amount = Base Amount - (Base Amount × 100) ÷ (100 + Tax Percentage)
 | **Tax 3 Apply Type** | `tax3ApplyType` | الأساس لحساب Tax3 | يحدد المبلغ الذي تُطبَّق عليه Tax3 |
 | **Tax 4 Apply Type** | `tax4ApplyType` | الأساس لحساب Tax4 | يحدد المبلغ الذي تُطبَّق عليه Tax4 |
 
-#### حقول التحكم في سلوك الضريبة {#Tax-Behavior-Control-Fields}
+#### حقول التحكم في سلوك الضريبة
 
 | اسم الحقل | حقل قاعدة البيانات | الوصف | التأثير على الحساب |
 |------------|------------------|-------|------------------|
@@ -208,7 +208,7 @@ Discount Amount = Base Amount - (Base Amount × 100) ÷ (100 + Tax Percentage)
 | **Tax 3 Is Discount** | `tax3IsDiscount` | Tax3 تخفض الإجمالي | True: يُطرح المبلغ<br>False: يُضاف المبلغ |
 | **Tax 4 Is Discount** | `tax4IsDiscount` | Tax4 تخفض الإجمالي | True: يُطرح المبلغ<br>False: يُضاف المبلغ |
 
-#### حقول طريقة حساب الضريبة {#Tax-Calculation-Method-Fields}
+#### حقول طريقة حساب الضريبة
 
 | اسم الحقل | حقل قاعدة البيانات | الوصف | صيغة الحساب |
 |------------|------------------|-------|------------|
@@ -217,7 +217,7 @@ Discount Amount = Base Amount - (Base Amount × 100) ÷ (100 + Tax Percentage)
 | **Tax 3 Is Value Not Percentage** | `tax3IsValue` | Tax3 كمبلغ ثابت | True: مبلغ ثابت<br>False: نسبة مئوية من الأساس |
 | **Tax 4 Is Value Not Percentage** | `tax4IsValue` | Tax4 كمبلغ ثابت | True: مبلغ ثابت<br>False: نسبة مئوية من الأساس |
 
-#### حقول تطبيق قيمة الضريبة {#Tax-Value-Application-Fields}
+#### حقول تطبيق قيمة الضريبة
 
 | اسم الحقل | حقل قاعدة البيانات | الوصف | التأثير |
 |------------|------------------|-------|---------|
@@ -226,7 +226,7 @@ Discount Amount = Base Amount - (Base Amount × 100) ÷ (100 + Tax Percentage)
 | **Tax 3 Value Is For Total Not Per Piece** | `tax3ValueIsForTotal` | تطبيق قيمة Tax3 | True: مبلغ إجمالي ثابت<br>False: مضروب في الكمية |
 | **Tax 4 Value Is For Total Not Per Piece** | `tax4ValueIsForTotal` | تطبيق قيمة Tax4 | True: مبلغ إجمالي ثابت<br>False: مضروب في الكمية |
 
-#### حقول تضمين السعر {#Price-Inclusion-Fields}
+#### حقول تضمين السعر
 
 | اسم الحقل | حقل قاعدة البيانات | الوصف | تأثير الحساب |
 |------------|------------------|-------|-------------|
@@ -235,7 +235,7 @@ Discount Amount = Base Amount - (Base Amount × 100) ÷ (100 + Tax Percentage)
 | **Price Includes Tax 3** | `priceIncludesTax3` | Tax3 ضمن السعر المعروض | True: تُستخرج الضريبة من السعر<br>False: تُضاف الضريبة إلى السعر |
 | **Price Includes Tax 4** | `priceIncludesTax4` | Tax4 ضمن السعر المعروض | True: تُستخرج الضريبة من السعر<br>False: تُضاف الضريبة إلى السعر |
 
-#### حقول تضمين الإجمالي {#Total-Inclusion-Fields}
+#### حقول تضمين الإجمالي
 
 | اسم الحقل | حقل قاعدة البيانات | الوصف | تأثير إجمالي الفاتورة |
 |------------|------------------|-------|---------------------|
@@ -244,11 +244,11 @@ Discount Amount = Base Amount - (Base Amount × 100) ÷ (100 + Tax Percentage)
 | **Tax 3 Not Included In Total** | `tax3NotIncludedInTotal` | استبعاد Tax3 من الإجمالي | True: لا تُضاف إلى إجمالي الفاتورة<br>False: تُضاف إلى إجمالي الفاتورة |
 | **Tax 4 Not Included In Total** | `tax4NotIncludedInTotal` | استبعاد Tax4 من الإجمالي | True: لا تُضاف إلى إجمالي الفاتورة<br>False: تُضاف إلى إجمالي الفاتورة |
 
-### الضريبة كإضافة أو خصم {#Tax-as-Addition-vs-Deduction}
+### الضريبة كإضافة أو خصم
 
 يحدد النظام ما إذا كانت الضريبة تُضاف إلى إجمالي الفاتورة أو تُطرح منه بناءً على حقل `tax[N]IsDiscount`:
 
-#### عندما تُضاف الضريبة إلى الإجمالي (ضريبة قياسية) {#When-Tax-Adds-to-Total-Standard-Tax}
+#### عندما تُضاف الضريبة إلى الإجمالي (ضريبة قياسية)
 - **إعداد الحقل**: `tax[N]IsDiscount = false`
 - **الحساب**: `New Total = Base Amount + Tax Amount`
 - **حالة الاستخدام**: ضريبة القيمة المضافة (VAT)، ضريبة المبيعات (GST)
@@ -259,7 +259,7 @@ Discount Amount = Base Amount - (Base Amount × 100) ÷ (100 + Tax Percentage)
   Final Total: $100 + $15 = $115
   ```
 
-#### عندما تخفض الضريبة الإجمالي (ضريبة خصم) {#When-Tax-Reduces-Total-Discount-Tax}
+#### عندما تخفض الضريبة الإجمالي (ضريبة خصم)
 - **إعداد الحقل**: `tax[N]IsDiscount = true`
 - **الحساب**: `New Total = Base Amount - Tax Amount`
 - **حالة الاستخدام**: ضريبة الاستقطاع (Withholding Tax)، الخصومات، الحسومات
@@ -270,9 +270,9 @@ Discount Amount = Base Amount - (Base Amount × 100) ÷ (100 + Tax Percentage)
   Final Total: $100 - $5 = $95
   ```
 
-### طرق حساب الضرائب {#Tax-Calculation-Methods}
+### طرق حساب الضرائب
 
-#### الضرائب النسبية {#Percentage-Based-Taxes}
+#### الضرائب النسبية
 
 **ضريبة خارج السعر (تُضاف إلى السعر):**
 ```java
@@ -298,7 +298,7 @@ if (taxIsDiscount) {
 }
 ```
 
-#### الضرائب بقيمة ثابتة {#Value-Based-Taxes}
+#### الضرائب بقيمة ثابتة
 
 **الحساب بالوحدة:**
 ```java
@@ -314,13 +314,13 @@ if (taxIsValue && taxValueIsForTotal) {
 }
 ```
 
-## إعداد التأثيرات المتقدمة {#Advanced-Effects-Configuration}
+## إعداد التأثيرات المتقدمة
 
-### كيان TaxDiscountEffectsConfig {#TaxDiscountEffectsConfig-Entity}
+### كيان TaxDiscountEffectsConfig
 
 يشير حقل `effectsConfig` في TaxConfiguration إلى كيان `TaxDiscountEffectsConfig` الذي يوفر تحكماً كاملاً في تسلسل الحساب:
 
-#### إعداد ترتيب التأثيرات {#Effects-Order-Configuration}
+#### إعداد ترتيب التأثيرات
 
 | اسم الحقل | حقل قاعدة البيانات | الوصف |
 |------------|------------------|-------|
@@ -333,7 +333,7 @@ if (taxIsValue && taxValueIsForTotal) {
 | **Effect 13 Type** | `effect13Type` | نوع التأثير الثالث عشر |
 | **Effect 13 Basis Lines** | `effect13BasisLines` | قواعد الحساب للتأثير 13 |
 
-#### إعداد سطر أساس التأثير {#Effect-Basis-Line-Configuration}
+#### إعداد سطر أساس التأثير
 
 يحتوي كل سطر أساس تأثير على:
 
@@ -343,7 +343,7 @@ if (taxIsValue && taxValueIsForTotal) {
 | **Source Value** | الجانب المحدد من المصدر (Value, AfterValue, Percentage) | يحدد القيمة الدقيقة للاستخراج |
 | **Source Operation** | العملية الرياضية (Add, Subtract, Multiply, Divide, CalcPercentage, CalcInversePercentage) | كيفية تطبيق القيمة |
 
-### العمليات الحسابية المخصصة {#Custom-Calculation-Operations}
+### العمليات الحسابية المخصصة
 
 يدعم النظام هذه العمليات لحسابات التأثيرات المخصصة:
 
@@ -356,15 +356,15 @@ if (taxIsValue && taxValueIsForTotal) {
 | **CalcPercentage** | `(total × value) ÷ 100` | حسابات النسبة المئوية |
 | **CalcInversePercentage** | `total - (total ÷ ((100 + value) ÷ 100))` | استخراج الضريبة الشاملة |
 
-## خيارات الإعداد الخاصة {#Special-Configuration-Options}
+## خيارات الإعداد الخاصة
 
-### معالجة الأصناف المجانية {#Free-Item-Handling}
+### معالجة الأصناف المجانية
 
 | اسم الحقل | حقل قاعدة البيانات | الوصف | التأثير |
 |------------|------------------|-------|---------|
 | **No Taxes For Free Item** | `noTaxesForFreeItem` | تعطيل الضرائب على الأصناف المجانية | تصبح جميع الضرائب صفراً للسطور المحددة كمجانية |
 
-### استخدام القيمة الإضافية {#Additional-Value-Usage}
+### استخدام القيمة الإضافية
 
 تتحكم هذه الحقول في إضافة نسب الضريبة كقيم إضافية لإجماليات السطور:
 
@@ -375,7 +375,7 @@ if (taxIsValue && taxValueIsForTotal) {
 | **Do Not Use Tax3 Percentage As Additional Value3** | `doNotUseTax3PercentageAsAdditionalValue3` | تُضاف نسبة Tax3 إلى إجمالي السطر |
 | **Do Not Use Tax4 Percentage As Additional Value4** | `doNotUseTax4PercentageAsAdditionalValue4` | تُضاف نسبة Tax4 إلى إجمالي السطر |
 
-### إعفاءات الضريبة لحسابات الموازنة {#Subsidiary-Account-Tax-Exemptions}
+### إعفاءات الضريبة لحسابات الموازنة
 
 يمكن إعداد إعفاءات ضريبية للعملاء والموردين في حسابات موازنتهم:
 
@@ -386,9 +386,9 @@ if (taxIsValue && taxValueIsForTotal) {
 | **Tax 3 Exempt** | `subsidiaryAccounts.tax3Exempt` | عند التفعيل، تصبح Tax3 صفراً لهذه الجهة |
 | **Tax 4 Exempt** | `subsidiaryAccounts.tax4Exempt` | عند التفعيل، تصبح Tax4 صفراً لهذه الجهة |
 
-## سيناريوهات وأمثلة شائعة {#Common-Scenarios-and-Examples}
+## سيناريوهات وأمثلة شائعة
 
-### السيناريو 1: ضريبة القيمة المضافة القياسية مع خصم تجاري {#Scenario-1-Standard-VAT-with-Trade-Discount}
+### السيناريو 1: ضريبة القيمة المضافة القياسية مع خصم تجاري
 
 **الإعداد:**
 - `discount1ApplyType`: TotalPrice
@@ -405,7 +405,7 @@ VAT (15%): $135
 Final Total: $900 + $135 = $1,035
 ```
 
-### السيناريو 2: تسعير شامل للضريبة مع خصم {#Scenario-2-Tax-Inclusive-Pricing-with-Discount}
+### السيناريو 2: تسعير شامل للضريبة مع خصم
 
 **الإعداد:**
 - `priceIncludesTax`: true
@@ -424,7 +424,7 @@ Final VAT: $135
 Final Total: $1,035
 ```
 
-### السيناريو 3: إعداد ضريبة الاستقطاع {#Scenario-3-Withholding-Tax-Configuration}
+### السيناريو 3: إعداد ضريبة الاستقطاع
 
 **الإعداد:**
 - `tax3IsDiscount`: true (يجعلها خصماً)
@@ -440,7 +440,7 @@ Withholding (5%): $50 (deducted)
 Final Total: $1,150 - $50 = $1,100
 ```
 
-### السيناريو 4: ترتيب تأثيرات معقد {#Scenario-4-Complex-Effects-Order}
+### السيناريو 4: ترتيب تأثيرات معقد
 
 **الإعداد باستخدام TaxDiscountEffectsConfig:**
 ```
@@ -461,9 +461,9 @@ After Header Discount: $958.25
 After Withholding: $958.25 - $28.75 = $929.50
 ```
 
-## أفضل ممارسات الإعداد {#Configuration-Best-Practices}
+## أفضل ممارسات الإعداد
 
-### إعداد خطط الضريبة {#Setting-Up-Tax-Plans}
+### إعداد خطط الضريبة
 
 1. **إنشاء خطط ضريبة أساسية**
    - تعيين `defaultTaxConfig` للتحكم في مصدر الإعداد
@@ -480,7 +480,7 @@ After Withholding: $958.25 - $28.75 = $929.50
    - تعيين `tax[N]ApplyType` لحساب الأساس الصحيح
    - استخدام `effectsConfig` للتسلسلات المعقدة
 
-### إرشادات إعداد الخصم {#Discount-Configuration-Guidelines}
+### إرشادات إعداد الخصم
 
 1. **الخصومات التسلسلية**
    - إعداد `discount[N]ApplyType` للخصومات المتدرجة
@@ -492,7 +492,7 @@ After Withholding: $958.25 - $28.75 = $929.50
    - استخدام القيمة الثابتة للخصومات المحددة
    - استخدام النسبة المئوية للخصومات النسبية
 
-### التحقق من صحة إعداد الضريبة {#Tax-Configuration-Validation}
+### التحقق من صحة إعداد الضريبة
 
 قبل نشر إعدادات الضريبة:
 
@@ -508,25 +508,25 @@ After Withholding: $958.25 - $28.75 = $929.50
    - تأكيد أن `effectsOrder` ينتج النتائج المتوقعة
    - الاختبار ببيانات نموذجية تغطي جميع السيناريوهات
 
-## دليل استكشاف الأخطاء وإصلاحها {#Troubleshooting-Guide}
+## دليل استكشاف الأخطاء وإصلاحها
 
-### مشكلات الإعداد الشائعة {#Common-Configuration-Issues}
+### مشكلات الإعداد الشائعة
 
-#### المشكلة: إضافة الضريبة بدلاً من خصمها {#Issue-Tax-Being-Added-Instead-of-Deducted}
+#### المشكلة: إضافة الضريبة بدلاً من خصمها
 
 **تحقق من هذه الحقول:**
 - `tax[N]IsDiscount`: يجب أن يكون `true` للخصومات
 - `tax[N]Location`: التحقق من نقطة الحساب
 - `effectsConfig`: التحقق مما إذا كان التسلسل المخصص يتجاوز الإعدادات
 
-#### المشكلة: قاعدة خصم غير صحيحة {#Issue-Incorrect-Discount-Base}
+#### المشكلة: قاعدة خصم غير صحيحة
 
 **تحقق من هذه الحقول:**
 - `discount[N]ApplyType`: التحقق من اختيار القيمة الأساسية
 - `discount[N].considerTax[N]`: التحقق من مراعاة الضريبة
 - `effectsConfig`: مراجعة قواعد الحساب المخصصة
 
-#### المشكلة: الضريبة لا تظهر في الإجمالي {#Issue-Tax-Not-Appearing-in-Total}
+#### المشكلة: الضريبة لا تظهر في الإجمالي
 
 **تحقق من هذه الحقول:**
 - `tax[N]NotIncludedInTotal`: يجب أن يكون `false` للتضمين
@@ -534,7 +534,7 @@ After Withholding: $958.25 - $28.75 = $929.50
 - `noInvoiceTaxesWithThisPolicy`: يجب أن يكون `false` لـ Tax3/Tax4
 - `tax[N]Exempt` للعميل/المورد: التحقق من علامات الإعفاء
 
-#### المشكلة: تطبيق معدل ضريبة خاطئ {#Issue-Wrong-Tax-Rate-Applied}
+#### المشكلة: تطبيق معدل ضريبة خاطئ
 
 **تحقق من ترتيب الحل:**
 1. خطة ضريبة الرأس مع الشركة والتاريخ المطابقين
@@ -542,7 +542,7 @@ After Withholding: $958.25 - $28.75 = $929.50
 3. الإعداد الافتراضي العام
 4. التحقق من إعداد `priorityPolicyOverCusOrSup`
 
-### قواعد التحقق {#Validation-Rules}
+### قواعد التحقق
 
 يُطبِّق النظام قواعد التحقق التالية:
 
@@ -559,9 +559,9 @@ After Withholding: $958.25 - $28.75 = $929.50
    - لا يُسمح بنطاقات تواريخ متداخلة لنفس الجهة
    - يجب أن تكون تواريخ السريان منطقية ومتسقة
 
-## اعتبارات الأداء {#Performance-Considerations}
+## اعتبارات الأداء
 
-### إرشادات التحسين {#Optimization-Guidelines}
+### إرشادات التحسين
 
 1. **تقليل تعقيد إعداد التأثيرات**
    - استخدم مواضع التأثيرات الضرورية فقط
@@ -582,13 +582,13 @@ After Withholding: $958.25 - $28.75 = $929.50
 اختبر دائماً تغييرات الإعداد في بيئة التطوير قبل تطبيقها على أنظمة الإنتاج. يمكن أن تُفضي التفاعلات المعقدة بين الخصومات والضرائب إلى نتائج غير متوقعة، خاصةً عند استخدام إعدادات التأثيرات المخصصة.
 :::
 
-## المقارنة مع أنظمة ERP الأخرى {#Comparison-with-Other-ERP-Systems}
+## المقارنة مع أنظمة ERP الأخرى
 
-### Nama ERP مقارنةً بأنظمة ERP الرئيسية الأخرى {#Nama-ERP-vs-Other-Major-ERP-Systems}
+### Nama ERP مقارنةً بأنظمة ERP الرئيسية الأخرى
 
 يساعد فهم مقارنة نظام الخصومات والضرائب في Nama ERP بأنظمة ERP الرئيسية الأخرى على تقدير قدراته الفريدة وفلسفته التصميمية.
 
-#### Nama ERP مقارنةً بـ Odoo {#Nama-ERP-vs-Odoo}
+#### Nama ERP مقارنةً بـ Odoo
 
 | الميزة | Nama ERP | Odoo |
 |--------|----------|------|
@@ -612,7 +612,7 @@ After Withholding: $958.25 - $28.75 = $929.50
 - وحدات مجتمعية أكثر شمولاً
 - إنشاء تقارير ضريبية أسهل عبر إعدادات الحسابات
 
-#### Nama ERP مقارنةً بـ Microsoft Dynamics 365 {#Nama-ERP-vs-Microsoft-Dynamics-365}
+#### Nama ERP مقارنةً بـ Microsoft Dynamics 365
 
 | الميزة | Nama ERP | Microsoft Dynamics 365 |
 |--------|----------|------------------------|
@@ -635,7 +635,7 @@ After Withholding: $958.25 - $28.75 = $929.50
 - تقارير مالية أكثر تطوراً
 - قدرات تحليلية وذكاء اصطناعي متقدمة
 
-#### Nama ERP مقارنةً بـ SAP (ECC/S4HANA) {#Nama-ERP-vs-SAP-ECCS4HANA}
+#### Nama ERP مقارنةً بـ SAP (ECC/S4HANA)
 
 | الميزة | Nama ERP | SAP |
 |--------|----------|-----|
@@ -659,7 +659,7 @@ After Withholding: $958.25 - $28.75 = $929.50
 - قدرات تكامل واسعة
 - إجراءات تسعير أكثر تطوراً
 
-#### Nama ERP مقارنةً بـ Oracle EBS (E-Business Suite) {#Nama-ERP-vs-Oracle-EBS-E-Business-Suite}
+#### Nama ERP مقارنةً بـ Oracle EBS (E-Business Suite)
 
 | الميزة | Nama ERP | Oracle EBS |
 |--------|----------|------------|
@@ -682,9 +682,9 @@ After Withholding: $958.25 - $28.75 = $929.50
 - تقارير ضريبية ومطابقة متقدمة
 - تكامل أعمق مع سلسلة التوريد
 
-### الميزات الفريدة لـ Nama ERP {#Unique-Features-of-Nama-ERP}
+### الميزات الفريدة لـ Nama ERP
 
-#### ميزات نادراً ما تُوجد في أنظمة ERP الأخرى {#Features-Rarely-Found-in-Other-ERPs}
+#### ميزات نادراً ما تُوجد في أنظمة ERP الأخرى
 
 1. **ثمانية خصومات تسلسلية على السطر**
    - تحد معظم أنظمة ERP من 2-3 مستويات خصم
@@ -706,7 +706,7 @@ After Withholding: $958.25 - $28.75 = $929.50
    - حل ثلاثي المستويات: Header Plan → Line Plan → Global
    - مرونة مع قواعد أولوية واضحة
 
-#### متى تختار Nama ERP {#When-to-Choose-Nama-ERP}
+#### متى تختار Nama ERP
 
 **Nama ERP مثالي لـ:**
 - الشركات ذات هياكل الخصم المعقدة
@@ -715,7 +715,7 @@ After Withholding: $958.25 - $28.75 = $929.50
 - المؤسسات التي تتطلب إعداداً شفافاً على مستوى الحقول
 - الشركات ذات تسلسلات الحساب الفريدة
 
-### مقارنة الابتكار التقني {#Technical-Innovation-Comparison}
+### مقارنة الابتكار التقني
 
 | الجانب | نهج Nama ERP | المعيار الصناعي |
 |--------|-------------|----------------|
@@ -726,7 +726,7 @@ After Withholding: $958.25 - $28.75 = $929.50
 | **طريقة التخصيص** | الإعداد على حساب التخصيص | نهج كثيف التخصيص |
 | **منحنى التعلم** | معتدل - حقول كثيرة لكن منطقية | متفاوت - يتطلب خبرة تقنية في الغالب |
 
-### اعتبارات الترحيل {#Migration-Considerations}
+### اعتبارات الترحيل
 
 عند الترحيل من أنظمة ERP الأخرى إلى Nama ERP:
 
@@ -750,7 +750,7 @@ After Withholding: $958.25 - $28.75 = $929.50
 - عيِّن أنظمة الضريبة إلى Tax Plans مع الشركات
 - بسِّط ضريبة الاستقطاع إلى taxIsDiscount flags
 
-## ملخص {#Summary}
+## ملخص
 
 يوفر نظام حساب خصومات الفواتير والضرائب في Nama ERP مرونة واسعة من خلال:
 

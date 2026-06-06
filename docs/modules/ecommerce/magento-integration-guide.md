@@ -1,33 +1,33 @@
-# دليل تكامل التجارة الإلكترونية مع Nama ERP {#Nama-ERP-E-Commerce-Integration-Guide}
+# دليل تكامل التجارة الإلكترونية مع Nama ERP
 
-## جدول المحتويات {#Table-of-Contents}
+## جدول المحتويات
 
-1. [مقدمة](#introduction)
-2. [نظرة عامة على الوحدة](#module-overview)
-3. [منصات التجارة الإلكترونية المدعومة](#supported-e-commerce-platforms)
-4. [الكيانات الأساسية](#core-entities)
-   - [MAGMagentoSite](#magmagentosite)
-   - [MagentoItemLinker](#magentoitemlinker)
-   - [MagentoPriceUpdaterDoc](#magentopriceupdaterdoc)
-   - [EcommerceProductConfig](#ecommerceproductconfig)
-   - [EcommerceCategoryConfig](#ecommercecategoryconfig)
-5. [سير عمل التكامل](#integration-workflows)
-6. [دليل الإعداد](#configuration-guide)
-7. [البنية التقنية](#technical-architecture)
-   - [معالجة Webhook](#webhook-processing)
-   - [مزامنة البيانات](#data-synchronization)
-   - [معالجة الأخطاء](#error-handling)
-8. [استكشاف الأخطاء وإصلاحها](#troubleshooting)
-9. [الدعم الفني](#technical-support)
-10. [الملاحق](#appendix)
+1. [مقدمة](#mqdm)
+2. [نظرة عامة على الوحدة](#nZr-aam-aal-lwHd)
+3. [منصات التجارة الإلكترونية المدعومة](#mnSt-ltjr-llktrwny-lmdaawm)
+4. [الكيانات الأساسية](#lkynt-lssy)
+   - [MAGMagentoSite](#MAGMagentoSite)
+   - [MagentoItemLinker](#MagentoItemLinker)
+   - [MagentoPriceUpdaterDoc](#MagentoPriceUpdaterDoc)
+   - [EcommerceProductConfig](#EcommerceProductConfig)
+   - [EcommerceCategoryConfig](#EcommerceCategoryConfig)
+5. [سير عمل التكامل](#syr-aaml-ltkml)
+6. [دليل الإعداد](#dlyl-laadd)
+7. [البنية التقنية](#lbny-ltqny)
+   - [معالجة Webhook](#maalj-Webhook)
+   - [مزامنة البيانات](#mzmn-lbynt)
+   - [معالجة الأخطاء](#maalj-lkhT)
+8. [استكشاف الأخطاء وإصلاحها](#stkshf-khT-GraphQL)
+9. [الدعم الفني](#ldaam-lfny)
+10. [الملاحق](#lmlHq)
 
 ---
 
-## مقدمة {#introduction}
+## مقدمة
 
 توفر وحدة تكامل التجارة الإلكترونية في Nama ERP ربطاً سلساً بين Nama ERP ومنصات التجارة الإلكترونية المختلفة. يغطي هذا الدليل الشامل الإعداد والتهيئة وإدارة تكاملات التجارة الإلكترونية للمستخدمين النهائيين وفريق الدعم الفني.
 
-### الفوائد الرئيسية {#Key-Benefits}
+### الفوائد الرئيسية
 
 - **دعم متعدد المنصات**: الاتصال بـ Magento وShopify وSalla وBigCommerce وZid وWooCommerce وأطر التجارة الإلكترونية المخصصة
 - **مزامنة فورية**: مزامنة تلقائية للمنتجات والأسعار والمخزون والطلبات
@@ -36,7 +36,7 @@
 
 ---
 
-## نظرة عامة على الوحدة {#Module-Overview}
+## نظرة عامة على الوحدة
 
 **معلومات الوحدة:**
 - **الاسم العربي**: Magento Integration
@@ -54,11 +54,11 @@
 
 ---
 
-## منصات التجارة الإلكترونية المدعومة {#Supported-E-Commerce-Platforms}
+## منصات التجارة الإلكترونية المدعومة
 
 تدعم وحدة التكامل المنصات التالية:
 
-### المنصات الأساسية {#Primary-Platforms}
+### المنصات الأساسية
 - **Magento** (الإصداران 1.x و2.x)
 - **Shopify**
 - **Salla**
@@ -66,15 +66,15 @@
 - **Zid**
 - **WooCommerce**
 
-### منصات الشحن والخدمات اللوجستية {#Shipping--Logistics-Platforms}
+### منصات الشحن والخدمات اللوجستية
 - **OTO** - تكامل منصة الخدمات اللوجستية لمزامنة كميات المخزون
 
-### المنصات المخصصة {#Custom-Platforms}
+### المنصات المخصصة
 تتيح البنية المرنة للوحدة التكامل مع أي إطار تجارة إلكترونية مخصص من خلال واجهات API وwebhooks قابلة للتهيئة.
 
 ---
 
-## الكيانات الأساسية {#Core-Entities}
+## الكيانات الأساسية
 
 ### MAGMagentoSite
 
@@ -85,34 +85,34 @@
 
 كيان MAGMagentoSite هو المحور الرئيسي لإعداد تكاملات التجارة الإلكترونية. يحدد معاملات الاتصال وإعدادات المزامنة وقواعد الأعمال لكل موقع تجارة إلكترونية مرتبط.
 
-#### مناطق الإعداد الرئيسية {#Key-Configuration-Areas}
+#### مناطق الإعداد الرئيسية
 
-##### إعدادات الاتصال {#Connection-Settings}
+##### إعدادات الاتصال
 - **URL**: رابط موقع التجارة الإلكترونية
 - **Username/Password**: بيانات المصادقة
 - **إعدادات Gateway**: Client ID وClient Secret وGateway URL لـ OAuth
 - **إعداد API**: نقاط نهاية REST API أو GraphQL
 - **إعداد Webhook**: رابط Webhook والمفتاح السري للتحديثات الفورية
 
-##### سلوك التكامل {#Integration-Behavior}
+##### سلوك التكامل
 - **نوع الموقع**: نوع المنصة (Magento، Shopify، Salla، إلخ)
 - **اسم المكامل**: معرّف التكامل المخصص
 - **قدرات التحديث**: التحكم في البيانات التي يمكن مزامنتها
 - **تكرار المزامنة**: مدى تكرار مزامنة البيانات
 
-##### معالجة الطلبات {#Order-Processing}
+##### معالجة الطلبات
 - **إعدادات استيراد الطلبات**: تهيئة كيفية استيراد الطلبات من منصة التجارة الإلكترونية
 - **إنشاء المستندات**: إنشاء تلقائي لمستندات المبيعات
 - **إنشاء العملاء**: إنشاء عملاء تلقائياً إذا لم يكونوا موجودين
 - **تعيين طرق الدفع**: ربط طرق دفع التجارة الإلكترونية بأنواع الدفع في Nama
 
-##### مزامنة المنتجات {#Product-Synchronization}
+##### مزامنة المنتجات
 - **إعدادات مزامنة الأصناف**: التحكم في مزامنة بيانات المنتجات
 - **إعداد تحديث الأسعار**: إدارة مزامنة الأسعار
 - **إدارة المخزون**: مزامنة مستويات المخزون
 - **تحديثات حالة المنتج**: إدارة حالة النشاط/عدم النشاط
 
-#### مجموعات التفاصيل {#Detail-Collections}
+#### مجموعات التفاصيل
 
 يتضمن كيان MAGMagentoSite عدة مجموعات تفاصيل للإعداد الدقيق:
 
@@ -160,36 +160,36 @@
     - استعلام SQL للعثور على الأصناف الخدمية الأصلية التي يجب تحديث كميتها
     - يتيح تتبع الكميات لمنتجات الحزم من نوع الخدمة
 
-#### الإجراءات المتاحة {#Available-Actions}
+#### الإجراءات المتاحة
 
 يوفر كيان MAGMagentoSite إجراءات عديدة لإدارة تكامل التجارة الإلكترونية:
 
-##### إدارة المبيعات والطلبات {#Sales-and-Order-Management}
+##### إدارة المبيعات والطلبات
 - **Read Sales**: استيراد طلبات المبيعات من منصة التجارة الإلكترونية
 - **Read Sales From Date**: استيراد طلبات المبيعات من تاريخ محدد
 - **Read Returns**: استيراد طلبات الإرجاع
 - **ReRead Selected Orders**: إعادة محاولة استيراد طلبات محددة
 
-##### إدارة المخزون {#Inventory-Management}
+##### إدارة المخزون
 - **Update All Qtys**: مزامنة جميع كميات المخزون
 - **Retry Selected Lines**: إعادة محاولة طلبات تحديث الكمية الفاشلة
 - **Delete Finished Requests**: حذف طلبات المزامنة المكتملة
 
-##### إدارة الأسعار {#Price-Management}
+##### إدارة الأسعار
 - **Price Retry Selected Lines**: إعادة محاولة طلبات تحديث الأسعار الفاشلة
 - **Delete Finished Price Requests**: حذف طلبات مزامنة الأسعار المكتملة
 
-##### إدارة الأصناف {#Item-Management}
+##### إدارة الأصناف
 - **Item Retry Selected Lines**: إعادة محاولة طلبات تحديث الصنف الفاشلة
 - **Delete Item Entries**: إزالة إدخالات مزامنة الأصناف
 - **Delete Finished Item Requests**: حذف طلبات مزامنة الأصناف المكتملة
 
-##### إجراءات خاصة بالمنصة {#Platform-Specific-Actions}
+##### إجراءات خاصة بالمنصة
 - **Read Salla Access Token**: استرداد رمز وصول منصة Salla
 - **Request Token**: طلب رمز مصادقة من المنصة
 - **Register Webhooks**: إعداد إشعارات Webhook
 
-##### إجراءات الصيانة {#Maintenance-Actions}
+##### إجراءات الصيانة
 - **Delete Error**: إزالة إدخالات الأخطاء
 - **Delete Requests**: حذف طلبات المزامنة
 
@@ -202,18 +202,18 @@
 
 يُنشئ كيان MagentoItemLinker الرابط الحيوي بين أصناف Nama ERP ومنتجات منصة التجارة الإلكترونية. يدير تعيينات المنتجات ويضمن تناسق البيانات عبر الأنظمة.
 
-#### الحقول الرئيسية {#Key-Fields}
+#### الحقول الرئيسية
 
-##### المعلومات الأساسية {#Basic-Information}
+##### المعلومات الأساسية
 - **الكود**: معرّف فريد للرابط
 - **موقع Magento**: مرجع إلى موقع التجارة الإلكترونية المرتبط
 - **حقول الوصف**: حقول وصف متعددة للرجوع الداخلي
 
-##### إعداد الربط {#Linking-Configuration}
+##### إعداد الربط
 - **الفرع/القسم/القطاع**: تصنيف تنظيمي
 - **الشركة**: ارتباط الشركة/الكيان القانوني
 
-#### مجموعات التفاصيل {#Detail-Collections-MIL}
+#### مجموعات التفاصيل
 
 1. **التفاصيل** (`details`)
    - يحتوي على تعيينات الصنف إلى المنتج الفعلية
@@ -229,26 +229,26 @@
 
 كيان MagentoPriceUpdaterDoc هو نظام قائم على المستندات لإدارة تحديثات الأسعار إلى منصات التجارة الإلكترونية. يوفر قدرات معالجة الدُفعات لمزامنة الأسعار.
 
-#### الميزات الرئيسية {#Key-Features-MPUD}
+#### الميزات الرئيسية
 
-##### رأس المستند {#Document-Header}
+##### رأس المستند
 - **حقول المستند القياسية**: رقم المستند والتاريخ وسير عمل الاعتماد
 - **مرجع موقع Magento**: ربط بإعداد موقع تجارة إلكترونية محدد
 - **التكامل المالي**: يدعم التكامل المحاسبي لتغييرات الأسعار
 - **معلومات العميل**: يمكن أن يتضمن سياق تسعير خاص بالعميل
 
-##### ميزات التسعير المتقدمة {#Advanced-Pricing-Features}
+##### ميزات التسعير المتقدمة
 - **دعم العملات المتعددة**: التعامل مع عملات مختلفة
 - **إدارة الخصومات**: هياكل خصم معقدة
 - **تكامل الضرائب**: حساب الضريبة ومزامنتها
 - **تصنيف الأسعار**: دعم مستويات أسعار مختلفة
 
-##### التوصيل والخدمات اللوجستية {#Delivery-and-Logistics}
+##### التوصيل والخدمات اللوجستية
 - **تكامل الشحن**: حقول إدارة التوصيل
 - **تتبع الموقع**: إدارة عناوين الفوترة والشحن
 - **جدولة التوصيل**: خيارات التوصيل المستند إلى الوقت
 
-#### مجموعات التفاصيل {#Detail-Collections-MPUD}
+#### مجموعات التفاصيل
 
 1. **التفاصيل** (`details`)
    - يحتوي على بنود تحديث الأسعار الفردية
@@ -264,23 +264,23 @@
 
 يوفر كيان EcommerceProductConfig إعداداً تفصيلياً على مستوى المنتج لتكامل التجارة الإلكترونية. يدير الإعدادات الخاصة بالمنتج وخصائصه وخيارات العرض.
 
-#### مناطق الإعداد الرئيسية {#Key-Configuration-Areas-EPC}
+#### مناطق الإعداد الرئيسية
 
-##### تعريف المنتج {#Product-Identification}
+##### تعريف المنتج
 - **SKU**: معرّف وحدة حفظ المخزون
 - **مرجع الصنف**: ربط بصنف Nama ERP
 - **موقع Magento**: موقع التجارة الإلكترونية المرتبط
 - **نوع المنتج**: نوع المنتج (بسيط، قابل للتهيئة، إلخ)
 
-##### تسلسل هرمي للمنتج {#Product-Hierarchy}
+##### تسلسل هرمي للمنتج
 - **المنتج الأصلي**: لتباينات المنتج والحزم
 - **معرّف مجموعة السمات**: إعداد مجموعة سمات Magento
 
-##### إدارة الطلبات {#Request-Management}
+##### إدارة الطلبات
 - **آخر طلب مُرسل**: تتبع آخر محاولة مزامنة
 - **حالة الطلب**: حالة المزامنة الحالية
 
-#### مجموعات التفاصيل {#Detail-Collections-EPC}
+#### مجموعات التفاصيل
 
 1. **سطور الفئات** (`categoryLines`)
    - يدير تعيينات فئات المنتج
@@ -311,18 +311,18 @@
 
 يدير كيان EcommerceCategoryConfig إعدادات وتهيئات مستوى الفئة لمنصات التجارة الإلكترونية. يوفر التحكم في كيفية هيكلة فئات المنتجات وعرضها.
 
-#### الميزات الرئيسية {#Key-Features-ECC}
+#### الميزات الرئيسية
 
-##### إدارة الفئات {#Category-Management}
+##### إدارة الفئات
 - **الكود**: معرّف فريد للفئة
 - **موقع Magento**: موقع التجارة الإلكترونية المرتبط
 - **التسلسل الهرمي للفئات**: علاقات الفئة الأصلية والفرعية
 
-##### إعدادات التهيئة {#Configuration-Settings}
+##### إعدادات التهيئة
 - **حقول الملف الرئيسي القياسية**: خيارات إعداد شائعة
 - **أوصاف مخصصة**: حقول وصف متعددة لمعلومات الفئة
 
-#### مجموعات التفاصيل {#Detail-Collections-ECC}
+#### مجموعات التفاصيل
 
 1. **السطور** (`lines`)
    - **الاسم العربي**: التفاصيل
@@ -331,9 +331,9 @@
 
 ---
 
-## سير عمل التكامل {#Integration-Workflows}
+## سير عمل التكامل
 
-### 1. سير عمل الإعداد الأولي {#1-Initial-Setup-Workflow}
+### 1. سير عمل الإعداد الأولي
 
 1. **إنشاء إعداد MAGMagentoSite**
    - تهيئة إعدادات الاتصال (URL، بيانات الاعتماد)
@@ -354,7 +354,7 @@
    - إعداد فئات المنتجات باستخدام EcommerceCategoryConfig
    - تهيئة سمات المنتج والمعارض
 
-### 2. سير عمل معالجة الطلبات {#2-Order-Processing-Workflow}
+### 2. سير عمل معالجة الطلبات
 
 1. **استيراد الطلبات**
    - يقرأ النظام الطلبات من منصة التجارة الإلكترونية
@@ -370,7 +370,7 @@
    - تتم مزامنة تغييرات حالة الطلب في Nama ERP مع منصة التجارة الإلكترونية
    - يتم التعامل مع تحديثات حالة الشحن والوفاء بالطلبات تلقائياً
 
-### 3. سير عمل مزامنة المخزون {#3-Inventory-Synchronization-Workflow}
+### 3. سير عمل مزامنة المخزون
 
 1. **تغييرات المخزون في Nama ERP**
    - تُطلق حركات المخزون طلبات المزامنة
@@ -384,15 +384,15 @@
    - تُطلق أحداث Webhook من منصة التجارة الإلكترونية تحديثات فورية
    - تتم مزامنة مستويات المخزون الحرجة في الوقت الفعلي
 
-### 4. مزامنة كميات الحزم والأصناف الخدمية {#4-Bundle-and-Service-Items-Quantity-Synchronization}
+### 4. مزامنة كميات الحزم والأصناف الخدمية
 
 يدعم النظام الآن تتبعاً متقدماً للكميات لمنتجات الحزم من نوع الخدمة من خلال ميزة **Related Parent Service Items Query For Qty Update**.
 
-#### فهم التحدي {#Understanding-the-Challenge}
+#### فهم التحدي
 
 لا تتبع الأصناف الخدمية في Nama ERP الكميات عادةً لأنها تمثل منتجات غير مادية (كالضمانات والتركيبات والحزم). ومع ذلك، في منصات التجارة الإلكترونية، قد تمثل هذه الأصناف الخدمية حزم منتجات تحتاج إلى تتبع الكميات بناءً على مكوناتها المادية.
 
-#### حالة الاستخدام الشائعة: تجزئة الأثاث {#Common-Use-Case-Furniture-Retail}
+#### حالة الاستخدام الشائعة: تجزئة الأثاث
 
 قد يمتلك بائع أثاث بالتجزئة:
 - **الأصناف المادية**:
@@ -405,7 +405,7 @@
   - طقم غرفة النوم الرئيسية (SKU: ROOM-MASTER) - يحتوي على سرير كبير و2 طاولة سرير وخزانة ملابس
   - طقم غرفة النوم الضيافة (SKU: ROOM-GUEST) - يحتوي على سرير متوسط وطاولة سرير
 
-#### الإعداد {#Configuration-Bundles}
+#### الإعداد
 
 لتفعيل تتبع الكمية لحزم الخدمات، هيّئ حقل `relatedParentServiceItemsQueryForQtyUpdate` باستعلام SQL يُرجع الأصناف الخدمية الأصلية عند تغيير كمية أحد المكونات.
 
@@ -422,7 +422,7 @@ WHERE bundle.component_id = {item.id}
 ::: tip 
 Any field accessible from the `ItemDimensionsQty` object is available to the query
 ::: 
-#### آلية العمل {#How-It-Works}
+#### آلية العمل
 
 1. **تغيير كمية الصنف المادي**: عند تغيير كمية صنف مادي (مثلاً تحديث مخزون السرير الكبير)
 
@@ -436,7 +436,7 @@ Any field accessible from the `ItemDimensionsQty` object is available to the que
 4. **مزامنة التجارة الإلكترونية**: يتم تحديث توفر حزمة الخدمات على منصة التجارة الإلكترونية بناءً على توفر المكونات
 
 
-### 5. سير عمل إدارة الأسعار {#5-Price-Management-Workflow}
+### 5. سير عمل إدارة الأسعار
 
 1. **تحديثات الأسعار**
    - إنشاء MagentoPriceUpdaterDoc لتحديثات الأسعار الدُفعية
@@ -450,11 +450,11 @@ Any field accessible from the `ItemDimensionsQty` object is available to the que
 
 ---
 
-## دليل الإعداد {#Configuration-Guide}
+## دليل الإعداد
 
-### إعداد موقع تجارة إلكترونية جديد {#Setting-Up-a-New-E-Commerce-Site}
+### إعداد موقع تجارة إلكترونية جديد
 
-#### الخطوة الأولى: إعداد الموقع الأساسي {#Step-1-Basic-Site-Configuration}
+#### الخطوة الأولى: إعداد الموقع الأساسي
 
 1. انتقل إلى **ims > Master Files > Magento Site**
 2. أنشئ سجل MAGMagentoSite جديداً
@@ -466,7 +466,7 @@ Any field accessible from the `ItemDimensionsQty` object is available to the que
    Site Type: [Platform type - Magento, Shopify, etc.]
    ```
 
-#### الخطوة الثانية: إعداد المصادقة {#Step-2-Authentication-Setup}
+#### الخطوة الثانية: إعداد المصادقة
 
 هيّئ المصادقة بناءً على منصتك:
 
@@ -498,7 +498,7 @@ Password: [API refresh token from OTO platform]
 Ecommerce Warehouse Lines: [Required - Map OTO location codes to Nama warehouses]
 ```
 
-#### الخطوة الثالثة: إعدادات المزامنة {#Step-3-Synchronization-Settings}
+#### الخطوة الثالثة: إعدادات المزامنة
 
 هيّئ البيانات المراد مزامنتها:
 
@@ -510,7 +510,7 @@ Max Orders Per Read: [Batch size for order processing]
 Update All Item Qtys: [Enable inventory sync]
 ```
 
-#### الخطوة الرابعة: إعداد قواعد الأعمال {#Step-4-Business-Rules-Configuration}
+#### الخطوة الرابعة: إعداد قواعد الأعمال
 
 إعداد قواعد الأعمال:
 
@@ -522,9 +522,9 @@ Put Coupon Discount To: [Where to apply coupon discounts]
 Put Header Discount In Line Discount: [Discount distribution]
 ```
 
-### تهيئة مزامنة المنتجات {#Configuring-Product-Synchronization}
+### تهيئة مزامنة المنتجات
 
-#### إعداد ربط الأصناف {#Item-Linking-Setup}
+#### إعداد ربط الأصناف
 
 1. إنشاء سجلات MagentoItemLinker
 2. في مجموعة التفاصيل، قم بتعيين:
@@ -532,7 +532,7 @@ Put Header Discount In Line Discount: [Discount distribution]
    - تباينات المنتج وخياراته
    - تعيينات السمات
 
-#### إعداد المنتج {#Product-Configuration}
+#### إعداد المنتج
 
 1. إنشاء سجلات EcommerceProductConfig لكل منتج
 2. التهيئة:
@@ -541,13 +541,13 @@ Put Header Discount In Line Discount: [Discount distribution]
    - السمات المخصصة وقيمها
    - إعدادات معرض الصور
 
-#### إعداد الفئات {#Category-Configuration}
+#### إعداد الفئات
 
 1. إنشاء سجلات EcommerceCategoryConfig
 2. إعداد التسلسل الهرمي للفئات
 3. تهيئة الإعدادات الخاصة بكل فئة
 
-### إعداد طرق الدفع {#Payment-Method-Configuration}
+### إعداد طرق الدفع
 
 1. في MAGMagentoSite، انتقل إلى مجموعة طرق الدفع
 2. أضف إدخالات للتعيين:
@@ -555,7 +555,7 @@ Put Header Discount In Line Discount: [Discount distribution]
    - طرق حساب الدفع
    - قواعد المعالجة الخاصة
 
-### إعداد الشحن {#Shipping-Configuration}
+### إعداد الشحن
 
 1. في MAGMagentoSite، انتقل إلى مجموعة أصناف الشحن
 2. التهيئة:
@@ -565,9 +565,9 @@ Put Header Discount In Line Discount: [Discount distribution]
 
 ---
 
-## البنية التقنية {#Technical-Architecture}
+## البنية التقنية
 
-### معالجة Webhook {#Webhook-Processing}
+### معالجة Webhook
 
 تستخدم وحدة تكامل التجارة الإلكترونية نظاماً متطوراً لمعالجة Webhook للتعامل مع الأحداث الفورية من المنصات المرتبطة.
 
@@ -598,9 +598,9 @@ run-ecommerce-webhook-in-debug=true
 read-ecommerce-webhook-events-page-size=300
 ```
 
-### مزامنة البيانات {#Data-Synchronization}
+### مزامنة البيانات
 
-#### المزامنة الفورية {#Real-Time-Synchronization}
+#### المزامنة الفورية
 
 تدعم الوحدة آليات مزامنة متعددة:
 
@@ -619,7 +619,7 @@ read-ecommerce-webhook-events-page-size=300
    - المعالجة الفورية للأحداث الحرجة (الطلبات، الإلغاءات)
    - تقليل الحمل على استطلاع API
 
-#### إدارة قائمة انتظار المزامنة {#Synchronization-Queue-Management}
+#### إدارة قائمة انتظار المزامنة
 
 يستخدم النظام قوائم انتظار داخلية لإدارة طلبات المزامنة:
 
@@ -633,9 +633,9 @@ read-ecommerce-webhook-events-page-size=300
 - رسائل الأخطاء للمحاولات الفاشلة
 - مراجع الكيانات المرتبطة
 
-### معالجة الأخطاء {#Error-Handling}
+### معالجة الأخطاء
 
-#### آليات استرداد الأخطاء {#Error-Recovery-Mechanisms}
+#### آليات استرداد الأخطاء
 
 1. **منطق إعادة المحاولة التلقائي**
    - التراجع الأسي للطلبات الفاشلة
@@ -652,7 +652,7 @@ read-ecommerce-webhook-events-page-size=300
    - "ReRead Orders" لأخطاء استيراد الطلبات
    - أدوات تنظيف الأخطاء
 
-#### أنواع الأخطاء وحلها {#Error-Types-and-Resolution}
+#### أنواع الأخطاء وحلها
 
 | نوع الخطأ | الأسباب الشائعة | خطوات الحل |
 |------------|--------------|------------------|
@@ -664,30 +664,30 @@ read-ecommerce-webhook-events-page-size=300
 
 ---
 
-### إدارة الأخطاء {#Error-Management}
+### إدارة الأخطاء
 
-#### عرض الأخطاء {#Viewing-Errors}
+#### عرض الأخطاء
 - استخدام سجلات أخطاء النظام لتحديد المشكلات المحددة
 - مراجعة طلبات المزامنة الفاشلة
 - التحقق من سجلات أحداث Webhook لمشكلات المزامنة الفورية
 
-#### تنظيف الأخطاء {#Cleaning-Up-Errors}
+#### تنظيف الأخطاء
 - استخدام إجراء "Delete Error" لإزالة إدخالات الأخطاء التي تم حلها
 - استخدام إجراءات "Delete Finished Requests" لتنظيف طلبات المزامنة المكتملة
 - الصيانة الدورية تمنع تراكم البيانات في النظام
 
-## الدعم الفني {#Technical-Support}
+## الدعم الفني
 
-### أدوات التشخيص {#Diagnostic-Tools}
+### أدوات التشخيص
 
-#### الإجراءات المتاحة لاستكشاف الأخطاء {#Available-Actions-for-Troubleshooting}
+#### الإجراءات المتاحة لاستكشاف الأخطاء
 
 1. **Read Sales**: اختبار وظيفة استيراد الطلبات
 2. **Update All Qtys**: إجبار مزامنة كاملة للمخزون
 3. **Request Token**: اختبار اتصال المصادقة
 4. **Register Webhooks**: التحقق من إعداد Webhook
 
-#### تحليل السجلات {#Log-Analysis}
+#### تحليل السجلات
 
 يحتفظ النظام بسجلات تفصيلية لـ:
 - طلبات API واستجاباتها
@@ -695,7 +695,7 @@ read-ecommerce-webhook-events-page-size=300
 - حالات الأخطاء ومحاولات الحل
 - مقاييس الأداء
 
-#### جمع معلومات الدعم {#Support-Information-Collection}
+#### جمع معلومات الدعم
 
 عند التواصل مع الدعم الفني، قدّم:
 
@@ -714,27 +714,27 @@ read-ecommerce-webhook-events-page-size=300
    - منتجات بها مشكلات مزامنة
    - لقطات شاشة للإعداد
 
-### أفضل الممارسات {#Best-Practices}
+### أفضل الممارسات
 
-#### الأمان {#Security}
+#### الأمان
 - تغيير مفاتيح API والرموز بشكل دوري
 - استخدام HTTPS لجميع اتصالات موقع التجارة الإلكترونية
 - تطبيق ضوابط الوصول المناسبة
 - مراقبة سجلات المصادقة
 
-#### الأداء {#Performance}
+#### الأداء
 - جدولة العمليات الجماعية خلال ساعات الذروة المنخفضة
 - مراقبة موارد النظام أثناء المزامنات الكبيرة
 - استخدام المزامنة التدريجية قدر الإمكان
 - صيانة دورية للطلبات المكتملة
 
-#### تكامل البيانات {#Data-Integrity}
+#### تكامل البيانات
 - التحقق الدوري من دقة المزامنة
 - تطبيق قواعد التحقق من صحة البيانات
 - مراقبة السجلات المكررة
 - الاحتفاظ بنسخ احتياطية من الإعدادات
 
-### معلومات الاتصال {#Contact-Information}
+### معلومات الاتصال
 
 للحصول على الدعم الفني:
 - مراجعة سجلات النظام ورسائل الخطأ
@@ -765,11 +765,11 @@ read-ecommerce-webhook-events-page-size=300
 
 ---
 
-## الملاحق {#Appendix}
+## الملاحق
 
-### أ. مرجع تعيينات الحقول {#A-Field-Mappings-Reference}
+### أ. مرجع تعيينات الحقول
 
-#### تعيينات حقول المنتج القياسية {#Standard-Product-Field-Mappings}
+#### تعيينات حقول المنتج القياسية
 
 | حقل Nama ERP | حقل التجارة الإلكترونية | نوع البيانات | ملاحظات |
 |----------------|------------------|-----------|-------|
@@ -783,7 +783,7 @@ read-ecommerce-webhook-events-page-size=300
 | Item.Barcode | Barcode/EAN | String | باركود المنتج |
 | Item.Active | Status | Boolean | حالة التفعيل/التعطيل |
 
-#### تعيينات حقول العميل {#Customer-Field-Mappings}
+#### تعيينات حقول العميل
 
 | حقل Nama ERP | حقل التجارة الإلكترونية | نوع البيانات | ملاحظات |
 |----------------|------------------|-----------|-------|
@@ -795,9 +795,9 @@ read-ecommerce-webhook-events-page-size=300
 | Customer.TaxRegNo | VAT Number | String | رقم تسجيل الضريبة |
 | Customer.CreditLimit | Credit Limit | Decimal | الحد الأقصى للائتمان المسموح به |
 
-### ب. الإعداد الخاص بالمنصة {#B-Platform-Specific-Configuration}
+### ب. الإعداد الخاص بالمنصة
 
-#### إعداد Magento 2.x {#Magento-2x-Configuration}
+#### إعداد Magento 2.x
 
 **الإضافات المطلوبة:**
 - REST API مفعّل
@@ -817,7 +817,7 @@ Webhook URL: https://yourstore.com/webhooks/
 - Customers (قراءة/كتابة)
 - Inventory (قراءة/كتابة)
 
-#### إعداد Shopify {#Shopify-Configuration}
+#### إعداد Shopify
 
 **الإعداد المطلوب:**
 - تطبيق خاص تم إنشاؤه بالصلاحيات المناسبة
@@ -832,11 +832,11 @@ Access Token: [Generated after app installation]
 API Version: 2025-04 (for GraphQL)
 ```
 
-#### تفاصيل تكامل Shopify GraphQL {#Shopify-GraphQL-Integration-Details}
+#### تفاصيل تكامل Shopify GraphQL
 
 يستخدم نظام Nama ERP واجهة GraphQL API الخاصة بـ Shopify لمزامنة البيانات والعمليات بكفاءة. يوفر هذا القسم تفاصيل تقنية لفريق الدعم لفهم تكامل Shopify GraphQL واستكشاف أخطائه.
 
-##### بنية GraphQL API {#GraphQL-API-Architecture}
+##### بنية GraphQL API
 
 **إعداد نقطة النهاية:**
 - **Base URL**: `https://[store-name].myshopify.com/admin/api/2025-04/graphql.json`
@@ -848,7 +848,7 @@ API Version: 2025-04 (for GraphQL)
 - `ShopifyProductsQLApi`: عمليات GraphQL الخاصة بالمنتجات
 - `ShopifyOrdersQLApi`: عمليات GraphQL لإدارة الطلبات
 
-##### عمليات GraphQL المدعومة {#Supported-GraphQL-Operations}
+##### عمليات GraphQL المدعومة
 
 يدعم التكامل عمليات GraphQL التالية المعرّفة في `EcommerceGraphEntityOperation`:
 
@@ -866,7 +866,7 @@ API Version: 2025-04 (for GraphQL)
 | `GetProductBySku` | **البحث عن منتج بالـ SKU** | `products` query with SKU search filter |
 | `UpdateOrderStatusAndComment` | تحديث ملاحظات الطلب | `orderUpdate` mutation |
 
-##### تحسين البحث بالـ SKU {#Product-SKU-Search-Optimization}
+##### تحسين البحث بالـ SKU
 
 **مشكلات التنفيذ السابق:**
 - كان النظام يجلب جميع المنتجات ويبحث محلياً عن SKUs
@@ -910,7 +910,7 @@ query GetProductBySku($sku: String!, $nestedLinesSize: Int!) {
 - منع تقييد معدل API
 - أوقات استجابة أقل من ثانية بغض النظر عن حجم الكتالوج
 
-##### إعداد استعلام GraphQL {#GraphQL-Query-Configuration}
+##### إعداد استعلام GraphQL
 
 **البناء الديناميكي للاستعلام:**
 يبني النظام استعلامات GraphQL ديناميكياً بناءً على نوع العملية. كل عملية تحتوي على:
@@ -930,7 +930,7 @@ map.put("sku", ShopifyQLUtils.fieldMap("productsApi.productInfo.sku"));
 map.put("price", ShopifyQLUtils.fieldMap("item.currentPrice.primitiveValue"));
 ```
 
-##### معالجة الأخطاء والتحكم في المعدل {#Error-Handling-and-Throttling}
+##### معالجة الأخطاء والتحكم في المعدل
 
 **تقييد المعدل:**
 - تعتمد Shopify GraphQL API تقييداً قائماً على التكلفة
@@ -950,7 +950,7 @@ map.put("price", ShopifyQLUtils.fieldMap("item.currentPrice.primitiveValue"));
 - الحد الأقصى 3 محاولات إعادة
 - معالجة خاصة لأخطاء التقييد (الحالة 429)
 
-##### تكامل Webhook {#Webhook-Integration}
+##### تكامل Webhook
 
 **موضوعات Webhook المدعومة:**
 - `orders/create` - تم تقديم طلب جديد
@@ -965,7 +965,7 @@ map.put("price", ShopifyQLUtils.fieldMap("item.currentPrice.primitiveValue"));
 - معالجة زمنية عبر مواقع متعددة
 - عزل المعاملة لكل حدث
 
-##### تفاصيل مزامنة المنتجات {#Product-Synchronization-Details}
+##### تفاصيل مزامنة المنتجات
 
 **تعيينات حقول المنتج:**
 ```java
@@ -985,7 +985,7 @@ map.put("price", ShopifyQLUtils.fieldMap("item.currentPrice.primitiveValue"));
 - تتبع المخزون على مستوى التباين
 - دعم التسعير لكل تباين
 
-##### سير عمل معالجة الطلبات {#Order-Processing-Workflow-Shopify}
+##### سير عمل معالجة الطلبات
 
 **عملية استيراد الطلبات:**
 1. استعلام عن الطلبات باستخدام نطاق التاريخ أو pagination بـ after_id
@@ -1004,7 +1004,7 @@ map.put("price", ShopifyQLUtils.fieldMap("item.currentPrice.primitiveValue"));
 | cancelled | Cancelled | تم إلغاء الطلب |
 | refunded | Returned | تم استرداد المبلغ كاملاً |
 
-##### إدارة المخزون {#Inventory-Management-Shopify}
+##### إدارة المخزون
 
 **دعم المواقع المتعددة:**
 - ربط مواقع Shopify بمستودعات Nama
@@ -1031,7 +1031,7 @@ mutation UpdateInventory($calculatedQuantityArray: [InventorySetQuantityInput!]!
 }
 ```
 
-##### نصائح تحسين الأداء {#Performance-Optimization-Tips}
+##### نصائح تحسين الأداء
 
 **للدعم الفني:**
 
@@ -1055,7 +1055,7 @@ mutation UpdateInventory($calculatedQuantityArray: [InventorySetQuantityInput!]!
    - مراقبة معدل نجاح تسليم Webhook
    - تسجيل أوقات تنفيذ الاستعلام
 
-##### استكشاف أخطاء GraphQL {#Troubleshooting-GraphQL-Issues}
+##### استكشاف أخطاء GraphQL
 
 **المشكلات الشائعة وحلولها:**
 
@@ -1082,7 +1082,7 @@ shopify.graphql.log.responses=true
 3. أدخل نوع العملية وبيانات الاختبار
 4. راجع الاستجابة والأخطاء
 
-##### صلاحيات تطبيق Shopify المطلوبة {#Required-Shopify-App-Permissions}
+##### صلاحيات تطبيق Shopify المطلوبة
 
 لتكامل GraphQL الكامل، تأكد من تفعيل النطاقات التالية:
 
@@ -1103,7 +1103,7 @@ shopify.graphql.log.responses=true
 - `read_shipping` - معلومات الشحن
 - `read_fulfillments` - حالة الوفاء بالطلبات
 
-#### إعداد Salla {#Salla-Configuration}
+#### إعداد Salla
 
 **الإعداد المطلوب:**
 - تطبيق OAuth مسجّل في بوابة شركاء Salla
@@ -1117,7 +1117,7 @@ Client Secret: [From Salla app]
 Redirect URL: [Your callback URL]
 ```
 
-#### إعداد منصة OTO {#OTO-Platform-Configuration}
+#### إعداد منصة OTO
 
 **نظرة عامة على المنصة:**
 OTO (https://tryoto.com/) هي منصة لوجستية وشحن توفر خدمات إدارة المستودعات والمخزون. يركز تكامل Nama ERP مع OTO حصراً على **مزامنة كميات المخزون** إلى مستودعات OTO.
@@ -1155,9 +1155,9 @@ Password: [API refresh token from OTO platform]
 - يدعم فقط تحديثات كميات المخزون
 - يتطلب أن تكون المنتجات موجودة بالفعل في نظام OTO
 
-### ج. مرجع جداول قاعدة البيانات {#C-Database-Tables-Reference}
+### ج. مرجع جداول قاعدة البيانات
 
-#### جداول التكامل الأساسية {#Core-Integration-Tables}
+#### جداول التكامل الأساسية
 
 | اسم الجدول | الوصف | الحقول الرئيسية |
 |------------|-------------|------------|
@@ -1169,7 +1169,7 @@ Password: [API refresh token from OTO platform]
 | EcommerceProductConfig | إعدادات المنتجات | id, item, sku, attributeSetId |
 | EcommerceCategoryConfig | إعدادات التصنيفات | id, code, magentoSite |
 
-#### جداول قائمة انتظار المزامنة {#Synchronization-Queue-Tables}
+#### جداول قائمة انتظار المزامنة
 
 | اسم الجدول | الوصف | الحقول الرئيسية |
 |------------|-------------|------------|
@@ -1178,9 +1178,9 @@ Password: [API refresh token from OTO platform]
 | MAGUpdateItemRequestEntry | قائمة انتظار مزامنة المنتجات | id, itemId, status, lastAttempt |
 | MAGSiteError | إدخالات سجل الأخطاء | id, errorType, errorMessage, timestamp |
 
-### د. إعداد خصائص النظام {#D-System-Properties-Configuration}
+### د. إعداد خصائص النظام
 
-#### الخصائص الأساسية {#Core-Properties}
+#### الخصائص الأساسية
 
 ```properties
 # E-commerce Integration Properties
@@ -1216,9 +1216,9 @@ api-request-timeout=30000
 connection-pool-size=10
 ```
 
-### هـ. قائمة التحقق من استكشاف الأخطاء {#E-Troubleshooting-Checklist}
+### هـ. قائمة التحقق من استكشاف الأخطاء
 
-#### قائمة تحقق الإعداد الأولي {#Initial-Setup-Checklist}
+#### قائمة تحقق الإعداد الأولي
 
 - [ ] تم الحصول على بيانات اعتماد API لمنصة التجارة الإلكترونية
 - [ ] تم إنشاء وإعداد سجل MAGMagentoSite
@@ -1229,7 +1229,7 @@ connection-pool-size=10
 - [ ] تم استيراد طلب اختبار بنجاح
 - [ ] تمت مزامنة منتج اختبار بنجاح
 
-#### قائمة تحقق العمليات اليومية {#Daily-Operations-Checklist}
+#### قائمة تحقق العمليات اليومية
 
 - [ ] التحقق من طلبات المزامنة الفاشلة
 - [ ] مراجعة سجلات الأخطاء بحثاً عن مشكلات حرجة
@@ -1238,7 +1238,7 @@ connection-pool-size=10
 - [ ] مراقبة مقاييس أداء النظام
 - [ ] مسح طلبات المزامنة المكتملة
 
-#### مراقبة الأداء {#Performance-Monitoring}
+#### مراقبة الأداء
 
 - [ ] أوقات استجابة API ضمن النطاق المقبول
 - [ ] أحجام قوائم انتظار المزامنة قابلة للإدارة
@@ -1246,31 +1246,31 @@ connection-pool-size=10
 - [ ] استخدام الذاكرة ضمن الحدود
 - [ ] الاتصال بالشبكة مستقر
 
-### و. أفضل ممارسات التكامل {#F-Integration-Best-Practices}
+### و. أفضل ممارسات التكامل
 
-#### إدارة البيانات {#Data-Management}
+#### إدارة البيانات
 1. **التنظيف المنتظم**: جدولة تنظيف دوري لطلبات المزامنة المكتملة
 2. **الأرشفة**: أرشفة سجلات الأخطاء القديمة والمعاملات المكتملة
 3. **التحقق من الصحة**: تطبيق قواعد التحقق من صحة البيانات قبل المزامنة
 4. **النسخ الاحتياطي**: نسخ احتياطي منتظم لبيانات الإعداد والتعيين
 
-#### اعتبارات الأمان {#Security-Considerations}
+#### اعتبارات الأمان
 1. **تخزين بيانات الاعتماد**: استخدام آليات تخزين آمنة لبيانات الاعتماد
 2. **تغيير مفاتيح API**: تغيير مفاتيح API والرموز بانتظام
 3. **التحكم في الوصول**: تطبيق التحكم في الوصول المستند إلى الأدوار
 4. **تسجيل المراجعة**: تفعيل تسجيل المراجعة الشامل
 5. **SSL/TLS**: استخدام الاتصالات المشفرة دائماً
 
-#### تحسين الأداء {#Performance-Optimization}
+#### تحسين الأداء
 1. **المعالجة الدُفعية**: استخدام أحجام دُفعات مناسبة للعمليات الجماعية
 2. **التخزين المؤقت**: تطبيق التخزين المؤقت للبيانات التي يتم الوصول إليها بشكل متكرر
 3. **الفهرسة**: ضمان الفهرسة الصحيحة لقاعدة البيانات
 4. **التحكم في المعدل**: تطبيق التحكم في معدل طلبات API
 5. **المراقبة**: إعداد مراقبة الأداء والتنبيهات
 
-### ز. المرجع التقني لـ Shopify GraphQL {#G-Shopify-GraphQL-Technical-Reference}
+### ز. المرجع التقني لـ Shopify GraphQL
 
-#### تخزين إعداد GraphQL {#GraphQL-Configuration-Storage}
+#### تخزين إعداد GraphQL
 
 **بنية جدول EcommerceGraphQLLine:**
 يتم تخزين عمليات GraphQL في مجموعة graphQLLines الخاصة بـ MAGMagentoSite:
@@ -1283,7 +1283,7 @@ connection-pool-size=10
 | isActive | تفعيل/تعطيل العملية | true |
 | priority | أولوية التنفيذ | 100 |
 
-#### ذاكرة التخزين المؤقت لعمليات GraphQL {#GraphQL-Operation-Cache}
+#### ذاكرة التخزين المؤقت لعمليات GraphQL
 
 ينفذ النظام آلية تخزين مؤقت لإعدادات GraphQL:
 
@@ -1297,7 +1297,7 @@ private static Map<EcommerceGraphEntityOperation, EcommerceGraphQLLine> graphCac
 - تحسين أداء تنفيذ الاستعلام
 - تقليل استهلاك الذاكرة
 
-#### تفاصيل تنفيذ البحث بالـ SKU {#SKU-Search-Implementation-Details}
+#### تفاصيل تنفيذ البحث بالـ SKU
 
 **الطريقة: findProductBySku**
 الموقع: `ShopifyProductsQLApi.java`
@@ -1320,7 +1320,7 @@ public IEcommerceProduct findProductBySku(String sku) {
 **تنسيق الاستعلام:**
 يجب تنسيق SKU كـ `"sku:VALUE"` لصياغة بحث Shopify.
 
-#### نظام تعيين حقول المتغيرات {#Variable-Field-Mapping-System}
+#### نظام تعيين حقول المتغيرات
 
 **التعليمات الخاصة:**
 - **التعيين القياسي**: `"field.subfield"` - استخراج الحقل المباشر
@@ -1333,7 +1333,7 @@ public IEcommerceProduct findProductBySku(String sku) {
 3. تطبيق تحويلات القيم الخالية/الفارغة
 4. إدراج القيم في متغيرات GraphQL
 
-#### فئات معالجة الأخطاء {#Error-Handling-Classes}
+#### فئات معالجة الأخطاء
 
 **طرق خطأ ShopifyQLUtils:**
 
@@ -1351,7 +1351,7 @@ public static void throwsExceptionIfError(Map<String, Object> response, String i
 }
 ```
 
-#### مقاييس الأداء {#Performance-Metrics}
+#### مقاييس الأداء
 
 **أوقات الاستجابة النموذجية:**
 | العملية | متوسط الوقت | الحد الأقصى للسجلات |
@@ -1362,7 +1362,7 @@ public static void throwsExceptionIfError(Map<String, Object> response, String i
 | InventoryUpdate | 400-1200 مللي ثانية | 100 موقع |
 | GetOrderList | 800-3000 مللي ثانية | 100 طلب |
 
-#### حساب تكلفة API {#API-Cost-Calculation}
+#### حساب تكلفة API
 
 **نقاط تكلفة Shopify GraphQL:**
 - تكلفة الاستعلام الأساسية: 1 نقطة
@@ -1377,27 +1377,27 @@ public static void throwsExceptionIfError(Map<String, Object> response, String i
 - تطبيق pagination لمجموعات البيانات الكبيرة
 - تخزين البيانات التي يتم الوصول إليها بشكل متكرر مؤقتاً
 
-### ح. سيناريوهات التكامل الشائعة {#H-Common-Integration-Scenarios}
+### ح. سيناريوهات التكامل الشائعة
 
-#### السيناريو الأول: تجزئة متعددة القنوات {#Scenario-1-Multi-Channel-Retail}
+#### السيناريو الأول: تجزئة متعددة القنوات
 - نسخة واحدة من Nama ERP
 - منصات تجارة إلكترونية متعددة (Magento، Shopify، Marketplace)
 - إدارة مركزية للمخزون
 - قاعدة عملاء موحدة
 
-#### السيناريو الثاني: التجارة الإلكترونية بين الشركات (B2B) {#Scenario-2-B2B-E-commerce}
+#### السيناريو الثاني: التجارة الإلكترونية بين الشركات (B2B)
 - تسعير خاص بكل عميل
 - إدارة حد الائتمان
 - معالجة الطلبات الجماعية
 - كتالوج مخصص لكل عميل
 
-#### السيناريو الثالث: الوفاء بالطلبات متعدد القنوات {#Scenario-3-Omnichannel-Fulfillment}
+#### السيناريو الثالث: الوفاء بالطلبات متعدد القنوات
 - مزامنة مخزون المتاجر
 - طلبات الاستلام من المتجر (Click-and-collect)
 - إدارة المستودعات المتعددة
 - مرتجعات عبر القنوات
 
-### ط. مصفوفة توافق الإصدارات {#I-Version-Compatibility-Matrix}
+### ط. مصفوفة توافق الإصدارات
 
 | المنصة | الإصدارات المدعومة | إصدار Nama ERP | نوع API | ملاحظات |
 |----------|-------------------|------------------|----------|-------|

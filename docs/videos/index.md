@@ -1,20 +1,20 @@
 <div class="ignore-in-full-text-search">
 
-# Video Tutorials
+# شروحات الفيديو
   - [توثيق فيديو تنصيب Nama ERP والبرامج المساعدة](/videos/installation-video.md)
-  - [Supply Chain Videos](/videos/supply-chain-videos/)
+  - [فيديوهات سلسلة التوريد](/videos/supply-chain-videos/)
     - [فيديو طريقة عمل التكاليف - 1](/videos/supply-chain-videos/cost-video-1.md)
     - [فيديو طريقة عمل التكاليف - 2](/videos/supply-chain-videos/cost-video-2.md)
     - [فيديو طريقة عمل التكاليف - 3](/videos/supply-chain-videos/cost-video-3.md)
   - [توثيق شرح التكاليف غير المباشرة والفعلي في نظام تصنيع](/videos/manufacturing-actual-overhead.md)
-  - [Report Wizard Videos](/videos/report-wizard-videos/)
+  - [فيديوهات أداة إنشاء التقارير](/videos/report-wizard-videos/)
     - [فيديو (1) شرح أداة انشاء التقار](/videos/report-wizard-videos/report-wizard-webinar-1.md)
     - [شرح تفصيلي لجروبنج (Grouping) ومصادر البيانات وترتيب التقارير في Nama ERP](/videos/report-wizard-videos/report-wizard-webinar-2.md)
     - [توثيق كامل لإنشاء تقارير الكروس تاب، كشف الحساب، وحركة المخزون باستخدام أداة إنشاء التقارير](/videos/report-wizard-videos/report-wizard-webinar-3.md)
     - [توثيق فيديو تدريب تقرير فاتورة المبيعات وميزات الجيو الجديدة](/videos/report-wizard-videos/report-wizard-webinar-4.md)
     - [شرح إنشاء نموذج طباعة شاشة مستند تصفية](/videos/report-wizard-videos/report-wizard-webinar-5.md)
     - [توثيق شامل لمحتوى الفيديو حول إعداد تقارير الريبورت ويزرد وإدارة الصلاحيات](/videos/report-wizard-videos/report-wizard-webinar-6.md)
-  - [Human Resources Videos](/videos/hr/)
+  - [فيديوهات الموارد البشرية](/videos/hr/)
     - [شرح مفصل لنظام إدارة الرواتب في نظام نما - 1](/videos/hr/hr-course-1.md)
     - [شرح مفصل لنظام إدارة الرواتب في نظام نما - 2](/videos/hr/hr-course-2.md)
     - [شرح مفصل لنظام إدارة الرواتب في نظام نما - 3](/videos/hr/hr-course-3.md)

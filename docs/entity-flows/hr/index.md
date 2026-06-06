@@ -1,6 +1,6 @@
 <div class="ignore-in-full-text-search">
 
-# HR Module
+# وحدة الموارد البشرية
   - [CalcBasicSalaryForNetSalary](/entity-flows/hr/CalcBasicSalaryForNetSalary.md)
   - [EACalComponentFromLoan](/entity-flows/hr/EACalComponentFromLoan.md)
   - [EAChangeEmployeeStateFromFiringHandler](/entity-flows/hr/EAChangeEmployeeStateFromFiringHandler.md)

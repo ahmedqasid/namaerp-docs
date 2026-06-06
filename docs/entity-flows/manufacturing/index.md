@@ -1,6 +1,6 @@
 <div class="ignore-in-full-text-search">
 
-# Manufacturing Module
+# وحدة التصنيع
   - [EAStartOrderIfNotStarted](/entity-flows/manufacturing/EAStartOrderIfNotStarted.md)
 
 </div>
