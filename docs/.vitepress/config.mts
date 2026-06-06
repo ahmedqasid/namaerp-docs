@@ -1,6 +1,8 @@
 import {defineConfig} from 'vitepress'
 import container from 'markdown-it-container'
 import {transliterate} from 'transliteration'
+import postcssRTLCSS from 'postcss-rtlcss'
+import {Mode} from 'postcss-rtlcss/options'
 import {SIDEBAR_CONFIG} from './sidebar.js'
 import fs from 'node:fs'
 import path from 'node:path'
@@ -63,6 +65,17 @@ export default defineConfig({
     title: 'Nama ERP Docs',
     description: 'Nama ERP Documentation',
     lang: 'ar',
+    dir: 'rtl',
+    vite: {
+        css: {
+            postcss: {
+                // Auto-generates [dir="rtl"] mirrored rules for ALL css (including the default theme),
+                // so the whole layout flips for Arabic. The original (LTR) rules stay untouched —
+                // ready for the /en/ locale later.
+                plugins: [postcssRTLCSS({mode: Mode.override})]
+            }
+        }
+    },
     head: [
         ['link', {rel: 'shortcut icon', type: 'image/png', href: '/namasoft.png'}]
     ],

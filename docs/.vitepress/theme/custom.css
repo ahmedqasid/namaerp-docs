@@ -1,3 +1,4 @@
+/* rtl:begin:ignore — these are explicit direction overrides; postcss-rtlcss must not flip them */
 .rtl-block {
     text-align: right;
     direction: rtl;
@@ -8,10 +9,55 @@
     direction: ltr;
 }
 
+/* Code must always read left-to-right, even inside the RTL (Arabic) layout */
+[dir='rtl'] div[class*='language-'],
+[dir='rtl'] pre,
+[dir='rtl'] .vp-code-group {
+    direction: ltr;
+    text-align: left;
+}
+
+/* Keep inline code fragments (English identifiers) readable inside Arabic sentences */
+[dir='rtl'] :not(pre) > code {
+    direction: ltr;
+    unicode-bidi: embed;
+}
+
+/*
+ * Fix: postcss-rtlcss mirrors the sidebar's mobile-drawer "hidden" state
+ * ([dir=rtl] .VPSidebar { transform: translate(100%) }) with higher specificity
+ * than the theme's desktop media rule (.VPSidebar { transform: translateX(0) }),
+ * which pushed the sidebar permanently off-screen on desktop.
+ * !important is required to beat the generated override.
+ */
+@media (min-width: 960px) {
+    [dir='rtl'] .VPSidebar {
+        transform: translate(0) !important;
+    }
+}
+/* rtl:end:ignore */
+
 .home-hero-image {
     display: block;
     margin: 0 auto;
     max-height: 280px;
+}
+
+/* ===== Full-width layout =====
+ * The default theme caps the layout at 1440px and the doc column at 688px,
+ * wasting a lot of horizontal space. Widen the layout cap to 1800px (keeps
+ * prose lines readable on very wide monitors) and uncap the doc column so it
+ * fills everything between the sidebar and the outline aside.
+ * !important is needed to beat the theme's scoped [data-v-*] selectors.
+ */
+:root {
+    --vp-layout-max-width: 1800px;
+}
+
+.VPDoc .container,
+.VPDoc .content,
+.VPDoc .content-container {
+    max-width: 100% !important;
 }
 
 /* ===== Full-Text Search Box Dark Mode Fixes ===== */
