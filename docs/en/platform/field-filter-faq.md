@@ -6,7 +6,7 @@
 
 I am using Reference 1 in the item inventory to fetch items, and I want it to show only the same items that were selected in the details. The code I wrote is:
 
-```tempo
+```
 {loop(details)}
 termsLines.ref1,Equal,{details.item.item.code},OR;
 {endloop}
@@ -27,7 +27,7 @@ Use the fields as they exist in **the item screen**, as follows:
 
 If you want to filter by code:
 
-```tempo
+```
 {loop(details)}
 code,Equal,{details.item.item.code},OR;
 {endloop}
@@ -35,7 +35,7 @@ code,Equal,{details.item.item.code},OR;
 
 And if you want to filter more precisely using the identifier number:
 
-```tempo
+```
 {loop(details)}
 id,Equal,{details.item.item.id},OR;
 {endloop}

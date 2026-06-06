@@ -12,7 +12,7 @@
 
 ### القالب غير الصحيح (لا يعمل بشكل متكرر)
 
-```tempo
+```
 الشركة المتحدة فارم صيدلية د/ {lines.subsidiary.$toReal.name1} نحيط علمكم بأنة
 تم اضافة استلام نقدية لحسابكم رقم الايصال {lines.rpaper} قيمة الأيصال {lines.amount.value.amount} جنية  بتاريخ {valueDate}
 ```
@@ -23,7 +23,7 @@
 
 ### القالب الصحيح لإرسال رسالة لكل عميل على حدة
 
-```tempo
+```
 {loop(lines)}
 {openmsg}
 {sendto}{lines.subsidiary.$toReal.contactInfo.mobile}{endsendto}
@@ -62,7 +62,7 @@
 
 ::: details القالب المستخدم سابقًا
 
-```tempo
+```
 الشركة المتحدة فارم نحيط علمكم صيدلية د / {Customer.name1} بأن
 تم اضافة فاتورة رقم {code} لحسابكم
 _____  
@@ -84,7 +84,7 @@ ___محتويات الفاتورة ___
 
 ::: details القالب المعدل الصحيح
 
-```tempo
+```
 الشركة المتحدة فارم نحيط علمكم صيدلية د / {Customer.name1} بأن  
 تم اضافة فاتورة رقم {code} لحسابكم  
 _____  
@@ -107,19 +107,19 @@ ___محتويات الفاتورة ___
 
 إذا كنت تريد عرض الاسم كرابط إلى ملف المستخدم، استخدم الصيغة التالية:
 
-```tempo
+```
 تمت الموافقة على السجل {link($this)} من قبل {link(currentApprovalCase.lastStep.actualResponsible)}
 ```
 
 أما إذا كنت تريد عرض الاسم كنص فقط بدون رابط، فاستخدم:
 
-```tempo
+```
 تمت الموافقة على السجل {code} من قبل {currentApprovalCase.lastStep.actualResponsible.name1}
 ```
 
 * يمكنك إضافة شرط للتأكد من وجود خطوة موافقة قبل عرض الاسم، كالتالي:
 
-```tempo
+```
 {if(currentApprovalCase.lastStep)}
 تمت الموافقة على السجل {code} من قبل {currentApprovalCase.lastStep.actualResponsible.name1}
 {else}
@@ -158,7 +158,7 @@ ORDER BY esu.code
 
 - قالب التنبيه
 
-```tempo
+```
 {loop()}
 {header(supervisorCode)}
 {openmsg}{sendto}{supervisorId}{endsendto}

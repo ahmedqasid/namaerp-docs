@@ -65,7 +65,7 @@ Suppose a **Sales Invoice** is based on a **Sales Order** containing multiple cu
 
 Use this **Tempo** code in the `Dynamic Filter` field of the field filter:
 
-```tempo
+```
 {loop(fromDoc.$toReal.details)}
   {if(fromDoc.$toReal.details.unsatisfiedQty2)}
     code,Equal,{fromDoc.$toReal.details.customer.code},OR;

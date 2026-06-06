@@ -264,7 +264,7 @@ In the approval definition, add rules in the "Rules" section:
 
 When a rule triggers approval, the affected lines are available in templates:
 
-```tempo
+```
 {if($map.approvalRuleLines)}
 <h3>Lines Requiring Approval:</h3>
 <table>
@@ -589,7 +589,7 @@ Templates use Tempo language for dynamic content rendering. The templates have a
 - `$notificationInfo.otp` - The approval OTP (if configured)
 
 **Email Template Example:**
-```tempo
+```
 <h2>Approval Required: {entityType} #{code}</h2>
 <p>Dear {$notificationInfo.employee.name2},</p>
 
@@ -620,7 +620,7 @@ Templates use Tempo language for dynamic content rendering. The templates have a
 ```
 
 **SMS Template Example:**
-```tempo
+```
 {$notificationInfo.employee.name2}: Approval needed for {entityType} #{code}
 Amount: {totalAmount}
 OTP: {$notificationInfo.otp}
@@ -630,7 +630,7 @@ OTP: {$notificationInfo.otp}
 ```
 
 **In-App Notification Template:**
-```tempo
+```
 <strong>Approval Request</strong>{enter}
 {entityType} #{code} requires your approval{enter}
 Amount: {totalAmount}{enter}
@@ -729,14 +729,14 @@ Access candidate details from `$firstCandidate`, `$secondCandidate`, etc.:
 #### Practical Examples for Notification Templates
 
 **Example 1: Display OTP Code**
-```tempo
+```
 {if(currentApprovalCase.$firstCandidate.otp)}
 <p>Your Security Code (OTP): <strong>{currentApprovalCase.$firstCandidate.otp}</strong></p>
 {endif}
 ```
 
 **Example 2: Show Previous Approver's Decision and Comment**
-```tempo
+```
 {if(currentApprovalCase.$lastStep)}
 <h3>Previous Approval Step:</h3>
 <p><strong>Approved By:</strong> {currentApprovalCase.$lastStep.actualResponsible.name2}</p>
@@ -749,7 +749,7 @@ Access candidate details from `$firstCandidate`, `$secondCandidate`, etc.:
 ```
 
 **Example 3: Display Escalation Information**
-```tempo
+```
 {if(currentApprovalCase.$firstCandidate.escalated)}
 <p style="color: orange;">
     <strong>Note:</strong> This approval was escalated from {currentApprovalCase.$firstCandidate.escalatedFrom.name2}
@@ -758,7 +758,7 @@ Access candidate details from `$firstCandidate`, `$secondCandidate`, etc.:
 ```
 
 **Example 4: Show All Current Candidates**
-```tempo
+```
 <h3>Awaiting Approval From:</h3>
 <ul>
 {if(currentApprovalCase.$firstCandidate)}
@@ -774,7 +774,7 @@ Access candidate details from `$firstCandidate`, `$secondCandidate`, etc.:
 ```
 
 **Example 5: Complete Email Template with Approval History**
-```tempo
+```
 <h2>Approval Request: {entityType} #{code}</h2>
 <p>Dear {$notificationInfo.employee.name2},</p>
 

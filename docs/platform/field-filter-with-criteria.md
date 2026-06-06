@@ -65,7 +65,7 @@
 
 استخدم كود **Tempo** التالي في حقل `Dynamic Filter` لفلتر الحقل:
 
-```tempo
+```
 {loop(fromDoc.$toReal.details)}
   {if(fromDoc.$toReal.details.unsatisfiedQty2)}
     code,Equal,{fromDoc.$toReal.details.customer.code},OR;

@@ -19,13 +19,13 @@
 
 **أمثلة**:
 
-```excel
+```
 evalsql(select top 1 id from SalesInvoice order by valueDate desc)
 ```
 
 **مع صيغة Excel**:
 
-```excel
+```
 ="evalsql(select code from Account where subsidiaryType = '" & U13 & "')"
 ```
 

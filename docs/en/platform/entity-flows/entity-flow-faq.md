@@ -219,7 +219,7 @@ You can change the field name `n1` and the codes `BankExpensesDebit` and `BankEx
 
 You can implement this request by using an **entity flow** of type `EAFieldsValuesCalculator` with the `itemprice` function from the `tempo` library, as follows:
 
-```tempo
+```
 details.n1=tempo({itemprice(itemIdOrCode=details.item.item)})
 ```
 
@@ -253,7 +253,7 @@ Use a `sub-query` correctly inside the `else` branch of `case when` to ensure th
 
 Corrected syntax:
 
-```nm-field-values
+```ini
 details.specificDimensions.warehouse=mlsql(
   select case 
     when {details.item.item.section.code} = '1' 
@@ -269,12 +269,12 @@ This way, the statement is guaranteed to always return a single logical value th
 
 The easiest way to achieve this is to use the following syntax:
 
-```nm-field-values
+```ini
 details.n2=sql(select top 1 cast(l.unitPrice as decimal(20,2)) lastPrice from PurchaseInvoiceLine l where l.item_id = {details.item.item.id} order by l.valueDate desc)
 ```
 
 If you want to fetch the last purchase price on a date before the current document's date:
 
-```nm-field-values
+```ini
 details.n2=sql(select top 1 cast(l.unitPrice as decimal(20,2)) lastPrice from PurchaseInvoiceLine l where l.item_id = {details.item.item.id} and l.valueDate <= {valueDate} order by l.valueDate desc)
 ```

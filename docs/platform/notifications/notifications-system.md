@@ -86,7 +86,7 @@
 ### لغة القوالب (Tempo)
 تستخدم رسائل التنبيه لغة قوالب Tempo لإنشاء محتوى ديناميكي ومخصص. يتيح ذلك تضمين الرسائل لـ:
 
-```tempo
+```
 Dear {customer.name1},
 
 Your invoice {code} dated {valueDate} with amount {money.total} 
@@ -107,7 +107,7 @@ Best regards,
 
 ### المحتوى الشرطي
 عرض محتوى مختلف بناءً على الشروط:
-```tempo
+```
 {if(money.remaining)}
 Outstanding amount: {money.remaining}
 {else}
@@ -117,7 +117,7 @@ This invoice is fully paid
 
 ### الحلقات والجداول
 عرض المعلومات المتكررة كسطور المستند:
-```tempo
+```
 {opentable}
 {row}{cell}Item{cell}Quantity{cell}Price{endrow}
 {loop(details)}
@@ -128,7 +128,7 @@ This invoice is fully paid
 
 ### سجل التغييرات (Audit Trail)
 تضمين معلومات التغييرات التفصيلية في التنبيهات (لتنبيهات التحديث):
-```tempo
+```
 {changesAsHtmlAr}  {comment}Changes in HTML format (Arabic){endcomment}
 {changesAsHtmlEn}  {comment}Changes in HTML format (English){endcomment}
 {changesAsTextAr}  {comment}Changes in plain text (Arabic){endcomment}
@@ -191,7 +191,7 @@ This invoice is fully paid
 #### مثال: تنبيه التحديث مع التغييرات
 
 **قالب التنبيه لتحديثات المستندات:**
-```tempo
+```
 {subject}تحديث: {entityType.$arabic} رقم {code}{endsubject}
 
 <div style="font-family: Arial, sans-serif;">
@@ -214,7 +214,7 @@ This invoice is fully paid
 #### مثال: طلب الاعتماد مع ملخص التغييرات
 
 **قالب لتنبيهات الاعتماد:**
-```tempo
+```
 {subject}طلب اعتماد {entityType.$arabic}: {code}{endsubject}
 
 <h2>السيد المحترم {currentApprovalCase.lastStep.actualResponsible.name1}</h2>
@@ -240,7 +240,7 @@ This invoice is fully paid
 #### مثال: تنبيه التغييرات متعدد اللغات
 
 **قالب يدعم العربية والإنجليزية:**
-```tempo
+```
 {subject}Document Update / تحديث المستند: {code}{endsubject}
 
 <div style="direction: rtl; text-align: right; margin-bottom: 30px;">
@@ -265,7 +265,7 @@ This invoice is fully paid
 #### مثال: تنبيه SMS مع تغييرات نصية
 
 **قالب لتنبيهات SMS:**
-```tempo
+```
 تحديث: {code}
 {$changesAsTextAr}
 للعرض: {link($this, plainLink=true)}
@@ -304,7 +304,7 @@ This invoice is fully paid
 
 ::: tip العرض الشرطي
 يمكنك التحقق من وجود تغييرات قبل عرضها:
-```tempo
+```
 {if($changesAsTextAr)}
   <div class="changes-section">
     <h3>التغييرات</h3>
@@ -318,7 +318,7 @@ This invoice is fully paid
 
 ### دعم الرسائل المتعددة
 يمكن لقالب تنبيه واحد توليد رسائل متعددة:
-```tempo
+```
 {openmsg}
 {sendto}{customer.email}{endsendto}
 {subject}Invoice {code} - Customer Copy{endsubject}

@@ -3,7 +3,7 @@
 ### يمكنك عرض أرقام الأسطر التي بها أخطاء عن طريق تضمين ما يلي في قالب رسالة الخطأ:
 ###  LineNumber - Error Line Number - Criteria Based Validation Error Lines
 
-```tempo
+```
  The error happened at Line Number {$map.errorLines}
 ```
 

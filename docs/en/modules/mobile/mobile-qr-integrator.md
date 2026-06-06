@@ -155,12 +155,12 @@ otherField=$map.anotherParam"
 The `successTempo` field uses Tempo templating to generate response messages:
 
 ### Basic Template
-```tempo
+```
 Entity {code} created successfully for {customer.name1}
 ```
 
 ### With Collections
-```tempo
+```
 {loop(lines, last)}
 Added line for item {lines.item.name1} with quantity {lines.quantity}
 {endloop}
@@ -168,7 +168,7 @@ Total lines: {lines.$size}
 ```
 
 ### Conditional Display
-```tempo
+```
 {if=(status,"Stable")}
 ✓ Approved: {code}
 {else}

@@ -7,13 +7,13 @@ This guide introduces the **Tempo language**, developed by the **NAMA team**, to
 
 Tempo lets you embed dynamic values in text templates. For example, to display an error message stating that an employee cannot take more than five days of vacation, you can include the employee's name dynamically:
 
-```tempo
+```
 Employee {employee.name1} cannot take more than five days of vacation.
 ```
 
 If you want to include a hyperlink to the employee record:
 
-```tempo
+```
 {link(employee)}
 ```
 
@@ -64,19 +64,19 @@ Only in record mode can you access nested fields (e.g., `customer.group.code`). 
 
 * Use `{fieldName}` to show a field from the current record:
 
-```tempo
+```
 This Employee's Arabic name is {name1}
 ```
 
 * For related records (e.g., employee in a vacation request):
 
-```tempo
+```
 This Employee's Arabic name is {employee.name1}
 ```
 
 * For indirect references (e.g., employee in a `subsidiary` field):
 
-```tempo
+```
 This Employee's Arabic name is {subsidiary.$toReal.name1}
 ```
 
@@ -86,7 +86,7 @@ This Employee's Arabic name is {subsidiary.$toReal.name1}
 
 To add comments in your Tempo code:
 
-```tempo
+```
 {comment} This was written by Khaled {endcomment}
 ```
 
@@ -106,7 +106,7 @@ If you want to prevent the whole template or part of it from being parsed:
 
 To parse the content of a field (e.g., remarks) as a Tempo template:
 
-```tempo
+```
 {tempo}{customer.remarks}{endtempo}
 ```
 
@@ -116,7 +116,7 @@ To parse the content of a field (e.g., remarks) as a Tempo template:
 
 If you need to show `{code}` literally without rendering:
 
-```tempo
+```
 \{code\}
 ```
 
@@ -132,13 +132,13 @@ To avoid issues when working with HTML/CSS, enable CSS-friendly brackets:
 
 Now you can write:
 
-```tempo
+```
 %{code}%
 ```
 
 Instead of:
 
-```tempo
+```
 {code}
 ```
 
@@ -150,13 +150,13 @@ Sometimes the Tempo editor incorrectly flags correct syntax. You can prefix such
 
 Incorrect (editor shows error):
 
-```tempo
+```
 {time.$hours}
 ```
 
 Corrected:
 
-```tempo
+```
 {#time.$hours}
 ```
 
@@ -166,7 +166,7 @@ Corrected:
 
 Use `{enter}` to insert a line break in HTML messages:
 
-```tempo
+```
 Line 1{enter}
 Line 2
 ```
@@ -181,14 +181,14 @@ You can generate clickable links for fields or records using two approaches:
 
 Use the `link()` function to make the field itself a hyperlink:
 
-```tempo
+```
 {link(targetField)}
 ```
 
 **Example:**
 To create a link for the customer record:
 
-```tempo
+```
 {link(customer)}
 ```
 
@@ -198,14 +198,14 @@ To create a link for the customer record:
 
 Use `titledlink()` with custom link content:
 
-```tempo
+```
 {titledlink(targetField)} Your custom link text {endlink}
 ```
 
 **Example:**
 To show a customer link with the title "Current Customer code is ABC":
 
-```tempo
+```
 {titledlink(customer)} Current Customer code is {code} {endlink}
 ```
 
@@ -224,14 +224,14 @@ When creating links for notifications (not emails), use relative paths for optim
 
 **Example 1 – Using `{shortlinks}`**:
 
-```tempo
+```
 {shortlinks}
 The user {#firstAuthor.name2} created the document {#code}
 ```
 
 **Example 2 – Using `{directlinks}`**:
 
-```tempo
+```
 {directlinks}
 The user {#firstAuthor.name2} created the document {link($this)}
 ```
@@ -242,7 +242,7 @@ The user {#firstAuthor.name2} created the document {link($this)}
 
 If you're sending a notification based on a query:
 
-```tempo
+```
 {titledlink(entityType, id)} {code} {endlink}
 ```
 
@@ -254,13 +254,13 @@ This links to the record identified by `entityType` and `id`, using the record's
 
 You can customize how a link opens by specifying additional parameters:
 
-```tempo
+```
 {link(record, menu="MenuCode", newindow="true or false", view="ViewName")}
 ```
 
 Or with a custom title:
 
-```tempo
+```
 {titledlink(record, menu="MenuCode", newindow="true or false", view="ViewName")}
 Link Content Here
 {endlink}
@@ -269,13 +269,13 @@ Link Content Here
 **Example:**
 Open an employee record in a new window via a specific menu and view:
 
-```tempo
+```
 {link(employee, menu="NewEmp", newindow="true", view="NewEmpsView")}
 ```
 
 With a title:
 
-```tempo
+```
 {titledlink(employee, menu="NewEmp", newindow="true", view="NewEmpsView")}
 Employee code {code}, Name {name1}
 {endlink}
@@ -287,7 +287,7 @@ Employee code {code}, Name {name1}
 
 To force all links to use a certain server address, use the `{appurl()}` tag at the **start** of the template:
 
-```tempo
+```
 {appurl("http://crm7.namasoft.com:8080/erp/")}
 ```
 
@@ -299,7 +299,7 @@ This ensures that all subsequent links are based on the provided URL.
 
 To display a list of repeated rows (like items in a document), use the `loop` block:
 
-```tempo
+```
 {loop(details)}
   Loop content here
 {endloop}
@@ -308,7 +308,7 @@ To display a list of repeated rows (like items in a document), use the `loop` bl
 **Example:**
 Display each item's code, Arabic name, quantity, and net value in a sales invoice:
 
-```tempo
+```
 {loop(details)}
 {@rownumber} - {#details.item.item.code} - {#details.item.item.name2} - {#details.quantity.quantity.primeQty.value} - {#details.price.netValue}
 {endloop}
@@ -320,7 +320,7 @@ Display each item's code, Arabic name, quantity, and net value in a sales invoic
 
 To access SQL fields (`sqlField1`, `sqlField2`, etc.) within detail collections, enable them first:
 
-```tempo
+```
 {enableDetailSqlFields(details)}
 {loop(details)}
   {ifequal(details.sqlField1,'APPROVED')}
@@ -334,19 +334,19 @@ To access SQL fields (`sqlField1`, `sqlField2`, etc.) within detail collections,
 
 To calculate an employee's remaining vacation balance:
 
-```tempo
+```
 {vacationRemainder(employeeIdOrCode, vacationTypeCodeOrId)}
 {vacationConsumed(employeeIdOrCode, vacationTypeCodeOrId)}
 {vacationAssigned(employeeIdOrCode, vacationTypeCodeOrId)}
 ```
-```tempo
+```
 {vacationRemainder(employeeIdOrCode, vacationTypeCodeOrId, atDate)}
 {vacationConsumed(employeeIdOrCode, vacationTypeCodeOrId, atDate)}
 {vacationAssigned(employeeIdOrCode, vacationTypeCodeOrId, atDate)}
 ```
 
 **Examples:**
-```tempo
+```
 Employee {name1} has {vacationremainder(id, "001")} days remaining
 Employee {name1} has {vacationremainder(id, "001", "2024-12-28")} days remaining
 Employee {name1} has {vacationremainder("E00147", "ffff0001-8d64-70c9-e300-0000ff2854df")} days remaining
@@ -358,7 +358,7 @@ Employee {name1} has {vacationremainder("E00147", "ffff0001-8d64-70c9-e300-0000f
 
 Loop through just the last row:
 
-```tempo
+```
 {loop(details, last)}
   Last line content
 {endloop}
@@ -370,7 +370,7 @@ Loop through just the last row:
 
 Loop through a specific range of line numbers:
 
-```tempo
+```
 {loop(details, 2, 3)}
   From line 2 to 3
 {endloop}
@@ -382,13 +382,13 @@ Loop through a specific range of line numbers:
 
 Loop from a starting line to the last line:
 
-```tempo
+```
 {loop(details, 5)}
 ```
 
 > This is equivalent to:
 
-```tempo
+```
 {loop(details, 5, last)}
 ```
 
@@ -400,7 +400,7 @@ You can define and control your own counters for custom row numbering and refere
 
 #### Counter Syntax
 
-```tempo
+```
 {incrementcounter(counterName)}
 {decrementcounter(counterName)}
 {countervalue(counterName)}
@@ -410,7 +410,7 @@ You can define and control your own counters for custom row numbering and refere
 
 To use the counter in a row expression:
 
-```tempo
+```
 {r(@@counterName)}
 ```
 
@@ -425,7 +425,7 @@ This example demonstrates:
 * Using a manual counter `c1`
 * Populating a stock transfer creation form
 
-```tempo
+```
 {creator(entity="StockTransfer", menu="StockTransDocumentsStockTransferReq", title="Create StockTransferReq", newwindow="true")}
 
 {f("book")}{v("STR01")}
@@ -454,7 +454,7 @@ This example demonstrates:
 
 This example demonstrates using if statements.
 
-```tempo
+```
 {if(totalUnsatisfiedQty)}
    {creator(entity="StockTransferReq")}
       {f("book")}{v("STR01")}
@@ -471,7 +471,7 @@ This example demonstrates using if statements.
 
 To inform users about specific lines affected by an approval rule (e.g., prices below a threshold), use a `loop` over the approval rule lines:
 
-```tempo
+```
 The lines that are below the default sales price:
 {loop($map.approvalRuleLines)}
   {link($map.approvalRuleLines.item.item)} - {$map.approvalRuleLines.price.unitPrice}
@@ -486,7 +486,7 @@ This will list each line with a link to the item and display the unit price.
 
 To include action buttons in your email or SMS templates for approval workflows, use the following placeholders:
 
-```tempo
+```
 {approvelink}
 {rejectlink}
 {returnlink}
@@ -510,13 +510,13 @@ Each of the four action links accepts the following optional attributes, written
 
 **Example — attach a reason and render a plain (unwrapped) link:**
 
-```tempo
+```
 {approvelink(reason=reasoncode, plain=true)}
 ```
 
 **Example — build a custom colored button around a plain reject link:**
 
-```tempo
+```
 <a href='{rejectlink(reason=LATE_SUBMISSION, plain=true)}'
    style='background:#e53935;color:#fff;padding:8px 16px;border-radius:4px;text-decoration:none'>
   Reject
@@ -539,7 +539,7 @@ To create a table, wrap your content between `{opentable}` and `{closetable}` ta
 
 #### **Example – Table of Sales Invoice Details**
 
-```tempo
+```
 {opentable}
   {row}{cell}#{cell}Item Code{cell}Item Name{cell}Quantity{cell}Net Value{endrow}
   {loop(details)}
@@ -568,7 +568,7 @@ Use `{row}` and `{endrow}` to define a table row.
 
 **Example – Table Header Row:**
 
-```tempo
+```
 {row}{cell}#{cell}Item Code{cell}Item Name{cell}Quantity{cell}Net Value{endrow}
 ```
 
@@ -578,7 +578,7 @@ Use `{cell}` to create table cells. You may optionally close each cell with `{en
 
 **Example:**
 
-```tempo
+```
 {cell}Item Name{endcell}
 ```
 
@@ -594,7 +594,7 @@ Tempo supports grouping rows with headers and footers using the following syntax
 
 #### Group Header
 
-```tempo
+```
 {header(groupingField)}
   Header content here
 {endheader}
@@ -602,7 +602,7 @@ Tempo supports grouping rows with headers and footers using the following syntax
 
 #### Group Footer
 
-```tempo
+```
 {footer(groupingField)}
   Footer content here
 {endfooter}
@@ -610,7 +610,7 @@ Tempo supports grouping rows with headers and footers using the following syntax
 
 #### **Example – Grouped Table by Item Code**
 
-```tempo
+```
 {loop(details)}
   {header(details.item.item.code)}
     Item: {#details.item.item.code}
@@ -641,13 +641,13 @@ In this example:
 
 Use the following syntax to get properties of the currently logged-in user:
 
-```tempo
+```
 {$user.PROPERTY_NAME}
 ```
 
 **Example:**
 
-```tempo
+```
 {$user.code}
 ```
 
@@ -657,13 +657,13 @@ Use the following syntax to get properties of the currently logged-in user:
 
 ### General Date Formatting
 
-```tempo
+```
 {formatDate(dateExpression, formatExpression)}
 ```
 
 **Example:**
 
-```tempo
+```
 {formatDate(valueDate, "yyyy-MM-dd")}
 ```
 
@@ -744,25 +744,25 @@ Assume the field is called `time`
 
 To format a time field from a query:
 
-```tempo
+```
 {time(timeField)}
 ```
 
 **Example:**
 
-```tempo
+```
 {time(fromTime)}
 ```
 
 Or use:
 
-```tempo
+```
 {fromTime.$toStringNormal}
 ```
 
 For total hours stored as a decimal:
 
-```tempo
+```
 {decimalToTime(decimalField)}
 ```
 
@@ -772,7 +772,7 @@ For total hours stored as a decimal:
 
 ### Accessing Array Elements
 
-```tempo
+```
 {details.$get(index)}
 ```
 
@@ -786,19 +786,19 @@ Index is zero-based. To get the first row in `details`, use `{details.$get(0)}`
 
 * Remove all whitespace — including between words (Unicode-aware):
 
-```tempo
+```
 {description1.$removeAllSpaces}
 ```
 
 * Normalize spaces — trim edges and collapse multiple internal spaces into one:
 
-```tempo
+```
 {name1.$normalizeSpace}
 ```
 
 * Normalize Arabic text (unify similar characters):
 
-```tempo
+```
 {description1.$normalizeAr}
 ```
 
@@ -823,37 +823,37 @@ Becomes:
 
 * Arabic translation:
 
-```tempo
+```
 {#orderStatus.$arabic}
 ```
 
 * English translation:
 
-```tempo
+```
 {#orderStatus.$english}
 ```
 
 * Auto-translate based on language settings:
 
-```tempo
+```
 {translate(orderStatus)}
 ```
 
 * Force Arabic translation:
 
-```tempo
+```
 {translateAr(orderStatus)}
 ```
 
 * Force English translation:
 
-```tempo
+```
 {translateEn(orderStatus)}
 ```
 
 **Example:**
 
-```tempo
+```
 {translate(orderStatus)}
 ```
 
@@ -871,7 +871,7 @@ Two special keys let you reference the running installation's **branding** inste
 
 * **Application name** — the branded product name:
 
-```tempo
+```
 {translate("applicationName")}
 ```
 
@@ -879,7 +879,7 @@ Renders `Nama ERP`, `Capital Solutions ERP`, `Exceed ERP`, etc., according to th
 
 * **Application URL** — the branded website address:
 
-```tempo
+```
 {translate("appUrl")}
 ```
 
@@ -887,7 +887,7 @@ Renders `namasoft.com`, `exceed-erp.com`, etc., according to the current licence
 
 **Example:**
 
-```tempo
+```
 Thank you for using {translate("applicationName")}.
 For more information, visit {translate("appUrl")}.
 ```
@@ -904,13 +904,13 @@ Use these keys in emails, notifications, and templates that may run on different
 
 * Convert to integer:
 
-```tempo
+```
 {#description1.$tryToInt}
 ```
 
 * Convert to decimal:
 
-```tempo
+```
 {#description1.$tryToDecimal}
 ```
 
@@ -920,7 +920,7 @@ Use these keys in emails, notifications, and templates that may run on different
 
 Use the `$format` function on dates or numbers with your desired pattern:
 
-```tempo
+```
 {creationDate.$format."yyyy-MM-dd HH:mm:ss"}
 {money.total.$format."###,###.00"}
 ```
@@ -934,32 +934,32 @@ Tempo provides flexible conditional logic using `{if}`, `{ifnot}`, and related s
 
 * **If a field is not empty**:
 
-```tempo
+```
 {if(code)}Content shown if `code` is not empty{endif}
 ```
 
 * **If a number is not zero**:
 
-```tempo
+```
 {if(money.remaining)}Remaining is {#money.remaining}{endif}
 ```
 
 * **If a boolean is true**:
 
-```tempo
+```
 {if(commitedBefore)}Record is committed before{endif}
 ```
 
 * **Negated if condition** (if the field is empty or false):
 
-```tempo
+```
 {ifnot(code)}Code is missing{endif}
 {if!(code)}Code is missing{endif}
 ```
 
 * **If a string represents a number that's not zero**:
 
-```tempo
+```
 {ifnumber(description1)}
 ```
 
@@ -999,7 +999,7 @@ Tempo provides flexible conditional logic using `{if}`, `{ifnot}`, and related s
 
 You can chain multiple conditions using `else if=`, `elseif=`, or `else`.
 
-```tempo
+```
 {if=(code,"a")}Case A
 {else if=(code,"b")}Case B
 {else if<(n1,5)}Case C
@@ -1022,7 +1022,7 @@ The `tafqeet` function converts numeric values into words, using the currency fo
 
 ### Syntax
 
-```tempo
+```
 {tafqeet("Number", "CurrencyCode")}
 ```
 
@@ -1032,7 +1032,7 @@ The `tafqeet` function converts numeric values into words, using the currency fo
 
 #### Example 1: Hardcoded Values
 
-```tempo
+```
 {tafqeet("500", "EGP")}
 ```
 
@@ -1041,7 +1041,7 @@ The `tafqeet` function converts numeric values into words, using the currency fo
 
 #### Example 2: Using Field Values
 
-```tempo
+```
 {tafqeet(money.netValue, money.currency.code)}
 ```
 
@@ -1059,7 +1059,7 @@ If the global configuration defines:
 
 And you want the conversion in English regardless of the interface language, use:
 
-```tempo
+```
 {tafqeet(money.netValue, money.currency.altCode)}
 ```
 
@@ -1071,26 +1071,26 @@ And you want the conversion in English regardless of the interface language, use
 
 * Always render in **Arabic**:
 
-```tempo
+```
 {tafqeetAr(money.netValue, money.currency.code)}
 ```
 
 * Always render in **English**:
 
-```tempo
+```
 {tafqeetEn(money.netValue, money.currency.code)}
 ```
 ## Executing Entity Flows via Tempo Links
 
 To trigger an entity flow from a Tempo template (e.g. in an email), use the following syntax:
 
-```tempo
+```
 {flow(record, flowCode="EntityFlowCode")}
 ```
 
 **Example:**
 
-```tempo
+```
 {flow(employee, flowCode="CreateJobOffer")}
 ```
 
@@ -1104,7 +1104,7 @@ This executes the `CreateJobOffer` flow for the current `employee` record.
 
 #### Method 1: Using `subject:` at the Start of the First Line
 
-```tempo
+```
 subject:The employee {name2} was updated by {$user.name2}
 ```
 
@@ -1112,7 +1112,7 @@ subject:The employee {name2} was updated by {$user.name2}
 
 #### Method 2: Using `{subject}` Block
 
-```tempo
+```
 {subject}The employee {name2} was updated by {$user.name2}{endsubject}
 ```
 
@@ -1122,14 +1122,14 @@ subject:The employee {name2} was updated by {$user.name2}
 
 Use one or more `emailattachment` tags for fields or server paths:
 
-```tempo
+```
 {emailattachment(attachmentField)}
 {emailattachment("C:\Path\To\File.pdf")}
 ```
 
 **Example:**
 
-```tempo
+```
 subject:Attachments of employee {code} - {name1}
 Dear Sir,  
 Please note that the employee {name1} was changed. The email contains all files attached to the employee.  
@@ -1138,7 +1138,7 @@ Please note that the employee {name1} was changed. The email contains all files 
 
 **Another Example:**
 
-```tempo
+```
 Attached our catalog {emailattachment("E:\Media\Prochures\catalog.pdf")}
 ```
 
@@ -1166,7 +1166,7 @@ For HTML emails that shouldn't attach images automatically, include:
 
 #### Message Body Block
 
-```tempo
+```
 {openmsg}
 Message content here
 {closemsg}
@@ -1174,7 +1174,7 @@ Message content here
 
 #### Define Recipient Address
 
-```tempo
+```
 {sendto}email-or-phone{endsendto}
 ```
 
@@ -1182,13 +1182,13 @@ Message content here
 
 * Send to a customer's email:
 
-```tempo
+```
 {sendto}{#email}{endsendto}
 ```
 
 * Send an SMS to a phone number:
 
-```tempo
+```
 {sendto}{#phoneNumber}{endsendto}
 ```
 
@@ -1212,7 +1212,7 @@ order by customerCode
 
 **Step 2: Email Template Content**
 
-```tempo
+```
 {loop()}
   {header(customerCode)}
 
@@ -1241,31 +1241,31 @@ order by customerCode
 
 * **Trim spaces at the beginning and end** (ASCII whitespace only, legacy):
 
-```tempo
+```
 {description1.$trim}
 ```
 
 * **Strip leading and trailing whitespace** (Unicode-aware — handles tabs, NBSP, etc.):
 
-```tempo
+```
 {description1.$strip}
 ```
 
 * **Strip only leading whitespace:**
 
-```tempo
+```
 {description1.$stripLeading}
 ```
 
 * **Strip only trailing whitespace:**
 
-```tempo
+```
 {description1.$stripTrailing}
 ```
 
 * **Normalize spaces** — trims the edges **and** collapses any run of internal whitespace into a single space (Unicode-aware):
 
-```tempo
+```
 {name1.$normalizeSpace}
 ```
 
@@ -1284,7 +1284,7 @@ order by customerCode
 
 * **Convert Arabic numerals to English:**
 
-```tempo
+```
 {mobile.$replaceArNumerals}
 ```
 
@@ -1292,7 +1292,7 @@ order by customerCode
 
 * **Convert all letters to upper case:**
 
-```tempo
+```
 {chassisNumber.$toUpperCase}
 ```
 
@@ -1300,7 +1300,7 @@ order by customerCode
 
 * **Convert all letters to lower case:**
 
-```tempo
+```
 {email.$toLowerCase}
 ```
 
@@ -1314,13 +1314,13 @@ Arabic letters are case-less, so these functions only affect Latin (and other bi
 
 * **Parse JSON string to a map:**
 
-```tempo
+```
 {text1.$parseJSONToMap}
 ```
 
 * **Convert comma-separated text into a list:**
 
-```tempo
+```
 {remarks.$parseCSVToList}
 ```
 
@@ -1330,37 +1330,37 @@ Arabic letters are case-less, so these functions only affect Latin (and other bi
 
 * **Extract characters from the left:**
 
-```tempo
+```
 {left(string, length)}
 ```
 
 **Example:**
 
-```tempo
+```
 {left(code, 3)} → "Nam" if code is "NamaSoft"
 ```
 
 * **Extract characters from the right:**
 
-```tempo
+```
 {right(string, length)}
 ```
 
 **Example:**
 
-```tempo
+```
 {right(code, 3)} → "oft" if code is "NamaSoft"
 ```
 
 * **Extract substring from a specific range:**
 
-```tempo
+```
 {substring(string, startIndex, endIndex)}
 ```
 
 **Example:**
 
-```tempo
+```
 {substring("NamaSoft", 3, 5)} → "maS"
 ```
 
@@ -1370,19 +1370,19 @@ Arabic letters are case-less, so these functions only affect Latin (and other bi
 
 * **Left pad or truncate:**
 
-```tempo
+```
 {leftpad(length)}YourTextHere{endpad}
 ```
 
 * **Right pad or truncate:**
 
-```tempo
+```
 {rightpad(length)}YourTextHere{endpad}
 ```
 
 **Examples:**
 
-```tempo
+```
 {leftpad(10)}123{endpad}     → "       123"
 {rightpad(10)}123{endpad}    → "123       "
 {leftpad(5)}123456789{endpad}→ "12345"
@@ -1397,7 +1397,7 @@ Arabic letters are case-less, so these functions only affect Latin (and other bi
 
 * **Round to 0–5 decimal places:**
 
-```tempo
+```
 {n1.$round0}
 {n1.$round1}
 {n1.$round2}
@@ -1408,7 +1408,7 @@ Arabic letters are case-less, so these functions only affect Latin (and other bi
 
 **Examples:**
 
-```tempo
+```
 {n1.$round0} → 20 if n1 = 19.9  
 {n1.$round2} → 10.33 remains 10.33
 ```
@@ -1417,13 +1417,13 @@ Arabic letters are case-less, so these functions only affect Latin (and other bi
 
 ### Dynamic Rounding
 
-```tempo
+```
 {round(numberExpression, decimalPlacesExpression)}
 ```
 
 **Examples:**
 
-```tempo
+```
 {round(n1, "2")}
 {round(money.value, money.currency.fractionalDecimalPlaces)}
 ```
@@ -1432,13 +1432,13 @@ Arabic letters are case-less, so these functions only affect Latin (and other bi
 
 ### Number Formatting
 
-```tempo
+```
 {formatNumber(numberExpression, formatExpression)}
 ```
 
 **Example:**
 
-```tempo
+```
 {formatNumber(n1, "###,###.00")} → 1,234.50
 ```
 ## URL Shortening in Tempo
@@ -1450,7 +1450,7 @@ URL shortening is particularly useful for SMS messages, where long links are not
 
 ### Syntax
 
-```tempo
+```
 {shortenurl(server="https://your-shortener.com/", signature="SIGNATURE_HERE")}
   {link($this, plainLink=true)}
 {endshortenurl}
@@ -1458,7 +1458,7 @@ URL shortening is particularly useful for SMS messages, where long links are not
 
 **Example using Namasoft shortening service:**
 
-```tempo
+```
 {shortenurl(server="https://namasoft.com/s/", signature="SIGNATURE_HERE")}
   {link($this, plainLink=true)}
 {endshortenurl}
@@ -1472,7 +1472,7 @@ You can add dynamic links to reports from notifications or dashboards. This is u
 
 ### Notification Example
 
-```tempo
+```
 {reportlink(reportCode="1000", runType="launch", newwindow="true")}
   {paramname("entityType")}{paramvalue(ref1.entityType)}
   {paramname("document")}{paramvalue(ref1)}
@@ -1481,7 +1481,7 @@ You can add dynamic links to reports from notifications or dashboards. This is u
 
 ### Dashboard Example
 
-```tempo
+```
 {reportlink(reportCode="1000", runType="launch", plainLink=true)}
   {paramname("entityType")}{paramvalue(entityType)}
   {paramname("document")}{paramvalue(id, entityType)}
@@ -1494,19 +1494,19 @@ You can add dynamic links to reports from notifications or dashboards. This is u
 
 * **Parameter by Name:**
 
-```tempo
+```
 {paramname("paramName")}{paramvalue("paramValue")}
 ```
 
 * **Reference Parameters (with optional display fields):**
 
-```tempo
+```
 {paramrefvalue(entityType=..., id=..., code=..., name1=..., name2=...)}
 ```
 
 * **Multi-value Parameters:**
 
-```tempo
+```
 {parammultivalue}{code} {name1}{endmutlivalue}
 ```
 
@@ -1518,7 +1518,7 @@ You can create hyperlinks that open a filtered list view for any entity type. Th
 
 ### Basic Syntax
 
-```tempo
+```
 {listviewlink(title="View Invoices", newwindow="true")}
   {listentitytype("SalesInvoice")}
   {listcriteria}
@@ -1546,7 +1546,7 @@ You can create hyperlinks that open a filtered list view for any entity type. Th
 
 The `{listcriteria}...{endlistcriteria}` block contains filter conditions in text format. Inside this block, you can use dynamic field values with curly brackets:
 
-```tempo
+```
 {listcriteria}
   fieldID,operator,{dynamicValue},AND;
   anotherField,Equal,"constantValue",AND;
@@ -1578,7 +1578,7 @@ The `{listviewlink}` node accepts optional parameters:
 
 This example creates a link in a customer notification that shows all unpaid sales invoices for that customer:
 
-```tempo
+```
 Dear {name1},
 
 You have unpaid invoices. Click below to view them:
@@ -1599,7 +1599,7 @@ You have unpaid invoices. Click below to view them:
 
 For dashboards where you need just the URL:
 
-```tempo
+```
 {listviewlink(plainlink="true")}
   {listentitytype(entityType)}
   {listcriteria}
@@ -1619,7 +1619,7 @@ You can use the **Criteria Definition** screen to visually build filter conditio
 
 ### 1. Embed Survey in Email
 
-```tempo
+```
 Dear Sir,{enter}
 We would love you to answer the following survey.{enter}
 {$renderQuestionsForMailEmbedded}{enter}
@@ -1628,7 +1628,7 @@ Thanks and Best Regards
 
 ### 2. Send Survey as Link
 
-```tempo
+```
 Dear Sir,{enter}
 We would love you to answer a quick survey on the following <a href='{$questionsURL}'>URL</a>.{enter}
 Thanks and Best Regards
@@ -1643,7 +1643,7 @@ You can send HTTP requests from within Tempo using the `EASendHttpRequestByTempo
 
 This example sends a POST request for each line in `details`, with body parts defined individually:
 
-```tempo
+```
 {loop(details)}
   {httprequest}
     {requesturl}https://namasoft.com/api/v3.0/item{endurl}
@@ -1685,7 +1685,7 @@ This example sends a POST request for each line in `details`, with body parts de
 
 This version uses a manually written JSON string in the request body:
 
-```tempo
+```
 {loop(details)}
   {httprequest}
     {requesturl}https://namasoft.com/api/v3.0/item{endurl}
@@ -1722,7 +1722,7 @@ In Tempo, a **creator** is used to generate and populate a new entity record (li
 
 ### Basic Creator Syntax
 
-```tempo
+```
 {creator(entity="EntityName", menu="MenuName", title="Link Title", view="ViewName", newwindow="true/false")}
   ...field assignments...
 {endcreator}
@@ -1736,7 +1736,7 @@ In Tempo, a **creator** is used to generate and populate a new entity record (li
 
 **Example:**
 
-```tempo
+```
 {creator(entity="SalesInvoice")}
 {endcreator}
 ```
@@ -1749,7 +1749,7 @@ Use `{f("FieldName")}` and `{v("Value")}` to assign a value.
 
 **Example:**
 
-```tempo
+```
 {f("n1")}{v("10")}
 ```
 
@@ -1761,7 +1761,7 @@ Use `{creatorvalue}...{endvalue}` to embed dynamic or computed text.
 
 **Example:**
 
-```tempo
+```
 {creator(entity="SalesInvoice")}
   {f("code")}{v("SA000001")}
   {f("remarks")}
@@ -1779,31 +1779,31 @@ You can insert data into specific rows in detail tables:
 
 #### Method 1: By row number
 
-```tempo
+```
 {f("details.item.itemCode")}{v("ITEM005")}{r("2")}
 ```
 
 #### Method 2: Append to new row if needed (`@@end`)
 
-```tempo
+```
 {f("details.item.itemCode")}{v("ITEM005")}{r("@@end")}
 ```
 
 #### Method 3: Always use last row (`@@last`)
 
-```tempo
+```
 {f("details.item.itemCode")}{v("ITEM005")}{r("@@last")}
 ```
 
 #### Method 4: Use current loop row number
 
-```tempo
+```
 {f("details.item.itemCode")}{v(details.item.itemCode)}{r(@rownumber)}
 ```
 
 **Looping Example:**
 
-```tempo
+```
 {creator(entity="SalesInvoice")}
   {f("code")}{v("SA000001")}
   {loop(details)}
@@ -1816,7 +1816,7 @@ You can insert data into specific rows in detail tables:
 
 ### Use Case Example: Copying Only Non-Service Items
 
-```tempo
+```
 {creator(entity="SalesInvoice")}
   {f("book")}{v("SIV1")}
   {f("term")}{v("CASH")}
@@ -1841,7 +1841,7 @@ You can insert data into specific rows in detail tables:
 
 You can invoke UI actions (e.g., Save, Print, Delete):
 
-```tempo
+```
 {callGUIAction("actionId")}
 ```
 
@@ -1859,7 +1859,7 @@ more, refresh, homePage, goToRecord
 
 Use the `itemprice` function:
 
-```tempo
+```
 {itemprice(itemIdOrCode=expression)}
 ```
 
@@ -1867,7 +1867,7 @@ This function returns the sales price for an item. Only `itemIdOrCode` is requir
 
 #### Full Syntax
 
-```tempo
+```
 {itemprice(
   itemIdOrCode=...,
   customerIdOrCode=...,
@@ -1944,7 +1944,7 @@ You can pass either the ID or the code for any parameter.
  
 #### Examples
 
-```tempo
+```
 {loop(details)}
   Price of item {details.item.item.name} is {itemprice(itemIdOrCode=details.item.item.code)}
   Price for customer CST05: {itemprice(itemIdOrCode=details.item.item.code, customerIdOrCode="CST05")}
@@ -1958,13 +1958,13 @@ You can pass either the ID or the code for any parameter.
 
 Use the `itempurchaseprice` function:
 
-```tempo
+```
 {itempurchaseprice(itemIdOrCode=..., supplierIdOrCode=...)}
 ```
 
 #### Full Syntax
 
-```tempo
+```
 {itempurchaseprice(
   itemIdOrCode=...,
   supplierIdOrCode=...,
@@ -2023,7 +2023,7 @@ These fields show the differences between the current version and the previous v
 
 **Example:**
 
-```tempo
+```
 The last added discussion was {lastDiscussion.discussion} at {lastDiscussion.onTime} by {link(lastDiscussion.user)}.
 Ref1 code: {lastDiscussion.ref1.code}
 ```

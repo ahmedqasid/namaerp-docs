@@ -3,7 +3,7 @@
 ### You can display error line numbers by including the following in the error message template:
 ###  LineNumber - Error Line Number - Criteria Based Validation Error Lines
 
-```tempo
+```
  The error happened at Line Number {$map.errorLines}
 ```
 

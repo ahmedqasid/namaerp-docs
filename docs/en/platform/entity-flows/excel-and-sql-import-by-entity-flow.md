@@ -19,13 +19,13 @@ This function executes a SQL statement and uses the result as the value of the c
 
 **Examples**:
 
-```excel
+```
 evalsql(select top 1 id from SalesInvoice order by valueDate desc)
 ```
 
 **With Excel formula**:
 
-```excel
+```
 ="evalsql(select code from Account where subsidiaryType = '" & U13 & "')"
 ```
 

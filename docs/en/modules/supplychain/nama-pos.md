@@ -33,7 +33,7 @@ Nama POS allows defining **template-based messages** for different events in the
 
 * **Clear Line:**
 
-```tempo
+```
 @CLEARLINE@
 ```
 
@@ -41,7 +41,7 @@ Use it to clear one line on the pole display.
 
 **Example:**
 
-```tempo
+```
 @CLEARLINE@@CLEARLINE@ Welcome
 ```
 
@@ -49,7 +49,7 @@ Clears two lines, then displays: `Welcome`.
 
 * **Last Modified Line:**
 
-```tempo
+```
 {lastModifiedLine}
 ```
 
@@ -57,7 +57,7 @@ Use this to get the most recently added invoice line.
 
 **Example:**
 
-```tempo
+```
 {lastModifiedLine.qty.value}
 ```
 
@@ -71,7 +71,7 @@ Gets the quantity of the last added item.
 
 Displayed when the POS is idle, before any invoice is created.
 
-```tempo
+```
 @CLEARLINE@@CLEARLINE@**** Welcome to Register {name2}
 ```
 
@@ -83,7 +83,7 @@ Clears both lines and shows a welcome message with the register's name.
 
 Displayed when a new item is added to the invoice.
 
-```tempo
+```
 @CLEARLINE@@CLEARLINE@
 {padleft(20)}Item: {lastModifiedLine.item.name2}{endpad}
 {padleft(20)}Qty: {lastModifiedLine.qty.uom.name2} - {round(lastModifiedLine.qty.value,0)}{endpad}
@@ -97,7 +97,7 @@ Shows item name and quantity info, padded for alignment.
 
 Displayed when the Tender screen is opened (before payment).
 
-```tempo
+```
 @CLEARLINE@@CLEARLINE@
 {padleft(20)}Total: {round(netPrice,2)}${endpad}
 ```
@@ -110,7 +110,7 @@ Displays the invoice total amount.
 
 Displayed after the customer pays and change is calculated.
 
-```tempo
+```
 @CLEARLINE@@CLEARLINE@
 {padleft(20)}Remaining: {round(change,2)}${endpad}
 ```

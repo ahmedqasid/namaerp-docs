@@ -86,7 +86,7 @@ The system can deliver the same notification through multiple channels:
 ### Template Language (Tempo)
 Notification messages use the Tempo templating language to create dynamic, personalized content. This allows messages to include:
 
-```tempo
+```
 Dear {customer.name1},
 
 Your invoice {code} dated {valueDate} with amount {money.total} 
@@ -107,7 +107,7 @@ Templates can access any field from the record or related records:
 
 ### Conditional Content
 Show different content based on conditions:
-```tempo
+```
 {if(money.remaining)}
 Outstanding amount: {money.remaining}
 {else}
@@ -117,7 +117,7 @@ This invoice is fully paid
 
 ### Loops and Tables
 Display repeated information like document lines:
-```tempo
+```
 {opentable}
 {row}{cell}Item{cell}Quantity{cell}Price{endrow}
 {loop(details)}
@@ -128,7 +128,7 @@ Display repeated information like document lines:
 
 ### Change History (Audit Trail)
 Include detailed change information in notifications (for update notifications):
-```tempo
+```
 {changesAsHtmlAr}  {comment}Changes in HTML format (Arabic){endcomment}
 {changesAsHtmlEn}  {comment}Changes in HTML format (English){endcomment}
 {changesAsTextAr}  {comment}Changes in plain text (Arabic){endcomment}
@@ -191,7 +191,7 @@ Every entity in Nama ERP provides four built-in fields for displaying change his
 #### Example: Update Notification with Changes
 
 **Notification Template for Document Updates:**
-```tempo
+```
 {subject}Update: {entityType.$arabic} number {code}{endsubject}
 
 <div style="font-family: Arial, sans-serif;">
@@ -214,7 +214,7 @@ Every entity in Nama ERP provides four built-in fields for displaying change his
 #### Example: Approval Request with Change Summary
 
 **Template for Approval Notifications:**
-```tempo
+```
 {subject}Approval request for {entityType.$arabic}: {code}{endsubject}
 
 <h2>Dear {currentApprovalCase.lastStep.actualResponsible.name1}</h2>
@@ -240,7 +240,7 @@ Every entity in Nama ERP provides four built-in fields for displaying change his
 #### Example: Multi-Language Change Notification
 
 **Template Supporting Both Arabic and English:**
-```tempo
+```
 {subject}Document Update / تحديث المستند: {code}{endsubject}
 
 <div style="direction: rtl; text-align: right; margin-bottom: 30px;">
@@ -265,7 +265,7 @@ Every entity in Nama ERP provides four built-in fields for displaying change his
 #### Example: SMS Notification with Text Changes
 
 **Template for SMS Notifications:**
-```tempo
+```
 Update: {code}
 {$changesAsTextAr}
 View: {link($this, plainLink=true)}
@@ -304,7 +304,7 @@ Change history is calculated dynamically when the notification is sent. For noti
 
 ::: tip Conditional Display
 You can check if there are changes before displaying them:
-```tempo
+```
 {if($changesAsTextAr)}
   <div class="changes-section">
     <h3>Changes</h3>
@@ -318,7 +318,7 @@ You can check if there are changes before displaying them:
 
 ### Multi-Message Support
 A single notification template can generate multiple messages:
-```tempo
+```
 {openmsg}
 {sendto}{customer.email}{endsendto}
 {subject}Invoice {code} - Customer Copy{endsubject}

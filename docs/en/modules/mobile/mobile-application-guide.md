@@ -11,7 +11,7 @@ This screen allows you to scan a barcode or QR Code, or enter the code manually,
 - **`dimensions`** - Current entry dimensions
 
 **Simple example:**
-```tempo
+```
 Name1: {item.name1} {enter}
 Name2: {item.name2} {enter}
 Color: {invItemCode.color}{enter}

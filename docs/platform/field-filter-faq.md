@@ -8,7 +8,7 @@
 
 أنا أستخدم مرجع 1 في جرد البنود لجلب الأصناف، وأريد أن يظهر فقط نفس الأصناف التي تم اختيارها في التفاصيل. الكود الذي كتبته هو:
 
-```tempo
+```
 {loop(details)}
 termsLines.ref1,Equal,{details.item.item.code},OR;
 {endloop}
@@ -29,7 +29,7 @@ termsLines.ref1,Equal,{details.item.item.code},OR;
 
 إذا أردت الفلترة حسب الكود:
 
-```tempo
+```
 {loop(details)}
 code,Equal,{details.item.item.code},OR;
 {endloop}
@@ -37,7 +37,7 @@ code,Equal,{details.item.item.code},OR;
 
 وإذا أردت الفلترة بشكل أدق باستخدام رقم المعرف:
 
-```tempo
+```
 {loop(details)}
 id,Equal,{details.item.item.id},OR;
 {endloop}

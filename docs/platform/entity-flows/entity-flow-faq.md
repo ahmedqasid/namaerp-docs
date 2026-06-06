@@ -225,7 +225,7 @@ details.n4=sql(select {details.n3} * {details.price.actualVal} / 100)
 
 يمكنك تنفيذ هذا الطلب من خلال استخدام **مسار كيان** من النوع `EAFieldsValuesCalculator` مع الدالة `itemprice` التابعة لمكتبة `tempo`، وذلك بالشكل التالي:
 
-```tempo
+```
 details.n1=tempo({itemprice(itemIdOrCode=details.item.item)})
 ```
 
@@ -259,7 +259,7 @@ details.specificDimensions.warehouse=sql(select case when {details.item.item.sec
 
 الصيغة المصححة:
 
-```nm-field-values
+```ini
 details.specificDimensions.warehouse=mlsql(
   select case 
     when {details.item.item.section.code} = '1' 
@@ -275,13 +275,13 @@ details.specificDimensions.warehouse=mlsql(
 
 الطريقة الأسهل لتحقيق المطلوب هي استعمال الصيغة التالية:
 
-```nm-field-values
+```ini
 details.n2=sql(select top 1 cast(l.unitPrice as decimal(20,2)) lastPrice from PurchaseInvoiceLine l where l.item_id = {details.item.item.id} order by l.valueDate desc)
 ```
 
 إذا أردت إحضار آخر سعر شراء في تاريخ يسبق تاريخ السند الحالي:
 
-```nm-field-values
+```ini
 details.n2=sql(select top 1 cast(l.unitPrice as decimal(20,2)) lastPrice from PurchaseInvoiceLine l where l.item_id = {details.item.item.id} and l.valueDate <= {valueDate} order by l.valueDate desc)
 ```
 
