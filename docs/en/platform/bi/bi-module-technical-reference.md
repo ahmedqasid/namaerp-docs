@@ -1022,7 +1022,7 @@ Renders one `BICrossFilter` as a slicer on the dashboard grid. The same cross-fi
   "name1": "فلتر الفرع",
   "name2": "Branch Filter",
   "type": "CrossFilterControl",
-  "crossFilterRef": { "code": "branchFilter" }
+  "crossFilterRef": "branchFilter"
 }
 ```
 
@@ -1135,7 +1135,7 @@ Each entry creates a `DashBoardWidget` entity. Key fields:
 | `horizontalMode` | No | Layout hint. On `CrossFilterControl` widgets, true = inline chip strip, false = stacked editor. |
 | `crossFilterBindings` | No | Array of `{"crossFilter": "filterCode"}` (widget-level — see §6). |
 | `metricsCardConfig` | If type=`MetricsCards` | Top-level value object (not inside `chartConfigJSON`) carrying the legacy card template — see §15.1 for the shape. |
-| `crossFilterRef` | If type=`CrossFilterControl` | Either bare string `"filterCode"` or object `{"code": "filterCode"}`. See §9a. |
+| `crossFilterRef` | If type=`CrossFilterControl` | Bare string — the `BICrossFilter` code (e.g. `"branchFilter"`). Do **not** use an object (`{"code": "..."}`) — the importer rejects it with "crossFilterRef cannot be empty". See §9a. |
 | `enableComparison` | No | Toggles period-comparison execution (`BIPeriodComparisonExecutor`). |
 | `mergeComparisonByColumns` | No | CSV of column names that key the merge between baseline and comparison rows. |
 
