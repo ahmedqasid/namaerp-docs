@@ -43,12 +43,6 @@
 }
 /* rtl:end:ignore */
 
-.home-hero-image {
-    display: block;
-    margin: 0 auto;
-    max-height: 280px;
-}
-
 /* ===== Full-width layout =====
  * The default theme caps the layout at 1440px and the doc column at 688px,
  * wasting a lot of horizontal space. Widen the layout cap to 1800px (keeps

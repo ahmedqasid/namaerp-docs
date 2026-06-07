@@ -1,171 +1,52 @@
-<div class="ignore-in-full-text-search">
-
-<img src="/hero.svg" alt="Nama ERP" class="home-hero-image">
-
-
-# Home
-  - [Search](/en/full-search.md)
-  - [Getting Started](/en/getting-started/)
-    - [System Minimum Requirements](/en/getting-started/system-minimum-requirements.md)
-    - [Nama ERP Installation Guide](/en/getting-started/installation-guide.md)
-    - [Nama Properties](/en/getting-started/nama-properties.md)
-    - [Two-Factor Authentication (2FA) Guide](/en/getting-started/two-factor-authentication.md)
-  - [Platform Features](/en/platform/)
-    - [Utility Links](/en/platform/utils.md)
-    - [Keyboard Shortcuts](/en/platform/shortcuts.md)
-    - [Screen Modifier](/en/platform/screen-modifier/)
-      - [Layout Names:](/en/platform/screen-modifier/screen-modifier.md)
-      - [Frequently Asked Questions about Screen Modifier](/en/platform/screen-modifier/screen-modifier-faq.md)
-    - [List Views](/en/platform/list-views/)
-      - [Quick Filters in List Views](/en/platform/list-views/quick-filters.md)
-      - [Limit User To Year](/en/platform/list-views/limit-user-to-year.md)
-    - [Fiscal Period Control](/en/platform/fiscal-period-control-guide.md)
-    - [Approvals](/en/platform/approvals/)
-      - [Approvals System - Approval Definition Full Guide](/en/platform/approvals/approvals-system.md)
-      - [Sample Approval Email Templates](/en/platform/approvals/sample-approval-email-templates.md)
-      - [Approvals FAQ](/en/platform/approvals/approvals-faq.md)
-    - [Security & Permissions](/en/platform/security/)
-      - [Security System Overview](/en/platform/security/security-overview.md)
-      - [Security Profile](/en/platform/security/security-profiles.md)
-      - [Field, Page, and List View Security](/en/platform/security/field-page-listview-security.md)
-      - [Record-Level Security (Dimensions and Filters)](/en/platform/security/record-level-security.md)
-      - [Users and Login](/en/platform/security/users-and-login.md)
-      - [Temporary Additional Permissions (Delegation)](/en/platform/security/security-delegation.md)
-    - [Entity Flows](/en/platform/entity-flows/)
-      - [Introduction to Entity Flows](/en/platform/entity-flows/introduction-to-entity-flows.md)
-      - [Importing Data from Excel or Queries](/en/platform/entity-flows/excel-and-sql-import-by-entity-flow.md)
-      - [EAGenerateEntityFromEntityAction](/en/platform/entity-flows/ea-gen-entity-from-entity.md)
-      - [Entity Flow Examples](/en/platform/entity-flows/entity-flow-examples.md)
-      - [Entity Flow FAQ](/en/platform/entity-flows/entity-flow-faq.md)
-    - [Reports](/en/platform/reports/)
-      - [Jasper Reports Complete Guide for Nama ERP](/en/platform/reports/reports-guide.md)
-      - [Report Wizard Guide](/en/platform/reports/report-wizard-guide.md)
-      - [ReportWizard User Documentation (Report Creation Tool)](/en/platform/reports/ReportWizard_User_Documentation.md)
-      - [Frequently Asked Questions About Report Design](/en/platform/reports/report-faq.md)
-      - [Frequently Asked Questions About the Report Builder](/en/platform/reports/report-wizard-faq.md)
-    - [Business Intelligence](/en/platform/bi/)
-      - [BI Module — Dashboards & Analytics](/en/platform/bi/bi-module-guide.md)
-      - [Nama ERP BI Module — Technical Reference](/en/platform/bi/bi-module-technical-reference.md)
-      - [BI Reference — EnhancedMetricsCard (and legacy MetricsCards)](/en/platform/bi/bi-reference-enhanced-metrics-card.md)
-      - [BI Reference — EnhancedTable](/en/platform/bi/bi-reference-enhanced-table.md)
-      - [BI Reference — Wizard Mode](/en/platform/bi/bi-reference-wizard-mode.md)
-    - [Notifications](/en/platform/notifications/)
-      - [Nama ERP Notification System](/en/platform/notifications/notifications-system.md)
-      - [WhatsApp Integration](/en/platform/notifications/sms-and-whatsapp.md)
-      - [Frequently Asked Questions: Notifications and Messages](/en/platform/notifications/notification-fq.md)
-    - [Virtual Entities — Reusable SQL Building Blocks for Reports & Dashboards](/en/platform/virtual-entity-guide.md)
-    - [Field Filter with Criteria](/en/platform/field-filter-with-criteria.md)
-    - [Frequently Asked Questions about Field Filtering](/en/platform/field-filter-faq.md)
-    - [Modifying Translations in Nama ERP](/en/platform/translations.md)
-    - [Criteria Based Validation](/en/platform/criteria-based-validation.md)
-    - [Criteria from Text Parser (Text Criteria Guide)](/en/platform/text-criteria-guide.md)
-    - [Scheduled Tasks (Task Scheduler)](/en/platform/scheduled-tasks.md)
-    - [Fields and Entities Settings - Generic Reference Overrider User Guide](/en/platform/GenericReferenceOverrider_UserGuide.md)
-  - [Modules](/en/modules/)
-    - [Invoicing, Taxes & Discounts](/en/modules/invoicing/)
-      - [Customer Reward Points (Loyalty Points)](/en/modules/invoicing/reward-points.md)
-      - [Invoice Discounts and Tax Calculation System - Comprehensive Guide](/en/modules/invoicing/invoice-discounts-and-tax-calculation-guide.md)
-      - [Pricing and Offers Management Guide](/en/modules/invoicing/pricing-and-offers-guide.md)
-      - [Payment Schedules User Guide](/en/modules/invoicing/payment-schedules-user-guide.md)
-      - [Linking Payment Vouchers to Invoices](/en/modules/invoicing/payment-entries.md)
-      - [Online Payments Integration](/en/modules/invoicing/online-payments.md)
-      - [Nama ERP e-Invoice guide](/en/modules/invoicing/e-invoices-guide.md)
-      - [Integration with ZATCA (Saudi Arabia)](/en/modules/invoicing/zatca-guide.md)
-      - [Electronic Receipt (Egypt Tax eInvoice) - Activating the Electronic Receipt and eInvoice - Egypt](/en/modules/invoicing/electronic-receipt-egypt-tax-eInvoice.md)
-      - [UAE E-Invoicing Integration via Orchida osTax](/en/modules/invoicing/uae-orchida-einvoice-guide.md)
-      - [Standard Terms and Conditions Feature Documentation](/en/modules/invoicing/standard-terms-feature-documentation.md)
-      - [Barcode Field Feature for Sequential Scanning](/en/modules/invoicing/barcode-field-feature.md)
-      - [Frequently Asked Questions about Invoices and Payments](/en/modules/invoicing/invoices-faq.md)
-    - [Supply Chain](/en/modules/supplychain/)
-      - [Supply Chain Management](/en/modules/supplychain/supply-chain-intro.md)
-      - [Understanding Inventory Items](/en/modules/supplychain/understanding-items.md)
-      - [Receiving Stock into Your Warehouse](/en/modules/supplychain/receiving-stock.md)
-      - [Issuing Stock from Your Warehouse](/en/modules/supplychain/issuing-stock.md)
-      - [Moving Stock Around](/en/modules/supplychain/moving-stock.md)
-      - [The Purchasing Journey](/en/modules/supplychain/purchasing-journey.md)
-      - [The Sales Journey](/en/modules/supplychain/sales-journey.md)
-      - [Quality Control](/en/modules/supplychain/quality-control.md)
-      - [Specialized Scenarios](/en/modules/supplychain/specialized-scenarios.md)
-      - [Nama POS — Technical Points of Use Guide](/en/modules/supplychain/nama-pos.md)
-      - [Free Items in POS: Claim at Scan and Reconciliation at Payment](/en/modules/supplychain/pos-free-items-claim-and-reconciliation.md)
-      - [Fingerprint Login in Point of Sale](/en/modules/supplychain/pos-fingerprint-login.md)
-      - [Comprehensive Reservation System Guide](/en/modules/supplychain/reservation-system-guide.md)
-      - [Ignoring Specific Warehouses/Locators in Reservation Quantity Check by Date](/en/modules/supplychain/ignore-reservation-qty-check-by-date.md)
-      - [FAQ — Distribution, Warehousing, Sales & Purchasing Module](/en/modules/supplychain/supply-chain-faq.md)
-      - [Supply-chain English FAQ](/en/modules/supplychain/supply-chain-faq-english.md)
-    - [Manufacturing](/en/modules/manufacturing/)
-      - [Manufacturing Module Overview](/en/modules/manufacturing/manufacturing-overview.md)
-      - [Production Orders: Planning What to Make](/en/modules/manufacturing/production-orders.md)
-      - [Production Execution: Recording What Actually Happens](/en/modules/manufacturing/production-execution.md)
-      - [Production Costing: Following the Money](/en/modules/manufacturing/production-costing.md)
-      - [Material Requirements Planning (MRP) - User Guide](/en/modules/manufacturing/material-requirements-planning.md)
-      - [Carton Manufacturing: Smart Material Planning for Corrugated Products](/en/modules/manufacturing/carton-manufacturing-overview.md)
-      - [Carton Specifications: Defining Your Products](/en/modules/manufacturing/carton-specifications.md)
-      - [Carton Orders: From Customer Request to Production Plan](/en/modules/manufacturing/carton-orders.md)
-      - [Carton Material Planning: The Optimization Engine](/en/modules/manufacturing/carton-material-planning.md)
-      - [Carton Material Issues: From Warehouse to Shop Floor](/en/modules/manufacturing/carton-material-issue.md)
-      - [Frequently Asked Questions — Manufacturing Module in Nama ERP](/en/modules/manufacturing/manufacturing-faq.md)
-    - [Human Resources](/en/modules/hr/)
-      - [Attendance and Departure Formulas](/en/modules/hr/attendance-machine-formula.md)
-      - [Ignoring Overlapping Attendance and Departure Lines](/en/modules/hr/ignore-overlapping-attendance.md)
-      - [Frequently Asked Questions — Payroll and Human Resources Module](/en/modules/hr/human-resources-faq.md)
-    - [Point of Sale](/en/modules/pos/)
-      - [Point of Sale FAQ](/en/modules/pos/pos-faq.md)
-    - [Real Estate](/en/modules/realestate/)
-      - [Real Estate Investment FAQ](/en/modules/realestate/real-estate-fq.md)
-    - [Mobile Applications](/en/modules/mobile/)
-      - [Mobile Application](/en/modules/mobile/mobile-application-guide.md)
-      - [Mobile QR Integrator Guide](/en/modules/mobile/mobile-qr-integrator.md)
-      - [Frequently Asked Questions About Mobile Applications in Nama ERP](/en/modules/mobile/mobile-apps-faq.md)
-    - [e-commerce Integration](/en/modules/ecommerce/)
-      - [Nama ERP E-Commerce Integration Guide](/en/modules/ecommerce/magento-integration-guide.md)
-      - [Omniful Integration Guide](/en/modules/ecommerce/omniful-integration.md)
-  - [External Integrations](/en/integration/)
-    - [Nama ERP REST API](/en/integration/nama-erp-api.md)
-    - [Integration Scenarios Between Nama and Other Systems](/en/integration/system-integration-scenarios.md)
-    - [Sending Invoices and Documents to Customers](/en/integration/invoice-retriever.md)
-    - [Integration with Attendance Machines](/en/integration/attendance-machines-integration.md)
-    - [ORACLE JDBC Integration Connection in context.xml for integration purposes](/en/integration/oracle-jdbc-connection.md)
-  - [System Administration](/en/admin/)
-    - [Tempo Language Manual](/en/admin/tempo.md)
-    - [Troubleshooting](/en/admin/troubleshooting/)
-      - [Troubleshooting System Hanging or Unresponsiveness](/en/admin/troubleshooting/troubleshooting-system-hanging.md)
-      - [General FAQ](/en/admin/troubleshooting/general-faq.md)
-      - [Database Related Errors FAQ](/en/admin/troubleshooting/database-error-related-faq.md)
-    - [Reprocessing Transactions](/en/admin/reprocessing/)
-      - [Reprocessing Quantity, Cost, and Stock Ages](/en/admin/reprocessing/reprocess-qty-and-cost.md)
-      - [Accounting Utilities - Ledger and Debt Ages Reprocessing](/en/admin/reprocessing/reprocess-ledger-and-debt-ages.md)
-      - [Queries to Check for (and Fix) Cost And Qty Problems](/en/admin/reprocessing/cost-and-qty-problems.md)
-      - [Inventory Related Utility Queries](/en/admin/reprocessing/inventory-utilities.md)
-      - [Manufacturing Utilities](/en/admin/reprocessing/manufacturing-utilities.md)
-      - [Fixed Assets Module Utilities](/en/admin/reprocessing/fixed-asset-utilities.md)
-      - [Real Estate Utilities](/en/admin/reprocessing/real-estate-utilities.md)
-      - [Database Related Operations](/en/admin/reprocessing/db-operations.md)
-      - [Suggest Indexes for Large Detail Tables](/en/admin/reprocessing/suggest-index-creation.md)
-      - [General Purpose Utility Queries](/en/admin/reprocessing/general-purpose-utility-queries.md)
-      - [Replication Utilities](/en/admin/reprocessing/replication.md)
-  - [Developer Reference](/en/developer/)
-    - [Some Information About Using This Site](/en/developer/docs-quick-guide.md)
-    - [Guidelines for Submitting Development Requests by Support and Setup Teams](/en/developer/dev-request-guidelines.md)
-    - [General Questions About GUI Post Actions](/en/developer/gui-post-actions-faq.md)
-  - [Video Tutorials](/en/videos/)
-    - [Documentation for the Nama ERP Installation Video and Supporting Software](/en/videos/installation-video.md)
-    - [Supply Chain Videos](/en/videos/supply-chain-videos/)
-      - [Inventory Costing Explained - Video 1](/en/videos/supply-chain-videos/cost-video-1.md)
-      - [Inventory Costing Methods - Video 2](/en/videos/supply-chain-videos/cost-video-2.md)
-      - [Costing Tutorial Video - 3](/en/videos/supply-chain-videos/cost-video-3.md)
-    - [Documentation: Explaining Actual and Indirect Costs in the Manufacturing System](/en/videos/manufacturing-actual-overhead.md)
-    - [Report Wizard Videos](/en/videos/report-wizard-videos/)
-      - [Video (1): Report Designer Tool Walkthrough](/en/videos/report-wizard-videos/report-wizard-webinar-1.md)
-      - [Detailed Guide to Grouping, Data Sources, and Report Sorting in Nama ERP](/en/videos/report-wizard-videos/report-wizard-webinar-2.md)
-      - [1. What Is a Cross Tab Report and How to Create One?](/en/videos/report-wizard-videos/report-wizard-webinar-3.md)
-      - [report-wizard-webinar-4.md](/en/videos/report-wizard-videos/report-wizard-webinar-4.md)
-      - [Conclusion](/en/videos/report-wizard-videos/report-wizard-webinar-5.md)
-      - [Content Summary](/en/videos/report-wizard-videos/report-wizard-webinar-6.md)
-    - [Human Resources Videos](/en/videos/hr/)
-      - [Detailed Explanation of the Payroll Management System in Nama ERP - 1](/en/videos/hr/hr-course-1.md)
-      - [Detailed Explanation of the Payroll Management System in Nama ERP - 2](/en/videos/hr/hr-course-2.md)
-      - [Detailed Explanation of the Payroll Management System in Nama ERP - 3](/en/videos/hr/hr-course-3.md)
-      - [Detailed Explanation of the Payroll System in Nama ERP - 4](/en/videos/hr/hr-course-4.md)
-
-</div>
+---
+# Handwritten homepage — GenNamaDocsIndex intentionally skips regenerating this file
+# (see hasHandcraftedHomePage in GenNamaDocsIndex.java)
+layout: home
+title: Nama ERP Docs
+hero:
+  name: Nama ERP
+  text: Documentation & User Guides
+  tagline: Step-by-step guides, video tutorials, and FAQs covering every module of Nama ERP — from installation to mastery
+  image:
+    src: /hero.svg
+    alt: Nama ERP
+  actions:
+    - theme: brand
+      text: Get Started
+      link: /en/getting-started/
+    - theme: alt
+      text: Advanced Search
+      link: /en/full-search
+    - theme: alt
+      text: Video Tutorials
+      link: /en/videos/
+features:
+  - icon: 🚀
+    title: Getting Started
+    details: System minimum requirements, the installation guide, Nama Properties configuration, and two-factor authentication (2FA)
+    link: /en/getting-started/
+  - icon: ⚙️
+    title: Platform Features
+    details: Screen modifier, approvals, security & permissions, entity flows, reports, business intelligence (BI), and notifications
+    link: /en/platform/
+  - icon: 📦
+    title: Modules
+    details: Invoicing & taxes, supply chain, manufacturing, human resources, point of sale, real estate, mobile apps, and e-commerce
+    link: /en/modules/
+  - icon: 🔗
+    title: External Integrations
+    details: The Nama ERP API, integration scenarios with other systems, invoice retrieval, and attendance machine integration
+    link: /en/integration/
+  - icon: 🛠️
+    title: System Administration
+    details: Troubleshooting common issues, reprocessing quantities, costs and the ledger, and database utilities
+    link: /en/admin/
+  - icon: 👨‍💻
+    title: Developer Reference
+    details: Documentation writing guidelines, development request guidelines, and GUI post actions FAQ
+    link: /en/developer/
+  - icon: 🎬
+    title: Video Tutorials
+    details: A training video library covering installation, the report wizard, human resources, and supply chain
+    link: /en/videos/
+---
