@@ -5,7 +5,6 @@ import postcssRTLCSS from 'postcss-rtlcss'
 import {Mode} from 'postcss-rtlcss/options'
 import {SIDEBAR_CONFIG} from './sidebar.js'
 import {collectPageForSearchIndex, devSearchIndexPlugin, writeSearchIndexJSON} from './search-index-builder.mts'
-import {normalizeArabic} from './theme/arabic-normalization'
 import fs from 'node:fs'
 import path from 'node:path'
 import {fileURLToPath} from 'node:url'
@@ -159,7 +158,17 @@ export default defineConfig({
                         // minisearch's default processTerm only lowercases; add Arabic
                         // folding so hamza/taa-marbuta variants match. Search-time terms
                         // go through the same function (minisearch reuses it by default).
-                        processTerm: (term) => normalizeArabic(term.toLowerCase())
+                        // IMPORTANT: VitePress serializes this function and re-evals it in
+                        // the browser, so it must be self-contained — no imports/closures
+                        // (calling normalizeArabic here throws ReferenceError at runtime).
+                        // Keep in sync with theme/arabic-normalization.ts.
+                        processTerm: (term) => term.toLowerCase()
+                            .replace(/[ً-ْٰ]/g, '') // tashkeel diacritics
+                            .replace(/ـ/g, '') // tatweel
+                            .replace(/[أإآء]/g, 'ا')
+                            .replace(/ة/g, 'ه')
+                            .replace(/[ىئ]/g, 'ي')
+                            .replace(/ؤ/g, 'و')
                     }
                 },
                 locales: {
