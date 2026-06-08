@@ -19,7 +19,7 @@ Three deep-dive references sit beside this file. Load them on demand to keep con
 
 ## 1. The chartConfigJSON Structure
 
-Every BI widget stores its configuration in a single `chartConfigJSON` field (a JSON string). This is the top-level structure:
+Every BI widget stores its configuration in a single `chartConfigJSON` field. In import and export files this appears as a nested JSON object (no escaping). This is the top-level structure:
 
 ```json
 {
@@ -1044,7 +1044,12 @@ No `dataSource`, no `crossFilterBindings`, no `wizardDataSource`. The widget is 
   "name1": "ترويسة المبيعات",
   "name2": "Sales Header",
   "type": "TextBlock",
-  "chartConfigJSON": "{\"html\":\"<h2>Sales Performance</h2>\",\"bgColor\":\"#f5f5f5\",\"padding\":\"8px\",\"textAlign\":\"center\"}"
+  "chartConfigJSON": {
+    "html": "<h2>Sales Performance</h2>",
+    "bgColor": "#f5f5f5",
+    "padding": "8px",
+    "textAlign": "center"
+  }
 }
 ```
 
@@ -1114,7 +1119,7 @@ Each entry creates a `DashBoardWidget` entity. Key fields:
   "englishChartTitle": "Sales by Item",
   "type": "EChart",
   "dataSource": "SELECT ... WHERE 1=1 /*AND-FILTERS*/ ...",
-  "chartConfigJSON": "{ ... }",
+  "chartConfigJSON": { },
   "horizontalMode": true,
   "crossFilterBindings": [
     {"crossFilter": "branchFilter"},
@@ -1130,7 +1135,7 @@ Each entry creates a `DashBoardWidget` entity. Key fields:
 | `chartTitle` / `englishChartTitle` | No | Localized title shown above the chart. Emoji prefixes are fine. |
 | `type` | Yes | One of: `"EChart"`, `"Table"`, `"EnhancedTable"`, `"EnhancedMetricsCard"`, `"MetricsCards"` (legacy), `"CrossFilterControl"`, `"TextBlock"`, `"PieChart"`, `"ColumnWithRotatedLabels"`, `"ColumnWithCategsAndLabels"`, `"CombinationChart"`, `"BasicAreaChart"`, `"Gauge"`, `"HeatMap"`, `"HTML"`, `"ThreeDPieChart"`, `"ColumnRange"`, `"Calendar"`, `"ResourceView"`, `"Report"`, `"StackedAndGroupedColumn"`, `"CardMenu"`, `"Timeline"`, `"RecentVisits"`. See §9 for which need `chartConfigJSON`. |
 | `dataSource` | Most types | SQL query with `/*AND-FILTERS*/` placeholder. Skipped for `CrossFilterControl`, `TextBlock`. |
-| `chartConfigJSON` | If EChart / EnhancedTable / EnhancedMetricsCard / TextBlock | JSON **string** (escaped), not a nested object. |
+| `chartConfigJSON` | If EChart / EnhancedTable / EnhancedMetricsCard / TextBlock | A nested JSON **object**, written inline — no escaping. The importer serializes it to the stored string for you. Legacy escaped-string values are still accepted. |
 | `wizardDataSource` | No | Code of a `DashBoardWidgetWizard` entity (alternative to raw SQL). See §13. |
 | `horizontalMode` | No | Layout hint. On `CrossFilterControl` widgets, true = inline chip strip, false = stacked editor. |
 | `crossFilterBindings` | No | Array of `{"crossFilter": "filterCode"}` (widget-level — see §6). |
@@ -1139,8 +1144,8 @@ Each entry creates a `DashBoardWidget` entity. Key fields:
 | `enableComparison` | No | Toggles period-comparison execution (`BIPeriodComparisonExecutor`). |
 | `mergeComparisonByColumns` | No | CSV of column names that key the merge between baseline and comparison rows. |
 
-::: warning
-The `chartConfigJSON` value is a **JSON string** (escaped), not a nested object. When writing import files, you must serialize the chart config object to a string.
+::: info
+Write `chartConfigJSON` as a **nested JSON object** in import/export files — no escaping, no manual stringification. The system serializes it to the stored JSON string on import and parses it back to an object on export. Older files that still carry `chartConfigJSON` as an escaped string keep importing unchanged.
 :::
 
 ### 11.3 DashBoardWidgetWizard Array (Optional)
@@ -1281,7 +1286,17 @@ Here is a complete, working import JSON that creates a sales analysis dashboard 
       "englishChartTitle": "Sales by Category",
       "type": "EChart",
       "dataSource": "SELECT cc.id ccId, cc.code ccCode, cc.name1 ccName1, cc.name2 ccName2, SUM(l.netValue) netValue FROM SalesInvoiceLine l LEFT JOIN Customer c ON c.id = l.customer_id LEFT JOIN CustomerCategory cc ON cc.id = c.customerCategory_id WHERE 1=1 /*AND-FILTERS*/ GROUP BY cc.id, cc.code, cc.name1, cc.name2",
-      "chartConfigJSON": "{\"echartOption\":{\"tooltip\":{\"trigger\":\"item\",\"formatter\":\"{b}: {c} ({d}%)\"},\"legend\":{\"orient\":\"vertical\",\"left\":\"left\"},\"series\":[{\"type\":\"pie\",\"radius\":\"60%\",\"data\":\"$DATA.values\"}]},\"dataMapping\":{\"type\":\"LabelValue\",\"labelColumn\":\"ccName2\",\"valueColumn\":\"netValue\"},\"clickEmitMapping\":[{\"crossFilterCode\":\"custCategoryFilter\",\"idColumn\":\"ccId\",\"codeColumn\":\"ccCode\",\"name1Column\":\"ccName1\",\"name2Column\":\"ccName2\",\"entityType\":\"CustomerCategory\"}]}",
+      "chartConfigJSON": {
+        "echartOption": {
+          "tooltip": {"trigger": "item", "formatter": "{b}: {c} ({d}%)"},
+          "legend": {"orient": "vertical", "left": "left"},
+          "series": [{"type": "pie", "radius": "60%", "data": "$DATA.values"}]
+        },
+        "dataMapping": {"type": "LabelValue", "labelColumn": "ccName2", "valueColumn": "netValue"},
+        "clickEmitMapping": [
+          {"crossFilterCode": "custCategoryFilter", "idColumn": "ccId", "codeColumn": "ccCode", "name1Column": "ccName1", "name2Column": "ccName2", "entityType": "CustomerCategory"}
+        ]
+      },
       "crossFilterBindings": [
         {"crossFilter": "dateFromFilter"},
         {"crossFilter": "dateToFilter"}
@@ -1295,7 +1310,20 @@ Here is a complete, working import JSON that creates a sales analysis dashboard 
       "englishChartTitle": "Top 10 Items",
       "type": "EChart",
       "dataSource": "SELECT TOP 10 i.name2 itemName, SUM(l.netValue) netValue FROM SalesInvoiceLine l LEFT JOIN InvItem i ON i.id = l.item_id LEFT JOIN Customer c ON c.id = l.customer_id LEFT JOIN CustomerCategory cc ON cc.id = c.customerCategory_id WHERE 1=1 /*AND-FILTERS*/ GROUP BY i.name2 ORDER BY netValue DESC",
-      "chartConfigJSON": "{\"echartOption\":{\"tooltip\":{\"trigger\":\"axis\",\"axisPointer\":{\"type\":\"shadow\"}},\"grid\":{\"left\":120,\"right\":40,\"top\":10,\"bottom\":20},\"xAxis\":{\"type\":\"value\"},\"yAxis\":{\"type\":\"category\",\"data\":\"$DATA.categories\",\"inverse\":true,\"axisLabel\":{\"width\":110,\"overflow\":\"truncate\"}},\"series\":[{\"name\":\"$DATA.series[0].name\",\"type\":\"bar\",\"data\":\"$DATA.series[0].data\",\"itemStyle\":{\"borderRadius\":[0,4,4,0]},\"label\":{\"show\":true,\"position\":\"right\"}}]},\"dataMapping\":{\"type\":\"CategoryValue\",\"categoryColumn\":\"itemName\",\"series\":[{\"column\":\"netValue\",\"name\":\"Net Value\",\"type\":\"bar\",\"format\":{\"type\":\"currency\",\"decimals\":0,\"compact\":true}}]}}",
+      "chartConfigJSON": {
+        "echartOption": {
+          "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
+          "grid": {"left": 120, "right": 40, "top": 10, "bottom": 20},
+          "xAxis": {"type": "value"},
+          "yAxis": {"type": "category", "data": "$DATA.categories", "inverse": true, "axisLabel": {"width": 110, "overflow": "truncate"}},
+          "series": [{"name": "$DATA.series[0].name", "type": "bar", "data": "$DATA.series[0].data", "itemStyle": {"borderRadius": [0, 4, 4, 0]}, "label": {"show": true, "position": "right"}}]
+        },
+        "dataMapping": {
+          "type": "CategoryValue",
+          "categoryColumn": "itemName",
+          "series": [{"column": "netValue", "name": "Net Value", "type": "bar", "format": {"type": "currency", "decimals": 0, "compact": true}}]
+        }
+      },
       "crossFilterBindings": [
         {"crossFilter": "custCategoryFilter"},
         {"crossFilter": "dateFromFilter"},
