@@ -212,6 +212,10 @@ The Authority uses a standardized list of exemption codes known as **VATEX**. Pi
 When using category `S`, the tax rate must be exactly **15%**. For categories `E`, `Z` and `O`, the invoice will not be accepted without a valid reason code/text.
 :::
 
+::: tip Where the exemption code comes from (Tax Plan)
+You aren't limited to defining the exemption codes above on the configuration — you can also set them on the **Tax Plan** and its lines. The **Tax Codes Type** field on the configuration decides which level the codes are read from — the same mechanism used for your other tax codes — and when the chosen level leaves a code empty, the system falls back to the code defined on the configuration.
+:::
+
 ## Customer (Buyer) Setup
 
 For standard (B2B) invoices, the Authority needs to identify the buyer. Complete the tax data for every customer you will issue standard invoices to:
@@ -219,30 +223,34 @@ For standard (B2B) invoices, the Authority needs to identify the buyer. Complete
 | Field | Description |
 |-------|-------------|
 | **Tax Reg No** | The buyer's VAT number — required for a VAT-registered buyer (B2B) |
-| **ZATCA Buyer Id Type** | The type of identity used to identify the buyer (see the table below) |
+| **ZATCA Buyer Id Type** | The type of identity used to identify the buyer (see the table below) — **optional**; if left empty it is auto-derived from whichever identity field is filled |
 | **Id Number** | The identity value matching the selected type |
 | **Address** | Country, city, district, street, building number and postal code |
 
 Available buyer identity types:
 
-| Code | Identity | When to use |
-|------|----------|-------------|
-| `TIN` | Tax Identification Number | A VAT-registered buyer |
-| `CRN` | Commercial Registration | Businesses and entities |
-| `MOM` | MOMRAH License | As per license |
-| `MLS` | MHRSD License | As per license |
-| `700` | 700 Number | As per registration |
-| `SAG` | MISA License | Investment entities |
-| `NAT` | National ID | Citizen individuals |
-| `GCC` | GCC ID | GCC nationals |
-| `IQA` | Iqama Number | Residents |
-| `PAS` | Passport ID | Non-residents |
-| `OTH` | Other ID | Other cases |
+| Code | Identity | Source field (value) | When to use |
+|------|----------|----------------------|-------------|
+| `TIN` | Tax Identification Number | Tax Reg No | A VAT-registered buyer |
+| `CRN` | Commercial Registration | Commercial Reg No or Unified National Number | Businesses and entities |
+| `MOM` | MOMRAH License | Distinguished Number | As per license |
+| `MLS` | MHRSD License | Distinguished Number | As per license |
+| `700` | 700 Number | Distinguished Number | As per registration |
+| `SAG` | MISA License | Distinguished Number | Investment entities |
+| `NAT` | National ID | Id Number | Citizen individuals |
+| `GCC` | GCC ID | Distinguished Number | GCC nationals |
+| `IQA` | Iqama Number | Distinguished Number | Residents |
+| `PAS` | Passport ID | Id Number | Non-residents |
+| `OTH` | Other ID | Distinguished Number | Other cases |
 
 ::: tip Choosing the identity type by customer kind
 - **Company / entity (private or government)** → usually `CRN` or `TIN`.
 - **Individual citizen** → `NAT` (never use `CRN` for individuals).
 - **Resident** → `IQA`, **visitor / foreigner** → `PAS`.
+:::
+
+::: tip Leave the type empty to auto-derive it
+If you don't set **ZATCA Buyer Id Type**, the system infers the code from the filled field: an ID number on an **individual** → `NAT`, on a **foreigner** → `PAS`; a commercial registration / unified national number / distinguished number → `CRN`; and the VAT registration number → `TIN`. You only need to set the type explicitly to force a specific scheme (such as `MOM`, `MLS`, `SAG`, `GCC` or `IQA`), in which case the **distinguished number** is used as the identity value.
 :::
 
 ::: warning
@@ -282,6 +290,15 @@ After sending, each document's status is set to one of:
 ::: tip
 For standard invoices, the legally valid version is the **Cleared Invoice** returned by the Authority, which carries the official QR code; the system keeps it after clearance. Simplified invoices carry a QR code from the moment they are issued.
 :::
+
+### Exporting the invoice XML
+
+The submission document offers two actions to pull the raw UBL XML for the selected lines — useful for audits or for proving what was actually submitted:
+
+- **Export Cleared / Sent XML For Selected Lines** — exports the exact XML the Authority received: the cleared (ZATCA-stamped, QR-bearing) version for standard invoices, or the reported version for simplified ones.
+- **Export Current XML For Selected Lines** — regenerates the XML from the document's current data on the spot.
+
+Exporting both and comparing them tells you whether the underlying invoice changed after submission: if the **current** XML no longer matches the **cleared/sent** one, the source document was edited after it was submitted. Lines belonging to authorities that don't use XML are skipped.
 
 ## Supported Document Types
 
