@@ -242,7 +242,7 @@ details.n1=tempo({itemprice(itemIdOrCode=details.item.item)})
 
 **ج:** عند استخدامك للجملة التالية:
 
-```fvc
+```
 details.specificDimensions.warehouse=sql(select case when {details.item.item.section.code} = '1' then 'W-MG' else  warehouse_id end from SrvJOrderMaterialLine where SrvCJobOrder_id = {ref1.$toReal.id} and {details.item.item.id} = material_id)
 ```
 

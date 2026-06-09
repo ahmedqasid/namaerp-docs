@@ -236,7 +236,7 @@ Please ensure that this flow is added to the "Stock Supply" document type and ac
 
 **Answer:** When using the following statement:
 
-```fvc
+```
 details.specificDimensions.warehouse=sql(select case when {details.item.item.section.code} = '1' then 'W-MG' else  warehouse_id end from SrvJOrderMaterialLine where SrvCJobOrder_id = {ref1.$toReal.id} and {details.item.item.id} = material_id)
 ```
 

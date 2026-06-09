@@ -8,7 +8,7 @@
   - [Linking Payment Vouchers to Invoices](/en/modules/invoicing/payment-entries.md)
   - [Online Payments Integration](/en/modules/invoicing/online-payments.md)
   - [Nama ERP e-Invoice guide](/en/modules/invoicing/e-invoices-guide.md)
-  - [Integration with ZATCA (Saudi Arabia)](/en/modules/invoicing/zatca-guide.md)
+  - [Integration with ZATCA (Saudi Arabia – Fatoora)](/en/modules/invoicing/zatca-guide.md)
   - [Electronic Receipt (Egypt Tax eInvoice) - Activating the Electronic Receipt and eInvoice - Egypt](/en/modules/invoicing/electronic-receipt-egypt-tax-eInvoice.md)
   - [UAE E-Invoicing Integration via Orchida osTax](/en/modules/invoicing/uae-orchida-einvoice-guide.md)
   - [Standard Terms and Conditions Feature Documentation](/en/modules/invoicing/standard-terms-feature-documentation.md)

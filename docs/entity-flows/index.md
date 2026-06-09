@@ -27,6 +27,7 @@
     - [EADeleteFromQuery](/entity-flows/core/EADeleteFromQuery.md)
     - [EADeleteOldFiles](/entity-flows/core/EADeleteOldFiles.md)
     - [EADetailsRemover](/entity-flows/core/EADetailsRemover.md)
+    - [EADownloadURLsIntoAttachments](/entity-flows/core/EADownloadURLsIntoAttachments.md)
     - [EAEmptifyTomcatTemp](/entity-flows/core/EAEmptifyTomcatTemp.md)
     - [EAErrorIfQueryNotMatched](/entity-flows/core/EAErrorIfQueryNotMatched.md)
     - [EAExecuteUpdateQuery](/entity-flows/core/EAExecuteUpdateQuery.md)

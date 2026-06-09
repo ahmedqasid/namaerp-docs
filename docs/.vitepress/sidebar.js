@@ -45,6 +45,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -232,6 +240,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
       }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
@@ -434,6 +450,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
       }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
@@ -659,6 +683,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -855,6 +887,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -1050,6 +1090,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
       }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
@@ -1249,6 +1297,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
       }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
@@ -1458,6 +1514,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -1662,6 +1726,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
       }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
@@ -1868,6 +1940,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -2073,6 +2153,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -2272,6 +2360,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -2459,6 +2555,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
       }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
@@ -2670,7 +2774,7 @@ export const SIDEBAR_CONFIG = {
           text: "Nama ERP e-Invoice guide",
           "link" : "/modules/invoicing/e-invoices-guide"
         }, {
-          text: "الربط مع هيئة الزكاة والدخل بالسعودية",
+          text: "الربط مع هيئة الزكاة والضريبة والجمارك بالسعودية (ZATCA Fatoora)",
           "link" : "/modules/invoicing/zatca-guide"
         }, {
           text: "Electronic Receipt (Egypt Tax eInvoice) تفعيل الإيصال الإلكتروني - الفاتورة الإلكترونية - مصر",
@@ -2687,6 +2791,504 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "أسئلة شائعة حول الفواتير والدفع",
           "link" : "/modules/invoicing/invoices-faq"
+        } ]
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/modules/supplychain/"
+      }, {
+        text: "التصنيع",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/modules/hr/"
+      }, {
+        text: "نقاط البيع",
+        "link" : "/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/modules/ecommerce/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/developer/"
+    }, {
+      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      "link" : "/entity-flows/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "الأساسيات",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "وحدة الحسابات",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "وحدة الذكاء الاصطناعي",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "وحدة المقاولات",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "وحدة إدارة علاقات العملاء",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "وحدة قراءة الفواتير الإلكترونية",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "وحدة إدارة الشحن",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "وحدة إدارة المستشفيات",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "وحدة الموارد البشرية",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "وحدة تكامل التجارة الإلكترونية",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "وحدة التصنيع",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "وحدة نقاط البيع",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "وحدة العقارات",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "وحدة مركز الخدمة",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "وحدة سلسلة التوريد",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/release-notes/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "2016",
+        "link" : "/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/accounting/" : [ {
+    text: "الرئيسية",
+    "collapsed" : false,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "المفاهيم الأساسية والإعداد المبدئي للحسابات",
+          "link" : "/modules/accounting/accounting-concepts-and-setup"
+        }, {
+          text: "شجرة الحسابات",
+          "link" : "/modules/accounting/chart-of-accounts"
+        }, {
+          text: "الحسابات",
+          "link" : "/modules/accounting/accounts"
+        }, {
+          text: "سندات القيد والتسويات",
+          "link" : "/modules/accounting/journal-entries"
+        }, {
+          text: "الإقفال السنوي والتحكم في الفترات",
+          "link" : "/modules/accounting/year-end-and-period-control"
+        }, {
+          text: "سندات القبض والصرف",
+          "link" : "/modules/accounting/receipts-and-payments"
+        }, {
+          text: "إشعارات الدائن والمدين",
+          "link" : "/modules/accounting/credit-and-debit-notes"
+        }, {
+          text: "ورديات الكاشير (درج النقدية)",
+          "link" : "/modules/accounting/cashier-shifts"
+        }, {
+          text: "البنوك والحسابات البنكية والتحويلات",
+          "link" : "/modules/accounting/banks-and-bank-accounts"
+        }, {
+          text: "المطابقة البنكية",
+          "link" : "/modules/accounting/bank-reconciliation"
+        }, {
+          text: "الشيكات والأوراق المالية (دورة الحياة)",
+          "link" : "/modules/accounting/cheques-financial-papers"
+        }, {
+          text: "القروض البنكية",
+          "link" : "/modules/accounting/bank-loans"
+        }, {
+          text: "الودائع الثابتة",
+          "link" : "/modules/accounting/fixed-deposits"
+        }, {
+          text: "التسهيلات الائتمانية وحدود التسهيلات",
+          "link" : "/modules/accounting/credit-facilities"
+        }, {
+          text: "خطابات الضمان",
+          "link" : "/modules/accounting/letters-of-guarantee"
+        }, {
+          text: "الاعتمادات المستندية",
+          "link" : "/modules/accounting/letters-of-credit"
+        }, {
+          text: "أذون الخزانة",
+          "link" : "/modules/accounting/treasury-bills"
+        }, {
+          text: "المحافظ الاستثمارية",
+          "link" : "/modules/accounting/investment-portfolios"
+        }, {
+          text: "مستندات الاستثمار وشهادات الصناديق",
+          "link" : "/modules/accounting/investment-documents"
+        }, {
+          text: "المصروفات المقدمة",
+          "link" : "/modules/accounting/prepaid-expenses"
+        }, {
+          text: "الالتزامات المالية",
+          "link" : "/modules/accounting/financial-commitments"
+        }, {
+          text: "الموازنات المالية",
+          "link" : "/modules/accounting/financial-budgets"
+        }, {
+          text: "القوائم المالية",
+          "link" : "/modules/accounting/financial-statements"
+        }, {
+          text: "المشتريات المتنوعة وتشغيل المعدات",
+          "link" : "/modules/accounting/misc-purchasing"
+        }, {
+          text: "تقييم الجهات",
+          "link" : "/modules/accounting/party-evaluation"
+        }, {
+          text: "التسوية مع الذمم",
+          "link" : "/modules/accounting/subsidiary-reconciliation"
+        }, {
+          text: "كشوف الحسابات وميزان المراجعة والتحليل",
+          "link" : "/modules/accounting/reports-account-statements-and-trial-balance"
+        }, {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/modules/supplychain/"
+      }, {
+        text: "التصنيع",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/modules/hr/"
+      }, {
+        text: "نقاط البيع",
+        "link" : "/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/modules/ecommerce/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/developer/"
+    }, {
+      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      "link" : "/entity-flows/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "الأساسيات",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "وحدة الحسابات",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "وحدة الذكاء الاصطناعي",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "وحدة المقاولات",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "وحدة إدارة علاقات العملاء",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "وحدة قراءة الفواتير الإلكترونية",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "وحدة إدارة الشحن",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "وحدة إدارة المستشفيات",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "وحدة الموارد البشرية",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "وحدة تكامل التجارة الإلكترونية",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "وحدة التصنيع",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "وحدة نقاط البيع",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "وحدة العقارات",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "وحدة مركز الخدمة",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "وحدة سلسلة التوريد",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/release-notes/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "2016",
+        "link" : "/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/accounting/support/" : [ {
+    text: "الرئيسية",
+    "collapsed" : false,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/",
+          "collapsed" : false,
+          "items" : [ {
+            text: "كيف تُعالَج المستندات إلى أثر محاسبي (وإعادة معالجة طلب متعثّر)",
+            "link" : "/modules/accounting/support/accounting-request-processing"
+          }, {
+            text: "إعدادات الحسابات (كتالوج خيارات الوحدة)",
+            "link" : "/modules/accounting/support/accounting-configuration"
+          }, {
+            text: "توجيهات المستندات (قواعد المعالجة لكل نوع)",
+            "link" : "/modules/accounting/support/accounting-document-terms"
+          }, {
+            text: "المحدِّدات ومراكز التكلفة والتوزيع",
+            "link" : "/modules/accounting/support/accounting-dimensions-and-distribution"
+          }, {
+            text: "الفترات المالية وإقفال الفترات وتعدّد العملات",
+            "link" : "/modules/accounting/support/accounting-periods-and-currency"
+          } ]
         } ]
       }, {
         text: "سلسلة التوريد",
@@ -2876,6 +3478,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
       }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/",
@@ -3115,6 +3725,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -3338,6 +3956,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -3537,6 +4163,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -3730,6 +4364,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -3922,6 +4564,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
       }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
@@ -4122,6 +4772,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -4317,6 +4975,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
       }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
@@ -4523,6 +5189,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -4713,6 +5387,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
       }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
@@ -4912,6 +5594,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
       }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
@@ -5136,6 +5826,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -5335,6 +6033,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -5523,6 +6229,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -5644,6 +6358,9 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "EADetailsRemover",
           "link" : "/entity-flows/core/EADetailsRemover"
+        }, {
+          text: "EADownloadURLsIntoAttachments",
+          "link" : "/entity-flows/core/EADownloadURLsIntoAttachments"
         }, {
           text: "EAEmptifyTomcatTemp",
           "link" : "/entity-flows/core/EAEmptifyTomcatTemp"
@@ -5992,6 +6709,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -6212,6 +6937,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -6410,6 +7143,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
       }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
@@ -6610,6 +7351,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -6806,6 +7555,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -6998,6 +7755,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
       }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
@@ -7192,6 +7957,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -7384,6 +8157,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
       }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
@@ -7653,6 +8434,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -7867,6 +8656,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -8059,6 +8856,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
       }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
@@ -8255,6 +9060,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
       }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
@@ -8457,6 +9270,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
       }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
@@ -8665,6 +9486,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
       }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
@@ -9066,6 +9895,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -9253,6 +10090,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
       }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
@@ -9470,6 +10315,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
       }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
@@ -9697,6 +10550,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -9922,6 +10783,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
       }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
@@ -10149,6 +11018,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -10374,6 +11251,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
       }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
@@ -10601,6 +11486,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -10826,6 +11719,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
       }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
@@ -11053,6 +11954,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -11278,6 +12187,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
       }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
@@ -11505,6 +12422,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -11710,6 +12635,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -11903,6 +12836,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
       }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
@@ -12102,6 +13043,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
       }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
@@ -12311,6 +13260,14 @@ export const SIDEBAR_CONFIG = {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/modules/invoicing/"
       }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
         text: "سلسلة التوريد",
         "link" : "/modules/supplychain/"
       }, {
@@ -12514,6 +13471,14 @@ export const SIDEBAR_CONFIG = {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
       }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
+      }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/"
       }, {
@@ -12628,6 +13593,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
       }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/"
@@ -12763,6 +13736,14 @@ export const SIDEBAR_CONFIG = {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
       }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
+      }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/"
       }, {
@@ -12872,6 +13853,14 @@ export const SIDEBAR_CONFIG = {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
       }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
+      }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/"
       }, {
@@ -12980,6 +13969,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
       }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/"
@@ -13092,6 +14089,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
       }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/"
@@ -13214,6 +14219,14 @@ export const SIDEBAR_CONFIG = {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
       }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
+      }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/"
       }, {
@@ -13331,6 +14344,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
       }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/"
@@ -13450,6 +14471,14 @@ export const SIDEBAR_CONFIG = {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
       }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
+      }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/"
       }, {
@@ -13568,6 +14597,14 @@ export const SIDEBAR_CONFIG = {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
       }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
+      }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/"
       }, {
@@ -13680,6 +14717,14 @@ export const SIDEBAR_CONFIG = {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
       }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
+      }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/"
       }, {
@@ -13780,6 +14825,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
       }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/"
@@ -13904,7 +14957,7 @@ export const SIDEBAR_CONFIG = {
           text: "Nama ERP e-Invoice guide",
           "link" : "/en/modules/invoicing/e-invoices-guide"
         }, {
-          text: "Integration with ZATCA (Saudi Arabia)",
+          text: "Integration with ZATCA (Saudi Arabia – Fatoora)",
           "link" : "/en/modules/invoicing/zatca-guide"
         }, {
           text: "Electronic Receipt (Egypt Tax eInvoice) - Activating the Electronic Receipt and eInvoice - Egypt",
@@ -13921,6 +14974,330 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Frequently Asked Questions about Invoices and Payments",
           "link" : "/en/modules/invoicing/invoices-faq"
+        } ]
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/modules/accounting/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Accounting Concepts & First-Time Setup",
+          "link" : "/en/modules/accounting/accounting-concepts-and-setup"
+        }, {
+          text: "Chart of Accounts",
+          "link" : "/en/modules/accounting/chart-of-accounts"
+        }, {
+          text: "Accounts",
+          "link" : "/en/modules/accounting/accounts"
+        }, {
+          text: "Journal Entries & Adjustments",
+          "link" : "/en/modules/accounting/journal-entries"
+        }, {
+          text: "Year-End Closing & Period Control",
+          "link" : "/en/modules/accounting/year-end-and-period-control"
+        }, {
+          text: "Receipt & Payment Vouchers",
+          "link" : "/en/modules/accounting/receipts-and-payments"
+        }, {
+          text: "Credit & Debit Notes",
+          "link" : "/en/modules/accounting/credit-and-debit-notes"
+        }, {
+          text: "Cashier Shifts (Cash Drawer)",
+          "link" : "/en/modules/accounting/cashier-shifts"
+        }, {
+          text: "Banks, Bank Accounts & Transfers",
+          "link" : "/en/modules/accounting/banks-and-bank-accounts"
+        }, {
+          text: "Bank Reconciliation",
+          "link" : "/en/modules/accounting/bank-reconciliation"
+        }, {
+          text: "Cheques & Financial Papers (Lifecycle)",
+          "link" : "/en/modules/accounting/cheques-financial-papers"
+        }, {
+          text: "Bank Loans",
+          "link" : "/en/modules/accounting/bank-loans"
+        }, {
+          text: "Fixed Deposits",
+          "link" : "/en/modules/accounting/fixed-deposits"
+        }, {
+          text: "Credit Facilities & Facility Limits",
+          "link" : "/en/modules/accounting/credit-facilities"
+        }, {
+          text: "Letters of Guarantee",
+          "link" : "/en/modules/accounting/letters-of-guarantee"
+        }, {
+          text: "Letters of Credit",
+          "link" : "/en/modules/accounting/letters-of-credit"
+        }, {
+          text: "Treasury Bills",
+          "link" : "/en/modules/accounting/treasury-bills"
+        }, {
+          text: "Investment Portfolios",
+          "link" : "/en/modules/accounting/investment-portfolios"
+        }, {
+          text: "Investment Documents & Fund Certificates",
+          "link" : "/en/modules/accounting/investment-documents"
+        }, {
+          text: "Prepaid Expenses",
+          "link" : "/en/modules/accounting/prepaid-expenses"
+        }, {
+          text: "Financial Commitments",
+          "link" : "/en/modules/accounting/financial-commitments"
+        }, {
+          text: "Financial Budgets",
+          "link" : "/en/modules/accounting/financial-budgets"
+        }, {
+          text: "Financial Statements",
+          "link" : "/en/modules/accounting/financial-statements"
+        }, {
+          text: "Misc Purchasing & Machine Rent",
+          "link" : "/en/modules/accounting/misc-purchasing"
+        }, {
+          text: "Party Evaluation",
+          "link" : "/en/modules/accounting/party-evaluation"
+        }, {
+          text: "Subsidiary Reconciliation",
+          "link" : "/en/modules/accounting/subsidiary-reconciliation"
+        }, {
+          text: "Account Statements, Trial Balance & Analysis",
+          "link" : "/en/modules/accounting/reports-account-statements-and-trial-balance"
+        }, {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/modules/accounting/support/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/",
+          "collapsed" : false,
+          "items" : [ {
+            text: "How Documents Are Processed Into Accounting Effects (and reprocessing a stuck request)",
+            "link" : "/en/modules/accounting/support/accounting-request-processing"
+          }, {
+            text: "Accounting Configuration (module option catalog)",
+            "link" : "/en/modules/accounting/support/accounting-configuration"
+          }, {
+            text: "Document Terms (per-type processing rules)",
+            "link" : "/en/modules/accounting/support/accounting-document-terms"
+          }, {
+            text: "Dimensions, Cost Centers & Distribution",
+            "link" : "/en/modules/accounting/support/accounting-dimensions-and-distribution"
+          }, {
+            text: "Fiscal Periods, Period Locking & Multi-Currency",
+            "link" : "/en/modules/accounting/support/accounting-periods-and-currency"
+          } ]
         } ]
       }, {
         text: "Supply Chain",
@@ -14023,6 +15400,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
       }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/",
@@ -14175,6 +15560,14 @@ export const SIDEBAR_CONFIG = {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
       }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
+      }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/"
       }, {
@@ -14311,6 +15704,14 @@ export const SIDEBAR_CONFIG = {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
       }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
+      }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/"
       }, {
@@ -14423,6 +15824,14 @@ export const SIDEBAR_CONFIG = {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
       }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
+      }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/"
       }, {
@@ -14529,6 +15938,14 @@ export const SIDEBAR_CONFIG = {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
       }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
+      }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/"
       }, {
@@ -14634,6 +16051,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
       }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/"
@@ -14747,6 +16172,14 @@ export const SIDEBAR_CONFIG = {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
       }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
+      }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/"
       }, {
@@ -14855,6 +16288,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
       }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/"
@@ -14974,6 +16415,14 @@ export const SIDEBAR_CONFIG = {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
       }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
+      }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/"
       }, {
@@ -15077,6 +16526,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
       }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/"
@@ -15189,6 +16646,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
       }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/"
@@ -15326,6 +16791,14 @@ export const SIDEBAR_CONFIG = {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
       }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
+      }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/"
       }, {
@@ -15438,6 +16911,14 @@ export const SIDEBAR_CONFIG = {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
       }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
+      }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/"
       }, {
@@ -15544,6 +17025,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
       }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/"
@@ -15656,6 +17145,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
       }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/"
@@ -15777,6 +17274,14 @@ export const SIDEBAR_CONFIG = {
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
       }, {
         text: "Supply Chain",
         "link" : "/en/modules/supplychain/"

@@ -8,7 +8,7 @@
   - [ربط سندات الدفع بالفواتير](/modules/invoicing/payment-entries.md)
   - [تكامل المدفوعات الإلكترونية (Online Payments Integration)](/modules/invoicing/online-payments.md)
   - [Nama ERP e-Invoice guide](/modules/invoicing/e-invoices-guide.md)
-  - [الربط مع هيئة الزكاة والدخل بالسعودية](/modules/invoicing/zatca-guide.md)
+  - [الربط مع هيئة الزكاة والضريبة والجمارك بالسعودية (ZATCA Fatoora)](/modules/invoicing/zatca-guide.md)
   - [Electronic Receipt (Egypt Tax eInvoice) تفعيل الإيصال الإلكتروني - الفاتورة الإلكترونية - مصر](/modules/invoicing/electronic-receipt-egypt-tax-eInvoice.md)
   - [الربط مع الفاتورة الإلكترونية في الإمارات عبر Orchida osTax](/modules/invoicing/uae-orchida-einvoice-guide.md)
   - [توثيق خاصية الشروط والأحكام القياسية (Standard Terms and Conditions Feature Documentation)](/modules/invoicing/standard-terms-feature-documentation.md)
