@@ -232,10 +232,10 @@ Available buyer identity types:
 | Code | Identity | Source field (value) | When to use |
 |------|----------|----------------------|-------------|
 | `TIN` | Tax Identification Number | Tax Reg No | A VAT-registered buyer |
-| `CRN` | Commercial Registration | Commercial Reg No or Unified National Number | Businesses and entities |
+| `CRN` | Commercial Registration | Commercial Reg No | Businesses and entities |
 | `MOM` | MOMRAH License | Distinguished Number | As per license |
 | `MLS` | MHRSD License | Distinguished Number | As per license |
-| `700` | 700 Number | Distinguished Number | As per registration |
+| `700` | 700 Number (Unified National Number) | CR National Number | As per registration |
 | `SAG` | MISA License | Distinguished Number | Investment entities |
 | `NAT` | National ID | Id Number | Citizen individuals |
 | `GCC` | GCC ID | Distinguished Number | GCC nationals |
@@ -250,7 +250,11 @@ Available buyer identity types:
 :::
 
 ::: tip Leave the type empty to auto-derive it
-If you don't set **ZATCA Buyer Id Type**, the system infers the code from the filled field: an ID number on an **individual** → `NAT`, on a **foreigner** → `PAS`; a commercial registration / unified national number / distinguished number → `CRN`; and the VAT registration number → `TIN`. You only need to set the type explicitly to force a specific scheme (such as `MOM`, `MLS`, `SAG`, `GCC` or `IQA`), in which case the **distinguished number** is used as the identity value.
+If you don't set **ZATCA Buyer Id Type**, the system infers the code from the filled field: an ID number on an **individual** → `NAT`, on a **foreigner** → `PAS`; a commercial registration or distinguished number → `CRN`; a **CR national number (the unified national number)** → `700`; and the VAT registration number → `TIN`. You only need to set the type explicitly to force a specific scheme (such as `MOM`, `MLS`, `SAG`, `GCC` or `IQA`), in which case the **distinguished number** is used as the identity value.
+:::
+
+::: tip Commercial registrations that begin with `700`
+If the **Commercial Reg No** value itself starts with `700`, it is a Unified National Number and is automatically sent under scheme `700` instead of `CRN` — whether the buyer Id type is auto-derived or explicitly set to `CRN`.
 :::
 
 ::: warning
