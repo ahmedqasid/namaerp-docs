@@ -143,12 +143,22 @@ API Keys are the primary authentication method for production integrations.
 
 **Header-based Authentication:**
 ```http
-apiKey: {your-api-key}
+X-API-Key: {your-api-key}
 ```
+
+Credentials configured with a separate client ID and secret send both headers — the client ID in `X-API-Key` and the secret in `X-API-Secret`:
+```http
+X-API-Key: {your-client-id}
+X-API-Secret: {your-client-secret}
+```
+
+::: tip Header name compatibility
+`X-API-Key` / `X-API-Secret` are the recommended header names, but the legacy names remain supported: `apiKey` (or `clientId`) for the key and `clientSecret` for the secret. Every name is accepted as either an HTTP header or a query parameter.
+:::
 
 **Query Parameter Authentication (Testing Only):**
 ```
-http://localhost:8080/erp/browseapi/openapi/SalesInvoice.json?apiKey={your-api-key}
+http://localhost:8080/erp/browseapi/openapi/SalesInvoice.json?X-API-Key={your-api-key}
 ```
 
 ::: warning
@@ -250,14 +260,14 @@ While the API supports RESTful conventions, all operations can be performed usin
 #### 1. Retrieve Entity (GET)
 ```http
 GET /erp/rest/v1/{entity}/findByIdOrCode/{idOrCode}
-apiKey: {api-key}
+X-API-Key: {api-key}
 responseFields: code,name1,contactInfo.email  # Optional header/parameter
 ```
 
 **Batch Retrieval:**
 ```http
 POST /erp/rest/v1/{entity}/findByIdOrCode
-apiKey: {api-key}
+X-API-Key: {api-key}
 Content-Type: application/json
 
 ["CUST001", "CUST002", "550e8400-e29b-41d4-a716-446655440000"]
@@ -266,7 +276,7 @@ Content-Type: application/json
 #### 2. List Entities with Pagination (POST)
 ```http
 POST /erp/rest/v1/{entity}/list
-apiKey: {api-key}
+X-API-Key: {api-key}
 Content-Type: application/json
 
 {
@@ -285,7 +295,7 @@ Content-Type: application/json
 #### 3. Create/Update Entity (POST/PUT)
 ```http
 POST /erp/rest/v1/{entity}/save
-apiKey: {api-key}
+X-API-Key: {api-key}
 Content-Type: application/json
 
 # Request Headers/Parameters:
@@ -335,13 +345,13 @@ responseFields: code,id      # Fields to return after save
 #### 4. Delete Entity (DELETE)
 ```http
 DELETE /erp/rest/v1/{entity}/delete/{idOrCode}
-apiKey: {api-key}
+X-API-Key: {api-key}
 ```
 
 **Batch Deletion:**
 ```http
 POST /erp/rest/v1/{entity}/delete
-apiKey: {api-key}
+X-API-Key: {api-key}
 Content-Type: application/json
 
 ["CUST001", "CUST002", "550e8400-e29b-41d4-a716-446655440000"]
@@ -377,7 +387,7 @@ The API Browser provides multiple ways to test APIs:
 #### 1. Direct OpenAPI JSON Access
 ```bash
 # Get the OpenAPI spec with examples
-curl -H "apiKey: {api-key}" \
+curl -H "X-API-Key: {api-key}" \
   "http://localhost:8080/erp/browseapi/openapi/Customer.json?exampleCode=Find@First"
 ```
 
@@ -395,13 +405,13 @@ Access the Swagger interface for interactive testing (if configured).
 #### Finding Single Record
 ```http
 GET /erp/rest/v1/Customer/findByIdOrCode/CUST001
-apiKey: {api-key}
+X-API-Key: {api-key}
 ```
 
 #### Finding Multiple Records
 ```http
 POST /erp/rest/v1/Customer/findByIdOrCode
-apiKey: {api-key}
+X-API-Key: {api-key}
 Content-Type: application/json
 
 ["CUST001", "CUST002", "CUST003"]
@@ -410,7 +420,7 @@ Content-Type: application/json
 #### Creating New Record
 ```http
 POST /erp/rest/v1/Customer/save
-apiKey: {api-key}
+X-API-Key: {api-key}
 Content-Type: application/json
 addRecord: true
 updateRecord: false
@@ -428,7 +438,7 @@ updateRecord: false
 #### Updating Existing Record
 ```http
 POST /erp/rest/v1/Customer/save
-apiKey: {api-key}
+X-API-Key: {api-key}
 Content-Type: application/json
 addRecord: false
 updateRecord: true
@@ -445,7 +455,7 @@ updateRecord: true
 #### Listing with Filters
 ```http
 POST /erp/rest/v1/Customer/list
-apiKey: {api-key}
+X-API-Key: {api-key}
 Content-Type: application/json
 
 {
@@ -662,7 +672,7 @@ Fine-tune import behavior with request headers:
 #### API Key Not Working
 - Verify key is active in API Credentials screen
 - Check user permissions for the entity
-- Ensure correct Authorization header format
+- Ensure the `X-API-Key` header (and `X-API-Secret` when using a client ID/secret pair) is set correctly
 
 #### Empty Example Data
 - Verify records exist for the entity

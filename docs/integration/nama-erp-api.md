@@ -143,12 +143,22 @@ http://localhost:8080/erp/browseapi/openapi/Item.json
 
 **المصادقة عبر الترويسة (Header):**
 ```http
-apiKey: {your-api-key}
+X-API-Key: {your-api-key}
 ```
+
+أما بيانات الاعتماد المُهيَّأة بمعرّف عميل (client ID) وسر (secret) منفصلين فتُرسَل بترويستين معاً — معرّف العميل في `X-API-Key` والسر في `X-API-Secret`:
+```http
+X-API-Key: {your-client-id}
+X-API-Secret: {your-client-secret}
+```
+
+::: tip توافق أسماء الترويسات
+`X-API-Key` / `X-API-Secret` هما الاسمان الموصى بهما للترويسات، لكن الأسماء القديمة لا تزال مدعومة: `apiKey` (أو `clientId`) للمفتاح و`clientSecret` للسر. ويُقبل كل اسم سواء كترويسة HTTP أو كمعامل استعلام.
+:::
 
 **المصادقة عبر معامل الاستعلام (للاختبار فقط):**
 ```
-http://localhost:8080/erp/browseapi/openapi/SalesInvoice.json?apiKey={your-api-key}
+http://localhost:8080/erp/browseapi/openapi/SalesInvoice.json?X-API-Key={your-api-key}
 ```
 
 ::: warning
@@ -250,14 +260,14 @@ http[s]://<server>/erp/rest/v1/{entity}/{operation}/{idOrCode}
 #### 1. استرجاع كيان (GET)
 ```http
 GET /erp/rest/v1/{entity}/findByIdOrCode/{idOrCode}
-apiKey: {api-key}
+X-API-Key: {api-key}
 responseFields: code,name1,contactInfo.email  # ترويسة/معامل اختياري
 ```
 
 **الاسترجاع الدفعي:**
 ```http
 POST /erp/rest/v1/{entity}/findByIdOrCode
-apiKey: {api-key}
+X-API-Key: {api-key}
 Content-Type: application/json
 
 ["CUST001", "CUST002", "550e8400-e29b-41d4-a716-446655440000"]
@@ -266,7 +276,7 @@ Content-Type: application/json
 #### 2. سرد الكيانات مع التصفيح (POST)
 ```http
 POST /erp/rest/v1/{entity}/list
-apiKey: {api-key}
+X-API-Key: {api-key}
 Content-Type: application/json
 
 {
@@ -285,7 +295,7 @@ Content-Type: application/json
 #### 3. إنشاء/تحديث كيان (POST/PUT)
 ```http
 POST /erp/rest/v1/{entity}/save
-apiKey: {api-key}
+X-API-Key: {api-key}
 Content-Type: application/json
 
 # ترويسات/معاملات الطلب:
@@ -335,13 +345,13 @@ responseFields: code,id      # الحقول المُرجَعة بعد الحفظ
 #### 4. حذف كيان (DELETE)
 ```http
 DELETE /erp/rest/v1/{entity}/delete/{idOrCode}
-apiKey: {api-key}
+X-API-Key: {api-key}
 ```
 
 **الحذف الدفعي:**
 ```http
 POST /erp/rest/v1/{entity}/delete
-apiKey: {api-key}
+X-API-Key: {api-key}
 Content-Type: application/json
 
 ["CUST001", "CUST002", "550e8400-e29b-41d4-a716-446655440000"]
@@ -377,7 +387,7 @@ Content-Type: application/json
 #### 1. الوصول المباشر إلى OpenAPI JSON
 ```bash
 # الحصول على مواصفة OpenAPI مع أمثلة
-curl -H "apiKey: {api-key}" \
+curl -H "X-API-Key: {api-key}" \
   "http://localhost:8080/erp/browseapi/openapi/Customer.json?exampleCode=Find@First"
 ```
 
@@ -395,13 +405,13 @@ curl -H "apiKey: {api-key}" \
 #### البحث عن سجل واحد
 ```http
 GET /erp/rest/v1/Customer/findByIdOrCode/CUST001
-apiKey: {api-key}
+X-API-Key: {api-key}
 ```
 
 #### البحث عن سجلات متعددة
 ```http
 POST /erp/rest/v1/Customer/findByIdOrCode
-apiKey: {api-key}
+X-API-Key: {api-key}
 Content-Type: application/json
 
 ["CUST001", "CUST002", "CUST003"]
@@ -410,7 +420,7 @@ Content-Type: application/json
 #### إنشاء سجل جديد
 ```http
 POST /erp/rest/v1/Customer/save
-apiKey: {api-key}
+X-API-Key: {api-key}
 Content-Type: application/json
 addRecord: true
 updateRecord: false
@@ -428,7 +438,7 @@ updateRecord: false
 #### تحديث سجل موجود
 ```http
 POST /erp/rest/v1/Customer/save
-apiKey: {api-key}
+X-API-Key: {api-key}
 Content-Type: application/json
 addRecord: false
 updateRecord: true
@@ -445,7 +455,7 @@ updateRecord: true
 #### السرد مع الفلاتر
 ```http
 POST /erp/rest/v1/Customer/list
-apiKey: {api-key}
+X-API-Key: {api-key}
 Content-Type: application/json
 
 {
@@ -662,7 +672,7 @@ type,In,Type1|Type2|Type3,AND;
 #### API Key لا يعمل
 - تحقق من أن المفتاح نشط في شاشة API Credentials
 - تحقق من صلاحيات المستخدم على الكيان
-- تأكد من صحة صيغة ترويسة Authorization
+- تأكد من ضبط ترويسة `X-API-Key` بشكل صحيح (وترويسة `X-API-Secret` عند استخدام زوج معرّف العميل/السر)
 
 #### بيانات مثال فارغة
 - تحقق من وجود سجلات للكيان
