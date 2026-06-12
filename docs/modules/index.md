@@ -93,5 +93,10 @@
   - [تكامل التجارة الإلكترونية](/modules/ecommerce/)
     - [دليل تكامل التجارة الإلكترونية مع Nama ERP](/modules/ecommerce/magento-integration-guide.md)
     - [دليل التكامل مع Omniful](/modules/ecommerce/omniful-integration.md)
+  - [الذكاء الاصطناعي](/modules/ai/)
+    - [تعريفات أدوات الذكاء الاصطناعي (AI Tool Definitions)](/modules/ai/ai-tool-definitions.md)
+    - [المساعد الذكي داخل النظام](/modules/ai/ai-assistant.md)
+    - [إعداد وحدة الذكاء الاصطناعي](/modules/ai/ai-configuration.md)
+    - [خادم MCP لنظام نما ERP](/modules/ai/ai-mcp-server.md)
 
 </div>

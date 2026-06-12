@@ -93,5 +93,10 @@
   - [e-commerce Integration](/en/modules/ecommerce/)
     - [Nama ERP E-Commerce Integration Guide](/en/modules/ecommerce/magento-integration-guide.md)
     - [Omniful Integration Guide](/en/modules/ecommerce/omniful-integration.md)
+  - [Artificial Intelligence](/en/modules/ai/)
+    - [AI Tool Definitions](/en/modules/ai/ai-tool-definitions.md)
+    - [The In-System AI Assistant](/en/modules/ai/ai-assistant.md)
+    - [AI Module Configuration](/en/modules/ai/ai-configuration.md)
+    - [Nama ERP MCP Server](/en/modules/ai/ai-mcp-server.md)
 
 </div>
