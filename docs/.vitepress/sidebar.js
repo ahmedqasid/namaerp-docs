@@ -3123,7 +3123,7 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/accounting/letters-of-guarantee"
         }, {
           text: "الاعتمادات المستندية",
-          "link" : "/modules/accounting/letters-of-credit"
+          "link" : "/modules/accounting/bank-letters-of-credit"
         }, {
           text: "أذون الخزانة",
           "link" : "/modules/accounting/treasury-bills"
@@ -16050,7 +16050,7 @@ export const SIDEBAR_CONFIG = {
           "link" : "/en/modules/accounting/letters-of-guarantee"
         }, {
           text: "Letters of Credit",
-          "link" : "/en/modules/accounting/letters-of-credit"
+          "link" : "/en/modules/accounting/bank-letters-of-credit"
         }, {
           text: "Treasury Bills",
           "link" : "/en/modules/accounting/treasury-bills"
