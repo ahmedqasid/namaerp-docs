@@ -142,6 +142,17 @@
     "/modules/freight/ips-mail-items.md",
     "/modules/freight/ips-receptacles.md",
     "/modules/freight/ips-delivery.md",
+    "/modules/hms",
+    "/modules/hms/hms-intro.md",
+    "/modules/hms/hms-facility.md",
+    "/modules/hms/hms-medical-master-files.md",
+    "/modules/hms/hms-service-catalog.md",
+    "/modules/hms/hms-insurance.md",
+    "/modules/hms/hms-pricing.md",
+    "/modules/hms/hms-patients.md",
+    "/modules/hms/hms-accommodation.md",
+    "/modules/hms/hms-clinical-orders.md",
+    "/modules/hms/hms-invoicing.md",
     "/modules/manufacturing",
     "/modules/manufacturing/manufacturing-overview.md",
     "/modules/manufacturing/production-orders.md",
@@ -430,6 +441,10 @@
     "/modules/freight": {
       "ar": "إدارة الشحن",
       "en": "Freight Management"
+    },
+    "/modules/hms": {
+      "ar": "نظام إدارة المستشفيات",
+      "en": "Hospital Management System"
     }
   }
 }

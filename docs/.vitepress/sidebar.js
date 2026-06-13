@@ -59,6 +59,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -260,6 +263,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -476,6 +482,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -715,6 +724,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -925,6 +937,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -1134,6 +1149,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -1347,6 +1365,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -1570,6 +1591,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -1788,6 +1812,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -2008,6 +2035,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -2227,6 +2257,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -2440,6 +2473,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -2641,6 +2677,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -2884,6 +2923,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -3168,6 +3210,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -3386,6 +3431,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -3654,6 +3702,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -3891,6 +3942,246 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/freight/ips-delivery"
         } ]
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/modules/hr/"
+      }, {
+        text: "نقاط البيع",
+        "link" : "/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/developer/"
+    }, {
+      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      "link" : "/entity-flows/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "الأساسيات",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "وحدة الحسابات",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "وحدة الذكاء الاصطناعي",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "وحدة المقاولات",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "وحدة إدارة علاقات العملاء",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "وحدة قراءة الفواتير الإلكترونية",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "وحدة إدارة الشحن",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "وحدة إدارة المستشفيات",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "وحدة الموارد البشرية",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "وحدة تكامل التجارة الإلكترونية",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "وحدة التصنيع",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "وحدة نقاط البيع",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "وحدة العقارات",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "وحدة مركز الخدمة",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "وحدة سلسلة التوريد",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/release-notes/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "2016",
+        "link" : "/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/hms/" : [ {
+    text: "الرئيسية",
+    "collapsed" : false,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/modules/supplychain/"
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "نظام إدارة المستشفيات (Hospital Management System)",
+          "link" : "/modules/hms/hms-intro"
+        }, {
+          text: "هيكل المستشفى والغرف",
+          "link" : "/modules/hms/hms-facility"
+        }, {
+          text: "الملفات الطبية الأساسية",
+          "link" : "/modules/hms/hms-medical-master-files"
+        }, {
+          text: "كتالوج الخدمات الطبية",
+          "link" : "/modules/hms/hms-service-catalog"
+        }, {
+          text: "التأمين الطبي والموافقات",
+          "link" : "/modules/hms/hms-insurance"
+        }, {
+          text: "الأسعار والتكاليف والخصومات",
+          "link" : "/modules/hms/hms-pricing"
+        }, {
+          text: "المرضى والدخول",
+          "link" : "/modules/hms/hms-patients"
+        }, {
+          text: "التسكين والتغذية",
+          "link" : "/modules/hms/hms-accommodation"
+        }, {
+          text: "الطلبات والنتائج الإكلينيكية",
+          "link" : "/modules/hms/hms-clinical-orders"
+        }, {
+          text: "الفواتير والمحاسبة",
+          "link" : "/modules/hms/hms-invoicing"
+        } ]
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -4092,6 +4383,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/",
@@ -4330,6 +4624,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -4542,6 +4839,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -4759,6 +5059,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -4965,6 +5268,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -5179,6 +5485,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -5388,6 +5697,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -5604,6 +5916,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -5824,6 +6139,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -6028,6 +6346,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -6241,6 +6562,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -6479,6 +6803,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -6692,6 +7019,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -6893,6 +7223,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -7380,6 +7713,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -7614,6 +7950,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -7826,6 +8165,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -8040,6 +8382,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -8250,6 +8595,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -8456,6 +8804,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -8664,6 +9015,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -8870,6 +9224,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -9153,6 +9510,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -9381,6 +9741,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -9587,6 +9950,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -9797,6 +10163,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -10013,6 +10382,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -10235,6 +10607,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -10650,6 +11025,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -10851,6 +11229,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -11082,6 +11463,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -11323,6 +11707,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -11562,6 +11949,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -11803,6 +12193,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -12042,6 +12435,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -12283,6 +12679,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -12522,6 +12921,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -12763,6 +13165,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -13002,6 +13407,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -13243,6 +13651,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -13462,6 +13873,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -13669,6 +14083,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -13882,6 +14299,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
       }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
@@ -14105,6 +14525,9 @@ export const SIDEBAR_CONFIG = {
         text: "إدارة الشحن",
         "link" : "/modules/freight/"
       }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/modules/hms/"
+      }, {
         text: "التصنيع",
         "link" : "/modules/manufacturing/"
       }, {
@@ -14322,6 +14745,9 @@ export const SIDEBAR_CONFIG = {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
       }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
+      }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
       }, {
@@ -14450,6 +14876,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
       }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
@@ -14599,6 +15028,9 @@ export const SIDEBAR_CONFIG = {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
       }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
+      }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
       }, {
@@ -14722,6 +15154,9 @@ export const SIDEBAR_CONFIG = {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
       }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
+      }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
       }, {
@@ -14844,6 +15279,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
       }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
@@ -14970,6 +15408,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
       }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
@@ -15106,6 +15547,9 @@ export const SIDEBAR_CONFIG = {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
       }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
+      }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
       }, {
@@ -15237,6 +15681,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
       }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
@@ -15370,6 +15817,9 @@ export const SIDEBAR_CONFIG = {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
       }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
+      }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
       }, {
@@ -15502,6 +15952,9 @@ export const SIDEBAR_CONFIG = {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
       }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
+      }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
       }, {
@@ -15628,6 +16081,9 @@ export const SIDEBAR_CONFIG = {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
       }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
+      }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
       }, {
@@ -15742,6 +16198,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
       }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
@@ -15898,6 +16357,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
       }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
@@ -16095,6 +16557,9 @@ export const SIDEBAR_CONFIG = {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
       }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
+      }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
       }, {
@@ -16226,6 +16691,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
       }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
@@ -16407,6 +16875,9 @@ export const SIDEBAR_CONFIG = {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
       }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
+      }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
       }, {
@@ -16557,6 +17028,159 @@ export const SIDEBAR_CONFIG = {
           "link" : "/en/modules/freight/ips-delivery"
         } ]
       }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/en/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/en/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/en/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/en/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/en/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/en/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/en/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/en/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/en/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/en/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/en/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/en/developer/"
+    }, {
+      text: "Video Tutorials",
+      "link" : "/en/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/en/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/en/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/en/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/en/modules/hms/" : [ {
+    text: "Home",
+    "link" : "/en/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "Search",
+      "link" : "/en/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/en/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/en/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/en/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/en/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/en/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/en/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/en/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/en/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/en/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/en/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/en/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/en/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/en/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/en/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/en/modules/supplychain/"
+      }, {
+        text: "Freight Management",
+        "link" : "/en/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "Hospital Management System",
+          "link" : "/en/modules/hms/hms-intro"
+        }, {
+          text: "Hospital Structure & Rooms",
+          "link" : "/en/modules/hms/hms-facility"
+        }, {
+          text: "Medical Master Files",
+          "link" : "/en/modules/hms/hms-medical-master-files"
+        }, {
+          text: "Medical Service Catalog",
+          "link" : "/en/modules/hms/hms-service-catalog"
+        }, {
+          text: "Medical Insurance & Approvals",
+          "link" : "/en/modules/hms/hms-insurance"
+        }, {
+          text: "Pricing, Costing & Discounts",
+          "link" : "/en/modules/hms/hms-pricing"
+        }, {
+          text: "Patients & Admission",
+          "link" : "/en/modules/hms/hms-patients"
+        }, {
+          text: "Accommodation & Feeding",
+          "link" : "/en/modules/hms/hms-accommodation"
+        }, {
+          text: "Clinical Orders & Results",
+          "link" : "/en/modules/hms/hms-clinical-orders"
+        }, {
+          text: "Invoicing & Billing",
+          "link" : "/en/modules/hms/hms-invoicing"
+        } ]
+      }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
       }, {
@@ -16671,6 +17295,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
       }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/",
@@ -16822,6 +17449,9 @@ export const SIDEBAR_CONFIG = {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
       }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
+      }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
       }, {
@@ -16947,6 +17577,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
       }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
@@ -17077,6 +17710,9 @@ export const SIDEBAR_CONFIG = {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
       }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
+      }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
       }, {
@@ -17196,6 +17832,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
       }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
@@ -17323,6 +17962,9 @@ export const SIDEBAR_CONFIG = {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
       }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
+      }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
       }, {
@@ -17445,6 +18087,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
       }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
@@ -17574,6 +18219,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
       }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
@@ -17707,6 +18355,9 @@ export const SIDEBAR_CONFIG = {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
       }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
+      }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
       }, {
@@ -17824,6 +18475,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
       }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
@@ -17950,6 +18604,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
       }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
@@ -18101,6 +18758,9 @@ export const SIDEBAR_CONFIG = {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
       }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
+      }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
       }, {
@@ -18227,6 +18887,9 @@ export const SIDEBAR_CONFIG = {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
       }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
+      }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
       }, {
@@ -18347,6 +19010,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
       }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
@@ -18473,6 +19139,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
       }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"
@@ -18608,6 +19277,9 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Freight Management",
         "link" : "/en/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/en/modules/hms/"
       }, {
         text: "Manufacturing",
         "link" : "/en/modules/manufacturing/"

@@ -1,122 +1,69 @@
-<div class="ignore-in-full-text-search">
-
-# الوحدات
-  - [الفواتير والضرائب والخصومات](/modules/invoicing/)
-    - [نقاط مكافآت العملاء (Customer Reward Points / Loyalty Points)](/modules/invoicing/reward-points.md)
-    - [دليل نظام الخصومات وحساب الضرائب على الفواتير - دليل شامل](/modules/invoicing/invoice-discounts-and-tax-calculation-guide.md)
-    - [دليل إدارة الأسعار والعروض (Pricing and Offers Management Guide)](/modules/invoicing/pricing-and-offers-guide.md)
-    - [دليل المستخدم لجداول الدفع (Payment Schedules)](/modules/invoicing/payment-schedules-user-guide.md)
-    - [ربط سندات الدفع بالفواتير](/modules/invoicing/payment-entries.md)
-    - [تكامل المدفوعات الإلكترونية (Online Payments Integration)](/modules/invoicing/online-payments.md)
-    - [Nama ERP e-Invoice guide](/modules/invoicing/e-invoices-guide.md)
-    - [الربط مع هيئة الزكاة والضريبة والجمارك بالسعودية (ZATCA Fatoora)](/modules/invoicing/zatca-guide.md)
-    - [Electronic Receipt (Egypt Tax eInvoice) تفعيل الإيصال الإلكتروني - الفاتورة الإلكترونية - مصر](/modules/invoicing/electronic-receipt-egypt-tax-eInvoice.md)
-    - [الربط مع الفاتورة الإلكترونية في الإمارات عبر Orchida osTax](/modules/invoicing/uae-orchida-einvoice-guide.md)
-    - [توثيق خاصية الشروط والأحكام القياسية (Standard Terms and Conditions Feature Documentation)](/modules/invoicing/standard-terms-feature-documentation.md)
-    - [ميزة حقل الباركود للمسح المتتالي](/modules/invoicing/barcode-field-feature.md)
-    - [أسئلة شائعة حول الفواتير والدفع](/modules/invoicing/invoices-faq.md)
-  - [الحسابات والبنوك](/modules/accounting/)
-    - [المفاهيم الأساسية والإعداد المبدئي للحسابات](/modules/accounting/accounting-concepts-and-setup.md)
-    - [شجرة الحسابات](/modules/accounting/chart-of-accounts.md)
-    - [الحسابات](/modules/accounting/accounts.md)
-    - [سندات القيد والتسويات](/modules/accounting/journal-entries.md)
-    - [الإقفال السنوي والتحكم في الفترات](/modules/accounting/year-end-and-period-control.md)
-    - [سندات القبض والصرف](/modules/accounting/receipts-and-payments.md)
-    - [إشعارات الدائن والمدين](/modules/accounting/credit-and-debit-notes.md)
-    - [ورديات الكاشير (درج النقدية)](/modules/accounting/cashier-shifts.md)
-    - [البنوك والحسابات البنكية والتحويلات](/modules/accounting/banks-and-bank-accounts.md)
-    - [المطابقة البنكية](/modules/accounting/bank-reconciliation.md)
-    - [الشيكات والأوراق المالية (دورة الحياة)](/modules/accounting/cheques-financial-papers.md)
-    - [القروض البنكية](/modules/accounting/bank-loans.md)
-    - [الودائع الثابتة](/modules/accounting/fixed-deposits.md)
-    - [التسهيلات الائتمانية وحدود التسهيلات](/modules/accounting/credit-facilities.md)
-    - [خطابات الضمان](/modules/accounting/letters-of-guarantee.md)
-    - [الاعتمادات المستندية](/modules/accounting/bank-letters-of-credit.md)
-    - [أذون الخزانة](/modules/accounting/treasury-bills.md)
-    - [المحافظ الاستثمارية](/modules/accounting/investment-portfolios.md)
-    - [مستندات الاستثمار وشهادات الصناديق](/modules/accounting/investment-documents.md)
-    - [المصروفات المقدمة](/modules/accounting/prepaid-expenses.md)
-    - [الالتزامات المالية](/modules/accounting/financial-commitments.md)
-    - [الموازنات المالية](/modules/accounting/financial-budgets.md)
-    - [القوائم المالية](/modules/accounting/financial-statements.md)
-    - [المشتريات المتنوعة وتشغيل المعدات](/modules/accounting/misc-purchasing.md)
-    - [تقييم الجهات](/modules/accounting/party-evaluation.md)
-    - [التسوية مع الذمم](/modules/accounting/subsidiary-reconciliation.md)
-    - [كشوف الحسابات وميزان المراجعة والتحليل](/modules/accounting/reports-account-statements-and-trial-balance.md)
-    - [مرجع الدعم الفني](/modules/accounting/support/)
-      - [كيف تُعالَج المستندات إلى أثر محاسبي (وإعادة معالجة طلب متعثّر)](/modules/accounting/support/accounting-request-processing.md)
-      - [إعدادات الحسابات (كتالوج خيارات الوحدة)](/modules/accounting/support/accounting-configuration.md)
-      - [توجيهات المستندات (قواعد المعالجة لكل نوع)](/modules/accounting/support/accounting-document-terms.md)
-      - [المحدِّدات ومراكز التكلفة والتوزيع](/modules/accounting/support/accounting-dimensions-and-distribution.md)
-      - [الفترات المالية وإقفال الفترات وتعدّد العملات](/modules/accounting/support/accounting-periods-and-currency.md)
-  - [سلسلة التوريد](/modules/supplychain/)
-    - [إدارة سلسلة التوريد (Supply Chain Management)](/modules/supplychain/supply-chain-intro.md)
-    - [فهم أصناف المخزون (Understanding Inventory Items)](/modules/supplychain/understanding-items.md)
-    - [المخازن والمواقع التخزينية (Warehouses & Locators)](/modules/supplychain/warehouses-and-locators.md)
-    - [استلام المخزون في المستودع (Receiving Stock)](/modules/supplychain/receiving-stock.md)
-    - [إصدار المخزون من المستودع (Issuing Stock)](/modules/supplychain/issuing-stock.md)
-    - [تحريك المخزون بين المخازن (Moving Stock)](/modules/supplychain/moving-stock.md)
-    - [الجرد المخزني (Stock Taking)](/modules/supplychain/stock-taking.md)
-    - [تكلفة المخزون وإعادة التقييم (Inventory Costing & Revaluation)](/modules/supplychain/inventory-costing.md)
-    - [رحلة الشراء (The Purchasing Journey)](/modules/supplychain/purchasing-journey.md)
-    - [التنبؤ بالمشتريات (Purchase Forecast)](/modules/supplychain/purchase-forecast.md)
-    - [رحلة المبيعات (The Sales Journey)](/modules/supplychain/sales-journey.md)
-    - [التسعير والعروض والكوبونات (Pricing, Offers & Coupons)](/modules/supplychain/pricing-offers-and-coupons.md)
-    - [دليل نظام الحجوزات الشامل (Comprehensive Reservation System Guide)](/modules/supplychain/reservation-system-guide.md)
-    - [التسليم والتحميل (Delivery & Loading)](/modules/supplychain/delivery-and-loading.md)
-    - [التجميع والتعبئة (Assembly & Packaging)](/modules/supplychain/assembly-and-packaging.md)
-    - [ضبط الجودة (Quality Control)](/modules/supplychain/quality-control.md)
-    - [الاعتمادات المستندية (Letters of Credit)](/modules/supplychain/letters-of-credit.md)
-    - [موازين الوزن (Weight Scale)](/modules/supplychain/weight-scale.md)
-    - [سيناريوهات متخصصة (Specialized Scenarios)](/modules/supplychain/specialized-scenarios.md)
-    - [تجاهل مخازن/مواقع معينة في التحقق من كمية الحجز بالتاريخ](/modules/supplychain/ignore-reservation-qty-check-by-date.md)
-    - [أسئلة في موديول التوزيع والمخازن والمبيعات والمشتريات](/modules/supplychain/supply-chain-faq.md)
-  - [إدارة الشحن](/modules/freight/)
-    - [إدارة الشحن (Freight Management)](/modules/freight/freight-intro.md)
-    - [الملفات الأساسية لإدارة الشحن](/modules/freight/freight-master-files.md)
-    - [أوامر التشغيل (Operation Orders)](/modules/freight/operation-orders.md)
-    - [بوالص الشحن (Bills of Lading)](/modules/freight/bills-of-lading.md)
-    - [قوائم الأسعار والهوامش](/modules/freight/freight-pricing.md)
-    - [الفواتير والمرتجعات](/modules/freight/freight-invoicing.md)
-    - [التعامل مع الفاتورة الإلكترونية في وحدة الشحن](/modules/freight/freight-einvoicing.md)
-    - [نظام البريد الدولي (IPS) — نظرة عامة](/modules/freight/ips-postal-intro.md)
-    - [المواد البريدية](/modules/freight/ips-mail-items.md)
-    - [الأكياس البريدية (Receptacles)](/modules/freight/ips-receptacles.md)
-    - [خدمة التوصيل (Delivery)](/modules/freight/ips-delivery.md)
-  - [التصنيع](/modules/manufacturing/)
-    - [نظرة عامة على وحدة التصنيع (Manufacturing Module Overview)](/modules/manufacturing/manufacturing-overview.md)
-    - [أوامر الإنتاج (Production Orders): التخطيط لما سيتم تصنيعه](/modules/manufacturing/production-orders.md)
-    - [تنفيذ الإنتاج (Production Execution): تسجيل ما يحدث فعلاً](/modules/manufacturing/production-execution.md)
-    - [تكاليف الإنتاج: تتبع الأموال](/modules/manufacturing/production-costing.md)
-    - [تخطيط متطلبات المواد (Material Requirements Planning - MRP) - دليل المستخدم](/modules/manufacturing/material-requirements-planning.md)
-    - [تصنيع الكرتون: تخطيط ذكي للمواد في منتجات الورق المموج](/modules/manufacturing/carton-manufacturing-overview.md)
-    - [مواصفات الكرتونة: تعريف منتجاتك](/modules/manufacturing/carton-specifications.md)
-    - [طلبيات الكرتون (Carton Orders): من طلب العميل إلى خطة الإنتاج](/modules/manufacturing/carton-orders.md)
-    - [تخطيط خامات الكرتون (Carton Material Planning): محرك التحسين](/modules/manufacturing/carton-material-planning.md)
-    - [صرف خامات الكرتون: من المستودع إلى أرض الإنتاج](/modules/manufacturing/carton-material-issue.md)
-    - [أسئلة شائعة حول موديول التصنيع في نظام Nama ERP](/modules/manufacturing/manufacturing-faq.md)
-  - [الموارد البشرية](/modules/hr/)
-    - [صيغ الحضور والانصراف](/modules/hr/attendance-machine-formula.md)
-    - [تجاهل سطور الحضور والانصراف المتقاطعة](/modules/hr/ignore-overlapping-attendance.md)
-    - [أسئلة شائعة في موديول الرواتب والموارد البشرية](/modules/hr/human-resources-faq.md)
-  - [نقاط البيع](/modules/pos/)
-    - [دليل استعمال النقاط الفنية في نقاط البيع](/modules/pos/nama-pos.md)
-    - [الأصناف المجانية في نقاط البيع: المطالبة بالمسح والتسوية عند الدفع](/modules/pos/pos-free-items-claim-and-reconciliation.md)
-    - [تسجيل الدخول بالبصمة في نقاط البيع](/modules/pos/pos-fingerprint-login.md)
-    - [أسئلة شائعة حول نقاط البيع](/modules/pos/pos-faq.md)
-  - [العقارات](/modules/realestate/)
-    - [أسئلة شائعة عن الاستثمار العقاري](/modules/realestate/real-estate-fq.md)
-  - [تطبيقات الجوال](/modules/mobile/)
-    - [تطبيق الهواتف المحمولة](/modules/mobile/mobile-application-guide.md)
-    - [دليل Mobile QR Integrator](/modules/mobile/mobile-qr-integrator.md)
-    - [أسئلة شائعة حول تطبيقات الهواتف المحمولة في نظام Nama ERP](/modules/mobile/mobile-apps-faq.md)
-  - [تكامل التجارة الإلكترونية](/modules/ecommerce/)
-    - [دليل تكامل التجارة الإلكترونية مع Nama ERP](/modules/ecommerce/magento-integration-guide.md)
-    - [دليل التكامل مع Omniful](/modules/ecommerce/omniful-integration.md)
-  - [الذكاء الاصطناعي](/modules/ai/)
-    - [تعريفات أدوات الذكاء الاصطناعي (AI Tool Definitions)](/modules/ai/ai-tool-definitions.md)
-    - [المساعد الذكي داخل النظام](/modules/ai/ai-assistant.md)
-    - [إعداد وحدة الذكاء الاصطناعي](/modules/ai/ai-configuration.md)
-    - [خادم MCP لنظام نما ERP](/modules/ai/ai-mcp-server.md)
-
-</div>
+---
+# Handcrafted modules landing — GenNamaDocsIndex skips this file because of the
+# .custom-index marker in this folder (see hasHandcraftedHomePage in GenNamaDocsIndex.java)
+layout: home
+title: وحدات Nama ERP
+hero:
+  name: وحدات Nama ERP
+  text: أدلة الوحدات
+  tagline: استكشف دليل كل وحدة من وحدات نظام نما — من المحاسبة والمخازن إلى التصنيع والموارد البشرية والمستشفيات
+  image:
+    src: /hero.svg
+    alt: Nama ERP Modules
+  actions:
+    - theme: brand
+      text: ابدأ من هنا
+      link: /getting-started/
+    - theme: alt
+      text: الرئيسية
+      link: /
+features:
+  - icon: 🧾
+    title: الفواتير والضرائب والخصومات
+    details: الفواتير ومرتجعاتها، حساب الضرائب والخصومات، نقاط الولاء، جداول الدفع، والفاتورة الإلكترونية (ZATCA ومصر والإمارات)
+    link: /modules/invoicing/
+  - icon: 💰
+    title: الحسابات والبنوك
+    details: الأستاذ العام وشجرة الحسابات، سندات القيد والقبض والصرف، البنوك والمطابقة، الشيكات والقروض، والقوائم المالية
+    link: /modules/accounting/
+  - icon: 📦
+    title: سلسلة التوريد
+    details: المخازن والأصناف، الشراء والبيع، الجرد والتكلفة، الحجوزات، التسليم، وضبط الجودة
+    link: /modules/supplychain/
+  - icon: 🚢
+    title: إدارة الشحن
+    details: الشحن والتخليص والنقل، أوامر التشغيل وبوالص الشحن، التسعير، ونظام البريد الدولي (IPS)
+    link: /modules/freight/
+  - icon: 🏥
+    title: نظام إدارة المستشفيات
+    details: رحلة المريض كاملةً — الدخول والتسكين، التحاليل والأشعة والعمليات، التأمين، والفوترة الختامية
+    link: /modules/hms/
+  - icon: 🏭
+    title: التصنيع
+    details: أوامر الإنتاج وتنفيذه، تكاليف الإنتاج، تخطيط متطلبات المواد (MRP)، وتصنيع الكرتون
+    link: /modules/manufacturing/
+  - icon: 👥
+    title: الموارد البشرية
+    details: الرواتب والحضور والانصراف وصيغها، وإدارة شؤون الموظفين
+    link: /modules/hr/
+  - icon: 💳
+    title: نقاط البيع
+    details: النقاط الفنية في نقاط البيع، الأصناف المجانية، وتسجيل الدخول بالبصمة
+    link: /modules/pos/
+  - icon: 🏢
+    title: العقارات
+    details: الاستثمار العقاري وإدارة العقارات
+    link: /modules/realestate/
+  - icon: 📱
+    title: تطبيقات الجوال
+    details: تطبيقات الهواتف المحمولة وتكامل QR
+    link: /modules/mobile/
+  - icon: 🛍️
+    title: تكامل التجارة الإلكترونية
+    details: التكامل مع Magento وOmniful ومنصات التجارة الإلكترونية
+    link: /modules/ecommerce/
+  - icon: 🤖
+    title: الذكاء الاصطناعي
+    details: المساعد الذكي داخل النظام، تعريفات الأدوات، وخادم MCP لنظام نما
+    link: /modules/ai/
+---

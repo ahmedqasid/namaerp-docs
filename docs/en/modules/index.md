@@ -1,122 +1,69 @@
-<div class="ignore-in-full-text-search">
-
-# Modules
-  - [Invoicing, Taxes & Discounts](/en/modules/invoicing/)
-    - [Customer Reward Points (Loyalty Points)](/en/modules/invoicing/reward-points.md)
-    - [Invoice Discounts and Tax Calculation System - Comprehensive Guide](/en/modules/invoicing/invoice-discounts-and-tax-calculation-guide.md)
-    - [Pricing and Offers Management Guide](/en/modules/invoicing/pricing-and-offers-guide.md)
-    - [Payment Schedules User Guide](/en/modules/invoicing/payment-schedules-user-guide.md)
-    - [Linking Payment Vouchers to Invoices](/en/modules/invoicing/payment-entries.md)
-    - [Online Payments Integration](/en/modules/invoicing/online-payments.md)
-    - [Nama ERP e-Invoice guide](/en/modules/invoicing/e-invoices-guide.md)
-    - [Integration with ZATCA (Saudi Arabia – Fatoora)](/en/modules/invoicing/zatca-guide.md)
-    - [Electronic Receipt (Egypt Tax eInvoice) - Activating the Electronic Receipt and eInvoice - Egypt](/en/modules/invoicing/electronic-receipt-egypt-tax-eInvoice.md)
-    - [UAE E-Invoicing Integration via Orchida osTax](/en/modules/invoicing/uae-orchida-einvoice-guide.md)
-    - [Standard Terms and Conditions Feature Documentation](/en/modules/invoicing/standard-terms-feature-documentation.md)
-    - [Barcode Field Feature for Sequential Scanning](/en/modules/invoicing/barcode-field-feature.md)
-    - [Frequently Asked Questions about Invoices and Payments](/en/modules/invoicing/invoices-faq.md)
-  - [Accounting & Banks](/en/modules/accounting/)
-    - [Accounting Concepts & First-Time Setup](/en/modules/accounting/accounting-concepts-and-setup.md)
-    - [Chart of Accounts](/en/modules/accounting/chart-of-accounts.md)
-    - [Accounts](/en/modules/accounting/accounts.md)
-    - [Journal Entries & Adjustments](/en/modules/accounting/journal-entries.md)
-    - [Year-End Closing & Period Control](/en/modules/accounting/year-end-and-period-control.md)
-    - [Receipt & Payment Vouchers](/en/modules/accounting/receipts-and-payments.md)
-    - [Credit & Debit Notes](/en/modules/accounting/credit-and-debit-notes.md)
-    - [Cashier Shifts (Cash Drawer)](/en/modules/accounting/cashier-shifts.md)
-    - [Banks, Bank Accounts & Transfers](/en/modules/accounting/banks-and-bank-accounts.md)
-    - [Bank Reconciliation](/en/modules/accounting/bank-reconciliation.md)
-    - [Cheques & Financial Papers (Lifecycle)](/en/modules/accounting/cheques-financial-papers.md)
-    - [Bank Loans](/en/modules/accounting/bank-loans.md)
-    - [Fixed Deposits](/en/modules/accounting/fixed-deposits.md)
-    - [Credit Facilities & Facility Limits](/en/modules/accounting/credit-facilities.md)
-    - [Letters of Guarantee](/en/modules/accounting/letters-of-guarantee.md)
-    - [Letters of Credit](/en/modules/accounting/bank-letters-of-credit.md)
-    - [Treasury Bills](/en/modules/accounting/treasury-bills.md)
-    - [Investment Portfolios](/en/modules/accounting/investment-portfolios.md)
-    - [Investment Documents & Fund Certificates](/en/modules/accounting/investment-documents.md)
-    - [Prepaid Expenses](/en/modules/accounting/prepaid-expenses.md)
-    - [Financial Commitments](/en/modules/accounting/financial-commitments.md)
-    - [Financial Budgets](/en/modules/accounting/financial-budgets.md)
-    - [Financial Statements](/en/modules/accounting/financial-statements.md)
-    - [Misc Purchasing & Machine Rent](/en/modules/accounting/misc-purchasing.md)
-    - [Party Evaluation](/en/modules/accounting/party-evaluation.md)
-    - [Subsidiary Reconciliation](/en/modules/accounting/subsidiary-reconciliation.md)
-    - [Account Statements, Trial Balance & Analysis](/en/modules/accounting/reports-account-statements-and-trial-balance.md)
-    - [Technical Reference](/en/modules/accounting/support/)
-      - [How Documents Are Processed Into Accounting Effects (and reprocessing a stuck request)](/en/modules/accounting/support/accounting-request-processing.md)
-      - [Accounting Configuration (module option catalog)](/en/modules/accounting/support/accounting-configuration.md)
-      - [Document Terms (per-type processing rules)](/en/modules/accounting/support/accounting-document-terms.md)
-      - [Dimensions, Cost Centers & Distribution](/en/modules/accounting/support/accounting-dimensions-and-distribution.md)
-      - [Fiscal Periods, Period Locking & Multi-Currency](/en/modules/accounting/support/accounting-periods-and-currency.md)
-  - [Supply Chain](/en/modules/supplychain/)
-    - [Supply Chain Management](/en/modules/supplychain/supply-chain-intro.md)
-    - [Understanding Inventory Items](/en/modules/supplychain/understanding-items.md)
-    - [Warehouses & Locators](/en/modules/supplychain/warehouses-and-locators.md)
-    - [Receiving Stock](/en/modules/supplychain/receiving-stock.md)
-    - [Issuing Stock](/en/modules/supplychain/issuing-stock.md)
-    - [Moving Stock Between Warehouses](/en/modules/supplychain/moving-stock.md)
-    - [Stock Taking](/en/modules/supplychain/stock-taking.md)
-    - [Inventory Costing & Revaluation](/en/modules/supplychain/inventory-costing.md)
-    - [The Purchasing Journey](/en/modules/supplychain/purchasing-journey.md)
-    - [Purchase Forecast](/en/modules/supplychain/purchase-forecast.md)
-    - [The Sales Journey](/en/modules/supplychain/sales-journey.md)
-    - [Pricing, Offers & Coupons](/en/modules/supplychain/pricing-offers-and-coupons.md)
-    - [Comprehensive Reservation System Guide](/en/modules/supplychain/reservation-system-guide.md)
-    - [Delivery & Loading](/en/modules/supplychain/delivery-and-loading.md)
-    - [Assembly & Packaging](/en/modules/supplychain/assembly-and-packaging.md)
-    - [Quality Control](/en/modules/supplychain/quality-control.md)
-    - [Letters of Credit](/en/modules/supplychain/letters-of-credit.md)
-    - [Weight Scale](/en/modules/supplychain/weight-scale.md)
-    - [Specialized Scenarios](/en/modules/supplychain/specialized-scenarios.md)
-    - [Ignoring Specific Warehouses/Locators in Reservation Quantity Check by Date](/en/modules/supplychain/ignore-reservation-qty-check-by-date.md)
-    - [FAQ — Distribution, Warehousing, Sales & Purchasing Module](/en/modules/supplychain/supply-chain-faq.md)
-  - [Freight Management](/en/modules/freight/)
-    - [Freight Management](/en/modules/freight/freight-intro.md)
-    - [Freight Master Files](/en/modules/freight/freight-master-files.md)
-    - [Operation Orders](/en/modules/freight/operation-orders.md)
-    - [Bills of Lading](/en/modules/freight/bills-of-lading.md)
-    - [Price Lists & Markups](/en/modules/freight/freight-pricing.md)
-    - [Invoices & Returns](/en/modules/freight/freight-invoicing.md)
-    - [E-Invoicing in the Freight Module](/en/modules/freight/freight-einvoicing.md)
-    - [International Postal System (IPS) — Overview](/en/modules/freight/ips-postal-intro.md)
-    - [Mail Items](/en/modules/freight/ips-mail-items.md)
-    - [Receptacles](/en/modules/freight/ips-receptacles.md)
-    - [Delivery Service](/en/modules/freight/ips-delivery.md)
-  - [Manufacturing](/en/modules/manufacturing/)
-    - [Manufacturing Module Overview](/en/modules/manufacturing/manufacturing-overview.md)
-    - [Production Orders: Planning What to Make](/en/modules/manufacturing/production-orders.md)
-    - [Production Execution: Recording What Actually Happens](/en/modules/manufacturing/production-execution.md)
-    - [Production Costing: Following the Money](/en/modules/manufacturing/production-costing.md)
-    - [Material Requirements Planning (MRP) - User Guide](/en/modules/manufacturing/material-requirements-planning.md)
-    - [Carton Manufacturing: Smart Material Planning for Corrugated Products](/en/modules/manufacturing/carton-manufacturing-overview.md)
-    - [Carton Specifications: Defining Your Products](/en/modules/manufacturing/carton-specifications.md)
-    - [Carton Orders: From Customer Request to Production Plan](/en/modules/manufacturing/carton-orders.md)
-    - [Carton Material Planning: The Optimization Engine](/en/modules/manufacturing/carton-material-planning.md)
-    - [Carton Material Issues: From Warehouse to Shop Floor](/en/modules/manufacturing/carton-material-issue.md)
-    - [Frequently Asked Questions — Manufacturing Module in Nama ERP](/en/modules/manufacturing/manufacturing-faq.md)
-  - [Human Resources](/en/modules/hr/)
-    - [Attendance and Departure Formulas](/en/modules/hr/attendance-machine-formula.md)
-    - [Ignoring Overlapping Attendance and Departure Lines](/en/modules/hr/ignore-overlapping-attendance.md)
-    - [Frequently Asked Questions — Payroll and Human Resources Module](/en/modules/hr/human-resources-faq.md)
-  - [Point of Sale](/en/modules/pos/)
-    - [Nama POS — Technical Points of Use Guide](/en/modules/pos/nama-pos.md)
-    - [Free Items in POS: Claim at Scan and Reconciliation at Payment](/en/modules/pos/pos-free-items-claim-and-reconciliation.md)
-    - [Fingerprint Login in Point of Sale](/en/modules/pos/pos-fingerprint-login.md)
-    - [Point of Sale FAQ](/en/modules/pos/pos-faq.md)
-  - [Real Estate](/en/modules/realestate/)
-    - [Real Estate Investment FAQ](/en/modules/realestate/real-estate-fq.md)
-  - [Mobile Applications](/en/modules/mobile/)
-    - [Mobile Application](/en/modules/mobile/mobile-application-guide.md)
-    - [Mobile QR Integrator Guide](/en/modules/mobile/mobile-qr-integrator.md)
-    - [Frequently Asked Questions About Mobile Applications in Nama ERP](/en/modules/mobile/mobile-apps-faq.md)
-  - [e-commerce Integration](/en/modules/ecommerce/)
-    - [Nama ERP E-Commerce Integration Guide](/en/modules/ecommerce/magento-integration-guide.md)
-    - [Omniful Integration Guide](/en/modules/ecommerce/omniful-integration.md)
-  - [Artificial Intelligence](/en/modules/ai/)
-    - [AI Tool Definitions](/en/modules/ai/ai-tool-definitions.md)
-    - [The In-System AI Assistant](/en/modules/ai/ai-assistant.md)
-    - [AI Module Configuration](/en/modules/ai/ai-configuration.md)
-    - [Nama ERP MCP Server](/en/modules/ai/ai-mcp-server.md)
-
-</div>
+---
+# Handcrafted modules landing — GenNamaDocsIndex skips this file because of the
+# .custom-index marker in this folder (see hasHandcraftedHomePage in GenNamaDocsIndex.java)
+layout: home
+title: Nama ERP Modules
+hero:
+  name: Nama ERP Modules
+  text: Module Guides
+  tagline: Explore the guide for every Nama ERP module — from accounting and supply chain to manufacturing, human resources, and hospitals
+  image:
+    src: /hero.svg
+    alt: Nama ERP Modules
+  actions:
+    - theme: brand
+      text: Get Started
+      link: /en/getting-started/
+    - theme: alt
+      text: Home
+      link: /en/
+features:
+  - icon: 🧾
+    title: Invoicing, Taxes & Discounts
+    details: Invoices and returns, tax and discount calculation, loyalty points, payment schedules, and e-invoicing (ZATCA, Egypt, UAE)
+    link: /en/modules/invoicing/
+  - icon: 💰
+    title: Accounting & Banks
+    details: The general ledger and chart of accounts, journal/receipt/payment entries, banks and reconciliation, cheques and loans, and financial statements
+    link: /en/modules/accounting/
+  - icon: 📦
+    title: Supply Chain
+    details: Warehouses and items, purchasing and sales, stock taking and costing, reservations, delivery, and quality control
+    link: /en/modules/supplychain/
+  - icon: 🚢
+    title: Freight Management
+    details: Freight forwarding, clearance and trucking, operation orders and bills of lading, pricing, and the International Postal System (IPS)
+    link: /en/modules/freight/
+  - icon: 🏥
+    title: Hospital Management System
+    details: The full patient journey — admission and accommodation, lab, radiology and surgeries, insurance, and closing invoices
+    link: /en/modules/hms/
+  - icon: 🏭
+    title: Manufacturing
+    details: Production orders and execution, production costing, material requirements planning (MRP), and carton manufacturing
+    link: /en/modules/manufacturing/
+  - icon: 👥
+    title: Human Resources
+    details: Payroll, attendance and its formulas, and employee administration
+    link: /en/modules/hr/
+  - icon: 💳
+    title: Point of Sale
+    details: Point-of-sale operations, free items, and fingerprint login
+    link: /en/modules/pos/
+  - icon: 🏢
+    title: Real Estate
+    details: Real-estate investment and property management
+    link: /en/modules/realestate/
+  - icon: 📱
+    title: Mobile Applications
+    details: Mobile applications and QR integration
+    link: /en/modules/mobile/
+  - icon: 🛍️
+    title: e-commerce Integration
+    details: Integration with Magento, Omniful, and e-commerce platforms
+    link: /en/modules/ecommerce/
+  - icon: 🤖
+    title: Artificial Intelligence
+    details: The in-system AI assistant, tool definitions, and the Nama MCP server
+    link: /en/modules/ai/
+---
