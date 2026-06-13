@@ -5288,8 +5288,17 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/mobile/",
         "collapsed" : false,
         "items" : [ {
-          text: "تطبيق الهواتف المحمولة",
+          text: "تطبيق نما للهواتف المحمولة — نظرة عامة والتنقل والإعدادات",
           "link" : "/modules/mobile/mobile-application-guide"
+        }, {
+          text: "الخدمة الذاتية للموظفين — الحضور والإجازات",
+          "link" : "/modules/mobile/mobile-hr-self-service"
+        }, {
+          text: "المبيعات والمخازن والاستعلام عن الأصناف",
+          "link" : "/modules/mobile/mobile-sales-inventory"
+        }, {
+          text: "خدمة العملاء والتوصيل والقبض",
+          "link" : "/modules/mobile/mobile-crm-delivery"
         }, {
           text: "دليل Mobile QR Integrator",
           "link" : "/modules/mobile/mobile-qr-integrator"
@@ -17852,8 +17861,17 @@ export const SIDEBAR_CONFIG = {
         "link" : "/en/modules/mobile/",
         "collapsed" : false,
         "items" : [ {
-          text: "Mobile Application",
+          text: "Nama Mobile App — Overview, Navigation & Settings",
           "link" : "/en/modules/mobile/mobile-application-guide"
+        }, {
+          text: "Employee Self-Service — Attendance & Leaves",
+          "link" : "/en/modules/mobile/mobile-hr-self-service"
+        }, {
+          text: "Sales, Inventory & Item Inquiry",
+          "link" : "/en/modules/mobile/mobile-sales-inventory"
+        }, {
+          text: "Customer Service, Delivery & Receipts",
+          "link" : "/en/modules/mobile/mobile-crm-delivery"
         }, {
           text: "Mobile QR Integrator Guide",
           "link" : "/en/modules/mobile/mobile-qr-integrator"
