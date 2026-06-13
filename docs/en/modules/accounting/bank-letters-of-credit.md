@@ -51,6 +51,19 @@ At opening, the system checks that the total reserved doesn't exceed the **facil
 | Raw-material prices by initial LC invoices (SYSR-LCD001) | Linking imported-material cost to the LC's initial invoices. |
 | Analysis of costly LCs (SYSR-LCD002) | The highest-cost LCs for comparison and analysis. |
 
+## Banking or Import? — How It Differs from the Supply-Chain LC
+
+Nama has two letters of credit that share a name but serve different purposes:
+
+- **The Bank LC (this page)** is a *treasury/banking* instrument: it cares about your commitment to the bank — how much of your **facility limit** it reserves, the opening and amendment **fees**, and the **ledger postings**. It tracks no shipments, no proforma invoices, no goods, and never touches inventory.
+- **The Supply-Chain LC** (`LC > Master Files > Letter of Credit`) is an *import/procurement* process: it manages the supplier, the **shipments** (containers, bills of lading, customs), and the **proforma invoices**, and accumulates insurance, freight, and customs charges onto the goods to reach the true **landed cost**, then receives them into inventory.
+
+In short: the Bank LC answers "what does this LC do to my facility and my ledger?", while the Supply-Chain LC answers "how do I run this import shipment and its costs all the way into the warehouse?" They are two independent features — different entities and licenses — not two views of one document.
+
+::: info Imports and shipment management
+For the full import cycle — shipments, proforma invoices, additional costs, and landed cost — see [Letters of Credit in Supply Chain](../supplychain/letters-of-credit.md).
+:::
+
 ## For Support
 
 - **"Couldn't open the LC — limit exceeded"** — the reserved amount exceeds the linked facility limit; see [Credit Facilities](./credit-facilities.md).

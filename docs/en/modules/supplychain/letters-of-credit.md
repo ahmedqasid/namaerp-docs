@@ -2,6 +2,10 @@
 
 When you import goods from a supplier abroad, both parties need a guarantee: the supplier wants assured payment, and you want assured conforming shipment. The **Letter of Credit (LC)** is the banking instrument that reconciles the two, and the system manages its full cycle - from opening to shipments to costs.
 
+::: info The banking side of the LC
+This page covers import management (shipments, costs, and landed cost). For the purely banking side — reserving the facility limit, opening fees, and ledger postings — see the [Bank LC in Accounting](../accounting/bank-letters-of-credit.md).
+:::
+
 ## What Is a Letter of Credit?
 
 It's an undertaking by your bank to pay the supplier the value of the goods once they meet agreed conditions (conforming shipping documents within a set deadline). Instead of wiring money directly to a distant supplier you've never dealt with, the bank stands as a trusted intermediary protecting both parties.

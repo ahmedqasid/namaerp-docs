@@ -65,7 +65,7 @@ Pages are being released in waves, starting with the most-used areas (foundation
 ### Letters of Credit
 `accounting-blc` license — opening, amending and closing letters of credit, tracking values and fees and the facility-limit effect.
 
-- [Letters of Credit](./letters-of-credit.md)
+- [Letters of Credit](./bank-letters-of-credit.md)
 
 ### Financial Commitments
 `accounting-financial-commitments-regulation` license — recording recurring obligations (rent, insurance) with an instalment schedule, payment documents and rescheduling, plus facility limits.
