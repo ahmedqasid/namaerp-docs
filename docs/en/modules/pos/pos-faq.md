@@ -37,7 +37,7 @@ Pass it the **code of the payment method** where the change occurred.
 
 ::: tip
 
-* For more details on running utilities inside POS, refer to the relevant section in [the POS Technical Points Usage Guide](../supplychain/nama-pos.md)
+* For more details on running utilities inside POS, refer to the relevant section in [the POS Technical Points Usage Guide](./nama-pos.md)
 * The original error message text: `Payment method {0} repeated in multi line`
 :::
 

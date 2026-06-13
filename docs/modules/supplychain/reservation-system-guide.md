@@ -6,10 +6,13 @@
 
 نظام الحجوزات في Nama ERP هو ميزة متقدمة لإدارة المخزون تتيح للمؤسسات حجز أصناف المخزون عبر أنواع مختلفة من مستندات سلسلة التوريد. يدير النظام تأثيرات الحجز بشكل مختلف بناءً على نوع المستند، ويتكامل مع آليات تتبع الكميات لتوفير تحكم فوري في تخصيص المخزون.
 
-**الاسم العربي:** نظام الحجوزات  
-**الاسم الإنجليزي:** Reservation System  
-**مسار القائمة:** المخازن > سندات الحجوزات > سند حجز  
-**Arabic Menu Path:** المخازن > سندات الحجوزات > سند حجز
+**مسار القائمة:** المخازن > سندات الحجوزات > سند حجز
+
+![شاشة سند الحجز في Nama ERP](images/reservation/reservation-document-ar.png)
+
+::: tip أين يظهر الحجز في رحلتك
+الحجز جزء من [رحلة المبيعات](./sales-journey.md) (حجز المخزون لأمر العميل) ويمهّد لـ[التسليم والتحميل](./delivery-and-loading.md). ولتجاهل مخازن/مواقع معينة في التحقق من كمية الحجز بالتاريخ، راجع [الدليل المخصص لذلك](./ignore-reservation-qty-check-by-date.md).
+:::
 
 ## المفاهيم الأساسية (Fundamental Concepts)
 
@@ -417,59 +420,6 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 2. **إعداد الحقول:** التحقق من تعيينات حقول الكميات الصحيحة
 3. **إعداد وحدات القياس:** ضمان وجود تحويلات وحدات القياس الصحيحة
 4. **التحقق من العلاقة:** فحص سلامة سلسلة المستندات
-
-## مرجع التنفيذ التقني (Technical Implementation Reference)
-
-### الكلاسات والطرق الرئيسية (Key Classes and Methods)
-
-#### كلاسات المعالجة الأساسية (Core Processing Classes)
-
-**InvSystemFilesUtils**
-- **الموقع:** `supplychain/supplychaindomain/utils/InvSystemFilesUtils.java`
-- **الطرق الرئيسية:**
-  - `update()` - معالجة تحديثات الحجز وعمليات الإلغاء
-  - `addRequestLine()` - معالجة إنشاء سطور طلب الحجز مع الكميات المنفذة
-  - `generatedRequests()` - إنشاء طلبات معاملات المخزون
-
-**QtyTransUtils**
-- **الموقع:** `supplychain/supplychaindomain/invrequest/utils/QtyTransUtils.java`
-- **الطريقة الرئيسية:** `setIdAndValidateQtyEffects()` - فحص الكميات وتطبيق تأثيرات الحجز
-
-**SCRelatedQtiesUtil**
-- **الموقع:** `supplychain/supplychaindomain/utils/SCRelatedQtiesUtil.java`
-- **الطرق الرئيسية:**
-  - `updateSatisfiedQtiesd()` - تحديث الكميات المنفذة بين المستندات المرتبطة
-  - `createSatisfier()` - إنشاء كائنات تتبع الوفاء بالكميات
-
-#### كلاسات الإعداد (Configuration Classes)
-
-**InvDocTermConfig**
-- **الموقع:** `supplychain/supplychaindsl/inventory/terms/InvDocTermConfig.java`
-- **حقول الحجز:** المجموعة الكاملة من خيارات إعداد الحجز
-
-**ItemConfigurations**
-- **الموقع:** `supplychain/supplychaindsl/inventory/entities/ItemConfigurations.java`
-- **الحقول الرئيسية:** `includeReservedInBalance`، `allowOverdraftInReservation`
-
-### هيكل قاعدة البيانات (Database Structure)
-
-#### الجداول الأساسية (Primary Tables)
-
-**ItemDimensionsQty:** تتبع كميات المخزون
-- يتتبع كميات الداخل/الخارج/Pre-In/Pre-Out لكل محدد صنف
-- الجدول الأساسي لتأثيرات الحجز وحسابات الرصيد
-
-#### الجداول الداعمة (Supporting Tables)
-
-**BasicSCDocumentLine:** القاعدة لجميع سطور مستندات سلسلة التوريد
-- يحتوي على حقول الكميات المنفذة/غير المنفذة
-- يدعم تتبع الكميات بين المستندات المرتبطة
-
-**DeliverySysEntry:** تكامل نظام التوصيل
-- مصدر كميات بديل للحجوزات القائمة على التوصيل
-- يدعم سيناريوهات تخطيط التوصيل المعقدة
-
----
 
 ## مرجع الإعداد الشامل (Complete Configuration Reference)
 

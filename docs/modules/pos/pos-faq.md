@@ -39,7 +39,7 @@ com.namasoft.pos.util.plugnplay.POSPaymentMethodToggledCashProperty
 
 ::: tip
 
-* لمزيد من التفاصيل حول تشغيل الأدوات البرمجية داخل نقاط البيع، راجع القسم الخاص بها في [دليل استعمال النقاط الفنية في نقاط البيع](../supplychain/nama-pos.md)
+* لمزيد من التفاصيل حول تشغيل الأدوات البرمجية داخل نقاط البيع، راجع القسم الخاص بها في [دليل استعمال النقاط الفنية في نقاط البيع](./nama-pos.md)
 * النص الأصلي لرسالة الخطأ: `Payment method {0} repeated in multi line`
 :::
 

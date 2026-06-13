@@ -2,494 +2,151 @@
 
 Let's follow the complete story of how items get purchased - from "we need something" to "it's in our warehouse and we've paid for it." This journey involves many people, documents, and decisions. Understanding the flow helps you know which document to use when.
 
-## The Big Picture
+## The Full Picture
 
-Before diving into details, here's the typical purchasing journey:
+Before diving into details, here's the typical purchase path:
 
 ```
-Need → Request → Quotations → Comparison → Order → Receipt → Invoice → Payment
+Need → Request → Quotations → Comparison → Purchase Order → Receipt → Invoice → Payment
 ```
 
-Not every purchase follows every step (sometimes you skip straight to ordering), but understanding the full path helps you choose the right level of process for each situation.
+Not every purchase passes through every step (sometimes you jump straight to the purchase order), but understanding the full path helps you choose the right level of process for each case.
 
-## Step 1: Identifying the Need
+![Purchase order list in NaMa ERP](../../../modules/supplychain/images/purchasing/purchase-order-list-en.png)
 
-Every purchase starts with a need. Someone, somewhere in your organization realizes they need something.
+## Step One: Identifying the Need
 
-### The Item Request
+Every purchase begins with a need. Someone in your organization realizes they need something.
 
-The `ItemRequest` (طلب شراء صنف) is where it begins. Think of it as a formal "shopping list" that says:
+### Item Request (ItemRequest)
 
-**From**: Production Department
-**Message**: "We need 500kg of steel, 200 bolts, and 50 liters of paint for next week's production run."
+The **Item Request** is the starting point. Think of it as a formal "shopping list" that says: "we need 500 kg of steel, 200 nails, and 50 liters of paint for the production line next week." It includes the requested items and their quantities, when they're needed, the reason (production order, project, stock replenishment), and the urgency.
 
-The request includes:
-- What items are needed
-- How much of each
-- When they're needed
-- Why they're needed (production order, project, general replenishment)
-- How urgent it is
+These requests are created by production planners, department heads, project managers, and warehouse keepers. They then pass through an approval workflow where managers review necessity, budget compliance, whether some is already in stock, or whether to consolidate with other requests.
 
-**Who Creates These?**
-- Production planners (for manufacturing materials)
-- Department heads (for operational supplies)
-- Project managers (for project-specific items)
-- Store keepers (for stock replenishment)
+### Consolidating Requests (ConsolidatedPurchaseReq)
 
-**What Happens Next?**
-The request goes through an approval workflow. Managers review:
-- Is this really necessary?
-- Is it budgeted?
-- Do we already have some in stock?
-- Should we bundle this with other requests?
+Multiple small requests can be consolidated. The **Consolidated Purchase Request** gathers different departments' needs by supplier, by category, or by urgency. Why consolidate? Because it reduces shipping costs, raises negotiating power (larger orders = better prices), reduces administrative overhead, and simplifies supplier management.
 
-### Consolidating Requests
+## Step Two: Getting Quotations
 
-Multiple small requests can be consolidated. The `ConsolidatedPurchaseReq` (طلب شراء مجمع) combines:
-- IT department needs keyboards
-- Admin needs office supplies
-- Production needs steel
+Now you know what you need. It's time to find out who can supply it and at what price.
 
-All grouped by:
-- Supplier (buy everything from OfficeSupplyCo in one order)
-- Category (all electronics together)
-- Urgency (all urgent items now, regular items next week)
+### Quotation Request (PurchaseQuotationRequest)
 
-**Why Consolidate?** Because it:
-- Reduces shipping costs
-- Improves negotiating power (bigger orders = better prices)
-- Reduces administrative overhead
-- Simplifies supplier management
+The **Purchase Quotation Request** is sent to potential suppliers asking: Can you supply these items? At what price? In what delivery timeframe? On what payment terms? It's usually sent to several suppliers (3-5 is common) to get competitive prices, including clear item specifications so everyone quotes on the same thing.
 
-## Step 2: Getting Quotations
+### Receiving Quotations (PurchaseQuotation)
 
-Now you know what you need. Time to find out who can supply it and at what price.
-
-### The Quotation Request
+Suppliers reply with their quotes, recorded as **Purchase Quotation** documents. Each captures the offered prices per item, the promised delivery time, payment terms, a validity period, and any notes. The reality is that not all suppliers reply on time, some prices are high, and some quotes have hidden conditions - which is where comparison helps.
 
-The `PurchaseQuotationRequest` (طلب عرض أسعار شراء) is sent to potential suppliers asking:
-- Can you supply these items?
-- What price will you charge?
-- What delivery timeframe?
-- What payment terms do you offer?
-
-You typically send this to multiple suppliers (3-5 is common) to get competitive pricing.
+### Comparing Quotations (PurchasePriceComparing)
 
-**What Goes in a Quotation Request:**
-- Clear item specifications (so all suppliers quote the same thing)
-- Quantities needed
-- Delivery location
-- Desired delivery date
-- Payment terms you prefer
-- Any special requirements
+The **Purchase Price Comparing** document places all quotes side by side for analysis:
 
-### Receiving Quotations
+| Item | Supplier A | Supplier B | Supplier C | Delivery A | Delivery B | Delivery C |
+|------|-----------|-----------|-----------|-----------|-----------|-----------|
+| Steel | 2.50/kg | 2.30/kg | 2.60/kg | 5 days | 7 days | 3 days |
+| Nails | 0.10/pc | 0.12/pc | 0.09/pc | 5 days | 7 days | 3 days |
 
-Suppliers respond with their quotes, which you record as `PurchaseQuotation` (عرض أسعار شراء) documents.
+**Decision factors beyond price:** quality (cheapest isn't always best), reliability (do they deliver on time?), payment terms (the difference between 30 and 60 days of credit affects cash flow), existing relationships, and service and support. The document supports an approval workflow to approve the chosen supplier.
 
-Each quotation captures:
-- Supplier offered prices for each item
-- Delivery time they promise
-- Payment terms they offer
-- Validity period (quote expires after 30 days, etc.)
-- Any conditions or notes
+## Step Three: Issuing the Purchase Order (PurchaseOrder)
 
-**Reality Check**: Not all suppliers respond on time. Some prices are surprisingly high. Some quotes have hidden conditions. This is normal - the comparison process helps you navigate this.
+After comparing quotes, choosing the supplier, and getting approval, it's time for the formal order! The **Purchase Order** is the document that says: "Dear supplier, please supply these items on these terms."
 
-### Comparing Quotations
+What makes it formal? It's a commitment between both parties, specifying the items and quantities, the agreed prices, delivery terms (where and when), payment terms (when and how), and an order number that's a reference for you and the supplier. It includes your details (company, delivery address, billing address, contact), the supplier's details, item lines with descriptions, quantities, units, and prices, terms (delivery date and location, shipping method, currency, tax handling), and totals (subtotal, discounts, taxes, grand total).
 
-The `PurchasePriceComparing` (مقارنة أسعار شراء) document puts all quotations side-by-side so you can analyze:
+![Purchase order screen in NaMa ERP](../../../modules/supplychain/images/purchasing/purchase-order-edit-en.png)
 
-| Item | Supplier A Price | Supplier B Price | Supplier C Price | Delivery A | Delivery B | Delivery C |
-|------|------------------|------------------|------------------|------------|------------|------------|
-| Steel | $2.50/kg | $2.30/kg | $2.60/kg | 5 days | 7 days | 3 days |
-| Bolts | $0.10/each | $0.12/each | $0.09/each | 5 days | 7 days | 3 days |
+### The Proforma Alternative (ProformaPurchaseInvoice)
 
-**Decision Factors Beyond Price:**
-- Quality (cheapest isn't always best)
-- Reliability (does this supplier deliver on time?)
-- Payment terms (30 days vs. 60 days credit makes a cash flow difference)
-- Existing relationships
-- Service and support
-- Local vs. imported
-
-The comparison document supports your approval workflow - management reviews and approves the selected supplier.
-
-## Step 3: Placing the Order
-
-Quotations compared, supplier selected, approval received. Time to officially order!
-
-### The Purchase Order
-
-The `PurchaseOrder` (أمر شراء) is the official document that says: "Dear Supplier, please supply us with these items under these terms."
-
-**What Makes It Official:**
-- Legal commitment (you're promising to buy, they're promising to sell)
-- Specific quantities and items
-- Agreed prices
-- Delivery terms (where and when)
-- Payment terms (when and how you'll pay)
-- Order number (your reference and theirs)
-
-**The Information it Contains:**
-
-**Your Information:**
-- Company name and legal details
-- Delivery address
-- Billing address
-- Contact person
-- Order number
-
-**Supplier Information:**
-- Supplier name and details
-- Supplier code (your internal reference)
+Sometimes you need a not-quite-binding purchase order - perhaps for budget approval, preliminary sign-off, or requesting a letter of credit. Use the **Proforma Purchase Invoice** for these "semi-formal" orders not yet committed.
 
-**Items Ordered:**
-- Item descriptions (clear, specific)
-- Quantities
-- Units of measure
-- Unit prices
-- Line totals
+### After Sending the Order
 
-**Terms:**
-- Delivery date
-- Delivery location
-- Shipping method
-- Payment terms
-- Currency
-- Tax handling
-- Special conditions
-
-**Totals:**
-- Subtotal
-- Discounts
-- Taxes
-- Grand total
-
-### The Proforma Alternative
-
-Sometimes you need a purchase order that's not quite official - maybe for:
-- Getting customs approval before formal purchase
-- Budget approval process
-- Letter of credit application
-
-Use `ProformaPurchaseInvoice` (فاتورة مشتريات مبدئية) for these "almost orders" that aren't yet committed.
-
-### After the Order is Sent
-
-Once sent to the supplier:
-1. Supplier acknowledges receipt
-2. Supplier confirms or negotiates any changes
-3. Order enters "open" status
-4. You wait for delivery
-5. System tracks: What's been received? What's still outstanding?
-
-You can track purchase order status:
-- Open (nothing received yet)
-- Partially received (some items arrived, some pending)
-- Fully received (everything arrived)
-- Cancelled (order was terminated)
-
-## Step 4: Receiving the Goods
-
-The truck arrives! Time to receive what you ordered.
-
-### The Receipt Process
-
-Physically:
-1. Truck delivers goods
-2. Receiving clerk counts and inspects
-3. Compares received quantity to packing slip
-4. Compares packing slip to purchase order
-
-In the system:
-1. Create receipt document (often `PurchaseInvoiceReceipt` if created from the invoice, or standalone stock receipt)
-2. Link to purchase order
-3. Enter actually received quantities
-4. Note any discrepancies
-
-**Common Discrepancies:**
-- Ordered 100, received 95 (short shipment)
-- Ordered 100, received 105 (over shipment)
-- Received wrong item
-- Received damaged items
-- Received correct quantity but wrong specifications
-
-Each requires different handling:
-- Accept partial and wait for balance
-- Accept all (even over shipment)
-- Reject and return
-- Accept good, reject damaged
-- Escalate to purchasing for resolution
-
-### Inspection Receipts
-
-For critical items, use two-step receiving:
-
-1. **Initial Receipt**: Items arrive, count them, move to inspection area (`ReceiptInspection` document)
-2. **Quality Inspection**: Test, measure, verify specifications
-3. **Final Decision**:
-   - Accept: Move to regular stock
-   - Reject: Prepare return to supplier
-   - Partial: Accept some, reject some
-
-More on this in [Quality Control](./quality-control.md).
-
-## Step 5: Receiving the Invoice
-
-Days or weeks later (or sometimes with the goods), the supplier sends an invoice.
-
-### The Purchase Invoice
-
-The `PurchaseInvoice` (فاتورة مشتريات) is the supplier's bill. It says: "You received these goods, now pay us this amount."
-
-**Key Information:**
-
-**Header:**
-- Supplier invoice number (their reference)
-- Invoice date
-- Due date
-- Payment terms
-- Supplier details
-- Your purchase order reference
-
-**Lines (for each item):**
-- Item received
-- Quantity
-- Unit price
-- Line total
-- Taxes
-
-**Summary:**
-- Subtotal
-- Discounts
-- Shipping charges
-- Other charges (customs, insurance, handling)
-- Taxes
-- Grand total
-
-### The Three-Way Match
+Once sent, the supplier confirms receipt, the order enters an "open" state, and you await delivery while the system tracks: what's been received? What's still pending? You can track the order's status: open (nothing received), partially received, fully received, cancelled.
+
+## Step Four: Receiving the Goods
+
+The truck has arrived! Time to receive what you ordered. Physically: the truck delivers the goods, the receiving clerk counts and inspects them, compares the received quantity to the packing list, and the packing list to the purchase order. In the system: you create a stock receipt linked to the purchase order, enter the actually-received quantities, and record any discrepancies.
+
+**Common discrepancies:** ordered 100 but received 95 (shortage), or received 105 (surplus), or received the wrong item, or damaged items, or the correct quantity with wrong specifications. Each case needs handling: accept partial and wait, accept all, reject and return, or accept the good and reject the damaged. Receiving details are in [Receiving Stock](./receiving-stock.md).
+
+For critical items, use two-step receiving via [Receipt Inspection](./quality-control.md): an initial receipt into the inspection area, then a quality check, then a final decision to accept, reject, or partially accept.
+
+## Step Five: Receiving the Invoice (PurchaseInvoice)
+
+After days or weeks (or sometimes with the goods), the supplier sends the **Purchase Invoice**: "I delivered these goods, pay us this amount." It includes the supplier's invoice number, its date, due date, payment terms, your purchase order reference, the received item lines with prices and taxes, and a summary of subtotal, discounts, freight, other charges, taxes, and total.
+
+### Three-Way Matching
 
 Best practice is to match three documents:
-1. Purchase Order: What you agreed to buy
-2. Receipt Document: What you actually received
-3. Purchase Invoice: What the supplier is billing
+1. **Purchase order**: what you agreed to buy
+2. **Receipt document**: what you actually received
+3. **Purchase invoice**: what the supplier bills
 
-Check:
-- ✓ Quantities match (or discrepancies are explained)
-- ✓ Prices match what was agreed
-- ✓ Math is correct
-- ✓ Terms are as agreed
-
-Only pay invoices that pass the three-way match. Discrepancies require investigation and resolution.
+Verify that quantities match (or differences are explained), prices match the agreement, the arithmetic is correct, and terms are as agreed. Pay only invoices that pass three-way matching; discrepancies warrant investigation and resolution.
 
 ### What the System Does
 
-When you save the purchase invoice (not as draft):
+When the purchase invoice is saved (not as a draft): if no receipt was created yet, the system can create one automatically so stock increases; accounting entries are made (debit inventory asset or expense, debit recoverable input tax, credit supplier payables); and a payment schedule is created based on the payment terms with due-date reminders.
 
-**Inventory Update**:
-If you haven't already created a receipt (maybe invoice arrived first), the system can automatically create the receipt. Inventory increases.
+## Step Six: Payment
 
-**Accounting Entries**:
-- Debit: Inventory Asset (or Expense if not inventory items)
-- Debit: Tax Input Account (recoverable VAT)
-- Credit: Accounts Payable - Supplier
+Eventually you pay the supplier via bank transfer, cheque, cash, or other means. The system tracks which invoices are paid, when, how much, by what method, and the remaining balance. **Payment schedules** on the invoice (a payment after 30 days, another after 60) are tracked via schedule lines, while **external payment lines** link the invoice to payment vouchers in accounting, completing the link between payables and cash/bank. (Payment and scheduling details are in the Invoicing and Accounting modules.)
 
-**Payment Scheduling**:
-Based on payment terms, system creates payment schedule:
-- Invoice for $10,000
-- Terms: Net 30 days
-- Due date: (Invoice date + 30 days)
-- Reminder: System alerts as due date approaches
+## Handling Returns (PurchaseReturn)
 
-## Step 6: Payment
+Things can go wrong, and you need to return items. The **Purchase Return** reverses the purchase in cases of defective items arriving, wrong items shipped, failing quality inspection, or ordering excess that the supplier accepts back.
 
-Eventually (hopefully on time!), you pay the supplier.
+**The process:** obtain return authorization from the supplier, then create a return linked to the original purchase, issue the items from your warehouse and ship them to the supplier, await the credit note, and apply it to the payables balance. **Accounting effect:** credit inventory (reducing the asset), debit payables (reducing the liability). And if you've already paid, you may get a credit note for future purchases or a cash refund.
 
-### Payment Documents
+The path often starts with a **Purchase Return Request** (PurchaseReturnReq): the warehouse identifies the items, purchasing contacts the supplier for authorization, then the actual return is created.
 
-Payment can happen through:
-- Bank transfer
-- Check
-- Cash (for small amounts)
-- Credit card
-- Payment vouchers
+## Special Scenarios and Tools
 
-The system tracks:
-- Which invoices are paid
-- When payment was made
-- How much was paid
-- What payment method was used
-- Remaining balance
-
-### Scheduled Payments
-
-The `scheduleLines` collection on the invoice tracks payment schedule:
-- First installment: $5,000 due in 30 days
-- Second installment: $5,000 due in 60 days
-
-As you make payments, these get marked paid.
-
-### External Payment Lines
-
-The `externalPaymentLines` collection links purchase invoices to payment vouchers in the accounting system. This creates the connection between:
-- Accounts Payable (liability)
-- Cash/Bank (asset reduction)
-
-## Handling Returns and Problems
-
-Things go wrong. You need to return items.
-
-### The Purchase Return
-
-The `PurchaseReturn` (مرتجع مشتريات) reverses a purchase:
-
-**Common Scenarios:**
-- Items arrived defective
-- Wrong items were shipped
-- Items failed quality inspection
-- You ordered too much and supplier accepts return
-
-**The Process:**
-1. Get return authorization from supplier (RMA number)
-2. Create purchase return document linking to original purchase
-3. Issue items from your warehouse
-4. Ship back to supplier
-5. Await credit note
-6. Apply credit to your payable balance
-
-**Accounting Impact:**
-Purchase return creates:
-- Credit: Inventory (reduces asset)
-- Debit: Accounts Payable (reduces liability)
-
-If you've already paid, you might get:
-- Credit note applied to future purchases
-- Refund (cash back)
-
-### The Return Request
-
-The `PurchaseReturnReq` (طلب مرتجع مشتريات) initiates the return process:
-1. Warehouse identifies items to return
-2. Creates return request with reason
-3. Purchasing contacts supplier for RMA
-4. Once authorized, create actual return
-5. Execute the return
-
-## Special Scenarios
-
-### Import Purchases and Letters of Credit
-
-For international purchases, the process becomes more complex with customs, shipping, and payment security.
-
-**Letter of Credit Documents:**
-- `LCProformaInvoice`: Proforma invoice for opening letter of credit
-- `LCShipmentProformaInvoice`: For specific shipments under LC
-
-These integrate with your banking relationships to ensure payment is secured before goods ship.
-
-### Purchase Document Updates
-
-Sometimes you need to adjust a purchase after the fact:
-
-`PurchaseDocumentUpdate` (تحديث مستند مشتريات) handles:
-- Price adjustments (supplier gives discount after invoice)
-- Quantity corrections (invoice said 100, should be 95)
-- Additional charges (freight charge billed separately)
-- Tax adjustments
-
-Think of these as "amendments" to the original purchase.
-
-## Forecasting and Planning
-
-### Purchase Forecasts
-
-The `PurchaseForecast` (توقعات شراء) helps plan future purchases:
-- Based on sales forecasts
-- Based on production schedules
-- Based on historical consumption
-- Accounting for lead times
-
-This shifts purchasing from reactive to proactive:
-- **Reactive**: "We're out! Order now!" (often paying rush fees)
-- **Proactive**: "We'll run low in 3 weeks. Order now for normal delivery." (better prices, better terms)
+- **Import purchases**: For international purchases with their customs, freight, and payment guarantees, the path is managed via [Letters of Credit](./letters-of-credit.md) with their documents (the LC proforma invoice and shipment invoices within it).
+- **Post-purchase adjustments**: When you need to adjust a purchase after the fact (a late supplier discount, a quantity correction, additional charges, a tax adjustment), the **Purchase Document Update** (PurchaseDocumentUpdate) handles it - think of it as "adjustments" to the original purchase.
+- **Purchase forecasting**: To turn purchasing from reactive to proactive, see [Purchase Forecast](./purchase-forecast.md).
 
 ## Tips for Effective Purchasing
 
 ::: tip Best Practices
+**Standardize requests**: Use standardized item requests with clear specifications that prevent misunderstandings and ease comparison.
 
-**Document Everything**
-Every conversation with suppliers, every negotiation, every price change - document it in the system's remarks and notes fields.
+**Compare before ordering**: Even with preferred suppliers, get competitive quotes periodically; markets change and relationships can become too comfortable.
 
-**Standardize Requests**
-Use consistent item requests. Clear specifications prevent misunderstandings and make comparing options easier.
+**Apply three-way matching strictly**: Don't skip matching; it catches errors, prevents fraud, and ensures you pay what you should.
 
-**Compare Before Ordering**
-Even with preferred suppliers, periodically get competitive quotes. Markets change, relationships can become complacent.
+**Track supplier performance**: Note who delivers on time, who has quality issues, and who handles problems well - this data guides your decisions.
 
-**Three-Way Match Strictly**
-Don't skip the matching process. It catches errors, prevents fraud, and ensures you pay what you should pay.
+**Negotiate payment terms**: Price isn't everything; an extra 30 days to pay can outweigh a 2% discount if cash flow is tight.
 
-**Track Supplier Performance**
-Note which suppliers deliver on time, which have quality issues, which respond well to problems. This data informs future decisions.
-
-**Negotiate Payment Terms**
-Price isn't everything. Extra 30 days to pay can be worth more than 2% discount if cash flow is tight.
-
-**Maintain Safety Stock**
-Don't wait until you're at zero. Reorder when you hit safety stock level to buffer against delivery delays.
-
-**Communicate Lead Times**
-Tell your internal customers realistic lead times. Under-promising and over-delivering is better than the reverse.
-
+**Communicate realistic lead times**: Under-promise and over-deliver beats the opposite.
 :::
 
-## Common Questions
+## Frequently Asked Questions
 
 **Q: Can we create a purchase invoice before receiving the goods?**
 
-A: Yes, but it's not recommended. Best practice is receive first (to verify what you got), then match invoice to receipt. However, sometimes invoices arrive first - the system can handle this by automatically creating the receipt from the invoice.
+A: Yes, but it's not recommended. Best practice is to receive first to verify, then match the invoice to the receipt. Still, invoices sometimes arrive first - the system can create the receipt automatically from the invoice.
 
-**Q: What if the supplier charges more on the invoice than on the purchase order?**
+**Q: What if the supplier bills a higher price than the purchase order?**
 
-A: The system typically warns you about price discrepancies. Either:
-- Reject the invoice and contact supplier
-- Accept if the difference is small and documented
-- Update the purchase order if prices were renegotiated
+A: The system usually alerts you to price differences, so you either reject the invoice and contact the supplier, accept it if the difference is small and documented, or update the purchase order if prices were renegotiated.
 
 **Q: How do we handle partial deliveries?**
 
-A: Create a receipt for what arrived. Purchase order tracks what's still outstanding. When the rest arrives, create another receipt against the same order. System handles this naturally.
+A: Create a receipt for what arrived; the purchase order tracks what's still pending, and when the rest arrives you create another receipt against the same order.
 
-**Q: Can we order items not in our item master?**
+**Q: What happens if we cancel a purchase order after receiving part of it?**
 
-A: Technically possible (free-text line items) but not recommended. Better to add items to the master first - ensures consistent tracking, costing, and accounting.
-
-**Q: What happens if we cancel a purchase order after partially receiving?**
-
-A: You can close the order for remaining quantities. What's been received stays received, but the system won't expect the balance anymore.
-
-## Integration Points
-
-Purchasing connects to:
-
-**Accounting**: Every purchase invoice creates payables. Every payment reduces payables and cash.
-
-**Inventory**: Receipts increase stock. Returns reduce stock. All with proper costing.
-
-**Production**: Raw material purchases feed production. Purchase lead times affect production scheduling.
-
-**Quality**: Inspection requirements affect receiving process and supplier relationships.
-
-**Budget**: Purchase requisitions can check budget availability before allowing orders.
+A: You can close the order on the remaining quantities; what was received stays received, and the system no longer waits for the balance.
 
 ## Next Steps
 
-Now understand the purchasing journey. Continue to:
-- [The Sales Journey](./sales-journey.md) - The mirror process of selling
-- [Quality Control](./quality-control.md) - How inspection fits into receiving
-- [Specialized Scenarios](./specialized-scenarios.md) - Industry-specific variations
-
-Or go back to understand the foundation:
-- [Understanding Items](./understanding-items.md) - What you're buying
-- [Receiving Stock](./receiving-stock.md) - Detailed receipt processes
+- [The Sales Journey](./sales-journey.md) - the mirror process for selling
+- [Purchase Forecast](./purchase-forecast.md) - planning purchases proactively
+- [Receiving Stock](./receiving-stock.md) - detailed receiving operations
+- [Letters of Credit](./letters-of-credit.md) - import purchases

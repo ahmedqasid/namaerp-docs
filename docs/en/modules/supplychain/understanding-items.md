@@ -1,51 +1,50 @@
 # Understanding Inventory Items
 
-Let's talk about **Items** - the building blocks of your entire supply chain system.
+Let's talk about **Items** - the building blocks of the entire supply chain system.
 
 ## What Is an Item, Really?
 
-In NaMa ERP, an "Item" (entity type `InvItem`, or صنف in Arabic) represents anything you track in your business. It could be:
-- A physical product you sell (a laptop, a chair, a bottle of juice)
-- A raw material you purchase (steel, fabric, flour)
-- A spare part for maintenance (a bearing, a filter)
+In NaMa ERP, an "item" represents anything you track in your business. It could be:
+- A physical product you sell (laptop, chair, juice bottle)
+- A raw material you buy (steel, fabric, flour)
+- A spare part for maintenance (bearing, filter)
 - A service you provide (consulting hours, installation service)
 - A consumable you use internally (office supplies, cleaning materials)
 
 The beauty of the item master is that it's flexible enough to handle all these scenarios while capturing exactly the information you need for each type.
 
+![Item list in NaMa ERP](../../../modules/supplychain/images/items/item-list-en.png)
+
 ## The Item Code: Your Item's Identity
 
-Every item needs a unique identifier - we call this the **item code**. You can think of it like a person's ID number.
+Every item needs a unique identifier - we call it the **item code**. Think of it as a person's ID number.
 
-You have two choices for how items get their codes:
-1. **Automatic numbering**: The system generates codes for you (like IT-00001, IT-00002, etc.)
-2. **Manual entry**: You type in your own codes (like "LAPTOP-DELL-5540" or "STEEL-REBAR-12MM")
+You have two options for how codes are assigned:
+1. **Auto-numbering**: The system generates codes for you (like IT-00001, IT-00002, and so on)
+2. **Manual entry**: You type your own codes (like "LAPTOP-DELL-5540" or "STEEL-REBAR-12MM")
 
-Many organizations use manual codes because they embed meaning - you can look at "DESK-WOOD-120" and immediately know it's a wooden desk, 120cm wide. But auto-numbering ensures you never accidentally create duplicates.
+Many organizations use manual codes because they carry meaning - you can look at "DESK-WOOD-120" and immediately know it's a wooden desk 120 cm wide. But auto-numbering guarantees you never create duplicates.
 
-Beyond the primary code, items can have:
+Beyond the primary code, an item can have:
 - **Alternative codes** for legacy systems or different departments
-- **Supplier codes** (what your supplier calls this item)
-- **Customer codes** (what your customers call this item)
-- **Barcodes** - multiple barcodes per item if needed
+- **Supplier codes** (what the supplier calls this item)
+- **Customer codes** (what customers call this item)
+- **Barcodes** - multiple barcodes per item when needed
 - **Tax authority codes** for compliance
 
 ## Names and Descriptions: Communicating About Items
 
-An item code is precise, but not very friendly. That's why every item has names and descriptions:
+The item code is precise but not friendly. So each item has an Arabic name and an English name, plus several long-form description fields for specifications or different explanations.
 
-- **name1** and **name2**: Typically Arabic and English names
-- **description1** through **description5**: For longer explanations, specifications, or different contexts
-
-Why so many description fields? Because different people need different information. Your purchasing department might need technical specifications in description1, your sales team needs marketing language in description2, and your warehouse needs handling instructions in description3.
+Why all these descriptions? Because different people need different information. Purchasing may need technical specs, the sales team needs marketing language, and the warehouse needs handling instructions - and all of that can live in separate description fields on the same item.
 
 ## Organizing Your Items: Categories and Classifications
 
-Imagine you have 10,000 items in your system. How do you make sense of them all? Through classification!
+Imagine you have 10,000 items in your system. How do you make sense of it all? Through classification!
 
 ### Hierarchical Categories
 
-NaMa ERP gives you five levels of categories (`category1` through `category5`) that work hierarchically:
+NaMa ERP gives you five levels of categories that work hierarchically:
 
 ```
 Category 1: Electronics
@@ -58,82 +57,68 @@ Category 1: Electronics
 This hierarchy lets you:
 - Run reports at any level ("show me all Electronics sales")
 - Apply rules to entire categories ("all Business Laptops require serial numbers")
-- Search efficiently ("find items in Computers category")
+- Search efficiently ("find items in the Computers category")
 
 ### Additional Classification Dimensions
 
 Sometimes hierarchical categories aren't enough. What if you also need to classify by:
 - Brand (Dell, HP, Lenovo)
 - Product line (Budget, Premium, Enterprise)
-- Supplier source (Local, Imported)
+- Supplier source (local, imported)
 - Department that uses it (IT, Admin, Production)
 
-That's where `itemClass1` through `itemClass10` come in. These are independent classification dimensions you can define however you need.
+This is where the **ten item classifications** come in. These are independent dimensions you define however you need: you might use the first for brand, the second for product line, the third for price range, and so on.
 
-You might use:
-- `itemClass1` for Brand
-- `itemClass2` for Product Line
-- `itemClass3` for Price Range
-- And so on...
-
-### Groups and Other Organizers
-
-The `group` field provides yet another way to organize items - perfect for grouping items that behave similarly for reporting or processing purposes.
+Alongside these, the system offers ready-made classifications such as **Brand**, **Section**, and **Assortment** that you can use directly without extra setup.
 
 ::: tip Classification Strategy
-Start simple! Don't try to define all 10 item classes on day one. Set up the 2-3 classifications you need most, and add more as your needs evolve. You can always reclassify items later.
+Start simple! Don't try to define all ten classifications from day one. Set up the two or three you need most, and add more as your needs evolve. You can always reclassify items later.
 :::
 
-## The Unit of Measure Puzzle
+## The Unit of Measure Dilemma
 
 Here's where things get interesting. Imagine you sell juice:
-- You **purchase** it by the case (24 bottles per case)
-- You **store** it in your warehouse by the case
+- You **buy** it by the carton (24 bottles per carton)
+- You **store** it in your warehouse by the carton
 - You **sell** it by the bottle
-- You **report** on it in liters for analysis
+- You **report** on it by the liter for analysis
 
-How does the system handle this? Through a sophisticated Unit of Measure (UOM) system.
+How does the system handle this? Through the sophisticated Unit of Measure (UOM) system.
 
-### Primary UOM System
+### The Primary UOM System
 
-Every item has a **base unit** - the fundamental unit for tracking inventory. In our juice example, this might be "bottle".
+Every item has a **base unit** - the fundamental unit for tracking inventory. In the juice example, it might be "bottle."
 
 Then you define **conversion factors**:
-- 1 case = 24 bottles
+- 1 carton = 24 bottles
 - 1 bottle = 0.5 liters
 
 Now you can:
-- Create a purchase order in cases
-- Receive 10 cases (system records 240 bottles in inventory)
-- Sell 50 bottles (system issues 50 bottles, which is 2.08 cases)
-- Run reports in liters (system shows 125 liters sold)
+- Create a purchase order in cartons
+- Receive 10 cartons (the system records 240 bottles in inventory)
+- Sell 50 bottles (the system issues 50 bottles, i.e. 2.08 cartons)
+- Run reports in liters (the system shows 125 liters sold)
 
-All the conversion happens automatically behind the scenes!
+All conversion happens automatically behind the scenes! For each item you can specify a default purchase unit, a default sales unit, and reporting units - so the system picks the right unit in each document.
 
-You configure:
-- `primaryUOM.baseUnit`: Your fundamental tracking unit
-- `primaryUOM.defaultPurchaseUnit`: What unit you usually buy in
-- `primaryUOM.defaultSalesUnit`: What unit you usually sell in
-- `primaryUOM.reportingUnit1` and `reportingUnit2`: Units for reporting
-
-### Secondary UOM System: When You Need Two Measures
+### The Secondary UOM System: When You Need Two Measures
 
 Some items need **dual measurement**. A classic example is meat:
 - Tracked primarily by **weight** (kilograms)
 - But also by **count** (how many pieces)
 
-You might purchase "10 kg of chicken (5 pieces)" and need to track both numbers independently.
-
-Enable this by setting `hasSecondUnit` to true, then configure the secondary UOM system parallel to the primary one. Now every transaction captures both measures.
+You might buy "10 kg chicken (5 pieces)" and need to track both numbers independently. When you enable the second unit on the item, the system captures both measures in every transaction.
 
 ### Why This Matters
 
-Getting UOMs right is crucial because:
+Getting units of measure right is critical because:
 - Wrong conversions mean wrong inventory counts
 - Wrong inventory counts mean wrong financial statements
-- Wrong financial statements mean... well, you get the idea!
+- Wrong financial statements mean... well, you know the rest!
 
-Take the time to set up conversions accurately, and test them with sample transactions before going live.
+Take the time to set up conversions accurately, and test them with trial transactions before going live.
+
+![Item definition screen in NaMa ERP](../../../modules/supplychain/images/items/item-edit-en.png)
 
 ## Tracking Special Attributes
 
@@ -141,284 +126,188 @@ Different items need different tracking methods:
 
 ### Serial Numbers
 
-For items where each unit is unique and traceable (laptops, vehicles, high-value equipment), enable **serial number tracking** with the `hasSerial` flag.
+For items where each unit is unique and traceable (laptops, vehicles, high-value equipment), you can enable **serial number tracking**.
 
 Now every time you receive or issue this item, the system asks for serial numbers. You can track:
 - Where did serial #12345 come from?
-- Who currently has it?
-- What's its warranty status?
+- Who owns it now?
+- What's the warranty status?
 - Has it been serviced?
 
-Some items need **two serial numbers** (set `hasTwoSerials`) - imagine an air conditioner with separate indoor and outdoor unit serial numbers.
+Some items need **two serial numbers** - imagine an air conditioner with separate serials for the indoor and outdoor units.
 
 ### Batch/Lot Numbers
 
-For items produced or purchased in batches (pharmaceuticals, food products, chemicals), enable `hasLot`. Each batch gets a unique lot number, so if there's a quality issue, you know exactly which batch is affected and can trace where every item from that batch went.
+For items produced or purchased in batches (medicines, food products, chemicals), you can enable lot tracking. Each batch gets a unique lot number, so when there's a quality issue you know exactly which batch is affected and can trace every item from that batch.
 
 ### Expiration Dates
 
-For perishable items, enable `hasExpiry`. Now the system tracks expiration dates and can:
-- Warn you about items approaching expiration
-- Use FEFO (First Expiry First Out) for automatic lot selection
+For perishable items, the system tracks expiry dates and can:
+- Warn you about items nearing expiry
+- Use FEFO (First Expiry First Out) to select lots automatically
 - Prevent issuing expired items
 
 ### Warranty Tracking
 
-Enable `hasWarrantyCode` for items with warranty coverage. The system tracks warranty periods and can alert you when warranties are expiring.
+For items with warranty coverage, the system tracks warranty periods and can alert you as they approach expiry.
 
-## Physical Characteristics
+## Physical Properties
 
 The system can track physical attributes that affect storage, shipping, and handling:
 
-- **Dimensions**: Length, width, height, area, volume
-- **Weight**: Item weight (crucial for shipping calculations)
-- **Density**: For liquids and bulk materials
+- **Dimensions**: length, width, height, area, volume
+- **Weight**: the item's weight (critical for shipping calculations)
+- **Density**: for liquids and bulk materials
 
-Why track these? Because:
-- Your warehouse needs to know if an item fits on a standard shelf
-- Shipping companies charge based on dimensional weight
+Why track this? Because:
+- Your warehouse needs to know whether an item fits a standard shelf
+- Carriers charge based on volumetric weight
 - Production needs to know how much space materials occupy
 - Capacity planning depends on physical constraints
 
 ## Colors, Sizes, and Variants
 
-Fashion retail and many other industries need to track items with multiple variants. A T-shirt might come in:
+Fashion retail and many other industries need to track items in multiple variants. A T-shirt might come in:
 - 5 sizes (S, M, L, XL, XXL)
-- 8 colors (Red, Blue, Green, Yellow, Black, White, Gray, Pink)
+- 8 colors (red, blue, green, yellow, black, white, gray, pink)
 
-Do you create 40 separate items? No! You create one "item" with the `hasSize` and `hasColor` flags enabled, then define the size/color matrix in the `sizesAndColors` collection.
+Do you create 40 separate items? No! You create a single item with size and color tracking enabled, then define the size/color matrix. Now you can:
+- Buy "100 shirts (20 of each size, mixed colors)"
+- Track inventory separately for "red-large" vs. "blue-small"
+- Report at the style level ("total shirt sales") or the variant level ("red-large sales")
 
-Now you can:
-- Purchase "100 T-shirts (20 of each size, mixed colors)"
-- Track inventory separately for "Red-Large" vs "Blue-Small"
-- Report at the style level ("total T-shirt sales") or variant level ("Red-Large sales")
+## Item Types: What Can You Do with This Item?
 
-## Item Types: What Can You Do With This Item?
+Every item has flags that determine how it can be used:
 
-Every item has flags that define how it can be used:
+- **Purchasable**: this item can be bought from suppliers; otherwise the system prevents creating purchase orders for it.
+- **Sellable**: this item can be sold to customers; otherwise the system prevents adding it to sales invoices.
+- **Manufacturable**: this item can be produced, so the system allows creating production orders for it.
+- **Returnable**: customers can return it after purchase; otherwise the system prevents sales returns.
+- **Replaceable**: replacement is allowed - useful for warranty swaps or size exchanges.
 
-**Can you buy it?**
-- `purchasable`: Yes, this item can be purchased from suppliers
-- If false, system prevents creating purchase orders for it
-
-**Can you sell it?**
-- `sellable`: Yes, this item can be sold to customers
-- If false, system prevents adding to sales invoices
-
-**Can you manufacture it?**
-- `manufacturable`: Yes, this item can be produced
-- System allows creating production orders for it
-
-**Can customers return it?**
-- `returnable`: Yes, customers can return this item after purchase
-- If false, system prevents sales returns
-
-**Can customers exchange it?**
-- `replaceable`: Yes, allow exchanges/replacements
-- Useful for warranty replacements or size exchanges
-
-These flags give you fine-grained control. You might have:
+These flags give you precise control. You might have:
 - Raw materials (purchasable but not sellable)
-- Finished products (sellable and manufacturable, but not purchasable)
-- Service items (sellable but not storable)
+- Finished products (sellable and manufacturable but not purchasable)
+- Service items (sellable but not stockable)
 - Consumables (purchasable but not sellable or returnable)
 
-## Inventory Control: How Stock Behaves
+## Inventory Control: How Does Stock Behave?
 
 ### Safety Stock and Reorder Points
 
-Every item can have a **safety stock** level - the minimum quantity you want to keep on hand. Drop below this, and the system alerts you.
+Each item can have a **safety stock** level - the minimum quantity you want to keep on hand. Dropping below it triggers a system alert.
 
 You can set:
-- **Safety stock quantity**: "Never let laptop inventory fall below 10 units"
-- **Reorder point**: "When we hit 10 units, automatically suggest creating a purchase requisition"
+- **Safety stock quantity**: "never let laptop stock drop below 10 units"
+- **Reorder point**: "when you reach 10 units, automatically suggest creating a purchase order"
 
-The `slowMovingPeriod` helps identify items that aren't selling. If an item hasn't moved in 180 days, maybe it's time to discount it or stop stocking it.
+The system also helps you identify slow-moving items via a **slow-moving period**: if an item hasn't moved in 180 days, maybe it's time to discount it or stop stocking it.
 
-### Overdraft Policy: What Happens When Stock Goes Negative?
+### Overdraft Policy: What Happens When You Run Out?
 
-Real life is messy. Sometimes you need to issue more than you have - maybe an urgent customer order arrives before your scheduled delivery.
+Reality isn't perfect. Sometimes you need to issue more than you have - perhaps an urgent customer order arrived before your scheduled delivery. The **overdraft policy** determines what happens:
 
-The `overDraftPolicy` defines what happens:
-- **Prevent**: Don't allow negative stock under any circumstances
-- **Warn**: Show a warning but allow the transaction
-- **Allow**: Go ahead, we'll track the negative balance
+- **Prevent**: never allow negative stock under any circumstances
+- **Warn**: show a warning but allow the transaction
+- **Allow**: go ahead, we'll track the negative balance
 
 Different items need different policies. Critical medical supplies might prevent overdraft, while office supplies might just warn.
 
 ### Reservation: Holding Stock for Specific Purposes
 
-The `reservationType` controls how items can be reserved:
-- Can you reserve stock for a sales order? (Ensures it won't be sold to someone else)
-- Can you reserve for a production order? (Ensures materials are available when production starts)
-- At what stage does reservation happen? (Order entry, order approval, before delivery?)
+The system can **reserve** items for a specific purpose:
+- Can stock be reserved for a sales order? (ensures it isn't sold to someone else)
+- Can it be reserved for a production order? (ensures materials are available when production starts)
+- At which stage does reservation happen? (order entry, order approval, just before delivery?)
 
-Reservations are powerful because they ensure commitments can be met without physically moving stock until the last moment.
+Reservations are powerful because they ensure commitments are met without physically moving stock until the last moment. For full details, see the [Comprehensive Reservation System Guide](./reservation-system-guide.md).
 
-## Pricing: How Much Does It Cost? How Much Do We Charge?
+## Pricing: What Does It Cost? What Do We Charge?
 
 ### Cost Management
 
-Every item has a **standard cost** (what you expect it to cost on average). But the system also tracks:
-- **FIFO cost**: Based on the actual sequence of receipts
-- **Average cost**: Average of all purchases
-- **Last cost**: What you paid most recently
-
-You choose which costing method to use for each item or category.
+Every item has a **standard cost** (what you expect it to cost on average). But the system also tracks cost using different methods - such as First In First Out (FIFO), average cost, and last purchase cost - and you choose which method to use per item or sector.
 
 ### Sales Pricing
 
-Items can have prices in multiple **price lists**:
-- Retail price list
-- Wholesale price list
-- VIP customer price list
-- Special promotion price list
+An item can have prices in multiple **price lists** (retail, wholesale, VIP customers, special promotions). When you create a sales invoice, you choose the appropriate price list and the system fills prices automatically. You can also enable **automatic pricing** with profit margins (default margin, minimum, and maximum), so the system recalculates sales prices when costs change while respecting your margin policy. You'll find the details in [Pricing, Offers & Coupons](./pricing-offers-and-coupons.md).
 
-When you create a sales invoice, you select which price list to use, and the system fills in prices automatically.
+You can also set a **minimum price** to prevent salespeople from over-discounting; the system warns or prevents selling below it.
 
-But here's the clever part: you can enable **automatic pricing** with profit margins:
-- `autoSalesPricingInfo.autoSalesPricing`: Enable automatic calculation
-- `autoPricingDefaultProfitPercent`: "Usually add 40% margin"
-- `autoPricingMinProfitPercent`: "Never go below 25% margin"
-- `autoPricingMaxProfitPercent`: "Never exceed 60% margin (even if customer would pay it)"
+## Purchase Configuration
 
-Now when costs change, sales prices can be automatically recalculated while respecting your margin policies.
+For items you buy, you can configure:
 
-### Minimum Price Control
-
-Set `defaultDetailData.minPrice` to prevent salespeople from discounting too heavily. The system will warn or prevent selling below this floor price.
-
-## Purchasing Configuration
-
-For items you purchase, you can configure:
-
-**Lead Time**: `purchaseLeadTime` tells the system how long it takes from ordering to receiving. This affects:
-- When to create purchase requisitions
-- Promise dates to customers
-- Production scheduling
-
-**Preferred Supplier**: `defaultSupplier` indicates who you usually buy from. The system can auto-suggest this supplier when creating purchase orders.
-
-**Order Quantities**:
-- `minOrderQty`: Minimum you must order (supplier minimums)
-- `orderLimit`: Maximum you can order at once
-- `reRequest`: Should the system automatically suggest reordering when stock is low?
+- **Lead time**: how long it takes from order to receipt; this affects the timing of purchase requests, dates promised to customers, and production scheduling.
+- **Preferred supplier**: who you usually buy from, so the system suggests them automatically when creating purchase orders.
+- **Order quantities**: the minimum order (supplier minimums), the maximum per order, and whether the system should suggest reordering automatically when stock is low.
 
 ## Accounting Integration
 
-This is where the magic happens. Every item can have multiple accounting settings through the `subsidiaryAccounts` configuration:
+This is where the magic happens. Each item can carry its own accounting setup (a main inventory asset account, plus specialized accounts for different scenarios, branches, or cost centers).
 
-- `mainAccount`: The main inventory asset account
-- `account1` through `account20`: Specialized accounts for different scenarios
-- Expense accounts for service items
-- Different accounts for different branches or cost centers
-
-When you receive a purchase, the system automatically:
+When you receive purchases, the system automatically:
 - Debits the inventory account
-- Credits accounts payable
-- Records tax inputs
+- Credits payables
+- Records input taxes
 
 When you make a sale:
 - Debits cost of goods sold
 - Credits inventory
-- Debits accounts receivable
+- Debits receivables
 - Credits sales revenue
-- Records tax outputs
+- Records output taxes
 
-You never have to create manual journal entries - the system handles it all based on how you configured the item.
+You'll never have to create manual journal entries - the system handles all of it based on how you configured the item.
 
 ### Tax Configuration
 
-Items can be:
-- **Taxable** (`taxable` flag): Subject to tax
-- **Tax exempt**: Not subject to tax
-- **Different tax rates**: Through the `taxPlan` configuration
+Items can be taxable or tax-exempt, at different rates depending on the tax plan. You can even set specific exemptions if an item is exempt from certain taxes but not others.
 
-You can even set specific tax exemptions (`tax1Exempt` through `tax4Exempt`) if an item is exempt from certain taxes but not others.
+## Manufacturing and Quality Configuration
 
-## Manufacturing Configuration
+For manufactured items you can set the production lead time, the expected yield per input unit, quality specifications, required quality checklists, and the method for disassembly into components. The Manufacturing module uses these settings to schedule production, calculate material requirements, and ensure quality standards.
 
-For manufactured items, you can set:
+On the quality side, items can have a checklist on receipt, ongoing quality-assurance requirements, and a re-test period (important for chemicals and medicines). When these are configured, the system won't allow items to move from receipt into available stock until quality checks are complete. For more, see [Quality Control](./quality-control.md).
 
-- `manufactureLeadTime`: How long production takes
-- `maxYield`: Expected output per unit of input (for process manufacturing)
-- `maxPotency`: Quality specification
-- `qualityCheckList`: Required quality checks
-- `deAssemblyBomMethod`: How to disassemble back to components
+## Custom Fields and Attachments
 
-The manufacturing module uses these settings to schedule production, calculate material requirements, and ensure quality standards.
+Every business is different. So items have custom fields (numbers, true/false flags, dates, and references to other entities) that you use however you need - maybe "shelf life in days" or "requires refrigeration." The system stores and retrieves these values for use in reports, workflows, and business rules.
 
-## Quality Control Settings
-
-Items can have:
-- `qualityCheckList`: Checks required on receipt
-- `assuranceCheckList`: Ongoing quality assurance requirements
-- `reTestPeriod`: How often to retest (important for chemicals, pharmaceuticals)
-
-When these are configured, the system won't let items go from receiving to available stock until quality checks are completed.
-
-## Custom Fields: Making Items Yours
-
-Every business is different. That's why items have custom fields you can use however you need:
-
-**Numbers**: `n1` through `n5` - Store numeric values (grade, rating, score, etc.)
-**Booleans**: `b1` through `b5` - True/false flags for custom properties
-**Dates**: `date1` through `date5` - Custom date tracking
-**References**: `ref1` through `ref10` - Link to other entities in your system
-
-You define what these mean. Maybe `n1` is "shelf life in days" and `b1` is "requires refrigeration". The system doesn't care - it just stores and retrieves these values for you to use in reports, workflows, and business rules.
-
-## Analysis and Reporting
-
-Items can belong to **analysis sets** - groups used for financial and managerial analysis. This lets you report on "how much did we spend on IT equipment this year?" without having to list every individual item code.
-
-## Attachments and Documentation
-
-Every item can have up to 5 file attachments (`attachment` through `attachment5`):
-- Product photos
-- Technical specifications (PDF)
-- Safety data sheets
-- Supplier catalogs
-- Usage instructions
-
-These attachments are stored in the database and travel with the item definition, always available when needed.
+Each item can also carry several attachments: product images, technical specs, safety data sheets, supplier catalogs, and usage instructions - stored with the item definition and always available when needed.
 
 ## Revisions and Version Control
 
-For engineering and manufacturing, items can have **revisions**. Each revision has:
-- Version number
-- Effective date
-- What changed
-- Who authorized the change
+In engineering and manufacturing, items can have **revisions**. Each revision has a version number, an effective date, a statement of what changed, and who approved it. This is critical when you improve a product design but need to support both the old and new versions during a transition period.
 
-This is crucial when you improve a product design but need to support both old and new versions during a transition period.
+## Putting It All Together
 
-## Bringing It All Together
-
-Setting up items seems like a lot of work - and it is! But here's the thing: you do it once per item, and from that point forward, hundreds of transactions flow through the system using that configuration.
+Setting up items seems like a lot of work - and it is! But here's the thing: you do it once per item, and from that point on, hundreds of transactions flow through the system using that configuration.
 
 A well-configured item definition means:
-- Purchases happen smoothly (system knows the supplier, units, and accounts)
-- Sales happen smoothly (system knows the price, units, and accounts)
-- Inventory is tracked accurately (system knows about serials, lots, and locations)
-- Accounting is automatic (system knows which accounts to post to)
-- Reports are meaningful (system knows the categories and classifications)
+- Purchasing flows smoothly (the system knows the supplier, units, and accounts)
+- Sales flow smoothly (the system knows the price, units, and accounts)
+- Inventory is tracked accurately (the system knows serials, batches, and locations)
+- Accounting is automatic (the system knows which accounts to post to)
+- Reports are meaningful (the system knows categories and classifications)
 
-::: tip Starting Simple
-Don't try to configure everything perfectly on the first item. Start with the basics:
+::: tip Start Simple
+Don't try to configure everything perfectly on your first item. Start with the basics:
 1. Code and name
-2. Base unit of measure
+2. Primary unit of measure
 3. Category
 4. Whether it's purchasable/sellable
 5. Basic accounting accounts
 
-You can always come back and add serial number tracking, quality checklists, or automatic pricing later. Get items into the system and start using them - you'll quickly learn what additional configuration you need.
+You can always come back later to add serial tracking, quality checklists, or automatic pricing. Get items into the system and start using them - you'll quickly learn what additional configuration you need.
 :::
 
 ## Next Steps
 
-Now that you understand items, you're ready to learn what you do with them:
-- [Receiving Stock](./receiving-stock.md) - Bringing items into your warehouse
-- [Issuing Stock](./issuing-stock.md) - Releasing items from your warehouse
-- [The Purchasing Journey](./purchasing-journey.md) - How items get into your system
-- [The Sales Journey](./sales-journey.md) - How items get to your customers
+Now that you understand items, you're ready to learn where to store them and what to do with them:
+- [Warehouses & Locators](./warehouses-and-locators.md) - where your stock lives
+- [Receiving Stock](./receiving-stock.md) - bringing items into your warehouse
+- [Issuing Stock](./issuing-stock.md) - taking items out of your warehouse
+- [The Purchasing Journey](./purchasing-journey.md) - how items enter your system
+- [The Sales Journey](./sales-journey.md) - how items reach your customers

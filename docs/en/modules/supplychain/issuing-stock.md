@@ -1,383 +1,137 @@
-# Issuing Stock from Your Warehouse
+# Issuing Stock
 
 What goes in must come out! While [receiving stock](./receiving-stock.md) is about bringing items into your warehouse, issuing is about releasing them for use. Let's explore when, why, and how items leave your inventory.
 
-## The Stock Issue Document: Your Inventory Exit Point
+## The Stock Issue: Your Inventory's Exit Point
 
-A **stock issue** (entity `StockIssue` or صرف مخزني in Arabic) is the formal record that items left your warehouse at a specific time for a specific purpose. Just like receipts, different scenarios call for different types of issue documents.
+The **Stock Issue** (StockIssue) is the official record proving that items left the warehouse at a specific time for a specific purpose. Just like receipt documents, different scenarios call for different handling.
 
-## The General Stock Issue: Your Go-To Tool
+![Stock issue list in NaMa ERP](../../../modules/supplychain/images/issuing/stock-issue-list-en.png)
 
-The `StockIssue` document is your general-purpose tool for releasing items from inventory for any reason other than sales (which have their own process we'll cover in [The Sales Journey](./sales-journey.md)).
+## The General Stock Issue: Your Primary Tool
+
+The stock issue document is your multipurpose tool for taking items out of inventory for any reason other than a direct sale (which has its own path in [The Sales Journey](./sales-journey.md)).
 
 ### Common Scenarios
 
-**Issuing to Production**
-Your manufacturing floor needs 500 kg of steel to make furniture. You create a stock issue that:
-- Reduces raw materials inventory by 500 kg
-- Records which production order received the materials
-- Accumulates cost to work-in-process
-- Tracks what was issued to whom and when
+**Internal department use**
+The IT department needs 10 laptops for a new project. Create a stock issue to move them from "available" into the department's custody, reduce available stock (so you don't accidentally sell them), and know their location later.
 
-**Internal Department Use**
-The IT department needs 10 laptops for a new project. Create a stock issue to:
-- Move laptops from "available" to "in use by IT"
-- Track who has custody of the items
-- Reduce available inventory (so you don't accidentally sell those laptops)
-- Know where to find the laptops later
+**Samples and demos**
+The sales team needs samples for a trade show. Issue them with notes about the purpose, to track what's been distributed vs. available for sale, and book their cost as a marketing expense.
 
-**Samples and Demonstrations**
-Your sales team needs product samples for a trade show. Issue them with notes about the purpose, so you can:
-- Track what was given out vs. what's available to sell
-- Account for the cost of samples (marketing expense)
-- Follow up after the trade show (were samples returned? converted to sales?)
+**Shortages, losses, and damage**
+During stock taking you discovered a shortage of 5 pieces, or some goods were damaged in storage. The system has no standalone "damage voucher"; the correct way to record any incidental loss or damage is a **stock issue** directed to an appropriate loss account. This formally removes the items from tracked inventory and records the loss in accounting, with the reason documented.
 
-**Shrinkage and Loss**
-During inventory count, you discover 5 widgets are missing. Create an issue to:
-- Formally remove them from tracked inventory
-- Record the loss for accounting
-- Document when and why (theft? damage? miscounting?)
+::: warning Natural loss and periodic differences
+If the shortage results from natural loss or periodic differences discovered during counting (not a specific damage event), it's better settled through [Stock Taking](./stock-taking.md), not a manual issue.
+:::
 
 **Donations**
-You're donating old equipment to a charity. Issue the items with:
-- Proper documentation for tax purposes
-- Fair market value recording
-- Recipient information
+You donate old equipment to a charity. Issue the items with proper documentation for tax purposes, recording the fair value and the recipient's information.
 
 ### How It Works
 
-Every issue document requires:
+Every issue document needs:
+1. **Source location**: Where are the items taken from? Which warehouse and specific locator?
+2. **Items and quantities**: What's leaving and how much? With the unit of measure specified.
+3. **Purpose / destination**: Where is it going? A department? A project? A loss account?
+4. **Costing method**: Usually automatic, based on the adopted costing method.
 
-1. **Source Location**: Where are items being taken from? Which warehouse and specific location?
+The system then reduces the inventory quantity at the source location, decreases inventory asset value, creates accounting entries (crediting inventory, debiting the expense or target account), records the specific serials or batches issued, and updates available quantities.
 
-2. **Items and Quantities**: What's going out and how much? Include unit of measure.
+## The Request-First Approach: Stock Issue Request (StockIssueReq)
 
-3. **Purpose/Recipient**: Where are these items going? Production order? Department? Customer? External party?
+In many organizations, items aren't issued at random - someone requests them first. The **Stock Issue Request** is a request for items that must be reviewed and approved before the actual issue.
 
-4. **Cost Method**: How should cost be calculated? (Usually automatic based on your costing method)
+**Workflow:**
+1. **Request**: The department creates an issue request: "we need 100 kg of material, 50 pieces for work order #12345."
+2. **Review**: The warehouse supervisor checks availability, the request's validity, and the reasonableness of quantities.
+3. **Approval**: After approval, the request is authorized.
+4. **Execution**: The warehouse creates the actual issue document linked to the request.
 
-The system then:
-- Decreases inventory quantity in the source location
-- Reduces inventory asset value
-- Creates accounting entries (crediting inventory, debiting expense or WIP)
-- Records which specific serial numbers or batches were issued
-- Updates available-to-promise calculations
-- Creates transaction history
+**Why the extra step?** Because it gives you control (no one takes items without a request and approval), planning (preparing items in advance), visibility (management sees consumption before it happens), and a clear audit trail. This is critical for high-value items, controlled materials, and budget-restricted items.
 
-## The Request-First Approach
+::: info Issuing to production and specialized departments
+Issuing raw materials to production orders has its documents in the **Manufacturing** and **Manufacturing Components (MC)** modules; issuing supplies to patient wards is in **Hospital Management**; and issuing site materials is in **Contracting**. Each of these tracks its cost its own way, so see each module's documentation for those paths. The general stock issue here remains your tool for non-specialized purposes.
+:::
 
-In many organizations, you don't just randomly issue items - someone first requests them. This creates a two-step process with better control.
+## Cutting Two-Dimensional Materials (ItemCuttingDoc)
 
-### StockIssueReq - The Requisition Document
+The **Item Cutting Document** handles a special case for **two-dimensional** items (such as steel, glass, and wood sheets): when you don't just issue the material, but transform it into smaller pieces of specific dimensions.
 
-The `StockIssueReq` (طلب صرف مخزني) is a request for items. Think of it as a formal shopping list that must be reviewed and approved before items are actually issued.
+**Example**: You have a steel sheet measuring 2×3 meters. You cut it into several pieces of various dimensions per the manufacturing need. This document **issues** the full sheet, **receives** the resulting pieces with their dimensions, and **tracks** the waste (the difference between the sheet's area and the sum of the pieces' areas). It's an issue and a receipt at once - a transformation document for two-dimensional items.
 
-**The Workflow:**
+::: tip Not for weight loss
+The cutting document is for the geometric transformation of two-dimensional items, not for handling weight loss or natural shrinkage (such as meat losing weight); that's handled through [Stock Taking](./stock-taking.md).
+:::
 
-1. **Request**: The production department creates a stock issue request: "We need 100 kg steel, 50 bolts, 20 liters of paint for production order #12345"
+## Batch Selection: Which Items Are Issued?
 
-2. **Review**: Warehouse supervisor reviews:
-   - Do we have these items in stock?
-   - Is this a valid production order?
-   - Are quantities reasonable?
+When you have several batches of the same item, which one is issued? The system can select automatically based on:
 
-3. **Approval**: Once approved, the request becomes authorized
-
-4. **Fulfillment**: Warehouse creates the actual `StockIssue` document, linked to the request
-
-5. **Issuance**: Items are physically picked and issued, document is saved (not draft)
-
-**Why the extra step?** Because it gives you:
-- **Control**: Not everyone can just take items - they must request and be approved
-- **Planning**: Warehouse can prepare items before the production line needs them
-- **Visibility**: Management sees what's being consumed before it's consumed
-- **Audit Trail**: Clear record of who requested what and who approved it
-
-This is especially important for:
-- High-value items
-- Controlled substances
-- Items subject to budget constraints
-- Organizations with complex approval hierarchies
-
-## Issuing for Manufacturing
-
-Manufacturing has special issue requirements because materials consumed must be tracked to production orders and eventually cost into finished products.
-
-### RawMaterialIssue - Feeding Production
-
-The `RawMaterialIssue` (صرف مواد أولية) document specifically handles issuing raw materials to manufacturing.
-
-**The Story:**
-Production order #12345 is scheduled to make 100 wooden chairs. The bill of materials says each chair needs:
-- 5 kg of wood
-- 4 bolts
-- 0.5 liters of varnish
-
-You create a raw material issue for:
-- 500 kg wood
-- 400 bolts
-- 50 liters varnish
-
-All issued to production order #12345.
-
-The system:
-- Reduces raw materials inventory
-- Increases work-in-process for PO #12345
-- Tracks material cost for eventual product costing
-- Compares issued quantities to planned quantities (variance analysis)
-
-### RawMaterialIssueReq - Planning Material Needs
-
-The `RawMaterialIssueReq` (طلب صرف مواد أولية) is the requisition before the issue. Production planners create these to:
-- Request materials be ready when production starts
-- Allow warehouse to prepare materials in advance
-- Get approval for consuming materials
-
-Often these are auto-generated when a production order is released!
-
-## Handling Special Cases
-
-### HMSFeedingIssue - Hospital Ward Supply
-
-Hospitals have unique requirements. The `HMSFeedingIssue` documents issuing supplies from the central pharmacy or warehouse to:
-- Patient wards
-- Operating rooms
-- Clinical departments
-
-This tracks:
-- Which department received which supplies
-- Cost allocation to departments
-- Par level replenishment
-- Controlled substance tracking
-
-### ContractingMaterialIssue - Job Site Materials
-
-For contracting businesses, the `ContractingMaterialIssue` documents materials sent to job sites. This is crucial because:
-- Materials might be at multiple active job sites
-- You need to track cost by project
-- Materials might be returned from site (unused materials)
-- Job costing depends on accurate material tracking
-
-### ItemCuttingDoc - Material Transformation
-
-The `ItemCuttingDoc` (مستند تقطيع) handles a special case: when you're not just issuing material, but transforming it.
-
-**Example**: You have a roll of fabric (100 meters). You cut it into pieces:
-- 20 pieces of 2 meters each
-- 15 pieces of 1.5 meters each
-- 10 pieces of 3 meters each
-
-This document:
-- **Issues** the full roll (100 meters)
-- **Receives** 45 cut pieces of various sizes
-- **Tracks** waste (100 meters issued vs. 95 meters in cut pieces = 5 meters waste)
-
-It's simultaneously an issue and receipt - a transformation document.
-
-## The Issue Life Cycle
-
-Understanding the document journey:
-
-### 1. Creation (Optional Request)
-If your organization uses requisitions, start with `StockIssueReq`. Otherwise, go straight to creating the issue.
-
-### 2. Data Entry
-Specify:
-- Items and quantities to issue
-- From which location
-- For what purpose (production order, department, project, etc.)
-- Any special instructions
-
-### 3. Availability Check
-The system checks:
-- Do we have enough quantity in the specified location?
-- Are serial numbers/batches selected correctly?
-- Will this cause negative inventory?
-
-Depending on your overdraft policy, the system might prevent, warn, or allow going negative.
-
-### 4. Approval (Optional)
-Depending on item value, quantity, or organizational policy, the issue might require approval before saving.
-
-### 5. Physical Picking
-Someone physically retrieves items from the warehouse. For complex picks, you might print a picking list.
-
-### 6. Save the Document
-When you save (not as draft):
-- Inventory quantities decrease immediately
-- Accounting entries are created right away
-- Serial/lot numbers are removed from available inventory
-- Transaction history is recorded
-
-### 7. Potential Return
-Sometimes issued items come back unused. Create a receipt document to return them to available stock.
-
-## Batch Selection: Which Items Get Issued?
-
-When you have multiple batches of the same item, which ones get issued? The system can automatically select based on:
-
-**FIFO (First In, First Out)**
-Issue oldest inventory first. Good for:
-- Perishable items
-- Items with shelf life
-- Preventing obsolescence
-
-**LIFO (Last In, First Out)**
-Issue newest inventory first. Sometimes used for:
-- Tax optimization (in jurisdictions where allowed)
-- Items where newer is better (technology)
-
-**FEFO (First Expiry, First Out)**
-Issue items with earliest expiration date first. Essential for:
-- Pharmaceuticals
-- Food products
-- Any item with expiration dating
-
-**Manual Selection**
-Sometimes you need to manually pick which batch:
-- Quality considerations
-- Customer preferences
-- Specific lot requirements
+- **FIFO (First In First Out)**: issue the oldest stock first - suitable for perishable items and obsolescence prevention.
+- **LIFO (Last In First Out)**: issue the newest stock first - sometimes used for items where newer is better.
+- **FEFO (First Expiry First Out)**: issue the nearest-to-expiry first - essential for medicines, food, and any item with an expiry date.
+- **Manual selection**: when you need to pick a specific batch for quality considerations or a customer preference.
 
 ## Serial Number Management
 
-For serialized items, issuing requires specifying exactly which serial numbers are leaving.
+For serialized items, issuing requires specifying exactly which serials are leaving. The system displays available serials at the source location, the user selects (or scans) which to issue, the system verifies availability, and on save those serials move from "available" to "issued." Future tracing stays possible: "where is serial #12345?" shows it was issued on such a date to such a destination. This is essential for warranty tracking, recall management, and asset management.
 
-**The Process:**
-1. System shows all available serial numbers in the source location
-2. User selects which serial numbers to issue (or scans them)
-3. System verifies each serial number is available
-4. Upon saving, those serial numbers move from available to issued
-5. Future tracking: "Where is serial #12345?" shows it was issued on X date to Y department
+![Stock issue screen in NaMa ERP](../../../modules/supplychain/images/issuing/stock-issue-edit-en.png)
 
-This level of tracking is crucial for:
-- Warranty tracking
-- Recall management
-- Asset management
-- Compliance requirements
+## The Accounting Effect of Issuing
 
-## Reservations and Committed Stock
+Every issue has accounting consequences that depend on the purpose:
 
-Sometimes stock is physically in the warehouse but not really "available" - it's reserved for a specific purpose.
+- **Issue to a department (internal use)**: credit inventory / debit department expense
+- **Issue for samples (marketing)**: credit inventory / debit marketing expense
+- **Issue for losses/damage**: credit inventory / debit loss account
+- **Issue for repair (returned later)**: credit inventory / debit inventory-under-repair (still an asset!)
 
-When you issue reserved stock, the system:
-- Checks that you're issuing to the correct purpose (the one it was reserved for)
-- Releases the reservation as you issue
-- Prevents accidentally issuing someone else's reserved items
+The system creates these entries automatically based on the accounting setup you configured for the item and the issue's purpose.
 
-## Accounting Impact of Issues
+## Correcting Issue Errors
 
-Every issue has accounting consequences. What happens depends on the purpose:
+What if you issued too much? Too little? The wrong item?
+- **Return via receipt**: if items are returned, create a receipt to bring them back into available stock.
+- **Adjustment issue**: if you issued too little, create an additional issue for the remaining quantity.
+- **Cancel and re-issue**: clearer audit trail but the most effort.
 
-**Issue to Production**
-- Credit: Raw Materials Inventory
-- Debit: Work-in-Process Inventory
-
-**Issue to Department (Internal Use)**
-- Credit: Inventory
-- Debit: Department Expense Account
-
-**Issue for Samples (Marketing)**
-- Credit: Inventory
-- Debit: Marketing Expense
-
-**Issue for Warranty Replacement**
-- Credit: Inventory
-- Debit: Warranty Expense
-
-**Issue to Repair (To Be Returned)**
-- Credit: Inventory
-- Debit: Inventory-Under-Repair (Still an asset!)
-
-The system creates these entries automatically based on how you configured the item's accounting settings and the issue purpose.
-
-## Correcting Issue Mistakes
-
-What if you issued too much? Too little? Wrong item?
-
-**Option 1: Receipt Document**
-If you issued too much and items are returned, create a receipt to bring them back.
-
-**Option 2: Adjustment Issue**
-If you issued too little, create another issue for the additional quantity.
-
-**Option 3: Negative Issue (Careful!)**
-Some systems allow negative quantity issues (effectively receipts). Use cautiously - this mixes receipt and issue concepts.
-
-**Option 4: Cancellation and Reissue**
-Cancel the wrong issue, then create a new correct one. Cleanest audit trail but most work.
-
-Choose based on your organization's controls, how much time has passed, and whether downstream processes (like production costing) have already used the issue data.
+Choose based on your organization's controls, the time elapsed, and whether downstream operations (like production costing) have already used the issue data.
 
 ## Tips for Accurate Issuing
 
 ::: tip Best Practices
+**Verify before saving**: Review quantities and items before saving (not as a draft). Once saved, the document affects the system immediately.
 
-**Verify Before Saving**
-Double-check quantities and items before saving (not as draft). Once saved, the document affects the system immediately.
+**Use locators precisely**: Issue from the actual location where the items reside, not from the warehouse in general.
 
-**Use Locations Precisely**
-Issue from the exact location where items physically are. Don't issue from "Warehouse 1" generically - issue from "WH1-Aisle-A-Shelf-3".
+**Link to source documents**: Always link the issue to its purpose. This traceability is essential when investigating discrepancies.
 
-**Link to Source Docs**
-Always link issues to their purpose: production order number, sales order number, requisition number, project code. This traceability is essential.
+**Don't delay recording issues**: Record them as soon as they happen. Real-time inventory accuracy requires real-time recording.
 
-**Don't Stockpile Issues**
-Enter issues when they happen, not in batch at the end of the day/week. Real-time inventory accuracy requires real-time recording.
-
-**Serial Number Accuracy**
-If you're issuing serialized items, scan or carefully record serial numbers. Wrong serial numbers mean inventory inaccuracy.
-
-**Handle Partial Issues**
-If you can only issue part of a request (not enough stock), issue what you have and note the shortage. Don't wait until you can fulfill the entire request.
-
-**Use Remarks**
-When something unusual happens, document it in the remarks field. Future you will need this context.
-
+**Handle partial issues**: If only part of the request is available, issue what you have and record the shortage rather than waiting.
 :::
 
-## Common Questions
+## Frequently Asked Questions
 
-**Q: Can we issue items we don't have (go negative)?**
+**Q: Can we issue items not in stock (go negative)?**
 
-A: It depends on the item's overdraft policy. Some items (critical supplies) might prevent negative inventory. Others might warn but allow. Check with your system administrator about policies for different item categories.
+A: It depends on the item's overdraft policy; some critical items prevent negative stock, while others warn but allow. See [Understanding Inventory Items](./understanding-items.md#Inventory-Control-How-Does-Stock-Behave).
 
-**Q: We issued the wrong items. Can we reverse the issue?**
+**Q: What's the difference between an issue and a transfer?**
 
-A: You can't "un-post" an issue, but you can:
-1. Receive the wrong items back (undo the effect)
-2. Issue the correct items
-This maintains proper audit trail.
+A: An **issue** reduces total inventory (items left the organization's control). A **transfer** moves items between locations while the total stays the same. Moving from one warehouse to another is a transfer, covered in [Moving Stock](./moving-stock.md).
 
-**Q: How do we handle partial returns of issued items?**
+**Q: How do we record damaged goods without a "damage voucher"?**
 
-A: Create a receipt document for the returned quantity, linking it to the original issue document. This handles scenarios like issuing 100 units but 10 come back unused.
-
-**Q: What's the difference between issuing and transferring?**
-
-A: **Issue** reduces total inventory (items left the organization's control). **Transfer** moves items between locations but total inventory stays the same. Issue to a customer is an issue. Move from warehouse A to warehouse B is a transfer.
-
-**Q: Can one issue go to multiple purposes?**
-
-A: Technically yes - one issue document can have multiple lines for different purposes. But often it's clearer to create separate issues when the purposes are different (one for production, one for samples, etc.).
-
-## Integration with Other Processes
-
-Issues connect to many other business processes:
-
-**Manufacturing**: Issues feed production orders, which eventually produce finished goods receipts.
-
-**Sales**: While direct sales use specialized sales documents, sometimes you issue items for demonstrations, samples, or sales kits.
-
-**Projects**: For project-based businesses, issues allocate costs to specific projects or job numbers.
-
-**Maintenance**: Issuing spare parts reduces parts inventory and increases maintenance expense or asset improvement cost.
-
-**Quality Control**: Sometimes you issue items for destructive testing - they're consumed in the quality process.
+A: Use a stock issue directed to a loss account. This is the system's adopted way to record incidental damage, with the reason documented in the notes.
 
 ## Next Steps
 
-Now you understand both receiving and issuing. Next, learn about:
-- [Moving Stock Around](./moving-stock.md) - Transfers, assemblies, and transformations
-- [The Purchasing Journey](./purchasing-journey.md) - How purchased items arrive (leading to receipts)
-- [The Sales Journey](./sales-journey.md) - How sold items leave (leading to issues)
+Now that you understand receiving and issuing together, learn about:
+- [Moving Stock Between Warehouses](./moving-stock.md) - transfers and consolidations
+- [Stock Taking](./stock-taking.md) - reconciling differences and natural loss
+- [The Sales Journey](./sales-journey.md) - how sold items leave (leading to issues)

@@ -14,100 +14,115 @@ Imagine you run a manufacturing company that makes furniture. Your journey with 
 
 Now you're ready to make tables. You **issue** the wood to your production department (which reduces your raw materials inventory), and when the tables are ready, you **receive** them back as finished products (which increases your finished goods inventory). The costs of the wood automatically flow into the value of your tables.
 
-When a customer places an order, you create a **sales quotation**, convert it to a **sales order**, and eventually issue a **sales invoice** that simultaneously records the sale in accounting and issues the table from your warehouse. The system tracks every step, ensures you have enough stock, and even helps you reserve items for specific customers.
+When a customer places an order, you create a **sales quotation**, convert it to a **sales order**, then issue a **sales invoice** that records the sale in accounting and issues the table from your warehouse at the same time. The system tracks every step, makes sure you have enough quantity, and helps you reserve items for specific customers.
 
-Throughout this entire journey, the system is doing much more than just tracking numbers. It's:
-- Making sure you don't sell what you don't have
-- Calculating costs and profits automatically
-- Creating accounting entries so your books are always up to date
-- Tracking serial numbers and batch numbers where needed
-- Managing multiple warehouses and locations
-- Handling returns, replacements, and quality control
-- Supporting multiple units of measure (selling by piece but buying by carton)
-- And so much more...
+Throughout this journey, the system does much more than just track numbers; it:
+- Makes sure you don't sell what you don't own
+- Calculates costs and profits automatically
+- Creates accounting entries so your books are always up to date
+- Tracks serial numbers and batch numbers when needed
+- Manages multiple warehouses and locations
+- Handles returns, replacements, and quality control
+- Supports multiple units of measure (selling by piece, buying by carton)
+- And much more...
 
 ## How Documents Work in NaMa ERP
 
 ::: tip Understanding Document States
 Unlike some systems that require "posting" documents, NaMa ERP works differently:
 
-**Draft Mode**: Create and edit documents without affecting inventory or accounting. Perfect for preparation and review.
+**Draft Mode**: Create and edit documents with no effect on inventory or accounting. Perfect for preparation and review.
 
-**Saved**: Once you save a document (not in draft), it **immediately** affects:
+**Saved**: Once a document is saved (out of draft mode), it **immediately** affects:
 - Inventory quantities
 - Accounting balances
-- Customer/supplier accounts
+- Customer and supplier accounts
 - Available stock calculations
 
-**Updates**: Any changes you make to saved documents are reflected immediately in the system. There's no separate "post" or "commit" step.
+**Edits**: Any changes you make to saved documents appear in the system immediately, with no separate "post" or "confirm" step needed.
 :::
 
-This immediate-effect approach means:
+This immediate approach means:
 - Real-time inventory accuracy
 - Up-to-date accounting at all times
-- No batch posting delays
-- Immediate visibility of changes
+- No delays from periodic posting
+- Instant visibility of changes
 
-But it also means you need to be careful - once you save (not in draft), the document has real impact!
+But it also means you need to be careful - once saved (out of draft), a document has a real effect!
 
-## How This Documentation Works
+## How This Guide Is Organized
 
-We've organized this guide to follow the natural flow of how you'll use the system. Instead of throwing technical terms at you, we'll walk through real-world scenarios and explain how the system supports your business processes.
+The Supply Chain module is large, so we've split it into related groups that follow the way the system organizes itself into sub-modules. You don't have to read them in order; jump to whatever serves your current task.
 
-Here's what we'll cover:
+### Foundations
 
-### [Understanding Inventory Items](./understanding-items.md)
-Before you can buy or sell anything, you need to define what "things" exist in your system. We call these **Items** (or صنف in Arabic). This section explains how items work and all the clever ways you can classify, track, and manage them.
+Before you buy, sell, or store anything, you need to define **what** you deal in and **where** you keep it.
 
-### [Receiving Stock](./receiving-stock.md)
-Learn about all the different ways items come into your warehouse - from supplier purchases to production output to simple stock adjustments. We'll explain when to use each type of receipt document and how they affect your inventory.
+- **[Understanding Inventory Items](./understanding-items.md)** — Items are the cornerstone: how you define them, classify them (by brand, category, color, size), track them by batch and serial number, and handle multiple units of measure.
+- **[Warehouses & Locators](./warehouses-and-locators.md)** — Where your stock physically lives: warehouses and their groups, locators within each warehouse, and linking items to their preferred warehouses.
 
-### [Issuing Stock](./issuing-stock.md)
-What goes in must (usually) come out! This section covers how to release items from your warehouse for production, sales, internal use, or other purposes.
+### Stock Movement
 
-### [Moving Stock Around](./moving-stock.md)
-Sometimes you just need to move items from one warehouse to another, or from one location to another within the same warehouse. Learn about transfers, assembly operations, and how the system tracks items in transit.
+Everything that enters your inventory, leaves it, or moves around inside it.
 
-### [The Purchasing Journey](./purchasing-journey.md)
-Follow the complete lifecycle of a purchase - from identifying what you need, through getting quotes from suppliers, placing orders, receiving goods, and paying invoices. This is where you'll spend a lot of time if you're in procurement!
+- **[Receiving Stock](./receiving-stock.md)** — All the ways items enter your warehouse: stock receipts, opening balances, and initial receipts.
+- **[Issuing Stock](./issuing-stock.md)** — Issuing items to production, internal use, or writing off damaged goods.
+- **[Moving Stock Between Warehouses](./moving-stock.md)** — Two-sided stock transfers (issue and receipt) and aggregated transfers.
+- **[Stock Taking](./stock-taking.md)** — Physical counting through start/end stock-taking documents, electronic counting, and reconciling differences.
+- **[Inventory Costing & Revaluation](./inventory-costing.md)** — Cost revaluation, additional costs on receipts, and freezing cost at period close.
 
-### [The Sales Journey](./sales-journey.md)
-Mirror image of purchasing - this covers everything from generating quotations for customers, through taking orders, fulfilling them, invoicing, and handling returns or exchanges.
+### Purchases
 
-### [Quality Control](./quality-control.md)
-Not every item that comes in meets your standards, and sometimes you need to inspect items before they go to customers. Learn how the quality control system works and integrates with receiving and shipping.
+- **[The Purchasing Journey](./purchasing-journey.md)** — The full purchase cycle: item request, quotation request, quotation, purchase order, receipt, purchase invoice, returns, and purchase price lists and comparisons.
+- **[Purchase Forecast](./purchase-forecast.md)** — Estimating future needs based on sales history or other quantity sources.
 
-### [Specialized Scenarios](./specialized-scenarios.md)
-The Supply Chain module supports many specific industries and use cases - from hospital pharmacies to point-of-sale systems to job order manufacturing. We'll explore these special cases and how they extend the core concepts.
+### Sales
+
+- **[The Sales Journey](./sales-journey.md)** — From quotation to sales order to delivery to invoice, then returns and replacement.
+- **[Pricing, Offers & Coupons](./pricing-offers-and-coupons.md)** — Sales price lists, offers and free items, post-sales offers, coupons, and automatic pricing.
+- **[Comprehensive Reservation System Guide](./reservation-system-guide.md)** — How the system reserves items for specific customers and tracks reserved quantities.
+- **[Delivery & Loading](./delivery-and-loading.md)** — Delivery and loading documents, delivery queues, driver setup, and pick rules.
+
+### Specialized Sub-Modules
+
+- **[Assembly & Packaging](./assembly-and-packaging.md)** — Bills of materials (BOM), assembly documents, packaging methods, and processing.
+- **[Quality Control](./quality-control.md)** — Quality control and assurance documents, checklists, and integration with receiving and production.
+- **[Letters of Credit](./letters-of-credit.md)** — The letter-of-credit lifecycle: opening, shipments, costs, and expenses.
+- **[Weight Scale](./weight-scale.md)** — Weight scale configuration and the preparation documents tied to it.
+- **[Specialized Scenarios](./specialized-scenarios.md)** — Other cases such as glass job orders, automatic document-generation rules, and tenders.
+
+::: info Point of Sale Has Its Own Module Now
+The Point of Sale (POS) guides have moved to the standalone [Point of Sale module](/en/modules/pos/). There you'll find the guides for fingerprint login, free items in POS, and technical points of use.
+:::
 
 ## A Note About Document Types
 
-As you read through this documentation, you'll encounter many different "document types" - PurchaseInvoice, StockReceipt, SalesOrder, etc. Don't let this overwhelm you!
+As you read this documentation, you'll encounter many "document" types like PurchaseInvoice, StockReceipt, SalesOrder, and others. Don't let that confuse you!
 
-Think of these as different types of forms you fill out to record different business events. Just like in a paper-based system where you'd have a "Purchase Order Form" and a "Receipt Note Form", the system has different document types for different purposes.
+Think of them as different kinds of forms you fill out to record different business events. Just like in a paper system where you have a "purchase order form" and a "goods receipt note," the system has different document types for different purposes.
 
-Each document type is designed for a specific business transaction and includes exactly the fields and features needed for that transaction. But they all follow similar patterns, so once you understand a few, the rest become intuitive.
+Each document type is designed for a specific business transaction and contains exactly the fields and features appropriate to it. But they all follow similar patterns, so once you understand a few, the rest become intuitive.
 
 ## Integration with Other Modules
 
-The Supply Chain module doesn't work in isolation. It's deeply integrated with:
+The Supply Chain module doesn't work in isolation; it's deeply integrated with:
 
-**Accounting**: Every inventory transaction creates accounting entries automatically. When you receive a purchase, your inventory asset increases and your payables increase. When you make a sale, your revenue increases and your inventory decreases. You don't have to think about it - it just happens.
+**Accounting**: Every inventory transaction creates accounting entries automatically. When you receive purchases, the inventory asset rises and payables rise. When you sell, revenue rises and inventory falls. No need to think about it - it happens on its own.
 
 **Manufacturing**: When you issue raw materials to production and receive finished products, the system tracks costs and ensures materials are available for production orders.
 
-**CRM**: Sales quotations and orders can originate from CRM opportunities, and customer service cases can trigger returns or replacements.
+**CRM**: Sales quotations and orders can originate from CRM opportunities, and customer service cases can trigger returns and replacements.
 
-**Fixed Assets**: Some items you purchase become fixed assets rather than inventory. The system handles this distinction automatically.
+**Fixed Assets**: Some items you buy become fixed assets rather than inventory. The system handles this distinction automatically.
 
-**Hospital Management**: Pharmacies, blood banks, and medical supplies have special requirements that the system handles natively.
+**Hospital Management**: Pharmacies, blood banks, and medical supplies have special requirements that the system handles in a built-in way.
 
 ## Let's Get Started
 
-Ready to dive in? Start with [Understanding Inventory Items](./understanding-items.md) to learn the foundation, or jump directly to the section that matches what you're trying to accomplish right now.
+Ready to dive in? Start with [Understanding Inventory Items](./understanding-items.md) to build your foundation, or jump straight to the section that matches what you're trying to accomplish right now.
 
-Remember: this documentation focuses on helping you understand **how** and **why** the system works the way it does, not just listing features. If you're looking for a specific field or technical detail, those references exist elsewhere. Here, we're telling the story of your supply chain.
+Remember: this documentation focuses on helping you understand **how** and **why** the system works the way it does, not just listing features. If you're looking for a specific field or technical detail, those references live elsewhere. Here, we tell the story of your supply chain.
 
 ::: tip Navigation Tip
-Use the sidebar to jump between sections, and don't feel obligated to read everything in order. Each section is written to stand alone while building on the foundational concepts introduced here.
+Use the sidebar to move between modules, and don't feel obligated to read everything in order. Each section is written to stand on its own while building on the core concepts introduced here.
 :::

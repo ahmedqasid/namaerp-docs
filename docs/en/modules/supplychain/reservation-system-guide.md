@@ -6,10 +6,13 @@ This guide provides comprehensive documentation for the Reservation System in Na
 
 The Reservation System in Nama ERP is a sophisticated inventory management feature that allows organizations to reserve inventory items across different types of supply chain documents. The system manages reservation effects differently based on document types and integrates with quantity tracking mechanisms to provide real-time inventory allocation control.
 
-**Arabic Name:** نظام الحجوزات  
-**English Name:** Reservation System  
-**Menu Path:** Inventory > Reservation Documents > Reservation Document  
-**Arabic Menu Path:** المخازن > سندات الحجوزات > سند حجز
+**Menu Path:** Inventory > Reservation Documents > Reservation Document
+
+![Reservation document screen in NaMa ERP](../../../modules/supplychain/images/reservation/reservation-document-en.png)
+
+::: tip Where Reservation Fits in Your Journey
+Reservation is part of [The Sales Journey](./sales-journey.md) (reserving stock for a customer's order) and sets up [Delivery & Loading](./delivery-and-loading.md). To ignore specific warehouses/locators in the reservation quantity check by date, see [the dedicated guide](./ignore-reservation-qty-check-by-date.md).
+:::
 
 ## Fundamental Concepts
 
@@ -417,59 +420,6 @@ The details grid provides comprehensive item management:
 2. **Field Configuration:** Verify correct quantity field mappings
 3. **UOM Setup:** Ensure proper unit of measure conversions exist
 4. **Relationship Verification:** Check document chain integrity
-
-## Technical Implementation Reference
-
-### Key Classes and Methods
-
-#### Core Processing Classes
-
-**InvSystemFilesUtils**
-- **Location:** `supplychain/supplychaindomain/utils/InvSystemFilesUtils.java`
-- **Key Methods:**
-  - `update()` - Processes reservation updates and cancellations
-  - `addRequestLine()` - Handles reservation request line creation with satisfied quantities
-  - `generatedRequests()` - Creates inventory transaction requests
-
-**QtyTransUtils**
-- **Location:** `supplychain/supplychaindomain/invrequest/utils/QtyTransUtils.java`
-- **Key Method:** `setIdAndValidateQtyEffects()` - Validates quantities and applies reservation effects
-
-**SCRelatedQtiesUtil**
-- **Location:** `supplychain/supplychaindomain/utils/SCRelatedQtiesUtil.java`
-- **Key Methods:**
-  - `updateSatisfiedQtiesd()` - Updates satisfied quantities between related documents
-  - `createSatisfier()` - Creates quantity satisfaction tracking objects
-
-#### Configuration Classes
-
-**InvDocTermConfig**
-- **Location:** `supplychain/supplychaindsl/inventory/terms/InvDocTermConfig.java`
-- **Reservation Fields:** Complete set of reservation configuration options
-
-**ItemConfigurations**
-- **Location:** `supplychain/supplychaindsl/inventory/entities/ItemConfigurations.java`
-- **Key Fields:** `includeReservedInBalance`, `allowOverdraftInReservation`
-
-### Database Structure
-
-#### Primary Tables
-
-**ItemDimensionsQty:** Inventory quantity tracking
-- Tracks in/out/pre-in/pre-out quantities per item dimension
-- Core table for reservation effects and balance calculations
-
-#### Supporting Tables
-
-**BasicSCDocumentLine:** Base for all supply chain document lines
-- Contains satisfied/unsatisfied quantity fields
-- Supports quantity tracking between related documents
-
-**DeliverySysEntry:** Delivery system integration
-- Alternative quantity source for delivery-based reservations
-- Supports complex delivery planning scenarios
-
----
 
 ## Complete Configuration Reference
 

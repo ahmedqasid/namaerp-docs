@@ -1,382 +1,98 @@
-# Moving Stock Around
+# Moving Stock Between Warehouses
 
-Sometimes items don't come in or go out - they just move from one place to another. Let's explore all the ways inventory moves within your organization and how to track these movements properly.
+Sometimes items don't come in or go out - they just move from one place to another. This guide focuses on **stock transfers**: moving inventory between warehouses and locations while its ownership stays within the organization.
+
+::: info Other movements have their own guides
+Transforming stock by **assembling** it is covered in [Assembly & Packaging](./assembly-and-packaging.md); **reserving** items without moving them in the [Reservation System Guide](./reservation-system-guide.md); **loading and delivering** them to customers in [Delivery & Loading](./delivery-and-loading.md); and reconciling differences through **counting** in [Stock Taking](./stock-taking.md). This guide stays focused on inter-warehouse transfers.
+:::
 
 ## Stock Transfers: The Basics
 
-A **stock transfer** is any movement of items from one location to another without changing who owns them. The total inventory stays the same - only the location changes.
+A **stock transfer** is any movement of items from one location to another without changing their owner. Total inventory stays the same - only the location changes.
 
-Think of it like moving money between your checking and savings accounts. Your total wealth doesn't change, but where the money sits does change, and you need to track that.
+Think of it like moving money between your checking and savings accounts. Your total wealth doesn't change, but where the money sits does, and you need to track that.
+
+![Stock transfer list in NaMa ERP](../../../modules/supplychain/images/moving/stock-transfer-list-en.png)
 
 ## The Simple Transfer: One Document, Complete Movement
 
-The `StockTransfer` (سند تحويل مخزني) document handles straightforward transfers in a single step.
+The **Stock Transfer** (StockTransfer) document handles direct transfers in a single step.
 
 ### Common Transfer Scenarios
 
-**Between Warehouses**
-You have three warehouses: Main (downtown), North Branch, and South Branch. A North Branch customer wants an item you only have at Main. Create a transfer:
-- From: Main Warehouse
-- To: North Branch Warehouse
-- Item: The product
-- Quantity: What they need
+**Between warehouses**
+You have three warehouses: main, north branch, and south branch. A customer at the north branch wants an item that's only in the main warehouse. Create a transfer from the main warehouse to the north branch for the required quantity. The system reduces stock at the source and increases it at the destination, with the total staying constant, and tracks the item's movement history.
 
-The system:
-- Decreases inventory at Main
-- Increases inventory at North Branch
-- Total inventory unchanged
-- Tracks the item's movement history
-
-**Within a Warehouse**
-Even within one building, you might move items:
-- From receiving dock to storage location
-- From storage to picking area
-- From regular storage to promotional display area
-- From one shelf to another (reorganization)
-
-**Example**: During warehouse reorganization, you're moving all electronics from Aisle A to the new electronics section in Aisle E. Create transfers to update the system location records to match physical reality.
+**Within a single warehouse**
+Even inside one building you may need to move items: from the receiving dock to a storage location, from storage to a staging area, or from shelf to shelf during reorganization. Create transfers to update the system's location records to match physical reality.
 
 ### How Transfers Work
 
 A transfer simultaneously:
-1. **Issues** from the source location (decreases quantity there)
-2. **Receives** at the destination location (increases quantity there)
+1. **Issues** from the source location (reducing the quantity there)
+2. **Receives** at the destination location (increasing the quantity there)
 
-It's atomically both an issue and receipt, wrapped in one document. If the transfer fails or is cancelled, both sides reverse together - you never end up with items lost in limbo.
+It's essentially an issue and a receipt together, bundled into one document. If the transfer fails or is cancelled, both sides are reversed together - you won't find items lost in the middle.
 
-**Costing Note**: Transfers typically move items at their current cost - no revaluation happens. Items cost the same wherever they sit.
+**Cost note**: Items are usually moved at their current cost - no revaluation. An item carries the same cost wherever it is.
 
-## The Two-Step Transfer: More Control, More Tracking
+## The Two-Step Transfer: More Control and Tracking
 
-Some organizations want tighter control over transfers, especially when:
-- Items travel between distant locations
-- Transit time is significant
-- Custody changes hands
-- Security or compliance requires tracking in-transit inventory
+Some organizations want tighter control over transfers, especially when items move between distant locations, transit time is significant, custody changes hands, or security and compliance require tracking inventory in transit. This is where the two-step transfer process comes in.
 
-Enter the two-step transfer process.
+### Issue Stock Transfer (IssueStockTransfer)
 
-### IssueStockTransfer - Sending Items
+The **Issue Stock Transfer** documents the sending side: items leave the source warehouse, so stock decreases there and the items become "in transit," and the document records what was sent, when, and by whom.
 
-The `IssueStockTransfer` (صرف تحويل مخزني) documents the **issuing side** of a transfer:
-- Items leave the source warehouse
-- Inventory decreases at source
-- Items are now "in transit"
-- Document records what was sent, when, by whom
+### Receipt Stock Transfer (ReceiptStockTransfer)
 
-### ReceiptStockTransfer - Receiving Items
-
-The `ReceiptStockTransfer` (استلام تحويل مخزني) documents the **receiving side**:
-- Items arrive at destination warehouse
-- Inventory increases at destination
-- Items are now "available" at new location
-- Document records what was received, when, by whom
+The **Receipt Stock Transfer** documents the arrival side: items reach the destination warehouse, so stock increases there and they become "available" in the new location, and the document records what was received, when, and by whom.
 
 ### Why Two Steps?
 
-**Tracking In-Transit Inventory**
-If items are in a truck for two days between warehouses, you need to know:
-- They're not available at the source (already shipped)
-- They're not available at the destination (not yet arrived)
-- They're in transit (and where: "En route on truck #17")
+- **Tracking inventory in transit**: If items are on a truck for two days between warehouses, you know they're unavailable at the source (shipped), unavailable at the destination (not arrived), and in transit. A **"goods in transit" warehouse** is often used for this ([see warehouse types](./warehouses-and-locators.md)).
+- **Managing discrepancies**: The source sent 100 items but the destination received 98; the system highlights the 2-unit difference for investigation (damage? miscount?).
+- **Custody transfer**: The source employee signs off on the issue, and the destination employee signs off on the receipt, so accountability is clear at each stage.
+- **Approval points**: You may require an approval for the issue and a separate approval for the receipt.
 
-**Discrepancy Management**
-Source warehouse ships 100 items, but destination receives only 98:
-- Issue document shows 100 shipped
-- Receipt document shows 98 received
-- System highlights 2-unit discrepancy for investigation
-- Was there damage in transit? Theft? Miscounting?
+### Stock Transfer Request (StockTransferReq)
 
-**Custody Transfer**
-When different people/departments are responsible:
-- Source warehouse person signs off (issued)
-- Destination warehouse person signs off (received)
-- Clear accountability at each stage
+The **Stock Transfer Request** adds a layer above: requesting the transfer before executing it.
 
-**Approval Points**
-You might require:
-- Approval to issue (authorize sending items)
-- Separate approval to receive (verify items arrived in good condition)
+**Workflow:** the north branch requests 50 units of item X from the main warehouse → the main warehouse reviews and approves → it ships 50 units → the items transit → the north branch receives 50 units (or fewer, with an explanation). This ensures planned transfers, coordination between locations, and visibility of upcoming movements.
 
-### The Transfer Request
+When transfer requests recur from several branches or for several items, the **Aggregated Transfer Request** (AggrStockTransferReq) consolidates them into a single document that makes planning and execution easier in one batch.
 
-The `StockTransferReq` (طلب تحويل مخزني) adds another layer: requesting a transfer before executing it.
+![Stock transfer screen in NaMa ERP](../../../modules/supplychain/images/moving/stock-transfer-edit-en.png)
 
-**Workflow:**
-1. **Request**: North Branch: "We need 50 units of Item X from Main"
-2. **Review**: Main Warehouse: "We have it, approved"
-3. **Issue**: Main ships 50 units
-4. **Transit**: Items travel for 1 day
-5. **Receipt**: North receives 50 units (or fewer, with explanation)
-
-This ensures:
-- Planned transfers (not reactive)
-- Coordination between locations
-- Visibility of upcoming movements
-
-## Assembly Operations: Transforming Stock
-
-Sometimes moving stock involves changing it. This is where **assembly** comes in.
-
-### AssemblyDocument - Building from Components
-
-The `AssemblyDocument` (سند تجميع) simultaneously:
-- **Issues** component items (consumes them from inventory)
-- **Receives** finished/assembled item (creates it in inventory)
-
-**Example: Building Computer Systems**
-You sell pre-configured computers. You have in inventory:
-- 50 computer bases
-- 100 monitors
-- 100 keyboards
-- 100 mice
-
-A customer orders 20 complete systems. Create an assembly document that:
-
-**Issues (Components)**:
-- 20 computer bases
-- 20 monitors
-- 20 keyboards
-- 20 mice
-
-**Receives (Finished Product)**:
-- 20 complete computer systems
-
-The system:
-- Reduces component inventory
-- Increases finished system inventory
-- Accumulates cost (system cost = base + monitor + keyboard + mouse)
-- Maintains total inventory value (value moved from components to systems)
-
-### When to Use Assembly
-
-**Kitting**
-Creating kits or bundles for sale. Instead of selling 4 separate items, sell one "Computer Kit."
-
-**Manufacturing Light**
-Simple manufacturing without complex production orders. You're not tracking labor and overhead - just combining parts.
-
-**Custom Configurations**
-Customer orders a laptop with specific RAM and storage. Assemble from base laptop + RAM module + SSD.
-
-**Display Models**
-Assembling components into display models for your showroom.
-
-### AssemblyRequest - Planning Assemblies
-
-The `AssemblyRequest` (طلب تجميع) is the requisition before assembly:
-1. Determine what needs to be assembled
-2. Request approval (do we have the components? is this the right configuration?)
-3. Once approved, create the assembly document
-4. Execute the assembly
-
-### Disassembly: Going Backwards
-
-Sometimes you need to disassemble:
-- A kit isn't selling, break it back into components
-- A configured system needs to be reconfigured differently
-- Returned items need to be broken down for restock
-
-Create a "negative" assembly or use the item's `deAssemblyBomMethod` configuration to properly reverse the assembly.
-
-## Reservations: Holding Stock in Place
-
-A **reservation** doesn't physically move items, but it changes their status from "available" to "committed."
-
-### ReservationDocument - Claiming Stock
-
-The `ReservationDocument` (حجز مخزني) reserves stock for a specific purpose:
-
-**For a Sales Order**
-Customer places order for 10 laptops. You reserve 10 laptops so:
-- They won't be sold to another customer
-- They won't be transferred to another branch
-- You can confidently promise delivery
-
-The laptops still sit in their warehouse location - they're just flagged as "reserved for order #12345."
-
-**For a Production Order**
-Production order requires 500kg of steel. Reserve it so:
-- Purchasing knows not to sell this steel
-- Other production orders can't claim it
-- When production starts, materials are guaranteed available
-
-**For a Specific Customer**
-VIP customer has standing order. You reserve stock at your best warehouse, ready to ship when they call.
-
-### ReservationCancellationDoc - Releasing Stock
-
-The `ReservationCancellationDoc` (إلغاء حجز مخزني) cancels a reservation:
-- Order was cancelled
-- Customer changed their mind
-- Production order was postponed
-- Reserved too much, need to release excess
-
-Cancelled reservation makes items available again for other purposes.
-
-### Why Reserve Instead of Issue?
-
-**Timing**
-You confirm the order today, but delivery is in two weeks. Don't issue today (customer doesn't have the items yet), but do reserve (so you don't accidentally sell them).
-
-**Flexibility**
-Reserved items can be unreserved. Issued items are gone. If the customer changes the order, you can adjust reservations more easily than reversing issues.
-
-**Warehouse Operations**
-Reserved items can stay in optimal storage locations until needed. Issue happens only when you're ready to physically pick and pack.
-
-## Loading and Delivery: The Physical Journey
-
-The final stage of internal movement is preparing items for departure.
-
-### LoadingDocument - Staging for Shipment
-
-The `LoadingDocument` (مستند تحميل) records that items have been:
-- Picked from warehouse locations
-- Moved to the loading dock
-- Prepared for loading onto delivery vehicle
-- Assigned to a specific shipment
-
-This creates a staging area concept. Items are:
-- No longer in regular storage (can't be sold to someone else)
-- Not yet delivered (still your inventory)
-- Ready for loading (organized by shipment)
-
-### DeliveryDocument - Handoff
-
-The `DeliveryDocument` (مستند تسليم) records that items have been:
-- Loaded onto vehicle
-- Delivered to customer/destination
-- Signed for by recipient
-- Now out of your custody
-
-This is the final step before items leave your control (usually followed by invoicing, which completes the financial transaction).
-
-### Cancellations
-
-Both have cancellation documents (`LoadingCancellationDoc`, `DeliveryCancellationDoc`) for when:
-- Shipment is cancelled
-- Items need to be returned to regular storage
-- Delivery failed and items came back
-
-## Inventory Adjustments: Fixing Reality
-
-Sometimes inventory in the system doesn't match physical reality. Stock takes (physical counts) reveal discrepancies.
-
-### StockTakingDetails - Counting Everything
-
-The `StockTakingDetails` (جرد مخزني) document records physical count results:
-1. Generate count sheets showing expected quantities
-2. Physically count items
-3. Enter actual counted quantities
-4. System compares expected vs. actual
-5. Generate adjustment documents for differences
-
-**Why Discrepancies Happen:**
-- Theft or loss
-- Damage not recorded
-- Transactions not entered
-- Count errors
-- Items in wrong locations
-
-### Adjustments
-
-For items found during counts:
-- Create receipt documents (increase inventory to match physical)
-
-For items missing:
-- Create issue documents (decrease inventory to match physical)
-
-Always document **why** the adjustment is needed in the remarks field. This helps identify patterns (is one location always short? is one shift having recording issues?).
-
-## Cost Revaluation: Value Without Movement
-
-The `CostRevaluation` (إعادة تقييم) document is special - it doesn't move items at all, just changes their value.
-
-**Use Cases:**
-
-**Market Value Changes**
-Electronics you purchased for $1000 each are now worth only $600 (newer model released). Write down the inventory value to match market.
-
-**Obsolescence**
-Inventory is aging and won't sell at full price. Adjust value to match expected recoverable amount.
-
-**Currency Revaluation**
-Imported inventory was valued at old exchange rates. Revalue to current rates.
-
-**Error Correction**
-Items were received at wrong cost. Revalue to correct cost.
-
-This affects accounting only - quantity stays same, location stays same, only value in accounting books changes.
-
-## Tips for Accurate Movement Tracking
+## Tips for Accurate Transfer Tracking
 
 ::: tip Best Practices
+**Transfer only for real movements**: Create transfers only when items physically move, not "virtual" transfers for reporting purposes.
 
-**Transfer for Physical Moves Only**
-Only create transfers when items physically move. Don't create "virtual" transfers for reporting convenience.
+**Consolidate transfers wisely**: If you move 100 items in one batch, one document for quantity 100 is cleaner than 100 documents. But if they move at different times, create separate transfers.
 
-**Batch Transfers Wisely**
-If moving 100 items between warehouses, one transfer document with 100 quantity is cleaner than 100 separate transfers. But if items move at different times, create separate transfers.
+**Track transit time**: In two-step transfers, minimize the time between issue and receipt. Long transit periods signal lost items or a process that needs improvement.
 
-**Track In-Transit Time**
-For two-step transfers, minimize time between issue and receipt. Long in-transit periods suggest items are lost or the process needs improvement.
-
-**Use Assembly for True Transformation**
-Only use assembly when you're actually combining/transforming items. Don't use it as a shortcut for other types of movements.
-
-**Reserve Early, Release Quickly**
-Create reservations as soon as you know stock is committed. Cancel reservations promptly when no longer needed (don't tie up stock unnecessarily).
-
-**Document Adjustment Reasons**
-Never create adjustments without explaining why in the remarks field. "Count discrepancy" is not enough - explain what investigation revealed.
-
-**Reconcile Regular**
-Don't wait for annual physical count. Do cycle counts regularly and reconcile differences immediately.
-
+**Handle discrepancies immediately**: When you receive less than was shipped, document the difference and investigate rather than ignoring it.
 :::
 
-## Common Questions
+## Frequently Asked Questions
 
-**Q: Can we transfer items between different legal entities?**
+**Q: Can we transfer items between different companies?**
 
-A: Transfers within one legal entity are simple. Between legal entities, you typically need to use intercompany sale/purchase documents to properly account for the ownership change.
+A: Transfers within a single company are simple. Between companies, you usually need intercompany sale/purchase documents to account for the change of ownership correctly.
 
-**Q: What happens to reservations when we transfer reserved items?**
+**Q: What happens to reservations when transferring reserved items?**
 
-A: Reservations typically move with the items - if you transfer reserved stock to another warehouse, it remains reserved for the same purpose at the new location.
+A: Reservations usually travel with the items - if you transfer reserved stock to another warehouse, it stays reserved for the same purpose at the new location.
 
-**Q: Can we assemble items from multiple warehouses?**
+**Q: Do we use the two-step or one-step transfer?**
 
-A: Usually assembly happens in one location - components and finished product must be in the same warehouse. If components are in different warehouses, transfer them to one location first, then assemble.
-
-**Q: How do we handle items that are damaged during transfer?**
-
-A: When receiving a transfer, receive the good quantity and document the damaged quantity. Create a separate issue or adjustment to account for the damaged items.
-
-**Q: Should we use two-step or one-step transfers?**
-
-A: Use one-step for transfers within a single location or between nearby locations with minimal transit time. Use two-step when:
-- Transit time is significant (hours/days)
-- Different people handle shipping vs. receiving
-- You need to track in-transit inventory
-- Security or compliance requires separation of duties
-
-## Integration Points
-
-Movement tracking connects to:
-
-**Sales**: Reservations ensure you can fulfill orders. Loading and delivery documents prepare items for shipment.
-
-**Manufacturing**: Transfers bring raw materials to production areas. Assemblies create finished products.
-
-**Accounting**: Transfers don't change total inventory value but may affect location-specific reporting. Assemblies reallocate cost from components to finished goods.
-
-**Warehouse Management**: All movements update location tracking, affecting picking efficiency, space utilization, and inventory organization.
+A: Use one-step for transfers within a single location or between nearby locations with negligible transit time. Use two-step when transit time is significant, different people handle shipping vs. receiving, or you need to track inventory in transit.
 
 ## Next Steps
 
-Now you understand inventory movements. Continue to:
-- [The Purchasing Journey](./purchasing-journey.md) - How items arrive (often leading to receipts)
-- [The Sales Journey](./sales-journey.md) - How items leave (often involving reservations, loading, delivery)
-- [Quality Control](./quality-control.md) - How items move through inspection and approval processes
+- [Stock Taking](./stock-taking.md) - verifying that book and physical balances match
+- [Inventory Costing & Revaluation](./inventory-costing.md) - adjusting values without moving quantities
+- [The Sales Journey](./sales-journey.md) - how sold items leave the organization

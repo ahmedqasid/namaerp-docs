@@ -3545,47 +3545,62 @@ export const SIDEBAR_CONFIG = {
           text: "فهم أصناف المخزون (Understanding Inventory Items)",
           "link" : "/modules/supplychain/understanding-items"
         }, {
-          text: "استلام المخزون في المستودع (Receiving Stock into Your Warehouse)",
+          text: "المخازن والمواقع التخزينية (Warehouses & Locators)",
+          "link" : "/modules/supplychain/warehouses-and-locators"
+        }, {
+          text: "استلام المخزون في المستودع (Receiving Stock)",
           "link" : "/modules/supplychain/receiving-stock"
         }, {
-          text: "إصدار المخزون من المستودع (Issuing Stock from Your Warehouse)",
+          text: "إصدار المخزون من المستودع (Issuing Stock)",
           "link" : "/modules/supplychain/issuing-stock"
         }, {
-          text: "تحريك المخزون",
+          text: "تحريك المخزون بين المخازن (Moving Stock)",
           "link" : "/modules/supplychain/moving-stock"
+        }, {
+          text: "الجرد المخزني (Stock Taking)",
+          "link" : "/modules/supplychain/stock-taking"
+        }, {
+          text: "تكلفة المخزون وإعادة التقييم (Inventory Costing & Revaluation)",
+          "link" : "/modules/supplychain/inventory-costing"
         }, {
           text: "رحلة الشراء (The Purchasing Journey)",
           "link" : "/modules/supplychain/purchasing-journey"
         }, {
-          text: "رحلة المبيعات (Sales Journey)",
+          text: "التنبؤ بالمشتريات (Purchase Forecast)",
+          "link" : "/modules/supplychain/purchase-forecast"
+        }, {
+          text: "رحلة المبيعات (The Sales Journey)",
           "link" : "/modules/supplychain/sales-journey"
+        }, {
+          text: "التسعير والعروض والكوبونات (Pricing, Offers & Coupons)",
+          "link" : "/modules/supplychain/pricing-offers-and-coupons"
+        }, {
+          text: "دليل نظام الحجوزات الشامل (Comprehensive Reservation System Guide)",
+          "link" : "/modules/supplychain/reservation-system-guide"
+        }, {
+          text: "التسليم والتحميل (Delivery & Loading)",
+          "link" : "/modules/supplychain/delivery-and-loading"
+        }, {
+          text: "التجميع والتعبئة (Assembly & Packaging)",
+          "link" : "/modules/supplychain/assembly-and-packaging"
         }, {
           text: "ضبط الجودة (Quality Control)",
           "link" : "/modules/supplychain/quality-control"
         }, {
+          text: "الاعتمادات المستندية (Letters of Credit)",
+          "link" : "/modules/supplychain/letters-of-credit"
+        }, {
+          text: "موازين الوزن (Weight Scale)",
+          "link" : "/modules/supplychain/weight-scale"
+        }, {
           text: "سيناريوهات متخصصة (Specialized Scenarios)",
           "link" : "/modules/supplychain/specialized-scenarios"
-        }, {
-          text: "دليل استعمال النقاط الفنية في نقاط البيع",
-          "link" : "/modules/supplychain/nama-pos"
-        }, {
-          text: "الأصناف المجانية في نقاط البيع: المطالبة بالمسح والتسوية عند الدفع",
-          "link" : "/modules/supplychain/pos-free-items-claim-and-reconciliation"
-        }, {
-          text: "تسجيل الدخول بالبصمة في نقاط البيع",
-          "link" : "/modules/supplychain/pos-fingerprint-login"
-        }, {
-          text: "دليل نظام الحجوزات الشامل (Comprehensive Reservation System Guide)",
-          "link" : "/modules/supplychain/reservation-system-guide"
         }, {
           text: "تجاهل مخازن/مواقع معينة في التحقق من كمية الحجز بالتاريخ",
           "link" : "/modules/supplychain/ignore-reservation-qty-check-by-date"
         }, {
           text: "أسئلة في موديول التوزيع والمخازن والمبيعات والمشتريات",
           "link" : "/modules/supplychain/supply-chain-faq"
-        }, {
-          text: "الأسئلة الشائعة لسلسلة التوريد (Supply-chain FAQ)",
-          "link" : "/modules/supplychain/supply-chain-faq-english"
         } ]
       }, {
         text: "التصنيع",
@@ -4241,6 +4256,15 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/",
         "collapsed" : false,
         "items" : [ {
+          text: "دليل استعمال النقاط الفنية في نقاط البيع",
+          "link" : "/modules/pos/nama-pos"
+        }, {
+          text: "الأصناف المجانية في نقاط البيع: المطالبة بالمسح والتسوية عند الدفع",
+          "link" : "/modules/pos/pos-free-items-claim-and-reconciliation"
+        }, {
+          text: "تسجيل الدخول بالبصمة في نقاط البيع",
+          "link" : "/modules/pos/pos-fingerprint-login"
+        }, {
           text: "أسئلة شائعة حول نقاط البيع",
           "link" : "/modules/pos/pos-faq"
         } ]
@@ -15857,47 +15881,62 @@ export const SIDEBAR_CONFIG = {
           text: "Understanding Inventory Items",
           "link" : "/en/modules/supplychain/understanding-items"
         }, {
-          text: "Receiving Stock into Your Warehouse",
+          text: "Warehouses & Locators",
+          "link" : "/en/modules/supplychain/warehouses-and-locators"
+        }, {
+          text: "Receiving Stock",
           "link" : "/en/modules/supplychain/receiving-stock"
         }, {
-          text: "Issuing Stock from Your Warehouse",
+          text: "Issuing Stock",
           "link" : "/en/modules/supplychain/issuing-stock"
         }, {
-          text: "Moving Stock Around",
+          text: "Moving Stock Between Warehouses",
           "link" : "/en/modules/supplychain/moving-stock"
+        }, {
+          text: "Stock Taking",
+          "link" : "/en/modules/supplychain/stock-taking"
+        }, {
+          text: "Inventory Costing & Revaluation",
+          "link" : "/en/modules/supplychain/inventory-costing"
         }, {
           text: "The Purchasing Journey",
           "link" : "/en/modules/supplychain/purchasing-journey"
         }, {
+          text: "Purchase Forecast",
+          "link" : "/en/modules/supplychain/purchase-forecast"
+        }, {
           text: "The Sales Journey",
           "link" : "/en/modules/supplychain/sales-journey"
+        }, {
+          text: "Pricing, Offers & Coupons",
+          "link" : "/en/modules/supplychain/pricing-offers-and-coupons"
+        }, {
+          text: "Comprehensive Reservation System Guide",
+          "link" : "/en/modules/supplychain/reservation-system-guide"
+        }, {
+          text: "Delivery & Loading",
+          "link" : "/en/modules/supplychain/delivery-and-loading"
+        }, {
+          text: "Assembly & Packaging",
+          "link" : "/en/modules/supplychain/assembly-and-packaging"
         }, {
           text: "Quality Control",
           "link" : "/en/modules/supplychain/quality-control"
         }, {
+          text: "Letters of Credit",
+          "link" : "/en/modules/supplychain/letters-of-credit"
+        }, {
+          text: "Weight Scale",
+          "link" : "/en/modules/supplychain/weight-scale"
+        }, {
           text: "Specialized Scenarios",
           "link" : "/en/modules/supplychain/specialized-scenarios"
-        }, {
-          text: "Nama POS — Technical Points of Use Guide",
-          "link" : "/en/modules/supplychain/nama-pos"
-        }, {
-          text: "Free Items in POS: Claim at Scan and Reconciliation at Payment",
-          "link" : "/en/modules/supplychain/pos-free-items-claim-and-reconciliation"
-        }, {
-          text: "Fingerprint Login in Point of Sale",
-          "link" : "/en/modules/supplychain/pos-fingerprint-login"
-        }, {
-          text: "Comprehensive Reservation System Guide",
-          "link" : "/en/modules/supplychain/reservation-system-guide"
         }, {
           text: "Ignoring Specific Warehouses/Locators in Reservation Quantity Check by Date",
           "link" : "/en/modules/supplychain/ignore-reservation-qty-check-by-date"
         }, {
           text: "FAQ — Distribution, Warehousing, Sales & Purchasing Module",
           "link" : "/en/modules/supplychain/supply-chain-faq"
-        }, {
-          text: "Supply-chain English FAQ",
-          "link" : "/en/modules/supplychain/supply-chain-faq-english"
         } ]
       }, {
         text: "Manufacturing",
@@ -16292,6 +16331,15 @@ export const SIDEBAR_CONFIG = {
         "link" : "/en/modules/pos/",
         "collapsed" : false,
         "items" : [ {
+          text: "Nama POS — Technical Points of Use Guide",
+          "link" : "/en/modules/pos/nama-pos"
+        }, {
+          text: "Free Items in POS: Claim at Scan and Reconciliation at Payment",
+          "link" : "/en/modules/pos/pos-free-items-claim-and-reconciliation"
+        }, {
+          text: "Fingerprint Login in Point of Sale",
+          "link" : "/en/modules/pos/pos-fingerprint-login"
+        }, {
           text: "Point of Sale FAQ",
           "link" : "/en/modules/pos/pos-faq"
         } ]
