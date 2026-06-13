@@ -42,19 +42,19 @@ Many term features (like invoice usage or commercial-paper usage) aren't set wit
 
 Each document that posts has its own term with its own sides — a receipt voucher's sides aren't a loan issue's sides. This quick map links each document to the page where its sides are described in detail:
 
-| Document | Page |
-|---|---|
-| Receipt / payment voucher | [Receipt & payment vouchers](../receipts-and-payments.md) |
-| Cashier voucher & shift close | [Cashier shifts](../cashier-shifts.md) |
-| Credit / debit note | [Credit & debit notes](../credit-and-debit-notes.md) |
-| Bank transfer & bank reconciliation | [Banks & bank accounts](../banks-and-bank-accounts.md) |
+| Document | Page                                                        |
+|---|-------------------------------------------------------------|
+| Receipt / payment voucher | [Receipt & payment vouchers](../receipts-and-payments.md)   |
+| Cashier voucher & shift close | [Cashier shifts](../cashier-shifts.md)                      |
+| Credit / debit note | [Credit & debit notes](../credit-and-debit-notes.md)        |
+| Bank transfer & bank reconciliation | [Banks & bank accounts](../banks-and-bank-accounts.md)      |
 | Bank portfolio & financial papers | [Cheques & financial papers](../cheques-financial-papers.md) |
-| Loan issue & installment payment | [Bank loans](../bank-loans.md) |
-| LG issue | [Letters of guarantee](../letters-of-guarantee.md) |
-| LC opening | [Letters of credit](../letters-of-credit.md) |
-| Credit-facility issuance & payment | [Credit facilities](../credit-facilities.md) |
-| Deposit issue & interest payment | [Fixed deposits](../fixed-deposits.md) |
-| Treasury-bill purchase & ROI proof | [Treasury bills](../treasury-bills.md) |
+| Loan issue & installment payment | [Bank loans](../bank-loans.md)                              |
+| LG issue | [Letters of guarantee](../letters-of-guarantee.md)          |
+| LC opening | [Letters of credit](../bank-letters-of-credit.md)           |
+| Credit-facility issuance & payment | [Credit facilities](../credit-facilities.md)                |
+| Deposit issue & interest payment | [Fixed deposits](../fixed-deposits.md)                      |
+| Treasury-bill purchase & ROI proof | [Treasury bills](../treasury-bills.md)                      |
 
 ## For Support
 
