@@ -1,30 +1,30 @@
-# التسوية مع الذمم
+# Subsidiary Reconciliation
 
-يحتفظ العميل أو المورد دائمًا تقريبًا بسجلِّه الخاصّ لتعاملاتكما — ونادرًا ما يتطابق مع سجلّك إلى آخر قرش: فاتورةٌ لم يقيّدها، أو سدادٌ في الطريق، أو إشعارٌ سجّله طرفٌ دون الآخر. **التسوية مع الذمة** هي الطريقة المنهجية لوضع دفاترك لجهةٍ ما بجوار كشفها الخارجي، ومطابقة ما يتطابق، وإبراز الفروق. وهي التوأم الخاصّ بالعملاء والموردين لـ[المطابقة البنكية](./bank-reconciliation.md)، بالمسار نفسه.
+A customer or supplier almost always keeps their own account of your dealings — and it rarely lines up with yours to the penny: an invoice they haven't booked, a payment in transit, a credit note one side recorded and the other didn't. **Subsidiary Reconciliation** is the systematic way to lay your books for a party next to their external statement, match what matches, and surface the differences. It's the customer/supplier twin of [bank reconciliation](./bank-reconciliation.md), using the very same workflow.
 
-::: info الترخيص المطلوب
-التسوية مع الذمة جزءٌ من ترخيص `accounting` الأساسي. وشاشتها تحت **الحسابات > التسويات**.
+::: info Required license
+Subsidiary reconciliation is part of the core `accounting` license. Its screen is under **Accounting > Reconciliations**.
 :::
 
-::: warning التسوية لا تُرحِّل بذاتها
-لا يُنتِج مستندُ التسوية مع الذمة **أيَّ أثرٍ محاسبي**؛ فهو عملية مقارنةٍ وكشفِ فروقٍ فقط. وأيُّ فروقٍ حقيقيةٍ يُبرِزها تُصحَّح لاحقًا بالمستند المناسب (إشعار دائن/مدين، سند…). فـ«التسوية» مقارنةٌ لا قيد.
+::: warning Reconciliation doesn't post by itself
+The subsidiary reconciliation document produces **no accounting effect**; it's a comparison and difference-detection process only. Any genuine differences it surfaces are corrected with the appropriate document (a credit/debit note, a voucher…) afterwards. "Reconciliation" is comparison, not an entry.
 :::
 
-## مسار الخطوات الثلاث
+## The three-step workflow
 
-يمرّ المستند بـ**خطوة تسويةٍ** على ثلاث مراحل — تمامًا كالمطابقة البنكية:
+The document moves through a **reconciliation step** in three stages — exactly as bank reconciliation does:
 
-1. **تجميع البيانات** — تحدّد **الحساب** و**الذمة** (العميل/المورد) و**مدى تواريخ استيراد**، فيجمع النظامُ حركاتك (**حركات النظام**) وكشفَ الجهة (**حركات الذمة**).
-2. **التسوية** — تطابق حركات الذمة مع حركات نظامك، ضمن **سماحية القيمة** و**سماحية فرق التاريخ** المسموحتين، بقيادة **تسلسل مطابقة البيان** اختياريًا أو بالمطابقة من جانب الذمة. وما لا يتطابق يقع في شبكتَي **حركات النظام المعلقة** و**حركات الذمة المعلقة**، حيث تتّضح الفروق الحقيقية.
-3. **منتهي** — يُغلق المستند متى اكتملت المطابقة.
+1. **Collect Data** — you specify the **account** and **subsidiary** (the customer/supplier) and an **import date range**, and the system gathers your transactions (**system lines**) and the party's statement (**subsidiary lines**).
+2. **Reconciliation** — you match the subsidiary lines against your system lines, within the allowed **value tolerance** and **date-difference tolerance**, optionally driven by a **narration match sequence** or matching from the subsidiary side. What doesn't match lands in the **unmatched system lines** and **unmatched subsidiary lines** grids, where the real discrepancies become visible.
+3. **Finished** — the document is closed once matching is complete.
 
-![شاشة التسوية مع الذمة](./images/subsrecon/subsidiary-reconciliation.png)
+![The Subsidiary Reconciliation screen](./images/subsrecon/subsidiary-reconciliation.png)
 
-ويرتبط كلُّ مستندٍ بـ**التسوية السابقة** للجهة نفسها، فيكمل من حيث انتهت السابقة ويُغلِق الفترة خلفه — فالفترة المسوّاة لا تُعاد تسويتها.
+Each document links to the **previous reconciliation** for the same party, so it continues where the last one ended and locks the period behind it — a settled period isn't re-reconciled.
 
-## للدعم الفني
+## For Support
 
-- **«التسوية لم تغيّر رصيد الجهة»** — صحيح؛ فهي لا تُرحِّل. سجِّل أيَّ فرقٍ حقيقي بالمستند المناسب (إشعار/سند) لاحقًا.
-- **«سطورٌ تتطابق بوضوحٍ لا تتطابق»** — راجِع **سماحية القيمة** و**سماحية فرق التاريخ** و**تسلسل مطابقة البيان**.
-- **«لا أستطيع تعديل تسويةٍ قديمة»** — لأنّها مرتبطةٌ بمستندٍ لاحقٍ يُقفِلها حفاظًا على تسلسل التسوية؛ وهذا متوقَّع.
-- **«أيُّ جانبٍ هو أيّ؟»** — **حركات النظام** هي دفاترك؛ و**حركات الذمة** هي كشف الجهة الخارجي.
+- **"The reconciliation didn't change the party's balance"** — correct; it doesn't post. Record any true difference with the appropriate document (note/voucher) afterwards.
+- **"Lines that clearly match aren't matching"** — review the **value tolerance**, the **date-difference tolerance**, and the **narration match sequence**.
+- **"I can't edit an old reconciliation"** — it's chained to a later document that locks it, preserving the reconciliation sequence; this is expected.
+- **"Which side is which?"** — **system lines** are your books; **subsidiary lines** are the party's external statement.

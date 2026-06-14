@@ -1,69 +1,65 @@
-<rtl>
+# Customer Service, Delivery & Receipts
 
-# خدمة العملاء والتوصيل والقبض
+Besides sales and inventory, the app serves the other field teams: the customer-service rep who logs visits, the maintenance technician, the delivery driver, and the collector who issues receipt vouchers at the customer's site.
 
-إلى جانب المبيعات والمخازن، يخدم التطبيق فرق الميدان الأخرى: مندوب خدمة العملاء الذي يسجّل زياراته، وفني الصيانة، وسائق التوصيل، والمحصّل الذي يصدر سندات القبض من عند العميل.
+## Customer visits
 
-## زيارات العملاء
+The visit screens appear under the **Customer Service** group:
 
-تظهر شاشات الزيارات تحت مجموعة **خدمة العملاء**:
+![Customer Service group](../../ar/modules/mobile/images/crm-delivery/customer-service-group.jpg)
 
-![مجموعة خدمة العملاء](./images/crm-delivery/customer-service-group.jpg)
+When creating a **visit request** the rep logs their visit to the customer: they set the **type** and **state** and add **notes**, and can **attach a file**, capture the **customer signature** and **rep signature**, then **check in** to the visit and later check out. The app captures the visit's time and location.
 
-عند **طلب الزيارة** يسجّل المندوب زيارته للعميل: يحدد **النوع** و**الحالة** ويضيف **ملاحظات**، ويمكنه **إرفاق ملف**، والتقاط **توقيع العميل** و**توقيع المندوب**، ثم **تسجيل حضور** الزيارة (Check-in) ولاحقاً انصرافها. ويلتقط التطبيق وقت وموقع الزيارة.
+![Create visit request](../../ar/modules/mobile/images/crm-delivery/crm-visit-request.jpg)
 
-![إنشاء طلب الزيارة](./images/crm-delivery/crm-visit-request.jpg)
+From the **visit voucher log** the rep follows up their previous visits. The organization can prevent opening a new visit while there is still an open visit that hasn't been closed yet.
 
-ومن **سجل سندات الزيارة** يتابع المندوب زياراته السابقة. ويمكن للمؤسسة منع فتح زيارة جديدة طالما توجد زيارة مفتوحة لم تُغلق بعد.
-
-::: info الصيانة والاستبيانات
-بالنسبة لفرق الصيانة، يتيح التطبيق متابعة **بلاغات وأوامر الصيانة**، وتسجيل **زيارات الصيانة** مع قطع الغيار المستخدمة وتواقيع العميل والفني. كما يدعم **الاستبيانات** لجمع آراء العملاء عبر قوالب أسئلة جاهزة مع التقاط التوقيع.
+::: info Maintenance and questionnaires
+For maintenance teams, the app supports following up **maintenance notices and orders**, and logging **maintenance visits** with the spare parts used and the customer and technician signatures. It also supports **questionnaires** to collect customer feedback via ready-made question templates with signature capture.
 :::
 
-### الاستبيانات
+### Questionnaires
 
-تتيح شاشة **الاستبيان** اختيار قالب استبيان وعميل، ثم تعبئة الأسئلة وجمع توقيع العميل والمندوب قبل الإرسال.
+The **Questionnaire** screen lets you choose a questionnaire template and a customer, then fill in the questions and collect the customer and rep signatures before submitting.
 
-![استبيان](./images/crm-delivery/questionnaire.jpg)
+![Questionnaire](../../ar/modules/mobile/images/crm-delivery/questionnaire.jpg)
 
-## التوصيل
+## Delivery
 
-تخدم وحدة التوصيل سائقي ومندوبي التوصيل، وتظهر شاشاتها تحت مجموعة **الشحن** أو **موديول التوصيل** حسب التهيئة:
+The delivery module serves delivery drivers and reps, and its screens appear under the **Shipping** group or the **Delivery module** depending on the configuration:
 
-![مجموعة الشحن](./images/crm-delivery/shipping-group.jpg)
+![Shipping group](../../ar/modules/mobile/images/crm-delivery/shipping-group.jpg)
 
-- **سند توصيل شحنة** — يستعرض السائق فيه الأصناف المطلوب توصيلها، ويستطيع تأكيد **توصيل الكل** أو تسجيل **فشل التوصيل للكل**، أو معالجة كل عميل على حدة. ويلتقط **توقيع العميل** و**توقيع المندوب** كإثبات تسليم، مع إمكانية الطباعة.
+- **Shipment delivery voucher** — where the driver reviews the items to be delivered, and can confirm **deliver all** or record **failed delivery for all**, or handle each customer individually. It captures the **customer signature** and **rep signature** as proof of delivery, with the ability to print.
 
-  ![سند توصيل شحنة](./images/crm-delivery/shipment-delivery-voucher.jpg)
+  ![Shipment delivery voucher](../../ar/modules/mobile/images/crm-delivery/shipment-delivery-voucher.jpg)
 
-- **طلبات التوصيل** — قائمة قابلة للفلترة برقم العميل أو رقم الشحنة لمتابعة الطلبات المسندة للسائق.
+- **Delivery orders** — a list that can be filtered by customer number or shipment number to follow up the orders assigned to the driver.
 
-  ![طلبات التوصيل](./images/crm-delivery/delivery-orders.jpg)
+  ![Delivery orders](../../ar/modules/mobile/images/crm-delivery/delivery-orders.jpg)
 
-يجمع **موديول التوصيل** الأدوات التي يحتاجها مندوب التوصيل في مكان واحد — القبض الإلكتروني، فاتورة المشتريات، مردود المبيعات، شاشة الشكاوى، وشاشة الأوردارات:
+The **Delivery module** gathers the tools a delivery rep needs in one place — electronic receipt, purchase invoice, sales return, the complaints screen, and the orders screen:
 
-![موديول التوصيل](./images/crm-delivery/delivery-module.jpg)
+![Delivery module](../../ar/modules/mobile/images/crm-delivery/delivery-module.jpg)
 
-::: tip أدوات السائق الميدانية
-حسب التهيئة، يمكن للسائق فلترة مهامه حسب العميل أو المنطقة أو الفرع، ومشاركة تفاصيل الطلب عبر **واتساب**، والانتقال إلى موقع العميل على الخريطة، وإضافة ملاحظات صوتية.
+::: tip Driver field tools
+Depending on the configuration, the driver can filter their tasks by customer, area or branch, share the order details via **WhatsApp**, navigate to the customer's location on the map, and add voice notes.
 :::
 
-## القبض الإلكتروني
+## Electronic receipts
 
-يصدر المحصّل **سند القبض الإلكتروني** من عند العميل مباشرة. تظهر الشاشة تحت مجموعة **الحسابات**:
+The collector issues the **electronic receipt voucher** at the customer's site directly. The screen appears under the **Accounts** group:
 
-![مجموعة الحسابات — القبض الإلكتروني](./images/crm-delivery/accounts-receipt-group.jpg)
+![Accounts group — electronic receipt](../../ar/modules/mobile/images/crm-delivery/accounts-receipt-group.jpg)
 
-في سند القبض يختار المحصّل العميل وتاريخ الدفع والعملة و**طريقة الدفع** (نقد، بنك…)، ويمكن أن يتضمن السند **أقساطاً** و**شروطاً وأحكاماً** يوافق عليها العميل. وبعد الحفظ يمكن **طباعة** الإيصال على الطابعة المهيّأة. وترتبط سندات القبض غالباً بمستندات المصدر مثل أمر البيع أو فاتورة المبيعات.
+In the receipt voucher the collector chooses the customer, the payment date, the currency and the **payment method** (cash, bank…), and the voucher can include **installments** and **terms and conditions** the customer agrees to. After saving, the receipt can be **printed** to the configured printer. Receipt vouchers are often linked to source documents such as the sales order or sales invoice.
 
-::: warning ربط الطريقة بالبنك
-تُحمّل طرق الدفع والبنوك المتاحة في التطبيق من إعدادات الخادم؛ فإذا كانت طريقة الدفع بنكية وجب تحديد البنك المقابل.
+::: warning Linking the method to a bank
+The payment methods and banks available in the app are loaded from server settings; if the payment method is a bank method, the corresponding bank must be specified.
 :::
 
-## ملاحظات للمسؤول
+## Notes for the administrator
 
-- تُضبط أنواع الزيارات وحالاتها، والحقول المرجعية المسموح بها، ومعايير العملاء/الأصناف من [إعدادات تطبيقات الجوال](./mobile-application-guide.md).
-- تُحدّد دفاتر سندات القبض والتوصيل، وطرق الدفع والبنوك، وقوالب طباعة الإيصالات والشروط والأحكام من جهة الخادم.
-- تظهر وحدات الزيارات والصيانة والتوصيل والقبض في القائمة فقط إذا كانت مرخّصة لمؤسستك.
-
-</rtl>
+- The visit types and states, the allowed reference fields, and the customer/item criteria are configured from the [Mobile App configuration](./mobile-application-guide.md).
+- The receipt and delivery voucher books, the payment methods and banks, and the print templates for receipts and the terms and conditions are defined on the server side.
+- The visits, maintenance, delivery and receipt modules appear in the menu only if they are licensed for your organization.

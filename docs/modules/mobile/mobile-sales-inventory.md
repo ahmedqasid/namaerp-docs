@@ -1,44 +1,42 @@
-<rtl>
+# Sales, Inventory & Item Inquiry
 
-# المبيعات والمخازن والاستعلام عن الأصناف
+Nama Mobile turns the phone into a mobile point of sale and inventory tool: the rep writes sales orders and invoices at the customer's site, the warehouse keeper pulls items by barcode, and stock transfers and counts are done from inside the warehouse directly. These screens appear under the **Sales** and **Warehouse Management** groups depending on the licensed modules.
 
-يحوّل تطبيق نما الهاتف إلى نقطة بيع وأداة مخزنية متنقلة: يحرّر المندوب أوامر البيع والفواتير من عند العميل، ويجرّ أمين المخزن الأصناف بالباركود، وينفّذ التحويلات المخزنية والجرد من داخل المخزن مباشرة. تظهر هذه الشاشات تحت مجموعتَي **المبيعات** و**إدارة المخازن** حسب الوحدات المرخّصة.
+## Sales documents
 
-## مستندات المبيعات
+![Sales group](../../ar/modules/mobile/images/sales-inventory/sales-group.jpg)
 
-![مجموعة المبيعات](./images/sales-inventory/sales-group.jpg)
+The Sales group contains the usual document chain: **Sales Order**, **Sales Invoice**, **Quotation**, **Quotation Request**, **Sales Document** and **Sales Return** — in addition to the delivery screens (see the [Customer Service & Delivery](./mobile-crm-delivery.md) page).
 
-تضم مجموعة المبيعات سلسلة المستندات المعتادة: **أمر بيع**، **فاتورة مبيعات**، **عرض أسعار**، **طلب عرض أسعار**، **مستند بيع**، و**مردود مبيعات** — إضافة إلى شاشات التوصيل (راجع صفحة [خدمة العملاء والتوصيل](./mobile-crm-delivery.md)).
+The sales documents share the same screen layout, which makes moving between them easy:
 
-تشترك مستندات البيع في نفس تخطيط الشاشة، ما يجعل التنقل بينها سهلاً:
+![Sales order](../../ar/modules/mobile/images/sales-inventory/sales-order.jpg)
 
-![أمر بيع](./images/sales-inventory/sales-order.jpg)
+- Two tabs: **Main page** and **Payment lines** (to record the collection accompanying the document).
+- Choosing the **customer** — with a **scan QR** icon for quick access, and an **add new customer** icon if they don't exist yet.
+- **Warehouse**, **locator** and **item** — all supporting search and barcode/QR scanning to add items quickly.
+- **Total price** and **delivery date**.
+- A **(+)** button to add a new item line, **attach file**, and **customer signature** and **rep signature**, then **Save**. After saving you can **print** the document to the configured printer.
 
-- تبويبان: **الصفحة الرئيسية** و**سطور الدفع** (لتسجيل التحصيل المصاحب للمستند).
-- اختيار **العميل** — مع أيقونة **مسح QR** للوصول السريع، وأيقونة **إضافة عميل جديد** إن لم يكن موجوداً.
-- **مخزن** و**موقع مخزني** و**صنف** — وكلها تدعم البحث ومسح الباركود/الـ QR لإضافة الأصناف بسرعة.
-- **السعر الكلي** و**تاريخ التوصيل**.
-- زر **(+)** لإضافة سطر صنف جديد، و**إرفاق ملف**، و**توقيع العميل** و**توقيع المندوب**، ثم **حفظ**. وبعد الحفظ يمكن **طباعة** المستند على الطابعة المهيّأة.
+![Sales invoice](../../ar/modules/mobile/images/sales-inventory/sales-invoice.jpg)
 
-![فاتورة مبيعات](./images/sales-inventory/sales-invoice.jpg)
-
-::: info زر المساعدة (؟)
-الزر الأخضر **(؟)** الظاهر في شاشات المستندات يفتح إرشادات سياقية تساعد المستخدم على ملء الشاشة.
+::: info The help button (?)
+The green **(?)** button shown on the document screens opens contextual guidance that helps the user fill in the screen.
 :::
 
-## الاستعلام عن الأصناف
+## Item inquiry
 
-شاشة **بيانات الصنف** تتيح الاستعلام عن صنف عبر مسح الباركود/الـ QR أو إدخال الكود يدوياً، مع اختيار المخزن والموقع المخزني، ثم تعرض بيانات الصنف باستخدام قوالب **Tempo**.
+The **Item Data** screen lets you query an item by scanning a barcode/QR or entering the code manually, choosing the warehouse and locator, then it displays the item data using **Tempo** templates.
 
-![بيانات الصنف](./images/sales-inventory/item-data-inquiry.jpg)
+![Item data](../../ar/modules/mobile/images/sales-inventory/item-data-inquiry.jpg)
 
-**البيانات المتاحة في القالب:**
-- **`barcode`** — الكود الممسوح أو المدخل يدوياً
-- **`invItemCode`** — تفاصيل اللون والمقاس والوحدة ([التفاصيل](https://dm.namasoft.com/#InvItemCode))
-- **`item`** — بيانات الصنف ([التفاصيل](https://dm.namasoft.com/#InvItem))
-- **`dimensions`** — محددات الدخول الحالية
+**Available data in the template:**
+- **`barcode`** - The scanned or manually entered code
+- **`invItemCode`** - Color, size, and unit details ([details](https://dm.namasoft.com/#InvItemCode))
+- **`item`** - Item data ([details](https://dm.namasoft.com/#InvItem))
+- **`dimensions`** - Current entry dimensions
 
-**مثال بسيط:**
+**Simple example:**
 ```
 Name1: {item.name1} {enter}
 Name2: {item.name2} {enter}
@@ -47,63 +45,61 @@ Size: {invItemCode.size}{enter}
 Price: {itemprice(itemIdOrCode=item,colorCode=invItemCode.color,sizeCode=invItemCode.size,legalEntityCodeOrId="01",fieldToDisplay=unitPrice)}{enter}
 Price Including Tax: {itemprice(itemIdOrCode=item,colorCode=invItemCode.color,sizeCode=invItemCode.size,legalEntityCodeOrId="01",fieldToDisplay=netValue)}{enter}
 ```
-يمكنك معرفة المزيد عن دالة الأسعار `itemprice` من دليل استعمال Tempo:
-[Sales Price Tempo Function](../../admin/tempo.md#lHSwl-aal-saar-byaa-Snf)
+You can learn more about the `itemprice` pricing function from the Tempo usage guide:
+[Sales Price Tempo Function](../../admin/tempo.md#Getting-the-Sales-Price-of-an-Item)
 
-كما يمكنك كتابة استعلامات SQL مخصصة لجلب بيانات إضافية وعرضها في القالب.
+You can also write custom SQL queries to fetch additional data and display it in the template.
 
-**مثال استعلام لحساب الكميات بكل مخزن:**
+**Example query to calculate quantities per warehouse:**
 ```sql
 select w.code, w.name1, net qty from ItemDimensionsQty Q
 left join Warehouse w on w.id = q.warehouse_id
 where item_id = {item.id}
 ```
 
-وعند فتح قائمة الأصناف يظهر بحث سريع مع عرض الأكواد والأسماء:
+And when you open the items list a quick search appears, showing codes and names:
 
-![قائمة الأصناف](./images/sales-inventory/item-list.jpg)
+![Items list](../../ar/modules/mobile/images/sales-inventory/item-list.jpg)
 
-## إدارة المخازن
+## Warehouse management
 
-![مجموعة إدارة المخازن](./images/sales-inventory/warehouse-group.jpg)
+![Warehouse management group](../../ar/modules/mobile/images/sales-inventory/warehouse-group.jpg)
 
-تجمع مجموعة **إدارة المخازن** عمليات الحركة المخزنية كاملةً: بيانات الصنف، فاتورة المشتريات، سند التسكين، سندات التحويل المخزني وطلباته، الصرف والتوريد المخزني، إضافة إلى الجرد الإلكتروني.
+The **Warehouse Management** group gathers the full range of stock movement operations: item data, purchase invoice, allocation file, stock transfer vouchers and their requests, stock issue and receipt, plus electronic stock taking.
 
-### التوريد والصرف المخزني
+### Stock receipt and issue
 
-- **توريد مخزني** — لاستلام البضاعة، ويمكن إنشاؤه **بناءً على** فاتورة مشتريات. يحدد فيه العميل/المورد والمخزن والموقع والكمية والصنف، مع دعم مسح الباركود في كل حقل.
+- **Stock receipt** — to receive goods, and it can be created **based on** a purchase invoice. You specify the customer/supplier, warehouse, locator, quantity and item, with barcode scanning supported in each field.
 
-  ![توريد مخزني](./images/sales-inventory/stock-receipt.jpg)
+  ![Stock receipt](../../ar/modules/mobile/images/sales-inventory/stock-receipt.jpg)
 
-- **سند صرف مخزني** — لصرف الأصناف من المخزن، ويمكن ربطه بفاتورة أو مستند بيع.
+- **Stock issue voucher** — to issue items from the warehouse, and it can be linked to an invoice or sales document.
 
-### التحويلات المخزنية
+### Stock transfers
 
-- **سند تحويل مخزني** و**سند تحويل مخزني داخلي** (تحريك بين المواقع داخل نفس المخزن).
-- **طلب تحويل مخزني** — يحدد المخزن والموقع **من** و**إلى**، والصنف والكمية، ويمكن إنشاؤه **بناءً على** أمر بيع.
+- **Stock transfer voucher** and **internal stock transfer voucher** (movement between locators within the same warehouse).
+- **Stock transfer request** — specifies the **from** and **to** warehouse and locator, the item and quantity, and can be created **based on** a sales order.
 
-  ![طلب تحويل مخزني](./images/sales-inventory/stock-transfer-request.jpg)
+  ![Stock transfer request](../../ar/modules/mobile/images/sales-inventory/stock-transfer-request.jpg)
 
-- **صرف تحويل مخزني** و**استلام تحويل مخزني** — لتنفيذ التحويل على مرحلتين (صرف من المخزن المُرسِل، ثم استلام في المخزن المستقبِل)؛ ويُنشأ سند الاستلام **بناءً على** سند الصرف.
+- **Issue stock transfer** and **receipt stock transfer** — to execute the transfer in two stages (issue from the sending warehouse, then receipt at the receiving warehouse); the receipt voucher is created **based on** the issue voucher.
 
-  ![صرف تحويل مخزني](./images/sales-inventory/issue-stock-transfer.jpg)
+  ![Issue stock transfer](../../ar/modules/mobile/images/sales-inventory/issue-stock-transfer.jpg)
 
-  ![استلام تحويل مخزني](./images/sales-inventory/receipt-stock-transfer.jpg)
+  ![Receipt stock transfer](../../ar/modules/mobile/images/sales-inventory/receipt-stock-transfer.jpg)
 
-## الجرد الإلكتروني
+## Electronic stock taking
 
-![مجموعة الجرد الإلكتروني](./images/sales-inventory/stock-taking-group.jpg)
+![Electronic stock taking group](../../ar/modules/mobile/images/sales-inventory/stock-taking-group.jpg)
 
-يتيح **الجرد الإلكتروني (لجنة جرد إلكتروني)** عدّ المخزون من الهاتف: يفتح أمين المخزن مستند الجرد، ويمسح باركود كل صنف ليضيفه ويسجّل الكمية الفعلية لكل صنف/موقع. ويدعم التطبيق **إضافة السطور تلقائياً** عند المسح و**الحفظ التلقائي كمسودة** على فترات، حتى لا تُفقد بيانات العدّ.
+**Electronic stock taking** lets you count inventory from the phone: the warehouse keeper opens the stock-taking document, scans each item's barcode to add it, and records the actual quantity for each item/locator. The app supports **adding lines automatically** on scan and **auto-saving as a draft** at intervals, so the count data is never lost.
 
-::: tip ضبط سلوك الباركود في الجرد
-يمكن للمسؤول ضبط تعبير نمطي (Regular Expression) للتحقق من صحة الباركود، ومنع تكرار الصنف، وإخفاء الكمية، ومنع تعديل لون ومقاس الصنف أو وحدته أثناء الجرد عند استخدام الباركود.
+::: tip Tuning barcode behavior in stock taking
+The administrator can set a regular expression to validate the barcode, prevent item repetition, hide the quantity, and prevent editing an item's color, size or unit during the count when using the barcode.
 :::
 
-## ملاحظات للمسؤول
+## Notes for the administrator
 
-- يحدد المسؤول من [إعدادات تطبيقات الجوال](./mobile-application-guide.md) كيفية ترحيل الطلبات الواردة من التطبيق (أمر بيع، فاتورة، صرف، توريد، تحويل…)، والدفاتر والمخازن المسموح بها، و**المعايير** التي تحدد العملاء والأصناف المُرسلة للتطبيق.
-- خيارات مثل إضافة سطر تلقائياً، والحفظ كمسودة، وقوالب طباعة المستندات والإيصالات تُضبط كذلك من جهة الخادم.
-- تظهر شاشات الجرد وإدارة المخازن (WMS) فقط إذا كانت الوحدات المقابلة مرخّصة لمؤسستك.
-
-</rtl>
+- The administrator decides from the [Mobile App configuration](./mobile-application-guide.md) how requests coming from the app are imported (sales order, invoice, issue, receipt, transfer…), the allowed books and warehouses, and the **criteria** that determine which customers and items are sent to the app.
+- Options such as auto-adding a line, saving as a draft, and the print templates for documents and receipts are also configured on the server side.
+- The stock-taking and warehouse management (WMS) screens appear only if the corresponding modules are licensed for your organization.

@@ -1,70 +1,70 @@
-# خطابات الضمان
+# Letters of Guarantee
 
-خطاب الضمان تعهّد يصدره البنك نيابةً عنك لصالح طرفٍ ثالث (جهة حكومية، مالك مشروع...) يضمن وفاءك بالتزامٍ ما — كضمان دخول مناقصة أو حُسن تنفيذ عقد. لا يخرج منه نقدٌ فعلي عند الإصدار، لكنه **يجمّد جزءًا من حدّ تسهيلاتك** لدى البنك ويُحمّلك **رسومًا**. لذلك يتتبّع نما خطاب الضمان كملفٍ رئيسي تتعاقب عليه مستندات حركة تُصدِره وتستلمه وتسلّمه وتعدّله وتنهيه، مع لقطتين دائمًا: **القيم المبدئية** عند الإصدار و**القيم الحالية** بعد التعديلات.
+A letter of guarantee is an undertaking the bank issues on your behalf in favor of a third party (a government body, a project owner…) guaranteeing that you'll meet some obligation — like a tender-entry guarantee or a contract performance guarantee. No actual cash leaves you when it's issued, but it **freezes part of your facility limit** with the bank and charges you **fees**. So Nama tracks the letter of guarantee as a master file with a succession of movement documents that issue it, receive and deliver it, amend it and close it — always keeping two snapshots: the **initial values** at issue and the **current values** after amendments.
 
-::: info الترخيص المطلوب
-خطابات الضمان ضمن ترخيص `accounting-lgt`.
+::: info Required license
+Letters of guarantee are part of the `accounting-lgt` license.
 :::
 
-## دورة حياة الخطاب
+## The letter's lifecycle
 
-تبدأ كل الشاشات من جذر **البنوك > خطابات الضمان**:
+Every screen hangs off the **Banks > Letters Of Guarantee** root:
 
-1. **طلب خطاب ضمان** — توثيق طلب الخطاب قبل إصداره (لا أثر محاسبي).
-2. **خطاب ضمان** — الملف الرئيسي بحالته المبدئية «مبدئي».
-3. **إصدار خطاب ضمان** — اللحظة التي يصدر فيها البنك الخطاب فعلًا (يُرحَّل محاسبيًا، وتتحوّل الحالة إلى «تم إصداره»).
-4. **استلام / تسليم خطاب ضمان** — تتبّع تداول نسخة الخطاب الورقية مع الجهة المستفيدة.
-5. **تعديل خطاب ضمان** — تمديد المدة أو تغيير القيمة أو الرسوم (يُحدِّث القيم الحالية ويُسجّل رسوم التعديل).
-6. **إنهاء خطاب ضمان** — إقفال الخطاب عند انتهائه أو إلغائه.
+1. **LGT Request** — documenting the request before issuing (no accounting effect).
+2. **Letter Of Guarantee** — the master file in its initial status "Initial".
+3. **LGT Issue** — the moment the bank actually issues the letter (it posts to the ledger, and the status flips to "Issued").
+4. **LGT Receipt / Delivery** — tracking the circulation of the paper copy with the beneficiary.
+5. **LGT Changing** — extending the term or changing the value or fees (updates the current values and records the change fees).
+6. **LGT Closing** — closing the letter when it ends or is canceled.
 
-ويُستخدم **مستند افتتاحي خطاب ضمان** لإدخال أرصدة الخطابات القائمة عند بدء العمل على النظام.
+An **LGT Opening Doc** is used to enter the balances of existing letters when starting work on the system.
 
-## الملف الرئيسي للخطاب
+## The letter's master file
 
-في شاشة **خطاب ضمان** (`البنوك > خطابات الضمان > خطاب ضمان`) تُعرّف بيانات الخطاب:
+On the **Letter Of Guarantee** screen (`Banks > Letters Of Guarantee > Letter Of Guarantee`) the letter's data is defined:
 
-- **المعلومات الأساسية**: ربط الخطاب بـ **طلب خطاب الضمان** الذي سبقه، وبـ **حدّ التسهيلات** الذي يُحجز منه، وبـ **عقد المشروع** عند الحاجة.
-- **القيم المبدئية لخطاب الضمان**: لقطة شروط الإصدار — **المبلغ** و**العملة**، **مَن يُسلَّم إليه** الخطاب، **من تاريخ / إلى تاريخ**، **التغطية** (المبلغ المغطّى نقدًا)، **التسهيلات** (الجزء المحجوز من حدّ التسهيلات)، و**الرسوم**.
-- **خطاب ضمان (القيم الحالية)**: **نوع الخطاب** و**نوع الضمان** و**الحالة**، إضافةً إلى القيم السارية بعد أي تعديل (المبلغ، التغطية، التسهيلات، رسوم التعديل).
+- **Basic information**: linking the letter to the **LGT request** that preceded it, to the **facility limit** it reserves from, and to a **project contract** when needed.
+- **Initial LGT values**: a snapshot of the issue terms — the **amount** and **currency**, **who it's delivered to**, **from date / to date**, the **covered amount** (covered in cash), the **facilities** (the reserved portion of the facility limit), and the **fees**.
+- **Letter of guarantee (current values)**: the **LGT type**, the **guarantee type** and the **status**, plus the values in force after any amendment (amount, covered, facilities, change fees).
 
-![شاشة خطاب الضمان](./images/lg/letter-of-guarantee.png)
+![Letter of Guarantee screen](./images/lg/letter-of-guarantee.png)
 
-**نوع الضمان** يصنّف غرض الخطاب: **ضمان ابتدائي** (دخول مناقصة)، **ضمان نهائي** (حُسن تنفيذ)، **ضمان دفعة مقدمة**، **ضمان جمركي**، أو أنواع أخرى.
+The **guarantee type** classifies the letter's purpose: **initial guarantee** (tender entry), **final guarantee** (performance), **advance-payment guarantee**, **customs guarantee**, or other types.
 
-### حالات الخطاب
+### Letter statuses
 
-| الحالة | متى |
+| Status | When |
 |---|---|
-| مبدئي (Initial) | عند الحفظ قبل الإصدار. |
-| تم إصداره (Issued) | بعد ترحيل سند الإصدار. |
-| تم استلامه (Received) / توصيل كلي (Totally Delivered) | بعد تتبّع تداول نسخة الخطاب. |
-| منتهي (Finished) | بعد الإنهاء العادي. |
-| ألغيت (Canceled) | عند الإلغاء. |
-| مُسيل (Liquidated) | عند تسييل الخطاب (مطالبة المستفيد بقيمته). |
+| Initial | when saved before issuing. |
+| Issued | after the issue document posts. |
+| Received / Totally Delivered | after tracking the circulation of the letter copy. |
+| Finished | after a normal close. |
+| Canceled | on cancellation. |
+| Liquidated | when the letter is liquidated (the beneficiary claims its value). |
 
-## الإصدار وحجز التسهيلات
+## Issuing and reserving the facility
 
-عند تحرير **إصدار خطاب ضمان** (`البنوك > خطابات الضمان > إصدار خطاب ضمان`) يُرحَّل الأثر المحاسبي ويُحجز جزء التسهيلات. ويغطّي توجيه الإصدار جوانب متعدّدة: **قيمة الخطاب مدين/دائن**، و**مدين/دائن التسهيلات** (الجزء المحجوز من حدّ التسهيلات)، و**مدين/دائن الرسوم** (مع **ضريبة الرسوم 1 و2**)، وجانب **التغطية**. (مصدر هذه الحسابات مشروح في مرجع [توجيهات المستندات](./support/accounting-document-terms.md).)
+When an **LGT Issue** (`Banks > Letters Of Guarantee > LGT Issue`) is recorded the accounting effect posts and the facility portion is reserved. The issue term covers several sides: **LGT amount debit/credit**, **facilities amount debit/credit** (the reserved portion of the facility limit), **fees debit/credit** (with **tax fees 1 and 2**), and the **covering** side. (Where these accounts come from is explained in the [Document terms](./support/accounting-document-terms.md) reference.)
 
-![شاشة إصدار خطاب الضمان](./images/lg/lgt-issue.png)
+![LGT Issue screen](./images/lg/lgt-issue.png)
 
-::: warning التحقق من حدّ التسهيلات
-عند الإصدار يتحقّق النظام من ألّا يتجاوز إجمالي المحجوز **حدّ التسهيلات** المرتبط بالخطاب. إن تجاوزه مُنع الإصدار. تفاصيل حدود التسهيلات في [التسهيلات الائتمانية](./credit-facilities.md).
+::: warning Facility-limit check
+At issue, the system checks that the total reserved doesn't exceed the **facility limit** linked to the letter. If it does, issuing is blocked. The details of facility limits are in [Credit Facilities](./credit-facilities.md).
 :::
 
-## الاستلام والتسليم والتعديل والإنهاء
+## Receipt, delivery, amendment and closing
 
-تتبع مستندات **الاستلام** و**التسليم** تداول نسخة الخطاب الورقية. ويُستخدم **التعديل** لتمديد مدة الخطاب أو تغيير قيمته أو رسومه — فيُحدِّث القيم الحالية مع الإبقاء على القيم المبدئية كمرجع، ويُسجّل **رسوم التعديل**. وأخيرًا يُقفل **الإنهاء** الخطاب ويحرّر ما حُجز من تسهيلات.
+The **Receipt** and **Delivery** documents track the circulation of the paper copy of the letter. **Changing** is used to extend the letter's term or change its value or fees — it updates the current values while keeping the initial values as a reference, and records the **change fees**. Finally, **Closing** closes the letter and releases the reserved facility.
 
-## التقارير
+## Reports
 
-| التقرير | يجيب عن |
+| Report | Answers |
 |---|---|
-| حركة خطابات الضمان (SYSR-LGT001) | حركة كل خطاب: الإصدار والتعديلات والإنهاء وأرصدة التغطية والتسهيلات. |
+| Letter of Guarantee movements (SYSR-LGT001) | Each letter's movements: issue, amendments, closing, and covered/facility balances. |
 
-## للدعم الفني
+## For Support
 
-- **«تعذّر إصدار الخطاب — تجاوز الحدّ»** — المبلغ المحجوز يتجاوز حدّ التسهيلات المرتبط؛ راجِع [التسهيلات الائتمانية](./credit-facilities.md).
-- **«ما الفرق بين القيم المبدئية والحالية؟»** — المبدئية لقطة شروط الإصدار، والحالية تعكس آخر تعديل؛ كلاهما يبقى على الخطاب للمقارنة.
-- **«من أين تأتي حسابات القيمة والتسهيلات والرسوم؟»** — من توجيه **إصدار خطاب الضمان**؛ راجِع [توجيهات المستندات](./support/accounting-document-terms.md).
-- آلية المعالجة المحاسبية في [كيف تُعالَج المستندات إلى أثر محاسبي](./support/accounting-request-processing.md).
+- **"Couldn't issue the letter — limit exceeded"** — the reserved amount exceeds the linked facility limit; see [Credit Facilities](./credit-facilities.md).
+- **"What's the difference between initial and current values?"** — the initial ones are a snapshot of the issue terms, and the current ones reflect the latest amendment; both stay on the letter for comparison.
+- **"Where do the amount, facility and fee accounts come from?"** — from the **LGT Issue** term; see [Document terms](./support/accounting-document-terms.md).
+- The accounting-processing mechanism is in [How documents are processed into accounting effects](./support/accounting-request-processing.md).

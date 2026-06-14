@@ -1,37 +1,35 @@
-<rtl>
+# Frequently Asked Questions About the Report Builder
 
-# أسئلة شائعة حول أداة إنشاء التقارير
+## How can I create a report that shows the account balance for each branch filtered by a date range, along with total sales for the same branch filtered by a different date range?
 
-## كيف يمكنني إنشاء تقرير يظهر رصيد حساب معين لكل فرع بفلتر تاريخ، بالإضافة إلى إجمالي المبيعات لنفس الفرع مع فلتر تاريخ مختلف؟
+### Scenario
 
-### السيناريو
+* You created a report using the Report Builder on the `LedgerTransLine` table.
+* You added a branch column and another column with a formula to calculate the balance (`debit - credit`).
+* You created an external data source (`DataSource1`) to fetch total sales for the same branch.
+* You added a filter on the `valueDate` field in the main table to filter balances.
+* You created the sales data source from the `SalesInvoice` table and linked the two tables by the `branch` field.
 
-* أنشأت تقريرًا باستخدام أداة إنشاء التقارير على جدول `LedgerTransLine`.
-* أضفت عمودًا للفرع، وعمودًا آخر يحتوي على معادلة لحساب الرصيد (`المدين - الدائن`).
-* أنشأت مصدر بيانات خارجي (`DataSource1`) لجلب إجمالي المبيعات لنفس الفرع.
-* أضفت فلتر على حقل `valueDate` في الجدول الرئيسي لفلترة الأرصدة.
-* أنشأت مصدر البيانات للمبيعات من جدول `SalesInvoice`، وربطت الجدولين بواسطة حقل `branch`.
+### Problem
 
-### المشكلة
-
-أرغب في استخدام فلتر تواريخ مستقل لبيانات المبيعات دون التأثير على فلتر تواريخ الأرصدة.
+You want to use an independent date filter for the sales data without affecting the balance date filter.
 
 ---
 
-### الحل
+### Solution
 
-لتحقيق ذلك، يجب تنفيذ الخطوات التالية:
+To achieve this, follow these steps:
 
-1. **إضافة مدخل مخصص للتاريخ** باسم `salesValueDate`:
+1. **Add a custom date parameter** named `salesValueDate`:
 
-    * نوعه: `Custom`
-    * نوع البيانات: `Date`
+    * Type: `Custom`
+    * Data type: `Date`
 
-2. **ربط هذا المدخل مع مصدر البيانات الأول** (الخاص بالمبيعات) في سطر الفلاتر باستخدام حقل `valueDate`.
+2. **Link this parameter to the first data source** (for sales) in the filters row using the `valueDate` field.
 
 ---
 
-### استيراد إعدادات التقرير
+### Import Report Settings
 
 ::: details
 
@@ -120,7 +118,7 @@
 
 ---
 
-### استيراد مصدر البيانات
+### Import Data Source
 
 ::: details
 
@@ -139,9 +137,7 @@
 
 :::
 
-<ltr>
-
-::: tip Summary in English
+::: tip Summary
 
 **Question**:
 How can I create a report that shows the balance of a specific account for each branch filtered by a date range, and at the same time show the total sales for each branch filtered by a different date range?
@@ -161,48 +157,43 @@ This setup allows independent filtering of account balances and sales totals per
 
 :::
 
-</ltr>
+## Selecting an Item Price from the Price List Based on the Report Date
 
-## اختيار سعر الصنف من قائمة الأسعار حسب تاريخ التقرير
+### Problem
 
-### المشكلة
+If there are multiple price lists containing the **same item** with partially overlapping dates, for example:
 
-إذا كان هناك أكثر من قائمة أسعار تحتوي على **نفس الصنف**، وتواريخها تتقاطع جزئيًا، مثلًا:
+* A price list from the 1st to the end of the month
+* Another price list starting from the 15th to the end of the month
 
-* قائمة أسعار من 1 إلى نهاية الشهر
-* قائمة أخرى تبدأ من 15 إلى نهاية الشهر
+The report must select the correct price based on the **report run date** or a **user-specified date**.
 
-فإنه يجب على التقرير اختيار السعر الصحيح بناءً على **تاريخ تشغيل التقرير** أو **تاريخ يحدده المستخدم**.
+### Solution
 
-### الحل
+Use the `NamaRep.priceCalculator()` function inside a **Custom Jasper Expression** to fetch the item price at the correct date.
 
-استخدم الدالة `NamaRep.priceCalculator()` داخل **التعبير المخصص** (Custom Jasper Expression) لجلب سعر الصنف في التاريخ الصحيح.
-
-#### مثال 1: جلب سعر الصنف في تاريخ تشغيل التقرير
+#### Example 1: Fetch item price at the report run date
 
 ```groovy
 NamaRep.priceCalculator().item(@{details.item.item.id}@).unitPriceOnly().unitPrice()
 ```
 
-هذا المثال يُرجع سعر الصنف في تاريخ تشغيل التقرير.
+This example returns the item price at the report run date.
 
-#### مثال 2: جلب سعر الصنف بناءً على تاريخ مدخل (مثلًا: `FromDate`)
+#### Example 2: Fetch item price based on a user-provided date (e.g., `FromDate`)
 
 ```groovy
 NamaRep.priceCalculator().item(@{details.item.item.id}@).date($P{FromDate}).unitPriceOnly().unitPrice()
 ```
 
-يستخدم هذا المثال التاريخ المحدد من المستخدم لحساب السعر.
+This example uses the date specified by the user to calculate the price.
 
-### ملاحظات
+### Notes
 
-* تأكد من أن **الشركة (Legal Entity)** مأخوذة من سياق التقرير تلقائيًا، أو يمكنك تحديدها يدويًا باستخدام:
+* Make sure the **Legal Entity** is taken from the report context automatically, or you can specify it manually using:
 
   ```groovy
   .legalEntity($P{CompanyId})
   ```
-* يمكنك أيضًا تحديد العميل، الكمية، الوحدة، أو أي عامل آخر يؤثر في السعر إذا كانت القوائم تحتوي على شروط إضافية.
-* الدالة تعيد `null` إذا لم يتم العثور على سعر مطابق.
-
-
-</rtl>
+* You can also specify the customer, quantity, unit, or any other factor that affects the price if the price lists contain additional conditions.
+* The function returns `null` if no matching price is found.

@@ -1,59 +1,59 @@
-# الربط مع هيئة الزكاة والضريبة والجمارك بالسعودية (ZATCA Fatoora)
+# Integration with ZATCA (Saudi Arabia – Fatoora)
 
-## نظرة عامة
+## Overview
 
-تُلزِم هيئة الزكاة والضريبة والجمارك (ZATCA) المنشآت الخاضعة لضريبة القيمة المضافة في المملكة العربية السعودية بإصدار فواتيرها إلكترونيًا والربط مع منظومة **فاتورة (Fatoora)**. يدعم NamaERP المرحلة الثانية من الفوترة الإلكترونية (مرحلة الربط والتكامل - Integration Phase)، حيث يقوم النظام بتوليد الفاتورة بصيغة **UBL 2.1 XML**، وتوقيعها رقميًا، وإرسالها إلى الهيئة مباشرة.
+The Zakat, Tax and Customs Authority (ZATCA) requires VAT-registered businesses in Saudi Arabia to issue their invoices electronically and integrate with the **Fatoora** e-invoicing platform. NamaERP supports **Phase 2 (the Integration Phase)**, where the system generates each invoice as **UBL 2.1 XML**, signs it digitally, and submits it directly to the Authority.
 
-قبل أن نغوص في خطوات الإعداد، من المفيد أن نفهم بعض المفاهيم الأساسية التي ستقابلك كثيرًا أثناء الربط:
+Before diving into the setup steps, it helps to understand a few concepts you'll meet repeatedly during integration:
 
-### نوعان من الفواتير
+### Two kinds of invoices
 
-تفرّق منظومة فاتورة بين نوعين من الفواتير، ولكل منهما مسار مختلف:
+Fatoora distinguishes between two invoice types, each with its own path:
 
-| النوع | المُستخدِم | آلية الإرسال | متى تكون الفاتورة سارية؟ |
-|------|-----------|--------------|--------------------------|
-| **الفاتورة الضريبية (Standard / B2B)** | المبيعات بين المنشآت | **المصادقة (Clearance)** | بعد أن تعتمدها الهيئة وتُرجِعها مختومة برمز QR رسمي — لا يجوز مشاركتها مع المشتري قبل ذلك |
-| **الفاتورة المبسطة (Simplified / B2C)** | المبيعات للمستهلك النهائي | **الإبلاغ (Reporting)** | تُسلَّم للعميل فورًا وقت البيع، ويتم إبلاغ الهيئة بها خلال 24 ساعة |
+| Type | Used for | Submission model | When is the invoice valid? |
+|------|----------|------------------|----------------------------|
+| **Standard / Tax Invoice (B2B)** | Business-to-business sales | **Clearance** | Only after ZATCA approves it and returns it stamped with an official QR code — it must not be shared with the buyer before that |
+| **Simplified Invoice (B2C)** | Sales to end consumers | **Reporting** | Handed to the customer immediately at point of sale; reported to ZATCA within 24 hours |
 
 ::: tip
-في إعداد مصلحة الضرائب ستجد حقلين: **فواتير قياسية (Standard Invoices)** و **فواتير مبسطة (Simplified Invoices)**. فعّل ما يناسب نشاطك — يمكن تفعيل النوعين معًا إذا كانت منشأتك تبيع للجهات وللأفراد.
+In the Tax Payer Configuration you'll find two flags: **Standard Invoices** and **Simplified Invoices**. Enable whichever matches your business — you can enable both if you sell to both businesses and individuals.
 :::
 
-### دورة حياة الربط (الاعتماد - Onboarding)
+### The onboarding lifecycle (CSID)
 
-لا يمكن لأي نظام أن يرسل فواتير قبل أن «يعتمد» نفسه لدى الهيئة. تمر عملية الاعتماد بثلاث مراحل تقوم بها زر **«اعتماد النظام»** في النظام تلقائيًا:
+No system may send invoices until it has "onboarded" itself with the Authority. Onboarding has three stages, all performed automatically by the **Approve System** button:
 
-1. **توليد طلب الشهادة (CSR)**: ينشئ النظام طلب توقيع شهادة من بيانات منشأتك الضريبية.
-2. **شهادة الامتثال (Compliance CSID)**: يرسل النظام الطلب مع **رمز التحقق (OTP)** الذي تحصل عليه من بوابة فاتورة، ثم يُرسِل عينات من الفواتير للتأكد من توافقها.
-3. **شهادة الإنتاج (Production CSID)**: بعد نجاح عينات الامتثال، يحصل النظام على شهادة الإنتاج النهائية ويخزّنها داخل الإعداد، فتصبح المنشأة جاهزة لإرسال الفواتير الفعلية.
+1. **Generate the CSR**: the system builds a Certificate Signing Request from your business's tax data.
+2. **Compliance CSID**: the system submits the request together with an **OTP** obtained from the Fatoora portal, then sends sample invoices to prove compliance.
+3. **Production CSID**: once the compliance samples pass, the system obtains the final production certificate and stores it inside the configuration, making your business ready to submit live invoices.
 
-## المتطلبات الأساسية
+## Prerequisites
 
-قبل البدء تأكد من توفر التالي:
+Before you start, make sure you have:
 
-- صلاحية دخول إلى **بوابة فاتورة (Fatoora Portal)** لتوليد رمز التحقق (OTP).
-- **رقم التسجيل الضريبي** للمنشأة (15 رقمًا، يبدأ وينتهي بالرقم 3).
-- **رقم السجل التجاري (CRN)**.
-- بيانات **العنوان الوطني** للمنشأة كاملة.
-- **الرقم التسلسلي لوحدة توليد الفواتير (EGS Serial Number)**.
-- تثبيت **حزمة ZATCA SDK** ونشر ملف التوقيع `zatca.war` على السيرفر (نشرحه في القسم التالي).
+- Access to the **Fatoora Portal** to generate the OTP.
+- The business's **VAT Registration Number** (15 digits, starting and ending with 3).
+- The **Commercial Registration Number (CRN)**.
+- The complete **National Address** of the business.
+- The **EGS Serial Number** (Electronic Generation Solution unit serial).
+- The **ZATCA SDK** installed and the `zatca.war` signer deployed on the server (covered in the next section).
 
-## تجهيز سيرفر العميل للربط
+## Preparing the Client Server
 
-أداة التوقيع الرقمي التي توفرها الهيئة (ZATCA SDK) تُستخدَم لتوقيع الفواتير وحساب الـ hash ورمز QR. اتبع الخطوات التالية لتجهيز السيرفر:
+The Authority's digital-signing toolkit (ZATCA SDK) is used to sign invoices and compute the hash and QR code. Follow these steps to prepare the server:
 
-- قم بتحميل ملف الزكاة والدخل من [Zatca SDK](https://zatca.gov.sa/en/E-Invoicing/SystemsDevelopers/ComplianceEnablementToolbox/Pages/DownloadSDK.aspx)
-- قم بفك الملف المضغوط الذي تم تحميله في الخطوة السابقة
-- بداخل المجلد الذي تم فكه ستجد ملف `install.ba_` — قم بتغيير اسمه إلى `install.bat` ثم قم بتشغيله
-  - يمكنك تغيير الاسم بسهولة من خلال اختيار الملف ثم الضغط على F2
-- قم بالذهاب إلى Environment Variables من خلال خصائص الكمبيوتر ← متقدم، أو قم بتشغيل الأمر التالي في Run Dialog (Win + R)
+- Download the ZATCA SDK from [Zatca SDK](https://zatca.gov.sa/E-Invoicing/SystemsDevelopers/ComplianceEnablementToolbox/Pages/DownloadSDK.aspx)
+- Extract the downloaded archive
+- Inside the extracted folder you will find a file named `install.ba_` — rename it to `install.bat` and run it
+  - You can easily rename it by selecting the file and pressing F2
+- Go to Environment Variables via Computer Properties > Advanced, or run the following command in the Run Dialog (Win + R)
 ```sh
 rundll32 sysdm.cpl,EditEnvironmentVariables
 ```
-- قم بنسخ السطر الذي يخص `SDK_CONFIG` من القسم `User Variables` إلى القسم `System Variables`
+- Copy the `SDK_CONFIG` entry from the `User Variables` section to the `System Variables` section
 
-::: tip نسخ المتغير تلقائيًا
-يمكنك تشغيل الكود التالي في برنامج Windows PowerShell (يجب تشغيله كـ Administrator) لنسخ المتغير أعلاه بدلًا من نسخه يدويًا:
+::: tip Copy the variable automatically
+You can run the following code in Windows PowerShell (must be run as Administrator) to copy the variable above instead of copying it manually:
 ```powershell
 $varName = "SDK_CONFIG"
 $userValue = [Environment]::GetEnvironmentVariable($varName, "User")
@@ -65,264 +65,264 @@ if ($userValue) {
     Write-Host "User environment variable '$varName' not found."
 }
 ```
-**تذكّر أن تقوم بتشغيل PowerShell كـ Administrator.**
+**Remember to run PowerShell as Administrator.**
 :::
 
-بعد النسخ — سواء بشكل يدوي أو باستعمال كود باور شيل — يجب أن يكون الشكل مقاربًا للتالي:
+After copying — whether manually or using the PowerShell script — the result should look similar to the following:
 
-![لقطة شاشة لمتغيرات النظام الخاصة بـ ZATCA](images/zatca-system-variables.png)
+![ZATCA System Variables Screenshot](../../ar/modules/invoicing/images/zatca-system-variables.png)
 
-- قم بفتح الملف `Configuration/config.json` وتأكد أن المسارات بداخله صحيحة.
-- قم بتحميل ملف `zatca.war` من: <https://namasoft.com/bin/zatca.war>
-  - ضع الملف في مجلد `Tomcat Path/webapps`.
+- Open the file `Configuration/config.json` and verify that the paths inside it are correct.
+- Download the `zatca.war` file from: <https://namasoft.com/bin/zatca.war>
+  - Place the file in the `Tomcat Path/webapps` folder.
 
 ::: warning
-ملف `zatca.war` هو خدمة التوقيع التي يستدعيها النظام عند كل عملية إرسال. إذا ظهرت رسالة **"Please update zatca JAR"** فهذا يعني أن الخدمة غير منشورة أو أن نسختها قديمة.
+`zatca.war` is the signing service the system calls on every submission. If you see the message **"Please update zatca JAR"**, the service is either not deployed or out of date.
 :::
 
-## تجهيز النظام
+## Preparing the System
 
-- من **«الإعدادات العامة»** ← الصفحة الثانية، اختر `هيئة الزكاة والدخل (السعودية)` في الحقل **«عرض صفحة الفاتورة الإلكترونية الخاصة بـ»**:
+- From **"Global Configuration"** → Page 2, select `ZATCA (Saudi Arabia)` in the field **"e-Invoice Page To Show"**:
 
 <GlobalConfigOption option-code="value.info.einvoicePageShowType" />
 
-- بعد تغيير قيمة الحقل قم بعمل **Regen UI** حتى تظهر صفحة ZATCA داخل الفواتير والمستندات.
+- After changing the field value, perform a **Regen UI** so the ZATCA page appears inside invoices and documents.
 
-## استكمال بيانات الشركة
+## Completing the Company Information
 
-منظومة فاتورة تعتمد على بيانات **البائع (المنشأة)** كاملة. أكمل الحقول التالية في ملف الشركة (الكيان القانوني / الفرع المستخدم في الإعداد):
+Fatoora relies on complete **seller (establishment)** data. Fill in the following fields in the company file (the legal entity / branch used in the configuration):
 
-- رقم السجل التجاري
-- رقم التسجيل الضريبى
+- Commercial Registration Number
+- Tax Registration Number
 
-ثم أكمل بيانات **العنوان الوطني** الخاص بالمؤسسة:
+Then complete the establishment's **National Address**:
 
-- كود الدولة
-- الدولة
-- المدينة
-- المحافظة
-- المنطقة
-- شارع
-- رقم المبني
-- الكود البريدي
-- الحي
-- عنوان 1
-- رقم تعريفي للأرض
+- Country Code
+- Country
+- City
+- Governorate
+- District
+- Street
+- Building Number
+- Postal Code
+- Neighborhood
+- Address 1
+- Land Identifier
 
-![لقطة شاشة لبيانات الكيان القانوني الخاصة بـ ZATCA](images/zatca-legal-entity-info.png)
+![ZATCA Legal Entity Info Screenshot](../../ar/modules/invoicing/images/zatca-legal-entity-info.png)
 
 ::: warning
-العنوان الوطني إلزامي. إذا نقص أحد حقول العنوان (الدولة، المدينة، الشارع، رقم المبنى…) فلن يجتاز الإعداد التحقق، وستظهر رسالة بالحقل الناقص في الفرع المختار.
+The National Address is mandatory. If an address field (country, city, street, building number…) is missing, the configuration will fail validation and you'll see a message naming the missing field in the selected branch.
 :::
 
-## إنشاء إعداد مصلحة الضرائب
+## Creating a Tax Payer Configuration
 
-كل ما سبق يتجمّع في ملف **«إعدادات مصلحة الضرائب» (Tax Payer Configuration)**. أنشئ ملفًا جديدًا، وفي الصفحة الرئيسية اضبط البيانات الأساسية:
+Everything above comes together in the **Tax Payer Configuration** record. Create a new record and, on the main page, set the basic data:
 
-![الصفحة الرئيسية لإعداد مصلحة الضرائب](images/zatca-taxpayer-config.png)
+![Tax Payer Configuration – Main page](../../ar/modules/invoicing/images/zatca-taxpayer-config.png)
 
-عند التكويد، اختر القيمة المناسبة في حقل **«نوع المصلحة» (Tax Payer Type)** حسب مرحلة الربط:
+When configuring, select the appropriate value in the **Tax Payer Type** field according to your integration stage:
 
-| القيمة | الاستخدام |
-|-------|-----------|
-| `السعودية - موقع الفاتورة الإلكتروني للمطورين` | بيئة المطورين (Sandbox) لأغراض التجربة والتطوير |
-| `السعودية - موقع الفاتورة الإلكترونية التجريبي` | بيئة المحاكاة (Simulation) للربط خلال فترة التجربة |
-| `السعودية - موقع الفاتورة الإلكترونية` | الربط الفعلي (Production) |
+| Value | Use |
+|-------|-----|
+| `Saudi Arabia - E-Invoice Developer Portal` | Developer (Sandbox) environment for testing and development |
+| `Saudi Arabia - E-Invoice Simulation Portal` | Simulation environment for integration during the trial period |
+| `Saudi Arabia - E-Invoice Portal` | Live (Production) integration |
 
 ::: tip
-يُملأ حقل **رابط الـ API (API URL)** تلقائيًا عند اختيار نوع المصلحة. ابدأ دائمًا ببيئة **المحاكاة (Simulation)** واختبر سيناريوهاتك بالكامل قبل الانتقال إلى الإنتاج.
+The **API URL** field is filled automatically when you pick the tax payer type. Always start with the **Simulation** environment and test your scenarios end-to-end before moving to production.
 :::
 
-بعد ذلك انتقل إلى تبويب **«صفحة ZATCA»** لاستكمال بيانات التكامل:
+Next, switch to the **ZATCA Page** tab to complete the integration data:
 
-![صفحة ZATCA في إعداد مصلحة الضرائب](images/zatca-taxpayer-config-zatca-page.png)
+![Tax Payer Configuration – ZATCA Page](../../ar/modules/invoicing/images/zatca-taxpayer-config-zatca-page.png)
 
-| الحقل | الوصف |
-|------|-------|
-| **رقم التسجيل الضريبي (Tax Reg No)** | الرقم الضريبي للمنشأة (15 رقمًا، يبدأ وينتهي بـ 3) |
-| **الرقم التسلسلي للوحدة (EGS Serial Number)** | الرقم التسلسلي لوحدة توليد الفواتير — حقل إلزامي للربط مع ZATCA |
-| **فواتير قياسية (Standard Invoices)** | فعّله إذا كنت تصدر فواتير ضريبية للجهات (B2B) |
-| **فواتير مبسطة (Simplified Invoices)** | فعّله إذا كنت تصدر فواتير مبسطة للأفراد (B2C) |
-| **اسم وحدة المنشأة (Organization Unit Name)** | إلزامي للمنشآت التابعة لمجموعة ضريبية: أدخل **رقم السجل (10 أرقام)** عندما يكون الرقم الحادي عشر من الرقم الضريبي = 1 |
-| **كلمة المرور (Password)** | يُستخدَم لإدخال **رمز التحقق (OTP)** وقت اعتماد النظام (نشرحه في القسم التالي) |
-| **بُعد الفرع (Branch Dimension)** | الفرع/الكيان القانوني الذي تُؤخَذ منه بيانات البائع والعنوان الوطني |
-| **نوع النشاط (Activity Type)** | كود النشاط التجاري للمنشأة |
+| Field | Description |
+|-------|-------------|
+| **Tax Reg No** | The establishment's VAT number (15 digits, starts and ends with 3) |
+| **EGS Serial Number** | The Electronic Generation Solution unit serial — required for ZATCA integration |
+| **Standard Invoices** | Enable if you issue tax invoices to businesses (B2B) |
+| **Simplified Invoices** | Enable if you issue simplified invoices to individuals (B2C) |
+| **Organization Unit Name** | Required for establishments belonging to a tax group: enter the **10-digit record number** when the 11th digit of the VAT number = 1 |
+| **Password** | Used to enter the **OTP** at the time of system approval (see next section) |
+| **Branch Dimension** | The branch / legal entity from which the seller data and National Address are taken |
+| **Activity Type** | The business activity code of the establishment |
 
-::: warning مجموعة ضريبية (Tax Group)
-إذا كانت منشأتك ضمن مجموعة ضريبية (الرقم الحادي عشر من الرقم الضريبي يساوي 1)، فيجب تعبئة **«اسم وحدة المنشأة»** برقم سجل صحيح مكوّن من 10 أرقام، وإلا سيرفض النظام توليد طلب الشهادة.
+::: warning Tax Group
+If your establishment is part of a tax group (the 11th digit of the VAT number equals 1), **Organization Unit Name** must contain a valid 10-digit record number, otherwise the system will refuse to generate the certificate request.
 :::
 
-## اعتماد النظام (Onboarding)
+## Approving the System (Onboarding)
 
-بعد حفظ الإعداد وتعبئة بياناته، نقوم باعتماد النظام لدى الهيئة:
+After saving the configuration and filling in its data, onboard the system with the Authority:
 
-1. ادخل إلى **بوابة فاتورة** وولّد **رمز التحقق (OTP)**.
-2. ضع رمز التحقق في حقل **«كلمة المرور» (Password)** داخل صفحة ZATCA.
-3. اضغط زر **«اعتماد النظام» (Approve System)**.
+1. Log in to the **Fatoora Portal** and generate an **OTP**.
+2. Place the OTP in the **Password** field on the ZATCA page.
+3. Click the **Approve System** button.
 
-عند الضغط، يقوم النظام بالخطوات الثلاث التي ذكرناها في المقدمة (توليد CSR ← شهادة الامتثال + التحقق من العينات ← شهادة الإنتاج)، ويخزّن الشهادة النهائية داخل الإعداد. عند نجاح العملية تصبح المنشأة جاهزة لإرسال الفواتير.
+When clicked, the system performs the three stages described in the overview (generate CSR → compliance CSID + sample validation → production CSID) and stores the final certificate inside the configuration. On success, the establishment is ready to submit invoices.
 
 ::: tip
-عينات الامتثال التي يرسلها النظام تعتمد على ما فعّلته من أنواع الفواتير: إذا فعّلت **الفواتير القياسية** يتم التحقق من عينات فاتورة/إشعار دائن/إشعار مدين قياسية، ومثلها للمبسطة. لذلك فعّل فقط الأنواع التي ستصدرها فعليًا.
+The compliance samples the system sends depend on which invoice types you enabled: enabling **Standard Invoices** validates standard invoice / credit note / debit note samples, and likewise for simplified. So enable only the types you will actually issue.
 :::
 
 ::: warning
-رمز التحقق (OTP) صالح لمدة محدودة. إذا انتهت صلاحيته قبل الضغط على «اعتماد النظام»، ولّد رمزًا جديدًا من بوابة فاتورة.
+The OTP is valid for a limited time. If it expires before you click **Approve System**, generate a new one from the Fatoora portal.
 :::
 
-## إعداد أكواد الضريبة وفئات ضريبة القيمة المضافة
+## Configuring Tax Codes and VAT Categories
 
-تُصنّف ZATCA كل سطر في الفاتورة حسب **فئة ضريبة القيمة المضافة**. يجب أن تكون كل ضريبة مستخدمة في فواتيرك مربوطة بفئة صحيحة:
+ZATCA classifies every invoice line by its **VAT category**. Each tax used in your invoices must be mapped to a valid category:
 
-| الكود | الفئة | الوصف |
-|------|------|-------|
-| `S` | النسبة القياسية | خاضع للضريبة بالنسبة القياسية (**15%**) |
-| `Z` | نسبة الصفر | خاضع للضريبة بنسبة صفر (Zero-Rated) |
-| `E` | معفى | معفى من ضريبة القيمة المضافة (Exempt) |
-| `O` | خارج النطاق | غير خاضع لضريبة القيمة المضافة (Out of Scope) |
+| Code | Category | Description |
+|------|----------|-------------|
+| `S` | Standard rate | Taxable at the standard rate (**15%**) |
+| `Z` | Zero rate | Zero-rated supply |
+| `E` | Exempt | Exempt from VAT |
+| `O` | Out of scope | Not subject to VAT |
 
-عندما لا تكون الفئة هي `S`، تشترط الهيئة ذِكر **سبب الإعفاء/عدم الخضوع**. لذلك حدِّد في صفحة ZATCA داخل الإعداد:
+When the category is not `S`, the Authority requires an **exemption / exception reason**. So set the following on the ZATCA page in the configuration:
 
-- **كود سبب الإعفاء (E)** — لفواتير الأصناف المعفاة.
-- **كود سبب نسبة الصفر (Z)** — لفواتير الأصناف الخاضعة بنسبة صفر.
-- **نص سبب عدم الخضوع (O)** — وصف نصّي للأصناف خارج النطاق.
+- **ZATCA Exempt (E) Reason Code** — for exempt-item invoices.
+- **ZATCA Zero Rate (Z) Reason Code** — for zero-rated items.
+- **ZATCA Out Of Scope (O) Reason Text** — a free-text description for out-of-scope items.
 
-تستخدم الهيئة قائمة موحّدة من أكواد الإعفاء تُعرف بـ **VATEX**. اختر الكود المناسب لطبيعة نشاطك:
+The Authority uses a standardized list of exemption codes known as **VATEX**. Pick the code that matches your activity:
 
-| الكود | السبب |
-|------|------|
-| `VATEX-SA-29` | الخدمات المالية |
-| `VATEX-SA-29-7` | عقد تأمين على الحياة |
-| `VATEX-SA-30` | التوريدات العقارية المعفاة من الضريبة |
-| `VATEX-SA-32` | صادرات السلع من المملكة |
-| `VATEX-SA-33` | صادرات الخدمات من المملكة |
-| `VATEX-SA-34-1` | النقل الدولي للسلع |
-| `VATEX-SA-34-2` | النقل الدولي للركاب |
-| `VATEX-SA-34-3` | الخدمات المرتبطة بالنقل الدولي للركاب |
-| `VATEX-SA-34-4` | توريد وسائل النقل المؤهلة |
-| `VATEX-SA-34-5` | الخدمات ذات الصلة بنقل السلع أو الركاب |
-| `VATEX-SA-35` | الأدوية والمعدات الطبية |
-| `VATEX-SA-36` | المعادن المؤهلة |
-| `VATEX-SA-EDU` | الخدمات التعليمية الخاصة للمواطنين |
-| `VATEX-SA-HEA` | الخدمات الصحية الخاصة للمواطنين |
-| `VATEX-SA-MLTRY` | توريد السلع العسكرية المؤهلة |
-| `VATEX-SA-OOS` | التوريدات غير الخاضعة للضريبة (خارج النطاق) |
+| Code | Reason |
+|------|--------|
+| `VATEX-SA-29` | Financial services |
+| `VATEX-SA-29-7` | Life insurance services |
+| `VATEX-SA-30` | Real estate transactions |
+| `VATEX-SA-32` | Export of goods |
+| `VATEX-SA-33` | Export of services |
+| `VATEX-SA-34-1` | International transport of goods |
+| `VATEX-SA-34-2` | International transport of passengers |
+| `VATEX-SA-34-3` | Services connected to international passenger transport |
+| `VATEX-SA-34-4` | Supply of a qualifying means of transport |
+| `VATEX-SA-34-5` | Services related to goods or passenger transportation |
+| `VATEX-SA-35` | Medicines and medical equipment |
+| `VATEX-SA-36` | Qualifying metals |
+| `VATEX-SA-EDU` | Private education to citizen |
+| `VATEX-SA-HEA` | Private healthcare to citizen |
+| `VATEX-SA-MLTRY` | Supply of qualified military goods |
+| `VATEX-SA-OOS` | Out of scope of VAT |
 
 ::: warning
-عند استخدام الفئة `S` يجب أن تكون نسبة الضريبة بالضبط **15%**. وفي حالة الفئات `E` و `Z` و `O` لن تُقبل الفاتورة بدون كود/نص سبب صحيح.
+When using category `S`, the tax rate must be exactly **15%**. For categories `E`, `Z` and `O`, the invoice will not be accepted without a valid reason code/text.
 :::
 
-::: tip مصدر كود الإعفاء (خطة الضرائب)
-لا يقتصر تعريف أكواد الإعفاء أعلاه على الإعداد؛ يمكنك تعريفها أيضًا على مستوى **خطة الضرائب (Tax Plan)** وسطورها. يحدّد حقل **«نوع أكواد الضرائب» (Tax Codes Type)** في الإعداد المستوى الذي تُؤخَذ منه الأكواد — بنفس آلية باقي أكواد الضرائب — فإن تُرك الكود فارغًا في المستوى المختار رجع النظام تلقائيًا إلى الكود المعرّف في الإعداد.
+::: tip Where the exemption code comes from (Tax Plan)
+You aren't limited to defining the exemption codes above on the configuration — you can also set them on the **Tax Plan** and its lines. The **Tax Codes Type** field on the configuration decides which level the codes are read from — the same mechanism used for your other tax codes — and when the chosen level leaves a code empty, the system falls back to the code defined on the configuration.
 :::
 
-## إعداد العميل (المشتري)
+## Customer (Buyer) Setup
 
-بالنسبة للفواتير القياسية (B2B)، تحتاج الهيئة إلى التعرّف على هوية المشتري. أكمل البيانات الضريبية لكل عميل ستصدر له فواتير قياسية:
+For standard (B2B) invoices, the Authority needs to identify the buyer. Complete the tax data for every customer you will issue standard invoices to:
 
-| الحقل | الوصف |
-|------|-------|
-| **رقم التسجيل الضريبي (Tax Reg No)** | الرقم الضريبي للمشتري — مطلوب للمشتري المسجَّل في الضريبة (B2B) |
-| **نوع هوية المشتري (ZATCA Buyer Id Type)** | نوع الهوية المستخدمة للتعريف بالمشتري (انظر الجدول التالي) — **اختياري**؛ إن تُرك فارغًا يُستنتَج تلقائيًا من الحقل المعبأ |
-| **رقم الهوية (Id Number)** | قيمة الهوية المطابقة للنوع المختار |
-| **العنوان** | الدولة والمدينة والحي والشارع ورقم المبنى والرمز البريدي |
+| Field | Description |
+|-------|-------------|
+| **Tax Reg No** | The buyer's VAT number — required for a VAT-registered buyer (B2B) |
+| **ZATCA Buyer Id Type** | The type of identity used to identify the buyer (see the table below) — **optional**; if left empty it is auto-derived from whichever identity field is filled |
+| **Id Number** | The identity value matching the selected type |
+| **Address** | Country, city, district, street, building number and postal code |
 
-أنواع هوية المشتري المتاحة:
+Available buyer identity types:
 
-| الكود | الهوية | الحقل المصدر للقيمة | متى تُستخدَم |
-|------|-------|---------------------|-------------|
-| `TIN` | الرقم الضريبي | رقم التسجيل الضريبي | المشتري المسجَّل ضريبيًا |
-| `CRN` | السجل التجاري | رقم السجل التجاري | الجهات والشركات |
-| `MOM` | رخصة وزارة الشؤون البلدية | الرقم المميز | حسب الترخيص |
-| `MLS` | رخصة وزارة الموارد البشرية | الرقم المميز | حسب الترخيص |
-| `700` | الرقم الموحد 700 (الرقم الوطني الموحد) | الرقم الوطني الموحد | حسب التسجيل |
-| `SAG` | رخصة وزارة الاستثمار (MISA) | الرقم المميز | المنشآت الاستثمارية |
-| `NAT` | الهوية الوطنية | رقم البطاقة الشخصية | الأفراد المواطنون |
-| `GCC` | الهوية الخليجية | الرقم المميز | مواطنو دول الخليج |
-| `IQA` | رقم الإقامة | الرقم المميز | المقيمون |
-| `PAS` | جواز السفر | رقم البطاقة الشخصية | غير المقيمين |
-| `OTH` | هوية أخرى | الرقم المميز | الحالات الأخرى |
+| Code | Identity | Source field (value) | When to use |
+|------|----------|----------------------|-------------|
+| `TIN` | Tax Identification Number | Tax Reg No | A VAT-registered buyer |
+| `CRN` | Commercial Registration | Commercial Reg No | Businesses and entities |
+| `MOM` | MOMRAH License | Distinguished Number | As per license |
+| `MLS` | MHRSD License | Distinguished Number | As per license |
+| `700` | 700 Number (Unified National Number) | CR National Number | As per registration |
+| `SAG` | MISA License | Distinguished Number | Investment entities |
+| `NAT` | National ID | Id Number | Citizen individuals |
+| `GCC` | GCC ID | Distinguished Number | GCC nationals |
+| `IQA` | Iqama Number | Distinguished Number | Residents |
+| `PAS` | Passport ID | Id Number | Non-residents |
+| `OTH` | Other ID | Distinguished Number | Other cases |
 
-::: tip اختيار نوع الهوية بحسب نوع العميل
-- **شركة/جهة (قطاع خاص أو حكومي)** ← غالبًا `CRN` أو `TIN`.
-- **فرد مواطن** ← `NAT` (لا تستخدم `CRN` للأفراد إطلاقًا).
-- **مقيم** ← `IQA`، **زائر/أجنبي** ← `PAS`.
+::: tip Choosing the identity type by customer kind
+- **Company / entity (private or government)** → usually `CRN` or `TIN`.
+- **Individual citizen** → `NAT` (never use `CRN` for individuals).
+- **Resident** → `IQA`, **visitor / foreigner** → `PAS`.
 :::
 
-::: tip اترك النوع فارغًا ليُستنتَج تلقائيًا
-إن لم تحدّد **نوع هوية المشتري**، يستنتج النظام الكود من الحقل المعبأ: رقم الهوية لعميل **فرد** ← `NAT`، ولعميل **أجنبي** ← `PAS`؛ ورقم السجل التجاري أو الرقم المميز ← `CRN`؛ و**الرقم الوطني الموحد (700)** ← `700`؛ ورقم التسجيل الضريبي ← `TIN`. لا تحتاج لتحديد النوع صراحةً إلا عندما تريد فرض كود معيّن (مثل `MOM` أو `MLS` أو `SAG` أو `GCC` أو `IQA`)، وعندها يُؤخَذ **الرقم المميز** قيمةً للهوية.
+::: tip Leave the type empty to auto-derive it
+If you don't set **ZATCA Buyer Id Type**, the system infers the code from the filled field: an ID number on an **individual** → `NAT`, on a **foreigner** → `PAS`; a commercial registration or distinguished number → `CRN`; a **CR national number (the unified national number)** → `700`; and the VAT registration number → `TIN`. You only need to set the type explicitly to force a specific scheme (such as `MOM`, `MLS`, `SAG`, `GCC` or `IQA`), in which case the **distinguished number** is used as the identity value.
 :::
 
-::: tip أرقام السجل التجاري التي تبدأ بـ `700`
-إذا بدأت قيمة **رقم السجل التجاري** نفسها بالأرقام `700`، فهي رقم وطني موحد ويُرسَل تلقائيًا تحت الكود `700` بدلًا من `CRN` — سواء استُنتج نوع هوية المشتري تلقائيًا أو حُدِّد صراحةً كـ `CRN`.
+::: tip Commercial registrations that begin with `700`
+If the **Commercial Reg No** value itself starts with `700`, it is a Unified National Number and is automatically sent under scheme `700` instead of `CRN` — whether the buyer Id type is auto-derived or explicitly set to `CRN`.
 :::
 
 ::: warning
-في الفاتورة القياسية يجب أن يحمل المشتري **إما رقمًا ضريبيًا وإما أحد أنواع الهوية أعلاه**؛ وإلا تُرفض الفاتورة. كذلك يجب أن تكون قيمة الهوية **حروفًا وأرقامًا فقط** بدون شرطات أو مسافات.
+On a standard invoice the buyer must carry **either a VAT number or one of the identity types above**; otherwise the invoice is rejected. The identity value must also be **alphanumeric only** — no dashes or spaces.
 :::
 
-## إرسال الفواتير
+## Sending Invoices
 
-يتم تجميع الفواتير وإرسالها إلى الهيئة من خلال مستند **«إرسال مستندات إلى مصلحة الضرائب» (Tax Authority Submission Document)**.
+Invoices are collected and submitted to the Authority through the **Tax Authority Submission Document**.
 
-![مستند إرسال مستندات إلى مصلحة الضرائب](images/zatca-submission-doc.png)
+![Tax Authority Submission Document](../../ar/modules/invoicing/images/zatca-submission-doc.png)
 
-الخطوات:
+Steps:
 
-1. أنشئ مستند إرسال جديدًا واختر **إعداد مصلحة الضرائب** المناسب، وحدّد فترة التجميع (من/إلى تاريخ أو من/إلى مستند).
-2. اضغط **«تجميع مستندات الضرائب» (Collect Tax Authority Documents)** لإضافة الفواتير المستحقة للإرسال إلى السطور.
-3. (اختياري) اضغط **«التأكد من صحة المستندات» (Validate Tax Authority Documents)** للتحقق من البيانات قبل الإرسال، أو **«مطالعة المستندات قبل الإرسال»** لمعاينة الـ XML الناتج.
-4. اضغط **«إرسال المستندات المختارة» (Send Selected Documents)** أو **«إرسال المستندات التي لم تُرسَل» (Send Not Sent Documents)** لتقديم الفواتير.
+1. Create a new submission document and select the relevant **Tax Payer Configuration**, then set the collection range (from/to date or from/to document).
+2. Click **Collect Tax Authority Documents** to add the invoices due for submission to the lines.
+3. (Optional) Click **Validate Tax Authority Documents** to check the data before sending, or **Preview Documents Before Sent** to inspect the generated XML.
+4. Click **Send Selected Documents** or **Send Not Sent Documents** to submit the invoices.
 
-يوجّه النظام كل فاتورة تلقائيًا حسب نوعها: **الفواتير القياسية تذهب لمسار المصادقة (Clearance)** و **الفواتير المبسطة تذهب لمسار الإبلاغ (Reporting)**.
+The system routes each invoice automatically by its type: **standard invoices go through the Clearance path** and **simplified invoices go through the Reporting path**.
 
-### حالات الإرسال
+### Submission statuses
 
-بعد الإرسال تُضبط حالة كل مستند إلى إحدى القيم:
+After sending, each document's status is set to one of:
 
-| الحالة | المعنى |
-|-------|-------|
-| **لم تُرسَل (Not Sent)** | لم تُقدَّم بعد إلى الهيئة |
-| **أُرسلت (Sent)** | قبلتها الهيئة (تمت مصادقتها أو الإبلاغ عنها بنجاح) |
-| **أُرسلت وغير صحيحة (Not Valid Sent)** | رفضتها الهيئة — راجع حقل الأخطاء على السطر لمعرفة السبب |
+| Status | Meaning |
+|--------|---------|
+| **Not Sent** | Not yet submitted to the Authority |
+| **Sent** | Accepted by the Authority (cleared or reported successfully) |
+| **Not Valid Sent** | Rejected by the Authority — check the error field on the line for the reason |
 
-### متابعة حالة الفاتورة
+### Tracking invoice status
 
-- استخدم زر **«فحص حالة المستندات المُرسَلة للضرائب» (Check Tax Authority Status For Sent Document)** للاستعلام عن الحالة النهائية من الهيئة وتحديثها على السطور.
-- من الفاتورة نفسها يمكنك استخدام **«عرض الفاتورة في موقع الفاتورة الإلكترونية»** لفتح الفاتورة على بوابة الهيئة.
+- Use the **Check Tax Authority Status For Sent Document** button to query the final status from the Authority and update it on the lines.
+- From the invoice itself, use **View Invoice At E Invoice Site** to open the invoice on the Authority's portal.
 
 ::: tip
-بالنسبة للفواتير القياسية، النسخة القانونية المعتمدة هي **النسخة المختومة من الهيئة (Cleared Invoice)** التي تتضمن رمز QR الرسمي، ويحتفظ بها النظام بعد المصادقة. أما الفواتير المبسطة فتحمل رمز QR منذ لحظة إصدارها.
+For standard invoices, the legally valid version is the **Cleared Invoice** returned by the Authority, which carries the official QR code; the system keeps it after clearance. Simplified invoices carry a QR code from the moment they are issued.
 :::
 
-### تصدير ملف XML للفاتورة
+### Exporting the invoice XML
 
-يوفّر مستند الإرسال إجراءين لاستخراج ملف الـ XML الخام للسطور المختارة — مفيدان للمراجعة أو لإثبات ما تم تقديمه فعليًا:
+The submission document offers two actions to pull the raw UBL XML for the selected lines — useful for audits or for proving what was actually submitted:
 
-- **تصدير XML المعتمد/المُرسَل للسطور المختارة (Export Cleared / Sent XML For Selected Lines)** — يصدّر نفس الـ XML الذي استلمته الهيئة: النسخة المعتمدة المختومة (التي تحمل رمز QR الرسمي) للفواتير القياسية، أو النسخة المُبلَّغ عنها للفواتير المبسطة.
-- **تصدير XML الحالي للسطور المختارة (Export Current XML For Selected Lines)** — يعيد توليد الـ XML من بيانات المستند الحالية في الحال.
+- **Export Cleared / Sent XML For Selected Lines** — exports the exact XML the Authority received: the cleared (ZATCA-stamped, QR-bearing) version for standard invoices, or the reported version for simplified ones.
+- **Export Current XML For Selected Lines** — regenerates the XML from the document's current data on the spot.
 
-بتصدير الملفين ومقارنتهما تعرف إن كانت الفاتورة الأصلية قد تغيّرت بعد الإرسال: فإن لم يَعُد الـ XML **الحالي** مطابقًا للـ XML **المعتمد/المُرسَل**، فهذا يعني أن أحدهم عدّل المستند الأصلي بعد تقديمه. وتُتجاهَل السطور التابعة لجهات لا تستخدم XML.
+Exporting both and comparing them tells you whether the underlying invoice changed after submission: if the **current** XML no longer matches the **cleared/sent** one, the source document was edited after it was submitted. Lines belonging to authorities that don't use XML are skipped.
 
-## أنواع المستندات المدعومة
+## Supported Document Types
 
-| النوع | مدعوم |
-|------|-------|
-| فاتورة (Invoice) | نعم |
-| إشعار دائن (Credit Note) | نعم |
-| إشعار مدين (Debit Note) | نعم |
+| Type | Supported |
+|------|-----------|
+| Invoice | Yes |
+| Credit Note | Yes |
+| Debit Note | Yes |
 
-## الحد الأقصى لأيام الإرسال
+## Maximum Days to Send
 
-العدد الافتراضي للأيام المسموح بها لإرسال الفاتورة بعد تاريخ قيمتها هو **3 أيام**، ومثلها لإلغائها. يمكن تغيير ذلك من حقلي **«الحد الأقصى لأيام إرسال الفاتورة»** و **«الحد الأقصى لأيام إلغاء الفاتورة»** في الإعداد.
+The default number of days allowed to send an invoice after its value date is **3 days**, and likewise to cancel it. You can change this via the **Max Days To Send Invoice** and **Max Days To Cancel Invoice** fields in the configuration.
 
-## أسباب الرفض الشائعة
+## Common Rejection Causes
 
-| المشكلة | الحل |
-|--------|------|
-| رفض هوية البائع/المشتري | تأكد أن نوع الهوية صحيح وأن قيمتها حروف وأرقام فقط، وأن العنوان الوطني كامل |
-| رقم ضريبي غير صحيح | يجب أن يكون 15 رقمًا يبدأ وينتهي بـ 3 |
-| فاتورة قياسية بدون تعريف للمشتري | أضف رقم المشتري الضريبي أو أحد أنواع الهوية |
-| سطر معفى/صفري بدون سبب | اضبط كود سبب الإعفاء (E/Z) أو نص عدم الخضوع (O) في الإعداد |
-| "Please update zatca JAR" | تأكد من نشر `zatca.war` في `webapps` وأنه يعمل |
-| "Please approve system first" | اضغط «اعتماد النظام» بعد إدخال رمز التحقق (OTP) |
+| Problem | Solution |
+|---------|----------|
+| Seller/buyer identity rejected | Make sure the identity type is correct, its value is alphanumeric only, and the National Address is complete |
+| Invalid VAT number | Must be 15 digits starting and ending with 3 |
+| Standard invoice with no buyer identification | Add the buyer's VAT number or one of the identity types |
+| Exempt/zero-rated line without a reason | Set the exemption reason code (E/Z) or out-of-scope text (O) in the configuration |
+| "Please update zatca JAR" | Make sure `zatca.war` is deployed in `webapps` and running |
+| "Please approve system first" | Click Approve System after entering the OTP |

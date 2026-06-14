@@ -1,0 +1,69 @@
+---
+# Handcrafted mobile landing — GenNamaDocsIndex skips this file because of the
+# .custom-index marker in this folder (see hasHandcraftedHomePage in GenNamaDocsIndex.java)
+layout: home
+title: تطبيقات الجوال
+hero:
+  name: نما موبايل
+  text: نظام الـ ERP في جيبك
+  tagline: سجّل الحضور، وأصدر الفواتير، وجرد المخازن، وتابع زيارات العملاء — من الهاتف، وبالعربية والإنجليزية، ويعمل حتى دون اتصال
+  image:
+    src: /hero.svg
+    alt: Nama Mobile
+  actions:
+    - theme: brand
+      text: ابدأ من هنا
+      link: /ar/modules/mobile/mobile-application-guide
+    - theme: alt
+      text: الأسئلة الشائعة
+      link: /ar/modules/mobile/mobile-apps-faq
+features:
+  - icon: 🧭
+    title: نظرة عامة والتنقل والإعدادات
+    details: تسجيل الدخول والعلامات التجارية، الشاشة الرئيسية وشريط التنقل، القوائم ومجموعات الوحدات، الإعدادات والطابعة والمزامنة
+    link: /ar/modules/mobile/mobile-application-guide
+  - icon: 🕐
+    title: الخدمة الذاتية للموظفين
+    details: الحضور والانصراف ومناطق الحضور، سجلات الحضور، الإجازات والأذونات والمأموريات والسلف، ومستندات الموارد البشرية والخليج
+    link: /ar/modules/mobile/mobile-hr-self-service
+  - icon: 🛒
+    title: المبيعات والمخازن
+    details: أوامر البيع والفواتير وعروض الأسعار والمردودات، الاستعلام عن الأصناف، التحويلات المخزنية، والجرد الإلكتروني بالباركود
+    link: /ar/modules/mobile/mobile-sales-inventory
+  - icon: 🚚
+    title: خدمة العملاء والتوصيل والقبض
+    details: زيارات العملاء والصيانة والاستبيانات، سندات التوصيل وأدوات السائق، والقبض الإلكتروني الميداني
+    link: /ar/modules/mobile/mobile-crm-delivery
+  - icon: 🔳
+    title: Mobile QR Integrator
+    details: استجابة النظام لرموز QR الممسوحة لإنشاء الكيانات وتحديثها وتنفيذ إجراءات مخصصة ديناميكياً
+    link: /ar/modules/mobile/mobile-qr-integrator
+  - icon: ❓
+    title: أسئلة شائعة
+    details: إجابات سريعة حول تطبيقات الجوال في نظام نما — مثل دعم الطباعة على أجهزة Sunmi
+    link: /ar/modules/mobile/mobile-apps-faq
+---
+
+<rtl>
+
+## تطبيق واحد لكل فرق الميدان
+
+**نما موبايل** هو الواجهة المحمولة لنظام Nama ERP. يتصل التطبيق بنفس خادم الـ ERP الذي يعمل عليه فريق المكتب، فيضع بين يدي كل موظف ما يحتاجه ميدانياً: الموظف يسجّل حضوره ويتابع رصيد إجازاته، والمندوب يحرّر الفواتير من عند العميل، وأمين المخزن يجرّ الأصناف بالباركود، وفني الصيانة يوثّق زياراته، والسائق ينفّذ التوصيل ويلتقط توقيع العميل.
+
+<figure style="text-align:center; margin: 2rem auto; max-width: 320px;">
+  <img src="./images/overview/home-attendance-dashboard.jpg" alt="الشاشة الرئيسية لتطبيق نما موبايل" style="border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.12);" />
+  <figcaption style="color: var(--vp-c-text-2); font-size: 0.85rem; margin-top: 0.6rem;">الشاشة الرئيسية: تسجيل الحضور ولوحة المعلومات وملخص الشهر</figcaption>
+</figure>
+
+## ما الذي يميّزه؟
+
+- **يعمل دون اتصال أولاً** — يحمّل التطبيق البيانات التي يحتاجها محلياً عند الدخول، ويزامن المستندات عند توفر الشبكة، فلا يتعطّل العمل في الميدان.
+- **يتكيّف مع ترخيصك** — تظهر الوحدات والشاشات في القائمة حسب ما رخّصته مؤسستك وصلاحيات المستخدم.
+- **يُضبط مركزياً** — يتحكم المسؤول في سلوك التطبيق بالكامل من شاشة إعدادات تطبيقات الجوال على الخادم: الدفاتر، المعايير، قوالب الطباعة، والصلاحيات.
+- **ثنائي اللغة وقابل لتغيير العلامة** — العربية والإنجليزية، ويصدر بعلامات تجارية متعددة لعملاء نما.
+
+## من أين أبدأ؟
+
+ابدأ بصفحة [نظرة عامة والتنقل والإعدادات](./mobile-application-guide.md) لفهم تسجيل الدخول والشاشة الرئيسية والتنقل، ثم انتقل إلى الصفحة التي تناسب دورك من البطاقات بالأعلى.
+
+</rtl>

@@ -1,130 +1,128 @@
-<rtl>
+# FAQ — Distribution, Warehousing, Sales & Purchasing Module
 
-# أسئلة في موديول التوزيع والمخازن والمبيعات والمشتريات 
-
-إليك نسخة منقحة ومنسقة بشكل احترافي للمحتوى الذي قدمته، مع الحفاظ على جميع المعلومات المهمة:
+Here is a professionally revised version of the content, with all important information preserved:
 
 ---
 
-## **هل يمكن منع المستخدم من استلام أو شراء صنف إذا تجاوز الكمية القصوى؟**
+## **Can the system prevent a user from receiving or purchasing an item that exceeds the maximum quantity?**
 
-نعم، يمكن ذلك من خلال إعدادات النظام، وذلك باستخدام مسارات كيان مخصصة أو التحقق بناءً على معايير.
+Yes, this is possible through system settings by using custom Entity Flows or criteria-based validation.
 
 ---
 
-### ✅ **الخيار الأفضل: استخدام مسار الكيان `EAPreventQtyMoreThan`**
+### ✅ **Best Option: Use the `EAPreventQtyMoreThan` Entity Flow**
 
-* يُستخدم هذا المسار لمنع الحركات (مثل الشراء أو الاستلام) إذا تجاوزت **إجمالي كمية الصنف** في المستند القيمة المحددة في الحقل `maxQuantity` الموجود داخل بطاقة الصنف.
+* This flow prevents transactions (such as purchasing or receiving) when the **total item quantity** in the document exceeds the value defined in the `maxQuantity` field on the item card.
 
-#### 🟢 **استعلام المقارنة:**
+#### 🟢 **Comparison Query:**
 
 ```sql
 select {details.item.item.defaultDetailData.maxQuantity}
 ```
 
-> هذا الاستعلام يُستخدم داخل المسار لمقارنة إجمالي الكمية مع الحد الأقصى المسموح به لكل صنف.
+> This query is used inside the flow to compare the total quantity against the maximum allowed quantity per item.
 
 ---
 
-### ⚠️ **تنبيه مهم:**
+### ⚠️ **Important Note:**
 
-::: tip النظام يُجري التحقق على **الكمية المحوّلة للوحدة الصغرى** (الوحدة الأساسية للصنف).
+::: tip The system validates against the **quantity converted to the smallest unit** (the item's base unit).
 
-* مثال: إذا كانت الوحدة الصغرى "جرام"، وتم إدخال الكمية بالكيلو، فالنظام سيحوّل الكمية إلى "جرام" قبل المقارنة.
-* لذا يُنصح بربط المسار مع **مرحلة ما قبل الحفظ** لضمان تحويل الكمية فعليًا للوحدة الصغرى.
+* Example: If the smallest unit is "gram" and the quantity is entered in kilograms, the system will convert the quantity to grams before comparing.
+* Therefore, it is recommended to attach the flow to the **pre-save stage** to ensure the quantity is actually converted to the smallest unit.
   :::
 
 ---
 
-### 🔁 **بديل آخر: مسار `EAPreventQtyLessThan`**
+### 🔁 **Alternative: `EAPreventQtyLessThan` Flow**
 
-::: tip إذا كنت بحاجة لمنع إدخال كمية **أقل من حد معين**، يمكنك استخدام المسار التالي: `EAPreventQtyLessThan`
+::: tip If you need to prevent entering a quantity **below a certain threshold**, you can use the following flow: `EAPreventQtyLessThan`
 :::
 
 ---
 
-::: tip ⚙️ **خيار آخر (أقل دقة): التحقق بناءً على معايير**
-يمكنك أيضًا تنفيذ التحقق باستخدام **معايير مباشرة** داخل ملفات التحقق، وذلك بمقارنة كمية السطر مع الحقل `maxQuantity` في بطاقة الصنف.
+::: tip ⚙️ **Another Option (Less Precise): Criteria-Based Validation**
+You can also implement validation using **direct criteria** inside validation files, by comparing the line quantity against the `maxQuantity` field on the item card.
 
-لكن انتبه:
+However, note:
 
-* هذا التحقق يتم **لكل سطر على حدة**.
-* إذا تكرر نفس الصنف في أكثر من سطر، لن يتم تجميع الكمية، مما قد يسمح بتجاوز الحد الأقصى عبر عدة سطور.
+* This validation is performed **per line individually**.
+* If the same item appears in more than one line, the quantities will not be aggregated, which may allow the maximum to be exceeded across multiple lines.
 
-✅ لهذا السبب، يُفضل استخدام مسار الكيان `EAPreventQtyMoreThan` لأنه يُراعي **إجمالي الكمية** لكل صنف داخل المستند.
+✅ For this reason, using the `EAPreventQtyMoreThan` Entity Flow is preferred, as it considers the **total quantity** per item within the document.
 :::
 
-## ما هي معالجة الفرق ما بين قيمة مردود المشتريات التي تم استردادها من المورد - وتكلفة الصرف المخزنى الناتج عنها ؟
-- يرجى قراءة [هذا المقال](https://www.namasoft.com/ar/article/%d8%a7%d9%84%d8%b9%d8%b1%d8%a8%d9%8a%d8%a9-%d8%a7%d9%84%d9%85%d8%b9%d8%a7%d9%84%d8%ac%d8%a9-%d8%a7%d9%84%d9%85%d8%ad%d8%a7%d8%b3%d8%a8%d9%8a%d8%a9-%d9%84%d9%84%d9%81%d8%b1%d9%82-%d8%a8%d9%8a%d9%86/) لمعرفة تفاصيل المشكلة والحلول المتاحة
-- يمكنك معرفة المزيد من خلال الفيديو التالي:
+## What is the accounting treatment for the difference between the purchase return value recovered from the supplier and the cost of the resulting stock issue?
+- Please read [this article](https://www.namasoft.com/ar/article/%d8%a7%d9%84%d8%b9%d8%b1%d8%a8%d9%8a%d8%a9-%d8%a7%d9%84%d9%85%d8%b9%d8%a7%d9%84%d8%ac%d8%a9-%d8%a7%d9%84%d9%85%d8%ad%d8%a7%d8%b3%d8%a8%d9%8a%d8%a9-%d9%84%d9%84%d9%81%d8%b1%d9%82-%d8%a8%d9%8a%d9%86/) to learn about the problem details and available solutions
+- You can learn more through the following video:
   <iframe width="560" height="315" src="https://www.youtube.com/embed/UXodW-O9wN0?si=JzzcgpmAHhtktXaH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-## **هل يمكن ربط صنف بمخزن أو موقع معين، أو بعدة مخازن بحيث يمنع النظام الحركات خارج هذه المخازن؟**
+## **Can an item be linked to a specific warehouse or location, or to multiple warehouses, so the system prevents transactions outside those warehouses?**
 
-نعم، يمكن ذلك من خلال استخدام ملف <LinkToNewRecord entityType="ItemWarehouseRelation" />
+Yes, this is possible by using the <LinkToNewRecord entityType="ItemWarehouseRelation" /> file.
 
-### **الخطوات المطلوبة:**
+### **Required Steps:**
 
-1. **تفعيل الخيار التالي من إعدادات سلسلة التوريد (Supply Chain):**
-<SupplyChainOption option-code="value.activateItemWarehouseRelation" link-title="تفعيل ربط الأصناف بالمخزن" />
+1. **Enable the following option in Supply Chain settings:**
+<SupplyChainOption option-code="value.activateItemWarehouseRelation" link-title="Activate Item-Warehouse Relation" />
 
-2. **إنشاء ملف "ربط أصناف بمخازن":**
-   يحتوي هذا الملف على جدول تفاصيل ينقسم إلى قسمين رئيسيين:
+2. **Create an "Item-Warehouse Relation" record:**
+   This record contains a details table divided into two main sections:
 
-   #### **أولاً: تحديد الصنف**
+   #### **First: Specify the Item**
 
-   يمكن تحديد الأصناف باستخدام واحد أو أكثر من المعايير التالية:
+   Items can be specified using one or more of the following criteria:
 
-  * الصنف نفسه
-  * أي من التصنيفات العشر الخاصة بالصنف
-  * قسم الصنف
-  * أي من الفئات الخمس
+  * The item itself
+  * Any of the item's ten classifications
+  * Item category
+  * Any of the five item classes
 
-   #### **ثانياً: تحديد المخزن أو الموقع ونوع الربط**
+   #### **Second: Specify the Warehouse or Location and Relation Type**
 
-  * **المخزن أو الموقع** الذي ترغب في تقييد الحركة معه.
-  * **نوع الربط** ويشمل:
+  * The **warehouse or location** you want to restrict transactions with.
+  * The **relation type**, which includes:
 
-    * **السماح بالتعامل**: يسمح بتنفيذ الحركات فقط من المخازن المحددة.
-    * **منع التعامل**: يمنع تنفيذ الحركات مع المخازن المحددة.
-
----
-
-### **أمثلة عملية:**
-
-#### ✅ السماح بالتعامل:
-
-**مثال:** السماح بالتعامل مع الأصناف التي ينتمي قسمها إلى "خامات" بالصرف والتوريد فقط من مخزن "الخامات".
-
-* أدخل "خامات" في حقل **قسم الصنف**.
-* أدخل "الخامات" في حقل **المخزن**.
-* اختر نوع الربط: **السماح بالتعامل**.
-
-#### ❌ منع التعامل:
-
-**مثال:** منع التعامل مع صنف "حمض الكبريتيك" في مخزن "المنتجات التامة".
-
-* أنشئ سطرًا جديدًا يحتوي على:
-
-  * **الصنف:** حمض الكبريتيك
-  * **المخزن:** المنتجات التامة
-  * **نوع الربط:** منع التعامل
+    * **Allow dealings**: Permits transactions only from the specified warehouses.
+    * **Prevent dealings**: Prevents transactions with the specified warehouses.
 
 ---
 
-::: warning **تنبيه مهم:**
+### **Practical Examples:**
 
-عند تفعيل الخيار التالي في إعدادات Supply CHain:
-<SupplyChainOption option-code="value.itemRelationToWarehouseMustBeSpecified" link-title="يجب تحديد علاقة الأصناف بالمخازن" />
-فإن النظام **لن يسمح بالحفظ أو تنفيذ الحركات** إلا إذا كانت هناك علاقة **"سماح بالتعامل"** محددة مسبقًا بين الصنف والمخزن.
+#### ✅ Allow Dealings:
+
+**Example:** Allow items whose category is "Raw Materials" to be issued and received only from the "Raw Materials" warehouse.
+
+* Enter "Raw Materials" in the **Item Category** field.
+* Enter "Raw Materials" in the **Warehouse** field.
+* Select relation type: **Allow dealings**.
+
+#### ❌ Prevent Dealings:
+
+**Example:** Prevent dealings with the item "Sulfuric Acid" in the "Finished Goods" warehouse.
+
+* Create a new line containing:
+
+  * **Item:** Sulfuric Acid
+  * **Warehouse:** Finished Goods
+  * **Relation Type:** Prevent dealings
+
+---
+
+::: warning **Important Note:**
+
+When enabling the following option in Supply Chain settings:
+<SupplyChainOption option-code="value.itemRelationToWarehouseMustBeSpecified" link-title="Item-Warehouse relation must be specified" />
+The system **will not allow saving or executing transactions** unless an **"Allow dealings"** relation is defined between the item and the warehouse.
 :::
 
-## مثال على استعلام لحساب تكلفة توريد المبيعات من تكلفة صرف المبيعات المرتبط بالفاتورة
+## Example query to calculate the cost of a sales receipt from the sales issue cost linked to the invoice
 
-بشكل افتراضي، يقوم نظام **Nama ERP** بحساب تكلفة توريد المبيعات تلقائيًا باستخدام **متوسط تكلفة الصنف لحظة التوريد**.
-لكن في بعض السيناريوهات، قد ترغب في ربط تكلفة التوريد بشكل مباشر بتكلفة الصنف التي تم صرفها فعليًا في **فاتورة المبيعات** نفسها.
+By default, **Nama ERP** automatically calculates the sales receipt cost using the **average item cost at the time of receipt**.
+However, in some scenarios, you may want to tie the receipt cost directly to the item cost that was actually issued in the **sales invoice** itself.
 
-يمكنك تنفيذ ذلك باستخدام الاستعلام التالي داخل جدول **مصادر تكلفة التوريد غير المكلف** ضمن إعدادات موديول التوزيع (**Supply Chain Configuration**):
+You can implement this using the following query inside the **Cost Sources for Uncosted Receipt** grid in the **Supply Chain Configuration** settings:
 
 ```sql
 select top 1 l.unitCost 
@@ -138,119 +136,119 @@ where l.item_id = {item_id}
 ```
 
 ::: tip
-لكي يتم تفعيل استخدام هذا الاستعلام في حساب تكلفة التوريد، يجب تفعيل الخيار التالي في إعدادات سلسلة التوريد 
-<SupplyChainOption option-code="value.ignoreCurrentAvgForUnCostedReceipt" link-title="تجاهل متوسط التكلفة الحالية للتوريدات الغير مكلفة" />
+For this query to be used in calculating the receipt cost, you must enable the following option in Supply Chain settings:
+<SupplyChainOption option-code="value.ignoreCurrentAvgForUnCostedReceipt" link-title="Ignore current average cost for uncosted receipts" />
 
-يقوم هذا الخيار بإجبار النظام على تجاهل متوسط التكلفة الحالي عند وجود مصدر مخصص لحساب التكلفة، مثل الاستعلام الموضح أعلاه.
+This option forces the system to ignore the current average cost when a custom cost source is available, such as the query shown above.
 :::
 
-## كيف أحدد سعر معين لتصنيف فاتورة جملة في نقطة البيع أو فاتورة المبيعات بالنظام؟
+## How do I set a specific price for a wholesale invoice classification in Point of Sale or the sales invoice in the system?
 
-إذا كنت بحاجة إلى أن تعتمد فاتورة الجملة على سعر مختلف عن السعر الافتراضي في بطاقة الصنف (مثل "أقل سعر")، فيمكنك تنفيذ ذلك من خلال:
+If you need a wholesale invoice to use a price different from the default price on the item card (such as "minimum price"), you can do this through:
 
-استعمال الحقل **`السعر الافتراضي في قائمة الأسعار`** الموجود ضمن إعدادات **تصنيف الفاتورة**.
+Using the **`Default Price in Price List`** field found in the **Invoice Classification** settings.
 
-هذا الحقل يحدد من أين يستمد النظام السعر المستخدم في السطور، حتى وإن لم تكن تستخدم قائمة أسعار.
+This field determines where the system sources the price used in invoice lines, even if you are not using a price list.
 
-### خيارات هذا الحقل:
+### Options for this field:
 
-* **أقل سعر (MinPrice)**
-* **أقصى سعر (MaxPrice)**
-* **السعر الافتراضي (DefaultPrice)**
-  تتيح لك استخدام القيم المقابلة لها داخل قائمة الأسعار أو سطر تعريف الوحدة داخل الصنف.
+* **MinPrice**
+* **MaxPrice**
+* **DefaultPrice**
+  These let you use the corresponding values inside the price list or the unit definition line inside the item.
 
-* **السعر المخصص (CustomPrice)**
-* **رقم 1 (N1)** إلى **رقم 5 (N5)**
-  تتيح لك استخدام القيم المقابلة لها داخل قائمة الأسعار.
+* **CustomPrice**
+* **N1** through **N5**
+  These let you use the corresponding values inside the price list.
 ---
 
-### مثال تطبيقي:
+### Practical Example:
 
-لو أردت أن يتم تسعير فواتير الجملة بناءً على "أقل سعر"، كل ما عليك فعله هو:
+If you want wholesale invoices to be priced based on "minimum price", all you need to do is:
 
-1. فتح تصنيف الفاتورة المستخدم في الجملة.
-2. ضبط الحقل **`السعر الافتراضي في قائمة الأسعار`** ليكون على القيمة **"أقل سعر (MinPrice)"**.
-3. حفظ التغييرات.
+1. Open the invoice classification used for wholesale.
+2. Set the **`Default Price in Price List`** field to the value **"MinPrice"**.
+3. Save the changes.
 
-بعد ذلك، أي فاتورة جديدة تتبع هذا التصنيف ستستخدم أقل سعر متاح للصنف بشكل تلقائي في نقطة البيع.
+After that, any new invoice following this classification will automatically use the lowest available price for the item in Point of Sale.
 
-## كيف يحدد النظام السعر المستخدم في الفاتورة بناءً على حقل **`السعر الافتراضي في قائمة الأسعار`**؟
+## How does the system determine the price used in the invoice based on the **`Default Price in Price List`** field?
 
-يمكنك التحكم في السعر المستخدم داخل فواتير البيع من خلال حقل **`السعر الافتراضي في قائمة الأسعار`**، وهو متاح في عدة أماكن داخل النظام.
+You can control the price used inside sales invoices through the **`Default Price in Price List`** field, which is available in several locations within the system.
 
-### أماكن توفر الحقل:
+### Where the field appears:
 
-يظهر هذا الحقل في الأماكن التالية (مرتبة حسب أولوية التطبيق):
+This field appears in the following locations (ordered by application priority):
 
-1. **العميل (Customer)**
-2. **توجيه الفاتورة (Document Term)**
-3. **فئة العميل (Customer Category)**
-4. **تصنيف العميل (Customer Classy)**
-5. **تصنيف الفاتورة (Invoice Classification)**
-6. **محدد سعر 1 (Price Classifier 1)**
-7. **محدد سعر 2 (Price Classifier 2)**
-8. **محدد سعر 3 (Price Classifier 3)**
-9. **محدد سعر 4 (Price Classifier 4)**
-10. **محدد سعر 5 (Price Classifier 5)**
-11. **إعدادات Supply Chain**
+1. **Customer**
+2. **Document Term**
+3. **Customer Category**
+4. **Customer Classy**
+5. **Invoice Classification**
+6. **Price Classifier 1**
+7. **Price Classifier 2**
+8. **Price Classifier 3**
+9. **Price Classifier 4**
+10. **Price Classifier 5**
+11. **Supply Chain settings**
 
-### آلية الاختيار:
+### Selection mechanism:
 
-يقوم النظام بالبحث عن أول قيمة معرفة لهذا الحقل حسب الترتيب أعلاه.
-بمعنى آخر، إذا وُجدت قيمة لهذا الحقل في ملف العميل، فسيتم استخدامها مباشرة.
-أما إذا لم تكن معرفة، فسينتقل النظام تلقائيًا إلى الملف التالي في الترتيب (توجيه الفاتورة، ثم تصنيف العميل... وهكذا) حتى يجد أول قيمة معرفة.
+The system searches for the first defined value of this field according to the order above.
+In other words, if a value for this field exists on the customer record, it will be used directly.
+If not defined, the system automatically moves to the next record in the order (Document Term, then Customer Classification, and so on) until it finds the first defined value.
 
-### مثال توضيحي:
+### Illustrative Example:
 
-إذا كنت قد ضبطت الحقل "السعر الافتراضي في قائمة الأسعار" في **تصنيف الفاتورة** على "أقل سعر"، ولكن لديك أيضًا ضبط مختلف داخل **العميل**، فسيأخذ النظام القيمة الموجودة في العميل ويتجاهل ما في تصنيف الفاتورة، لأن **العميل له أولوية أعلى** في الترتيب.
-
----
-
-### ملخص:
-
-* يمكن تخصيص مصدر السعر لكل نوع من العملاء أو الفواتير حسب موقع الضبط.
-* الأولوية تبدأ من ملف العميل وتنتهي بإعدادات Supply Chain.
-* يكفي تحديد القيمة في أول موقع ضمن الترتيب ليتم اعتمادها تلقائيًا في التسعير داخل الفاتورة.
-
-### ❓ كيف يمكن حساب تكلفة فاتورة تحتوي على أصناف مركبة (مثل البكجات) يتم صرف مكوناتها من المخزون وليس الصنف نفسه؟
-
-عند التعامل مع فاتورة تحتوي على أصناف مركبة مثل:
-
-> `بكج 6 عطور نيش بلاك + نيش جولد + دريمز بالاس + ان ذا موود + هيستورى نوت + نيش ان بزنس`
-
-فإن عملية الصرف المخزني لا تتم على الصنف المركب نفسه، بل تتم على مكوناته الفرعية، مثل:
-
-* عطر نيش بلاك `NESH BLACK`
-* عطر نيش جولد `NESH GOLD`
-* عطر دريمز بالاس `DREAMS PALACE`
-* وغيرها...
-
-وبالتالي، لا يظهر الصنف الرئيسي (البكج) في سند الصرف المخزني، بل يتم صرف كل مكون من مكوناته كأصناف مستقلة. لحساب التكلفة الحقيقية لهذه الفاتورة، يجب احتساب تكلفة المكونات المستخدمة في كل صنف مركب، وليس الصنف المركب نفسه.
+If you have set the "Default Price in Price List" field in the **Invoice Classification** to "MinPrice", but you also have a different setting inside the **Customer**, the system will take the value from the customer and ignore what is in the Invoice Classification, because the **Customer has higher priority** in the order.
 
 ---
 
-### كيفية الربط بين الصنف المركب ومكوناته؟
+### Summary:
 
-يتم ربط كل مكون بالصنف المركب عبر الحقل `masterRowId` الموجود في جدول `SalesInvoiceLine`:
+* The price source can be customized for each type of customer or invoice depending on where the setting is placed.
+* Priority starts from the customer record and ends with Supply Chain settings.
+* It is sufficient to define the value in the first location within the order for it to be automatically applied to pricing inside the invoice.
 
-* السطر الخاص بالصنف المركب (مثل "بكج العطور") يحتوي على `masterRowId = NULL`
-* أما السطور الخاصة بالمكونات (مثل "NESH BLACK") تحتوي على `masterRowId = <ID الخاص بالسطر الرئيسي>`
+### ❓ How can the cost of an invoice containing composite items (such as packages/bundles) be calculated, where the components are issued from stock rather than the item itself?
+
+When dealing with an invoice containing composite items such as:
+
+> `Package: 6 Niche Perfumes — Niche Black + Niche Gold + Dreams Palace + In the Mood + History Note + Niche in Business`
+
+The stock issue process does not apply to the composite item itself, but to its sub-components, such as:
+
+* Niche Black perfume `NESH BLACK`
+* Niche Gold perfume `NESH GOLD`
+* Dreams Palace perfume `DREAMS PALACE`
+* And others...
+
+As a result, the main item (the package) does not appear in the stock issue voucher; instead, each component is issued as a separate item. To calculate the true cost of this invoice, you must account for the cost of the components used in each composite item, not the composite item itself.
 
 ---
 
-### خطوات حساب التكلفة:
+### How to link the composite item to its components?
 
-1. **ابدأ من جدول فواتير المبيعات** لتحديد الفاتورة المطلوبة.
-2. **اجلب كل سطر رئيسي** في الفاتورة (الذي `masterRowId IS NULL`).
-3. **ابحث عن السطور الفرعية** المرتبطة به عبر `SalesInvoiceLine.masterRowId`.
-4. **ابحث عن سطر الصرف المخزني** المقابل لكل مكون أو للسطر الأصلي إن لم توجد مكونات.
-5. **اربط بسجل التكلفة** (`CostOutTransLine`) عبر `originLineId`.
-6. **استخدم الدالة `coalesce(sub.id, l.id)`** لاختيار المكون إذا وُجد، أو السطر الرئيسي إذا لم يكن له مكونات.
-7. **استبعد السطور التي لها `masterRowId`** عند التجميع، لأن تكلفة المكونات ستُحتسب بالفعل.
+Each component is linked to the composite item via the `masterRowId` field in the `SalesInvoiceLine` table:
+
+* The line for the composite item (e.g., "Perfume Package") has `masterRowId = NULL`
+* The lines for components (e.g., "NESH BLACK") have `masterRowId = <ID of the main line>`
 
 ---
 
-### استعلام SQL لحساب تكلفة كل صنف مركب في الفاتورة
+### Steps to calculate cost:
+
+1. **Start from the sales invoice table** to identify the required invoice.
+2. **Fetch every main line** in the invoice (where `masterRowId IS NULL`).
+3. **Find the sub-lines** linked to it via `SalesInvoiceLine.masterRowId`.
+4. **Find the stock issue line** corresponding to each component, or the original line if there are no components.
+5. **Join the cost record** (`CostOutTransLine`) via `originLineId`.
+6. **Use the `coalesce(sub.id, l.id)` function** to select the component if it exists, or the main line if it has no components.
+7. **Exclude lines that have a `masterRowId`** when aggregating, because the cost of components will already be included.
+
+---
+
+### SQL Query to Calculate the Cost of Each Composite Item in the Invoice
 
 ::: details SQL Query to Calculate cost of a sales invoice
 
@@ -273,9 +271,9 @@ group by l.itemCode, l.item_id
 
 ---
 
-- ملاحظة إضافية:
+- Additional note:
 
-لو أردت فقط **إجمالي تكلفة الفاتورة بالكامل** بدون تفاصيل الأصناف، يمكنك تعديل الاستعلام السابق بهذا الشكل:
+If you only want the **total invoice cost** without item details, you can modify the previous query as follows:
 ::: details SQL Query to Calculate total cost of a sales invoice
 ```sql
 select 
@@ -292,156 +290,154 @@ where s.code = 'Salla2025229014'
 
 ---
 
-### كيفية حساب التكلفة المؤقتة للتوريد المخزني من أمر الشراء؟
+### How to calculate the provisional cost of a stock receipt from a purchase order?
 
-لحساب التكلفة المؤقتة للتوريد المخزني بناءً على أمر الشراء، يُرجى اتباع الخطوات التالية:
+To calculate the provisional cost of a stock receipt based on a purchase order, follow these steps:
 
-في توجيه التوريد المخزني قم بالتالي:
-1. تفعيل خِيار **تسليم غير مكلف.**
-2. تفعيل خِيار **حساب التكلفة المؤقتة من بناءا على (أمر شراء)**.
+In the stock receipt Document Term, do the following:
+1. Enable the **Uncosted Delivery** option.
+2. Enable the **Calculate provisional cost based on (purchase order)** option.
 
-في إعدادات الـ **Supply Chain** قم بالتالي:
-1. فعّل خيار **تجاهل متوسط التكلفة الحالية للتوريدات غير المكلفة**
-<SupplyChainOption option-code="value.ignoreCurrentAvgForUnCostedReceipt" link-title="تجاهل متوسط التكلفة الحالية للتوريدات غير المكلفة" />
-2. حدد **تكلفة السطر** في أول مصدر داخل جريد مصادر التكلفة للتوريد الغير مكلف.
-<SupplyChainOption option-code="value.costSources" link-title="جريد مصادر التكلفة للتوريد الغير مكلف" />
+In the **Supply Chain** settings, do the following:
+1. Enable the **Ignore current average cost for uncosted receipts** option
+<SupplyChainOption option-code="value.ignoreCurrentAvgForUnCostedReceipt" link-title="Ignore current average cost for uncosted receipts" />
+2. Set **Line Cost** as the first source in the cost sources grid for uncosted receipts.
+<SupplyChainOption option-code="value.costSources" link-title="Cost sources grid for uncosted receipts" />
 
 ---
 
-#### كيف يعمل النظام في حساب التكلفة المؤقتة؟
+#### How does the system calculate the provisional cost?
 
-عند حفظ سند التوريد المخزني، يقوم النظام بالخطوات التالية:
+When saving the stock receipt voucher, the system performs the following steps:
 
-1. **التحقق من الإعدادات**: يتأكد النظام من تفعيل خيار "حساب التكلفة المؤقتة من أمر الشراء" في توجيه التوريد.
+1. **Check settings**: The system verifies that the "Calculate provisional cost from purchase order" option is enabled in the receipt Document Term.
 
-2. **البحث عن سطر الشراء المطابق**: يبحث النظام عن سطر الشراء المقابل لكل سطر في التوريد من خلال:
-   - البحث عن الوثيقة المصدر (أمر الشراء أو فاتورة المشتريات)
-   - مطابقة السطر باستخدام معرف السطر المصدر `sourceLineId`
-   - إذا لم يجد، يبحث عن أول سطر مطابق بنفس الصنف والكمية
+2. **Find the matching purchase line**: The system searches for the purchase line corresponding to each receipt line by:
+   - Looking for the source document (purchase order or purchase invoice)
+   - Matching the line using the `sourceLineId`
+   - If not found, it searches for the first matching line with the same item and quantity
 
-3. **حساب تكلفة الوحدة**: يتم نسخ تكلفة الوحدة من سطر الشراء مع مراعاة **معدل العملة**:
+3. **Calculate unit cost**: The unit cost is copied from the purchase line, taking into account the **exchange rate**:
    ```
-   تكلفة الوحدة في التوريد = تكلفة الوحدة في الشراء × معدل العملة
-   ```
-
-4. **حساب التكلفة الإجمالية**: يتم حساب التكلفة الإجمالية للسطر:
-   ```
-   التكلفة الإجمالية = تكلفة الوحدة × الكمية الأولية
+   Unit cost in receipt = Unit cost in purchase × Exchange rate
    ```
 
-::: tip ملاحظة مهمة عن ترتيب مصادر التكلفة
-إذا لم يتم تحديد مصادر تكلفة مخصصة في جريد الإعدادات، يستخدم النظام الترتيب الافتراضي التالي:
-1. تكلفة الصرف بالتاريخ (OutCostOnDate)
-2. تكلفة التوريد بالتاريخ (InCostOnDate)
-3. آخر متوسط تكلفة (LastAverageCost)
-4. تكلفة السطر (LineCost)
-5. التكلفة المعيارية (StandardCost)
+4. **Calculate total cost**: The total cost for the line is calculated:
+   ```
+   Total cost = Unit cost × Original quantity
+   ```
 
-لذلك إذا أردت استخدام **تكلفة السطر** كأول مصدر، يجب تحديدها صراحةً في جريد مصادر التكلفة.
+::: tip Important note about cost source order
+If no custom cost sources are specified in the settings grid, the system uses the following default order:
+1. Issue cost by date (OutCostOnDate)
+2. Receipt cost by date (InCostOnDate)
+3. Last average cost (LastAverageCost)
+4. Line cost (LineCost)
+5. Standard cost (StandardCost)
+
+Therefore, if you want to use **Line Cost** as the first source, you must specify it explicitly in the cost sources grid.
 :::
 
 ---
 
-## لماذا يقبل النظام بحفظ سندات توريد بكمية أكبر من الكمية الموجودة في فاتورة المشتريات؟
+## Why does the system allow saving stock receipt vouchers with a quantity greater than the quantity in the purchase invoice?
 
-إذا لاحظت أن النظام يسمح بحفظ سند توريد يحتوي على كمية أكبر من الكمية المدخلة في فاتورة المشتريات، فالسبب هو تفعيل خيار **"توزيع التكلفة على الكمية الموردة بغض النظر عن الكمية بالفاتورة"** (DistributeCostBasedOnReceiptQty) في توجيه فاتورة المشتريات.
+If you notice that the system allows saving a stock receipt voucher containing a quantity greater than the quantity entered in the purchase invoice, the reason is that the **"Distribute cost based on received quantity regardless of invoice quantity"** option (DistributeCostBasedOnReceiptQty) is enabled in the purchase invoice Document Term.
 
-- *ماذا يفعل هذا الخيار؟*
+- *What does this option do?*
 
-عند تفعيل هذا الخيار:
+When this option is enabled:
 
-1. **يسمح بأن تكون كمية التوريد مختلفة عن كمية الفاتورة** - سواء أكثر أو أقل
-2. **يوزع إجمالي تكلفة الفاتورة على الكمية الموردة فعلياً** - وليس على الكمية المذكورة في الفاتورة
+1. **It allows the receipt quantity to differ from the invoice quantity** — whether more or less
+2. **It distributes the total invoice cost over the actually received quantity** — not the quantity stated in the invoice
 
-- *النتيجة العملية*
+- *Practical Result*
 
-ستلاحظ أن **تكلفة الوحدة تختلف** بين فاتورة المشتريات وسند التوريد المخزني.
+You will notice that the **unit cost differs** between the purchase invoice and the stock receipt voucher.
 
-**مثال:**
-- فاتورة مشتريات: 100 وحدة × 10 ريال = 1000 ريال إجمالي
-- سند توريد: 120 وحدة (كمية فعلية مستلمة)
-- تكلفة الوحدة في التوريد = 1000 ÷ 120 = 8.33 ريال
+**Example:**
+- Purchase invoice: 100 units × 10 SAR = 1,000 SAR total
+- Stock receipt voucher: 120 units (actual quantity received)
+- Unit cost in receipt = 1,000 ÷ 120 = 8.33 SAR
 
-::: tip متى يُستخدم هذا الخيار؟
-يُستخدم في الحالات التي تختلف فيها الكمية الفعلية المستلمة عن الكمية المتفق عليها في الفاتورة، مع رغبة العميل في توزيع كامل قيمة الفاتورة على الكمية الموردة فعلياً.
+::: tip When is this option used?
+It is used in cases where the actual quantity received differs from the agreed quantity in the invoice, and the customer wants to distribute the full invoice value over the actually received quantity.
 :::
 
-::: warning ملاحظة
-إذا كنت ترغب في إلزام النظام بمطابقة الكمية في سند التوريد مع الكمية في فاتورة المشتريات، تأكد من **عدم تفعيل** هذا الخيار في توجيه الفاتورة.
-:::
-
----
-
-## ما الفرق بين التحويل المخزني، وتحويل الصرف المخزني، وتحويل الاستلام المخزني؟
-
-هناك ثلاث أنواع من التحويلات المخزنية في النظام، وكلها لها نفس الغرض الأساسي ولكنها تختلف في طريقة التطبيق حسب دورة العمل لدى العميل:
-
-### 📦 سند تحويل مخزني (StockTransfer)
-- **الاستخدام:** تحويل مباشر في سند واحد من مخزن إلى مخزن آخر
-- **المعنى:** نقل البضاعة مباشرة من المخزن المصدر إلى المخزن الهدف
-
-### 📤 صرف تحويل مخزني (IssueStockTransfer)  
-- **الاستخدام:** صرف البضاعة من المخزن الأصلي إلى "بضاعة بالطريق"
-- **المعنى:** الخطوة الأولى في عملية التحويل - إخراج البضاعة من المخزن الأصلي
-
-### 📥 استلام تحويل مخزني (ReceiptStockTransfer)
-- **الاستخدام:** استلام البضاعة من "بضاعة بالطريق" إلى المخزن الهدف
-- **المعنى:** الخطوة الثانية في عملية التحويل - إدخال البضاعة للمخزن الجديد
-
----
-
-### 🔄 الفرق في التطبيق:
-
-#### **الطريقة الأولى: التحويل المباشر**
-- استخدام `StockTransfer` فقط
-- عملية واحدة تنقل البضاعة مباشرة من مخزن لآخر
-
-#### **الطريقة الثانية: التحويل المرحلي**  
-- استخدام `IssueStockTransfer` ثم `ReceiptStockTransfer`
-- عمليتان منفصلتان:
-  1. صرف من المخزن الأصلي → بضاعة بالطريق
-  2. استلام من بضاعة بالطريق → المخزن الهدف
-
----
-
-### 🎯 متى نستخدم كل نوع؟
-
-::: tip **التحويل المباشر (StockTransfer)**
-- عندما تكون المخازن في نفس الموقع
-- عندما لا نحتاج لتتبع مراحل النقل
-- للعمليات السريعة والمباشرة
-:::
-
-::: info **التحويل المرحلي (Issue + Receipt)**
-- عندما تكون المخازن في مواقع مختلفة
-- عندما نحتاج لتتبع البضاعة أثناء النقل
-- عندما قد تستغرق عملية النقل وقتاً طويلاً
-- لتحكم أكبر في عمليات الصرف والاستلام
-:::
-
-**الخلاصة:** الثلاث أنواع تحقق نفس النتيجة النهائية، لكن الاختيار بينهم يعتمد على دورة العمل والحاجة لتتبع مراحل النقل.
-
----
-
-## لماذا لا يظهر الموقع أو المخزن في اقتراح الكميات رغم عدم تفعيل متابعة الكميات على مستوى الفرع؟
-
-**السيناريو:**
-- لديك كمية من صنف معين في موقع معين، وتم توريدها على موقع فرعه "عام" في سند توريد فرعه أيضاً "عام".
-- عند إنشاء فاتورة مبيعات بفرع "عام" والضغط على حقل الموقع، تظهر الكمية والموقع بشكل طبيعي.
-- لكن عند إنشاء فاتورة أخرى على فرع "001" مثلاً والضغط على حقل الموقع، لا تظهر الكمية رغم عدم تفعيل متابعة الكميات على مستوى الفرع أو أي محددات أخرى.
-
-**السبب:**
-المشكلة هنا ليست متعلقة بمتابعة الكميات، بل السبب هو **اختلاف محددات الفاتورة عن محددات الموقع**. بشكل افتراضي، يقوم النظام بفلترة المخازن والمواقع بناءً على المحددات (مثل الفرع) عند عرض اقتراحات الكميات.
-
-**الحل:**
-للسماح بظهور الموقع أو المخزن في اقتراح الكميات بغض النظر عن اختلاف المحددات، قم بتفعيل الخيار التالي في إعدادات Supply Chain:
-
-<SupplyChainOption option-code="value.doNotFilterWarehouseAndLocatorByDimensionsInQtySuggestion" link-title="عدم فلترة المخزن والموقع بناءً على المحددات عند اقتراح الكميات" />
-
-::: tip ملاحظة
-هذا الخيار يؤثر على كل من المخزن والموقع في اقتراحات الكميات، وليس الموقع فقط.
+::: warning Note
+If you want to force the system to match the receipt quantity with the purchase invoice quantity, make sure this option is **not enabled** in the invoice Document Term.
 :::
 
 ---
 
-</rtl>
+## What is the difference between Stock Transfer, Issue Stock Transfer, and Receipt Stock Transfer?
+
+There are three types of stock transfers in the system. They all serve the same fundamental purpose but differ in implementation based on the customer's workflow:
+
+### 📦 Stock Transfer (StockTransfer)
+- **Use:** Direct transfer in a single voucher from one warehouse to another
+- **Meaning:** Move goods directly from the source warehouse to the destination warehouse
+
+### 📤 Issue Stock Transfer (IssueStockTransfer)  
+- **Use:** Issue goods from the original warehouse to "goods in transit"
+- **Meaning:** The first step in the transfer process — removing goods from the original warehouse
+
+### 📥 Receipt Stock Transfer (ReceiptStockTransfer)
+- **Use:** Receive goods from "goods in transit" to the destination warehouse
+- **Meaning:** The second step in the transfer process — bringing goods into the new warehouse
+
+---
+
+### 🔄 Difference in Implementation:
+
+#### **Method One: Direct Transfer**
+- Use `StockTransfer` only
+- A single operation that moves goods directly from one warehouse to another
+
+#### **Method Two: Staged Transfer**  
+- Use `IssueStockTransfer` then `ReceiptStockTransfer`
+- Two separate operations:
+  1. Issue from the original warehouse → goods in transit
+  2. Receive from goods in transit → destination warehouse
+
+---
+
+### 🎯 When to use each type?
+
+::: tip **Direct Transfer (StockTransfer)**
+- When warehouses are in the same location
+- When there is no need to track transfer stages
+- For quick, direct operations
+:::
+
+::: info **Staged Transfer (Issue + Receipt)**
+- When warehouses are in different locations
+- When goods need to be tracked during transit
+- When the transfer process may take a long time
+- For greater control over issue and receipt operations
+:::
+
+**In summary:** All three types achieve the same final outcome, but the choice between them depends on the workflow and the need to track transfer stages.
+
+---
+
+## Why does a warehouse or location not appear in quantity suggestions even though branch-level quantity tracking is not enabled?
+
+**Scenario:**
+- You have a quantity of a specific item in a certain location, and it was received against a location whose branch is "General" in a stock receipt whose branch is also "General".
+- When creating a sales invoice with branch "General" and clicking on the location field, the quantity and location appear normally.
+- But when creating another invoice on branch "001", for example, and clicking on the location field, the quantity does not appear even though branch-level quantity tracking is not enabled nor any other dimensions.
+
+**Reason:**
+The issue here is not related to quantity tracking; the reason is **a mismatch between the invoice's dimensions and the location's dimensions**. By default, the system filters warehouses and locations based on dimensions (such as branch) when displaying quantity suggestions.
+
+**Solution:**
+To allow the warehouse or location to appear in quantity suggestions regardless of dimension differences, enable the following option in Supply Chain settings:
+
+<SupplyChainOption option-code="value.doNotFilterWarehouseAndLocatorByDimensionsInQtySuggestion" link-title="Do not filter warehouse and location by dimensions in quantity suggestion" />
+
+::: tip Note
+This option affects both warehouse and location in quantity suggestions, not just the location.
+:::
+
+---

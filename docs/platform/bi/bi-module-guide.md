@@ -1,393 +1,393 @@
-# وحدة BI — لوحات المعلومات والتحليلات (BI Module — Dashboards & Analytics)
+# BI Module — Dashboards & Analytics
 
-تتيح لك وحدة BI في Nama ERP بناء لوحات معلومات تفاعلية تحوّل بياناتك المباشرة إلى مخططات وعدادات وجداول وغير ذلك. المخططات تتواصل مع بعضها عبر الفلاتر المتقاطعة (cross-filters) ونوافذ التفاصيل (drill-down) والروابط المباشرة — لذلك لوحاتك ليست صوراً ثابتة، بل أدوات استكشاف يمكن لفريقك النقر خلالها للوصول إلى الإجابات.
+Nama ERP's BI module lets you build interactive dashboards that turn your live ERP data into charts, gauges, tables, and more. Charts talk to each other through cross-filters, drill-down popups, and direct links — so your dashboards aren't just static pictures, they're exploration tools your team can click through to find answers.
 
-يرشدك هذا الدليل عبر كل ما تستطيع وحدة BI القيام به، من مصمم المخططات إلى التفاعلات المتقدمة مثل drill-down والفلتر المتقاطع. إذا كنت تبحث عن هياكل JSON وأنماط SQL وتنسيقات الاستيراد اللازمة لبناء لوحات المعلومات برمجياً، راجع [المرجع التقني](./bi-module-technical-reference.md).
-
----
-
-## ما الذي ستحصل عليه
-
-الإعداد الاعتيادي للـ BI في Nama ERP يبدو كما يلي:
-
-- **لوحات المعلومات (Dashboards)** — تخطيطات شبكية تحوي عدة widgets جنباً إلى جنب
-- **Widgets** — مخططات أو جداول أو بطاقات فردية تسحب كل منها البيانات من استعلام SQL
-- **الفلاتر المتقاطعة (Cross-Filters)** — معاملات فلترة مشتركة (الفرع، نطاق التاريخ، العميل، إلخ) تشرّح البيانات عبر جميع الـ widgets دفعة واحدة
-- **Drill-Down** — اضغط على نقطة بيانات لفتح مخطط أو لوحة معلومات مرتبطة، مفلترة مسبقاً لسياق تلك النقطة
-- **الروابط (Links)** — اضغط على نقطة بيانات للانتقال مباشرة إلى السجل الأصلي (مثل: فتح شاشة تعديل العميل)
+This guide walks you through everything the BI module can do, from the chart designer to advanced interactions like drill-down and cross-filtering. If you're looking for the JSON structures, SQL patterns, and import formats needed to build dashboards programmatically, see the [Technical Reference](./bi-module-technical-reference.md).
 
 ---
 
-## أنواع المخططات (Chart Types)
+## What You Get
 
-تأتي الوحدة بـ **41 قالب مخطط جاهز للاستخدام** موزعة على 11 تصنيفاً. لا تحتاج إلى ضبط ECharts JSON من الصفر — اختر قالباً، وصوّبه على بياناتك، وخصّص المظهر.
+A typical BI setup in Nama ERP looks like this:
 
-### مخططات الأعمدة (Bar Charts) — 10 قوالب
-عمود منفرد، أعمدة مجمّعة (مقارنة جانبية)، مكدّسة، مكدّسة 100%، أفقية، أفقية مكدّسة، إيجابي/سلبي، شلال (waterfall)، مقارنة بالفترة السابقة، وأعمدة أفقية مرتبة تنازلياً.
-
-### مخططات الخطوط (Line Charts) — 6 قوالب
-خط منفرد، متعدد السلاسل، خط متدرج (القيم تبقى ثابتة بين النقاط)، محور Y مزدوج (لمقارنة مقاييس مختلفة مثل الإيراد مقابل الكمية)، خط مع خط مرجعي منقّط، وخط مع شريط تكبير/تصغير (data-zoom) للنطاقات الزمنية الكبيرة.
-
-### مخططات المساحة (Area Charts) — 4 قوالب
-مساحة أساسية، مساحة مكدّسة، مساحة بتعبئة متدرجة، ومساحة نطاقية.
-
-### مخططات الدائرة والحلقة (Pie & Donut Charts) — 6 قوالب
-دائرة قياسية، حلقة (donut)، حلقة مع تسمية مركزية، دائرة وردية (rose — حجم الشريحة بالمساحة لا بالزاوية)، دائرة نصف دائرة، ودائرة متداخلة متعددة المستويات.
-
-### مخططات العدادات (Gauge Charts) — 3 قوالب
-عداد عقرب قياسي، عداد حلقي، وعداد متعدد الحلقات (مؤشرات متحدة المركز).
-
-### مخططات مركبة (Combination Charts) — 2 قوالب
-أعمدة + خط، وأعمدة + مساحة — مفيدة عندما تريد عرض الإجماليات كأعمدة والاتجاه كخط على نفس المخطط.
-
-### مخططات التشتت والفقاعات (Scatter & Bubble) — 2 قوالب
-مخطط تشتت XY ومخطط فقاعي (حجم الفقاعة يمثّل بُعداً ثالثاً).
-
-### مخططات الرادار (Radar Charts) — 2 قوالب
-رادار مضلّع ورادار مملوء — مثالي لمقارنة مقاييس متعددة عبر التصنيفات (مثل بطاقات KPI).
-
-### مخططات القمع (Funnel Charts) — 2 قوالب
-قمع قياسي (مراحل التحويل) وقمع مقارن.
-
-### Treemap — 1 قالب
-مخطط مستطيلات هرمي لعلاقات الجزء إلى الكل.
-
-### Heatmap — 1 قالب
-تصور مصفوفي بشدة اللون — مفيد لأنماط وقت اليوم، وتحليل المنطقة × المنتج، وما شابه من تحليلات ثنائية الأبعاد.
+- **Dashboards** — grid layouts that hold multiple widgets side-by-side
+- **Widgets** — individual charts, tables, or cards that each pull data from a SQL query
+- **Cross-Filters** — shared filter parameters (branch, date range, customer, etc.) that slice data across all widgets at once
+- **Drill-Down** — click a data point to open a related chart or dashboard, pre-filtered to that point's context
+- **Links** — click a data point to jump straight to the underlying record (e.g., open the customer's edit screen)
 
 ---
 
-## مصمم المخططات (The Chart Designer)
+## Chart Types
 
-مصمم المخططات هو الحوار الذي تفتحه عند إنشاء أو تعديل إعداد مخطط widget. له حالتان:
+The module ships with **41 ready-to-use chart templates** organized into 11 categories. You don't need to configure ECharts JSON from scratch — pick a template, point it at your data, and customize the look.
 
-### الحالة A — معرض القوالب (Template Gallery)
+### Bar Charts (10 templates)
+Single bar, grouped bars (side-by-side comparison), stacked, 100% stacked, horizontal, horizontal stacked, positive/negative bars, waterfall, prior-period comparison, and ranked horizontal bars with descending sort.
 
-عند البدء بـ widget فارغ، يفتح المصمم في وضع المعرض. ترى شبكة قابلة للبحث من جميع الـ 41 قالباً، كل منها مُصيَّر كمخطط مصغّر حي لترى تماماً ما ستختار. يمكنك:
+### Line Charts (6 templates)
+Single line, multi-series, step line (values stay constant between points), dual Y-axis (for comparing different scales — e.g., revenue vs. quantity), line with a dashed target reference line, and line with a data-zoom slider for large date ranges.
 
-- **البحث** بالاسم (مثل: اكتب "stacked" للفلترة على النسخ المكدّسة)
-- **الفلترة حسب التصنيف** باستخدام الرقائق (chips) في الأعلى (Bar، Line، Pie، إلخ)
-- **النقر على قالب** لاختياره والانتقال إلى المحرر
-- **البدء من الصفر (Start Blank)** إذا أردت بناء مخطط من canvas فارغ
+### Area Charts (4 templates)
+Basic area, stacked area, gradient-fill area, and range/band area.
 
-### الحالة B — محرر المخطط (Chart Editor)
+### Pie & Donut Charts (6 templates)
+Standard pie, donut, donut with center label, rose/sunburst pie (wedge size by area, not angle), half-circle pie, and nested multi-level pie.
 
-بعد اختيار قالب (أو فتح widget موجود)، تنتقل إلى المحرر. هنا تربط بياناتك، وتضبط مظهر المخطط، وتهيّئ التفاعلات. المحرر مقسّم إلى **منطقة النموذج** على اليسار و**معاينة حية** على اليمين — كل تغيير تجريه يحدّث المعاينة فوراً.
+### Gauge Charts (3 templates)
+Standard speedometer gauge, ring gauge, and multi-ring gauge (multiple concentric indicators).
 
-في أعلى المحرر، **شريط نوع المخطط** يُظهر 11 زر أيقونة (واحد لكل تصنيف). النقر على أحدها يبدّل نوع المخطط مع الإبقاء على ربط البيانات حيثما أمكن.
+### Combination Charts (2 templates)
+Mixed bar + line, and mixed bar + area — useful when you want to show totals as bars and a trend line on the same chart.
 
-منطقة النموذج تحتوي على عدة تبويبات:
+### Scatter & Bubble (2 templates)
+XY scatter plot and bubble chart (bubble size encodes a third dimension).
 
-#### تبويب ربط البيانات (Data Mapping Tab)
+### Radar Charts (2 templates)
+Polygon radar and filled radar — great for comparing multiple metrics across categories (e.g., KPI scorecards).
 
-هنا تخبر المخطط بحقول البيانات التي يستخدمها. الحقول المتاحة تعتمد على نوع ربط البيانات (الذي يُضبط تلقائياً عند اختيار القالب، لكن يمكن تغييره):
+### Funnel Charts (2 templates)
+Standard funnel (conversion stages) and comparison funnel.
 
-- **عمود التصنيف (Category column)** — البُعد الذي يظهر على محور X (مثل: اسم الفرع، الشهر)
-- **السلاسل (Series)** — عمود قيمة واحد أو أكثر، لكل منها اسم ونوع مخطط (bar/line/scatter) وتنسيق رقم وتعيين محور Y اختياري
-- **عمود التسمية (Label column)** — لمخططات نمط pivot حيث تصبح القيم المميزة في عمود واحد سلاسل منفصلة تلقائياً
-- **وضع التكديس/النسبة المئوية (Stack / Percent mode)** — تحويل الأعمدة المجمّعة إلى مكدّسة، أو التطبيع إلى 100%
-- **ترتيب الفرز (Sort order)** — تصاعدي أو تنازلي حسب القيمة
+### Treemap (1 template)
+Hierarchical rectangle chart for part-to-whole relationships.
 
-تتصرف أدوات الاختيار بشكل مختلف تبعاً لما إذا كان الـ widget يستخدم مصدر بيانات SQL خام أو مصدر بيانات wizard:
+### Heatmap (1 template)
+Matrix visualization with color intensity — useful for time-of-day patterns, region × product analysis, and similar two-dimensional breakdowns.
 
-- **مصدر بيانات SQL** — تختار من أسماء أعمدة مجموعة النتائج التي يُرجعها استعلامك (بالإضافة إلى أعمدة tempo وأعمدة مقارنة الفترات التي حددتها).
-- **مصدر بيانات Wizard** — تختار من معرفات حقول الـ wizard مباشرة. كل خيار يعرض العنوان المترجم ومعرف الحقل الخام بين قوسين (لتمييز `customer` و`upperInvoice.customer` حتى عندما يُترجمان كلاهما إلى "العميل"). أعمدة tempo وأعمدة مقارنة الفترات تظهر في نفس أداة الاختيار تحت مجموعات منفصلة.
+---
 
-مخططات وضع Wizard تحصل على عدة اختصارات في المصمم:
+## The Chart Designer
 
-- تقبل فتحات التصنيف والتسمية والقيمة وX وY والسلاسل معرف حقل wizard — الـ backend يحلّ الاسم المستعار SQL الصحيح عند وقت التصيير.
-- إدخالات إصدار الفلتر المتقاطع تحتاج فقط الفلتر المتقاطع المستهدف ومعرف حقل wizard؛ أعمدة id/code/name/entityType تُستنتج تلقائياً من بيانات الحقل الوصفية.
-- تبويبة Click & Links وتبويبة Drill-Down تعرضان أداة اختيار **Active Dimension** في وضع wizard. كل بُعد له مجموعته الخاصة من إدخالات الفلتر المتقاطع وإدخالات drill-down، وزر "Copy from Dimension" يستنسخ الإدخالات من بُعد آخر لتسريع الإعداد.
+The chart designer is the dialog you open when you create or edit a widget's chart configuration. It has two states:
 
-#### تبويب النمط (Style Tab)
+### State A — Template Gallery
 
-التخصيص البصري دون لمس JSON:
+When you start with a blank widget, the designer opens in gallery mode. You see a searchable grid of all 41 templates, each rendered as a live mini-chart so you can see exactly what you're picking. You can:
 
-- **العنوان والعنوان الفرعي (Title & subtitle)** — إظهار/إخفاء، نص، موضع
-- **لوحة الألوان (Color palette)** — ست لوحات مدمجة (default، warm، cool، pastel، monochrome، Nama brand)، بالإضافة إلى منتقي ألوان مخصص للسلاسل الفردية
-- **أنماط الزخرفة (Decal patterns)** — تشطيبات/أنماط للوصولية والطباعة بالأبيض والأسود
-- **المفسّر (Legend)** — إظهار/إخفاء، موضع (أعلى/أسفل/يسار/يمين)، اتجاه
-- **تلميح الأدوات (Tooltip)** — إظهار/إخفاء، وضع التشغيل (axis يعرض جميع السلاسل دفعة واحدة، item يعرض نقطة بيانات واحدة)
-- **المحاور (Axes)** — تدوير التسمية، اتجاه معكوس، حدود min/max، خطوط الشبكة
-- **تسميات البيانات (Data labels)** — إظهار/إخفاء، موضع (أعلى/أسفل/داخل/مركز)
-- **تكبير البيانات (Data zoom)** — شريط تمرير أو تكبير بعجلة الماوس للمخططات القابلة للتمرير
-- **تحكمات خاصة بالنوع:**
-  - الأعمدة: نصف قطر الزاوية، عرض العمود
-  - الخطوط/المساحات: منحنيات ناعمة، إظهار نقاط البيانات، عرض الخط، وضع الخطوة، تعبئة المساحة
-  - الدوائر: نصف القطر الداخلي (ثقب الحلقة)، نصف القطر الخارجي، وضع rose، زاوية البداية
-  - العدادات: قيمة min/max، تبديل المؤشر، عرض خط المحور
-  - التشتت: حجم الرمز
-  - Heatmaps: إظهار/إخفاء تسميات الخلايا
-  - الرادار: شكل مضلّع أو دائري
+- **Search** by name (e.g., type "stacked" to filter to stacked variants)
+- **Filter by category** using the chips at the top (Bar, Line, Pie, etc.)
+- **Click a template** to select it and move to the editor
+- **Start Blank** if you want to build a chart from an empty canvas
 
-#### محرر JSON المتقدم (Advanced JSON Editor)
+### State B — Chart Editor
 
-لأي شيء لا تغطيه تحكمات واجهة المستخدم، يمكنك التبديل إلى محرر كود Monaco وتعديل ECharts option JSON الخام مباشرة. التغييرات في محرر JSON تنعكس على تحكمات واجهة المستخدم، لذلك يمكنك الجمع بين التعديل البصري وكتابة JSON يدوياً.
+Once you've picked a template (or opened an existing widget), you land in the editor. This is where you connect your data, style the chart, and configure interactions. The editor is split into a **form area** on the left and a **live preview** on the right — every change you make updates the preview in real time.
+
+At the top of the editor, a **chart type bar** shows 11 icon buttons (one per chart category). Clicking one switches the chart type while keeping your data mapping intact where possible.
+
+The form area has several tabs:
+
+#### Data Mapping Tab
+
+This is where you tell the chart which data fields to use. The available fields depend on the data mapping type (which is set automatically by your template choice, but can be changed):
+
+- **Category column** — the dimension that goes on the X-axis (e.g., branch name, month)
+- **Series** — one or more value columns, each with a name, chart type (bar/line/scatter), number format, and optional Y-axis assignment
+- **Label column** — for pivot-style charts where distinct values in one column become separate series automatically
+- **Stack / Percent mode** — turn grouped bars into stacked bars, or normalize to 100%
+- **Sort order** — ascending or descending by value
+
+The pickers behave differently depending on whether the widget uses a raw SQL data source or a wizard data source:
+
+- **SQL data source** — you pick from the result-set column names returned by your query (plus any tempo columns and period-comparison columns you've defined).
+- **Wizard data source** — you pick from the wizard's field IDs directly. Each option shows the translated title plus the raw field ID in parentheses (so `customer` and `upperInvoice.customer` are distinguishable even when they both translate to "Customer"). Tempo columns and period-comparison columns still appear in the same picker but under separate groups.
+
+Wizard-mode charts get several designer-level shortcuts:
+
+- The category, label, value, X, Y, and series slots accept a wizard field ID — the backend resolves the correct SQL alias at render time.
+- Cross-filter emission entries only need the target cross-filter and the wizard field ID; the id/code/name/entityType columns are auto-inferred from the field's metadata.
+- The Click & Links tab and the Drill-Down tab show an **Active Dimension** selector when in wizard mode. Each dimension gets its own set of cross-filter and drill-down entries, and a "Copy from Dimension" button clones entries from another dimension to bootstrap new configurations.
+
+#### Style Tab
+
+Visual customization without touching JSON:
+
+- **Title & subtitle** — show/hide, text, position
+- **Color palette** — six built-in palettes (default, warm, cool, pastel, monochrome, Nama brand), plus a custom color picker for individual series
+- **Decal patterns** — hatching/patterns for accessibility and black-and-white printing
+- **Legend** — show/hide, position (top/bottom/left/right), orientation
+- **Tooltip** — show/hide, trigger mode (axis shows all series at once, item shows one data point)
+- **Axes** — label rotation, inverse direction, min/max bounds, grid lines
+- **Data labels** — show/hide, position (top/bottom/inside/center)
+- **Data zoom** — slider or mouse-wheel zoom for scrollable charts
+- **Type-specific controls:**
+  - Bars: corner radius, bar width
+  - Lines/Areas: smooth curves, show data points, line width, step mode, area fill
+  - Pies: inner radius (donut hole), outer radius, rose mode, start angle
+  - Gauges: min/max value, pointer toggle, axis line width
+  - Scatter: symbol size
+  - Heatmaps: show/hide cell labels
+  - Radar: polygon or circle shape
+
+#### Advanced JSON Editor
+
+For anything the UI controls don't cover, you can switch to a Monaco code editor and edit the raw ECharts option JSON directly. Changes in the JSON editor sync back to the UI controls, so you can mix visual editing with hand-written JSON.
 
 ::: tip
-لا تحتاج إلى تعلّم ECharts API كاملة لاستخدام المصمم. القوالب وتحكمات واجهة المستخدم تغطي أشيع السيناريوهات. لكن إذا أردت تحكماً دقيقاً — تدرجات مخصصة، تسميات نصية غنية، منسّقات tooltip معقدة — فمحرر JSON في متناولك. راجع [وثائق Apache ECharts](https://echarts.apache.org/en/option.html) للمرجع الكامل للخيارات.
+You don't need to learn the full ECharts API to use the designer. The templates and UI controls cover the most common scenarios. But if you want fine-grained control — custom gradients, rich-text labels, complex tooltip formatters — the JSON editor is there. See the [Apache ECharts documentation](https://echarts.apache.org/option.html) for the full option reference.
 :::
 
-#### تبويب Click & Links
+#### Click & Links Tab
 
-هيّئ ما يحدث عندما يتفاعل المستخدمون مع المخطط — مشروح بالتفصيل في قسمَي [الفلاتر المتقاطعة](#lfltr-lmtqTaa-Cross-Filtering) و[الروابط](#lrwbT----ltnql-l-lsjlt-Links----Navigate-to-Records) أدناه.
+Configure what happens when users interact with the chart — covered in detail in the [Cross-Filtering](#Cross-Filtering) and [Links](#Links----Navigate-to-Records) sections below.
 
-#### تبويب Drill-Down
+#### Drill-Down Tab
 
-هيّئ أهداف drill-down — مشروح في قسم [Drill-Down](#Drill-Down) أدناه.
-
----
-
-## لوحات المعلومات والتخطيط (Dashboards & Layout)
-
-لوحة المعلومات هي شبكة تحوي widgets متعددة. تهيّئ حجم الشبكة (مثل: 3 أعمدة × 4 صفوف)، ثم تضع كل widget بتحديد صفها وعمودها وعرضها (بالأعمدة) وارتفاعها (بالصفوف).
-
-كل لوحة معلومات لها **نوع (Kind)**:
-
-- **Single** — لوحة المعلومات الكلاسيكية المعروفة. شبكة من الـ widgets، مع ربط اختياري بالفلاتر المتقاطعة. هذا هو الإعداد الافتراضي للوحات الجديدة.
-- **Tabbed** — حاوية تحمل *لوحات معلومات أخرى* كتبويبات قابلة للتبديل، بدلاً من حمل الـ widgets مباشرة. راجع [لوحات المعلومات ذات التبويبات (Tabbed Dashboards)](#lwHt-lmaalwmt-dht-ltbwybt-Tabbed-Dashboards) أدناه.
-
-### تعديل التخطيط (Editing the Layout)
-
-في وضع التعديل، يمكنك:
-
-- **سحب الـ widgets** لإعادة ترتيبها على الشبكة
-- **تغيير حجم الـ widgets** باستخدام المقابض على جميع الحواف والزوايا
-- **حفظ أو إلغاء** تغييرات التخطيط
-
-مصمم التخطيط مخصص للوحات Single فقط. محاولة فتحه على لوحة Tabbed تُظهر خطأ — لوحات Tabbed لا تحتوي شبكة widgets للتخطيط، فقط قائمة بلوحات فرعية.
-
-### التحديث التلقائي (Auto-Refresh)
-
-يمكن تحديث لوحات المعلومات تلقائياً. هناك مستويان:
-
-- **تحديث مستوى اللوحة (Dashboard-level refresh)** — مؤقت واحد يعيد جلب جميع الـ widgets على فترة محددة
-- **تحديث مستوى الـ Widget (Widget-level refresh)** — يمكن لكل widget الحصول على فترة تحديثها الخاصة، مفيد عندما تحتاج بعض المخططات بيانات شبه فورية والأخرى لا
-
-### أنواع الـ Widgets على لوحة المعلومات
-
-رغم أن ECharts هي النجم الأساسي، تدعم لوحات المعلومات عدة أنواع widget أخرى:
-
-| نوع الـ Widget | ما يفعله |
-|---|---|
-| **EChart** | أي من الـ 41 قالب مخطط |
-| **Table** | جدول بيانات — أسماء أعمدة SQL تصبح رؤوس الأعمدة تلقائياً |
-| **Table v2 (Enhanced)** | جدول بيانات أغنى — الأعمدة محددة صراحة في JSON مع التنسيق ومصيّرات الخلايا والتنسيق الشرطي. راجع قسم [Enhanced Table](#Enhanced-Table-Widget). |
-| **Metrics Cards** | بطاقات ملخص KPI (قيمة + تسمية + اتجاه) |
-| **Timeline** | تيار أحداث زمنية |
-| **Calendar** | تقويم أحداث |
-| **Report** | تقرير JasperReport مضمّن |
-| **HTML** | محتوى HTML مخصص |
-| **Recent Visits** | يعرض السجلات المُشاهدة مؤخراً |
-| **Card Menu** | بطاقات تنقل |
-| **Resource View** | جدولة الموارد |
+Configure drill-down targets — covered in the [Drill-Down](#Drill-Down) section below.
 
 ---
 
-## لوحات المعلومات ذات التبويبات (Tabbed Dashboards)
+## Dashboards & Layout
 
-في بعض الأحيان لا تكفي لوحة معلومات واحدة — الإدارة العليا تريد رؤية مقاييس المستودع والموارد البشرية والمبيعات في مكان واحد، لكن لكل فريق لوحته الخاصة المضبوطة لعمله. بناء لوحة مدمجة ضخمة يُكرّر كل شيء؛ التنقل بين ثلاث لوحات منفصلة مرهق. **لوحات Tabbed** تحلّ هذا بتمكينك من تركيب لوحات موجودة كتبويبات تحت لوحة أم واحدة.
+A dashboard is a grid that holds multiple widgets. You configure the grid size (e.g., 3 columns × 4 rows), then place each widget by specifying its row, column, width (in columns), and height (in rows).
 
-### قصة إعادة الاستخدام
+Every dashboard has a **Kind**:
 
-تصوّر هذا:
+- **Single** — the classic dashboard you've always known. A grid of widgets, optionally with cross-filter bindings. This is the default for new dashboards.
+- **Tabbed** — a container that holds *other dashboards* as switchable tabs, instead of holding widgets directly. See [Tabbed Dashboards](#Tabbed-Dashboards) below.
 
-- فريق المستودع يستخدم **لوحة المستودع (Warehouse Dashboard)** يومياً.
-- الموارد البشرية لديها **لوحة HR (HR Dashboard)** خاصة.
-- المبيعات تعمل على **لوحة المبيعات (Sales Dashboard)**.
+### Editing the Layout
 
-كل من هذه لوحة Single عادية، يمتلكها ويصونها فريقها. الآن يطلب المديرون التنفيذيون مكاناً واحداً لرؤية كل شيء. تُنشئ **لوحة جديدة**، وتضع نوعها كـ **Tabbed**، وتضيف اللوحات الثلاث الموجودة كلوحات فرعية. هذا كل شيء — لا تكرار لـ widgets، لا نسخ لاستعلامات SQL، لا صيانة موازية. عندما يضيف فريق المستودع مخططاً جديداً للوحتهم، يظهر في العرض التنفيذي تلقائياً.
+In edit mode, you can:
 
-اللوحات الفرعية لا تزال قابلة للتصفح بشكل مستقل أيضاً — فريق المستودع يستمر في استخدام لوحة المستودع مباشرة دون أي وعي بأنها تعيش أيضاً داخل عرض تنفيذي.
+- **Drag widgets** to reposition them on the grid
+- **Resize widgets** using handles on all edges and corners
+- **Save or cancel** your layout changes
 
-### الإعداد
+The layout designer is for Single dashboards only. Trying to open it on a Tabbed dashboard shows an error — Tabbed dashboards have no widget grid to lay out, just a list of sub-dashboards.
 
-عند تعديل سجل لوحة معلومات، ترى حقل **النوع (Kind)**:
+### Auto-Refresh
 
-- اتركه كـ **Single** للوحة معلومات عادية.
-- غيّره إلى **Tabbed** لتركيب لوحات أخرى كتبويبات.
+Dashboards can refresh automatically. There are two levels:
 
-التبديل إلى Tabbed يكشف عن شبكة **Sub Dashboards**. أضف صفاً واحداً لكل تبويب:
+- **Dashboard-level refresh** — a single timer that re-fetches all widgets at a set interval
+- **Widget-level refresh** — individual widgets can have their own refresh interval, useful when some charts need near-real-time data and others don't
 
-| الحقل | ما يفعله |
+### Widget Types on a Dashboard
+
+While ECharts are the star of the show, dashboards support several other widget types:
+
+| Widget Type | What It Does                                                            |
+|---|-------------------------------------------------------------------------|
+| **EChart** | Any of the 41 chart templates                                           |
+| **Table** | A data table — the SQL column names become column headers automatically |
+| **Table v2 (Enhanced)** | A richer data table — columns are defined explicitly in JSON with formatting, cell renderers, and conditional styling. See the [Enhanced Table](#Enhanced-Table-Widget) section. |
+| **Metrics Cards** | KPI summary cards (value + label + trend)                               |
+| **Timeline** | Chronological event stream                                              |
+| **Calendar** | Event calendar                                                          |
+| **Report** | Embedded JasperReport                                                   |
+| **HTML** | Custom HTML content                                                     |
+| **Recent Visits** | Shows recently viewed records                                           |
+| **Card Menu** | Navigation cards                                                        |
+| **Resource View** | Resource scheduler                                                      |
+
+---
+
+## Tabbed Dashboards
+
+Sometimes one dashboard isn't enough — top management wants to see warehouse, HR, and sales metrics in one place, but each team already has its own dashboard tuned for their work. Building one giant combined dashboard duplicates everything; switching between three separate dashboards is friction. **Tabbed Dashboards** solve this by letting you compose existing dashboards as tabs under a single parent.
+
+### The Reuse Story
+
+Picture this:
+
+- The warehouse team uses **Warehouse Dashboard** every day.
+- HR has their own **HR Dashboard**.
+- Sales runs **Sales Dashboard**.
+
+Each of those is a normal Single dashboard, owned and maintained by its team. Now executives ask for one place to see everything. You create a **new dashboard**, set its Kind to **Tabbed**, and add the three existing dashboards as sub-dashboards. That's it — no duplicating widgets, no copying SQL queries, no parallel maintenance. When the warehouse team adds a new chart to their dashboard, it shows up in the executive view automatically.
+
+The sub-dashboards are still independently navigable too — the warehouse team keeps using Warehouse Dashboard directly, with no awareness that it also lives inside an executive view.
+
+### Setting It Up
+
+When you edit a dashboard record, you'll see the **Kind** field:
+
+- Leave it as **Single** for a normal dashboard.
+- Change it to **Tabbed** to compose other dashboards as tabs.
+
+Switching to Tabbed reveals the **Sub Dashboards** grid. Add one row per tab:
+
+| Field | What it does |
 |---|---|
-| Sub Dashboard | منتقي مرجع يشير إلى لوحة معلومات موجودة |
-| العنوان العربي (Arabic Title) | تجاوز اختياري لتسمية التبويب بالعربية |
-| العنوان الإنجليزي (English Title) | تجاوز اختياري لتسمية التبويب بالإنجليزية |
+| Sub Dashboard | Reference picker pointing to an existing dashboard |
+| Arabic Title | Optional override for the tab label in Arabic |
+| English Title | Optional override for the tab label in English |
 
-ترتيب الصفوف في الشبكة هو ترتيب ظهور التبويبات في واجهة المستخدم. لإعادة ترتيب التبويبات، أعد ترتيب صفوف الشبكة. إذا تركت كلا حقلَي العنوان فارغَين، يستخدم التبويب اسم اللوحة الفرعية نفسها (`name1` لواجهة المستخدم العربية، `name2` للإنجليزية).
+The order of rows in the grid is the order tabs appear in the UI. To rearrange tabs, reorder the grid rows. If you leave both title fields empty, the tab uses the sub-dashboard's own name (`name1` for Arabic UI, `name2` for English).
 
 ::: tip
-لوحة Tabbed لا يمكنها امتلاك widgets خاصة بها — فهي حاوية بحتة. إذا حاولت إضافة widgets مباشرة، يمنع النظام الحفظ. هذا يحافظ على تناسق النموذج: مهمة اللوحة الأم Tabbed هي استضافة اللوحات الفرعية، لا أكثر.
+A Tabbed dashboard cannot have widgets of its own — it's purely a container. If you also try to add widgets directly, the system blocks the save. This keeps the model coherent: a Tabbed parent's job is to host sub-dashboards, nothing more.
 :::
 
-### الفلاتر المتقاطعة عبر التبويبات
+### Cross-Filters Across Tabs
 
-شريط الفلتر المتقاطع في أعلى لوحة Tabbed هو **اتحاد** كل الفلاتر المتقاطعة المعرّفة على أي من اللوحات الفرعية، مع إزالة التكرارات. لذلك إذا ربطت كل من لوحة المستودع ولوحة المبيعات فلتر "الفرع"، ترى رقيقة Fرع واحدة في الشريط — لا اثنتين.
+The cross-filter bar at the top of a Tabbed dashboard is the **union** of every cross-filter defined on any of the sub-dashboards, with duplicates removed. So if Warehouse and Sales both bind a "Branch" filter, you see one Branch chip in the bar — not two.
 
-علاوة على ذلك، تلك الرقيقة تُطبَّق عبر **جميع التبويبات التي تربطها**. اضغط "الرياض" أثناء مشاهدة تبويب المبيعات، وانتقل إلى المستودع، وسيُعيد المستودع الجلب مع تطبيق فلتر الرياض تلقائياً. يعمل هذا لأن روابط الفلتر المتقاطع موجودة على كل لوحة فرعية، والنظام يُعيد تطبيقها عند كل تبديل تبويب.
+What's more, that filter chip applies across **all tabs that bind it**. Click "Riyadh" while viewing the Sales tab, switch to Warehouse, and Warehouse re-fetches with the Riyadh filter applied automatically. This works because cross-filter bindings live on each sub-dashboard, and the system replays them whenever you switch tabs.
 
-لا تُعرّف روابط الفلتر المتقاطع على لوحة Tabbed الأم نفسها — هذا مقصود. تبقى اللوحات الفرعية مكتفية بذاتها (حتى تستمر في العمل عند استخدامها مستقلة)، واللوحة الأم تجمع فقط ما تُعلنه.
+You don't define cross-filter bindings on the Tabbed parent itself — that's intentional. Sub-dashboards stay self-sufficient (so they keep working when used standalone), and the parent just unions what they declare.
 
-### الأداء — التحميل الكسول لكل تبويب
+### Performance — Lazy Loading Per Tab
 
-يُجلب من الخادم فقط widgets التبويب النشط. التبديل بين التبويبات يُشغّل جلباً للتبويب الجديد؛ التبويبات المحمّلة سابقاً لا تُعاد جلبها حتى تعود إليها. هذا يعني أن اللوحات الثقيلة في التبويبات نادرة الزيارة لا تُبطئ اللوحة الأم — تدفع فقط مقابل ما تنظر إليه.
+Only the active tab's widgets are fetched from the server. Switching tabs triggers a fetch for the new tab; previously-loaded tabs aren't re-fetched until you come back. This means heavy dashboards in rarely-visited tabs don't slow down the parent — you pay only for what you look at.
 
-تغييرات الفلتر المتقاطع تُعيد جلب التبويب النشط فقط أيضاً. التبويبات الأخرى تلتقط الفلتر عند زيارتها لاحقاً.
+Cross-filter changes also re-fetch only the active tab. Other tabs pick up the filter when you visit them next.
 
-### الإشارات المرجعية والمشاركة
+### Bookmarking & Sharing
 
-التبويب النشط مُشفَّر في URL كمعامل استعلام `sd` (sub-dashboard). لذلك يمكنك:
+The active tab is encoded in the URL as the `sd` (sub-dashboard) query parameter. So you can:
 
-- **وضع إشارة مرجعية** على تبويب + تركيبة فلاتر محددة، والرابط يُعيد الفتح في نفس الحالة
-- **مشاركة** رابط يوجّه الزملاء مباشرة إلى "تبويب المستودع مع فلتر تاريخ Q1 مُطبَّق مسبقاً"
-- **استخدام أزرار رجوع/تقدم المتصفح** — التبديل بين التبويبات لا يكسر سجل التنقل إلا بتحديث URL
+- **Bookmark** a specific tab + filter combination, and the link reopens in the same state
+- **Share** a link that points colleagues directly to "the warehouse tab with the Q1 date filter pre-applied"
+- **Use the browser back/forward buttons** — switching tabs doesn't break navigation history beyond the URL update
 
-### ما الذي يختلف في تعديل لوحات Tabbed
+### What's Different About Editing Tabbed Dashboards
 
-لوحة Tabbed لا تحتوي شبكة widgets، لذلك:
+A Tabbed dashboard has no widget grid, so:
 
-- **مصمم التخطيط لا يفتح** للوحات الأم Tabbed. اضغط "تعديل عناصر لوحة المعلومات" وسترى رسالة خطأ تطلب استخدام شبكة Sub Dashboards بدلاً من ذلك.
-- **لتعديل تخطيط widgets لوحة فرعية**، انتقل إلى تلك اللوحة الفرعية مباشرة (لا تزال لوحة Single عادية) واستخدم مصمم التخطيط هناك. التغييرات تظهر في اللوحة الأم تلقائياً.
+- **The layout designer doesn't open** for Tabbed parents. Click "Edit Dashboard Elements" and you'll see an error message asking you to use the Sub Dashboards grid instead.
+- **To edit a sub-dashboard's widget layout**, navigate to that sub-dashboard directly (it's still a normal Single dashboard) and use the layout designer there. Changes appear in the parent automatically.
 
-### القواعد والحدود
+### Rules & Limits
 
-تُطبَّق بعض الثوابت عند الحفظ:
+A few invariants are enforced when you save:
 
-- **لا تبويبات متداخلة.** لا يمكن للوحة فرعية أن تكون بدورها Tabbed. التبويبات عمق واحد — يتجنب هذا الحلقات ويبقي واجهة المستخدم متوقعة.
-- **لا مرجع ذاتي.** لا يمكن للوحة معلومات إدراج نفسها كإحدى تبويباتها.
-- **لا لوحات فرعية مكررة.** يمكن لكل لوحة فرعية الظهور مرة واحدة على الأكثر في قائمة التبويبات.
-- **روابط الفلتر المتقاطع على اللوحات الفرعية فقط.** لا يمكن للوحة الأم Tabbed امتلاك روابطها الخاصة — الاتحاد من اللوحات الفرعية هو ما يُشغّل الشريط.
-- **فلترة الصلاحيات في وقت التشغيل.** إذا كان بإمكانك رؤية اللوحة الأم لكن ليس لوحة فرعية معينة، يظهر التبويب مع ذلك لكنه يُصيّر رسالة خطأ بدلاً من الـ widgets، لتعلم أن هناك شيئاً مقيّداً بدلاً من إخفائه صامتاً.
+- **No nested tabs.** A sub-dashboard cannot itself be Tabbed. Tabs are one level deep — this avoids cycles and keeps the UI predictable.
+- **No self-reference.** A dashboard cannot list itself as one of its own tabs.
+- **No duplicate sub-dashboards.** Each sub-dashboard can appear at most once in the tab list.
+- **Cross-filter bindings live on sub-dashboards only.** A Tabbed parent cannot have its own bindings — the union from sub-dashboards is what powers the bar.
+- **Permission filtering at runtime.** If you can see the parent but not a particular sub-dashboard, that tab still shows up but renders an error message instead of widgets, so you know something's restricted rather than silently hiding it.
 
 ---
 
-## الفلاتر المتقاطعة (Cross-Filtering)
+## Cross-Filtering
 
-الفلتر المتقاطع هو كيفية تواصل المخططات مع بعضها. عند الضغط على عمود "فرع الرياض" في مخطط، تُعيد جميع المخططات الأخرى على لوحة المعلومات جلب بياناتها مفلترة على فرع الرياض. اضغط مرة أخرى ويُزال الفلتر.
+Cross-filtering is how charts talk to each other. When you click a bar for "Riyadh Branch" on one chart, every other chart on the dashboard re-fetches its data filtered to Riyadh Branch. Click it again and the filter clears.
 
-### كيف يعمل
+### How It Works
 
-يوجد ثلاثة مكونات في إعداد الفلتر المتقاطع:
+There are three pieces to a cross-filter setup:
 
-1. **كيان BICrossFilter** — تعريف فلتر قابل لإعادة الاستخدام مخزّن في النظام. يحدد نوع المعامل (مرجع، تاريخ، نص، إلخ)، وعمود SQL الذي يُفلتر عليه، ومشغّل المقارنة المستخدم. تُنشئ هذه مرة واحدة وتُعيد استخدامها عبر widgets كثيرة.
+1. **BICrossFilter entity** — a reusable filter definition stored in the system. It specifies the parameter type (reference, date, text, etc.), which SQL column to filter on, and which comparison operator to use. You create these once and reuse them across many widgets.
 
-2. **روابط الفلتر المتقاطع على الـ widgets** — كل widget تُعلن الفلاتر المتقاطعة التي *تستجيب لها*. عند تفعيل فلتر، يحصل استعلام SQL للـ widget على عبارة WHERE إضافية مُحقنة تلقائياً.
+2. **Cross-filter bindings on widgets** — each widget declares which cross-filters it *responds to*. When a filter is active, the widget's SQL query gets an extra WHERE clause injected automatically.
 
-3. **ربط إصدار النقر (Click emit mapping) على الـ widgets** — كل widget يمكنها الإعلان عن الفلاتر المتقاطعة التي *تُصدرها* عند نقر المستخدم عليها. هذا ما يجعل نقرة على مخطط دائري تُعيّن فلتراً تتفاعل معه مخططات أخرى.
+3. **Click emit mapping on widgets** — each widget can declare which cross-filters it *emits* when a user clicks on it. This is what makes a pie chart click set a filter that other charts react to.
 
-### شريط الفلاتر (The Filter Bar)
+### The Filter Bar
 
-في أعلى كل لوحة معلومات تستخدم الفلاتر المتقاطعة، ترى **شريط الفلاتر**. يُظهر:
+At the top of every dashboard that uses cross-filters, you'll see a **filter bar**. It shows:
 
-- **زر الفلاتر (Filters button)** مع عدد الفلاتر النشطة (مثل: "الفلاتر: 3")
-- **رقائق الفلاتر (Filter chips)** — واحدة لكل فلتر نشط، تعرض تسمية الحقل والقيمة المحددة مع زر X للإزالة
-- النقر على زر الفلاتر يفتح **حوار محرر الفلاتر** حيث يمكن ضبط أو تغيير قيم فلاتر متعددة دفعة واحدة
+- A **Filters button** with a count of active filters (e.g., "Filters: 3")
+- **Filter chips** — one per active filter, showing the field label and selected value, with an X button to remove it
+- Clicking the Filters button opens a **filter editor dialog** where you can set or change multiple filter values at once
 
-### أنواع الفلاتر (Filter Types)
+### Filter Types
 
-تدعم الفلاتر المتقاطعة جميع أنواع البيانات المتوقعة:
+Cross-filters support all the data types you'd expect:
 
-| النوع | مثال | تحكم واجهة المستخدم |
+| Type | Example | UI Control |
 |---|---|---|
-| مرجع (Reference) | الفرع، العميل، الصنف | حقل بحث الكيان |
-| تاريخ (Date) | من تاريخ، إلى تاريخ | منتقي تاريخ |
-| نص (Text) | كلمة بحث | إدخال نصي |
-| عدد صحيح / عشري (Integer / Decimal) | الحد الأدنى للمبلغ | إدخال رقمي |
-| Enum | حالة الفاتورة | قائمة منسدلة |
-| منطقي (Boolean) | النشطون فقط | مربع اختيار |
-| قائمة (List) | فروع متعددة | اختيار متعدد |
+| Reference | Branch, Customer, Item | Entity lookup field |
+| Date | From date, To date | Date picker |
+| Text | Search keyword | Text input |
+| Integer / Decimal | Minimum amount | Number input |
+| Enum | Invoice status | Dropdown |
+| Boolean | Active only | Checkbox |
+| List | Multiple branches | Multi-select |
 
-### المشغّلات (Operators)
+### Operators
 
-يمكن لكل فلتر متقاطع استخدام مشغّل مقارنة مختلف:
+Each cross-filter can use a different comparison operator:
 
-| المشغّل | SQL | الاستخدام الشائع |
+| Operator | SQL | Typical Use |
 |---|---|---|
-| يساوي (Equal) | `=` | تطابق تام (الأكثر شيوعاً) |
-| في (In) | `IN (...)` | اختيار متعدد القيم |
-| أكبر من أو يساوي (GreaterThanOrEqual) | `>=` | تاريخ "من"، الحد الأدنى |
-| أصغر من أو يساوي (LessThanOrEqual) | `<=` | تاريخ "إلى"، الحد الأقصى |
-| أكبر / أصغر (GreaterThan / LessThan) | `>` / `<` | مقارنة صارمة |
-| لا يساوي (NotEqual) | `<>` | الاستثناء |
-| يحتوي (Contains) | `LIKE '%...%'` | بحث نصي |
-| يبدأ بـ (StartsWith) | `LIKE '...%'` | تطابق البادئة |
+| Equal | `=` | Exact match (most common) |
+| In | `IN (...)` | Multi-value selection |
+| GreaterThanOrEqual | `>=` | "From" date, minimum value |
+| LessThanOrEqual | `<=` | "To" date, maximum value |
+| GreaterThan / LessThan | `>` / `<` | Strict comparison |
+| NotEqual | `<>` | Exclusion |
+| Contains | `LIKE '%...%'` | Text search |
+| StartsWith | `LIKE '...%'` | Prefix match |
 
-### التغذية الراجعة البصرية (Visual Feedback)
+### Visual Feedback
 
-عند تفعيل الفلاتر المتقاطعة، تعرض الـ widgets شارات تشير إلى:
+When cross-filters are active, widgets show badges indicating:
 
-- **"مفلتر بواسطة: الفرع، التاريخ"** — بيانات هذه الـ widget مفلترة بهذه الفلاتر المتقاطعة
-- **"يُصدر: الفرع"** — هذه الـ widget هي مصدر فلتر الفرع النشط
+- **"Filtered by: Branch, Date"** — this widget's data is filtered by these cross-filters
+- **"Emitting: Branch"** — this widget is the source of the active Branch filter
 
-مرّر الماوس على الشارة لرؤية قيم الفلتر الفعلية.
+Hover over a badge to see the actual filter values.
 
 ---
 
 ## Drill-Down
 
-يتيح Drill-Down للمستخدمين التنقل من البيانات الملخصة إلى البيانات التفصيلية. انقر بزر الماوس الأيمن على نقطة بيانات وتظهر قائمة سياقية تُريك أين يمكنك التعمق. هناك ثلاثة أشكال:
+Drill-down lets users navigate from summary data to detail data. Right-click a data point and a context menu shows you where you can drill into. There are three flavors:
 
-### Widget Drill-Down (مخطط → مخطط)
+### Widget Drill-Down (Chart → Chart)
 
-انقر بزر الأيمن على نقطة بيانات ← اختر هدفاً ← تفتح نافذة تعرض مخطط الـ widget المستهدفة، مفلتراً مسبقاً على القيمة التي نقرت عليها. مثلاً: انقر بزر الأيمن على "الإلكترونيات" في مخطط دائري للمبيعات حسب التصنيف ← تعمق في مخطط "أفضل 10 أصناف في الإلكترونيات".
+Right-click a data point → select a target → a popup opens showing the target widget's chart, pre-filtered to the clicked value. For example, right-click "Electronics" on a sales-by-category pie → drill into "Top 10 Items in Electronics" bar chart.
 
-يمكنك تهيئة أهداف drill-down متعددة لكل widget، وتظهر كعناصر منفصلة في قائمة زر الأيمن.
+You can configure multiple drill-down targets per widget, and they appear as separate items in the right-click menu.
 
-### Dashboard Drill-Down (مخطط → لوحة معلومات)
+### Dashboard Drill-Down (Chart → Dashboard)
 
-نفس الفكرة، لكن الهدف هو لوحة معلومات كاملة بدلاً من widget منفردة. فلاتر drill-down تُمرَّر إلى جميع الـ widgets على لوحة المعلومات المستهدفة. رائع للتحليل الهرمي — مثل: نظرة عامة على الشركة ← لوحة معلومات إقليمية ← لوحة معلومات الفرع.
+Same idea, but the target is an entire dashboard instead of a single widget. The drill-down filters are passed to all widgets on the target dashboard. Great for hierarchical analysis — e.g., company overview → regional dashboard → branch dashboard.
 
-### Dimension Drill-By (نفس المخطط، بُعد أعمق)
+### Dimension Drill-By (Same Chart, Deeper Dimension)
 
-إذا كانت widget تستخدم مصدر بيانات wizard مع حقول أبعاد متعددة، يمكنك التعمق *حسب البُعد*. انقر بزر الأيمن "الرياض" ← Drill Down By Month ← ترى نفس المقياس مصنّفاً حسب الشهر للرياض فقط. مسار التنقل (breadcrumb trail) يتتبع مسارك (المنطقة ← الفرع ← الشهر)، ويمكنك النقر على أي خطوة للعودة.
+If a widget uses a wizard data source with multiple dimension fields, you can drill down *by dimension*. Right-click "Riyadh" → Drill Down By Month → see the same metric broken down by month for Riyadh only. A breadcrumb trail tracks your path (Region → Branch → Month), and you can click any breadcrumb to go back.
 
-**كيف يعمل drill-by لمخططات متعددة الأبعاد (CategoryLabelValue، الأعمدة المكدّسة، إلخ):**
+**How drill-by works for multi-dimension charts (CategoryLabelValue, stacked bars, etc.):**
 
-- البُعد المُستعمق يحلّ محل **التصنيف** (محور X). إذا كان المخطط يحتوي أيضاً على بُعد تسمية (تفصيل السلسلة)، تلك التسمية تبقى في مكانها — يحافظ المخطط على نفس الشكل البصري مع المحور X الجديد.
-- يتراكم في مكدّس الفلاتر فقط قيمة **التصنيف** التي نقرت عليها، لا قيمة التسمية. فالنقر بزر الأيمن على عمود "يناير / المنتج A" والتعمق حسب المنطقة يعطيك توزيع يناير الإقليمي عبر جميع المنتجات — لا المنتج A فقط.
-- تُخفي قائمة زر الأيمن الأبعاد النشطة فعلاً على المخطط، لذا لا يمكنك التعمق بواسطة بُعد المخطط يُجمَّع بواسطته بالفعل.
+- The drilled dimension replaces the **category** (X-axis). If the chart also has a label dimension (series breakdown), that label stays put — the chart keeps the same visual shape with the new X-axis.
+- The filter stack only accumulates the clicked **category** value, not the label value. So right-clicking a "January / Product A" bar and drilling by Region gives you January's regional breakdown across all products — not just Product A's.
+- The right-click menu hides dimensions that are already active on the chart, so you can't drill by a dimension the chart is already grouping by.
 
-إصدار الفلتر المتقاطع تدفق منفصل: النقر بزر الأيسر على نقطة بيانات يُصدر فلاتر لكل بُعد نشط لتلك النقطة (التصنيف + التسمية معاً)، بغض النظر عن drill-by.
+Cross-filter emission is a separate flow: left-clicking a data point emits filters for every active dimension of that point (category + label together), independent of drill-by.
 
 ### Single-Click Drill-Down
 
-افتراضياً، يتطلب drill-down نقر زر الأيمن. لكن يمكنك تهيئة widget بحيث يُشغّل نقر زر الأيسر هدف drill-down محدداً فوراً — دون حاجة لقائمة. يُهيَّأ هذا عبر إعداد `clickAction` في تبويبة Click & Links.
+By default, drill-down requires a right-click. But you can configure a widget so that a left-click immediately triggers a specific drill-down target — no menu needed. This is configured via the `clickAction` setting in the Click & Links tab.
 
-### حوار Drill-Down
+### The Drill-Down Dialog
 
-عندما يفتح drill-down في وضع النافذة المنبثقة (الافتراضي)، يعرض:
+When a drill-down opens in popup mode (the default), it shows:
 
-- **مسار تنقل (breadcrumb trail)** في الأعلى يُظهر المسار الذي سلكته (قابل للنقر للرجوع)
-- **المخطط المستهدف** مُصيَّر مع فلاتر drill-down مُطبَّقة
-- **زر تكبير** للعرض الكامل
-- دعم **drill-downs متداخلة** — يمكنك التعمق من النافذة إلى نافذة أخرى
-
----
-
-## الروابط — التنقل إلى السجلات (Links — Navigate to Records)
-
-أحياناً تريد الضغط على نقطة بيانات في مخطط والانتقال إلى سجل ERP الفعلي خلفها. هذا ما ربط الروابط (link mappings) مخصص له.
-
-### روابط الكيانات (Entity Links)
-
-وجّه رابطاً نحو نوع كيان + عمود ID، والضغط يفتح شاشة التعديل لذلك السجل. مثلاً: الضغط على عمود "ABC Trading" يمكن أن يفتح سجل العميل لـ ABC Trading — في نافذة منبثقة أو نفس التبويب أو تبويب جديد.
-
-لمسة جميلة: يمكنك تهيئة `labelColumn` بحيث تقول قائمة السياق "فتح العميل 'ABC Trading'" بدلاً من "فتح العميل" فقط.
-
-### روابط URL
-
-إذا كان استعلام SQL يُرجع عمود URL، يمكنك الربط به مباشرة. URLs المطلقة (http/https) تفتح في تبويب جديد؛ URLs النسبية تتنقل داخل التطبيق.
-
-### أين تظهر الروابط
-
-تظهر الروابط في قائمة السياق عند زر الأيمن تحت قسم "التنقل إلى". مثل drill-down، يمكنك أيضاً تهيئة رابط كإجراء النقر الأيسر الافتراضي.
+- A **breadcrumb trail** at the top showing the path you've taken (clickable to go back)
+- The **target chart** rendered with the drill-down filters applied
+- A **maximize button** for full-screen viewing
+- Support for **nested drill-downs** — you can drill from the popup into another popup
 
 ---
 
-## قائمة السياق عند زر الأيمن (The Right-Click Context Menu)
+## Links — Navigate to Records
 
-عند النقر بزر الأيمن على نقطة بيانات في مخطط مُهيَّأ بتفاعلات، ترى قائمة منظمة:
+Sometimes you want to click a chart data point and jump to the actual ERP record behind it. That's what link mappings are for.
+
+### Entity Links
+
+Point a link at an entity type + ID column, and clicking opens that record's edit screen. For example, clicking a bar for "ABC Trading" can open the Customer record for ABC Trading — in a popup dialog, the same tab, or a new tab.
+
+A nice touch: you can configure a `labelColumn` so the context menu says "Open Customer 'ABC Trading'" instead of just "Open Customer".
+
+### URL Links
+
+If your SQL query returns a URL column, you can link to it directly. Absolute URLs (http/https) open in a new tab; relative URLs navigate within the app.
+
+### Where Links Appear
+
+Links show up in the right-click context menu under a "Navigate To" section. Like drill-down, you can also configure a link as the default left-click action.
+
+---
+
+## The Right-Click Context Menu
+
+When you right-click a data point on a chart that has interactions configured, you see a structured menu:
 
 ```
 "Series Name / Category Value"
@@ -405,217 +405,217 @@ Drill Down By:
   ├─ By Branch
 ```
 
-كل قسم يظهر فقط إذا كان الربط المقابل محدداً. مخطط بلا روابط ولا أهداف drill-down ولا أبعاد wizard لا يُظهر قائمة سياق على الإطلاق.
+Each section only appears if the corresponding mapping is defined. A chart with no links, no drill-down targets, and no wizard dimensions shows no context menu at all.
 
 ---
 
-## ملخص تفاعلات المخطط (Chart Interactions Summary)
+## Chart Interactions Summary
 
-| الإجراء | ما يحدث |
+| Action | What Happens |
 |---|---|
-| **نقر أيسر** على نقطة بيانات | يُصدر فلتراً متقاطعاً (افتراضي)، أو يتنقل/يُعمّق إذا كان `clickAction` مُهيَّأً |
-| **نقر أيسر** على نفس النقطة مرة أخرى | يُزيل الفلتر المتقاطع (سلوك التبديل) |
-| **نقر أيمن** على نقطة بيانات | يفتح قائمة السياق مع أهداف drill-down والروابط وخيارات drill-by |
-| **تمرير الماوس** على نقطة بيانات | يعرض التلميح (وضع axis يعرض جميع السلاسل، وضع item يعرض نقطة واحدة) |
-| **عجلة التمرير** | تكبير/تصغير إذا كان data zoom مفعّلاً |
-| **سحب شريط التكبير** | يضبط نطاق البيانات المرئية |
-| **شريط الأدوات: حفظ كصورة (Save as Image)** | يُنزّل المخطط كملف PNG |
-| **شريط الأدوات: تصدير الإعداد (Export Config)** | ينسخ JSON إعداد المخطط إلى الحافظة |
+| **Left-click** data point | Emits cross-filter (default), or navigates/drills if `clickAction` is configured |
+| **Left-click** same point again | Clears the cross-filter (toggle behavior) |
+| **Right-click** data point | Opens context menu with drill-down targets, links, and drill-by options |
+| **Hover** data point | Shows tooltip (axis mode shows all series, item mode shows single point) |
+| **Scroll wheel** | Zooms in/out if data zoom is enabled |
+| **Drag zoom slider** | Adjusts visible data range |
+| **Toolbar: Save as Image** | Downloads the chart as a PNG file |
+| **Toolbar: Export Config** | Copies the chart configuration JSON to clipboard |
 
 ---
 
-## Widgets الجداول (Table Widgets)
+## Table Widgets
 
-ليس كل شيء يحتاج إلى مخطط. تعرض widgets الجداول نتائج الاستعلامات في شبكة بأعمدة قابلة للفرز وتغيير الحجم. أسماء أعمدة SQL تصبح رؤوس الشبكة — لا إعداد إضافي مطلوب سوى الاستعلام وربط الفلاتر المتقاطعة.
+Not everything needs to be a chart. Table widgets display query results in an grid with sortable, resizable columns. The SQL column names become the grid headers — no extra configuration needed beyond the query and cross-filter bindings.
 
-تحترم widgets الجداول الفلاتر المتقاطعة تماماً مثل widgets المخططات، لذلك عند الضغط على فرع في مخطط أعمدة، الجدول المجاور يتصفح لعرض سجلات ذلك الفرع فقط.
+Table widgets respect cross-filters just like chart widgets do, so when you click a branch on a bar chart, the table next to it filters to show only that branch's records.
 
 ---
 
 ## Enhanced Table Widget
 
-الـ `Table` widget الكلاسيكية سريعة الإعداد لكنها تعرض الأعمدة تماماً كما يُرجعها SQL — أرقام خام، بلا تنسيق، بلا ترميز لوني، بلا مصيّرات خلايا مميزة. الـ **Enhanced Table** widget (`Table v2 (Enhanced)` في منتقي نوع الـ widget، عربي: "جدول محسن") هي جدول من الجيل الثاني حيث كل عمود مُهيَّأ صراحة، لتحصل على تنسيق لكل عمود، وشارات ملونة، وأشرطة تقدم، وشرارات مضمّنة (sparklines)، وتنسيق شرطي مبني على قواعد — كل هذا دون لمس أي كود مخصص.
+The classic `Table` widget is quick to set up but shows columns exactly as the SQL returns them — raw numbers, no formatting, no color coding, no fancy cell renderers. The **Enhanced Table** widget (`Table v2 (Enhanced)` in the widget type picker, Arabic: "جدول محسن") is a second-generation table where every column is configured explicitly, so you get per-column formatting, colored badges, progress bars, inline sparklines, and rule-based conditional styling — all without touching any custom code.
 
 ::: tip
-Enhanced Table ترقية اختيارية. الـ `Table` widget الكلاسيكية تستمر في العمل كما كانت تماماً. اختر Enhanced Table عندما تحتاج واحداً أو أكثر من: تنسيق العملة/النسبة المئوية/التاريخ، تلوين الإيجابي بالأخضر والسلبي بالأحمر، شارات الحالة، أشرطة التقدم المضمّنة، sparklines، رؤوس مجموعات الأعمدة، أو تثبيت الأعمدة.
+Enhanced Table is an opt-in upgrade. The classic `Table` widget continues to work exactly as before. Pick Enhanced Table when you need one or more of: currency/percent/date formatting, green-for-positive / red-for-negative coloring, status badges, in-row progress bars, sparklines, grouped column headers, or column pinning.
 :::
 
-### ما يمكنك فعله لكل عمود
+### What You Can Do Per Column
 
-كل عمود في Enhanced Table مُعرَّف في `chartConfigJSON` بمجموعة خياراته الخاصة:
+Each column in an Enhanced Table is defined in `chartConfigJSON` with its own set of options:
 
-- **مصدر البيانات (Data source)** — إما اسم عمود SQL خام (`field`) أو معرف حقل wizard (`wizardFieldId`). نفس التقسيم كأي مكان آخر في وحدة BI.
-- **التنسيق (Formatting)** — اختر من `text`، `number`، `currency`، `percent`، `date`، `datetime`، `duration`. تحكم في الخانات العشرية، وفاصلة الآلاف، ورموز العملة ووضعها (بادئة أو لاحقة)، وأنماط تنسيق التاريخ.
-- **مصيّر الخلية (Cell renderer)** — كيف تُرسم الخلية:
-  - `text` — قيمة منسّقة عادية (افتراضي)
-  - `html` — يُصيّر HTML خام من قيمة الخلية (للتنسيق الغني القادم من SQL)
-  - `badge` — تسمية حبة أو مربعة، لون الخلفية مدفوع بالتنسيق الشرطي
-  - `bar` — شريط أفقي ممتلئ نسبياً بين حد أدنى وأقصى (مثل: "الكمية من 50")
-  - `progress` — نفس bar، دلالياً "تقدم نحو الهدف"
-  - `sparkline` — مخطط مصغّر مضمّن (خط، عمود، أو مساحة) يُغذَّى من عمود منفصل في مجموعة النتائج
-  - `icon` — يعرض أيقونة بناءً على قيمة الخلية (مثل: علامة صح لـ "معتمد"، تحذير لـ "معلّق")
-- **التنسيق الشرطي (Conditional formatting)** — تلوين خلفية الخلية / لون النص / غامق / مائل بناءً على القيمة. القواعد تشمل:
-  - **الحدود (Thresholds)** — "إذا كانت القيمة ≥ 10,000 أظهر أخضر؛ إذا < 0 أظهر أحمر"
-  - **النطاقات (Ranges)** — "إذا كانت القيمة بين 0 و100 أظهر كهرماني"
-  - **مقارنة الأعمدة (Column comparison)** — "إذا تجاوزت قيمة هذا العمود عمود الميزانية، أظهر أحمر"
-  - **مطابقة Enum** — "إذا كانت الحالة 'ملغاة' أظهر رمادياً ومائلاً"
-  - **فحوص null** — "إذا كان فارغاً، أظهر نمط 'لا بيانات' خفياً"
+- **Data source** — either a raw SQL column name (`field`) or a wizard field ID (`wizardFieldId`). Same split as anywhere else in the BI module.
+- **Formatting** — pick from `text`, `number`, `currency`, `percent`, `date`, `datetime`, `duration`. Control decimals, thousand separators, currency symbols and placement (prefix or suffix), date format patterns.
+- **Cell renderer** — how the cell is painted:
+  - `text` — plain formatted value (default)
+  - `html` — renders raw HTML from the cell value (for rich formatting that already comes from SQL)
+  - `badge` — pill or square label, background color driven by conditional formatting
+  - `bar` — horizontal bar filled proportionally between a min and max (e.g., "qty out of 50")
+  - `progress` — same as bar, semantically "progress toward target"
+  - `sparkline` — inline mini-chart (line, column, or area) fed by a separate column in the result set
+  - `icon` — shows an icon based on the cell value (e.g., a checkmark for "Approved", a warning for "Pending")
+- **Conditional formatting** — rule-based cell background / text color / bold / italic based on the value. Rules include:
+  - **Thresholds** — "if value ≥ 10,000 show green; if < 0 show red"
+  - **Ranges** — "if value is between 0 and 100 show amber"
+  - **Column comparison** — "if this column's value exceeds the budget column, show red"
+  - **Enum matching** — "if status is Cancelled show gray and italic"
+  - **Null checks** — "if empty, show a subtle 'no data' style"
 
-  القواعد تُقيَّم على الخادم، لذا المقارنة دائماً رقمية عند الحاجة (لا مزيد من "2 > 10 لأنهما مقارنتان كنصوص"). التواريخ تُقارن كتواريخ عندما يكون نوع تنسيق العمود `date` أو `datetime`.
-- **مجموعات الأعمدة (Column groups)** — أعطِ عدة أعمدة رأس مجموعة مشتركة (مثل: مجموعة "العميل" فوق `Customer Name` و`Branch`).
-- **التثبيت والعرض وتجميع الصفوف والتجميع (Pinning, width, row grouping, aggregation)** — تحكمات AG Grid القياسية، مُكشوفة تصريحياً في JSON.
+  Rules are evaluated on the server, so the comparison is always numeric when it should be (no more "2 > 10 because they're compared as strings"). Dates are compared as dates when the column's formatting type is `date` or `datetime`.
+- **Column groups** — give several columns a shared group header (e.g., a "Customer" group above `Customer Name` and `Branch`).
+- **Pinning, width, row grouping, aggregation** — standard AG Grid controls, exposed declaratively in the JSON.
 
-### تنسيق مستوى الصف (Row-Level Styling)
+### Row-Level Styling
 
-إضافة إلى قواعد كل خلية، يمكنك تنسيق صفوف كاملة بناءً على قيمة أي عمود. مثلاً: تمييز كل صف حيث الهامش سلبي، أو تظليل الطلبات الملغاة عبر الصف بأكمله. قاموس القواعد هو نفسه كالتنسيق الشرطي لكل خلية — فقط تُسمّي العمود الذي تختبره.
+In addition to per-cell rules, you can style whole rows based on any column's value. For example: highlight every row where margin is negative, or grey out cancelled orders across the whole row. The rule vocabulary is the same as per-cell conditional formatting — you just name the column to test.
 
-### التفاعلات — نفس البقية
+### Interactions — Same As The Rest
 
-كل ما تعرفه عن تفاعلات BI لا يزال يعمل: إصدار الفلتر المتقاطع عند النقر، drill-down إلى widgets أو لوحات معلومات عند زر الأيمن، روابط الكيانات في قائمة "التنقل إلى"، وتجاوز `clickAction` بنقرة واحدة. الإضافة الوحيدة هي أن كل ربط نقر/drill/رابط يمكنه اختيارياً تضمين حقل `column` — عند تعيينه، يُشغَّل الربط فقط عندما ينقر المستخدم خلية في ذلك العمود المحدد. عند غياب `column`، يُشغَّل الربط على أي خلية في الصف (سلوك Table الكلاسيكي).
+Everything you know about BI interactions still works: cross-filter emission on click, drill-down to widgets or dashboards on right-click, entity links in the "Navigate To" menu, and the single-click `clickAction` override. The only addition is that each click/drill/link mapping can optionally include a `column` field — when set, the mapping fires only when the user clicks a cell in that specific column. When `column` is absent, the mapping fires on any cell in the row (classic Table behavior).
 
-### ملاءمات المسؤول (Admin Conveniences)
+### Admin Conveniences
 
-عند تسجيل الدخول كـ `admin` (أو أي مستخدم بـ `treatAsAdmin` مُفعَّل)، يُظهر شريط أدوات الـ widget زرَّين إضافيَّين:
+When logged in as `admin` (or any user with `treatAsAdmin` enabled), the widget toolbar shows two extra buttons:
 
-- **نسخ JSON البيانات (Copy Data JSON)** — ينسخ الحمولة البيانية المحسوبة بالكامل للـ widget إلى الحافظة. مفيد لتصحيح قواعد التنسيق أو فهم سبب مظهر خلية معينة.
-- **فتح الـ Widget (Open Widget)** — يفتح شاشة تعديل الـ widget في تبويب جديد. نفس الزر يظهر أيضاً على widgets `Table` و`Metrics Cards` و`Card Menu` و`EChart` للمسؤولين، يُتيح وصولاً بنقرة واحدة لإعداد الـ widget من أي لوحة معلومات.
+- **Copy Data JSON** — copies the widget's fully-computed data payload to the clipboard. Handy for debugging formatting rules or understanding why a particular cell looks the way it does.
+- **Open Widget** — opens the widget's edit screen in a new tab. This same button also appears on `Table`, `Metrics Cards`, `Card Menu`, and `EChart` widgets for admins, giving one-click access to widget configuration from any dashboard.
 
-### المصمم (Designer)
+### Designer
 
-محرر إعداد المخطط للـ Enhanced Table widgets يستبدل التبويبات الخاصة بـ ECharts بتبويبة **Table Columns** تتيح لك:
+The chart-config editor for Enhanced Table widgets swaps the ECharts-specific tabs for a **Table Columns** tab that lets you:
 
-- سرد الأعمدة وإعادة ترتيبها (أزرار سحب وإسقاط)
-- تعديل id وfield ورؤوس كل عمود وعرضه وتثبيته ونوع المصيّر ونوع التنسيق مضمّناً
-- البدء من استعلام SQL عبر زر **توليد الأعمدة من مجموعة النتائج (Generate Columns From Result Set)** — يُشغّل SQL مصدر البيانات ويُولّد عموداً افتراضياً لكل رأس في مجموعة النتائج، لتبدأ غير فارغ
+- List and reorder columns (drag-and-drop arrow buttons)
+- Edit each column's id, field, headers, width, pinning, renderer type, formatting type inline
+- Bootstrap from a SQL query via the **Generate Columns From Result Set** button — this runs the data-source SQL and seeds one default column per result-set header, so you're not starting from zero
 
-تبويبة **Table Options** المرفقة تغطي مفاتيح مستوى الشبكة (pagination، تجميع الصفوف، صف الإجمالي الكلي، إلخ).
+A companion **Table Options** tab covers the grid-level switches (pagination, row grouping, grand total row, etc.).
 
-للإعداد الأكثر تقدماً — تحديداً مجموعات الأعمدة، وخيارات كل مصيّر مثل bar min/max أو تعيينات الأيقونات، وDSL قواعد التنسيق الشرطي الكاملة — استخدم تبويبة **Raw JSON**. المرجع التقني [§14](./bi-module-technical-reference.md#14-EnhancedTable----shbk-mushGaWl-bJSON) يحتوي الـ schema الكاملة.
+For more advanced configuration — specifically column groups, per-renderer options like bar min/max or icon mappings, and the full conditional-formatting rule DSL — use the **Raw JSON** tab. The [Technical Reference §14](./bi-module-technical-reference.md#14-EnhancedTable----JSON-Driven-Grid) has the complete schema.
 
-### متى تستخدم أيًّا منهما
+### When To Use Which
 
-| حالة الاستخدام | الـ Widget |
+| Use Case | Widget |
 |---|---|
-| شبكة مخصصة سريعة على استعلام SQL، بلا تنسيق | `Table` |
-| جداول مالية بتنسيق عملة، والسلبي باللون الأحمر، والإجماليات | `Table v2 (Enhanced)` |
-| أعمدة الحالة / الأولوية / التصنيف التي ينبغي عرضها كشارات ملونة | `Table v2 (Enhanced)` |
-| جداول نمط KPI مع أشرطة مضمّنة أو sparklines تعرض الحجم النسبي | `Table v2 (Enhanced)` |
-| جداول بمجموعات أعمدة، أعمدة مثبّتة، أو إعدادات تجميع مسبقة لكل عمود | `Table v2 (Enhanced)` |
+| Quick ad-hoc grid over a SQL query, no styling needed | `Table` |
+| Financial tables with currency formatting, negative-in-red, totals | `Table v2 (Enhanced)` |
+| Status / priority / category columns that should read as colored badges | `Table v2 (Enhanced)` |
+| KPI-style tables with inline bars or sparklines showing relative magnitude | `Table v2 (Enhanced)` |
+| Tables with column groups, pinned columns, or per-column aggregation presets | `Table v2 (Enhanced)` |
 
-### ترقية جدول موجود (Upgrading An Existing Table)
+### Upgrading An Existing Table
 
-لا ترقية تلقائية — التبديل خيار متعمد لكل widget:
+No automatic migration — switching is a deliberate choice per widget:
 
-1. عدّل سجل `DashBoardWidget` وغيّر نوعه من `Table` إلى `Table v2 (Enhanced)`.
-2. افتح محرر إعداد المخطط. تبويبة **Table Columns** تظهر بدلاً من تبويبة ربط بيانات ECharts.
-3. اضغط **توليد الأعمدة من مجموعة النتائج** لتولّد أعمدة من SQL الـ widget.
-4. اضبط التنسيق والمصيّرات والتنسيق الشرطي كما تريد.
-5. احفظ. أي ربط فلاتر متقاطعة وdrill-down وروابط موجود يستمر في العمل — حقل `column` على تلك الروابط يطابق بالفعل `id`s الأعمدة الافتراضية (التي هي فقط أسماء أعمدة SQL).
-
----
-
-## مصادر البيانات (Data Sources)
-
-كل widget تحصل على بياناتها من استعلام SQL خام أو مصدر بيانات wizard.
-
-### SQL الخام (Raw SQL)
-
-تكتب استعلام SELECT بـ T-SQL قياسي. المتطلب الوحيد هو تضمين placeholder المكتوب `/*AND-FILTERS*/` في عبارة WHERE — هنا يضخّ النظام شروط الفلتر المتقاطع في وقت التشغيل. لأنه تعليق SQL، يبقى استعلامك صالحاً إذا لصقته في SQL Server Management Studio للاختبار.
-
-### مصدر بيانات Wizard
-
-بدلاً من كتابة SQL، تُعرّف مصدر بيانات باستخدام معرفات حقول Nama ERP (مسارات الخصائص مثل `customer.customerCategory` أو `price.netValue`). النظام يولّد SQL تلقائياً. حقول Wizard مُصنَّفة إما كـ **Dimension** (group-by / تصنيف) أو **Measure** (قيمة مجمّعة بـ Sum، Count، Average، Min، أو Max).
-
-تُتيح مصادر بيانات Wizard عدة ميزات في المصمم ووقت التشغيل لا تحصل عليها widgets SQL الخام:
-
-- **Dimension drill-by** — انقر بزر الأيمن على نقطة بيانات وتعمق بواسطة أي بُعد آخر محدد على الـ wizard. متاح فقط للـ widgets المدعومة بـ wizard لأن النظام يحتاج هيكل الحقل لإعادة بناء الاستعلام أثناء التشغيل.
-- **أعمدة الفلتر المتقاطع المستنتجة تلقائياً** — عند إصدار فلتر متقاطع من حقل مرجع (مثل `customer.customerCategory`)، لا تكتب أعمدة id / code / name1 / name2 / entityType. النظام يقرأها من بيانات وصفية لحقل الـ wizard، المخزّنة عند حفظ الـ wizard.
-- **ربط نقر وdrill-down لكل بُعد** — إذا كان المخطط يحتوي أبعاداً متعددة (مثل التصنيف والتسمية على عمود مكدّس)، كل بُعد له مجموعته الخاصة من إدخالات click-emit وdrill-down. مصمم المخطط يُظهر أداة اختيار "Active Dimension" في تبويبتَي Click & Links وDrill-Down للتبديل بينها.
-- **منتقيات معرف الحقل بدلاً من منتقيات اسم العمود** — منتقيات ربط البيانات والفلتر المتقاطع وdrill-down في المصمم تُدرج معرفات حقول wizard (مع العناوين المترجمة والمعرف الخام لإزالة الغموض) بدلاً من أسماء أعمدة SQL الخام.
-
-في كل مرة تحفظ wizard، يُحسب النظام مسبقاً سجل بيانات وصفية لكل حقل (الاسم المستعار للعرض، SQL LHS، نوع الكيان المُشار إليه، اسم مستعار للأعمدة الفرعية للمراجع) ويُخزّنه على سطر الحقل. تصيير المخطط يقرأ من هذه الذاكرة المؤقتة، لذا widgets وضع wizard لا تدفع تكلفة إعادة بناء الاستعلام عند كل طلب فقط للبحث عن الأسماء المستعارة.
+1. Edit the `DashBoardWidget` record and change its type from `Table` to `Table v2 (Enhanced)`.
+2. Open the chart-config editor. The **Table Columns** tab appears in place of the ECharts data-mapping tab.
+3. Click **Generate Columns From Result Set** to seed columns from the widget's SQL.
+4. Tweak formatting, renderers, and conditional formatting as you want.
+5. Save. Any existing cross-filter, drill-down, and link mappings continue to work — the `column` field on those mappings already matches the default column `id`s (which are just the SQL column names).
 
 ---
 
-## تنسيق الأرقام (Number Formatting)
+## Data Sources
 
-يمكنك تحديد كيفية عرض القيم الرقمية في التلميحات وتسميات المحاور وتسميات البيانات. تشمل خيارات التنسيق:
+Each widget gets its data from either a raw SQL query or a wizard data source.
 
-| نوع التنسيق | مثال الإخراج |
+### Raw SQL
+
+You write a standard T-SQL SELECT query. The only requirement is including the `/*AND-FILTERS*/` placeholder in the WHERE clause — this is where the system injects cross-filter conditions at runtime. Because it's a SQL comment, your query remains valid if you paste it into SQL Server Management Studio for testing.
+
+### Wizard Data Source
+
+Instead of writing SQL, you define a data source using Nama ERP field IDs (property paths like `customer.customerCategory` or `price.netValue`). The system generates the SQL automatically. Wizard fields are marked as either **Dimension** (group-by / category) or **Measure** (aggregated value with Sum, Count, Average, Min, or Max).
+
+Wizard data sources unlock several designer and runtime conveniences that raw-SQL widgets don't get:
+
+- **Dimension drill-by** — right-click a data point and drill by any other dimension defined on the wizard. Only available for wizard-backed widgets because the system needs the field structure to rebuild the query on the fly.
+- **Auto-inferred cross-filter columns** — when you emit a cross-filter from a reference field (like `customer.customerCategory`), you don't write out the id / code / name1 / name2 / entityType columns. The system reads them from the wizard field's metadata, which is cached when you save the wizard.
+- **Per-dimension click and drill mappings** — if a chart has multiple dimensions (e.g., category and label on a stacked bar), each dimension gets its own set of click-emit and drill-down entries. The chart designer exposes an "Active Dimension" selector in the Click & Links and Drill-Down tabs to switch between them.
+- **Field-ID pickers instead of column-name pickers** — the designer's data-mapping, cross-filter, and drill-down pickers list wizard field IDs (with translated titles and the raw ID shown for disambiguation) instead of raw SQL column names.
+
+Whenever you save a wizard, the system pre-computes a metadata record for each field (display alias, SQL LHS, referenced entity type, sub-column aliases for references) and caches it on the field line. Chart rendering reads from this cache, so wizard-mode widgets don't pay a query-rebuild cost on every request just to look up aliases.
+
+---
+
+## Number Formatting
+
+You can specify how numeric values are displayed in tooltips, axis labels, and data labels. Format options include:
+
+| Format Type | Example Output |
 |---|---|
 | `number` | 1,234,567.89 |
 | `currency` | SAR 1,234,568 |
 | `percent` | 85.5% |
 | `compact` | 1.2M, 45K |
 
-يمكنك أيضاً التحكم في الخانات العشرية وتحديد رمز العملة. إذا عيّنت النوع إلى `currency` دون تحديد العملة، يستخدم النظام العملة الافتراضية لمؤسستك.
+You can also control decimal places and specify a currency symbol. If you set the type to `currency` without specifying which currency, the system uses your organization's default.
 
 ---
 
-## مقارنة الفترات (Period Comparison)
+## Period Comparison
 
-أحياناً تحتاج الإجابة على "كيف يقارن هذا الربع بنفس الربع من العام الماضي؟" دون بناء لوحة معلومات مختلفة تماماً. ميزة مقارنة الفترات تتولى هذا — يُشغّل النظام استعلام الـ widget الموجود مرتين (مرة للتواريخ الحالية، مرة للتواريخ المنزاحة) ويدمج النتائج، لذا كل مخطط يشترك يعرض تلقائياً الفترتين جنباً إلى جنب.
+Sometimes you need to answer "how does this quarter compare to the same quarter last year?" without building a completely different dashboard. The period comparison feature handles this — the system runs your existing widget query twice (once for the current dates, once for the shifted dates) and merges the results, so every chart that opts in automatically shows both periods side by side.
 
-### الإعداد
+### Setting It Up
 
-ثلاثة مكونات مطلوبة:
+Three pieces are needed:
 
-1. **إنشاء `BI Period Comparison Config`** — ملف رئيسي يُعرّف:
-   - مقدار إزاحة التواريخ (مثل: سنة واحدة، 3 أشهر) باستخدام حقل `Subtracted Period`
-   - أسماء الأعمدة للأعمدة المحقونة للفترة (مثل: `periodAr` / `periodEn`)
-   - تسميات العرض لكل فترة (مثل: "السنة الحالية" / "السنة السابقة" بالعربية والإنجليزية)
+1. **Create a `BI Period Comparison Config`** — a master file that defines:
+   - How far to shift the dates (e.g., 1 Year, 3 Months) using the `Subtracted Period` field
+   - Column names for the injected period columns (e.g., `periodAr` / `periodEn`)
+   - Display labels for each period (e.g., "Current Year" / "Previous Year" in both Arabic and English)
 
-2. **ربطه بفلاتر التاريخ المتقاطعة** — على كل فلتر تاريخ متقاطع (مثل: من تاريخ، إلى تاريخ)، عيّن حقل `Period Comparison Config` للـ config الذي أنشأته. يجب أن يشير كلا فلترَي التاريخ إلى نفس الـ config لإزاحة كلا طرفي النطاق معاً.
+2. **Link it to your date cross-filters** — on each date cross-filter (e.g., Date From, Date To), set the `Period Comparison Config` field to the config you created. Both date filters should point to the same config so both ends of the range shift together.
 
-3. **تفعيل المقارنة على كل widget** — على الـ widget، ضع علامة على مربع الاختيار `Enable Comparison`. الـ widgets التي بها هذا العلم فقط ستُشغّل مقارنة الاستعلام المزدوج. الـ widgets الأخرى على نفس لوحة المعلومات تستمر في العمل عادياً باستعلام واحد.
+3. **Enable comparison on each widget** — on the widget, check the `Enable Comparison` checkbox. Only widgets with this flag enabled will run the double-query comparison. Other widgets on the same dashboard continue to work normally with a single query.
 
-### وضعان للمقارنة
+### Two Modes of Comparison
 
-#### الوضع A — عمود تسمية الفترة (للمخططات الاتجاهية)
+#### Mode A — Period Label Column (for trend charts)
 
-الأفضل لمخططات الخطوط والمساحات وأي مخطط يستخدم ربط بيانات `CategoryLabelValue`. يضخّ النظام عمود فترة في مجموعة النتائج (باستخدام أسماء الأعمدة من الـ config)، ويمكن لـ `labelColumn` في المخطط الرجوع إليه للحصول تلقائياً على سلسلتين — سلسلة لكل فترة.
+Best for line charts, area charts, and any chart that uses `CategoryLabelValue` data mapping. The system injects a period column into the result set (using the column names from your config), and the chart's `labelColumn` can reference it to automatically get two series — one per period.
 
-**مثال:** مخطط خط اتجاه المبيعات الشهرية مع `categoryColumn: "monthLabel"` و`labelColumn: "periodEn"`. عندما يختار المستخدم يناير–مارس 2026، يعرض المخطط خطّين: "السنة الحالية" و"السنة السابقة"، كلاهما مرسوم على الأشهر 01، 02، 03.
+**Example:** A monthly sales trend line chart with `categoryColumn: "monthLabel"` and `labelColumn: "periodEn"`. When the user selects January–March 2026, the chart shows two lines: "Current Year" and "Previous Year", both plotted against months 01, 02, 03.
 
-لهذا الوضع، نسّق شهرك/تصنيفك لاستبعاد السنة (مثل: `FORMAT(l.valueDate, 'MM')` بدلاً من `'yyyy-MM'`) بحيث تتوافق نفس الأشهر عبر الفترات.
+For this mode, format your month/category to exclude the year (e.g., `FORMAT(l.valueDate, 'MM')` instead of `'yyyy-MM'`) so that the same months align across periods.
 
-#### الوضع B — تقسيم العمود (لمخططات الأعمدة والسلاسل الصريحة)
+#### Mode B — Column Split (for bar charts and explicit series)
 
-الأفضل لمخططات الأعمدة والقوائم المرتبة وأي مخطط يستخدم `CategoryValue` مع سلاسل محددة صراحة. بدلاً من إضافة بُعد فترة، يقسم هذا الوضع عمود القياس إلى اثنين: واحد للفترة الحالية، وواحد للفترة السابقة.
+Best for bar charts, ranked lists, and any chart that uses `CategoryValue` with explicitly defined series. Instead of adding a period dimension, this mode splits a measure column into two: one for the current period, one for the previous period.
 
-هيّئه في شبكة **Comparison Data Mapping** للـ widget:
+Configure it in the widget's **Comparison Data Mapping** grid:
 
-| العمود الأصلي | عمود الفترة السابقة |
+| Original Column | Previous Period Column |
 |---|---|
 | `netValue` | `prevNetValue` |
 
-ربط بيانات `CategoryValue` للمخطط يحتوي حينئذ على سلسلتين: واحدة لـ `netValue` ("السنة الحالية") وواحدة لـ `prevNetValue` ("السنة السابقة")، مُنتجاً أعمدة جنباً إلى جنب.
+Your chart's `CategoryValue` data mapping then has two series: one for `netValue` ("Current Year") and one for `prevNetValue` ("Previous Year"), producing side-by-side bars.
 
-لـ EChart widgets، لا تحتاج إلى ضبط `Merge Comparison Results By Columns` — طبقة ربط بيانات ECharts تدمج بالفعل الصفوف التي تشترك في نفس مفاتيح التصنيف/التسمية وتجمع قيمها تلقائياً. لكن `Merge Comparison Results By Columns` مهم لـ **أنواع widgets غير المخططات** مثل Tables وMetrics Cards وغيرها حيث لا توجد طبقة ربط بيانات للتعامل مع الدمج. عيّنه إلى CSV للأعمدة التي تُحدد صفاً فريداً (مثل: `itemClassName`)، وسيطابق النظام الصفوف من كلتا الفترتين ويجمعها في صف واحد بدلاً من إلحاق التكرارات.
+For EChart widgets, you don't need to set `Merge Comparison Results By Columns` — the ECharts data mapping layer already merges rows that share the same category/label keys and sums their values automatically. However, `Merge Comparison Results By Columns` is important for **non-chart widget types** like Tables, Metrics Cards, and other widgets where there's no data mapping layer to handle the merge. Set it to a CSV of the columns that identify a unique row (e.g., `itemClassName`), and the system will match rows from both periods and combine them into a single row instead of appending duplicates.
 
-### معاملات الاستعلام (Query Parameters)
+### Query Parameters
 
-بغض النظر عن الوضع، يضخّ النظام معاملَين في كل استعلام مقارنة: `periodArValue` و`periodEnValue`. يمكن لمؤلفي الـ widget استخدامها مباشرة في SQL — مثلاً في تعبيرات `CONCAT()` أو `CASE` — لتسمية أو تحويل البيانات بناءً على الفترة التي يُستعلم عنها حالياً.
+Regardless of mode, the system injects two parameters into every comparison query: `periodArValue` and `periodEnValue`. Widget authors can use these directly in SQL — for example, in `CONCAT()` or `CASE` expressions — to label or transform data based on which period is currently being queried.
 
 ---
 
-## إنشاء لوحات المعلومات بالذكاء الاصطناعي (Creating Dashboards with AI)
+## Creating Dashboards with AI
 
-يوثّق [المرجع التقني لوحدة BI](./bi-module-technical-reference.md) كل هيكل JSON ونمط SQL وتنسيق استيراد تحتاجه لإنشاء لوحات المعلومات برمجياً. مكتوب خصيصاً لأدوات الذكاء الاصطناعي والمطورين — مما يعني أنه يمكنك استخدام مساعد ذكاء اصطناعي لتصميم وتوليد ملفات استيراد لوحات معلومات كاملة لك.
+The [BI Module Technical Reference](./bi-module-technical-reference.md) documents every JSON structure, SQL pattern, and import format you need to create dashboards programmatically. It's written specifically for AI tools and developers — which means you can use an AI assistant to design and generate complete dashboard import files for you.
 
-::: tip استخدام الذكاء الاصطناعي لبناء لوحات المعلومات
-إليك سير عمل يُجدي جيداً:
+::: tip Using AI to Build Dashboards
+Here's a workflow that works well:
 
-1. أعطِ أداة الذكاء الاصطناعي رابط المرجع التقني: `https://docs.namasoft.com/guide/bi-module-technical-reference.html`
-2. أخبره بنموذج البيانات الذي تعمل معه — يمكنك توجيهه إلى [dm.namasoft.com](https://dm.namasoft.com) لاكتشاف الـ schema
-3. صف لوحة المعلومات التي تريدها بلغة طبيعية، مثلاً:
+1. Give the AI tool the technical reference link: `https://docs.namasoft.com/guide/bi-module-technical-reference.html`
+2. Tell it what data model you're working with — you can point it to [dm.namasoft.com](https://dm.namasoft.com) for schema discovery
+3. Describe the dashboard you want in plain language, for example:
 
-   > "أحتاج لوحة تحليل مبيعات بمخطط دائري يعرض المبيعات حسب فئة العميل، ومخطط أعمدة أفقي يعرض أفضل 10 أصناف، ومخطط خط اتجاه شهري، وجدول تفاصيل. يجب فلترة جميع المخططات حسب الفرع ونطاق التاريخ وفئة العميل. المخطط الدائري يُصدر فلتر فئة العميل عند النقر، ومخطط الأعمدة يتعمق في تفاصيل الفاتورة."
+   > "I need a sales analysis dashboard with a pie chart showing sales by customer category, a horizontal bar chart showing top 10 items, a monthly trend line chart, and a details table. All charts should be cross-filtered by branch, date range, and customer category. The pie chart should emit the customer category filter when clicked, and the bar chart should drill down to invoice details."
 
-4. اطلب من الذكاء الاصطناعي توليد ملف import JSON كامل وفق تنسيق المرجع التقني
-5. استورد الـ JSON المولَّد إلى Nama ERP — ستحصل على لوحة معلومات عاملة مع جميع الفلاتر المتقاطعة والـ drill-downs والتنسيقات جاهزة
-6. بما أن الذكاء الاصطناعي قد يخمّن أسماء الجداول أو الأعمدة أو الـ joins بشكل خاطئ، من الأفضل إعطاؤه استعلاماً نموذجياً يحتوي الأعمدة والـ joins التي تريد استخدامها.
-7. للـ wizards، يمكن تخطي الاستعلام النموذجي والسماح للذكاء الاصطناعي بالرجوع إلى [dm.namasoft.com](https://dm.namasoft.com) لمسارات الخصائص — الـ wizard يحلّ الـ joins تلقائياً من معرفات الحقول.
+4. Ask the AI to generate a complete import JSON file following the technical reference format
+5. Import the generated JSON into Nama ERP — you'll have a working dashboard with all the cross-filters, drill-downs, and styling ready to go
+6. Given AI can guess table names, column names, or joins incorrectly, it is better to give it a sample query containing the columns and joins you want to use.
+7. For wizards, you can skip the sample query and instead let the AI reference [dm.namasoft.com](https://dm.namasoft.com) for property paths — the wizard resolves joins automatically from the field IDs.
 
-هذا أسرع بكثير من بناء كل widget يدوياً، خاصة للوحات المعلومات ذات المخططات المترابطة الكثيرة وإعدادات الفلاتر المتقاطعة المعقدة.
+This is dramatically faster than building each widget by hand, especially for dashboards with many interconnected charts and complex cross-filter setups.
 :::

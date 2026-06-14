@@ -1,46 +1,46 @@
-# البنوك والحسابات البنكية والتحويلات
+# Banks, Bank Accounts & Transfers
 
-تبدأ إدارة الجانب البنكي بتعريف **البنوك** التي تتعامل معها، ثم **الحسابات البنكية** المفتوحة لديها. وبعد التعريف تأتي الحركة اليومية: **التحويلات البنكية** بين الحسابات، و**التسويات البنكية** لمعالجة الفروق التي يُحدثها البنك من طرفه (رسوم، عوائد، اقتطاعات).
+Managing the banking side starts by defining the **banks** you deal with, then the **bank accounts** opened with them. After the setup comes the daily movement: **bank transfers** between accounts, and **bank adjustments** to handle the differences the bank makes on its side (fees, interest, deductions).
 
-::: info الترخيص المطلوب
-هذه الخصائص ضمن ترخيص البنوك `accounting-banks`.
+::: info Required license
+These features are part of the banks license `accounting-banks`.
 :::
 
-## البنك
+## The Bank
 
-ملف **البنك** (`Banks > Master Files > Bank`) يعرّف المؤسسة المصرفية، ويدعم **التدرّج الهرمي** (بنك أب وفروع) عبر حقل المجموعة الأعلى. يحمل بيانات الاتصال، ويمكن ربطه بـ **حسابات الذمم** الخاصة به، وخيار **التجميع اليومي** لمن يحتاج تجميع حركاته يوميًا.
+The **Bank** file (`Banks > Master Files > Bank`) defines the banking institution, and supports a **hierarchy** (a parent bank and branches) via the parent field. It carries contact data, can be linked to its own **subsidiary accounts**, and offers a **daily consolidated** option for those who need to consolidate its movements daily.
 
-## الحساب البنكي
+## The Bank Account
 
-**الحساب البنكي** (`Banks > Master Files > Bank Account`) هو الحساب الفعلي المفتوح لدى البنك. أهم ما فيه — والذي يجعل القيود تُصيب الحساب الصحيح في دفتر الأستاذ — هو **ربط الحسابات** (block «الحسابات»):
+The **Bank Account** (`Banks > Master Files > Bank Account`) is the actual account opened with the bank. The most important part — the one that makes entries hit the correct ledger account — is its **account mapping** (the "Accounts" block):
 
-![شاشة الحساب البنكي](./images/banks/bank-account.png)
+![The Bank Account screen](./images/banks/bank-account.png)
 
-- **البنك** الذي يتبع له (إلزامي)، و**نوع الحساب**، و**كود فرع البنك**، و**رقم الحساب البنكي** و**الـ IBAN**.
-- في كتلة **الحسابات**: **الحساب الرئيسي** و**حساب 01** حتى **حساب 05** و**العملة** و**حقيبة الحسابات** — هذا التعيين هو ما يُترجم حركات هذا الحساب البنكي إلى الجانب المدين/الدائن الصحيح في الحسابات.
-- خيار **حساب وديعة** يميّز الحسابات المرتبطة بالودائع.
-- كتلة **معلومات الضرائب** تحمل بيانات التسجيل الضريبي وهوية هيئة الزكاة عند الحاجة.
+- The **Bank** it belongs to (mandatory), the **Account Type**, the **Bank Branch Code**, the **bank account number**, and the **IBAN**.
+- In the **Accounts** block: the **Main Account**, **Account 01** through **Account 05**, the **Currency**, and the **Accounts Bag** — this mapping is what translates this bank account's movements into the correct debit/credit side in the accounts.
+- A **Fixed Deposit Account** option marks accounts tied to deposits.
+- The **Tax Information** block carries tax-registration data and the Zakat-authority identity when needed.
 
-## التحويل البنكي
+## Bank Transfer
 
-**التحويل البنكي** (`Banks > Master Files > Bank Transfer`) ينقل قيمة من حساب بنكي/ذمة إلى آخر، ويُرحَّل إلى الحسابات كمستند يشبه سند الصرف/القبض (يأخذ حساباته من توجيهه). يحمل أسطر تفصيلية، ومطابقة على **فواتير**، وأسطر **طرق دفع**، و**توزيع تكلفة**. استخدمه للتحويل بين حسابيك البنكيين، أو من البنك إلى طرف، مع توثيق الرسوم.
+The **Bank Transfer** (`Banks > Master Files > Bank Transfer`) moves value from one bank account/subsidiary to another, and posts to the accounts as a document resembling the payment/receipt voucher (it takes its accounts from its term). It carries detail lines, matching against **invoices**, **payment-method** lines, and **cost allocation**. Use it to transfer between your own bank accounts, or from the bank to a party, while documenting fees.
 
-## التسوية البنكية
+## Bank Adjustment
 
-أحيانًا يُحدِث البنك حركةً من طرفه لا تقابلها مستند لديك: رسوم خدمة، فائدة دائنة، اقتطاع. **التسوية البنكية** (`Banks > Master Files > Bank Adjustment`) هي الأداة المباشرة لإثبات هذه الفروق: تختار **الحساب البنكي** و**المبلغ** و**النوع** (**مدين** أو **دائن**)، فيُسجَّل القيد مباشرةً. وعلى عكس بقية المستندات، **لا تحتاج التسوية البنكية إلى توجيه** — فهي قيد مباشر للجانب البنكي.
+Sometimes the bank makes a movement on its side with no corresponding document of yours: a service fee, credit interest, a deduction. The **Bank Adjustment** (`Banks > Master Files > Bank Adjustment`) is the direct tool to record these differences: you choose the **bank account**, the **amount**, and the **type** (**Debit** or **Credit**), and the entry is posted directly. Unlike other documents, the **bank adjustment needs no term** — it's a direct entry for the bank side.
 
 ::: tip
-لا تخلط بين **التسوية البنكية** و**المطابقة البنكية**: الأولى تُسجِّل حركة فرق فعلية في حساباتك، والثانية ([صفحة المطابقة البنكية](./bank-reconciliation.md)) عملية مقارنة لا تُرحِّل بذاتها، بل تكشف الفروق التي تُعالَج عبر تسوية بنكية.
+Don't confuse **Bank Adjustment** with **Bank Reconciliation**: the former records an actual difference movement in your accounts, while the latter ([Bank reconciliation page](./bank-reconciliation.md)) is a comparison process that doesn't post by itself — it surfaces the differences, which are then handled via a bank adjustment.
 :::
 
-## التقارير والنماذج
+## Reports and forms
 
-- تقارير البنوك (`SYSR-BNK*`: كشف الأوراق التجارية، الشيكات تحت التحصيل، الشيكات حسب الحالة، دفاتر الأوراق المالية) موضّحة مع [الشيكات والأوراق المالية](./cheques-financial-papers.md).
-- النماذج المطبوعة: التحويل البنكي `SYSF-BNK001`، التسوية البنكية `SYSF-BNK002`.
+- Bank reports (`SYSR-BNK*`: commercial-paper statement, cheques under collection, cheques by status, financial-paper books) are covered with [Cheques & financial papers](./cheques-financial-papers.md).
+- Printed forms: bank transfer `SYSF-BNK001`, bank adjustment `SYSF-BNK002`.
 
-## للدعم الفني
+## For Support
 
-- **«حركة الحساب البنكي تُصيب حسابًا خطأ في الأستاذ»** — راجِع كتلة **الحسابات** في الحساب البنكي (الحساب الرئيسي/01–05)؛ منها يأتي التوجيه المحاسبي.
-- **«كيف أُثبت رسوم البنك/الفائدة؟»** — عبر **تسوية بنكية** بالنوع المناسب (مدين للرسوم، دائن للفائدة).
-- **«التسوية البنكية تطلب توجيهًا»** — لا تحتاج إلى توجيه؛ إن ظهرت مشكلة فهي في إعداد الحساب لا التوجيه.
-- آلية المعالجة وإعادة معالجة مستند متعثّر في [كيف تُعالَج المستندات إلى أثر محاسبي](./support/accounting-request-processing.md).
+- **"A bank account movement hits the wrong ledger account"** — review the **Accounts** block on the bank account (main account / 01–05); the accounting target comes from there.
+- **"How do I record bank fees/interest?"** — via a **bank adjustment** of the appropriate type (debit for fees, credit for interest).
+- **"The bank adjustment asks for a term"** — it shouldn't need one; if a problem appears, it's in the account setup, not the term.
+- Processing and reprocessing a stuck document are in [How documents are processed into accounting effects](./support/accounting-request-processing.md).

@@ -1,49 +1,49 @@
-# الملفات الطبية الأساسية
+# Medical Master Files
 
-بعد رسم هيكل المبنى، نُعرّف الكوادر والمفاهيم الطبية التي تتعامل معها المستندات يوميًا: الأطباء، التخصصات، الأمراض، الخدمات الطبية، أجهزة التحاليل، التغذية، وفئات المرضى. معظمها تحت **نظام إدارة المستشفيات ← الملفات** (وبعضها تحت قوائم متخصّصة كالتحاليل والتغذية كما سنشير).
+Having mapped the building, we now define the staff and medical concepts that the documents work with every day: doctors, specialties, diseases, medical services, analyzers, feeding, and patient classes. Most live under **Hospital Management System → Master Files** (some under specialized menus such as Laboratory Tests and Feeding, as noted).
 
-## الطبيب
+## The doctor
 
-**الطبيب (Doctor)** من أغنى الملفات. فهو يسجّل بيانات الطبيب وتخصصه ودرجته، ويمكن ربطه بملف **موظف** في الموارد البشرية، والأهم أنه يعمل **كذمّة محاسبية** — أي له حساب أستاذ خاص يتيح صرف نصيبه/عمولته من الخدمات. تتوزّع بياناته على تبويبات: المعلومات الأساسية (التخصص، الدرجة، الوظيفة)، البيانات الشخصية (النوع، الميلاد، الرقم القومي)، الحسابات، الضرائب، بيانات الاتصال، والبيانات الضريبية. ولأن **الطبيب ودرجته** مُصنِّفان للسعر، فإن سعر الخدمة قد يختلف من طبيب لآخر.
+**Doctor** is one of the richest files. It records the physician's details, specialty and degree, can be linked to an HR **Employee** record, and — crucially — it acts as an **accounting party**, with its own ledger account so the doctor's share/commission can be paid out. Its data spans tabs: Basic Information (specialty, degree, job title), Personal Information (gender, birth, national ID), Accounts, Taxes, Contact Info, and Tax Information. Because **doctor and degree** are pricing classifiers, a service's price can differ from one doctor to another.
 
-![طبيب](./images/master-files/doctor-ar.png)
+![Doctor](../../ar/modules/hms/images/master-files/doctor-en.png)
 
-و**التخصص الطبي (Medical Specialty)** يصنّف الأطباء والعيادات والخدمات (قلب، عظام، أطفال…)، وهو أيضًا ذمّة محاسبية فيمكن تتبّع الإيراد لكل تخصص.
+A **Medical Specialty** classifies doctors, clinics and services (cardiology, orthopedics, pediatrics…) and is itself an accounting party, so revenue can be tracked per specialty.
 
-## الخدمة الطبية
+## The medical service
 
-**الخدمة الطبية (Medical Service)** هي البند المُسعَّر الأساسي في النظام — كشف، إجراء، خدمة تمريضية… تحمل **التكلفة** و**السعر** وسياسة الضريبة و**الصنف المرسل لمصلحة الضرائب** (للفاتورة الإلكترونية)، وترتبط بتخصص وتصنيف خدمة. ومثل تصنيف الغرفة، لها جدول **أسعار في القوائم** يُنوّع السعر حسب الطبيب/الدرجة/التأمين/فئة المريض والفترة. والمميّز فيها تبويب **المستلزمات الطبية**: قائمة الأصناف التي تُستهلك عند أداء الخدمة، فيُصرف المخزون تلقائيًا عند الفوترة.
+**Medical Service** is the core priced item in the system — a consultation, a procedure, a nursing service. It carries a **cost** and a **price**, a tax plan, and a **tax-authority item** (for e-invoicing), and links to a specialty and a service category. Like the room classification, it has a **price-in-lists** grid that varies the price by doctor/degree/insurer/patient class and period. What's distinctive is its **Medical Supplies** tab: a list of items consumed when the service is performed, so inventory is issued automatically at billing time.
 
-![الخدمة الطبية](./images/master-files/medical-service-ar.png)
+![Medical service](../../ar/modules/hms/images/master-files/medical-service-en.png)
 
-تُجمَّع الخدمات تحت **تصنيف خدمات طبية (Medical Service Category)** لتنظيم الكتالوج والتقارير.
+Services are grouped under a **Medical Service Category** to organize the catalog and reporting.
 
-## الأمراض والمضادات الحيوية
+## Diseases and antibiotics
 
-**المرض (Disease)** كتالوج التشخيصات المستخدم عند تسجيل تشخيص المريض، ويمكن وسم المرض بطبيعته: **معدٍ**، **سرطاني**، أو **فيروسي** — وهو ما يُفيد لاحقًا في اختيار التغذية المناسبة والإحصاءات.
+**Disease** is the catalog of diagnoses used when recording a patient's diagnosis, and a disease can be flagged by nature: **infectious**, **cancerous**, or **viral** — useful later for choosing the right diet and for statistics.
 
-![مرض](./images/master-files/disease-ar.png)
+![Disease](../../ar/modules/hms/images/master-files/disease-en.png)
 
-و**المضاد الحيوي (Antibiotic)** قائمة تستخدمها المعامل (خصوصًا في اختبارات الحساسية/المزرعة) لتحديد المضادات التي اختُبر العيّنة ضدها. تجده تحت قائمة **التحاليل الطبية**.
+**Antibiotic** is a list used by the labs (especially in sensitivity/culture testing) to record which antibiotics a sample was tested against. You'll find it under the **Laboratory Tests** menu.
 
-## أجهزة التحاليل
+## Analyzers
 
-رغم تسميته الإنجليزية "Medical Device"، فإن **جهاز التحليل** هو جهاز معمل، وتعريفه يحدّد **أي تحاليل يُجريها الجهاز** ومتطلبات كل تحليل: كمية الدم، نوع الأنبوبة ولونها، الوقت المستغرق، والاختبار والمضاد الحيوي المرتبط. هذا ما يقود لاحقًا تعليمات سحب العيّنة في طلبات التحاليل. تجده تحت قائمة **التحاليل الطبية**.
+Despite its English label "Medical Device," this is a **lab analyzer**, and its definition specifies **which tests the device runs** and each test's requirements: blood quantity, tube type and color, time taken, and the associated test and antibiotic. This later drives the sample-collection instructions on lab requests. You'll find it under the **Laboratory Tests** menu.
 
-![جهاز تحليل](./images/master-files/medical-device-ar.png)
+![Analyzer](../../ar/modules/hms/images/master-files/medical-device-en.png)
 
-## التغذية وفئات المرضى وتصنيفات المستندات
+## Feeding, patient classes and document categories
 
-- **نوع تغذية (Feeding Type)** — نظام غذائي للمريض (عادي، سكري، سائل…). يحدّد **ترتيبًا** للأولوية، والأمراض التي يُوصى به معها (حتى يُختار النظام تلقائيًا حسب التشخيص)، وقائمة المكوّنات الغذائية (كوصفة/أمر تجميع) بكمياتها وتكاليفها لصرفها من المطبخ. لهذا الملف دور محوري في **[صرف التغذية](./hms-accommodation.md)**.
+- **Feeding Type** — a patient diet (normal, diabetic, liquid…). It defines a priority **order**, the diseases it is recommended for (so a diet can be chosen automatically from the diagnosis), and a recipe-like list of food components (as a BOM) with quantities and costs to issue from the kitchen. This file plays a central role in **[Feeding Issues](./hms-accommodation.md)**.
 
-![نوع تغذية](./images/master-files/feeding-type-ar.png)
+![Feeding type](../../ar/modules/hms/images/master-files/feeding-type-en.png)
 
-- **فئة مريض (Patient Classification)** — تصنيف المريض (نقدي، موظف، شركة، إعفاء، VIP…)، وهو **مُصنِّف تسعير** أساسي: تختلف الأسعار حسب فئة المريض في قوائم الأسعار وموافقات التأمين.
+- **Patient Classification** — a patient tier (cash, staff, company, exempt, VIP…), and a key **pricing classifier**: prices differ by patient class in price lists and insurance approvals.
 
-- **تصنيف طبى للمستند (Medical Document Category)** — يتحكّم في **السلوك الضريبي والمحاسبي** لفئة كاملة من المستندات: إعفاؤها من ضريبة 1 أو 2، واختيار **استخدام الطبيب بدلًا من المريض في التأثيرات المحاسبية** — وهو مفيد لنموذج اقتسام إيراد الطبيب.
+- **Medical Document Category** — controls the **tax and accounting behaviour** of a whole class of documents: exempting them from Tax 1 or Tax 2, and choosing to **use the doctor instead of the patient in accounting effects** — handy for the doctor revenue-sharing model.
 
-![تصنيف طبى للمستند](./images/master-files/document-category-ar.png)
+![Medical document category](../../ar/modules/hms/images/master-files/document-category-en.png)
 
-::: info مُصنِّفات أخرى بسيطة
-يضمّ النظام أيضًا لوائح مرجعية بسيطة مثل **نوع الإجراء (Procedure Type)** لتصنيف الإجراءات الطبية. تُعرَّف بكود واسم فقط وتُستخدم للتصنيف.
+::: info Other simple classifiers
+The system also includes simple reference lists such as **Procedure Type** for classifying medical procedures. These are defined with just a code and name and used for classification.
 :::

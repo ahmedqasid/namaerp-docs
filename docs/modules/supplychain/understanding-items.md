@@ -1,313 +1,313 @@
-# فهم أصناف المخزون (Understanding Inventory Items)
+# Understanding Inventory Items
 
-لنتحدث عن **الأصناف (Items)** - اللبنات الأساسية لنظام سلسلة التوريد بأكمله.
+Let's talk about **Items** - the building blocks of the entire supply chain system.
 
-## ما هو الصنف حقًا؟
+## What Is an Item, Really?
 
-في Nama ERP، يمثّل "الصنف" أي شيء تتتبعه في عملك. قد يكون:
-- منتجًا ماديًا تبيعه (لابتوب، كرسي، زجاجة عصير)
-- مادة خام تشتريها (فولاذ، قماش، دقيق)
-- قطعة غيار للصيانة (محمل، فلتر)
-- خدمة تقدّمها (ساعات استشارية، خدمة تركيب)
-- مستهلكًا تستخدمه داخليًا (مستلزمات مكتبية، مواد تنظيف)
+In NaMa ERP, an "item" represents anything you track in your business. It could be:
+- A physical product you sell (laptop, chair, juice bottle)
+- A raw material you buy (steel, fabric, flour)
+- A spare part for maintenance (bearing, filter)
+- A service you provide (consulting hours, installation service)
+- A consumable you use internally (office supplies, cleaning materials)
 
-تكمن روعة الصنف الرئيسي في مرونته الكافية للتعامل مع كل هذه السيناريوهات مع التقاط المعلومات التي تحتاجها بالضبط لكل نوع.
+The beauty of the item master is that it's flexible enough to handle all these scenarios while capturing exactly the information you need for each type.
 
-![قائمة الأصناف في Nama ERP](images/items/item-list-ar.png)
+![Item list in NaMa ERP](../../ar/modules/supplychain/images/items/item-list-en.png)
 
-## كود الصنف: هوية الصنف الخاصة بك
+## The Item Code: Your Item's Identity
 
-كل صنف يحتاج إلى معرّف فريد - نسمّيه **كود الصنف**. يمكنك التفكير فيه كرقم هوية الشخص.
+Every item needs a unique identifier - we call it the **item code**. Think of it as a person's ID number.
 
-لديك خياران لطريقة الحصول على الأكواد:
-1. **الترقيم التلقائي**: يُنشئ النظام الأكواد نيابةً عنك (مثل IT-00001 وIT-00002 وما إلى ذلك)
-2. **الإدخال اليدوي**: تكتب أكوادك الخاصة (مثل "LAPTOP-DELL-5540" أو "STEEL-REBAR-12MM")
+You have two options for how codes are assigned:
+1. **Auto-numbering**: The system generates codes for you (like IT-00001, IT-00002, and so on)
+2. **Manual entry**: You type your own codes (like "LAPTOP-DELL-5540" or "STEEL-REBAR-12MM")
 
-تستخدم كثير من المؤسسات الأكواد اليدوية لأنها تحمل معنى - يمكنك النظر إلى "DESK-WOOD-120" ومعرفة فورًا أنه مكتب خشبي عرضه 120 سم. لكن الترقيم التلقائي يضمن عدم إنشاء نسخ مكررة.
+Many organizations use manual codes because they carry meaning - you can look at "DESK-WOOD-120" and immediately know it's a wooden desk 120 cm wide. But auto-numbering guarantees you never create duplicates.
 
-علاوةً على الكود الأساسي، يمكن أن يمتلك الصنف:
-- **أكواد بديلة** للأنظمة القديمة أو الأقسام المختلفة
-- **أكواد المورّد** (ما يسمّي المورّد هذا الصنف به)
-- **أكواد العميل** (ما يسمّي العملاء هذا الصنف به)
-- **باركودات** - باركودات متعددة لكل صنف عند الحاجة
-- **أكواد هيئة الزكاة والضريبة** للامتثال
+Beyond the primary code, an item can have:
+- **Alternative codes** for legacy systems or different departments
+- **Supplier codes** (what the supplier calls this item)
+- **Customer codes** (what customers call this item)
+- **Barcodes** - multiple barcodes per item when needed
+- **Tax authority codes** for compliance
 
-## الأسماء والأوصاف: التواصل حول الأصناف
+## Names and Descriptions: Communicating About Items
 
-كود الصنف دقيق لكنه غير ودود. لذا يمتلك كل صنف اسمًا عربيًا واسمًا إنجليزيًا، إضافةً إلى عدة حقول وصف مطوّلة للمواصفات أو الشروحات المختلفة.
+The item code is precise but not friendly. So each item has an Arabic name and an English name, plus several long-form description fields for specifications or different explanations.
 
-لماذا كل هذه الأوصاف؟ لأن أشخاصًا مختلفين يحتاجون معلومات مختلفة. قسم المشتريات قد يحتاج مواصفات تقنية، وفريق المبيعات يحتاج لغة تسويقية، والمستودع يحتاج تعليمات المناولة - وكل ذلك يمكن أن يعيش في حقول وصف منفصلة على الصنف ذاته.
+Why all these descriptions? Because different people need different information. Purchasing may need technical specs, the sales team needs marketing language, and the warehouse needs handling instructions - and all of that can live in separate description fields on the same item.
 
-## تنظيم أصنافك: الفئات والتصنيفات
+## Organizing Your Items: Categories and Classifications
 
-تخيّل أن لديك 10,000 صنف في نظامك. كيف تفهم كل هذا؟ من خلال التصنيف!
+Imagine you have 10,000 items in your system. How do you make sense of it all? Through classification!
 
-### الفئات الهرمية (Hierarchical Categories)
+### Hierarchical Categories
 
-يمنحك Nama ERP خمسة مستويات من الفئات تعمل بشكل هرمي:
+NaMa ERP gives you five levels of categories that work hierarchically:
 
 ```
-الفئة 1: إلكترونيات
-  الفئة 2: حاسبات
-    الفئة 3: لابتوبات
-      الفئة 4: لابتوبات أعمال
-        الفئة 5: لابتوبات Dell للأعمال
+Category 1: Electronics
+  Category 2: Computers
+    Category 3: Laptops
+      Category 4: Business Laptops
+        Category 5: Dell Business Laptops
 ```
 
-يتيح لك هذا التسلسل الهرمي:
-- تشغيل تقارير بأي مستوى ("أرني مبيعات الإلكترونيات كلها")
-- تطبيق قواعد على فئات بأكملها ("كل لابتوبات الأعمال تستلزم أرقامًا تسلسلية")
-- البحث بكفاءة ("ابحث عن أصناف في فئة الحاسبات")
+This hierarchy lets you:
+- Run reports at any level ("show me all Electronics sales")
+- Apply rules to entire categories ("all Business Laptops require serial numbers")
+- Search efficiently ("find items in the Computers category")
 
-### محددات تصنيف إضافية (Additional Classification Dimensions)
+### Additional Classification Dimensions
 
-أحيانًا لا تكفي الفئات الهرمية. ماذا لو احتجت أيضًا إلى التصنيف حسب:
-- العلامة التجارية (Dell, HP, Lenovo)
-- خط المنتج (اقتصادي، مميز، للمؤسسات)
-- مصدر المورّد (محلي، مستورد)
-- القسم الذي يستخدمه (تقنية المعلومات، الإدارة، الإنتاج)
+Sometimes hierarchical categories aren't enough. What if you also need to classify by:
+- Brand (Dell, HP, Lenovo)
+- Product line (Budget, Premium, Enterprise)
+- Supplier source (local, imported)
+- Department that uses it (IT, Admin, Production)
 
-هنا يأتي دور **تصنيفات الصنف العشرة** (محددات التصنيف). هذه محددات مستقلة يمكنك تعريفها بالطريقة التي تحتاجها: قد تخصّص الأول للعلامة التجارية، والثاني لخط المنتج، والثالث للنطاق السعري، وهكذا.
+This is where the **ten item classifications** come in. These are independent dimensions you define however you need: you might use the first for brand, the second for product line, the third for price range, and so on.
 
-إلى جانب ذلك تتوفر تصنيفات جاهزة المعنى يقدّمها النظام، مثل **العلامة التجارية** و**القطاع** و**التشكيلة (Assortment)**، تستطيع استخدامها مباشرةً دون إعداد إضافي.
+Alongside these, the system offers ready-made classifications such as **Brand**, **Section**, and **Assortment** that you can use directly without extra setup.
 
-::: tip استراتيجية التصنيف
-ابدأ بسيطًا! لا تحاول تعريف جميع التصنيفات العشرة من اليوم الأول. أعدّ تصنيفين أو ثلاثة تحتاجها أكثر، وأضف المزيد كلما تطورت احتياجاتك. يمكنك دائمًا إعادة تصنيف الأصناف لاحقًا.
+::: tip Classification Strategy
+Start simple! Don't try to define all ten classifications from day one. Set up the two or three you need most, and add more as your needs evolve. You can always reclassify items later.
 :::
 
-## معضلة وحدة القياس (Unit of Measure)
+## The Unit of Measure Dilemma
 
-هنا تصبح الأمور مثيرة. تخيّل أنك تبيع عصيرًا:
-- **تشتريه** بالكرتون (24 زجاجة لكل كرتون)
-- **تخزّنه** في مستودعك بالكرتون
-- **تبيعه** بالزجاجة
-- **تُعدّ تقاريره** بالليتر للتحليل
+Here's where things get interesting. Imagine you sell juice:
+- You **buy** it by the carton (24 bottles per carton)
+- You **store** it in your warehouse by the carton
+- You **sell** it by the bottle
+- You **report** on it by the liter for analysis
 
-كيف يعالج النظام هذا؟ من خلال نظام وحدة القياس (UOM) المتطور.
+How does the system handle this? Through the sophisticated Unit of Measure (UOM) system.
 
-### نظام UOM الأساسي
+### The Primary UOM System
 
-كل صنف له **وحدة أساسية** - الوحدة الجوهرية لتتبع المخزون. في مثال العصير قد تكون "زجاجة".
+Every item has a **base unit** - the fundamental unit for tracking inventory. In the juice example, it might be "bottle."
 
-ثم تُعرّف **معاملات التحويل**:
-- 1 كرتون = 24 زجاجة
-- 1 زجاجة = 0.5 ليتر
+Then you define **conversion factors**:
+- 1 carton = 24 bottles
+- 1 bottle = 0.5 liters
 
-الآن يمكنك:
-- إنشاء أمر شراء بالكرتون
-- استلام 10 كراتين (يُسجّل النظام 240 زجاجة في المخزون)
-- بيع 50 زجاجة (يصرف النظام 50 زجاجة أي 2.08 كرتون)
-- تشغيل تقارير بالليتر (يُظهر النظام بيع 125 ليتر)
+Now you can:
+- Create a purchase order in cartons
+- Receive 10 cartons (the system records 240 bottles in inventory)
+- Sell 50 bottles (the system issues 50 bottles, i.e. 2.08 cartons)
+- Run reports in liters (the system shows 125 liters sold)
 
-كل التحويل يتم تلقائيًا خلف الكواليس! وتستطيع لكل صنف تحديد وحدة الشراء الافتراضية، ووحدة البيع الافتراضية، ووحدات للتقارير - فيختار النظام الوحدة المناسبة في كل مستند.
+All conversion happens automatically behind the scenes! For each item you can specify a default purchase unit, a default sales unit, and reporting units - so the system picks the right unit in each document.
 
-### نظام UOM الثانوي: عندما تحتاج قياسين
+### The Secondary UOM System: When You Need Two Measures
 
-بعض الأصناف تحتاج **قياسًا مزدوجًا**. مثال كلاسيكي هو اللحوم:
-- تُتتبّع أساسًا بـ**الوزن** (كيلوغرام)
-- لكن أيضًا بـ**العدد** (كم قطعة)
+Some items need **dual measurement**. A classic example is meat:
+- Tracked primarily by **weight** (kilograms)
+- But also by **count** (how many pieces)
 
-قد تشتري "10 كجم دجاج (5 قطع)" وتحتاج إلى تتبع كلا الرقمين بشكل مستقل. عند تفعيل الوحدة الثانية للصنف، يلتقط النظام القياسين في كل معاملة.
+You might buy "10 kg chicken (5 pieces)" and need to track both numbers independently. When you enable the second unit on the item, the system captures both measures in every transaction.
 
-### لماذا يهم هذا
+### Why This Matters
 
-ضبط وحدات القياس بدقة أمر حاسم لأن:
-- تحويلات خاطئة تعني أعداد مخزون خاطئة
-- أعداد مخزون خاطئة تعني قوائم مالية خاطئة
-- قوائم مالية خاطئة تعني... حسنًا، تعرف الباقي!
+Getting units of measure right is critical because:
+- Wrong conversions mean wrong inventory counts
+- Wrong inventory counts mean wrong financial statements
+- Wrong financial statements mean... well, you know the rest!
 
-خذ الوقت اللازم لإعداد التحويلات بدقة، واختبرها بمعاملات تجريبية قبل البدء الفعلي.
+Take the time to set up conversions accurately, and test them with trial transactions before going live.
 
-![شاشة تعريف الصنف في Nama ERP](images/items/item-edit-ar.png)
+![Item definition screen in NaMa ERP](../../ar/modules/supplychain/images/items/item-edit-en.png)
 
-## تتبع السمات الخاصة
+## Tracking Special Attributes
 
-تحتاج أصناف مختلفة إلى طرق تتبع مختلفة:
+Different items need different tracking methods:
 
-### الأرقام التسلسلية (Serial Numbers)
+### Serial Numbers
 
-للأصناف التي تكون كل وحدة منها فريدة وقابلة للتتبع (لابتوبات، مركبات، معدات عالية القيمة)، تستطيع تفعيل **تتبع الأرقام التسلسلية**.
+For items where each unit is unique and traceable (laptops, vehicles, high-value equipment), you can enable **serial number tracking**.
 
-الآن في كل مرة تستلم أو تصرف هذا الصنف يطلب النظام الأرقام التسلسلية. يمكنك تتبع:
-- من أين جاء الرقم التسلسلي #12345؟
-- من يملكه حاليًا؟
-- ما حالة الضمان؟
-- هل خضع للصيانة؟
+Now every time you receive or issue this item, the system asks for serial numbers. You can track:
+- Where did serial #12345 come from?
+- Who owns it now?
+- What's the warranty status?
+- Has it been serviced?
 
-بعض الأصناف تحتاج **رقمين تسلسليين** - تخيّل مكيّف هواء برقمي تسلسلي منفصلين للوحدة الداخلية والخارجية.
+Some items need **two serial numbers** - imagine an air conditioner with separate serials for the indoor and outdoor units.
 
-### أرقام الدفعات/التشغيلات (Batch/Lot Numbers)
+### Batch/Lot Numbers
 
-للأصناف المنتجة أو المشتراة على دفعات (أدوية، منتجات غذائية، مواد كيميائية)، يمكنك تفعيل تتبع الدفعات. تحصل كل دفعة على رقم تشغيلة فريد، لذا عند وجود مشكلة جودة تعرف بالضبط أي دفعة متأثرة ويمكنك تتبع كل صنف من تلك الدفعة.
+For items produced or purchased in batches (medicines, food products, chemicals), you can enable lot tracking. Each batch gets a unique lot number, so when there's a quality issue you know exactly which batch is affected and can trace every item from that batch.
 
-### تواريخ الانتهاء (Expiration Dates)
+### Expiration Dates
 
-للأصناف القابلة للتلف، يتتبع النظام تواريخ الانتهاء ويستطيع:
-- تحذيرك من الأصناف التي تقترب من انتهاء صلاحيتها
-- استخدام FEFO (First Expiry First Out) لاختيار التشغيلات تلقائيًا
-- منع صرف الأصناف منتهية الصلاحية
+For perishable items, the system tracks expiry dates and can:
+- Warn you about items nearing expiry
+- Use FEFO (First Expiry First Out) to select lots automatically
+- Prevent issuing expired items
 
-### تتبع الضمان (Warranty Tracking)
+### Warranty Tracking
 
-للأصناف التي تحظى بتغطية ضمان، يتتبع النظام فترات الضمان ويمكنه تنبيهك عند اقتراب انتهائها.
+For items with warranty coverage, the system tracks warranty periods and can alert you as they approach expiry.
 
-## الخصائص المادية
+## Physical Properties
 
-يستطيع النظام تتبع السمات المادية التي تؤثر على التخزين والشحن والمناولة:
+The system can track physical attributes that affect storage, shipping, and handling:
 
-- **الأبعاد**: الطول والعرض والارتفاع والمساحة والحجم
-- **الوزن**: وزن الصنف (حاسم لحسابات الشحن)
-- **الكثافة**: للسوائل والمواد السائبة
+- **Dimensions**: length, width, height, area, volume
+- **Weight**: the item's weight (critical for shipping calculations)
+- **Density**: for liquids and bulk materials
 
-لماذا تتبع هذا؟ لأن:
-- مستودعك يحتاج إلى معرفة ما إذا كان الصنف يناسب رفًا قياسيًا
-- شركات الشحن تحتسب رسومًا على أساس الوزن الحجمي
-- الإنتاج يحتاج إلى معرفة المساحة التي تشغلها المواد
-- تخطيط الطاقة يعتمد على القيود المادية
+Why track this? Because:
+- Your warehouse needs to know whether an item fits a standard shelf
+- Carriers charge based on volumetric weight
+- Production needs to know how much space materials occupy
+- Capacity planning depends on physical constraints
 
-## الألوان والأحجام والتنويعات
+## Colors, Sizes, and Variants
 
-تجارة الأزياء وكثير من الصناعات الأخرى تحتاج إلى تتبع الأصناف بتنويعات متعددة. قميص T-shirt قد يأتي بـ:
-- 5 أحجام (S, M, L, XL, XXL)
-- 8 ألوان (أحمر، أزرق، أخضر، أصفر، أسود، أبيض، رمادي، وردي)
+Fashion retail and many other industries need to track items in multiple variants. A T-shirt might come in:
+- 5 sizes (S, M, L, XL, XXL)
+- 8 colors (red, blue, green, yellow, black, white, gray, pink)
 
-هل تُنشئ 40 صنفًا منفصلًا؟ لا! تُنشئ صنفًا واحدًا مع تفعيل تتبع المقاس واللون، ثم تُعرّف مصفوفة الحجم/اللون. الآن يمكنك:
-- شراء "100 قميص (20 من كل حجم، ألوان مختلطة)"
-- تتبع المخزون بصورة منفصلة لـ"أحمر-كبير" مقابل "أزرق-صغير"
-- عرض التقارير على مستوى النمط ("إجمالي مبيعات القميص") أو مستوى التنويع ("مبيعات أحمر-كبير")
+Do you create 40 separate items? No! You create a single item with size and color tracking enabled, then define the size/color matrix. Now you can:
+- Buy "100 shirts (20 of each size, mixed colors)"
+- Track inventory separately for "red-large" vs. "blue-small"
+- Report at the style level ("total shirt sales") or the variant level ("red-large sales")
 
-## أنواع الأصناف: ما الذي يمكنك فعله بهذا الصنف؟
+## Item Types: What Can You Do with This Item?
 
-كل صنف يحتوي على علامات تُحدّد كيفية استخدامه:
+Every item has flags that determine how it can be used:
 
-- **قابل للشراء**: يمكن شراء هذا الصنف من الموردين؛ وإلا يمنع النظام إنشاء أوامر شراء له.
-- **قابل للبيع**: يمكن بيع هذا الصنف للعملاء؛ وإلا يمنع النظام إضافته لفواتير المبيعات.
-- **قابل للتصنيع**: يمكن إنتاج هذا الصنف، فيتيح النظام إنشاء أوامر إنتاج له.
-- **قابل للإرجاع**: يمكن للعملاء إرجاعه بعد الشراء؛ وإلا يمنع النظام مرتجعات المبيعات.
-- **قابل للاستبدال**: السماح بالاستبدال - مفيد لاستبدالات الضمان أو تبديل الأحجام.
+- **Purchasable**: this item can be bought from suppliers; otherwise the system prevents creating purchase orders for it.
+- **Sellable**: this item can be sold to customers; otherwise the system prevents adding it to sales invoices.
+- **Manufacturable**: this item can be produced, so the system allows creating production orders for it.
+- **Returnable**: customers can return it after purchase; otherwise the system prevents sales returns.
+- **Replaceable**: replacement is allowed - useful for warranty swaps or size exchanges.
 
-تمنحك هذه العلامات تحكمًا دقيقًا. قد يكون لديك:
-- مواد خام (قابلة للشراء لكن غير قابلة للبيع)
-- منتجات نهائية (قابلة للبيع والتصنيع لكن غير قابلة للشراء)
-- أصناف خدمية (قابلة للبيع لكن غير قابلة للتخزين)
-- مستهلكات (قابلة للشراء لكن غير قابلة للبيع أو الإرجاع)
+These flags give you precise control. You might have:
+- Raw materials (purchasable but not sellable)
+- Finished products (sellable and manufacturable but not purchasable)
+- Service items (sellable but not stockable)
+- Consumables (purchasable but not sellable or returnable)
 
-## ضبط المخزون: كيف يتصرف المخزون؟
+## Inventory Control: How Does Stock Behave?
 
-### المخزون الاحتياطي ونقاط إعادة الطلب
+### Safety Stock and Reorder Points
 
-يمكن لكل صنف أن يمتلك مستوى **مخزون احتياطي** - الحد الأدنى للكمية التي تريد الاحتفاظ بها. النزول دون هذا الحد يُطلق تنبيه النظام.
+Each item can have a **safety stock** level - the minimum quantity you want to keep on hand. Dropping below it triggers a system alert.
 
-يمكنك ضبط:
-- **كمية المخزون الاحتياطي**: "لا تدع مخزون اللابتوب يقل عن 10 وحدات"
-- **نقطة إعادة الطلب**: "عند الوصول إلى 10 وحدات، اقترح تلقائيًا إنشاء طلب شراء"
+You can set:
+- **Safety stock quantity**: "never let laptop stock drop below 10 units"
+- **Reorder point**: "when you reach 10 units, automatically suggest creating a purchase order"
 
-كما يساعدك النظام في تحديد الأصناف غير الرائجة عبر **فترة الركود (Slow Moving Period)**: إذا لم يتحرك صنف منذ 180 يومًا، ربما حان وقت تخفيضه أو التوقف عن تخزينه.
+The system also helps you identify slow-moving items via a **slow-moving period**: if an item hasn't moved in 180 days, maybe it's time to discount it or stop stocking it.
 
-### سياسة السحب على المكشوف: ماذا يحدث عند نفاد المخزون؟
+### Overdraft Policy: What Happens When You Run Out?
 
-الواقع ليس مثاليًا. أحيانًا تحتاج لصرف أكثر مما لديك - ربما وصل طلب عميل عاجل قبل تسليمك المقرر. تُحدّد **سياسة السحب على المكشوف** ما يحدث:
+Reality isn't perfect. Sometimes you need to issue more than you have - perhaps an urgent customer order arrived before your scheduled delivery. The **overdraft policy** determines what happens:
 
-- **منع**: لا تسمح بالمخزون السالب بأي حال
-- **تحذير**: أظهر تحذيرًا لكن اسمح بالمعاملة
-- **سماح**: تابع، سنتتبع الرصيد السالب
+- **Prevent**: never allow negative stock under any circumstances
+- **Warn**: show a warning but allow the transaction
+- **Allow**: go ahead, we'll track the negative balance
 
-تحتاج أصناف مختلفة لسياسات مختلفة. المستلزمات الطبية الحرجة قد تمنع السحب على المكشوف، بينما مستلزمات المكتب قد تكتفي بالتحذير.
+Different items need different policies. Critical medical supplies might prevent overdraft, while office supplies might just warn.
 
-### الحجز: الاحتفاظ بالمخزون لأغراض محددة
+### Reservation: Holding Stock for Specific Purposes
 
-يمكن للنظام **حجز** الأصناف لغرض محدد:
-- هل يمكن حجز المخزون لأمر مبيعات؟ (يضمن عدم بيعه لشخص آخر)
-- هل يمكن الحجز لأمر إنتاج؟ (يضمن توافر المواد عند بدء الإنتاج)
-- في أي مرحلة يتم الحجز؟ (إدخال الطلب، اعتماد الطلب، قبيل التسليم؟)
+The system can **reserve** items for a specific purpose:
+- Can stock be reserved for a sales order? (ensures it isn't sold to someone else)
+- Can it be reserved for a production order? (ensures materials are available when production starts)
+- At which stage does reservation happen? (order entry, order approval, just before delivery?)
 
-الحجوزات قوية لأنها تضمن الوفاء بالالتزامات دون تحريك المخزون فعليًا حتى اللحظة الأخيرة. وللتفاصيل الكاملة راجع [دليل نظام الحجوزات الشامل](./reservation-system-guide.md).
+Reservations are powerful because they ensure commitments are met without physically moving stock until the last moment. For full details, see the [Comprehensive Reservation System Guide](./reservation-system-guide.md).
 
-## التسعير: كم يكلف؟ كم نتقاضى؟
+## Pricing: What Does It Cost? What Do We Charge?
 
-### إدارة التكلفة
+### Cost Management
 
-كل صنف له **تكلفة معيارية** (ما تتوقع أن يكلفه في المتوسط). لكن النظام يتتبع أيضًا التكلفة وفق طرق مختلفة - مثل الوارد أولًا صادر أولًا (FIFO)، ومتوسط التكلفة، وآخر تكلفة شراء - وتختار الطريقة التي تستخدمها لكل صنف أو قطاع.
+Every item has a **standard cost** (what you expect it to cost on average). But the system also tracks cost using different methods - such as First In First Out (FIFO), average cost, and last purchase cost - and you choose which method to use per item or sector.
 
-### تسعير المبيعات
+### Sales Pricing
 
-يمكن أن يمتلك الصنف أسعارًا في **قوائم أسعار** متعددة (تجزئة، جملة، عملاء مميزون، عروض ترويجية). عند إنشاء فاتورة مبيعات تختار قائمة الأسعار المناسبة فيملأ النظام الأسعار تلقائيًا. كما يمكنك تفعيل **التسعير التلقائي** بهوامش ربح (هامش افتراضي، وحد أدنى، وحد أقصى) فيعيد النظام حساب أسعار البيع عند تغيّر التكاليف مع الالتزام بسياسة الهامش. تجد تفاصيل ذلك في [التسعير والعروض والكوبونات](./pricing-offers-and-coupons.md).
+An item can have prices in multiple **price lists** (retail, wholesale, VIP customers, special promotions). When you create a sales invoice, you choose the appropriate price list and the system fills prices automatically. You can also enable **automatic pricing** with profit margins (default margin, minimum, and maximum), so the system recalculates sales prices when costs change while respecting your margin policy. You'll find the details in [Pricing, Offers & Coupons](./pricing-offers-and-coupons.md).
 
-كما يمكنك ضبط **حد أدنى للسعر** لمنع مندوبي المبيعات من الخصم المفرط؛ فيحذّر النظام أو يمنع البيع دون هذا السعر.
+You can also set a **minimum price** to prevent salespeople from over-discounting; the system warns or prevents selling below it.
 
-## تهيئة الشراء
+## Purchase Configuration
 
-للأصناف التي تشتريها، يمكنك تهيئة:
+For items you buy, you can configure:
 
-- **وقت الانتظار (Lead Time)**: المدة اللازمة من الطلب حتى الاستلام؛ يؤثر ذلك على توقيت إنشاء طلبات الشراء، والمواعيد الموعودة للعملاء، وجدولة الإنتاج.
-- **المورّد المفضّل**: من تشتري منه عادةً، ليقترحه النظام تلقائيًا عند إنشاء أوامر الشراء.
-- **كميات الطلب**: الحد الأدنى للطلب (حدود المورّد الدنيا)، والحد الأقصى في كل مرة، وما إذا كان النظام يقترح إعادة الطلب تلقائيًا عند انخفاض المخزون.
+- **Lead time**: how long it takes from order to receipt; this affects the timing of purchase requests, dates promised to customers, and production scheduling.
+- **Preferred supplier**: who you usually buy from, so the system suggests them automatically when creating purchase orders.
+- **Order quantities**: the minimum order (supplier minimums), the maximum per order, and whether the system should suggest reordering automatically when stock is low.
 
-## التكامل المحاسبي
+## Accounting Integration
 
-هنا تحدث السحر. يمكن لكل صنف أن يحمل إعداداته المحاسبية الخاصة (حساب أصل المخزون الرئيسي، إضافةً إلى حسابات متخصصة لسيناريوهات أو فروع أو مراكز تكلفة مختلفة).
+This is where the magic happens. Each item can carry its own accounting setup (a main inventory asset account, plus specialized accounts for different scenarios, branches, or cost centers).
 
-عند استلام مشتريات يقوم النظام تلقائيًا بـ:
-- مدين حساب المخزون
-- دائن الذمم الدائنة
-- تسجيل ضرائب المدخلات
+When you receive purchases, the system automatically:
+- Debits the inventory account
+- Credits payables
+- Records input taxes
 
-عند إجراء بيع:
-- مدين تكلفة البضاعة المبيعة
-- دائن المخزون
-- مدين الذمم المدينة
-- دائن إيرادات المبيعات
-- تسجيل ضرائب المخرجات
+When you make a sale:
+- Debits cost of goods sold
+- Credits inventory
+- Debits receivables
+- Credits sales revenue
+- Records output taxes
 
-لن تضطر أبدًا لإنشاء قيود يومية يدوية - النظام يتولى كل ذلك بناءً على كيفية تهيئتك للصنف.
+You'll never have to create manual journal entries - the system handles all of it based on how you configured the item.
 
-### تهيئة الضريبة
+### Tax Configuration
 
-يمكن أن تكون الأصناف خاضعة للضريبة أو معفاة منها، وبمعدلات مختلفة حسب خطة الضريبة. ويمكنك حتى ضبط إعفاءات محددة إذا كان الصنف معفيًا من ضرائب معينة دون غيرها.
+Items can be taxable or tax-exempt, at different rates depending on the tax plan. You can even set specific exemptions if an item is exempt from certain taxes but not others.
 
-## تهيئة التصنيع وضبط الجودة
+## Manufacturing and Quality Configuration
 
-للأصناف المصنّعة يمكنك ضبط مدة الإنتاج، والناتج المتوقع لكل وحدة مدخلات، ومواصفات الجودة، وقوائم فحص الجودة المطلوبة، وطريقة التفكيك إلى المكونات. تستخدم وحدة التصنيع هذه الإعدادات لجدولة الإنتاج وحساب احتياجات المواد وضمان معايير الجودة.
+For manufactured items you can set the production lead time, the expected yield per input unit, quality specifications, required quality checklists, and the method for disassembly into components. The Manufacturing module uses these settings to schedule production, calculate material requirements, and ensure quality standards.
 
-وعلى صعيد الجودة، يمكن أن تمتلك الأصناف قائمة فحص عند الاستلام، ومتطلبات ضمان جودة مستمرة، ومدة لإعادة الاختبار (مهمة للمواد الكيميائية والأدوية). وعند تهيئة هذه الإعدادات لن يسمح النظام بانتقال الأصناف من الاستلام إلى المخزون المتاح حتى اكتمال فحوصات الجودة. لمزيد من التفاصيل راجع [ضبط الجودة](./quality-control.md).
+On the quality side, items can have a checklist on receipt, ongoing quality-assurance requirements, and a re-test period (important for chemicals and medicines). When these are configured, the system won't allow items to move from receipt into available stock until quality checks are complete. For more, see [Quality Control](./quality-control.md).
 
-## الحقول المخصصة والمرفقات
+## Custom Fields and Attachments
 
-كل عمل مختلف. لذا تمتلك الأصناف حقولًا مخصصة (أرقام، وعلامات منطقية، وتواريخ، ومراجع لكيانات أخرى) تستخدمها بأي طريقة تحتاجها - ربما "مدة الصلاحية بالأيام" أو "يستلزم التبريد". النظام يخزّن هذه القيم ويسترجعها لاستخدامها في التقارير وسير العمل وقواعد الأعمال.
+Every business is different. So items have custom fields (numbers, true/false flags, dates, and references to other entities) that you use however you need - maybe "shelf life in days" or "requires refrigeration." The system stores and retrieves these values for use in reports, workflows, and business rules.
 
-كما يمكن أن يحمل كل صنف عدة مرفقات: صور المنتج، والمواصفات التقنية، وأوراق بيانات السلامة، وكتالوجات الموردين، وتعليمات الاستخدام - تُخزَّن مع تعريف الصنف وتكون متاحة دائمًا عند الحاجة.
+Each item can also carry several attachments: product images, technical specs, safety data sheets, supplier catalogs, and usage instructions - stored with the item definition and always available when needed.
 
-## المراجعات والتحكم في الإصدارات
+## Revisions and Version Control
 
-في الهندسة والتصنيع، يمكن أن تمتلك الأصناف **مراجعات (Revisions)**. كل مراجعة لها رقم إصدار، وتاريخ سريان، وبيان لما تغيّر، ومن أجاز التغيير. هذا حاسم عند تحسين تصميم منتج مع الحاجة إلى دعم الإصدارين القديم والجديد خلال فترة انتقالية.
+In engineering and manufacturing, items can have **revisions**. Each revision has a version number, an effective date, a statement of what changed, and who approved it. This is critical when you improve a product design but need to support both the old and new versions during a transition period.
 
-## تجميع كل شيء معًا
+## Putting It All Together
 
-إعداد الأصناف يبدو عملًا كثيرًا - وهو كذلك! لكن الأمر هو: تفعله مرة واحدة لكل صنف، ومن تلك النقطة فصاعدًا تتدفق مئات المعاملات عبر النظام مستخدمةً تلك التهيئة.
+Setting up items seems like a lot of work - and it is! But here's the thing: you do it once per item, and from that point on, hundreds of transactions flow through the system using that configuration.
 
-تعريف الصنف المُهيَّأ جيدًا يعني:
-- تتم المشتريات بسلاسة (النظام يعرف المورّد والوحدات والحسابات)
-- تتم المبيعات بسلاسة (النظام يعرف السعر والوحدات والحسابات)
-- يُتتبع المخزون بدقة (النظام يعرف الأرقام التسلسلية والدفعات والمواقع)
-- المحاسبة تلقائية (النظام يعرف أي حسابات يُقيّد لها)
-- التقارير ذات معنى (النظام يعرف الفئات والتصنيفات)
+A well-configured item definition means:
+- Purchasing flows smoothly (the system knows the supplier, units, and accounts)
+- Sales flow smoothly (the system knows the price, units, and accounts)
+- Inventory is tracked accurately (the system knows serials, batches, and locations)
+- Accounting is automatic (the system knows which accounts to post to)
+- Reports are meaningful (the system knows categories and classifications)
 
-::: tip ابدأ بسيطًا
-لا تحاول تهيئة كل شيء بصورة مثالية في الصنف الأول. ابدأ بالأساسيات:
-1. الكود والاسم
-2. وحدة القياس الأساسية
-3. الفئة
-4. ما إذا كان قابلًا للشراء/البيع
-5. الحسابات المحاسبية الأساسية
+::: tip Start Simple
+Don't try to configure everything perfectly on your first item. Start with the basics:
+1. Code and name
+2. Primary unit of measure
+3. Category
+4. Whether it's purchasable/sellable
+5. Basic accounting accounts
 
-يمكنك دائمًا العودة لاحقًا لإضافة تتبع الأرقام التسلسلية وقوائم فحص الجودة أو التسعير التلقائي. أدخل الأصناف في النظام وابدأ باستخدامها - ستعرف بسرعة ما من التهيئة الإضافية تحتاجه.
+You can always come back later to add serial tracking, quality checklists, or automatic pricing. Get items into the system and start using them - you'll quickly learn what additional configuration you need.
 :::
 
-## الخطوات التالية
+## Next Steps
 
-الآن وقد فهمت الأصناف، أنت مستعد لتتعلم أين تخزّنها وما تفعله بها:
-- [المخازن والمواقع التخزينية](./warehouses-and-locators.md) - أين يعيش مخزونك
-- [استلام المخزون](./receiving-stock.md) - إدخال الأصناف إلى مستودعك
-- [إصدار المخزون](./issuing-stock.md) - إخراج الأصناف من مستودعك
-- [رحلة الشراء](./purchasing-journey.md) - كيف تدخل الأصناف إلى نظامك
-- [رحلة المبيعات](./sales-journey.md) - كيف تصل الأصناف إلى عملائك
+Now that you understand items, you're ready to learn where to store them and what to do with them:
+- [Warehouses & Locators](./warehouses-and-locators.md) - where your stock lives
+- [Receiving Stock](./receiving-stock.md) - bringing items into your warehouse
+- [Issuing Stock](./issuing-stock.md) - taking items out of your warehouse
+- [The Purchasing Journey](./purchasing-journey.md) - how items enter your system
+- [The Sales Journey](./sales-journey.md) - how items reach your customers

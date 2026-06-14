@@ -1,43 +1,43 @@
-# استكشاف أخطاء توقف النظام أو عدم استجابته (Troubleshooting System Hanging or Unresponsiveness)
+# Troubleshooting System Hanging or Unresponsiveness
 
-## نظرة عامة (Overview)
+## Overview
 
-عندما يصبح نظام Nama ERP غير مستجيب أو بطيئًا أو يبدو أنه توقف، فإن أكثر أداة تشخيصية فعالية هي **thread dump** (تُعرف أيضًا بـ stack dump). يلتقط thread dump لقطة فورية لجميع الخيوط (threads) في عملية Tomcat في لحظة محددة، مما يُظهر بالضبط ما يفعله كل خيط. هذه المعلومات لا تُقدَّر بثمن لفريق التطوير لتحديد السبب الجذري لمشاكل الأداء.
+When your Nama ERP system becomes unresponsive, slow, or appears to hang, the most effective diagnostic tool is a **thread dump** (also called a stack dump). A thread dump captures a snapshot of all threads in the Tomcat process at a specific moment, showing exactly what each thread is doing. This information is invaluable for the development team to identify the root cause of performance issues.
 
-## متى تلتقط Thread Dump
+## When to Capture a Thread Dump
 
-التقط thread dump عند مواجهة أي من هذه الأعراض:
+Capture a thread dump when you experience any of these symptoms:
 
-- 🔴 **تجمد كامل للنظام** - يتوقف التطبيق عن الاستجابة تمامًا
-- 🟡 **بطء شديد** - تستغرق الصفحات عدة دقائق للتحميل أو تنتهي مهلة العمليات
-- 🔵 **ارتفاع استخدام المعالج (CPU)** - عملية Tomcat تستهلك 90-100% من المعالج باستمرار
-- 🟣 **تعارضات قاعدة البيانات (Database Deadlocks)** - يواجه المستخدمون أخطاء انتهاء المهلة أو ينتظرون إلى أجل غير مسمى
-- 🟠 **طلبات معلقة** - عمليات معينة لا تكتمل أبدًا (مثل إنشاء التقارير، استيراد البيانات)
+- 🔴 **Complete System Freeze** - The application stops responding entirely
+- 🟡 **Extreme Slowness** - Pages take several minutes to load or operations timeout
+- 🔵 **High CPU Usage** - Tomcat process consuming 90-100% CPU continuously
+- 🟣 **Database Deadlocks** - Users getting timeout errors or waiting indefinitely
+- 🟠 **Hanging Requests** - Specific operations never complete (e.g., report generation, data import)
 
-::: tip أفضل ممارسة
-التقط **2-3 thread dumps** بفترات 10-30 ثانية بينها. يساعد ذلك في تحديد الأنماط والتمييز بين الارتفاعات المؤقتة والمشكلات المستمرة.
+::: tip Best Practice
+Capture **2-3 thread dumps** with 10-30 second intervals between them. This helps identify patterns and distinguish between temporary spikes and persistent issues.
 :::
 
-## ما هو Thread Dump؟
+## What is a Thread Dump?
 
-thread dump هو ملف نصي يحتوي على معلومات تفصيلية حول جميع الخيوط (threads) الجارية في الجهاز الافتراضي لجافا (JVM)، بما في ذلك:
+A thread dump is a text file containing detailed information about all running threads in the Java Virtual Machine (JVM), including:
 
-- أسماء الخيوط ومعرفاتها (IDs)
-- حالات الخيوط (RUNNABLE، WAITING، BLOCKED، إلخ)
-- تتبع المكدس (stack traces) يُظهر السطر الدقيق من الكود الذي ينفذه كل خيط
-- معلومات القفل (lock) والتعارضات المحتملة
-- أنماط استخدام الموارد
+- Thread names and IDs
+- Thread states (RUNNABLE, WAITING, BLOCKED, etc.)
+- Stack traces showing the exact line of code each thread is executing
+- Lock information and potential deadlocks
+- Resource usage patterns
 
-## المتطلبات المسبقة (Prerequisites)
+## Prerequisites
 
-- **وصول المسؤول (Administrator)** إلى خادم Windows (ستطلب الأداة الرفع التلقائي للصلاحيات)
-- **اتصال شبكي** لتنزيل الأداة (أو حفظها محليًا)
+- **Administrator access** to the Windows server (the tool will request elevation automatically)
+- **Network connectivity** to download the tool (or save it locally)
 
-## تعليمات خطوة بخطوة
+## Step-by-Step Instructions
 
-### الخطوة 1: تنزيل وتشغيل الأداة
+### Step 1: Download and Run the Tool
 
-افتح PowerShell (عادي أو كمسؤول) وانسخ الأوامر التالية:
+Open PowerShell (regular or admin) and copy the following commands:
 
 ```powershell
 # Download the thread dump tool
@@ -47,26 +47,26 @@ Invoke-WebRequest https://namasoft.com/bin/nama-jstack.exe -OutFile "$env:USERPR
 & "$env:USERPROFILE\nama-jstack.exe"
 ```
 
-::: tip الرفع التلقائي للصلاحيات
-إذا لم تكن تعمل كمسؤول، ستطلب الأداة تلقائيًا رفع الصلاحيات وإعادة التشغيل بامتيازات المسؤول.
+::: tip Automatic Elevation
+If you're not running as administrator, the tool will automatically request elevation and restart with admin privileges.
 :::
 
-::: info تنزيل بديل
-يمكنك أيضًا تنزيل الأداة مباشرة من [namasoft.com/bin](https://namasoft.com/bin) — استخدم مربع البحث وابحث عن "jstack".
+::: info Alternative Download
+You can also download the tool directly from [namasoft.com/bin](https://namasoft.com/bin) — use the search box to find it by typing "jstack".
 :::
 
-### الخطوة 2: اختيار عملية Tomcat
+### Step 2: Select the Tomcat Process
 
-ستكتشف الأداة عمليات Tomcat الجارية تلقائيًا:
+The tool will automatically detect running Tomcat processes:
 
-#### سيناريو عملية واحدة
-إذا كان هناك مثيل واحد فقط من Tomcat يعمل، ستختاره الأداة تلقائيًا:
+#### Single Process Scenario
+If only one Tomcat instance is running, the tool will automatically select it:
 ```
 Auto-detected: Tomcat101010 (PID: 29500)
 ```
 
-#### سيناريو عمليات متعددة
-إذا كانت هناك مثيلات متعددة من Tomcat تعمل، ستظهر قائمة:
+#### Multiple Process Scenario
+If multiple Tomcat instances are running, you'll see a menu:
 ```
 Found 3 Tomcat processes:
 
@@ -77,22 +77,22 @@ Found 3 Tomcat processes:
 Select process (1-3):
 ```
 
-أدخل الرقم المقابل للـ **مثيل المعلق أو المشكل**.
+Enter the number corresponding to the **hanging or problematic instance**.
 
-::: tip كيفية تحديد المثيل الصحيح
-- تحقق من **رقم المنفذ (port)** في اسم خدمة Tomcat (مثال: Tomcat10**1010** = المنفذ 1010)
-- قارنه بعنوان URL الذي يصل إليه المستخدمون (مثال: `http://server:1010/namaerp`)
-- إذا لم تكن متأكدًا، التقط dumps لجميع المثيلات
+::: tip How to Identify the Correct Instance
+- Check the **port number** in the Tomcat service name (e.g., Tomcat10**1010** = port 1010)
+- Match it with the URL users are accessing (e.g., `http://server:1010/namaerp`)
+- If unsure, capture dumps for all instances
 :::
 
-### الخطوة 3: انتظار الاكتمال
+### Step 3: Wait for Completion
 
-ستقوم الأداة بـ:
-1. إيجاد تثبيت JDK تلقائيًا
-2. تحديد معرف العملية (PID)
-3. تنفيذ أمر jstack
-4. حفظ المخرجات في ملف بختم زمني في `%USERPROFILE%\nama-dumps\`
-5. فتح الملف تلقائيًا في محرر النصوص الافتراضي
+The tool will:
+1. Find the JDK installation automatically
+2. Locate the process ID (PID)
+3. Execute the jstack command
+4. Save the output to a timestamped file in `%USERPROFILE%\nama-dumps\`
+5. Automatically open the file in your default text editor
 
 ```
 Process: Tomcat101010 (PID: 29500)
@@ -103,26 +103,26 @@ File size: 2847623 bytes
 Opening file...
 ```
 
-::: info أين تُحفظ الـ Dumps؟
-يتم حفظ جميع thread dumps تلقائيًا في مجلد `nama-dumps` في دليل المستخدم الخاص بك. يمكنك إيجادها بسهولة في `%USERPROFILE%\nama-dumps\`
+::: info Where Are Dumps Saved?
+All thread dumps are automatically saved to the `nama-dumps` folder in your user directory. You can easily find them at `%USERPROFILE%\nama-dumps\`
 :::
 
-### الخطوة 4: التقاط dumps متعددة (موصى به)
+### Step 4: Capture Multiple Dumps (Recommended)
 
-للحصول على تحليل أفضل، قم بتشغيل الأداة 2-3 مرات بفترات 10-30 ثانية بين كل تشغيل. هذا ينشئ ملفات متعددة بختم زمني في مجلد `nama-dumps` الخاص بك توضح كيفية تطور حالات الخيوط عبر الزمن.
+For better analysis, run the tool 2-3 times with 10-30 second intervals between each run. This creates multiple timestamped files in your `nama-dumps` folder showing how thread states evolve over time.
 
-## Heap Dump (تفريغ الذاكرة)
+## Heap Dump (Memory Dump)
 
-::: danger فقط عند طلب فريق التطوير
-يلتقط heap dump محتويات الذاكرة الكاملة لعملية Tomcat. **قم بتشغيل هذا فقط عندما يطلب فريق التطوير منك ذلك تحديدًا.** على عكس thread dumps، فإن heap dump:
-- **يستهلك موارد معالج كبيرة** أثناء كتابة الـ dump
-- **يستخدم مساحة قرص كبيرة** (يمكن أن يصل حجم الملف إلى عدة جيجابايت)
-- **يجمد التطبيق مؤقتًا** أثناء عملية الـ dump
+::: danger Only When Requested by Developers
+A heap dump captures the entire memory contents of the Tomcat process. **Only run this when the development team specifically asks you to.** Unlike thread dumps, a heap dump:
+- **Consumes significant CPU** while the dump is being written
+- **Uses large amounts of disk space** (the dump file can be several gigabytes)
+- **Temporarily freezes the application** during the dump process
 
-تشغيل هذا بدون تنسيق يمكن أن يُفاقم وضع النظام المتعثر.
+Running this without coordination can make an already struggling system worse.
 :::
 
-إذا طلب منك فريق التطوير التقاط heap dump، قم بتنزيل وتشغيل أداة heap dump:
+If the development team asks you to capture a heap dump, download and run the heap dump tool:
 
 ```powershell
 # Download the heap dump tool
@@ -132,13 +132,13 @@ Invoke-WebRequest https://namasoft.com/bin/nama-heap-dump.exe -OutFile "$env:USE
 & "$env:USERPROFILE\nama-heap-dump.exe"
 ```
 
-يمكنك أيضًا تنزيله مباشرة من [namasoft.com/bin](https://namasoft.com/bin) بالبحث عن "heap".
+You can also download it directly from [namasoft.com/bin](https://namasoft.com/bin) by searching for "heap".
 
-عملية اختيار العملية تعمل بنفس طريقة أداة thread dump. سيُحفظ ملف المخرجات كملف `.hprof.gz` مضغوط في `%USERPROFILE%\nama-dumps\`.
+The process selection works the same way as the thread dump tool. The output file will be saved as a compressed `.hprof.gz` file in `%USERPROFILE%\nama-dumps\`.
 
-## فهم المخرجات
+## Understanding the Output
 
-سيحتوي ملف thread dump المُنشأ على أقسام مثل:
+The generated thread dump file will contain sections like:
 
 ```text
 "http-nio-8080-exec-42" #123 daemon prio=5 os_prio=0 tid=0x00007f8c4c123456 nid=0x4567 waiting on condition
@@ -148,25 +148,25 @@ Invoke-WebRequest https://namasoft.com/bin/nama-heap-dump.exe -OutFile "$env:USE
         at com.namasoft.erp.service.InventoryService.processOrder(InventoryService.java:456)
 ```
 
-::: details ماذا يعني هذا
-- **اسم الخيط (Thread Name)**: `http-nio-8080-exec-42` (معالج طلبات HTTP)
-- **حالة الخيط (Thread State)**: `WAITING` (الخيط خامل، ينتظر موردًا)
-- **تتبع المكدس (Stack Trace)**: يُظهر مسار الكود الدقيق - في هذه الحالة، الانتظار في `InventoryService.java` في السطر 456
+::: details What This Means
+- **Thread Name**: `http-nio-8080-exec-42` (HTTP request handler)
+- **Thread State**: `WAITING` (thread is idle, waiting for a resource)
+- **Stack Trace**: Shows the exact code path - in this case, waiting in `InventoryService.java` at line 456
 :::
 
-## إرسال النتائج إلى فريق التطوير
+## Sending Results to Development Team
 
-### ما الذي ترسله
+### What to Send
 
-1. **جميع ملفات الـ dump المُنشأة** (مثال: `Tomcat101010-20251102-143025.txt`)
-2. **الطابع الزمني** لوقت حدوث المشكلة
-3. **وصف المشكلة**:
-   - ما العملية التي كانت تُنفَّذ؟
-   - كم عدد المستخدمين المتأثرين؟
-   - كم من الوقت كان النظام غير مستجيب؟
-   - أي رسائل خطأ ظهرت للمستخدمين؟
+1. **All generated dump files** (e.g., `Tomcat101010-20251102-143025.txt`)
+2. **Timestamp** of when the issue occurred
+3. **Description** of the problem:
+   - What operation was being performed?
+   - How many users were affected?
+   - How long had the system been unresponsive?
+   - Any error messages displayed to users?
 
-### نموذج البريد الإلكتروني (Email Template)
+### Email Template
 
 ```
 Subject: Thread Dump - System Hanging on [Server Name]
@@ -196,50 +196,50 @@ Best regards,
 [Your name]
 ```
 
-### طرق التسليم المفضلة
+### Preferred Delivery Methods
 
-1. **البريد الإلكتروني** - للملفات التي تقل عن 10 MB
-2. **محرك مشترك (Shared Drive)** - للملفات الكبيرة أو الـ dumps المتعددة
-3. رسائل WhatsApp
+1. **Email** - For files under 10 MB
+2. **Shared Drive** - For larger files or multiple dumps
+3. Whatsapp Messages
 
-## استكشاف الأخطاء
+## Troubleshooting
 
-### JDK غير موجود
+### JDK Not Found
 
-ستطلب منك الأداة مسار JDK إذا لم تتمكن من إيجاده تلقائيًا. أدخل المسار الكامل:
+The tool will prompt you for the JDK path if it cannot find one automatically. Enter the full path:
 ```
 C:\Program Files\Java\jdk-21
 ```
 
-أو ابحث عن موقع JDK الخاص بك:
+Or find your JDK location:
 ```powershell
 Get-ChildItem "C:\Program Files\Java" -Directory
 ```
 
-### العملية غير موجودة
+### Process Not Found
 
-إذا لم يتم اكتشاف أي عملية Tomcat، ستعرض الأداة قائمة بأي عمليات Java/Tomcat المتاحة التي يمكنها إيجادها. تأكد من أن خدمة Tomcat تعمل:
+If no Tomcat process is detected, the tool will list any available Java/Tomcat processes it can find. Make sure the Tomcat service is running:
 ```powershell
 Get-Service | Where-Object {$_.Name -like "*Tomcat*"}
 ```
 
-### رفض الإذن (Permission Denied)
+### Permission Denied
 
-تطلب الأداة تلقائيًا امتيازات المسؤول. إذا لا تزال ترى هذا الخطأ:
-1. انقر **نعم** عندما تظهر نافذة UAC
-2. تحقق من أن حساب المستخدم الخاص بك لديه حقوق مسؤول على الخادم
-3. تحقق مما إذا كان برنامج مكافحة الفيروسات يحجب الأداة
+The tool automatically requests administrator privileges. If you still see this error:
+1. Click **Yes** when the UAC prompt appears
+2. Verify your user account has admin rights on the server
+3. Check if antivirus is blocking the tool
 
-## الاستخدام المتقدم
+## Advanced Usage
 
-### تحديد اسم العملية مباشرة
+### Specify Process Name Directly
 
-إذا كنت تعرف اسم العملية الدقيق، مرره كمعامل (argument):
+If you know the exact process name, pass it as an argument:
 
 ```powershell
 & "$env:USERPROFILE\nama-jstack.exe" Tomcat101010
 ```
 
-::: tip هل تحتاج مساعدة؟
-إذا واجهت أي مشاكل مع الأداة أو تحتاج مساعدة في تفسير النتائج، تواصل مع فريق تطوير Nama ERP على dev@namasoft.com
+::: tip Need Help?
+If you encounter any issues with the tool or need assistance interpreting results, contact the Nama ERP Development team at dev@namasoft.com
 :::

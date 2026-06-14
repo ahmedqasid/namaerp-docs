@@ -1,28 +1,26 @@
-<rtl>
+# Report Wizard Guide
 
-# دليل استخدام أداة إنشاء التقارير ونماذج الطباعة
+Nama ERP provides an easy and effective way to create professional reports quickly using the Report Wizard tool.
 
-يوفّر نظام Nama ERP وسيلة سهلة وفعالة لإنشاء تقارير احترافية بسرعة عبر أداة "إنشاء التقارير" (Report Wizard).
+This tool lets you build reports by selecting the main table, then choosing the required fields and adding filters in a simple, fast manner — as will be explained in detail through the examples below.
 
-تمكنك هذه الأداة من إنشاء التقارير عن طريق اختيار الجدول الرئيسي، ثم تحديد الحقول المطلوبة وإضافة الفلاتر بطريقة بسيطة وسريعة، كما سيتم شرحه بالتفصيل من خلال الأمثلة.
+## Creating a Simple Report to Display Sales Invoices
 
-## إنشاء تقرير بسيط لعرض فواتير المبيعات
+To create a report that shows sales invoice data such as invoice code, customer name, invoice date, and net invoice value, follow these steps:
 
-لإنشاء تقرير يعرض بيانات فواتير المبيعات مثل كود الفاتورة، اسم العميل، تاريخ الفاتورة، وصافي قيمة الفاتورة، اتبع الخطوات التالية:
+1. Create a new report using the Report Wizard and assign it an appropriate code and name.
+2. In the **Main Table** field, select `SalesInvoice` from the search screen.
+3. In the **Fields** table, add the following rows:
 
-1. قم بإنشاء تقرير جديد باستخدام أداة إنشاء التقارير، وحدد له كود واسم مناسب.
-2. في حقل **الجدول الرئيسي**، اختر `فاتورة مبيعات` من شاشة البحث.
-3. في جدول **الحقول**، أضف السطور التالية:
-
-  * `this` لعرض كود السند مع رابط لفتح تفاصيل الفاتورة.
-  * `customer` لعرض اسم العميل مع رابط لفتح تفاصيل العميل.
-  * `money.netValue` لعرض صافي قيمة الفاتورة.
-4. في جدول **المدخلات**، أضف سطرًا واحدًا يحتوي على الحقل `valueDate` لتحديد الفترة الزمنية.
+  * `this` to display the document code with a link to open the invoice details.
+  * `customer` to display the customer name with a link to open the customer details.
+  * `money.netValue` to display the net invoice value.
+4. In the **Parameters** table, add a single row containing the `valueDate` field to define the time period.
 
 ::: tip
 
-* يمكنك استخدام زر **Select Fields** لعرض واجهة اختيار الحقول بطريقة مرئية دون الحاجة لكتابة أسمائها يدويًا.
-* عند كتابة جزء من اسم الحقل (بالعربية أو بالإنجليزية)، يمكنك الضغط على السهم للأسفل لعرض الحقول المقترحة.
+* You can use the **Select Fields** button to display a visual field selection interface without having to type field names manually.
+* When you type part of a field name (in Arabic or English), you can press the down arrow to see suggested fields.
 :::
 
 ::: details JSON for direct import
@@ -48,115 +46,112 @@
 ```
 :::
 
-بعد الحفظ، اضغط على زر **عرض التقرير**، ستظهر لك شاشة شبيهة بالتالي:
+After saving, click the **View Report** button. A screen similar to the following will appear:
 
-![تشغيل التقرير - اختيار تاريخ البداية والنهاية](images/report-wizard-ex-1-run-report.png)
+![Run the report - select start and end date](../../ar/platform/reports/images/report-wizard-ex-1-run-report.png)
 
-اختر فترة زمنية مناسبة (من تاريخ - إلى تاريخ) واضغط على زر **تشغيل الآن**، سيظهر التقرير بالشكل التالي:
+Select an appropriate time period (from date - to date) and click **Run Now**. The report will appear as follows:
 
-![عرض نتيجة التقرير - فواتير المبيعات](images/report-wizard-ex-1-view-result.png)
+![Report result - sales invoices](../../ar/platform/reports/images/report-wizard-ex-1-view-result.png)
 
-كما تلاحظ، تم إنشاء تقرير بفلاتر زمنية وأعمدة منظمة بشكل احترافي، مع ظهور شعار الشركة، تاريخ ووقت التشغيل، واسم المستخدم تلقائيًا.
+As you can see, a report with time filters and professionally organized columns was generated, and the company logo, run date and time, and username are displayed automatically.
 
-<rtl>
+## Detailed Explanation of Report Wizard Fields and Tables
 
-## شرح تفصيلي لحقول وجداول أداة إنشاء التقارير
-
-في هذا القسم نستعرض شرحًا دقيقًا لكل الحقول المستخدمة في أداة إنشاء التقارير، مع توضيح وظيفة كل حقل وكيفية تأثيره على التقرير الناتج.
+In this section we provide a precise explanation of all fields used in the Report Wizard, clarifying the function of each field and how it affects the resulting report.
 
 ### `Report Group`
 
-عند حفظ ملف أداة إنشاء التقرير، يتم تلقائيًا إنشاء ملف تقرير جديد في النظام.
-يمكنك استخدام هذا الحقل لتحديد المجموعة التي سيتم تصنيف التقرير ضمنها، مما يساعد في تنظيم التقارير بحسب الأقسام أو الوظائف.
+When you save a Report Wizard file, a new report file is automatically created in the system.
+You can use this field to specify the group under which the report will be classified, which helps organize reports by department or function.
 
 ---
 
 ### `Table Type`
 
-يساعدك هذا الحقل على تسهيل اختيار الجدول الرئيسي (`Main Table`) للتقرير من خلال تصنيف الجداول المتاحة. يحتوي على القيم التالية:
+This field helps you narrow down the selection of the Main Table for the report by categorizing the available tables. It contains the following values:
 
 * **`Entity`**
-  يتيح لك اختيار أي نوع كيان موجود في النظام، مثل:
+  Lets you choose any entity type available in the system, such as:
 
-  * فاتورة مبيعات `SalesInvoice`
-  * سند صرف `PaymentVoucher`
-  * العميل `Customer`
-  * المورد `Supplier`
-  * الموظف `Employee`
-  * الحسابات `Account`
-    وغيرها من الكيانات الرئيسية في النظام.
+  * `SalesInvoice` (Sales Invoice)
+  * `PaymentVoucher`
+  * `Customer`
+  * `Supplier`
+  * `Employee`
+  * `Account`
+    and other main entities in the system.
 
 * **`Detail Line`**
-  يتيح لك اختيار أحد جداول السطور المرتبطة بالكيانات، مثل:
+  Lets you choose one of the detail line tables associated with entities, such as:
 
-  * `SalesInvoiceLine`: تفاصيل سطور فاتورة المبيعات
-  * `CustomerContactInfo`: جهات الاتصال بملف العميل
+  * `SalesInvoiceLine`: sales invoice line details
+  * `CustomerContactInfo`: contact information in the customer file
 
 * **`System Table`**
-  يتيح لك اختيار جداول نظامية داخلية مثل:
+  Lets you choose internal system tables such as:
 
-  * `ItemDimensionsQty`: يعرض كميات الأصناف في المخازن المختلفة
-  * `FAPropertiesEntry`: يعرض خصائص الأصول الثابتة
+  * `ItemDimensionsQty`: displays item quantities across different warehouses
+  * `FAPropertiesEntry`: displays fixed asset properties
 
-* **`Virtual Entity` (الكيان الافتراضي)**
-  يتيح لك اختيار أحد الكيانات الافتراضية التي عرّفها المستخدم بنفسه عبر استعلام SQL مخصص (مثل اتحاد جدولين بـ `UNION` أو ضم عدة جداول مع تعبيرات حسابية). تظهر هذه الكيانات في قائمة الجدول الرئيسي تماماً مثل الكيانات الحقيقية، مع نفس آلية اختيار الحقول والترجمات والمراجع التلقائية للكيانات (Reference Fields).
+* **`Virtual Entity`**
+  Lets you choose one of the virtual entities defined by the user via a custom SQL query (such as a `UNION` of two tables or joining several tables with calculated expressions). These entities appear in the main table list just like real entities, with the same field-selection mechanism, translations, and automatic entity reference fields (Reference Fields).
 
-  لتعريف كيان افتراضي جديد أو فهم كيفية إعداد خرائط الأعمدة وآلية الاستنباط (Bootstrap)، راجع [دليل الكيانات الافتراضية](../virtual-entity-guide.md).
+  To define a new virtual entity or understand how to set up column mappings and the Bootstrap mechanism, see the [Virtual Entity Guide](../virtual-entity-guide.md).
 
 ---
 
-### `عنوان التقرير بالعربية` و `عنوان التقرير بالإنجليزية`
+### `Report Title (Arabic)` and `Report Title (English)`
 
-تُستخدم هذه الحقول لتحديد عنوان التقرير الظاهر في أعلى التقرير النهائي، وتظهر القيمة وفقًا للغة المستخدم.
-إذا كانت واجهة المستخدم بالعربية، سيظهر العنوان العربي، وإذا كانت بالإنجليزية، فسيظهر العنوان الإنجليزي.
+These fields define the report title displayed at the top of the final report. The value shown depends on the user's language: if the interface is in Arabic the Arabic title is shown, and if it is in English the English title is shown.
 
 ---
 
 ### `Layout Method`
 
-يحدد هذا الحقل الطريقة التي سيتم بها وضع الحقول والمدخلات داخل التقرير الناتج. يحتوي على الخيارات التالية:
+This field determines how fields and parameters are laid out inside the resulting report. It contains the following options:
 
-* **`يدوي (Manual)`**
-  تتيح لك تحديد الخصائص يدوياً لكل حقل ومدخل مثل الموضع والعرض والارتفاع من خلال الجداول داخل ملف إنشاء التقرير.
+* **`Manual`**
+  Lets you manually specify properties for each field and parameter — such as position, width, and height — through the tables inside the Report Wizard file.
 
 * **`From Uploaded File`**
-  تسمح برفع ملف Jasper مسبق الصنع (امتداد `.jrxml`) واستخدام خصائص الحقول والمواضع الموجودة به داخل التقرير.
+  Allows you to upload a pre-built Jasper file (`.jrxml` extension) and use the field properties and positions already defined in it inside the report.
 
 * **`From Editor`**
-  تتيح لك استخدام محرر بصري لتنسيق الحقول وتحديد مواقعها داخل التقرير. يمكن فتح المحرر من خلال زر `Open Editor`.
+  Lets you use a visual editor to format fields and define their positions inside the report. The editor can be opened via the `Open Editor` button.
 
 ---
 
-## تحويل الكميات حسب وحدة القياس المختارة
+## Converting Quantities by Selected Unit of Measure
 
-في تقارير المخزون، تُخزَّن الكميات عادةً بوحدة القياس الأساسية للصنف، لكن المستخدم قد يرغب في عرضها بوحدة أخرى (وحدة البيع، وحدة الشراء، إلخ). توفّر أداة إنشاء التقارير خياران متكاملان لتحقيق ذلك.
+In inventory reports, quantities are typically stored in the item's base unit of measure, but users may want to display them in another unit (sales unit, purchase unit, etc.). The Report Wizard provides two complementary options to achieve this.
 
-### الخيار الأول: إضافة بارامتر `UOMConversion`
+### Option 1: Add a `UOMConversion` Parameter
 
-يضيف هذا البارامتر قائمة منسدلة في شاشة تشغيل التقرير تتيح للمستخدم اختيار وحدة القياس، ويقوم تلقائيًا بإضافة الـ joins اللازمة.
+This parameter adds a dropdown in the report run screen that allows the user to select the unit of measure, and automatically adds the required joins.
 
-١. تأكد أن التقرير يحتوي على حقل من جدول `InvItem` (مثل `item.code`) — هذا شرط مسبق لتفعيل البارامتر.
-٢. في جدول **المدخلات** (Parameters)، أضف سطرًا جديدًا واترك `Field ID` فارغًا، ثم اختر `Parameter Type = UOMConversion`.
-٣. احفظ التقرير.
+1. Make sure the report contains a field from the `InvItem` table (such as `item.code`) — this is a prerequisite for activating the parameter.
+2. In the **Parameters** table, add a new row and leave `Field ID` empty, then select `Parameter Type = UOMConversion`.
+3. Save the report.
 
-عند الحفظ يُضاف تلقائيًا:
+When saved, the following are added automatically:
 
-* بارامتر `UOM` في ملف JRXML بقيم `baseUnit, reportingUnit1, defaultPurchaseUnit, defaultSalesUnit`.
+* A `UOM` parameter in the JRXML file with values `baseUnit, reportingUnit1, defaultPurchaseUnit, defaultSalesUnit`.
 * `LEFT JOIN UOM AS PrimaryUOM ON PrimaryUOM.id = <InvItem>.prim$P!{UOM}_id`
 * `LEFT JOIN PrimaryItemUOMLine AS UL ON UL.invItem_id = <InvItem>.id AND UL.uom_id = <InvItem>.prim$P!{UOM}_id`
 
-### الخيار الثاني: تحويل قيمة حقل كمية إلى الوحدة المختارة
+### Option 2: Convert a Quantity Field Value to the Selected Unit
 
-بعد إضافة بارامتر `UOMConversion`، يمكنك تفعيل التحويل على أي حقل كمية بشكل مستقل.
+After adding a `UOMConversion` parameter, you can enable conversion on any quantity field independently.
 
-١. تأكد من توفر الشرطين: بارامتر `UOMConversion` موجود + حقل من `InvItem` في التقرير.
-٢. في سطر الحقل المراد تحويله (مثل `inBasePValue` أو تعبير مخصّص)، فعّل خانة **«استخدام معامل وحدة القياس لتحويل الكمية»**.
-٣. احفظ التقرير.
+1. Confirm both conditions are met: the `UOMConversion` parameter exists + a field from `InvItem` is in the report.
+2. On the field row you want to convert (such as `inBasePValue` or a custom expression), enable the **"Use unit of measure factor for quantity conversion"** checkbox.
+3. Save the report.
 
-يتحوّل تعبير الـ SELECT للحقل إلى `(SUM(الحقل)) / UL.rateToBase`، ويُضاف `UL.rateToBase` تلقائيًا إلى `GROUP BY`.
+The SELECT expression for the field changes to `(SUM(field)) / UL.rateToBase`, and `UL.rateToBase` is automatically added to `GROUP BY`.
 
 ::: tip
-لو لم يتوفر الشرطان (بارامتر `UOMConversion` + حقل `InvItem`)، تُتجاهل الخانة بصمت ولن يحدث أي تحويل.
+If the two conditions are not met (`UOMConversion` parameter + `InvItem` field), the checkbox is silently ignored and no conversion takes place.
 :::
 
 ::: details JSON for direct import
@@ -185,7 +180,3 @@
 }
 ```
 :::
-
-</rtl>
-
-</rtl>

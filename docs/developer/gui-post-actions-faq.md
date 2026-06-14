@@ -1,16 +1,14 @@
-<rtl>
+# General Questions About GUI Post Actions
 
-# أسئلة عامة عن GUI Post Actions
+## How to Automatically Recalculate the Price When Selecting a Lot?
 
-## كيفية إعادة حساب السعر تلقائيًا عند اختيار الشحنة؟
+In a sales invoice, when a lot is selected for one of the items, I need the system to automatically update the price if there is a custom price for that lot in the price list, or if the lot is included in an offer that includes a discount.
+Note that the system already recalculates the price correctly when the quantity is modified, but this requires manually changing the quantity after selecting the lot.
 
-في فاتورة المبيعات، عند اختيار شحنة لأحد الأصناف، أحتاج إلى أن يقوم النظام بتحديث السعر تلقائيًا إذا كان هناك سعر مخصص لهذه الشحنة في قائمة الأسعار أو إذا كانت الشحنة مشمولة في عرض يتضمن خصمًا.
-لاحظ أن النظام بالفعل يعيد احتساب السعر بشكل صحيح عند تعديل الكمية، ولكن هذا يتطلب تغيير الكمية يدويًا بعد اختيار الشحنة.
+**Solution:**
+To achieve this, you can set up a GUI Post Action linked to the lot field (`lotId`) that triggers the GUI Post Action of the quantity field (`primeQty.value`). This linkage ensures that the system recalculates the price immediately after selecting the lot without the need for a manual quantity change.
 
-**الحل:**
-لتحقيق ذلك، يمكن إعداد GUI Post Action مرتبط بحقل الشحنة (`lotId`) يقوم بتفعيل GUI Post Action الخاص بحقل الكمية (`primeQty.value`). هذا الربط يضمن أن النظام سيعيد حساب السعر مباشرة بعد اختيار الشحنة دون الحاجة إلى تعديل يدوي للكمية.
-
-::: details JSON للاستيراد المباشر
+::: details JSON for Direct Import
 ```json
 {
   "lines": [
@@ -24,5 +22,3 @@
 }
 ```
 :::
-
-</rtl>

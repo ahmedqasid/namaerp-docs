@@ -1,452 +1,452 @@
-# أوامر الإنتاج (Production Orders): التخطيط لما سيتم تصنيعه
+# Production Orders: Planning What to Make
 
-## ما هو أمر الإنتاج (Production Order)؟
+## What is a Production Order?
 
-أمر الإنتاج هو التعليمات الرسمية التي تصدرها للمصنع: "اصنع هذا المنتج، بهذه الكمية، بحلول هذا التاريخ." إنه الجسر الذي يربط التخطيط بالتنفيذ، حيث تأخذ كل إعداداتك (قوائم المواد BOM، ومسارات الإنتاج Routings، ومراكز العمل Work Centers) وتحوّلها إلى خطة عملية يمكن لأرضية المصنع العمل وفقها.
+A Production Order (أمر إنتاج) is your formal instruction to the factory: "Make this product, in this quantity, by this date." It's the bridge between planning and execution - where you take all your preparation (BOMs, routings, work centers) and turn them into a concrete plan that the shop floor can work from.
 
-ستجد أوامر الإنتاج في **التصنيع > المستندات > أمر إنتاج**.
+You'll find production orders under **Manufacturing > Documents > Production Order** (التصنيع > المستندات > أمر إنتاج).
 
-فكّر في أمر الإنتاج كحزمة عمل تحتوي على كل ما يلزم للتصنيع:
-- المنتج المراد تصنيعه
-- عدد الوحدات
-- المواد المستخدمة (من BOM)
-- الخطوات الواجب اتباعها (من Routing)
-- تاريخ البدء وتاريخ الانتهاء
-- من يمكنه القيام بالعمل
-- معايير الجودة المطلوبة
+Think of a production order as a work packet that contains everything needed for manufacturing:
+- What product to make
+- How many units
+- Which materials to use (from the BOM)
+- Which steps to follow (from the routing)
+- When to start and finish
+- Who can do the work
+- Quality standards to meet
 
-الجميل في الأمر أن معظم هذه المعلومات تُملأ تلقائياً بناءً على البيانات الرئيسية. تختار المنتج والكمية، والنظام يتولى الحسابات الثقيلة للمواد والعمليات والموارد.
+The beauty is that most of this information is automatically filled in based on your master data. You select a product and quantity, and the system does the heavy lifting of calculating materials, operations, and resources.
 
-## إنشاء أول أمر إنتاج
+## Creating Your First Production Order
 
-لنستعرض عملية إنشاء أمر إنتاج خطوة بخطوة لنرى كيف يعمل كل شيء معاً.
+Let's walk through actually creating a production order to see how it all comes together.
 
-### الأساسيات
+### The Basics
 
-تبدأ بفتح أمر إنتاج جديد وتعبئة البيانات الأساسية:
-- **الدفتر والتوجيه (Book and Term)**: تتحكمان في ترقيم المستند وسلوكه (كالمستندات التي تُولَّد تلقائياً)
-- **الصنف (Item)**: ما الذي ستصنعه
-- **الكمية (Quantity)**: عدد الوحدات
-- **التواريخ (Dates)**: متى تخطط للبدء ومتى يجب الانتهاء
+You start by opening a new production order and filling in the essentials:
+- **Book and Term**: These control document numbering and behavior (like which documents get auto-generated)
+- **Product (Item)**: What you're going to make
+- **Quantity**: How many units
+- **Dates**: When you plan to start and when it should be done
 
-فور اختيار المنتج يحدث شيء مثير للاهتمام: يبحث النظام عن BOM وRouting الافتراضيين للمنتج، وإن وجدا يحمّلهما تلقائياً في الأمر. يمكنك دائماً التغيير إلى BOM أو Routing مختلف إن احتجت، ربما لديك وصفات متعددة لنفس المنتج أو طرق إنتاج مختلفة.
+The moment you select a product, something interesting happens. The system looks for the product's default BOM and Routing. If they exist, it automatically loads them into the order. You can always change to a different BOM or routing if needed - maybe you have multiple recipes for the same product, or different production methods.
 
-### سحر التعبئة التلقائية
+### The Magic of Auto-Population
 
-بمجرد اختيار BOM و Routing ينطلق النظام في العمل. إنه:
+Once you've selected your BOM and routing, the system springs into action. It:
 
-**يحسب كميات جميع المكونات**. إذا كان BOM يقول إنك تحتاج إلى برغيين لكل وحدة وأنت تصنع 100 وحدة، فأنت تحتاج إلى 200 برغي. لكنه أذكى من ذلك: إذا كان BOM يأخذ في الحسبان نسبة هدر 5% أثناء الإنتاج يضيفها، وإذا كان هناك معامل إنتاجية (ربما 95% فقط من المكونات تجتاز العملية بنجاح) يعدّل الكميات وفقاً لذلك.
+**Calculates all component quantities**. If your BOM says you need 2 screws per widget and you're making 100 widgets, you need 200 screws. But it gets smarter - if the BOM accounts for 5% scrap during production, it adds that in. If you have a yield factor (maybe only 95% of components make it through successfully), it adjusts for that too.
 
-**ينسخ جميع عمليات المسار**. كل عملية من Routing تصبح سطراً في أمر الإنتاج، مع أرقام تسلسلية (10، 20، 30...). كل عملية تعرف مركز العمل الذي ستستخدمه، والوقت المطلوب، والموارد (عمالة أو آلات) المحتاجة.
+**Copies all routing operations**. Every operation from the routing becomes a line in your production order, with sequence numbers (10, 20, 30...). Each operation knows which work center to use, how long it should take, and what resources (labor or machines) are needed.
 
-**يجلب متطلبات الموارد**. إذا كانت عملية ما تحتاج إلى آلة محددة أو عامل متخصص يُضاف ذلك إلى الأمر تلقائياً.
+**Brings in resource requirements**. If an operation needs a specific machine or skilled worker, that gets added to the order automatically.
 
-**يشمل أي قوالب أو أدوات** مطلوبة للعمليات.
+**Includes any molds or tooling** needed for the operations.
 
-الحساب مبني على كمية الأمر الفعلية مقارنةً بالكمية الأساسية في BOM. فإذا كان BOM محدداً لصنع وحدة واحدة وأنت تصنع 100، يُقيّس كل شيء بالتناسب.
+The calculation is based on the actual order quantity versus the BOM base quantity. So if your BOM is defined for making 1 unit but you're making 100, everything scales proportionally.
 
-### قبل بدء الإنتاج
+### Before You Start Production
 
-في هذه المرحلة يكون أمر الإنتاج في حالة "Initial" (مبدئي). إنه خطة وليس توجيهاً للبدء الفعلي بعد. هذا يمنحك وقتاً لـ:
+At this stage, your production order is in "Initial" status. It's a plan, not yet an instruction to begin work. This gives you time to:
 
-**مراجعة قائمة المكونات**. ربما تحتاج إلى استبدال مادة لأن المفضّلة غير متوفرة. يمكنك تغيير الأصناف أو الكميات أو تحديد الدفعات المستخدمة.
+**Review the component list**. Maybe you need to substitute a material because the preferred one isn't available. You can change component items, quantities, or specify which lots to use.
 
-**تعديل تسلسل العمليات**. في حالات نادرة قد تحتاج إلى تعديل مسار الإنتاج لهذا الأمر تحديداً، ربما تخطّي عملية أو تغيير مركز العمل.
+**Adjust operation sequences**. In rare cases, you might need to modify the routing for this specific order - maybe skip an operation, or change the work center.
 
-**التحقق من توفر الموارد**. إذا كانت آلة حيوية متوقفة للصيانة قد تحتاج إلى إعادة جدولة.
+**Check resource availability**. If a critical machine is down for maintenance, you might need to reschedule.
 
-**التحقق من التواريخ**. يمكن للنظام المساعدة في حساب تواريخ إتمام واقعية بناءً على مدد العمليات والكمية المراد تصنيعها.
+**Verify dates**. The system can help calculate realistic completion dates based on operation durations and the quantity you're making.
 
-حين تقتنع بالخطة **تبدأ** أمر الإنتاج. هذا يغيّر حالته من "Initial" إلى "In Progress" (قيد التنفيذ) ويُقفل هيكل BOM والمسار. لا يزال بإمكانك تعديل بعض الأشياء (كالتواريخ أو الخصائص الأبعادية)، لكن الهيكل الأساسي أصبح ثابتاً. هذا يضمن إمكانية التتبع؛ يمكنك دائماً الرجوع ورؤية ما نصّ عليه الأمر بالضبط.
+When you're satisfied with the plan, you **Start** the production order. This changes its status from "Initial" to "In Progress" and locks down the BOM and routing structure. You can still adjust some things (like dates or dimensional attributes), but the fundamental structure is fixed. This ensures traceability - you can always look back and see exactly what the order called for.
 
-## فهم هيكل أمر الإنتاج
+## Understanding the Production Order Structure
 
-أمر الإنتاج ليس مجرد مستند بسيط، بل هو غني بالمعلومات عبر عدة مجالات. لنستعرض ما يحتويه.
+A production order isn't just a simple document - it's actually quite rich with information across several areas. Let's break down what's in there.
 
-### الترويسة (Header)
+### The Header
 
-تحتوي الترويسة على معلومات الأمر الإجمالية:
+The header contains overall order information:
 
-**تعريف المنتج**: الصنف الذي تصنعه، والكمية، وأي خصائص محددة كأرقام الدفعات وأرقام السيريال والألوان والمقاسات أو المراجعات. إذا كنت تصنع وحدة زرقاء مقاس Large برقم دفعة 2024-001، يُتابَع كل ذلك هنا.
+**Product Definition**: Which item you're making, how many, and any specific attributes like lot numbers, serial numbers, colors, sizes, or revisions. If you're making a blue widget size Large with lot number 2024-001, all that gets tracked here.
 
-**مراجع BOM والمسار**: روابط إلى BOM والمسار الرئيسيين المستخدَمَين. ينسخ النظام هذه في تفاصيل الأمر لكنه يحتفظ بالمرجع للأصليين لأغراض التقارير.
+**BOM and Routing References**: Links to the master BOM and routing you're using. The system makes copies of these into the order details, but maintains the reference to the originals for reporting.
 
-**الجدول الزمني**: تواريخ البدء والانتهاء المخطط لها، بالإضافة إلى التواريخ الفعلية (تُملأ مع تقدم الإنتاج).
+**Schedule**: Planned start and finish dates, plus actual start and finish dates (filled in as production progresses).
 
-**الحالة (Status)**: Initial أو In Progress أو Closed أو Terminated. هذا يحكم ما يمكنك وما لا يمكنك فعله بالأمر.
+**Status**: Initial, In Progress, Closed, or Terminated. This drives what you can and can't do with the order.
 
-**الجودة**: مراجع لقوائم مراجعة الجودة ومتطلبات التأكيد.
+**Quality**: References to quality checklists and assurance requirements.
 
-**المصدر**: إذا جاء هذا الأمر من مكان آخر (كتشغيل MRP أو طلب إنتاج)، يُحتفظ بذلك الرابط.
+**Source**: If this order came from somewhere else (like an MRP run or a production request), that link is maintained.
 
-### تفاصيل المكونات
+### Component Details
 
-تُظهر هذه المجموعة كل مادة تحتاج إلى استهلاكها. كل سطر يشمل:
+This collection shows every material you need to consume. Each line includes:
 
-- الصنف المكوّن
-- الكمية المطلوبة
-- العملية التي تُستهلك عندها (مهم للصرف عملية بعملية)
-- كيفية الصرف (يدوياً، تلقائياً مع BOM، أو تلقائياً مع تنفيذ العمليات)
-- التفاصيل الأبعادية المحددة (دفعة، سيريال، موقع في المخزن)
-- أي تعديلات على الإنتاجية أو الفاعلية
+- Which component item
+- How much you need
+- At which operation it gets consumed (important for operation-by-operation material issuing)
+- How it should be issued (manually, automatically with the BOM, or automatically as operations are executed)
+- Specific dimensional details (lot, serial, location in warehouse)
+- Any yield or potency adjustments
 
-حين تُصرف المواد فعلياً أثناء الإنتاج ينشئ النظام مستندات صرف مواد ويربطها بسطور المكونات هذه.
+When materials are actually issued during production, the system creates Material Issue documents and links them back to these component lines.
 
-### المنتجات المشتركة (Co-Products)
+### Co-Products
 
-بعض عمليات التصنيع تُنتج مخرجات متعددة. حين تعالج النفط الخام تحصل على البنزين والديزل ومنتجات أخرى. وحين تقسّم اللحم تحصل على قطع وثانويات متنوعة.
+Some manufacturing processes create multiple outputs. When you process crude oil, you get gasoline, diesel, and other products. When you butcher meat, you get various cuts and by-products.
 
-تتابع مجموعة المنتجات المشتركة هذه المخرجات الثانوية. كل سطر يشمل:
-- الصنف المنتَج
-- الكمية المتوقعة
-- هل هو منتج مشترك ذو قيمة أم مجرد ثانوي
-- النسبة المئوية من إجمالي التكلفة التي يتحملها
-- وجهة التسليم (المخزن والموقع)
+The co-products collection tracks these secondary outputs. Each co-product line includes:
+- The item being produced
+- Expected quantity
+- Whether it's a valuable co-product or just a by-product
+- What percentage of the total cost it should bear
+- Where to deliver it (warehouse and location)
 
-### عمليات المسار (Routing Operations)
+### Routing Operations
 
-هذه هي عملية التصنيع خطوة بخطوة. كل سطر عملية يحتوي على:
+This is your step-by-step manufacturing process. Each operation line has:
 
-**التسلسل**: مرقّم عادةً 10، 20، 30، 40... (ترك فجوات يسهّل إدراج عمليات جديدة عند الحاجة).
+**Operation Sequence**: Usually numbered 10, 20, 30, 40... (leaving gaps makes it easy to insert new operations if needed).
 
-**وصف العملية**: ما العمل الذي يُنجز، مثل "قطع المادة"، "لحام المفاصل"، "دهان السطح"، "فحص الجودة".
+**Operation Description**: What work gets done - "Cut material", "Weld joints", "Paint finish", "Quality inspection".
 
-**مركز العمل**: أين يحدث ذلك، ربما "ماكينة القطع 1" أو "خط التجميع B".
+**Work Center**: Where it happens - maybe "Cutting Machine 1" or "Assembly Line B".
 
-**تقديرات الوقت**: المدة التي تستغرقها العملية. يمكن تقسيمها إلى وقت إعداد (تحضير لمرة واحدة) ووقت تشغيل (وقت لكل وحدة). يستخدم النظام هذا للجدولة وتخطيط الطاقة الإنتاجية.
+**Time Estimates**: How long the operation takes. This can be split into setup time (one-time prep) and run time (time per unit). The system uses this for scheduling and capacity planning.
 
-**تدفق الكمية**: عدد الوحدات التي تمر بهذه العملية. أحياناً تُفقد بعض الوحدات بسبب الهدر أو العينات.
+**Quantity Flow**: How many units pass through this operation. Sometimes you lose a few units along the way due to scrap or samples.
 
-**ضوابط الإنتاج الزائد**: يمكنك تحديد حدود لمقدار الإنتاج الزائد المسموح به.
+**Over-Production Controls**: You can set limits on how much over-production is allowed. Maybe the final operation can only produce 5% more than ordered, but the first operation (cutting raw materials) can have unlimited over-completion because you want to account for downstream losses.
 
-**متطلبات الجودة**: روابط لقوائم مراجعة الفحص. يجب على موظفي الجودة إكمالها قبل اعتبار العملية منجزة.
+**Quality Requirements**: Links to inspection checklists. Quality staff must complete these before the operation is considered done.
 
-**التصنيع المتوازي**: علامة تشير إلى إمكانية عمل مراكز عمل متعددة على هذه العملية في آن واحد لزيادة الإنتاجية.
+**Parallel Manufacturing**: A flag indicating if multiple work centers can do this operation simultaneously to increase throughput.
 
-### متطلبات الموارد (Resource Requirements)
+### Resource Requirements
 
-لكل عملية قد تحتاج إلى موارد متنوعة من أشخاص أو آلات. كل سطر مورد يحدد:
+For each operation, you might need various resources - people or machines. Each resource line specifies:
 
-- المورد (فئة عمالة A، ماكينة CNC رقم 3، رافعة شوكية، إلخ)
-- الكمية (ربما عاملان أو آلة واحدة)
-- الأساس (وقت ثابت بغض النظر عن الكمية، أو وقت لكل وحدة، أو وقت لكل دفعة)
-- هل يُحمَّل تلقائياً على الأمر أم يحتاج تأكيداً يدوياً
+- Which resource (Labor Class A, CNC Machine #3, Forklift, etc.)
+- How much (maybe 2 workers, or 1 machine)
+- The basis (fixed time regardless of quantity, time per unit, or time per batch)
+- Whether it's automatically charged to the order or needs manual confirmation
 
-تغذي هذه البيانات تخطيط الطاقة الإنتاجية (هل نرهق أي موارد؟) والمحاسبة التكاليفية (كم من وقت العمالة والآلات استهلك هذا الأمر؟).
+This data feeds into capacity planning (are we overloading any resources?) and cost accounting (how much labor and machine time did this order consume?).
 
-### القوالب والأدوات (Molds and Tooling)
+### Molds and Tooling
 
-بعض التصنيع كالصب بالحقن أو الصب الميت يتطلب أدوات خاصة. تتابع مجموعة القوالب أي قوالب مطلوبة لأي عمليات. هذا يساعد في:
-- ضمان توفر القوالب قبل بدء الإنتاج
-- تتبع استخدام القوالب لجدولة الصيانة
-- تحميل تكاليف استخدام القوالب على المنتجات
+Some manufacturing - like injection molding or die casting - requires special tooling. The molds collection tracks which molds are needed for which operations. This helps with:
+- Ensuring molds are available before starting production
+- Tracking mold usage for maintenance scheduling
+- Costing mold usage charges to products
 
-## دورة حياة أمر الإنتاج
+## The Production Order Lifecycle
 
-لنتابع أمر الإنتاج من لحظة إنشائه حتى الاكتمال.
+Let's follow a production order from birth to completion.
 
-### الإنشاء
+### Creation
 
-يمكن إنشاء أوامر الإنتاج بعدة طرق:
+Production orders can come into existence several ways:
 
-**الإنشاء اليدوي**: ببساطة تنشئ أمراً جديداً وتختار منتجاً وتدخل كمية. هذا شائع في سيناريوهات الإنتاج حسب الطلب أو الاستجابة لطلبات عملاء محددة.
+**Manual Creation**: You simply create a new order, pick a product, enter a quantity. This is common for make-to-order scenarios or when responding to specific customer requests.
 
-**من MRP**: إذا كنت تشغّل تخطيط متطلبات المواد، يحلل النظام الطلب (من أوامر المبيعات والتوقعات وغيرها) ويولد أوامر إنتاج مقترحة تلقائياً. تراجع هذه المقترحات وتحوّلها إلى أوامر فعلية.
+**From MRP**: If you're running Material Requirements Planning, the system analyzes demand (from sales orders, forecasts, etc.) and automatically generates proposed production orders. You review these proposals and convert them to actual orders.
 
-**من طلبات الإنتاج**: بعض الشركات تفضل عملية ثنائية الخطوات: يُنشئ المخططون طلبات أوامر إنتاج (مقترحات) تمر بدورة موافقة، ثم تُحوَّل الطلبات الموافَق عليها إلى أوامر إنتاج فعلية.
+**From Production Requests**: Some companies like a two-step process - planners create Production Order Requests (proposals), they go through an approval workflow, then approved requests are converted to actual Production Orders.
 
-**من الأوامر المجمّعة**: يمكنك تجميع متطلبات متعددة صغيرة في أمر مجمّع ثم توليد أوامر إنتاج فردية منه.
+**From Aggregated Orders**: You might collect multiple small requirements and batch them into an aggregated order, then generate individual production orders from it.
 
-بصرف النظر عن كيفية إنشائها تتبع جميعها نفس دورة الحياة بعد ذلك.
+However they're created, they all follow the same lifecycle after that.
 
-### انفجار BOM
+### BOM Explosion
 
-حين تختار BOM يُنفّذ النظام "انفجار BOM"، أي يُفكّك هيكل المنتج إلى متطلبات مواد فعلية.
+When you select a BOM, the system performs "BOM explosion" - it breaks down the product structure into actual material requirements.
 
-لمنتج بسيط هذا واضح. لتجميعات معقدة فيها تجميعات فرعية يصبح أكثر تعقيداً. يستطيع النظام الانفجار عبر مستويات متعددة. إذا كنت تصنع سيارة:
-- السيارة تحتاج إلى محرك (مستوى 1)
-- المحرك يحتاج إلى عمود مرفقي crankshaft (مستوى 2)
-- العمود المرفقي يحتاج إلى صلب خاص (مستوى 3)
+For a simple product, this is straightforward. For complex assemblies with sub-assemblies, it gets interesting. The system can explode multiple levels. If you're making a car:
+- The car needs an engine (level 1)
+- The engine needs a crankshaft (level 2)
+- The crankshaft needs special steel (level 3)
 
-يتسلسل النظام عبر جميع المستويات محسوباً إجمالي احتياجات المواد الخام.
+The system cascades through all levels, calculating total raw material needs.
 
-كما يتعامل مع سيناريوهات معقدة مثل:
-- **معاملات الهدر**: إذا توقعت هدر 10% من المواد أثناء القطع، يضيف 10% إضافية للمتطلب.
-- **معاملات الإنتاجية**: إذا اجتاز 95% فقط من المكونات مراقبة الجودة، يعدّل الكميات لضمان الحصول على العدد الصحيح من القطع الجيدة.
-- **التجميعات الوهمية (Phantoms)**: أحياناً تكون هناك تجميعات فرعية وهمية موجودة في BOM لأغراض هندسية لكنها لا تُخزَّن فعلياً، إذ تُجمَّع وتُستخدم فوراً. يتعامل النظام معها بسلاسة.
+It also handles tricky scenarios like:
+- **Scrap factors**: If you expect to waste 10% of material during cutting, it adds 10% more to the requirement.
+- **Yield factors**: If only 95% of components pass quality control, it adjusts quantities to ensure you end up with the right amount of good parts.
+- **Phantoms**: Sometimes you have "phantom" sub-assemblies that exist in the BOM for engineering purposes but are never actually stocked - they're assembled and immediately used. The system handles these seamlessly.
 
-### تجميع الدفعات وتجهيز المواد
+### Lot Collection and Material Staging
 
-قبل البدء في الإنتاج تحتاج إلى تحديد المخزون الفعلي الذي ستستخدمه. إذا كنت تتتبع بأرقام الدفعات (شائع في الغذاء والأدوية والكيماويات) فهذا حيوي للتتبع.
+Before production can start, you need to identify which actual inventory you'll use. If you track by lot numbers (common in food, pharma, chemicals), this is critical for traceability.
 
-يمتلك Nama ERP وظيفة "تجميع الدفعات". تخبره بالمكوّن الذي تحتاجه فيبحث في مخزونك عن الدفعات المتاحة. يمكنه تطبيق قواعد مثل FIFO (أول داخل أول خارج) أو FEFO (الأول انتهاءً أول خروجاً). تراجع المقترحات وتوافق عليها.
+Nama ERP has "Collect Lots" functionality. You tell it which component you need, and it searches your inventory for available lots. It can apply rules like FIFO (First In, First Out) or FEFO (First Expired, First Out). You review the suggestions and approve them.
 
-وبالمثل، إذا كنت تتتبع الأصناف بالصناديق أو المنصات، توجد وظيفة "تجميع الصناديق".
+Similarly, if you track items by boxes or pallets, there's "Collect Boxes" functionality.
 
-بمجرد معرفة الدفعات المستخدمة يمكنك إنشاء **مستندات حجز** لتأمين ذلك المخزون لأمر الإنتاج هذا، مما يمنع المخزن من شحن تلك المواد للعملاء أو استخدامها لأمر آخر.
+Once you know which lots you're using, you can create **Reservation Documents** to lock that inventory for this production order. This prevents the warehouse from shipping that material to customers or using it for another order.
 
-قد تنشئ أيضاً صرف مواد في هذه المرحلة لنقل المواد فيزيائياً من المخزن إلى أرضية المصنع تحضيراً للإنتاج. أو تنتظر وتصرف المواد عند احتياج كل عملية لها. يعتمد ذلك على سير عمل مصنعك.
+You might also create Material Issues at this stage to physically move materials from the warehouse to the shop floor, ready for production. Or you might wait and issue materials as each operation needs them. It depends on your factory's workflow.
 
-### بدء الأمر
+### Starting the Order
 
-حين يكون كل شيء جاهزاً تضغط زر **بدء الإنتاج**. هذا مهم لأن:
+When everything's ready, you click the **Start Production** button. This is significant because:
 
-1. تتغير حالة الأمر من "Initial" إلى "In Progress"
-2. يُقفل هيكل BOM والمسار؛ لا يمكنك إضافة أو إزالة مكونات أو عمليات
-3. يسجّل النظام تاريخ البدء الفعلي
-4. يمكن لموظفي أرضية المصنع الآن تسجيل العمل على هذا الأمر
+1. The order status changes from "Initial" to "In Progress"
+2. The BOM and routing structure gets locked - you can't add/remove components or operations anymore
+3. The system records the actual start date
+4. Shop floor personnel can now start recording work against this order
 
-إذا أدركت أنك ارتكبت خطأً وتريد التراجع، توجد إجراء **إلغاء البدء** لكنه يعمل فقط إذا لم يُنفَّذ أي إنتاج بعد ولم تُنشأ أي مستندات مرتبطة.
+If you realize you made a mistake and need to go back, there's a **Cancel Start** action - but it only works if no production has been executed yet and no downstream documents have been created.
 
-### تنفيذ الإنتاج
+### Production Execution
 
-الآن يبدأ العمل الفعلي. مع تنفيذ العمليات في أرضية المصنع يسجّل العمال (أو المشرفون) ما جرى باستخدام مستندات تنفيذ الإنتاج.
+Now the real work begins. As operations are performed on the shop floor, workers (or supervisors) record what happened using Production Execution documents.
 
-قد تقول هذه التنفيذات:
-- "نُقلت 50 وحدة من العملية 10 إلى العملية 20"
-- "وُجدت 5 وحدات معيبة عند العملية 30 وتُنقل إلى حالة المرفوض"
-- "أُخذت عينتان عند العملية 40 لاختبار الجودة"
+These executions might say:
+- "Moved 50 units from Operation 10 to Operation 20"
+- "Found 5 defective units at Operation 30, moving them to Rejected status"
+- "Took 2 samples at Operation 40 for quality testing"
 
-كل تنفيذ يمكنه تشغيل مستندات أخرى تلقائياً:
-- **صرف المواد**: إذا هيأت المكونات للصرف التلقائي أثناء التنفيذ، ينشئ النظام هذه المستندات عند استهلاك العمليات للمواد.
-- **قسائم الموارد**: لتسجيل ساعات العمالة والآلات الفعلية المستخدمة.
-- **مستندات الجودة**: إذا كانت للعمليات قوائم مراجعة جودة، يستطيع النظام إصدار مستندات مراقبة جودة يجب تعبئتها.
-- **تسليم المنتجات**: عند إكمال العملية الأخيرة يستطيع النظام استلام البضائع المنتهية تلقائياً إلى المخزون.
+Each execution can automatically trigger other documents:
+- **Material Issues**: If you configured components to be issued automatically during execution, the system creates these as operations consume materials.
+- **Resource Vouchers**: Recording actual labor and machine hours used.
+- **Quality Documents**: If operations have quality checklists, the system can generate quality control documents that must be filled out.
+- **Product Deliveries**: When the final operation is completed, the system can automatically receive finished goods into inventory.
 
-سنتناول التنفيذ بالتفصيل في دليله الخاص، لكن النقطة الأساسية هي أن أوامر الإنتاج وتنفيذات الإنتاج مترابطة ارتباطاً وثيقاً. الأمر هو الخطة والتنفيذ هو الواقع.
+We'll cover execution in detail in its own guide, but the key point is that production orders and production executions are tightly linked. The order is the plan; execution is the reality.
 
-### تتبع التقدم
+### Tracking Progress
 
-خلف الكواليس يحتفظ Nama ERP بشيء يُسمى **قيود نظام الإنتاج (Production System Entries)**. تتابع هذه القيود أين توجد الكميات في أي لحظة.
+Behind the scenes, Nama ERP maintains something called **Production System Entries**. These track exactly where quantities are at any moment.
 
-لكل عملية في أمرك يعرف النظام:
-- عدد الوحدات المنتظرة للتقدم للأمام (حالة ToMove)
-- عدد المرفوضة لإعادة العمل
-- عدد المهدرة
-- عدد المحتجزة كعينات
+For each operation in your order, the system knows:
+- How many units are waiting to move forward (ToMove status)
+- How many were rejected for rework
+- How many were scrapped
+- How many are held as samples
 
-هذا يمنحك رؤية في الوقت الفعلي. يمكنك فتح أمر الإنتاج ورؤية فوراً: "العملية 20 لديها 75 وحدة جاهزة للتقدم، العملية 30 لديها 60 وحدة قيد التنفيذ، لقد هدرنا 3 وحدات حتى الآن."
+This gives you real-time visibility. You can open a production order and immediately see: "Operation 20 has 75 units ready to move forward, Operation 30 has 60 units in progress, we've scrapped 3 units so far."
 
-يحب مديرو الإنتاج هذا لأنهم لا يحتاجون إلى المشي في أرضية المصنع لمعرفة الحالة؛ إنها موجودة في النظام مباشرة.
+Production managers love this because they don't have to walk the factory floor to know the status - it's right there in the system.
 
-### التعامل مع المواقف غير المتوقعة
+### Handling the Unexpected
 
-نادراً ما يسير التصنيع وفق الخطة تماماً. Nama ERP يتعامل مع الواقع:
+Manufacturing rarely goes perfectly to plan. Nama ERP handles the reality:
 
-**إعادة العمل (Rework)**: حين تجد الجودة مشكلات تنتقل الوحدات إلى حالة المرفوض. يمكن إرسالها إلى عملية سابقة لإعادة العمل وإصلاحها ثم إعادتها عبر العملية.
+**Rework**: When quality finds problems, units move to Rejected status. They can then be sent back to an earlier operation for rework, fixed, and sent through the process again.
 
-**الهدر (Scrap)**: أحياناً تتلف الوحدات بشكل لا يمكن إصلاحه. تنتقل إلى حالة الهدر. يتابع النظام كميات الهدر للمحاسبة التكاليفية وتحسين العمليات.
+**Scrap**: Sometimes units are damaged beyond repair. They move to Scrap status. The system tracks scrap quantities for cost accounting and process improvement.
 
-**الإنتاج الزائد أو الناقص**: ربما كانت إنتاجيتك أفضل من المتوقع وأنتجت وحدات أكثر من المخطط. أو ربما تسبّبت مشكلة في إنتاج أقل. يسمح النظام بذلك (ضمن حدود مُهيّأة) ويتابع الكميات الفعلية.
+**Over-production or Under-production**: Maybe your yields are better than expected and you're producing more units than planned. Or maybe a problem caused you to produce less. The system allows this (within configured limits) and tracks the actual quantities.
 
-**المسارات المتوازية**: بعض المنتجات يمكن أن تكون لها عمليات تسير بالتوازي. ربما يمكن للوحدات المرور عبر خط الطلاء A أو خط الطلاء B في آن واحد. يدعم النظام ذلك بعلامات العمليات المتوازية ويتعامل مع التعقيد.
+**Parallel Paths**: Some products can have operations that run in parallel. Maybe units can go through Paint Line A or Paint Line B simultaneously. The system supports this with parallel operation flags and handles the complexity.
 
-### الاكتمال
+### Completion
 
-في نهاية المطاف تكتمل العملية الأخيرة وتُسلَّم جميع البضائع المنتهية إلى المخزون. الأمر منتهٍ وظيفياً لكن حالته لا تزال "In Progress".
+Eventually, the final operation is complete, and all your finished goods are delivered to inventory. The order is functionally done, but it's still "In Progress" status.
 
-لإنهاء الأمر رسمياً تُنشئ **قسيمة إغلاق الأمر**. هذه:
-- تحسب إجمالي التكاليف الفعلية (مواد وعمالة وعبء عام)
-- تقارن بالتكاليف المعيارية إن وجدت
-- تحدّث قيم مخزون البضائع المنتهية
-- تولّد قيود محاسبية
-- تغيّر حالة الأمر إلى "Closed"
+To truly finalize the order, you create an **Order Close Voucher**. This:
+- Calculates the total actual costs (materials, labor, overhead)
+- Compares to standard costs if you have them
+- Updates finished goods inventory values
+- Generates accounting entries
+- Changes the order status to "Closed"
 
-بعد الإغلاق يُقفل الأمر. لا مزيد من التنفيذات ولا مزيد من التغييرات. أصبح تاريخاً.
+Once closed, the order is locked. No more executions, no more changes. It's history.
 
-(يوجد أيضاً خيار **إنهاء** الأمر إذا كنت تلغيه دون اكتمال، ربما ألغى العميل طلبه، أو اكتشفت عيباً في التصميم، أو كانت المواد الخام غير متوفرة.)
+(There's also an option to **Terminate** an order if you're cancelling it without completion - maybe the customer cancelled, or you discovered a design flaw, or raw materials are unavailable.)
 
-## ميزات خاصة جديرة بالمعرفة
+## Special Features Worth Knowing About
 
-### النسب المئوية المسموح بها والإنجاز الزائد
+### Permitted Percentages and Over-Completion
 
-في العالم المثالي تطلب 100 وحدة وتنتج بالضبط 100 وحدة. لكن الواقع أكثر فوضوية.
+In a perfect world, you'd order 100 units and produce exactly 100 units. Reality is messier.
 
-يمكنك تعيين **نسب مئوية مسموح بها** على العمليات. إذا كانت للعملية 50 نسبة مسموحة 5% وطلبت 100 وحدة، يمكن للعمال إنتاج ما يصل إلى 105 وحدات دون أخطاء أو تحذيرات.
+You can set **Permitted Percentages** on operations. If Operation 50 has a 5% permitted percentage and you ordered 100 units, workers can produce up to 105 units without errors or warnings.
 
-لماذا يُسمح بذلك؟ أحياناً تحتاج إلى إنتاج زائد في العمليات المبكرة لتعويض الخسائر في مرحلة لاحقة. قد تقطع 110 قطعاً مع علمك أن 5 ستفشل في الفحص و5 ستتلف أثناء التشطيب. النتيجة النهائية: 100 وحدة جيدة.
+Why allow this? Sometimes you need over-production at early operations to account for losses downstream. You might cut 110 pieces knowing that 5 will fail inspection and 5 will be damaged during finishing. End result: 100 good units.
 
-للعملية الأولى توجد علامة **الإنجاز الزائد غير المحدود**. تتيح لك إنتاج ما تحتاجه في تلك المرحلة مع مراعاة جميع الخسائر اللاحقة.
+For the first operation, there's even an **Unlimited Over-Completion** flag. This lets you produce as much as needed at that stage, accounting for all downstream losses.
 
-### قوائم المواد (BOMs) متعددة المستويات والتجميعات الفرعية
+### Multi-Level BOMs and Sub-Assemblies
 
-يتألق Nama ERP مع المنتجات المعقدة. يمكنك أن يكون لديك منتج مكتمل مصنوع من تجميعات فرعية هي نفسها مصنوعة من مكونات.
+Nama ERP shines with complex products. You can have a finished product made from sub-assemblies, which are themselves made from components.
 
-يستطيع النظام التعامل مع هذا بطريقتين:
+The system can handle this in two ways:
 
-**الانفجار الكامل (Full Explosion)**: انفجار جميع مستويات BOM وصولاً إلى المواد الخام. أنشئ أمر إنتاج واحد للمنتج على أعلى مستوى وستشمل قائمة المكونات كل شيء حتى أدنى مستوى. هذا يعمل للمنتجات التي لا تُخزَّن تجميعاتها الفرعية بشكل منفصل.
+**Full Explosion**: Explode all levels of the BOM down to raw materials. Create one production order for the top-level product, and the component list includes everything down to the lowest level. This works for products where sub-assemblies aren't stocked separately.
 
-**أوامر الإنتاج المتداخلة (Nested Production Orders)**: أنشئ أوامر إنتاج منفصلة للتجميعات الفرعية. اصنع التجميعات الفرعية أولاً واستلمها إلى المخزون ثم استهلكها عند صنع المنتج النهائي. هذا يعمل حين تكون التجميعات الفرعية أصنافاً معيارية مستخدمة في منتجات متعددة.
+**Nested Production Orders**: Create separate production orders for sub-assemblies. Make the sub-assemblies first, receive them to inventory, then consume them when making the final product. This works when sub-assemblies are standard items used in multiple products.
 
-تختار المنهج بناءً على احتياجات عملك.
+You choose the approach based on your business needs.
 
-### المنتجات المشتركة والثانوية (Co-Products and By-Products)
+### Co-Products and By-Products
 
-بعض التصنيع ينتج بطبيعته منتجات متعددة. المثال الكلاسيكي هو تكرير النفط: لا تحصل فقط على البنزين بل أيضاً الديزل ووقود الطائرات والبتروكيماويات المتنوعة.
+Some manufacturing inherently creates multiple products. The classic example is petroleum refining - you don't just make gasoline, you also get diesel, jet fuel, and various petrochemicals.
 
-تتيح لك مجموعة المنتجات المشتركة تتبع جميع المخرجات. لكل منتج مشترك يمكن أن يكون له:
-- كميته الخاصة
-- وجهته الخاصة (مخزن وموقع)
-- حصته التكاليفية (النسبة المئوية من إجمالي تكلفة الإنتاج التي يتحملها)
+The co-products collection lets you track all outputs. Each co-product can have:
+- Its own quantity
+- Its own destination (warehouse and location)
+- Its own cost share (what percentage of the total production cost it bears)
 
-حين تغلق أمر الإنتاج تُوزَّع التكاليف على المنتج الرئيسي والمنتجات المشتركة بناءً على النسب التي حددتها.
+When you close the production order, costs are allocated across the main product and co-products based on the percentages you set.
 
-### تكامل الجودة
+### Quality Integration
 
-الجودة مبنية داخل العملية وليست مضافة عليها.
+Quality is built into the process, not bolted on.
 
-يمكن أن تحتوي العمليات على **قوائم مراجعة مراقبة الجودة** أو **قوائم مراجعة ضمان الجودة** مرفقة بها. حين يصل تنفيذ إنتاج إلى تلك العملية، ينشئ النظام تلقائياً مستند مراقبة جودة بجميع بنود الفحص من قائمة المراجعة.
+Operations can have **Quality Control Checklists** or **Quality Assurance Checklists** attached. When a production execution reaches that operation, the system automatically generates a Quality Control document with all the check items from the checklist.
 
-يعبّئ فاحصو الجودة المستند مجيبين على الأسئلة ومسجّلين القياسات. قد يحتاج المستند إلى موافقة قبل الاستمرار في الإنتاج، تُهيّئ ذلك بناءً على متطلبات الجودة لديك.
+Quality inspectors fill out the document, answering questions and recording measurements. The document might need approval before production can continue - you configure this based on your quality requirements.
 
-هذا يضمن تطبيق بوابات الجودة فعلياً وعدم تخطّيها.
+This ensures quality gates are actually enforced, not skipped.
 
-### تتبع التكاليف طوال الإنتاج
+### Cost Tracking Throughout Production
 
-حتى قبل إغلاق الأمر يتابع النظام التكاليف. تتراكم في حقول ترويسة أمر الإنتاج:
-- **تكلفة صرف المواد**: كل مادة صُرفت للأمر
-- **تكلفة إعادة المواد**: إذا أُعيدت مواد (ربما صرفت أكثر من اللازم)
-- **تكلفة الموارد**: وقت العمالة والآلات
-- **تكلفة القوالب**: استخدام الأدوات
-- **تكلفة الهدر**: قيمة الوحدات المهدرة
-- **تكلفة المنتج المسلّم**: قيمة البضائع المنتهية المسلّمة
-- **تكلفة المنتج المُعاد**: إذا أُعيدت بضائع منتهية لإعادة العمل
+Even before you close the order, the system is tracking costs. Fields on the production order header accumulate:
+- **Material Issue Cost**: Every material issued to the order
+- **Material Return Cost**: If materials are returned (maybe you over-issued)
+- **Resources Cost**: Labor and machine time
+- **Molds Cost**: Tooling usage
+- **Scrap Cost**: Value of scrapped units
+- **Delivered Product Cost**: Value of finished goods delivered
+- **Returned Product Cost**: If finished goods are returned for rework
 
-يمكنك مراجعة هذه التكاليف في أي وقت لترى كم أنفقت على الأمر حتى الآن.
+You can check these anytime to see how much you've spent on the order so far.
 
-### طلبات أوامر الإنتاج ودورات الموافقة
+### Production Order Requests and Approval Workflows
 
-بعض المنظمات تريد عملية موافقة رسمية قبل أن يبدأ التصنيع. تخدم طلبات أوامر الإنتاج هذا الغرض.
+Some organizations want a formal approval process before manufacturing can begin. Production Order Requests serve this purpose.
 
-المسار هو:
-1. يُنشئ المخطط طلب أمر إنتاج (أمر مقترح)
-2. يمر الطلب بدورة الموافقة (ربما مدير الإنتاج ثم مدير المواد)
-3. تُحوَّل الطلبات الموافَق عليها إلى أوامر إنتاج فعلية
-4. يبدأ الإنتاج
+The flow is:
+1. Planner creates a Production Order Request (a proposed order)
+2. Request goes through approval workflow (maybe production manager, then materials manager)
+3. Approved requests are converted to actual Production Orders
+4. Production begins
 
-هذا يفصل التخطيط عن التفويض ويمنح الإدارة السيطرة على ما يُنتج.
+This separates planning from authorization, giving management control over what gets produced.
 
-### أوامر الإنتاج المجمّعة للتخطيط الدفعي
+### Aggregated Production Orders for Batch Planning
 
-إذا كنت تُشغّل دورة تخطيط أسبوعية ولديك عشرات أو مئات من المتطلبات الصغيرة، فإنشاء أوامر إنتاج فردية لكل واحدة مُضنٍ.
+If you're running a weekly planning cycle and have dozens or hundreds of small requirements, creating individual production orders for each is tedious.
 
-**أوامر الإنتاج المجمّعة** تتيح لك:
-1. إنشاء أمر مجمّع واحد
-2. إضافة سطور متعددة (منتجات مختلفة وكميات مختلفة وتواريخ استحقاق مختلفة)
-3. مراجعة وتعديل الدفعة الكاملة
-4. توليد أوامر إنتاج فردية من كل سطر بنقرة واحدة
+**Aggregated Production Orders** let you:
+1. Create one aggregated order
+2. Add multiple lines (different products, different quantities, different due dates)
+3. Review and adjust the whole batch
+4. Generate individual production orders from each line with one click
 
-إنها موفّرة للوقت في بيئات الإنتاج للمخزون ذات الحجم الكبير.
+It's a time-saver for high-volume, make-to-stock environments.
 
-يستطيع النظام حتى دمج السطور المتشابهة. إذا كان لديك ثلاثة متطلبات منفصلة لنفس المنتج في نفس الأسبوع يمكنه دمجها في أمر إنتاج واحد أكبر.
+The system can even merge similar lines. If you have three separate requirements for the same product in the same week, it can combine them into one larger production order.
 
-## سيناريوهات العمل الشائعة
+## Common Workflows
 
-لنستعرض بعض السيناريوهات النموذجية.
+Let's look at a few typical scenarios.
 
-### السيناريو: التصنيع حسب الطلب
+### Scenario: Make-to-Order Manufacturing
 
-يطلب عميل 50 وحدة مخصصة. إليك كيف يسير الأمر:
+A customer orders 50 custom widgets. Here's how it flows:
 
-1. يُنشئ المبيعات أمر بيع لـ 50 وحدة
-2. يُنشئ المخطط أمر إنتاج مرتبطاً بأمر البيع ذاك
-3. يختار المنتج والكمية 50 وتاريخ التسليم المطلوب
-4. يملأ النظام BOM والمسار تلقائياً
-5. يراجع المخطط ويعدّل إن لزم (ربما يريد العميل لوناً مختلفاً)
-6. يبدأ أمر الإنتاج
-7. تُصرف المواد لأرضية المصنع
-8. تنفّذ أرضية المصنع الإنتاج عملية بعملية
-9. تُسلَّم البضائع المنتهية إلى المخزون
-10. يُغلق الأمر وتُحسم التكاليف
-11. تُشحن الوحدات للعميل
+1. Sales creates a Sales Order for 50 widgets
+2. Planner creates a Production Order linked to that sales order
+3. Selects product, quantity 50, desired delivery date
+4. System populates BOM and routing automatically
+5. Planner reviews, adjusts if needed (maybe customer wants a different color)
+6. Starts the production order
+7. Materials are issued to the shop floor
+8. Shop floor executes production operation by operation
+9. Finished goods are delivered to inventory
+10. Order is closed, costs are finalized
+11. Widgets are shipped to customer
 
-يربط أمر الإنتاج كل شيء معاً: يمكنك التتبع من أمر العميل إلى المواد المستهلكة إلى عمل أرضية المصنع إلى البضائع المنتهية إلى الشحن.
+The production order ties everything together - you can trace from the customer order to the materials consumed to the shop floor work to the finished goods to the shipment.
 
-### السيناريو: الإنتاج للمخزون بتوجيه MRP
+### Scenario: MRP-Driven Make-to-Stock
 
-تصنع منتجات معيارية للحفاظ على المخزون. يساعد MRP في أتمتة التخطيط:
+You manufacture standard products to keep inventory stocked. MRP helps automate the planning:
 
-1. ينظر النظام في توقعات المبيعات والمخزون الحالي وأوامر البيع المفتوحة
-2. يحسب المتطلبات الصافية (ما تحتاج لصنعه)
-3. يولّد أوامر إنتاج مقترحة لتلبية تلك المتطلبات
-4. يراجع المخطط المقترحات ويعدّل الكميات أو التواريخ إن لزم
-5. يحوّل المقترحات الموافَق عليها إلى أوامر إنتاج فعلية
-6. يبدأ الأوامر
-7. ينفَّذ الإنتاج
-8. تُجدّد البضائع المنتهية المخزون
-9. تُغلق الأوامر
+1. System looks at sales forecasts, current inventory, and open sales orders
+2. Calculates net requirements (what you need to make)
+3. Generates proposed production orders to meet those requirements
+4. Planner reviews the proposals, adjusts quantities or dates if needed
+5. Converts approved proposals to actual production orders
+6. Starts the orders
+7. Production executes
+8. Finished goods replenish inventory
+9. Orders are closed
 
-يمكن أن يعمل هذا أسبوعياً أو حتى يومياً، محدّثاً خطط الإنتاج باستمرار بناءً على الطلب المتغير.
+This can run weekly or even daily, constantly adjusting production plans based on changing demand.
 
-### السيناريو: إعادة العمل ومشكلات الجودة
+### Scenario: Rework and Quality Issues
 
-أنت تنتج دفعة من 100 وحدة. عند العملية 30 (الطلاء) يكتشف فحص الجودة أن 10 وحدات بها عيوب.
+You're producing a batch of 100 units. At Operation 30 (painting), quality inspection finds that 10 units have defects.
 
-1. ينقل تنفيذ الإنتاج 90 وحدة من Op30-ToMove إلى Op40-ToMove (اجتازت الفحص)
-2. تنفيذ آخر ينقل 10 وحدات من Op30-ToMove إلى Op30-Rejected (رسبت)
-3. تُعاد الوحدات في حالة Rejected: نقل 10 وحدات من Op30-Rejected إلى Op20-ToMove (لإعادة الصنفرة قبل إعادة الطلاء)
-4. تعمل تلك الـ 10 وحدات عبر Op20 و Op30 مرة أخرى
-5. هذه المرة تجتاز الفحص وتتقدم مع البقية
+1. Production Execution moves 90 units from Op30-ToMove to Op40-ToMove (they passed inspection)
+2. Another execution moves 10 units from Op30-ToMove to Op30-Rejected (they failed)
+3. Units in Rejected status are sent back: move 10 units from Op30-Rejected to Op20-ToMove (re-do sanding before re-painting)
+4. Those 10 units work through Op20 and Op30 again
+5. This time they pass inspection and move forward with the rest
 
-يتابع النظام كل هذا. يمكن للتقارير أن تُظهر لك مقدار إعادة العمل التي تقوم بها، وأين تحدث العيوب، وأي العمليات تملك أعلى معدلات فشل؛ بيانات قيّمة للتحسين المستمر.
+The system tracks all this. Reports can show you how much rework you're doing, where defects are occurring, which operations have the highest failure rates - valuable data for continuous improvement.
 
-## ما يمكنك وما لا يمكنك فعله
+## What You Can and Can't Do
 
-فهم القيود يساعد على تجنب الإحباط:
+Understanding the constraints helps avoid frustration:
 
-### عندما يكون الأمر في حالة "Initial"
+### When the Order is "Initial"
 
-✅ يمكنك تغيير أي شيء: BOM والمسار والمكونات والعمليات والكميات والتواريخ
-✅ يمكنك حذف الأمر
-✅ يمكنك بدء الأمر
+✅ You can change anything - BOM, routing, components, operations, quantities, dates
+✅ You can delete the order
+✅ You can start the order
 
-❌ لا يمكنك تنفيذ الإنتاج (يجب أن يكون In Progress أولاً)
+❌ You can't execute production (must be In Progress first)
 
-### عندما يكون الأمر في حالة "In Progress"
+### When the Order is "In Progress"
 
-✅ يمكنك تنفيذ الإنتاج
-✅ يمكنك تعديل التواريخ
-✅ يمكنك تعديل كميات المكونات أو تحديد الدفعات
-✅ يمكنك تعديل معاملات العمليات كالنسب المئوية المسموح بها
-✅ يمكنك إغلاق الأمر أو إنهاؤه
+✅ You can execute production
+✅ You can adjust dates
+✅ You can modify component quantities or specify lots
+✅ You can adjust operation parameters like permitted percentages
+✅ You can close or terminate the order
 
-❌ لا يمكنك إضافة أو إزالة المكونات (BOM مقفل)
-❌ لا يمكنك إضافة أو إزالة العمليات (المسار مقفل)
-❌ لا يمكنك حذف الأمر (إذا أُنجز أي عمل)
+❌ You can't add or remove components (the BOM is locked)
+❌ You can't add or remove operations (the routing is locked)
+❌ You can't delete the order (if any work has been done)
 
-### عندما يكون الأمر في حالة "Closed"
+### When the Order is "Closed"
 
-✅ يمكنك عرض كل شيء للرجوع إليه تاريخياً
-✅ يمكنك تشغيل تقارير التكاليف وتحليل الانحرافات
+✅ You can view everything for historical reference
+✅ You can run cost reports and variance analysis
 
-❌ لا يمكنك تغيير أي شيء (مقفل)
-❌ لا يمكنك تنفيذ المزيد من الإنتاج
-❌ لا يمكنك إعادة فتحه (الإغلاق نهائي)
+❌ You can't change anything (it's locked)
+❌ You can't execute more production
+❌ You can't re-open it (closed is final)
 
-تضمن دورة الحياة هذه سلامة البيانات. بمجرد بدء الإنتاج واستهلاك المواد وتسجيل العمالة، لا يمكنك الرجوع وتغيير ما كان الأمر يقتضيه. ما تراه هو ما حدث فعلاً.
+This lifecycle ensures data integrity. Once you've started production and are consuming materials and recording labor, you can't go back and change what the order was supposed to be. What you see is what actually happened.
 
-## نصائح للنجاح
+## Tips for Success
 
-بعض الاقتراحات العملية المستمدة من التجربة:
+A few practical suggestions from experience:
 
-**ابدأ بقوائم مواد (BOMs) ومسارات جيدة**. أمر الإنتاج لا يتجاوز جودة البيانات الرئيسية التي يستند إليها. استثمر الوقت في جعل BOM دقيقة (كميات صحيحة ومعاملات هدر وإنتاجية) والمسارات واقعية (أوقات عمليات دقيقة ومراكز عمل صحيحة). البيانات الرئيسية السيئة تؤدي إلى تعديلات يدوية متواصلة.
+**Start with good BOMs and routings**. The production order is only as good as the master data it's based on. Invest time in getting BOMs accurate (correct quantities, scrap factors, yields) and routings realistic (accurate operation times, correct work centers). Bad master data leads to constant manual adjustments.
 
-**استخدم العمليات المعيارية**. إذا كنت تُجري نفس العملية على منتجات كثيرة أنشئ قالب عملية معيارية. هذا يضمن الاتساق ويوفر وقت إدخال البيانات.
+**Use standard operations**. If you do the same operation on many products, create a standard operation template. It ensures consistency and saves data entry time.
 
-**دع النظام يجري الحسابات**. لا تتجاوز كميات المكونات إلا إذا كان لديك سبب وجيه. تراعي حسابات النظام الإنتاجيات والهدر وتناسب كمية الطلب. التجاوزات اليدوية غالباً ما تؤدي إلى نقص أو فائض.
+**Let the system do the calculations**. Don't override component quantities unless you have a good reason. The system's calculations account for yields, scrap, and order quantity scaling. Manual overrides often lead to shortages or excess.
 
-**ابدأ الأوامر حين تكون مستعداً للإنتاج وليس قبل أشهر**. حالة "In Progress" مخصصة للإنتاج النشط. إذا بدأت الأوامر مبكراً جداً ثم تغيّرت الأولويات، ستجد نفسك مع كثير من الأوامر المفتوحة غير المعمول بها فعلياً.
+**Start orders when you're ready to produce, not months in advance**. The "In Progress" status is meant for active production. If you start orders too early and then priorities change, you end up with lots of open orders that aren't actually being worked on.
 
-**أغلق الأوامر فور اكتمال الإنتاج**. الأوامر المفتوحة تستهلك موارد النظام وتُشوّش التقارير. بعد أسابيع قليلة من اكتمال الإنتاج أغلق الأمر. لا يزال بإمكانك الرجوع إليه لاحقاً لكنه يكون مُصنَّفاً بوضوح كمنتهٍ.
+**Close orders promptly when production is done**. Open orders consume system resources and clutter reports. A few weeks after production completes, close the order. You can still reference it later, but it's clearly marked as finished.
 
-**استخدم طلبات الإنتاج أو الأوامر المجمّعة للتخطيط الدفعي**. إذا كنت تُنشئ عشرات الأوامر المتشابهة، تجعل هذه الأدوات الأمر أسهل بكثير من إنشائها واحداً تلو الآخر.
+**Use production requests or aggregated orders for batch planning**. If you're creating dozens of similar orders, these tools make life much easier than creating them one by one.
 
 ---
 
-::: tip الخطوة التالية: التنفيذ
-إنشاء أمر الإنتاج هو التخطيط. الخطوة التالية هي القيام بالعمل الفعلي. راجع دليل [تنفيذ الإنتاج](./production-execution.md) لتعرّف كيف تُسجَّل أنشطة أرضية المصنع.
+::: tip Next Step: Execution
+Creating a production order is planning. The next step is actually doing the work. Check out the [Production Execution](./production-execution.md) guide to learn how shop floor activities are recorded.
 :::
 
-::: warning مقفل بعد البدء
-بمجرد بدء أمر الإنتاج يُقفل هيكل BOM والمسار. تحقق من كل شيء قبل البدء.
+::: warning Locked After Starting
+Once you start a production order, the BOM and routing structure is locked. Double-check everything before starting.
 :::

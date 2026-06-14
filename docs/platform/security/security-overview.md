@@ -1,85 +1,81 @@
-<rtl>
+# Security System Overview
 
-# نظرة عامة على نظام الصلاحيات
+Every ERP deployment faces the same questions sooner or later: who is allowed to view customer balances? Can the warehouse keeper delete a saved stock issue? And why does a Jeddah branch sales rep see Riyadh branch invoices? Nama answers all of these through a multi-layered security model, and this guide walks you through those layers one by one.
 
-كل تطبيق لنظام ERP يواجه نفس الأسئلة عاجلاً أم آجلاً: من المسموح له بمطالعة أرصدة العملاء؟ هل يستطيع أمين المخزن حذف سند صرف محفوظ؟ ولماذا يرى مندوب مبيعات فرع جدة فواتير فرع الرياض؟ يجيب نظام نما عن هذه الأسئلة كلها من خلال نموذج صلاحيات متعدد الطبقات، وهذا الدليل يأخذك في جولة عبر هذه الطبقات طبقة طبقة.
+Think of it as a chain of doors the user must pass through:
 
-تخيّل الأمر كسلسلة من الأبواب يجب على المستخدم المرور منها:
+1. **Authentication** — Can the user enter the system at all? (Login, password, LDAP, two-step verification, session limits)
+2. **Menus and Navigation** — Which menu items does the user see in the first place?
+3. **Type-Level Permissions** — For each record or document type (invoices, items, journal entries…) what can the user do? View? Edit? Delete? Print? And how many times?
+4. **Record-Level Visibility** — Among all sales invoices in the database, *which ones* can the user see? This is where Dimensions, "only records they created", and Extra Filters come in.
+5. **Field, Page, and List-View Permissions** — Inside a record the user can open, which fields are hidden or locked? Which tabs are visible? Which list views are allowed?
+6. **Actions and Custom Capabilities** — Can the user trigger a specific button/action on a screen? And does the user hold a custom capability required by a certain feature?
 
-1. **التحقق من الهوية (Authentication)** — هل تستطيع الدخول إلى النظام أصلاً؟ (تسجيل الدخول، كلمة السر، LDAP، التحقق بخطوتين، عدد الجلسات)
-2. **القوائم والتنقل** — ما عناصر القوائم التي تراها أساساً؟
-3. **الصلاحيات على مستوى الأنواع** — لكل نوع ملف أو مستند (فواتير، أصناف، قيود يومية...) ماذا يمكنك أن تفعل؟ مطالعة؟ تعديل؟ حذف؟ طباعة؟ وكم مرة؟
-4. **الرؤية على مستوى السجلات** — من بين كل فواتير المبيعات في قاعدة البيانات، *أيها* تستطيع رؤيته؟ هنا يأتي دور المحددات (Dimensions) و"السجلات التي أنشأها فقط" والفلاتر الإضافية (Extra Filters).
-5. **صلاحيات الحقول والصفحات والقوائم** — داخل السجل الذي تستطيع فتحه، ما الحقول المخفية أو الممنوعة من التعديل؟ ما الصفحات (Tabs) الظاهرة؟ وما شاشات العرض (List Views) المسموح بها؟
-6. **الإجراءات والصلاحيات المخصصة** — هل تستطيع تشغيل زر/إجراء معين على شاشة؟ وهل تحمل صلاحية مخصصة تتطلبها ميزة معينة؟
+Each layer is configured in one of two places, and understanding the relationship between them is the key to the whole model.
 
-كل طبقة من هذه الطبقات تُضبط في أحد مكانين، وفهم العلاقة بينهما هو مفتاح النموذج كله.
+## The Two Cornerstones: Security Profile and User
 
-## حجرا الأساس: ملف الصلاحيات والمستخدم
+### Security Profile
 
-### ملف الصلاحيات (Security Profile)
+A **Security Profile** is a reusable permissions template. Typically you create one profile per job role — "Accountant", "Warehouse Keeper", "Sales Supervisor" — and then assign it to multiple users. The profile contains:
 
-**ملف الصلاحيات** هو قالب صلاحيات قابل لإعادة الاستخدام. عادةً تنشئ ملفاً واحداً لكل دور وظيفي — "محاسب"، "أمين مخزن"، "مشرف مبيعات" — ثم تسنده إلى عدة مستخدمين. يحتوي الملف على:
+- **Standard Security Lines**: permissions per type (view, edit, delete, print, revise…)
+- **Field Settings**: hide specific fields or prevent editing them
+- **Page Security**: hide entire pages or make them read-only
+- **List View Security**: allow or block specific list views
+- **Custom Capabilities**: named permissions that certain features check for
+- **Extra Filters**: row-level filters that limit which records the user sees
+- **Action Security**: enable or disable specific actions on screens
+- **Menu Allow/Block**: control which menu items are visible
 
-- **الصلاحيات الأساسية (Standard Security Lines)**: صلاحيات لكل نوع (مطالعة، تعديل، حذف، طباعة، مراجعة...)
-- **إعدادات الحقول (Field Settings)**: إخفاء حقول معينة أو منع تعديلها
-- **صلاحيات الصفحات (Page Security)**: إخفاء صفحات كاملة أو جعلها للقراءة فقط
-- **صلاحيات مطالعة القوائم (List View Security)**: السماح بشاشات عرض معينة أو منعها
-- **صلاحيات مخصصة (Custom Capabilities)**: صلاحيات مسماة تتحقق منها ميزات معينة
-- **الفلاتر الإضافية (Extra Filters)**: فلاتر على مستوى الصفوف تحدد السجلات التي يراها المستخدم
-- **صلاحيات الإجراءات (Action Security)**: تفعيل أو تعطيل إجراءات معينة على الشاشات
-- **السماح/المنع في القوائم**: التحكم في ظهور عناصر القوائم
+See [Security Profile](/platform/security/security-profiles.md) for the full walkthrough.
 
-راجع [ملف الصلاحيات](/platform/security/security-profiles.md) للجولة الكاملة.
+### User
 
-### المستخدم (User)
+The **User** record carries the login identity (user code, password, email), the link to an employee, and the assigned security profile — and, most importantly: **its own local copies of the same permission tables**: standard security lines, custom capabilities, field settings, page security, and extra filters.
 
-سجل **المستخدم** يحمل هوية الدخول (كود المستخدم، كلمة السر، الإيميل)، والربط بالموظف، وملف الصلاحيات المسند — والأهم: **نسخاً محلية خاصة به من نفس جداول الصلاحيات**: الصلاحيات الأساسية، الصلاحيات المخصصة، إعدادات الحقول، صلاحيات الصفحات، والفلاتر الإضافية.
+This is the heart of the model: *anything you define at the user level overrides the security profile for the matching type*. The profile gives the role its default settings; the user record creates exceptions for one person without touching the rest.
 
-وهنا جوهر النموذج: *أي شيء تعرّفه على مستوى المستخدم يتقدم على ملف الصلاحيات للنوع المطابق*. ملف الصلاحيات يعطي الدور إعداداته الافتراضية، وسجل المستخدم يصنع الاستثناءات لشخص واحد دون المساس بالبقية.
+See [Users and Login](/platform/security/users-and-login.md).
 
-راجع [المستخدمون وتسجيل الدخول](/platform/security/users-and-login.md).
+## How Is a Permission Check Resolved?
 
-## كيف يُحسم فحص الصلاحية؟
+When the system asks "can user X edit a sales invoice?" the answer is calculated in a fixed order:
 
-عندما يسأل النظام "هل يستطيع المستخدم فلان تعديل فاتورة مبيعات؟" تُحسب الإجابة بترتيب ثابت:
+1. **Full-Authority Short-Circuit**: if the user's security profile has the **Full Authority** flag, the answer is *yes* — no further checks. The built-in `admin` user always uses the default full-authority profile.
+2. **User Lines First**: the system checks the standard security lines recorded directly on the user. If a line matches the sales invoice type, that line decides — even if the security profile says otherwise.
+3. **Profile Lines Second**: if no user-level line matches, the profile's lines are checked in the same way.
+4. **Deny Is the Default**: if no matching line exists on either the user or the profile, the permission is denied.
 
-1. **اختصار الصلاحيات الكاملة**: إذا كان ملف صلاحيات المستخدم به علامة **صلاحيات كاملة (Full Authority)** فالإجابة *نعم* — دون أي فحوصات أخرى. المستخدم المدمج `admin` يستخدم دائماً ملف الصلاحيات الافتراضي كامل الصلاحيات.
-2. **سطور المستخدم أولاً**: يفحص النظام سطور الصلاحيات الأساسية المسجلة على المستخدم نفسه. إذا وُجد سطر يطابق فاتورة المبيعات فهذا السطر هو الذي يقرر — حتى لو قال ملف الصلاحيات غير ذلك.
-3. **سطور ملف الصلاحيات ثانياً**: إذا لم يطابق أي سطر على مستوى المستخدم، تُفحص سطور ملف الصلاحيات بنفس الطريقة.
-4. **المنع هو الافتراضي**: إذا لم يوجد سطر مطابق لا على المستخدم ولا على الملف، تُرفض الصلاحية.
+### How Does a Line "Match" a Type?
 
-### كيف "يطابق" السطر نوعاً معيناً؟
+Within each set of lines (user or profile) there is also a priority order for matching:
 
-داخل كل مجموعة سطور (مستخدم أو ملف) للمطابقة أيضاً ترتيب أولوية:
+1. A line that names the specific entity type in its **Type** field (e.g., sales invoice) wins first.
+2. Then a line whose **Type List** — a record of type *EntityType List* — contains that type.
+3. Then the **Wildcard line** where both Type and Type List are left empty, which applies to everything not covered by a more specific line.
 
-1. السطر الذي يحدد في حقل **النوع** نوع الكيان بعينه (مثلاً فاتورة مبيعات) يفوز أولاً.
-2. ثم السطر الذي تحتوي **قائمة الأنواع** المحددة فيه — وهي سجل من نوع *قائمة أنواع (EntityType List)* — على هذا النوع.
-3. ثم **السطر العام (Wildcard)** الذي تُرك فيه النوع وقائمة الأنواع فارغين، فيسري على كل ما لم يغطه سطر أكثر تحديداً.
+This lets you write profiles like: "a permissive wildcard line for all types, a stricter line for financial documents (via a type list), and a very specific line for journal entries alone."
 
-هذا يتيح لك كتابة ملفات مثل: "سطر عام متساهل لكل الأنواع، وسطر أكثر تشدداً للمستندات المالية (عبر قائمة أنواع)، وسطر خاص جداً لقيود اليومية وحدها."
-
-::: tip قوائم الأنواع (EntityType List)
-سجلات قائمة الأنواع (**إدارة النظام > تخصيص شكل النظام > قائمة أنواع**) هي مجموعات مسماة بسيطة من أنواع الكيانات. وهي مستخدمة في كل شاشات الصلاحيات، بحيث يمكن لقائمة واحدة مثل "كل مستندات المبيعات" أن تُستخدم في الصلاحيات الأساسية وإعدادات الحقول وصلاحيات الصفحات والفلاتر الإضافية في آن واحد.
+::: tip Type Lists (EntityType List)
+EntityType List records (**Administration > System Customization > EntityType List**) are simple named groups of entity types. They are used across all permission screens, so a single list like "All Sales Documents" can be reused in standard security lines, field settings, page security, and extra filters all at once.
 :::
 
-### والتفويض أيضاً له دور
+### Delegation Also Plays a Role
 
-إذا فوّض شخص ما صلاحياته لهذا المستخدم عبر مستند **صلاحيات إضافية مؤقتة (Security Profile Transfer)**، فإن المستخدم يحمل فعلياً صلاحيات المفوِّضين خلال فترة التفويض — تُمنح الصلاحية إذا منحها *أي منهم*. راجع [الصلاحيات الإضافية المؤقتة](/platform/security/security-delegation.md).
+If someone has delegated their permissions to this user via a **Security Profile Transfer** document, the user effectively carries the delegators' permissions during the delegation period — a permission is granted if *any one* of the delegators grants it. See [Temporary Extra Permissions](/platform/security/security-delegation.md).
 
-## أين يُجاب عن كل سؤال؟
+## Where Is Each Question Answered?
 
-| السؤال | مكان الضبط | صفحة الدليل |
+| Question | Configuration Point | Guide Page |
 |---|---|---|
-| هل يستطيع المستخدم الدخول؟ من الجوال فقط؟ كم جلسة؟ | إعدادات المستخدم والإعدادات العامة | [المستخدمون وتسجيل الدخول](/platform/security/users-and-login.md) |
-| ماذا يفعل المستخدم بالنوع الفلاني؟ | الصلاحيات الأساسية (ملف أو مستخدم) | [ملف الصلاحيات](/platform/security/security-profiles.md) |
-| أي سجلات النوع الفلاني يراها؟ | المحددات، سجلات المنشئ، الفلاتر الإضافية، صلاحيات السجلات | [الصلاحيات على مستوى السجلات](/platform/security/record-level-security.md) |
-| أي حقول / صفحات / شاشات عرض؟ | إعدادات الحقول، صلاحيات الصفحات، صلاحيات مطالعة القوائم | [صلاحيات الحقول والصفحات والقوائم](/platform/security/field-page-listview-security.md) |
-| هل يشغّل الإجراء الفلاني على الشاشة الفلانية؟ | صلاحيات الإجراءات | [ملف الصلاحيات](/platform/security/security-profiles.md) |
-| هل يغطي زميل مهام شخص في إجازة؟ | الصلاحيات الإضافية المؤقتة | [التفويض](/platform/security/security-delegation.md) |
+| Can the user log in? Mobile only? How many sessions? | User settings and global settings | [Users and Login](/platform/security/users-and-login.md) |
+| What can the user do with a given type? | Standard security lines (profile or user) | [Security Profile](/platform/security/security-profiles.md) |
+| Which records of a given type can the user see? | Dimensions, creator-only records, extra filters, record-level security | [Record-Level Security](/platform/security/record-level-security.md) |
+| Which fields / pages / list views? | Field settings, page security, list view security | [Field, Page, and List-View Security](/platform/security/field-page-listview-security.md) |
+| Can the user run a specific action on a specific screen? | Action security | [Security Profile](/platform/security/security-profiles.md) |
+| Can a colleague cover someone's tasks while they are on leave? | Temporary extra permissions | [Delegation](/platform/security/security-delegation.md) |
 
-::: warning المستخدم admin حالة خاصة
-المستخدم الذي كوده/كود دخوله `admin` يتجاوز نموذج الصلاحيات بالكامل، والنظام يحميه بشكل صريح: لا يمكنك منع دخوله، ولا إجباره على تغيير كلمة السر، ولا تقييده بمحدد، ولا إسناد أي ملف صلاحيات له غير الملف الافتراضي كامل الصلاحيات. تعامل مع حساب admin كحساب طوارئ وامنح كل شخص حقيقي مستخدماً خاصاً به.
+::: warning The admin User Is a Special Case
+The user whose code/login is `admin` bypasses the entire security model, and the system enforces this explicitly: you cannot block their login, force a password change, restrict them with a dimension, or assign any security profile other than the default full-authority profile. Treat the admin account as an emergency account and give every real person their own dedicated user.
 :::
-
-</rtl>

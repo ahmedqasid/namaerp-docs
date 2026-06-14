@@ -1,12 +1,10 @@
-<rtl>
+# Frequently Asked Questions About Report Design
 
-# أسئلة شائعة عن تصميم التقارير
+## Problem: `Can not handle generic reference setValueFromNest` error when using a button to create a stock transfer
 
-## مشكلة: ظهور رسالة `Can not handle generic reference setValueFromNest` عند استخدام زر لإنشاء سند تحويل مخزني
+### Context:
 
-### السياق:
-
-قمت بإنشاء زر في تقرير يقوم بإنشاء سند تحويل مخزني ويملأ الحقول تلقائيًا، ووضعت الكود التالي في `Initial Value Expression`:
+I created a button in a report that creates a stock transfer and auto-fills fields. I placed the following code in the `Initial Value Expression`:
 
 ```groovy
 NamaRep.newWithFields("StockTransfer").viewName("warehousetransfersIssue").field("term").value("Stock Transfer 01")
@@ -14,7 +12,7 @@ NamaRep.newWithFields("StockTransfer").viewName("warehousetransfersIssue").field
         .field("ref3").value("W0101").field("ref2").value("W101").field("toWarehouse").value("W0103")
 ```
 
-وفي `Expression` وضعت:
+And in the `Expression` I placed:
 
 ```groovy
 $V{creatorLink}.field("details.item.itemCode").value($F{ICode}).row($V{itemCodeRow})
@@ -23,7 +21,7 @@ $V{creatorLink}.field("details.item.itemCode").value($F{ICode}).row($V{itemCodeR
         .field("details.specificDimensions.locator").value($F{locode}).row($V{itemCodeRow})
 ```
 
-لكن عند تشغيل التقرير ظهرت رسالة الخطأ التالية في كونسول المتصفح:
+But when running the report, the following error appeared in the browser console:
 
 ```
 NaMaUIException: Can not handle generic reference setValueFromNest
@@ -31,18 +29,18 @@ NaMaUIException: Can not handle generic reference setValueFromNest
 
 ---
 
-### الحل:
+### Solution:
 
-السبب في هذه المشكلة هو أنك وضعت قيمة لحقل مرجع عام (`ref2` و `ref3`) مباشرة، بدون تحديد نوع المرجع أو الكود بشكل صحيح.
+The cause of this problem is that you set a value for a generic reference field (`ref2` and `ref3`) directly, without specifying the reference type or code correctly.
 
-حقول مثل `ref2` و `ref3` تُعرف بأنها مراجع عامة (generic references)، ويجب عند التعامل معها استخدام المعرّف المناسب بالشكل التالي:
+Fields such as `ref2` and `ref3` are defined as generic references, and when working with them you must use the appropriate identifier as follows:
 
-* `ref2#code` بدلًا من `ref2`
-* وإذا كان الحقل يسمح بأكثر من نوع مرجعي، يجب تحديد النوع باستخدام `ref2#type`
+* `ref2#code` instead of `ref2`
+* If the field allows more than one reference type, you must specify the type using `ref2#type`
 
 ---
 
-### التصحيح المطلوب:
+### Required Fix:
 
 ```groovy
 NamaRep.newWithFields("StockTransfer").viewName("warehousetransfersIssue").field("term").value("Stock Transfer 01")
@@ -54,8 +52,8 @@ NamaRep.newWithFields("StockTransfer").viewName("warehousetransfersIssue").field
 
 ---
 
-::: tip ملاحظة
-إذا كان الحقل المرجعي (مثل `ref2`, `ref3`) لا يسمح إلا بنوع واحد (مثلاً مخزن فقط)، فيمكنك تجاهل حقل `#type` والاكتفاء بـ `#code` فقط:
+::: tip Note
+If the reference field (such as `ref2`, `ref3`) only allows one type (for example, warehouse only), you can omit the `#type` field and use `#code` alone:
 
 ```groovy
 NamaRep.newWithFields("StockTransfer").viewName("warehousetransfersIssue").field("term").value("Stock Transfer 01")
@@ -66,5 +64,3 @@ NamaRep.newWithFields("StockTransfer").viewName("warehousetransfersIssue").field
 ```
 
 :::
-
-</rtl>

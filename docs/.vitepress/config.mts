@@ -27,9 +27,9 @@ function writeRedirectsMap(destDir) {
         for (const entry of fs.readdirSync(dir, {withFileTypes: true})) {
             const full = path.join(dir, entry.name)
             if (entry.isDirectory()) {
-                // Legacy basename short-links always point at the Arabic (root) pages;
-                // the /en/ mirror would otherwise collide with every translated page
-                if (dir === destDir && entry.name === 'en') continue
+                // Legacy basename short-links always point at the English (root) pages;
+                // the /ar/ mirror would otherwise collide with every translated page
+                if (dir === destDir && entry.name === 'ar') continue
                 walk(full)
                 continue
             }
@@ -72,26 +72,26 @@ export default defineConfig({
     description: 'Nama ERP Documentation',
     locales: {
         root: {
-            label: 'العربية',
-            lang: 'ar',
-            dir: 'rtl',
+            label: 'English',
+            lang: 'en',
+            dir: 'ltr',
             themeConfig: {
                 nav: [
-                    {text: 'الرئيسية', link: '/'},
+                    {text: 'Home', link: '/'},
                     {text: 'Q&A', link: 'https://ask.namasoft.com'},
                     {text: 'Namasoft.com', link: 'https://namasoft.com'},
                     {text: 'Data Model', link: 'https://dm.namasoft.com'}
                 ]
             }
         },
-        en: {
-            label: 'English',
-            lang: 'en',
-            dir: 'ltr',
-            link: '/en/',
+        ar: {
+            label: 'العربية',
+            lang: 'ar',
+            dir: 'rtl',
+            link: '/ar/',
             themeConfig: {
                 nav: [
-                    {text: 'Home', link: '/en/'},
+                    {text: 'الرئيسية', link: '/ar/'},
                     {text: 'Q&A', link: 'https://ask.namasoft.com'},
                     {text: 'Namasoft.com', link: 'https://namasoft.com'},
                     {text: 'Data Model', link: 'https://dm.namasoft.com'}
@@ -103,8 +103,8 @@ export default defineConfig({
         css: {
             postcss: {
                 // Auto-generates [dir="rtl"] mirrored rules for ALL css (including the default theme),
-                // so the whole layout flips for Arabic. The original (LTR) rules stay untouched —
-                // ready for the /en/ locale later.
+                // so the whole layout flips for the Arabic (/ar/) locale. The original (LTR) rules
+                // stay untouched for the default English (root) locale.
                 plugins: [postcssRTLCSS({mode: Mode.override})]
             }
         },
@@ -172,7 +172,7 @@ export default defineConfig({
                     }
                 },
                 locales: {
-                    root: {
+                    ar: {
                         translations: {
                             button: {buttonText: 'بحث', buttonAriaLabel: 'بحث'},
                             modal: {

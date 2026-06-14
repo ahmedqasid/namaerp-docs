@@ -41,9 +41,9 @@ export function loadSearchIndices(): Promise<SearchIndices> {
 export function pageMatchesLocale(page: PageIndexEntry, locale: 'ar' | 'en' | null): boolean {
     if (!locale)
         return true
-    if (locale === 'ar')
+    if (locale === 'en')
         return page.pathLocale === '/'
-    return page.pathLocale === '/en/' || (page.pathLocale === '/' && !page.hasCounterpart)
+    return page.pathLocale === '/ar/' || (page.pathLocale === '/' && !page.hasCounterpart)
 }
 
 export function substringSearch(

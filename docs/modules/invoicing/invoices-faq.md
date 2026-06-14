@@ -1,30 +1,28 @@
-<rtl>
+# Frequently Asked Questions about Invoices and Payments
 
-# أسئلة شائعة حول الفواتير والدفع
+## I have a customer who wants to pay an invoice in 12 installments: 10 monthly installments at 5% each, plus two additional installments in months 5 and 10 at 25% each — how can this be set up in a payment schedule template?
 
-## عندي عميل يريد سداد الفاتورة على 12 قسطًا: 10 أقساط شهرية بنسبة 5% لكل قسط، وقسطين إضافيين في الشهر الخامس والعاشر بنسبة 25% لكل منهما — كيف يمكن تنفيذ ذلك في نموذج جدولة دفعات؟
+You can implement this scenario using a **Payment Schedule Template** in Nama ERP as follows:
 
-يمكن تنفيذ هذا السيناريو باستخدام **نموذج جدولة دفعات** في نظام Nama ERP على النحو التالي:
+### Required Settings:
 
-### الإعدادات المطلوبة:
+* **Payment Type** field: select "Variable Payments" (`VariablePayments`)
+* Set the time period to "Month" (`Month`)
+* Do not add a grace period (or leave it as needed)
+* Use a **percentage** for each installment
 
-* حقل **نوع الدفع**: اختر "دفعات متغيرة" (`VariablePayments`)
-* حدد الفترة الزمنية بـ "شهر" (`Month`)
-* لا تضف فترة سماح (أو اتركها حسب الحاجة)
-* استخدم **نسبة مئوية** لكل دفعة
+### Installment Distribution:
 
-### توزيع الدفعات:
+* First 10 monthly installments, from month 1 through month 10, at **5% per month**
+* An additional installment in **month 5** at **25%**
+* An additional installment in **month 10** at **25%**
 
-* أول 10 دفعات شهرية، من الشهر الأول حتى العاشر، بنسبة **5% لكل شهر**
-* دفعة إضافية في **الشهر الخامس** بنسبة **25%**
-* دفعة إضافية في **الشهر العاشر** بنسبة **25%**
+### Notes:
 
-### ملاحظات:
+* This distribution results in a total of 50% from the monthly installments (10 × 5%), plus 25% in month 5 and 25% in month 10, bringing the total to 100% of the invoice value.
+* In months 5 and 10, two installments will be generated on the same date: one at 5% and one at 25%.
 
-* هذا التوزيع ينتج عنه مجموع 50% من الدفعات الشهرية (10 × 5%)، بالإضافة إلى 25% في الشهر الخامس و25% في الشهر العاشر، ليصبح المجموع 100% من قيمة الفاتورة.
-* سيتولد في الشهرين 5 و10 قسطان لكل منهما بنفس التاريخ، واحد بنسبة 5% وآخر بنسبة 25%.
-
-### مثال بصيغة JSON للاستيراد المباشر:
+### Example in JSON Format for Direct Import:
 
 ::: details JSON for direct import
 
@@ -134,5 +132,3 @@
 ```
 
 :::
-
-</rtl>

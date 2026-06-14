@@ -1,64 +1,64 @@
-# توجيهات المستندات (قواعد المعالجة لكل نوع)
+# Document Terms (per-type processing rules)
 
-تكرّر في أدلّة هذه الوحدة سؤالٌ واحد: «من أين تأتي حسابات المدين والدائن لهذا المستند؟». الجواب دائمًا هو **توجيه المستند** (Document Term). هذه الصفحة تشرح فكرة التوجيه ولغته المشتركة، حتى لا نكرّرها في كل صفحة.
+One question recurs throughout this module's guides: "where do the debit and credit accounts for this document come from?" The answer is always the **document term**. This page explains the idea of a term and its shared vocabulary, so we don't have to repeat it on every page.
 
-## ما التوجيه؟
+## What is a term?
 
-عند حفظ أي مستند يُولِّد أثرًا محاسبيًا — سند قبض، سند صرف، إصدار قرض، فتح اعتماد... — لا يختار النظام الحسابات من فراغ، بل من **توجيهٍ** مرتبط بـ **نوع المستند**. التوجيه هو الوصفة التي تقول: «لهذا النوع من المستندات، اجعل الجانب المدين هو هذا الحساب، والجانب الدائن هو ذاك، وعامِل الضريبة هكذا». فبتغيير التوجيه — لا بتعديل كل مستند على حدة — تضبط سلوك نوعٍ كامل من المستندات.
+When you save any document that generates an accounting effect — a receipt voucher, a payment voucher, a loan issue, an LC opening… — the system doesn't pick the accounts out of thin air; it picks them from a **term** linked to the **document type**. The term is the recipe that says: "for this kind of document, make the debit side this account, the credit side that one, and handle tax like so." So by changing the term — rather than editing each document one by one — you govern the behavior of a whole class of documents.
 
-ولكل توجيه شاشة تحرير من صفحتين: **الإعدادات** (مصادر الحسابات والذمم والضوابط) و**التأثير** (تفاصيل القيمة المرحَّلة). وأعلى الشاشة تُحدَّد بياناته الأساسية: **نوع المستند**، و**الكود**، وعَلَم **نظامي** (للتوجيهات التي ينشئها النظام)، و**غير نشط**، و**فلترة الحقول** و**القالب** المطبوع.
+Each term has a two-page edit screen: **Settings** (account and subsidiary sources and controls) and **Effect** (the details of the posted value). The top of the screen sets its basic data: the **document type**, the **code**, a **System** flag (for terms the system creates), an **Inactive** flag, a **field filter** and the printed **template**.
 
-## من أين يأتي كل جانب؟
+## Where does each side come from?
 
-قلب التوجيه هو كتلتا **مدين** و**دائن**. وفي كل جانب يحدّد حقل **نوع مصدر الحساب** كيف يُستخرج الحساب؛ من أبرز المصادر:
+The heart of the term is the **Debit** and **Credit** blocks. In each side, the **account resource type** field decides how the account is derived; the most common sources are:
 
-- **حساب ثابت** — تختار **حسابًا** بعينه يُستخدم دائمًا لهذا الجانب.
-- **من الذمة** — يأتي الحساب من ذمة الطرف نفسه (العميل/المورّد)، مع تحديد **نوع الحافظة** و**كود الحساب من الحقيبة** عند تعدّد حسابات الذمة.
-- **من خزينة أو حساب بنكي** — للجانب النقدي، يأتي الحساب من **خزينة** أو **رقم حساب بنك** محدّد.
-- **من طريقة الدفع** — يأتي الحساب من **طريقة الدفع** المختارة في السند.
+- **A fixed account** — you pick a specific **account** that's always used for this side.
+- **From the subsidiary** — the account comes from the party's own subsidiary (the customer/supplier), specifying the **subsidiary account type** and **account bag code** when the subsidiary has multiple accounts.
+- **From a safe deposit or bank account** — for the cash side, the account comes from a specific **safe deposit** or **bank account**.
+- **From the payment method** — the account comes from the **payment method** chosen on the document.
 
-ويتيح حقل **الذمة المتعلق** في الجانب الآخر ربط الجانبين، كما يمكن تقييد المستخدم بـ **منع إدخال قيم مختلفة عن الموجودة في التوجيه** ليلتزم الجميع بإعداد التوجيه.
+The **related subsidiary** field on the other side links the two sides together, and you can constrain the user with **prevent inserting values different from the term's** so everyone sticks to the term's setup.
 
-### المصادر المشروطة (حسب «بناءً على»)
+### Conditional sources (based on "from doc")
 
-حين يُنشأ المستند **بناءً على** مستندٍ آخر (سند بناءً على طلب أو أمر، مثلًا)، قد تختلف الحسابات المطلوبة. لذلك يوفّر التوجيه جدول **إعدادات مصدر الحسابات والذمم** الذي يربط **نوع بناءً على** بمصدر حساب/ذمة مختلف، مع إمكانية تطبيقه شرطيًا عند **توافق بناءً على مع المعيار** أو **مع الاستعلام**، أو **حساب الذمة من حقلٍ** في مستند المصدر.
+When a document is created **based on** another (e.g. a voucher based on a request or order), the accounts needed may differ. So the term offers an **Account and Subsidiary Source Settings** grid that maps a **from-doc type** to a different account/subsidiary source, optionally applied conditionally when the **from doc matches a criteria** or **a query**, or by **calculating the subsidiary from a field** of the source document.
 
-## الضرائب وإمكانية تعديل المحددات
+## Taxes and dimension modifiability
 
-- **الضرائب**: تحدّد كتلة **الضرائب** جانبَي **مدين/دائن ضريبة 1 و2** وما إذا كانت كلٌّ منهما **خصمًا**، إضافةً إلى خيارات إضافة الضريبة لإجمالي المدين/الدائن. (تظهر حقول الضريبة على السند نفسه بحسب خيارات [إعدادات الحسابات](./accounting-configuration.md).)
-- **محددات السطور وإمكانية تعديلها**: تمنع أعلام مثل **لا يمكن تعديل القطاع/الفرع/الإدارة/المجموعة التحليلية** المستخدمَ من تغيير [المحدِّدات](./accounting-dimensions-and-distribution.md) على مستوى السطر، لتُفرَض قيم التوجيه.
+- **Taxes**: the **Taxes** block sets the **tax 1 and 2 debit/credit** sides and whether each is a **deduction**, plus options to add the tax to the total debit/credit. (The tax fields appear on the document itself depending on the [Accounting configuration](./accounting-configuration.md) options.)
+- **Details dimensions and modifiability**: flags like **cannot modify sector/branch/department/analysis set** stop the user from changing the [dimensions](./accounting-dimensions-and-distribution.md) at the line level, so the term's values are enforced.
 
-## «يجب / يمكن / لا يمكن استخدامها»
+## "Must / May / Cannot use"
 
-كثيرٌ من خصائص التوجيه (كاستخدام الفواتير أو الأوراق التجارية) لا تُضبط بنعم/لا فقط، بل بثلاث درجات:
+Many term features (like invoice usage or commercial-paper usage) aren't set with just yes/no, but with three levels:
 
-| القيمة | المعنى |
+| Value | Meaning |
 |---|---|
-| يجب إستخدامها (Must Use) | الخاصية إلزامية؛ يجب على المستخدم تعبئتها. |
-| يمكن إستخدامها (May Use) | الخاصية اختيارية؛ متاحة لكنها غير مُلزِمة. |
-| لا يمكن إستخدامها (Cannot Use) | الخاصية مخفيّة/ممنوعة لهذا النوع. |
+| Must Use | the feature is mandatory; the user must fill it in. |
+| May Use | the feature is optional; available but not required. |
+| Cannot Use | the feature is hidden/forbidden for this type. |
 
-## توجيهٌ لكل مستند
+## A term per document
 
-لكل مستندٍ يُرحَّل توجيهُه الخاص بجوانبه الخاصة — فجوانب سند القبض ليست جوانب إصدار القرض. هذه خريطة سريعة تربط كل مستند بصفحته حيث تُذكر جوانبه بالتفصيل:
+Each document that posts has its own term with its own sides — a receipt voucher's sides aren't a loan issue's sides. This quick map links each document to the page where its sides are described in detail:
 
-| المستند | الصفحة                                                     |
-|---|------------------------------------------------------------|
-| سند القبض / الصرف | [سندات القبض والصرف](../receipts-and-payments.md)          |
-| سند قبض/صرف الكاشير وغلق الوردية | [ورديات الكاشير](../cashier-shifts.md)                     |
-| إشعار الدائن / المدين | [إشعارات الدائن والمدين](../credit-and-debit-notes.md)     |
-| التحويل البنكي والتسوية البنكية | [البنوك والحسابات البنكية](../banks-and-bank-accounts.md)  |
-| الحافظة البنكية والأوراق المالية | [الشيكات والأوراق المالية](../cheques-financial-papers.md) |
-| إصدار القرض وسداد الأقساط | [القروض البنكية](../bank-loans.md)                         |
-| إصدار خطاب الضمان | [خطابات الضمان](../letters-of-guarantee.md)                |
-| فتح الاعتماد المستندي | [الاعتمادات المستندية](../bank-letters-of-credit.md)       |
-| إصدار التسهيل وسداده | [التسهيلات الائتمانية](../credit-facilities.md)            |
-| إصدار الوديعة وإصدار الأرباح | [الودائع الثابتة](../fixed-deposits.md)                    |
-| شراء إذن الخزانة وإثبات العائد | [أذون الخزانة](../treasury-bills.md)                       |
+| Document | Page                                                        |
+|---|-------------------------------------------------------------|
+| Receipt / payment voucher | [Receipt & payment vouchers](../receipts-and-payments.md)   |
+| Cashier voucher & shift close | [Cashier shifts](../cashier-shifts.md)                      |
+| Credit / debit note | [Credit & debit notes](../credit-and-debit-notes.md)        |
+| Bank transfer & bank reconciliation | [Banks & bank accounts](../banks-and-bank-accounts.md)      |
+| Bank portfolio & financial papers | [Cheques & financial papers](../cheques-financial-papers.md) |
+| Loan issue & installment payment | [Bank loans](../bank-loans.md)                              |
+| LG issue | [Letters of guarantee](../letters-of-guarantee.md)          |
+| LC opening | [Letters of credit](../bank-letters-of-credit.md)           |
+| Credit-facility issuance & payment | [Credit facilities](../credit-facilities.md)                |
+| Deposit issue & interest payment | [Fixed deposits](../fixed-deposits.md)                      |
+| Treasury-bill purchase & ROI proof | [Treasury bills](../treasury-bills.md)                      |
 
-## للدعم الفني
+## For Support
 
-- **«المستند يرحّل لحساب خاطئ»** — راجِع جانبَي **مدين/دائن** في توجيه نوع المستند، وتحديدًا **نوع مصدر الحساب**؛ التعديل في التوجيه يسري على كل مستندات النوع.
-- **«المستند المُنشأ بناءً على مستندٍ آخر يأخذ حسابًا مختلفًا»** — هذا مقصود غالبًا؛ افحص جدول **إعدادات مصدر الحسابات والذمم** في التوجيه.
-- **«حقل الضريبة لا يظهر»** — تظهر حقول الضريبة بحسب [إعدادات الحسابات](./accounting-configuration.md)، وتُضبط جوانبها في كتلة **الضرائب** بالتوجيه.
-- آلية المعالجة نفسها مشروحة في [كيف تُعالَج المستندات إلى أثر محاسبي](./accounting-request-processing.md).
+- **"The document posts to the wrong account"** — check the **Debit/Credit** sides in the document type's term, specifically the **account resource type**; the change in the term applies to all documents of that type.
+- **"A document created based on another takes a different account"** — that's usually intended; inspect the **Account and Subsidiary Source Settings** grid in the term.
+- **"The tax field doesn't appear"** — tax fields appear depending on the [Accounting configuration](./accounting-configuration.md), and their sides are set in the term's **Taxes** block.
+- The processing mechanism itself is explained in [How documents are processed into accounting effects](./accounting-request-processing.md).

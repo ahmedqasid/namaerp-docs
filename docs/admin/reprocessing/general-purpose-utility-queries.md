@@ -1,5 +1,5 @@
-# استعلامات عامة متعددة الأغراض (General Purpose Utility Queries)
-## الحصول على جميع التواريخ بين تاريخين
+# General Purpose Utility Queries
+## Get All Dates between two dates
 ::: details
 ```sql
 with dates as (
@@ -13,7 +13,7 @@ select * from dates
 ```
 :::
 
-## تكرار الصف عدة مرات بناءً على الكمية
+## Repeat row many times depending on the row quantity
 ::: details
 ```sql
 with numbers as (
@@ -27,7 +27,7 @@ select l.quantityPValue,n.n, * from SalesInvoiceLine l left join numbers n on CE
 ```
 :::
 
-## إيجاد أرقام المستندات المفقودة
+## Find Missing Document Numbers
 ::: details
 ```sql
 with numbers as (
@@ -49,14 +49,14 @@ where docs.num is null and b.prefix like '%%'
 order by b.documentType, missingcode
 ```
 :::
-## إلغاء ربط جميع المستندات بمصادرها
-::: details تنبيه: راجع قبل تشغيل الاستعلام
+## Unlink ALL From Docs
+::: details Take care before running the query
 ```sql
 update EntitySystemEntry set fromType = null,fromId = null where fromid is not null
 ```
 :::
 
-## إدخال نتائج في جدول مؤقت مع الحذف أولاً
+## Insert Into Temp Table Select From With Drop
 ::: details
 ```sql
 DROP TABLE IF EXISTS #Items; 
@@ -70,7 +70,7 @@ select code from #Items
 
 - TODO: maybe create a widget to create temp tables
 
-## إلغاء حالة الموافقة الحالية لمستند
+## Cancel Current Approval Case of a document
 ::: details
 ```sql
 update ApprovalCase set state = 'Approved' where approvedElementId = 0xffff00015c154d8be6000700ff20b6eb
@@ -78,8 +78,8 @@ update PaymentOrder set documentFileStatus = 'Draft'  where id = 0xffff00015c154
 ```
 :::
 
-## التعافي من الكوارث: خادما تطبيقات يعملان على قاعدة البيانات نفسها
-- إيجاد جميع QtyTrans المكررة
+## Disaster Recovery: Two Application Servers operated on the same database:
+- Find All Duplicate QtyTrans
 ::: details
 ```sql
 with x as(select id,requestId,ROW_NUMBER() over (order by requestid) rn from QtyTrans where requestId in (
@@ -89,7 +89,7 @@ select requestId from QtyTrans group by requestId,originId having count(1) > 1
 select id from x  where rn%2 = 0
 ```
 :::
-- تعيين requestId إلى null:
+- Make the request id null:
 ::: details
 ```sql
 update QtyTrans set requestid = null where id = 0x-------
@@ -108,7 +108,7 @@ select id from x  where rn%2 = 0
 ```
 :::
 
-- تعيين requestId إلى null:
+- Make the request id null:
 ::: details
 ```sql
 update FifoCostTrans set requestid = null where id = 0x-------
@@ -126,7 +126,7 @@ select id from x
 
 ```
 :::
-- ابحث يدوياً عن الطلبات المكررة للتحويل وعيّن requestId إلى null:
+- Manually find the repeated requests for transfer and make the request id null:
 ::: details
 ```sql
 update FifoCostTrans set requestid = null where id = 0x-------
@@ -162,7 +162,7 @@ delete from FifoCostTrans where requestId is null
 
 ```
 :::
-## جلب جهات الاتصال من Nama لدفتر عناوين Grandstream LDAP UCM
+## Fetch Contacts in Nama for Grandstream LDAP Phonebook UCM
 ::: details
 ```sql
 /*First Name	Last Name	Account Number	CallerID Name	Email	Department	Mobile Number 	Home Number	Fax	Phonebook DN*/
@@ -191,7 +191,7 @@ select * from clean
 
 ```
 :::
-## إصلاح حقل preventUsage الفارغ
+## Fix Null preventUsage Field
 ::: details
 ```sql
 DECLARE @Queries TABLE (ID INT IDENTITY(1,1),SQLScript VARCHAR(MAX))
@@ -221,7 +221,7 @@ END
 
 ```
 :::
-## تعليم جميع السجلات كغير مراجَعة
+## Mark All Records as Unrevised
 ::: details
 ```sql
 DECLARE @Queries TABLE (ID INT IDENTITY(1,1),SQLScript VARCHAR(MAX))
@@ -252,10 +252,10 @@ END
 ```
 :::
 ::: tip
-يجب نسخ الاستعلامات وتشغيلها في SQL Server Management Studio.
+You need to copy the queries and run them in the SQL Server Management Studio.
 :::
 
-## نسخ حالة المراجعة من الكيانات إلى EntitySystemEntry
+## Copy Revised From Entities to Entity System Entry
 ::: details
 ```sql
 DECLARE @Queries TABLE (ID INT IDENTITY(1,1),SQLScript VARCHAR(MAX))

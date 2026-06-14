@@ -1,203 +1,217 @@
-<rtl>
+﻿# Creating a Print Template for a Filter Document Screen
 
-# شرح إنشاء نموذج طباعة شاشة مستند تصفية
-[لمشاهدة الفيديو](https://youtu.be/q16A05lIC5I)
+[Watch the video](https://youtu.be/q16A05lIC5I)
 
-**فيديو تفصيلي** يشرح كيفية تصميم نموذج طباعة لشاشة مستند تصفية يتضمن أكثر من جريد (شبكة بيانات) باستخدام نظام الجريد المتعدد الخلايا، بتوزيع الحقول، استخدام الميرج سنتر، وضبط البوزيشن، والتعامل مع الملاحظات والتقارير.  
-تم توثيق كل الخطوات والتفاصيل بدقة وبشكل متسلسل كما وردت في الفيديو.
-
----
-
-## مقدمة وتعريف المشروع  
-**00:00:01**  
-السلام عليكم، بناءً على طلب المتابعين سيتم شرح كيفية عمل نموذج طباعة لشاشة مستند تصفية تحتوي على أكثر من جريد، وسوف نبدأ بزيادة النقاش وإضافة العناوين والنقاط المختلفة في بداية المشروع.  
-- مناقشة إضافة نقاش وتوابع  
-- تحديد نوع النموذج الرئيسي  
-- العمل على الحقول الأساسية والمتطلبات الوظيفية.
-
-[مشاهدة من الدقيقة 00:00:01](https://youtu.be/q16A05lIC5I?t=1)
+**A detailed video** explaining how to design a print template for a filter document screen that contains more than one grid (data grid) using the multi-cell grid system - distributing fields, using Merge Center, adjusting positioning, and handling notes and reports.
+Every step and detail was documented accurately and sequentially as presented in the video.
 
 ---
 
-## تحديد الحقول الأساسية في النموذج  
-**00:01:20**  
-النموذج يحتوي على حقلين رئيسيين:  
-- رقم المستند (كود المستند)، وهو يمثل الكود التعريفي للمستند.  
-- سبب المخالصه أو نوع التصفيه (مثل إجازة، توجيه، إلخ).
+## Introduction and Project Overview
 
-التعريف بهذين الحقلين ضروري لوضع البنية الأساسية للنموذج، حيث يتم تحديد التفاصيل أولاً مثل:  
-- Header Columns Count (عدد الأعمدة في الهيدر)  
-- نوع تموضع الحقول (Grid Positioning Method) إذ يوجد نظام جريد مشابه لجدول Excel يوزع المحتوى حسب أعمدة وأسطر.
+**00:00:01**
+Welcome everyone. Based on viewer requests, this session explains how to create a print template for a filter document screen that contains more than one grid. We will start by expanding the discussion and adding various headings and points at the beginning of the project.
+- Discussing additions and sub-items
+- Identifying the main template type
+- Working on the core fields and functional requirements.
 
-[مشاهدة من الدقيقة 00:01:20](https://youtu.be/q16A05lIC5I?t=80)
+[Watch from 00:00:01](https://youtu.be/q16A05lIC5I?t=1)
 
 ---
 
-## شرح نظام Grid وتوزيع الأعمدة  
-**00:02:05**  
-- شرح الفروقات بين طريقة التموضع Absolute (موضع محدد بالبيكسل) وGrid (شبكة بيانات، خلايا وأعمدة مبنية على جدول شيتائيلي).  
-- أعمدة نموذج الطباعة وضبط ترتيب الحقول بحيث يكون لدينا 10 أعمدة مبدئياً.  
-- طريقة دمج الخلايا (Merge Center) لتوزيع النصوص على أكثر من عمود.
+## Identifying the Core Fields in the Template
 
-[مشاهدة من الدقيقة 00:02:05](https://youtu.be/q16A05lIC5I?t=125)
+**00:01:20**
+The template contains two main fields:
+- Document number (document code), which represents the identifying code of the document.
+- Clearance reason or filter type (e.g., leave, directive, etc.).
 
----
+Defining these two fields is essential for establishing the basic structure of the template, where details are specified first such as:
+- Header Columns Count (number of columns in the header)
+- Field positioning type (Grid Positioning Method) - there is a grid system similar to an Excel table that distributes content by columns and rows.
 
-## توزيع الحقول في النموذج وأخذ الأمثلة  
-**00:03:30**  
-- كيف نضع رقم المستند وسبب المخالصه في نفس السطر باستخدام خاصية Merge Center.  
-- توضيح حقول كود الموظف واسم الموظف في أماكن مرتبطة.  
-- شرح طريقة استخدام Label وValue لكل حقل وكيفية استظهارهم.
-
-[مشاهدة من الدقيقة 00:03:30](https://youtu.be/q16A05lIC5I?t=210)
+[Watch from 00:01:20](https://youtu.be/q16A05lIC5I?t=80)
 
 ---
 
-## الملاحظات وطريقة التعامل معها  
-**00:03:54**  
-- كيفية استيراد وإظهار ملاحظات المستند.  
-- ضبط إحداثيات الملاحظات على الـGrid بحيث تبدأ من عمود وعمود (x=1, y=1).  
-- دمج الخلايا لتوسيط النص (Merge Center).  
-- تنسيق الملاحظات بحيث تملأ المساحة المخصصة لها كتوثيق نصي طويل.
+## Explaining the Grid System and Column Distribution
 
-[مشاهدة من الدقيقة 00:03:54](https://youtu.be/q16A05lIC5I?t=234)
+**00:02:05**
+- Explaining the differences between Absolute positioning (pixel-precise position) and Grid (data grid, cells and columns built on a spreadsheet-like table).
+- Print template columns and arranging the field order so that we start with 10 columns.
+- Merging cells (Merge Center) to distribute text across more than one column.
 
----
-
-## إضافة حقول إضافية: التاريخ، الحالة، وعلوم مرتبطة  
-**00:05:20**  
-- إضافة حقل "تاريخ أول مباشرة"، وحقل الحالة بجانب الملاحظات.  
-- ضبط إعدادات Position و Width لكل حقل بحيث لا تتداخل أو تتراكب.  
-- تجربة عملية الحفظ والطباعة لمشاهدة النموذج.
-
-[مشاهدة من الدقيقة 00:05:20](https://youtu.be/q16A05lIC5I?t=320)
+[Watch from 00:02:05](https://youtu.be/q16A05lIC5I?t=125)
 
 ---
 
-## التعامل مع حالات وجود عدة خلايا مدمجة (Lats)  
-**00:07:30**  
-- التحدي الناتج عن وجود عدة خلايا مختلطة (Merged Cells) وتأثيرها على التموضع والتقسيم.  
-- زيادة الأعمدة من 10 إلى 12 عمود لتوزيع المعلومات بشكل أفضل والتخلص من المشاكل المتعلقة بالقياسات العشرية.  
-- اقتراح إعادة حساب الأعمدة ديناميكياً باستخدام زر خاص لتنظيف الحقول.
+## Distributing Fields in the Template with Examples
 
-[مشاهدة من الدقيقة 00:07:30](https://youtu.be/q16A05lIC5I?t=450)
+**00:03:30**
+- How to place the document number and clearance reason on the same row using the Merge Center feature.
+- Explaining employee code and employee name fields in related positions.
+- Explaining how to use Label and Value for each field and how they are displayed.
 
----
-
-## حلقة شرح توزّع الأعمدة والصفوف بشكل عملي  
-**00:09:45**  
-- تقسيم الـ12 عمود إلى أربعة مجموعات بشكل عملي.  
-- ضبط البوزيشن (x, y) لكل Label وValue بالتفصيل.  
-- شرح كيفية استخدام Merge Center لدمج عدة أعمدة لخانة نص واحدة.  
-
-[مشاهدة من الدقيقة 00:09:45](https://youtu.be/q16A05lIC5I?t=585)
+[Watch from 00:03:30](https://youtu.be/q16A05lIC5I?t=210)
 
 ---
 
-## طريقة ضبط عرض الحقول وطولها Height, Width  
-**00:13:15**  
-- تأكيد أن ارتفاع الحقول يفضل أن يكون 1 (سطر واحد) إلا في حالة نصوص متعددة الأسطر.  
-- مثال عملي على ضبط العرض (Width) وعدد الأعمدة التي تغطيها قيمة معينة داخل النموذج.  
-- شرح طريقة تعبئة البيانات عمودياً وأفقياً.
+## Notes and How to Handle Them
 
-[مشاهدة من الدقيقة 00:13:15](https://youtu.be/q16A05lIC5I?t=795)
+**00:03:54**
+- How to import and display document notes.
+- Adjusting the coordinates of notes on the Grid so they start from a specific column and row (x=1, y=1).
+- Merging cells to center the text (Merge Center).
+- Formatting notes so they fill their allocated space as long-form text documentation.
 
----
-
-## تجميع الحقول في صفوف متعددة  
-**00:15:50**  
-- ضبط الحقول بحيث ترسى على صف معين (Row) داخل النموذج.  
-- شرح وضبط الحقول: كود الموظف، اسم الموظف، الملاحظات، والتاريخ في أماكنها المناسبة.  
-- تبديل وتعديل القيم (Value) و Labels لتتوافق مع التصميم المطلوب.
-
-[مشاهدة من الدقيقة 00:15:50](https://youtu.be/q16A05lIC5I?t=950)
+[Watch from 00:03:54](https://youtu.be/q16A05lIC5I?t=234)
 
 ---
 
-## إضافة خطوط وتقسيم بين الأقسام (Separators)  
-**00:21:30**  
-- مناقشة استخدام خطوط فصل بين الحقول أو العناوين.  
-- إمكانية وضع checkbox لإضافة حدود Borders حول الحقول بشكل فردي حسب الحاجة.  
-- التأكيد على أن النموذج الحالي لا يدعم ظهور حدود (Borders) دون استخدام خيارات مخصصة.
+## Adding Extra Fields: Date, Status, and Related Items
 
-[مشاهدة من الدقيقة 00:21:30](https://youtu.be/q16A05lIC5I?t=1290)
+**00:05:20**
+- Adding a first work start date field and a status field next to the notes.
+- Adjusting Position and Width settings for each field so they do not overlap or stack.
+- Practical exercise: saving and printing to preview the template.
 
----
-
-## العمل على نماذج متعددة الجريد (Multi-Grid Layout)  
-**00:23:50**  
-- شرح كيفية التعامل مع أكثر من Grid داخل نفس نموذج الطباعة.  
-- ضبط الترتيب والموضع بين جريد جيّد وجريد تفصيلي آخر (مثلاً: تفاصيل تصفية الاجازات).  
-- أهمية استخدام العناوين (Titles) لكل قسم جريد لسهولة القراءة والفهم.
-
-[مشاهدة من الدقيقة 00:23:50](https://youtu.be/q16A05lIC5I?t=1430)
+[Watch from 00:05:20](https://youtu.be/q16A05lIC5I?t=320)
 
 ---
 
-## جلب بيانات النقاشات (Discussion) والمرفقات في التقرير  
-**00:29:50**  
-- طريقة جلب البيانات الخاصة بـ Discussion والنقاشات من خلال ربط الحقول (Linked Fields).  
-- استيراد التفاصيل الزمنية (On Time) والمرفقات المرتبطة بالمستند.  
-- عرض النصوص والمرفقات بشكل منسق وطباعة التقرير كاملًا.
+## Handling Multiple Merged Cells (Lats)
 
-[مشاهدة من الدقيقة 00:29:50](https://youtu.be/q16A05lIC5I?t=1790)
+**00:07:30**
+- The challenge caused by multiple mixed merged cells and their effect on positioning and splitting.
+- Increasing the columns from 10 to 12 to distribute information better and eliminate problems related to decimal measurements.
+- Proposing dynamic recalculation of columns using a dedicated button to clean up fields.
 
----
-
-## إظهار اسم الموظف والتوقيع والتاريخ في النموذج  
-**00:32:50**  
-- تحديد مواضع حقول اسم الموظف، التوقيع، والتاريخ ضمن النموذج.  
-- دمج هذه الحقول في سطر واحد مع ترك فراغ مناسب بينها.  
-- استخدام عبارات مثل Custom Expression لضبط المخرجات.
-
-[مشاهدة من الدقيقة 00:32:50](https://youtu.be/q16A05lIC5I?t=1970)
+[Watch from 00:07:30](https://youtu.be/q16A05lIC5I?t=450)
 
 ---
 
-## إضافة خطوط وأقلام خصوصية التصميم النهائي  
-**00:36:10**  
-- مناقشة إمكانية إضافة الحدود حول الحقول ومربعات اختيار (Checkbox) لتفعيل الحدود.  
-- الإشارة إلى أن بعض الخصائص تحتاج لبرمجة إضافية أو أدوات دعم خارجية.  
-- أهمية التصميم المرن الذي يسمح بالتعديل حسب الحاجة.
+## Practical Walkthrough: Distributing Columns and Rows
 
-[مشاهدة من الدقيقة 00:36:10](https://youtu.be/q16A05lIC5I?t=2170)
+**00:09:45**
+- Dividing the 12 columns into four groups in a practical exercise.
+- Setting the position (x, y) for each Label and Value in detail.
+- Explaining how to use Merge Center to merge multiple columns into a single text cell.
 
----
-
-## تطبيق عملي على نموذج "عهدة موظف" وربطه بالموظفين  
-**00:38:10**  
-- شرح كيفية استيراد وعرض بيانات العهدة (مثل عدّة عينية، نقدية...) المرتبطة بالموظف في النموذج.  
-- التفصيل في كيفية ربط الهيكلية بين العهدة والموظف.  
-- إظهار الحقول مثل تاريخ التسليم، المسؤول عن العهدة، الملاحظات، ونسبة استرجاع العهدة.
-
-[مشاهدة من الدقيقة 00:38:10](https://youtu.be/q16A05lIC5I?t=2290)
+[Watch from 00:09:45](https://youtu.be/q16A05lIC5I?t=585)
 
 ---
 
-## التحقق وضبط النظام والتقارير المرتبطة  
-**00:44:00**  
-- فحص الحقول وضبط ارتباطها داخل النظام لضمان ظهورها في النموذج بشكل صحيح.  
-- التعامل مع حالة وجود تواريخ متداخلة أو بيانات غير متناسقة.  
-- خطوات إعادة ترتيب وتحديث الحقول عند وجود أخطاء أو ظهور غير صحيح.
+## Adjusting Field Width and Height
 
-[مشاهدة من الدقيقة 00:44:00](https://youtu.be/q16A05lIC5I?t=2640)
+**00:13:15**
+- Confirming that field height should preferably be 1 (single row) except for multi-line text.
+- A practical example of adjusting Width and the number of columns a given value covers inside the template.
+- Explaining how to fill data vertically and horizontally.
 
----
-
-## إغلاق الفيديو وخطط مستقبلية  
-**00:47:30**  
-- تأكيد أن طريقة العمل على النماذج مشابهة بين النماذج المختلفة ولا تختلف كثيرًا.  
-- ذكر بعض النقاط المتعلقة باستخدام separators (فواصل أفقية) لزيادة الوضوح.  
-- التلميح إلى وجود فيديو آخر سيكمل الشرح بتفاصيل إضافية مثل تفعيل الجيميل وما إلى ذلك.
-
-[مشاهدة من الدقيقة 00:47:30](https://youtu.be/q16A05lIC5I?t=2850)
+[Watch from 00:13:15](https://youtu.be/q16A05lIC5I?t=795)
 
 ---
 
-# خاتمة  
-تم في هذا الفيديو شرح شامل ومفصل لكل خطوة لإنشاء نموذج طباعة لشاشة مستند تصفية يحتوي على أكثر من جريد وتفاصيل متعددة، مع معالجة المسائل التقنية المتعلقة بنظام Grid، البوزيشن، دمج الخلايا، وطريقة عرض البيانات بشكل مرتب ومحترف.
+## Grouping Fields Across Multiple Rows
+
+**00:15:50**
+- Placing fields so they anchor to a specific Row inside the template.
+- Explaining and positioning fields: employee code, employee name, notes, and date in their appropriate locations.
+- Swapping and adjusting Value and Label entries to match the required design.
+
+[Watch from 00:15:50](https://youtu.be/q16A05lIC5I?t=950)
 
 ---
 
+## Adding Lines and Section Separators
 
-</rtl>
+**00:21:30**
+- Discussing the use of separator lines between fields or headings.
+- Possibility of adding a checkbox to apply Borders around individual fields as needed.
+- Confirming that the current template does not support displaying Borders without using custom options.
+
+[Watch from 00:21:30](https://youtu.be/q16A05lIC5I?t=1290)
+
+---
+
+## Working with Multi-Grid Layouts
+
+**00:23:50**
+- Explaining how to work with more than one Grid inside the same print template.
+- Adjusting the order and position between a main grid and another detail grid (for example: leave filter details).
+- The importance of using Titles for each grid section for easy reading and comprehension.
+
+[Watch from 00:23:50](https://youtu.be/q16A05lIC5I?t=1430)
+
+---
+
+## Fetching Discussion and Attachment Data in the Report
+
+**00:29:50**
+- How to fetch Discussion data and linked discussions through Linked Fields.
+- Importing time-based details (On Time) and attachments linked to the document.
+- Displaying text and attachments in a formatted manner and printing the complete report.
+
+[Watch from 00:29:50](https://youtu.be/q16A05lIC5I?t=1790)
+
+---
+
+## Displaying Employee Name, Signature, and Date in the Template
+
+**00:32:50**
+- Determining the positions of the employee name, signature, and date fields within the template.
+- Merging these fields on a single row while leaving appropriate spacing between them.
+- Using expressions such as Custom Expression to adjust output.
+
+[Watch from 00:32:50](https://youtu.be/q16A05lIC5I?t=1970)
+
+---
+
+## Adding Lines and Final Design Details
+
+**00:36:10**
+- Discussing the possibility of adding Borders around fields and checkboxes to activate borders.
+- Noting that some properties require additional programming or external support tools.
+- The importance of a flexible design that allows modifications as needed.
+
+[Watch from 00:36:10](https://youtu.be/q16A05lIC5I?t=2170)
+
+---
+
+## Practical Application: Employee Custody Template and Linking to Employees
+
+**00:38:10**
+- Explaining how to import and display custody data (such as tangible items, cash, etc.) linked to an employee in the template.
+- Detailing how to link the structure between the custody and the employee.
+- Displaying fields such as delivery date, custody officer, notes, and custody recovery percentage.
+
+[Watch from 00:38:10](https://youtu.be/q16A05lIC5I?t=2290)
+
+---
+
+## Verifying, Adjusting the System, and Related Reports
+
+**00:44:00**
+- Reviewing fields and adjusting their bindings within the system to ensure they appear correctly in the template.
+- Handling cases of overlapping dates or inconsistent data.
+- Steps for reordering and updating fields when errors or incorrect display occur.
+
+[Watch from 00:44:00](https://youtu.be/q16A05lIC5I?t=2640)
+
+---
+
+## Closing the Video and Future Plans
+
+**00:47:30**
+- Confirming that the approach to working on templates is similar across different templates and does not vary much.
+- Mentioning some points related to using separators (horizontal dividers) for greater clarity.
+- Hinting at another video that will continue the explanation with additional details such as enabling Gmail and more.
+
+[Watch from 00:47:30](https://youtu.be/q16A05lIC5I?t=2850)
+
+---
+
+# Conclusion
+This video provided a comprehensive and detailed walkthrough of every step involved in creating a print template for a filter document screen that contains more than one grid and multiple details, addressing technical issues related to the Grid system, positioning, cell merging, and displaying data in an organized and professional manner.
+
+---

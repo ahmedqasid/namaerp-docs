@@ -1,60 +1,60 @@
-# الإقفال السنوي والتحكم في الفترات
+# Year-End Closing & Period Control
 
-في نهاية كل سنة مالية تأتي لحظة الإقفال: ترحيل أرباح/خسائر السنة إلى حقوق الملكية، وإقفال حسابات النتيجة استعدادًا لسنة جديدة. وعلى مدار السنة تحتاج أدوات للتحكّم فيمن يُسجِّل وأين ومتى. هذه الصفحة تجمع هذه الأدوات: **القيد الختامي**، و**التحكم في حالة السنة والفترات**، و**منع الحركات المحاسبية**، و**سند مراجعة الحسابات**، و**تفريغ الحركات**.
+At the end of each fiscal year comes the moment of closing: carrying the year's profit/loss into equity, and closing the result accounts in preparation for a new year. And throughout the year you need tools to control who posts, where, and when. This page gathers those tools: the **Closing Entry**, **year and period status control**, **Prevent Accounting Transactions**, the **Ledger Revise Document**, and **purging transactions**.
 
-::: info الترخيص المطلوب
-هذه الأدوات ضمن ترخيص المحاسبة الأساسي `accounting`.
+::: info Required license
+These tools are part of the core `accounting` license.
 :::
 
-## القيد الختامي
+## The Closing Entry
 
-**القيد الختامي** (`Accounting > Documents > Closing Entry`) هو المستند الذي يُغلق السنة. فكرته: يقرأ أرصدة حسابات **قائمة الدخل** (الإيرادات والمصروفات)، ويُولِّد **سند قيد** موازنًا ينقل صافي الربح أو الخسارة إلى **حساب المكسب - الخسارة** الذي تحدّده، فتُصفَّر حسابات النتيجة وتبقى الميزانية وحدها مرحَّلة للسنة التالية.
+The **Closing Entry** (`Accounting > Documents > Closing Entry`) is the document that closes the year. Its idea: it reads the balances of the **income-statement** accounts (revenue and expenses) and generates a balancing **journal entry** that moves the net profit or loss into the **Profit-Loss account** you specify, so the result accounts are zeroed and only the balance sheet carries over to the next year.
 
-![شاشة القيد الختامي](./images/year-end/closing-entry.png)
+![The Closing Entry screen](./images/year-end/closing-entry.png)
 
-أهم حقوله:
+Its key fields:
 
-- **حساب المكسب - الخسارة** — الحساب الذي يستقبل صافي نتيجة العام (إلزامي).
-- **توجيه سندات القيد** و**دفتر سندات القيد** — التوجيه والدفتر اللذان يُسجَّل بهما القيد المُولَّد.
-- **اقصي عدد من السطور عند إنشاء مستندات** — يقسّم القيد المُولَّد إلى عدّة مستندات إن تجاوز هذا الحدّ (مفيد للحسابات الكثيرة).
-- **إغلاق جميع الفترات للسنة المالية** — يُغلق كل فترات السنة تلقائيًا بعد الإقفال.
-- زر **التأكد من صحة البيانات قبل الإغلاق** — يفحص جاهزية البيانات قبل تنفيذ الإقفال.
+- **Profit-Loss Account** — the account that receives the year's net result (mandatory).
+- **Entry Term** and **Entry Book** — the term and book the generated entry is recorded with.
+- **Max Lines Per Generated Document** — splits the generated entry into several documents if it exceeds this limit (useful with many accounts).
+- **Close All Fiscal Year Periods** — automatically closes all the year's periods after closing.
+- The **Validate Data Before Closing** button — checks the data's readiness before executing the close.
 
-::: warning قبل الإقفال
-- يجب أن تكون الفترة التي يقع فيها القيد الختامي من نوع **تسويات** أو **اغلاق** (انظر [المفاهيم الأساسية والإعداد](./accounting-concepts-and-setup.md)).
-- يحجب النظام الإقفال إن كانت هناك حركات لم تكتمل معالجتها (وهو سلوك يضبطه أحد خيارات الوحدة)؛ عالِج الحركات المتعثّرة أولًا كما في [كيف تُعالَج المستندات إلى أثر محاسبي](./support/accounting-request-processing.md).
+::: warning Before closing
+- The period the closing entry falls in must be of type **Adjustment** or **Closing** (see [Concepts & setup](./accounting-concepts-and-setup.md)).
+- The system blocks closing if there are transactions whose processing hasn't completed (a behavior governed by a module option); process the stuck transactions first, as in [How documents are processed into accounting effects](./support/accounting-request-processing.md).
 :::
 
-## التحكم في حالة السنة والفترات
+## Year and period status control
 
-فتح الفترات وإغلاقها بالجملة يتمّ من شاشة **السنة المالية** عبر أزرار **فتح الفترات** و**غلق الفترات** و**إنشاء السنة المالية التالية** (موضّحة في [المفاهيم الأساسية والإعداد](./accounting-concepts-and-setup.md)). الفترة **المغلقة** ترفض أي حركة جديدة بتاريخها، وهي خط الدفاع الأول في ضبط الإقفال الدوري: تُغلق الشهر بعد اعتماد أرقامه فيتجمّد ماضيه.
+Opening and closing periods in bulk is done from the **Fiscal Year** screen via the **Open Periods**, **Close Periods**, and **Create Next Fiscal Year** buttons (covered in [Concepts & setup](./accounting-concepts-and-setup.md)). A **closed** period rejects any new transaction dated within it, and is the first line of defense in periodic-close control: you close the month after its figures are approved, freezing its past.
 
-## منع الحركات المحاسبية
+## Prevent Accounting Transactions
 
-أحيانًا تحتاج قفلًا **أدقّ** من إغلاق فترة كاملة: منع الحركة على حساب بعينه، أو على ذمة طرف محدّد، أو ضمن نطاق تواريخ. هذا دور **منع الحركات على حسابات أو ذمم** (`Accounting > Master Files > Prevent Transactions On Accounts Or Subsidiaries`).
+Sometimes you need a lock **finer** than closing a whole period: blocking transactions on a specific account, on a specific party's subsidiary, or within a date range. That's the role of **Prevent Transactions On Accounts Or Subsidiaries** (`Accounting > Master Files > Prevent Transactions On Accounts Or Subsidiaries`).
 
-![شاشة منع الحركات المحاسبية](./images/year-end/prevent-transactions.png)
+![The Prevent Accounting Transactions screen](./images/year-end/prevent-transactions.png)
 
-في أسطر المستند تحدّد لكل قيد: **الحساب**، و**الذمة** (اختياريًا)، و**من تاريخ** و**إلى تاريخ**. أي محاولة تسجيل تقع ضمن هذه القيود تُرفض. وعلم **غير نشط** يتيح تعطيل القاعدة مؤقتًا دون حذفها.
+In the document's lines you specify, per rule: the **Account**, the **Subsidiary** (optional), and a **From Date** and **To Date**. Any posting attempt falling within these constraints is rejected. An **Inactive** flag lets you disable the rule temporarily without deleting it.
 
-## سند مراجعة الحسابات
+## Ledger Revise Document
 
-**سند مراجعة الحسابات** (`Accounting > Documents > Ledger Revise Document`) أداة للمراجعة الداخلية: يحدّد فيه **المراجع** و**المحاسب** ونطاق التواريخ (**من/إلى**)، ويسجّل في أسطره ملاحظات المراجعة على الحركات في تلك الفترة. هو سجلّ رقابي لا يُحدِث أثرًا محاسبيًا، بل يوثّق أن الحسابات روجعت ومن راجعها.
+The **Ledger Revise Document** (`Accounting > Documents > Ledger Revise Document`) is an internal-review tool: you set the **Auditor** and **Accountant** and a date range (**From/To**), and record review remarks on the transactions in that period in its lines. It's a control record that produces no accounting effect; it documents that the books were reviewed and by whom.
 
-## تفريغ الحركات (Purge)
+## Purging transactions
 
-مع تراكم سنوات من الحركات قد تحتاج إلى **تفريغ/أرشفة** القديم منها لتخفيف قاعدة البيانات. مستند **Purge Journal** (`Administration > Purge Documents > Purge Journal`) يتولّى ذلك. وهو عملية إدارية حسّاسة تُنفَّذ على فترات من نوع **فترة Purge**، ويُفضَّل تنفيذها بإشراف فنّي وبعد أخذ نسخة احتياطية.
+As years of transactions accumulate, you may need to **purge/archive** the old ones to lighten the database. The **Purge Journal** document (`Administration > Purge Documents > Purge Journal`) handles this. It's a sensitive administrative operation carried out on periods of type **Purge Period**, and is best performed under technical supervision and after taking a backup.
 
-## النماذج المطبوعة
+## Printed forms
 
-- القيد الختامي: `SYSF-ACC020`.
-- سند مراجعة الحسابات: `SYSF-ACC016`.
-- منع الحركات المحاسبية: `SYSF-ACC018`.
+- Closing Entry: `SYSF-ACC020`.
+- Ledger Revise Document: `SYSF-ACC016`.
+- Prevent Accounting Transactions: `SYSF-ACC018`.
 
-## للدعم الفني
+## For Support
 
-- **«الإقفال لا يكتمل / يرفض التنفيذ»** — استخدم زر **التأكد من صحة البيانات قبل الإغلاق**؛ غالبًا السبب حركات لم تُعالَج بعدُ، أو فترة القيد ليست من نوع تسويات/اغلاق.
-- **«حركة مرفوضة رغم أن الفترة مفتوحة»** — تحقّق من وجود مستند **منع حركات محاسبية** نشط يغطّي الحساب/الذمة/التاريخ.
-- **«أريد إيقاف منع مؤقتًا دون حذفه»** — فعّل علم **غير نشط** على مستند المنع.
-- **«أين تُضبط مهلة الإقفال مع وجود حركات غير مكتملة؟»** — في كتالوج [إعدادات الحسابات](./support/accounting-configuration.md).
-- تفاصيل دورة الفترات والعملات في مرجع **الفترات المالية والعملات**.
+- **"Closing won't complete / refuses to execute"** — use the **Validate Data Before Closing** button; the cause is usually transactions not yet processed, or the entry's period not being Adjustment/Closing type.
+- **"A transaction is rejected even though the period is open"** — check for an active **Prevent Accounting Transactions** document covering the account/subsidiary/date.
+- **"I want to suspend a prevention temporarily without deleting it"** — enable the **Inactive** flag on the prevention document.
+- **"Where is the tolerance for closing with incomplete transactions set?"** — in the [Accounting configuration](./support/accounting-configuration.md) catalog.
+- Details of the period and currency cycle are in the **Fiscal periods & currency** reference.

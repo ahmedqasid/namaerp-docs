@@ -1,43 +1,43 @@
-# مرجع BI — وضع المعالج (Wizard Mode)
+# BI Reference — Wizard Mode
 
-مرفق بـ [`bi-module-technical-reference.md`](./bi-module-technical-reference.md). يُحمَّل هذا الملف فقط عند تأليف widget تم فيها تعيين `wizardDataSource`.
+Companion to [`bi-module-technical-reference.md`](./bi-module-technical-reference.md). Load this only when authoring a widget whose `wizardDataSource` is set.
 
-عندما يحتوي widget على `wizardDataSource`، يشير `chartConfigJSON` إلى **معرّفات حقول المعالج (wizard field IDs)** بدلاً من أسماء أعمدة SQL الخام. يُحلّل الخادم كل معرّف إلى اسم مستعار SQL من البيانات الوصفية المخزّنة مؤقتاً؛ لا تتأثر widgets وضع SQL بأي شيء هنا.
+When a widget has a `wizardDataSource`, its `chartConfigJSON` references **wizard field IDs** instead of raw SQL column names. The backend resolves each ID to a SQL alias from cached metadata; SQL-mode widgets are unaffected by anything here.
 
-## 1. التخزين المؤقت للبيانات الوصفية (Metadata caching)
+## 1. Metadata caching
 
-عند حفظ `DashBoardWidgetWizard`، يُشغِّل `postCommitAction` دالة `ReportWizardQuery.build()` مرة واحدة ويخزّن البيانات الوصفية لكل حقل في JSON الخاصة بالنظام `fieldMetadata` في كل سطر:
+When a `DashBoardWidgetWizard` is saved, its `postCommitAction` runs `ReportWizardQuery.build()` once and stores per-field metadata in each line's (system) `fieldMetadata` JSON:
 
-- `fieldId` — مسار خاصية حقل المعالج
+- `fieldId` — wizard field property path
 - `chartUsage` — `Dimension` | `Measure`
 - `paramType` — `Reference`, `Decimal`, `Text`, `Date`, `Integer`, `Genericreference`, `Enum`, `Boolean`
-- `referencedEntityType` — لحقول المرجع فقط
+- `referencedEntityType` — reference fields only
 - `aggregation` — `None`, `Sum`, `Count`, `Average`, `Min`, `Max`
-- `displayAlias` — الاسم المستعار SQL لعمود العرض الأساسي للحقل
-- `subColumns` — لحقول المرجع فقط: أسماء مستعارة للأعمدة الفرعية الموسّعة تلقائياً id/code/name1/name2/entityType/value
-- `sqlLeftHandSide` — الجانب الأيسر المؤهل بالكامل المستخدم لحقن WHERE في الفلاتر المتقاطعة
-- `arabicTitle` / `englishTitle` — يُمرَّران كما هما
+- `displayAlias` — the SQL alias for the field's primary display column
+- `subColumns` — reference fields only: aliases of auto-expanded id/code/name1/name2/entityType/value sub-columns
+- `sqlLeftHandSide` — fully-qualified LHS used for cross-filter WHERE injection
+- `arabicTitle` / `englishTitle` — pass-through
 
-يُفكّك البحث عند التصيير السجلات المخزّنة مؤقتاً — دون إعادة بناء `ReportWizardQuery`.
+Render-time lookup deserializes the cached records — no `ReportWizardQuery` rebuild.
 
-## 2. مفاتيح تعيين البيانات (Data-mapping keys)
+## 2. Data-mapping keys
 
-لكل فتحة عمود في §3 من المرجع الرئيسي، يضيف وضع المعالج نظيراً `*WizardFieldId`:
+For every column slot in §3 of the main reference, wizard mode adds a `*WizardFieldId` sibling:
 
-| مفتاح SQL | نظير المعالج | يُحلَّل إلى |
+| SQL key | Wizard sibling | Resolves to |
 |---|---|---|
 | `categoryColumn` | `categoryWizardFieldId` | `displayAlias` |
-| `labelColumn` | `labelWizardFieldId` | نفسه |
-| `valueColumn` | `valueWizardFieldId` | نفسه |
-| `xColumn` / `yColumn` | `xWizardFieldId` / `yWizardFieldId` | نفسه |
-| `sizeColumn` | `sizeWizardFieldId` | حجم فقاعة Scatter |
-| `innerLabelColumn` / `outerLabelColumn` | `innerLabelWizardFieldId` / `outerLabelWizardFieldId` | حلقات NestedLabelValue |
-| `innerValueColumn` / `outerValueColumn` | `innerValueWizardFieldId` / `outerValueWizardFieldId` | قياسات NestedLabelValue |
+| `labelColumn` | `labelWizardFieldId` | same |
+| `valueColumn` | `valueWizardFieldId` | same |
+| `xColumn` / `yColumn` | `xWizardFieldId` / `yWizardFieldId` | same |
+| `sizeColumn` | `sizeWizardFieldId` | Scatter bubble size |
+| `innerLabelColumn` / `outerLabelColumn` | `innerLabelWizardFieldId` / `outerLabelWizardFieldId` | NestedLabelValue rings |
+| `innerValueColumn` / `outerValueColumn` | `innerValueWizardFieldId` / `outerValueWizardFieldId` | NestedLabelValue measures |
 | `leftValueColumn` / `rightValueColumn` | `leftValueWizardFieldId` / `rightValueWizardFieldId` | FunnelComparison |
-| `series[].column` | `series[].wizardFieldId` | نفسه |
-| `maxResultsRankBy` | `maxResultsRankByWizardFieldId` | قياس الترتيب top-N |
+| `series[].column` | `series[].wizardFieldId` | same |
+| `maxResultsRankBy` | `maxResultsRankByWizardFieldId` | top-N ranking measure |
 
-عند وجود المفتاحين معاً → يسود `*Column`. أعمدة Tempo / مقارنة الفترات ليست حقول معالج؛ استخدم `*Column` فقط — يُتجاهل `wizardFieldId` بصمت.
+Both keys present → `*Column` wins. Tempo / period-comparison columns are not wizard fields; use `*Column` only — `wizardFieldId` is silently ignored.
 
 ```json
 "dataMapping": {
@@ -49,7 +49,7 @@
 }
 ```
 
-## 3. إصدار النقر والتنقل التفصيلي مع `wizardFieldId`
+## 3. Click-emit & drill-down with `wizardFieldId`
 
 ```json
 "clickEmitMapping": [
@@ -57,56 +57,56 @@
 ]
 ```
 
-لكل إدخال يحتوي على `wizardFieldId`:
+For each entry with a `wizardFieldId`:
 
-1. **استنتاج الأعمدة الفرعية** — يملأ الخادم الأعمدة المفقودة `idColumn`/`codeColumn`/`name1Column`/`name2Column`/`entityTypeColumn`/`valueColumn`/`entityType` من `subColumns` المخزّنة + `referencedEntityType`.
-2. **الفلترة لكل محدد** — يُطلق الإدخال فقط عندما يكون `wizardFieldId` الخاص به ضمن المحددات النشطة حالياً (انظر §4 أدناه).
+1. **Sub-column inference** — backend fills missing `idColumn`/`codeColumn`/`name1Column`/`name2Column`/`entityTypeColumn`/`valueColumn`/`entityType` from the cached `subColumns` + `referencedEntityType`.
+2. **Per-dimension filtering** — entry only fires when its `wizardFieldId` is one of the chart's currently-active dimensions (see §4 below).
 
-الإدخالات التي لا تحتوي على `wizardFieldId` دائماً نشطة (سلوك وضع SQL القديم).
+Entries without `wizardFieldId` are always-active (legacy SQL-mode behavior).
 
-## 4. المحددات النشطة (Active dimensions)
+## 4. Active dimensions
 
-قائمة "المحددات النشطة حالياً" بالترتيب:
+The "currently active dimensions" list, in order:
 
-1. إذا كان الطلب يحمل `drillDownByTargetDimension`، يكون معرّف الحقل هذا أولاً.
-2. ثم `categoryWizardFieldId`, `labelWizardFieldId`, `xWizardFieldId`, `yWizardFieldId` — أيها كان مُعيَّناً في `dataMapping`.
+1. If the request carries `drillDownByTargetDimension`, that field ID is first.
+2. Then `categoryWizardFieldId`, `labelWizardFieldId`, `xWizardFieldId`, `yWizardFieldId` — whichever are set in `dataMapping`.
 
-يُتخطى المكرر. تقود هذه القائمة:
+Duplicates skipped. This list drives:
 
-- **إعادة بناء SQL** عبر `ReportWizardQuery.buildForDrillDown(wizard, primary, otherDims)`. يصبح الأساسي أول GROUP BY؛ تُلحَق الأخرى؛ تبقى القياسات.
-- **فلترة النقر/التفصيل** (§3 أعلاه).
-- **استبعاد قائمة التنقل التفصيلي** — المحددات النشطة بالفعل مخفية من قائمة "Drill Down By" عند النقر بالزر الأيمن.
+- **SQL rebuild** via `ReportWizardQuery.buildForDrillDown(wizard, primary, otherDims)`. Primary becomes first GROUP BY; others are appended; measures stay.
+- **Click/drill filtering** (§3 above).
+- **Drill-by menu exclusion** — already-active dimensions are hidden from the right-click "Drill Down By" menu.
 
-## 5. دلالات التنقل التفصيلي — الخيار أ (Drill-by semantics - Option A)
+## 5. Drill-by semantics (Option A)
 
-عندما ينقر المستخدم بالزر الأيمن ← "Drill Down By X":
+When user right-clicks → "Drill Down By X":
 
-1. الفئة **تُستبدل** — يأخذ المحدد المُنقَّل إليه المكان الأساسي.
-2. المحددات النشطة الأخرى (label, x, y) **تبقى** — يُحافَظ على شكل الرسم البياني.
-3. تراكم مكدس التنقل: إدخال واحد لكل تنقل `(categoryFieldId, clickedValue)`. القيمة المنقور عليها للـ label **لا** تُضاف.
-4. تتراكم الفلاتر (بعد تنقلين: `WHERE month='Jan' AND region='West'`).
+1. Category is **replaced** — drilled dimension takes the primary slot.
+2. Other active dimensions (label, x, y) **stay** — chart shape preserved.
+3. Drill stack accumulates one entry per drill: `(categoryFieldId, clickedValue)`. Label's clicked value is **not** added.
+4. Filters accumulate (after two drills: `WHERE month='Jan' AND region='West'`).
 
-قائمة التنقل = `wizard.fields` مفلترة إلى `chartUsageType=Dimension` وغير موجودة في القائمة النشطة وغير موجودة في مكدس التنقل.
+Drill menu = `wizard.fields` filtered to `chartUsageType=Dimension` AND not in active list AND not in drill stack.
 
-بعد التنقل، يقرأ الخادم `chartConfigJSON` الموجود ويُعيد كتابة `dataMapping.categoryColumn` بـ `displayAlias` الخاص بالمحدد المُنقَّل إليه (ويحذف `categoryWizardFieldId`). كل شيء آخر — `echartOption`، `valueColumn`/`valueWizardFieldId`، تنسيق السلاسل، الألوان، التعيينات — يُنقل كما هو.
+Once drilled, server reads existing `chartConfigJSON` and surgically overrides `dataMapping.categoryColumn` with the drilled dimension's `displayAlias` (and removes `categoryWizardFieldId`). Everything else — `echartOption`, `valueColumn`/`valueWizardFieldId`, series styling, colors, mappings — is carried through untouched.
 
-## 6. جانب الفلتر المتقاطع الأيسر SQL (Cross-filter SQL LHS)
+## 6. Cross-filter SQL LHS
 
-يقبل الجانب الأيسر للفلتر المتقاطع في widget المعالج (على الربط أو على `BICrossFilter`) **مسار حقل المعالج** بالإضافة إلى `alias.column` الخام. أي حقل يمكن الوصول إليه من الكيان الرئيسي للمعالج صالح — لا يلزم عرضه.
+A wizard widget's cross-filter LHS (on the binding or on the `BICrossFilter`) accepts a **wizard field path** in addition to raw `alias.column`. Any field reachable from the wizard's main entity works — it doesn't need to be displayed.
 
-قيم LHS الصالحة:
-- `customer` — حقل مرجع على الكيان الرئيسي. يرتبط تلقائياً بالمعرّف المُشار إليه.
-- `customer.salesman.code` — مسار خاصية عبر ضمتين. تُضاف الضمات عند الحاجة.
-- `valueDate` — عمود عددي على الكيان الرئيسي.
-- `l.branch_id` — alias.column خام (قديم؛ لا يزال يعمل).
+Valid LHS values:
+- `customer` — reference field on main entity. Binds against the referenced ID automatically.
+- `customer.salesman.code` — property path through two joins. Joins added as needed.
+- `valueDate` — scalar column on main entity.
+- `l.branch_id` — raw alias.column (legacy; still works).
 
-يُعامل المصنّف نقطتين أو أكثر، أو قيمة يتم حلّها مقابل نموذج بيانات الجدول الرئيسي، كمسار معالج؛ وإلا فهو SQL خام.
+The classifier treats two-or-more dots OR a value resolving against the main-table data model as a wizard path; otherwise raw SQL.
 
-## 7. التعايش مع الـ widgets القديمة (Coexistence with legacy widgets)
+## 7. Coexistence with legacy widgets
 
-الـ widgets ذات المعالج الموجودة مسبقاً (بدون مفاتيح `*WizardFieldId`، فقط `*Column`) تُقرأ كما كانت — أسماء أعمدة، بدون فلترة لكل محدد. إعادة الحفظ عبر مصمم الرسوم البيانية يُرقّي الـ widget إذا اختار المستخدم معرّفات الحقول.
+Pre-existing wizard widgets (no `*WizardFieldId` keys, only `*Column`) read as before — column names, no per-dimension filtering. Re-saving via the chart designer upgrades the widget if the user picks field IDs.
 
-## 8. مثال كامل (Complete example)
+## 8. Complete example
 
 ```json
 {
@@ -143,7 +143,7 @@
 }
 ```
 
-المعالج:
+Wizard:
 
 ```json
 {
@@ -159,32 +159,32 @@
 }
 ```
 
-## 9. اختيار الفتحة في وقت التشغيل (Runtime slot selection)
+## 9. Runtime slot selection
 
-تعرض widgets المعالج أداة اختيار في وقت التشغيل (شريط الأدوات / أيقونة صندوق أدوات echarts) حتى يتمكن المشاهدون من تبديل محدد الفئة، وتغيير القياسات، أو إضافة سلاسل — لجلسة العمل الحالية فقط.
+Wizard widgets expose a runtime selector (toolbar / echarts toolbox icon) so viewers can swap the category dimension, change measures, or add series — session-only.
 
-| نوع التعيين | فتحات المحددات | فتحات القياسات | سلاسل متعددة القياسات |
+| Mapping type | Dimension slots | Measure slots | Multi-measure series |
 |---|---|---|---|
-| `CategoryValue` | `categoryWizardFieldId` | `series[].wizardFieldId` (N) | **نعم** (flexible فقط) |
-| `LabelValue` | `labelWizardFieldId` | `valueWizardFieldId` | لا |
-| `CategoryLabelValue` | `categoryWizardFieldId`, `labelWizardFieldId` | `valueWizardFieldId` | لا |
-| `Scatter` | — | `xWizardFieldId`, `yWizardFieldId`, `sizeWizardFieldId` | لا |
-| `Heatmap` | `xWizardFieldId`, `yWizardFieldId` | `valueWizardFieldId` | لا |
-| `Gauge` | — | `valueWizardFieldId` | لا |
-| `Tree` | `labelWizardFieldId` | `valueWizardFieldId` | لا |
+| `CategoryValue` | `categoryWizardFieldId` | `series[].wizardFieldId` (N) | **Yes** (flexible only) |
+| `LabelValue` | `labelWizardFieldId` | `valueWizardFieldId` | No |
+| `CategoryLabelValue` | `categoryWizardFieldId`, `labelWizardFieldId` | `valueWizardFieldId` | No |
+| `Scatter` | — | `xWizardFieldId`, `yWizardFieldId`, `sizeWizardFieldId` | No |
+| `Heatmap` | `xWizardFieldId`, `yWizardFieldId` | `valueWizardFieldId` | No |
+| `Gauge` | — | `valueWizardFieldId` | No |
+| `Tree` | `labelWizardFieldId` | `valueWizardFieldId` | No |
 
-`Waterfall`, `NestedLabelValue`, `GaugeMulti`, `Radar`, `FunnelComparison`, `Custom`, `Raw` ← لا يوجد أداة اختيار في وقت التشغيل.
+`Waterfall`, `NestedLabelValue`, `GaugeMulti`, `Radar`, `FunnelComparison`, `Custom`, `Raw` → no runtime selector.
 
-**CategoryValue مرن مقابل ثابت**: يكون CategoryValue "مرناً" فقط عندما تكون جميع إدخالات `series[]` موحّدة — نفس `type`، بدون `yAxisIndex`، بدون `stack`، بدون `target`. الرسوم البيانية ذات المحورين / bar+line المدمج / المكدّسة / ذات الهدف ثابتة: يُخفى منتقي متعدد القياسات.
+**Flexible vs. fixed CategoryValue**: a CategoryValue is "flexible" only when every `series[]` entry is uniform — same `type`, no `yAxisIndex`, no `stack`, no `target`. Dual-axis / combo bar+line / stacked / with-target charts are fixed: their multi-measure picker is hidden.
 
-**لا أداة اختيار في وضع التنقل التفصيلي**: عندما يحمل الطلب `drillDownByTargetDimension`، يحذف الخادم `runtimeSelectorInfo`.
+**No selector in drill-by mode**: when the request carries `drillDownByTargetDimension`, the server omits `runtimeSelectorInfo`.
 
-**أعلام الإلغاء** على `chartConfigJSON`:
-- `disableRuntimeDimensionSelection: true` — يُخفي منتقيات المحددات (يبقي القياسات).
-- `disableRuntimeMeasureSelection: true` — يُخفي منتقيات القياسات (يبقي المحددات).
+**Opt-out flags** on `chartConfigJSON`:
+- `disableRuntimeDimensionSelection: true` — hides dimension pickers (keeps measures).
+- `disableRuntimeMeasureSelection: true` — hides measure pickers (keeps dimensions).
 
-ضبط كليهما على `true` يُخفي أداة الاختيار بالكامل.
+Setting both `true` hides the selector entirely.
 
-**النقر/التنقل يتبعان المحددات النشطة**: تغييرات الفتحة في وقت التشغيل تُعيد تشكيل `activeDimensionFieldIds`، لذا تتبع إدخالات النقر والتنقل المفتاحة بـ `wizardFieldId` المحددات النشطة الجديدة تلقائياً.
+**Click/drill follow active dims**: runtime slot changes reshape `activeDimensionFieldIds`, so click-emit and drill-down entries keyed by `wizardFieldId` automatically follow the new active dimensions.
 
-**توجيه AI**: يُفضَّل استخدام مفاتيح وضع المعالج (`*WizardFieldId`) كلما كان `wizardDataSource` موجوداً حتى تكتسب widgets أداة الاختيار في وقت التشغيل تلقائياً.
+**AI guidance**: prefer wizard-mode keys (`*WizardFieldId`) whenever `wizardDataSource` is present so widgets pick up the runtime selector for free.

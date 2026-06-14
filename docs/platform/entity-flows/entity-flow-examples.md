@@ -1,17 +1,16 @@
-<rtl>
 
-# أمثلة لمسارات كيان
+# Entity Flow Examples
 
-### إنشاء مسار كيان ليقوم بتغيير معدل الموارد في سندات الموارد في النظام (يقوم بمحاكاة أن المستخدم ضغط علي الاوبشن "اعادة حساب المعدل مع الحفظ" في سند الموارد
-قم بإنشاء مسار كيان مع الاجراء "يدوي" و نوعه `EAFieldsValuesCalculator` و قم بوضعه بتعديل شاشة. قم بإدخال التالي في المدخل 1:
+### Create an Entity Flow to change the resource rate in resource vouchers in the system (simulates the user clicking the "Recalculate Rate with Save" option in the resource voucher)
+Create an Entity Flow with the action "Manual" of type `EAFieldsValuesCalculator` and place it in the edit screen. Enter the following in Parameter 1:
 
 ```ini
 runCommand="edit"
 recalculateRateWithSave="true"
 runCommand="save"
 ```
-### إنشاء مسار كيان ليقوم بتعديل حقل description1 في السند الأعلى للسند الأعلى للسند الحالي (بناءا على ثم بناءا على)
-قم بإنشاء مسار كيان مع الاجراء "تأثيرات الحفظ" و نوعه `EAFieldsValuesCalculator` . قم بإدخال التالي في المدخل 1:
+### Create an Entity Flow to edit the description1 field in the parent document of the parent document of the current document (based on "Based On" then "Based On")
+Create an Entity Flow with the action "Save Effects" of type `EAFieldsValuesCalculator`. Enter the following in Parameter 1:
 ```ini
 switchTarget=fromDoc.$toReal.fromDoc(
 runCommand="edit"
@@ -19,25 +18,25 @@ description1="ABC"
 runCommand="save"
 )endSwitchTarget
 ```
-### إنشاء مسار كيان ليقوم بملء حقل القيمة في أول سطر في سند القبض بإجمالي الأوراق التجارية
-قم بإنشاء مسار كيان مع الإجراء "ما قبل تحديث الحقول المحسوبة" و نوعه `EAFieldsValuesCalculator` . قم بإدخال التالي في المدخل 1:
+### Create an Entity Flow to fill the value field in the first line of a receipt voucher with the total of commercial papers
+Create an Entity Flow with the action "Before Calculating Computed Fields" of type `EAFieldsValuesCalculator`. Enter the following in Parameter 1:
 ```ini
 n1=totalize(fblines,fblines.fpCreationInfo.value.amount)
 selectLine="lines(0)"
 $line.amount.value.amount=n1
 ```
-### مسار كيان يقوم بإنشاء سندات طلب أمر انتاج لكل سطر من سطور طلب تحويل مخزني (او أي سند من سندات التوزيع - مثل طلب اصناف - امر بيع و هكذا)
+### Entity Flow that creates production order request vouchers for each line in a stock transfer request (or any distribution voucher — such as an item request, sales order, etc.)
 
-الشرح الصوتي للمثال:
+Audio explanation of the example:
 
 [Gen production order req from transfer req.m4a
 ](https://drive.google.com/file/d/1BMxLPE9aEjAjRs-VK7AfQgc0g9-oiHuR/view?usp=sharing)
 
-شيت الاكسيل للاستيراد المباشر:
+Excel sheet for direct import:
 
 [Gen production order req from transfer req.xlsx](https://drive.google.com/file/d/1EL8HmxkM5via_44KfWgNa4IaeRLFyKvQ/view?usp=sharing)
 
-اسم العنصر: `EAGenerateEntityFromEntityAction`
+Element name: `EAGenerateEntityFromEntityAction`
 ::: details JSON code for Import Into Current Record
 ```json
 {
@@ -59,20 +58,20 @@ $line.amount.value.amount=n1
 }
 ```
 :::
-### اعادة حساب بيانات الحضور و الانصراف لاخر شهرين لمن لهم سجل حضور و انصراف
+### Recalculate attendance and departure data for the last two months for employees who have attendance records
 
-قم باستيراد الملف التالي و عدل عليه إن تطلب الأمر
+Import the following file and modify it if needed:
 
 [Task Schedule - إعادة حساب بيانات الحضور والانصراف لاخر شهرين لمن لهم سجل حضور و انصراف.xlsx](https://drive.google.com/file/d/1BpR-11cttBbC-E3S6w2cPexxjQKkv2w6/view?usp=sharing)
 
-### مسار كيان يقوم بإنشاء سندات أوامر شراء لكل مورد في سند طلب الشراء
-الشرح الصوتي للمثال:
+### Entity Flow that creates purchase order vouchers for each supplier in a purchase request
+Audio explanation of the example:
 [MultiplePurchaseOrdersFromRequest.m4a](https://drive.google.com/open?id=1GI9p-RH_C_VG9adGQaR-wYTuflDQhJq5)
 
-شيت الاكسيل للاستيراد المباشر:
+Excel sheet for direct import:
 [CreateMultipleOrdersFromItemOrderPerSupplier.xlsx](https://drive.google.com/open?id=1zaGJcwA8oqzlnG5OHqdCnzMotYppdRM5)
 
-اسم العنصر: `EAGenerateEntityFromEntityAction`
+Element name: `EAGenerateEntityFromEntityAction`
 
     Parameter 1:
 ```
@@ -100,11 +99,11 @@ details.price.unitPrice=details.price.unitPrice
 ```
 details.recommendedSupplier
 ```
-### مسار كيان يقوم بفرد الأرقام المسلسلة علي سطور في مستندات معينة (للاستعمال مع التقارير)
+### Entity Flow that expands serial numbers onto lines in certain documents (for use with reports)
 
     EAAutoCreateSCDocSerial
 
-### مسار كيان يقوم باستبدال الأرقام الهندي بالأرقام الإنجليزية
+### Entity Flow that replaces Hindi-Arabic numerals with Western Arabic numerals
 ```sql
 code=mlsql(select REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE({code}
 ,N'٠',N'0'),N'١',N'1'),N'٢',N'2'),N'٣',N'3')
@@ -113,11 +112,9 @@ code=mlsql(select REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLAC
 ```
 
 
-### حذف المستند الموجود ببناءا على بعد حذف السند نفسه و باستعمال الاوبشن "يعمل بعد حفظ المستند نهائيا و التأثير على قاعدة البيانات" في مسار الكيان
+### Delete the document referenced in "Based On" after deleting the voucher itself, using the "Runs after the document is finally saved and the database is affected" option in the Entity Flow
 
-يمكنك استعمال مسار الكيان `EADeleteFromQuery` و قم باستعمال الاستعلام التالي:
+You can use the Entity Flow `EADeleteFromQuery` with the following query:
 ```sql
 select {pendingEntry.fromDoc.entityType},{fromDoc.id} 
 ```
-
-</rtl>

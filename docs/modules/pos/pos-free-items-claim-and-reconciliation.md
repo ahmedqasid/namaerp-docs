@@ -1,78 +1,74 @@
-<rtl>
+# Free Items in POS: Claim at Scan and Reconciliation at Payment
 
-# الأصناف المجانية في نقاط البيع: المطالبة بالمسح والتسوية عند الدفع
+When you have a promotion of the "buy one item and get another for free" type, the default behavior in the POS is to add the free item to the invoice **immediately** upon adding the qualifying item. This behavior suits many businesses, but not all.
 
-عندما يكون لديك عرض من نوع "اشترِ صنفاً واحصل على صنف آخر مجاناً"، فإن السلوك الافتراضي في نقاط البيع هو إضافة الصنف المجاني للفاتورة **فور** إضافة الصنف المؤهِّل للعرض. هذا السلوك مناسب لكثير من الأنشطة، لكنه لا يناسب الجميع.
+Imagine a supermarket running a promotion "buy a large bottle of oil and get a small bottle free." If the system automatically added the small bottle the moment the cashier scanned the large bottle, a line item would appear in the invoice for something the customer never picked up from the shelf! The correct approach here is for the customer to pick up the small bottle themselves, and the cashier scans its barcode just like any other item — the system then recognizes it and makes it free.
 
-تخيّل سوبر ماركت فيه عرض "اشترِ عبوة زيت كبيرة واحصل على عبوة صغيرة مجاناً". لو أضاف النظام العبوة الصغيرة تلقائياً بمجرد مسح العبوة الكبيرة، سيظهر في الفاتورة صنف لم يلتقطه العميل من الرف أصلاً! الأصح هنا أن يلتقط العميل العبوة الصغيرة بنفسه، ويمسحها الكاشير بالباركود مثل أي صنف آخر، فيتعرّف النظام عليها ويجعلها مجانية.
+This is exactly what the option **"Do not add free items automatically (claim at scan or reconcile at payment)"** in the POS settings provides.
 
-هذا بالضبط ما يوفره خيار **"عدم إضافة الأصناف المجانية تلقائياً (مطالبة عند المسح أو تسوية عند الدفع)"** في إعدادات نقاط البيع.
+## Activating the Feature
 
-## تفعيل الخاصية
+From the **POS Settings (POS Configuration)** screen, enable the option:
 
-من شاشة **إعدادات نقاط البيع (POS Configuration)**، فعّل الخيار:
+* **Do not add free items automatically (claim at scan or reconcile at payment)**
 
-* **عدم إضافة الأصناف المجانية تلقائياً (مطالبة عند المسح أو تسوية عند الدفع)**
+Next to it you will find the complementary option:
 
-وبجواره ستجد الخيار المكمّل له:
+* **Free items must be added before payment** — determines whether the cashier can complete payment without fulfilling the free items or not (explained below).
 
-* **يجب إضافة الأصناف المجانية للصنف قبل الدفع** — يحدد هل يستطيع الكاشير إتمام الدفع دون استكمال الأصناف المجانية أم لا (سنشرحه لاحقاً).
+## How Does the System Work After Activation?
 
-## كيف يعمل النظام بعد التفعيل؟
+After enabling the option, the system behavior changes as follows: when a qualifying item for a free-items promotion is added, the system does **not** add the free item automatically. Instead, it keeps an internal "entitlement" record that says: this invoice is entitled to such-and-such a quantity of a specific item (or a group of items) for free.
 
-بعد تفعيل الخيار، يتغيّر سلوك النظام كالتالي: عند إضافة صنف مؤهِّل لعرض أصناف مجانية، **لا يضيف** النظام الصنف المجاني تلقائياً، وإنما يحتفظ داخلياً بـ"استحقاق" يقول: هذه الفاتورة تستحق كمية كذا من الصنف الفلاني (أو من مجموعة أصناف معينة) مجاناً.
+After that, the free item can be claimed in two ways:
 
-بعد ذلك يمكن الحصول على الصنف المجاني بطريقتين:
+### First Method: Claim at Scan During the Sale
 
-### الطريقة الأولى: المطالبة بالمسح أثناء البيع
+When the cashier scans a barcode of an item that matches one of the pending entitlements in the invoice, the system recognizes it immediately and converts the line into a **free line** (price zero) linked to the original qualifying item line.
 
-عندما يمسح الكاشير باركود صنف يطابق أحد الاستحقاقات المعلّقة في الفاتورة، يتعرّف النظام عليه فوراً ويحوّل السطر إلى **سطر مجاني** (سعره صفر) مرتبط بسطر الصنف الأصلي المؤهِّل للعرض.
+The system also handles quantities intelligently:
 
-والأجمل أن النظام يتعامل بذكاء مع الكميات:
+* If the entitlement is "one free unit" and the cashier scans one unit → the entire line becomes free.
+* If the cashier scans a **larger quantity** than the entitlement (for example, 3 units while the entitlement is only 1) → the system automatically splits the line: one unit in a free line, and the remaining two units in a paid line at the regular price.
 
-* لو كان الاستحقاق "عبوة واحدة مجاناً" ومسح الكاشير عبوة واحدة → يصبح السطر كله مجانياً.
-* لو مسح الكاشير **كمية أكبر** من المستحق (مثلاً 3 عبوات والاستحقاق عبوة واحدة فقط) → يقسم النظام السطر تلقائياً: عبوة واحدة في سطر مجاني، والعبوتان الباقيتان في سطر مدفوع بالسعر العادي.
+### Second Method: Reconciliation at Payment
 
-### الطريقة الثانية: التسوية عند الدفع
+What if the cashier completely forgets about the free items and presses the payment button directly? Here the system intervenes in two steps:
 
-ماذا لو نسي الكاشير موضوع الأصناف المجانية تماماً وضغط زر الدفع مباشرة؟ هنا يتدخل النظام بخطوتين:
+**First — Automatic reconciliation:** The system reviews all lines in the paid invoice. If it finds a line matching a pending entitlement (the customer already bought the item they were entitled to for free!), it automatically converts it to a free line — splitting the quantity if needed — and displays a notification to the cashier with a list of items that have become free:
 
-**أولاً — التسوية التلقائية:** يراجع النظام كل سطور الفاتورة المدفوعة، فإذا وجد سطراً يطابق استحقاقاً معلّقاً (العميل أصلاً اشترى الصنف الذي كان يستحقه مجاناً!) فإنه يحوّله إلى سطر مجاني تلقائياً — مع تقسيم الكمية إذا لزم — ويعرض إشعاراً للكاشير بقائمة الأصناف التي أصبحت مجانية:
+> The following free items were automatically added to the invoice:
 
-> تمت إضافة الأصناف المجانية التالية للفاتورة تلقائياً:
+**Second — Pending free items screen:** If after reconciliation there are still unfulfilled entitlements, a screen appears showing the cashier a list of the remaining free items and their quantities, along with a barcode scan field. The customer picks up the items from the shelf, the cashier scans them one by one, and each scanned item is added as a free line while the remaining quantity shown decreases.
 
-**ثانياً — شاشة الأصناف المجانية المعلّقة:** إذا بقيت بعد التسوية استحقاقات لم تُستوفَ، تظهر شاشة تعرض للكاشير قائمة الأصناف المجانية المتبقية وكمياتها، مع حقل مسح بالباركود. يلتقط العميل الأصناف من الرف، ويمسحها الكاشير واحدة تلو الأخرى، وكل صنف ممسوح يُضاف كسطر مجاني وتنقص الكمية المتبقية أمامه.
+The screen also includes a search button that opens an item search screen **restricted to eligible items only** — useful if an item's barcode is damaged or the cashier wants to select manually.
 
-تتضمن الشاشة أيضاً زر بحث يفتح شاشة بحث الأصناف **مقصورة على الأصناف المؤهلة فقط** — مفيد لو كان باركود الصنف تالفاً أو أراد الكاشير الاختيار يدوياً.
-
-عند اكتمال جميع الأصناف تظهر رسالة "تمت إضافة جميع الأصناف المجانية"، ويستطيع الكاشير ضغط **متابعة الدفع** لاستكمال عملية الدفع بشكل طبيعي.
+When all items are complete, the message "All free items have been added" appears, and the cashier can press **Continue to Payment** to complete the payment normally.
 
 ::: tip
-لو مسح الكاشير صنفاً لا يطابق أي استحقاق معلّق، يرفضه النظام برسالة "الصنف الممسوح ليس ضمن أي عرض مجاني معلق" — فلا مجال لإضافة أصناف مجانية غير مستحقة بالخطأ.
+If the cashier scans an item that does not match any pending entitlement, the system rejects it with the message "The scanned item is not part of any pending free offer" — so there is no way to accidentally add unentitled free items.
 :::
 
-## ماذا لو لم يرغب العميل في الصنف المجاني؟
+## What If the Customer Does Not Want the Free Item?
 
-هنا يأتي دور خيار **"يجب إضافة الأصناف المجانية للصنف قبل الدفع"**:
+This is where the **"Free items must be added before payment"** option comes in:
 
-* **غير مفعّل:** زر "متابعة الدفع" في شاشة الأصناف المعلّقة يبقى متاحاً دائماً، ويستطيع الكاشير المتابعة وإتمام الفاتورة بدون الأصناف المجانية المتبقية (العميل تنازل عنها).
-* **مفعّل:** يُعطَّل زر "متابعة الدفع" حتى تُستوفى جميع الأصناف المجانية — مناسب للأنشطة التي تعتبر الصنف المجاني جزءاً لا يتجزأ من العرض.
+* **Disabled:** The "Continue to Payment" button on the pending items screen remains always available, and the cashier can proceed and complete the invoice without the remaining free items (the customer waived them).
+* **Enabled:** The "Continue to Payment" button is disabled until all free items are fulfilled — suitable for businesses that consider the free item an inseparable part of the promotion.
 
-## مجموعات الأصناف المجانية
+## Free Item Groups
 
-العروض لا تقتصر على صنف مجاني محدد؛ فقد يكون العرض "اشترِ كذا واختر صنفاً مجانياً من مجموعة أصناف". في هذه الحالة:
+Promotions are not limited to a specific free item; a promotion might be "buy X and choose a free item from a group of items." In this case:
 
-* أي صنف من أصناف المجموعة يمسحه الكاشير يُقبل كمطالبة صحيحة.
-* في شاشة الأصناف المعلّقة يظهر اسم المجموعة مع عبارة "اختر صنفاً من:" متبوعة بقائمة أصناف المجموعة.
+* Any item from the group that the cashier scans is accepted as a valid claim.
+* On the pending items screen, the group name is shown with the phrase "Choose an item from:" followed by a list of the group's items.
 
-## ملاحظات تستحق الانتباه
+## Notes Worth Paying Attention To
 
-* **حذف سطر مجاني:** إذا حذف الكاشير سطراً مجانياً من الفاتورة، يعود الاستحقاق معلّقاً من جديد، وسيظهر مرة أخرى في شاشة الأصناف المعلّقة عند الدفع.
-* **حذف الصنف المؤهِّل:** إذا حُذف سطر الصنف الذي ولّد الاستحقاق، يُعاد حساب الاستحقاقات تلقائياً ويسقط الاستحقاق المرتبط به.
-* **فواتير كابتن أوردر:** نفس السلوك مدعوم في تطبيق الجوال (كابتن أوردر)؛ حيث تتم التسوية والمطالبة بالمسح عبر التطبيق، وتُعرض الأصناف المجانية المعلّقة قبل إتمام الدفع.
+* **Deleting a free line:** If the cashier deletes a free line from the invoice, the entitlement becomes pending again and will reappear on the pending items screen at payment.
+* **Deleting the qualifying item:** If the line of the item that generated the entitlement is deleted, entitlements are automatically recalculated and the associated entitlement is dropped.
+* **Captain Order invoices:** The same behavior is supported in the mobile application (Captain Order); reconciliation and claim at scan are handled through the app, and pending free items are shown before completing payment.
 
 ::: warning
-في الفواتير ذات عدد السطور الكبير جداً، تتم إعادة حساب الاستحقاقات لجميع السطور عند الدفع، وقد يستغرق ذلك وقتاً ملحوظاً نسبياً.
+For invoices with a very large number of lines, entitlements are recalculated for all lines at payment, which may take a noticeably longer time.
 :::
-
-</rtl>

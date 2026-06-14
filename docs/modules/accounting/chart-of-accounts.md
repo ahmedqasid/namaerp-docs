@@ -1,61 +1,61 @@
-# شجرة الحسابات
+# Chart of Accounts
 
-شجرة الحسابات هي العمود الفقري لنظامك المحاسبي: هيكل هرمي يُصنِّف كل ما تملكه وتدين به وتكسبه وتنفقه في مجموعات منطقية متفرّعة. في أعلى الشجرة مجموعات كبيرة (الأصول، الالتزامات، حقوق الملكية، الإيرادات، المصروفات)، وتحتها مجموعات أدقّ، وصولًا إلى **الحسابات الطرفية** التي تُسجَّل عليها الأرصدة فعليًا.
+The chart of accounts is the backbone of your accounting system: a hierarchical structure that classifies everything you own, owe, earn, and spend into logical, branching groups. At the top of the tree are large groups (assets, liabilities, equity, revenue, expenses); beneath them finer groups; down to the **leaf accounts** where balances are actually recorded.
 
-هذه الصفحة تشرح كيف تُبنى الشجرة في **شجرة حسابات** (`Accounting > Master Files > Accounts Chart`)، وكيف تُكمِّلها ملفّات التصنيف التي تُغذّي التقارير المالية: **تصنيف الحساب** و**تصنيف الحساب الضريبي**.
+This page explains how the tree is built in **Accounts Chart** (`Accounting > Master Files > Accounts Chart`), and how it's complemented by the classification files that feed the financial statements: **Account Category** and **Account Tax Category**.
 
-::: info الترخيص المطلوب
-شجرة الحسابات والتصنيفات جزء من ترخيص المحاسبة الأساسي `accounting`.
+::: info Required license
+The chart of accounts and the classifications are part of the core `accounting` license.
 :::
 
-## بنية الشجرة الهرمية
+## The hierarchical tree structure
 
-كل عقدة في الشجرة لها **مجموعة أعلى** تربطها بأبيها، وبذلك تتكوّن الشجرة. والتمييز الجوهري بين نوعين من العُقَد:
+Every node in the tree has a **parent** that links it to its ancestor, and that's how the tree forms. The essential distinction is between two kinds of node:
 
-- **عقدة تجميعية** — تحمل علامة **يقبل عناصر** (`Accepts Elements`)، أي أن تحتها فروعًا أخرى. هذه العُقد لا تُسجَّل عليها حركات مباشرة، بل تُجمَّع فيها أرصدة ما تحتها.
-- **عقدة طرفية (ورقة)** — لا تقبل عناصر تحتها، وهي المستوى الذي تُربَط به الحسابات الفعلية وتُسجَّل عليه الأرصدة.
+- **Grouping node** — carries the **Accepts Elements** (`يقبل عناصر`) flag, meaning it has branches beneath it. These nodes aren't posted to directly; they aggregate the balances of everything under them.
+- **Leaf node** — does not accept elements beneath it, and is the level the actual accounts attach to and where balances are recorded.
 
-![شاشة شجرة الحسابات](./images/chart/accounts-chart.png)
+![The Accounts Chart screen](./images/chart/accounts-chart.png)
 
-في رأس الشاشة تُدخل **الكود** و**الاسم العربي** و**الاسم الإنجليزي**، و**الكود الإنجليزي** اختياريًا. وفي القسم التالي تُحدِّد موضع العقدة وطبيعتها:
+In the screen header you enter the **Code**, **Name1** (Arabic), and **Name2** (English), and optionally the **English Code**. The next section sets the node's position and nature:
 
-- **المجموعة الأعلى** — العقدة الأب التي تتفرّع منها هذه العقدة (تُترك فارغة لعُقد الجذر).
-- **نوع شجره الحسابات** — يربط العقدة بنوع الشجرة الذي عرّفته في الإعداد المبدئي (انظر [المفاهيم الأساسية والإعداد](./accounting-concepts-and-setup.md)).
-- **القسم** (`Class`) — تصنيف القائمة المالية التي تنتمي إليها العقدة: **ميزانية** أو **قائمة دخل** أو **أخري**. هذا ما يقرّر أين يظهر الحساب في القوائم المالية.
-- **طبيعة الجانب** (`Natural Side`) — الجانب الطبيعي للعقدة: **مدين** أو **دائن**. الأصول والمصروفات طبيعتها مدينة، والالتزامات وحقوق الملكية والإيرادات طبيعتها دائنة. هذه القيمة تُحدِّد كيف يُقرأ الرصيد (موجب أم سالب) في التقارير.
+- **Parent** — the parent node this node branches from (left empty for root nodes).
+- **Chart Type** — links the node to the chart type you defined during initial setup (see [Concepts & setup](./accounting-concepts-and-setup.md)).
+- **Class** — the financial-statement classification the node belongs to: **Balance Sheet**, **Income Statement**, or **Other**. This decides where the account appears in the financial statements.
+- **Natural Side** — the node's natural side: **Debit** or **Credit**. Assets and expenses are debit by nature; liabilities, equity, and revenue are credit by nature. This value determines how the balance is read (positive or negative) in reports.
 
-::: tip لماذا «طبيعة الجانب» مهمة؟
-الرصيد المدين في حساب طبيعته مدينة (كالنقدية) يعني رصيدًا موجبًا طبيعيًا. أما رصيد مدين في حساب طبيعته دائنة (كالمورّدين) فهو إشارة إلى وضع غير معتاد. النظام يستخدم طبيعة الجانب ليعرض الأرصدة بإشاراتها الصحيحة في كشوف الحسابات وموازين المراجعة.
+::: tip Why "Natural Side" matters
+A debit balance in a debit-natured account (like cash) is a naturally positive balance. A debit balance in a credit-natured account (like suppliers) signals an unusual situation. The system uses the natural side to present balances with their correct signs in account statements and trial balances.
 :::
 
-## التكويد التلقائي للحسابات
+## Automatic account coding
 
-بدل ترقيم الحسابات يدويًا، يتيح قسم **إعدادات صيغة التكويد للملفات** على العقدة التجميعية أن يَحسب النظام كود الحساب الجديد آليًا وفق صيغة: بادئة تسلسل، وطول للاحقة الرقمية، وأول رقم تبدأ منه. يمكنك كذلك توليد الاسم العربي/الإنجليزي بصيغة محسوبة، وضبط استعلام للتحقق من صلاحية الكود. الفائدة أن كل حساب جديد تحت تلك المجموعة يأخذ كودًا متّسقًا مع إخوته دون عناء.
+Instead of numbering accounts by hand, the **Code Formula Settings** section on a grouping node lets the system compute a new account's code automatically from a formula: a sequence prefix, a numeric-suffix length, and a starting number. You can also generate the Arabic/English name from a computed formula and set a code-validity query. The benefit is that every new account under that group gets a code consistent with its siblings, effortlessly.
 
-## تصنيف الحساب
+## Account Category
 
-شجرة الحسابات تنظّم الحسابات محاسبيًا، لكن التقارير المالية (خصوصًا **قائمة التدفقات النقدية** و**قائمة الدخل**) تحتاج إلى زاوية تصنيف إضافية. هذا دور **تصنيف الحساب** (`Accounting > Master Files > Account Category`): شجرة تصنيف موازية تربط كل حساب بدوره في هذه القوائم.
+The chart of accounts organizes accounts in accounting terms, but the financial statements — especially the **cash-flow statement** and the **income statement** — need an extra classification angle. That's the role of **Account Category** (`Accounting > Master Files > Account Category`): a parallel classification tree that links each account to its role in those statements.
 
-![شاشة تصنيف الحساب](./images/chart/account-category.png)
+![The Account Category screen](./images/chart/account-category.png)
 
-أهم حقوله:
+Its key fields:
 
-- **نوع التدفق النقدي** (`Cash Flow Type`) — يحدّد موضع الحساب في قائمة التدفقات النقدية، وقيمه: **أنشطة تشغيل**، **أنشطة استثمارية**، **أنشطة تمويلية**، **حساب نقدية**، **ربح - خسارة**، **تسويات**، أو **غير معني** لما لا يدخل في القائمة.
-- **نوع المعادلة** (`Equation Type`) — يحدّد موضع الحساب في قائمة الدخل: **الايرادات**، **تكلفة الايرادات**، **المصروفات**، **الايرادات الأخرى**، **الضرائب**، أو **غير معني**.
-- **القسم** و**طبيعة الجانب** — كما في شجرة الحسابات.
-- خيارات العرض في التقرير (**إظهار إجمالي الدخل**، **إظهار الضرائب**، **إظهار تفاصيل التصنيف**) تتحكّم في مستوى التفصيل الذي يظهر به التصنيف عند طباعة القوائم.
+- **Cash Flow Type** — places the account in the cash-flow statement; its values are **Operating Activities**, **Investment Activities**, **Financing Activities**, **Cash Account**, **Profit - Loss**, **Adjustment**, or **Not Involved** for accounts that don't enter the statement.
+- **Equation Type** — places the account in the income statement: **Revenue**, **Cost Of Revenue**, **Expenses**, **Other Revenue**, **Taxes**, or **Not Involved**.
+- **Class** and **Natural Side** — as in the chart of accounts.
+- The report display options (**Show Total Income**, **Show Taxes**, **Show Category Detail**) control the level of detail the category shows when statements are printed.
 
-## تصنيف الحساب الضريبي
+## Account Tax Category
 
-**تصنيف الحساب الضريبي** (`Accounting > Master Files > Account Tax Category`) يشبه تصنيف الحساب لكنه مخصّص للأبعاد الضريبية، ويُستخدم لتجميع الحسابات بحسب معاملتها الضريبية في الإقرارات والتقارير الضريبية. هو الآخر شجرة هرمية تحمل **نوع التدفق النقدي** و**القسم** و**طبيعة الجانب**.
+**Account Tax Category** (`Accounting > Master Files > Account Tax Category`) is similar to the account category but dedicated to tax dimensions — used to group accounts by their tax treatment in tax returns and reports. It too is a hierarchical tree carrying a **Cash Flow Type**, **Class**, and **Natural Side**.
 
-## التقارير
+## Reports
 
-تقرير **شجرة الحسابات** (`SYSR-ACC001`) يطبع الشجرة كاملةً بمستوياتها، وتجده مع بقية تقارير الحسابات الأساسية في صفحة [كشوف الحسابات وميزان المراجعة](./reports-account-statements-and-trial-balance.md).
+The **Accounts Chart** report (`SYSR-ACC001`) prints the full tree with its levels; you'll find it alongside the other core account reports on the [Account statements & trial balance](./reports-account-statements-and-trial-balance.md) page.
 
-## للدعم الفني
+## For Support
 
-- **«لا أستطيع التسجيل على حساب معيّن»** — تأكّد أن العقدة **طرفية** (لا تحمل علامة «يقبل عناصر»)؛ العُقد التجميعية لا تُسجَّل عليها حركات.
-- **«الرصيد يظهر بإشارة عكسية في الكشف»** — راجِع **طبيعة الجانب** للحساب؛ خطأ في تحديدها يقلب إشارة الرصيد في التقارير.
-- **«حساب لا يظهر في قائمة الدخل/التدفقات النقدية»** — تحقّق من **نوع المعادلة** و**نوع التدفق النقدي** في تصنيف الحساب؛ القيمة **غير معني** تُخرِج الحساب من القائمة.
-- بناء الحسابات الطرفية نفسها (العملة، الأنواع الفرعية، خصائص الترحيل والمحددات) موضّح في صفحة [الحسابات](./accounts.md).
+- **"I can't post to a certain account"** — make sure the node is a **leaf** (doesn't carry the "Accepts Elements" flag); grouping nodes can't be posted to.
+- **"The balance shows with a reversed sign in the statement"** — review the account's **Natural Side**; setting it wrong flips the balance's sign in reports.
+- **"An account doesn't appear in the income/cash-flow statement"** — check the **Equation Type** and **Cash Flow Type** in the account category; the **Not Involved** value excludes the account from the statement.
+- Building the leaf accounts themselves (currency, subsidiary types, posting and dimension properties) is covered in the [Accounts](./accounts.md) page.

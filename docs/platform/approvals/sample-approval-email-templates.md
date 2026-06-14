@@ -1,39 +1,39 @@
-# نماذج بريد إلكتروني جاهزة لطلبات الموافقة (Sample Approval Email Templates)
+# Sample Approval Email Templates
 
-عندما يدخل مستند في دورة موافقة، يستطيع نظام NAMA إرسال بريد إلكتروني إلى المسؤول يطلب منه **الاعتماد** أو **الرفض** أو **الإرجاع**. جسم هذا البريد هو مجرد قالب [Tempo](../../admin/tempo.md) معرَّف على قاعدة الموافقة، مما يتيح لك تصميمه بالشكل الذي تريده، بسيطاً كان أو احترافياً.
+When a document enters an approval workflow, NAMA can send the responsible person an email asking them to **approve**, **reject**, or **return** it. The body of that email is just a [Tempo](../../admin/tempo.md) template defined on the approval rule — which means you can make it as plain or as beautiful as you like.
 
-تجمع هذه الصفحة قوالب جاهزة للاستخدام يمكنك نسخها مباشرة في حقل جسم البريد الإلكتروني لقاعدة الموافقة. نبدأ بـ**قالب عام** يصلح لأي نوع من المستندات، وسنُضيف إلى هذه الصفحة قوالب مخصصة لمستندات بعينها (فواتير المبيعات، وأوامر البيع، وغيرها) مع مرور الوقت.
+This page collects ready-to-use, good-looking templates you can copy straight into an approval rule's email body. We start with a **generic template** that works for any document type, and we'll grow this page with templates tailored to specific documents (sales invoices, orders, and so on) over time.
 
-::: tip كيفية استخدام القالب
-انسخ كتلة HTML، والصقها في حقل **جسم البريد الإلكتروني** في قاعدة الموافقة، وعدّل أسماء الحقول (`code`، و`valueDate`، و`firstAuthor`، …) إذا كان مستندك يستخدم أسماء مختلفة. تعتمد أزرار الإجراءات الثلاثة على عناصر Tempo: `{approvelink}` و`{rejectlink}` و`{returnlink}` — راجع [إضافة روابط إجراءات الموافقة](../../admin/tempo.md#2-Df-rwbT-jrt-lmwfq).
+::: tip How to use a template
+Copy the HTML block, paste it into the **email body** of your approval rule, and adjust the field names (`code`, `valueDate`, `firstAuthor`, …) if your document uses different ones. The three action buttons rely on the Tempo placeholders `{approvelink}`, `{rejectlink}`, and `{returnlink}` — see [Adding Approval Action Links](../../admin/tempo.md#2-Adding-Approval-Action-Links).
 :::
 
-::: warning ملاحظة حول التنسيق
-عملاء البريد الإلكتروني صارمون للغاية في تعاملهم مع CSS. يعتمد هذا القالب على **أنماط مضمّنة** وتخطيط **قائم على الجداول** عمداً — وهو الطريقة الأكثر موثوقية للحصول على نتائج متسقة عبر Gmail وOutlook وعملاء الهاتف المحمول. لجعل كل زر فقاعة ملوّنة قابلة للنقر بالكامل، نستخدم خيار `plain=true` على روابط الإجراءات (مثل `{approvelink(plain=true)}`), الذي يُخرج **الرابط فقط** حتى نتمكن من تغليفه بوسم `<a>` منسَّق خاص بنا مع النص والأيقونة.
+::: warning A note on styling
+Email clients are notoriously picky about CSS. This template uses **inline styles** and a **table-based layout** on purpose — the most reliable way to get consistent results across Gmail, Outlook, and mobile clients. To make each button a fully clickable colored pill, we use the `plain=true` option on the action links (e.g. `{approvelink(plain=true)}`), which outputs **only the URL** so we can wrap it in our own styled `<a>` tag with our own text and icon.
 :::
 
 ---
 
-## قالب الموافقة العام (بالعربية)
+## Generic Approval Template (Arabic)
 
-بطاقة ملوّنة بتخطيط من اليمين إلى اليسار، يعرض رأسها نوع المستند بالعربية، ويسرد جسمها رقم المستند والتاريخ الفعلي وتاريخ ووقت الإنشاء ومنشئ السجل — يعقبها ثلاثة أزرار إجراء واضحة وقابلة للنقر بالكامل. يمكن النقر على الرقم والمؤلف للانتقال مباشرة إلى المستند وسجل المنشئ.
+A colorful, right-to-left card whose header shows the (Arabic) document type, with a body listing the code, actual date, creation date & time, and who created the record — followed by three clear, fully-clickable action buttons. The code and the author are clickable links that open the document and the author's record.
 
-يستخدم القالب هذه الحقول المتوفرة في أي مستند:
+It uses these fields, all available on any document:
 
-| الحقل | تعبير Tempo | التسمية العربية |
+| Field | Tempo expression | Arabic label |
 |-------|------------------|--------------|
-| نوع المستند (في الرأس) | `{entityType.$arabic}` | — |
-| الرقم (رابط للمستند) | `{titledlink($this)}{code}{endlink}` | رقم المستند |
-| التاريخ الفعلي | `{valueDate}` | التاريخ الفعلي |
-| تاريخ ووقت الإنشاء | `{$creationDate}` | تاريخ ووقت الانشاء |
-| منشئ السجل (رابط) | `{titledlink(firstAuthor)}{firstAuthor.name1}{endlink}` | منشئ السجل |
-| الملحوظة (تظهر فقط إن وُجدت) | `{if(remarks)}…{remarks}…{endif}` | ملحوظة |
+| Document type (in header) | `{entityType.$arabic}` | — |
+| Code (link to document) | `{titledlink($this)}{code}{endlink}` | رقم المستند |
+| Actual date | `{valueDate}` | التاريخ الفعلي |
+| Creation date & time | `{$creationDate}` | تاريخ ووقت الانشاء |
+| Record author (link) | `{titledlink(firstAuthor)}{firstAuthor.name1}{endlink}` | منشئ السجل |
+| Remarks (shown only if present) | `{if(remarks)}…{remarks}…{endif}` | ملحوظة |
 
-::: tip سطر موضوع ذو معنى
-يبدأ القالب بسطر `subject:` حتى يصل البريد بموضوع وصفي — مثل *طلب اعتماد فاتورة مبيعات - SI-0012 - منشئ السجل: أحمد* — بدلاً من موضوع عام. **يجب** أن يكون هذا أول سطر في الجسم (قبل `<div>`)؛ راجع [تعيين موضوع البريد الإلكتروني](../../admin/tempo.md#1-taayyn-mwDwaa-lbryd-llktrwny).
+::: tip A meaningful subject line
+The template opens with a `subject:` line so the email arrives with a descriptive subject — e.g. *طلب اعتماد فاتورة مبيعات - SI-0012 - منشئ السجل: أحمد* — instead of a generic one. This **must** be the very first line of the body (before the `<div>`); see [Setting the Email Subject](../../admin/tempo.md#1-Setting-the-Email-Subject).
 :::
 
-::: details كود HTML
+::: details HTML Code
 
 ```html
 subject:طلب اعتماد {entityType.$arabic} - {code} - منشئ السجل: {firstAuthor.name1}
@@ -128,49 +128,49 @@ subject:طلب اعتماد {entityType.$arabic} - {code} - منشئ السجل:
 ```
 :::
 
-هذا هو شكل البريد الإلكتروني بعد عرضه في صندوق الوارد:
+Here is how the rendered email looks in the inbox:
 
-![Approval email template rendered in the inbox](images/email-template-screenshot.png)
+![Approval email template rendered in the inbox](../../ar/platform/approvals/images/email-template-screenshot.png)
 
-::: tip حول الأزرار
-يغلّف كل زر رابط إجراء تُنتجه العناصر `{approvelink(plain=true)}` و`{returnlink(plain=true)}` و`{rejectlink(plain=true)}`. لأن `plain=true` يُخرج الرابط فقط، فإن **الفقاعة الملوّنة بأكملها قابلة للنقر** وأنت من يتحكم في نصها وأيقونتها. إذا فضّلت العرض الافتراضي لنظام NAMA، احذف `plain=true` واستخدم `{approvelink}` أو `{returnlink}` أو `{rejectlink}` مباشرة، فهي تُنشئ نص الرابط بنفسها.
+::: tip About the buttons
+Each button wraps an action URL produced by `{approvelink(plain=true)}`, `{returnlink(plain=true)}`, and `{rejectlink(plain=true)}`. Because `plain=true` emits only the URL, the **entire colored pill is clickable** and you control its text and icon. If you prefer NAMA's default rendering, drop `plain=true` and use the bare `{approvelink}` / `{returnlink}` / `{rejectlink}`, which generate their own anchor text.
 
-يعرض الرأس نوع المستند بالعربية عبر `{entityType.$arabic}`. في القوالب المخصصة لمستند بعينه، يمكنك استبداله باسم ثابت (مثل *فاتورة مبيعات*، أو *أمر بيع*) — وهو بالضبط ما ستفعله الأقسام القادمة.
+The header shows the document's Arabic type via `{entityType.$arabic}`. For document-specific templates you can replace it with a fixed name (e.g. *فاتورة مبيعات*, *أمر بيع*) — which is exactly what the upcoming sections will do.
 :::
 
-::: tip تذييل يعكس هوية الشركة
-يستخدم التذييل `{translate("applicationName")}` و`{translate("appUrl")}` بدلاً من اسم منتج ورابط مكتوبَين بشكل ثابت. تُحلَّل هذه المفاتيح وفق هوية التثبيت الجاري تشغيله — فالقالب نفسه يعرض *Nama ERP* / `namasoft.com`، أو *Capital Solutions ERP*، أو *Exceed ERP* / `exceed-erp.com`، وهكذا دون أي تعديل. راجع [مفاتيح الهوية: اسم التطبيق والرابط](../../admin/tempo.md#mftyH-laalm-ltjry-sm-ltTbyq-waanwnh).
+::: tip Branding-aware footer
+The footer uses `{translate("applicationName")}` and `{translate("appUrl")}` instead of a hardcoded product name and link. These keys resolve to the running installation's branding — so the same template shows *Nama ERP* / `namasoft.com`, *Capital Solutions ERP*, *Exceed ERP* / `exceed-erp.com`, and so on, without editing. See [Branding Keys: Application Name and URL](../../admin/tempo.md#Branding-Keys-Application-Name-and-URL).
 :::
 
 ---
 
-## قالب مستندات المبيعات والمخزون (بالعربية)
+## Sales/Inventory Documents Template (Arabic)
 
-بينما يصلح القالب العام أعلاه لأي مستند، فإن فاتورة المبيعات تحمل معلومات تستحق العرض في البريد الإلكتروني نفسه — *كم* يتم اعتماده و*ماذا* يحتوي. يبني هذا القالب على البطاقة العامة ويضيف إليها شيئين مخصصَين لهذه المستندات: **ملخص مالي** (الإجمالي وقيمة الخصم والصافي) و**جدول مفصَّل** للبنود (الصنف والكمية وسعر الوحدة والصافي لكل بند).
+While the generic template above works for any document, a sales invoice carries information that really deserves to be shown in the email itself — *how much* is being approved and *what* it's made of. This template builds on the generic card and adds two things tailored to such documents: a **money summary** (total, header discount, and net value) and an **itemized table** of the lines (item, quantity, unit price, and net value per line).
 
-وعلى الرغم من أنه كُتب هنا بفاتورة مبيعات في الاعتبار، **فإن القالب نفسه بالضبط يعمل دون تعديل لمجموعة مستندات المبيعات والمخزون بأكملها** — أوامر البيع والمرتجعات وفواتير الشراء وأوامر الشراء وعروض الأسعار وغيرها. كلها تشترك في حقول الرأس `money.*` وبنية بنود `details` ذاتها، ويتكيّف عنوان الرأس تلقائياً عبر `{entityType.$arabic}`. لذا يمكنك نسخ هذه الكتلة على أي من قواعد موافقة تلك المستندات دون أي تعديل.
+Although it's written here with a sales invoice in mind, **the exact same template works unchanged for the whole family of sales/inventory documents** — sales orders, sales returns, purchase invoices, purchase orders, quotations, and so on. They all share the same `money.*` header fields and the same `details` line structure, and the header title adapts automatically via `{entityType.$arabic}`. So you can copy this block onto any of those documents' approval rules without editing a thing.
 
-يستخدم القالب هذه الحقول المؤكّدة على كيان `SalesInvoice` (والمشتركة بين مستندات عائلته):
+It uses these fields, all confirmed against the `SalesInvoice` entity (and shared by its siblings):
 
-| الحقل | تعبير Tempo | التسمية العربية |
+| Field | Tempo expression | Arabic label |
 |-------|------------------|--------------|
-| الإجمالي | `{money.total}` | الإجمالي |
-| قيمة الخصم في الرأس | `{money.headerDiscount.value}` | قيمة الخصم |
-| الصافي | `{money.netValue}` | الصافي |
-| صنف البند (داخل الحلقة) | `{#details.item.item.name1}` | الصنف |
-| كمية البند (داخل الحلقة) | `{#details.quantity.quantity.primeQty.value}` | الكمية |
-| سعر وحدة البند (داخل الحلقة) | `{#details.price.unitPrice}` | سعر الوحدة |
-| صافي البند (داخل الحلقة) | `{#details.price.netValue}` | الصافي |
+| Total | `{money.total}` | الإجمالي |
+| Header discount | `{money.headerDiscount.value}` | قيمة الخصم |
+| Net value | `{money.netValue}` | الصافي |
+| Line item (in loop) | `{#details.item.item.name1}` | الصنف |
+| Line quantity (in loop) | `{#details.quantity.quantity.primeQty.value}` | الكمية |
+| Line unit price (in loop) | `{#details.price.unitPrice}` | سعر الوحدة |
+| Line net value (in loop) | `{#details.price.netValue}` | الصافي |
 
-::: tip لماذا `#` و`loop` لحقول البنود
-تُقرأ حقول الرأس المالية (`{money.total}`, …) مباشرة من المستند. أما حقول **البنود** فتقع داخل مجموعة `details`، لذا يجب أن تظهر داخل كتلة `{loop(details)}…{endloop}`، وتُسبَق بـ`#` (مثل `{#details.price.netValue}`) حتى يُحلّها Tempo بالنسبة إلى *الصف الحالي* من الحلقة. راجع [التكرار على البيانات المتكررة](../../admin/tempo.md#ltkrr-aal-bynt-mtkrr-mthl-tfSyl-lmstnd).
+::: tip Why the `#` and `loop` for line fields
+The header money fields (`{money.total}`, …) are read straight off the document. The **line** fields live inside the `details` collection, so they must appear inside a `{loop(details)}…{endloop}` block, and each is prefixed with `#` (e.g. `{#details.price.netValue}`) so Tempo resolves it against the *current row* of the loop. See [Looping Through Repeated Data](../../admin/tempo.md#Looping-Through-Repeated-Data-eg-Document-Details).
 :::
 
-::: tip تنسيق القيم المالية
-تُغلَّف المبالغ بـ`{formatNumber(…, "###,##0.00")}` لتُعرض كأرقام مجمَّعة بمنزلتين عشريتين (مثل *12,500.00*) بدلاً من أرقام خام. راجع [تنسيق الأرقام](../../admin/tempo.md#tnsyq-lrqm).
+::: tip Formatting the money values
+The amounts are wrapped in `{formatNumber(…, "###,##0.00")}` so they render as grouped, two-decimal figures (e.g. *12,500.00*) instead of raw numbers. See [Formatting Numbers](../../admin/tempo.md#Number-Formatting).
 :::
 
-::: details كود HTML
+::: details HTML Code
 ```html
 subject:طلب اعتماد {entityType.$arabic} - {code} - الصافي: {formatNumber(money.netValue, "###,##0.00")}
 <div dir="rtl" style="margin:0;padding:24px;background:#ecfeff;background:linear-gradient(135deg,#ecfeff 0%,#f0fdf4 100%);font-family:'Segoe UI',Tahoma,Arial,sans-serif;">
@@ -300,14 +300,14 @@ subject:طلب اعتماد {entityType.$arabic} - {code} - الصافي: {forma
 ```
 :::
 
-هذا هو شكل البريد الإلكتروني بعد عرضه في صندوق الوارد:
+Here is how the rendered email looks in the inbox:
 
-![Sales invoice approval email template rendered in the inbox](images/sales-invoice-approval-email-template.png)
+![Sales invoice approval email template rendered in the inbox](../../ar/platform/approvals/images/sales-invoice-approval-email-template.png)
 
-::: tip عرض كود الصنف بدلاً من اسمه
-يعرض الجدول صنف كل بند باسمه العربي عبر `{#details.item.item.name1}` (استخدم `name2` للاسم الإنجليزي). إذا كنت تفضّل **الكود**، استبدله بـ`{#details.item.item.code}`؛ ولعرض الاثنين معاً، ادمجهما: `{#details.item.item.code} — {#details.item.item.name1}`.
+::: tip Showing the item code instead of its name
+The table shows each line's item by its Arabic name via `{#details.item.item.name1}` (use `name2` for the English name). If you prefer the item **code**, swap it for `{#details.item.item.code}`; to show both, combine them: `{#details.item.item.code} — {#details.item.item.name1}`.
 :::
 
 ---
 
-*سيتم إضافة المزيد من القوالب لأنواع مستندات محددة (أوامر البيع والشراء، وسندات الاستلام، …) أدناه مع توسيع هذه الصفحة.*
+*More templates for specific document types (sales/purchase orders, receipt vouchers, …) will be added below as we expand this page.*

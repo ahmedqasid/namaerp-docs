@@ -1,92 +1,92 @@
-# القروض البنكية
+# Bank Loans
 
-القرض البنكي ليس مجرد مبلغ يدخل حسابك ثم تردّه؛ هو التزام يمتدّ شهورًا أو سنوات، بأصلٍ وفائدةٍ ورسومٍ وجدول أقساط، وقد يخصم من **حدّ تسهيلات** متّفق عليه مع البنك. لذلك لا تُسجّل القروض في نما كقيدٍ يدوي واحد، بل كـ **منظومة مترابطة**: مستند رئيسي يحمل شروط القرض، ثم مستندات حركة تُصدِره وتُسدِّد أقساطه وتحتسب فوائده على مدى عمره.
+A bank loan isn't just an amount that lands in your account and then gets repaid; it's a commitment that stretches over months or years, with a principal, interest, fees and an installment schedule — and it may draw down an agreed **facility limit** with the bank. So Nama doesn't record loans as a single manual journal, but as a **connected system**: a master document holding the loan terms, then movement documents that issue it, repay its installments and accrue its interest across its whole life.
 
-::: info الترخيص المطلوب
-القروض البنكية ضمن ترخيص `accounting-loans` — وهو الترخيص نفسه الذي يغطّي [الودائع الثابتة](./fixed-deposits.md) و[التسهيلات الائتمانية](./credit-facilities.md).
+::: info Required license
+Bank loans are part of the `accounting-loans` license — the same license that covers [Fixed Deposits](./fixed-deposits.md) and [Credit Facilities](./credit-facilities.md).
 :::
 
-## القصّة من بدايتها
+## The story from the start
 
-تبدأ كل الشاشات من جذر **البنوك > قروض بنكية** في شجرة القوائم. وتسير دورة حياة القرض هكذا:
+Every screen hangs off the **Banks > Bank Loans** root in the menu tree. The loan lifecycle runs like this:
 
-1. **طلب إضافة قرض** — تمهيد اختياري لتوثيق طلب القرض قبل اعتماده.
-2. **قرض بنكي** — الملف الرئيسي الذي يحمل شروط القرض كاملةً (حالته المبدئية «مبدئي»).
-3. **سند إصدار قرض** — اللحظة التي يدخل فيها مبلغ القرض فعلًا (يُرحَّل محاسبيًا، وتتحوّل حالة القرض إلى «تم إصداره»).
-4. **جدولة قرض بنكي** — لإعادة توزيع الأقساط عند الحاجة.
-5. **سند احتساب فوائد القرض** — لاحتساب فوائد الفترة وتثبيتها.
-6. **سداد أقساط القرض** — تسديد قسط (أو أكثر) بأصله وفائدته وغرامة التأخير إن وُجدت (يُرحَّل محاسبيًا).
-7. **تعديل قرض** — لتعديل بيانات القرض بعد إصداره.
+1. **Bank Loan Request** — an optional first step to document the loan request before it's approved.
+2. **Bank Loan** — the master file holding the full loan terms (its initial status is "Initial").
+3. **Loan Issue** — the moment the loan amount actually arrives (it posts to the ledger, and the loan's status flips to "Released").
+4. **Bank Loan Scheduling** — to redistribute the installments when needed.
+5. **Loan Interests Calculation** — to compute and lock in the period's interest.
+6. **Loan Installment Payment** — repaying one (or more) installments with its principal, interest and any late fine (it posts to the ledger).
+7. **Bank Loan Changing Document** — to amend the loan after it's been issued.
 
-## نوع القرض
+## Loan type
 
-قبل تسجيل القروض يُنشأ **نوع القرض** (`البنوك > قروض بنكية > نوع القرض`) كملف تصنيفي يجمع القروض المتشابهة ويوحّد توجيهاتها المحاسبية. وهو أمر تنظيمي يسهّل التقارير والترحيل لاحقًا.
+Before recording loans, a **Bank Loan Type** (`Banks > Bank Loans > Bank Loan Type`) is created as a classifying file that groups similar loans and unifies their accounting terms. It's an organizational matter that makes later reporting and posting easier.
 
-## الملف الرئيسي للقرض
+## The loan master file
 
-في شاشة **قرض بنكي** (`البنوك > قروض بنكية > قرض بنكي`) تُعرّف شروط القرض في ثلاث مناطق رئيسية:
+On the **Bank Loan** screen (`Banks > Bank Loans > Bank Loan`) the loan terms are defined in three main areas:
 
-- **المعلومات الأساسية**: **قيمة القرض**، **البنك** و**رقم حساب البنك** الذي يُودَع فيه، **قيمة الرسوم**، و**نوع القرض**. ويمكن ربط القرض بـ **طلب القرض** الذي سبقه وبـ **حدّ التسهيلات** الذي يُخصم منه، وبـ **عقد المشروع** عند تمويل مشروع بعينه.
-- **الأقساط**: **عدد الأقساط** و**قيمة القسط** و**الأقساط تبدأ من** (تاريخ أول قسط) و**تُحسب كل** (فترة التكرار، مثلًا كل شهر)، أو الاعتماد على **نموذج جدولة الأقساط** الجاهز.
-- **الفوائد**: **نسبة الفائدة السنوية** و**نوع الفائدة** و**الفوائد تبدأ من** و**تُدفع كل**. ومن الخيارات المهمّة هنا: **تُحسب الفوائد مرة واحدة في نهاية الفترة**، و**تاريخ بداية الفوائد هو نفس تاريخ بداية القرض**، و**حساب الفوائد بناءً على القيمة وليس النسبة**، و**التعديل في قيمة آخر فائدة إن وُجد**.
+- **Basic information**: the **loan value**, the **bank** and the **bank account** it's deposited into, the **fees value**, and the **loan type**. The loan can be linked to the **loan request** that preceded it, to the **facility limit** it draws down, and to a **project contract** when financing a specific project.
+- **Installments**: the **installments count**, the **installment value**, **installments start in** (first installment date) and **calculated per** (the recurrence, e.g. every month) — or relying on a ready-made **installments template**.
+- **Interests**: the **annual interest percent**, the **interest type**, **interests start in** and **paid per**. Important options here include: **calculate interest once at the end of the period**, **interest start date is the same as the loan start date**, **calculate interest based on the value not the percent**, and **adjust the last interest value if needed**.
 
-![شاشة القرض البنكي](./images/loans/bank-loan.png)
+![Bank Loan screen](./images/loans/bank-loan.png)
 
-**أنواع الفائدة** المتاحة:
+The available **interest types**:
 
-| النوع | المعنى |
+| Type | Meaning |
 |---|---|
-| بسيط (Simple) | فائدة ثابتة محسوبة على أصل القرض كاملًا طوال المدة. |
-| متناقص (Decreasing) | فائدة على الرصيد المتبقّي، فتتناقص مع كل قسطٍ يُسدَّد من الأصل. |
-| يدوي (Manual) | تُدخَل قيم الفوائد يدويًا في جدول الفوائد بدل احتسابها آليًا. |
+| Simple | A fixed interest computed on the full loan principal for the whole term. |
+| Decreasing | Interest on the remaining balance, so it shrinks with each principal installment repaid. |
+| Manual | Interest values are entered by hand in the interests table instead of being computed automatically. |
 
-كما يضبط الحقلان **عدد أيام التأخير المسموح بها** و**نسبة غرامة التأخير** كيفية احتساب غرامة القسط المتأخّر عند السداد.
+The **allowed late days** and **late fine percent** fields together govern how the late-installment fine is computed at payment time.
 
-### حالات القرض
+### Loan statuses
 
-يمرّ القرض بالحالات التالية، وتتحرّك تلقائيًا مع مستندات الحركة:
+The loan moves through these statuses, which advance automatically with the movement documents:
 
-| الحالة | متى |
+| Status | When |
 |---|---|
-| مبدئي (Initial) | عند حفظ القرض قبل إصداره. |
-| تم إصداره (Released) | بعد ترحيل سند إصدار القرض. |
-| قيد التنفيذ (In Progress) | أثناء سداد الأقساط. |
-| منتهي (Finished) | بعد سداد كامل الأقساط والفوائد. |
-| ملغي (Cancelled) | عند الإلغاء. |
+| Initial | when the loan is saved before being issued. |
+| Released | after the loan issue document posts. |
+| In Progress | while installments are being paid. |
+| Finished | after all installments and interest are fully paid. |
+| Cancelled | on cancellation. |
 
-## إصدار القرض
+## Issuing the loan
 
-ما دام القرض في حالته المبدئية فهو مجرد اتفاق على ورق. عند تحرير **سند إصدار قرض** (`البنوك > قروض بنكية > سند إصدار قرض`) يدخل المبلغ فعلًا: يُرحَّل السند محاسبيًا فيُسجَّل القرض على البنك ويُودَع في الحساب، وتتحوّل حالة القرض إلى «تم إصداره». ويغطّي توجيه الإصدار جوانب: **مدين/دائن قيمة القرض**، و**مدين/دائن قيمة الرسوم** (مع **ضريبة الرسوم**)، و**مدين/دائن قيمة الفائدة** — أي من أين تأتي حسابات كلٍّ من أصل القرض ورسومه وفوائده. (تفصيل مصدر هذه الحسابات في مرجع [توجيهات المستندات](./support/accounting-document-terms.md).)
+As long as the loan is in its initial status it's just an agreement on paper. When a **Loan Issue** (`Banks > Bank Loans > Loan Issue`) is recorded the amount actually arrives: the document posts to the ledger so the loan is booked against the bank and deposited into the account, and the loan's status flips to "Released". The issue term covers the sides: **loan value debit/credit**, **fees value debit/credit** (with **fees tax**), and **interest value debit/credit** — i.e. where the accounts for the loan principal, its fees and its interest come from. (The detail of where these accounts come from is in the [Document terms](./support/accounting-document-terms.md) reference.)
 
-![شاشة سند إصدار القرض](./images/loans/loan-issue.png)
+![Loan Issue screen](./images/loans/loan-issue.png)
 
-## احتساب الفوائد والسداد
+## Interest accrual and repayment
 
-مع مرور فترات القرض يُحرَّر **سند احتساب فوائد القرض** لتثبيت فائدة الفترة المستحقّة وفق نوع الفائدة المختار.
+As the loan periods pass, a **Loan Interests Calculation** is recorded to lock in the period's due interest according to the chosen interest type.
 
-ثم يأتي **سداد أقساط القرض** (`البنوك > قروض بنكية > سداد أقساط القرض`) ليسدّد قسطًا أو أكثر. يعرض السند مجاميع القرض (إجمالي الأقساط والفوائد والمسدَّد والمتبقّي)، ويفصل في الأسطر بين **أصل القسط** و**الفائدة المسدَّدة** و**غرامة التأخير** (تُحتسب آليًا من أيام التأخير ونسبة الغرامة). ويُرحَّل السند محاسبيًا عبر جوانب: **مدين/دائن الغرامة**، و**مدين/دائن المبلغ المسدَّد للفائدة**، إضافة إلى جانب الأصل المحصَّل.
+Then comes the **Loan Installment Payment** (`Banks > Bank Loans > Loan Installment Payment`) to repay one or more installments. The document shows the loan totals (total installments, interest, paid and remaining), and its lines separate the **installment principal**, the **interest paid** and the **late fine** (computed automatically from the late days and fine percent). The document posts via the sides: **fine debit/credit**, **interest payment value debit/credit**, plus the collected-principal side.
 
-![شاشة سداد أقساط القرض](./images/loans/loan-installment-payment.png)
+![Loan Installment Payment screen](./images/loans/loan-installment-payment.png)
 
-::: tip سند إصدار الأرباح مشترك مع الودائع
-**سند إصدار أرباح** (`البنوك > ودائع بنكية > سند إصدار أرباح`) يُستخدم لإثبات دفعات الفوائد/الأرباح، وهو المستند نفسه المستخدَم في [الودائع الثابتة](./fixed-deposits.md).
+::: tip The interest-payment document is shared with deposits
+The **Interest Payment Document** (`Banks > Fixed Deposits > Interest Payment Document`) is used to record interest/profit payments, and it's the same document used in [Fixed Deposits](./fixed-deposits.md).
 :::
 
-## الجدولة والتعديل
+## Scheduling and amendment
 
-إذا تغيّرت ظروف السداد، يُعيد **سند جدولة قرض بنكي** توزيع الأقساط المتبقّية على فتراتٍ جديدة. أما **تعديل قرض** فيُستخدم لتعديل بيانات القرض نفسه بعد إصداره ضمن ضوابط النظام.
+If repayment circumstances change, a **Bank Loan Scheduling** document redistributes the remaining installments over new periods. A **Bank Loan Changing Document** is used to amend the loan data itself after it's been issued, within the system's controls.
 
-## التقارير
+## Reports
 
-| التقرير | يجيب عن |
+| Report | Answers |
 |---|---|
-| تفاصيل أقساط القرض (SYSR-LON001) | جدول أقساط القرض: المستحق والمسدَّد والمتبقّي لكل قسط وفائدته. |
-| تفاصيل التسهيلات البنكية (SYSR-LON002) | استهلاك حدود التسهيلات عبر القروض والخطابات والاعتمادات (انظر [التسهيلات الائتمانية](./credit-facilities.md)). |
+| Loan installment details (SYSR-LON001) | The loan's installment schedule: due, paid and remaining for each installment and its interest. |
+| Details of banking facilities (SYSR-LON002) | Facility-limit consumption across loans, guarantees and credits (see [Credit Facilities](./credit-facilities.md)). |
 
-## للدعم الفني
+## For Support
 
-- **«القرض ما زال مبدئيًا ولم يدخل المبلغ»** — لم يُحرَّر سند إصدار القرض بعد؛ الإصدار هو ما يُرحِّل المبلغ ويحرّك الحالة إلى «تم إصداره».
-- **«من أين تأتي حسابات القرض والرسوم والفوائد؟»** — من توجيه **سند إصدار القرض** و**سداد الأقساط**؛ راجِع [توجيهات المستندات](./support/accounting-document-terms.md).
-- **«غرامة التأخير لا تُحتسب»** — تأكّد من ضبط **عدد أيام التأخير المسموح بها** و**نسبة غرامة التأخير** على القرض.
-- **«القرض لا يخصم من حدّ التسهيلات»** — تأكّد من ربط القرض بـ **حدّ التسهيلات** الصحيح؛ التفاصيل في [التسهيلات الائتمانية](./credit-facilities.md).
-- آلية المعالجة المحاسبية في [كيف تُعالَج المستندات إلى أثر محاسبي](./support/accounting-request-processing.md).
+- **"The loan is still Initial and the amount hasn't arrived"** — the loan issue document hasn't been recorded yet; issuing is what posts the amount and moves the status to "Released".
+- **"Where do the loan, fees and interest accounts come from?"** — from the **Loan Issue** and **Installment Payment** terms; see [Document terms](./support/accounting-document-terms.md).
+- **"The late fine isn't computed"** — make sure the **allowed late days** and **late fine percent** are set on the loan.
+- **"The loan doesn't draw down the facility limit"** — make sure the loan is linked to the correct **facility limit**; details in [Credit Facilities](./credit-facilities.md).
+- The accounting-processing mechanism is in [How documents are processed into accounting effects](./support/accounting-request-processing.md).

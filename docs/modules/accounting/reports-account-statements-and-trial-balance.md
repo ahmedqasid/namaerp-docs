@@ -1,78 +1,82 @@
-# كشوف الحسابات وميزان المراجعة والتحليل
+# Account Statements, Trial Balance & Analysis
 
-بعد أن تُسجَّل الحركات، تأتي لحظة السؤال: ما رصيد هذا الحساب؟ ماذا تحرّك على ذمة هذا العميل؟ هل ميزاني متوازن؟ تجيب عن ذلك عائلة **تقارير الحسابات** (`SYSR-ACC*`)، وهي تقارير نظام جاهزة تُستدعى من قائمة التقارير. هذه الصفحة دليلها: ماذا يجيب كل تقرير وأهمّ محدّداته.
+Once transactions are recorded, the moment of questions arrives: What is this account's balance? What moved on this customer's subsidiary? Are my books balanced? The **account reports** family (`SYSR-ACC*`) answers that — ready-made system reports invoked from the reports menu. This page is their guide: what each report answers and its key parameters.
 
-::: info الترخيص المطلوب
-هذه التقارير ضمن ترخيص المحاسبة الأساسي `accounting`.
+::: info Required license
+These reports are part of the core `accounting` license.
 :::
 
-::: tip القوائم المالية لها صفحتها
-القوائم المالية الرسمية (الميزانية وقائمة الدخل والتدفقات النقدية، `SYSR-FNS*`) ليست هنا — فهي ناتج **منظومة القوائم المالية** وتُوثَّق مع محرّكها. هذه الصفحة مخصّصة لكشوف الأستاذ وموازين المراجعة والتحليل التي لا ترتبط بنوع مستند بعينه.
+::: tip Financial statements have their own page
+The formal financial statements (balance sheet, income statement, cash flow, `SYSR-FNS*`) aren't here — they're the output of the **financial-statements engine** and are documented with it. This page is for the ledger statements, trial balances, and analysis that aren't tied to a particular document type.
 :::
 
-## شجرة الحسابات
+::: info About the report samples
+The sample images below are the reports' Arabic-rendered output; they illustrate the report layout and are reused on this English page.
+:::
 
-تقرير **شجرة الحسابات** (`SYSR-ACC001`) يطبع الشجرة كاملةً بمستوياتها وتصنيفاتها — مرجع سريع لبنية حساباتك (انظر [شجرة الحسابات](./chart-of-accounts.md)).
+## Chart of accounts
 
-## كشوف الحسابات
+The **Accounts Chart** report (`SYSR-ACC001`) prints the full tree with its levels and classifications — a quick reference to your account structure (see [Chart of Accounts](./chart-of-accounts.md)).
 
-كشف الحساب يعرض حركات حساب خلال فترة مع **الرصيد الجاري** (محليًا وبالعملة الأجنبية عند اللزوم). تختلف الصيغ بحسب مستوى التفصيل والزاوية:
+## Account statements
 
-- **كشف حساب عام** (`SYSR-ACC002`, `ACC029`) ومتغيّراته: بالعملة (`ACC030`)، بالتفصيل (`ACC035`)، بالجانب الثاني (`ACC037`)، بسعر الصرف (`ACC038`)، بإمكانية المراجعة (`ACC039`)، بالصلاحيات (`ACC040`).
-- **كشف حساب فرعي (ذمة)** (`SYSR-ACC003`, `ACC031`) و**بالعملة** (`ACC032`) — لعرض حركة طرف بعينه.
-- **كشف حساب تفصيلي** (`SYSR-ACC004`, `ACC033`)، **بالمجموعة التحليلية** (`ACC021`)، **بالعملة** (`ACC034`).
+An account statement shows an account's movements over a period with the **running balance** (locally, and in foreign currency when needed). The variants differ by level of detail and angle:
 
-![نموذج كشف حساب عام](./images/reports/acc002.png)
+- **General account statement** (`SYSR-ACC002`, `ACC029`) and its variants: by currency (`ACC030`), in detail (`ACC035`), by second side (`ACC037`), by exchange rate (`ACC038`), with revise capability (`ACC039`), by capabilities (`ACC040`).
+- **Subsidiary account statement** (`SYSR-ACC003`, `ACC031`) and **by currency** (`ACC032`) — to show a specific party's movements.
+- **Detail account statement** (`SYSR-ACC004`, `ACC033`), **by analysis set** (`ACC021`), **by currency** (`ACC034`).
 
-أهمّ المحدّدات في هذه الكشوف: نطاق التاريخ/الفترة، الحساب أو الذمة، العملة، والمحددات (الفرع/القطاع/الإدارة). يُحسب الرصيد الجاري بترتيب الحركات زمنيًا.
+![General account statement sample](./images/reports/acc002.png)
 
-## موازين المراجعة
+The key parameters in these statements: date/period range, the account or subsidiary, currency, and dimensions (branch/sector/department). The running balance is computed by ordering movements chronologically.
 
-ميزان المراجعة يلخّص أرصدة الحسابات (مدين/دائن) للتحقق من توازن الدفاتر:
+## Trial balances
 
-- **ميزان مراجعة عام** (`SYSR-ACC005`)، وبإجمالي الرصيد (`ACC026`)، وبتاريخ (`ACC036`)، وبتضمين الذمم (`ACC044`).
-- **ميزان مراجعة فرعي** (`SYSR-ACC006`)، وبإجمالي الرصيد (`ACC027`)، وبتاريخ (`ACC042`).
-- **ميزان مراجعة لحساب** (`SYSR-ACC007`) لحساب محدّد.
+A trial balance summarizes account balances (debit/credit) to verify the books are balanced:
 
-![نموذج ميزان المراجعة](./images/reports/acc005.png)
+- **General trial balance** (`SYSR-ACC005`), by total balance (`ACC026`), by date (`ACC036`), and including subsidiaries (`ACC044`).
+- **Subsidiary trial balance** (`SYSR-ACC006`), by total balance (`ACC027`), by date (`ACC042`).
+- **Trial balance for an account** (`SYSR-ACC007`) for a specific account.
 
-## تحليل الحسابات
+![Trial balance sample](./images/reports/acc005.png)
 
-- **تحليل الحسابات شهريًا** (`SYSR-ACC012`) — توزيع أرصدة الحسابات على شهور السنة.
-- **تحليل الحسابات حسب الفرع** (`SYSR-ACC013`) و**حسب الفرع والقطاع** (`SYSR-ACC028`).
+## Account analysis
 
-## أعمار الديون
+- **Accounts analysis monthly** (`SYSR-ACC012`) — distributing account balances across the year's months.
+- **Accounts analysis by branch** (`SYSR-ACC013`) and **by branch and sector** (`SYSR-ACC028`).
 
-تكشف هذه التقارير مدى تقادم المديونيات (تعتمد على علم **متابعة أعمار الديون** على الحساب — انظر [الحسابات](./accounts.md)):
+## Debt ages
 
-- **أعمار الديون** (`SYSR-ACC024`)، وتفاصيل مستنداتها (`ACC025`)، و**حسب الفاتورة** (`ACC045`)، و**كل أسطر الدين اليدوية** (`ACC041`).
+These reports reveal how aged receivables are (they rely on the **Track Debt Ages** flag on the account — see [Accounts](./accounts.md)):
 
-![نموذج أعمار الديون حسب الفاتورة](./images/reports/acc045.png)
+- **Debt ages** (`SYSR-ACC024`), its document details (`ACC025`), **by invoice** (`ACC045`), and **all manual debt lines** (`ACC041`).
 
-## كشوف السندات والقيود
+![Debt ages by invoice sample](./images/reports/acc045.png)
 
-كشوف مخصّصة لمستندات القبض والصرف والقيود (مرتبطة كذلك من صفحتَي [سندات القبض والصرف](./receipts-and-payments.md) و[سندات القيد](./journal-entries.md)):
+## Voucher and entry statements
 
-- كشف **طلبات سندات القبض** (`SYSR-ACC015`)، **سندات القبض** (`ACC016`, `ACC046`).
-- كشف **طلبات سندات الصرف** (`SYSR-ACC017`)، **سندات الصرف** (`ACC018`, `ACC047`).
-- كشف **سندات القيد** (`SYSR-ACC019`).
+Statements dedicated to receipt/payment and journal documents (also linked from the [Receipt & payment vouchers](./receipts-and-payments.md) and [Journal entries](./journal-entries.md) pages):
 
-## تحليل رد الضريبة
+- **Receipt voucher requests** statement (`SYSR-ACC015`), **receipt vouchers** (`ACC016`, `ACC046`).
+- **Payment voucher requests** statement (`SYSR-ACC017`), **payment vouchers** (`ACC018`, `ACC047`).
+- **Journal entries** statement (`SYSR-ACC019`).
 
-**تحليل رد الضريبة** (`SYSR-ACC014`) لأغراض المطالبة الضريبية واستردادها.
+## Tax rebate analysis
 
-## نموذج حركة الأستاذ
+**Tax rebate analysis** (`SYSR-ACC014`) for tax-claim and refund purposes.
 
-**نموذج حركة الأستاذ** (`SYSR-ACC048`) يطبع الحركة المحاسبية المفردة بتفاصيلها.
+## Ledger transaction form
 
-![نموذج حركة الأستاذ](./images/reports/acc048.png)
+The **Ledger Trans Form** (`SYSR-ACC048`) prints the single accounting movement with its details.
 
-## استعلامات على الشاشة
+![Ledger transaction form sample](./images/reports/acc048.png)
 
-إلى جانب التقارير المطبوعة، توجد **استعلامات حيّة** على الشاشة لا تحتاج طباعة: قائمة **حركات الأستاذ** وشاشات أرصدة الحسابات والمحددات. تستعرضها مباشرةً على الشاشة لمتابعة لحظية للأرصدة.
+## On-screen inquiries
 
-## للدعم الفني
+Beyond the printed reports, there are **live inquiries** on screen that need no printing: the **Ledger Transactions** list and the account/dimension balance screens. You browse them directly on screen for a real-time view of balances.
 
-- **«رصيد التقرير لا يطابق المتوقّع»** — تحقّق من نطاق التاريخ والفترة والمحددات المختارة؛ معظم الفروق سببها فلتر غير مقصود.
-- **«حساب لا يظهر في أعمار الديون»** — علم **متابعة أعمار الديون** غير مفعّل على الحساب.
-- **«الرصيد بالعملة الأجنبية غير ظاهر»** — استخدم صيغة الكشف **بالعملة** المناسبة (`ACC030`/`ACC032`/`ACC034`).
+## For Support
+
+- **"The report balance doesn't match expectations"** — check the date/period range and the selected dimensions; most discrepancies are caused by an unintended filter.
+- **"An account doesn't appear in debt ages"** — the **Track Debt Ages** flag isn't enabled on the account.
+- **"The foreign-currency balance isn't shown"** — use the appropriate **by currency** statement variant (`ACC030`/`ACC032`/`ACC034`).

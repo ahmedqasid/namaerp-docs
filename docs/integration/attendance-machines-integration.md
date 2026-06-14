@@ -1,167 +1,165 @@
-<rtl>
+# Integration with Attendance Machines
 
-# الربط مع ماكينات الحضور والانصراف
+The system supports two methods for integrating with attendance machines:
 
-يدعم النظام طريقتين للربط مع ماكينات الحضور والانصراف:
+1. The first method uses a dedicated application installed on the devices that read fingerprints from the machines.
+2. The second method connects the SQL Server database of the machines directly to the SQL Server database of Nama ERP.
 
-1. الطريقة الأولى من خلال تطبيق مخصص يتم وضعه على الأجهزة التي تقرأ البصمات من الماكينات.
-2. الطريقة الثانية من خلال ربط خادم SQL Server الخاص بالماكينات مع SQL Server الخاص بنظام نما.
-
-## الطريقة الأولى: تطبيق attcron
+## Method 1: The attcron Application
 
 ::: tip
-هذا التطبيق بحاجة لترخيص منفصل – يرجى التواصل مع فريق المبيعات أو الدعم الفني للحصول على الترخيص.
+This application requires a separate license — please contact the sales or technical support team to obtain a license.
 :::
 
-هو تطبيق مخصص يتم تنصيبه على الأجهزة التي بها برامج استيراد البيانات من ماكينات الحضور والانصراف.
-وظيفته الأساسية هي جلب البيانات من قاعدة بيانات البرنامج المحلية أو من خلال واجهة البرمجة الخاصة ببرنامج الماكينة (API)، وإرسالها بشكل دوري إلى النظام.
+This is a dedicated application installed on devices that have software for importing data from attendance machines.
+Its primary function is to fetch data from the local program's database or through the machine program's API, and send it periodically to the system.
 
-### مميزات التطبيق
+### Application Features
 
-* لا يحتاج إلى static IP في كل الفروع التي تحتوي على ماكينات.
-* لكن يجب وجود static IP أو أي طريقة تسمح للتطبيق بالوصول إلى خادم Nama ERP الرئيسي.
+* No static IP is required at branches that have attendance machines.
+* However, a static IP or any method that allows the application to reach the main Nama ERP server must be available.
 
-### خطوات التشغيل
+### Setup Steps
 
-* قم بإنشاء ملف API Credentials في نظام Nama ERP واحتفظ بـ **Client ID** و **Client Secret**.
+* Create an API Credentials record in Nama ERP and keep the **Client ID** and **Client Secret**.
 
-* قم بإنشاء ملف "إعدادات ماكينة الحضور" جديد، وحدد له:
+* Create a new "Attendance Machine Settings" record and specify:
 
-  * كود مناسب
-  * اسم
-  * نوع الاتصال
+  * A suitable code
+  * A name
+  * The connection type
 
-* حدد **CRON Expression** لتحديد توقيت قراءة البيانات وإرسالها إلى النظام:
+* Set a **CRON Expression** to define when data is read and sent to the system:
 
-  * مثال: `5 */1 * * *` سيقوم بقراءة البيانات كل ساعة عند الدقيقة الخامسة.
-  * يمكنك استخدام الموقع التالي لمساعدتك: [https://crontab.guru](https://crontab.guru)
+  * Example: `5 */1 * * *` will read data every hour at the fifth minute.
+  * You can use the following site for help: [https://crontab.guru](https://crontab.guru)
 
-* حدد المهمة المجدولة التي سيتم تشغيلها بعد سحب البيانات من الماكينة:
+* Set the scheduled task to run after pulling data from the machine:
 
-  * هذه المهمة تقوم بجلب البيانات من جدول لوج البصمات إلى ملف الحضور والانصراف.
-  * لتسهيل إنشاء المهمة، تم إضافة زر باسم **Create Scheduled Task**.
+  * This task fetches data from the fingerprint log table into the time attendance document.
+  * To simplify task creation, a button named **Create Scheduled Task** has been added.
 
-### نوع الاتصال (Connection Type)
+### Connection Type
 
-نوع الاتصال يحتوي على ثلاث خيارات:
+The connection type has three options:
 
 #### ZkBiotime
 
-* يسمح بنقل بيانات البصمة من برنامج ZK BioTime.
-* يتطلب:
+* Allows transferring fingerprint data from the ZK BioTime software.
+* Requires:
 
-  * رابط الماكينة
-  * اسم المستخدم
-  * كلمة المرور
+  * Machine URL
+  * Username
+  * Password
 
 #### SQL Server
 
-* يسمح بنقل البيانات من أي ماكينة تدعم SQL Server.
+* Allows transferring data from any machine that supports SQL Server.
 
-* الإعدادات المطلوبة:
+* Required settings:
 
-  * **رابط الماكينة**: عنوان خادم SQL Server – غالبًا يكون `localhost`
-  * **Database Port**: منفذ الاتصال – غالبًا `1433`
-  * **اسم المستخدم**: مثل `sa`
-  * **كلمة المرور**
-  * **SQL Query**: الاستعلام الذي سيتم استخدامه لقراءة البيانات من قاعدة بيانات الماكينة بشكل دوري
-  * **Read For Period Query**: استعلام يستخدم لقراءة بيانات فترة معينة عند الضغط على زر "Read Attendance For Period" في تطبيق attcron
-  * **Mapping Lines**: ربط أعمدة نتيجة الاستعلام بما يحتاجه النظام
+  * **Machine URL**: the SQL Server address — usually `localhost`
+  * **Database Port**: the connection port — usually `1433`
+  * **Username**: e.g. `sa`
+  * **Password**
+  * **SQL Query**: the query used to periodically read data from the machine's database
+  * **Read For Period Query**: a query used to read data for a specific period when the "Read Attendance For Period" button is pressed in the attcron application
+  * **Mapping Lines**: maps the query result columns to what the system needs
 
-    يحتوي على ثلاثة أعمدة:
+    Contains three columns:
 
-    * **Response Field**: اسم الحقل المطلوب في النظام
-      القيم الممكنة:
+    * **Response Field**: the name of the field required by the system.
+      Possible values:
       `EmployeeCode`, `firstName`, `lastName`, `department`, `punchTime`, `punchState`, `punchStateDisplay`, `verifyType`, `verifyTypeDisplay`, `gpsLocation`, `areaAlias`, `terminalSN`, `uploadTime`
-    * **Column Index**: رقم العمود في نتيجة الاستعلام
-    * **Column Alias**: اسم العمود البديل لاستخدامه في جملة SQL
+    * **Column Index**: the column number in the query result
+    * **Column Alias**: an alternate column name to use in the SQL statement
 
-* يوجد زر باسم **Default Queries** يقوم بإدراج استعلامات افتراضية مناسبة لماكينات ZK.
+* A button named **Default Queries** inserts default queries suitable for ZK machines.
 
 #### Access
 
-* يسمح بنقل البيانات من قاعدة بيانات Microsoft Access.
-* نفس الإعدادات مثل SQL Server، باستثناء:
+* Allows transferring data from a Microsoft Access database.
+* Same settings as SQL Server, except:
 
-  * لا حاجة لاسم مستخدم وكلمة مرور ورابط الخادم.
-  * بدلاً من ذلك يتم تحديد **مسار ملف قاعدة البيانات** الموجود على الجهاز الذي سيتم تنصيب عليه تطبيق attcron.
+  * No username, password, or server URL is needed.
+  * Instead, specify the **database file path** on the machine where the attcron application will be installed.
 
-### خطوات تنصيب برنامج Attendance Cron على الجهاز
+### Steps to Install the Attendance Cron Application on a Device
 
-1. اذهب إلى الجهاز الذي سيتم تشغيل التطبيق عليه، وقم بتنصيب:
+1. Go to the device where the application will run and install:
 
   * **JDK 21**
   * **Apache Tomcat 10**
 
-2. اضبط Tomcat بحيث يكون `Startup Type = Automatic`.
+2. Configure Tomcat so that `Startup Type = Automatic`.
 
-3. قم بتحميل ملف تنصيب Attendance Cron من الرابط التالي:
+3. Download the Attendance Cron installer from the following link:
 
    [https://namasoft.com/bin/nama-attcron-upgrader.jar](https://namasoft.com/bin/nama-attcron-upgrader.jar)
 
-4. ضع الملف في مجلد Tomcat، ثم قم بتشغيله.
+4. Place the file in the Tomcat folder, then run it.
 
-5. بعد تشغيل الملف سيتم تحميل التطبيق.
+5. After running the file, the application will be downloaded.
 
-6. افتح المتصفح وادخل إلى العنوان:
+6. Open a browser and navigate to:
 
    `http://localhost:8080/attcron`
 
-7. ستظهر لك صفحة تطلب منك إدخال البيانات التالية:
+7. A page will appear asking you to enter the following information:
 
-  * **Nama Server Address**: أدخل عنوان خادم Nama.
-  * **Client Id and Client Secret**: أدخل بيانات الاتصال التي أنشأتها سابقًا.
-  * **Attendance Machine Config Code**: أدخل كود الماكينة الذي حددته عند إنشاء الإعدادات.
+  * **Nama Server Address**: enter the Nama server address.
+  * **Client Id and Client Secret**: enter the connection credentials you created earlier.
+  * **Attendance Machine Config Code**: enter the machine code you specified when creating the settings.
 
-بعد إكمال هذه البيانات، يصبح التطبيق جاهزًا لإرسال بيانات الحضور والانصراف إلى النظام.
+After completing these details, the application is ready to send attendance data to the system.
 
-## الطريقة الثانية: من خلال الربط مع قاعدة بيانات SQL Server بشكل مباشر
+## Method 2: Direct SQL Server Database Integration
 
-سنعرض المثال هنا باستخدام ماكينات ZK، ولكن يمكن تفعيل هذه الطريقة مع أي ماكينة تدعم تخزين بياناتها في قاعدة بيانات SQL Server.
+We will demonstrate this example using ZK machines, but this method can be enabled with any machine that stores its data in a SQL Server database.
 
-يتم تنصيب برنامج الحضور والانصراف الخاص بالماكينة (ZK) على أحد خوادم المنشأة.
-**يُفضل عدم تنصيب هذا البرنامج على نفس الخادم الخاص بنظام نما**، حيث يُفضل أن يكون خادم نما خاصًا بمدير النظام وأخصائيي الدعم الفني لتجنب تعريض النظام لأي أخطاء ناتجة عن المستخدمين غير المؤهلين.
+The machine's attendance software (ZK) is installed on one of the organization's servers.
+**It is preferable not to install this software on the same server as Nama ERP**, as the Nama server should be reserved for system administrators and technical support specialists to avoid exposing the system to errors caused by unqualified users.
 
-![ZK Program screenshot](images/attendance-machine-integration-zk.png)
+![ZK Program screenshot](../ar/integration/images/attendance-machine-integration-zk.png)
 
-من خلال إعدادات **Database Options**، يتم التأكد من ضبط البرنامج للعمل على **SQL Server**.
+Through the **Database Options** settings, confirm that the software is configured to work with **SQL Server**.
 
-### إذا كان البرنامج مثبتًا على نفس خادم Nama ERP:
+### If the Software is Installed on the Same Server as Nama ERP:
 
-في هذه الحالة، تكون قاعدة بيانات برنامج ZK على نفس قاعدة بيانات SQL Server الخاصة بنظام نما، وبالتالي يكون الاتصال بين النظامين مباشرًا ولا يحتاج إلى إعدادات متقدمة.
+In this case, the ZK software's database is on the same SQL Server as Nama ERP, so the connection between the two systems is direct and requires no advanced configuration.
 
-### إذا كان البرنامج مثبتًا على خادم مختلف:
+### If the Software is Installed on a Different Server:
 
-اتبع الخطوات التالية:
+Follow these steps:
 
-* احصل على **IP Address** أو اسم الكمبيوتر الذي توجد عليه قاعدة البيانات الخاصة بماكينة الحضور.
-* أنشئ مستخدمًا جديدًا في SQL Server الخاص بماكينة الحضور، بصلاحيات مناسبة، مثلاً: `Nama`.
-* على خادم Nama ERP، أنشئ **Linked Server** جديدًا، كما يلي:
+* Obtain the **IP Address** or computer name of the machine that hosts the attendance machine's database.
+* Create a new user in the attendance machine's SQL Server with appropriate permissions, for example: `Nama`.
+* On the Nama ERP server, create a new **Linked Server** as shown below:
 
-![SQL Server Linked-Server Example](images/attendance-machine-integration-linked-server.png)
+![SQL Server Linked-Server Example](../ar/integration/images/attendance-machine-integration-linked-server.png)
 
-* ضمن تبويب **Security**، اضبط الإعدادات كما في الصورة التالية:
+* Under the **Security** tab, configure the settings as shown in the following screenshot:
 
-![SQL Server Linked Server Login Info](images/attendance-machine-integration-linked-server-login-info.png)
+![SQL Server Linked Server Login Info](../ar/integration/images/attendance-machine-integration-linked-server-login-info.png)
 
-* بعد الضغط على (OK)، يمكن اختبار الاتصال مع قاعدة بيانات الحضور كما يلي:
+* After clicking (OK), you can test the connection to the attendance database as follows:
 
-![SQL Server Linked Server Connection Test](images/attendance-machine-integration-linked-server-connection-test.png)
+![SQL Server Linked Server Connection Test](../ar/integration/images/attendance-machine-integration-linked-server-connection-test.png)
 
 ---
 
-### كيفية استيراد بيانات حضور وانصراف عن طريق مهمة مجدولة
+### How to Import Attendance Data Using a Scheduled Task
 
-* أنشئ سجلًا جديدًا في "المهام المجدولة" من النوع "إجراء".
+* Create a new record in "Scheduled Tasks" of type "Action".
 
-يمكن تحديد التوقيت الذي يتم فيه تنفيذ المهمة بسهولة من النافذة الرئيسية، حسب نظام دوام الموظفين.
+The execution time can be easily set from the main window based on the employee work schedule.
 
-في نافذة "إجراء"، اضبط الإعدادات التالية:
+In the "Action" window, configure the following settings:
 
-* **اسم العنصر**:
+* **Class Name**:
   `com.namasoft.modules.humanresource.utils.actions.EATimeAttendanceFromDBImporter`
 
-* **مدخل 1 (SQL Query):**
+* **Parameter 1 (SQL Query):**
 
 ```sql
 SELECT e.attendanceMachineCode USERID, CHECKTIME [(yyyy-MM-dd HH:mm:ss)]
@@ -174,20 +172,20 @@ WHERE e.id IS NOT NULL
 ORDER BY 1, 2
 ```
 
-> حيث:
+> Where:
 >
-> * `OMAR-PC`: اسم الكمبيوتر المثبت عليه برنامج ZK
-> * `TATimeAttendance`: اسم قاعدة البيانات
-> * `CHECKINOUT`: جدول الدخول والخروج
-> * `attendanceMachineCode`: كود الموظف المرتبط بالبصمة
+> * `OMAR-PC`: the name of the computer where the ZK software is installed
+> * `TATimeAttendance`: the database name
+> * `CHECKINOUT`: the check-in/check-out table
+> * `attendanceMachineCode`: the employee code linked to the fingerprint
 
-* **مدخل 2 (صيغة الإدخال):**
+* **Parameter 2 (Input Format):**
 
 ```
 empid#datetime{yyyy-MM-dd HH:mm:ss}#alternatingPunch
 ```
 
-* **مدخل 3 (معلومات الدفتر والفترة المالية):**
+* **Parameter 3 (Document and Fiscal Period Information):**
 
 ```sql
 SELECT
@@ -221,27 +219,27 @@ SELECT
 
 ::: tip
 
-* تقوم المهمة المجدولة تلقائيًا باستيراد بيانات الحضور والانصراف **من اليوم الأول حتى نهاية الشهر**.
-* **كود السند** الناتج يتضمن السنة والشهر الحالي ليسهل التعرف عليه وتعديله لاحقًا.
-* في حال وجود عدد كبير من الموظفين، يُفضّل تعديل المهمة المجدولة لتقوم بالاستيراد **لكل أسبوع** بدلًا من كل شهر، لتقليل الحمل وتسريع الأداء.
-* لإعادة استيراد بيانات شهر سابق، يمكن استخدام المسار الموضح أدناه.
+* The scheduled task automatically imports attendance data **from the first day through the end of the month**.
+* The resulting **document code** includes the current year and month for easy identification and later editing.
+* If there are a large number of employees, it is preferable to configure the scheduled task to import **weekly** rather than monthly, to reduce load and improve performance.
+* To re-import data for a previous month, use the path shown below.
 :::
 
 ---
 
-## 🔁 إعادة استيراد البيانات في مستند حضور وانصراف
+## Re-importing Data into a Time Attendance Document
 
-### لماذا قد نحتاج إلى إعادة الاستيراد؟
+### Why Might We Need to Re-import?
 
-إذا تم إنشاء سند الحضور والانصراف لشهر معين، ولكن لم تُسجل بعض الأيام (مثلًا: آخر يومين بسبب عطل في الماكينة)، **فلن يتم تعديل السند القديم تلقائيًا** عند استئناف تسجيل البصمات في الشهر الجديد.
+If a time attendance document has been created for a specific month but some days were not recorded (for example, the last two days due to a machine failure), **the old document will not be updated automatically** when fingerprint recording resumes in the new month.
 
-### ما هو الحل؟
+### What Is the Solution?
 
-يمكنك إنشاء **مسار كيان (Entity Flow)** باسم `ReImportTimeAttendance` يقوم بإعادة جلب البيانات من قاعدة بيانات ماكينة الحضور (مثل ZK) وإدخالها في السند الحالي يدويًا.
+You can create an **Entity Flow** named `ReImportTimeAttendance` that re-fetches data from the attendance machine's database (such as ZK) and inserts it into the current document manually.
 
 ---
 
-### ⚙️ تعريف مسار كيان إعادة الاستيراد
+### Defining the Re-import Entity Flow
 
 ::: details JSON for an entity flow that re-imports time attendance
 
@@ -269,17 +267,17 @@ SELECT
 
 :::
 
-#### شرح العناصر المهمة:
+#### Explanation of Key Elements:
 
-* `parameter1`: الاستعلام المخصص لجلب البصمات من قاعدة البيانات بناءً على الشهر والسنة المحددين.
-* `parameter2`: الصيغة التي يتم بها تحويل البيانات إلى تنسيق قابل للإدخال في السند (`empid`, `datetime`, `alternatingPunch`).
-* `className`: يشير إلى الفئة البرمجية داخل النظام التي تنفذ هذا الاستيراد.
+* `parameter1`: the custom query to fetch fingerprints from the database based on the specified month and year.
+* `parameter2`: the format used to convert data into a format that can be entered into the document (`empid`, `datetime`, `alternatingPunch`).
+* `className`: refers to the programming class within the system that executes this import.
 
 ---
 
-### 🖥️ تعديل شاشة مستند الحضور والانصراف
+### Modifying the Time Attendance Document Screen
 
-لإظهار زر "إعادة استيراد البيانات" داخل الشاشة:
+To show the "Re-import Data" button inside the screen:
 
 ::: details Screen Modifier To Add re-import time attendance entity flow to time attendance screen
 
@@ -304,22 +302,19 @@ SELECT
 
 :::
 
-### ملاحظات:
+### Notes:
 
-* يتم عرض الزر في **شاشة التحرير** وكذلك في **قائمة المزيد** داخل شاشة السند.
-* يمكن استخدام الزر الأول لإعادة استيراد البيانات.
+* The button is displayed in the **edit screen** as well as in the **More menu** inside the document screen.
+* The button can be used to re-import data.
 
 ---
 
-إذا أردت تنسيق هذه المعلومات على شكل صفحة توثيق VuePress أو ملف Markdown، أخبرني وسأقوم بترتيبها بذلك الشكل أيضًا.
+### Creating a Scheduled Task to Calculate Attendance Data
 
+The previous steps fetch fingerprint data into the `TimeAttendance` table.
 
-### إنشاء مهمة مجدولة لحساب بيانات الحضور والانصراف
-
-الخطوات السابقة تقوم بجلب بيانات البصمة إلى جدول `TimeAttendance`.
-
-لحساب التأخير، الانصراف المبكر، الوقت الإضافي، وغيرها، يُستخدم جدول `EmpAttendanceSysLine`.
-يتم ملء هذا الجدول تلقائيًا عند إصدار الراتب، لكن يمكن احتسابه مسبقًا لتجهيز تقارير للموظفين ومدرائهم.
+To calculate tardiness, early departures, overtime, and more, the `EmpAttendanceSysLine` table is used.
+This table is populated automatically when payroll is processed, but it can be calculated in advance to prepare reports for employees and their managers.
 
 ::: details JSON for Direct Import
 
@@ -335,10 +330,10 @@ SELECT
 
 :::
 
-### إعادة حساب بيانات الحضور والانصراف من خلال مستند حضور وانصراف
+### Recalculating Attendance Data from a Time Attendance Document
 
-قد تحتاج في بعض الحالات إلى إعادة حساب بيانات الحضور والانصراف لفترة زمنية تم تسجيلها مسبقًا داخل مستند حضور وانصراف، خاصة بعد القيام بعملية إعادة استيراد لبيانات البصمات من أجهزة الحضور.
-لتحقيق ذلك، يمكن استخدام مسار كيان يعتمد على الكائن `EAEmpAttendanceSysEntryCalculator` والذي يتولى إعادة إنشاء الإدخالات في جدول نظام الحضور والانصراف (EmpAttendanceSysLine).
+In some cases you may need to recalculate attendance data for a period that was previously recorded inside a time attendance document, especially after re-importing fingerprint data from attendance machines.
+To achieve this, you can use an Entity Flow based on the `EAEmpAttendanceSysEntryCalculator` object, which recreates entries in the attendance system table (`EmpAttendanceSysLine`).
 
 ::: details JSON for re-calculate Employee Attendance System Lines from a Time Attendance Document
 
@@ -361,7 +356,7 @@ SELECT
 
 :::
 
-لإتاحة هذا المسار ضمن واجهة المستخدم، يجب تعديل شاشة مستند حضور وانصراف وإضافة المسار إلى قائمة الإجراءات.
+To make this flow available in the user interface, the time attendance document screen must be modified to add the flow to the actions list.
 
 ::: details Screen Modifier To Add re-calculate Employee Attendance System Line entity flow to time attendance screen
 
@@ -388,9 +383,9 @@ SELECT
 
 ---
 
-### إرسال البيانات إلى الموظفين على هيئة تقرير
+### Sending Data to Employees as a Report
 
-لإرسال تقرير الحضور والانصراف للموظفين، يمكنك استخدام التقرير النظامي `SYSR-HRS001` داخل مهمة مجدولة.
+To send the attendance report to employees, you can use the system report `SYSR-HRS001` inside a scheduled task.
 
 ::: details JSON for Direct Import
 
@@ -408,5 +403,3 @@ SELECT
 ```
 
 :::
-
-</rtl>

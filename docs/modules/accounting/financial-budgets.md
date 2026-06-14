@@ -1,39 +1,39 @@
-# الموازنات المالية
+# Financial Budgets
 
-الموازنة خطّةٌ لها أنياب: تقرّر سلفًا كم يجوز لكلّ حسابٍ أن يُنفق (أو ينبغي أن يكسب) خلال فترة، ثم — إن شئت — يُلزِم النظامُ مستنداتِك بهذه الخطّة، فيحذّر أو حتى يمنع الإنفاق الذي يتجاوزها. تتيح لك **الموازنات المالية** في نما وضع هذه الأهداف لكلّ حساب، ولكلّ فترة، ولكلّ محدِّد، ثم التحقّق من النشاط الفعلي مقابلها.
+A budget is a plan with teeth: you decide up front how much each account may spend (or should earn) over a period, and then — if you want — the system holds your documents to that plan, warning or even blocking spending that would blow past it. Nama's **financial budgets** let you set those targets per account, per period, and per dimension, and then validate actual activity against them.
 
-::: info الترخيص المطلوب
-الموازنات المالية ضمن ترخيص `accounting-budget`، وتقع تحت جذر قائمة **الموازنات**.
+::: info Required license
+Financial budgets are part of the `accounting-budget` license, and live under the **Budgets** menu root.
 :::
 
-## بناء الموازنة
+## Building a budget
 
-**الموازنة المالية** (`BUDGETS > Budgets > Financial Budget`) هي مستند الخطّة. يستهدف كلُّ سطرٍ في **التفاصيل** **حسابًا** واحدًا (ضمن **شجرة حسابات** مختارة) ويحمل **قيمةً مخطَّطة للسنة** — ولأنّ إعداد الموازنات كثيرًا ما يكون متعدّد السنوات، يحمل السطر حتى **ستّ سنوات** من القيم جنبًا إلى جنب، مع **نسب تغيير** اختيارية تُنمّي كلّ سنةٍ من سابقتها تلقائيًا. ويمكن ملء التقسيم الدائن/المدين لكلّ سنةٍ مباشرةً أو حسابه نيابةً عنك.
+The **Financial Budget** (`BUDGETS > Budgets > Financial Budget`) is the plan document. Each **details** line targets one **account** (within a chosen **accounts chart**) and carries a planned **value for the year** — and because budgeting is often multi-year, the line holds up to **six years** of values side by side, with optional **change percentages** to grow each year off the previous one automatically. The credit/debit split per year can be filled directly or calculated for you.
 
-ويُحدَّد نطاق كلّ سطرٍ بـ**المحدِّدات** التي تهمّك — الشركة، القطاع، الفرع، الإدارة، مجموعة التحليل، الذمة، بل وحتى السجلّ — وبـ**سنة/فترة مالية** (مدى فترات من/إلى). فجملة «إدارة التسويق، فرع الرياض، هذا العام: 500,000» سطرُ موازنةٍ واحدٌ دقيق.
+Every line is scoped by the **dimensions** that matter to you — legal entity, sector, branch, department, analysis set, subsidiary, even a record (entity dimension) — and by a **fiscal year / period** (a from–to period range). So "marketing department, branch Riyadh, this year: 500,000" is a single, precise budget line.
 
-![شاشة الموازنة المالية](./images/budgets/financial-budget.png)
+![The Financial Budget screen](./images/budgets/financial-budget.png)
 
-ويمكنك الاحتفاظ بعدّة موازناتٍ كـ**سيناريوهات** (`BUDGETS > Master Files > Budget Scenario`) — خطّةٌ متفائلة وأخرى متحفّظة — ووسم الموازنة بالسيناريو الذي تنتمي إليه.
+You can keep several budgets as **scenarios** (`BUDGETS > Master Files > Budget Scenario`) — an optimistic plan, a conservative one — and tag the budget with the scenario it belongs to.
 
-## تحويل الموازنة إلى أداة تحكّم
+## Turning a budget into a control
 
-لا تقيّد الموازنةُ الإنفاقَ إلّا إذا أمرتها بذلك. المفتاح هو **«استخدام هذه الموازنة في التحقّق»** — يُضبَط على الموازنة (وعلى مستوى السطر، مع نافذة تواريخ **تحقّق من/إلى** اختيارية). وبمجرّد وسم موازنةٍ للتحقّق، يفحص النظامُ المستنداتِ التي تمسّ حساباتها مقابل القيمة المخطَّطة.
+A budget only constrains spending if you tell it to. The switch is **"use this budget for validation"** — set on the budget (and per line, with an optional **validate-from / validate-to** date window). Once a budget is marked for validation, the system checks documents that hit its accounts against the planned figure.
 
-**ماذا يعني «التجاوز»** يُضبَط مركزيًا في **إعدادات التأكّد من عدم تجاوز الموازنات** في وحدة المحاسبة (راجِع كتالوج [إعدادات الحسابات](./support/accounting-configuration.md)). مفتاحان يقرّران ما يحدث حين يدفع مستندٌ حسابًا فوق موازنته:
+**What "exceeding" means** is configured centrally, in the accounting module's **Budget Validation Options** (see the [Accounting configuration](./support/accounting-configuration.md) catalog). Two switches decide what happens when a document would push an account over its budget:
 
-- **منع الحفظ عند تجاوز الموازنات** — يُمنَع المستند صراحةً.
-- **تفعيل الموافقة عند تجاوز الموازنات** — بدلًا من المنع (أو قبله)، يُوجَّه المستند المتجاوِز إلى **موافقة**، فيتيحه مستخدمٌ مخوَّل.
+- **Prevent saving when budgets are exceeded** — the document is blocked outright.
+- **Enable approvals for budgets** — instead of (or before) blocking, the over-budget document is routed for **approval**, so an authorized user can let it through.
 
-وإن لم يكن أيٌّ منهما مفعّلًا، فالموازنة إعلاميةٌ فقط — تُتابَع وتظهر في التقارير، لكنّ شيئًا لا يوقف الإنفاق.
+If neither is on, the budget is informational only — it's tracked and reportable, but nothing stops the spend.
 
-### مطابقة سطر الموازنة الصحيح
+### Matching the right budget line
 
-عند التحقّق، يحتاج النظامُ أن يعرف *أيّ* سطر موازنةٍ يقابل المستند. تتضمّن **إعدادات التأكّد من عدم تجاوز الموازنات** مجموعةً من مفاتيح **«اعتبار…»** — اعتبار القطاع، الفرع، الإدارة، المجموعة التحليلية، الذمة، السجلّ، المراجع 1–3، والفترة المالية — تحدّد مدى دقّة مطابقة الفعلي بسطور الموازنة. فعّل المحدِّدات التي تُعِدّ موازنتك بها، واترك ما لا تستعمله، كي لا تكون المطابقة أضيق من أن تجد سطرها.
+When it validates, the system needs to know *which* budget line a document maps to. The **Budget Validation Options** include a set of **"consider…"** toggles — consider sector, branch, department, analysis set, subsidiary, record (entity dimension), references 1–3, and fiscal period — that define how precisely actuals are matched to budget lines. Turn on the dimensions you budget by; leave off the ones you don't, so the match isn't too narrow to find its line.
 
-## للدعم الفني
+## For Support
 
-- **«موازنتي لا توقف شيئًا»** — لا بدّ من توافر ثلاثة أمور: أن تكون الموازنة موسومةً بـ**الاستخدام في التحقّق**، وأن يكون أحدُ مفتاحَي **منع الحفظ** / **تفعيل الموافقة** مفعّلًا في إعدادات التأكّد من عدم تجاوز الموازنات. وإلّا فالموازنة إعلاميةٌ فقط.
-- **«مُنِع مستندٌ / أُرسِل لموافقةٍ على غير المتوقَّع»** — لأنّه مسّ حسابًا له موازنة تحقّقٍ وكان سيتجاوزها؛ تحقّق من قيمة الموازنة ومن مبلغ المستند ومحدِّداته.
-- **«النظام لا يجد سطر الموازنة المطابق»** — راجِع مفاتيح **«اعتبار…»** في إعدادات التأكّد؛ فإن كنت تُعِدّ موازنتك بالفرع و«اعتبار الفرع» مُطفأ (أو العكس) فلن يطابق الفعلي السطر.
-- **«أريد مقارنة الخطط»** — احتفظ بكلّ خطّةٍ كـ**سيناريو موازنة** مستقلّ ووسِم موازنتها به.
+- **"My budget isn't stopping anything"** — three things must line up: the budget is marked **use for validation**, and at least one of **prevent saving** / **enable approvals** is on in the Budget Validation Options. Otherwise the budget is informational only.
+- **"A document was blocked / sent for approval unexpectedly"** — it hit an account that has a validation budget and would exceed it; check the budget figure and the document's amount and dimensions.
+- **"The system can't find the matching budget line"** — review the **consider…** toggles in the Budget Validation Options; if you budget by branch but "consider branch" is off (or vice-versa), the actual won't match the line.
+- **"I want to compare plans"** — keep each plan as a separate **Budget Scenario** and tag its budget accordingly.

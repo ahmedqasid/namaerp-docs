@@ -1,159 +1,155 @@
-<rtl>
+# Barcode Field Feature for Sequential Scanning
 
-# ميزة حقل الباركود للمسح المتتالي
+## Overview
 
-## نظرة عامة
+A new feature has been developed in Nama ERP to solve the problem of losing focus when scanning item barcodes in browsers. This feature allows users to scan multiple item codes sequentially without needing to manually re-focus the field each time.
 
-تم تطوير ميزة جديدة في نظام نما لحل مشكلة فقدان التركيز (Focus) عند مسح باركود الأصناف في المتصفحات. هذه الميزة تتيح للمستخدمين مسح أكواد متعددة للأصناف بشكل متتالي دون الحاجة لإعادة التركيز على الحقل يدوياً.
+## The Problem
 
-## المشكلة
+When using a barcode scanner in browsers, focus is sometimes lost from the item code field and moves to other fields on the screen. This leads to:
+- Disruption of the sequential item scanning process
+- The need to manually re-focus the field
+- Slower data entry
 
-عند استخدام قارئ الباركود في المتصفحات، يحدث أحياناً فقدان للتركيز (Focus) من حقل كود الصنف وينتقل التركيز إلى حقول أخرى في الشاشة. هذا يؤدي إلى:
-- تعطيل عملية المسح المتتالي للأصناف
-- الحاجة لإعادة التركيز يدوياً على الحقل
-- بطء في عملية إدخال البيانات
+## The Solution: The Smart Barcode Field
 
-## الحل: حقل الباركود الذكي
+### Description
 
-### الوصف
+Two new fields have been added to all entities in the system:
 
-تم إضافة حقلين جديدين إلى جميع الكيانات في النظام:
+| Field | English Name | Description |
+|-------|-------------|-------------|
+| **Barcode** | Barcode | A large text field used to scan item codes sequentially |
+| **Invalid Barcodes** | Invalid Barcodes | A text field that retains codes for which no matching items were found |
 
-| الحقل | الاسم بالإنجليزية | الوصف |
-|------|------------------|-------|
-| **باركود** | Barcode | حقل نصي كبير يُستخدم لمسح أكواد الأصناف بشكل متتالي |
-| **باركود خاطئ** | Invalid Barcodes | حقل نصي يحتفظ بالأكواد التي لم يتم العثور على أصناف مطابقة لها |
+### Key Features
 
-### المميزات الرئيسية
+#### 1. Automatic Focus Retention
+- When the "Barcode" field is activated, the field automatically retains focus
+- Focus does not move to other fields even when a scan completes
+- Allows scanning an unlimited number of codes sequentially
 
-#### 1. الاحتفاظ التلقائي بالتركيز
-- عند تفعيل حقل "باركود"، يحتفظ الحقل بالتركيز (Focus) تلقائياً
-- لا ينتقل التركيز إلى حقول أخرى حتى عند اكتمال المسح
-- يتيح مسح عدد غير محدود من الأكواد بشكل متتالي
+#### 2. Visual Indicator
+- **Green background**: When the field is active and retaining focus, the field background is green
+- The green color helps the user know that the field is ready to receive scans
 
-#### 2. المؤشر البصري
-- **خلفية خضراء**: عندما يكون الحقل نشطاً ويحتفظ بالتركيز، تكون خلفية الحقل باللون الأخضر
-- يساعد اللون الأخضر المستخدم على معرفة أن الحقل جاهز لاستقبال المسح
+#### 3. Handling Codes Not Found
+- When a code not present in the system is scanned:
+  - A warning sound plays
+  - The code is automatically added to the "Invalid Barcodes" field
+  - Focus is retained to continue scanning
 
-#### 3. معالجة الأكواد غير الموجودة
-- عند مسح كود غير موجود في النظام، يتم:
-  - تشغيل صوت تحذيري
-  - إضافة الكود تلقائياً إلى حقل "باركود خاطئ"
-  - الاستمرار في الاحتفاظ بالتركيز لاستكمال المسح
+#### 4. Automatic Processing
+- Each scanned code is automatically processed and added to the details grid
+- No additional action is required from the user
 
-#### 4. المعالجة التلقائية
-- يتم معالجة كل كود ممسوح وإضافته إلى شبكة التفاصيل (Details Grid) تلقائياً
-- لا حاجة لأي إجراء إضافي من المستخدم
+#### 5. Multi-line Paste Support
+- Multiple codes can be pasted into the field at once (one code per line)
+- All pasted codes are automatically processed one by one
+- Useful when copying a list of codes from an Excel or text file
 
-#### 5. دعم اللصق المتعدد الأسطر
-- يمكن لصق عدة أكواد في الحقل دفعة واحدة (كل كود في سطر منفصل)
-- يتم معالجة جميع الأكواد الملصقة بشكل تلقائي واحداً تلو الآخر
-- مفيد عند نسخ قائمة أكواد من ملف Excel أو نصي
+## How to Use
 
-## كيفية الاستخدام
+### Step 1: Enable the Fields on the Screen
 
-### الخطوة 1: تفعيل الحقول في الشاشة
+1. Open the desired entity screen (such as: Sales Invoice, Purchase Order, etc.)
+2. Navigate to **Customize** → **Edit Screen**
+3. Add the following fields to the screen:
+   - **Barcode** (barcode)
+   - **Invalid Barcodes** (invalidBarcodes) — optional
 
-1. افتح شاشة الكيان المطلوب (مثل: فاتورة المبيعات، أمر الشراء، إلخ)
-2. انتقل إلى **تخصيص** → **تعديل الشاشة**
-3. أضف الحقلين التاليين إلى الشاشة:
-   - **باركود** (barcode)
-   - **باركود خاطئ** (invalidBarcodes) - اختياري
-
-::: tip نصيحة
-يُنصح بوضع حقل "باركود" في مكان بارز في الشاشة لسهولة الوصول إليه
+::: tip Tip
+It is recommended to place the "Barcode" field in a prominent location on the screen for easy access.
 :::
 
-### الخطوة 2: بدء المسح
+### Step 2: Start Scanning
 
-1. افتح سجل جديد أو سجل موجود
-2. انقر على حقل **باركود**
-3. ستلاحظ تحول لون خلفية الحقل إلى **اللون الأخضر**
-4. ابدأ بمسح أكواد الأصناف باستخدام قارئ الباركود
+1. Open a new or existing record
+2. Click on the **Barcode** field
+3. You will notice the field background changes to **green**
+4. Start scanning item codes using the barcode reader
 
-### الخطوة 3: المسح المتتالي
+### Step 3: Sequential Scanning
 
-- قم بمسح الأكواد واحداً تلو الآخر
-- سيتم إضافة كل صنف تلقائياً إلى شبكة التفاصيل
-- لا حاجة للنقر على الحقل مجدداً بين كل مسح
+- Scan codes one by one
+- Each item will be automatically added to the details grid
+- No need to click the field again between scans
 
-### الخطوة 4: الخروج من وضع المسح
+### Step 4: Exiting Scan Mode
 
-للخروج من حقل الباركود والانتقال إلى حقول أخرى، استخدم أحد المفاتيح التالية:
+To exit the barcode field and move to other fields, use one of the following keys:
 
-- **مفتاح Esc** (Escape)
-- **مفتاح F4**
+- **Esc key** (Escape)
+- **F4 key**
 
-::: warning تنبيه
-لن تتمكن من الخروج من حقل الباركود بالنقر خارج الحقل أو باستخدام مفتاح Tab. يجب استخدام Esc أو F4
+::: warning Warning
+You will not be able to exit the barcode field by clicking outside the field or using the Tab key. You must use Esc or F4.
 :::
 
-## التفاصيل التقنية
+## Technical Details
 
-### سلوك الحقل
+### Field Behavior
 
-| الحدث | السلوك |
-|------|--------|
-| **النقر على الحقل** | يبدأ وضع الاحتفاظ بالتركيز، الخلفية تصبح خضراء |
-| **مسح كود صحيح** | يُضاف الصنف إلى الشبكة، يبقى التركيز على الحقل |
-| **مسح كود خاطئ** | صوت تحذيري + إضافة الكود إلى "باركود خاطئ"، يبقى التركيز |
-| **إدخال سطر فارغ** | الخروج من الحقل والانتقال للحقل التالي |
-| **مفتاح Esc/F4** | الخروج من وضع الاحتفاظ بالتركيز |
-| **مفتاح Enter/Tab** | معالجة الكود المدخل، الاحتفاظ بالتركيز |
-| **Ctrl+Enter** | إدخال سطر جديد في الحقل النصي |
+| Event | Behavior |
+|-------|----------|
+| **Click on the field** | Starts focus-retention mode, background turns green |
+| **Scanning a valid code** | Item is added to the grid, focus stays on the field |
+| **Scanning an invalid code** | Warning sound + code added to "Invalid Barcodes", focus stays |
+| **Entering an empty line** | Exits the field and moves to the next field |
+| **Esc/F4 key** | Exits focus-retention mode |
+| **Enter/Tab key** | Processes the entered code, retains focus |
+| **Ctrl+Enter** | Inserts a new line in the text field |
 
-### متطلبات الاستخدام
+### Usage Requirements
 
-::: info متطلبات
-- يجب أن يحتوي الكيان على شبكة تفاصيل (Details Grid)
-- يجب أن تحتوي شبكة التفاصيل على عمود **كود الصنف** (details.item.itemCode)
-- يجب إضافة حقل "باركود" إلى الشاشة من خلال تعديل الشاشة
+::: info Requirements
+- The entity must contain a details grid
+- The details grid must contain an **Item Code** column (details.item.itemCode)
+- The "Barcode" field must be added to the screen through screen editing
 :::
 
-## الأسئلة الشائعة
+## Frequently Asked Questions
 
-### هل يمكن استخدام الحقل في أي كيان؟
-لا، يمكن استعمال الحقل فقط في مستندات التوزيع (Supply Chain) مثل فواتير المبيعات والمشتريات والتحويل المخزني.
+### Can the field be used in any entity?
+No, the field can only be used in Supply Chain distribution documents such as sales invoices, purchase invoices, and stock transfers.
 
-ولكن الحقول متاحة في جميع الكيانات في النظام وقد يتم تفعيلها مستقبلا في شاشات أخرى.
+However, the fields are available in all entities in the system and may be enabled in other screens in the future.
 
-### ماذا يحدث إذا لم يتم العثور على الصنف؟
-- يتم تشغيل صوت تحذيري
-- يُضاف الكود إلى حقل "باركود خاطئ"
-- يستمر الحقل في الاحتفاظ بالتركيز لاستكمال المسح
+### What happens if the item is not found?
+- A warning sound plays
+- The code is added to the "Invalid Barcodes" field
+- The field continues to retain focus to continue scanning
 
-### هل يمكن إدخال أكواد يدوياً في الحقل؟
-نعم، يمكن كتابة الأكواد يدوياً. اضغط Enter بعد كل كود لمعالجته.
+### Can codes be entered manually in the field?
+Yes, codes can be typed manually. Press Enter after each code to process it.
 
-### هل يمكن لصق عدة أكواد دفعة واحدة؟
-نعم، يمكن نسخ قائمة أكواد من ملف Excel أو ملف نصي (كل كود في سطر منفصل) ولصقها في حقل الباركود. سيتم معالجة جميع الأكواد تلقائياً واحداً تلو الآخر.
+### Can multiple codes be pasted at once?
+Yes, a list of codes can be copied from an Excel file or text file (one code per line) and pasted into the barcode field. All codes will be processed automatically one by one.
 
-### لماذا لا يمكنني الخروج من الحقل بالنقر خارجه؟
-هذا بالتصميم. الهدف هو منع فقدان التركيز غير المقصود أثناء المسح. استخدم Esc أو F4 للخروج.
+### Why can't I exit the field by clicking outside it?
+This is by design. The goal is to prevent unintentional loss of focus during scanning. Use Esc or F4 to exit.
 
-### هل يمكن مسح عدة أكواد لنفس الصنف؟
-نعم، سيتم إضافة كل مسح كسطر منفصل في شبكة التفاصيل.
+### Can multiple codes for the same item be scanned?
+Yes, each scan will be added as a separate line in the details grid.
 
-## نصائح للاستخدام الأمثل
+## Tips for Optimal Use
 
-::: tip نصائح
-1. **ضع الحقل في الأعلى**: ضع حقل "باركود" في مكان بارز في أعلى الشاشة
-2. **استخدم "باركود خاطئ"**: أضف حقل "باركود خاطئ" لمتابعة الأكواد غير الصحيحة
-3. **راجع القائمة**: بعد الانتهاء من المسح، راجع شبكة الأصناف للتأكد من صحة البيانات
-4. **تنظيف الحقل**: احذف محتوى حقل "باركود خاطئ" بعد المعالجة
-5. **اختبر القارئ**: تأكد من ضبط قارئ الباركود لإرسال Enter بعد كل مسح
+::: tip Tips
+1. **Place the field at the top**: Put the "Barcode" field in a prominent location at the top of the screen
+2. **Use "Invalid Barcodes"**: Add the "Invalid Barcodes" field to track incorrect codes
+3. **Review the list**: After finishing scanning, review the items grid to verify data accuracy
+4. **Clear the field**: Delete the content of the "Invalid Barcodes" field after processing
+5. **Test the reader**: Make sure the barcode reader is configured to send Enter after each scan
 :::
 
-## ملاحظات إضافية
+## Additional Notes
 
-::: warning ملاحظات مهمة
-- الحقلان "باركود" و "باركود خاطئ" هما حقول نظام (System Fields) لكنهما قابلان للتعديل
-- لا يتم حفظ محتوى حقل "باركود" - فهو حقل مؤقت للإدخال فقط
-- يتم حفظ محتوى حقل "باركود خاطئ" مع السجل للمراجعة لاحقاً
-- الميزة متوافقة مع جميع المتصفحات الحديثة
+::: warning Important Notes
+- The "Barcode" and "Invalid Barcodes" fields are system fields but are editable
+- The content of the "Barcode" field is not saved — it is a temporary input-only field
+- The content of the "Invalid Barcodes" field is saved with the record for later review
+- The feature is compatible with all modern browsers
 :::
 
-**تاريخ الإصدار**: أكتوبر 2025
-**رقم الطلب**: SRDRQ05899
-
-</rtl>
+**Release Date**: October 2025
+**Request Number**: SRDRQ05899

@@ -1,114 +1,110 @@
-<rtl>
-
 ::: warning In Progress
 This document is still in progress, not yet finished
 :::
 
-# Electronic Receipt (Egypt Tax eInvoice) تفعيل الإيصال الإلكتروني - الفاتورة الإلكترونية - مصر
+# Electronic Receipt (Egypt Tax eInvoice) - Activating the Electronic Receipt and eInvoice - Egypt
 
-## طريقة تفعيل الإيصال الإلكتروني عبر جهاز الكومبيوتر
+## How to Activate the Electronic Receipt via Computer
 
-1. يجب على العميل التواصل مع مصلحة الضرائب لتسجيل **الرقم التسلسلي (Serial Number)** الخاص بجهاز الكمبيوتر أو الأجهزة التي سيتم استخدامها لإرسال الإيصالات.
+1. The customer must contact the Tax Authority to register the **Serial Number** of the computer or devices that will be used to send receipts.
 
-2. يجب أيضًا إبلاغ المصلحة باسم **المورد والموديل** (Vendor & Model)، وهما يُعرَّفان في النظام من خلال شاشة **تسجيل نقطة بيع** بالشكل التالي:
+2. The customer must also inform the Authority of the **Vendor & Model**, which are defined in the system through the **Register POS** screen as follows:
 
-![Register POS screenshot](images/electronic-receipt-register-pos.png)
+![Register POS screenshot](../../ar/modules/invoicing/images/electronic-receipt-register-pos.png)
 
-عند الضغط على "تسجيل نقطة بيع" تظهر النافذة التالية:
+When you click "Register POS", the following window appears:
 
-![Register POS Details](images/electronic-receipt-register-pos-details.png)
+![Register POS Details](../../ar/modules/invoicing/images/electronic-receipt-register-pos-details.png)
 
-يُقصد بـ:
+The meaning of each field:
 
-* **المورد**: اسم الشركة (مثال: Nama Soft)
-* **الموديل**: اسم النظام (مثال: Nama ERP)
+* **Vendor**: The company name (example: Nama Soft)
+* **Model**: The system name (example: Nama ERP)
 
-3. بعد تسجيل الأجهزة لدى مصلحة الضرائب وتعريف المورد والموديل، يتم استكمال إعداد نقطة البيع داخل النظام كالتالي:
+3. After registering the devices with the Tax Authority and defining the Vendor and Model, complete the POS setup inside the system as follows:
 
-* اختيار الفرع (غالبًا يكون الفرع الرئيسي)
+* Select the branch (usually the main branch)
 
-* اختيار المورد والموديل المعتمدين من المصلحة
-  ![Nama ERP system name in egtax website](images/electronic-receipt-register-system-name.png)
+* Select the Vendor and Model approved by the Authority
+  ![Nama ERP system name in egtax website](../../ar/modules/invoicing/images/electronic-receipt-register-system-name.png)
 
-* إدخال اسم نقطة البيع (اختياري)
+* Enter the POS name (optional)
 
-* إدخال تاريخ التفعيل حسب رغبة العميل
+* Enter the activation date as desired
 
-* إدخال الرقم التسلسلي للجهاز الذي سجلته المصلحة. يمكن الحصول عليه من جهاز العميل عبر تشغيل الأمر التالي على الـ CMD:
+* Enter the device Serial Number registered with the Authority. You can obtain it from the customer's machine by running the following command in CMD:
 
   ```bash
   wmic bios get serialnumber
   ```
 
-* بعد إدخال البيانات، اضغط "تسجيل وإضافة جديد"
+* After entering the data, click "Save and Add New"
 
-* بعد الحفظ، تظهر نافذة بها بيانات:
+* After saving, a window appears containing:
 
     * **Client ID**
     * **Client Secret**
 
-يجب حفظ هذه القيم في مكان آمن.
-ستكون نقطة البيع حينها مسجلة ولكن حالتها **غير نشطة** حتى يتم تفعيلها عبر النظام.
+These values must be saved in a secure place.
+The POS will then be registered but its status will be **inactive** until it is activated through the system.
 
 ---
 
-## التفعيل على النظام
+## Activation in the System
 
-1. اذهب إلى إعدادات مصلحة الضرائب في النظام:
-   ![Nama ERP Tax Authority Configuration](images/electronic-receipt-nama-tax-config.png)
+1. Go to Tax Authority settings in the system:
+   ![Nama ERP Tax Authority Configuration](../../ar/modules/invoicing/images/electronic-receipt-nama-tax-config.png)
 
-2. في إعدادات نقطة البيع الإلكترونية:
+2. In the electronic POS settings:
 
-* حدد نوع المستند "إيصال" في حال كان المستلم **فردًا**
+* Set the document type to "Receipt" if the recipient is an **individual**
 
-    * إذا كان الكيان القانوني في ملف ذمة الفاتورة من النوع **فرد**، يتم الإرسال كـ إيصال
-    * إذا كان الكيان القانوني **قطاع خاص**، يتم الإرسال كـ فاتورة تلقائيًا
+    * If the legal entity in the invoice's account record is of type **Individual**, the document is sent as a Receipt
+    * If the legal entity is **Private Sector**, it is automatically sent as an Invoice
 
-* إذا كان هناك **جهاز واحد فقط** للإرسال:
+* If there is **only one device** for sending:
 
-    * املأ الحقول: `Client ID`, `Client Secret`, `Serial Number`, و`POS OS Version` (مثلاً Windows)
+    * Fill in the fields: `Client ID`, `Client Secret`, `Serial Number`, and `POS OS Version` (e.g., Windows)
 
-* اضغط "حفظ" ثم "تفعيل"
+* Click "Save" then "Activate"
 
-> تتحول حالة نقطة البيع إلى نشطة على بوابة مصلحة الضرائب
+> The POS status changes to active on the Tax Authority portal
 
 ---
 
-### في حال وجود أكثر من جهاز للإرسال:
+### If There Are Multiple Devices for Sending:
 
-* قم بتسجيل نقطة بيع مستقلة لكل جهاز كما في الخطوات أعلاه
-* داخل النظام، في نفس إعدادات مصلحة الضرائب، استخدم الجريد السفلي لتعريف كل جهاز:
+* Register a separate POS for each device as described in the steps above
+* Inside the system, in the same Tax Authority settings, use the lower grid to define each device:
 
-![Receipt Serials in Nama ERP](images/electronic-receipt-nama-serials.png)
+![Receipt Serials in Nama ERP](../../ar/modules/invoicing/images/electronic-receipt-nama-serials.png)
 
-* اختر الدفتر المستخدم للفواتير والمردودات
+* Select the book used for invoices and returns
 
-* أدخل لكل جهاز:
+* Enter for each device:
 
-    * الرقم التسلسلي
+    * Serial Number
     * Client ID
     * Secret ID
     * POS OS Version
 
-* احفظ واضغط "تفعيل السطور"
+* Save and click "Activate Lines"
 
 ---
 
-## ملاحظات هامة:
+## Important Notes:
 
-* إذا كان العميل **فردًا**، يجب أن يحتوي ملفه على **رقم البطاقة الشخصية**، وإلا سيرفض النظام إرسال الإيصال.
-* أما إذا كان العميل **قطاع خاص**، فيلزم وجود بيانات مثل **السجل الضريبي**.
+* If the customer is an **individual**, their record must contain a **national ID number**, otherwise the system will reject sending the receipt.
+* If the customer is **private sector**, data such as the **tax registration number** is required.
 
-### استثناء العملاء الأفراد من شرط رقم البطاقة:
+### Exempting Individual Customers from the ID Number Requirement:
 
-في حالة الفواتير ذات القيم الصغيرة (مثلاً 100 ج)، قد لا يكون من المنطقي طلب رقم بطاقة من كل عميل.
-يمكنك ضبط الحد الأدنى لقيمة الإيصال الذي يُلزم وجود رقم بطاقة له عبر الإعداد التالي:
+For invoices with small amounts (e.g., 100 EGP), it may not be practical to request an ID number from every customer.
+You can set the minimum receipt value that requires an ID number via the following setting:
 
-![Minimum Value For Personal Receipts](images/electronic-receipt-nama-min-value-for-personal.png)
+![Minimum Value For Personal Receipts](../../ar/modules/invoicing/images/electronic-receipt-nama-min-value-for-personal.png)
 
 ::: tip
- إذا كانت الفاتورة أقل من هذا المبلغ (مثلاً 25000 ج)، يمكن الإرسال بدون رقم بطاقة.
- أما إذا زادت القيمة، فيتطلب النظام وجود الرقم.
+If the invoice is below this amount (e.g., 25,000 EGP), sending is allowed without an ID number.
+If the value exceeds this threshold, the system requires the ID number.
 :::
-
-</rtl>

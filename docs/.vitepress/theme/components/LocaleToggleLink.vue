@@ -8,17 +8,17 @@ import {useData} from 'vitepress'
 
 const {page, localeIndex} = useData()
 
-const isEnglish = computed(() => localeIndex.value === 'en')
-const label = computed(() => isEnglish.value ? 'العربية' : 'English')
+const isArabic = computed(() => localeIndex.value === 'ar')
+const label = computed(() => isArabic.value ? 'English' : 'العربية')
 
 // Link to the same page in the other locale (mirrors what the default
 // translations dropdown does — the target may 404 if not yet translated,
 // which matches the default theme's behavior)
 const counterpartLink = computed(() => {
   const currentPath = page.value.relativePath
-  const counterpartPath = isEnglish.value
-      ? currentPath.replace(/^en\//, '')
-      : 'en/' + currentPath
+  const counterpartPath = isArabic.value
+      ? currentPath.replace(/^ar\//, '')
+      : 'ar/' + currentPath
   return '/' + counterpartPath
       .replace(/(^|\/)index\.md$/, '$1')
       .replace(/\.md$/, '.html')

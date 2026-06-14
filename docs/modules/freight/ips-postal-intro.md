@@ -1,49 +1,49 @@
-# نظام البريد الدولي (IPS) — نظرة عامة
+# International Postal System (IPS) — Overview
 
-إلى جانب الشحن واللوجستيات، تضمّ وحدة إدارة الشحن نظامًا متكاملًا لتشغيل **خدمات البريد الدولي (International Postal System – IPS)**. إن كنت مشغّلًا بريديًا أو شركة بريد سريع تتعامل مع مكتب تبادل دولي، فهذا القسم يدير رحلة المادة البريدية من لحظة وصول الأكياس من الخارج حتى تسليم الطرد إلى باب العميل.
+Alongside freight and logistics, the Freight Management module includes a complete system for running **International Postal System (IPS)** operations. If you're a postal operator or a courier company dealing with an international exchange office, this section manages a mail item's journey from the moment receptacles arrive from abroad until the parcel is delivered to the customer's door.
 
-::: info لمن هذا القسم؟
-نظام البريد جزء متخصّص داخل وحدة الشحن. إن كان عملك هو الشحن البحري والتخليص فقط، فقد لا تحتاج إليه. أمّا مشغّلو البريد والطرود فيجدون فيه دورة عمل كاملة. كلا القسمين يتشاركان نفس الترخيص `frm` ونفس قائمة **نظام إدارة الشحن**.
+::: info Who is this section for?
+The postal system is a specialized part of the freight module. If your business is only ocean freight and clearance, you may not need it. Postal and parcel operators, on the other hand, will find a complete workflow here. Both sections share the same `frm` license and the same **Freight Management System** menu.
 :::
 
-## المفاهيم الأساسية
+## Core concepts
 
-قبل الدخول في المستندات، لنتعرّف على المفردات التي يدور حولها النظام كله.
+Before getting into the documents, let's learn the vocabulary the whole system revolves around.
 
-### المادة البريدية (Mail Item)
+### Mail Item
 
-الوحدة الأصغر: طرد أو رسالة فردية. تحمل المادة البريدية معرّفًا فريدًا (Mail Item ID)، ووصفًا، و**فئة وصنف وفئة فرعية للبريد** (Class / Category / Subclass)، و**كود HS** الجمركي، ووزنًا (مُعلَنًا وفعليًا)، ودولة منشأ، وبيانات المستلِم وقيمته. هي ما يُسلَّم في النهاية للعميل.
+The smallest unit: an individual parcel or letter. A mail item carries a unique identifier (Mail Item ID), a description, a **mail class, category, and subclass**, an **HS code** for customs, a weight (declared and actual), a country of origin, recipient data, and its value. It's what ultimately gets delivered to the customer.
 
-### الكيس البريدي (Receptacle)
+### Receptacle
 
-حاوية تجمع عدّة مواد بريدية للنقل بين المكاتب — كيس أو صندوق مختوم برقم ختم (Seal). يتعامل النظام مع الأكياس كوحدة نقل، ومع المواد بداخلها كوحدة تسليم.
+A container that gathers several mail items for transport between offices — a sealed bag or box with a seal number. The system treats receptacles as a transport unit, and the items inside them as a delivery unit.
 
-### مناطق الاستلام والتسليم (Delivery & Receipt Areas)
+### Delivery & Receipt Areas
 
-المكاتب البريدية والمناطق التي تنتقل بينها المواد: **المُستلَم منه (Received From)**، و**المُستلَم فيه (Received In)**، و**المكتب التالي (Next Office)**. تتبُّع هذه الحقول في كل مستند يرسم مسار المادة عبر شبكة المكاتب.
+The postal offices and areas the items move between: **Received From**, **Received In**, and **Next Office**. Tracking these fields on every document traces the item's path across the office network.
 
-## رحلة المادة البريدية
+## A mail item's journey
 
-تمرّ المادة البريدية بمحطات، لكل محطة مستندها:
+A mail item passes through stages, each with its own document:
 
-1. **استلام الأكياس** — تصل الأكياس من الخارج فتُسجَّل بمستند [استلام الكيس](./ips-receptacles.md).
-2. **تجميع/فتح المواد** — تُفتَح الأكياس وتُسجَّل المواد بداخلها عبر [مستند تجميع المواد](./ips-mail-items.md).
-3. **التخليص الجمركي** — تُجمَّع المواد الخاضعة للجمرك في [منافيست للجمرك](./ips-receptacles.md).
-4. **التحويل بين المكاتب** — تنتقل المواد إلى المكتب المختصّ بالتوصيل عبر [سند التحويل](./ips-mail-items.md).
-5. **الفرز** — تُفرَز المواد للتوصيل، وتُسجَّل المفقودة وأسباب عدم التسليم في [مستند الفرز](./ips-mail-items.md).
-6. **التوصيل والتحصيل** — يُنشأ [طلب توصيل](./ips-delivery.md) للعميل، ثم [فاتورة توصيل](./ips-delivery.md) بقيمة الخدمة والرسوم الجمركية.
+1. **Receiving receptacles** — receptacles arrive from abroad and are recorded with a [Receptacles Receipt](./ips-receptacles.md).
+2. **Manifesting/opening items** — receptacles are opened and the items inside recorded via the [Mail Item Manifest](./ips-mail-items.md).
+3. **Customs clearance** — items subject to customs are gathered in a [Manifest for Custody](./ips-receptacles.md).
+4. **Transfer between offices** — items move to the office responsible for delivery via the [Mail Item Transfer](./ips-mail-items.md).
+5. **Sorting** — items are sorted for delivery, and missing ones and non-delivery reasons are recorded in the [Postal Parcels Sort](./ips-mail-items.md).
+6. **Delivery and collection** — a [Delivery Request](./ips-delivery.md) is created for the customer, then a [Delivery Invoice](./ips-delivery.md) for the service value and customs fees.
 
-وعلى امتداد الرحلة، تتيح مستندات **التسوية والجرد والتحقيق** تصحيح الفروقات والتعامل مع المواد المحتجَزة.
+And throughout the journey, the **adjustment, stock-taking, and retention** documents let you correct discrepancies and handle held items.
 
-## الملفات الأساسية للبريد
+## Postal master files
 
-تُعرَّف مرّة واحدة تحت **نظام إدارة الشحن ← الملفات**:
+Defined once under **Freight Management System → Master Files**:
 
-- **فئة / صنف / فئة فرعية البريد** (Mail Class / Category / Subclass) — تصنيف المواد البريدية حسب معايير الاتحاد البريدي.
-- **حالة البريد (Mail Condition)** و**حالة الطرد (Parcel Status)** — وصف وضع المادة.
-- **منطقة الاستلام والتسليم (Delivery & Receipt Area)** — المكاتب والمناطق.
-- **بند خدمة التوصيل (Delivery Service Item)** و**سعر خدمة التوصيل (Delivery Service Price)** — تسعير التوصيل.
-- **سبب الاحتجاز (Retention Reason)** و**سبب/إجراء عدم التسليم** (Non-Delivery Reason / Measure) — معالجة الاستثناءات.
-- **الحدث (Event)** — أحداث تتبُّع المادة.
+- **Mail Class / Category / Subclass** — classification of mail items per postal-union standards.
+- **Mail Condition** and **Parcel Status** — describe the item's situation.
+- **Delivery & Receipt Area** — offices and areas.
+- **Delivery Service Item** and **Delivery Service Price** — delivery pricing.
+- **Retention Reason** and **Non-Delivery Reason / Measure** — handling exceptions.
+- **Event** — item-tracking events.
 
-في الصفحات التالية نفصّل كل مجموعة من المستندات.
+The following pages detail each group of documents.

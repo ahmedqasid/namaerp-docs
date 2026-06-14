@@ -1,7285 +1,6066 @@
 export const SIDEBAR_CONFIG = {
   "/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "//" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/getting-started/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/",
       "collapsed" : false,
       "items" : [ {
-        text: "الحد الأدنى لمتطلبات تشغيل النظام",
+        text: "System Minimum Requirements",
         "link" : "/getting-started/system-minimum-requirements"
       }, {
-        text: "دليل تثبيت Nama ERP",
+        text: "Nama ERP Installation Guide",
         "link" : "/getting-started/installation-guide"
       }, {
-        text: "إعدادات Nama Properties",
+        text: "Nama Properties",
         "link" : "/getting-started/nama-properties"
       }, {
-        text: "دليل المصادقة الثنائية (2FA)",
+        text: "Two-Factor Authentication (2FA) Guide",
         "link" : "/getting-started/two-factor-authentication"
       } ]
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/platform/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "روابط الأدوات المساعدة (Utility Links)",
+        text: "Utility Links",
         "link" : "/platform/utils"
       }, {
-        text: "اختصارات لوحة المفاتيح",
+        text: "Keyboard Shortcuts",
         "link" : "/platform/shortcuts"
       }, {
-        text: "اختصارات لوحة المفاتيح",
-        "link" : "/platform/shortcuts-ar"
-      }, {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "التحكم في إقفال الفترات المحاسبية (Fiscal Period Control)",
+        text: "Fiscal Period Control",
         "link" : "/platform/fiscal-period-control-guide"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       }, {
-        text: "الكيانات الافتراضية (Virtual Entities) — وحدات SQL قابلة لإعادة الاستخدام في التقارير ولوحات المعلومات",
+        text: "Virtual Entities — Reusable SQL Building Blocks for Reports & Dashboards",
         "link" : "/platform/virtual-entity-guide"
       }, {
-        text: "فلتر الحقل بالمعايير (Field Filter with Criteria)",
+        text: "Field Filter with Criteria",
         "link" : "/platform/field-filter-with-criteria"
       }, {
-        text: "أسئلة شائعة حول فلترة الحقول",
+        text: "Frequently Asked Questions about Field Filtering",
         "link" : "/platform/field-filter-faq"
       }, {
-        text: "تعديل الترجمات في نظام نما",
+        text: "Modifying Translations in Nama ERP",
         "link" : "/platform/translations"
       }, {
-        text: "التحقق المبني على المعايير (Criteria Based Validation)",
+        text: "Criteria Based Validation",
         "link" : "/platform/criteria-based-validation"
       }, {
-        text: "معايير من المحلل النصي (دليل معايير النص)",
+        text: "Criteria from Text Parser (Text Criteria Guide)",
         "link" : "/platform/text-criteria-guide"
       }, {
-        text: "scheduled-tasks.md",
+        text: "Scheduled Tasks (Task Scheduler)",
         "link" : "/platform/scheduled-tasks"
       }, {
-        text: "أعدادات الحقول و الشاشات (Generic Reference Overrider User Guide)",
+        text: "Fields and Entities Settings - Generic Reference Overrider User Guide",
         "link" : "/platform/GenericReferenceOverrider_UserGuide"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/platform/screen-modifier/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/",
         "collapsed" : false,
         "items" : [ {
-          text: "أسماء التخطيط (Layout Names):",
+          text: "Layout Names:",
           "link" : "/platform/screen-modifier/screen-modifier"
         }, {
-          text: "أسئلة شائعة حول تعديل الشاشات",
+          text: "Frequently Asked Questions about Screen Modifier",
           "link" : "/platform/screen-modifier/screen-modifier-faq"
         } ]
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/platform/list-views/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/",
         "collapsed" : false,
         "items" : [ {
-          text: "الفلاتر السريعة في قوائم المستندات (Quick Filters in List Views)",
+          text: "Quick Filters in List Views",
           "link" : "/platform/list-views/quick-filters"
         }, {
-          text: "قصر المستخدم على سنة مالية (Limit User To Year)",
+          text: "Limit User To Year",
           "link" : "/platform/list-views/limit-user-to-year"
         } ]
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/platform/approvals/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/",
         "collapsed" : false,
         "items" : [ {
-          text: "نظام الموافقات - الدليل الشامل لتعريف الموافقة",
+          text: "Approvals System - Approval Definition Full Guide",
           "link" : "/platform/approvals/approvals-system"
         }, {
-          text: "نماذج بريد إلكتروني جاهزة لطلبات الموافقة (Sample Approval Email Templates)",
+          text: "Sample Approval Email Templates",
           "link" : "/platform/approvals/sample-approval-email-templates"
         }, {
-          text: "أسئلة شائعة عن الموافقات",
+          text: "Approvals FAQ",
           "link" : "/platform/approvals/approvals-faq"
         } ]
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/platform/security/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/",
         "collapsed" : false,
         "items" : [ {
-          text: "نظرة عامة على نظام الصلاحيات",
+          text: "Security System Overview",
           "link" : "/platform/security/security-overview"
         }, {
-          text: "ملف الصلاحيات (Security Profile)",
+          text: "Security Profile",
           "link" : "/platform/security/security-profiles"
         }, {
-          text: "صلاحيات الحقول والصفحات والقوائم",
+          text: "Field, Page, and List View Security",
           "link" : "/platform/security/field-page-listview-security"
         }, {
-          text: "الصلاحيات على مستوى السجلات (المحددات والفلاتر)",
+          text: "Record-Level Security (Dimensions and Filters)",
           "link" : "/platform/security/record-level-security"
         }, {
-          text: "المستخدمون وتسجيل الدخول",
+          text: "Users and Login",
           "link" : "/platform/security/users-and-login"
         }, {
-          text: "الصلاحيات الإضافية المؤقتة (التفويض)",
+          text: "Temporary Additional Permissions (Delegation)",
           "link" : "/platform/security/security-delegation"
         } ]
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/platform/entity-flows/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/",
         "collapsed" : false,
         "items" : [ {
-          text: "مقدمة عن مسارات الكيان",
+          text: "Introduction to Entity Flows",
           "link" : "/platform/entity-flows/introduction-to-entity-flows"
         }, {
-          text: "استيراد البيانات من Excel أو الاستعلامات",
+          text: "Importing Data from Excel or Queries",
           "link" : "/platform/entity-flows/excel-and-sql-import-by-entity-flow"
         }, {
           text: "EAGenerateEntityFromEntityAction",
           "link" : "/platform/entity-flows/ea-gen-entity-from-entity"
         }, {
-          text: "أمثلة لمسارات كيان",
+          text: "Entity Flow Examples",
           "link" : "/platform/entity-flows/entity-flow-examples"
         }, {
-          text: "أسئلة شائعة عن مسارات الكيان",
+          text: "Entity Flow FAQ",
           "link" : "/platform/entity-flows/entity-flow-faq"
         } ]
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/platform/reports/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/",
         "collapsed" : false,
         "items" : [ {
-          text: "دليل Jasper Reports الشامل لنظام Nama ERP",
+          text: "Jasper Reports Complete Guide for Nama ERP",
           "link" : "/platform/reports/reports-guide"
         }, {
-          text: "دليل استخدام أداة إنشاء التقارير ونماذج الطباعة",
+          text: "Report Wizard Guide",
           "link" : "/platform/reports/report-wizard-guide"
         }, {
-          text: "أداة إنشاء التقارير (ReportWizard) - دليل المستخدم",
+          text: "ReportWizard User Documentation (Report Creation Tool)",
           "link" : "/platform/reports/ReportWizard_User_Documentation"
         }, {
-          text: "أسئلة شائعة عن تصميم التقارير",
+          text: "Frequently Asked Questions About Report Design",
           "link" : "/platform/reports/report-faq"
         }, {
-          text: "أسئلة شائعة حول أداة إنشاء التقارير",
+          text: "Frequently Asked Questions About the Report Builder",
           "link" : "/platform/reports/report-wizard-faq"
         } ]
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/platform/bi/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/",
         "collapsed" : false,
         "items" : [ {
-          text: "وحدة BI — لوحات المعلومات والتحليلات (BI Module — Dashboards & Analytics)",
+          text: "BI Module — Dashboards & Analytics",
           "link" : "/platform/bi/bi-module-guide"
         }, {
-          text: "وحدة BI في Nama ERP — المرجع التقني",
+          text: "Nama ERP BI Module — Technical Reference",
           "link" : "/platform/bi/bi-module-technical-reference"
         }, {
-          text: "مرجع BI — EnhancedMetricsCard (وwidget المقاييس القديم MetricsCards)",
+          text: "BI Reference — EnhancedMetricsCard (and legacy MetricsCards)",
           "link" : "/platform/bi/bi-reference-enhanced-metrics-card"
         }, {
-          text: "مرجع BI — EnhancedTable",
+          text: "BI Reference — EnhancedTable",
           "link" : "/platform/bi/bi-reference-enhanced-table"
         }, {
-          text: "مرجع BI — وضع المعالج (Wizard Mode)",
+          text: "BI Reference — Wizard Mode",
           "link" : "/platform/bi/bi-reference-wizard-mode"
         } ]
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/platform/notifications/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/",
         "collapsed" : false,
         "items" : [ {
-          text: "نظام التنبيهات في Nama ERP",
+          text: "Nama ERP Notification System",
           "link" : "/platform/notifications/notifications-system"
         }, {
-          text: "تكامل WhatsApp",
+          text: "WhatsApp Integration",
           "link" : "/platform/notifications/sms-and-whatsapp"
         }, {
-          text: "أسئلة شائعة عن التنبيهات والرسائل",
+          text: "Frequently Asked Questions: Notifications and Messages",
           "link" : "/platform/notifications/notification-fq"
         } ]
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/modules/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/modules/invoicing/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/",
         "collapsed" : false,
         "items" : [ {
-          text: "نقاط مكافآت العملاء (Customer Reward Points / Loyalty Points)",
+          text: "Customer Reward Points (Loyalty Points)",
           "link" : "/modules/invoicing/reward-points"
         }, {
-          text: "دليل نظام الخصومات وحساب الضرائب على الفواتير - دليل شامل",
+          text: "Invoice Discounts and Tax Calculation System - Comprehensive Guide",
           "link" : "/modules/invoicing/invoice-discounts-and-tax-calculation-guide"
         }, {
-          text: "دليل إدارة الأسعار والعروض (Pricing and Offers Management Guide)",
+          text: "Pricing and Offers Management Guide",
           "link" : "/modules/invoicing/pricing-and-offers-guide"
         }, {
-          text: "دليل المستخدم لجداول الدفع (Payment Schedules)",
+          text: "Payment Schedules User Guide",
           "link" : "/modules/invoicing/payment-schedules-user-guide"
         }, {
-          text: "ربط سندات الدفع بالفواتير",
+          text: "Linking Payment Vouchers to Invoices",
           "link" : "/modules/invoicing/payment-entries"
         }, {
-          text: "تكامل المدفوعات الإلكترونية (Online Payments Integration)",
+          text: "Online Payments Integration",
           "link" : "/modules/invoicing/online-payments"
         }, {
           text: "Nama ERP e-Invoice guide",
           "link" : "/modules/invoicing/e-invoices-guide"
         }, {
-          text: "الربط مع هيئة الزكاة والضريبة والجمارك بالسعودية (ZATCA Fatoora)",
+          text: "Integration with ZATCA (Saudi Arabia – Fatoora)",
           "link" : "/modules/invoicing/zatca-guide"
         }, {
-          text: "Electronic Receipt (Egypt Tax eInvoice) تفعيل الإيصال الإلكتروني - الفاتورة الإلكترونية - مصر",
+          text: "Electronic Receipt (Egypt Tax eInvoice) - Activating the Electronic Receipt and eInvoice - Egypt",
           "link" : "/modules/invoicing/electronic-receipt-egypt-tax-eInvoice"
         }, {
-          text: "الربط مع الفاتورة الإلكترونية في الإمارات عبر Orchida osTax",
+          text: "UAE E-Invoicing Integration via Orchida osTax",
           "link" : "/modules/invoicing/uae-orchida-einvoice-guide"
         }, {
-          text: "توثيق خاصية الشروط والأحكام القياسية (Standard Terms and Conditions Feature Documentation)",
+          text: "Standard Terms and Conditions Feature Documentation",
           "link" : "/modules/invoicing/standard-terms-feature-documentation"
         }, {
-          text: "ميزة حقل الباركود للمسح المتتالي",
+          text: "Barcode Field Feature for Sequential Scanning",
           "link" : "/modules/invoicing/barcode-field-feature"
         }, {
-          text: "أسئلة شائعة حول الفواتير والدفع",
+          text: "Frequently Asked Questions about Invoices and Payments",
           "link" : "/modules/invoicing/invoices-faq"
         } ]
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/modules/accounting/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "المفاهيم الأساسية والإعداد المبدئي للحسابات",
+          text: "Accounting Concepts & First-Time Setup",
           "link" : "/modules/accounting/accounting-concepts-and-setup"
         }, {
-          text: "شجرة الحسابات",
+          text: "Chart of Accounts",
           "link" : "/modules/accounting/chart-of-accounts"
         }, {
-          text: "الحسابات",
+          text: "Accounts",
           "link" : "/modules/accounting/accounts"
         }, {
-          text: "سندات القيد والتسويات",
+          text: "Journal Entries & Adjustments",
           "link" : "/modules/accounting/journal-entries"
         }, {
-          text: "الإقفال السنوي والتحكم في الفترات",
+          text: "Year-End Closing & Period Control",
           "link" : "/modules/accounting/year-end-and-period-control"
         }, {
-          text: "سندات القبض والصرف",
+          text: "Receipt & Payment Vouchers",
           "link" : "/modules/accounting/receipts-and-payments"
         }, {
-          text: "إشعارات الدائن والمدين",
+          text: "Credit & Debit Notes",
           "link" : "/modules/accounting/credit-and-debit-notes"
         }, {
-          text: "ورديات الكاشير (درج النقدية)",
+          text: "Cashier Shifts (Cash Drawer)",
           "link" : "/modules/accounting/cashier-shifts"
         }, {
-          text: "البنوك والحسابات البنكية والتحويلات",
+          text: "Banks, Bank Accounts & Transfers",
           "link" : "/modules/accounting/banks-and-bank-accounts"
         }, {
-          text: "المطابقة البنكية",
+          text: "Bank Reconciliation",
           "link" : "/modules/accounting/bank-reconciliation"
         }, {
-          text: "الشيكات والأوراق المالية (دورة الحياة)",
+          text: "Cheques & Financial Papers (Lifecycle)",
           "link" : "/modules/accounting/cheques-financial-papers"
         }, {
-          text: "القروض البنكية",
+          text: "Bank Loans",
           "link" : "/modules/accounting/bank-loans"
         }, {
-          text: "الودائع الثابتة",
+          text: "Fixed Deposits",
           "link" : "/modules/accounting/fixed-deposits"
         }, {
-          text: "التسهيلات الائتمانية وحدود التسهيلات",
+          text: "Credit Facilities & Facility Limits",
           "link" : "/modules/accounting/credit-facilities"
         }, {
-          text: "خطابات الضمان",
+          text: "Letters of Guarantee",
           "link" : "/modules/accounting/letters-of-guarantee"
         }, {
-          text: "الاعتمادات المستندية",
+          text: "Letters of Credit",
           "link" : "/modules/accounting/bank-letters-of-credit"
         }, {
-          text: "أذون الخزانة",
+          text: "Treasury Bills",
           "link" : "/modules/accounting/treasury-bills"
         }, {
-          text: "المحافظ الاستثمارية",
+          text: "Investment Portfolios",
           "link" : "/modules/accounting/investment-portfolios"
         }, {
-          text: "مستندات الاستثمار وشهادات الصناديق",
+          text: "Investment Documents & Fund Certificates",
           "link" : "/modules/accounting/investment-documents"
         }, {
-          text: "المصروفات المقدمة",
+          text: "Prepaid Expenses",
           "link" : "/modules/accounting/prepaid-expenses"
         }, {
-          text: "الالتزامات المالية",
+          text: "Financial Commitments",
           "link" : "/modules/accounting/financial-commitments"
         }, {
-          text: "الموازنات المالية",
+          text: "Financial Budgets",
           "link" : "/modules/accounting/financial-budgets"
         }, {
-          text: "القوائم المالية",
+          text: "Financial Statements",
           "link" : "/modules/accounting/financial-statements"
         }, {
-          text: "المشتريات المتنوعة وتشغيل المعدات",
+          text: "Misc Purchasing & Machine Rent",
           "link" : "/modules/accounting/misc-purchasing"
         }, {
-          text: "تقييم الجهات",
+          text: "Party Evaluation",
           "link" : "/modules/accounting/party-evaluation"
         }, {
-          text: "التسوية مع الذمم",
+          text: "Subsidiary Reconciliation",
           "link" : "/modules/accounting/subsidiary-reconciliation"
         }, {
-          text: "كشوف الحسابات وميزان المراجعة والتحليل",
+          text: "Account Statements, Trial Balance & Analysis",
           "link" : "/modules/accounting/reports-account-statements-and-trial-balance"
         }, {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/modules/accounting/support/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/",
           "collapsed" : false,
           "items" : [ {
-            text: "كيف تُعالَج المستندات إلى أثر محاسبي (وإعادة معالجة طلب متعثّر)",
+            text: "How Documents Are Processed Into Accounting Effects (and reprocessing a stuck request)",
             "link" : "/modules/accounting/support/accounting-request-processing"
           }, {
-            text: "إعدادات الحسابات (كتالوج خيارات الوحدة)",
+            text: "Accounting Configuration (module option catalog)",
             "link" : "/modules/accounting/support/accounting-configuration"
           }, {
-            text: "توجيهات المستندات (قواعد المعالجة لكل نوع)",
+            text: "Document Terms (per-type processing rules)",
             "link" : "/modules/accounting/support/accounting-document-terms"
           }, {
-            text: "المحدِّدات ومراكز التكلفة والتوزيع",
+            text: "Dimensions, Cost Centers & Distribution",
             "link" : "/modules/accounting/support/accounting-dimensions-and-distribution"
           }, {
-            text: "الفترات المالية وإقفال الفترات وتعدّد العملات",
+            text: "Fiscal Periods, Period Locking & Multi-Currency",
             "link" : "/modules/accounting/support/accounting-periods-and-currency"
           } ]
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/modules/supplychain/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/",
         "collapsed" : false,
         "items" : [ {
-          text: "إدارة سلسلة التوريد (Supply Chain Management)",
+          text: "Supply Chain Management",
           "link" : "/modules/supplychain/supply-chain-intro"
         }, {
-          text: "فهم أصناف المخزون (Understanding Inventory Items)",
+          text: "Understanding Inventory Items",
           "link" : "/modules/supplychain/understanding-items"
         }, {
-          text: "المخازن والمواقع التخزينية (Warehouses & Locators)",
+          text: "Warehouses & Locators",
           "link" : "/modules/supplychain/warehouses-and-locators"
         }, {
-          text: "استلام المخزون في المستودع (Receiving Stock)",
+          text: "Receiving Stock",
           "link" : "/modules/supplychain/receiving-stock"
         }, {
-          text: "إصدار المخزون من المستودع (Issuing Stock)",
+          text: "Issuing Stock",
           "link" : "/modules/supplychain/issuing-stock"
         }, {
-          text: "تحريك المخزون بين المخازن (Moving Stock)",
+          text: "Moving Stock Between Warehouses",
           "link" : "/modules/supplychain/moving-stock"
         }, {
-          text: "الجرد المخزني (Stock Taking)",
+          text: "Stock Taking",
           "link" : "/modules/supplychain/stock-taking"
         }, {
-          text: "تكلفة المخزون وإعادة التقييم (Inventory Costing & Revaluation)",
+          text: "Inventory Costing & Revaluation",
           "link" : "/modules/supplychain/inventory-costing"
         }, {
-          text: "رحلة الشراء (The Purchasing Journey)",
+          text: "The Purchasing Journey",
           "link" : "/modules/supplychain/purchasing-journey"
         }, {
-          text: "التنبؤ بالمشتريات (Purchase Forecast)",
+          text: "Purchase Forecast",
           "link" : "/modules/supplychain/purchase-forecast"
         }, {
-          text: "رحلة المبيعات (The Sales Journey)",
+          text: "The Sales Journey",
           "link" : "/modules/supplychain/sales-journey"
         }, {
-          text: "التسعير والعروض والكوبونات (Pricing, Offers & Coupons)",
+          text: "Pricing, Offers & Coupons",
           "link" : "/modules/supplychain/pricing-offers-and-coupons"
         }, {
-          text: "دليل نظام الحجوزات الشامل (Comprehensive Reservation System Guide)",
+          text: "Comprehensive Reservation System Guide",
           "link" : "/modules/supplychain/reservation-system-guide"
         }, {
-          text: "التسليم والتحميل (Delivery & Loading)",
+          text: "Delivery & Loading",
           "link" : "/modules/supplychain/delivery-and-loading"
         }, {
-          text: "التجميع والتعبئة (Assembly & Packaging)",
+          text: "Assembly & Packaging",
           "link" : "/modules/supplychain/assembly-and-packaging"
         }, {
-          text: "ضبط الجودة (Quality Control)",
+          text: "Quality Control",
           "link" : "/modules/supplychain/quality-control"
         }, {
-          text: "الاعتمادات المستندية (Letters of Credit)",
+          text: "Letters of Credit",
           "link" : "/modules/supplychain/letters-of-credit"
         }, {
-          text: "موازين الوزن (Weight Scale)",
+          text: "Weight Scale",
           "link" : "/modules/supplychain/weight-scale"
         }, {
-          text: "سيناريوهات متخصصة (Specialized Scenarios)",
+          text: "Specialized Scenarios",
           "link" : "/modules/supplychain/specialized-scenarios"
         }, {
-          text: "تجاهل مخازن/مواقع معينة في التحقق من كمية الحجز بالتاريخ",
+          text: "Ignoring Specific Warehouses/Locators in Reservation Quantity Check by Date",
           "link" : "/modules/supplychain/ignore-reservation-qty-check-by-date"
         }, {
-          text: "أسئلة في موديول التوزيع والمخازن والمبيعات والمشتريات",
+          text: "FAQ — Distribution, Warehousing, Sales & Purchasing Module",
           "link" : "/modules/supplychain/supply-chain-faq"
         } ]
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/modules/freight/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/",
         "collapsed" : false,
         "items" : [ {
-          text: "إدارة الشحن (Freight Management)",
+          text: "Freight Management",
           "link" : "/modules/freight/freight-intro"
         }, {
-          text: "الملفات الأساسية لإدارة الشحن",
+          text: "Freight Master Files",
           "link" : "/modules/freight/freight-master-files"
         }, {
-          text: "أوامر التشغيل (Operation Orders)",
+          text: "Operation Orders",
           "link" : "/modules/freight/operation-orders"
         }, {
-          text: "بوالص الشحن (Bills of Lading)",
+          text: "Bills of Lading",
           "link" : "/modules/freight/bills-of-lading"
         }, {
-          text: "قوائم الأسعار والهوامش",
+          text: "Price Lists & Markups",
           "link" : "/modules/freight/freight-pricing"
         }, {
-          text: "الفواتير والمرتجعات",
+          text: "Invoices & Returns",
           "link" : "/modules/freight/freight-invoicing"
         }, {
-          text: "التعامل مع الفاتورة الإلكترونية في وحدة الشحن",
+          text: "E-Invoicing in the Freight Module",
           "link" : "/modules/freight/freight-einvoicing"
         }, {
-          text: "نظام البريد الدولي (IPS) — نظرة عامة",
+          text: "International Postal System (IPS) — Overview",
           "link" : "/modules/freight/ips-postal-intro"
         }, {
-          text: "المواد البريدية",
+          text: "Mail Items",
           "link" : "/modules/freight/ips-mail-items"
         }, {
-          text: "الأكياس البريدية (Receptacles)",
+          text: "Receptacles",
           "link" : "/modules/freight/ips-receptacles"
         }, {
-          text: "خدمة التوصيل (Delivery)",
+          text: "Delivery Service",
           "link" : "/modules/freight/ips-delivery"
         } ]
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/modules/hms/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/",
         "collapsed" : false,
         "items" : [ {
-          text: "نظام إدارة المستشفيات (Hospital Management System)",
+          text: "Hospital Management System",
           "link" : "/modules/hms/hms-intro"
         }, {
-          text: "هيكل المستشفى والغرف",
+          text: "Hospital Structure & Rooms",
           "link" : "/modules/hms/hms-facility"
         }, {
-          text: "الملفات الطبية الأساسية",
+          text: "Medical Master Files",
           "link" : "/modules/hms/hms-medical-master-files"
         }, {
-          text: "كتالوج الخدمات الطبية",
+          text: "Medical Service Catalog",
           "link" : "/modules/hms/hms-service-catalog"
         }, {
-          text: "التأمين الطبي والموافقات",
+          text: "Medical Insurance & Approvals",
           "link" : "/modules/hms/hms-insurance"
         }, {
-          text: "الأسعار والتكاليف والخصومات",
+          text: "Pricing, Costing & Discounts",
           "link" : "/modules/hms/hms-pricing"
         }, {
-          text: "المرضى والدخول",
+          text: "Patients & Admission",
           "link" : "/modules/hms/hms-patients"
         }, {
-          text: "التسكين والتغذية",
+          text: "Accommodation & Feeding",
           "link" : "/modules/hms/hms-accommodation"
         }, {
-          text: "الطلبات والنتائج الإكلينيكية",
+          text: "Clinical Orders & Results",
           "link" : "/modules/hms/hms-clinical-orders"
         }, {
-          text: "الفواتير والمحاسبة",
+          text: "Invoicing & Billing",
           "link" : "/modules/hms/hms-invoicing"
         } ]
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/modules/manufacturing/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/",
         "collapsed" : false,
         "items" : [ {
-          text: "نظرة عامة على وحدة التصنيع (Manufacturing Module Overview)",
+          text: "Manufacturing Module Overview",
           "link" : "/modules/manufacturing/manufacturing-overview"
         }, {
-          text: "أوامر الإنتاج (Production Orders): التخطيط لما سيتم تصنيعه",
+          text: "Production Orders: Planning What to Make",
           "link" : "/modules/manufacturing/production-orders"
         }, {
-          text: "تنفيذ الإنتاج (Production Execution): تسجيل ما يحدث فعلاً",
+          text: "Production Execution: Recording What Actually Happens",
           "link" : "/modules/manufacturing/production-execution"
         }, {
-          text: "تكاليف الإنتاج: تتبع الأموال",
+          text: "Production Costing: Following the Money",
           "link" : "/modules/manufacturing/production-costing"
         }, {
-          text: "تخطيط متطلبات المواد (Material Requirements Planning - MRP) - دليل المستخدم",
+          text: "Material Requirements Planning (MRP) - User Guide",
           "link" : "/modules/manufacturing/material-requirements-planning"
         }, {
-          text: "تصنيع الكرتون: تخطيط ذكي للمواد في منتجات الورق المموج",
+          text: "Carton Manufacturing: Smart Material Planning for Corrugated Products",
           "link" : "/modules/manufacturing/carton-manufacturing-overview"
         }, {
-          text: "مواصفات الكرتونة: تعريف منتجاتك",
+          text: "Carton Specifications: Defining Your Products",
           "link" : "/modules/manufacturing/carton-specifications"
         }, {
-          text: "طلبيات الكرتون (Carton Orders): من طلب العميل إلى خطة الإنتاج",
+          text: "Carton Orders: From Customer Request to Production Plan",
           "link" : "/modules/manufacturing/carton-orders"
         }, {
-          text: "تخطيط خامات الكرتون (Carton Material Planning): محرك التحسين",
+          text: "Carton Material Planning: The Optimization Engine",
           "link" : "/modules/manufacturing/carton-material-planning"
         }, {
-          text: "صرف خامات الكرتون: من المستودع إلى أرض الإنتاج",
+          text: "Carton Material Issues: From Warehouse to Shop Floor",
           "link" : "/modules/manufacturing/carton-material-issue"
         }, {
-          text: "أسئلة شائعة حول موديول التصنيع في نظام Nama ERP",
+          text: "Frequently Asked Questions — Manufacturing Module in Nama ERP",
           "link" : "/modules/manufacturing/manufacturing-faq"
         } ]
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/modules/hr/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/",
         "collapsed" : false,
         "items" : [ {
-          text: "صيغ الحضور والانصراف",
+          text: "Attendance and Departure Formulas",
           "link" : "/modules/hr/attendance-machine-formula"
         }, {
-          text: "تجاهل سطور الحضور والانصراف المتقاطعة",
+          text: "Ignoring Overlapping Attendance and Departure Lines",
           "link" : "/modules/hr/ignore-overlapping-attendance"
         }, {
-          text: "أسئلة شائعة في موديول الرواتب والموارد البشرية",
+          text: "Frequently Asked Questions — Payroll and Human Resources Module",
           "link" : "/modules/hr/human-resources-faq"
         } ]
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/modules/pos/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/",
         "collapsed" : false,
         "items" : [ {
-          text: "دليل استعمال النقاط الفنية في نقاط البيع",
+          text: "Nama POS — Technical Points of Use Guide",
           "link" : "/modules/pos/nama-pos"
         }, {
-          text: "الأصناف المجانية في نقاط البيع: المطالبة بالمسح والتسوية عند الدفع",
+          text: "Free Items in POS: Claim at Scan and Reconciliation at Payment",
           "link" : "/modules/pos/pos-free-items-claim-and-reconciliation"
         }, {
-          text: "تسجيل الدخول بالبصمة في نقاط البيع",
+          text: "Fingerprint Login in Point of Sale",
           "link" : "/modules/pos/pos-fingerprint-login"
         }, {
-          text: "أسئلة شائعة حول نقاط البيع",
+          text: "Point of Sale FAQ",
           "link" : "/modules/pos/pos-faq"
         } ]
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/modules/realestate/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/",
         "collapsed" : false,
         "items" : [ {
-          text: "أسئلة شائعة عن الاستثمار العقاري",
+          text: "Real Estate Investment FAQ",
           "link" : "/modules/realestate/real-estate-fq"
         } ]
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/modules/mobile/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/",
         "collapsed" : false,
         "items" : [ {
-          text: "تطبيق نما للهواتف المحمولة — نظرة عامة والتنقل والإعدادات",
+          text: "Nama Mobile App — Overview, Navigation & Settings",
           "link" : "/modules/mobile/mobile-application-guide"
         }, {
-          text: "الخدمة الذاتية للموظفين — الحضور والإجازات",
+          text: "Employee Self-Service — Attendance & Leaves",
           "link" : "/modules/mobile/mobile-hr-self-service"
         }, {
-          text: "المبيعات والمخازن والاستعلام عن الأصناف",
+          text: "Sales, Inventory & Item Inquiry",
           "link" : "/modules/mobile/mobile-sales-inventory"
         }, {
-          text: "خدمة العملاء والتوصيل والقبض",
+          text: "Customer Service, Delivery & Receipts",
           "link" : "/modules/mobile/mobile-crm-delivery"
         }, {
-          text: "دليل Mobile QR Integrator",
+          text: "Mobile QR Integrator Guide",
           "link" : "/modules/mobile/mobile-qr-integrator"
         }, {
-          text: "أسئلة شائعة حول تطبيقات الهواتف المحمولة في نظام Nama ERP",
+          text: "Frequently Asked Questions About Mobile Applications in Nama ERP",
           "link" : "/modules/mobile/mobile-apps-faq"
         } ]
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/modules/ecommerce/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/",
         "collapsed" : false,
         "items" : [ {
-          text: "دليل تكامل التجارة الإلكترونية مع Nama ERP",
+          text: "Nama ERP E-Commerce Integration Guide",
           "link" : "/modules/ecommerce/magento-integration-guide"
         }, {
-          text: "دليل التكامل مع Omniful",
+          text: "Omniful Integration Guide",
           "link" : "/modules/ecommerce/omniful-integration"
         } ]
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/modules/ai/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/",
         "collapsed" : false,
         "items" : [ {
-          text: "تعريفات أدوات الذكاء الاصطناعي (AI Tool Definitions)",
+          text: "AI Tool Definitions",
           "link" : "/modules/ai/ai-tool-definitions"
         }, {
-          text: "المساعد الذكي داخل النظام",
+          text: "The In-System AI Assistant",
           "link" : "/modules/ai/ai-assistant"
         }, {
-          text: "إعداد وحدة الذكاء الاصطناعي",
+          text: "AI Module Configuration",
           "link" : "/modules/ai/ai-configuration"
         }, {
-          text: "خادم MCP لنظام نما ERP",
+          text: "Nama ERP MCP Server",
           "link" : "/modules/ai/ai-mcp-server"
         } ]
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/integration/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/",
       "collapsed" : false,
       "items" : [ {
-        text: "واجهة برمجية REST لنظام نما ERP",
+        text: "Nama ERP REST API",
         "link" : "/integration/nama-erp-api"
       }, {
-        text: "سيناريوهات الربط بين نظام نما والأنظمة الأخرى",
+        text: "Integration Scenarios Between Nama and Other Systems",
         "link" : "/integration/system-integration-scenarios"
       }, {
-        text: "إرسال الفواتير والمستندات للعملاء",
+        text: "Sending Invoices and Documents to Customers",
         "link" : "/integration/invoice-retriever"
       }, {
-        text: "الربط مع ماكينات الحضور والانصراف",
+        text: "Integration with Attendance Machines",
         "link" : "/integration/attendance-machines-integration"
       }, {
-        text: "إعداد اتصال Oracle JDBC في ملف context.xml لأغراض التكامل",
+        text: "ORACLE JDBC Integration Connection in context.xml for integration purposes",
         "link" : "/integration/oracle-jdbc-connection"
       } ]
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/admin/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "دليل لغة Tempo",
+        text: "Tempo Language Manual",
         "link" : "/admin/tempo"
       }, {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/admin/troubleshooting/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/",
         "collapsed" : false,
         "items" : [ {
-          text: "استكشاف أخطاء توقف النظام أو عدم استجابته (Troubleshooting System Hanging or Unresponsiveness)",
+          text: "Troubleshooting System Hanging or Unresponsiveness",
           "link" : "/admin/troubleshooting/troubleshooting-system-hanging"
         }, {
-          text: "أسئلة عامة",
+          text: "General FAQ",
           "link" : "/admin/troubleshooting/general-faq"
         }, {
           text: "Database Related Errors FAQ",
           "link" : "/admin/troubleshooting/database-error-related-faq"
         } ]
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/admin/reprocessing/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/",
         "collapsed" : false,
         "items" : [ {
-          text: "إعادة معالجة الكميات والتكاليف وأعمار المخزون (Reprocessing Quantity, Cost, and Stock Ages)",
+          text: "Reprocessing Quantity, Cost, and Stock Ages",
           "link" : "/admin/reprocessing/reprocess-qty-and-cost"
         }, {
-          text: "أدوات المحاسبة - إعادة معالجة دفتر الأستاذ وأعمار الديون (Accounting Utilities - Ledger and Debt Ages Reprocessing)",
+          text: "Accounting Utilities - Ledger and Debt Ages Reprocessing",
           "link" : "/admin/reprocessing/reprocess-ledger-and-debt-ages"
         }, {
-          text: "استعلامات للكشف عن مشاكل التكلفة والكميات (وإصلاحها)",
+          text: "Queries to Check for (and Fix) Cost And Qty Problems",
           "link" : "/admin/reprocessing/cost-and-qty-problems"
         }, {
-          text: "استعلامات الأدوات المساعدة للمخزون",
+          text: "Inventory Related Utility Queries",
           "link" : "/admin/reprocessing/inventory-utilities"
         }, {
-          text: "أدوات التصنيع (Manufacturing Utilities)",
+          text: "Manufacturing Utilities",
           "link" : "/admin/reprocessing/manufacturing-utilities"
         }, {
-          text: "أدوات وحدة الأصول الثابتة (Fixed Assets Module Utilities)",
+          text: "Fixed Assets Module Utilities",
           "link" : "/admin/reprocessing/fixed-asset-utilities"
         }, {
-          text: "أدوات العقارات (Real Estate Utilities)",
+          text: "Real Estate Utilities",
           "link" : "/admin/reprocessing/real-estate-utilities"
         }, {
-          text: "عمليات قاعدة البيانات (Database Related Operations)",
+          text: "Database Related Operations",
           "link" : "/admin/reprocessing/db-operations"
         }, {
-          text: "اقتراح إنشاء Indexes لجداول التفاصيل الكبيرة",
+          text: "Suggest Indexes for Large Detail Tables",
           "link" : "/admin/reprocessing/suggest-index-creation"
         }, {
-          text: "استعلامات عامة متعددة الأغراض (General Purpose Utility Queries)",
+          text: "General Purpose Utility Queries",
           "link" : "/admin/reprocessing/general-purpose-utility-queries"
         }, {
-          text: "أدوات النسخ المتطابق (Replication Utilities)",
+          text: "Replication Utilities",
           "link" : "/admin/reprocessing/replication"
         } ]
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/developer/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/",
       "collapsed" : false,
       "items" : [ {
-        text: "بعض المعلومات عن استعمال هذا الموقع",
+        text: "Some Information About Using This Site",
         "link" : "/developer/docs-quick-guide"
       }, {
-        text: "ضوابط إنشاء طلبات تطوير من قبل أقسام الدعم الفني والتجهيز بالشركة",
+        text: "Guidelines for Submitting Development Requests by Support and Setup Teams",
         "link" : "/developer/dev-request-guidelines"
       }, {
-        text: "أسئلة عامة عن GUI Post Actions",
+        text: "General Questions About GUI Post Actions",
         "link" : "/developer/gui-post-actions-faq"
       } ]
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/entity-flows/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/entity-flows/core/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/",
         "collapsed" : false,
         "items" : [ {
@@ -7566,212 +6347,174 @@ export const SIDEBAR_CONFIG = {
           "link" : "/entity-flows/core/SQLImporterFromDifferentDataSource"
         } ]
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/entity-flows/accounting/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/",
         "collapsed" : false,
         "items" : [ {
@@ -7806,212 +6549,174 @@ export const SIDEBAR_CONFIG = {
           "link" : "/entity-flows/accounting/EASortLedger"
         } ]
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/entity-flows/ai/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/",
         "collapsed" : false,
         "items" : [ {
@@ -8025,212 +6730,174 @@ export const SIDEBAR_CONFIG = {
           "link" : "/entity-flows/ai/EAKeepZillizClusterActive"
         } ]
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/entity-flows/contracting/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/",
         "collapsed" : false,
         "items" : [ {
@@ -8244,212 +6911,174 @@ export const SIDEBAR_CONFIG = {
           "link" : "/entity-flows/contracting/EAUpdateRemarksInExtractFromContractTermDescription"
         } ]
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/entity-flows/crm/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/",
         "collapsed" : false,
         "items" : [ {
@@ -8460,212 +7089,174 @@ export const SIDEBAR_CONFIG = {
           "link" : "/entity-flows/crm/EACRMDevReqPadLeftRelativeWeight"
         } ]
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/entity-flows/egtax/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/",
         "collapsed" : false,
         "items" : [ {
@@ -8673,212 +7264,174 @@ export const SIDEBAR_CONFIG = {
           "link" : "/entity-flows/egtax/EAReadRecentTaxEInvoices"
         } ]
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/entity-flows/frm/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/",
         "collapsed" : false,
         "items" : [ {
@@ -8886,212 +7439,174 @@ export const SIDEBAR_CONFIG = {
           "link" : "/entity-flows/frm/EAKWSendIPSEvents"
         } ]
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/entity-flows/hms/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/",
         "collapsed" : false,
         "items" : [ {
@@ -9099,212 +7614,174 @@ export const SIDEBAR_CONFIG = {
           "link" : "/entity-flows/hms/EACreateAccommodationInvoice"
         } ]
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/entity-flows/hr/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/",
         "collapsed" : false,
         "items" : [ {
@@ -9387,212 +7864,174 @@ export const SIDEBAR_CONFIG = {
           "link" : "/entity-flows/hr/TimeAttendanceRemoveEmptyTimeLines"
         } ]
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/entity-flows/magento/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/",
         "collapsed" : false,
         "items" : [ {
@@ -9621,212 +8060,174 @@ export const SIDEBAR_CONFIG = {
           "link" : "/entity-flows/magento/EASalesRecalculateFreeAndRelatedItems"
         } ]
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/entity-flows/manufacturing/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/",
         "collapsed" : false,
         "items" : [ {
@@ -9834,212 +8235,174 @@ export const SIDEBAR_CONFIG = {
           "link" : "/entity-flows/manufacturing/EAStartOrderIfNotStarted"
         } ]
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/entity-flows/namapos/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/",
         "collapsed" : false,
         "items" : [ {
@@ -10050,212 +8413,174 @@ export const SIDEBAR_CONFIG = {
           "link" : "/entity-flows/namapos/EADeleteOldPOSOnlineOrderEntries"
         } ]
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/entity-flows/realestate/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/",
         "collapsed" : false,
         "items" : [ {
@@ -10272,212 +8597,174 @@ export const SIDEBAR_CONFIG = {
           "link" : "/entity-flows/realestate/EAFixNextAndPreviousFromQuery"
         } ]
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/entity-flows/srvcenter/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/",
         "collapsed" : false,
         "items" : [ {
@@ -10500,212 +8787,174 @@ export const SIDEBAR_CONFIG = {
           "link" : "/entity-flows/srvcenter/EAUseReceiptPaperForEngineOrChassisItems"
         } ]
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/entity-flows/supplychain/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/",
         "collapsed" : false,
         "items" : [ {
@@ -10921,8448 +9170,8965 @@ export const SIDEBAR_CONFIG = {
         } ]
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
-        "link" : "/videos/hr/"
-      } ]
-    } ]
-  } ],
-  "/release-notes/" : [ {
-    text: "الرئيسية",
-    "collapsed" : false,
-    "items" : [ {
-      text: "البحث",
-      "link" : "/full-search"
-    }, {
-      text: "بدء الاستخدام",
-      "link" : "/getting-started/"
-    }, {
-      text: "الخصائص العامة للنظام",
-      "link" : "/platform/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "تعديل الشاشات",
-        "link" : "/platform/screen-modifier/"
-      }, {
-        text: "قوائم العرض",
-        "link" : "/platform/list-views/"
-      }, {
-        text: "الموافقات",
-        "link" : "/platform/approvals/"
-      }, {
-        text: "الصلاحيات والأمان",
-        "link" : "/platform/security/"
-      }, {
-        text: "مسارات الكيان",
-        "link" : "/platform/entity-flows/"
-      }, {
-        text: "التقارير",
-        "link" : "/platform/reports/"
-      }, {
-        text: "ذكاء الأعمال (BI)",
-        "link" : "/platform/bi/"
-      }, {
-        text: "التنبيهات",
-        "link" : "/platform/notifications/"
-      } ]
-    }, {
-      text: "الوحدات",
-      "link" : "/modules/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
-        "link" : "/modules/invoicing/"
-      }, {
-        text: "الحسابات والبنوك",
-        "link" : "/modules/accounting/",
-        "collapsed" : false,
-        "items" : [ {
-          text: "مرجع الدعم الفني",
-          "link" : "/modules/accounting/support/"
-        } ]
-      }, {
-        text: "سلسلة التوريد",
-        "link" : "/modules/supplychain/"
-      }, {
-        text: "إدارة الشحن",
-        "link" : "/modules/freight/"
-      }, {
-        text: "نظام إدارة المستشفيات",
-        "link" : "/modules/hms/"
-      }, {
-        text: "التصنيع",
-        "link" : "/modules/manufacturing/"
-      }, {
-        text: "الموارد البشرية",
-        "link" : "/modules/hr/"
-      }, {
-        text: "نقاط البيع",
-        "link" : "/modules/pos/"
-      }, {
-        text: "العقارات",
-        "link" : "/modules/realestate/"
-      }, {
-        text: "تطبيقات الجوال",
-        "link" : "/modules/mobile/"
-      }, {
-        text: "تكامل التجارة الإلكترونية",
-        "link" : "/modules/ecommerce/"
-      }, {
-        text: "الذكاء الاصطناعي",
-        "link" : "/modules/ai/"
-      } ]
-    }, {
-      text: "التكاملات الخارجية",
-      "link" : "/integration/"
-    }, {
-      text: "إدارة النظام",
-      "link" : "/admin/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
-        "link" : "/admin/troubleshooting/"
-      }, {
-        text: "إعادة معالجة الحركات",
-        "link" : "/admin/reprocessing/"
-      } ]
-    }, {
-      text: "مرجع المطور",
-      "link" : "/developer/"
-    }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
-      "link" : "/entity-flows/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "الأساسيات",
-        "link" : "/entity-flows/core/"
-      }, {
-        text: "وحدة الحسابات",
-        "link" : "/entity-flows/accounting/"
-      }, {
-        text: "وحدة الذكاء الاصطناعي",
-        "link" : "/entity-flows/ai/"
-      }, {
-        text: "وحدة المقاولات",
-        "link" : "/entity-flows/contracting/"
-      }, {
-        text: "وحدة إدارة علاقات العملاء",
-        "link" : "/entity-flows/crm/"
-      }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
-        "link" : "/entity-flows/egtax/"
-      }, {
-        text: "وحدة إدارة الشحن",
-        "link" : "/entity-flows/frm/"
-      }, {
-        text: "وحدة إدارة المستشفيات",
-        "link" : "/entity-flows/hms/"
-      }, {
-        text: "وحدة الموارد البشرية",
-        "link" : "/entity-flows/hr/"
-      }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
-        "link" : "/entity-flows/magento/"
-      }, {
-        text: "وحدة التصنيع",
-        "link" : "/entity-flows/manufacturing/"
-      }, {
-        text: "وحدة نقاط البيع",
-        "link" : "/entity-flows/namapos/"
-      }, {
-        text: "وحدة العقارات",
-        "link" : "/entity-flows/realestate/"
-      }, {
-        text: "وحدة مركز الخدمة",
-        "link" : "/entity-flows/srvcenter/"
-      }, {
-        text: "وحدة سلسلة التوريد",
-        "link" : "/entity-flows/supplychain/"
-      } ]
-    }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
-      "link" : "/videos/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
-        "link" : "/videos/supply-chain-videos/"
-      }, {
-        text: "فيديوهات أداة إنشاء التقارير",
-        "link" : "/videos/report-wizard-videos/"
-      }, {
-        text: "فيديوهات الموارد البشرية",
-        "link" : "/videos/hr/"
-      } ]
-    } ]
-  } ],
-  "/release-notes/2016/" : [ {
-    text: "الرئيسية",
-    "collapsed" : false,
-    "items" : [ {
-      text: "البحث",
-      "link" : "/full-search"
-    }, {
-      text: "بدء الاستخدام",
-      "link" : "/getting-started/"
-    }, {
-      text: "الخصائص العامة للنظام",
-      "link" : "/platform/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "تعديل الشاشات",
-        "link" : "/platform/screen-modifier/"
-      }, {
-        text: "قوائم العرض",
-        "link" : "/platform/list-views/"
-      }, {
-        text: "الموافقات",
-        "link" : "/platform/approvals/"
-      }, {
-        text: "الصلاحيات والأمان",
-        "link" : "/platform/security/"
-      }, {
-        text: "مسارات الكيان",
-        "link" : "/platform/entity-flows/"
-      }, {
-        text: "التقارير",
-        "link" : "/platform/reports/"
-      }, {
-        text: "ذكاء الأعمال (BI)",
-        "link" : "/platform/bi/"
-      }, {
-        text: "التنبيهات",
-        "link" : "/platform/notifications/"
-      } ]
-    }, {
-      text: "الوحدات",
-      "link" : "/modules/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
-        "link" : "/modules/invoicing/"
-      }, {
-        text: "الحسابات والبنوك",
-        "link" : "/modules/accounting/",
-        "collapsed" : false,
-        "items" : [ {
-          text: "مرجع الدعم الفني",
-          "link" : "/modules/accounting/support/"
-        } ]
-      }, {
-        text: "سلسلة التوريد",
-        "link" : "/modules/supplychain/"
-      }, {
-        text: "إدارة الشحن",
-        "link" : "/modules/freight/"
-      }, {
-        text: "نظام إدارة المستشفيات",
-        "link" : "/modules/hms/"
-      }, {
-        text: "التصنيع",
-        "link" : "/modules/manufacturing/"
-      }, {
-        text: "الموارد البشرية",
-        "link" : "/modules/hr/"
-      }, {
-        text: "نقاط البيع",
-        "link" : "/modules/pos/"
-      }, {
-        text: "العقارات",
-        "link" : "/modules/realestate/"
-      }, {
-        text: "تطبيقات الجوال",
-        "link" : "/modules/mobile/"
-      }, {
-        text: "تكامل التجارة الإلكترونية",
-        "link" : "/modules/ecommerce/"
-      }, {
-        text: "الذكاء الاصطناعي",
-        "link" : "/modules/ai/"
-      } ]
-    }, {
-      text: "التكاملات الخارجية",
-      "link" : "/integration/"
-    }, {
-      text: "إدارة النظام",
-      "link" : "/admin/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
-        "link" : "/admin/troubleshooting/"
-      }, {
-        text: "إعادة معالجة الحركات",
-        "link" : "/admin/reprocessing/"
-      } ]
-    }, {
-      text: "مرجع المطور",
-      "link" : "/developer/"
-    }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
-      "link" : "/entity-flows/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "الأساسيات",
-        "link" : "/entity-flows/core/"
-      }, {
-        text: "وحدة الحسابات",
-        "link" : "/entity-flows/accounting/"
-      }, {
-        text: "وحدة الذكاء الاصطناعي",
-        "link" : "/entity-flows/ai/"
-      }, {
-        text: "وحدة المقاولات",
-        "link" : "/entity-flows/contracting/"
-      }, {
-        text: "وحدة إدارة علاقات العملاء",
-        "link" : "/entity-flows/crm/"
-      }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
-        "link" : "/entity-flows/egtax/"
-      }, {
-        text: "وحدة إدارة الشحن",
-        "link" : "/entity-flows/frm/"
-      }, {
-        text: "وحدة إدارة المستشفيات",
-        "link" : "/entity-flows/hms/"
-      }, {
-        text: "وحدة الموارد البشرية",
-        "link" : "/entity-flows/hr/"
-      }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
-        "link" : "/entity-flows/magento/"
-      }, {
-        text: "وحدة التصنيع",
-        "link" : "/entity-flows/manufacturing/"
-      }, {
-        text: "وحدة نقاط البيع",
-        "link" : "/entity-flows/namapos/"
-      }, {
-        text: "وحدة العقارات",
-        "link" : "/entity-flows/realestate/"
-      }, {
-        text: "وحدة مركز الخدمة",
-        "link" : "/entity-flows/srvcenter/"
-      }, {
-        text: "وحدة سلسلة التوريد",
-        "link" : "/entity-flows/supplychain/"
-      } ]
-    }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/",
-        "collapsed" : false,
-        "items" : [ {
-          text: "ملاحظات إصدار نما ERP - أبريل 2016",
-          "link" : "/release-notes/2016/nama-erp-201604-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - مايو 2016",
-          "link" : "/release-notes/2016/nama-erp-201605-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - يونيو 2016",
-          "link" : "/release-notes/2016/nama-erp-201606-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - يوليو 2016",
-          "link" : "/release-notes/2016/nama-erp-201607-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - أغسطس 2016",
-          "link" : "/release-notes/2016/nama-erp-201608-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - سبتمبر 2016",
-          "link" : "/release-notes/2016/nama-erp-201609-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - أكتوبر 2016",
-          "link" : "/release-notes/2016/nama-erp-201610-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - نوفمبر 2016",
-          "link" : "/release-notes/2016/nama-erp-201611-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - ديسمبر 2016",
-          "link" : "/release-notes/2016/nama-erp-201612-release-notes-arabic"
-        } ]
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
-      "link" : "/videos/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
-        "link" : "/videos/supply-chain-videos/"
-      }, {
-        text: "فيديوهات أداة إنشاء التقارير",
-        "link" : "/videos/report-wizard-videos/"
-      }, {
-        text: "فيديوهات الموارد البشرية",
-        "link" : "/videos/hr/"
-      } ]
-    } ]
-  } ],
-  "/release-notes/2017/" : [ {
-    text: "الرئيسية",
-    "collapsed" : false,
-    "items" : [ {
-      text: "البحث",
-      "link" : "/full-search"
-    }, {
-      text: "بدء الاستخدام",
-      "link" : "/getting-started/"
-    }, {
-      text: "الخصائص العامة للنظام",
-      "link" : "/platform/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "تعديل الشاشات",
-        "link" : "/platform/screen-modifier/"
-      }, {
-        text: "قوائم العرض",
-        "link" : "/platform/list-views/"
-      }, {
-        text: "الموافقات",
-        "link" : "/platform/approvals/"
-      }, {
-        text: "الصلاحيات والأمان",
-        "link" : "/platform/security/"
-      }, {
-        text: "مسارات الكيان",
-        "link" : "/platform/entity-flows/"
-      }, {
-        text: "التقارير",
-        "link" : "/platform/reports/"
-      }, {
-        text: "ذكاء الأعمال (BI)",
-        "link" : "/platform/bi/"
-      }, {
-        text: "التنبيهات",
-        "link" : "/platform/notifications/"
-      } ]
-    }, {
-      text: "الوحدات",
-      "link" : "/modules/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
-        "link" : "/modules/invoicing/"
-      }, {
-        text: "الحسابات والبنوك",
-        "link" : "/modules/accounting/",
-        "collapsed" : false,
-        "items" : [ {
-          text: "مرجع الدعم الفني",
-          "link" : "/modules/accounting/support/"
-        } ]
-      }, {
-        text: "سلسلة التوريد",
-        "link" : "/modules/supplychain/"
-      }, {
-        text: "إدارة الشحن",
-        "link" : "/modules/freight/"
-      }, {
-        text: "نظام إدارة المستشفيات",
-        "link" : "/modules/hms/"
-      }, {
-        text: "التصنيع",
-        "link" : "/modules/manufacturing/"
-      }, {
-        text: "الموارد البشرية",
-        "link" : "/modules/hr/"
-      }, {
-        text: "نقاط البيع",
-        "link" : "/modules/pos/"
-      }, {
-        text: "العقارات",
-        "link" : "/modules/realestate/"
-      }, {
-        text: "تطبيقات الجوال",
-        "link" : "/modules/mobile/"
-      }, {
-        text: "تكامل التجارة الإلكترونية",
-        "link" : "/modules/ecommerce/"
-      }, {
-        text: "الذكاء الاصطناعي",
-        "link" : "/modules/ai/"
-      } ]
-    }, {
-      text: "التكاملات الخارجية",
-      "link" : "/integration/"
-    }, {
-      text: "إدارة النظام",
-      "link" : "/admin/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
-        "link" : "/admin/troubleshooting/"
-      }, {
-        text: "إعادة معالجة الحركات",
-        "link" : "/admin/reprocessing/"
-      } ]
-    }, {
-      text: "مرجع المطور",
-      "link" : "/developer/"
-    }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
-      "link" : "/entity-flows/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "الأساسيات",
-        "link" : "/entity-flows/core/"
-      }, {
-        text: "وحدة الحسابات",
-        "link" : "/entity-flows/accounting/"
-      }, {
-        text: "وحدة الذكاء الاصطناعي",
-        "link" : "/entity-flows/ai/"
-      }, {
-        text: "وحدة المقاولات",
-        "link" : "/entity-flows/contracting/"
-      }, {
-        text: "وحدة إدارة علاقات العملاء",
-        "link" : "/entity-flows/crm/"
-      }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
-        "link" : "/entity-flows/egtax/"
-      }, {
-        text: "وحدة إدارة الشحن",
-        "link" : "/entity-flows/frm/"
-      }, {
-        text: "وحدة إدارة المستشفيات",
-        "link" : "/entity-flows/hms/"
-      }, {
-        text: "وحدة الموارد البشرية",
-        "link" : "/entity-flows/hr/"
-      }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
-        "link" : "/entity-flows/magento/"
-      }, {
-        text: "وحدة التصنيع",
-        "link" : "/entity-flows/manufacturing/"
-      }, {
-        text: "وحدة نقاط البيع",
-        "link" : "/entity-flows/namapos/"
-      }, {
-        text: "وحدة العقارات",
-        "link" : "/entity-flows/realestate/"
-      }, {
-        text: "وحدة مركز الخدمة",
-        "link" : "/entity-flows/srvcenter/"
-      }, {
-        text: "وحدة سلسلة التوريد",
-        "link" : "/entity-flows/supplychain/"
-      } ]
-    }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/",
-        "collapsed" : false,
-        "items" : [ {
-          text: "ملاحظات إصدار نما ERP - يناير 2017",
-          "link" : "/release-notes/2017/nama-erp-201701-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - فبراير 2017",
-          "link" : "/release-notes/2017/nama-erp-201702-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - مارس 2017",
-          "link" : "/release-notes/2017/nama-erp-201703-release-notes-arabic"
-        }, {
-          text: "ملاحظات الإصدار - أبريل 2017",
-          "link" : "/release-notes/2017/nama-erp-201704-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - مايو 2017",
-          "link" : "/release-notes/2017/nama-erp-201705-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - يونيو 2017",
-          "link" : "/release-notes/2017/nama-erp-201706-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - يوليو 2017",
-          "link" : "/release-notes/2017/nama-erp-201707-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - أغسطس 2017",
-          "link" : "/release-notes/2017/nama-erp-201708-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - سبتمبر 2017",
-          "link" : "/release-notes/2017/nama-erp-201709-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - أكتوبر 2017",
-          "link" : "/release-notes/2017/nama-erp-201710-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - نوفمبر 2017",
-          "link" : "/release-notes/2017/nama-erp-201711-release-notes-arabic"
-        }, {
-          text: "ملاحظات الإصدار - ديسمبر 2017",
-          "link" : "/release-notes/2017/nama-erp-201712-release-notes-arabic"
-        } ]
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
-      "link" : "/videos/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
-        "link" : "/videos/supply-chain-videos/"
-      }, {
-        text: "فيديوهات أداة إنشاء التقارير",
-        "link" : "/videos/report-wizard-videos/"
-      }, {
-        text: "فيديوهات الموارد البشرية",
-        "link" : "/videos/hr/"
-      } ]
-    } ]
-  } ],
-  "/release-notes/2018/" : [ {
-    text: "الرئيسية",
-    "collapsed" : false,
-    "items" : [ {
-      text: "البحث",
-      "link" : "/full-search"
-    }, {
-      text: "بدء الاستخدام",
-      "link" : "/getting-started/"
-    }, {
-      text: "الخصائص العامة للنظام",
-      "link" : "/platform/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "تعديل الشاشات",
-        "link" : "/platform/screen-modifier/"
-      }, {
-        text: "قوائم العرض",
-        "link" : "/platform/list-views/"
-      }, {
-        text: "الموافقات",
-        "link" : "/platform/approvals/"
-      }, {
-        text: "الصلاحيات والأمان",
-        "link" : "/platform/security/"
-      }, {
-        text: "مسارات الكيان",
-        "link" : "/platform/entity-flows/"
-      }, {
-        text: "التقارير",
-        "link" : "/platform/reports/"
-      }, {
-        text: "ذكاء الأعمال (BI)",
-        "link" : "/platform/bi/"
-      }, {
-        text: "التنبيهات",
-        "link" : "/platform/notifications/"
-      } ]
-    }, {
-      text: "الوحدات",
-      "link" : "/modules/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
-        "link" : "/modules/invoicing/"
-      }, {
-        text: "الحسابات والبنوك",
-        "link" : "/modules/accounting/",
-        "collapsed" : false,
-        "items" : [ {
-          text: "مرجع الدعم الفني",
-          "link" : "/modules/accounting/support/"
-        } ]
-      }, {
-        text: "سلسلة التوريد",
-        "link" : "/modules/supplychain/"
-      }, {
-        text: "إدارة الشحن",
-        "link" : "/modules/freight/"
-      }, {
-        text: "نظام إدارة المستشفيات",
-        "link" : "/modules/hms/"
-      }, {
-        text: "التصنيع",
-        "link" : "/modules/manufacturing/"
-      }, {
-        text: "الموارد البشرية",
-        "link" : "/modules/hr/"
-      }, {
-        text: "نقاط البيع",
-        "link" : "/modules/pos/"
-      }, {
-        text: "العقارات",
-        "link" : "/modules/realestate/"
-      }, {
-        text: "تطبيقات الجوال",
-        "link" : "/modules/mobile/"
-      }, {
-        text: "تكامل التجارة الإلكترونية",
-        "link" : "/modules/ecommerce/"
-      }, {
-        text: "الذكاء الاصطناعي",
-        "link" : "/modules/ai/"
-      } ]
-    }, {
-      text: "التكاملات الخارجية",
-      "link" : "/integration/"
-    }, {
-      text: "إدارة النظام",
-      "link" : "/admin/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
-        "link" : "/admin/troubleshooting/"
-      }, {
-        text: "إعادة معالجة الحركات",
-        "link" : "/admin/reprocessing/"
-      } ]
-    }, {
-      text: "مرجع المطور",
-      "link" : "/developer/"
-    }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
-      "link" : "/entity-flows/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "الأساسيات",
-        "link" : "/entity-flows/core/"
-      }, {
-        text: "وحدة الحسابات",
-        "link" : "/entity-flows/accounting/"
-      }, {
-        text: "وحدة الذكاء الاصطناعي",
-        "link" : "/entity-flows/ai/"
-      }, {
-        text: "وحدة المقاولات",
-        "link" : "/entity-flows/contracting/"
-      }, {
-        text: "وحدة إدارة علاقات العملاء",
-        "link" : "/entity-flows/crm/"
-      }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
-        "link" : "/entity-flows/egtax/"
-      }, {
-        text: "وحدة إدارة الشحن",
-        "link" : "/entity-flows/frm/"
-      }, {
-        text: "وحدة إدارة المستشفيات",
-        "link" : "/entity-flows/hms/"
-      }, {
-        text: "وحدة الموارد البشرية",
-        "link" : "/entity-flows/hr/"
-      }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
-        "link" : "/entity-flows/magento/"
-      }, {
-        text: "وحدة التصنيع",
-        "link" : "/entity-flows/manufacturing/"
-      }, {
-        text: "وحدة نقاط البيع",
-        "link" : "/entity-flows/namapos/"
-      }, {
-        text: "وحدة العقارات",
-        "link" : "/entity-flows/realestate/"
-      }, {
-        text: "وحدة مركز الخدمة",
-        "link" : "/entity-flows/srvcenter/"
-      }, {
-        text: "وحدة سلسلة التوريد",
-        "link" : "/entity-flows/supplychain/"
-      } ]
-    }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/",
-        "collapsed" : false,
-        "items" : [ {
-          text: "ملاحظات إصدار نما ERP - يناير 2018",
-          "link" : "/release-notes/2018/nama-erp-201801-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - فبراير 2018",
-          "link" : "/release-notes/2018/nama-erp-201802-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - مارس 2018",
-          "link" : "/release-notes/2018/nama-erp-201803-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - أبريل 2018",
-          "link" : "/release-notes/2018/nama-erp-201804-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - مايو 2018",
-          "link" : "/release-notes/2018/nama-erp-201805-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - يونيو 2018",
-          "link" : "/release-notes/2018/nama-erp-201806-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - يوليو 2018",
-          "link" : "/release-notes/2018/nama-erp-201807-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - أغسطس 2018",
-          "link" : "/release-notes/2018/nama-erp-201808-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - سبتمبر 2018",
-          "link" : "/release-notes/2018/nama-erp-201809-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - أكتوبر 2018",
-          "link" : "/release-notes/2018/nama-erp-201810-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - نوفمبر 2018",
-          "link" : "/release-notes/2018/nama-erp-201811-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - ديسمبر 2018",
-          "link" : "/release-notes/2018/nama-erp-201812-release-notes-arabic"
-        } ]
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
-      "link" : "/videos/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
-        "link" : "/videos/supply-chain-videos/"
-      }, {
-        text: "فيديوهات أداة إنشاء التقارير",
-        "link" : "/videos/report-wizard-videos/"
-      }, {
-        text: "فيديوهات الموارد البشرية",
-        "link" : "/videos/hr/"
-      } ]
-    } ]
-  } ],
-  "/release-notes/2019/" : [ {
-    text: "الرئيسية",
-    "collapsed" : false,
-    "items" : [ {
-      text: "البحث",
-      "link" : "/full-search"
-    }, {
-      text: "بدء الاستخدام",
-      "link" : "/getting-started/"
-    }, {
-      text: "الخصائص العامة للنظام",
-      "link" : "/platform/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "تعديل الشاشات",
-        "link" : "/platform/screen-modifier/"
-      }, {
-        text: "قوائم العرض",
-        "link" : "/platform/list-views/"
-      }, {
-        text: "الموافقات",
-        "link" : "/platform/approvals/"
-      }, {
-        text: "الصلاحيات والأمان",
-        "link" : "/platform/security/"
-      }, {
-        text: "مسارات الكيان",
-        "link" : "/platform/entity-flows/"
-      }, {
-        text: "التقارير",
-        "link" : "/platform/reports/"
-      }, {
-        text: "ذكاء الأعمال (BI)",
-        "link" : "/platform/bi/"
-      }, {
-        text: "التنبيهات",
-        "link" : "/platform/notifications/"
-      } ]
-    }, {
-      text: "الوحدات",
-      "link" : "/modules/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
-        "link" : "/modules/invoicing/"
-      }, {
-        text: "الحسابات والبنوك",
-        "link" : "/modules/accounting/",
-        "collapsed" : false,
-        "items" : [ {
-          text: "مرجع الدعم الفني",
-          "link" : "/modules/accounting/support/"
-        } ]
-      }, {
-        text: "سلسلة التوريد",
-        "link" : "/modules/supplychain/"
-      }, {
-        text: "إدارة الشحن",
-        "link" : "/modules/freight/"
-      }, {
-        text: "نظام إدارة المستشفيات",
-        "link" : "/modules/hms/"
-      }, {
-        text: "التصنيع",
-        "link" : "/modules/manufacturing/"
-      }, {
-        text: "الموارد البشرية",
-        "link" : "/modules/hr/"
-      }, {
-        text: "نقاط البيع",
-        "link" : "/modules/pos/"
-      }, {
-        text: "العقارات",
-        "link" : "/modules/realestate/"
-      }, {
-        text: "تطبيقات الجوال",
-        "link" : "/modules/mobile/"
-      }, {
-        text: "تكامل التجارة الإلكترونية",
-        "link" : "/modules/ecommerce/"
-      }, {
-        text: "الذكاء الاصطناعي",
-        "link" : "/modules/ai/"
-      } ]
-    }, {
-      text: "التكاملات الخارجية",
-      "link" : "/integration/"
-    }, {
-      text: "إدارة النظام",
-      "link" : "/admin/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
-        "link" : "/admin/troubleshooting/"
-      }, {
-        text: "إعادة معالجة الحركات",
-        "link" : "/admin/reprocessing/"
-      } ]
-    }, {
-      text: "مرجع المطور",
-      "link" : "/developer/"
-    }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
-      "link" : "/entity-flows/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "الأساسيات",
-        "link" : "/entity-flows/core/"
-      }, {
-        text: "وحدة الحسابات",
-        "link" : "/entity-flows/accounting/"
-      }, {
-        text: "وحدة الذكاء الاصطناعي",
-        "link" : "/entity-flows/ai/"
-      }, {
-        text: "وحدة المقاولات",
-        "link" : "/entity-flows/contracting/"
-      }, {
-        text: "وحدة إدارة علاقات العملاء",
-        "link" : "/entity-flows/crm/"
-      }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
-        "link" : "/entity-flows/egtax/"
-      }, {
-        text: "وحدة إدارة الشحن",
-        "link" : "/entity-flows/frm/"
-      }, {
-        text: "وحدة إدارة المستشفيات",
-        "link" : "/entity-flows/hms/"
-      }, {
-        text: "وحدة الموارد البشرية",
-        "link" : "/entity-flows/hr/"
-      }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
-        "link" : "/entity-flows/magento/"
-      }, {
-        text: "وحدة التصنيع",
-        "link" : "/entity-flows/manufacturing/"
-      }, {
-        text: "وحدة نقاط البيع",
-        "link" : "/entity-flows/namapos/"
-      }, {
-        text: "وحدة العقارات",
-        "link" : "/entity-flows/realestate/"
-      }, {
-        text: "وحدة مركز الخدمة",
-        "link" : "/entity-flows/srvcenter/"
-      }, {
-        text: "وحدة سلسلة التوريد",
-        "link" : "/entity-flows/supplychain/"
-      } ]
-    }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/",
-        "collapsed" : false,
-        "items" : [ {
-          text: "ملاحظات إصدار نما ERP - يناير 2019",
-          "link" : "/release-notes/2019/nama-erp-201901-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - فبراير 2019",
-          "link" : "/release-notes/2019/nama-erp-201902-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - مارس 2019",
-          "link" : "/release-notes/2019/nama-erp-201903-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - أبريل 2019",
-          "link" : "/release-notes/2019/nama-erp-201904-release-notes-arabic"
-        }, {
-          text: "ملاحظات الإصدار - مايو 2019",
-          "link" : "/release-notes/2019/nama-erp-201905-release-notes-arabic"
-        }, {
-          text: "ملاحظات الإصدار - يونيو 2019",
-          "link" : "/release-notes/2019/nama-erp-201906-release-notes-arabic"
-        }, {
-          text: "ملاحظات الإصدار - يوليو 2019",
-          "link" : "/release-notes/2019/nama-erp-201907-release-notes-arabic"
-        }, {
-          text: "ملاحظات الإصدار - أغسطس 2019",
-          "link" : "/release-notes/2019/nama-erp-201908-release-notes-arabic"
-        }, {
-          text: "ملاحظات الإصدار - سبتمبر 2019",
-          "link" : "/release-notes/2019/nama-erp-201909-release-notes-arabic"
-        }, {
-          text: "ملاحظات الإصدار - أكتوبر 2019",
-          "link" : "/release-notes/2019/nama-erp-201910-release-notes-arabic"
-        }, {
-          text: "ملاحظات الإصدار - نوفمبر 2019",
-          "link" : "/release-notes/2019/nama-erp-201911-release-notes-arabic"
-        }, {
-          text: "ملاحظات الإصدار - ديسمبر 2019",
-          "link" : "/release-notes/2019/nama-erp-201912-release-notes-arabic"
-        } ]
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
-      "link" : "/videos/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
-        "link" : "/videos/supply-chain-videos/"
-      }, {
-        text: "فيديوهات أداة إنشاء التقارير",
-        "link" : "/videos/report-wizard-videos/"
-      }, {
-        text: "فيديوهات الموارد البشرية",
-        "link" : "/videos/hr/"
-      } ]
-    } ]
-  } ],
-  "/release-notes/2020/" : [ {
-    text: "الرئيسية",
-    "collapsed" : false,
-    "items" : [ {
-      text: "البحث",
-      "link" : "/full-search"
-    }, {
-      text: "بدء الاستخدام",
-      "link" : "/getting-started/"
-    }, {
-      text: "الخصائص العامة للنظام",
-      "link" : "/platform/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "تعديل الشاشات",
-        "link" : "/platform/screen-modifier/"
-      }, {
-        text: "قوائم العرض",
-        "link" : "/platform/list-views/"
-      }, {
-        text: "الموافقات",
-        "link" : "/platform/approvals/"
-      }, {
-        text: "الصلاحيات والأمان",
-        "link" : "/platform/security/"
-      }, {
-        text: "مسارات الكيان",
-        "link" : "/platform/entity-flows/"
-      }, {
-        text: "التقارير",
-        "link" : "/platform/reports/"
-      }, {
-        text: "ذكاء الأعمال (BI)",
-        "link" : "/platform/bi/"
-      }, {
-        text: "التنبيهات",
-        "link" : "/platform/notifications/"
-      } ]
-    }, {
-      text: "الوحدات",
-      "link" : "/modules/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
-        "link" : "/modules/invoicing/"
-      }, {
-        text: "الحسابات والبنوك",
-        "link" : "/modules/accounting/",
-        "collapsed" : false,
-        "items" : [ {
-          text: "مرجع الدعم الفني",
-          "link" : "/modules/accounting/support/"
-        } ]
-      }, {
-        text: "سلسلة التوريد",
-        "link" : "/modules/supplychain/"
-      }, {
-        text: "إدارة الشحن",
-        "link" : "/modules/freight/"
-      }, {
-        text: "نظام إدارة المستشفيات",
-        "link" : "/modules/hms/"
-      }, {
-        text: "التصنيع",
-        "link" : "/modules/manufacturing/"
-      }, {
-        text: "الموارد البشرية",
-        "link" : "/modules/hr/"
-      }, {
-        text: "نقاط البيع",
-        "link" : "/modules/pos/"
-      }, {
-        text: "العقارات",
-        "link" : "/modules/realestate/"
-      }, {
-        text: "تطبيقات الجوال",
-        "link" : "/modules/mobile/"
-      }, {
-        text: "تكامل التجارة الإلكترونية",
-        "link" : "/modules/ecommerce/"
-      }, {
-        text: "الذكاء الاصطناعي",
-        "link" : "/modules/ai/"
-      } ]
-    }, {
-      text: "التكاملات الخارجية",
-      "link" : "/integration/"
-    }, {
-      text: "إدارة النظام",
-      "link" : "/admin/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
-        "link" : "/admin/troubleshooting/"
-      }, {
-        text: "إعادة معالجة الحركات",
-        "link" : "/admin/reprocessing/"
-      } ]
-    }, {
-      text: "مرجع المطور",
-      "link" : "/developer/"
-    }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
-      "link" : "/entity-flows/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "الأساسيات",
-        "link" : "/entity-flows/core/"
-      }, {
-        text: "وحدة الحسابات",
-        "link" : "/entity-flows/accounting/"
-      }, {
-        text: "وحدة الذكاء الاصطناعي",
-        "link" : "/entity-flows/ai/"
-      }, {
-        text: "وحدة المقاولات",
-        "link" : "/entity-flows/contracting/"
-      }, {
-        text: "وحدة إدارة علاقات العملاء",
-        "link" : "/entity-flows/crm/"
-      }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
-        "link" : "/entity-flows/egtax/"
-      }, {
-        text: "وحدة إدارة الشحن",
-        "link" : "/entity-flows/frm/"
-      }, {
-        text: "وحدة إدارة المستشفيات",
-        "link" : "/entity-flows/hms/"
-      }, {
-        text: "وحدة الموارد البشرية",
-        "link" : "/entity-flows/hr/"
-      }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
-        "link" : "/entity-flows/magento/"
-      }, {
-        text: "وحدة التصنيع",
-        "link" : "/entity-flows/manufacturing/"
-      }, {
-        text: "وحدة نقاط البيع",
-        "link" : "/entity-flows/namapos/"
-      }, {
-        text: "وحدة العقارات",
-        "link" : "/entity-flows/realestate/"
-      }, {
-        text: "وحدة مركز الخدمة",
-        "link" : "/entity-flows/srvcenter/"
-      }, {
-        text: "وحدة سلسلة التوريد",
-        "link" : "/entity-flows/supplychain/"
-      } ]
-    }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/",
-        "collapsed" : false,
-        "items" : [ {
-          text: "ملاحظات الإصدار - يناير 2020",
-          "link" : "/release-notes/2020/nama-erp-202001-release-notes-arabic"
-        }, {
-          text: "ملاحظات الإصدار - فبراير 2020",
-          "link" : "/release-notes/2020/nama-erp-202002-release-notes-arabic"
-        }, {
-          text: "ملاحظات الإصدار - مارس 2020",
-          "link" : "/release-notes/2020/nama-erp-202003-release-notes-arabic"
-        }, {
-          text: "ملاحظات الإصدار - أبريل 2020",
-          "link" : "/release-notes/2020/nama-erp-202004-release-notes-arabic"
-        }, {
-          text: "ملاحظات الإصدار - مايو 2020",
-          "link" : "/release-notes/2020/nama-erp-202005-release-notes-arabic"
-        }, {
-          text: "ملاحظات الإصدار - يونيو 2020",
-          "link" : "/release-notes/2020/nama-erp-202006-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - يوليو 2020",
-          "link" : "/release-notes/2020/nama-erp-202007-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - أغسطس 2020",
-          "link" : "/release-notes/2020/nama-erp-202008-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - سبتمبر 2020",
-          "link" : "/release-notes/2020/nama-erp-202009-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - أكتوبر 2020",
-          "link" : "/release-notes/2020/nama-erp-202010-release-notes-arabic"
-        }, {
-          text: "نما إي آر بي - ملاحظات الإصدار نوفمبر 2020",
-          "link" : "/release-notes/2020/nama-erp-202011-release-notes-arabic"
-        }, {
-          text: "نما إي آر بي - ملاحظات الإصدار ديسمبر 2020",
-          "link" : "/release-notes/2020/nama-erp-202012-release-notes-arabic"
-        } ]
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
-      "link" : "/videos/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
-        "link" : "/videos/supply-chain-videos/"
-      }, {
-        text: "فيديوهات أداة إنشاء التقارير",
-        "link" : "/videos/report-wizard-videos/"
-      }, {
-        text: "فيديوهات الموارد البشرية",
-        "link" : "/videos/hr/"
-      } ]
-    } ]
-  } ],
-  "/release-notes/2021/" : [ {
-    text: "الرئيسية",
-    "collapsed" : false,
-    "items" : [ {
-      text: "البحث",
-      "link" : "/full-search"
-    }, {
-      text: "بدء الاستخدام",
-      "link" : "/getting-started/"
-    }, {
-      text: "الخصائص العامة للنظام",
-      "link" : "/platform/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "تعديل الشاشات",
-        "link" : "/platform/screen-modifier/"
-      }, {
-        text: "قوائم العرض",
-        "link" : "/platform/list-views/"
-      }, {
-        text: "الموافقات",
-        "link" : "/platform/approvals/"
-      }, {
-        text: "الصلاحيات والأمان",
-        "link" : "/platform/security/"
-      }, {
-        text: "مسارات الكيان",
-        "link" : "/platform/entity-flows/"
-      }, {
-        text: "التقارير",
-        "link" : "/platform/reports/"
-      }, {
-        text: "ذكاء الأعمال (BI)",
-        "link" : "/platform/bi/"
-      }, {
-        text: "التنبيهات",
-        "link" : "/platform/notifications/"
-      } ]
-    }, {
-      text: "الوحدات",
-      "link" : "/modules/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
-        "link" : "/modules/invoicing/"
-      }, {
-        text: "الحسابات والبنوك",
-        "link" : "/modules/accounting/",
-        "collapsed" : false,
-        "items" : [ {
-          text: "مرجع الدعم الفني",
-          "link" : "/modules/accounting/support/"
-        } ]
-      }, {
-        text: "سلسلة التوريد",
-        "link" : "/modules/supplychain/"
-      }, {
-        text: "إدارة الشحن",
-        "link" : "/modules/freight/"
-      }, {
-        text: "نظام إدارة المستشفيات",
-        "link" : "/modules/hms/"
-      }, {
-        text: "التصنيع",
-        "link" : "/modules/manufacturing/"
-      }, {
-        text: "الموارد البشرية",
-        "link" : "/modules/hr/"
-      }, {
-        text: "نقاط البيع",
-        "link" : "/modules/pos/"
-      }, {
-        text: "العقارات",
-        "link" : "/modules/realestate/"
-      }, {
-        text: "تطبيقات الجوال",
-        "link" : "/modules/mobile/"
-      }, {
-        text: "تكامل التجارة الإلكترونية",
-        "link" : "/modules/ecommerce/"
-      }, {
-        text: "الذكاء الاصطناعي",
-        "link" : "/modules/ai/"
-      } ]
-    }, {
-      text: "التكاملات الخارجية",
-      "link" : "/integration/"
-    }, {
-      text: "إدارة النظام",
-      "link" : "/admin/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
-        "link" : "/admin/troubleshooting/"
-      }, {
-        text: "إعادة معالجة الحركات",
-        "link" : "/admin/reprocessing/"
-      } ]
-    }, {
-      text: "مرجع المطور",
-      "link" : "/developer/"
-    }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
-      "link" : "/entity-flows/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "الأساسيات",
-        "link" : "/entity-flows/core/"
-      }, {
-        text: "وحدة الحسابات",
-        "link" : "/entity-flows/accounting/"
-      }, {
-        text: "وحدة الذكاء الاصطناعي",
-        "link" : "/entity-flows/ai/"
-      }, {
-        text: "وحدة المقاولات",
-        "link" : "/entity-flows/contracting/"
-      }, {
-        text: "وحدة إدارة علاقات العملاء",
-        "link" : "/entity-flows/crm/"
-      }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
-        "link" : "/entity-flows/egtax/"
-      }, {
-        text: "وحدة إدارة الشحن",
-        "link" : "/entity-flows/frm/"
-      }, {
-        text: "وحدة إدارة المستشفيات",
-        "link" : "/entity-flows/hms/"
-      }, {
-        text: "وحدة الموارد البشرية",
-        "link" : "/entity-flows/hr/"
-      }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
-        "link" : "/entity-flows/magento/"
-      }, {
-        text: "وحدة التصنيع",
-        "link" : "/entity-flows/manufacturing/"
-      }, {
-        text: "وحدة نقاط البيع",
-        "link" : "/entity-flows/namapos/"
-      }, {
-        text: "وحدة العقارات",
-        "link" : "/entity-flows/realestate/"
-      }, {
-        text: "وحدة مركز الخدمة",
-        "link" : "/entity-flows/srvcenter/"
-      }, {
-        text: "وحدة سلسلة التوريد",
-        "link" : "/entity-flows/supplychain/"
-      } ]
-    }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/",
-        "collapsed" : false,
-        "items" : [ {
-          text: "نما إي آر بي - ملاحظات الإصدار يناير 2021",
-          "link" : "/release-notes/2021/nama-erp-202101-release-notes-arabic"
-        }, {
-          text: "نما إي آر بي - ملاحظات الإصدار فبراير 2021",
-          "link" : "/release-notes/2021/nama-erp-202102-release-notes-arabic"
-        }, {
-          text: "مذكرة إصدار نما ERP - مارس 2021",
-          "link" : "/release-notes/2021/nama-erp-202103-release-notes-arabic"
-        }, {
-          text: "مذكرة إصدار نما ERP - أبريل 2021",
-          "link" : "/release-notes/2021/nama-erp-202104-release-notes-arabic"
-        }, {
-          text: "مذكرة إصدار نما ERP - مايو 2021",
-          "link" : "/release-notes/2021/nama-erp-202105-release-notes-arabic"
-        }, {
-          text: "مذكرة إصدار نما ERP - يونيو 2021",
-          "link" : "/release-notes/2021/nama-erp-202106-release-notes-arabic"
-        }, {
-          text: "نما إي آر بي - يوليو 2021",
-          "link" : "/release-notes/2021/nama-erp-202107-release-notes-arabic"
-        }, {
-          text: "نما إي آر بي - أغسطس 2021",
-          "link" : "/release-notes/2021/nama-erp-202108-release-notes-arabic"
-        }, {
-          text: "نما إي آر بي - سبتمبر 2021",
-          "link" : "/release-notes/2021/nama-erp-202109-release-notes-arabic"
-        }, {
-          text: "نما إي آر بي - أكتوبر 2021",
-          "link" : "/release-notes/2021/nama-erp-202110-release-notes-arabic"
-        }, {
-          text: "نما إي آر بي - نوفمبر 2021",
-          "link" : "/release-notes/2021/nama-erp-202111-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - ديسمبر 2021",
-          "link" : "/release-notes/2021/nama-erp-202112-release-notes-arabic"
-        } ]
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
-      "link" : "/videos/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
-        "link" : "/videos/supply-chain-videos/"
-      }, {
-        text: "فيديوهات أداة إنشاء التقارير",
-        "link" : "/videos/report-wizard-videos/"
-      }, {
-        text: "فيديوهات الموارد البشرية",
-        "link" : "/videos/hr/"
-      } ]
-    } ]
-  } ],
-  "/release-notes/2022/" : [ {
-    text: "الرئيسية",
-    "collapsed" : false,
-    "items" : [ {
-      text: "البحث",
-      "link" : "/full-search"
-    }, {
-      text: "بدء الاستخدام",
-      "link" : "/getting-started/"
-    }, {
-      text: "الخصائص العامة للنظام",
-      "link" : "/platform/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "تعديل الشاشات",
-        "link" : "/platform/screen-modifier/"
-      }, {
-        text: "قوائم العرض",
-        "link" : "/platform/list-views/"
-      }, {
-        text: "الموافقات",
-        "link" : "/platform/approvals/"
-      }, {
-        text: "الصلاحيات والأمان",
-        "link" : "/platform/security/"
-      }, {
-        text: "مسارات الكيان",
-        "link" : "/platform/entity-flows/"
-      }, {
-        text: "التقارير",
-        "link" : "/platform/reports/"
-      }, {
-        text: "ذكاء الأعمال (BI)",
-        "link" : "/platform/bi/"
-      }, {
-        text: "التنبيهات",
-        "link" : "/platform/notifications/"
-      } ]
-    }, {
-      text: "الوحدات",
-      "link" : "/modules/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
-        "link" : "/modules/invoicing/"
-      }, {
-        text: "الحسابات والبنوك",
-        "link" : "/modules/accounting/",
-        "collapsed" : false,
-        "items" : [ {
-          text: "مرجع الدعم الفني",
-          "link" : "/modules/accounting/support/"
-        } ]
-      }, {
-        text: "سلسلة التوريد",
-        "link" : "/modules/supplychain/"
-      }, {
-        text: "إدارة الشحن",
-        "link" : "/modules/freight/"
-      }, {
-        text: "نظام إدارة المستشفيات",
-        "link" : "/modules/hms/"
-      }, {
-        text: "التصنيع",
-        "link" : "/modules/manufacturing/"
-      }, {
-        text: "الموارد البشرية",
-        "link" : "/modules/hr/"
-      }, {
-        text: "نقاط البيع",
-        "link" : "/modules/pos/"
-      }, {
-        text: "العقارات",
-        "link" : "/modules/realestate/"
-      }, {
-        text: "تطبيقات الجوال",
-        "link" : "/modules/mobile/"
-      }, {
-        text: "تكامل التجارة الإلكترونية",
-        "link" : "/modules/ecommerce/"
-      }, {
-        text: "الذكاء الاصطناعي",
-        "link" : "/modules/ai/"
-      } ]
-    }, {
-      text: "التكاملات الخارجية",
-      "link" : "/integration/"
-    }, {
-      text: "إدارة النظام",
-      "link" : "/admin/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
-        "link" : "/admin/troubleshooting/"
-      }, {
-        text: "إعادة معالجة الحركات",
-        "link" : "/admin/reprocessing/"
-      } ]
-    }, {
-      text: "مرجع المطور",
-      "link" : "/developer/"
-    }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
-      "link" : "/entity-flows/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "الأساسيات",
-        "link" : "/entity-flows/core/"
-      }, {
-        text: "وحدة الحسابات",
-        "link" : "/entity-flows/accounting/"
-      }, {
-        text: "وحدة الذكاء الاصطناعي",
-        "link" : "/entity-flows/ai/"
-      }, {
-        text: "وحدة المقاولات",
-        "link" : "/entity-flows/contracting/"
-      }, {
-        text: "وحدة إدارة علاقات العملاء",
-        "link" : "/entity-flows/crm/"
-      }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
-        "link" : "/entity-flows/egtax/"
-      }, {
-        text: "وحدة إدارة الشحن",
-        "link" : "/entity-flows/frm/"
-      }, {
-        text: "وحدة إدارة المستشفيات",
-        "link" : "/entity-flows/hms/"
-      }, {
-        text: "وحدة الموارد البشرية",
-        "link" : "/entity-flows/hr/"
-      }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
-        "link" : "/entity-flows/magento/"
-      }, {
-        text: "وحدة التصنيع",
-        "link" : "/entity-flows/manufacturing/"
-      }, {
-        text: "وحدة نقاط البيع",
-        "link" : "/entity-flows/namapos/"
-      }, {
-        text: "وحدة العقارات",
-        "link" : "/entity-flows/realestate/"
-      }, {
-        text: "وحدة مركز الخدمة",
-        "link" : "/entity-flows/srvcenter/"
-      }, {
-        text: "وحدة سلسلة التوريد",
-        "link" : "/entity-flows/supplychain/"
-      } ]
-    }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/",
-        "collapsed" : false,
-        "items" : [ {
-          text: "ملاحظات إصدار نما ERP - يناير 2022",
-          "link" : "/release-notes/2022/nama-erp-202201-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - فبراير 2022",
-          "link" : "/release-notes/2022/nama-erp-202202-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - مارس 2022",
-          "link" : "/release-notes/2022/nama-erp-202203-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - أبريل 2022",
-          "link" : "/release-notes/2022/nama-erp-202204-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - مايو 2022",
-          "link" : "/release-notes/2022/nama-erp-202205-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - يونيو 2022",
-          "link" : "/release-notes/2022/nama-erp-202206-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - يوليو 2022",
-          "link" : "/release-notes/2022/nama-erp-202207-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - أغسطس 2022",
-          "link" : "/release-notes/2022/nama-erp-202208-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - سبتمبر 2022",
-          "link" : "/release-notes/2022/nama-erp-202209-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - أكتوبر 2022",
-          "link" : "/release-notes/2022/nama-erp-202210-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - نوفمبر 2022",
-          "link" : "/release-notes/2022/nama-erp-202211-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - ديسمبر 2022",
-          "link" : "/release-notes/2022/nama-erp-202212-release-notes-arabic"
-        } ]
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
-      "link" : "/videos/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
-        "link" : "/videos/supply-chain-videos/"
-      }, {
-        text: "فيديوهات أداة إنشاء التقارير",
-        "link" : "/videos/report-wizard-videos/"
-      }, {
-        text: "فيديوهات الموارد البشرية",
-        "link" : "/videos/hr/"
-      } ]
-    } ]
-  } ],
-  "/release-notes/2023/" : [ {
-    text: "الرئيسية",
-    "collapsed" : false,
-    "items" : [ {
-      text: "البحث",
-      "link" : "/full-search"
-    }, {
-      text: "بدء الاستخدام",
-      "link" : "/getting-started/"
-    }, {
-      text: "الخصائص العامة للنظام",
-      "link" : "/platform/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "تعديل الشاشات",
-        "link" : "/platform/screen-modifier/"
-      }, {
-        text: "قوائم العرض",
-        "link" : "/platform/list-views/"
-      }, {
-        text: "الموافقات",
-        "link" : "/platform/approvals/"
-      }, {
-        text: "الصلاحيات والأمان",
-        "link" : "/platform/security/"
-      }, {
-        text: "مسارات الكيان",
-        "link" : "/platform/entity-flows/"
-      }, {
-        text: "التقارير",
-        "link" : "/platform/reports/"
-      }, {
-        text: "ذكاء الأعمال (BI)",
-        "link" : "/platform/bi/"
-      }, {
-        text: "التنبيهات",
-        "link" : "/platform/notifications/"
-      } ]
-    }, {
-      text: "الوحدات",
-      "link" : "/modules/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
-        "link" : "/modules/invoicing/"
-      }, {
-        text: "الحسابات والبنوك",
-        "link" : "/modules/accounting/",
-        "collapsed" : false,
-        "items" : [ {
-          text: "مرجع الدعم الفني",
-          "link" : "/modules/accounting/support/"
-        } ]
-      }, {
-        text: "سلسلة التوريد",
-        "link" : "/modules/supplychain/"
-      }, {
-        text: "إدارة الشحن",
-        "link" : "/modules/freight/"
-      }, {
-        text: "نظام إدارة المستشفيات",
-        "link" : "/modules/hms/"
-      }, {
-        text: "التصنيع",
-        "link" : "/modules/manufacturing/"
-      }, {
-        text: "الموارد البشرية",
-        "link" : "/modules/hr/"
-      }, {
-        text: "نقاط البيع",
-        "link" : "/modules/pos/"
-      }, {
-        text: "العقارات",
-        "link" : "/modules/realestate/"
-      }, {
-        text: "تطبيقات الجوال",
-        "link" : "/modules/mobile/"
-      }, {
-        text: "تكامل التجارة الإلكترونية",
-        "link" : "/modules/ecommerce/"
-      }, {
-        text: "الذكاء الاصطناعي",
-        "link" : "/modules/ai/"
-      } ]
-    }, {
-      text: "التكاملات الخارجية",
-      "link" : "/integration/"
-    }, {
-      text: "إدارة النظام",
-      "link" : "/admin/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
-        "link" : "/admin/troubleshooting/"
-      }, {
-        text: "إعادة معالجة الحركات",
-        "link" : "/admin/reprocessing/"
-      } ]
-    }, {
-      text: "مرجع المطور",
-      "link" : "/developer/"
-    }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
-      "link" : "/entity-flows/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "الأساسيات",
-        "link" : "/entity-flows/core/"
-      }, {
-        text: "وحدة الحسابات",
-        "link" : "/entity-flows/accounting/"
-      }, {
-        text: "وحدة الذكاء الاصطناعي",
-        "link" : "/entity-flows/ai/"
-      }, {
-        text: "وحدة المقاولات",
-        "link" : "/entity-flows/contracting/"
-      }, {
-        text: "وحدة إدارة علاقات العملاء",
-        "link" : "/entity-flows/crm/"
-      }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
-        "link" : "/entity-flows/egtax/"
-      }, {
-        text: "وحدة إدارة الشحن",
-        "link" : "/entity-flows/frm/"
-      }, {
-        text: "وحدة إدارة المستشفيات",
-        "link" : "/entity-flows/hms/"
-      }, {
-        text: "وحدة الموارد البشرية",
-        "link" : "/entity-flows/hr/"
-      }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
-        "link" : "/entity-flows/magento/"
-      }, {
-        text: "وحدة التصنيع",
-        "link" : "/entity-flows/manufacturing/"
-      }, {
-        text: "وحدة نقاط البيع",
-        "link" : "/entity-flows/namapos/"
-      }, {
-        text: "وحدة العقارات",
-        "link" : "/entity-flows/realestate/"
-      }, {
-        text: "وحدة مركز الخدمة",
-        "link" : "/entity-flows/srvcenter/"
-      }, {
-        text: "وحدة سلسلة التوريد",
-        "link" : "/entity-flows/supplychain/"
-      } ]
-    }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/",
-        "collapsed" : false,
-        "items" : [ {
-          text: "ملاحظات إصدار نما ERP - يناير 2023",
-          "link" : "/release-notes/2023/nama-erp-202301-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - فبراير 2023",
-          "link" : "/release-notes/2023/nama-erp-202302-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - مارس 2023",
-          "link" : "/release-notes/2023/nama-erp-202303-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - أبريل 2023",
-          "link" : "/release-notes/2023/nama-erp-202304-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - مايو 2023",
-          "link" : "/release-notes/2023/nama-erp-202305-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - يونيو 2023",
-          "link" : "/release-notes/2023/nama-erp-202306-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - يوليو 2023",
-          "link" : "/release-notes/2023/nama-erp-202307-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - أغسطس 2023",
-          "link" : "/release-notes/2023/nama-erp-202308-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - سبتمبر 2023",
-          "link" : "/release-notes/2023/nama-erp-202309-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - أكتوبر 2023",
-          "link" : "/release-notes/2023/nama-erp-202310-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - نوفمبر 2023",
-          "link" : "/release-notes/2023/nama-erp-202311-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - ديسمبر 2023",
-          "link" : "/release-notes/2023/nama-erp-202312-release-notes-arabic"
-        } ]
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
-      "link" : "/videos/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
-        "link" : "/videos/supply-chain-videos/"
-      }, {
-        text: "فيديوهات أداة إنشاء التقارير",
-        "link" : "/videos/report-wizard-videos/"
-      }, {
-        text: "فيديوهات الموارد البشرية",
-        "link" : "/videos/hr/"
-      } ]
-    } ]
-  } ],
-  "/release-notes/2024/" : [ {
-    text: "الرئيسية",
-    "collapsed" : false,
-    "items" : [ {
-      text: "البحث",
-      "link" : "/full-search"
-    }, {
-      text: "بدء الاستخدام",
-      "link" : "/getting-started/"
-    }, {
-      text: "الخصائص العامة للنظام",
-      "link" : "/platform/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "تعديل الشاشات",
-        "link" : "/platform/screen-modifier/"
-      }, {
-        text: "قوائم العرض",
-        "link" : "/platform/list-views/"
-      }, {
-        text: "الموافقات",
-        "link" : "/platform/approvals/"
-      }, {
-        text: "الصلاحيات والأمان",
-        "link" : "/platform/security/"
-      }, {
-        text: "مسارات الكيان",
-        "link" : "/platform/entity-flows/"
-      }, {
-        text: "التقارير",
-        "link" : "/platform/reports/"
-      }, {
-        text: "ذكاء الأعمال (BI)",
-        "link" : "/platform/bi/"
-      }, {
-        text: "التنبيهات",
-        "link" : "/platform/notifications/"
-      } ]
-    }, {
-      text: "الوحدات",
-      "link" : "/modules/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
-        "link" : "/modules/invoicing/"
-      }, {
-        text: "الحسابات والبنوك",
-        "link" : "/modules/accounting/",
-        "collapsed" : false,
-        "items" : [ {
-          text: "مرجع الدعم الفني",
-          "link" : "/modules/accounting/support/"
-        } ]
-      }, {
-        text: "سلسلة التوريد",
-        "link" : "/modules/supplychain/"
-      }, {
-        text: "إدارة الشحن",
-        "link" : "/modules/freight/"
-      }, {
-        text: "نظام إدارة المستشفيات",
-        "link" : "/modules/hms/"
-      }, {
-        text: "التصنيع",
-        "link" : "/modules/manufacturing/"
-      }, {
-        text: "الموارد البشرية",
-        "link" : "/modules/hr/"
-      }, {
-        text: "نقاط البيع",
-        "link" : "/modules/pos/"
-      }, {
-        text: "العقارات",
-        "link" : "/modules/realestate/"
-      }, {
-        text: "تطبيقات الجوال",
-        "link" : "/modules/mobile/"
-      }, {
-        text: "تكامل التجارة الإلكترونية",
-        "link" : "/modules/ecommerce/"
-      }, {
-        text: "الذكاء الاصطناعي",
-        "link" : "/modules/ai/"
-      } ]
-    }, {
-      text: "التكاملات الخارجية",
-      "link" : "/integration/"
-    }, {
-      text: "إدارة النظام",
-      "link" : "/admin/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
-        "link" : "/admin/troubleshooting/"
-      }, {
-        text: "إعادة معالجة الحركات",
-        "link" : "/admin/reprocessing/"
-      } ]
-    }, {
-      text: "مرجع المطور",
-      "link" : "/developer/"
-    }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
-      "link" : "/entity-flows/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "الأساسيات",
-        "link" : "/entity-flows/core/"
-      }, {
-        text: "وحدة الحسابات",
-        "link" : "/entity-flows/accounting/"
-      }, {
-        text: "وحدة الذكاء الاصطناعي",
-        "link" : "/entity-flows/ai/"
-      }, {
-        text: "وحدة المقاولات",
-        "link" : "/entity-flows/contracting/"
-      }, {
-        text: "وحدة إدارة علاقات العملاء",
-        "link" : "/entity-flows/crm/"
-      }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
-        "link" : "/entity-flows/egtax/"
-      }, {
-        text: "وحدة إدارة الشحن",
-        "link" : "/entity-flows/frm/"
-      }, {
-        text: "وحدة إدارة المستشفيات",
-        "link" : "/entity-flows/hms/"
-      }, {
-        text: "وحدة الموارد البشرية",
-        "link" : "/entity-flows/hr/"
-      }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
-        "link" : "/entity-flows/magento/"
-      }, {
-        text: "وحدة التصنيع",
-        "link" : "/entity-flows/manufacturing/"
-      }, {
-        text: "وحدة نقاط البيع",
-        "link" : "/entity-flows/namapos/"
-      }, {
-        text: "وحدة العقارات",
-        "link" : "/entity-flows/realestate/"
-      }, {
-        text: "وحدة مركز الخدمة",
-        "link" : "/entity-flows/srvcenter/"
-      }, {
-        text: "وحدة سلسلة التوريد",
-        "link" : "/entity-flows/supplychain/"
-      } ]
-    }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/",
-        "collapsed" : false,
-        "items" : [ {
-          text: "ملاحظات إصدار نما ERP - يناير 2024",
-          "link" : "/release-notes/2024/nama-erp-202401-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - فبراير 2024",
-          "link" : "/release-notes/2024/nama-erp-202402-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - مارس 2024",
-          "link" : "/release-notes/2024/nama-erp-202403-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - أبريل 2024",
-          "link" : "/release-notes/2024/nama-erp-202404-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - مايو 2024",
-          "link" : "/release-notes/2024/nama-erp-202405-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - يونيو 2024",
-          "link" : "/release-notes/2024/nama-erp-202406-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - يوليو 2024",
-          "link" : "/release-notes/2024/nama-erp-202407-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - أغسطس 2024",
-          "link" : "/release-notes/2024/nama-erp-202408-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - سبتمبر 2024",
-          "link" : "/release-notes/2024/nama-erp-202409-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - أكتوبر 2024",
-          "link" : "/release-notes/2024/nama-erp-202410-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - نوفمبر 2024",
-          "link" : "/release-notes/2024/nama-erp-202411-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - ديسمبر 2024",
-          "link" : "/release-notes/2024/nama-erp-202412-release-notes-arabic"
-        } ]
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
-      "link" : "/videos/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
-        "link" : "/videos/supply-chain-videos/"
-      }, {
-        text: "فيديوهات أداة إنشاء التقارير",
-        "link" : "/videos/report-wizard-videos/"
-      }, {
-        text: "فيديوهات الموارد البشرية",
-        "link" : "/videos/hr/"
-      } ]
-    } ]
-  } ],
-  "/release-notes/2025/" : [ {
-    text: "الرئيسية",
-    "collapsed" : false,
-    "items" : [ {
-      text: "البحث",
-      "link" : "/full-search"
-    }, {
-      text: "بدء الاستخدام",
-      "link" : "/getting-started/"
-    }, {
-      text: "الخصائص العامة للنظام",
-      "link" : "/platform/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "تعديل الشاشات",
-        "link" : "/platform/screen-modifier/"
-      }, {
-        text: "قوائم العرض",
-        "link" : "/platform/list-views/"
-      }, {
-        text: "الموافقات",
-        "link" : "/platform/approvals/"
-      }, {
-        text: "الصلاحيات والأمان",
-        "link" : "/platform/security/"
-      }, {
-        text: "مسارات الكيان",
-        "link" : "/platform/entity-flows/"
-      }, {
-        text: "التقارير",
-        "link" : "/platform/reports/"
-      }, {
-        text: "ذكاء الأعمال (BI)",
-        "link" : "/platform/bi/"
-      }, {
-        text: "التنبيهات",
-        "link" : "/platform/notifications/"
-      } ]
-    }, {
-      text: "الوحدات",
-      "link" : "/modules/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
-        "link" : "/modules/invoicing/"
-      }, {
-        text: "الحسابات والبنوك",
-        "link" : "/modules/accounting/",
-        "collapsed" : false,
-        "items" : [ {
-          text: "مرجع الدعم الفني",
-          "link" : "/modules/accounting/support/"
-        } ]
-      }, {
-        text: "سلسلة التوريد",
-        "link" : "/modules/supplychain/"
-      }, {
-        text: "إدارة الشحن",
-        "link" : "/modules/freight/"
-      }, {
-        text: "نظام إدارة المستشفيات",
-        "link" : "/modules/hms/"
-      }, {
-        text: "التصنيع",
-        "link" : "/modules/manufacturing/"
-      }, {
-        text: "الموارد البشرية",
-        "link" : "/modules/hr/"
-      }, {
-        text: "نقاط البيع",
-        "link" : "/modules/pos/"
-      }, {
-        text: "العقارات",
-        "link" : "/modules/realestate/"
-      }, {
-        text: "تطبيقات الجوال",
-        "link" : "/modules/mobile/"
-      }, {
-        text: "تكامل التجارة الإلكترونية",
-        "link" : "/modules/ecommerce/"
-      }, {
-        text: "الذكاء الاصطناعي",
-        "link" : "/modules/ai/"
-      } ]
-    }, {
-      text: "التكاملات الخارجية",
-      "link" : "/integration/"
-    }, {
-      text: "إدارة النظام",
-      "link" : "/admin/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
-        "link" : "/admin/troubleshooting/"
-      }, {
-        text: "إعادة معالجة الحركات",
-        "link" : "/admin/reprocessing/"
-      } ]
-    }, {
-      text: "مرجع المطور",
-      "link" : "/developer/"
-    }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
-      "link" : "/entity-flows/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "الأساسيات",
-        "link" : "/entity-flows/core/"
-      }, {
-        text: "وحدة الحسابات",
-        "link" : "/entity-flows/accounting/"
-      }, {
-        text: "وحدة الذكاء الاصطناعي",
-        "link" : "/entity-flows/ai/"
-      }, {
-        text: "وحدة المقاولات",
-        "link" : "/entity-flows/contracting/"
-      }, {
-        text: "وحدة إدارة علاقات العملاء",
-        "link" : "/entity-flows/crm/"
-      }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
-        "link" : "/entity-flows/egtax/"
-      }, {
-        text: "وحدة إدارة الشحن",
-        "link" : "/entity-flows/frm/"
-      }, {
-        text: "وحدة إدارة المستشفيات",
-        "link" : "/entity-flows/hms/"
-      }, {
-        text: "وحدة الموارد البشرية",
-        "link" : "/entity-flows/hr/"
-      }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
-        "link" : "/entity-flows/magento/"
-      }, {
-        text: "وحدة التصنيع",
-        "link" : "/entity-flows/manufacturing/"
-      }, {
-        text: "وحدة نقاط البيع",
-        "link" : "/entity-flows/namapos/"
-      }, {
-        text: "وحدة العقارات",
-        "link" : "/entity-flows/realestate/"
-      }, {
-        text: "وحدة مركز الخدمة",
-        "link" : "/entity-flows/srvcenter/"
-      }, {
-        text: "وحدة سلسلة التوريد",
-        "link" : "/entity-flows/supplychain/"
-      } ]
-    }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/",
-        "collapsed" : false,
-        "items" : [ {
-          text: "ملاحظات إصدار نما ERP - يناير 2025",
-          "link" : "/release-notes/2025/nama-erp-202501-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - فبراير 2025",
-          "link" : "/release-notes/2025/nama-erp-202502-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - مارس 2025",
-          "link" : "/release-notes/2025/nama-erp-202503-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - أبريل 2025",
-          "link" : "/release-notes/2025/nama-erp-202504-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - مايو 2025",
-          "link" : "/release-notes/2025/nama-erp-202505-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - يونيو 2025",
-          "link" : "/release-notes/2025/nama-erp-202506-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - يوليو 2025",
-          "link" : "/release-notes/2025/nama-erp-202507-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - أغسطس 2025",
-          "link" : "/release-notes/2025/nama-erp-202508-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - سبتمبر 2025",
-          "link" : "/release-notes/2025/nama-erp-202509-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - أكتوبر 2025",
-          "link" : "/release-notes/2025/nama-erp-202510-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - نوفمبر 2025",
-          "link" : "/release-notes/2025/nama-erp-202511-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - ديسمبر 2025",
-          "link" : "/release-notes/2025/nama-erp-202512-release-notes-arabic"
-        } ]
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
-      "link" : "/videos/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
-        "link" : "/videos/supply-chain-videos/"
-      }, {
-        text: "فيديوهات أداة إنشاء التقارير",
-        "link" : "/videos/report-wizard-videos/"
-      }, {
-        text: "فيديوهات الموارد البشرية",
-        "link" : "/videos/hr/"
-      } ]
-    } ]
-  } ],
-  "/release-notes/2026/" : [ {
-    text: "الرئيسية",
-    "collapsed" : false,
-    "items" : [ {
-      text: "البحث",
-      "link" : "/full-search"
-    }, {
-      text: "بدء الاستخدام",
-      "link" : "/getting-started/"
-    }, {
-      text: "الخصائص العامة للنظام",
-      "link" : "/platform/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "تعديل الشاشات",
-        "link" : "/platform/screen-modifier/"
-      }, {
-        text: "قوائم العرض",
-        "link" : "/platform/list-views/"
-      }, {
-        text: "الموافقات",
-        "link" : "/platform/approvals/"
-      }, {
-        text: "الصلاحيات والأمان",
-        "link" : "/platform/security/"
-      }, {
-        text: "مسارات الكيان",
-        "link" : "/platform/entity-flows/"
-      }, {
-        text: "التقارير",
-        "link" : "/platform/reports/"
-      }, {
-        text: "ذكاء الأعمال (BI)",
-        "link" : "/platform/bi/"
-      }, {
-        text: "التنبيهات",
-        "link" : "/platform/notifications/"
-      } ]
-    }, {
-      text: "الوحدات",
-      "link" : "/modules/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
-        "link" : "/modules/invoicing/"
-      }, {
-        text: "الحسابات والبنوك",
-        "link" : "/modules/accounting/",
-        "collapsed" : false,
-        "items" : [ {
-          text: "مرجع الدعم الفني",
-          "link" : "/modules/accounting/support/"
-        } ]
-      }, {
-        text: "سلسلة التوريد",
-        "link" : "/modules/supplychain/"
-      }, {
-        text: "إدارة الشحن",
-        "link" : "/modules/freight/"
-      }, {
-        text: "نظام إدارة المستشفيات",
-        "link" : "/modules/hms/"
-      }, {
-        text: "التصنيع",
-        "link" : "/modules/manufacturing/"
-      }, {
-        text: "الموارد البشرية",
-        "link" : "/modules/hr/"
-      }, {
-        text: "نقاط البيع",
-        "link" : "/modules/pos/"
-      }, {
-        text: "العقارات",
-        "link" : "/modules/realestate/"
-      }, {
-        text: "تطبيقات الجوال",
-        "link" : "/modules/mobile/"
-      }, {
-        text: "تكامل التجارة الإلكترونية",
-        "link" : "/modules/ecommerce/"
-      }, {
-        text: "الذكاء الاصطناعي",
-        "link" : "/modules/ai/"
-      } ]
-    }, {
-      text: "التكاملات الخارجية",
-      "link" : "/integration/"
-    }, {
-      text: "إدارة النظام",
-      "link" : "/admin/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
-        "link" : "/admin/troubleshooting/"
-      }, {
-        text: "إعادة معالجة الحركات",
-        "link" : "/admin/reprocessing/"
-      } ]
-    }, {
-      text: "مرجع المطور",
-      "link" : "/developer/"
-    }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
-      "link" : "/entity-flows/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "الأساسيات",
-        "link" : "/entity-flows/core/"
-      }, {
-        text: "وحدة الحسابات",
-        "link" : "/entity-flows/accounting/"
-      }, {
-        text: "وحدة الذكاء الاصطناعي",
-        "link" : "/entity-flows/ai/"
-      }, {
-        text: "وحدة المقاولات",
-        "link" : "/entity-flows/contracting/"
-      }, {
-        text: "وحدة إدارة علاقات العملاء",
-        "link" : "/entity-flows/crm/"
-      }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
-        "link" : "/entity-flows/egtax/"
-      }, {
-        text: "وحدة إدارة الشحن",
-        "link" : "/entity-flows/frm/"
-      }, {
-        text: "وحدة إدارة المستشفيات",
-        "link" : "/entity-flows/hms/"
-      }, {
-        text: "وحدة الموارد البشرية",
-        "link" : "/entity-flows/hr/"
-      }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
-        "link" : "/entity-flows/magento/"
-      }, {
-        text: "وحدة التصنيع",
-        "link" : "/entity-flows/manufacturing/"
-      }, {
-        text: "وحدة نقاط البيع",
-        "link" : "/entity-flows/namapos/"
-      }, {
-        text: "وحدة العقارات",
-        "link" : "/entity-flows/realestate/"
-      }, {
-        text: "وحدة مركز الخدمة",
-        "link" : "/entity-flows/srvcenter/"
-      }, {
-        text: "وحدة سلسلة التوريد",
-        "link" : "/entity-flows/supplychain/"
-      } ]
-    }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/",
-        "collapsed" : false,
-        "items" : [ {
-          text: "ملاحظات إصدار نما ERP - يناير 2026",
-          "link" : "/release-notes/2026/nama-erp-202601-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - فبراير 2026",
-          "link" : "/release-notes/2026/nama-erp-202602-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - مارس 2026",
-          "link" : "/release-notes/2026/nama-erp-202603-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - أبريل 2026",
-          "link" : "/release-notes/2026/nama-erp-202604-release-notes-arabic"
-        }, {
-          text: "ملاحظات إصدار نما ERP - مايو 2026",
-          "link" : "/release-notes/2026/nama-erp-202605-release-notes-arabic"
-        } ]
-      } ]
-    }, {
-      text: "شروحات الفيديو",
-      "link" : "/videos/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
-        "link" : "/videos/supply-chain-videos/"
-      }, {
-        text: "فيديوهات أداة إنشاء التقارير",
-        "link" : "/videos/report-wizard-videos/"
-      }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/videos/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "توثيق فيديو تنصيب Nama ERP والبرامج المساعدة",
+        text: "Documentation for the Nama ERP Installation Video and Supporting Software",
         "link" : "/videos/installation-video"
       }, {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "توثيق شرح التكاليف غير المباشرة والفعلي في نظام تصنيع",
+        text: "Documentation: Explaining Actual and Indirect Costs in the Manufacturing System",
         "link" : "/videos/manufacturing-actual-overhead"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/videos/supply-chain-videos/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/",
         "collapsed" : false,
         "items" : [ {
-          text: "فيديو طريقة عمل التكاليف - 1",
+          text: "Inventory Costing Explained - Video 1",
           "link" : "/videos/supply-chain-videos/cost-video-1"
         }, {
-          text: "فيديو طريقة عمل التكاليف - 2",
+          text: "Inventory Costing Methods - Video 2",
           "link" : "/videos/supply-chain-videos/cost-video-2"
         }, {
-          text: "فيديو طريقة عمل التكاليف - 3",
+          text: "Costing Tutorial Video - 3",
           "link" : "/videos/supply-chain-videos/cost-video-3"
         } ]
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/videos/report-wizard-videos/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/",
         "collapsed" : false,
         "items" : [ {
-          text: "فيديو (1) شرح أداة انشاء التقار",
+          text: "Video (1): Report Designer Tool Walkthrough",
           "link" : "/videos/report-wizard-videos/report-wizard-webinar-1"
         }, {
-          text: "شرح تفصيلي لجروبنج (Grouping) ومصادر البيانات وترتيب التقارير في Nama ERP",
+          text: "Detailed Guide to Grouping, Data Sources, and Report Sorting in Nama ERP",
           "link" : "/videos/report-wizard-videos/report-wizard-webinar-2"
         }, {
-          text: "توثيق كامل لإنشاء تقارير الكروس تاب، كشف الحساب، وحركة المخزون باستخدام أداة إنشاء التقارير",
+          text: "1. What Is a Cross Tab Report and How to Create One?",
           "link" : "/videos/report-wizard-videos/report-wizard-webinar-3"
         }, {
-          text: "توثيق فيديو تدريب تقرير فاتورة المبيعات وميزات الجيو الجديدة",
+          text: "report-wizard-webinar-4.md",
           "link" : "/videos/report-wizard-videos/report-wizard-webinar-4"
         }, {
-          text: "شرح إنشاء نموذج طباعة شاشة مستند تصفية",
+          text: "Conclusion",
           "link" : "/videos/report-wizard-videos/report-wizard-webinar-5"
         }, {
-          text: "توثيق شامل لمحتوى الفيديو حول إعداد تقارير الريبورت ويزرد وإدارة الصلاحيات",
+          text: "Content Summary",
           "link" : "/videos/report-wizard-videos/report-wizard-webinar-6"
         } ]
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/"
       } ]
     } ]
   } ],
   "/videos/hr/" : [ {
-    text: "الرئيسية",
+    text: "Home",
     "collapsed" : false,
     "items" : [ {
-      text: "البحث",
+      text: "Search",
       "link" : "/full-search"
     }, {
-      text: "بدء الاستخدام",
+      text: "Getting Started",
       "link" : "/getting-started/"
     }, {
-      text: "الخصائص العامة للنظام",
+      text: "Platform Features",
       "link" : "/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "تعديل الشاشات",
+        text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
-        text: "قوائم العرض",
+        text: "List Views",
         "link" : "/platform/list-views/"
       }, {
-        text: "الموافقات",
+        text: "Approvals",
         "link" : "/platform/approvals/"
       }, {
-        text: "الصلاحيات والأمان",
+        text: "Security & Permissions",
         "link" : "/platform/security/"
       }, {
-        text: "مسارات الكيان",
+        text: "Entity Flows",
         "link" : "/platform/entity-flows/"
       }, {
-        text: "التقارير",
+        text: "Reports",
         "link" : "/platform/reports/"
       }, {
-        text: "ذكاء الأعمال (BI)",
+        text: "Business Intelligence",
         "link" : "/platform/bi/"
       }, {
-        text: "التنبيهات",
+        text: "Notifications",
         "link" : "/platform/notifications/"
       } ]
     }, {
-      text: "الوحدات",
+      text: "Modules",
       "link" : "/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "الفواتير والضرائب والخصومات",
+        text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
-        text: "الحسابات والبنوك",
+        text: "Accounting & Banks",
         "link" : "/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "مرجع الدعم الفني",
+          text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
-        text: "سلسلة التوريد",
+        text: "Supply Chain",
         "link" : "/modules/supplychain/"
       }, {
-        text: "إدارة الشحن",
+        text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
-        text: "نظام إدارة المستشفيات",
+        text: "Hospital Management System",
         "link" : "/modules/hms/"
       }, {
-        text: "التصنيع",
+        text: "Manufacturing",
         "link" : "/modules/manufacturing/"
       }, {
-        text: "الموارد البشرية",
+        text: "Human Resources",
         "link" : "/modules/hr/"
       }, {
-        text: "نقاط البيع",
+        text: "Point of Sale",
         "link" : "/modules/pos/"
       }, {
-        text: "العقارات",
+        text: "Real Estate",
         "link" : "/modules/realestate/"
       }, {
-        text: "تطبيقات الجوال",
+        text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
-        text: "تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration",
         "link" : "/modules/ecommerce/"
       }, {
-        text: "الذكاء الاصطناعي",
+        text: "Artificial Intelligence",
         "link" : "/modules/ai/"
       } ]
     }, {
-      text: "التكاملات الخارجية",
+      text: "External Integrations",
       "link" : "/integration/"
     }, {
-      text: "إدارة النظام",
+      text: "System Administration",
       "link" : "/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "استكشاف الأخطاء وإصلاحها",
+        text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
-        text: "إعادة معالجة الحركات",
+        text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/"
       } ]
     }, {
-      text: "مرجع المطور",
+      text: "Developer Reference",
       "link" : "/developer/"
     }, {
-      text: "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
+      text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
       "collapsed" : false,
       "items" : [ {
-        text: "الأساسيات",
+        text: "Core",
         "link" : "/entity-flows/core/"
       }, {
-        text: "وحدة الحسابات",
+        text: "Accounting Module",
         "link" : "/entity-flows/accounting/"
       }, {
-        text: "وحدة الذكاء الاصطناعي",
+        text: "AI Module",
         "link" : "/entity-flows/ai/"
       }, {
-        text: "وحدة المقاولات",
+        text: "Contracting Module",
         "link" : "/entity-flows/contracting/"
       }, {
-        text: "وحدة إدارة علاقات العملاء",
+        text: "CRM Module",
         "link" : "/entity-flows/crm/"
       }, {
-        text: "وحدة قراءة الفواتير الإلكترونية",
+        text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/"
       }, {
-        text: "وحدة إدارة الشحن",
+        text: "Freight Management System Module",
         "link" : "/entity-flows/frm/"
       }, {
-        text: "وحدة إدارة المستشفيات",
+        text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/"
       }, {
-        text: "وحدة الموارد البشرية",
+        text: "HR Module",
         "link" : "/entity-flows/hr/"
       }, {
-        text: "وحدة تكامل التجارة الإلكترونية",
+        text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/"
       }, {
-        text: "وحدة التصنيع",
+        text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/"
       }, {
-        text: "وحدة نقاط البيع",
+        text: "POS Module",
         "link" : "/entity-flows/namapos/"
       }, {
-        text: "وحدة العقارات",
+        text: "Real Estate Module",
         "link" : "/entity-flows/realestate/"
       }, {
-        text: "وحدة مركز الخدمة",
+        text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/"
       }, {
-        text: "وحدة سلسلة التوريد",
+        text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/"
       } ]
     }, {
-      text: "ملاحظات الإصدارات",
-      "link" : "/release-notes/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "2016",
-        "link" : "/release-notes/2016/"
-      }, {
-        text: "2017",
-        "link" : "/release-notes/2017/"
-      }, {
-        text: "2018",
-        "link" : "/release-notes/2018/"
-      }, {
-        text: "2019",
-        "link" : "/release-notes/2019/"
-      }, {
-        text: "2020",
-        "link" : "/release-notes/2020/"
-      }, {
-        text: "2021",
-        "link" : "/release-notes/2021/"
-      }, {
-        text: "2022",
-        "link" : "/release-notes/2022/"
-      }, {
-        text: "2023",
-        "link" : "/release-notes/2023/"
-      }, {
-        text: "2024",
-        "link" : "/release-notes/2024/"
-      }, {
-        text: "2025",
-        "link" : "/release-notes/2025/"
-      }, {
-        text: "2026",
-        "link" : "/release-notes/2026/"
-      } ]
-    }, {
-      text: "شروحات الفيديو",
+      text: "Video Tutorials",
       "link" : "/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "فيديوهات سلسلة التوريد",
+        text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
-        text: "فيديوهات أداة إنشاء التقارير",
+        text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/"
       }, {
-        text: "فيديوهات الموارد البشرية",
+        text: "Human Resources Videos",
         "link" : "/videos/hr/",
         "collapsed" : false,
         "items" : [ {
-          text: "شرح مفصل لنظام إدارة الرواتب في نظام نما - 1",
+          text: "Detailed Explanation of the Payroll Management System in Nama ERP - 1",
           "link" : "/videos/hr/hr-course-1"
         }, {
-          text: "شرح مفصل لنظام إدارة الرواتب في نظام نما - 2",
+          text: "Detailed Explanation of the Payroll Management System in Nama ERP - 2",
           "link" : "/videos/hr/hr-course-2"
         }, {
-          text: "شرح مفصل لنظام إدارة الرواتب في نظام نما - 3",
+          text: "Detailed Explanation of the Payroll Management System in Nama ERP - 3",
           "link" : "/videos/hr/hr-course-3"
         }, {
-          text: "شرح مفصل لنظام إدارة الرواتب في نظام نما - 4",
+          text: "Detailed Explanation of the Payroll System in Nama ERP - 4",
           "link" : "/videos/hr/hr-course-4"
         } ]
       } ]
     } ]
   } ],
-  "/en/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/getting-started/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/getting-started/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/",
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/",
       "collapsed" : false,
       "items" : [ {
-        text: "System Minimum Requirements",
-        "link" : "/en/getting-started/system-minimum-requirements"
+        text: "الحد الأدنى لمتطلبات تشغيل النظام",
+        "link" : "/ar/getting-started/system-minimum-requirements"
       }, {
-        text: "Nama ERP Installation Guide",
-        "link" : "/en/getting-started/installation-guide"
+        text: "دليل تثبيت Nama ERP",
+        "link" : "/ar/getting-started/installation-guide"
       }, {
-        text: "Nama Properties",
-        "link" : "/en/getting-started/nama-properties"
+        text: "إعدادات Nama Properties",
+        "link" : "/ar/getting-started/nama-properties"
       }, {
-        text: "Two-Factor Authentication (2FA) Guide",
-        "link" : "/en/getting-started/two-factor-authentication"
+        text: "دليل المصادقة الثنائية (2FA)",
+        "link" : "/ar/getting-started/two-factor-authentication"
       } ]
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/platform/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/platform/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Utility Links",
-        "link" : "/en/platform/utils"
+        text: "روابط الأدوات المساعدة (Utility Links)",
+        "link" : "/ar/platform/utils"
       }, {
-        text: "Keyboard Shortcuts",
-        "link" : "/en/platform/shortcuts"
+        text: "اختصارات لوحة المفاتيح",
+        "link" : "/ar/platform/shortcuts"
       }, {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "اختصارات لوحة المفاتيح",
+        "link" : "/ar/platform/shortcuts-ar"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "Fiscal Period Control",
-        "link" : "/en/platform/fiscal-period-control-guide"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "التحكم في إقفال الفترات المحاسبية (Fiscal Period Control)",
+        "link" : "/ar/platform/fiscal-period-control-guide"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Virtual Entities — Reusable SQL Building Blocks for Reports & Dashboards",
-        "link" : "/en/platform/virtual-entity-guide"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       }, {
-        text: "Field Filter with Criteria",
-        "link" : "/en/platform/field-filter-with-criteria"
+        text: "الكيانات الافتراضية (Virtual Entities) — وحدات SQL قابلة لإعادة الاستخدام في التقارير ولوحات المعلومات",
+        "link" : "/ar/platform/virtual-entity-guide"
       }, {
-        text: "Frequently Asked Questions about Field Filtering",
-        "link" : "/en/platform/field-filter-faq"
+        text: "فلتر الحقل بالمعايير (Field Filter with Criteria)",
+        "link" : "/ar/platform/field-filter-with-criteria"
       }, {
-        text: "Modifying Translations in Nama ERP",
-        "link" : "/en/platform/translations"
+        text: "أسئلة شائعة حول فلترة الحقول",
+        "link" : "/ar/platform/field-filter-faq"
       }, {
-        text: "Criteria Based Validation",
-        "link" : "/en/platform/criteria-based-validation"
+        text: "تعديل الترجمات في نظام نما",
+        "link" : "/ar/platform/translations"
       }, {
-        text: "Criteria from Text Parser (Text Criteria Guide)",
-        "link" : "/en/platform/text-criteria-guide"
+        text: "التحقق المبني على المعايير (Criteria Based Validation)",
+        "link" : "/ar/platform/criteria-based-validation"
       }, {
-        text: "Scheduled Tasks (Task Scheduler)",
-        "link" : "/en/platform/scheduled-tasks"
+        text: "معايير من المحلل النصي (دليل معايير النص)",
+        "link" : "/ar/platform/text-criteria-guide"
       }, {
-        text: "Fields and Entities Settings - Generic Reference Overrider User Guide",
-        "link" : "/en/platform/GenericReferenceOverrider_UserGuide"
+        text: "scheduled-tasks.md",
+        "link" : "/ar/platform/scheduled-tasks"
+      }, {
+        text: "أعدادات الحقول و الشاشات (Generic Reference Overrider User Guide)",
+        "link" : "/ar/platform/GenericReferenceOverrider_UserGuide"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/platform/screen-modifier/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/platform/screen-modifier/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/",
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/",
         "collapsed" : false,
         "items" : [ {
-          text: "Layout Names:",
-          "link" : "/en/platform/screen-modifier/screen-modifier"
+          text: "أسماء التخطيط (Layout Names):",
+          "link" : "/ar/platform/screen-modifier/screen-modifier"
         }, {
-          text: "Frequently Asked Questions about Screen Modifier",
-          "link" : "/en/platform/screen-modifier/screen-modifier-faq"
+          text: "أسئلة شائعة حول تعديل الشاشات",
+          "link" : "/ar/platform/screen-modifier/screen-modifier-faq"
         } ]
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/platform/list-views/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/platform/list-views/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/",
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/",
         "collapsed" : false,
         "items" : [ {
-          text: "Quick Filters in List Views",
-          "link" : "/en/platform/list-views/quick-filters"
+          text: "الفلاتر السريعة في قوائم المستندات (Quick Filters in List Views)",
+          "link" : "/ar/platform/list-views/quick-filters"
         }, {
-          text: "Limit User To Year",
-          "link" : "/en/platform/list-views/limit-user-to-year"
+          text: "قصر المستخدم على سنة مالية (Limit User To Year)",
+          "link" : "/ar/platform/list-views/limit-user-to-year"
         } ]
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/platform/approvals/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/platform/approvals/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/",
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/",
         "collapsed" : false,
         "items" : [ {
-          text: "Approvals System - Approval Definition Full Guide",
-          "link" : "/en/platform/approvals/approvals-system"
+          text: "نظام الموافقات - الدليل الشامل لتعريف الموافقة",
+          "link" : "/ar/platform/approvals/approvals-system"
         }, {
-          text: "Sample Approval Email Templates",
-          "link" : "/en/platform/approvals/sample-approval-email-templates"
+          text: "نماذج بريد إلكتروني جاهزة لطلبات الموافقة (Sample Approval Email Templates)",
+          "link" : "/ar/platform/approvals/sample-approval-email-templates"
         }, {
-          text: "Approvals FAQ",
-          "link" : "/en/platform/approvals/approvals-faq"
+          text: "أسئلة شائعة عن الموافقات",
+          "link" : "/ar/platform/approvals/approvals-faq"
         } ]
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/platform/security/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/platform/security/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/",
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/",
         "collapsed" : false,
         "items" : [ {
-          text: "Security System Overview",
-          "link" : "/en/platform/security/security-overview"
+          text: "نظرة عامة على نظام الصلاحيات",
+          "link" : "/ar/platform/security/security-overview"
         }, {
-          text: "Security Profile",
-          "link" : "/en/platform/security/security-profiles"
+          text: "ملف الصلاحيات (Security Profile)",
+          "link" : "/ar/platform/security/security-profiles"
         }, {
-          text: "Field, Page, and List View Security",
-          "link" : "/en/platform/security/field-page-listview-security"
+          text: "صلاحيات الحقول والصفحات والقوائم",
+          "link" : "/ar/platform/security/field-page-listview-security"
         }, {
-          text: "Record-Level Security (Dimensions and Filters)",
-          "link" : "/en/platform/security/record-level-security"
+          text: "الصلاحيات على مستوى السجلات (المحددات والفلاتر)",
+          "link" : "/ar/platform/security/record-level-security"
         }, {
-          text: "Users and Login",
-          "link" : "/en/platform/security/users-and-login"
+          text: "المستخدمون وتسجيل الدخول",
+          "link" : "/ar/platform/security/users-and-login"
         }, {
-          text: "Temporary Additional Permissions (Delegation)",
-          "link" : "/en/platform/security/security-delegation"
+          text: "الصلاحيات الإضافية المؤقتة (التفويض)",
+          "link" : "/ar/platform/security/security-delegation"
         } ]
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/platform/entity-flows/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/platform/entity-flows/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/",
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/",
         "collapsed" : false,
         "items" : [ {
-          text: "Introduction to Entity Flows",
-          "link" : "/en/platform/entity-flows/introduction-to-entity-flows"
+          text: "مقدمة عن مسارات الكيان",
+          "link" : "/ar/platform/entity-flows/introduction-to-entity-flows"
         }, {
-          text: "Importing Data from Excel or Queries",
-          "link" : "/en/platform/entity-flows/excel-and-sql-import-by-entity-flow"
+          text: "استيراد البيانات من Excel أو الاستعلامات",
+          "link" : "/ar/platform/entity-flows/excel-and-sql-import-by-entity-flow"
         }, {
           text: "EAGenerateEntityFromEntityAction",
-          "link" : "/en/platform/entity-flows/ea-gen-entity-from-entity"
+          "link" : "/ar/platform/entity-flows/ea-gen-entity-from-entity"
         }, {
-          text: "Entity Flow Examples",
-          "link" : "/en/platform/entity-flows/entity-flow-examples"
+          text: "أمثلة لمسارات كيان",
+          "link" : "/ar/platform/entity-flows/entity-flow-examples"
         }, {
-          text: "Entity Flow FAQ",
-          "link" : "/en/platform/entity-flows/entity-flow-faq"
+          text: "أسئلة شائعة عن مسارات الكيان",
+          "link" : "/ar/platform/entity-flows/entity-flow-faq"
         } ]
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/platform/reports/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/platform/reports/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/",
+        text: "التقارير",
+        "link" : "/ar/platform/reports/",
         "collapsed" : false,
         "items" : [ {
-          text: "Jasper Reports Complete Guide for Nama ERP",
-          "link" : "/en/platform/reports/reports-guide"
+          text: "دليل Jasper Reports الشامل لنظام Nama ERP",
+          "link" : "/ar/platform/reports/reports-guide"
         }, {
-          text: "Report Wizard Guide",
-          "link" : "/en/platform/reports/report-wizard-guide"
+          text: "دليل استخدام أداة إنشاء التقارير ونماذج الطباعة",
+          "link" : "/ar/platform/reports/report-wizard-guide"
         }, {
-          text: "ReportWizard User Documentation (Report Creation Tool)",
-          "link" : "/en/platform/reports/ReportWizard_User_Documentation"
+          text: "أداة إنشاء التقارير (ReportWizard) - دليل المستخدم",
+          "link" : "/ar/platform/reports/ReportWizard_User_Documentation"
         }, {
-          text: "Frequently Asked Questions About Report Design",
-          "link" : "/en/platform/reports/report-faq"
+          text: "أسئلة شائعة عن تصميم التقارير",
+          "link" : "/ar/platform/reports/report-faq"
         }, {
-          text: "Frequently Asked Questions About the Report Builder",
-          "link" : "/en/platform/reports/report-wizard-faq"
+          text: "أسئلة شائعة حول أداة إنشاء التقارير",
+          "link" : "/ar/platform/reports/report-wizard-faq"
         } ]
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/platform/bi/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/platform/bi/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/",
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/",
         "collapsed" : false,
         "items" : [ {
-          text: "BI Module — Dashboards & Analytics",
-          "link" : "/en/platform/bi/bi-module-guide"
+          text: "وحدة BI — لوحات المعلومات والتحليلات (BI Module — Dashboards & Analytics)",
+          "link" : "/ar/platform/bi/bi-module-guide"
         }, {
-          text: "Nama ERP BI Module — Technical Reference",
-          "link" : "/en/platform/bi/bi-module-technical-reference"
+          text: "وحدة BI في Nama ERP — المرجع التقني",
+          "link" : "/ar/platform/bi/bi-module-technical-reference"
         }, {
-          text: "BI Reference — EnhancedMetricsCard (and legacy MetricsCards)",
-          "link" : "/en/platform/bi/bi-reference-enhanced-metrics-card"
+          text: "مرجع BI — EnhancedMetricsCard (وwidget المقاييس القديم MetricsCards)",
+          "link" : "/ar/platform/bi/bi-reference-enhanced-metrics-card"
         }, {
-          text: "BI Reference — EnhancedTable",
-          "link" : "/en/platform/bi/bi-reference-enhanced-table"
+          text: "مرجع BI — EnhancedTable",
+          "link" : "/ar/platform/bi/bi-reference-enhanced-table"
         }, {
-          text: "BI Reference — Wizard Mode",
-          "link" : "/en/platform/bi/bi-reference-wizard-mode"
+          text: "مرجع BI — وضع المعالج (Wizard Mode)",
+          "link" : "/ar/platform/bi/bi-reference-wizard-mode"
         } ]
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/platform/notifications/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/platform/notifications/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/",
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/",
         "collapsed" : false,
         "items" : [ {
-          text: "Nama ERP Notification System",
-          "link" : "/en/platform/notifications/notifications-system"
+          text: "نظام التنبيهات في Nama ERP",
+          "link" : "/ar/platform/notifications/notifications-system"
         }, {
-          text: "WhatsApp Integration",
-          "link" : "/en/platform/notifications/sms-and-whatsapp"
+          text: "تكامل WhatsApp",
+          "link" : "/ar/platform/notifications/sms-and-whatsapp"
         }, {
-          text: "Frequently Asked Questions: Notifications and Messages",
-          "link" : "/en/platform/notifications/notification-fq"
+          text: "أسئلة شائعة عن التنبيهات والرسائل",
+          "link" : "/ar/platform/notifications/notification-fq"
         } ]
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/modules/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/modules/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/modules/invoicing/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/modules/invoicing/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/",
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/",
         "collapsed" : false,
         "items" : [ {
-          text: "Customer Reward Points (Loyalty Points)",
-          "link" : "/en/modules/invoicing/reward-points"
+          text: "نقاط مكافآت العملاء (Customer Reward Points / Loyalty Points)",
+          "link" : "/ar/modules/invoicing/reward-points"
         }, {
-          text: "Invoice Discounts and Tax Calculation System - Comprehensive Guide",
-          "link" : "/en/modules/invoicing/invoice-discounts-and-tax-calculation-guide"
+          text: "دليل نظام الخصومات وحساب الضرائب على الفواتير - دليل شامل",
+          "link" : "/ar/modules/invoicing/invoice-discounts-and-tax-calculation-guide"
         }, {
-          text: "Pricing and Offers Management Guide",
-          "link" : "/en/modules/invoicing/pricing-and-offers-guide"
+          text: "دليل إدارة الأسعار والعروض (Pricing and Offers Management Guide)",
+          "link" : "/ar/modules/invoicing/pricing-and-offers-guide"
         }, {
-          text: "Payment Schedules User Guide",
-          "link" : "/en/modules/invoicing/payment-schedules-user-guide"
+          text: "دليل المستخدم لجداول الدفع (Payment Schedules)",
+          "link" : "/ar/modules/invoicing/payment-schedules-user-guide"
         }, {
-          text: "Linking Payment Vouchers to Invoices",
-          "link" : "/en/modules/invoicing/payment-entries"
+          text: "ربط سندات الدفع بالفواتير",
+          "link" : "/ar/modules/invoicing/payment-entries"
         }, {
-          text: "Online Payments Integration",
-          "link" : "/en/modules/invoicing/online-payments"
+          text: "تكامل المدفوعات الإلكترونية (Online Payments Integration)",
+          "link" : "/ar/modules/invoicing/online-payments"
         }, {
           text: "Nama ERP e-Invoice guide",
-          "link" : "/en/modules/invoicing/e-invoices-guide"
+          "link" : "/ar/modules/invoicing/e-invoices-guide"
         }, {
-          text: "Integration with ZATCA (Saudi Arabia – Fatoora)",
-          "link" : "/en/modules/invoicing/zatca-guide"
+          text: "الربط مع هيئة الزكاة والضريبة والجمارك بالسعودية (ZATCA Fatoora)",
+          "link" : "/ar/modules/invoicing/zatca-guide"
         }, {
-          text: "Electronic Receipt (Egypt Tax eInvoice) - Activating the Electronic Receipt and eInvoice - Egypt",
-          "link" : "/en/modules/invoicing/electronic-receipt-egypt-tax-eInvoice"
+          text: "Electronic Receipt (Egypt Tax eInvoice) تفعيل الإيصال الإلكتروني - الفاتورة الإلكترونية - مصر",
+          "link" : "/ar/modules/invoicing/electronic-receipt-egypt-tax-eInvoice"
         }, {
-          text: "UAE E-Invoicing Integration via Orchida osTax",
-          "link" : "/en/modules/invoicing/uae-orchida-einvoice-guide"
+          text: "الربط مع الفاتورة الإلكترونية في الإمارات عبر Orchida osTax",
+          "link" : "/ar/modules/invoicing/uae-orchida-einvoice-guide"
         }, {
-          text: "Standard Terms and Conditions Feature Documentation",
-          "link" : "/en/modules/invoicing/standard-terms-feature-documentation"
+          text: "توثيق خاصية الشروط والأحكام القياسية (Standard Terms and Conditions Feature Documentation)",
+          "link" : "/ar/modules/invoicing/standard-terms-feature-documentation"
         }, {
-          text: "Barcode Field Feature for Sequential Scanning",
-          "link" : "/en/modules/invoicing/barcode-field-feature"
+          text: "ميزة حقل الباركود للمسح المتتالي",
+          "link" : "/ar/modules/invoicing/barcode-field-feature"
         }, {
-          text: "Frequently Asked Questions about Invoices and Payments",
-          "link" : "/en/modules/invoicing/invoices-faq"
+          text: "أسئلة شائعة حول الفواتير والدفع",
+          "link" : "/ar/modules/invoicing/invoices-faq"
         } ]
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/modules/accounting/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/modules/accounting/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Accounting Concepts & First-Time Setup",
-          "link" : "/en/modules/accounting/accounting-concepts-and-setup"
+          text: "المفاهيم الأساسية والإعداد المبدئي للحسابات",
+          "link" : "/ar/modules/accounting/accounting-concepts-and-setup"
         }, {
-          text: "Chart of Accounts",
-          "link" : "/en/modules/accounting/chart-of-accounts"
+          text: "شجرة الحسابات",
+          "link" : "/ar/modules/accounting/chart-of-accounts"
         }, {
-          text: "Accounts",
-          "link" : "/en/modules/accounting/accounts"
+          text: "الحسابات",
+          "link" : "/ar/modules/accounting/accounts"
         }, {
-          text: "Journal Entries & Adjustments",
-          "link" : "/en/modules/accounting/journal-entries"
+          text: "سندات القيد والتسويات",
+          "link" : "/ar/modules/accounting/journal-entries"
         }, {
-          text: "Year-End Closing & Period Control",
-          "link" : "/en/modules/accounting/year-end-and-period-control"
+          text: "الإقفال السنوي والتحكم في الفترات",
+          "link" : "/ar/modules/accounting/year-end-and-period-control"
         }, {
-          text: "Receipt & Payment Vouchers",
-          "link" : "/en/modules/accounting/receipts-and-payments"
+          text: "سندات القبض والصرف",
+          "link" : "/ar/modules/accounting/receipts-and-payments"
         }, {
-          text: "Credit & Debit Notes",
-          "link" : "/en/modules/accounting/credit-and-debit-notes"
+          text: "إشعارات الدائن والمدين",
+          "link" : "/ar/modules/accounting/credit-and-debit-notes"
         }, {
-          text: "Cashier Shifts (Cash Drawer)",
-          "link" : "/en/modules/accounting/cashier-shifts"
+          text: "ورديات الكاشير (درج النقدية)",
+          "link" : "/ar/modules/accounting/cashier-shifts"
         }, {
-          text: "Banks, Bank Accounts & Transfers",
-          "link" : "/en/modules/accounting/banks-and-bank-accounts"
+          text: "البنوك والحسابات البنكية والتحويلات",
+          "link" : "/ar/modules/accounting/banks-and-bank-accounts"
         }, {
-          text: "Bank Reconciliation",
-          "link" : "/en/modules/accounting/bank-reconciliation"
+          text: "المطابقة البنكية",
+          "link" : "/ar/modules/accounting/bank-reconciliation"
         }, {
-          text: "Cheques & Financial Papers (Lifecycle)",
-          "link" : "/en/modules/accounting/cheques-financial-papers"
+          text: "الشيكات والأوراق المالية (دورة الحياة)",
+          "link" : "/ar/modules/accounting/cheques-financial-papers"
         }, {
-          text: "Bank Loans",
-          "link" : "/en/modules/accounting/bank-loans"
+          text: "القروض البنكية",
+          "link" : "/ar/modules/accounting/bank-loans"
         }, {
-          text: "Fixed Deposits",
-          "link" : "/en/modules/accounting/fixed-deposits"
+          text: "الودائع الثابتة",
+          "link" : "/ar/modules/accounting/fixed-deposits"
         }, {
-          text: "Credit Facilities & Facility Limits",
-          "link" : "/en/modules/accounting/credit-facilities"
+          text: "التسهيلات الائتمانية وحدود التسهيلات",
+          "link" : "/ar/modules/accounting/credit-facilities"
         }, {
-          text: "Letters of Guarantee",
-          "link" : "/en/modules/accounting/letters-of-guarantee"
+          text: "خطابات الضمان",
+          "link" : "/ar/modules/accounting/letters-of-guarantee"
         }, {
-          text: "Letters of Credit",
-          "link" : "/en/modules/accounting/bank-letters-of-credit"
+          text: "الاعتمادات المستندية",
+          "link" : "/ar/modules/accounting/bank-letters-of-credit"
         }, {
-          text: "Treasury Bills",
-          "link" : "/en/modules/accounting/treasury-bills"
+          text: "أذون الخزانة",
+          "link" : "/ar/modules/accounting/treasury-bills"
         }, {
-          text: "Investment Portfolios",
-          "link" : "/en/modules/accounting/investment-portfolios"
+          text: "المحافظ الاستثمارية",
+          "link" : "/ar/modules/accounting/investment-portfolios"
         }, {
-          text: "Investment Documents & Fund Certificates",
-          "link" : "/en/modules/accounting/investment-documents"
+          text: "مستندات الاستثمار وشهادات الصناديق",
+          "link" : "/ar/modules/accounting/investment-documents"
         }, {
-          text: "Prepaid Expenses",
-          "link" : "/en/modules/accounting/prepaid-expenses"
+          text: "المصروفات المقدمة",
+          "link" : "/ar/modules/accounting/prepaid-expenses"
         }, {
-          text: "Financial Commitments",
-          "link" : "/en/modules/accounting/financial-commitments"
+          text: "الالتزامات المالية",
+          "link" : "/ar/modules/accounting/financial-commitments"
         }, {
-          text: "Financial Budgets",
-          "link" : "/en/modules/accounting/financial-budgets"
+          text: "الموازنات المالية",
+          "link" : "/ar/modules/accounting/financial-budgets"
         }, {
-          text: "Financial Statements",
-          "link" : "/en/modules/accounting/financial-statements"
+          text: "القوائم المالية",
+          "link" : "/ar/modules/accounting/financial-statements"
         }, {
-          text: "Misc Purchasing & Machine Rent",
-          "link" : "/en/modules/accounting/misc-purchasing"
+          text: "المشتريات المتنوعة وتشغيل المعدات",
+          "link" : "/ar/modules/accounting/misc-purchasing"
         }, {
-          text: "Party Evaluation",
-          "link" : "/en/modules/accounting/party-evaluation"
+          text: "تقييم الجهات",
+          "link" : "/ar/modules/accounting/party-evaluation"
         }, {
-          text: "Subsidiary Reconciliation",
-          "link" : "/en/modules/accounting/subsidiary-reconciliation"
+          text: "التسوية مع الذمم",
+          "link" : "/ar/modules/accounting/subsidiary-reconciliation"
         }, {
-          text: "Account Statements, Trial Balance & Analysis",
-          "link" : "/en/modules/accounting/reports-account-statements-and-trial-balance"
+          text: "كشوف الحسابات وميزان المراجعة والتحليل",
+          "link" : "/ar/modules/accounting/reports-account-statements-and-trial-balance"
         }, {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/modules/accounting/support/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/modules/accounting/support/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/",
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/",
           "collapsed" : false,
           "items" : [ {
-            text: "How Documents Are Processed Into Accounting Effects (and reprocessing a stuck request)",
-            "link" : "/en/modules/accounting/support/accounting-request-processing"
+            text: "كيف تُعالَج المستندات إلى أثر محاسبي (وإعادة معالجة طلب متعثّر)",
+            "link" : "/ar/modules/accounting/support/accounting-request-processing"
           }, {
-            text: "Accounting Configuration (module option catalog)",
-            "link" : "/en/modules/accounting/support/accounting-configuration"
+            text: "إعدادات الحسابات (كتالوج خيارات الوحدة)",
+            "link" : "/ar/modules/accounting/support/accounting-configuration"
           }, {
-            text: "Document Terms (per-type processing rules)",
-            "link" : "/en/modules/accounting/support/accounting-document-terms"
+            text: "توجيهات المستندات (قواعد المعالجة لكل نوع)",
+            "link" : "/ar/modules/accounting/support/accounting-document-terms"
           }, {
-            text: "Dimensions, Cost Centers & Distribution",
-            "link" : "/en/modules/accounting/support/accounting-dimensions-and-distribution"
+            text: "المحدِّدات ومراكز التكلفة والتوزيع",
+            "link" : "/ar/modules/accounting/support/accounting-dimensions-and-distribution"
           }, {
-            text: "Fiscal Periods, Period Locking & Multi-Currency",
-            "link" : "/en/modules/accounting/support/accounting-periods-and-currency"
+            text: "الفترات المالية وإقفال الفترات وتعدّد العملات",
+            "link" : "/ar/modules/accounting/support/accounting-periods-and-currency"
           } ]
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
-      } ]
-    } ]
-  } ],
-  "/en/modules/supplychain/" : [ {
-    text: "Home",
-    "link" : "/en/",
-    "collapsed" : false,
-    "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
-    }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
-    }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
-        "collapsed" : false,
-        "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
-        } ]
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/",
-        "collapsed" : false,
-        "items" : [ {
-          text: "Supply Chain Management",
-          "link" : "/en/modules/supplychain/supply-chain-intro"
-        }, {
-          text: "Understanding Inventory Items",
-          "link" : "/en/modules/supplychain/understanding-items"
-        }, {
-          text: "Warehouses & Locators",
-          "link" : "/en/modules/supplychain/warehouses-and-locators"
-        }, {
-          text: "Receiving Stock",
-          "link" : "/en/modules/supplychain/receiving-stock"
-        }, {
-          text: "Issuing Stock",
-          "link" : "/en/modules/supplychain/issuing-stock"
-        }, {
-          text: "Moving Stock Between Warehouses",
-          "link" : "/en/modules/supplychain/moving-stock"
-        }, {
-          text: "Stock Taking",
-          "link" : "/en/modules/supplychain/stock-taking"
-        }, {
-          text: "Inventory Costing & Revaluation",
-          "link" : "/en/modules/supplychain/inventory-costing"
-        }, {
-          text: "The Purchasing Journey",
-          "link" : "/en/modules/supplychain/purchasing-journey"
-        }, {
-          text: "Purchase Forecast",
-          "link" : "/en/modules/supplychain/purchase-forecast"
-        }, {
-          text: "The Sales Journey",
-          "link" : "/en/modules/supplychain/sales-journey"
-        }, {
-          text: "Pricing, Offers & Coupons",
-          "link" : "/en/modules/supplychain/pricing-offers-and-coupons"
-        }, {
-          text: "Comprehensive Reservation System Guide",
-          "link" : "/en/modules/supplychain/reservation-system-guide"
-        }, {
-          text: "Delivery & Loading",
-          "link" : "/en/modules/supplychain/delivery-and-loading"
-        }, {
-          text: "Assembly & Packaging",
-          "link" : "/en/modules/supplychain/assembly-and-packaging"
-        }, {
-          text: "Quality Control",
-          "link" : "/en/modules/supplychain/quality-control"
-        }, {
-          text: "Letters of Credit",
-          "link" : "/en/modules/supplychain/letters-of-credit"
-        }, {
-          text: "Weight Scale",
-          "link" : "/en/modules/supplychain/weight-scale"
-        }, {
-          text: "Specialized Scenarios",
-          "link" : "/en/modules/supplychain/specialized-scenarios"
-        }, {
-          text: "Ignoring Specific Warehouses/Locators in Reservation Quantity Check by Date",
-          "link" : "/en/modules/supplychain/ignore-reservation-qty-check-by-date"
-        }, {
-          text: "FAQ — Distribution, Warehousing, Sales & Purchasing Module",
-          "link" : "/en/modules/supplychain/supply-chain-faq"
-        } ]
-      }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
-      }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
-      }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
-      }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
-      }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
-      }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
-      }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
-      }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
-      }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
-      } ]
-    }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
-    }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
-      }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
-      } ]
-    }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
-    }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
-      }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
-      }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/modules/freight/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/modules/supplychain/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
-      }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/",
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
         "collapsed" : false,
         "items" : [ {
-          text: "Freight Management",
-          "link" : "/en/modules/freight/freight-intro"
+          text: "إدارة سلسلة التوريد (Supply Chain Management)",
+          "link" : "/ar/modules/supplychain/supply-chain-intro"
         }, {
-          text: "Freight Master Files",
-          "link" : "/en/modules/freight/freight-master-files"
+          text: "فهم أصناف المخزون (Understanding Inventory Items)",
+          "link" : "/ar/modules/supplychain/understanding-items"
         }, {
-          text: "Operation Orders",
-          "link" : "/en/modules/freight/operation-orders"
+          text: "المخازن والمواقع التخزينية (Warehouses & Locators)",
+          "link" : "/ar/modules/supplychain/warehouses-and-locators"
         }, {
-          text: "Bills of Lading",
-          "link" : "/en/modules/freight/bills-of-lading"
+          text: "استلام المخزون في المستودع (Receiving Stock)",
+          "link" : "/ar/modules/supplychain/receiving-stock"
         }, {
-          text: "Price Lists & Markups",
-          "link" : "/en/modules/freight/freight-pricing"
+          text: "إصدار المخزون من المستودع (Issuing Stock)",
+          "link" : "/ar/modules/supplychain/issuing-stock"
         }, {
-          text: "Invoices & Returns",
-          "link" : "/en/modules/freight/freight-invoicing"
+          text: "تحريك المخزون بين المخازن (Moving Stock)",
+          "link" : "/ar/modules/supplychain/moving-stock"
         }, {
-          text: "E-Invoicing in the Freight Module",
-          "link" : "/en/modules/freight/freight-einvoicing"
+          text: "الجرد المخزني (Stock Taking)",
+          "link" : "/ar/modules/supplychain/stock-taking"
         }, {
-          text: "International Postal System (IPS) — Overview",
-          "link" : "/en/modules/freight/ips-postal-intro"
+          text: "تكلفة المخزون وإعادة التقييم (Inventory Costing & Revaluation)",
+          "link" : "/ar/modules/supplychain/inventory-costing"
         }, {
-          text: "Mail Items",
-          "link" : "/en/modules/freight/ips-mail-items"
+          text: "رحلة الشراء (The Purchasing Journey)",
+          "link" : "/ar/modules/supplychain/purchasing-journey"
         }, {
-          text: "Receptacles",
-          "link" : "/en/modules/freight/ips-receptacles"
+          text: "التنبؤ بالمشتريات (Purchase Forecast)",
+          "link" : "/ar/modules/supplychain/purchase-forecast"
         }, {
-          text: "Delivery Service",
-          "link" : "/en/modules/freight/ips-delivery"
+          text: "رحلة المبيعات (The Sales Journey)",
+          "link" : "/ar/modules/supplychain/sales-journey"
+        }, {
+          text: "التسعير والعروض والكوبونات (Pricing, Offers & Coupons)",
+          "link" : "/ar/modules/supplychain/pricing-offers-and-coupons"
+        }, {
+          text: "دليل نظام الحجوزات الشامل (Comprehensive Reservation System Guide)",
+          "link" : "/ar/modules/supplychain/reservation-system-guide"
+        }, {
+          text: "التسليم والتحميل (Delivery & Loading)",
+          "link" : "/ar/modules/supplychain/delivery-and-loading"
+        }, {
+          text: "التجميع والتعبئة (Assembly & Packaging)",
+          "link" : "/ar/modules/supplychain/assembly-and-packaging"
+        }, {
+          text: "ضبط الجودة (Quality Control)",
+          "link" : "/ar/modules/supplychain/quality-control"
+        }, {
+          text: "الاعتمادات المستندية (Letters of Credit)",
+          "link" : "/ar/modules/supplychain/letters-of-credit"
+        }, {
+          text: "موازين الوزن (Weight Scale)",
+          "link" : "/ar/modules/supplychain/weight-scale"
+        }, {
+          text: "سيناريوهات متخصصة (Specialized Scenarios)",
+          "link" : "/ar/modules/supplychain/specialized-scenarios"
+        }, {
+          text: "تجاهل مخازن/مواقع معينة في التحقق من كمية الحجز بالتاريخ",
+          "link" : "/ar/modules/supplychain/ignore-reservation-qty-check-by-date"
+        }, {
+          text: "أسئلة في موديول التوزيع والمخازن والمبيعات والمشتريات",
+          "link" : "/ar/modules/supplychain/supply-chain-faq"
         } ]
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/modules/hms/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/modules/freight/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
-      }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/",
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/",
         "collapsed" : false,
         "items" : [ {
-          text: "Hospital Management System",
-          "link" : "/en/modules/hms/hms-intro"
+          text: "إدارة الشحن (Freight Management)",
+          "link" : "/ar/modules/freight/freight-intro"
         }, {
-          text: "Hospital Structure & Rooms",
-          "link" : "/en/modules/hms/hms-facility"
+          text: "الملفات الأساسية لإدارة الشحن",
+          "link" : "/ar/modules/freight/freight-master-files"
         }, {
-          text: "Medical Master Files",
-          "link" : "/en/modules/hms/hms-medical-master-files"
+          text: "أوامر التشغيل (Operation Orders)",
+          "link" : "/ar/modules/freight/operation-orders"
         }, {
-          text: "Medical Service Catalog",
-          "link" : "/en/modules/hms/hms-service-catalog"
+          text: "بوالص الشحن (Bills of Lading)",
+          "link" : "/ar/modules/freight/bills-of-lading"
         }, {
-          text: "Medical Insurance & Approvals",
-          "link" : "/en/modules/hms/hms-insurance"
+          text: "قوائم الأسعار والهوامش",
+          "link" : "/ar/modules/freight/freight-pricing"
         }, {
-          text: "Pricing, Costing & Discounts",
-          "link" : "/en/modules/hms/hms-pricing"
+          text: "الفواتير والمرتجعات",
+          "link" : "/ar/modules/freight/freight-invoicing"
         }, {
-          text: "Patients & Admission",
-          "link" : "/en/modules/hms/hms-patients"
+          text: "التعامل مع الفاتورة الإلكترونية في وحدة الشحن",
+          "link" : "/ar/modules/freight/freight-einvoicing"
         }, {
-          text: "Accommodation & Feeding",
-          "link" : "/en/modules/hms/hms-accommodation"
+          text: "نظام البريد الدولي (IPS) — نظرة عامة",
+          "link" : "/ar/modules/freight/ips-postal-intro"
         }, {
-          text: "Clinical Orders & Results",
-          "link" : "/en/modules/hms/hms-clinical-orders"
+          text: "المواد البريدية",
+          "link" : "/ar/modules/freight/ips-mail-items"
         }, {
-          text: "Invoicing & Billing",
-          "link" : "/en/modules/hms/hms-invoicing"
+          text: "الأكياس البريدية (Receptacles)",
+          "link" : "/ar/modules/freight/ips-receptacles"
+        }, {
+          text: "خدمة التوصيل (Delivery)",
+          "link" : "/ar/modules/freight/ips-delivery"
         } ]
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/modules/manufacturing/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/modules/hms/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
-      }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/",
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/",
         "collapsed" : false,
         "items" : [ {
-          text: "Manufacturing Module Overview",
-          "link" : "/en/modules/manufacturing/manufacturing-overview"
+          text: "نظام إدارة المستشفيات (Hospital Management System)",
+          "link" : "/ar/modules/hms/hms-intro"
         }, {
-          text: "Production Orders: Planning What to Make",
-          "link" : "/en/modules/manufacturing/production-orders"
+          text: "هيكل المستشفى والغرف",
+          "link" : "/ar/modules/hms/hms-facility"
         }, {
-          text: "Production Execution: Recording What Actually Happens",
-          "link" : "/en/modules/manufacturing/production-execution"
+          text: "الملفات الطبية الأساسية",
+          "link" : "/ar/modules/hms/hms-medical-master-files"
         }, {
-          text: "Production Costing: Following the Money",
-          "link" : "/en/modules/manufacturing/production-costing"
+          text: "كتالوج الخدمات الطبية",
+          "link" : "/ar/modules/hms/hms-service-catalog"
         }, {
-          text: "Material Requirements Planning (MRP) - User Guide",
-          "link" : "/en/modules/manufacturing/material-requirements-planning"
+          text: "التأمين الطبي والموافقات",
+          "link" : "/ar/modules/hms/hms-insurance"
         }, {
-          text: "Carton Manufacturing: Smart Material Planning for Corrugated Products",
-          "link" : "/en/modules/manufacturing/carton-manufacturing-overview"
+          text: "الأسعار والتكاليف والخصومات",
+          "link" : "/ar/modules/hms/hms-pricing"
         }, {
-          text: "Carton Specifications: Defining Your Products",
-          "link" : "/en/modules/manufacturing/carton-specifications"
+          text: "المرضى والدخول",
+          "link" : "/ar/modules/hms/hms-patients"
         }, {
-          text: "Carton Orders: From Customer Request to Production Plan",
-          "link" : "/en/modules/manufacturing/carton-orders"
+          text: "التسكين والتغذية",
+          "link" : "/ar/modules/hms/hms-accommodation"
         }, {
-          text: "Carton Material Planning: The Optimization Engine",
-          "link" : "/en/modules/manufacturing/carton-material-planning"
+          text: "الطلبات والنتائج الإكلينيكية",
+          "link" : "/ar/modules/hms/hms-clinical-orders"
         }, {
-          text: "Carton Material Issues: From Warehouse to Shop Floor",
-          "link" : "/en/modules/manufacturing/carton-material-issue"
-        }, {
-          text: "Frequently Asked Questions — Manufacturing Module in Nama ERP",
-          "link" : "/en/modules/manufacturing/manufacturing-faq"
+          text: "الفواتير والمحاسبة",
+          "link" : "/ar/modules/hms/hms-invoicing"
         } ]
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/modules/hr/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/modules/manufacturing/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
-      }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/",
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/",
         "collapsed" : false,
         "items" : [ {
-          text: "Attendance and Departure Formulas",
-          "link" : "/en/modules/hr/attendance-machine-formula"
+          text: "نظرة عامة على وحدة التصنيع (Manufacturing Module Overview)",
+          "link" : "/ar/modules/manufacturing/manufacturing-overview"
         }, {
-          text: "Ignoring Overlapping Attendance and Departure Lines",
-          "link" : "/en/modules/hr/ignore-overlapping-attendance"
+          text: "أوامر الإنتاج (Production Orders): التخطيط لما سيتم تصنيعه",
+          "link" : "/ar/modules/manufacturing/production-orders"
         }, {
-          text: "Frequently Asked Questions — Payroll and Human Resources Module",
-          "link" : "/en/modules/hr/human-resources-faq"
+          text: "تنفيذ الإنتاج (Production Execution): تسجيل ما يحدث فعلاً",
+          "link" : "/ar/modules/manufacturing/production-execution"
+        }, {
+          text: "تكاليف الإنتاج: تتبع الأموال",
+          "link" : "/ar/modules/manufacturing/production-costing"
+        }, {
+          text: "تخطيط متطلبات المواد (Material Requirements Planning - MRP) - دليل المستخدم",
+          "link" : "/ar/modules/manufacturing/material-requirements-planning"
+        }, {
+          text: "تصنيع الكرتون: تخطيط ذكي للمواد في منتجات الورق المموج",
+          "link" : "/ar/modules/manufacturing/carton-manufacturing-overview"
+        }, {
+          text: "مواصفات الكرتونة: تعريف منتجاتك",
+          "link" : "/ar/modules/manufacturing/carton-specifications"
+        }, {
+          text: "طلبيات الكرتون (Carton Orders): من طلب العميل إلى خطة الإنتاج",
+          "link" : "/ar/modules/manufacturing/carton-orders"
+        }, {
+          text: "تخطيط خامات الكرتون (Carton Material Planning): محرك التحسين",
+          "link" : "/ar/modules/manufacturing/carton-material-planning"
+        }, {
+          text: "صرف خامات الكرتون: من المستودع إلى أرض الإنتاج",
+          "link" : "/ar/modules/manufacturing/carton-material-issue"
+        }, {
+          text: "أسئلة شائعة حول موديول التصنيع في نظام Nama ERP",
+          "link" : "/ar/modules/manufacturing/manufacturing-faq"
         } ]
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/modules/pos/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/modules/hr/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
-      }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/",
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
         "collapsed" : false,
         "items" : [ {
-          text: "Nama POS — Technical Points of Use Guide",
-          "link" : "/en/modules/pos/nama-pos"
+          text: "صيغ الحضور والانصراف",
+          "link" : "/ar/modules/hr/attendance-machine-formula"
         }, {
-          text: "Free Items in POS: Claim at Scan and Reconciliation at Payment",
-          "link" : "/en/modules/pos/pos-free-items-claim-and-reconciliation"
+          text: "تجاهل سطور الحضور والانصراف المتقاطعة",
+          "link" : "/ar/modules/hr/ignore-overlapping-attendance"
         }, {
-          text: "Fingerprint Login in Point of Sale",
-          "link" : "/en/modules/pos/pos-fingerprint-login"
-        }, {
-          text: "Point of Sale FAQ",
-          "link" : "/en/modules/pos/pos-faq"
+          text: "أسئلة شائعة في موديول الرواتب والموارد البشرية",
+          "link" : "/ar/modules/hr/human-resources-faq"
         } ]
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/modules/realestate/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/modules/pos/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
-      }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/",
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/",
         "collapsed" : false,
         "items" : [ {
-          text: "Real Estate Investment FAQ",
-          "link" : "/en/modules/realestate/real-estate-fq"
+          text: "دليل استعمال النقاط الفنية في نقاط البيع",
+          "link" : "/ar/modules/pos/nama-pos"
+        }, {
+          text: "الأصناف المجانية في نقاط البيع: المطالبة بالمسح والتسوية عند الدفع",
+          "link" : "/ar/modules/pos/pos-free-items-claim-and-reconciliation"
+        }, {
+          text: "تسجيل الدخول بالبصمة في نقاط البيع",
+          "link" : "/ar/modules/pos/pos-fingerprint-login"
+        }, {
+          text: "أسئلة شائعة حول نقاط البيع",
+          "link" : "/ar/modules/pos/pos-faq"
         } ]
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/modules/mobile/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/modules/realestate/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
-      }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/",
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/",
         "collapsed" : false,
         "items" : [ {
-          text: "Nama Mobile App — Overview, Navigation & Settings",
-          "link" : "/en/modules/mobile/mobile-application-guide"
-        }, {
-          text: "Employee Self-Service — Attendance & Leaves",
-          "link" : "/en/modules/mobile/mobile-hr-self-service"
-        }, {
-          text: "Sales, Inventory & Item Inquiry",
-          "link" : "/en/modules/mobile/mobile-sales-inventory"
-        }, {
-          text: "Customer Service, Delivery & Receipts",
-          "link" : "/en/modules/mobile/mobile-crm-delivery"
-        }, {
-          text: "Mobile QR Integrator Guide",
-          "link" : "/en/modules/mobile/mobile-qr-integrator"
-        }, {
-          text: "Frequently Asked Questions About Mobile Applications in Nama ERP",
-          "link" : "/en/modules/mobile/mobile-apps-faq"
+          text: "أسئلة شائعة عن الاستثمار العقاري",
+          "link" : "/ar/modules/realestate/real-estate-fq"
         } ]
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/modules/ecommerce/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/modules/mobile/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
-      }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/",
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/",
         "collapsed" : false,
         "items" : [ {
-          text: "Nama ERP E-Commerce Integration Guide",
-          "link" : "/en/modules/ecommerce/magento-integration-guide"
+          text: "تطبيق نما للهواتف المحمولة — نظرة عامة والتنقل والإعدادات",
+          "link" : "/ar/modules/mobile/mobile-application-guide"
         }, {
-          text: "Omniful Integration Guide",
-          "link" : "/en/modules/ecommerce/omniful-integration"
+          text: "الخدمة الذاتية للموظفين — الحضور والإجازات",
+          "link" : "/ar/modules/mobile/mobile-hr-self-service"
+        }, {
+          text: "المبيعات والمخازن والاستعلام عن الأصناف",
+          "link" : "/ar/modules/mobile/mobile-sales-inventory"
+        }, {
+          text: "خدمة العملاء والتوصيل والقبض",
+          "link" : "/ar/modules/mobile/mobile-crm-delivery"
+        }, {
+          text: "دليل Mobile QR Integrator",
+          "link" : "/ar/modules/mobile/mobile-qr-integrator"
+        }, {
+          text: "أسئلة شائعة حول تطبيقات الهواتف المحمولة في نظام Nama ERP",
+          "link" : "/ar/modules/mobile/mobile-apps-faq"
         } ]
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/modules/ai/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/modules/ecommerce/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
-      }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/",
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/",
         "collapsed" : false,
         "items" : [ {
-          text: "AI Tool Definitions",
-          "link" : "/en/modules/ai/ai-tool-definitions"
+          text: "دليل تكامل التجارة الإلكترونية مع Nama ERP",
+          "link" : "/ar/modules/ecommerce/magento-integration-guide"
         }, {
-          text: "The In-System AI Assistant",
-          "link" : "/en/modules/ai/ai-assistant"
-        }, {
-          text: "AI Module Configuration",
-          "link" : "/en/modules/ai/ai-configuration"
-        }, {
-          text: "Nama ERP MCP Server",
-          "link" : "/en/modules/ai/ai-mcp-server"
+          text: "دليل التكامل مع Omniful",
+          "link" : "/ar/modules/ecommerce/omniful-integration"
         } ]
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/integration/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/modules/ai/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
-      } ]
-    }, {
-      text: "External Integrations",
-      "link" : "/en/integration/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "Nama ERP REST API",
-        "link" : "/en/integration/nama-erp-api"
-      }, {
-        text: "Integration Scenarios Between Nama and Other Systems",
-        "link" : "/en/integration/system-integration-scenarios"
-      }, {
-        text: "Sending Invoices and Documents to Customers",
-        "link" : "/en/integration/invoice-retriever"
-      }, {
-        text: "Integration with Attendance Machines",
-        "link" : "/en/integration/attendance-machines-integration"
-      }, {
-        text: "ORACLE JDBC Integration Connection in context.xml for integration purposes",
-        "link" : "/en/integration/oracle-jdbc-connection"
-      } ]
-    }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
-      }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
-      } ]
-    }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
-    }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
-      }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
-      }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
-      } ]
-    } ]
-  } ],
-  "/en/admin/" : [ {
-    text: "Home",
-    "link" : "/en/",
-    "collapsed" : false,
-    "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
-    }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
-    }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
-      }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
-      }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
-      }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
-      }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
-      }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
-      }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
-      }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
-      } ]
-    }, {
-      text: "Modules",
-      "link" : "/en/modules/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
-      }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
-        } ]
-      }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
-      }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
-      }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
-      }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
-      }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
-      }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
-      }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
-      }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
-      }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
-      }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
-      } ]
-    }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
-    }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "Tempo Language Manual",
-        "link" : "/en/admin/tempo"
-      }, {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
-      }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
-      } ]
-    }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
-    }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
-      }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
-      }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
-      } ]
-    } ]
-  } ],
-  "/en/admin/troubleshooting/" : [ {
-    text: "Home",
-    "link" : "/en/",
-    "collapsed" : false,
-    "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
-    }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
-    }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
-      }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
-      }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
-      }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
-      }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
-      }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
-      }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
-      }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
-      } ]
-    }, {
-      text: "Modules",
-      "link" : "/en/modules/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
-      }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
-        "collapsed" : false,
-        "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
-        } ]
-      }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
-      }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
-      }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
-      }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
-      }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
-      }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
-      }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
-      }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
-      }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
-      }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
-      } ]
-    }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
-    }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
-      "collapsed" : false,
-      "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/",
-        "collapsed" : false,
-        "items" : [ {
-          text: "Troubleshooting System Hanging or Unresponsiveness",
-          "link" : "/en/admin/troubleshooting/troubleshooting-system-hanging"
+          text: "تعريفات أدوات الذكاء الاصطناعي (AI Tool Definitions)",
+          "link" : "/ar/modules/ai/ai-tool-definitions"
         }, {
-          text: "General FAQ",
-          "link" : "/en/admin/troubleshooting/general-faq"
+          text: "المساعد الذكي داخل النظام",
+          "link" : "/ar/modules/ai/ai-assistant"
+        }, {
+          text: "إعداد وحدة الذكاء الاصطناعي",
+          "link" : "/ar/modules/ai/ai-configuration"
+        }, {
+          text: "خادم MCP لنظام نما ERP",
+          "link" : "/ar/modules/ai/ai-mcp-server"
+        } ]
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/integration/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "واجهة برمجية REST لنظام نما ERP",
+        "link" : "/ar/integration/nama-erp-api"
+      }, {
+        text: "سيناريوهات الربط بين نظام نما والأنظمة الأخرى",
+        "link" : "/ar/integration/system-integration-scenarios"
+      }, {
+        text: "إرسال الفواتير والمستندات للعملاء",
+        "link" : "/ar/integration/invoice-retriever"
+      }, {
+        text: "الربط مع ماكينات الحضور والانصراف",
+        "link" : "/ar/integration/attendance-machines-integration"
+      }, {
+        text: "إعداد اتصال Oracle JDBC في ملف context.xml لأغراض التكامل",
+        "link" : "/ar/integration/oracle-jdbc-connection"
+      } ]
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/admin/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "دليل لغة Tempo",
+        "link" : "/ar/admin/tempo"
+      }, {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/admin/troubleshooting/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "استكشاف أخطاء توقف النظام أو عدم استجابته (Troubleshooting System Hanging or Unresponsiveness)",
+          "link" : "/ar/admin/troubleshooting/troubleshooting-system-hanging"
+        }, {
+          text: "أسئلة عامة",
+          "link" : "/ar/admin/troubleshooting/general-faq"
         }, {
           text: "Database Related Errors FAQ",
-          "link" : "/en/admin/troubleshooting/database-error-related-faq"
+          "link" : "/ar/admin/troubleshooting/database-error-related-faq"
         } ]
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/admin/reprocessing/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/admin/reprocessing/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/",
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/",
         "collapsed" : false,
         "items" : [ {
-          text: "Reprocessing Quantity, Cost, and Stock Ages",
-          "link" : "/en/admin/reprocessing/reprocess-qty-and-cost"
+          text: "إعادة معالجة الكميات والتكاليف وأعمار المخزون (Reprocessing Quantity, Cost, and Stock Ages)",
+          "link" : "/ar/admin/reprocessing/reprocess-qty-and-cost"
         }, {
-          text: "Accounting Utilities - Ledger and Debt Ages Reprocessing",
-          "link" : "/en/admin/reprocessing/reprocess-ledger-and-debt-ages"
+          text: "أدوات المحاسبة - إعادة معالجة دفتر الأستاذ وأعمار الديون (Accounting Utilities - Ledger and Debt Ages Reprocessing)",
+          "link" : "/ar/admin/reprocessing/reprocess-ledger-and-debt-ages"
         }, {
-          text: "Queries to Check for (and Fix) Cost And Qty Problems",
-          "link" : "/en/admin/reprocessing/cost-and-qty-problems"
+          text: "استعلامات للكشف عن مشاكل التكلفة والكميات (وإصلاحها)",
+          "link" : "/ar/admin/reprocessing/cost-and-qty-problems"
         }, {
-          text: "Inventory Related Utility Queries",
-          "link" : "/en/admin/reprocessing/inventory-utilities"
+          text: "استعلامات الأدوات المساعدة للمخزون",
+          "link" : "/ar/admin/reprocessing/inventory-utilities"
         }, {
-          text: "Manufacturing Utilities",
-          "link" : "/en/admin/reprocessing/manufacturing-utilities"
+          text: "أدوات التصنيع (Manufacturing Utilities)",
+          "link" : "/ar/admin/reprocessing/manufacturing-utilities"
         }, {
-          text: "Fixed Assets Module Utilities",
-          "link" : "/en/admin/reprocessing/fixed-asset-utilities"
+          text: "أدوات وحدة الأصول الثابتة (Fixed Assets Module Utilities)",
+          "link" : "/ar/admin/reprocessing/fixed-asset-utilities"
         }, {
-          text: "Real Estate Utilities",
-          "link" : "/en/admin/reprocessing/real-estate-utilities"
+          text: "أدوات العقارات (Real Estate Utilities)",
+          "link" : "/ar/admin/reprocessing/real-estate-utilities"
         }, {
-          text: "Database Related Operations",
-          "link" : "/en/admin/reprocessing/db-operations"
+          text: "عمليات قاعدة البيانات (Database Related Operations)",
+          "link" : "/ar/admin/reprocessing/db-operations"
         }, {
-          text: "Suggest Indexes for Large Detail Tables",
-          "link" : "/en/admin/reprocessing/suggest-index-creation"
+          text: "اقتراح إنشاء Indexes لجداول التفاصيل الكبيرة",
+          "link" : "/ar/admin/reprocessing/suggest-index-creation"
         }, {
-          text: "General Purpose Utility Queries",
-          "link" : "/en/admin/reprocessing/general-purpose-utility-queries"
+          text: "استعلامات عامة متعددة الأغراض (General Purpose Utility Queries)",
+          "link" : "/ar/admin/reprocessing/general-purpose-utility-queries"
         }, {
-          text: "Replication Utilities",
-          "link" : "/en/admin/reprocessing/replication"
+          text: "أدوات النسخ المتطابق (Replication Utilities)",
+          "link" : "/ar/admin/reprocessing/replication"
         } ]
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/developer/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/developer/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/",
+      text: "مرجع المطور",
+      "link" : "/ar/developer/",
       "collapsed" : false,
       "items" : [ {
-        text: "Some Information About Using This Site",
-        "link" : "/en/developer/docs-quick-guide"
+        text: "بعض المعلومات عن استعمال هذا الموقع",
+        "link" : "/ar/developer/docs-quick-guide"
       }, {
-        text: "Guidelines for Submitting Development Requests by Support and Setup Teams",
-        "link" : "/en/developer/dev-request-guidelines"
+        text: "ضوابط إنشاء طلبات تطوير من قبل أقسام الدعم الفني والتجهيز بالشركة",
+        "link" : "/ar/developer/dev-request-guidelines"
       }, {
-        text: "General Questions About GUI Post Actions",
-        "link" : "/en/developer/gui-post-actions-faq"
+        text: "أسئلة عامة عن GUI Post Actions",
+        "link" : "/ar/developer/gui-post-actions-faq"
       } ]
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/videos/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/release-notes/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Documentation for the Nama ERP Installation Video and Supporting Software",
-        "link" : "/en/videos/installation-video"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Documentation: Explaining Actual and Indirect Costs in the Manufacturing System",
-        "link" : "/en/videos/manufacturing-actual-overhead"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/videos/supply-chain-videos/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/release-notes/2016/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/",
+        text: "2016",
+        "link" : "/ar/release-notes/2016/",
         "collapsed" : false,
         "items" : [ {
-          text: "Inventory Costing Explained - Video 1",
-          "link" : "/en/videos/supply-chain-videos/cost-video-1"
+          text: "ملاحظات إصدار نما ERP - أبريل 2016",
+          "link" : "/ar/release-notes/2016/nama-erp-201604-release-notes-arabic"
         }, {
-          text: "Inventory Costing Methods - Video 2",
-          "link" : "/en/videos/supply-chain-videos/cost-video-2"
+          text: "ملاحظات إصدار نما ERP - مايو 2016",
+          "link" : "/ar/release-notes/2016/nama-erp-201605-release-notes-arabic"
         }, {
-          text: "Costing Tutorial Video - 3",
-          "link" : "/en/videos/supply-chain-videos/cost-video-3"
+          text: "ملاحظات إصدار نما ERP - يونيو 2016",
+          "link" : "/ar/release-notes/2016/nama-erp-201606-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - يوليو 2016",
+          "link" : "/ar/release-notes/2016/nama-erp-201607-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - أغسطس 2016",
+          "link" : "/ar/release-notes/2016/nama-erp-201608-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - سبتمبر 2016",
+          "link" : "/ar/release-notes/2016/nama-erp-201609-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - أكتوبر 2016",
+          "link" : "/ar/release-notes/2016/nama-erp-201610-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - نوفمبر 2016",
+          "link" : "/ar/release-notes/2016/nama-erp-201611-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - ديسمبر 2016",
+          "link" : "/ar/release-notes/2016/nama-erp-201612-release-notes-arabic"
         } ]
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/videos/report-wizard-videos/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/release-notes/2017/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/",
+        text: "2017",
+        "link" : "/ar/release-notes/2017/",
         "collapsed" : false,
         "items" : [ {
-          text: "Video (1): Report Designer Tool Walkthrough",
-          "link" : "/en/videos/report-wizard-videos/report-wizard-webinar-1"
+          text: "ملاحظات إصدار نما ERP - يناير 2017",
+          "link" : "/ar/release-notes/2017/nama-erp-201701-release-notes-arabic"
         }, {
-          text: "Detailed Guide to Grouping, Data Sources, and Report Sorting in Nama ERP",
-          "link" : "/en/videos/report-wizard-videos/report-wizard-webinar-2"
+          text: "ملاحظات إصدار نما ERP - فبراير 2017",
+          "link" : "/ar/release-notes/2017/nama-erp-201702-release-notes-arabic"
         }, {
-          text: "1. What Is a Cross Tab Report and How to Create One?",
-          "link" : "/en/videos/report-wizard-videos/report-wizard-webinar-3"
+          text: "ملاحظات إصدار نما ERP - مارس 2017",
+          "link" : "/ar/release-notes/2017/nama-erp-201703-release-notes-arabic"
         }, {
-          text: "report-wizard-webinar-4.md",
-          "link" : "/en/videos/report-wizard-videos/report-wizard-webinar-4"
+          text: "ملاحظات الإصدار - أبريل 2017",
+          "link" : "/ar/release-notes/2017/nama-erp-201704-release-notes-arabic"
         }, {
-          text: "Conclusion",
-          "link" : "/en/videos/report-wizard-videos/report-wizard-webinar-5"
+          text: "ملاحظات إصدار نما ERP - مايو 2017",
+          "link" : "/ar/release-notes/2017/nama-erp-201705-release-notes-arabic"
         }, {
-          text: "Content Summary",
-          "link" : "/en/videos/report-wizard-videos/report-wizard-webinar-6"
+          text: "ملاحظات إصدار نما ERP - يونيو 2017",
+          "link" : "/ar/release-notes/2017/nama-erp-201706-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - يوليو 2017",
+          "link" : "/ar/release-notes/2017/nama-erp-201707-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - أغسطس 2017",
+          "link" : "/ar/release-notes/2017/nama-erp-201708-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - سبتمبر 2017",
+          "link" : "/ar/release-notes/2017/nama-erp-201709-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - أكتوبر 2017",
+          "link" : "/ar/release-notes/2017/nama-erp-201710-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - نوفمبر 2017",
+          "link" : "/ar/release-notes/2017/nama-erp-201711-release-notes-arabic"
+        }, {
+          text: "ملاحظات الإصدار - ديسمبر 2017",
+          "link" : "/ar/release-notes/2017/nama-erp-201712-release-notes-arabic"
         } ]
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/"
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
       } ]
     } ]
   } ],
-  "/en/videos/hr/" : [ {
-    text: "Home",
-    "link" : "/en/",
+  "/ar/release-notes/2018/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
     "collapsed" : false,
     "items" : [ {
-      text: "Search",
-      "link" : "/en/full-search"
+      text: "البحث",
+      "link" : "/ar/full-search"
     }, {
-      text: "Getting Started",
-      "link" : "/en/getting-started/"
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
     }, {
-      text: "Platform Features",
-      "link" : "/en/platform/",
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
       "collapsed" : false,
       "items" : [ {
-        text: "Screen Modifier",
-        "link" : "/en/platform/screen-modifier/"
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
       }, {
-        text: "List Views",
-        "link" : "/en/platform/list-views/"
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
       }, {
-        text: "Approvals",
-        "link" : "/en/platform/approvals/"
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
       }, {
-        text: "Security & Permissions",
-        "link" : "/en/platform/security/"
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
       }, {
-        text: "Entity Flows",
-        "link" : "/en/platform/entity-flows/"
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
       }, {
-        text: "Reports",
-        "link" : "/en/platform/reports/"
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
       }, {
-        text: "Business Intelligence",
-        "link" : "/en/platform/bi/"
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
       }, {
-        text: "Notifications",
-        "link" : "/en/platform/notifications/"
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
-      text: "Modules",
-      "link" : "/en/modules/",
+      text: "الوحدات",
+      "link" : "/ar/modules/",
       "collapsed" : false,
       "items" : [ {
-        text: "Invoicing, Taxes & Discounts",
-        "link" : "/en/modules/invoicing/"
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
       }, {
-        text: "Accounting & Banks",
-        "link" : "/en/modules/accounting/",
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
         "collapsed" : false,
         "items" : [ {
-          text: "Technical Reference",
-          "link" : "/en/modules/accounting/support/"
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
-        text: "Supply Chain",
-        "link" : "/en/modules/supplychain/"
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
       }, {
-        text: "Freight Management",
-        "link" : "/en/modules/freight/"
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
       }, {
-        text: "Hospital Management System",
-        "link" : "/en/modules/hms/"
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
       }, {
-        text: "Manufacturing",
-        "link" : "/en/modules/manufacturing/"
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
       }, {
-        text: "Human Resources",
-        "link" : "/en/modules/hr/"
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
       }, {
-        text: "Point of Sale",
-        "link" : "/en/modules/pos/"
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
       }, {
-        text: "Real Estate",
-        "link" : "/en/modules/realestate/"
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
       }, {
-        text: "Mobile Applications",
-        "link" : "/en/modules/mobile/"
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
       }, {
-        text: "e-commerce Integration",
-        "link" : "/en/modules/ecommerce/"
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
       }, {
-        text: "Artificial Intelligence",
-        "link" : "/en/modules/ai/"
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
       } ]
     }, {
-      text: "External Integrations",
-      "link" : "/en/integration/"
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
     }, {
-      text: "System Administration",
-      "link" : "/en/admin/",
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
       "collapsed" : false,
       "items" : [ {
-        text: "Troubleshooting",
-        "link" : "/en/admin/troubleshooting/"
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
       }, {
-        text: "Reprocessing Transactions",
-        "link" : "/en/admin/reprocessing/"
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
       } ]
     }, {
-      text: "Developer Reference",
-      "link" : "/en/developer/"
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
     }, {
-      text: "Video Tutorials",
-      "link" : "/en/videos/",
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
       "collapsed" : false,
       "items" : [ {
-        text: "Supply Chain Videos",
-        "link" : "/en/videos/supply-chain-videos/"
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
       }, {
-        text: "Report Wizard Videos",
-        "link" : "/en/videos/report-wizard-videos/"
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
       }, {
-        text: "Human Resources Videos",
-        "link" : "/en/videos/hr/",
+        text: "2018",
+        "link" : "/ar/release-notes/2018/",
         "collapsed" : false,
         "items" : [ {
-          text: "Detailed Explanation of the Payroll Management System in Nama ERP - 1",
-          "link" : "/en/videos/hr/hr-course-1"
+          text: "ملاحظات إصدار نما ERP - يناير 2018",
+          "link" : "/ar/release-notes/2018/nama-erp-201801-release-notes-arabic"
         }, {
-          text: "Detailed Explanation of the Payroll Management System in Nama ERP - 2",
-          "link" : "/en/videos/hr/hr-course-2"
+          text: "ملاحظات إصدار نما ERP - فبراير 2018",
+          "link" : "/ar/release-notes/2018/nama-erp-201802-release-notes-arabic"
         }, {
-          text: "Detailed Explanation of the Payroll Management System in Nama ERP - 3",
-          "link" : "/en/videos/hr/hr-course-3"
+          text: "ملاحظات إصدار نما ERP - مارس 2018",
+          "link" : "/ar/release-notes/2018/nama-erp-201803-release-notes-arabic"
         }, {
-          text: "Detailed Explanation of the Payroll System in Nama ERP - 4",
-          "link" : "/en/videos/hr/hr-course-4"
+          text: "ملاحظات إصدار نما ERP - أبريل 2018",
+          "link" : "/ar/release-notes/2018/nama-erp-201804-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - مايو 2018",
+          "link" : "/ar/release-notes/2018/nama-erp-201805-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - يونيو 2018",
+          "link" : "/ar/release-notes/2018/nama-erp-201806-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - يوليو 2018",
+          "link" : "/ar/release-notes/2018/nama-erp-201807-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - أغسطس 2018",
+          "link" : "/ar/release-notes/2018/nama-erp-201808-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - سبتمبر 2018",
+          "link" : "/ar/release-notes/2018/nama-erp-201809-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - أكتوبر 2018",
+          "link" : "/ar/release-notes/2018/nama-erp-201810-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - نوفمبر 2018",
+          "link" : "/ar/release-notes/2018/nama-erp-201811-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - ديسمبر 2018",
+          "link" : "/ar/release-notes/2018/nama-erp-201812-release-notes-arabic"
+        } ]
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/release-notes/2019/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "ملاحظات إصدار نما ERP - يناير 2019",
+          "link" : "/ar/release-notes/2019/nama-erp-201901-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - فبراير 2019",
+          "link" : "/ar/release-notes/2019/nama-erp-201902-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - مارس 2019",
+          "link" : "/ar/release-notes/2019/nama-erp-201903-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - أبريل 2019",
+          "link" : "/ar/release-notes/2019/nama-erp-201904-release-notes-arabic"
+        }, {
+          text: "ملاحظات الإصدار - مايو 2019",
+          "link" : "/ar/release-notes/2019/nama-erp-201905-release-notes-arabic"
+        }, {
+          text: "ملاحظات الإصدار - يونيو 2019",
+          "link" : "/ar/release-notes/2019/nama-erp-201906-release-notes-arabic"
+        }, {
+          text: "ملاحظات الإصدار - يوليو 2019",
+          "link" : "/ar/release-notes/2019/nama-erp-201907-release-notes-arabic"
+        }, {
+          text: "ملاحظات الإصدار - أغسطس 2019",
+          "link" : "/ar/release-notes/2019/nama-erp-201908-release-notes-arabic"
+        }, {
+          text: "ملاحظات الإصدار - سبتمبر 2019",
+          "link" : "/ar/release-notes/2019/nama-erp-201909-release-notes-arabic"
+        }, {
+          text: "ملاحظات الإصدار - أكتوبر 2019",
+          "link" : "/ar/release-notes/2019/nama-erp-201910-release-notes-arabic"
+        }, {
+          text: "ملاحظات الإصدار - نوفمبر 2019",
+          "link" : "/ar/release-notes/2019/nama-erp-201911-release-notes-arabic"
+        }, {
+          text: "ملاحظات الإصدار - ديسمبر 2019",
+          "link" : "/ar/release-notes/2019/nama-erp-201912-release-notes-arabic"
+        } ]
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/release-notes/2020/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "ملاحظات الإصدار - يناير 2020",
+          "link" : "/ar/release-notes/2020/nama-erp-202001-release-notes-arabic"
+        }, {
+          text: "ملاحظات الإصدار - فبراير 2020",
+          "link" : "/ar/release-notes/2020/nama-erp-202002-release-notes-arabic"
+        }, {
+          text: "ملاحظات الإصدار - مارس 2020",
+          "link" : "/ar/release-notes/2020/nama-erp-202003-release-notes-arabic"
+        }, {
+          text: "ملاحظات الإصدار - أبريل 2020",
+          "link" : "/ar/release-notes/2020/nama-erp-202004-release-notes-arabic"
+        }, {
+          text: "ملاحظات الإصدار - مايو 2020",
+          "link" : "/ar/release-notes/2020/nama-erp-202005-release-notes-arabic"
+        }, {
+          text: "ملاحظات الإصدار - يونيو 2020",
+          "link" : "/ar/release-notes/2020/nama-erp-202006-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - يوليو 2020",
+          "link" : "/ar/release-notes/2020/nama-erp-202007-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - أغسطس 2020",
+          "link" : "/ar/release-notes/2020/nama-erp-202008-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - سبتمبر 2020",
+          "link" : "/ar/release-notes/2020/nama-erp-202009-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - أكتوبر 2020",
+          "link" : "/ar/release-notes/2020/nama-erp-202010-release-notes-arabic"
+        }, {
+          text: "نما إي آر بي - ملاحظات الإصدار نوفمبر 2020",
+          "link" : "/ar/release-notes/2020/nama-erp-202011-release-notes-arabic"
+        }, {
+          text: "نما إي آر بي - ملاحظات الإصدار ديسمبر 2020",
+          "link" : "/ar/release-notes/2020/nama-erp-202012-release-notes-arabic"
+        } ]
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/release-notes/2021/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "نما إي آر بي - ملاحظات الإصدار يناير 2021",
+          "link" : "/ar/release-notes/2021/nama-erp-202101-release-notes-arabic"
+        }, {
+          text: "نما إي آر بي - ملاحظات الإصدار فبراير 2021",
+          "link" : "/ar/release-notes/2021/nama-erp-202102-release-notes-arabic"
+        }, {
+          text: "مذكرة إصدار نما ERP - مارس 2021",
+          "link" : "/ar/release-notes/2021/nama-erp-202103-release-notes-arabic"
+        }, {
+          text: "مذكرة إصدار نما ERP - أبريل 2021",
+          "link" : "/ar/release-notes/2021/nama-erp-202104-release-notes-arabic"
+        }, {
+          text: "مذكرة إصدار نما ERP - مايو 2021",
+          "link" : "/ar/release-notes/2021/nama-erp-202105-release-notes-arabic"
+        }, {
+          text: "مذكرة إصدار نما ERP - يونيو 2021",
+          "link" : "/ar/release-notes/2021/nama-erp-202106-release-notes-arabic"
+        }, {
+          text: "نما إي آر بي - يوليو 2021",
+          "link" : "/ar/release-notes/2021/nama-erp-202107-release-notes-arabic"
+        }, {
+          text: "نما إي آر بي - أغسطس 2021",
+          "link" : "/ar/release-notes/2021/nama-erp-202108-release-notes-arabic"
+        }, {
+          text: "نما إي آر بي - سبتمبر 2021",
+          "link" : "/ar/release-notes/2021/nama-erp-202109-release-notes-arabic"
+        }, {
+          text: "نما إي آر بي - أكتوبر 2021",
+          "link" : "/ar/release-notes/2021/nama-erp-202110-release-notes-arabic"
+        }, {
+          text: "نما إي آر بي - نوفمبر 2021",
+          "link" : "/ar/release-notes/2021/nama-erp-202111-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - ديسمبر 2021",
+          "link" : "/ar/release-notes/2021/nama-erp-202112-release-notes-arabic"
+        } ]
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/release-notes/2022/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "ملاحظات إصدار نما ERP - يناير 2022",
+          "link" : "/ar/release-notes/2022/nama-erp-202201-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - فبراير 2022",
+          "link" : "/ar/release-notes/2022/nama-erp-202202-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - مارس 2022",
+          "link" : "/ar/release-notes/2022/nama-erp-202203-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - أبريل 2022",
+          "link" : "/ar/release-notes/2022/nama-erp-202204-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - مايو 2022",
+          "link" : "/ar/release-notes/2022/nama-erp-202205-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - يونيو 2022",
+          "link" : "/ar/release-notes/2022/nama-erp-202206-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - يوليو 2022",
+          "link" : "/ar/release-notes/2022/nama-erp-202207-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - أغسطس 2022",
+          "link" : "/ar/release-notes/2022/nama-erp-202208-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - سبتمبر 2022",
+          "link" : "/ar/release-notes/2022/nama-erp-202209-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - أكتوبر 2022",
+          "link" : "/ar/release-notes/2022/nama-erp-202210-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - نوفمبر 2022",
+          "link" : "/ar/release-notes/2022/nama-erp-202211-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - ديسمبر 2022",
+          "link" : "/ar/release-notes/2022/nama-erp-202212-release-notes-arabic"
+        } ]
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/release-notes/2023/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "ملاحظات إصدار نما ERP - يناير 2023",
+          "link" : "/ar/release-notes/2023/nama-erp-202301-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - فبراير 2023",
+          "link" : "/ar/release-notes/2023/nama-erp-202302-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - مارس 2023",
+          "link" : "/ar/release-notes/2023/nama-erp-202303-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - أبريل 2023",
+          "link" : "/ar/release-notes/2023/nama-erp-202304-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - مايو 2023",
+          "link" : "/ar/release-notes/2023/nama-erp-202305-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - يونيو 2023",
+          "link" : "/ar/release-notes/2023/nama-erp-202306-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - يوليو 2023",
+          "link" : "/ar/release-notes/2023/nama-erp-202307-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - أغسطس 2023",
+          "link" : "/ar/release-notes/2023/nama-erp-202308-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - سبتمبر 2023",
+          "link" : "/ar/release-notes/2023/nama-erp-202309-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - أكتوبر 2023",
+          "link" : "/ar/release-notes/2023/nama-erp-202310-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - نوفمبر 2023",
+          "link" : "/ar/release-notes/2023/nama-erp-202311-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - ديسمبر 2023",
+          "link" : "/ar/release-notes/2023/nama-erp-202312-release-notes-arabic"
+        } ]
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/release-notes/2024/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "ملاحظات إصدار نما ERP - يناير 2024",
+          "link" : "/ar/release-notes/2024/nama-erp-202401-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - فبراير 2024",
+          "link" : "/ar/release-notes/2024/nama-erp-202402-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - مارس 2024",
+          "link" : "/ar/release-notes/2024/nama-erp-202403-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - أبريل 2024",
+          "link" : "/ar/release-notes/2024/nama-erp-202404-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - مايو 2024",
+          "link" : "/ar/release-notes/2024/nama-erp-202405-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - يونيو 2024",
+          "link" : "/ar/release-notes/2024/nama-erp-202406-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - يوليو 2024",
+          "link" : "/ar/release-notes/2024/nama-erp-202407-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - أغسطس 2024",
+          "link" : "/ar/release-notes/2024/nama-erp-202408-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - سبتمبر 2024",
+          "link" : "/ar/release-notes/2024/nama-erp-202409-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - أكتوبر 2024",
+          "link" : "/ar/release-notes/2024/nama-erp-202410-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - نوفمبر 2024",
+          "link" : "/ar/release-notes/2024/nama-erp-202411-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - ديسمبر 2024",
+          "link" : "/ar/release-notes/2024/nama-erp-202412-release-notes-arabic"
+        } ]
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/release-notes/2025/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "ملاحظات إصدار نما ERP - يناير 2025",
+          "link" : "/ar/release-notes/2025/nama-erp-202501-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - فبراير 2025",
+          "link" : "/ar/release-notes/2025/nama-erp-202502-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - مارس 2025",
+          "link" : "/ar/release-notes/2025/nama-erp-202503-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - أبريل 2025",
+          "link" : "/ar/release-notes/2025/nama-erp-202504-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - مايو 2025",
+          "link" : "/ar/release-notes/2025/nama-erp-202505-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - يونيو 2025",
+          "link" : "/ar/release-notes/2025/nama-erp-202506-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - يوليو 2025",
+          "link" : "/ar/release-notes/2025/nama-erp-202507-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - أغسطس 2025",
+          "link" : "/ar/release-notes/2025/nama-erp-202508-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - سبتمبر 2025",
+          "link" : "/ar/release-notes/2025/nama-erp-202509-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - أكتوبر 2025",
+          "link" : "/ar/release-notes/2025/nama-erp-202510-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - نوفمبر 2025",
+          "link" : "/ar/release-notes/2025/nama-erp-202511-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - ديسمبر 2025",
+          "link" : "/ar/release-notes/2025/nama-erp-202512-release-notes-arabic"
+        } ]
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/release-notes/2026/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "ملاحظات إصدار نما ERP - يناير 2026",
+          "link" : "/ar/release-notes/2026/nama-erp-202601-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - فبراير 2026",
+          "link" : "/ar/release-notes/2026/nama-erp-202602-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - مارس 2026",
+          "link" : "/ar/release-notes/2026/nama-erp-202603-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - أبريل 2026",
+          "link" : "/ar/release-notes/2026/nama-erp-202604-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - مايو 2026",
+          "link" : "/ar/release-notes/2026/nama-erp-202605-release-notes-arabic"
+        } ]
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/videos/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "توثيق فيديو تنصيب Nama ERP والبرامج المساعدة",
+        "link" : "/ar/videos/installation-video"
+      }, {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "توثيق شرح التكاليف غير المباشرة والفعلي في نظام تصنيع",
+        "link" : "/ar/videos/manufacturing-actual-overhead"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/videos/supply-chain-videos/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "فيديو طريقة عمل التكاليف - 1",
+          "link" : "/ar/videos/supply-chain-videos/cost-video-1"
+        }, {
+          text: "فيديو طريقة عمل التكاليف - 2",
+          "link" : "/ar/videos/supply-chain-videos/cost-video-2"
+        }, {
+          text: "فيديو طريقة عمل التكاليف - 3",
+          "link" : "/ar/videos/supply-chain-videos/cost-video-3"
+        } ]
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/videos/report-wizard-videos/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "فيديو (1) شرح أداة انشاء التقار",
+          "link" : "/ar/videos/report-wizard-videos/report-wizard-webinar-1"
+        }, {
+          text: "شرح تفصيلي لجروبنج (Grouping) ومصادر البيانات وترتيب التقارير في Nama ERP",
+          "link" : "/ar/videos/report-wizard-videos/report-wizard-webinar-2"
+        }, {
+          text: "توثيق كامل لإنشاء تقارير الكروس تاب، كشف الحساب، وحركة المخزون باستخدام أداة إنشاء التقارير",
+          "link" : "/ar/videos/report-wizard-videos/report-wizard-webinar-3"
+        }, {
+          text: "توثيق فيديو تدريب تقرير فاتورة المبيعات وميزات الجيو الجديدة",
+          "link" : "/ar/videos/report-wizard-videos/report-wizard-webinar-4"
+        }, {
+          text: "شرح إنشاء نموذج طباعة شاشة مستند تصفية",
+          "link" : "/ar/videos/report-wizard-videos/report-wizard-webinar-5"
+        }, {
+          text: "توثيق شامل لمحتوى الفيديو حول إعداد تقارير الريبورت ويزرد وإدارة الصلاحيات",
+          "link" : "/ar/videos/report-wizard-videos/report-wizard-webinar-6"
+        } ]
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/videos/hr/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : false,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/"
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : false,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/",
+        "collapsed" : false,
+        "items" : [ {
+          text: "شرح مفصل لنظام إدارة الرواتب في نظام نما - 1",
+          "link" : "/ar/videos/hr/hr-course-1"
+        }, {
+          text: "شرح مفصل لنظام إدارة الرواتب في نظام نما - 2",
+          "link" : "/ar/videos/hr/hr-course-2"
+        }, {
+          text: "شرح مفصل لنظام إدارة الرواتب في نظام نما - 3",
+          "link" : "/ar/videos/hr/hr-course-3"
+        }, {
+          text: "شرح مفصل لنظام إدارة الرواتب في نظام نما - 4",
+          "link" : "/ar/videos/hr/hr-course-4"
         } ]
       } ]
     } ]

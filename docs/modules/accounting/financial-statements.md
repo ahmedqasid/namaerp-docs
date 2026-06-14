@@ -1,63 +1,63 @@
-# القوائم المالية
+# Financial Statements
 
-تحتاج كلُّ شركةٍ إلى قائمة دخلٍ وميزانية، لكنْ ما من شركتين تريدان عرضهما بالطريقة نفسها تمامًا — تجميعات سطورٍ مختلفة، ومجاميع فرعيةٌ مختلفة، وأعمدة مقارنةٍ مختلفة. وبدل تثبيت تقريرٍ جامد، يمنحك نما **محرّك قوائم ماليةٍ قابلًا للتهيئة**: تصف شكل القائمة مرّةً واحدة، ثم *تُصدِرها* لأيّ فترةٍ لتحصل على الأرقام. فقائمة الدخل والميزانية والتدفّقات النقدية التي تطبعها كلُّها مخرجاتٌ لهذا المحرّك الواحد.
+Every company needs an income statement and a balance sheet, but no two companies want them laid out exactly the same way — different line groupings, different subtotals, different comparison columns. Rather than hard-code a fixed report, Nama gives you a **configurable financial-statements engine**: you describe the shape of the statement once, then *issue* it for any period to get the numbers. The income statement, balance sheet and cash-flow reports you print are all output of this one engine.
 
-::: info الترخيص المطلوب
-محرّك القوائم المالية جزءٌ من ترخيص `accounting` الأساسي. وشاشاته تحت **الحسابات > القوائم المالية**.
+::: info Required license
+The financial-statements engine is part of the core `accounting` license. Its screens are under **Accounting > Financial Statement**.
 :::
 
-## مكوّنات البناء
+## The building blocks
 
-تصمّم القائمة من أربع شاشات، انطلاقًا من القطع الصغيرة وصولًا إلى التقرير النهائي:
+You design a statement from four screens, working from the small pieces up to the finished report:
 
-1. **مجموعة حساب** (`Accounting > Financial Statement > FS Account Group`) — حزمةٌ مسمّاة من الحسابات، كي يقول سطرُ القائمة «إيرادات التشغيل» فيسحب مجموعةً كاملةً بدل سرد الحسابات واحدًا واحدًا.
-2. **معادلة** (`Accounting > Financial Statement > FS Equation`) — صيغةٌ قابلة لإعادة الاستخدام. تستخدم السطورُ المعادلاتِ لحساب قيمتها: رصيدًا، أو حركة مدين/دائن، أو رقمًا افتتاحيًا، أو إجماليًا مجمّعًا من سطورٍ أخرى.
-3. **إعدادات قائمة مالية** (`Accounting > Financial Statement > FS Settings File`) — **القالب**: مجموعة السطور المرتّبة التي *هي* بنية القائمة، إضافةً إلى كيفية تجميعها ومقارنتها وعرضها.
-4. **إصدار قائمة مالية** (`Accounting > Financial Statement > Issuing Financial Statement File`) — **اللقطة المحسوبة**: تُشغِّل ملف إعداداتٍ لفترةٍ فيلتقط الأرقام الفعلية، جاهزةً للطباعة وللمقارنة مع إصداراتٍ لاحقة.
+1. **FS Account Group** (`Accounting > Financial Statement > FS Account Group`) — a named bundle of accounts, so a statement line can say "Operating Revenue" and pull a whole group instead of listing accounts one by one.
+2. **FS Equation** (`Accounting > Financial Statement > FS Equation`) — a reusable formula. Lines use equations to compute their value: a balance, a debit/credit movement, an opening figure, or a total rolled up from other lines.
+3. **FS Settings File** (`Accounting > Financial Statement > FS Settings File`) — the **template**: the ordered set of lines that *is* the statement's structure, plus how it's grouped, compared and displayed.
+4. **Issuing Financial Statement File** (`Accounting > Financial Statement > Issuing Financial Statement File`) — the **computed snapshot**: run a settings file for a period and it captures the actual numbers, ready to print and to compare against later issues.
 
-## تصميم القائمة (ملف الإعدادات)
+## Designing the statement (the settings file)
 
-في **إعدادات القائمة المالية** تتشكّل القائمة. يحمل الملفُّ **عنوان تقريرٍ** بالعربية والإنجليزية، وشبكةً من **السطور** — كلُّ سطرٍ صفٌّ في القائمة النهائية:
+The **FS Settings File** is where the statement takes shape. It carries an Arabic and English **report title**, and a grid of **lines** — each line is a row of the finished statement:
 
-- **مستوى** يحدّد موضع الصفّ في التسلسل (عناوين، سطور فرعية، مجاميع)، و**وصفٌ** عربي/إنجليزي،
-- **معادلة** تُنتِج قيمة الصفّ — وثمّة خاناتُ معادلاتٍ منفصلة لـ**الرصيد/الحركة**، و**المدين-الدائن**، و**الافتتاحي**، و**المجاميع**، كي يتصرّف السطر الواحد تصرّفًا صحيحًا سواءٌ كان سطرًا عاديًا أم مجموعًا فرعيًا،
-- أو بدلًا من ذلك **قيمة ثابتة**، أو إشارةٌ إلى قيمة سطرٍ آخر بـ**كود السطر المصدر**،
-- **حدود محدِّداتٍ** على مستوى السطر — «قصر السطور على الفرع / القطاع / الإدارة / المجموعة التحليلية / الذمة / المرجع…» — كي يُقصَر سطرٌ على فرعٍ أو مركز تكلفةٍ واحد،
-- وعلاماتٌ مثل **غير ظاهر في التقارير** (سطر عملٍ يُستخدَم في الحساب فقط) و**تفريد في سطور / تفريد الذمم في سطور** (تفجير مجموعةٍ أو ذممها إلى صفوفٍ مفردة).
+- a **level** that sets the row's place in the hierarchy (headings, sub-lines, totals), and an Arabic/English **description**,
+- an **equation** that produces the row's value — there are separate equation slots for the **balance/movement**, the **debit-credit**, the **opening**, and the **totals**, so a single line can behave correctly whether it's a normal line or a subtotal,
+- alternatively a **constant value**, or a reference to another line's value by its **source line code**,
+- per-line **dimension limits** — "limit lines to branch / sector / department / analysis set / subsidiary / reference…" — so a line can be restricted to just one branch or cost center,
+- and flags such as **invisible in reports** (a working line used only in calculations) and **spread out in lines / spread subsidiaries in lines** (explode a group or its subsidiaries into individual rows).
 
-![شاشة إعدادات القائمة المالية](./images/fs/fs-settings-file.png)
+![The FS Settings File screen](./images/fs/fs-settings-file.png)
 
-وعند الرأس تختار أيضًا كيف تتصرّف القائمة كلُّها:
+At the header you also choose how the whole statement behaves:
 
-- **نوع المقارنة** — **عام واحد**، أو **عامين**، أو **مجموعة فترات متتابعة** (سلسلة فتراتٍ متتالية، أي أعمدةٌ شهرًا بشهر)، أو **مجموعتي فترات من عامين** (الأشهر نفسها عبر عامين)،
-- حتى خمسة **محاور تجميع** (**التجميع حسب** الشركة، الفرع، الإدارة، القطاع، المجموعة التحليلية، المراجع، السجلّ، أو الذمة) — كي تتفرّع القائمة نفسها حسب المحدِّد،
-- وخيارات العرض: **إنشاء سطور المجاميع**، و**إخفاء الأرصدة الصفرية**، و**إخفاء الحركات المتوازنة**، و**العرض حتى مستوى** (طيّ التفاصيل بعد عمقٍ معيّن)، و**اعتبار شجرتَي المدين والدائن**.
+- the **comparison type** — **One Year**, **Two Years**, a **Period Set** (a run of consecutive periods, i.e. month-by-month columns), or **Two Period Sets** (the same months across two years),
+- up to five **grouping axes** (**group by** legal entity, branch, department, sector, analysis set, references, record, or subsidiary) — so the same statement can be broken down by dimension,
+- and display options: **create totals lines**, **hide zero-value balances**, **hide equal-balanced transactions**, **show to level** (collapse detail beyond a depth), and **consider debit and credit charts**.
 
-## إصدار القائمة
+## Issuing a statement
 
-ملفُّ الإعدادات تصميمٌ فحسب؛ أمّا الأرقام فتأتي من **إصدار**. تُشغِّل **شاشة إصدار القائمة المالية** ملفَّ إعداداتٍ لفترةٍ مختارة وتخزّن النتيجة المحسوبة كإصدارٍ محفوظ. وهذه اللقطة هي ما تطبعه تقارير الإصدارات — ولأنّ كلّ إصدارٍ محفوظ، يمكنك مقارنة إصدار هذا الشهر بالسابق، أو هذا العام بالماضي.
+A settings file is just the design; the numbers come from an **issue**. The **Issuing Financial Statement File** runs a settings file for a chosen period and stores the computed result as a saved issue. That snapshot is what the FS-issue reports print — and because each issue is preserved, you can compare this month's issue against last month's, or this year against last.
 
-![شاشة إصدار القائمة المالية](./images/fs/fs-issue-file.png)
+![The Issuing Financial Statement File screen](./images/fs/fs-issue-file.png)
 
-## التقارير
+## The reports
 
-تخرج القوائم المطبوعة كلُّها من هذا المحرّك، تحت قائمة التقارير (`Acc-FNS`، الأكواد `SYSR-FNS*`):
+The printed statements all come out of this engine, under the report menu (`Acc-FNS`, codes `SYSR-FNS*`):
 
-- **قائمة الدخل** — حسب الحسابات (`SYSR-FNS001`)، وشهريًا (`SYSR-FNS002`)، ومجمّعةً حسب المحدِّد (`SYSR-FNS009`).
-- **الميزانية** — حسب الحسابات (`SYSR-FNS003`)، وشهريًا (`SYSR-FNS004`)، وبالأرصدة، وحسب فئة الحساب.
-- **قائمة التدفّقات النقدية.**
-- **قوائم مبنيّة على الإصدار** تُطبَع من إصدارٍ محفوظ: قائمة دخلٍ شهرية لعامٍ/عامين (`SYSR-FNS010`/`SYSR-FNS011`)، وقائمة دخلٍ سنوية لعامٍ/عامين (`SYSR-FNS012`/`SYSR-FNS013`)، وميزانية سنوية لعامٍ/عامين (`SYSR-FNS014`/`SYSR-FNS015`)، إضافةً إلى ميزان مراجعةٍ للقائمة المالية.
+- **Income statement** — by accounts (`SYSR-FNS001`), monthly (`SYSR-FNS002`), and grouped by dimension (`SYSR-FNS009`).
+- **Balance sheet** — by accounts (`SYSR-FNS003`), monthly (`SYSR-FNS004`), by balances and by account category.
+- **Cash-flow statement.**
+- **Issue-driven statements** that print from a saved issue: monthly income statement one/two years (`SYSR-FNS010`/`SYSR-FNS011`), yearly income statement one/two years (`SYSR-FNS012`/`SYSR-FNS013`), yearly balance sheet one/two years (`SYSR-FNS014`/`SYSR-FNS015`), plus an FS trial balance.
 
-![قائمة الدخل حسب الحسابات (SYSR-FNS001)](./images/reports/SYSR-FNS001.png)
+![Income statement by accounts (SYSR-FNS001)](./images/reports/SYSR-FNS001.png)
 
-![الميزانية الشهرية (SYSR-FNS004)](./images/reports/SYSR-FNS004.png)
+![Monthly balance sheet (SYSR-FNS004)](./images/reports/SYSR-FNS004.png)
 
-![قائمة الدخل الشهرية المبنيّة على الإصدار (SYSR-FNS010)](./images/reports/SYSR-FNS010.png)
+![Issue-driven monthly income statement (SYSR-FNS010)](./images/reports/SYSR-FNS010.png)
 
-## للدعم الفني
+## For Support
 
-- **«سطرٌ يُظهِر رقمًا خاطئًا»** — تحقّق من **معادلة** السطر (رصيد أم مدين-دائن أم افتتاحي أم مجاميع) ومن أيّ **حدود محدِّداتٍ** عليه؛ فالسطر المقصور على فرعٍ واحدٍ يجمع ذلك الفرع فقط.
-- **«مجموعٌ فرعي لا يطابق»** — تستخدم سطورُ المجاميع **معادلة المجاميع** وتشير إلى سطورٍ أخرى بـ**كود السطر المصدر**؛ راجِع تلك الإشارات و**مستويات** السطور.
-- **«أعمدة المقارنة مفقودة/خاطئة»** — هذا هو **نوع المقارنة** (عام واحد / عامين / مجموعة فترات / مجموعتي فترات) في ملف الإعدادات.
-- **«الأرقام قديمة»** — تطبع تقاريرُ الإصدار **إصدارًا** محفوظًا؛ أعِد إصدار ملف الإعدادات للفترة كي تُحدِّث اللقطة.
-- **«صفوفٌ صفرية/فارغة تزحم القائمة»** — فعّل **إخفاء الأرصدة الصفرية** (و**العرض حتى مستوى** لطيّ التفاصيل العميقة).
+- **"A line shows the wrong number"** — check the line's **equation** (balance vs debit-credit vs opening vs totals) and any **dimension limits** on it; a line limited to one branch only sums that branch.
+- **"A subtotal isn't adding up"** — totals lines use the **totals equation** and reference other lines by **source line code**; verify those references and the line **levels**.
+- **"The comparison columns are missing/wrong"** — that's the **comparison type** (One Year / Two Years / Period Set / Two Period Sets) on the settings file.
+- **"The figures are out of date"** — the issue-driven reports print a saved **issue**; re-issue the settings file for the period to refresh the snapshot.
+- **"Zero/empty rows clutter the statement"** — turn on **hide zero-value balances** (and **show to level** to collapse deep detail).

@@ -1,60 +1,60 @@
-# التسهيلات الائتمانية وحدود التسهيلات
+# Credit Facilities & Facility Limits
 
-تتقاطع في هذه الصفحة فكرتان مرتبطتان لكنهما متمايزتان:
+Two related but distinct ideas meet on this page:
 
-- **حدّ التسهيلات** هو **السقف** الذي يمنحك إياه البنك ويتقاسمه عددٌ من الأدوات — قرض هنا، خطاب ضمان هناك، اعتماد مستندي — فكلٌّ منها يحجز جزءًا من السقف، ويتتبّع النظام **المستهلَك والمتبقّي** منه.
-- **التسهيل الائتماني** أداة قائمة بذاتها: اتفاق سحبٍ متجدّد مع البنك له قيمته وفائدته ورسومه، يُصدَر ويُسدَّد ويُنهى بمستنداته الخاصة.
+- A **facility limit** is the **ceiling** the bank grants you, shared by a number of instruments — a loan here, a letter of guarantee there, a letter of credit — each of which reserves part of the ceiling, and the system tracks the **consumed and remaining** amounts.
+- A **credit facility** is a standalone instrument: a revolving-drawdown agreement with the bank with its own value, interest and fees, issued, repaid and terminated through its own documents.
 
-::: info الترخيص المطلوب
-التسهيلات الائتمانية ضمن ترخيص `accounting-loans` — وهو الترخيص نفسه الذي يغطّي [القروض البنكية](./bank-loans.md) و[الودائع الثابتة](./fixed-deposits.md).
+::: info Required license
+Credit facilities are part of the `accounting-loans` license — the same license that covers [Bank Loans](./bank-loans.md) and [Fixed Deposits](./fixed-deposits.md).
 :::
 
-## حدّ التسهيلات: السقف المشترك
+## Facility limit: the shared ceiling
 
-في شاشة **حد التسهيلات** (`Banks > Credit Facilities > Facility Limit`) يُعرّف السقف الممنوح من **بنك** معيّن، وتُضبط تفاصيله عبر **إعدادات حد التسهيلات** (`Banks > Credit Facilities > Facility Limit Config`).
+On the **Facility Limit** screen (`Banks > Credit Facilities > Facility Limit`) the ceiling granted by a particular **bank** is defined, and its details are configured through the **Facility Limit Config** (`Banks > Credit Facilities > Facility Limit Config`).
 
-![شاشة حد التسهيلات](./images/facilities/facility-limit.png)
+![Facility Limit screen](./images/facilities/facility-limit.png)
 
-ما إن يُربط القرض أو خطاب الضمان أو الاعتماد بحدّ تسهيلات حتى يخصم منه عند الإصدار/الفتح؛ ويمنع النظام أي إصدارٍ يدفع المستهلَك فوق السقف. ولأن الأدوات الثلاث تشترك في السقف نفسه، يعطيك تقرير **تفاصيل التسهيلات البنكية** (SYSR-LON002) صورة موحّدة عن المحجوز عبرها جميعًا.
+As soon as a loan, letter of guarantee or LC is linked to a facility limit, it draws down from it at issue/opening; the system blocks any issue that would push the consumed amount over the ceiling. And because the three instruments share the same ceiling, the **Details of banking facilities** report (SYSR-LON002) gives you a unified picture of what's reserved across all of them.
 
-## التسهيل الائتماني: من الإعداد إلى الإنهاء
+## Credit facility: from setup to termination
 
-التسهيل الائتماني أداة سحبٍ متجدّد، وتسير دورته هكذا:
+A credit facility is a revolving-drawdown instrument, and its cycle runs like this:
 
-1. **إعدادات التسهيلات الائتمانية** — القالب المشترك: طريقة احتساب الفائدة، وقاعدة توزيع السداد بين الأصل والفائدة، والحسابات.
-2. **تسهيل ائتمانى** — الملف الرئيسي بحالته «لم تبدأ».
-3. **إصدار تسهيل ائتمانى** — يفعّل التسهيل (يُرحَّل محاسبيًا، وتتحوّل الحالة إلى «قيد التنفيذ»).
-4. **مستند سداد تسهيل ائتمانى** — سداد دفعة تُوزَّع بين الأصل والفائدة وفق الإعدادات (يُرحَّل محاسبيًا).
-5. **مستند انهاء تسهيل ائتمانى** — إنهاء التسهيل (الحالة «منتهى»).
+1. **Credit Facility Setting** — the shared template: the interest-calculation method, the rule for allocating a payment between principal and interest, and the accounts.
+2. **Credit Facility** — the master file in its "Not Started" status.
+3. **Credit Facility Issuance** — activates the facility (it posts to the ledger, and the status flips to "In Progress").
+4. **Credit Facility Payment** — repaying an installment that gets split between principal and interest per the setting (it posts to the ledger).
+5. **Credit Facility Termination** — terminating the facility (status "Terminated").
 
-### الملف الرئيسي للتسهيل
+### The facility master file
 
-في شاشة **تسهيل ائتمانى** (`Banks > Credit Facilities > Credit Facility`) تُعرّف الشروط: **الإعدادات** المرتبطة، و**المورّد** و**البنك** و**حساب البنك**، و**قيمة التسهيل**، و**نسبة الفائدة** و**الفائدة المتوقّعة**، و**نسبة/قيمة الرسوم**، و**تاريخ البداية / النهاية**. ويعرض الملف مجاميع متابعةٍ حيّة: **إجمالي الفائدة المحتسبة**، و**إجمالي مدفوعات التسهيل**، و**إجمالي مدفوعات الفائدة**، و**المتبقّي من التسهيل/الفائدة بعد السداد**.
+On the **Credit Facility** screen (`Banks > Credit Facilities > Credit Facility`) the terms are defined: the linked **setting**, the **supplier**, **bank** and **bank account**, the **credit facility value**, the **interest percentage** and **expected interest value**, the **fees percentage/value**, and the **start / end date**. The file shows live tracking totals: **total calculated interest value**, **total credit facility payments**, **total interest payments**, and the **credit-facility/interest remaining after payment**.
 
-![شاشة التسهيل الائتماني](./images/facilities/credit-facility.png)
+![Credit Facility screen](./images/facilities/credit-facility.png)
 
-**حالات التسهيل:** لم تبدأ (Not Started) → قيد التنفيذ (In Progress) → منتهى (Terminated).
+**Facility statuses:** Not Started → In Progress → Terminated.
 
-### الإعدادات
+### The setting
 
-تجمع **إعدادات التسهيلات الائتمانية** القواعد المشتركة بين التسهيلات المتشابهة: طريقة احتساب الفائدة (ويضبط خيار **عدد أيام السنة لاحتساب فائدة التسهيل الائتماني** أساس الاحتساب، الافتراضي 365 — انظر [إعدادات الحسابات](./support/accounting-configuration.md)) وقاعدة توزيع كل دفعة بين الأصل والفائدة.
+The **Credit Facility Setting** gathers the rules shared by similar facilities: the interest-calculation method (the **days per year for credit-facility interest calculation** option sets the calculation basis, default 365 — see [Accounting configuration](./support/accounting-configuration.md)) and the rule for splitting each payment between principal and interest.
 
-![شاشة إعدادات التسهيلات الائتمانية](./images/facilities/credit-facility-setting.png)
+![Credit Facility Setting screen](./images/facilities/credit-facility-setting.png)
 
-### الإصدار والسداد والإنهاء
+### Issuance, payment and termination
 
-يُفعّل **إصدار التسهيل** الأداةَ ويُرحّل أثرها (جانبا **مدين/دائن**). ثم يوزّع كل **مستند سداد** دفعتَه بين الأصل والفائدة وفق الإعدادات، ويُرحَّل عبر جوانب: **مدين/دائن القيمة المسددة من التسهيل**، و**مدين/دائن القيمة المسددة من الفائدة**، و**مدين/دائن القيمة المدفوعة**. وأخيرًا يُقفل **مستند الإنهاء** التسهيل. (مصدر الحسابات في مرجع [توجيهات المستندات](./support/accounting-document-terms.md).)
+**Issuance** activates the instrument and posts its effect (a **debit/credit** pair). Then each **payment document** splits its installment between principal and interest per the setting, posting via the sides: **payment of credit-facility value debit/credit**, **payment of interest value debit/credit**, and **payment value debit/credit**. Finally, the **termination document** closes the facility. (Where the accounts come from is in the [Document terms](./support/accounting-document-terms.md) reference.)
 
-## التقارير
+## Reports
 
-| التقرير | يجيب عن |
+| Report | Answers |
 |---|---|
-| تفاصيل التسهيلات البنكية (SYSR-LON002) | المحجوز والمتبقّي من حدود التسهيلات عبر القروض والخطابات والاعتمادات والتسهيلات. |
+| Details of banking facilities (SYSR-LON002) | What's reserved and remaining of the facility limits across loans, guarantees, credits and facilities. |
 
-## للدعم الفني
+## For Support
 
-- **«ما الفرق بين حدّ التسهيلات والتسهيل الائتماني؟»** — حدّ التسهيلات سقفٌ تتقاسمه أدوات عدّة، والتسهيل الائتماني أداة سحبٍ مستقلّة لها مستنداتها.
-- **«إصدار قرض/خطاب/اعتماد رُفض بسبب الحدّ»** — المستهلَك يتجاوز سقف حدّ التسهيلات المرتبط؛ راجِع تقرير تفاصيل التسهيلات البنكية.
-- **«احتساب فائدة التسهيل يبدو خاطئًا»** — تحقّق من **عدد أيام السنة** في [إعدادات الحسابات](./support/accounting-configuration.md) ومن قاعدة التوزيع في إعدادات التسهيل.
-- **«من أين تأتي حسابات السداد؟»** — من توجيه **مستند سداد التسهيل**؛ راجِع [توجيهات المستندات](./support/accounting-document-terms.md).
-- آلية المعالجة المحاسبية في [كيف تُعالَج المستندات إلى أثر محاسبي](./support/accounting-request-processing.md).
+- **"What's the difference between a facility limit and a credit facility?"** — a facility limit is a ceiling shared by several instruments, while a credit facility is a standalone drawdown instrument with its own documents.
+- **"Issuing a loan/letter/LC was rejected because of the limit"** — the consumed amount exceeds the linked facility-limit ceiling; check the Details of banking facilities report.
+- **"The facility interest calculation looks wrong"** — check the **days per year** in [Accounting configuration](./support/accounting-configuration.md) and the allocation rule in the facility setting.
+- **"Where do the payment accounts come from?"** — from the **Credit Facility Payment** term; see [Document terms](./support/accounting-document-terms.md).
+- The accounting-processing mechanism is in [How documents are processed into accounting effects](./support/accounting-request-processing.md).

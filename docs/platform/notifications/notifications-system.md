@@ -1,90 +1,90 @@
-# نظام التنبيهات في Nama ERP
+# Nama ERP Notification System
 
-## نظرة عامة
+## Overview
 
-نظام التنبيهات في Nama ERP هو منصة تواصل شاملة ترسل تلقائياً تنبيهات للمستخدمين عند وقوع أحداث تجارية محددة. يستطيع النظام إرسال الرسائل عبر قنوات متعددة تشمل التنبيهات داخل التطبيق والبريد الإلكتروني والرسائل النصية القصيرة SMS وWhatsApp.
+The Nama ERP notification system is a comprehensive communication platform that automatically sends notifications to users when specific business events occur. This system can send messages through multiple channels including in-app notifications, emails, SMS, and WhatsApp messages.
 
-## ما هو نظام التنبيهات؟
+## What is the Notification System?
 
-يراقب نظام التنبيهات الأنشطة التجارية داخل Nama ERP ويُطلق تلقائياً تواصلاً مع المستخدمين المعنيين وفق قواعد محددة مسبقاً. يعمل كجسر بين العمليات التجارية وتواصل المستخدمين، مما يضمن إطلاع أصحاب المصلحة على التغييرات المهمة أو الإجراءات التي تتطلب انتباههم.
+The notification system monitors business activities within Nama ERP and automatically triggers communication to relevant users based on predefined rules. It acts as a bridge between business processes and user communication, ensuring that stakeholders are informed about important changes or actions that require their attention.
 
-### المكونات الرئيسية
+### Key Components
 
-1. **محرك التنبيهات (Notification Engine)** - النظام الأساسي الذي يراقب الأحداث ويُطلق التنبيهات
-2. **معالج الرسائل (Message Renderer)** - يحوّل القوالب إلى رسائل مخصصة
-3. **قنوات التسليم (Delivery Channels)** - الطرق المتنوعة لإرسال التنبيهات (البريد الإلكتروني، SMS، إلخ)
-4. **تعريفات التنبيهات (Notification Definitions)** - القواعد التي تحدد متى وإلى من تُرسل التنبيهات
+1. **Notification Engine** - The core system that monitors events and triggers notifications
+2. **Message Renderer** - Converts templates into personalized messages
+3. **Delivery Channels** - Various ways to send notifications (email, SMS, etc.)
+4. **Notification Definitions** - Rules that determine when and to whom notifications are sent
 
-## كيف تعمل التنبيهات
+## How Notifications Work
 
-### 1. اكتشاف الحدث
-يكتشف النظام تلقائياً وقوع الأحداث التجارية، مثل:
-- إنشاء سجل جديد (عميل، فاتورة، موظف، إلخ)
-- تحديث السجلات الموجودة
-- حذف السجلات
-- سير عمل الاعتماد (الموافقة، الرفض، الإرجاع)
-- تغييرات الحالة (مسودة، إلغاء، مراجعة)
-- عمليات الطباعة
-- أعطال النظام أو أخطاء المعالجة
+### 1. Event Detection
+The system automatically detects when business events occur, such as:
+- Creating a new record (customer, invoice, employee, etc.)
+- Updating existing records
+- Deleting records
+- Approval workflows (approve, reject, return)
+- Status changes (draft, cancel, revise)
+- Print operations
+- System failures or processing errors
 
-### 2. مطابقة القواعد
-عند وقوع حدث، يتحقق النظام من قواعد التنبيه المطابقة لـ:
-- **نوع الكيان (Entity Type)**: نوع السجل الذي تغيّر (مثل SalesInvoice، Customer)
-- **نوع التغيير (Change Type)**: ما الذي حدث (إدراج، تحديث، حذف، اعتماد، إلخ)
-- **المعايير (Conditions)**: شروط إضافية يجب استيفاؤها
-- **الأولوية (Priority)**: تُعالج القواعد بترتيب الأولوية
+### 2. Rule Matching
+When an event occurs, the system checks for notification rules that match:
+- **Entity Type**: What kind of record was changed (e.g., SalesInvoice, Customer)
+- **Change Type**: What happened (insert, update, delete, approval, etc.)
+- **Conditions**: Additional criteria that must be met
+- **Priority**: Rules are processed in priority order
 
-### 3. تحديد المستلمين
-يحدد النظام من يجب أن يتلقى التنبيهات بناءً على:
-- **الاستهداف المستند إلى الحقل**: الإرسال للمستخدمين المشار إليهم في حقول محددة (مثل مندوب المبيعات، المدير)
-- **الاستهداف المستند إلى الاستعلام**: استخدام استعلامات قاعدة البيانات لإيجاد المستلمين
-- **الاستهداف المستند إلى الدور**: الإرسال للمستخدمين ذوي الأدوار أو الوظائف المحددة
-- **الاستهداف اليدوي**: مستلمون محددون بشكل صريح
+### 3. Target Identification
+The system identifies who should receive notifications based on:
+- **Field-based targeting**: Send to users referenced in specific fields (e.g., salesperson, manager)
+- **Query-based targeting**: Use database queries to find recipients
+- **Role-based targeting**: Send to users with specific roles or positions
+- **Manual targeting**: Explicitly defined recipients
 
-### 4. توليد الرسائل
-تُنشأ الرسائل باستخدام قوالب ديناميكية يمكنها تضمين:
-- قيم الحقول من السجل المُغيَّر
-- معلومات السجلات المرتبطة
-- محتوى مخصص للمستخدم
-- روابط للسجلات ذات الصلة
-- جداول وبيانات منسقة
+### 4. Message Generation
+Messages are created using dynamic templates that can include:
+- Field values from the changed record
+- Related record information
+- User-specific content
+- Links to relevant records
+- Formatted tables and data
 
-### 5. التسليم متعدد القنوات
-يستطيع النظام تسليم التنبيه ذاته عبر قنوات متعددة:
-- **التنبيهات داخل التطبيق (In-App Notifications)**: تُعرض داخل واجهة ERP
-- **البريد الإلكتروني (Email)**: رسائل HTML غنية مع مرفقات وروابط
-- **رسائل SMS**: رسائل نصية إلى الهواتف المحمولة
-- **WhatsApp**: رسائل عبر WhatsApp Business API
-- **إشعارات FCM**: إشعارات Push للأجهزة المحمولة
+### 5. Multi-Channel Delivery
+The system can deliver the same notification through multiple channels:
+- **In-App Notifications**: Displayed within the ERP interface
+- **Email**: Rich HTML emails with attachments and links
+- **SMS**: Text messages to mobile phones
+- **WhatsApp**: Messages through WhatsApp Business API
+- **FCM Notifications**: Push notifications to mobile devices
 
-## أنواع التنبيهات حسب الحدث التجاري
+## Notification Types by Business Event
 
-### تنبيهات دورة حياة المستند
-- **الإنشاء**: "تم إنشاء فاتورة مبيعات جديدة SI-2024-001 بواسطة John Smith"
-- **التحديثات**: "تم تحديث معلومات الاتصال بالعميل ABC Corp"
-- **الاعتماد**: "أمر الشراء PO-2024-123 يتطلب موافقتك"
-- **تغييرات الحالة**: "تم إلغاء الفاتورة SI-2024-001"
+### Document Lifecycle Notifications
+- **Creation**: "New sales invoice SI-2024-001 was created by John Smith"
+- **Updates**: "Customer ABC Corp contact information has been updated"
+- **Approval**: "Purchase order PO-2024-123 requires your approval"
+- **Status Changes**: "Invoice SI-2024-001 has been cancelled"
 
-### تنبيهات سير العمل
-- **طلبات الاعتماد**: إشعار المعتمدين عند احتياج المستندات للاعتماد
-- **قرارات الاعتماد**: إعلام أصحاب المصلحة بنتائج الاعتماد
-- **التصعيد**: تنبيه عند تأخر الاعتمادات
-- **الإرجاع**: إشعار عند إرجاع المستندات للمراجعة
+### Workflow Notifications
+- **Approval Requests**: Notify approvers when documents need approval
+- **Approval Decisions**: Inform stakeholders about approval outcomes
+- **Escalations**: Alert when approvals are overdue
+- **Returns**: Notify when documents are returned for revision
 
-### تنبيهات النظام
-- **أعطال العمليات**: تنبيه المديرين بأخطاء النظام
-- **مشكلات النسخ المتماثل**: إشعار بمشكلات مزامنة البيانات
-- **المهام المجدولة**: نتائج العمليات الآلية
+### System Notifications
+- **Process Failures**: Alert administrators about system errors
+- **Replication Issues**: Notify about data synchronization problems
+- **Scheduled Tasks**: Results of automated processes
 
-### قواعد الأعمال المخصصة
-- **تنبيهات الحدود**: الإشعار عند تجاوز القيم للحدود المحددة
-- **تذكيرات المواعيد النهائية**: التنبيه عند اقتراب تواريخ الاستحقاق
-- **تنبيهات الامتثال**: ضمان استيفاء المتطلبات التنظيمية
+### Custom Business Rules
+- **Threshold Alerts**: Notify when values exceed limits
+- **Deadline Reminders**: Alert about approaching due dates
+- **Compliance Notifications**: Ensure regulatory requirements are met
 
-## قوالب الرسائل والمحتوى الديناميكي
+## Message Templates and Dynamic Content
 
-### لغة القوالب (Tempo)
-تستخدم رسائل التنبيه لغة قوالب Tempo لإنشاء محتوى ديناميكي ومخصص. يتيح ذلك تضمين الرسائل لـ:
+### Template Language (Tempo)
+Notification messages use the Tempo templating language to create dynamic, personalized content. This allows messages to include:
 
 ```
 Dear {customer.name1},
@@ -98,15 +98,15 @@ Best regards,
 {$user.name1}
 ```
 
-### الوصول الديناميكي للحقول
-يمكن للقوالب الوصول إلى أي حقل من السجل أو السجلات المرتبطة:
-- `{code}` - كود السجل
-- `{customer.name1}` - الاسم العربي للعميل
-- `{employee.contactInfo.email}` - عنوان البريد الإلكتروني للموظف
-- `{details.item.item.name2}` - اسم الصنف من سطور المستند
+### Dynamic Field Access
+Templates can access any field from the record or related records:
+- `{code}` - The record's code
+- `{customer.name1}` - Customer's Arabic name
+- `{employee.contactInfo.email}` - Employee's email address
+- `{details.item.item.name2}` - Item name from document lines
 
-### المحتوى الشرطي
-عرض محتوى مختلف بناءً على الشروط:
+### Conditional Content
+Show different content based on conditions:
 ```
 {if(money.remaining)}
 Outstanding amount: {money.remaining}
@@ -115,8 +115,8 @@ This invoice is fully paid
 {endif}
 ```
 
-### الحلقات والجداول
-عرض المعلومات المتكررة كسطور المستند:
+### Loops and Tables
+Display repeated information like document lines:
 ```
 {opentable}
 {row}{cell}Item{cell}Quantity{cell}Price{endrow}
@@ -126,8 +126,8 @@ This invoice is fully paid
 {closetable}
 ```
 
-### سجل التغييرات (Audit Trail)
-تضمين معلومات التغييرات التفصيلية في التنبيهات (لتنبيهات التحديث):
+### Change History (Audit Trail)
+Include detailed change information in notifications (for update notifications):
 ```
 {changesAsHtmlAr}  {comment}Changes in HTML format (Arabic){endcomment}
 {changesAsHtmlEn}  {comment}Changes in HTML format (English){endcomment}
@@ -135,100 +135,100 @@ This invoice is fully paid
 {changesAsTextEn}  {comment}Changes in plain text (English){endcomment}
 ```
 
-راجع [توثيق Tempo](../../admin/tempo.md#sjl-ltdqyq-trykh-ltGyyrt) للاطلاع على أمثلة تفصيلية وطريقة الاستخدام.
+See the [Tempo documentation](../../admin/tempo.md#Audit-Trail-Change-History) for detailed examples and usage.
 
-## قنوات التنبيه بالتفصيل
+## Notification Channels in Detail
 
-### التنبيهات داخل التطبيق
-- تظهر في لوحة التنبيهات الخاصة بالمستخدم داخل Nama ERP
-- تتضمن تتبع حالة المقروء/غير المقروء
-- يمكن أن تحتوي على تنسيق غني وروابط
-- تدعم أزرار الإجراءات (موافقة، رفض، إلخ)
-- تُعلَّم تلقائياً كمقروءة عند الوصول للسجلات المرتبطة
+### In-App Notifications
+- Appear in the user's notification panel within Nama ERP
+- Include read/unread status tracking
+- Can contain rich formatting and links
+- Support action buttons (approve, reject, etc.)
+- Automatically mark as read when related records are accessed
 
-### تنبيهات البريد الإلكتروني
-- تدعم تنسيق HTML مع صور مضمنة
-- يمكن تضمين مرفقات الملفات من السجل
-- توقيعات البريد الإلكتروني والعلامة التجارية التلقائية
-- عناوين الرد للتواصل ثنائي الاتجاه
-- تأكيد التسليم ومعالجة الارتداد
+### Email Notifications
+- Support HTML formatting with embedded images
+- Can include file attachments from the record
+- Automatic email signatures and branding
+- Reply-to addresses for two-way communication
+- Delivery confirmation and bounce handling
 
-### تنبيهات SMS
-- رسائل نصية عادية تصل إلى 160 حرفاً
-- دعم نص Unicode (العربي)
-- تتبع حالة التسليم
-- إدارة التكاليف والحصص
-- التكامل مع مزودي SMS متعددين
+### SMS Notifications
+- Plain text messages up to 160 characters
+- Support for Unicode (Arabic) text
+- Delivery status tracking
+- Cost management and quotas
+- Integration with multiple SMS providers
 
-### رسائل WhatsApp Business
-- دعم الوسائط الغنية (صور، مستندات)
-- الرسائل القائمة على القوالب للامتثال
-- إيصالات التسليم والقراءة
-- التكامل مع WhatsApp Business API
-- دعم الأزرار التفاعلية والردود السريعة
+### WhatsApp Business Messages
+- Rich media support (images, documents)
+- Template-based messaging for compliance
+- Delivery and read receipts
+- Integration with WhatsApp Business API
+- Support for interactive buttons and quick replies
 
-## الميزات المتقدمة
+## Advanced Features
 
-### سجل التغييرات في التنبيهات
+### Change History in Notifications
 
-من أقوى ميزات نظام التنبيهات هي القدرة على تضمين سجل التغييرات التفصيلي تلقائياً في التنبيهات. وهذا مفيد بشكل خاص لـ:
-- **تنبيهات التحديث**: إظهار ما تغيّر عند تعديل سجل
-- **سير عمل الاعتماد**: عرض التغييرات التي تحتاج اعتماداً
-- **مسارات المراجعة**: تتبع التعديلات للامتثال
-- **وعي المستخدم**: إبقاء الفرق على اطلاع بالتغييرات
+One of the most powerful features of the notification system is the ability to automatically include detailed change history in notifications. This is particularly useful for:
+- **Update notifications**: Show what changed when a record is modified
+- **Approval workflows**: Display changes that need approval
+- **Audit trails**: Track modifications for compliance
+- **User awareness**: Keep teams informed about changes
 
-#### استخدام حقول سجل التغييرات
+#### Using Change History Fields
 
-يوفر كل كيان في Nama ERP أربعة حقول مدمجة لعرض سجل التغييرات:
+Every entity in Nama ERP provides four built-in fields for displaying change history:
 
-| الحقل | التنسيق | اللغة | حالة الاستخدام |
+| Field | Format | Language | Use Case |
 |-------|--------|----------|----------|
-| `{$changesAsHtmlAr}` | HTML | العربية | تنبيهات بريد إلكتروني غنية بالعربية |
-| `{$changesAsHtmlEn}` | HTML | الإنجليزية | تنبيهات بريد إلكتروني غنية بالإنجليزية |
-| `{$changesAsTextAr}` | نص عادي | العربية | رسائل SMS وتنبيهات بسيطة بالعربية |
-| `{$changesAsTextEn}` | نص عادي | الإنجليزية | رسائل SMS وتنبيهات بسيطة بالإنجليزية |
+| `{$changesAsHtmlAr}` | HTML | Arabic | Rich email notifications in Arabic |
+| `{$changesAsHtmlEn}` | HTML | English | Rich email notifications in English |
+| `{$changesAsTextAr}` | Plain Text | Arabic | SMS messages, simple notifications in Arabic |
+| `{$changesAsTextEn}` | Plain Text | English | SMS messages, simple notifications in English |
 
-#### مثال: تنبيه التحديث مع التغييرات
+#### Example: Update Notification with Changes
 
-**قالب التنبيه لتحديثات المستندات:**
+**Notification Template for Document Updates:**
 ```
-{subject}تحديث: {entityType.$arabic} رقم {code}{endsubject}
+{subject}Update: {entityType.$arabic} number {code}{endsubject}
 
 <div style="font-family: Arial, sans-serif;">
-  <h2>تم تعديل {entityType.$arabic} رقم {code}</h2>
+  <h2>Document {entityType.$arabic} number {code} has been modified</h2>
 
   <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px;">
-    <h3>التغييرات التي تم إجراؤها:</h3>
+    <h3>Changes made:</h3>
     {$changesAsHtmlAr}
   </div>
 
-  <p><strong>تم التعديل بواسطة:</strong> {$user.name1}</p>
-  <p><strong>تاريخ ووقت التعديل:</strong> {$now}</p>
+  <p><strong>Modified by:</strong> {$user.name1}</p>
+  <p><strong>Date and time of modification:</strong> {$now}</p>
 
   <a href="{link($this)}" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
-    عرض المستند
+    View Document
   </a>
 </div>
 ```
 
-#### مثال: طلب الاعتماد مع ملخص التغييرات
+#### Example: Approval Request with Change Summary
 
-**قالب لتنبيهات الاعتماد:**
+**Template for Approval Notifications:**
 ```
-{subject}طلب اعتماد {entityType.$arabic}: {code}{endsubject}
+{subject}Approval request for {entityType.$arabic}: {code}{endsubject}
 
-<h2>السيد المحترم {currentApprovalCase.lastStep.actualResponsible.name1}</h2>
+<h2>Dear {currentApprovalCase.lastStep.actualResponsible.name1}</h2>
 
-<p>يرجى مراجعة واعتماد {entityType.$arabic} التالي:</p>
+<p>Please review and approve the following {entityType.$arabic}:</p>
 
 <div style="border: 1px solid #ddd; padding: 10px; margin: 10px 0;">
-  <strong>رقم المستند:</strong> {code}<br/>
-  <strong>التاريخ:</strong> {valueDate}<br/>
-  <strong>القيمة:</strong> {money.total}
+  <strong>Document number:</strong> {code}<br/>
+  <strong>Date:</strong> {valueDate}<br/>
+  <strong>Value:</strong> {money.total}
 </div>
 
 <div style="background-color: #fff3cd; padding: 15px; border-left: 4px solid #ffc107;">
-  <h3>التغييرات المطلوب اعتمادها:</h3>
+  <h3>Changes requiring approval:</h3>
   {$changesAsHtmlAr}
 </div>
 
@@ -237,9 +237,9 @@ This invoice is fully paid
 </div>
 ```
 
-#### مثال: تنبيه التغييرات متعدد اللغات
+#### Example: Multi-Language Change Notification
 
-**قالب يدعم العربية والإنجليزية:**
+**Template Supporting Both Arabic and English:**
 ```
 {subject}Document Update / تحديث المستند: {code}{endsubject}
 
@@ -262,62 +262,62 @@ This invoice is fully paid
 </p>
 ```
 
-#### مثال: تنبيه SMS مع تغييرات نصية
+#### Example: SMS Notification with Text Changes
 
-**قالب لتنبيهات SMS:**
+**Template for SMS Notifications:**
 ```
-تحديث: {code}
+Update: {code}
 {$changesAsTextAr}
-للعرض: {link($this, plainLink=true)}
+View: {link($this, plainLink=true)}
 ```
 
-#### ما هي المعلومات التي يتم عرضها
+#### What Information is Displayed
 
-يتضمن سجل التغييرات تلقائياً:
+The change history automatically includes:
 
-1. **تغييرات الحقول الرئيسية**
-   - اسم الحقل (مترجم إلى اللغة المختارة)
-   - القيمة السابقة
-   - القيمة الجديدة
+1. **Header Field Changes**
+   - Field name (translated to selected language)
+   - Previous value
+   - New value
 
-2. **تغييرات سطور التفاصيل**
-   - السطور المضافة مع جميع قيم الحقول
-   - السطور المحذوفة مع جميع قيم الحقول
-   - السطور المعدَّلة مع إظهار الحقول المتغيرة فقط
+2. **Detail Line Changes**
+   - Added lines with all field values
+   - Removed lines with all field values
+   - Modified lines showing only changed fields
 
-3. **بيانات التغيير**
-   - المستخدم الذي أجرى التغيير
-   - تاريخ ووقت التعديل
+3. **Change Metadata**
+   - User who made the change
+   - Date and time of modification
 
-#### أفضل الممارسات
+#### Best Practices
 
-::: tip اختيار التنسيق المناسب
-- **استخدم تنسيق HTML** لتنبيهات البريد الإلكتروني التي تريد فيها جداول وأنماط منسقة
-- **استخدم تنسيق النص** لرسائل SMS والبريد الإلكتروني النصي أو عند الحاجة لمخرجات بسيطة
-- **اختر اللغة** بناءً على اللغة المفضلة للمستلم
-- فكر في تقديم **اللغتين** للفرق الدولية
+::: tip Choosing the Right Format
+- **Use HTML format** for email notifications where you want formatted tables and styling
+- **Use text format** for SMS messages, plain text emails, or when you need simple output
+- **Choose language** based on your notification target's preferred language
+- Consider providing **both languages** for international teams
 :::
 
-::: warning اعتبارات الأداء
-يُحسب سجل التغييرات ديناميكياً عند إرسال التنبيه. بالنسبة للتنبيهات ذات المستلمين الكثيرين، يُحسَّن ذلك بحساب النتيجة مرة واحدة وإعادة استخدامها.
+::: warning Performance Considerations
+Change history is calculated dynamically when the notification is sent. For notifications with many recipients, this is optimized to calculate once and reuse the result.
 :::
 
-::: tip العرض الشرطي
-يمكنك التحقق من وجود تغييرات قبل عرضها:
+::: tip Conditional Display
+You can check if there are changes before displaying them:
 ```
 {if($changesAsTextAr)}
   <div class="changes-section">
-    <h3>التغييرات</h3>
+    <h3>Changes</h3>
     {$changesAsHtmlAr}
   </div>
 {else}
-  <p>لا توجد تغييرات مسجلة</p>
+  <p>No recorded changes</p>
 {endif}
 ```
 :::
 
-### دعم الرسائل المتعددة
-يمكن لقالب تنبيه واحد توليد رسائل متعددة:
+### Multi-Message Support
+A single notification template can generate multiple messages:
 ```
 {openmsg}
 {sendto}{customer.email}{endsendto}
@@ -332,107 +332,107 @@ Dear Sales Team, invoice {code} was sent to customer...
 {closemsg}
 ```
 
-### أمثلة على استعلامات المستلمين
+### Targets Query Examples
 
-تتيح ميزة استعلام المستلمين تحديد مستلمي التنبيهات ديناميكياً باستخدام استعلامات قاعدة البيانات. وهذا مفيد للسيناريوهات التي لا يُشار فيها مباشرةً للمستلمين في السجل المُشغِّل.
+The targets query feature allows you to dynamically identify notification recipients using database queries. This is powerful for scenarios where the recipients aren't directly referenced in the triggering record.
 
-::: warning متطلبات تنسيق الاستعلام
-يجب أن يُرجع الاستعلام عمودَي `entityType` و`id` بهذا الترتيب تحديداً. ستُتجاهل أي أعمدة إضافية.
+::: warning Query Format Requirements
+The query must return `entityType` and `id` columns, in that exact order. Any additional columns will be ignored.
 :::
 
-#### مثال: إشعار الشركات الفرعية عند قيام الشركة الأم بالدفع
+#### Example: Notifying Subsidiaries When Parent Company Makes Payment
 
-عندما تقوم شركة أم (عميل) بسداد دفعة، قد ترغب في إشعار جميع شركاتها الفرعية. استخدم هذا الاستعلام:
+When a parent company (customer) makes a payment, you may want to notify all their subsidiary companies. Use this targets query:
 
 ```sql
 select entityType, id from Customer where parent_id = {relatedSubsidiary.id}
 ```
 
-هذا الاستعلام:
-- يجد جميع سجلات Customer حيث `parent_id` يطابق الشركة الفرعية للسجل الحالي
-- يُرجع نوع الكيان والمعرف لكل عميل مطابق
-- يُرسل نظام التنبيهات بعد ذلك تنبيهات لجهات الاتصال المرتبطة بكل عميل تم إيجاده
+This query:
+- Finds all Customer records where `parent_id` matches the subsidiary of the current record
+- Returns both the entity type and ID for each matching customer
+- The notification system then sends notifications to contacts associated with each found customer
 
-### الإرسال الشرطي
-التحكم في وقت إرسال التنبيهات بناءً على:
-- قيم الحقول والمعايير
-- أدوار المستخدمين وصلاحياتهم
-- قواعد زمنية
-- معايير منطق الأعمال
+### Conditional Sending
+Control when notifications are sent based on:
+- Field values and conditions
+- User roles and permissions
+- Time-based rules
+- Business logic criteria
 
-### الأولوية والتصعيد
-- تنبيهات عالية الأولوية للأمور العاجلة
-- تصعيد تلقائي في حال عدم الرد خلال الإطار الزمني
-- مستلمون بديلون عند عدم توفر المستلمين الأساسيين
-- طرق تنبيه مختلفة بناءً على مستوى الإلحاح
+### Priority and Escalation
+- High-priority notifications for urgent matters
+- Automatic escalation if no response within timeframe
+- Fallback recipients when primary recipients are unavailable
+- Different notification methods based on urgency
 
-### تكامل الاعتماد
-دعم خاص لسير عمل الاعتماد:
-- تنبيهات طلب الاعتماد مع أزرار الإجراءات
-- التوجيه التلقائي للمعتمد التالي
-- التصعيد للمشرفين عند تأخر الاعتمادات
-- إشعار قرارات الاعتماد لأصحاب المصلحة
+### Approval Integration
+Special support for approval workflows:
+- Approval request notifications with action buttons
+- Automatic routing to next approver
+- Escalation to supervisors for overdue approvals
+- Notification of approval decisions to stakeholders
 
-## الإعداد والإدارة
+## Configuration and Administration
 
-### تعريفات التنبيهات
-يستطيع المديرون إنشاء وإدارة قواعد التنبيه عبر واجهة ERP:
-- تحديد شروط التشغيل
-- تحديد المستلمين المستهدفين
-- إنشاء قوالب الرسائل
-- تكوين قنوات التسليم
-- ضبط قواعد الأولوية والتوقيت
+### Notification Definitions
+Administrators can create and manage notification rules through the ERP interface:
+- Define trigger conditions
+- Specify target recipients
+- Create message templates
+- Configure delivery channels
+- Set priority and timing rules
 
-### إدارة القوالب
-- محرر قوالب مرئي مع تمييز صيغ البرمجة
-- قدرات اختبار القوالب ومعاينتها
-- التحكم في الإصدارات وتتبع التغييرات
-- مكتبات القوالب للأنماط الشائعة
-- التحقق من الصحة والتحقق من الأخطاء
+### Template Management
+- Visual template editor with syntax highlighting
+- Template testing and preview capabilities
+- Version control and change tracking
+- Template libraries for common patterns
+- Validation and error checking
 
-### إعدادات التسليم
-- تكوين خوادم البريد الإلكتروني والمصادقة
-- إعداد اتصالات مزود SMS
-- تكامل WhatsApp Business API
-- سياسات إعادة محاولة التسليم ومعالجة الإخفاق
-- مراقبة الأداء والتسجيل
+### Delivery Settings
+- Configure email servers and authentication
+- Set up SMS provider connections
+- WhatsApp Business API integration
+- Delivery retry policies and failure handling
+- Performance monitoring and logging
 
-### تفضيلات المستخدم
-يستطيع المستخدمون الأفراد التحكم في تفضيلات التنبيه الخاصة بهم:
-- اختيار قنوات التسليم المفضلة
-- ضبط ساعات الصمت وأوضاع الإجازة
-- تصفية أنواع التنبيهات
-- تجميع التنبيهات المتشابهة
-- إعدادات الإشعارات Push للتطبيق المحمول
+### User Preferences
+Individual users can control their notification preferences:
+- Choose preferred delivery channels
+- Set quiet hours and vacation modes
+- Filter notification types
+- Group similar notifications
+- Mobile app push notification settings
 
-## أفضل الممارسات
+## Best Practices
 
-### تصميم القوالب
-- اجعل الرسائل موجزة وقابلة للتنفيذ
-- استخدم لغة واضحة ومهنية
-- أدرج سياقاً وروابط ذات صلة
-- اختبر القوالب ببيانات نموذجية
-- راعِ تنسيق الأجهزة المحمولة
+### Template Design
+- Keep messages concise and actionable
+- Use clear, professional language
+- Include relevant context and links
+- Test templates with sample data
+- Consider mobile device formatting
 
-### تحسين الأداء
-- استخدم استعلامات قاعدة بيانات فعّالة للاستهداف
-- تجنب إرسال تنبيهات مكررة
-- نفّذ آليات إعادة المحاولة المناسبة
-- راقب معدلات نجاح التسليم
-- أرشف التنبيهات القديمة بانتظام
+### Performance Optimization
+- Use efficient database queries for targeting
+- Avoid sending duplicate notifications
+- Implement proper retry mechanisms
+- Monitor delivery success rates
+- Archive old notifications regularly
 
-### اعتبارات الأمان
-- تحقق من جميع مدخلات القوالب
-- نظّف المحتوى الديناميكي
-- احمِ المعلومات الحساسة
-- استخدم قنوات تسليم آمنة
-- راجع الوصول للتنبيهات
+### Security Considerations
+- Validate all template inputs
+- Sanitize dynamic content
+- Protect sensitive information
+- Use secure delivery channels
+- Audit notification access
 
-### تجربة المستخدم
-- قدّم ملخصات تنبيهات واضحة
-- جمّع التنبيهات المتعلقة ببعضها
-- وفّر خيارات إلغاء اشتراك سهلة
-- أدرج معلومات المساعدة والتواصل
-- حافظ على علامة تجارية متسقة
+### User Experience
+- Provide clear notification summaries
+- Group related notifications
+- Offer easy unsubscribe options
+- Include help and contact information
+- Maintain consistent branding
 
-نظام التنبيهات في Nama ERP هو أداة قوية تعزز التواصل التجاري وتحسّن كفاءة العمليات وتضمن وصول المعلومات المهمة إلى الأشخاص المناسبين في الوقت المناسب. من خلال الاستفادة من القوالب الديناميكية وقنوات التسليم المتعددة والاستهداف الذكي، يمكن للمؤسسات بناء بنية تحتية للتواصل متجاوبة وفعّالة تدعم عملياتها التجارية.
+The Nama ERP notification system is a powerful tool that enhances business communication, improves process efficiency, and ensures that important information reaches the right people at the right time. By leveraging dynamic templates, multiple delivery channels, and intelligent targeting, organizations can create a responsive and effective communication infrastructure that supports their business operations.

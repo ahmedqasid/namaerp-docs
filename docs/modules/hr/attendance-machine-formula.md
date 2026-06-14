@@ -1,93 +1,89 @@
-<rtl>
+# Attendance and Departure Formulas
 
-# صيغ الحضور والانصراف
+Employees typically record attendance and departure via fingerprint using a dedicated Time Attendance Machine.
+The format of data exported from each machine differs.
+For example, some machines output time in 24-hour format while others use 12-hour AM/PM format,
+and data may be exported as an Excel file or as a text file with a specific field delimiter.
+The delimiter varies from one machine to another, and so on.
 
-في العادة يقوم الموظفون بتسجيل الحضور والانصراف عن طريق البصمة بواسطة أحد ماكينات الحضور المخصصة لذلك Time Attendance Machine.
-بالطبع يختلف شكل البيانات الخارج من ماكينة لأخرى.
-فعلى سبيل المثال، بعض الماكينات تقوم بإخراج الوقت مثلاً بطريقة 24 ساعة والبعض بطريقة 12 ساعة صباحاً ومساءً،
-ويمكن أن تخرج البيانات على شكل ملف إكسل والبعض بملف نصي على أن تستخدم فاصلة محددة للفصل بين الحقول المستوردة.
-وتختلف هذه الفاصلة من ماكينة لأخرى، وهكذا.
+Note that if the file exported by the machine uses the old Excel format with the `.xls` extension, it must be re-saved with the modern `.xlsx` extension to avoid errors when importing data.
 
-لاحظ أنه إذا كان الملف الخارج من الماكينة يخرج بإصدار إكسل قديم بالامتداد xls، فلابد من إعادة تخزين هذا الملف بالامتداد الحديث xlsx، وذلك تجنباً لحدوث أخطاء عند استيراد البيانات.
+Through the Attendance and Departure document, employee time-sheet files are imported by selecting the attendance machine being used,
+then specifying the files to be imported via the attachment fields — the system allows importing up to 5 attachments.
+See the following figure:
 
-من خلال مستند الحضور والإنصراف يتم استيراد ملفات الدوام الخاصة بالموظفين وذلك عن طريق تحديد ماكينة الحضور والانصراف المستخدمة
-ثم تحديد الملفات التي سيتم استيرادها والتي سيتم تحديدها من خلال حقول المرفقات، حيث يسمح النظام باستيراد حتى 5 مرفقات.
-أنظر الشكل التالي:
+![Attendance and Departure File](../../ar/modules/hr/images/attendance-formula-time-attendance.png)
 
-![ملف الحضور والانصراف](images/attendance-formula-time-attendance.png)
+Namasoft has designed, through the payroll settings file, a mechanism to help the user import data from the time-sheet file.
+Note that Nama ERP works only with the time-sheet file exported from the attendance machine
+and does not connect directly to the attendance machine itself under any circumstances.
 
-قامت شركة نما سوفت، ومن خلال ملف إعدادات الرواتب بتصميم آلية لمساعدة المستخدم في استيراد البيانات من ملف الدوام،
-وبالمناسبة فإن نظام نما يتعامل فقط مع ملف الدوام الخارج من ماكينة الحضور والانصراف،
-ولا يقوم بالإتصال بماكينة الحضور والانصراف نفسها بأي حال من الأحوال.
+The purpose of the attendance and departure formulas — which we will explain below — is to inform the Nama system of the format and structure of the data in the file to be imported,
+such as how the date is formatted: whether the day is written as a single digit (1, 2, 3) or two digits (01, 02, 03).
 
-لذا فالغرض من صيغ الحضور والانصراف - التي سنقوم بشرحها - هو إعلام نظام نما بشكل و تنسيق البيانات بالملف التي سيتم استيرادها،
-مثل كيفية صياغة التاريخ هل سيتم إدراج اليوم كرقم واحد (1،2،3)، أم كرقمين (01,02,03).
+The following explains how to define the formula used to describe attendance and departure data, by explaining the mechanism mentioned in the previous paragraph.
 
-فيما يلي سنقوم بشرح كيفية توصيف الصيغة المستخدمة في توصيف بيانات الحضور والانصراف، وذلك من خلال شرح الآلية التي تحدثنا عنها بالفقرة السابقة.
+The general formula for defining the format of imported fields can be understood from the example shown in the following image:
 
-الصيغة العامة لتعريف شكل الحقول المستوردة يمكن فهمها من المثال المذكور بالصورة التالية :
+![Attendance Formula Settings Page in HR Settings](../../ar/modules/hr/images/attendance-formula-settings-page.png)
 
-![إعدادات صيغة الحضور والانصراف باعدادات الموارد البشرية](images/attendance-formula-settings-page.png)
+Where `AA` is a name representing the machine for which the formula is to be used; it can be replaced with any other text. When importing data from this machine through the time-sheet document, select `AA` in the Attendance Machine field.
 
-حيث AA هو اسم يعبرعن الماكينة التي يراد استخدام الصيغة لها، ويمكن استبداله بأي نص آخر، ومن ثم فعند استيراد بيانات هذه الماكينة من خلال ملف الدوام، يتم اختيار (AA) بالحقل آلة الحضور والإنصراف.
+The `#` symbol is used before the formula of any field — see the image.
 
-يتم استخدام الرمز "#" قبل صيغة أي حقل - أنظر الصورة.
+`#empid`  represents the employee's code on the attendance machine.
 
-تعبر عن كود المستخدم على ماكينة الحضور والانصراف.  #empid
+`#date{dd-MM-yyyy}`  represents the date format for that employee.
 
-تعبر عن صيغة التاريخ الخاص بهذا الموظف.  #date{dd-MM-yyyy}
+`#time{HH:mm}`  represents the first time field (check-in time) for that employee.
 
-تعبر عن صيغة الوقت الأول (وقت الدخول) الخاص بهذا الموظف.  #time{HH:mm}
+Any other data to be added, such as text 1 and so on, is listed afterward.
 
-ويتم سرد أي بيانات أخرى يراد إضافتها مثل نص 1 وغير ذلك.
+You can use any of the buttons at the bottom of the window to insert attendance formula tokens such as date and time; the system automatically places the `#` symbol followed by the required formula in the correct format. For this reason, the development company recommends using these buttons to avoid manual errors.
 
-يمكن استخدام أي من الأزرار الموجودة بأسفل النافذة لإدراج أي من صيغ الدوام مثل التاريخ والوقت، وهو يقوم آلياً بوضع الرمز # متبوعاً بالصيغة المطلوبة بشكل صحيح، ولذلك فالشركة المطورة تنصح باستخدام هذه الأزرار تجنباً للأخطاء اليدوية.
+When the formula is set up this way, the Nama system expects the data in the imported file to look as follows:
 
-عند ضبط الصيغة بهذه الطريقة فإن نظام نما يتوقع أن تكون البيانات الموجودة بالملف المستورد بالشكل التالي:
+![Example of Expected Data Format](../../ar/modules/hr/images/attendance-formula-example-data.png)
+# Attendance Import Button Formulas
 
-![مثال على شكل البيانات المتوقعة](images/attendance-formula-example-data.png)
-# صيغ أزرار استيراد الحضور والانصراف
+Below is an explanation of all field formulas that can be used when importing attendance and departure data in the Nama system.
 
-فيما يلي شرح لجميع صيغ الحقول التي يمكن استخدامها عند استيراد بيانات الحضور والانصراف في نظام نما.
-
-## جدول شرح لكل مكونات صيغ الحضور و الانصراف 
-
-بالطبع، إليك النسخة المعاد تنسيقها من المستند الأصلي، بدون استخدام جداول، وبنفس المستوى من التفاصيل والأمثلة:
+## Table of All Attendance Formula Components
 
 ---
 
-# صيغ أزرار استيراد الحضور والانصراف
+# Attendance Import Button Formulas
 
 ## Employee ID
 
-**الصيغة:** `#empid`
+**Formula:** `#empid`
 
-يُستخدم لإدراج كود الموظف على ماكينة الحضور والانصراف.
+Used to insert the employee's code on the attendance machine.
 
 ---
 
 ## Date
 
-**الصيغة:** `#date{dd-MM-yyyy}`
+**Formula:** `#date{dd-MM-yyyy}`
 
-يُستخدم لإدراج التاريخ (سواء كان للدخول أو الخروج).
-تفاصيل التنسيق:
+Used to insert the date (either check-in or check-out).
+Format details:
 
-* `dd`: اليوم. إذا استُخدم حرفان، يُتوقع أن تكون البيانات مثل `01, 02, ..., 31`.
-  أما إذا استُخدم حرف واحد `d`، فيُتوقع أن تكون مثل `1, 2, ..., 31`.
+* `dd`: Day. If two characters are used, the expected data is like `01, 02, ..., 31`.
+  If a single character `d` is used, the expected data is like `1, 2, ..., 31`.
 
-* `MM`: الشهر بحرفين، مثل `01, 02, ..., 12`.
-  **مهم:** يجب استخدام حرف كبير `M` لأن الحرف الصغير `m` يُشير إلى الدقائق.
+* `MM`: Month as two digits, like `01, 02, ..., 12`.
+  **Important:** Use uppercase `M` because lowercase `m` refers to minutes.
 
-* `yyyy`: السنة بأربعة أرقام، مثل `2024`, `2025`.
+* `yyyy`: Year as four digits, like `2024`, `2025`.
 
 ::: tip
-يدعم النظام استخدام رموز الهروب التالية داخل صيغ التاريخ والوقت:
-* `\n` — سطر جديد (New Line)
-* `\r` — رجوع إلى بداية السطر (Carriage Return)
-* `\t` — تبويب (Tab)
+The system supports the following escape sequences inside date and time formulas:
+* `\n` — New Line
+* `\r` — Carriage Return
+* `\t` — Tab
 
-وهذا مفيد عندما يحتوي ملف الدوام على أحرف خاصة ضمن تنسيق التاريخ أو الوقت. على سبيل المثال، إذا كان الفاصل بين التاريخ والوقت في الملف هو تبويب، يمكن استخدام صيغة مثل:
+This is useful when the time-sheet file contains special characters within the date or time format. For example, if the separator between the date and time in the file is a tab, you can use a formula like:
 `#datetime{dd-MM-yyyy\tHH:mm:ss}`
 :::
 
@@ -95,35 +91,35 @@
 
 ## In Date
 
-**الصيغة:** `#indate{dd-MM-yyyy}`
+**Formula:** `#indate{dd-MM-yyyy}`
 
-تُستخدم لإدراج **تاريخ الدخول** في عمود مستقل.
-عند استخدامها، يجب استخدام `Out Date` معها لوجود تاريخي الحضور والانصراف في نفس السطر.
+Used to insert the **check-in date** in a separate column.
+When used, `Out Date` must also be used, since both check-in and check-out dates appear on the same line.
 
 ---
 
 ## Out Date
 
-**الصيغة:** `#outdate{dd-MM-yyyy}`
+**Formula:** `#outdate{dd-MM-yyyy}`
 
-تُستخدم لإدراج **تاريخ الخروج** في عمود مستقل.
-تُستخدم مع `In Date`.
+Used to insert the **check-out date** in a separate column.
+Used together with `In Date`.
 
 ---
 
 ## Time
 
-**الصيغة:** `#time{HH:mm}`
-أو `#time{hh:mm a}`
+**Formula:** `#time{HH:mm}`
+or `#time{hh:mm a}`
 
-* `HH`: الساعة بصيغة 24 ساعة.
-  إذا استُخدم `H` فقط، فيُتوقع الشكل `1, 2, ..., 24`.
+* `HH`: Hour in 24-hour format.
+  If only `H` is used, the expected format is `1, 2, ..., 24`.
 
-* `hh`: الساعة بصيغة 12 ساعة، ويجب إضافة `a` لتحديد الفترة (AM/PM أو صباحاً/مساءً).
+* `hh`: Hour in 12-hour format; `a` must be added to specify the period (AM/PM).
 
-* `mm`: الدقائق، مثل `01, 02, ..., 59`.
+* `mm`: Minutes, like `01, 02, ..., 59`.
 
-أمثلة:
+Examples:
 
 * `10:42 am`
 * `10:42 pm`
@@ -132,207 +128,207 @@
 
 ## In Time
 
-**الصيغة:** `#intime{HH:mm:ss}`
+**Formula:** `#intime{HH:mm:ss}`
 
-تُستخدم لإدراج **وقت الدخول** في عمود مستقل.
-يُستخدم معها `Out Time`.
+Used to insert the **check-in time** in a separate column.
+Used together with `Out Time`.
 
 ---
 
 ## Out Time
 
-**الصيغة:** `#outtime{HH:mm:ss}`
+**Formula:** `#outtime{HH:mm:ss}`
 
-تُستخدم لإدراج **وقت الخروج** في عمود مستقل.
-يُستخدم معها `In Time`.
+Used to insert the **check-out time** in a separate column.
+Used together with `In Time`.
 
 ---
 
 ## Date Time
 
-**الصيغة:** `#datetime{dd-MM-yyyy HH:mm:ss}`
+**Formula:** `#datetime{dd-MM-yyyy HH:mm:ss}`
 
-تُستخدم لإدراج التاريخ والوقت في عمود واحد.
+Used to insert the date and time in a single column.
 
 ---
 
 ## In Date Time
 
-**الصيغة:** `#indatetime{dd-MM-yyyy HH:mm:ss}`
+**Formula:** `#indatetime{dd-MM-yyyy HH:mm:ss}`
 
-تُستخدم لإدراج تاريخ ووقت الدخول في عمود واحد.
+Used to insert the check-in date and time in a single column.
 
 ---
 
 ## Out Date Time
 
-**الصيغة:** `#outdatetime{dd-MM-yyyy HH:mm:ss}`
+**Formula:** `#outdatetime{dd-MM-yyyy HH:mm:ss}`
 
-تُستخدم لإدراج تاريخ ووقت الخروج في عمود واحد.
+Used to insert the check-out date and time in a single column.
 
 ---
 
 ## Alternating Punch
 
-**الصيغة:** `#alternatingPunch`
+**Formula:** `#alternatingPunch`
 
-تعتبر أول قراءة خلال اليوم "دخول"، وآخر قراءة "خروج".
-تُستخدم لتبسيط بيانات الاستيراد من الماكينة.
+The first reading of the day is treated as check-in and the last reading as check-out.
+Used to simplify import data from the machine.
 
 ---
 ## Alternating With Attendance Plan Punch
 
-**الصيغة:** `#alternatingWithAttendancePlanPunch{2.5}`
+**Formula:** `#alternatingWithAttendancePlanPunch{2.5}`
 
-تُستخدم هذه الصيغة للتعامل مع البيانات المستوردة بذكاء، بحيث يقوم النظام بتحديد ما إذا كانت البصمة تمثل **دخولاً** أو **خروجاً**، وذلك بناءً على **خطة الدوام** الخاصة بالموظف.
+This formula is used to intelligently process imported data: the system determines whether a punch represents a **check-in** or **check-out** based on the employee's **attendance plan**.
 
-يعتمد هذا التحديد على مدى زمني (بالساعات) يتم تحديده داخل الأقواس `{}`. ضمن هذا المدى، يتم اعتبار البصمة إما دخولًا أو خروجًا بناءً على قربها من وقت الدوام المحدد.
+This determination relies on a time window (in hours) specified inside the `{}` brackets. Within this window, a punch is classified as either check-in or check-out based on how close it is to the scheduled shift time.
 
-### مثال توضيحي:
+### Illustrative Example:
 
 ```
 AA=#empid#date{dd-MM-yyyy}#time{hh:mm}#alternatingWithAttendancePlanPunch{2}
 ```
 
-**الشرح:**
+**Explanation:**
 
-* خطة دوام الموظف: من الساعة 8:00 صباحًا إلى 4:00 مساءً.
-* تم تحديد المدى `{2}` في الصيغة.
+* Employee's attendance plan: 8:00 AM to 4:00 PM.
+* The window `{2}` is set in the formula.
 
-بالتالي:
+Accordingly:
 
-* أي بصمة بين **6:00 صباحًا إلى 10:00 صباحًا** → تعتبر **بصمة دخول**.
-* أي بصمة بين **2:00 مساءً إلى 6:00 مساءً** → تعتبر **بصمة خروج**.
+* Any punch between **6:00 AM and 10:00 AM** → treated as a **check-in punch**.
+* Any punch between **2:00 PM and 6:00 PM** → treated as a **check-out punch**.
 
-### متى تستخدم هذه الصيغة؟
+### When to Use This Formula?
 
-تفيد هذه الصيغة بشكل خاص عندما:
+This formula is particularly useful when:
 
-* يكون لدى الموظف **أكثر من وردية** عمل في اليوم الواحد.
-* يتم تسجيل **أكثر من دخول وخروج فعلي** في نفس اليوم.
+* The employee has **more than one shift** in a single day.
+* **More than one actual check-in and check-out** is recorded on the same day.
 
-بفضل هذه الصيغة، يتم تفسير البيانات بشكل مرن وذكي دون الحاجة لتعريف نوع البصمة بشكل صريح داخل الملف.
+Thanks to this formula, data is interpreted flexibly and intelligently without needing to explicitly define the punch type inside the file.
 
 ---
 
 ## Respect Attendance Plan Punch Type
 
-**الصيغة:** `#respectAttendancePlanPunchType`
+**Formula:** `#respectAttendancePlanPunchType`
 
-تُستخدم هذه الصيغة بالاشتراك مع `#alternatingWithAttendancePlanPunch` لتعديل طريقة إقران بصمات الدخول والخروج داخل الوردية الواحدة.
+This formula is used in conjunction with `#alternatingWithAttendancePlanPunch` to modify how check-in and check-out punches are paired within a single shift.
 
-### السلوك الافتراضي (بدون استخدام هذه الصيغة)
+### Default Behavior (Without This Formula)
 
-عندما يتم تجميع البصمات حسب الوردية، يقوم النظام بأخذ **أول بصمة** فقط كدخول و**آخر بصمة** كخروج، ويتم تجاهل أي بصمات وسيطة في عملية الإقران.
+When punches are grouped by shift, the system takes only the **first punch** as check-in and the **last punch** as check-out, ignoring any intermediate punches during pairing.
 
-### السلوك عند استخدام `#respectAttendancePlanPunchType`
+### Behavior When Using `#respectAttendancePlanPunchType`
 
-يأخذ النظام بعين الاعتبار **النوع المستنتج لكل بصمة** (دخول أم خروج) — بناءً على قربها من أوقات خطة الدوام — ويقوم بالمرور على البصمات بالترتيب وإقرانها وفق القواعد التالية:
+The system takes into account the **inferred type of each punch** (check-in or check-out) — based on its proximity to the shift plan times — and iterates through punches in order, pairing them according to the following rules:
 
-* إذا كانت البصمة الحالية من نوع **خروج** ولا توجد بصمة دخول قبلها داخل الوردية، يتم اعتبارها سطر خروج مستقل (يُضبط الخروج فقط ويُترك الدخول فارغًا).
-* إذا كانت البصمة الحالية من نوع **دخول** والتالية من نوع **خروج**، يتم إقرانهما معًا كزوج (دخول/خروج).
-* إذا كانت البصمة الحالية من نوع **دخول** والتالية أيضًا من نوع **دخول**، يتم اعتماد الأولى كسطر دخول مستقل دون إقران، ثم تُعالج البصمة التالية بنفس المنطق.
+* If the current punch is a **check-out** and no check-in punch precedes it within the shift, it is treated as a standalone check-out row (only check-out is set; check-in is left empty).
+* If the current punch is a **check-in** and the next one is a **check-out**, they are paired together as a (check-in/check-out) pair.
+* If the current punch is a **check-in** and the next one is also a **check-in**, the first is recorded as a standalone check-in row without pairing, and the next punch is then processed with the same logic.
 
-- متى تستخدم هذه الصيغة؟
+- When to Use This Formula?
 
-تفيد هذه الصيغة بشكل خاص عندما:
+This formula is particularly useful when:
 
-* يقوم الموظف بتسجيل **عدة بصمات دخول وخروج** خلال نفس الوردية (مثل الخروج للراحة والعودة).
-* تحتاج إلى الحفاظ على **كل أزواج الدخول/الخروج المتعاقبة** كسطور منفصلة بدلاً من دمج أول وآخر بصمة فقط.
-* تريد أن يحترم النظام التصنيف الذكي للبصمات الناتج عن مطابقتها مع خطة الدوام.
+* The employee records **multiple check-in and check-out punches** during the same shift (e.g., leaving for a break and returning).
+* You need to preserve **each successive check-in/check-out pair** as separate rows instead of merging only the first and last punch.
+* You want the system to respect the intelligent punch classification derived from matching against the attendance plan.
 
-### مثال توضيحي:
+### Illustrative Example:
 
 ```
 AA=#empid#date{dd-MM-yyyy}#time{hh:mm}#alternatingWithAttendancePlanPunch{2}#respectAttendancePlanPunchType
 ```
 
-في هذا المثال، إذا قام الموظف بتسجيل أربع بصمات في يومه (دخول، خروج، دخول، خروج)، فسيتم إنتاج **سطرين منفصلين** يمثلان فترتي العمل، بدلاً من سطر واحد فقط يجمع أول دخول وآخر خروج.
+In this example, if an employee records four punches in their day (check-in, check-out, check-in, check-out), **two separate rows** are produced representing the two work periods, rather than a single row combining the first check-in and last check-out.
 
 ---
 
 ## Exact Alternating
 
-**الصيغة:** `#exactAlternating`
+**Formula:** `#exactAlternating`
 
-تعتبر القراءة الأولى دخول، الثانية خروج، الثالثة دخول، ...وهكذا.
-إذا بدأ يوم جديد، تُعتبر القراءة دخول تلقائيًا.
+The first reading is treated as check-in, the second as check-out, the third as check-in, and so on.
+If a new day starts, the reading is automatically treated as check-in.
 
 ---
 
 ## Exact Alternating With Different Days
 
-**الصيغة:** `#exactAlternatingWithDifferentDays`
+**Formula:** `#exactAlternatingWithDifferentDays`
 
-نفس فكرة `Exact Alternating` لكن عبر أيام متعددة.
+Same concept as `Exact Alternating` but across multiple days.
 
 ---
 
 ## Exact With Different Days
 
-**الصيغة:** `#exactWithDifferentDays`
+**Formula:** `#exactWithDifferentDays`
 
-تعتبر كل قراءتين متتاليتين دخول وخروج بغض النظر عن التواريخ.
+Every two consecutive readings are treated as check-in and check-out regardless of the dates.
 
 ---
 
 ## Ignore Consecutive Punches
 
-**الصيغة:** `#ignoreConsecutivePunches{5}`
+**Formula:** `#ignoreConsecutivePunches{5}`
 
-تُستخدم لتجاهل البصمات المتقاربة خلال عدد دقائق معين (مثلاً 5 دقائق).
+Used to ignore punches that occur within a specified number of minutes of each other (e.g., 5 minutes).
 
 ---
 
 ## Add Hours: Time Zone Diff
 
-**الصيغة:** `#addhours{2}`
-أو `#addhours{-2}`
+**Formula:** `#addhours{2}`
+or `#addhours{-2}`
 
-تُستخدم لترحيل الوقت بإضافة أو طرح عدد ساعات معين.
+Used to shift the time by adding or subtracting a specified number of hours.
 
 ---
 
 ## Type: In or Out
 
-**الصيغة:** `#type{I-O}`
-أو `#type{C/In-C/Out}`
+**Formula:** `#type{I-O}`
+or `#type{C/In-C/Out}`
 
-تُستخدم لتحديد نوع البصمة (دخول أو خروج) إذا كانت موجودة كقيمة في الملف.
+Used to specify the punch type (check-in or check-out) if it is present as a value in the file.
 
 ---
 
 ## Copy Lines
 
-**الصيغة:**
+**Formula:**
 `#copylines{intime=Checkin2,outtime=Checkout2|intime=Checkin3,outtime=Checkout3}`
 
-في بعض الأحيان، يتم استيراد بيانات الحضور والانصراف لأكثر من **ورديّة** (ورديتين أو ثلاث) في **نفس السطر** داخل الملف المصدر.
+Sometimes attendance data for more than one **shift** (two or three shifts) is imported on the **same line** in the source file.
 
-### طريقة التمثيل:
+### How to Represent This:
 
-#### 1. إدراج التاريخ والوقت للوردية الأولى:
+#### 1. Insert the date and time for the first shift:
 
 ```
 AA=#date{dd-MM-yyyy}#intime{HH:mm:ss}#outtime{HH:mm:ss}
 ```
 
-#### 2. إدراج الحقول الإضافية للورديات الثانية والثالثة (مثلاً):
+#### 2. Insert the additional fields for the second and third shifts (for example):
 
 ```
 AA=#date{dd-MM-yyyy}#intime{HH:mm:ss}#outtime{HH:mm:ss}#Checkin2#Checkout2#Checkin3#Checkout3
 ```
 
-#### 3. استخدام الصيغة `copylines` لنسخ الورديات الأخرى إلى سطور مستقلة:
+#### 3. Use the `copylines` formula to copy the other shifts into separate rows:
 
 ```
 AA=#date{dd-MM-yyyy}#intime{HH:mm:ss}#outtime{HH:mm:ss}#Checkin2#Checkout2#Checkin3#Checkout3#copylines{intime=Checkin2,outtime=Checkout2|intime=Checkin3,outtime=Checkout3}
 ```
 
-### ملاحظات:
+### Notes:
 
-* إذا كان هناك وردية إضافية واحدة فقط، يمكن حذف الجزء الخاص بـ `Checkin3` و `Checkout3`.
-* هذه الصيغة تجعل النظام يُعامل كل زوج من (وقت دخول ووقت خروج) كوردية مستقلة، ويقوم بتحويلها إلى **سطر مستقل** عند الاستيراد.
+* If there is only one additional shift, the part for `Checkin3` and `Checkout3` can be omitted.
+* This formula causes the system to treat each (check-in time / check-out time) pair as an independent shift and convert it into a **separate row** during import.
 
 ---
 
@@ -340,143 +336,141 @@ AA=#date{dd-MM-yyyy}#intime{HH:mm:ss}#outtime{HH:mm:ss}#Checkin2#Checkout2#Check
 
 ## Separator
 
-**الصيغة:** `#sep{,}`
+**Formula:** `#sep{,}`
 
-تُستخدم لتحديد الفاصل بين الحقول في الملف النصي (مثل `,` أو تبويب `\\t` أو مسافة).
+Used to specify the delimiter between fields in a text file (e.g., `,`, tab `\\t`, or space).
 
 ---
 
 ## Empty Column
 
-**الصيغة:** `#ignore`
+**Formula:** `#ignore`
 
-لتجاهل عمود معين في الملف.
+To ignore a specific column in the file.
 
 ---
 
 ## Ignore Lines From Top
 
-**الصيغة:** `#ignoreLinesFromTop{1}`
+**Formula:** `#ignoreLinesFromTop{1}`
 
-لتجاهل عدد معين من السطور من أعلى الملف.
+To ignore a specified number of lines from the top of the file.
 
 ---
 
 ## Ignore Lines From End
 
-**الصيغة:** `#ignoreLinesFromEnd{1}`
+**Formula:** `#ignoreLinesFromEnd{1}`
 
-لتجاهل عدد معين من السطور من أسفل الملف.
+To ignore a specified number of lines from the end of the file.
 
 ---
 
 ## Text 1
 
-**الصيغة:** `#text1`
+**Formula:** `#text1`
 
-لاستيراد حقل نصي إضافي، مثل الجنسية.
+To import an additional text field, such as nationality.
 
 ---
 
 ## Machine Code
 
-**الصيغة:** `#machinecode`
+**Formula:** `#machinecode`
 
-لاستيراد كود الماكينة في تفاصيل الحضور والانصراف.
+To import the machine code into the attendance details.
 
 ---
 
 ## Ref1 Code & Ref1 Entity Type
 
-**الصيغ:**
+**Formulas:**
 
 * `#ref1Code`
 * `#ref1EntityType{Project}`
 
-تُستخدم لاستيراد كود ونوع مرجع 1 (مثل المشروع، الإدارة، الفرع...).
+Used to import the code and entity type of reference 1 (e.g., Project, Department, Branch...).
 
 ---
 
 ## Ref2 Code & Ref2 Entity Type
 
-**الصيغ:**
+**Formulas:**
 
 * `#ref2Code`
 * `#ref2EntityType{Branch}`
 
-تُستخدم لاستيراد كود ونوع مرجع 2.
+Used to import the code and entity type of reference 2.
 
 ---
 
 ## Remove Empty Columns
 
-**الصيغة:** `#removeEmptyColumns`
+**Formula:** `#removeEmptyColumns`
 
-تُستخدم لإزالة الأعمدة الفارغة التي تنتج من فراغات متكررة في الملف النصي.
+Used to remove empty columns that result from repeated spaces in a text file.
 
 ---
 
 ## AM / PM
 
-**الصيغة:** `#am_pm{صباحاً-مساءاً}`
+**Formula:** `#am_pm{صباحاً-مساءاً}`
 
-تُستخدم عند استخدام تنسيق 12 ساعة مع تعبيرات صباحاً/مساءاً بدلاً من AM/PM.
+Used when using 12-hour format with Arabic morning/evening expressions instead of AM/PM.
 
 ---
 ## Merge With Previous With Separator
 
-**الصيغة:** `#mergeWithPreviousWithSeparator{-}`
+**Formula:** `#mergeWithPreviousWithSeparator{-}`
 
-تُستخدم هذه الصيغة في **الحالات النادرة** التي يتم فيها إدراج أحد الحقول مقسومًا على **عدة أعمدة** في ملف نصي، كما في حالة التاريخ المكتوب بالشكل التالي:
+This formula is used in **rare cases** where one of the fields is split across **multiple columns** in a text file, as with a date written in the following form:
 
 ```
 2019 01 15
 ```
 
-في هذه الحالة، يقرأ النظام هذه القيم كثلاثة أعمدة منفصلة، وليس كقيمة واحدة.
+In this case, the system reads these values as three separate columns, not as a single value.
 
-### الحل:
+### Solution:
 
-يمكن استخدام `#mergeWithPreviousWithSeparator{-}` لدمج هذه الأعمدة الثلاثة في قيمة واحدة مفصولة بعلامة مثل `-`، لتصبح:
+`#mergeWithPreviousWithSeparator{-}` can be used to merge these three columns into a single value separated by a character such as `-`, resulting in:
 
 ```
 2019-01-15
 ```
 
-### مثال تطبيقي:
+### Practical Example:
 
 ```
 AA=#empid#date#mergeWithPreviousWithSeparator{-}#mergeWithPreviousWithSeparator{-}#time{HH:mm}
 ```
 
-### ملاحظات:
+### Notes:
 
-* تم استخدام الصيغة **مرتين** لأن هناك **مسافتين** بين أجزاء التاريخ.
-* داخل الأقواس `{}` يتم تحديد **الفاصل** الجديد الذي سيُستخدم عند الدمج (في هذا المثال `-`).
-* تُفيد هذه الصيغة عند الاستيراد من ملفات غير منظمة أو يتم تنسيقها يدويًا بفواصل غير موحدة.
+* The formula is used **twice** because there are **two spaces** between the parts of the date.
+* Inside the `{}` brackets, the **new separator** to be used during merging is specified (in this example `-`).
+* This formula is useful when importing from unstructured files or files formatted manually with inconsistent delimiters.
 
 
 ---
 
 ## Merge With Previous With No Separator
 
-**الصيغة:** `#mergeWithPreviousNoSeparator`
+**Formula:** `#mergeWithPreviousNoSeparator`
 
-تُستخدم لدمج القيم دون استخدام أي فاصل.
+Used to merge values without using any separator.
 
 ---
 
 ## Merge With Previous With Space
 
-**الصيغة:** `#mergeWithPreviousWithSpace`
+**Formula:** `#mergeWithPreviousWithSpace`
 
-تُستخدم لدمج القيم وفصلها بمسافة بدلًا من فاصل آخر.
+Used to merge values separated by a space instead of another delimiter.
 
 ---
 
 
 ::: tip
- 📌 يمكن الاستعانة بالأزرار المتوفرة في شاشة إعداد الصيغة داخل النظام لإدراج الصيغة الصحيحة تلقائيًا وتجنب الأخطاء اليدوية.
+You can use the buttons available in the formula setup screen inside the system to automatically insert the correct formula and avoid manual errors.
 :::
-
-</rtl>

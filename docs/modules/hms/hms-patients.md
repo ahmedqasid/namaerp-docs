@@ -1,53 +1,53 @@
-# المرضى والدخول
+# Patients & Admission
 
-هنا تبدأ رحلة المريض الفعلية. في هذه الصفحة نتناول ملف المريض نفسه، وكيف يُحجز للمريض الخارجي موعد، وكيف يُنوَّم المريض الداخلي عبر إستمارة الدخول، إضافةً إلى توثيق التشخيص والحالة الصحية.
+This is where the patient's journey really begins. On this page we cover the patient file itself, how an outpatient is booked, how an inpatient is admitted via the admission form, plus recording diagnosis and health status.
 
-## ملف المريض
+## The patient file
 
-**المريض (Patient)** هو السجل المحوري الذي يتعلّق به كل شيء. وهو في الوقت نفسه ملف طبي **وذمّة محاسبية** (عبر تبويب الحسابات الفرعية)، أي يُحاسَب ويُتابَع ماليًا كأي عميل. تتوزّع بياناته على تبويبات: المعلومات الأساسية (الطبيب المعالج، فصيلة الدم، الطول، الوزن، فئة المريض، شركة التأمين، نِسَب التحمّل)، بيانات المولود الجديد (تربط الرضيع بأمّه وأبيه)، البيانات الشخصية (النوع، الميلاد — ويُحسب العمر تلقائيًا — الرقم القومي وبطاقة التأمين)، بيانات الإقامة الحالية، والحسابات والضرائب وبيانات الاتصال.
+**Patient** is the pivotal record everything attaches to. It is at once a medical record **and an accounting party** (via the Subsidiary Accounts tab), so the patient can be billed and tracked financially like any customer. Its data spans tabs: Basic Information (attending doctor, blood group, height, weight, patient class, insurance company, endurance percentages), New Born Information (linking an infant to mother and father), Personal Information (gender, birth — age is auto-calculated — national ID and insurance card), current accommodation info, plus Accounts, Taxes and Contact info.
 
-![مريض](./images/patient/patient-ar.png)
+![Patient](../../ar/modules/hms/images/patient/patient-en.png)
 
-يحمل الملف أيضًا جدول **التاريخ المرضي** (تاريخ التشخيص، المرض، الدرجة، الدواء)، وتبويب **السجلات المرتبطة** يعرض لمحة 360° عن المريض: دخولاته، كشوفه، تسكيناته، تحاليله وأشعّته وعمليّاته وكل فواتيره.
+The file also holds a **patient-history** grid (diagnosis date, disease, degree, medication) and a **Related Records** tab that gives a 360° view of the patient: admissions, checks, accommodations, lab tests, radiology, surgeries and all their invoices.
 
-::: tip من ملف المريض إلى الدخول
-يحمل ملف المريض زرّ **إنشاء إستمارة دخول مريض** الذي يفتح إستمارة دخول جديدة مملوءة مسبقًا ببيانات المريض وطبيبه وتأمينه — وهي بداية رحلة التنويم.
+::: tip From patient file to admission
+The patient file carries a **Create Patient Admission** button that opens a new admission form pre-filled with the patient's details, doctor and insurer — the start of the inpatient journey.
 :::
 
-## إستمارة دخول المريض
+## The patient admission
 
-**إستمارة دخول مريض (Patient Admission)** هي المستند المحوري للمريض الداخلي — منها يتفرّع التسكين والعمليات والتحاليل والتشخيص والفاتورة الختامية. وهي أغنى مستندات الوحدة.
+**Patient Admission** is the pivotal document for an inpatient — accommodation, surgeries, lab tests, diagnosis and the closing invoice all branch from it. It's the richest document in the module.
 
-في رأسها: المريض والطبيب وتاريخ ووقت الدخول، شركة التأمين وتصنيف المستند، نِسَب التحمّل، و**الحد الأقصى لتحمّل التأمين على كل الفواتير** مع عدّاد **المتبقّي** منه، ومُصنِّفات السعر، والتشخيص المبدئي، ومجموعة **أمراض التشخيص** (تُستخدم لاحقًا في اختيار التغذية). كما تربط الإستمارة سند الخروج والفاتورة الختامية واتفاق العملية إن وُجد.
+Its header carries: patient, doctor and admission date/time; insurance company and document category; endurance percentages; the **insurance maximum value across all invoices** with a live **remaining** counter; price classifiers; an initial diagnosis; and a **diagnosis diseases** group (used later to choose feeding). The admission also links the exit document, the closing invoice and a surgery package if any.
 
-من أهم خصائصها علامة **توليد سند تسكين**: عند تفعيلها وحفظ الإستمارة، يُولَّد مستند **[التسكين](./hms-accommodation.md)** تلقائيًا (حجز السرير وبدء احتساب الإقامة). كما يوجد زرّ **تحديث بيانات الأسعار على كل الفواتير** لإعادة حساب نِسَب التحمّل عبر كل فواتير الدخول عند تغيّر خطة التأمين. وتحمل الإستمارة جداول للأقارب، والخدمات المقدّمة أثناء الإقامة، وبنود اتفاق العملية، والتحاليل المطلوبة عند الدخول.
+A key feature is the **Generate Accommodation Doc** flag: when ticked and the admission is saved, an **[Accommodation](./hms-accommodation.md)** document is generated automatically (booking the bed and starting accommodation charges). There's also an **Update Price Data on All Invoices** button to recompute endurance percentages across all the admission's invoices when the insurance plan changes. The admission carries grids for next-of-kin, services rendered during the stay, surgery-package items, and lab tests requested at admission.
 
-![إستمارة دخول مريض](./images/patient/patient-admission-ar.png)
+![Patient admission](../../ar/modules/hms/images/patient/patient-admission-en.png)
 
-## العيادات الخارجية
+## Outpatient clinics
 
-للمريض الذي لا يحتاج تنويمًا، نستخدم نظام المواعيد:
+For patients who don't need admission, we use the scheduling system:
 
-- **موعد عيادة خارجية (Outpatient Schedule)** — جدول التوفّر الأسبوعي المتكرّر لعيادة وطبيب وتخصص: لكل يوم أسبوع فترات زمنية (من/إلى) مع علامة لما إذا كانت محجوزة.
-- **حجز العيادة الخارجية (Outpatient Reservation)** — حجز زيارة فعلية: المريض، العيادة، الطبيب، التخصص، نوع الإجراء، وتاريخ ووقت الحجز.
+- **Outpatient Schedule** — the recurring weekly availability for a clinic, doctor and specialty: per weekday, time slots (from/to) with a flag for whether each is taken.
+- **Outpatient Reservation** — booking an actual visit: patient, clinic, doctor, specialty, procedure type, and the reservation date and time.
 
-![حجز العيادة الخارجية](./images/patient/outpatient-reservation-ar.png)
+![Outpatient reservation](../../ar/modules/hms/images/patient/outpatient-reservation-en.png)
 
-![موعد عيادة خارجية](./images/patient/outpatient-schedule-ar.png)
+![Outpatient schedule](../../ar/modules/hms/images/patient/outpatient-schedule-en.png)
 
-## التشخيص والحالة الصحية
+## Diagnosis and health status
 
-**سند تشخيص مريض (Patient Diagnosis)** يسجّل تقييم الطبيب للمريض (وقد يُربط بإستمارة دخول): المريض، الطبيب، ونص التشخيص.
+**Patient Diagnosis** records the doctor's assessment of the patient (optionally linked to an admission): patient, doctor, and the diagnosis text.
 
-![سند تشخيص مريض](./images/patient/patient-diagnosis-ar.png)
+![Patient diagnosis](../../ar/modules/hms/images/patient/patient-diagnosis-en.png)
 
-و**الحالة الصحية للمريض (Patient Health Status)** استبيان منظّم يُملأ للمريض اعتمادًا على **قالب** جاهز. يبني القالب من **أسئلة حالة صحية** قابلة لإعادة الاستخدام:
+**Patient Health Status** is a structured questionnaire filled in for a patient based on a reusable **template**. The template is built from reusable **health-status questions**:
 
-- **سؤال حالة صحية (Health Status Question)** — سؤال واحد بنوع إجابة (نصي/اختيار/رقم/تاريخ)، ومع نوع "اختيار" يحمل قائمة الإجابات المتاحة.
-- **قالب اسئلة حالة صحية (Questionnaire Template)** — حزمة أسئلة قابلة لإعادة الاستخدام تُطبَّق على المرضى.
+- **Health Status Question** — a single question with a response type (text/choice/number/date); for "choice" it carries the list of allowed answers.
+- **Questionnaire Template** — a reusable bundle of questions applied to patients.
 
-ثم يُسجّل مستند الحالة الصحية إجابة لكل سؤال (نص/رقم/تاريخ) — وهو مثالي لاستمارات التمريض والقبول.
+The health-status document then records an answer per question (text/number/date) — ideal for nursing and intake forms.
 
-![الحالة الصحية للمريض](./images/patient/health-status-ar.png)
+![Patient health status](../../ar/modules/hms/images/patient/health-status-en.png)
 
-![قالب اسئلة حالة صحية](./images/patient/questionnaire-template-ar.png)
+![Questionnaire template](../../ar/modules/hms/images/patient/questionnaire-template-en.png)

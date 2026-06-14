@@ -1,31 +1,31 @@
-# تقييم الجهات
+# Party Evaluation
 
-تخبرك الأرقامُ بما طلبه موردٌ أو ما دفعه عميل، لكنّها لا تقول هل التعامل معه *جيّد*: هل سلّم المورد في الموعد؟ هل البنك سريع الاستجابة؟ هل العميل موثوق؟ **تقييم الجهات** طريقةٌ منظَّمة لتقييم الجهات التي تتعامل معها — عملاء وموردين وبنوكًا — وفق معايير تحدّدها أنت، وحفظ هذا الحكم في السجلّ إلى جوار الصورة المالية.
+Numbers tell you what a supplier charged or what a customer paid, but not whether they're *good* to work with: Did the supplier deliver on time? Is the bank responsive? Is the customer reliable? **Party evaluation** is a structured way to score the parties you deal with — customers, suppliers, banks — against criteria you define, and keep that judgment on record alongside the financial picture.
 
-::: info الترخيص المطلوب
-تقييم الجهات جزءٌ من ترخيص `accounting` الأساسي. وشاشاته تحت **الحسابات > تقييم جهات**. وهو أداةٌ وصفية — **بلا أثرٍ محاسبي**.
+::: info Required license
+Party evaluation is part of the core `accounting` license. Its screens are under **Accounting > Party Evaluations**. It's a qualitative tool — it has **no accounting effect**.
 :::
 
-## تعريف معنى «الجيّد»
+## Defining what "good" means
 
-تبني بطاقةَ التقييم من ملفّين رئيسيّين:
+You build the scorecard from two master files:
 
-1. **عنصر تقييم جهة** (`Accounting > Party Evaluations > Party Evaluation Element`) — معيارٌ واحد تقيّم عليه: «الالتزام بمواعيد التسليم»، «الجودة»، «سرعة الاستجابة»، «تنافسية السعر».
-2. **مجموعة نقاط تقييم جهة** (`Accounting > Party Evaluations > Party Evaluation Elements Group`) — حزمةٌ من العناصر تشكّل بطاقة تقييمٍ كاملة، يُمنَح كلُّ عنصرٍ فيها **وزنًا أقصى**. والأوزان هي ما يجعل الدرجة ذات معنى: فقد يساوي الالتزام بالمواعيد 40 نقطة، والسعر 30، وهكذا.
+1. **Party Evaluation Element** (`Accounting > Party Evaluations > Party Evaluation Element`) — a single criterion you'll score on: "delivery punctuality", "quality", "responsiveness", "price competitiveness".
+2. **Party Evaluation Elements Group** (`Accounting > Party Evaluations > Party Evaluation Elements Group`) — a bundle of elements that makes up a complete scorecard, with each element given a **maximum weight**. The weights are what make the score meaningful: punctuality might be worth 40 points, price 30, and so on.
 
-![شاشة مجموعة نقاط تقييم الجهة](./images/partyeval/party-eval-group.png)
+![The Party Evaluation Elements Group screen](./images/partyeval/party-eval-group.png)
 
-## تقييم جهة
+## Scoring a party
 
-**تقييم الجهة** (`Accounting > Party Evaluations > Party Evaluation`) هو التقييم الفعلي. يذكر رأسُه **الجهة المُقيَّمة**، و**المُقيِّم** الذي يضع الدرجات، و**مجموعة العناصر** المستخدَمة كبطاقة تقييم. ثم تسرد شبكةُ **التفاصيل** كلَّ معيارٍ مع **وزنه الأقصى**، و**النقاط** الممنوحة، و**النسبة** الناتجة، و**نتيجةٍ** نصّية حرّة، و**ملاحظات** — فيكون التقييم رقمًا وسردًا معًا.
+The **Party Evaluation** (`Accounting > Party Evaluations > Party Evaluation`) is the actual assessment. Its header names the **evaluated party**, the **evaluator** doing the scoring, and the **elements group** used as the scorecard. The **details** grid then lists each criterion with its **max weight**, the **points** awarded, the resulting **percentage**, a free-text **finding**, and **remarks** — so the evaluation is both a number and a narrative.
 
-![شاشة تقييم الجهة](./images/partyeval/party-evaluation.png)
+![The Party Evaluation screen](./images/partyeval/party-evaluation.png)
 
-ولأنّ التقييمات تحمل الجهة وتاريخًا، يمكنك الاحتفاظ بتاريخٍ لكلّ جهةٍ ومراقبة اتجاه درجة موردٍ أو عميلٍ عبر الزمن.
+Because evaluations carry the party and a date, you can keep a history per party and watch how a supplier's or customer's score trends over time.
 
-## للدعم الفني
+## For Support
 
-- **«لا يوجد قيد»** — صحيح؛ تقييم الجهات وصفيٌّ بحت ولا يمسّ دفتر الأستاذ أبدًا.
-- **«النسبة تبدو خاطئة»** — هي **النقاط** الممنوحة مقابل **الوزن الأقصى** للعنصر من المجموعة؛ تحقّق منهما.
-- **«قائمة المعايير فارغة»** — يسحب التقييمُ سطورَه من **مجموعة العناصر** المختارة؛ تأكّد من أنّ المجموعة عرّفت عناصرها بأوزانها.
-- **«أريد مقارنة جهةٍ عبر الزمن»** — كلُّ تقييمٍ مؤرَّخٌ ومرتبطٌ بالجهة، فاسردها حسب الجهة لترى الاتجاه.
+- **"There's no journal entry"** — correct; party evaluation is purely qualitative and never touches the ledger.
+- **"The percentage looks wrong"** — it's the **points** awarded against the element's **max weight** from the group; check both.
+- **"The criteria list is empty"** — the evaluation pulls its lines from the chosen **elements group**; make sure the group has its elements defined with weights.
+- **"I want to compare a party over time"** — each evaluation is dated and tied to the party, so list them by party to see the trend.

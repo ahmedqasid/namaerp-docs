@@ -1,95 +1,91 @@
-<rtl>
+# Employee Self-Service — Attendance & Leaves
 
-# الخدمة الذاتية للموظفين — الحضور والإجازات
+One of the most common uses of the Nama app is as the **employee self-service (ESS)** gateway: the employee clocks in and out, tracks their leave balance, and submits requests (vacation, permission, mission, loan…) without going through the HR department. These screens are usually gathered under the **Payroll** group in the menu.
 
-من أكثر استخدامات تطبيق نما شيوعاً أن يصبح بوابة **الخدمة الذاتية للموظف (ESS)**: يسجّل حضوره وانصرافه، ويتابع رصيد إجازاته، ويقدّم طلباته (إجازة، إذن، مأمورية، سلفة…) دون المرور بقسم الموارد البشرية. تجمع هذه الشاشات عادةً تحت مجموعة **الرواتب** في القائمة.
+![Payroll group](../../ar/modules/mobile/images/hr/payroll-group.jpg)
 
-![مجموعة الرواتب](./images/hr/payroll-group.jpg)
+## Clocking in and out
 
-## تسجيل الحضور والانصراف
+The simplest way to clock in is the **"Check In"** button on the [home screen](./mobile-application-guide.md); when leaving, the same button becomes **"Check Out"**. The app captures the check-in and check-out times, and can capture the **GPS location** and its accuracy, plus device data to prevent tampering.
 
-أبسط طريقة لتسجيل الحضور هي زر **«تسجيل حضور»** على [الشاشة الرئيسية](./mobile-application-guide.md)؛ وعند الانصراف يتحوّل الزر نفسه إلى **«تسجيل انصراف»**. يلتقط التطبيق وقت الحضور والانصراف، ويمكن أن يلتقط **الموقع الجغرافي (GPS)** ودقّته، إضافةً إلى بيانات الجهاز لمنع التلاعب.
-
-::: tip ميزات الحضور المتقدمة
-حسب إعدادات المؤسسة يمكن تفعيل:
-- **مناطق الحضور (Zones)**: منع حفظ الحضور إن كان الموظف خارج المنطقة المسموح بها، واشتراط أن يكون الانصراف من نفس منطقة الحضور.
-- **التحقق بالبصمة** قبل حفظ الحضور.
-- ربط الحضور بـ**عميل أو فرصة أو مشروع** (مفيد لمندوبي الزيارات).
-- حدّ زمني لعدد الساعات المسموح بها قبل منع تسجيل الانصراف.
+::: tip Advanced attendance features
+Depending on the organization's settings you can enable:
+- **Attendance zones**: preventing a check-in being saved if the employee is outside the allowed zone, and requiring the check-out to be from the same zone as the check-in.
+- **Biometric verification** before saving the attendance.
+- Linking attendance to a **customer, lead or project** (useful for visiting reps).
+- A time limit on the number of hours allowed before check-out is blocked.
 :::
 
-### سجل الحضور
+### The attendance log
 
-هناك سجلّان لمراجعة الحضور:
+There are two logs for reviewing attendance:
 
-- **سجل الحضور الإلكتروني** — قائمة بمستندات الحضور/الانصراف التي سجّلها الموظف عبر التطبيق، مع ترقيم الصفحات. تشير أيقونة السحابة إلى أن السند تمت مزامنته مع الخادم.
+- **Electronic attendance log** — a list of the check-in/check-out documents the employee recorded through the app, with pagination. The cloud icon indicates the document has synced to the server.
 
-![سجل الحضور الإلكتروني](./images/hr/attendance-electronic-log.jpg)
+![Electronic attendance log](../../ar/modules/mobile/images/hr/attendance-electronic-log.jpg)
 
-- **سجل الحضور الشامل** — عرض يومي متكامل يجمع كل يوم في بطاقة تبيّن حالته (**حاضر**، **غائب**، **عطلة أسبوعية**)، وأوقات الدخول والخروج، والساعات الواجبة والفعلية والوقت الإضافي والتأخير. ومن البطاقة نفسها يمكن للموظف بدء طلب **إجازة** أو **مأمورية** أو **إذن** لتبرير يوم بعينه.
+- **Comprehensive attendance log** — a complete daily view that puts each day in a card showing its status (**Present**, **Absent**, **Weekly holiday**), the entry and exit times, and the required, actual, overtime and lateness hours. From the card itself the employee can start a **vacation**, **mission** or **permission** request to justify a particular day.
 
-![سجل الحضور الشامل](./images/hr/attendance-comprehensive-log.jpg)
+![Comprehensive attendance log](../../ar/modules/mobile/images/hr/attendance-comprehensive-log.jpg)
 
-عند تصفّح الأيام التي حضر فيها الموظف، تعرض البطاقة تفاصيل دقيقة لساعات العمل والحضور المبكر والانصراف المبكر:
+When browsing the days the employee was present, the card shows precise details of working hours, early arrival and early departure:
 
-![سجل الحضور الشامل — تفاصيل يوم حضور](./images/hr/attendance-comprehensive-log-2.jpg)
+![Comprehensive attendance log — present-day detail](../../ar/modules/mobile/images/hr/attendance-comprehensive-log-2.jpg)
 
-## طلب إجازة
+## Vacation request
 
-شاشة **إنشاء طلب إجازة** تعرض في أعلاها **رصيد الإجازات** كرسم دائري (المستهلك خلال العام والمتبقي)، ثم يختار الموظف:
+The **Create vacation request** screen shows the **leave balance** at the top as a pie chart (consumed during the year and remaining), then the employee chooses:
 
-- **نوع الإجازة** و**سبب الإنصراف/الإجازة**.
-- خيار **إجازة أقل من يوم** عند الحاجة.
-- **تاريخ البداية** و**تاريخ العودة**، مع حقل **ملاحظات**.
+- **Vacation type** and **leave/departure reason**.
+- A **vacation less than a day** option when needed.
+- **Start date** and **return date**, with a **notes** field.
 
-![إنشاء طلب إجازة](./images/hr/vacation-request.jpg)
+![Create vacation request](../../ar/modules/mobile/images/hr/vacation-request.jpg)
 
-## طلب إذن إنصراف
+## Permission request
 
-يستخدم **طلب إذن الإنصراف** للأذونات داخل يوم العمل (انصراف مبكر، تأخير، خروج أثناء الدوام…). يحدد الموظف التاريخ ونطاق الوقت **(من / إلى)** و**نوع الإذن** و**السبب**، ويمكنه **إرفاق ملف** قبل الإرسال.
+The **permission request** is used for intra-day permissions (early leave, lateness, leaving during work hours…). The employee specifies the date, the time range **(from / to)**, the **permission type** and the **reason**, and can **attach a file** before submitting.
 
-![إنشاء طلب إذن إنصراف](./images/hr/permission-request.jpg)
+![Create permission request](../../ar/modules/mobile/images/hr/permission-request.jpg)
 
-## سند مأمورية
+## Mission voucher
 
-عند الانتقال في مهمة عمل خارجية يُنشئ الموظف **سند مأمورية** يحدد فيه تاريخ البداية والعودة، ونطاق الوقت، و**السبب**، و**قيمة البدلات** المستحقة، مع إمكانية إرفاق ملف.
+When traveling on an external work assignment the employee creates a **mission voucher** specifying the start and return dates, the time range, the **reason**, and the **allowance value** due, with the ability to attach a file.
 
-![إنشاء سند مأمورية](./images/hr/mission-voucher.jpg)
+![Create mission voucher](../../ar/modules/mobile/images/hr/mission-voucher.jpg)
 
-## سند سلفة
+## Loan voucher
 
-يقدّم الموظف **طلب سلفة** يحدد فيه نوع السلفة والعملة و**مبلغ السلفة** و**مبلغ القسط** و**عدد الأقساط** ونوع فترة القسط وتاريخ البداية.
+The employee submits a **loan request** specifying the loan type, currency, **loan amount**, **installment amount**, **number of installments**, installment period type and start date.
 
-![سند سلفة](./images/hr/loan-voucher.jpg)
+![Loan voucher](../../ar/modules/mobile/images/hr/loan-voucher.jpg)
 
-## مستندات الموارد البشرية الأخرى
+## Other HR documents
 
-يتيح التطبيق مجموعة من مستندات الموارد البشرية التي تتبع نفس النمط البسيط (حقول قليلة ثم زر **إرسال**):
+The app provides a set of HR documents that follow the same simple pattern (a few fields then a **Send** button):
 
-- **سند مباشرة عمل** — لتوثيق بدء العمل، ويمكن إنشاؤه **بناءً على** سند إجازة سابق.
+- **Work-starting voucher** — to document the start of work, and it can be created **based on** a prior vacation voucher.
 
-  ![إنشاء طلب مباشرة عمل](./images/hr/work-starting-request.jpg)
+  ![Create work-starting request](../../ar/modules/mobile/images/hr/work-starting-request.jpg)
 
-- **سند إنهاء خدمة** — تاريخ الإنهاء و**سبب الإنهاء** وملاحظات.
+- **Termination voucher** — the termination date, the **termination reason** and notes.
 
-  ![إنشاء طلب إنهاء خدمة](./images/hr/termination-request.jpg)
+  ![Create termination request](../../ar/modules/mobile/images/hr/termination-request.jpg)
 
-### مستندات الخليج (الإقامة والتأشيرات)
+### Gulf documents (residence and visas)
 
-للمؤسسات في دول الخليج توجد مستندات إضافية تُجمع عادةً تحت **الموارد البشرية**:
+For organizations in the Gulf there are additional documents usually gathered under **Human Resources**:
 
-![مجموعة الموارد البشرية](./images/hr/hr-group.jpg)
+![Human Resources group](../../ar/modules/mobile/images/hr/hr-group.jpg)
 
-- **طلب تأشيرة ذهاب وعودة** — تاريخ انتهاء الإقامة، ومدة الإقامة بالأيام، وملاحظات.
+- **Exit/return visa request** — the residence expiry date, the residence period in days, and notes.
 
-  ![إنشاء طلب تأشيرة ذهاب وعودة](./images/hr/exit-return-visa-request.jpg)
+  ![Create exit/return visa request](../../ar/modules/mobile/images/hr/exit-return-visa-request.jpg)
 
-- **طلب تجديد إقامة** — حقول مرجعية وملاحظات مع إمكانية إرفاق ملف.
+- **Residence renewal request** — reference fields and notes with the ability to attach a file.
 
-  ![إنشاء طلب تجديد إقامة](./images/hr/residence-renewal-request.jpg)
+  ![Create residence renewal request](../../ar/modules/mobile/images/hr/residence-renewal-request.jpg)
 
-## ملاحظات للمسؤول
+## Notes for the administrator
 
-تُضبط الدفاتر المستخدمة لكل نوع (الحضور، الإجازات، الأذونات…) ومعايير عملها من شاشة [إعدادات تطبيقات الجوال](./mobile-application-guide.md). كما يمكن **قصر إنشاء مستندات الحضور والإجازات والأذونات على التطبيق فقط**، أو السماح بتعديلها للمخوّلين فقط، وتخصيص بطاقات **ملخص الحضور** التي تظهر على الشاشة الرئيسية. وتظهر هذه الشاشات في القائمة فقط إذا كانت وحدة الخدمة الذاتية للموظفين مرخّصة لمؤسستك.
-
-</rtl>
+The books used for each type (attendance, vacations, permissions…) and their working criteria are configured from the [Mobile App configuration](./mobile-application-guide.md) screen. You can also **restrict the creation of attendance, vacation and permission documents to the app only**, or allow editing for authorized users only, and customize the **attendance summary** cards shown on the home screen. These screens appear in the menu only if the employee self-service module is licensed for your organization.

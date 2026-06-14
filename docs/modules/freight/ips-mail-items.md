@@ -1,43 +1,43 @@
-# المواد البريدية
+# Mail Items
 
-بعد فتح الأكياس الواردة، تصبح **المادة البريدية** هي محور العمل: تُسجَّل، وتُحوَّل بين المكاتب، وتُسوَّى، وتُجرَد، وتُفرَز للتوصيل. هذه الصفحة تغطّي المستندات التي تدير دورة حياة المادة البريدية، وكلها تحت **نظام إدارة الشحن ← المستندات**.
+After the inbound receptacles are opened, the **mail item** becomes the focus of the work: it's recorded, transferred between offices, adjusted, stock-taken, and sorted for delivery. This page covers the documents that manage the mail-item lifecycle, all under **Freight Management System → Documents**.
 
-كل هذه المستندات تشترك في رأس موحّد يحمل **المُستلَم منه** و**المُستلَم فيه** و**المكتب التالي**، وإجمالي عدد المواد ووزنها، ورقم ختم جديد عند إعادة الإغلاق.
+All these documents share a common header carrying **Received From**, **Received In**, and **Next Office**, the total item count and weight, and a new seal number when re-closing.
 
-## مستند تجميع المواد (Mail Item Manifest)
+## Mail Item Manifest
 
-نقطة دخول المواد إلى النظام: عند فتح الأكياس الواردة، يسجّل مستند التجميع كل مادة بداخلها — معرّفها، وصنفها وفئتها، كود HS، وزنها المُعلَن والفعلي، دولة المنشأ، المستلِم، وقيمتها وعملتها. هو الذي يبني المخزون البريدي الذي تعمل عليه بقيّة المستندات.
+The entry point for items into the system: when the inbound receptacles are opened, the manifest records every item inside — its identifier, class and category, HS code, declared and actual weight, country of origin, recipient, and value and currency. It's what builds the postal inventory the rest of the documents work on.
 
-![مستند تجميع مواد](./images/ips/mail-item-manifest-ar.png)
+![Mail item manifest](../../ar/modules/freight/images/ips/mail-item-manifest-en.png)
 
-## سند التحويل بين المكاتب (Mail Item Transfer)
+## Mail Item Transfer
 
-تنتقل المواد من مكتب إلى آخر في طريقها للتوصيل. يسجّل سند التحويل حركة مجموعة من المواد من **المُستلَم منه** إلى **المكتب التالي**، فيحدّث موقعها في الشبكة ويترك أثرًا لتتبّعها.
+Items move from one office to another on their way to delivery. The transfer document records the movement of a group of items from the **Received From** to the **Next Office**, updating their location in the network and leaving a trail for tracking.
 
-## سند تسوية شحنة (Mail Item Adjustment)
+## Mail Item Adjustment
 
-لتصحيح بيانات المواد عند اكتشاف فروقات — وزن مختلف، تصنيف خاطئ، كود HS مُعدَّل، أو تصحيح عدد. يحافظ هذا المستند على دقّة المخزون البريدي دون الحاجة لإلغاء المستندات السابقة.
+To correct item data when discrepancies are found — a different weight, a wrong classification, a revised HS code, or a count correction. This document keeps the postal inventory accurate without having to cancel the preceding documents.
 
-## سند تفريغ المخزن للجرد وإعادة التخزين (Mail Item Stock Taking)
+## Mail Item Stock Taking
 
-للجرد الدوري للمواد البريدية المخزّنة: يُفرِّغ المخزن للعدّ الفعلي ثم يعيد التخزين، فتطابق ما هو موجود فعليًا بما هو مسجّل في النظام وتسوّي الفروقات.
+For periodic stock taking of the stored mail items: it empties the store for the physical count then re-stores, so you reconcile what physically exists against what's recorded in the system and settle the differences.
 
-## مذكرة تحقيق بريد (Mail Retention Document)
+## Mail Retention Document
 
-بعض المواد تُحتجَز ولا تُسلَّم فورًا — لأسباب جمركية أو أمنية أو لتعذّر الوصول للمستلِم. تسجّل مذكرة التحقيق المواد المحتجَزة و**سبب الاحتجاز (Retention Reason)**، لمتابعتها حتى يُبَتّ فيها (إفراج، إعادة، إتلاف).
+Some items are held and not delivered immediately — for customs, security, or unreachable-recipient reasons. The retention document records the held items and the **Retention Reason**, to follow them up until they're resolved (release, return, destruction).
 
-## مستند الفرز (Postal Parcels Sort)
+## Postal Parcels Sort
 
-قبل التوصيل، تُفرَز المواد. مستند الفرز هو الأغنى في هذه المجموعة:
+Before delivery, items are sorted. The sort document is the richest in this group:
 
-- يسجّل **المواد المفروزة** للتوصيل، ويقارن **عدد مواد الكيس** بـ**عدد المواد في الشبكة (Grid)**، ويُبرز **الفرق** تلقائيًا.
-- يسجّل **المواد المفقودة من الكيس (Missing Mail Items)** عند اكتشاف نقص.
-- يربط **سبب وإجراء عدم التسليم (Non-Delivery Reason / Measure)** للمواد المتعذّر تسليمها.
-- يلتقط **توقيع العميل وتوقيع الموظف** كإثبات.
-- يتيح خيار **عدم جلب البيانات من IPS** للعمل اليدوي عند الحاجة.
+- It records the **sorted items** for delivery, compares the **receptacle item count** against the **count in the network (grid)**, and highlights the **difference** automatically.
+- It records the **missing mail items** of the receptacle when a shortage is found.
+- It links the **Non-Delivery Reason / Measure** for items that can't be delivered.
+- It captures the **client's signature and the employee's signature** as proof.
+- It offers a **do not fetch data from IPS** option for manual work when needed.
 
-![مستند فرز الطرود](./images/ips/postal-parcels-sort-ar.png)
+![Postal parcels sort](../../ar/modules/freight/images/ips/postal-parcels-sort-en.png)
 
-::: tip تصنيف المواد يحكم كل شيء
-دقّة **الفئة والصنف والفئة الفرعية** (Class / Category / Subclass) وكود HS على كل مادة هي ما يجعل الفرز والتخليص والتسعير صحيحًا. اضبط ملفات التصنيف الأساسية أولًا (انظر [نظرة عامة على البريد](./ips-postal-intro.md))، ثم دع المستندات تبني عليها.
+::: tip Item classification governs everything
+The accuracy of the **class, category, and subclass** and the HS code on each item is what makes sorting, clearance, and pricing correct. Set up the classification master files first (see the [postal overview](./ips-postal-intro.md)), then let the documents build on them.
 :::

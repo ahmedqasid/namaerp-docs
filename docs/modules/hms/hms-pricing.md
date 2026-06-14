@@ -1,47 +1,47 @@
-# الأسعار والتكاليف والخصومات
+# Pricing, Costing & Discounts
 
-كل خدمة في المستشفى لها سعر بيع وتكلفة. وكلما كبر المستشفى صار من غير العملي تسعير كل خدمة على حدة، فجاءت **قوائم** تجمع الأسعار والتكاليف والخصومات في مكان واحد. وتتقاسم هذه القوائم جميعها بنيةً واحدة تجعل تعلّمها مرة واحدة كافيًا.
+Every hospital service has a selling price and a cost. As a hospital grows, pricing each service individually becomes impractical, so **lists** gather prices, costs and discounts in one place. These lists all share a single structure, so learning it once is enough.
 
-## البنية المشتركة: تبويب لكل نوع خدمة
+## The shared structure: a tab per service type
 
-**قائمة الأسعار، قائمة التكاليف، الخصومات، وقائمة التكاليف غير المباشرة** كلها تتبع النمط نفسه: تبويب لكل مجال خدمة (إقامة، كشف، مرافقين، تحاليل، أشعة، عمليات، علاج طبيعي، صيدلية، مستلزمات، إشراف، خدمات، بنك دم)، وفي كل تبويب جدول سطور.
+The **sales price list, cost list, discount, and overhead list** all follow the same pattern: a tab per service area (accommodation, check, attendants, lab, radiology, surgeries, physiotherapy, pharmacy, supplies, supervision, services, blood bank), and a grid of lines on each tab.
 
-يتكرّر في كل تبويب رأسٌ موحّد: الكود والاسم، **من/إلى تاريخ الصلاحية**، **الأولوية**، **شركة التأمين**، **تصنيف المستند**، و**نسبة تحمّل المريض/الشركة**. وتشترك سطور كل الجداول في **مُحدِّدات المطابقة** نفسها التي يُختار بها السطر وقت الفوترة: المرجع المناسب للخدمة (غرفة/طبيب/نوع تحليل/نوع أشعة/نوع عملية/صنف…)، الدرجة، **فئة التأمين، شركة التأمين، فئة شركة التأمين، فئة المريض**، الفترة، والأولوية لترجيح الأقرب. ما يختلف بين القوائم هو **أعمدة القيمة** فقط.
+Each tab repeats a common header: code and name, **valid from/to**, **priority**, **insurance company**, **document category**, and **patient/company endurance percent**. And the lines on every grid share the same **matching keys** used to select a line at billing time: the relevant service reference (room / doctor / test type / radiology type / surgery type / item…), degree, **insurance class, insurance company, insurance company class, patient class**, the period, and priority to break ties. What differs between the lists is only the **value columns**.
 
-## قائمة الأسعار الطبية
+## The medical sales price list
 
-**قائمة أسعار طبية (Medical Sales Price List)** هي دفتر أسعار البيع — العمود الأساسي فيها هو **السعر**. وتُضيف تبويبات بعينها أعمدةً خاصة (تبويب العمليات يفصّل الساعات القياسية وأجر الجرّاح والمساعد والتخدير… وتبويبات الصيدلية والمستلزمات والدم تضيف الكمية والوحدة). هذه القائمة هي ما يحدّد ما يُحاسَب به المريض على كل خدمة، مع تنويعه حسب الطبيب والتأمين وفئة المريض والفترة.
+**Medical Sales Price List** is the selling-price book — its core column is **price**. Certain tabs add their own columns (the surgeries tab breaks out standard hours and surgeon/assistant/anesthesia fees; the pharmacy, supplies and blood tabs add quantity and unit). This list determines what the patient is charged for each service, varied by doctor, insurer, patient class and period.
 
-![قائمة أسعار طبية](./images/pricing/sales-price-list-ar.png)
+![Medical sales price list](../../ar/modules/hms/images/pricing/sales-price-list-en.png)
 
-## قائمة التكاليف الطبية
+## The medical cost list
 
-**قائمة تكاليف طبية (Medical Cost List)** بالشكل نفسه، لكن أعمدتها تلتقط **التكلفة** بدل السعر: **نسبة التكلفة وقيمتها**، مع ما يصل إلى ثلاثة توزيعات على **ذمم** (نصيب الطبيب/المعمل/جهة خارجية من الإيراد) لكل سطر. وفي تبويب العمليات تتوسّع كل مكوّنات الأجر إلى نسبة + قيمة + تكلفة الوقت الإضافي. تُستخدم هذه القائمة لاقتسام الإيراد مع الأطباء وحساب الربحية.
+**Medical Cost List** has the same shape, but its columns capture **cost** rather than price: **cost percentage and value**, with up to three **subsidiary** splits per line (the doctor's/lab's/external party's share of the revenue). On the surgeries tab every fee component expands into percentage + value + an additional-time cost. This list is used for revenue-sharing with doctors and for profitability.
 
-![قائمة تكاليف طبية](./images/pricing/cost-list-ar.png)
+![Medical cost list](../../ar/modules/hms/images/pricing/cost-list-en.png)
 
-## الخصومات الطبية
+## Medical discounts
 
-**خصم طبى (Medical Discount)** يطبّق خصمين متتاليين لكل سطر: **خصم 1** و**خصم 2** (نسبة لكلٍّ منها وحد أقصى للقيمة). ولكل تبويب زرّ لتحديث سطور الخصم دفعةً واحدة لشركة تأمين معيّنة من رأس المستند. يُستخدم لتطبيق خصومات خاصة بمريض أو بشركة تأمين على الخدمات.
+**Medical Discount** applies two stacked discounts per line: **Discount 1** and **Discount 2** (each a percent and a max value). Each tab has a button to bulk-update the discount lines at once for a given insurance company from the document header. It's used to apply patient- or insurer-specific discounts to services.
 
-![خصم طبى](./images/pricing/discount-ar.png)
+![Medical discount](../../ar/modules/hms/images/pricing/discount-en.png)
 
-## التكاليف غير المباشرة (Overhead)
+## Indirect (overhead) costing
 
-ليست كل تكلفة مباشرة؛ فهناك الكهرباء والنظافة والإدارة. يوزّع النظام هذه التكاليف على الخدمات عبر منظومة من ثلاث قطع:
+Not every cost is direct — there's electricity, cleaning, administration. The system allocates these onto services through a three-piece machinery:
 
-- **بند تكاليف طبية غير مباشرة (Overhead Item)** — يُعرّف بند تكلفة واحدًا (كهرباء، نظافة…) وحساباته، و**طريقة قراءة قيمته الفعلية** من دفتر الأستاذ، و**طريقة توزيعه** على أنواع الفواتير بأوزان (عدد أسهم).
+- **Overhead Item** — defines a single indirect-cost item (electricity, housekeeping…) and its accounts, **how to read its actual value** from the ledger, and **how to distribute it** across invoice types by weights (shares).
 
-![بند تكاليف غير مباشرة](./images/pricing/overhead-item-ar.png)
+![Overhead item](../../ar/modules/hms/images/pricing/overhead-item-en.png)
 
-- **قائمة تكاليف طبية غير مباشرة (Overhead List)** — القيمة **التقديرية** للتكلفة غير المباشرة المحمّلة على كل خدمة (تتبع البنية المشتركة بتبويباتها)، فتُحمَّل تلقائيًا على الفواتير.
+- **Overhead List** — the **estimated** indirect cost loaded onto each service (it follows the shared tabbed structure), applied automatically to invoices.
 
-- **سند حساب التكلفة الطبية الغير مباشرة الفعلية (Actual Overhead Calculation)** — مستند دوري في نهاية الفترة يحسب التكلفة غير المباشرة **الفعلية** ويوزّعها. تعمل عليه ثلاثة أزرار بالترتيب: **تجميع الفواتير وبنود التكلفة**، ثم **حساب قيمة التكلفة غير المباشرة**، ثم **توزيع القيمة الفعلية** — ليُرحّل الفرق بين المُقدَّر والفعلي.
+- **Actual Overhead Calculation** — a period-end document that computes and distributes the **actual** indirect cost. Three buttons run in order: **Collect Invoices and Overhead Items**, then **Calculate Overhead Value**, then **Distribute Actual Value** — posting the variance between estimated and actual.
 
-![حساب التكلفة الفعلية](./images/pricing/actual-overhead-ar.png)
+![Actual overhead calculation](../../ar/modules/hms/images/pricing/actual-overhead-en.png)
 
-## تغيير خطة أسعار المريض
+## Changing a patient's price plan
 
-أحيانًا تتأكّد تغطية التأمين بعد دخول المريض وإصدار فواتيره. هنا يأتي مستند **تغيير خطة أسعار مريض (Change Patient Price Plan)** ليعيد تسعير فواتير المريض الصادرة بأثر رجعي. تختار المريض وإستمارة دخوله والفترة وشركة التأمين ونِسَب التحمّل الجديدة، ثم يجمع زرّ **تجميع الفواتير** فواتيره ضمن المدى، ويعرض الجدول لكل فاتورة **الإجمالي قبل التغيير** و**بعده** ومُصنِّفات السعر القديمة والجديدة.
+Sometimes insurance coverage is confirmed after a patient is admitted and their invoices have been issued. The **Change Patient Price Plan** document re-prices a patient's issued invoices retroactively. You pick the patient, their admission, the period, the insurance company and the new endurance percentages; the **Collect Invoices** button gathers their invoices in range, and the grid shows for each invoice the **total before** and **after** the change, with the old and new price classifiers.
 
-![تغيير خطة أسعار مريض](./images/pricing/change-price-plan-ar.png)
+![Change patient price plan](../../ar/modules/hms/images/pricing/change-price-plan-en.png)

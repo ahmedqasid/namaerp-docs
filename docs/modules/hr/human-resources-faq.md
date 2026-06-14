@@ -1,134 +1,130 @@
-<rtl>
+# Frequently Asked Questions — Payroll and Human Resources Module
 
-# أسئلة شائعة في موديول الرواتب والموارد البشرية 
+## If an employee is late for the morning check-in due to an emergency (no salary deduction), how should this be handled in the system?
 
-## إذا تأخر الموظف عن البصمة الصباحية لظرف طارئ (غير مستقطع من الراتب)، كيف يتم التعامل معه في النظام؟
+## Answer:
 
-## الإجابة:
+If an employee arrives later than the scheduled time (for example, they were due at 8:00 AM but arrived at 10:00 AM) and they have a **valid excuse**, the system can exclude this delay from deductions or warnings, provided a formal permission record is entered.
 
-في حال تأخر الموظف عن الموعد المحدد للحضور (مثلاً من المفترض أن يحضر الساعة 8 صباحًا، ولكنه حضر الساعة 10 صباحًا)، وكان لديه **عذر مقبول**، فإن النظام يمكنه استثناء هذا التأخير من الخصم أو الإنذار، بشرط تسجيل إذن رسمي.
+### Processing Steps in the System:
 
-### خطوات المعالجة في النظام:
+1. **Open the "Leave Permission" screen**:
 
-1. **فتح شاشة "إذن انصراف"**:
+    * Enter a permission that covers the period from **08:00 to 10:00** on the same day as the delay.
+    * Select the appropriate permission type (for example: excused late arrival, not deducted from salary).
 
-    * قم بإدخال إذن يغطي الفترة من الساعة **08:00 إلى الساعة 10:00** في نفس يوم التأخير.
-    * اختر نوع الإذن المناسب (مثلاً: إذن تأخير بعذر، غير مستقطع من الراتب).
+2. **Result**:
 
-2. **النتيجة**:
+    * When delays are calculated in the attendance and departure sheet, the system will **exclude the two hours** from the delay count.
+    * Therefore, **the day will not be counted as a delay**, and no deduction or warning will be recorded against the employee.
 
-    * عند احتساب التأخيرات في كشف الحضور والانصراف، سيقوم النظام **باستثناء الساعتين** من التأخير.
-    * بالتالي، **لن يتم احتساب اليوم كتأخير**، ولن يُخصم من الموظف أو يُسجل عليه إنذار.
+::: tip Additional Notes
 
-::: tip ملاحظات إضافية
-
-* يُفضل توثيق سبب الإذن في حقل الملاحظات.
-* يمكن إعداد صلاحيات للمدير المباشر أو مسؤول الموارد البشرية للموافقة على الإذن عند الحاجة.
+* It is recommended to document the reason for the permission in the Notes field.
+* You can configure permissions for the direct manager or HR officer to approve the permission when needed.
 :::
 
 ---
 
-## مطلوب معرفة تأخيرات الموظف و حساب إضافي له في أيام العطلات الاسبوعية و العطلات الرسمية؟
+## How can employee delays and overtime be calculated on weekly holidays and official holidays?
 
-### آلية حساب التأخيرات والإضافي:
+### Mechanism for Calculating Delays and Overtime:
 
-#### 1. **العطلات الرسمية والإجازات الاسبوعية:**
+#### 1. **Official Holidays and Weekly Days Off:**
 
-يتم التحكم في طريقة حساب الإضافي للعطلات من خلال إعدادات **إعدادات الموارد البشرية** (`HRConfiguration`):
+Overtime calculation for holidays is controlled through the settings in **HR Configuration** (`HRConfiguration`):
 
-* **للعطلات الرسمية**: يُفعّل إعداد **"احتساب وقت العمل بطريقة عادية لأيام العطلات الرسمية (الاضافي لن يكون طوال اليوم)"**
-* **للإجازات الاسبوعية**: يُفعّل إعداد **"احتساب وقت العمل بطريقة عادية لأيام الاجازة (الاضافي لن يكون طوال اليوم)"**
+* **For official holidays**: Enable the setting **"Calculate work hours normally for official holiday days (overtime will not be the full day)"**
+* **For weekly days off**: Enable the setting **"Calculate work hours normally for vacation days (overtime will not be the full day)"**
 
-عند تفعيل هذه الإعدادات:
-- لا يتم اعتبار اليوم كاملاً كوقت إضافي
-- يُحسب فقط الوقت الفعلي الذي عمله الموظف زائد عن التوقيت المحدد
+When these settings are enabled:
+- The entire day is not treated as overtime
+- Only the actual time worked beyond the scheduled hours is calculated
 
-#### 2. **حساب التأخيرات:**
+#### 2. **Calculating Delays:**
 
-يتم حساب التأخيرات بناءً على **ملف الدوام** (`AttendanceShift`) المخصص للموظف:
+Delays are calculated based on the **Attendance Shift** (`AttendanceShift`) file assigned to the employee:
 
-* **أوقات العمل**: يتم تحديد أوقات الحضور والانصراف لكل يوم من أيام الأسبوع
-* **العطلات الاسبوعية**: يتم تحديدها في ملف الدوام (مثلاً: الجمعة راحة إسبوعية)
-* **السماح بتحديد مواعيد**: إعداد **"السماح بتحديد مواعيد الحضور و الانصراف للعطلات الاسبوعية"** يحدد إمكانية العمل في أيام العطل
+* **Working Hours**: Check-in and check-out times are defined for each day of the week
+* **Weekly Days Off**: These are defined in the attendance shift file (for example: Friday as a weekly rest day)
+* **Allow Specifying Times**: The setting **"Allow specifying check-in and check-out times for weekly days off"** determines whether work on rest days is possible
 
-#### 3. **معالجة إذن الانصراف:**
+#### 3. **Processing Leave Permissions:**
 
-لمعالجة التأخيرات التي لها عذر مقبول، يتم استخدام **إذن إنصراف** (`LeavePermission`):
+To handle delays that have a valid excuse, use a **Leave Permission** (`LeavePermission`):
 
-1. **إنشاء الإذن**: يُسجّل إذن يغطي فترة التأخير
-2. **التأثير على الإضافي**: حسب إعداد **"اعتبار الاذون عند حساب الوقت الاضافي"** في إعدادات الموارد البشرية
-3. **التأثير على التأخير**: سيتم استثناء فترة الإذن من حساب التأخيرات
+1. **Create the permission**: Register a permission covering the delay period
+2. **Effect on overtime**: Depends on the setting **"Consider leave permissions when calculating overtime"** in HR Configuration
+3. **Effect on delays**: The permission period will be excluded from the delay calculation
 
-#### 4. **إعدادات تحكم إضافية:**
+#### 4. **Additional Control Settings:**
 
-* **حساب الوقت الإضافي من إنتهاء الدوام**: يحدد متى يبدأ حساب الإضافي
-* **اعتبار المأموريات عند حساب الوقت الاضافي**: تأثير المأموريات على حساب الإضافي
-* **عدد الساعات المسموح بها قبل منع تسجيل الانصراف**: حد أقصى للساعات المسموحة
+* **Calculate overtime from end of shift**: Determines when overtime starts being counted
+* **Consider assignments when calculating overtime**: The effect of assignments on overtime calculation
+* **Number of hours allowed before preventing check-out registration**: Maximum allowed hours
 
-::: tip ملاحظات تقنية هامة
-- **ملف الدوام** (`AttendanceShift`) يحدد أوقات العمل والعطل لكل يوم
-- **إعدادات الموارد البشرية** (`HRConfiguration`) تتحكم في سلوك حساب الإضافي والتأخير
-- **إذن الانصراف** (`LeavePermission`) يُستخدم لاستثناء فترات التأخير المبررة
-- يمكن تخصيص **نوع سبب** (`LeaveReason`) مختلف لكل إذن حسب طبيعة العذر
+::: tip Important Technical Notes
+- The **Attendance Shift** (`AttendanceShift`) defines working hours and rest days for each day
+- **HR Configuration** (`HRConfiguration`) controls overtime and delay calculation behavior
+- **Leave Permission** (`LeavePermission`) is used to exclude justified delay periods
+- A different **Leave Reason** (`LeaveReason`) type can be assigned to each permission depending on the nature of the excuse
 :::
 
-::: details الحقول التقنية في النظام
-**في ملف الدوام (`AttendanceShift`)**:
-- `allowSpecifyingTimeInWeekEnd`: السماح بتحديد مواعيد الحضور و الانصراف للعطلات الاسبوعية
-- `friday.weeklyRest`: تحديد يوم الجمعة كراحة إسبوعية
-- `numberOfHoursAllowedBeforePreventingCheckOut`: عدد الساعات المسموح بها قبل منع تسجيل الانصراف
+::: details Technical Fields in the System
+**In the Attendance Shift (`AttendanceShift`)**:
+- `allowSpecifyingTimeInWeekEnd`: Allow specifying check-in and check-out times for weekly days off
+- `friday.weeklyRest`: Mark Friday as a weekly rest day
+- `numberOfHoursAllowedBeforePreventingCheckOut`: Number of hours allowed before preventing check-out registration
 
-**في إعدادات الموارد البشرية (`HRConfiguration`)**:
-- `calculateNormalWorkHoursForHolidays`: احتساب وقت العمل بطريقة عادية لأيام العطلات الرسمية
-- `calculateNormalWorkHoursForVacations`: احتساب وقت العمل بطريقة عادية لأيام الاجازة
-- `overTimeAfterWorkTime`: حساب الوقت الإضافي من إنتهاء الدوام
-- `leavePermissionAddsOvertime`: اعتبار الاذون عند حساب الوقت الاضافي
-:::
-
----
-
-## كيف يمكن جعل سندات الراتب تُنشئ قيد إجمالي لكل الموظفين مرة واحدة بدلاً من قيد لكل موظف للحفاظ على سرية المعلومات؟
-
-- المشكلة:
-بشكل افتراضي، ينشئ النظام **قيد محاسبي منفصل لكل سند راتب موظف**، مما يعني أن أي شخص لديه صلاحية الاطلاع على القيود المحاسبية يمكنه معرفة تفاصيل راتب كل موظف على حدة، وهذا يتعارض مع **سرية معلومات الرواتب**.
-
-- الحل:
-يمكن تطبيق نظام **القيد الإجمالي الموحد** من خلال الخطوات التالية:
-
-1. **إعدادات توجيه سند الراتب (SalaryDocument):**
-- فعّل الخيار **"بدون تاثير محاسبي" (`withoutAccountingEffect`)** في توجيه سند الراتب
-- هذا سيمنع إنشاء قيود محاسبية فردية لكل سند راتب
-
-2. **إعدادات توجيه سجل الرواتب (SalarySheet):**
-- فعّل الخيار **"إنشاء تأثير محاسبي" (`generateAccountingEffects`)** في توجيه سجل الرواتب  
-- هذا سيؤدي إلى إنشاء قيد محاسبي واحد إجمالي عند حفظ سجل الرواتب
-
-⚠️ **خطوات إضافية مهمة لضمان السرية:**
-
-3. **تعديل التأثير المحاسبي لمفردات الراتب:**
-يجب تغيير التأثير المحاسبي في **ملف مفردات الراتب** (`SalaryComponent`) من:
-- **قبل:** حساب ذمة موظف (يظهر اسم الموظف في القيد)
-- **بعد:** حساب فرعي عام (رقم إجمالي بدون أسماء موظفين)
-
-4. **تغيير مستحقات الموظفين:**
-- تغيير حسابات **مستحقات الموظفين** من **حسابات ذمة موظف** إلى **حسابات فرعية عامة**
-- استخدام أرقام إجمالية بدلاً من أسماء الموظفين
-
----
-
- 🎯 **النتيجة النهائية:**
-
-::: tip **مع التطبيق الصحيح للخطوات أعلاه:**
-- ✅ **قيد محاسبي واحد إجمالي** بدلاً من قيود فردية لكل موظف
-- ✅ **حفظ سرية الرواتب** - لن يظهر راتب أي موظف في القيود المحاسبية
-- ✅ **أرقام إجمالية فقط** في الحسابات الفرعية
-- ✅ **دقة محاسبية** مع الحفاظ على إجمالي الرواتب والمستحقات
-:::
-
-::: warning **تحذير مهم:**
-إذا **لم** تقم بتغيير حسابات مستحقات الموظفين من **ذمة موظف** إلى **حساب فرعي عام**، فسيظل بإمكان الأشخاص الذين لديهم صلاحية الاطلاع على القيود المحاسبية **معرفة تفاصيل راتب كل موظف**، وبالتالي لن تتحقق السرية المطلوبة.
+**In HR Configuration (`HRConfiguration`)**:
+- `calculateNormalWorkHoursForHolidays`: Calculate work hours normally for official holiday days
+- `calculateNormalWorkHoursForVacations`: Calculate work hours normally for vacation days
+- `overTimeAfterWorkTime`: Calculate overtime from end of shift
+- `leavePermissionAddsOvertime`: Consider leave permissions when calculating overtime
 :::
 
 ---
 
-</rtl>
+## How can salary vouchers be made to create a single consolidated journal entry for all employees at once instead of a separate entry per employee, in order to maintain payroll confidentiality?
+
+- The Problem:
+By default, the system creates a **separate accounting journal entry for each employee's salary voucher**, which means anyone with access to the accounting entries can see each employee's individual salary details. This conflicts with **payroll confidentiality**.
+
+- The Solution:
+A **unified consolidated journal entry** system can be applied through the following steps:
+
+1. **Salary Document Term Config (SalaryDocument) settings:**
+- Enable the **"Without Accounting Effect" (`withoutAccountingEffect`)** option in the salary document term config
+- This will prevent the creation of individual journal entries for each salary voucher
+
+2. **Salary Sheet Term Config (SalarySheet) settings:**
+- Enable the **"Generate Accounting Effects" (`generateAccountingEffects`)** option in the salary sheet term config
+- This will result in a single consolidated journal entry being created when the salary sheet is saved
+
+⚠️ **Additional Important Steps to Ensure Confidentiality:**
+
+3. **Modify the accounting effect for salary components:**
+Change the accounting effect in the **Salary Component** (`SalaryComponent`) file from:
+- **Before:** Employee receivable account (employee name appears in the entry)
+- **After:** General subsidiary account (aggregate number without employee names)
+
+4. **Change employee payables accounts:**
+- Change **employee payables** accounts from **employee receivable accounts** to **general subsidiary accounts**
+- Use aggregate numbers instead of employee names
+
+---
+
+🎯 **Final Result:**
+
+::: tip **With the correct application of the steps above:**
+- ✅ **One consolidated journal entry** instead of individual entries per employee
+- ✅ **Payroll confidentiality preserved** — no employee's salary will appear in accounting entries
+- ✅ **Aggregate numbers only** in subsidiary accounts
+- ✅ **Accounting accuracy** while maintaining total payroll and payables figures
+:::
+
+::: warning **Important Warning:**
+If you do **not** change the employee payables accounts from **employee receivable** to **general subsidiary accounts**, people with access to the accounting entries will still be able to **see each employee's salary details**, and therefore the required confidentiality will not be achieved.
+:::
+
+---

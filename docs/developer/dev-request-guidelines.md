@@ -1,72 +1,67 @@
-<rtl>
+# Guidelines for Submitting Development Requests by Support and Setup Teams
 
-# ضوابط إنشاء طلبات تطوير من قبل أقسام الدعم الفني والتجهيز بالشركة
+- Namasoft provides an internal system for tracking development requests arising from:
+  - Issues encountered by customers
+  - Or new requests that require development work
 
-- توفر نماسوفت نظامًا داخليًا لمتابعة طلبات التطوير الناتجة عن:
-  - مشاكل حدثت لدى العملاء
-  - أو طلبات جديدة بحاجة لتطوير
+## Before Submitting a Request for a New Feature
+- Make sure the requested feature **does not already exist** in the system
 
-## قبل تقديم طلب تطوير لإضافة جديدة
-- تأكد أن الميزة المطلوبة **غير موجودة** بالفعل بالنظام
+## When Submitting a Request to Fix a Bug
+- You must **attach a log from the system**:
+  - Press `Ctrl + Alt + L`, then perform the action that caused the issue
+  - If no log appears after saving or performing the action:
+    - Retrieve the `namasoft.log` file from the server
+    - Or use `utils.html` if access to the server is not possible
 
-## عند تقديم طلب تطوير لحل مشكلة
-- يجب **إرفاق لوج من النظام**:
-  - اضغط على `Ctrl + Alt + L` ثم نفذ الإجراء الذي أدى إلى المشكلة
-  - إذا لم يظهر لوج بعد الحفظ أو الإجراء:
-    - قم بإحضار ملف `namasoft.log` من السيرفر
-    - أو استخدم `utils.html` إذا تعذر الدخول إلى السيرفر
+## When Requesting New Fields
+- Copy the name of the **screen's table** that you want to add the fields to
+  - You can copy it from the screen's URL or by using `Ctrl + Alt + I` (Show Field Info)
 
-## عند طلب إضافة حقول جديدة
-- انسخ اسم **جدول الشاشة** التي تريد الإضافة إليها
-  - يمكن نسخه من رابط الشاشة أو باستخدام `Ctrl + Alt + I` (Show Field Info)
+## To Make It Easier to Reproduce the Issue
+- It is best to provide a **backup of the customer's database** where the issue occurred
+- Do not post the backup link in the discussion
+  - Use the `Backup URL` field exclusively for this purpose
+  - ⚠️ This is an **extremely important** point and must be followed
 
-## لسهولة إعادة إنتاج المشكلة
-- من الأفضل إحضار **نسخة احتياطية من قاعدة بيانات العميل** الذي ظهرت عنده المشكلة
-- لا تضع رابط النسخة الاحتياطية في النقاش
-  - استخدم الحقل `Backup URL` لهذا الغرض فقط
-  - ⚠️ هذه نقطة **غاية في الأهمية** ويجب الالتزام بها
+## When Writing the Request
+- Write the request in a **clear and precise** manner
+- Explain the **steps to reproduce the issue** in detail
+- Avoid vague phrases such as: *"The screen does not work"*
 
-## عند كتابة الطلب
-- اكتب الطلب بشكل **واضح ودقيق**
-- اشرح **خطوات إعادة ظهور المشكلة** بالتفصيل
-- تجنب العبارات العامة مثل: *"الشاشة لا تعمل"*
+## After Development Is Complete
+- You will receive an email notification when the request is finished
+  - **However, this does not mean** the fix has been released in a system version
+- Open the request and check the following fields:
+  - `Release Name`
+  - `First Release Name`
+- If either field has a value, it means the changes **have been released**
+- If **both are empty**, it means the changes **have not yet been included in a new release**
 
-## بعد انتهاء التطوير
-- سيصلك تنبيه على البريد الإلكتروني بإنهاء الطلب
-  - **لكن هذا لا يعني** أن الحل تم إصداره في نسخة من النظام
-- افتح الطلب وتحقق من الحقول التالية:
-  - `اسم الإصدار`
-  - `اسم أول إصدار`
-- إذا وجدت قيمة في أحدهما فهذا يعني أن التعديلات **تم إصدارها**
-- إذا كان **كلاهما فارغين**، فذلك يعني أن التعديلات **لم تُدرج بعد في إصدار جديد**
+## Development Team Guidelines When Executing Development Requests
 
-## ضوابط العمل لقسم التطوير عند تنفيذ طلبات التطوير
+- **Understand the Requirements Accurately**
+  - If any part is unclear, contact your direct manager or the request creator to clarify the details
 
-- **فهم المطلوب بدقة**
-  - في حال وجود أي جزء غير واضح، يجب التواصل مع المدير المباشر أو مع منشئ الطلب لتوضيح التفاصيل
+- **Thoroughly Test What Has Been Implemented**
+  - Make sure the modification or added feature is tested in a way that covers most possible scenarios and outcomes
 
-- **الاختبار الشامل لما تم تنفيذه**
-  - تأكد من تجربة التعديل أو الميزة المضافة بشكل يغطي معظم السيناريوهات والاحتمالات الممكنة
+- **Review the Code Before Presenting It**
+  - Carefully review the code before presenting it to your direct manager for review
 
-- **مراجعة الكود قبل عرضه**
-  - قم بمراجعة الكود بعناية قبل عرضه على المدير المباشر للمراجعة
+- **Clarify What Is Needed to Activate the Changes**
+  - If the modification requires enabling settings, options in the modified entity, a specific Term Config, or any other configuration, this must be explicitly stated so that the support or setup team can activate it correctly
 
-- **توضيح المطلوب لتفعيل التعديلات**
-  - إذا كان التعديل يتطلب تفعيل إعدادات، خيارات في الكيان المعدل، توجيه معين، أو أي إعدادات أخرى، يجب توضيح ذلك صراحة حتى يتمكن فريق الدعم أو التجهيز من التفعيل بشكل صحيح
+- **Do Not Waste Your Colleagues' Time in Support and Setup**
+  - Avoid directing questions that could be answered by your colleagues in the development team or your direct manager, in order to preserve the time and effort of the other teams
 
-- **عدم إهدار وقت زملاء الدعم والتجهيز**
-  - تجنب توجيه الأسئلة التي يمكن أن يجيب عليها زملاؤك في قسم التطوير أو مديرك المباشر، حفاظًا على وقت وجهد باقي الفرق
+- **The Importance of Internal Testing Before Handover**
+  - If the modification has not been tested internally and the issue reappears with the support or setup team:
+    - It causes **discouragement for the colleague**
+    - It puts them in an **embarrassing situation in front of the customer**
+    - And it causes them to **lose trust in the development team and its members**
 
-- **أهمية التجربة الداخلية قبل التسليم**
-  - في حال عدم تجربة التعديل وظهور المشكلة مجددًا لدى فريق الدعم أو التجهيز:
-    - يؤدي ذلك إلى **إحباط الزميل**
-    - يتسبب له في **حرج أمام العميل**
-    - ويفقد **ثقته في قسم التطوير ومنتسبيه**
-
-  لذلك نؤكد على ما يلي:
-  - **الفهم الجيد** للمطلوب
-  - **المراجعة الدقيقة** للتعديلات
-  - **الاختبار العملي** لما تم تنفيذه بأكثر من طريقة
-
-
-</rtl>
+  Therefore, we emphasize the following:
+  - **Thoroughly understanding** the requirements
+  - **Carefully reviewing** the changes
+  - **Practically testing** what has been implemented in more than one way

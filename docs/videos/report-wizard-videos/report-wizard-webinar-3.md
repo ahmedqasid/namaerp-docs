@@ -1,174 +1,171 @@
-<rtl>
+﻿# Complete Documentation for Creating Cross Tab Reports, Account Statements, and Inventory Movement Using the Report Builder
 
-# توثيق كامل لإنشاء تقارير الكروس تاب، كشف الحساب، وحركة المخزون باستخدام أداة إنشاء التقارير
-[لمشاهدة الفيديو](https://youtu.be/jZGCZt99ouw)
+[Watch the video](https://youtu.be/jZGCZt99ouw)
 
-السلام عليكم ورحمة الله وبركاته، نبدأ اليوم باستعراض شامل ومفصل لشرح كيفية إنشاء تقارير **كروس تاب (Cross Tab)** وكذلك **كشف حساب** و**كشف حركة مخزنية** باستخدام أداة إنشاء التقارير. هذا الشرح مطابق تماماً لما ورد في الفيديو مع تضمين كل التفاصيل، الأمثلة، الخطوات، والتعليمات بدون تلخيص أو حذف.
+Welcome. Today we present a comprehensive and detailed walkthrough of how to create **Cross Tab** reports as well as **Account Statements** and **Inventory Movement** reports using the Report Builder tool. This documentation matches exactly what is covered in the video, including all details, examples, steps, and instructions without omission or summarization.
 
-لمشاهدة الفيديو الأصلي يمكنكم الانتقال مباشرة إلى:  
-[ابدأ من 00:00:01](https://youtu.be/jZGCZt99ouw?t=1)
-
----
-
-# 1. ما هو تقرير كروس تاب (Cross Tab)؟ وكيفية إنشائه؟  
-_00:00:01 – 00:09:42_
-
-- الكروس تاب هو تقرير يعرض البيانات بفرد الأعمدة بدلاً من السطور، وهو اختلاف جوهري عن التقارير العادية.
-- الأعمدة تكون مكررة حسب المتغير الذي تريد تركيز التقرير عليه (مثل المخازن)، والصفوف تمثل الأصناف.
-- الجدول المستخدم في المثال هو جدول "Item Dimension Key" يحتوي على بيانات الأصناف والمخازن والكميات.
-- الخطوة الأولى هي اختيار الألوان المناسبة لتصميم التقرير، مع خيارات شبيهة بألوان Jasper مثل (Hard, Light, Blue).
-- في الإعدادات نختار نوع التقرير "كروس تاب فقط" بدون جدول عادي.
-- الأعمدة في الكروس تاب تمثل المخازن بينما الصفوف تمثل الأصناف.
-- يتم إضافة فلتر لإظهار الكميات فقط الأكبر من أو تساوي 0.
-- نوع المعادلة على الأعمدة يكون عادة مجموع (Sum).
-
-### مثال عملي  
-- اختيار أول 25 صنفاً من إجمالي 164 صنف موجودين.
-- عرض الأعمدة (المخازن) والصفوف (الأصناف) والكميات الحالية.
-- ملاحظة: الروابط على المخازن غير مدعومة حالياً في الكروس تاب.
-
-[شاهد الجزء من 00:00:01](https://youtu.be/jZGCZt99ouw?t=1)  
-[شاهد الجزء من 00:07:19](https://youtu.be/jZGCZt99ouw?t=439)
+To watch the original video you can go directly to:  
+[Start from 00:00:01](https://youtu.be/jZGCZt99ouw?t=1)
 
 ---
 
-# 2. تطوير تقرير الكروس تاب والربط مع التصنيفات  
-_00:07:19 – 00:11:37_
+# 1. What Is a Cross Tab Report and How to Create One?  
+_00:00:01 - 00:09:42_
 
-- إضافة تصنيفات مختلفة في الصفوف مثل (تصنيف 1) قبل الأصناف.
-- اختيار التصنيفات بشكل صحيح بحيث تظهر بالترتيب المنطقي (التصنيف قبل الصنف).
-- تحري الدقة في اختيار حقول التصنيف وربطها بشكل صحيح بجدول الأصناف.
-- تمكين رابط للمعلبات والمخبوزات ضمن التصنيفات مع إظهار الإجماليات.
-- تقديم مثال يعرض أكثر من حقل رقمي (كمية حالية، كمية منصرفة).
-- التأكيد على إمكانية التعامل مع مجموعات تقارير وتقسيمات معقدة بسهولة.
-- نصيحة للمهتمين بدعم النظام بأن يجربوا عمل تقارير كروس تاب.
+- A Cross Tab report displays data by expanding columns rather than rows - a fundamental difference from regular reports.
+- Columns are repeated according to the variable you want to focus on (e.g., warehouses), while rows represent items.
+- The table used in the example is "Item Dimension Key", which contains item, warehouse, and quantity data.
+- The first step is to choose appropriate colors for the report design, with options similar to Jasper colors such as (Hard, Light, Blue).
+- In the settings we select the report type "Cross Tab only" without a regular table.
+- Columns in the Cross Tab represent warehouses while rows represent items.
+- A filter is added to show only quantities greater than or equal to 0.
+- The formula type on columns is usually Sum.
 
-[شاهد الجزء من 00:07:19](https://youtu.be/jZGCZt99ouw?t=439)  
-[شاهد الجزء من 00:11:37](https://youtu.be/jZGCZt99ouw?t=697)
+### Practical Example  
+- Selecting the first 25 items out of a total of 164 items.
+- Displaying columns (warehouses), rows (items), and current quantities.
+- Note: Links on warehouses are not currently supported in Cross Tab.
 
----
-
-# 3. التحكم في الصلاحيات والأمان (Security Constraints) داخل التقرير  
-_00:11:37 – 00:16:42_
-
-- شرح آلية تطبيق صلاحيات المستخدم على البيانات التي يعرضها التقرير.
-- تحديد صلاحيات المطالعة أو التعديل بناء على الشركة أو الفرع أو القطاع.
-- نظام الشركات المركبة: إذا كان المستخدم داخل شركة مركبة، تظهر له بيانات الشركات التابعة لذلك المجمّع فقط.
-- أخفاء الأصناف الحساسة التي لا يملك المستخدم صلاحية مشاهدتها.
-- شروحات عملية لكيفية تطبيق الفلاتر الأمنية باستخدام أعمدة محددة داخل الجريد (Grid).
-- التأكيد أن النظام يقوم تلقائياً بمعالجة هذه الصلاحيات لتقييد البيانات حسب صلاحيات الدخول.
-
-[شاهد الجزء من 00:11:37](https://youtu.be/jZGCZt99ouw?t=697)  
-[شاهد الجزء من 00:16:42](https://youtu.be/jZGCZt99ouw?t=1002)
+[Watch from 00:00:01](https://youtu.be/jZGCZt99ouw?t=1)  
+[Watch from 00:07:19](https://youtu.be/jZGCZt99ouw?t=439)
 
 ---
 
-# 4. الفرق بين تقرير الكروس تاب والتقرير العادي (Group Report)  
-_00:18:07 – 00:21:40_
+# 2. Developing the Cross Tab Report and Linking to Categories  
+_00:07:19 - 00:11:37_
 
-- التقرير العادي يستخدم التجميع (Grouping) في الصفوف لكن لا يفرد الأعمدة.
-- يتم شرح الفرق الجوهري بين الكروس تاب الذي يفرد الأعمدة وبين التقرير العادي الذي يحتوي تجميع صفوف متعددة المستويات.
-- إمكانية وضع مستويات متعددة (Levels) في الصفوف كتسلسل هرمي (مثلاً صنف ثم تصنيف).
-- كيف يختلف عرض التوتال (الإجمالي) في كل نوع من التقرير.
-- توضيح أن الكروس تاب مفيد جداً عند الرغبة في مقارنة البيانات حسب المخازن بشكل أفقي.
-- التنويه إلى حلول مشاكل غير ظهور بعض الميزات في نسخ قديمة من البرنامج والحاجة إلى تحديثها.
+- Adding different categories in rows such as (Category 1) before items.
+- Selecting categories correctly so they appear in a logical order (category before item).
+- Being precise when selecting category fields and linking them correctly to the items table.
+- Enabling a link for canned goods and baked goods within categories while showing totals.
+- Providing an example that displays more than one numeric field (current quantity, issued quantity).
+- Confirming the ability to handle report groups and complex breakdowns easily.
+- A tip for those interested in supporting the system: try building Cross Tab reports.
 
-[شاهد الجزء من 00:18:07](https://youtu.be/jZGCZt99ouw?t=1087)  
-[شاهد الجزء من 00:21:40](https://youtu.be/jZGCZt99ouw?t=1300)
+[Watch from 00:07:19](https://youtu.be/jZGCZt99ouw?t=439)  
+[Watch from 00:11:37](https://youtu.be/jZGCZt99ouw?t=697)
 
 ---
 
-# 5. إنشاء تقرير كشف حساب وحركة مخزنية مفصل  
-_00:26:09 – 00:54:30_
+# 3. Controlling Permissions and Security Constraints Inside the Report  
+_00:11:37 - 00:16:42_
 
-- بداية شرح كشف الحساب الذي يحتوي على:
-  - الرصيد الافتتاحي.
-  - الحركات المالية (مدين ودائن) حسب الحساب والذمة.
-  - الرصيد الختامي.
+- Explaining how user permissions are applied to the data displayed by the report.
+- Defining read or edit permissions based on company, branch, or sector.
+- Composite company system: if the user is inside a composite company, they only see data belonging to the subsidiaries of that group.
+- Hiding sensitive items that the user does not have permission to view.
+- Practical explanations of how to apply security filters using specific columns inside the Grid.
+- Confirmation that the system automatically handles these permissions to restrict data according to access rights.
 
-- تحديد الجداول الأساسية المستخدمة:
-  - جداول `ledger_trans_line` للحركات.
-  - جداول `item_dimension_key` للكميات والمخازن.
-  - جداول الكلفة المتوسطة والتكاليف عبر جدول `item_dimension_cost`.
+[Watch from 00:11:37](https://youtu.be/jZGCZt99ouw?t=697)  
+[Watch from 00:16:42](https://youtu.be/jZGCZt99ouw?t=1002)
 
-- بحث مفصل في كيفية جلب الحركات تحت شروط زمنية (فلاتر تواريخ).
-- معالجة حالات:
-  - حساب له رصيد افتتاحي فقط.
-  - حساب له حركات فقط.
-  - حساب له رصيد وحركات معاً.
-  - حساب لا يوجد به بيانات.
-- استخدام دوال حسابية ومعادلات مبنية في أداة إنشاء التقرير للحساب بدقة مثل:
+---
+
+# 4. The Difference Between a Cross Tab Report and a Regular Report (Group Report)  
+_00:18:07 - 00:21:40_
+
+- The regular report uses Grouping in rows but does not expand columns.
+- The fundamental difference is explained between Cross Tab, which expands columns, and a regular report that contains multi-level row grouping.
+- The ability to place multiple Levels in rows as a hierarchy (e.g., item then category).
+- How the total display differs in each report type.
+- Clarification that Cross Tab is very useful when you want to compare data by warehouses horizontally.
+- A note about fixes for missing features in older versions of the software and the need to update them.
+
+[Watch from 00:18:07](https://youtu.be/jZGCZt99ouw?t=1087)  
+[Watch from 00:21:40](https://youtu.be/jZGCZt99ouw?t=1300)
+
+---
+
+# 5. Creating a Detailed Account Statement and Inventory Movement Report  
+_00:26:09 - 00:54:30_
+
+- Beginning the explanation of the Account Statement, which contains:
+  - Opening balance.
+  - Financial transactions (debit and credit) by account and liability.
+  - Closing balance.
+
+- Identifying the main tables used:
+  - `ledger_trans_line` tables for transactions.
+  - `item_dimension_key` tables for quantities and warehouses.
+  - Average cost and costing tables via `item_dimension_cost`.
+
+- A detailed look at how to retrieve transactions under time-based conditions (date filters).
+- Handling cases:
+  - An account with an opening balance only.
+  - An account with transactions only.
+  - An account with both a balance and transactions.
+  - An account with no data.
+- Using calculation functions and formulas built into the Report Builder for accurate computation such as:
   
   ```sql
-  الرصيد = الرصيد الافتتاحي + مجموع الحركات (مدين - دائن)
+  Balance = Opening Balance + Sum of Transactions (Debit - Credit)
   ```
 
-- شرح كيفية التعامل مع القيم `NULL` ضمن SQL وتجنب تأثيرها على الحساب.
-- ضبط ترتيب البيانات حسب التاريخ ووسيلة فرز معتمدة على `value_date` و`creation_date`.
-- عرض كيفية تكوين مجموعات (Groups) وحساب الإجماليات بشكل ديناميكي على مستوى الحسابات والذمم.
-- شرح تفصيلي للحقول المستخدمة والأساليب اليدوية لتصحيح الأخطاء وإعادة ترتيب المجموعات.
+- Explaining how to handle `NULL` values within SQL and avoid their impact on calculations.
+- Sorting data by date using an ordering method based on `value_date` and `creation_date`.
+- Showing how to form Groups and compute totals dynamically at the account and receivables level.
+- A detailed explanation of the fields used and manual methods for correcting errors and reordering groups.
 
-[شاهد الجزء من 00:26:09](https://youtu.be/jZGCZt99ouw?t=1569)  
-[شاهد الجزء من 00:54:30](https://youtu.be/jZGCZt99ouw?t=3270)
-
----
-
-# 6. تصميم نموذج الطباعة (Print Template)
-_00:57:24 – 01:11:35_
-
-- شرح مبسط لبناء نموذج طباعة ضمن أداة التقارير:
-    - تعريف مصدر البيانات (مثلاً فاتورة مبيعات).
-    - تجزئة النموذج إلى هيدر (Header) وتفاصيل (Details).
-- اختيار الحقول المراد عرضها مثل:  
-  الكمية، الوحدة، السعر، إجمالي السعر، بيانات العميل، العنوان.
-- تحذير من استخدام جداول متعددة قد يؤدي لتكرار غير مرغوب (مثلاً طرق الدفع مع عدة أصناف).
-- رسم الجداول والحقول بطريقة منطقية وبسيطة.
-- عمل Subreports (تقارير فرعية) لعرض تفاصيل سندات الصرف داخل التقرير.
-- تحقيق مرونة في ترتيب الحقول وإمكانية تعديل أماكن الحقول بسهولة عبر محرر خط الشاشة (Screen Modifier).
-- توضيح الآليات الخاصة بتعيين الأنواع لكل حقل (مثل حقل كمي، سعر، أو نصي).
-- إمكانية عرض أرقام تسلسلية (Line Number) لكل صنف.
-- التعامل مع خصائص الحقول مثل نوع السطر (Type) وعدد الأسطر.
-- خلاصة أن نموذج الطباعة أبسط من تقرير الكروس تاب ولكن أكثر ملائمة للطباعات الرسمية.
-
-[شاهد الجزء من 00:57:24](https://youtu.be/jZGCZt99ouw?t=3444)  
-[شاهد الجزء من 01:11:35](https://youtu.be/jZGCZt99ouw?t=4295)
+[Watch from 00:26:09](https://youtu.be/jZGCZt99ouw?t=1569)  
+[Watch from 00:54:30](https://youtu.be/jZGCZt99ouw?t=3270)
 
 ---
 
-# 7. الأسئلة المتكررة والنقاش الختامي
-_01:14:57 – نهاية الفيديو_
+# 6. Designing the Print Template  
+_00:57:24 - 01:11:35_
 
-- إمكانية تعديل تقارير أداة Jasper القديمة وتحويلها إلى التقارير الجديدة والعكس، وشرح تعقيدات هذه العملية، وأنها ليست متاحة عملياً حالياً.
-- نقاش ساخر حول ضرورة انتظار المستقبل (45 سنة طبقاً لما قيل) للحصول على هذه المزايا.
-- بعض المشاكل الفنية أثناء الشرح مثل فقدان الشاشة وإعادة الضبط.
-- شكر وتقدير للحاضرين وتنويه بجلسات قادمة لمتابعة استفسارات إضافية.
+- A simplified explanation of building a print template within the report tool:
+    - Defining the data source (e.g., a sales invoice).
+    - Splitting the template into a Header and Details.
+- Choosing the fields to display such as:  
+  Quantity, unit, price, total price, customer data, address.
+- A warning against using multiple tables, which can cause unwanted repetition (e.g., payment methods with multiple items).
+- Drawing tables and fields in a logical and simple way.
+- Creating Subreports to display payment voucher details inside the report.
+- Achieving flexibility in field ordering and the ability to easily modify field positions via the Screen Modifier.
+- Clarifying the mechanisms for assigning types to each field (e.g., quantity field, price field, or text field).
+- The ability to display sequential numbers (Line Number) for each item.
+- Handling field properties such as line type (Type) and number of lines.
+- Summary: a print template is simpler than a Cross Tab report but more suitable for formal printouts.
 
-[شاهد الجزء من 01:14:57](https://youtu.be/jZGCZt99ouw?t=4497)
-
----
-
-# ملاحظات عامة
-
-- جميع خطوات التصميم تمت باستخدام أداة إنشاء التقارير دون الحاجة لكتابة أكواد برمجية مباشرة، مع استخدام معاملات SQL بسيطة ضمن الأدوات.
-- تم الحرص على عرض كل البيانات الرقمية بشكل دقيق مع التحكم الكامل في الفلاتر وإدارة الصلاحيات.
-- الممارسات المتبعة تمكن من بناء تقارير معقدة تشمل العروض التفصيلية، الحركات المالية، وإمكانيات الطباعة.
-- الفيديو غني جداً بمعلومات تقنية وخطوات عملية يمكن تطبيقها مباشرة.
-
----
-
-# روابط الأقسام الزمنية للفيديو الأصلي لمراجعة التفاصيل
-
-| القسم                          | البداية       | رابط الفيديو               |
-|-------------------------------|---------------|----------------------------|
-| المقدمة                       | 00:00:01      | [شاهد](https://youtu.be/jZGCZt99ouw?t=1)       |
-| شرح كروس تاب                  | 00:00:01      | [شاهد](https://youtu.be/jZGCZt99ouw?t=1)       |
-| تطوير الكروس تاب             | 00:07:19      | [شاهد](https://youtu.be/jZGCZt99ouw?t=439)     |
-| الصلاحيات والأمان             | 00:11:37      | [شاهد](https://youtu.be/jZGCZt99ouw?t=697)     |
-| الفرق بين الكروس تاب والعادي  | 00:18:07      | [شاهد](https://youtu.be/jZGCZt99ouw?t=1087)    |
-| كشف الحساب وحركة المخزون     | 00:26:09      | [شاهد](https://youtu.be/jZGCZt99ouw?t=1569)    |
-| نموذج الطباعة                | 00:57:24      | [شاهد](https://youtu.be/jZGCZt99ouw?t=3444)    |
-| الأسئلة والنقاش الختامي       | 01:14:57      | [شاهد](https://youtu.be/jZGCZt99ouw?t=4497)    |
+[Watch from 00:57:24](https://youtu.be/jZGCZt99ouw?t=3444)  
+[Watch from 01:11:35](https://youtu.be/jZGCZt99ouw?t=4295)
 
 ---
 
-</rtl>
+# 7. Frequently Asked Questions and Closing Discussion  
+_01:14:57 - End of video_
+
+- The ability to modify old Jasper tool reports and convert them to the new reports and vice versa, along with an explanation of the complexities of this process and that it is not currently practically available.
+- A lighthearted discussion about having to wait for the future (45 years as stated) to get these features.
+- Some technical issues during the session such as screen loss and resetting.
+- Thanks and appreciation to attendees with a mention of upcoming sessions for additional follow-up questions.
+
+[Watch from 01:14:57](https://youtu.be/jZGCZt99ouw?t=4497)
+
+---
+
+# General Notes
+
+- All design steps were performed using the Report Builder without the need to write code directly, using simple SQL parameters within the tools.
+- Care was taken to display all numerical data accurately with full control over filters and permissions management.
+- The practices used enable building complex reports that include detailed views, financial transactions, and printing capabilities.
+- The video is very rich in technical information and practical steps that can be applied directly.
+
+---
+
+# Video Section Timestamps for Reviewing Details
+
+| Section                                  | Start         | Video Link                    |
+|------------------------------------------|---------------|-------------------------------|
+| Introduction                             | 00:00:01      | [Watch](https://youtu.be/jZGCZt99ouw?t=1)       |
+| Cross Tab Explanation                    | 00:00:01      | [Watch](https://youtu.be/jZGCZt99ouw?t=1)       |
+| Developing the Cross Tab                 | 00:07:19      | [Watch](https://youtu.be/jZGCZt99ouw?t=439)     |
+| Permissions and Security                 | 00:11:37      | [Watch](https://youtu.be/jZGCZt99ouw?t=697)     |
+| Cross Tab vs. Regular Report             | 00:18:07      | [Watch](https://youtu.be/jZGCZt99ouw?t=1087)    |
+| Account Statement and Inventory Movement | 00:26:09      | [Watch](https://youtu.be/jZGCZt99ouw?t=1569)    |
+| Print Template                           | 00:57:24      | [Watch](https://youtu.be/jZGCZt99ouw?t=3444)    |
+| Questions and Closing Discussion         | 01:14:57      | [Watch](https://youtu.be/jZGCZt99ouw?t=4497)    |
+
+---

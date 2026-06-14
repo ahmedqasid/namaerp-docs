@@ -1,43 +1,43 @@
-# الالتزامات المالية
+# Financial Commitments
 
-تحمل الشركة التزاماتٍ دوريةً كثيرة ليست فواتير بعد لكنّها حقيقيةٌ تمامًا: إيجارٌ سنوي يُدفع أقساطًا ربع سنوية، وثيقة تأمين، اتفاقية تمويلٍ بجدول سدادٍ ثابت. منظومة **الالتزامات المالية** هي المكان الذي تسجّل فيه هذه الالتزامات، وتضع جدول أقساطها، وتتابع المدفوع منها مقابل المستحقّ — طبقةُ تنظيمٍ ومتابعةٍ تقف إلى جوار سنداتك المعتادة.
+A company carries many recurring obligations that aren't invoices yet but are very real: a yearly rent paid in quarterly installments, an insurance policy, a financing agreement with a fixed repayment schedule. The **financial-commitments** system is where you register these obligations, lay out their installment schedule, and track what's been paid against what's still due — a regulation-and-tracking layer that sits beside your ordinary vouchers.
 
-::: info الترخيص المطلوب
-الالتزامات المالية ضمن ترخيص `accounting-financial-commitments-regulation`.
+::: info Required license
+Financial commitments are part of the `accounting-financial-commitments-regulation` license.
 :::
 
-::: tip طبقة متابعة، لا مستند ترحيل
-لا يُرحِّل الالتزام ولا مستند دفعه إلى دفتر الأستاذ **بذاتهما**. إنّهما يتابعان الالتزام وسداده مقابل الجدول؛ أمّا حركة المال الفعلية فتُسجَّل بسنداتك المعتادة (القبض/الصرف). فاعتبر هذه المنظومة المُخطِّط والرقيب على تلك الالتزامات، لا بديلًا عن السندات التي تحرّك النقدية.
+::: tip A tracking layer, not a posting document
+The commitment and its payment document **do not post to the general ledger themselves**. They track the obligation and its settlement against the schedule; the actual money movement is recorded by your normal receipt/payment vouchers. Think of this system as the planner and watchdog over those obligations, not a replacement for the vouchers that move the cash.
 :::
 
-## المكوّنات
+## The pieces
 
-جميع الشاشات تحت جذر **الحسابات > إدارة الإلتزام المالى**:
+All screens are under the **Accounting > Financial Commitment Management** root:
 
-1. **فئة إلتزام مالى** — ملفٌ رئيسي لتصنيف الالتزامات (إيجار، تأمين، تمويل…)، كي تجمعها وتُعِدّ تقاريرها.
-2. **إلتزام مالى** — الالتزام نفسه: قيمته الإجمالية، و**فئته**، و**تاريخ بداية**، و**دورية** سدادٍ (كلّ *n* أشهر/…)، وما ينتج عنها من **جدول أقساط**.
-3. **مستند دفع إلتزام مالى** — يسجّل دفعةً مقابل قسطٍ بعينه، فيحدّث المدفوع/المتبقّي لذلك القسط.
-4. **مستند إعادة جدولة إلتزام مالى** — يغيّر الجدول لاحقًا (إضافة أقساط أو تعديلها أو حذفها)، مع حفظ صورةٍ قبل/بعد للتغيير.
+1. **Financial Commitment Category** — a master file for classifying commitments (rent, insurance, financing…), so you can group and report on them.
+2. **Financial Commitment** — the obligation itself: its total value, its **category**, a **start date**, a repayment **period** (every *n* months/…), and the resulting **installment schedule**.
+3. **Financial Commitment Payment Document** — records a payment against a specific installment, updating that installment's paid/remaining figures.
+4. **Financial Commitment Reschedule** — changes the schedule after the fact (add, edit or remove installments), keeping a before/after record of the change.
 
-## إعداد الالتزام
+## Setting up a commitment
 
-في **الإلتزام المالى** (`Accounting > Financial Commitment Management > Financial Commitment`) تُدخِل **فئة** الالتزام، و**تاريخ بدايته**، و**عدد الأقساط** و**قيمة الأقساط**، و**دورية** التكرار (قيمة + وحدة، مثلًا كلّ شهر واحد). ومن هذه تُبنى شبكة **الأقساط** — سطرٌ لكلّ قسطٍ يحمل **كود القسط** و**قيمته** و**تاريخ سداده** و**المبلغ المدفوع** و**المتبقّي** المتجدّدين وعلامة **مسدَّد**. ويحتفظ الرأس بإجمالي **المدفوع** وإجمالي **غير المدفوع** المتجدّدين كي ترى موضع الالتزام في لمحة.
+On the **Financial Commitment** (`Accounting > Financial Commitment Management > Financial Commitment`) you enter the obligation's **category**, its **start date**, the **installments count** and **installments value**, and the recurrence **period** (value + unit, e.g. every 1 month). From these the **Installments** grid is built — one line per installment carrying its **installment code**, **value**, **payment date**, and the running **paid amount** / **remaining** and a **paid** flag. The header keeps the rolling **total paid** and **total unpaid** so you can see at a glance where the obligation stands.
 
-![شاشة الالتزام المالي](./images/commitments/financial-commitment.png)
+![The Financial Commitment screen](./images/commitments/financial-commitment.png)
 
-## سداد قسط
+## Paying an installment
 
-يشير **مستند دفع الإلتزام المالى** (`Accounting > Financial Commitment Management > Financial Commitment Payment Document`) إلى **التزامٍ مالي** ويسجّل دفعةً مقابله. وعند اعتماده يحدّث **المبلغ المدفوع** و**المتبقّي** للقسط المقابل، ويحوّل القسط إلى **مسدَّد** متى سُوِّي بالكامل — فتبقى مجاميع الالتزام معبّرةً عن الواقع.
+The **Financial Commitment Payment Document** (`Accounting > Financial Commitment Management > Financial Commitment Payment Document`) points at a **financial commitment** and records a payment against it. When committed, it updates the matching installment's **paid amount** and **remaining**, and flips the installment to **paid** once fully settled — so the commitment's totals always reflect reality.
 
-![شاشة مستند دفع الالتزام المالي](./images/commitments/financial-commitment-paydoc.png)
+![The Financial Commitment Payment Document screen](./images/commitments/financial-commitment-paydoc.png)
 
-## إعادة الجدولة
+## Rescheduling
 
-تتغيّر الخطط — يؤجَّل قسطٌ، أو يُعاد التفاوض على المبالغ. يتيح لك **مستند إعادة جدولة الإلتزام المالى** (`Accounting > Financial Commitment Management > Financial Commitment Reschedule`) إضافة سطور أقساطٍ أو تعديلها أو حذفها على التزامٍ قائم. ويحتفظ بشبكتين — **التفاصيل** (الجدول الجديد) و**التفاصيل قبل التعديل** (الجدول كما كان) — كي يكون التغيير قابلًا للمراجعة.
+Plans change — an installment is deferred, the amounts are renegotiated. The **Financial Commitment Reschedule** (`Accounting > Financial Commitment Management > Financial Commitment Reschedule`) lets you add, edit or delete installment lines on an existing commitment. It keeps two grids — the **details** (the new schedule) and the **details before edit** (the schedule as it was) — so the change is auditable.
 
-## للدعم الفني
+## For Support
 
-- **«الالتزام لم يُنشئ قيدًا»** — هذا متوقَّع؛ الالتزامات ومستندات دفعها لا تُرحَّل إلى دفتر الأستاذ. سجِّل حركة النقدية الفعلية بسند قبضٍ/صرفٍ معتاد.
-- **«المدفوع/المتبقّي يبدو خاطئًا»** — تُحرّكهما **مستندات الدفع** المرتبطة بالالتزام؛ تحقّق من اعتماد كلّ دفعةٍ ومن إشارتها إلى القسط الصحيح.
-- **«أحتاج تغيير الجدول»** — استخدم مستند **إعادة جدولة** بدل تعديل الالتزام الأصلي؛ فهو يحفظ تاريخ قبل/بعد.
-- **«قسطٌ ما زال يظهر غير مسدَّد بعد دفعه»** — تأكّد من أنّ مستند الدفع غطّى قيمة القسط كاملةً؛ فالدفعات الجزئية تُبقي **متبقّيًا** حتى يُستكمَل.
+- **"The commitment didn't create a journal entry"** — that's expected; commitments and their payment documents don't post to the ledger. Record the actual cash movement with a normal receipt/payment voucher.
+- **"The paid/remaining figures look wrong"** — they're driven by the **payment documents** linked to the commitment; check that each payment is committed and points at the right installment.
+- **"I need to change the schedule"** — use a **Reschedule** document rather than editing the original commitment; it preserves the before/after history.
+- **"An installment still shows unpaid after I paid it"** — confirm the payment document fully covered the installment value; partial payments leave a **remaining** balance until topped up.

@@ -1,12 +1,10 @@
-<rtl>
+# Frequently Asked Questions about Field Filtering
 
-# أسئلة شائعة حول فلترة الحقول
+## How can I filter Reference 1 in the item inventory to display only the same items found in the details?
 
-## كيف يمكن فلترة مرجع 1 في جرد البنود ليعرض نفس الأصناف الموجودة في التفاصيل؟
+- Question:
 
-- السؤال:
-
-أنا أستخدم مرجع 1 في جرد البنود لجلب الأصناف، وأريد أن يظهر فقط نفس الأصناف التي تم اختيارها في التفاصيل. الكود الذي كتبته هو:
+I am using Reference 1 in the item inventory to fetch items, and I want it to show only the same items that were selected in the details. The code I wrote is:
 
 ```
 {loop(details)}
@@ -14,20 +12,20 @@ termsLines.ref1,Equal,{details.item.item.code},OR;
 {endloop}
 ```
 
-- الإجابة:
+- Answer:
 
-الواضح أنك تريد فلترة حقل `termsLines.ref1` بحيث يعرض فقط الأصناف التي تم اختيارها في `details.item.item`.
+It is clear you want to filter the `termsLines.ref1` field so it displays only the items selected in `details.item.item`.
 
-لكن يوجد خطأ في الكود المستخدم:
+However, there is an error in the code used:
 
-* عند كتابة شرط الفلترة، يجب أن تكتب **اسم الحقل داخل شاشة الصنف** (وهي الشاشة التي يتم الفلترة فيها)، وليس اسم الحقل داخل المستند الذي تستعمله.
-* استخدام `termsLines.ref1` داخل الشرط غير صحيح، لأن هذا الحقل يُستخدم فقط لتحديد أين سيتم تطبيق الفلتر، وليس داخل شرط الفلترة نفسه.
+* When writing the filter condition, you must write **the field name as it exists inside the item screen** (which is the screen being filtered), not the field name inside the document you are working with.
+* Using `termsLines.ref1` inside the condition is incorrect, because this field is only used to specify where the filter will be applied, not inside the filter condition itself.
 
-- التصحيح:
+- Correction:
 
-استخدم الحقول كما هي موجودة في **شاشة الصنف**، كالتالي:
+Use the fields as they exist in **the item screen**, as follows:
 
-إذا أردت الفلترة حسب الكود:
+If you want to filter by code:
 
 ```
 {loop(details)}
@@ -35,7 +33,7 @@ code,Equal,{details.item.item.code},OR;
 {endloop}
 ```
 
-وإذا أردت الفلترة بشكل أدق باستخدام رقم المعرف:
+And if you want to filter more precisely using the identifier number:
 
 ```
 {loop(details)}
@@ -44,19 +42,19 @@ id,Equal,{details.item.item.id},OR;
 ```
 
 ::: tip
-تأكد من أنك تستخدم اسم الحقل الصحيح الموجود في شاشة الكيان الذي يتم الفلترة عليه، وليس اسم الحقل في المستند المصدر.
+Make sure you are using the correct field name as it exists in the entity screen being filtered, not the field name in the source document.
 :::
 
-## ما هي أفضل طريقة عند البحث في سند التوريد أو الصرف لإظهار الأصناف بناءً على توفر الرصيد؟
+## What is the best approach when searching in a stock receipt or stock issue to show items based on available balance?
 
-* **في سند الصرف المخزني**: عرض الأصناف التي يوجد منها رصيد فقط.
-* **في سند التوريد المخزني**: عرض الأصناف التي لا يوجد منها رصيد فقط.
+* **In a stock issue**: Show only items that have a balance.
+* **In a stock receipt**: Show only items that have no balance.
 
 ---
 
-### أولاً: فلترة الأصناف ذات الرصيد فقط في سند الصرف المخزني
+### First: Filtering Items with Balance Only in a Stock Issue
 
-يحتوي الكيان `InvItem` على سطور باسم `quantities` مرتبطة بجدول `ItemDimensionsQty`. يمكنك استخدام هذه العلاقة لفلترة الأصناف التي لها رصيد كما يلي:
+The `InvItem` entity contains lines named `quantities` linked to the `ItemDimensionsQty` table. You can use this relationship to filter items that have a balance as follows:
 
 ::: details JSON for direct import
 
@@ -77,11 +75,11 @@ id,Equal,{details.item.item.id},OR;
 
 ---
 
-### ثانياً: فلترة الأصناف التي لا يوجد منها رصيد في سند التوريد المخزني
+### Second: Filtering Items with No Balance in a Stock Receipt
 
-نظراً لأن الصنف قد لا يحتوي دائماً على بيانات مباشرة في `quantities` إذا لم يوجد رصيد، فمن الأفضل تحديث حقل مخصص (مثلاً `n5`) في كيان `InvItem` يعكس الكمية الكلية المتاحة، ثم استخدامه في الفلترة.
+Since an item may not always have data directly in `quantities` if there is no balance, it is better to update a custom field (e.g., `n5`) in the `InvItem` entity that reflects the total available quantity, then use it in the filter.
 
-#### 1. إنشاء مهمة مجدولة لتحديث الحقل `n5` بقيمة الرصيد المتاح:
+#### 1. Create a scheduled task to update the `n5` field with the available balance value:
 
 ::: details JSON for direct import
 
@@ -98,7 +96,7 @@ id,Equal,{details.item.item.id},OR;
 ```
 :::
 
-#### 2. بعد ذلك، فلترة حقل الصنف في سند التوريد بناءً على القيمة الجديدة في الحقل `n5`:
+#### 2. After that, filter the item field in the stock receipt based on the new value in the `n5` field:
 
 ::: details JSON for direct import
 
@@ -116,48 +114,48 @@ id,Equal,{details.item.item.id},OR;
 ```
 :::
 
-::: tip ملاحظة
-- يمكنك أيضًا استبدال `quantities.data.net` بـ `n5` مباشرة إذا أردت ربط الفلترة بالحقل المحسوب، ولكن استخدام `quantities.data.net` يظل أكثر دقة حيث أن n5 يعتمد على تشغيل المهمة.
-- اختر جدول تشغيل المهمة المجدولة بعناية بحيث تحافظ على دقة الحقل n5 وفي نفس الوقت لا تشكل ضغطعا على موارد الخادم وقاعدة البيانات
+::: tip Note
+- You can also replace `quantities.data.net` with `n5` directly if you want to bind the filter to the calculated field, but using `quantities.data.net` is more accurate since n5 depends on the task being run.
+- Choose the scheduled task's run interval carefully so that it maintains the accuracy of the n5 field while not putting excessive load on the server and database resources.
 :::
 
-### 💡 تحسين تنفيذ التحديث التلقائي للحقل `n5` باستخدام مسار كيان
+### Improving Automatic `n5` Field Updates Using an Entity Flow
 
-بدلاً من الاعتماد فقط على مهمة مجدولة مستقلة، يمكنك استخدام **مسار كيان (Entity Flow)** لتحديث الحقل `n5` مباشرة بعد أي حركة مخزنية (صرف، توريد، تحويل)، وذلك لتحقيق تحديث فوري وفعال مع تقليل الضغط على النظام.
-
----
-
-- الخطوات المقترحة:
-
-1. **إنشاء مسار كيان جديد**
-
-* يتم تشغيله بعد التأثير الفعلي على قاعدة البيانات (بعد الحفظ النهائي).
-
-2. **تحديد الجداول المستهدفة في قائمة أنواع**: 
-
-* `StockIssue` (صرف مخزني)
-* `StockReceipt` (توريد مخزني)
-* `StockTransfer` (تحويل مخزني)
-
-3. **إضافة إجراء من النوع "تشغيل أمر تحديث SQL"** بنفس كود المهمة المجدولة:
-
-4. **تفعيل الخيارات التالية في مسار الكيان**:
-
-* ✅ `يعمل بعد حفظ المستند نهائيا و التأثير على قاعدة البيانات`
-* ✅ `انتظار انتهاء معالجة الكميات`
-
-وهذه الإعدادات تضمن أن التحديث يتم **فقط بعد نجاح المعالجة المخزنية**، مما يمنع حدوث تعارض أو تحديث سابق لأوانه.
+Instead of relying solely on an independent scheduled task, you can use an **Entity Flow** to update the `n5` field immediately after any inventory movement (issue, receipt, transfer), achieving instant and efficient updates while reducing system load.
 
 ---
 
-- الفائدة من هذا الأسلوب:
+- Suggested Steps:
 
-* تحديث آني لـ `n5` دون الحاجة لجدولة زمنية.
-* تقليل الضغط على النظام الناتج عن تكرار التنفيذ.
-* المحافظة على دقة الرصيد في كافة الشاشات التي تعتمد على `n5`.
+1. **Create a new Entity Flow**
+
+* It runs after the actual effect on the database (after the final save).
+
+2. **Set the target types in the entity types list**:
+
+* `StockIssue` (stock issue)
+* `StockReceipt` (stock receipt)
+* `StockTransfer` (stock transfer)
+
+3. **Add an action of type "Run SQL Update Command"** with the same code as the scheduled task:
+
+4. **Enable the following options in the Entity Flow**:
+
+* ✅ `Runs after the document is finally saved and the effect on the database`
+* ✅ `Wait for quantity processing to finish`
+
+These settings ensure that the update only happens **after successful inventory processing**, preventing conflicts or premature updates.
 
 ---
-وإليك المسار جاهز للاستيراد:
+
+- Benefits of This Approach:
+
+* Instant update of `n5` without the need for a time-based schedule.
+* Reduces system load caused by repeated execution.
+* Maintains balance accuracy across all screens that rely on `n5`.
+
+---
+Here is the flow ready for import:
 ::: details JSON for direct import
 ```json
 {
@@ -181,6 +179,4 @@ id,Equal,{details.item.item.id},OR;
 }
 ```
 :::
-> 💬 ويمكنك الاحتفاظ بالمهمة المجدولة كخطة احتياطية تعمل مرة يوميًا مثلاً لضمان المزامنة الكاملة، خاصةً في حالات التعديلات اليدوية أو عمليات الاستيراد الكبيرة.
-
-</rtl>
+> You can also keep the scheduled task as a backup plan that runs once a day, for example, to ensure full synchronization — especially in cases of manual edits or large import operations.

@@ -1,69 +1,69 @@
-# سندات القيد والتسويات
+# Journal Entries & Adjustments
 
-معظم القيود في نما تُولَّد تلقائيًا من مستندات أخرى (فاتورة، صرف مخزني، راتب...)، لكن يبقى هناك حاجة دائمة لتسجيل قيود **يدوية**: تسوية، مصروف نثري، رصيد افتتاحي، إقفال حساب وسيط. هذه وظيفة **سند القيد**. وإلى جواره مستندات قيد متخصّصة تتولّى حالات بعينها: **سند قيد فرق عملة**، و**سند تغيير سعر الصرف**، و**جاري تحويل الشركات**.
+Most entries in Nama are generated automatically from other documents (an invoice, a stock issue, a payroll run...), but there's always a need to record **manual** entries: an adjustment, a petty expense, an opening balance, clearing a suspense account. That's the job of the **Journal Entry**. Alongside it are specialized entry documents that handle particular cases: the **Currency Diff Journal**, the **Exchange Rate Update**, and the **Inter-Company Transfer**.
 
-::: info الترخيص المطلوب
-سند القيد وفرق العملة وتحويل الشركات ضمن ترخيص المحاسبة الأساسي `accounting`. أما **سند تغيير سعر الصرف** فهو خاصية ضمن ترخيص البنوك `accounting-banks`.
+::: info Required license
+The journal entry, currency-difference journal, and inter-company transfer are part of the core `accounting` license. The **Exchange Rate Update**, however, is a feature within the banks license `accounting-banks`.
 :::
 
-## سند القيد
+## The Journal Entry
 
-سند القيد (`Accounting > Documents > Journal Entry`) هو المستند المتوازن الذي تُدخل فيه أسطر المدين والدائن بنفسك، بشرط أن يتساوى مجموع المدين مع مجموع الدائن قبل أن يقبله النظام.
+The journal entry (`Accounting > Documents > Journal Entry`) is the balanced document where you enter the debit and credit lines yourself — with the condition that total debit equals total credit before the system will accept it.
 
-![شاشة سند القيد](./images/journal/journal-entry.png)
+![The Journal Entry screen](./images/journal/journal-entry.png)
 
-### رأس المستند
+### Document header
 
-في الرأس تحدّد:
+In the header you set:
 
-- **توجيه المستند** — التوجيه (`توجيه`) الذي يحكم سلوك القيد ومن أين تأتي حساباته الخاصة (كحساب الفرق). تفاصيل التوجيهات في مرجع [توجيهات المستندات](./support/accounting-document-terms.md).
-- **رقم المستند** و**تاريخ التحرير** — الرقم التسلسلي وتاريخ إنشاء المستند.
-- **التاريخ الفعلي** — التاريخ المحاسبي الذي يُسجَّل به الأثر (وهو ما يحدّد الفترة)، وقد يختلف عن تاريخ التحرير.
-- **الفترة** — الفترة المحاسبية التي يقع فيها التاريخ الفعلي؛ يحدّدها النظام تلقائيًا، وإن كانت مغلقة يُرفض الحفظ.
-- **الشرح** و**المحددات** (الشركة، الفرع، القطاع، الإدارة، المجموعة التحليلية) على مستوى المستند.
+- **Document Term** — the term (`توجيه`) that governs the entry's behavior and where its special accounts (such as the difference account) come from. Term details are in the [Document terms](./support/accounting-document-terms.md) reference.
+- **Document Number** and **Creation Date** — the serial number and the document's creation date.
+- **Value Date** — the accounting date the effect is recorded under (which determines the period), and may differ from the creation date.
+- **Period** — the accounting period the value date falls in; the system sets it automatically, and if it's closed the save is rejected.
+- **Narration** and **dimensions** (legal entity, branch, sector, department, analysis set) at the document level.
 
-### أسطر التفاصيل
+### Detail lines
 
-في جدول **التفاصيل** يُدخل كل سطر:
+In the **Details** grid each line carries:
 
-- **الحساب** و**الذمة** (الطرف، إن كان الحساب من نوع ذمة).
-- **المبلغ مدين** أو **المبلغ دائن** — قيمة السطر على جانبه، بعملة السطر، مع عرض القيمة **المحلية** المقابلة بعد الترجمة بسعر الصرف.
-- **المرجع** و**الشرح** ومحدّدات السطر (القطاع/الفرع/الإدارة) لمن يحتاج تفصيلًا أدقّ من رأس المستند.
-- حقول الضريبة (نسبة وقيمة ضريبة 1 و2) تظهر حين تُفعَّل خصائص الضريبة، وتربط القيد اليدوي بأثره الضريبي.
+- **Account** and **Subsidiary** (the party, if the account is of subsidiary type).
+- **Debit Amount** or **Credit Amount** — the line's value on its side, in the line's currency, with the corresponding **local** value shown after translation at the exchange rate.
+- **Reference**, **Narration**, and line dimensions (sector/branch/department) for whoever needs finer detail than the document header.
+- Tax fields (tax 1 and 2 percentage and value) appear when the tax features are enabled, linking the manual entry to its tax effect.
 
-### الموازنة وحساب الفرق
+### Balancing and the difference account
 
-أسفل الشاشة تعرض **الإجماليات**: **إجمالي المدين** و**إجمالي الدائن** و**إجمالي الفرق**. ما دام إجمالي الفرق غير صفر فالقيد غير متوازن ولن يُحفظ. يتيح التوجيه تحديد **حساب فرق** يمتصّ فروق التقريب الصغيرة آليًا حتى يتوازن القيد، فلا تضطر لضبط القروش يدويًا.
+At the bottom of the screen the **Totals** show: **Total Debit**, **Total Credit**, and **Total Difference**. As long as the total difference is non-zero, the entry is unbalanced and won't save. The term lets you specify a **difference account** that absorbs small rounding differences automatically so the entry balances — so you don't have to chase fractions by hand.
 
-### توزيع التكلفة
+### Cost allocation
 
-جدول **توزيع التكلفة** يتيح توزيع قيمة القيد على مراكز/أبعاد التكلفة بشكل مستقل عن أسطر المدين والدائن، لأغراض التحليل الإداري.
+The **Cost Allocation** grid lets you distribute the entry's value across cost centers/dimensions independently of the debit and credit lines, for managerial analysis.
 
-## سند قيد فرق عملة
+## Currency Diff Journal
 
-**سند قيد فرق العملة** (`Accounting > Documents > Currency Diff Journal`) قيدٌ متخصّص لإثبات الفروق الناتجة عن تذبذب أسعار الصرف على الأرصدة بالعملات الأجنبية. غالبًا ما يُولَّد تلقائيًا كنتيجة لـ **سند تغيير سعر الصرف** (انظر أدناه)، لكنه يبقى مستندًا مستقلًا يمكن مراجعته وطباعته.
+The **Currency Diff Journal** (`Accounting > Documents > Currency Diff Journal`) is a specialized entry for recording the differences arising from exchange-rate fluctuations on foreign-currency balances. It's most often generated automatically as a result of an **Exchange Rate Update** (see below), but it remains a standalone document you can review and print.
 
-## سند تغيير سعر الصرف
+## Exchange Rate Update
 
-حين تتغيّر أسعار العملات، تحتاج أرصدتك بالعملات الأجنبية إلى **إعادة تقييم** وفق السعر الجديد. **سند تغيير سعر الصرف** (`Accounting > Documents > Exchange Rate Update`) يقوم بذلك دفعةً واحدة: تحدّد فيه **الحساب** (أو نطاق الحسابات) و**العملة** و**سعر الصرف** الجديد و**الحساب الوسيط** الذي تُسجَّل عليه فروق إعادة التقييم، فيحسب النظام الفرق لكل رصيد ويُولِّد قيود فروق العملة المقابلة.
+When currency rates change, your foreign-currency balances need **revaluation** at the new rate. The **Exchange Rate Update** (`Accounting > Documents > Exchange Rate Update`) does this in one batch: you specify the **account** (or a range of accounts), the **currency**, the new **exchange rate**, and the **mediator account** where revaluation differences are recorded; the system computes the difference for each balance and generates the corresponding currency-difference entries.
 
 ::: warning
-الحسابات المفعّل عليها **لا يدرج في سندات تغيير سعر الصرف آليا** (انظر [الحسابات](./accounts.md)) تُستثنى من إعادة التقييم. هذه خاصية ضمن ترخيص البنوك `accounting-banks`.
+Accounts with **Do Not Auto-Include In Exchange Rate Update** enabled (see [Accounts](./accounts.md)) are excluded from revaluation. This is a feature within the banks license `accounting-banks`.
 :::
 
-## جاري تحويل الشركات
+## Inter-Company Transfer
 
-عند تحويل قيمة بين شركتين داخل نفس المجموعة، **جاري تحويل الشركات** (`Accounting > Documents > Inter Company Transfer`) يُسجِّل الطرفين في خطوة واحدة: يُولِّد **سند قيد** في الشركة الأولى وآخر مقابلًا في الشركة الثانية، فيظل حسابا «الجاري بين الشركات» متطابقَين دون إدخال مزدوج يدوي.
+When transferring value between two companies in the same group, the **Inter-Company Transfer** (`Accounting > Documents > Inter Company Transfer`) records both sides in one step: it generates a **journal entry** in the first company and a matching one in the second, so the "inter-company current" accounts stay in sync without double manual entry.
 
-## التقارير والنماذج
+## Reports and forms
 
-- كشوف القيود والحركات اليومية (`SYSR-ACC` لكشوف القيود) موضّحة في صفحة [كشوف الحسابات وميزان المراجعة](./reports-account-statements-and-trial-balance.md).
-- النموذج المطبوع لسند القيد هو `SYSF-ACC001`، ولسند فرق العملة `SYSF-ACC008`، ولجاري تحويل الشركات `SYSF-ACC007`.
+- Entry and daily-movement statements (`SYSR-ACC` journal statements) are covered on the [Account statements & trial balance](./reports-account-statements-and-trial-balance.md) page.
+- The printed form for the journal entry is `SYSF-ACC001`, for the currency-difference journal `SYSF-ACC008`, and for the inter-company transfer `SYSF-ACC007`.
 
-## للدعم الفني
+## For Support
 
-- **«القيد لا يُحفظ — غير متوازن»** — راجِع **إجمالي الفرق**؛ يجب أن يكون صفرًا. إن كان فرقًا ضئيلًا ففعّل/راجِع **حساب الفرق** في التوجيه.
-- **«رفض الحفظ بسبب الفترة»** — التاريخ الفعلي يقع في فترة **مغلقة** أو لا تغطّيه فترة؛ راجِع [الإقفال والتحكم في الفترات](./year-end-and-period-control.md).
-- **«حقول الضريبة لا تظهر في القيد»** — خصائص الضريبة غير مفعّلة في كتالوج [إعدادات الحسابات](./support/accounting-configuration.md).
-- **«من أين يأتي حساب الفرق / حسابات التوجيه؟»** — من **توجيه المستند**؛ التفاصيل في مرجع [توجيهات المستندات](./support/accounting-document-terms.md).
-- آلية تحوّل المستند إلى أثر محاسبي وكيفية إعادة معالجة قيد متعثّر في [كيف تُعالَج المستندات إلى أثر محاسبي](./support/accounting-request-processing.md).
+- **"The entry won't save — unbalanced"** — check the **Total Difference**; it must be zero. If it's a tiny fraction, enable/review the **difference account** in the term.
+- **"Save rejected because of the period"** — the value date falls in a **closed** period or no period covers it; see [Year-end & period control](./year-end-and-period-control.md).
+- **"Tax fields don't appear on the entry"** — the tax features aren't enabled in the [Accounting configuration](./support/accounting-configuration.md) catalog.
+- **"Where does the difference account / the term's accounts come from?"** — from the **document term**; details in the [Document terms](./support/accounting-document-terms.md) reference.
+- How a document turns into an accounting effect and how to reprocess a stuck entry are in [How documents are processed into accounting effects](./support/accounting-request-processing.md).

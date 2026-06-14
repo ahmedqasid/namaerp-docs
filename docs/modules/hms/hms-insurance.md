@@ -1,28 +1,28 @@
-# التأمين الطبي والموافقات
+# Medical Insurance & Approvals
 
-التأمين هو ما يجعل فوترة المستشفى مختلفة: نادرًا ما يدفع المريض كامل الفاتورة. لذا قبل أن نُسعّر أي خدمة، نُعرّف شركات التأمين التي نتعامل معها، وكيف نُصنّفها، والأهم: **موافقة شركة التأمين** التي تحدّد الأسعار المتفق عليها وكيف تُقسَّم بين المريض والشركة.
+Insurance is what makes hospital billing different: the patient rarely pays the whole bill. So before we price any service, we define the insurance companies we deal with, how we classify them, and most importantly the **insurance approval** that sets the agreed prices and how they split between patient and company.
 
-## شركات التأمين وفئاتها
+## Insurance companies and their classes
 
-**شركة تأمين طبى (Medical Insurance Company)** هي الجهة الدافعة التي نُحاسبها على الجزء المغطّى من فواتير المرضى. وهي ذمّة محاسبية كاملة — لها حساب أستاذ تُرحَّل إليه التزامات التغطية وتُتابَع كأي مدين. تحمل علاوةً على الحسابات والضرائب وبيانات الاتصال علامتي **عدم التحمّل من ضريبة 1/2**.
+A **Medical Insurance Company** is the payer we bill for the covered portion of patients' invoices. It is a full accounting party — with a ledger account where coverage liability is posted and aged like any receivable. Besides Accounts, Taxes and Contact info, it carries the **Do Not Endure From Tax 1/2** flags.
 
-![شركة تأمين طبى](./images/insurance/insurance-company-ar.png)
+![Medical insurance company](../../ar/modules/hms/images/insurance/insurance-company-en.png)
 
-ولتنظيم الأسعار والتغطية نستخدم مُصنِّفين:
+To organize prices and coverage we use two classifiers:
 
-- **فئة تأمين (Insurance Classification)** — درجة تغطية (ذهبية، فضية، VIP…) تُستخدم كمحدِّد على سطور الأسعار والفواتير لاختيار السعر المتفق عليه.
-- **فئة شركة تأمين طبى (Medical Insurance Company Class)** — تجميع للشركات في فئة واحدة، حتى يُطبَّق سطر سعر/موافقة على فئة كاملة من الشركات بدل شركة واحدة.
+- **Insurance Classification** — a coverage tier (gold, silver, VIP…) used as a dimension on price lines and invoices to pick the agreed price.
+- **Medical Insurance Company Class** — a grouping of companies into one class, so a price/approval line can apply to a whole class of companies instead of a single one.
 
-## موافقة شركة التأمين: مرجع الأسعار والتغطية
+## The insurance approval: the source of prices and coverage
 
-**موافقة شركة تأمين (Insurance Company Approval)** هي قلب نظام التأمين. فهي قائمة الأسعار المتفق عليها مع الشركة، وهي ما يُخبر النظام — لكل نوع خدمة — بالسعر المتفق عليه و**نسبة تحمّل المريض مقابل الشركة (Endurance)**.
+**Insurance Company Approval** is the heart of the insurance system. It is the agreed price list with the company, and it tells the system — per service type — the agreed price and the **patient-vs-company endurance split**.
 
-تُنظَّم الموافقة في **تبويب لكل نوع خدمة** (إقامة، كشف، مرافقين، تحاليل، أشعة، عمليات، علاج طبيعي، صيدلية، مستلزمات، إشراف، خدمات، بنك دم). يتكرّر في كل تبويب رأسٌ موحّد: **من/إلى تاريخ الصلاحية، الأولوية، شركة التأمين، تصنيف المستند، نسبة تحمّل المريض، نسبة تحمّل الشركة، إستمارة الدخول، والحد الأقصى للتأمين**. ثم يحمل كل تبويب جدول تسعير خاصًّا بنوع خدمته (الغرفة وتصنيفها للإقامة، الطبيب والدرجة ونوع التحليل للتحاليل، نوع العملية ومكوّنات أجرها للعمليات… وهكذا).
+The approval is organized into **one tab per service type** (accommodation, check, attendants, lab tests, radiology, surgeries, physiotherapy, pharmacy, supplies, supervision, services, blood bank). Each tab repeats a common header: **valid from/to, priority, insurance company, document category, patient endurance percent, company endurance percent, patient admission, and the insurance max value**. Each tab then carries a pricing grid specific to its service type (room and classification for accommodation; doctor, degree and test type for lab; surgery type and its fee components for surgeries; and so on).
 
-![موافقة شركة تأمين](./images/insurance/insurance-approval-ar.png)
+![Insurance company approval](../../ar/modules/hms/images/insurance/insurance-approval-en.png)
 
-عند فوترة أي خدمة، يبحث النظام في الموافقة المطابقة (حسب الشركة وفئة التأمين وفئة المريض والطبيب والتاريخ) فيأخذ منها السعر ونسب التحمّل، ومنها أيضًا يأتي **الحد الأقصى لتحمّل التأمين** الذي يظهر على سطور الفواتير. بهذا تُترجَم اتفاقاتك مع شركات التأمين إلى تقسيم تلقائي صحيح على كل فاتورة.
+When any service is billed, the system looks up the matching approval (by company, insurance class, patient class, doctor and date) and takes the price and the endurance percentages from it — and from it too comes the **insurance maximum value** shown on the invoice lines. This is how your agreements with insurers translate into the correct automatic split on every invoice.
 
-::: tip الموافقة والأسعار العامة
-الموافقة تُحدّد أسعار المريض المؤمَّن وتقسيم تحمّله. أما المرضى النقديون فتأتي أسعارهم من **[قائمة أسعار طبية](./hms-pricing.md)**. النظامان يستخدمان المُصنِّفات نفسها (فئة المريض، الطبيب، الدرجة، الفترة) فيتكاملان معًا.
+::: tip Approvals vs. general prices
+The approval sets insured patients' prices and their endurance split. Cash patients' prices come from a **[Medical Sales Price List](./hms-pricing.md)**. Both systems use the same classifiers (patient class, doctor, degree, period), so they work together.
 :::

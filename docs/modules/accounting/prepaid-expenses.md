@@ -1,55 +1,55 @@
-# المصروفات المقدمة
+# Prepaid Expenses
 
-بعض المصروفات تُدفع مرّةً واحدة لكنّها تخصّ شهورًا عديدة: إيجار سنوي يُدفع مقدّمًا، قسط تأمين سنوي، عقد صيانة. وتحميل المبلغ كاملًا كمصروفٍ في شهر الدفع يشوّه نتائج ذلك الشهر ويُظهِر الشهور التالية أرخص ممّا هي عليه. تحلّ منظومة **المصروفات المقدّمة** هذه المشكلة: تُسجّل الدفعة كاملةً كأصل، ثم تعترف بها كمصروفٍ **شهرًا بشهر** على مدى الفترة التي تغطّيها — تلقائيًا.
+Some expenses are paid once but belong to many months: an annual rent paid up front, a yearly insurance premium, a maintenance contract. Booking the whole amount as an expense in the month you paid it would distort that month's results and leave the following months looking artificially cheap. The **prepaid-expenses** system solves this: it records the full payment as an asset, then recognizes it as expense **month by month** over the period it covers — automatically.
 
-::: info الترخيص المطلوب
-المصروفات المقدّمة ضمن ترخيص `accounting-prepaid-expenses`.
+::: info Required license
+Prepaid expenses are part of the `accounting-prepaid-expenses` license.
 :::
 
-## المكوّنات الثلاثة
+## The three pieces
 
-تتكوّن المنظومة من ثلاث شاشات، جميعها تحت جذر **الحسابات > عقود المصروفات المقدمة**:
+The system is built from three screens, all under the **Accounting > Prepaid Expense Contracts** root:
 
-1. **بند مصروف مقدم** — ملفٌ رئيسي يصف *نوع* المصروف المقدّم (إيجار، تأمين، عقد خدمة) ويحمل حساباته الافتراضية وخطّته الضريبية. تُعِدّه مرّةً واحدة وتعيد استخدامه.
-2. **عقد مصروف مقدم** — المستند الذي يسجّل دفعةً مقدّمة فعلية: أيّ بند، والمبلغ الإجمالي، والفترة التي يغطّيها. ومنه يولّد النظام قيود الاستحقاق الشهرية.
-3. **قيد استحقاق مصروف مقدم** — قيد الاعتراف الشهري. يُولَّد قيدٌ واحد لكلّ شهرٍ من فترة العقد، وكلٌّ منها ينقل حصّة ذلك الشهر من الأصل المقدّم إلى المصروف.
+1. **Prepaid Expense Item** — a master file that describes a *kind* of prepaid expense (rent, insurance, a service contract) and carries its default accounts and tax plan. You set it up once and reuse it.
+2. **Prepaid Expense Contract** — the document that records an actual prepaid payment: which item, the total amount, and the period it covers. From it the system generates the monthly recognition entries.
+3. **Prepaid Expense Ledger** — the monthly recognition entry. One is generated per month of the contract's period, and each one moves that month's share from the prepaid asset into the expense.
 
-![شاشة عقد المصروف المقدم](./images/prepaid/prepaid-expense-contract.png)
+![The Prepaid Expense Contract screen](./images/prepaid/prepaid-expense-contract.png)
 
-## إعداد البند
+## Setting up an item
 
-**بند المصروف المقدم** (`Accounting > Prepaid Expense Contracts > Prepaid Expense Item`) هو القالب القابل لإعادة الاستخدام. تضبط عليه **الحساب** الذي يستقرّ فيه المصروف في النهاية، و**جانب الدائن** (مصدر القيد الدائن المقابل — انظر أدناه)، و**خطّة ضريبية** إن كان المصروف خاضعًا للضريبة. ولأن البند يحمل هذه القيم الافتراضية، لا يحتاج العقد الذي يستخدمه سوى المبلغ والتواريخ.
+The **Prepaid Expense Item** (`Accounting > Prepaid Expense Contracts > Prepaid Expense Item`) is the reusable template. On it you set the **account** the expense ultimately lands in, the **credit side** (where the offsetting credit comes from — see below), and a **tax plan** if the expense is taxable. Because the item carries these defaults, the contract that uses it only needs the amount and the dates.
 
-![شاشة بند المصروف المقدم](./images/prepaid/prepaid-expense-item.png)
+![The Prepaid Expense Item screen](./images/prepaid/prepaid-expense-item.png)
 
-## تسجيل العقد
+## Recording a contract
 
-في **عقد المصروف المقدم** (`Accounting > Prepaid Expense Contracts > Prepaid Expense Contract`) يحمل الرأس **توجيه المستند** و**تاريخ القيمة** (الذي يحدّد **الفترة**)، و**العملة**، و**تاريخَي العقد** (من/إلى). ثم يصف كلُّ سطرٍ في **التفاصيل** مصروفًا مقدّمًا واحدًا:
+On the **Prepaid Expense Contract** (`Accounting > Prepaid Expense Contracts > Prepaid Expense Contract`) the header carries the **Document Term** and **Value Date** (which sets the **Period**), the **Currency**, and the contract's **from/to dates**. Each **details** line then describes one prepaid expense:
 
-- **بند المصروف المقدم** و**الحساب** الذي يُرحَّل إليه،
-- **تاريخا** السطر (من/إلى) و**عدد الأشهر** — المدى الذي يُعترَف عليه،
-- المبلغ، معبَّرًا عنه بإحدى طريقتين: **مبلغ شهري** ثابت × عدد الأشهر، أو **تكلفة اليوم** × **عدد الأيام** (فالعقد الذي لا يبدأ في أول الشهر يُوزَّع بالتناسب مع الأيام الفعلية)،
-- **خصم** و**ضريبة** اختياريان (نسبة أو قيمة)، فينتج **القيمة بعد الخصم** و**القيمة بعد الضريبة** و**إجمالي مبلغ** السطر،
-- **جانب الدائن** و — عند الحاجة — **ذمة** و**نوع حسابها الفرعي**،
-- والمجموعة الكاملة من **المحدِّدات** (الشركة، القطاع، الفرع، الإدارة، مجموعة التحليل).
+- the **Prepaid Expense Item** and the **account** it posts to,
+- the line's own **from/to dates** and **month count** — the span over which it's recognized,
+- the amount, expressed one of two ways: a fixed **monthly amount** × month count, or a **day cost** × **days count** (so a contract that doesn't start on the first of the month is prorated by actual days),
+- an optional **discount** and **tax** (percentage or value), giving the **value after discount**, **value after tax**, and the line **total amount**,
+- the **credit side** and, where relevant, a **subsidiary** and its **subsidiary account type**,
+- and the full set of **dimensions** (legal entity, sector, branch, department, analysis set).
 
-### من أين يأتي الجانب الدائن
+### Where the credit comes from
 
-يحدّد **جانب الدائن** في السطر من أين يأخذ النظام القيد الدائن المقابل عند ترحيل العقد — فأنت لست مقيّدًا بحسابٍ ثابتٍ واحد. والخيارات هي: **حساب محدد**، أو **ذمة محددة**، أو **ذمة المستخدم الحالي**، أو **حساب المورد**، أو **الحساب البنكي**، أو حسابات شركات **التخليص/التأمين/الشحن** (مفيدة للمصروفات المقدّمة المرتبطة بالاستيراد)، أو الحساب المأخوذ **من بند الشراء** نفسه.
+The line's **credit side** tells the system where to take the offsetting credit when the contract posts — you're not limited to one fixed account. The options are a **specific account**, a **specific subsidiary**, the **current user's subsidiary**, the **supplier account**, a **bank account**, the customs / insurance / shipping **company accounts** (handy for import-related prepaids), or the account taken **from the purchase item** itself.
 
-## كيف يُرحَّل: العقد ثم الاستحقاق الشهري
+## How it posts: contract then monthly recognition
 
-تُرحِّل منظومة المصروفات المقدّمة على مرحلتين، وهذا هو جوهر الفكرة:
+The prepaid system posts in two stages, and that's the whole point:
 
-- **عند اعتماد العقد**، يُسجَّل المبلغ المقدّم كأصل — يجري أثره عبر جانبَي **مدين/دائن** (إضافةً إلى جانبَي **الخصم** و**الضريبة** عند وجودهما) لإجماليات السطور.
-- **ثم يعترف كلُّ قيد استحقاق شهري** بحصّة ذلك الشهر: ينقل حصّة الشهر من الأصل المقدّم إلى حساب المصروف. فاثنا عشر شهرًا من عقدٍ سنوي تنتج عنها اثنا عشر قيد استحقاق، يحمل كلٌّ منها جزءًا من اثني عشر (أو حصّته الموزّعة بالأيام).
+- **When the contract is committed**, it records the prepaid amount as an asset — its effect runs through the **Debit / Credit** sides (plus **Discount** and **Tax** sides when present) for the line totals.
+- **Each monthly Prepaid Expense Ledger** then recognizes that month's share: it moves the month's portion out of the prepaid asset and into the expense account. Twelve months of an annual contract therefore produce twelve recognition entries, each carrying one-twelfth (or its day-prorated share).
 
-أمّا مصدر حساب كلّ جانبٍ فعليًا فيحكمه توجيه كلٍّ منهما — راجِع مرجع [توجيهات المستندات](./support/accounting-document-terms.md). (يُعالَج كلٌّ من العقد والقيد الشهري في الخلفية كأيّ مستندٍ آخر — انظر [كيف تُعالَج المستندات إلى أثر محاسبي](./support/accounting-request-processing.md).)
+Where each side's account actually comes from is governed by the document term of each — see the [Document terms](./support/accounting-document-terms.md) reference. (Both the contract and the monthly ledger are processed in the background like any other document — see [How documents are processed into accounting effects](./support/accounting-request-processing.md).)
 
-## للدعم الفني
+## For Support
 
-- **«المبلغ كاملًا حُمِّل على شهرٍ واحد كمصروف»** — ليس هذا هو السلوك الصحيح؛ العقد يقيّد أصلًا، و**قيود الاستحقاق الشهرية** تعترف بالمصروف على مدى الزمن. تحقّق من أنّ العقد ولّد قيوده الشهرية وأنّها عُولِجت.
-- **«لم تُولَّد القيود الشهرية»** — راجِع **تاريخَي** السطر (من/إلى) و**عدد الأشهر**؛ فعدد القيود الشهرية يتبع هذا المدى.
-- **«الشهر الأول أو الأخير الجزئي يبدو خاطئًا»** — استخدم طريقة **تكلفة اليوم × عدد الأيام** بدل المبلغ الشهري الثابت كي تُوزَّع الشهور الجزئية بالأيام الفعلية.
-- **«جرى تسجيل القيد الدائن في حسابٍ خاطئ»** — تحقّق من **جانب الدائن** في السطر (حساب محدد، مورد، بنك، ذمة...) ومن القيم الافتراضية للبند.
-- **«من أين تأتي حسابات الأصل/المصروف؟»** — من توجيهَي **عقد المصروف المقدم** و**قيد استحقاق المصروف المقدم**؛ راجِع [توجيهات المستندات](./support/accounting-document-terms.md).
+- **"The whole amount hit one month as an expense"** — that's not how it should work; the contract books an asset and the **monthly ledger entries** recognize the expense over time. Check that the contract generated its monthly entries and that they were processed.
+- **"The monthly entries weren't generated"** — review the line's **from/to dates** and **month count**; the number of monthly entries follows that span.
+- **"A partial first or last month looks wrong"** — use the **day cost × days count** method instead of a fixed monthly amount so partial months are prorated by actual days.
+- **"The wrong account was credited"** — check the line's **credit side** (specific account, supplier, bank, subsidiary...) and the item's defaults.
+- **"Where do the asset/expense accounts come from?"** — from the **Prepaid Expense Contract** and **Prepaid Expense Ledger** terms; see [Document terms](./support/accounting-document-terms.md).

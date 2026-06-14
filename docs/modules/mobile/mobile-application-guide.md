@@ -1,136 +1,132 @@
-<rtl>
+# Nama Mobile App — Overview, Navigation & Settings
 
-# تطبيق نما للهواتف المحمولة — نظرة عامة والتنقل والإعدادات
+**Nama Mobile** is the mobile front end for the Nama ERP system. It puts a connected endpoint in the hands of the employee, the sales rep, the warehouse keeper and the maintenance technician — all talking to the same ERP server the back-office team uses. From the phone they can clock in, issue invoices, count stock and follow up customer visits.
 
-تطبيق **نما موبايل** (Nama Mobile) هو الواجهة المحمولة لنظام Nama ERP. يضع التطبيق بين يدي الموظف والمندوب وأمين المخزن وفني الصيانة طرفاً متنقلاً يتصل بنفس خادم الـ ERP الذي يعمل عليه فريق المكتب، فيسجّل الحضور، ويصدر الفواتير، ويجرد المخازن، ويتابع زيارات العملاء — كل ذلك من الهاتف.
-
-::: tip فكرة عامة قبل أن نبدأ
-يعمل التطبيق بأسلوب **«يعمل دون اتصال أولاً» (Offline-first)**: عند تسجيل الدخول يحمّل التطبيق نسخة من البيانات التي يحتاجها (العملاء، الأصناف، العملات، أنواع الإجازات… حسب الوحدات المرخّصة) ويخزّنها محلياً على الجهاز، ثم يزامن المستندات مع الخادم عند توفر الاتصال. هذا يعني أن المندوب يستطيع متابعة عمله في الميدان حتى مع ضعف الشبكة.
+::: tip The big picture before we start
+The app works **offline-first**: when you log in it downloads a copy of the data it needs (customers, items, currencies, vacation types… depending on the licensed modules) and stores it locally on the device, then syncs documents back to the server whenever a connection is available. That means a field rep can keep working even on a weak network.
 :::
 
-يدعم التطبيق العربية والإنجليزية، ويمكن تشغيله بعلامات تجارية مختلفة (White Labeling) لعملاء نما المختلفين — مثل **NAMASOFT** و**SoftVision** و**Exceed** و**Capital** و**Cleopatra** — حيث يحمل كل إصدار اسمه وأيقونته الخاصة لكنه يشترك في نفس المزايا الموضّحة في هذا الدليل.
+The app supports Arabic and English, and ships under different brands (white labeling) for Nama's various customers — such as **NAMASOFT**, **SoftVision**, **Exceed**, **Capital** and **Cleopatra**. Each build carries its own name and icon but shares the same features described in this guide.
 
-## ماذا يغطّي هذا الدليل
+## What this guide covers
 
-قسّمنا توثيق التطبيق إلى صفحات حسب طبيعة العمل:
+We split the app documentation into pages by the kind of work involved:
 
-- **هذه الصفحة** — تسجيل الدخول، الشاشة الرئيسية، التنقل بين الوحدات، والإعدادات (اللغة، الطابعة، المزامنة).
-- [الخدمة الذاتية للموظفين — الحضور والإجازات](./mobile-hr-self-service.md) — الحضور الإلكتروني، الإجازات، الأذونات، المأموريات، السلف ومستندات الموارد البشرية.
-- [المبيعات والمخازن والاستعلام عن الأصناف](./mobile-sales-inventory.md) — مستندات البيع، التحويلات المخزنية، الجرد الإلكتروني، والاستعلام عن الأصناف.
-- [خدمة العملاء والتوصيل والقبض](./mobile-crm-delivery.md) — زيارات العملاء، الصيانة، الاستبيانات، سندات التوصيل، والقبض الإلكتروني.
-- [دليل Mobile QR Integrator](./mobile-qr-integrator.md) — الاستجابة لرموز QR الممسوحة وإنشاء/تحديث الكيانات.
-- [أسئلة شائعة](./mobile-apps-faq.md).
+- **This page** — logging in, the home screen, navigating between modules, and settings (language, printer, sync).
+- [Employee Self-Service — Attendance & Leaves](./mobile-hr-self-service.md) — electronic attendance, vacations, permissions, missions, loans and HR documents.
+- [Sales, Inventory & Item Inquiry](./mobile-sales-inventory.md) — sales documents, stock transfers, electronic stock taking and item inquiry.
+- [Customer Service, Delivery & Receipts](./mobile-crm-delivery.md) — customer visits, maintenance, questionnaires, delivery vouchers and electronic receipts.
+- [Mobile QR Integrator Guide](./mobile-qr-integrator.md) — responding to scanned QR codes to create/update entities.
+- [Frequently Asked Questions](./mobile-apps-faq.md).
 
-## تسجيل الدخول والاتصال بالخادم
+## Logging in and connecting to the server
 
-عند فتح التطبيق لأول مرة تظهر شاشة الدخول، وتحتاج إلى:
+The first time you open the app the login screen appears, and you need:
 
-- **عنوان الخادم (URL)** — رابط خادم الـ ERP الخاص بمؤسستك. يمكنك إدخاله يدوياً، أو **مسح رمز QR** يحتوي على الرابط لتوفير العناء.
-- **اسم المستخدم وكلمة المرور** — نفس بيانات دخول المستخدم في نظام نما.
+- **Server URL** — the link to your organization's ERP server. You can type it in, or **scan a QR code** that holds the link to save the trouble.
+- **Username and password** — the same Nama user credentials.
 
-::: details خيارات متقدمة في شاشة الدخول
-- **مصادقة NTLM/HTTP**: لبعض البيئات التي تستخدم مصادقة ويندوز، يمكن تفعيل خيار إدخال بيانات اعتماد NTLM منفصلة.
-- **تخطّي التحقق من شهادة SSL**: يُستخدم في بيئات التطوير أو الخوادم ذات الشهادات الذاتية فقط.
+::: details Advanced login options
+- **NTLM/HTTP authentication**: for environments that use Windows authentication, you can enable separate NTLM credentials.
+- **Skip SSL verification**: for development environments or servers with self-signed certificates only.
 :::
 
-بعد نجاح الدخول يجلب التطبيق **إعدادات المستخدم والوحدات المرخّصة** من الخادم، ويبني القوائم والاختصارات بناءً عليها — لذلك يختلف ما يراه كل مستخدم حسب صلاحياته والوحدات المفعّلة لمؤسسته.
+After a successful login the app fetches the **user settings and licensed modules** from the server and builds the menus and shortcuts accordingly — so what each user sees differs by their permissions and the modules enabled for their organization.
 
-### الدخول بالبصمة (Biometric)
+### Biometric login
 
-يمكن للتطبيق أن يطلب **بصمة الإصبع أو الوجه** عند كل فتح كطبقة حماية إضافية. يتحكم في هذه الخاصية إعداد على مستوى الخادم، ويمكن **تعطيل الدخول بالبصمة** أو جعله إجبارياً من إعدادات تطبيقات الجوال (انظر القسم الأخير من هذه الصفحة).
+The app can ask for a **fingerprint or face scan** on every launch as an extra layer of protection. This is controlled by a server-side setting, and biometric login can be **disabled** or made mandatory from the mobile app configuration (see the last section of this page).
 
-## الشاشة الرئيسية
+## The home screen
 
-الشاشة الرئيسية هي نقطة انطلاق الموظف اليومية. في أعلاها يظهر اسم المستخدم ورقمه الوظيفي وجرس الإشعارات، ثم تأتي البطاقات:
+The home screen is the employee's daily launch point. At the top it shows the user's name, employee number and the notifications bell, then come the cards:
 
-![الشاشة الرئيسية — بطاقة الحضور ولوحة المعلومات](./images/overview/home-attendance-dashboard.jpg)
+![Home screen — attendance card and information panel](../../ar/modules/mobile/images/overview/home-attendance-dashboard.jpg)
 
-- **بطاقة تسجيل الحضور** — زر سريع لـ«تسجيل حضور / إنصراف» دون الدخول إلى قائمة الرواتب.
-- **لوحة المعلومات** — ملخص يوم العمل الحالي (ساعات اليوم، هل تم الحضور أم لا، عدد أيام الحضور هذا الشهر).
-- **الحضور الشهري** — بطاقات ملوّنة تلخّص الشهر: الحضور الفعلي، الساعات الواجبة، التأخير، الوقت الإضافي، ساعات الإذن، وأيام العطلات والإجازات والمأموريات والغياب.
+- **Check-in card** — a quick "Check In / Check Out" button without opening the payroll menu.
+- **Information panel** — a summary of the current workday (today's hours, whether you've checked in, days attended this month).
+- **Monthly attendance** — colored cards summarizing the month: actual attendance, required hours, lateness, overtime, permission hours, and days of holidays, vacations, missions and absence.
 
-![الشاشة الرئيسية — ملخص الشهر واختصارات الموارد البشرية](./images/overview/home-monthly-stats.jpg)
+![Home screen — monthly summary and HR shortcuts](../../ar/modules/mobile/images/overview/home-monthly-stats.jpg)
 
-أسفل الملخص توجد **اختصارات سريعة** لأكثر الإجراءات تكراراً مثل طلب الإجازة وطلب الإذن. ويمكن للمسؤول تخصيص بطاقات الاختصارات التي تظهر هنا من إعدادات الخادم.
+Below the summary are **quick shortcuts** for the most frequent actions, such as requesting a vacation or a permission. The administrator can customize the shortcut cards shown here from server settings.
 
-### شريط التنقل السفلي
+### The bottom navigation bar
 
-يحتوي أسفل الشاشة على خمسة تبويبات ثابتة:
+The bottom of the screen has five fixed tabs:
 
-| التبويب | الوظيفة |
-|---------|---------|
-| **الرئيسية** | الشاشة الرئيسية ولوحة الحضور |
-| **القائمة** | كل الوحدات والمستندات المتاحة للمستخدم |
-| **موافقات** | المستندات المنتظرة لاعتماد المستخدم (مع عدّاد) |
-| **الرسائل** | المحادثات والدردشة الداخلية (مع عدّاد غير المقروء) |
-| **المزيد** | الإعدادات والأدوات المساعدة |
+| Tab | Purpose |
+|-----|---------|
+| **Home** | The home screen and attendance panel |
+| **Menu** | All modules and documents available to the user |
+| **Approvals** | Documents awaiting the user's approval (with a counter) |
+| **Chats** | Internal messaging (with an unread counter) |
+| **More** | Settings and utilities |
 
-## القائمة ومجموعات الوحدات
+## The menu and module groups
 
-تبويب **القائمة** يعرض الوحدات المرخّصة على شكل بطاقات مجمّعة، مع مربع بحث للوصول السريع لأي شاشة.
+The **Menu** tab shows the licensed modules as grouped cards, with a search box for quick access to any screen.
 
-![القائمة الرئيسية — مجموعات الوحدات](./images/overview/menu-groups.jpg)
+![Main menu — module groups](../../ar/modules/mobile/images/overview/menu-groups.jpg)
 
-تتغيّر المجموعات الظاهرة حسب ترخيص مؤسستك وصلاحياتك؛ ومن أمثلتها: الحسابات، الأساسيات، الموارد البشرية، الرواتب، خدمة العملاء، الشحن، المبيعات، وإدارة المخازن. وعند فتح أي مجموعة تظهر شاشاتها التفصيلية:
+The groups shown change with your organization's license and your permissions; examples include Accounts, Basics, Human Resources, Payroll, Customer Service, Shipping, Sales and Warehouse Management. Opening any group reveals its detailed screens:
 
-![مجموعة الأساسيات](./images/overview/menu-basics-group.jpg)
+![Basics group](../../ar/modules/mobile/images/overview/menu-basics-group.jpg)
 
-مجموعة **الأساسيات** مثلاً تجمع الشاشات المشتركة: الموافقات، التنبيهات، لوحة التطبيق (Dashboard)، بيانات العميل والعملة والصنف، التقارير، إضافة إلى أنواع الملاحظات (ملاحظة، ملحوظة مفصلة، ملحوظة اجتماع).
+The **Basics** group, for example, gathers the shared screens: approvals, notifications, the Dashboard, customer/currency/item data, reports, plus the note types (remark, detailed remark, meeting remark).
 
-::: info ترتيب القوائم قابل للتخصيص
-يستطيع المسؤول إعادة تعريف هيكل القوائم والمجموعات بالكامل من جهة الخادم، كما يمكنه اختيار العناصر الأربعة التي تظهر في شريط التطبيق السفلي. لذلك قد يختلف الترتيب لديك عمّا في الصور.
+::: info The menu order is customizable
+The administrator can completely redefine the structure of menus and groups on the server side, and can choose the four items shown in the bottom app bar. So your order may differ from the screenshots.
 :::
 
-## الموافقات والإشعارات والرسائل
+## Approvals, notifications and messages
 
-- **الموافقات**: قائمة المستندات التي تنتظر اعتمادك (إجازات، أذونات، طلبات…)، يمكن مراجعة ملخص كل مستند واعتماده أو رفضه من الجهاز مباشرة.
-- **الإشعارات** (جرس أعلى الشاشة): قائمة بالتنبيهات الواردة من النظام، مع إمكانية فتح المستند المرتبط بالتنبيه مباشرة، وتحديد الكل كمقروء أو حذفها.
-- **الرسائل**: دردشة داخلية بين مستخدمي النظام تدعم الرسائل النصية والصور والفيديو والرسائل الصوتية، وتعمل لحظياً عبر اتصال دائم بالخادم.
+- **Approvals**: the list of documents awaiting your approval (vacations, permissions, requests…). You can review each document's summary and approve or reject it from the device directly.
+- **Notifications** (the bell at the top): a list of alerts from the system, with the ability to open the document linked to an alert directly, mark all as read, or delete them.
+- **Messages**: internal chat between system users supporting text, images, video and voice messages, working in real time over a persistent connection to the server.
 
-## المزيد والإعدادات
+## More and Settings
 
-تبويب **المزيد** يضم الإعدادات والأدوات المساعدة:
+The **More** tab gathers settings and utilities:
 
-- **الإعدادات** — وقد يحميها رمز PIN خاص بالمسؤول إذا فعّلت المؤسسة ذلك.
-- **إنشاء مستند معرّف الجهاز (Device ID)** — لتسجيل بصمة الجهاز عند ربطه بالنظام.
-- **عناصر إضافية** يحددها المسؤول من جهة الخادم.
+- **Settings** — which may be protected by an administrator PIN if the organization enables it.
+- **Create Device ID document** — to register the device fingerprint when linking it to the system.
+- **Additional items** defined by the administrator on the server side.
 
-### شاشة الإعدادات
+### The Settings screen
 
-تنقسم الإعدادات إلى عدة تبويبات:
+Settings are divided into several tabs:
 
-**الإعدادات العامة**
-- **اللغة**: العربية أو الإنجليزية.
-- **عنوان الخادم (URL)** والبريد الإلكتروني وكود الجهاز.
+**General settings**
+- **Language**: Arabic or English.
+- **Server URL**, email and device code.
 
-**إعدادات الطابعة** — يدعم التطبيق طيفاً واسعاً من الطابعات الحرارية ومنها طابعات Bluetooth وطابعات **Sunmi** وC75 وغيرها. يمكن ضبط:
-- نوع الطابعة، وعرض الورق (مم أو بكسل) وارتفاعه.
-- حجم الورق (80/72/58 مم) وأمر الطباعة (ESC/TSC/CPCL) حسب نوع الطابعة.
-- زمن الانتظار قبل الطباعة.
+**Printer settings** — the app supports a wide range of thermal printers including Bluetooth printers, **Sunmi** devices, C75 and others. You can set:
+- Printer type, paper width (mm or pixels) and height.
+- Paper size (80/72/58 mm) and the print command (ESC/TSC/CPCL) depending on the printer type.
+- The wait time before printing.
 
-**إعدادات أخرى**
-- **حفظ سجلات الخادم**: لتفعيل تسجيل نداءات الخادم ومراجعتها لاحقاً عند تشخيص مشكلة.
-- **جلب الشعار**: لتنزيل شعار الشركة المستخدم في طباعة المستندات.
-- **إعادة تحميل بيانات التطبيق**: لإجبار التطبيق على مزامنة كل الإعدادات والبيانات من الخادم من جديد.
+**Other settings**
+- **Save server logs**: to enable logging server calls and review them later when diagnosing an issue.
+- **Fetch logo**: to download the company logo used in printing documents.
+- **Reload app data**: to force the app to re-sync all settings and data from the server.
 
-::: tip تغيير كلمة المرور ورمز الإدارة
-من شاشة الملف الشخصي يمكن للمستخدم تغيير كلمة مروره، كما يمكن للمسؤول تغيير **رمز إعدادات المسؤول (Admin PIN)** الذي يحمي الوصول إلى شاشة الإعدادات.
+::: tip Changing the password and admin PIN
+From the profile screen the user can change their password, and the administrator can change the **Admin PIN** that protects access to the Settings screen.
 :::
 
-## المزامنة والعمل دون اتصال
+## Syncing and working offline
 
-عند تسجيل الدخول — أو عند استخدام **إعادة تحميل بيانات التطبيق** — يجلب التطبيق البيانات المرجعية ويخزّنها محلياً. المستندات التي تُنشأ في الميدان يمكن **حفظها كمسودة** على الجهاز ثم مزامنتها مع الخادم لاحقاً، حسب إعدادات المؤسسة. وعند تغيير الإعدادات على الخادم يمكن للتطبيق أن يُخطر بذلك لحظياً ويعيد تحميل الإعدادات تلقائياً.
+On login — or when you use **Reload app data** — the app fetches the reference data and stores it locally. Documents created in the field can be **saved as drafts** on the device and then synced to the server later, depending on the organization's settings. When settings change on the server the app can be notified in real time and reload the settings automatically.
 
-## إعدادات الخادم التي تتحكم في سلوك التطبيق
+## Server settings that control the app's behavior
 
-معظم سلوك التطبيق يُضبط مركزياً من شاشة **إعدادات تطبيقات الجوال** في الـ ERP (إعدادات وحدة تطبيقات الجوال)، وليس من الهاتف. هذه الشاشة هي مرجع المسؤول لكل ما يخص التطبيق، ومنها على سبيل المثال:
+Most of the app's behavior is configured centrally from the **Mobile App configuration** screen in the ERP (the mobile apps module configuration), not from the phone. This screen is the administrator's reference for everything related to the app, including for example:
 
-- تحديد **الدفاتر** المسموح استخدامها لكل نوع مستند (الحضور، الإجازات، الأذونات، الجرد، القبض، التوصيل…).
-- التحكم في **الدخول بالبصمة**، وإظهار/إخفاء حفظ المستندات كمسودة، وعدد المنازل العشرية للكميات.
-- ضبط **المعايير** التي تحدد العملاء أو الأصناف المسموح بإرسالها للتطبيق.
-- صياغة **قوالب طباعة** المستندات والإيصالات، والشروط والأحكام التي تظهر للعميل.
-- قصر إنشاء بعض المستندات (الحضور، الإجازات، الجرد، القبض) على التطبيق فقط، أو السماح بتعديلها للمخوّلين فقط.
+- Specifying the **books** allowed for each document type (attendance, vacations, permissions, stock taking, receipts, delivery…).
+- Controlling **biometric login**, showing/hiding the save-as-draft option, and the number of decimal places for quantities.
+- Setting the **criteria** that determine which customers or items are allowed to be sent to the app.
+- Authoring the **print templates** for documents and receipts, and the terms and conditions shown to the customer.
+- Restricting the creation of some documents (attendance, vacations, stock taking, receipts) to the app only, or allowing their editing for authorized users only.
 
-كذلك يحدد **ترخيص** مؤسستك أيّ وحدات تظهر أصلاً في التطبيق (الموارد البشرية، المبيعات، الصيانة، إدارة المخازن WMS، الجرد، التوصيل…)؛ فإذا لم تكن وحدة مرخّصة فلن تظهر شاشاتها في القائمة.
-
-</rtl>
+Your organization's **license** also determines which modules appear in the app at all (Human Resources, Sales, Maintenance, Warehouse Management/WMS, Stock Taking, Delivery…); if a module is not licensed, its screens will not appear in the menu.

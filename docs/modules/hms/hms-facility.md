@@ -1,56 +1,56 @@
-# هيكل المستشفى والغرف
+# Hospital Structure & Rooms
 
-قبل أن تستقبل أول مريض، تحتاج إلى رسم خريطة مبناك داخل النظام: ما المباني التي لديك، وما طوابقها وأقسامها، وأي غرف وأسرّة فيها، وأي عيادات تعمل. كل ذلك تجده تحت **نظام إدارة المستشفيات ← هيكل المستشفى**، ويُبنى مرة واحدة ثم يُستخدم في كل مستندات الدخول والتسكين.
+Before you admit your first patient, you need to map your building inside the system: which buildings you have, their floors and sections, which rooms and beds they hold, and which clinics operate. You'll find all of this under **Hospital Management System → Hospital Structure**, built once and then reused across every admission and accommodation document.
 
-## الهرم: مبنى ← طابق ← قسم ← غرفة ← سرير
+## The hierarchy: building → floor → section → room → bed
 
-يُنظَّم المستشفى في خمسة مستويات متداخلة:
+A hospital is organized in five nested levels:
 
-- **مبنى (HMS Building)** — أعلى مستوى مادي. قد يكون لديك أكثر من مبنى (المبنى الرئيسي، مبنى العيادات الخارجية، جناح الولادة…). كل ما يأتي بعده يتبع مبنى ما.
-- **طابق (HMS Floor)** — دور داخل المبنى، حتى تُحدَّد مواقع الغرف والأسرّة بدقة.
-- **قسم طبى (Hospital Section)** — قسم تشغيلي/طبي (جراحة، باطنة، عناية مركّزة، أطفال…) يجمع الغرف والأسرّة والعيادات حسب المجال الإكلينيكي.
-- **غرفة مستشفى (HMS Room)** — الوحدة الأكثر تفصيلًا (انظر أدناه).
-- **سرير (Bed)** — سرير منفرد داخل غرفة، يتيح التسكين والحجز على مستوى السرير لا الغرفة فقط في الغرف متعدّدة الأسرّة.
+- **HMS Building** — the top physical level. You may have several buildings (main building, outpatient building, maternity wing…). Everything below belongs to a building.
+- **HMS Floor** — a level inside a building, so rooms and beds can be located precisely.
+- **Hospital Section** — an operational/medical department (Surgery, Internal Medicine, ICU, Pediatrics…) that groups rooms, beds and clinics by clinical area.
+- **HMS Room** — the most detailed unit (see below).
+- **Bed** — an individual bed within a room, enabling admission and reservation at bed level (not just room level) in multi-bed rooms.
 
-## الغرفة: قلب الإقامة
+## The room: the heart of accommodation
 
-الغرفة هي أكثر ملفات الهيكل ثراءً، لأنها تتحكّم في حجز السرير والإقامة والفوترة. إلى جانب موقعها (المبنى/القسم/الطابق)، تحمل الغرفة:
+The room is the richest of the structure files, because it controls bed booking, accommodation and billing. Besides its location (building/section/floor), a room carries:
 
-- **تصنيف الغرفة (Room Classification)** و**نوع الغرفة** و**درجة الغرفة** — مُصنِّفات تحدّد طبيعة الغرفة وسعرها.
-- **تحتوى أسرّة (Have a Bed)** و**عدد الأسرّة** — هل الغرفة جناح متعدد الأسرّة أم غرفة مفردة.
-- **محجوزة (Reserved)** و**حالة الغرفة** — لمتابعة الإشغال.
-- **الفرق في الوقت بين الحجز والحجز التالي لنفس الغرفة** — مهلة التنظيف/التجهيز قبل أن تُتاح الغرفة لحجز جديد.
-- **عدم إنشاء فاتورة إشراف على الغرفة** و**متاحة دائمًا** — استثناءات في الفوترة والإتاحة.
-- **سياسة الضريبة (Tax Plan)** — كيف تُحسب الضريبة على إقامة هذه الغرفة.
+- **Room Classification**, **Room Type** and **Room Degree** — classifiers that define the room's nature and price.
+- **Have a Bed** and **Beds Count** — whether the room is a multi-bed ward or a single room.
+- **Reserved** and **Room Status** — to track occupancy.
+- **Difference in time between consecutive reservations of the same room** — the cleaning/preparation buffer before the room can be re-booked.
+- **Do Not Create Room Supervision Invoice** and **Always Available** — billing and availability exceptions.
+- **Tax Plan** — how tax is calculated on this room's accommodation.
 
-![غرفة مستشفى](./images/facility/room-ar.png)
+![HMS room](../../ar/modules/hms/images/facility/room-en.png)
 
-والسرير ملف أبسط: موقعه (المبنى/القسم/الطابق/الغرفة) وحالته (محجوز/متاح دائمًا).
+The bed is a simpler file: its location (building/section/floor/room) and its status (reserved / always available).
 
-![سرير](./images/facility/bed-ar.png)
+![Bed](../../ar/modules/hms/images/facility/bed-en.png)
 
-## تصنيف الغرفة: حيث يُحدَّد سعر الإقامة
+## Room classification: where accommodation pricing lives
 
-هنا يحدث التسعير الفعلي للإقامة. لكل **تصنيف غرفة** (خاصة، مشتركة، VIP، عناية…):
+This is where accommodation is actually priced. For each **room classification** (private, shared, VIP, ICU…):
 
-- **سعر الإقامة (Accommodation Price)** — أجر الليلة الأساسي.
-- **سعر الإشراف الطبي (Medical Supervision Price)** — أجر الإشراف الطبي اليومي على المريض في هذا التصنيف.
-- **سياسة الضريبة**.
+- **Accommodation Price** — the base nightly fee.
+- **Medical Supervision Price** — the daily medical-supervision fee for patients in this class.
+- **Tax Plan**.
 
-وأسفل ذلك جدول **أسعار التصنيف في القوائم** يتيح تنويع السعر حسب: شركة التأمين، فئة التأمين، فئة المريض، فترة الصلاحية (من/إلى)، وغرفة بعينها — مع أولوية لترجيح السطر المطابق. هكذا يصل سعر الليلة الصحيح تلقائيًا إلى فاتورة الإقامة بحسب حالة كل مريض.
+Below that, a **price-in-lists** grid lets you vary the price by insurance company, insurance class, patient class, validity period (from/to) and a specific room — with a priority to break ties between matching rows. This is how the correct nightly rate flows automatically into the accommodation invoice for each patient's situation.
 
-![تصنيف غرفة](./images/facility/room-classification-ar.png)
+![Room classification](../../ar/modules/hms/images/facility/room-classification-en.png)
 
-::: info تصنيف ودرجة الغرفة
-**درجة الغرفة (Room Degree)** مُصنِّف إضافي بسيط (أولى، ثانية، اقتصادية…) يُستخدم إلى جانب التصنيف والنوع، وليس له سعر مستقل — التسعير يأتي من **تصنيف الغرفة**.
+::: info Room classification vs. degree
+**Room Degree** is a simple extra classifier (first, second, economy…) used alongside classification and type, and has no price of its own — pricing comes from the **room classification**.
 :::
 
-## العيادات
+## Clinics
 
-**العيادة (Clinic)** هي نقطة الكشف للمرضى الخارجيين — مكان مرتبط بموقع (مبنى/قسم/طابق/غرفة) و**بتخصص طبي**. تُستخدم لاحقًا في جدولة المواعيد وحجوزات العيادة الخارجية لتوجيه المريض إلى التخصص والمكان الصحيحين.
+A **Clinic** is the consultation point for outpatients — a place tied to a location (building/section/floor/room) and to a **medical specialty**. It's used later in scheduling and outpatient reservations to route the patient to the right specialty and place.
 
-![عيادة](./images/facility/clinic-ar.png)
+![Clinic](../../ar/modules/hms/images/facility/clinic-en.png)
 
-::: tip ابدأ بما تحتاجه فعلًا
-لا تحتاج إلى إدخال كل غرفة وسرير دفعةً واحدة. ابدأ بتصنيفات الغرف وأسعارها، ثم الأقسام والغرف التي ستستقبل فيها المرضى أولًا، وأضف الباقي تدريجيًا.
+::: tip Start with what you actually need
+You don't have to enter every room and bed at once. Start with room classifications and their prices, then the sections and rooms where you'll first receive patients, and add the rest gradually.
 :::

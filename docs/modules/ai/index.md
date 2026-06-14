@@ -1,16 +1,16 @@
 <div class="ignore-in-full-text-search">
 
-# الذكاء الاصطناعي
+# Artificial Intelligence
 
-تجلب وحدة **الذكاء الاصطناعي** قدرات النماذج اللغوية إلى داخل نما ERP — لكن بطريقة محكومة: لا يفعل الذكاء الاصطناعي شيئًا إلا عبر **أدوات** يعرّفها مدير النظام بنفسه، وكل أداة تُنفَّذ بهوية مستخدم حقيقي تسري عليه صلاحيات النظام كاملة. النتيجة مساعد يجيب من بياناتك الفعلية، ويشغّل تقاريرك، بل وينفّذ إجراءات ويستورد سجلات — دون أن يتجاوز حدود ما سمحت به.
+The **AI module** brings language-model capabilities inside Nama ERP — but in a governed way: the AI can do nothing except through **tools** the system administrator defines, and every tool executes as a real user with the full security model applied. The result is an assistant that answers from your actual data, runs your reports, and even performs actions and imports records — without ever stepping outside what you allowed.
 
-وتمتد هذه القدرات خارج النظام أيضًا: يحتوي نما على **خادم MCP مدمج** يتيح لعملاء الذكاء الاصطناعي الخارجيين — مثل Claude Desktop و Claude Code — الاتصال بالنظام واستخدام نفس الأدوات بنفس الضوابط.
+These capabilities reach beyond the system too: Nama ships with a **built-in MCP server** that lets external AI clients — such as Claude Desktop and Claude Code — connect to the system and use the same tools under the same controls.
 
-## الأدلّة
+## Guides
 
-- [تعريفات أدوات الذكاء الاصطناعي](./ai-tool-definitions.md) — كيف تبني أدوات للمساعد من شاشة AI Tool Definition: أدوات استعلام وتقارير ومسارات كيان وأدوات النظام الجاهزة، مع التحكم في من يستطيع استخدام كل أداة.
-- [المساعد الذكي داخل النظام](./ai-assistant.md) — نافذة المحادثة المدمجة: كيف تفتحها وتختار النموذج وتراجع سجل المحادثات وتستخدم الوضع المتقدّم لتشخيص الإجابات.
-- [إعداد وحدة الذكاء الاصطناعي](./ai-configuration.md) — تهيئة النماذج اللغوية ومزوّديها، ومفاتيح المصادقة، وقاعدة المتجهات والبحث الدلالي وفهرسة السجلات.
-- [خادم MCP لنظام نما ERP](./ai-mcp-server.md) — كيف تربط عميل MCP خارجيًا بالنظام: عنوان الخادم والمصادقة وإعداد العملاء، ومرجع كامل لأدوات تصدير واستيراد السجلات الست.
+- [AI Tool Definitions](./ai-tool-definitions.md) — how to build tools for the assistant from the AI Tool Definition screen: query, report, entity-flow, and ready-made system tools, with control over who may use each tool.
+- [The In-System AI Assistant](./ai-assistant.md) — the built-in chat window: how to open it, choose the model, review chat history, and use Expert Mode to diagnose answers.
+- [AI Module Configuration](./ai-configuration.md) — setting up the language models and their providers, authentication keys, the vector store, and semantic search and record indexing.
+- [Nama ERP MCP Server](./ai-mcp-server.md) — how to connect an external MCP client to the system: the server endpoint, authentication, client setup, and a complete reference of the six record export/import tools.
 
 </div>

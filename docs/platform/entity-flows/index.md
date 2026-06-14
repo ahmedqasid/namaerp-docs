@@ -1,10 +1,10 @@
 <div class="ignore-in-full-text-search">
 
-# مسارات الكيان
-  - [مقدمة عن مسارات الكيان](/platform/entity-flows/introduction-to-entity-flows.md)
-  - [استيراد البيانات من Excel أو الاستعلامات](/platform/entity-flows/excel-and-sql-import-by-entity-flow.md)
+# Entity Flows
+  - [Introduction to Entity Flows](/platform/entity-flows/introduction-to-entity-flows.md)
+  - [Importing Data from Excel or Queries](/platform/entity-flows/excel-and-sql-import-by-entity-flow.md)
   - [EAGenerateEntityFromEntityAction](/platform/entity-flows/ea-gen-entity-from-entity.md)
-  - [أمثلة لمسارات كيان](/platform/entity-flows/entity-flow-examples.md)
-  - [أسئلة شائعة عن مسارات الكيان](/platform/entity-flows/entity-flow-faq.md)
+  - [Entity Flow Examples](/platform/entity-flows/entity-flow-examples.md)
+  - [Entity Flow FAQ](/platform/entity-flows/entity-flow-faq.md)
 
 </div>

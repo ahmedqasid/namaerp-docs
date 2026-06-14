@@ -1,160 +1,157 @@
-<rtl>
 
-# التحكم في إقفال الفترات المحاسبية (Fiscal Period Control)
+# Fiscal Period Control
 
-في كثير من المنشآت لا يكفي أن تكون الفترة المحاسبية «مفتوحة» أو «مغلقة» للجميع. فقسم الحسابات قد يحتاج إلى إكمال قيود التسوية في فترة أوشكت على الإقفال، بينما يجب منع المبيعات من إصدار أي فاتورة فيها. وأحيانًا يحدث العكس: الفترة مغلقة للجميع، لكنك تريد السماح لمستخدم واحد بإجراء قيد تصحيحي عاجل.
+In many organizations, simply marking an accounting period as "open" or "closed" for everyone is not enough. The accounting department may need to complete adjustment entries in a period that is about to close, while the sales team must be prevented from issuing any invoice in that same period. Sometimes the reverse is true: the period is closed for everyone, but you want to allow a single user to post an urgent corrective entry.
 
-يوفّر نظام نما ثلاث طبقات متكاملة للتحكم في الفترات تغطي هذه الحالات:
+Nama ERP provides three integrated layers of period control that cover all these cases:
 
-| الطبقة | الأداة | الأثر |
-|--------|--------|-------|
-| **الأساس** | حالة الفترة المحاسبية | فتح/إقفال عام للفترة على الجميع وكل المستندات |
-| **التضييق** | تحديث حالة السنة المالية | إقفال **انتقائي** لفترة مفتوحة لبعض ملفات الصلاحية / المستخدمين / المستندات |
-| **الاستثناء** | تجاهل الفترات المغلقة | **السماح** الانتقائي بالعمل في فترة مغلقة لجهة أو مستند معيّن |
+| Layer | Tool | Effect |
+|-------|------|--------|
+| **Base** | Fiscal Period Status | General open/close for the period — applies to everyone and all document types |
+| **Narrowing** | Fiscal Year Status Update | **Selective** closing of an open period for specific permission files / users / document types |
+| **Exception** | Ignore Closed Periods | **Selective** permission to work in a closed period for a specific party or document type |
 
-::: tip الفكرة الجوهرية
-- **تحديث حالة السنة المالية** *يُضيّق*: يقفل ما هو مفتوح لجهات محددة.
-- **تجاهل الفترات المغلقة** *يستثني*: يفتح ما هو مغلق لجهات محددة.
+::: tip Core Concept
+- **Fiscal Year Status Update** *narrows*: it closes what is open for specific parties.
+- **Ignore Closed Periods** *makes exceptions*: it opens what is closed for specific parties.
 :::
 
-## الطبقة الأساسية: حالة الفترة المحاسبية
+## Base Layer: Fiscal Period Status
 
-لكل فترة محاسبية حالة افتراضية: **مفتوحة (Opened)** أو **مغلقة (Closed)**. عندما تكون الفترة مغلقة بحالتها الأساسية، يمنع النظام حفظ أي مستند مؤرخ داخلها على جميع المستخدمين. هذا هو الإقفال «العام»، وهو نقطة البداية التي تعمل الطبقتان التاليتان فوقها.
+Each accounting period has a default status: **Opened** or **Closed**. When a period is closed at the base level, the system prevents any user from saving a document dated within it. This is the "general" close — it is the starting point on top of which the two remaining layers operate.
 
 ---
 
-## أولاً: تحديث حالة السنة المالية — الإقفال الانتقائي
+## Part One: Fiscal Year Status Update — Selective Closing
 
-هذا ملف رئيسي يتيح لك إقفال (أو فتح) الفترات بشكل دقيق حسب **ملف الصلاحية أو المستخدم**، و**نوع المستند**، و**المحددات** (الشركة / القطاع / الفرع / الإدارة / مجموعة التحليل)، بدلًا من الإقفال العام.
+This is a master file that lets you close (or open) periods in a precise, granular way based on **permission file or user**, **document type**, and **Dimensions** (Legal Entity / Sector / Branch / Department / Analysis Group) — instead of a blanket close.
 
-### مكان الشاشة
+### Screen Location
 
-- **بالعربية**: الأساسيات > الملفات > تحديث حالة السنة المالية
-- **بالإنجليزية**: Basic > Master Files > Fiscal Year Status Update
+- **Arabic**: Basic > Master Files > Fiscal Year Status Update
+- **English**: Basic > Master Files > Fiscal Year Status Update
 
-### الخطوة الأولى: تفعيل الميزة
+### Step 1: Activate the Feature
 
-لا يعمل هذا الملف إلا بعد تفعيله من **الإعدادات العامة** عبر الخيار **تفعيل تحديث حالة السنة المالية (Enable Fiscal Year Status Update)**. إذا لم يكن مُفعّلًا، يتجاهل النظام كل ملفات تحديث الحالة تمامًا.
+This file has no effect unless it is activated from **General Settings** via the option **Enable Fiscal Year Status Update**. If this option is not enabled, the system ignores all Fiscal Year Status Update records entirely.
 
-::: warning تنبيه
-بدون تفعيل هذا الخيار العام لن يكون لأي ملف «تحديث حالة السنة المالية» أي أثر، مهما أضفت من قواعد.
+::: warning
+Without enabling this global option, no Fiscal Year Status Update record will have any effect, regardless of how many rules you add.
 :::
 
-### الخطوة الثانية: إنشاء الملف وإضافة القواعد
+### Step 2: Create the Record and Add Rules
 
-أنشئ ملفًا جديدًا ثم أضف سطورًا في الجدول التفصيلي — **كل سطر يمثّل قاعدة إقفال/فتح مستقلة**. حقول السطر:
+Create a new record and add lines to the detail grid — **each line represents an independent close/open rule**. Line fields:
 
-| الحقل | الوصف |
-|------|-------|
-| **السنة المالية / الفترة المحاسبية** | الفترة التي تنطبق عليها القاعدة (اتركها فارغة لتشمل الكل) |
-| **النوع المستهدف (Target Entity)** | نوع المستند المقصود (مثل فاتورة مبيعات). فارغ = كل الأنواع |
-| **قائمة الأنواع (Entity Type List)** | قائمة أنواع جاهزة لتطبيق القاعدة على عدة مستندات دفعة واحدة |
-| **المستخدم / ملف الصلاحية** | تختار إمّا مستخدمًا بعينه أو **ملف صلاحية** كاملًا لتطبيق القاعدة على كل مستخدميه |
-| **الشركة / القطاع / الفرع / الإدارة / مجموعة التحليل** | محددات اختيارية لقصر القاعدة على جهة معيّنة |
-| **الحالة (Status)** | نتيجة القاعدة: **مفتوحة** أو **مغلقة** (حقل إلزامي) |
+| Field | Description |
+|-------|-------------|
+| **Fiscal Year / Fiscal Period** | The period the rule applies to (leave blank to apply to all) |
+| **Target Entity** | The target document type (e.g., Sales Invoice). Blank = all types |
+| **Entity Type List** | A predefined list of types to apply the rule to multiple documents at once |
+| **User / Permission File** | Choose either a specific user or a full **permission file** to apply the rule to all its users |
+| **Legal Entity / Sector / Branch / Department / Analysis Group** | Optional dimensions to restrict the rule to a specific organizational unit |
+| **Status** | Rule outcome: **Opened** or **Closed** (required field) |
 
-وعلى مستوى رأس الملف يوجد حقل **الأولوية (Priority)** لترتيب القواعد، وخيار **غير نشط (Inactive)** لتعطيل الملف دون حذفه.
+At the header level there is a **Priority** field for ordering the rules, and an **Inactive** option to disable the record without deleting it.
 
-### كيف يطبّق النظام القواعد؟
+### How Does the System Apply Rules?
 
-عندما يحاول مستخدم حفظ مستند في فترة ما:
+When a user attempts to save a document in a given period:
 
-1. يجمع النظام كل القواعد النشطة مرتبةً **حسب الأولوية**.
-2. يأخذ **أول قاعدة تنطبق** على المجموعة: نوع المستند + المحددات + الفترة + السنة + المستخدم الحالي (أو ملف صلاحيته).
-3. إذا كانت حالة تلك القاعدة **مغلقة**، يُمنع الحفظ في تلك الفترة لذلك المستخدم/المستند.
+1. The system collects all active rules ordered **by priority**.
+2. It takes the **first matching rule** for the combination: document type + dimensions + period + fiscal year + current user (or their permission file).
+3. If that rule's status is **Closed**, saving is blocked for that user/document in that period.
 
-::: tip قاعدة المطابقة الأهم
-أي حقل تتركه فارغًا في السطر يعني **«ينطبق على الكل»**. فسطرٌ فيه فقط: الحالة = مغلقة + ملف الصلاحية = «مندوبو المبيعات» + النوع المستهدف = «فاتورة مبيعات»، يُقفل فواتير المبيعات على مندوبي المبيعات فقط، ويترك كل ما عداه مفتوحًا.
+::: tip The Most Important Matching Rule
+Any field left blank in a line means **"applies to all"**. So a line with only: Status = Closed + Permission File = "Sales Representatives" + Target Entity = "Sales Invoice" closes sales invoices for sales representatives only and leaves everything else open.
 :::
 
-### ملاحظتان مهمتان
+### Two Important Notes
 
-::: warning هذا الملف يُضيّق ولا يُوسّع
-الإقفال الأساسي للفترة هو الأقوى داخل هذه الطبقة: إذا كانت الفترة مغلقة أصلًا في حالتها الأساسية، فلا يستطيع هذا الملف إعادة فتحها لأحد. أمّا إذا كانت الفترة مفتوحة أساسًا، فيمكنك عبره إقفالها انتقائيًا. (لفتح فترة مغلقة لجهة معيّنة استخدم «تجاهل الفترات المغلقة» في القسم التالي.)
+::: warning This File Narrows — It Does Not Widen
+The base period close is the strongest within this layer: if the period is already closed at the base level, this file cannot reopen it for anyone. However, if the period is open at the base level, you can use this file to selectively close it for specific parties. (To open a closed period for a specific party, use "Ignore Closed Periods" in the next section.)
 :::
 
-::: info الأولوية تحسم التعارض
-عند وجود أكثر من قاعدة قد تنطبق على نفس الحالة، تُطبَّق القاعدة الأعلى أولويةً (أول قاعدة مطابقة في الترتيب)، فرتّب القواعد بعناية عند تداخلها.
+::: info Priority Resolves Conflicts
+When more than one rule can apply to the same situation, the highest-priority rule (the first matching rule in order) is applied, so order your rules carefully when they overlap.
 :::
 
-### أمثلة عملية
+### Practical Examples
 
-**إقفال الفترة لبعض ملفات الصلاحية:**
-أضف سطرًا تختار فيه الفترة، وفي حقل المستخدم/ملف الصلاحية تختار **ملف الصلاحية** المعني، وتترك النوع المستهدف فارغًا، والحالة = **مغلقة**.
-*النتيجة:* الفترة مغلقة على كل مستخدمي ذلك الملف، ومفتوحة لغيرهم.
+**Closing the period for specific permission files:**
+Add a line, select the period, and in the User/Permission File field select the relevant **permission file**. Leave the Target Entity blank. Set Status = **Closed**.
+*Result:* The period is closed for all users in that file and remains open for everyone else.
 
-**إقفال الفترة لبعض المستندات:**
-أضف سطرًا تختار فيه الفترة، وفي النوع المستهدف تختار نوع المستند (أو قائمة أنواع لعدة مستندات)، وتترك المستخدم فارغًا، والحالة = **مغلقة**.
-*النتيجة:* تلك المستندات مقفلة على الجميع في هذه الفترة، وباقي المستندات مفتوحة.
+**Closing the period for specific document types:**
+Add a line, select the period, and in Target Entity select the document type (or an entity type list for multiple documents at once). Leave the user blank. Set Status = **Closed**.
+*Result:* Those documents are closed for everyone in this period; all other documents remain open.
 
-ويمكن الدمج في قاعدة واحدة بين ملف صلاحية ونوع مستند ومحدد (فرع/شركة) لأدق درجات التحكم.
+You can also combine a permission file, a document type, and a dimension (branch/legal entity) in a single rule for the most precise level of control.
 
 ---
 
-## ثانيًا: تجاهل الفترات المغلقة — الاستثناءات
+## Part Two: Ignore Closed Periods — Exceptions
 
-أحيانًا تكون الفترة مغلقة للجميع، لكنك تريد **السماح** لجهة أو مستند بعينه بالعمل فيها (قيد تصحيحي، تسوية متأخرة، صلاحية خاصة للمدير المالي). هذا ما يفعله **تجاهل الفترات المغلقة**: قاعدة استثناء تجعل النظام يعامل الفترة المغلقة كأنها مفتوحة — لكن فقط لمن تنطبق عليه القاعدة.
+Sometimes a period is closed for everyone, but you want to **allow** a specific party or document to work in it (a corrective entry, a late adjustment, a special privilege for the Finance Manager). This is what **Ignore Closed Periods** does: an exception rule that makes the system treat a closed period as open — but only for those to whom the rule applies.
 
-يمكن تعريف هذه الاستثناءات في مكانين، ولهما نفس الحقول ونفس السلوك:
+These exceptions can be defined in two places, both with the same fields and the same behavior:
 
-### أ. على مستوى الإعدادات العامة (يطبّق على كل السنوات)
+### A. At the General Settings Level (Applies to All Fiscal Years)
 
-في **الإعدادات العامة** يوجد جدول **تجاهل الفترات المغلقة في (Ignore Closed Periods In)**. القواعد المعرّفة هنا تنطبق على مستوى النظام كله.
+In **General Settings** there is a **Ignore Closed Periods In** grid. Rules defined here apply at the system-wide level.
 
-### ب. على مستوى السنة المالية (يطبّق على سنة بعينها)
+### B. At the Fiscal Year Level (Applies to a Specific Year)
 
-داخل ملف **السنة المالية** (الأساسيات > الملفات > السنة المالية) يوجد جدول **تجاهل الفترات المغلقة** خاص بتلك السنة، يُستخدم عندما تريد استثناءات محصورة في سنة واحدة دون التأثير على غيرها.
+Inside the **Fiscal Year** record (Basic > Master Files > Fiscal Year) there is an **Ignore Closed Periods** grid specific to that year, used when you want exceptions confined to a single year without affecting others.
 
-::: info الجدولان يُجمعان معًا
-عند فحص أي مستند، يدمج النظام قواعد التجاهل من **الإعدادات العامة** ومن **السنة المالية** الخاصة بالفترة، وتكفي مطابقة **قاعدة واحدة** من أيهما للسماح.
+::: info Both Grids Are Combined
+When checking any document, the system merges the ignore rules from **General Settings** and from the **Fiscal Year** record for that period. A match in **either** is sufficient to grant access.
 :::
 
-### حقول قاعدة التجاهل
+### Fields of the Ignore Rule
 
-| الحقل | الوصف |
-|------|-------|
-| **نوع المستند (Entity Type)** | نوع المستند المسموح له بتجاوز الإقفال. فارغ = كل الأنواع |
-| **السنة المالية / الفترة المحاسبية** | حصر الاستثناء في سنة أو فترة بعينها |
-| **المستخدم (User)** | السماح لمستخدم محدد بعينه |
-| **السماح لـ (Allow For)** | جهة أوسع يُسمح لها: **موظف**، أو **ملف صلاحية**، أو **مجموعة موظفين**، أو **مجموعة رئيسية**. يكفي أن ينتمي المستخدم الحالي لأيٍّ منها |
-| **الشركة / القطاع / الفرع / الإدارة / مجموعة التحليل** | محددات اختيارية لحصر الاستثناء على جهة معيّنة |
+| Field | Description |
+|-------|-------------|
+| **Entity Type** | The document type allowed to bypass the close. Blank = all types |
+| **Fiscal Year / Fiscal Period** | Restrict the exception to a specific year or period |
+| **User** | Allow a specific user |
+| **Allow For** | A broader party to allow: **Employee**, **Permission File**, **Employee Group**, or **Main Group**. The current user only needs to belong to any one of these |
+| **Legal Entity / Sector / Branch / Department / Analysis Group** | Optional dimensions to restrict the exception to a specific organizational unit |
 
-### كيف يطبّق النظام قاعدة التجاهل؟
+### How Does the System Apply the Ignore Rule?
 
-- إذا كانت كل حقول القاعدة فارغة، فهي **غير صالحة ولا تُطبّق** (حماية من فتح كل الفترات بالخطأ).
-- لكل حقل مملوء، يجب أن يتطابق مع المستند/المستخدم الحالي؛ والحقول الفارغة تعني «الكل».
-- حقل **السماح لـ** يطابق المستخدم عبر: نفسه، أو موظفه، أو ملف صلاحيته، أو مجموعته؛ وإن كان «مجموعة موظفين» فيُشترط أن يكون موظف المستخدم عضوًا فيها.
+- If all fields of a rule are blank, the rule is **invalid and will not be applied** (protection against accidentally opening all periods).
+- For every filled field, it must match the current document/user; blank fields mean "all".
+- The **Allow For** field matches the user through: the user themselves, their employee record, their permission file, or their group; if it is an "Employee Group", the user's employee must be a member.
 
-### أمثلة عملية
+### Practical Examples
 
-**السماح للمدير المالي وحده بالعمل في فترة مغلقة:**
-في الإعدادات العامة أضف سطرًا في «تجاهل الفترات المغلقة في»: حدّد الفترة، وفي **المستخدم** اختر المدير المالي (أو في **السماح لـ** اختر ملف صلاحيته)، واترك نوع المستند فارغًا.
-*النتيجة:* تظل الفترة مغلقة على الجميع، عدا المدير المالي.
+**Allowing the Finance Manager alone to work in a closed period:**
+In General Settings, add a line in "Ignore Closed Periods In": specify the period, and in **User** select the Finance Manager (or in **Allow For** select their permission file). Leave the document type blank.
+*Result:* The period remains closed for everyone except the Finance Manager.
 
-**السماح بقيود اليومية فقط في فترة مغلقة لسنة محددة:**
-داخل ملف السنة المالية أضف سطرًا في «تجاهل الفترات المغلقة»: حدّد الفترة، وفي **نوع المستند** اختر «قيد يومية»، واترك المستخدم/السماح لـ فارغًا.
-*النتيجة:* يُسمح بقيود اليومية في تلك الفترة المغلقة للجميع، وتبقى باقي المستندات ممنوعة.
+**Allowing only journal entries in a closed period for a specific fiscal year:**
+Inside the Fiscal Year record, add a line in "Ignore Closed Periods": specify the period, and in **Entity Type** select "Journal Entry". Leave User/Allow For blank.
+*Result:* Journal entries are permitted in that closed period for everyone; all other documents remain blocked.
 
 ---
 
-## ترتيب أولوية التطبيق (كيف تتفاعل الطبقات معًا)
+## Application Priority (How the Layers Interact)
 
-عند محاولة حفظ مستند في فترة، يقرّر النظام السماح أو المنع بالترتيب التالي:
+When attempting to save a document in a period, the system decides to allow or block in the following order:
 
-1. **هل تنطبق قاعدة «تجاهل الفترات المغلقة»؟** (من الإعدادات العامة أو السنة المالية) — إن نعم، **يُسمح فورًا**، بصرف النظر عن أي إقفال. هذا الاستثناء هو الأعلى أسبقيةً.
-2. وإلا، يُحضِر النظام الحالة من **تحديث حالة السنة المالية**. فإن لم توجد قاعدة مطابقة، أو كانت الفترة **مغلقة أساسًا**، تُعتمد الحالة الأساسية للفترة.
-3. يُسمح بالحفظ فقط إذا كانت الحالة النهائية **مفتوحة**.
+1. **Does an "Ignore Closed Periods" rule apply?** (from General Settings or the Fiscal Year) — If yes, **access is immediately granted**, regardless of any close. This exception has the highest priority.
+2. Otherwise, the system retrieves the status from **Fiscal Year Status Update**. If no matching rule exists, or if the period is **closed at the base level**, the period's base status is used.
+3. Saving is allowed only if the final status is **Opened**.
 
-::: tip الخلاصة
-- «تجاهل الفترات المغلقة» يتجاوز كل شيء (استثناء صريح بالسماح).
-- «تحديث حالة السنة المالية» يستطيع إقفال فترة مفتوحة لجهات محددة، لكنه لا يفتح فترة مغلقة أساسًا.
-- الإقفال الأساسي للفترة هو الافتراضي حين لا تنطبق أي قاعدة.
+::: tip Summary
+- "Ignore Closed Periods" overrides everything (explicit permission exception).
+- "Fiscal Year Status Update" can close an open period for specific parties but cannot open a period that is already closed at the base level.
+- The base period close is the default when no rule applies.
 :::
 
-## ملاحظات فنية
+## Technical Notes
 
-::: details التخزين المؤقت (Caching)
-تُخزَّن قواعد «تحديث حالة السنة المالية» وقواعد «تجاهل الفترات المغلقة» مؤقتًا في الذاكرة لتحسين الأداء، ويُمسح التخزين المؤقت تلقائيًا عند أي تعديل في هذه الملفات أو في الإعدادات العامة، فتسري التغييرات دون إعادة تشغيل.
+::: details Caching
+The rules for "Fiscal Year Status Update" and "Ignore Closed Periods" are cached in memory to improve performance. The cache is cleared automatically whenever any of these records or the General Settings are modified, so changes take effect immediately without restarting.
 :::
-
-</rtl>

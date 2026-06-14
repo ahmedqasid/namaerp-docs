@@ -2,181 +2,177 @@
 lang: ar
 ---
 
-<rtl>
+# Integration Scenarios Between Nama and Other Systems
 
-# سيناريوهات الربط بين نظام نما والأنظمة الأخرى
+## Introduction
 
-## مقدمة
+We receive — on an almost daily basis — a question from customers and colleagues in sales, implementation, and technical support teams that goes something like:
 
-يَرِد إلينا – بشكل شبه يومي – سؤالٌ من العملاء ومن الزملاء في فِرَق المبيعات والتجهيز والدعم الفني على هيئة:
+> "Can we integrate Nama with such-and-such system?"
 
-> «هل يمكن أن نَربط نظام نما مع النظام الفلاني؟»
+The question usually arrives without details, so answering it with a quick "yes" or "no" is inaccurate. Whether integration is possible — and how costly it might be — depends not only on Nama's capabilities, but also on the other system's capabilities, the direction of data flow between the two systems, and whether the other party provides documented APIs.
 
-وغالبًا ما يأتي السؤال مُجرَّدًا بلا تفاصيل، فيكون الردُّ السريع عليه بـ«نعم» أو «لا» ردًّا غيرَ دقيق؛ إذ إنّ إمكانيّة الربط – ومدى تكلفته – لا تتوقّف على قدرات نظام نما وحده، وإنّما تتوقّف كذلك على قدرات النظام الآخر، وعلى اتّجاه تدفُّق البيانات بين النظامين، وعلى مدى توفُّر واجهات برمجيّة (APIs) موثَّقة لدى الطرف الآخر.
+For this reason, we present in this document a systematic framework for answering that question — one that allows our colleagues in sales and implementation teams, and even the customer themselves, to ask the right questions before requesting a technical or financial proposal. This saves many rounds of back-and-forth and leads to a sound decision in less time.
 
-ولذلك نُقدِّم في هذه الوثيقة إطارًا منهجيًّا للإجابة عن هذا السؤال؛ بحيث يَستطيع زميلُنا في فريق المبيعات أو التجهيز – بل والعميلُ نفسه – أن يَطرح الأسئلة الصحيحة قبل أن يَطلب عرضًا فنيًّا أو ماليًّا، فنَختصر بذلك دوراتٍ كثيرةً من الأخذ والرَّدّ، ونصل إلى قرارٍ سليمٍ في وقتٍ قصير.
-
-::: tip ملخّص سريع
-نظام نما **مفتوحٌ افتراضيًّا** للربط مع الأنظمة الأخرى عبر واجهةٍ برمجيّةٍ (REST API) موثَّقةٍ توثيقًا كاملًا بمواصفة OpenAPI 3.0، وهي متاحةٌ لكلِّ عميلٍ بلا أيّ رسومٍ إضافيّة. التكلفةُ الإضافيّة – إن وُجِدت – تنشأ عادةً من جهة النظام الآخر، لا من جهتنا.
+::: tip Quick Summary
+Nama is **open by default** for integration with other systems via a fully documented REST API following the OpenAPI 3.0 specification, available to every customer at no additional cost. Any additional cost — if it exists at all — typically originates from the other system's side, not ours.
 :::
 
-## السؤال المركزيّ: في أيِّ اتّجاهٍ تَسير البيانات؟
+## The Central Question: In Which Direction Does the Data Flow?
 
-قبل أن نَبحث في الإمكانيّة الفنّيّة، ينبغي أن نُحدِّد **اتّجاه التدفُّق** بدقّة؛ فلكلِّ اتّجاهٍ متطلَّباته الخاصّة، وتختلف الجهةُ التي يقع عليها العبءُ الفنّيُّ والماليُّ تَبَعًا لذلك. وتنحصر الاتّجاهاتُ الممكنة في أربعة سيناريوهاتٍ رئيسة:
+Before exploring technical feasibility, we need to precisely identify the **direction of flow**. Each direction has its own requirements, and the party bearing the technical and financial burden differs accordingly. There are four main scenarios:
 
-| # | السيناريو | المصدر | الوجهة | الجهة المسؤولة عن توفير الـ API |
+| # | Scenario | Source | Destination | Party Responsible for Providing the API |
 |---|---|---|---|---|
-| 1 | النظام الآخر يَقرأ من نما | نما | النظام الآخر | نما (متاح بالفعل) |
-| 2 | النظام الآخر يَكتب في نما | النظام الآخر | نما | نما (متاح بالفعل) |
-| 3 | نما يَكتب في النظام الآخر | نما | النظام الآخر | النظام الآخر |
-| 4 | نما يَقرأ من النظام الآخر | النظام الآخر | نما | النظام الآخر (أو قاعدة بياناته) |
+| 1 | Other system reads from Nama | Nama | Other system | Nama (already available) |
+| 2 | Other system writes to Nama | Other system | Nama | Nama (already available) |
+| 3 | Nama writes to the other system | Nama | Other system | Other system |
+| 4 | Nama reads from the other system | Other system | Nama | Other system (or its database) |
 
-ولا بدَّ – قبل الإجابة على سؤال العميل – أن نَعرف **أيَّ هذه السيناريوهات يَقصد**، أو أيَّها يَجمع بينها؛ إذ كثيرًا ما يَحتاج التكاملُ إلى أكثر من اتّجاهٍ في آنٍ واحد (مثل: مزامنة الأصناف من نما إلى متجرٍ إلكترونيّ + استقبال الطلبات من المتجر إلى نما).
+Before answering the customer's question, we must know **which of these scenarios they mean** — or which combination of them — since integration often requires more than one direction at once (for example: syncing items from Nama to an e-commerce store + receiving orders from the store into Nama).
 
-## السيناريو الأوّل: النظام الآخر يَقرأ من نما
+## Scenario 1: The Other System Reads from Nama
 
-هذا أيسرُ السيناريوهات وأكثرُها شيوعًا. فنظام نما يوفِّر بالفعل واجهةً برمجيّةً كاملةً من نوع REST API تُغطّي **جميع كيانات النظام** (Entities)، مع توثيقٍ تلقائيٍّ بمواصفة OpenAPI 3.0 وواجهة Swagger UI تفاعليّة لاستكشاف الـ API وتجربته مباشرةً.
+This is the easiest and most common scenario. Nama already provides a complete REST API covering **all system entities**, with automatic documentation in OpenAPI 3.0 format and an interactive Swagger UI for exploring and testing the API directly.
 
-ولذلك فإنّ الإجابة شبهَ الجاهزة في هذا السيناريو هي:
+Therefore, the near-ready answer in this scenario is:
 
-> **نعم؛ يَستطيع النظامُ الآخر أن يَقرأ من نما مباشرةً عبر واجهة REST API الموجودة لدينا، دون الحاجة إلى أيِّ تطويرٍ إضافيٍّ من جانبنا، ودون أيِّ تكلفةٍ إضافيّة على العميل.**
+> **Yes; the other system can read from Nama directly via our existing REST API, with no additional development on our part and no additional cost to the customer.**
 
-ويَكفي أن يَطّلع فريقُ النظام الآخر على [دليل واجهة Nama ERP REST API](./nama-erp-api.md)، ويَستخرج مفتاحَ API من شاشة «بيانات اعتماد API» (API Credentials)، ثمّ يَبدأ في استدعاء نقاط النهاية مباشرةً.
+It is sufficient for the other system's team to review the [Nama ERP REST API guide](./nama-erp-api.md), retrieve an API key from the "API Credentials" screen, and start calling the endpoints directly.
 
-::: info متى نَحتاج إلى تطويرٍ إضافيّ؟
-إذا طَلب النظامُ الآخر شكلًا غيرَ قياسيٍّ من البيانات – مثل تجميعةٍ خاصّةٍ من الحقول، أو نقطة نهايةٍ مُجمَّعةٍ تَدمج بيانات أكثرَ من كيانٍ في استجابةٍ واحدة – فحينئذٍ نحتاج إلى تطوير API مُخصَّصة، وهذا يَدخل في باب الخدمات مدفوعة الأجر (انظر فقرة «التكاليف الإضافيّة» أدناه).
+::: info When do we need additional development?
+If the other system requires a non-standard shape of data — such as a custom field grouping, or a composite endpoint that merges data from multiple entities into a single response — then we need to develop a custom API, which falls under paid services (see the "Additional Costs" section below).
 :::
 
-### الأسئلة الواجب طرحها على العميل في هذا السيناريو
+### Questions to Ask the Customer in This Scenario
 
-1. ما الكيانات (Entities) التي يَحتاج النظامُ الآخر إلى قراءتها؟ (فواتير المبيعات، الأصناف، العملاء، أرصدة المخازن، …)
-2. هل القراءةُ ستكون حسبَ الطلب (On-Demand) أم بصورةٍ دوريّةٍ (Polling) أم بناءً على حَدَثٍ (Webhook)؟
-3. هل يَحتاج إلى البيانات الكاملة، أم إلى الجديد/المُحدَّث منها فقط؟
+1. What entities does the other system need to read? (Sales invoices, items, customers, stock balances, …)
+2. Will the reading be on-demand, periodic (polling), or event-driven (Webhook)?
+3. Does it need full data, or only new/updated records?
 
-## السيناريو الثاني: النظام الآخر يَكتب في نما
+## Scenario 2: The Other System Writes to Nama
 
-هذا السيناريو أيضًا مدعومٌ بالكامل دون تطويرٍ إضافيٍّ من جانبنا؛ فواجهةُ REST API ذاتُها تَدعم عمليّاتِ **الإنشاء والتعديل والحذف** (Create / Update / Delete) لجميع الكيانات، مع التحقُّق من صحّة البيانات، وإدارة الحقول المرجعيّة، وغير ذلك ممّا هو موضَّحٌ في [دليل الـ API](./nama-erp-api.md).
+This scenario is also fully supported without additional development on our part. The same REST API supports **Create, Update, and Delete** operations for all entities, with data validation, reference field management, and everything else documented in the [API guide](./nama-erp-api.md).
 
-والإجابة هنا أيضًا – في الغالب – هي:
+The answer here is also — in most cases:
 
-> **نعم؛ يَستطيع النظامُ الآخر أن يَكتب في نما مباشرةً عبر واجهة REST API، دون أيِّ تطويرٍ إضافيٍّ ودون تكاليفَ إضافيّة.**
+> **Yes; the other system can write to Nama directly via the REST API, with no additional development and no additional costs.**
 
-::: warning ضع في حسبانك
-كلُّ عمليّة كتابةٍ تَمرّ عبر منظومة الصلاحيّات والتحقُّقات الموجودة في نما (قواعد العمل، التحقُّق من الحقول الإلزاميّة، الاعتمادات…). فإن أرسل النظامُ الآخر بيانات ناقصةً أو مخالفةً لقواعد العمل، فستُرفَض الكتابةُ كما لو أنّ المستخدم أدخلَها يدويًّا. يَنبغي تنبيهُ فريقِ الطرف الآخر إلى ذلك حتى يَفهم رسائلَ الخطأ التي قد تَرِدُه.
+::: warning Keep in Mind
+Every write operation passes through Nama's existing permissions and validation system (business rules, mandatory field checks, approvals…). If the other system sends incomplete data or data that violates business rules, the write will be rejected just as it would be if a user entered it manually. The other party's team should be informed of this so they understand the error messages they may receive.
 :::
 
-### الأسئلة الواجب طرحها على العميل في هذا السيناريو
+### Questions to Ask the Customer in This Scenario
 
-1. ما الكيانات التي سيَكتبها النظامُ الآخر؟
-2. ما الحقولُ المتوفِّرةُ لديه لكلِّ كيان؟ وهل تَكفي للوفاء بمتطلَّبات نما (الحقول الإلزاميّة، الحقول المرجعيّة…)?
-3. كيف ستُعالَج رسائلُ الخطأ؟ هل لدى النظام الآخر آليّةٌ لإعادة المحاولة، أم سيَعتمد على تدخُّلٍ بشريّ؟
+1. What entities will the other system write?
+2. What fields does it have for each entity? Are they sufficient to meet Nama's requirements (mandatory fields, reference fields…)?
+3. How will error messages be handled? Does the other system have a retry mechanism, or will it rely on human intervention?
 
-## السيناريو الثالث: نما يَكتب في النظام الآخر
+## Scenario 3: Nama Writes to the Other System
 
-هنا تَتغيَّر المعادلةُ تغيُّرًا جوهريًّا؛ إذ إنّ نما – بوصفه الطرفَ المُستدعِيَ (Caller) – يَحتاج إلى **واجهةٍ برمجيّةٍ جاهزةٍ ومُحدَّدةِ الشكل** لدى النظام الآخر يستطيعُ أن يُرسل إليها البيانات. ومن ثَمّ يصبح السؤالُ الأهمّ موجَّهًا للطرف الآخر لا لنا:
+Here the equation changes fundamentally. Since Nama is the caller, it needs a **ready and well-defined API** on the other system's side to send data to. The most important question now is directed at the other party, not us:
 
-> **هل لديكم REST API جاهزة لاستقبال هذه البيانات؟ وما توثيقُها؟**
+> **Do you have a ready REST API to receive this data? What is its documentation?**
 
-وأفضلُ الأشكال – وأسرعُها في التنفيذ – أن تكون لدى الطرف الآخر **مواصفة OpenAPI** (سواء OpenAPI 3.0 أو الجيل السابق Swagger 2.0)؛ فهذه المواصفةُ تُجيب – بصورةٍ آليّةٍ – على معظم الأسئلة الفنّيّة التي قد تَعترضنا أثناء التطوير: ما نقاطُ النهاية المتاحة؟ ما الحقولُ في كلِّ طلب؟ ما أنواعُ البيانات؟ ما رموزُ الاستجابة المحتملة؟ ما آليّةُ المصادقة؟ وهكذا.
+The best form — and the fastest to implement — is for the other party to have an **OpenAPI specification** (whether OpenAPI 3.0 or the earlier Swagger 2.0). Such a specification answers — automatically — most of the technical questions that may arise during development: What endpoints are available? What fields are in each request? What are the data types? What are the possible response codes? What is the authentication mechanism? And so on.
 
-::: tip لماذا نُلِحُّ على OpenAPI تحديدًا؟
-لأنّ نظام نما يُولِّد OpenAPI لكلِّ كياناته كما ذُكِر في [دليل الـ API](./nama-erp-api.md#bny-stjb-lwjh-lbrmjy)، ونحن نُؤمن أنّ هذه هي **الطريقة المهنيّة الصحيحة** لتوصيف الواجهات البرمجيّة في عصرنا الحاضر. وحين يَتمتّع كلا الطرفين بمواصفة OpenAPI واضحة، يَتقلّص زمنُ الربط من أسابيعَ إلى أيّامٍ – بل وإلى ساعاتٍ في بعض الأحيان.
+::: tip Why do we specifically insist on OpenAPI?
+Because Nama generates OpenAPI for all its entities as mentioned in the [API guide](./nama-erp-api.md#API-Response-Structure), and we believe this is the **correct professional approach** for describing APIs in our current era. When both parties have a clear OpenAPI specification, integration time shrinks from weeks to days — even to hours in some cases.
 :::
 
-### إذا لم تتوفّر مواصفة OpenAPI
+### If No OpenAPI Specification is Available
 
-لا يَعني غيابُ OpenAPI استحالةَ الربط، ولكنّه يَعني أنّ على الطرف الآخر أن يُزوِّدنا بـ:
+The absence of OpenAPI does not mean integration is impossible, but it does mean the other party must provide us with:
 
-1. توثيقٍ نصّيٍّ كاملٍ لكلِّ نقطةٍ من نقاط النهاية (URL، طريقة HTTP، رؤوس الطلب، نموذج الجسد، نموذج الاستجابة، رموز الأخطاء).
-2. أمثلةٍ عمليّةٍ لطلباتٍ ناجحةٍ وطلباتٍ فاشلةٍ (Request / Response samples).
-3. آليّةٍ موثَّقةٍ للمصادقة (Bearer Token، API Key، OAuth2…).
-4. بيئةِ اختبارٍ (Sandbox / Staging) يُمكننا الاختبارُ عليها قبل الانتقال إلى بيئة الإنتاج.
+1. Complete written documentation for each endpoint (URL, HTTP method, request headers, body schema, response schema, error codes).
+2. Practical examples of successful and failed requests (Request / Response samples).
+3. A documented authentication mechanism (Bearer Token, API Key, OAuth2…).
+4. A test environment (Sandbox / Staging) that we can test against before moving to production.
 
-ومن دون هذه العناصر يَصير العملُ تخمينًا، وتَتضخّم تقديراتُ الوقت والتكلفة تضخُّمًا غيرَ مبرَّر.
+Without these elements, the work becomes guesswork, and time and cost estimates balloon unjustifiably.
 
-### الأسئلة الواجب طرحها على العميل في هذا السيناريو
+### Questions to Ask the Customer in This Scenario
 
-1. هل النظامُ الآخر يُوفِّر REST API يستقبل البيانات المطلوبة؟
-2. هل يَملك توثيقًا بصيغة OpenAPI / Swagger؟ وإن لم يَكن، فما البديل؟
-3. ما آليّةُ المصادقة المطلوبة؟ وهل تَحتاج إلى تفعيلٍ أو اتّفاقٍ مُسبَقٍ مع الطرف الآخر؟
-4. هل ثَمّةَ حدودٌ على معدّل الاستدعاءات (Rate Limits)؟
-5. هل توجد بيئةُ اختبار؟
+1. Does the other system provide a REST API that receives the required data?
+2. Does it have documentation in OpenAPI / Swagger format? If not, what is the alternative?
+3. What authentication mechanism is required? Does it need prior activation or agreement with the other party?
+4. Are there rate limits on API calls?
+5. Is there a test environment?
 
-## السيناريو الرابع: نما يَقرأ من النظام الآخر
+## Scenario 4: Nama Reads from the Other System
 
-ينطبق على هذا السيناريو ما سَبق ذِكرُه في السيناريو الثالث؛ فالطرف المُستدعِي هو نما، ولا بدَّ من توفُّر واجهةٍ مُحدَّدةِ الشكل لدى الطرف الآخر. غير أنّه ثَمّةَ حالةً خاصّةً تستحقّ التفصيلَ، وهي: **النظام القديم الذي لا يَملك REST API على الإطلاق**.
+This scenario follows the same logic as Scenario 3 — Nama is the caller and a well-defined interface on the other side is required. However, there is a special case worth elaborating on: **an older system that has no REST API at all**.
 
-### الحالة الخاصّة: نظامٌ قديمٌ بلا REST API – الربط عبر قاعدة البيانات
+### Special Case: A Legacy System with No REST API — Integration via Database
 
-تُوجد في السوق – لا سيّما لدى المؤسّسات الكبيرة – أنظمةٌ قديمةٌ راسخةٌ لا تُوفِّر واجهاتٍ برمجيّةً حديثة (REST/SOAP)؛ كالإصدارات القديمة من **Oracle E-Business Suite**، وبعض أنظمة الإدارة المخصّصة (Custom-Built ERPs) المكتوبة بلغاتٍ قديمة. وفي مثل هذه الحالات قد يَطلب العميلُ أن يَكون الربطُ عبر **قاعدة البيانات مباشرةً**.
+In the market — especially in large organizations — there are established legacy systems that provide no modern APIs (REST/SOAP); such as older versions of **Oracle E-Business Suite** and some custom-built ERPs written in older languages. In such cases, the customer may request that integration be done directly via the **database**.
 
-#### الشَّرطان الأساسيّان لقَبول هذا النوع من الربط
+#### The Two Fundamental Conditions for Accepting This Type of Integration
 
-1. **أن يُوفِّر العميلُ صلاحيّةَ الوصول (Access) إلى قاعدة البيانات**؛ ويُفضَّل أن يكون مستخدمًا منفصلًا مخصَّصًا لنظام نما، مقتصرَ الصلاحيّات على الجداول التي يَحتاجها فعلًا.
-2. **أن يُساعدنا الفريقُ التقنيُّ للنظام الآخر** في فَهم الجداول والمخطَّط (Schema): ما الجداولُ التي نقرأ منها؟ ما العلاقاتُ بينها؟ ما دلالةُ كلّ عمود؟ ما المؤشِّراتُ (Flags) التي تَدُلّ على أنّ السجلَّ مُعتمَدٌ أو ملغًى أو في حالة المسوّدة؟
+1. **The customer must provide database access** — preferably via a dedicated user account for Nama, with permissions limited to only the tables it actually needs.
+2. **The other system's technical team must assist us** in understanding the tables and schema: Which tables do we read from? What are the relationships between them? What does each column mean? What flags indicate that a record is approved, cancelled, or in draft status?
 
-::: danger الكتابةُ المباشرة في قاعدة بيانات النظام الآخر: خطٌّ أحمر
-نَتجنَّب – من حيث المبدأ – أن يَكتب نظامُ نما مباشرةً في قاعدة بيانات نظامٍ آخر؛ لأنّ ذلك يَتجاوز جميعَ قواعد العمل والتحقُّقات والمحفِّزات (Triggers) المنطقيّة التي بَناها مهندسو ذلك النظام، فيُؤدِّي – غالبًا – إلى فسادٍ في البيانات يَصعب اكتشافُه إلّا بعد فوات الأوان.
+::: danger Direct Writing to Another System's Database: A Red Line
+We avoid — as a matter of principle — having Nama write directly into another system's database. Doing so bypasses all business rules, validations, and logical triggers built by that system's engineers, and typically leads to data corruption that is difficult to detect until it is too late.
 
-ولا نَقبل هذا النوعَ من الربط إلّا إذا اجتمع شرطان:
+We only accept this type of integration when two conditions are met simultaneously:
 
-1. أن يُصرِّح الفريقُ التقنيُّ للنظام الآخر تصريحًا واضحًا بأنّ هذه هي الطريقةُ المُعتمَدة لديهم للكتابة.
-2. أن يُساعدنا الفريقُ ذاتُه في تفاصيل التنفيذ: ما الجداولُ التي نَكتب فيها؟ ما الأعمدةُ الإلزاميّة؟ ما الحقولُ المحسوبة؟ هل ثَمّةَ Triggers ينبغي أن تَعمل قبل/بعد الكتابة؟ هل توجد مفاتيحُ تسلسليّةٌ (Sequences) ينبغي استدعاؤها قبل الإدراج؟
+1. The other system's technical team explicitly states that this is their approved method for writing.
+2. That same team assists us with the implementation details: Which tables do we write to? What are the mandatory columns? What are the computed fields? Are there triggers that must fire before/after writing? Are there sequences that must be called before insertion?
 
-وفي معظم الحالات يَنتهي بنا الأمرُ إلى **القراءة فقط** من قاعدة بيانات النظام الآخر، مع إعادة الكتابة بشكلٍ ملائمٍ في نما.
+In most cases we end up doing **read-only** access from the other system's database, then writing appropriately back into Nama.
 :::
 
-#### مثالٌ عمليّ
+#### Practical Example
 
-أحدُ السيناريوهات الشائعة عند الربط مع إصدارات Oracle EBS القديمة: أن يَقرأ نما **حركاتِ الفواتير وأرصدةَ الموردين** من جداول EBS مباشرةً، ثمّ يَستخدمها لإغناء التقارير والشاشات داخل نما، دون أن يَكتب فيها شيئًا.
+One of the common scenarios when integrating with older Oracle EBS versions: Nama reads **invoice transactions and supplier balances** directly from EBS tables, then uses this data to enrich reports and screens inside Nama, without writing anything back.
 
-### الأسئلة الواجب طرحها على العميل في حالة الربط عبر قاعدة البيانات
+### Questions to Ask the Customer in the Database Integration Case
 
-1. ما نوعُ قاعدة البيانات وإصدارُها؟ (Oracle، SQL Server، MySQL، …)
-2. هل يوجد توثيقٌ لمخطَّط (Schema) الجداول المعنيّة؟
-3. هل يَملك الفريقُ التقنيُّ للنظام الآخر القدرةَ على دعمنا أثناء التحليل؟
-4. هل سيُتاح لنا الوصولُ بأمانٍ كافٍ (VPN، IP Whitelisting، حساب مستخدمٍ مُقيَّد…)?
-5. هل البياناتُ التي نَحتاجها مُحدَّثةٌ في الوقت الحقيقيّ (Real-Time)، أم تَكفينا مزامنةٌ دوريّة؟
+1. What is the database type and version? (Oracle, SQL Server, MySQL, …)
+2. Is there documentation for the schema of the relevant tables?
+3. Does the other system's technical team have the capacity to support us during analysis?
+4. Will we be given secure access (VPN, IP Whitelisting, restricted user account…)?
+5. Does the data we need update in real time, or is periodic synchronization sufficient?
 
-## مَن يَتحمَّل التكلفة؟
+## Who Bears the Cost?
 
-في ضوء ما سَبق، يُمكن تَلخيصُ السياسة الماليّة لربط نما مع الأنظمة الأخرى في النقاط التالية:
+In light of the above, the financial policy for integrating Nama with other systems can be summarized as follows:
 
-### ما هو متاحٌ بلا تكلفةٍ إضافيّة
+### What is Available at No Additional Cost
 
-* **استخدامُ واجهة REST API القياسيّة لنما** بجميع كياناته وجميع عمليّات CRUD: متاحٌ لكلِّ عميلٍ عنده النظام، بلا أيِّ رسومٍ إضافيّة، ودون الحاجة إلى تطويرٍ من جانبنا.
-* **توثيقُ الـ API بمواصفة OpenAPI 3.0 وواجهة Swagger UI**: متاحٌ تلقائيًّا داخل النظام.
-* **المساعدةُ الفنّيّةُ السريعةُ والبسيطة** لفريق الطرف الآخر (إجابةُ سؤالٍ هنا أو هناك، توضيحُ بُنيةِ طلبٍ معيَّن): نُقدِّمها مجّانًا في معظم الأحيان من بابِ حُسنِ الجوار التقنيّ.
+* **Using Nama's standard REST API** for all entities and all CRUD operations: available to every customer who has the system, at no additional cost, with no development required on our part.
+* **API documentation in OpenAPI 3.0 format and Swagger UI**: available automatically within the system.
+* **Quick and simple technical assistance** for the other party's team (answering a question here and there, clarifying a specific request structure): we provide this free of charge in most cases as a matter of good technical partnership.
 
-### ما يَحتاج إلى عَرضٍ ماليّ
+### What Requires a Financial Proposal
 
-ثَمّةَ ثلاثُ حالاتٍ شائعةٍ تَستوجب عرضًا ماليًّا منفصلًا:
+There are three common cases that require a separate financial proposal:
 
-1. **طلبُ تدريبٍ مُتخصِّصٍ** لفريق التطوير لدى الطرف الآخر؛ كأن يَطلب العميلُ ورشةَ عملٍ كاملةً لشرح آليّة الربط وأفضل ممارساته.
-2. **تطويرُ API جديدةٍ مُخصَّصة** بشكلٍ معيَّنٍ غيرِ مدعومٍ في الـ API القياسيّ؛ كأن يَطلب العميلُ نقطةَ نهايةٍ مُجمَّعةً (Composite Endpoint) تَدمج بيانات أكثرَ من كيانٍ في استجابةٍ واحدةٍ بصيغةٍ مخصَّصة.
-3. **أن تَتولّى نماسوفت تطويرَ طرف الاستدعاء كاملًا** (السيناريو الثالث أو الرابع)؛ أي أن نَكتب نحنُ – لا فريقُ العميل – الكودَ الذي يَستدعي API الطرف الآخر، أو يَقرأ من قاعدة بياناته. هذا عملٌ تطويريٌّ كاملٌ يَتطلَّب تحليلًا وتصميمًا وتنفيذًا واختبارًا، ولذلك يَدخل في باب الخدمات مدفوعة الأجر.
+1. **Requesting specialized training** for the other party's development team; for example, the customer requests a full workshop explaining the integration mechanism and best practices.
+2. **Developing a new custom API** in a specific shape not supported by the standard API; for example, the customer requests a composite endpoint that merges data from multiple entities into a single response in a custom format.
+3. **Namasoft taking full responsibility for developing the calling side** (Scenario 3 or 4); meaning we — not the customer's team — write the code that calls the other party's API or reads from their database. This is full development work requiring analysis, design, implementation, and testing, and therefore falls under paid services.
 
-::: info ملاحظةٌ على الحالة الثالثة
-تَختلف تكلفةُ هذه الحالة اختلافًا كبيرًا تَبعًا لجودة توثيق الطرف الآخر؛ فربطٌ مع نظامٍ يَملك OpenAPI Spec واضحةً وبيئةَ Sandbox قد يَستغرق أيّامًا قليلة، بينما ربطٌ مع نظامٍ قديمٍ بلا توثيقٍ قد يَستغرق أسابيعَ أو أشهرًا. ولذلك يَنبغي – عند بناء عرضٍ ماليٍّ لهذه الحالة – أن نَطلب من العميل أوّلًا أن يُزوِّدنا بتوثيق الطرف الآخر؛ حتى يَكون التقديرُ مَبنيًّا على معلوماتٍ حقيقيّة، لا على افتراضات.
+::: info A Note on the Third Case
+The cost of this case varies significantly depending on the quality of the other party's documentation. Integration with a system that has a clear OpenAPI Spec and a Sandbox environment may take a few days, while integration with a legacy system with no documentation may take weeks or months. Therefore, when building a financial proposal for this case, we should first ask the customer to provide the other party's documentation, so that the estimate is based on real information rather than assumptions.
 :::
 
-## قائمةٌ مُختصَرةٌ للزملاء قبل الردِّ على العميل
+## A Quick Checklist for Colleagues Before Responding to the Customer
 
-يَنبغي – قبل الردِّ على العميل بإمكانيّة الربط أو عدمها، وقبل بناء أيّ عرضٍ ماليّ – أن نَستجلي الإجابات التالية:
+Before responding to the customer about whether integration is possible, and before building any financial proposal, we should clarify the following answers:
 
-1. **اتّجاهُ التدفُّق**: مَن يَقرأ من مَن؟ ومَن يَكتب في مَن؟ (أحد السيناريوهات الأربعة أعلاه أو مزيجٌ منها)
-2. **الكياناتُ المعنيّة**: ما الكيانات التي ستَتدفّق بياناتُها؟ (فواتير، أصناف، عملاء، قيود محاسبيّة، …)
-3. **التواترُ الزمنيّ**: مزامنةٌ آنيّةٌ (Real-Time)، أم دوريّةٌ (Batch)، أم بناءً على حَدَثٍ (Webhook)؟
-4. **قدراتُ الطرف الآخر**: هل يَملك REST API؟ وهل يَملك OpenAPI Spec؟ هل يَملك بيئةَ اختبار؟
-5. **آليّةُ المصادقة**: مدعومةٌ من الطرفين؟ هل تَحتاج إلى اتّفاقٍ مُسبَق؟
-6. **الفريقُ التقنيُّ للطرف الآخر**: متعاونٌ ومتاحٌ للنقاش، أم تَعذُّرٌ في الوصول إليه؟
-7. **هل يَتطلَّب الأمرُ ربطًا عبر قاعدة البيانات** (وهو احتمالٌ يَنبغي عَدُّه استثناءً لا قاعدةً)؟
+1. **Direction of flow**: Who reads from whom? And who writes to whom? (One of the four scenarios above, or a combination)
+2. **Entities involved**: What entities will data flow through? (Invoices, items, customers, accounting entries, …)
+3. **Timing frequency**: Real-time synchronization, periodic (Batch), or event-driven (Webhook)?
+4. **Other party's capabilities**: Does it have a REST API? Does it have an OpenAPI Spec? Does it have a test environment?
+5. **Authentication mechanism**: Supported by both sides? Does it require prior agreement?
+6. **Other party's technical team**: Cooperative and available for discussion, or difficult to reach?
+7. **Does it require database integration** (which should be treated as an exception, not the rule)?
 
-متى ما اكتملت لدينا الإجاباتُ على هذه الأسئلة، صار في وُسعنا – بكلِّ ثقة – أن نُجيب العميلَ إجابةً دقيقةً عن إمكانيّة الربط، ومُدّتِه التقديريّة، وتكلفتِه إن وُجدت.
+Once we have complete answers to these questions, we can — with full confidence — give the customer a precise answer about integration feasibility, the estimated timeline, and the cost if any.
 
-## مراجعُ ذات صِلة
+## Related References
 
-* [Nama ERP REST API – Full Developer Guide](./nama-erp-api.md) — الدليل التقنيُّ الكاملُ لاستخدام واجهة نما البرمجيّة (بالإنجليزيّة).
-* [Attendance Machines Integration](./attendance-machines-integration.md) — مثالٌ تطبيقيٌّ على ربط نظام نما مع أجهزة الحضور والانصراف.
-
-</rtl>
+* [Nama ERP REST API – Full Developer Guide](./nama-erp-api.md) — The complete technical guide for using Nama's API (in English).
+* [Attendance Machines Integration](./attendance-machines-integration.md) — A practical example of integrating Nama with attendance machines.

@@ -1,40 +1,40 @@
-# التنبؤ بالمشتريات (Purchase Forecast)
+# Purchase Forecast
 
-أفضل عملية شراء هي التي تتم قبل أن تنفد البضاعة، لا بعدها. **التنبؤ بالمشتريات** يحوّل قسم المشتريات من رد الفعل ("نفد المخزون! اطلب الآن!") إلى الاستباق ("سينفد خلال ثلاثة أسابيع، فلنطلب الآن بتسليم عادي وأسعار أفضل").
+The best purchase is the one made before you run out, not after. **Purchase forecasting** turns the purchasing department from reactive ("out of stock! order now!") to proactive ("it'll run out in three weeks, so let's order now with standard delivery and better prices").
 
-## لماذا التنبؤ؟
+## Why Forecast?
 
-الشراء التفاعلي مكلف: استعجال الشحن، وأسعار أعلى، ونفاد يوقف الإنتاج أو يخسر مبيعات. أما التنبؤ فيمنحك رؤية مسبقة للاحتياج، فتشتري بكميات اقتصادية، وتفاوض على أسعار أفضل، وتراعي أوقات الانتظار (Lead Times)، وتتفادى النفاد والتكدّس معًا.
+Reactive buying is expensive: rush shipping, higher prices, and stockouts that halt production or lose sales. Forecasting gives you advance visibility of demand, so you buy in economical quantities, negotiate better prices, account for lead times, and avoid both stockouts and overstock.
 
-![شاشة التنبؤ بالمشتريات في Nama ERP](images/purchase-forecast/purchase-forecast-ar.png)
+![Purchase forecast screen in NaMa ERP](../../ar/modules/supplychain/images/purchase-forecast/purchase-forecast-en.png)
 
-## مستند التنبؤ بالمشتريات (NewPurchaseForecast)
+## The Purchase Forecast Document (NewPurchaseForecast)
 
-**مستند التنبؤ بالمشتريات** هو الأداة التي تقدّر بها الاحتياج المستقبلي لكل صنف خلال فترة قادمة. يعتمد التقدير على مصدر كمية تختاره، ثم يقترح كميات الشراء بعد خصم المتوفر في المخزون والمطلوب فعليًا.
+The **Purchase Forecast** document is the tool you use to estimate future demand for each item over an upcoming period. The estimate is based on a quantity source you choose, then it suggests purchase quantities after deducting what's available in stock and what's actually required.
 
-تستطيع تضييق نطاق التنبؤ بحسب الصنف أو العلامة التجارية أو نطاق التاريخ، وضبط فترة الاستناد (المدة التاريخية التي يُقاس عليها الاستهلاك).
+You can narrow the forecast's scope by item, brand, or date range, and set the lookback period (the historical span over which consumption is measured).
 
-## مصادر الكمية: على أي أساس نتنبأ؟
+## Quantity Sources: On What Basis Do We Forecast?
 
-قوة التنبؤ في مصدر بياناته. يدعم النظام أكثر من مصدر يمكن مزجها:
+The forecast's power is in its data source. The system supports more than one source, and they can be blended:
 
-- **تاريخ المبيعات**: استهلِك معدّل البيع السابق لتوقّع الطلب القادم - الأنسب لأصناف التوزيع والتجزئة. تُضبط قواعد استخلاص المبيعات عبر **إعداد مصدر المبيعات** (PFSalesSourceConfig): نطاق التاريخ، وفلاتر الأصناف، وأنواع الفواتير المشمولة أو المستبعَدة.
-- **مصادر كمية أخرى**: عبر **مصدر الكمية** (PFQuantitySource) يمكن تغذية التنبؤ بأرقام من مصادر أخرى (مثل خطط الإنتاج أو إدخال يدوي)، لا من المبيعات وحدها.
+- **Sales history**: use the past selling rate to predict upcoming demand - best for distribution and retail items. The rules for extracting sales are configured via the **Sales Source Config** (PFSalesSourceConfig): date range, item filters, and the invoice types included or excluded.
+- **Other quantity sources**: via the **Quantity Source** (PFQuantitySource), the forecast can be fed numbers from other sources (such as production plans or manual entry), not from sales alone.
 
-## إعداد التنبؤ (PurchaseForecastConfig)
+## Forecast Configuration (PurchaseForecastConfig)
 
-يجمع **إعداد التنبؤ بالمشتريات** معايير الحساب في مكان واحد: المصادر المعتمَدة، ومعاملات الموسمية، ومضاعفات الطلب، وكيفية التعامل مع المتوفر والمحجوز. ضبط هذا الإعداد مرة واحدة يجعل توليد التنبؤات لاحقًا متسقًا وسريعًا.
+The **Purchase Forecast Configuration** gathers the calculation criteria in one place: the adopted sources, seasonality factors, demand multipliers, and how to handle available and reserved stock. Setting this up once makes generating forecasts later consistent and fast.
 
-::: tip ادمج التنبؤ مع أوقات الانتظار
-التنبؤ وحده يخبرك بـ"كم" ستحتاج، لكن **وقت الانتظار** للصنف (المعرّف في [بطاقة الصنف](./understanding-items.md#تهيئة-الشراء)) يخبرك بـ"متى" تطلب. اجمع الاثنين لتطلب في التوقيت الذي يضمن وصول البضاعة قبل النفاد تمامًا.
+::: tip Combine the Forecast with Lead Times
+The forecast alone tells you "how much" you'll need, but the item's **lead time** (defined on the [item card](./understanding-items.md#Purchase-Configuration)) tells you "when" to order. Combine the two to order at the timing that ensures goods arrive just before you run out.
 :::
 
-## من التنبؤ إلى أمر الشراء
+## From Forecast to Purchase Order
 
-التنبؤ ليس غايةً بذاته، بل مقدّمة للشراء. بعد توليد التنبؤ ومراجعته، تتحول مقترحاته إلى [طلبات أو أوامر شراء](./purchasing-journey.md)، فتكتمل الحلقة من توقّع الحاجة إلى تلبيتها. وبهذا يصبح الشراء مدفوعًا بالبيانات لا بالحدس.
+The forecast isn't an end in itself, but a prelude to purchasing. After generating and reviewing the forecast, its suggestions become [purchase requests or orders](./purchasing-journey.md), closing the loop from anticipating the need to fulfilling it. This makes purchasing data-driven rather than guesswork.
 
-## الخطوات التالية
+## Next Steps
 
-- [رحلة الشراء](./purchasing-journey.md) - تحويل التنبؤ إلى أوامر شراء فعلية
-- [فهم أصناف المخزون](./understanding-items.md) - حيث تُضبط أوقات الانتظار والمخزون الاحتياطي
-- [الجرد المخزني](./stock-taking.md) - دقة المخزون أساس دقة التنبؤ
+- [The Purchasing Journey](./purchasing-journey.md) - turning the forecast into actual purchase orders
+- [Understanding Inventory Items](./understanding-items.md) - where lead times and safety stock are set
+- [Stock Taking](./stock-taking.md) - inventory accuracy is the basis of forecast accuracy

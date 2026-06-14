@@ -1,43 +1,43 @@
-# إشعارات الدائن والمدين
+# Credit & Debit Notes
 
-أحيانًا تحتاج إلى تعديل رصيد عميل أو مورّد دون أن يكون هناك قبض أو صرف نقدي: خصم تسوية لعميل، أو مردود مبيعات، أو رسوم إضافية على مورّد. هذا دور **إشعار الدائن** و**إشعار المدين** — مستندان متقابلان يُحرّكان رصيد الطرف في اتجاهين متعاكسين.
+Sometimes you need to adjust a customer's or supplier's balance without any cash receipt or payment: a settlement discount for a customer, a sales return, or an extra charge on a supplier. That's the role of the **Credit Note** and the **Debit Note** — two opposite documents that move the party's balance in opposite directions.
 
-::: info الترخيص المطلوب
-إشعارا الدائن والمدين ضمن ترخيص المحاسبة الأساسي `accounting`.
+::: info Required license
+Credit and debit notes are part of the core `accounting` license.
 :::
 
-## الفكرة: تعديل رصيد طرف في اتجاهين
+## The idea: adjusting a party's balance in two directions
 
-- **إشعار دائن** (`Accounting > Documents > CreditNote`) — يجعل حساب الطرف **دائنًا**: يُخفِّض ما على العميل تجاهنا (مردود/خصم لصالحه)، أو يزيد ما لنا تجاه المورّد.
-- **إشعار مدين** (`Accounting > Documents > DebitNote`) — يجعل حساب الطرف **مدينًا**: يزيد ما على العميل (رسم/تكلفة إضافية)، أو يُخفِّض ما لنا تجاه المورّد.
+- **Credit Note** (`Accounting > Documents > CreditNote`) — makes the party's account **credit**: it reduces what a customer owes us (a return/discount in their favor), or increases what we owe a supplier.
+- **Debit Note** (`Accounting > Documents > DebitNote`) — makes the party's account **debit**: it increases what a customer owes (a fee/extra cost), or reduces what we owe a supplier.
 
-الشاشتان متطابقتان في البنية ويختلفان في اتجاه الأثر فقط، لذا يكفي أن نشرح إحداهما.
+The two screens are identical in structure and differ only in the direction of the effect, so explaining one is enough.
 
-![شاشة إشعار الدائن](./images/notes/credit-note.png)
+![The Credit Note screen](./images/notes/credit-note.png)
 
-## تشريح الإشعار
+## Anatomy of a note
 
-في الرأس تحدّد **توجيه المستند** و**التاريخ الفعلي** (الذي يحدّد **الفترة**)، و**عميل- مورد** (الطرف المعني)، و**الذمة المتعلقة** و**العقد** و**نوع التكلفة** عند الحاجة.
+In the header you set the **Document Term** and **Value Date** (which determines the **Period**), the **Customer-Supplier** (the party concerned), and the **Related Subsidiary**, **Contract**, and **Cost Type** as needed.
 
-في كتلة **المبلغ** تُدخل **المبلغ** و**العملة** (وتظهر **القيمة المحلية** المقابلة)، ويمكن أن تُحسب القيمة كـ **نسبة من مبلغ الفاتورة** المرتبطة.
+In the **Amount** block you enter the **Amount** and **Currency** (with the corresponding **local value** shown), and the value can be computed as a **percentage of the linked invoice's amount**.
 
-كتلة **الضرائب** تحمل **ضريبة المبيعات** (نسبة وقيمة) وضريبة ثانية إن لزم، و**الصافي بعد الضريبة**. ولأن الإشعار مستند ضريبي رسمي، فهو مدمج مع منظومة **الفاتورة الإلكترونية (ZATCA)**: يحمل المستند حقول هيئة الزكاة والضريبة (معرّفات الإرسال وحالة الاعتماد) التي تتابع تقديمه للهيئة.
+The **Taxes** block carries the **sales tax** (percentage and value) and a second tax if needed, plus the **net after tax**. And because the note is an official tax document, it's integrated with the **e-invoicing (ZATCA)** system: it carries the Zakat and Tax Authority fields (submission identifiers and approval status) that track its submission to the authority.
 
-في تبويب **التفاصيل** تُطابق قيمة الإشعار على **فواتير** بعينها (يظهر لكل سطر **قيمة الفاتورة** و**الصافي** و**المتبقي**)، فيُخصَم أثر الإشعار من رصيد الفاتورة مباشرة. كما يوفّر المستند جدول **أقساط** وتبويب **الدفعات**.
+In the **Details** tab you match the note's value against specific **invoices** (each line shows the **invoice value**, **net**, and **remaining**), so the note's effect is deducted directly from the invoice balance. The document also provides an **installments** grid and a **Payments** tab.
 
-## الأثر المحاسبي
+## The accounting effect
 
-يأتي الجانب المقابل لحساب الطرف — وكذلك جانبا الضريبة — من **توجيه المستند** (راجِع مرجع [توجيهات المستندات](./support/accounting-document-terms.md)). إشعار الدائن يجعل الطرف دائنًا والجانب المقابل (إيراد/مردود/خصم) مدينًا، وإشعار المدين يعكسهما.
+The counter-side to the party's account — as well as the two tax sides — comes from the **document term** (see the [Document terms](./support/accounting-document-terms.md) reference). A credit note makes the party credit and the counter-side (revenue/return/discount) debit; a debit note reverses them.
 
-## التقارير والنماذج
+## Reports and forms
 
-- حركات الطرف الناتجة عن الإشعارات تظهر في كشف حسابه ضمن [كشوف الحسابات وميزان المراجعة](./reports-account-statements-and-trial-balance.md).
-- النماذج المطبوعة: إشعار المدين `SYSF-ACC004`، إشعار الدائن `SYSF-ACC005`.
+- Party movements resulting from the notes appear in the party's account statement under [Account statements & trial balance](./reports-account-statements-and-trial-balance.md).
+- Printed forms: debit note `SYSF-ACC004`, credit note `SYSF-ACC005`.
 
-## للدعم الفني
+## For Support
 
-- **«الإشعار لم يُخفِّض/يزِد رصيد الفاتورة»** — تأكّد من مطابقته على الفاتورة في تبويب **التفاصيل**، لا مجرّد إدخال المبلغ في الرأس.
-- **«الاتجاه معكوس»** — تأكّد أنك تستخدم النوع الصحيح: **دائن** لتخفيض مديونية العميل، **مدين** لزيادتها.
-- **«الإشعار لم يُرسَل للهيئة / حالته معلّقة»** — راجِع حقول هيئة الزكاة والضريبة وحالة الاعتماد؛ تكامل الفاتورة الإلكترونية موضوع مستقل عن المحاسبة.
-- **«حساب الإيراد/المردود أو الضريبة خطأ»** — مصدرها **توجيه المستند**.
-- آلية المعالجة وإعادة معالجة مستند متعثّر في [كيف تُعالَج المستندات إلى أثر محاسبي](./support/accounting-request-processing.md).
+- **"The note didn't reduce/increase the invoice balance"** — make sure it's matched to the invoice in the **Details** tab, not just entered as an amount in the header.
+- **"The direction is reversed"** — make sure you're using the right type: **credit** to reduce a customer's receivable, **debit** to increase it.
+- **"The note wasn't submitted to the authority / its status is pending"** — review the Zakat and Tax Authority fields and the approval status; e-invoicing integration is a topic separate from accounting.
+- **"The wrong revenue/return or tax account"** — their source is the **document term**.
+- Processing and reprocessing a stuck document are in [How documents are processed into accounting effects](./support/accounting-request-processing.md).

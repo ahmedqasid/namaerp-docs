@@ -1,52 +1,52 @@
-# أذون الخزانة
+# Treasury Bills
 
-إذن الخزانة أداةُ استثمارٍ قصيرة الأجل تصدرها الدولة: تشتريه بأقلّ من قيمته الاسمية، وعند حلول أجله تقبض قيمته كاملة، فيكون الفرق هو عائدك. وعلى عكس بقية مستندات البنوك التي تبدأ بملفٍ رئيسي تنشئه بنفسك، يُنشَأ **إذن الخزانة تلقائيًا عند شرائه**: مستند الشراء هو نقطة البداية، ثم تتعاقب عليه مستندات إثبات العائد حتى البيع المبكر أو الإقفال عند الاستحقاق.
+A treasury bill is a short-term investment instrument the state issues: you buy it for less than its nominal value, and at maturity you collect its full value, so the difference is your return. Unlike the other bank documents that start with a master file you create yourself, a **treasury bill is created automatically when it's bought**: the purchase document is the starting point, then ROI-proof documents follow it until an early sale or a close at maturity.
 
-::: info الترخيص المطلوب
-أذون الخزانة ضمن ترخيص `accounting-investment-documents` — وهو الترخيص نفسه الذي يغطّي [مستندات الاستثمار](./investment-documents.md).
+::: info Required license
+Treasury bills are part of the `accounting-investment-documents` license — the same license that covers [investment documents](./investment-documents.md).
 :::
 
-## دورة حياة الإذن
+## The bill's lifecycle
 
-تبدأ كل الشاشات من جذر **البنوك > إذن خزانة**:
+Every screen hangs off the **Banks > Treasury Bill** root:
 
-1. **شراء إذن خزانة** — نقطة البداية: يُنشِئ الإذن تلقائيًا بحالة «جارٍ» ويُرحّل قيمته محاسبيًا.
-2. **إثبات عائد إذن الخزانة** — تثبيت العائد المستحقّ دوريًا (موزّعًا بالتناسب مع الزمن المنقضي)، مع الضريبة عليه إن وُجدت.
-3. **إثبات عائد أذون خزانة مجمع** — النسخة المجمّعة لإثبات عائد عدّة أذون دفعةً واحدة.
-4. ثم أحد مسارين متبادلين:
-   - **بيع إذن خزانة** — بيع مبكّر قبل الأجل.
-   - **إقفال إذن خزانة** — تحصيل القيمة عند حلول الأجل.
+1. **Treasury Bill Purchase Document** — the starting point: it creates the bill automatically in "Running" status and posts its value to the ledger.
+2. **Treasury Bill ROI Proof Document** — locking in the due return periodically (allocated pro-rata to the elapsed time), with any tax on it.
+3. **Aggregate Treasury Bill Proof Document** — the batch version for proving the return on several bills at once.
+4. Then one of two mutually exclusive paths:
+   - **Treasury Bill Sales Document** — an early sale before maturity.
+   - **Treasury Bill Close Document** — collecting the value at maturity.
 
-عند البيع أو الإقفال تتحوّل حالة الإذن إلى «مغلقة».
+On sale or close, the bill's status flips to "Closed".
 
-::: warning البيع والإقفال متبادلان
-الإذن الواحد يُغلق إمّا بالبيع المبكّر وإمّا بالإقفال عند الاستحقاق — لا بالاثنين معًا.
+::: warning Sale and close are mutually exclusive
+A single bill is closed either by an early sale or by a close at maturity — not both.
 :::
 
-## ملف الإذن
+## The bill file
 
-في شاشة **إذن خزانة** (`Banks > Treasury Bill > Treasury Bill`) — التي يملؤها الشراء — تظهر بيانات الإذن: **البنك** و**حساب البنك**، و**القيمة الاسمية** و**القيمة الحالية**، و**نسبة العائد** و**قيمة العائد**، و**تاريخ الشراء** و**تاريخ الاستحقاق** و**المدة**، إضافةً إلى مجاميع المتابعة: **إجمالي قيم العوائد المثبتة** و**إجمالي الضرائب** في مستندات الإثبات.
+On the **Treasury Bill** screen (`Banks > Treasury Bill > Treasury Bill`) — which the purchase fills in — the bill's data appears: the **bank** and **bank account**, the **nominal value** and **current value**, the **ROI rate** and **ROI value**, the **purchase date**, **due date** and **period**, plus the tracking totals: the **total ROI values** and **total taxes** proven in the proof documents.
 
-![شاشة إذن الخزانة](./images/treasury/treasury-bill.png)
+![Treasury Bill screen](./images/treasury/treasury-bill.png)
 
-**حالات الإذن:** جارٍ (Running) → مغلقة (Closed).
+**Bill statuses:** Running → Closed.
 
-## الشراء وإثبات العائد
+## Purchase and proving the return
 
-عند تحرير **شراء إذن خزانة** (`Banks > Treasury Bill > Treasury Bill Purchase Document`) يُنشَأ الإذن ويُرحَّل أثره عبر جانبَي **مدين/دائن القيمة الحالية**.
+When a **Treasury Bill Purchase Document** (`Banks > Treasury Bill > Treasury Bill Purchase Document`) is recorded, the bill is created and its effect posts via the **current value debit/credit** sides.
 
-![شاشة شراء إذن الخزانة](./images/treasury/treasury-bill-purchase.png)
+![Treasury Bill Purchase screen](./images/treasury/treasury-bill-purchase.png)
 
-ثم يُثبَّت العائد المستحقّ دوريًا عبر **إثبات عائد إذن الخزانة** (محسوبًا بالتناسب مع الفترة المنقضية، مع الضريبة)، أو دفعةً واحدة لعدّة أذون عبر **إثبات عائد أذون خزانة مجمع**. (مصدر الحسابات في مرجع [توجيهات المستندات](./support/accounting-document-terms.md).)
+The due return is then locked in periodically via the **Treasury Bill ROI Proof Document** (computed pro-rata to the elapsed period, with tax), or for several bills at once via the **Aggregate Treasury Bill Proof Document**. (Where the accounts come from is in the [Document terms](./support/accounting-document-terms.md) reference.)
 
-## البيع أو الإقفال
+## Sale or close
 
-عند نهاية المطاف يُغلق الإذن بأحد مستندين: **بيع إذن خزانة** عند البيع المبكّر قبل الأجل، أو **إقفال إذن خزانة** عند تحصيل قيمته الاسمية في تاريخ الاستحقاق. وفي الحالتين تصبح الحالة «مغلقة».
+Eventually the bill is closed by one of two documents: a **Treasury Bill Sales Document** for an early sale before maturity, or a **Treasury Bill Close Document** to collect its nominal value at the due date. In both cases the status becomes "Closed".
 
-## للدعم الفني
+## For Support
 
-- **«لا أجد شاشة لإنشاء إذن خزانة جديد»** — الإذن لا يُنشأ يدويًا؛ يُنشئه **مستند الشراء** تلقائيًا.
-- **«حاولت بيع إذن سبق إقفاله»** — البيع والإقفال متبادلان؛ الإذن المغلق لا يقبل الآخر.
-- **«العائد المثبَّت أقلّ من المتوقّع»** — العائد يُوزَّع بالتناسب مع الفترة المنقضية حتى تاريخ الإثبات، لا كاملًا دفعةً واحدة.
-- **«من أين تأتي حسابات الشراء والعائد؟»** — من توجيه **شراء إذن الخزانة** و**إثبات العائد**؛ راجِع [توجيهات المستندات](./support/accounting-document-terms.md).
-- آلية المعالجة المحاسبية في [كيف تُعالَج المستندات إلى أثر محاسبي](./support/accounting-request-processing.md).
+- **"I can't find a screen to create a new treasury bill"** — the bill isn't created manually; the **purchase document** creates it automatically.
+- **"I tried to sell a bill that was already closed"** — sale and close are mutually exclusive; a closed bill won't accept the other.
+- **"The proven return is less than expected"** — the return is allocated pro-rata to the period elapsed up to the proof date, not in full at once.
+- **"Where do the purchase and return accounts come from?"** — from the **Treasury Bill Purchase** and **ROI Proof** terms; see [Document terms](./support/accounting-document-terms.md).
+- The accounting-processing mechanism is in [How documents are processed into accounting effects](./support/accounting-request-processing.md).

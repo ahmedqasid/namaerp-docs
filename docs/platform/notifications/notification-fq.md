@@ -1,27 +1,25 @@
-<rtl>
+# Frequently Asked Questions: Notifications and Messages
 
-# أسئلة شائعة عن التنبيهات والرسائل
+## How do I send a notification to each customer when posting a receipt that contains multiple lines for multiple customers?
 
-## كيف أرسل تنبيه لكل عميل عند تسجيل سند قبض يحتوي على عدة سطور لعدة عملاء؟
+When posting a receipt that contains multiple lines for multiple customers, you may notice that the notification is sent only to the first customer and not to the remaining customers in the other lines.
 
-عند تسجيل سند قبض يحتوي على عدة سطور لعدة عملاء، قد تلاحظ أن التنبيه يُرسل فقط لأول عميل ولا يُرسل لباقي العملاء الموجودين في السطور الأخرى.
+### Reason
 
-### السبب
+The reason is that the template being used does not contain a `loop` statement, which allows the message to be repeated for each line individually. As a result, only a single message is generated using the first line, and the remaining lines are ignored.
 
-السبب هو أن القالب المستخدم لا يحتوي على جملة `loop` التي تسمح بتكرار الرسالة لكل سطر على حدة. وبالتالي، يتم توليد رسالة واحدة فقط باستخدام أول سطر، ويتم تجاهل باقي السطور.
-
-### القالب غير الصحيح (لا يعمل بشكل متكرر)
+### Incorrect Template (does not repeat)
 
 ```
 الشركة المتحدة فارم صيدلية د/ {lines.subsidiary.$toReal.name1} نحيط علمكم بأنة
 تم اضافة استلام نقدية لحسابكم رقم الايصال {lines.rpaper} قيمة الأيصال {lines.amount.value.amount} جنية  بتاريخ {valueDate}
 ```
 
-هذا القالب يرسل رسالة واحدة فقط باستخدام بيانات أول سطر فقط.
+This template sends only one message using the data from the first line only.
 
 ---
 
-### القالب الصحيح لإرسال رسالة لكل عميل على حدة
+### Correct Template for Sending a Message to Each Customer Individually
 
 ```
 {loop(lines)}
@@ -33,34 +31,34 @@
 {enloop}
 ```
 
-### شرح القالب سطرًا بسطر:
+### Template Explanation Line by Line:
 
 1. `{loop(lines)}`
-   يبدأ تكرار على كل سطر في المستند.
+   Begins iterating over each line in the document.
 
 2. `{openmsg}`
-   يحدد بداية رسالة جديدة.
+   Marks the beginning of a new message.
 
 3. `{sendto}{lines.subsidiary.$toReal.contactInfo.mobile}{endsendto}`
-   يحدد رقم الموبايل الذي ستُرسل إليه الرسالة — في هذه الحالة هو رقم العميل الموجود في السطر الحالي.
+   Specifies the mobile number to which the message will be sent — in this case, the customer's number found in the current line.
 
-4. و5. محتوى الرسالة نفسه، مع استخدام بيانات السطر الحالي مثل اسم العميل، رقم الإيصال، المبلغ، وتاريخ السند.
+4. and 5. The message content itself, using data from the current line such as the customer name, receipt number, amount, and document date.
 
 5. `{closemsg}`
-   ينهي الرسالة.
+   Ends the message.
 
 6. `{enloop}`
-   ينهي التكرار.
+   Ends the loop.
 
-بهذا الشكل، سيتم إرسال رسالة منفصلة لكل عميل موجود في كل سطر من سطور سند القبض، وبذلك يتم إعلام كل عميل بالمعلومة الخاصة به فقط.
+This way, a separate message will be sent to each customer present in each line of the receipt, so that every customer is informed only of information relevant to them.
 
-## إرسال جميع تفاصيل الفاتورة في التنبيه النصي
+## Sending All Invoice Details in a Text Notification
 
-عند إنشاء تنبيه مرتبط بفاتورة، قد تلاحظ أن القالب المستخدم يعرض فقط بيانات أول سطر من الفاتورة، على الرغم من وجود عدة أصناف داخلها.
+When creating a notification linked to an invoice, you may notice that the template used displays only the data from the first line of the invoice, even though it contains multiple items.
 
-في المثال التالي، تم إعداد قالب رسالة نصية داخل تنبيه:
+In the following example, an SMS template was set up inside a notification:
 
-::: details القالب المستخدم سابقًا
+::: details Previously Used Template
 
 ```
 الشركة المتحدة فارم نحيط علمكم صيدلية د / {Customer.name1} بأن
@@ -76,13 +74,13 @@ ___محتويات الفاتورة ___
 :::
 
 --------
-القالب السابق يعرض فقط **سطر واحد** من تفاصيل الفاتورة، لأن المتغيرات المستخدمة (`{details.item.item}`، `{details.quantity...}`) لا يتم تكرارها تلقائيًا عبر السطور.
+The previous template displays only **one line** of invoice details, because the variables used (`{details.item.item}`, `{details.quantity...}`) are not automatically repeated across lines.
 
-### الحل: استخدام `{loop(details)}`
+### Solution: Using `{loop(details)}`
 
-للحصول على كل السطور، يجب استخدام تعليمة `{loop(details)}` ليتكرر المحتوى حسب عدد سطور الفاتورة، مع إغلاق التكرار بـ `{endloop}`.
+To retrieve all lines, you must use the `{loop(details)}` instruction so that the content repeats according to the number of invoice lines, closing the loop with `{endloop}`.
 
-::: details القالب المعدل الصحيح
+::: details Correct Modified Template
 
 ```
 الشركة المتحدة فارم نحيط علمكم صيدلية د / {Customer.name1} بأن  
@@ -98,26 +96,26 @@ ___محتويات الفاتورة ___
 ```
 :::
 
-بهذا الشكل، سيتم إرسال كل تفاصيل سطور الفاتورة ضمن الرسالة النصية، وليس فقط السطر الأول.
+This way, all invoice line details will be included in the text message, not just the first line.
 
-## كيف يمكنني عرض اسم الشخص الذي وافق على المستند داخل قالب التنبيه في Nama ERP؟
+## How can I display the name of the person who approved the document inside the notification template in Nama ERP?
 
-**جواب:**
-لعرض اسم الشخص الذي وافق على المستند في قالب التنبيه، يمكنك استخدام المتغير `currentApprovalCase.lastStep.actualResponsible`.
+**Answer:**
+To display the name of the person who approved the document in the notification template, you can use the variable `currentApprovalCase.lastStep.actualResponsible`.
 
-إذا كنت تريد عرض الاسم كرابط إلى ملف المستخدم، استخدم الصيغة التالية:
+If you want to display the name as a link to the user's profile, use the following syntax:
 
 ```
 تمت الموافقة على السجل {link($this)} من قبل {link(currentApprovalCase.lastStep.actualResponsible)}
 ```
 
-أما إذا كنت تريد عرض الاسم كنص فقط بدون رابط، فاستخدم:
+If you want to display the name as plain text without a link, use:
 
 ```
 تمت الموافقة على السجل {code} من قبل {currentApprovalCase.lastStep.actualResponsible.name1}
 ```
 
-* يمكنك إضافة شرط للتأكد من وجود خطوة موافقة قبل عرض الاسم، كالتالي:
+* You can add a condition to verify the existence of an approval step before displaying the name, as follows:
 
 ```
 {if(currentApprovalCase.lastStep)}
@@ -127,17 +125,17 @@ ___محتويات الفاتورة ___
 {endif}
 ```
 
-## كيف أرسل تنبيه لمشرفي المبيعات عند وجود عروض أسعار لم تُحوَّل إلى أوامر بيع خلال مدة معينة؟
+## How do I send notifications to sales supervisors when there are quotations that have not been converted to sales orders within a certain period?
 
-يريد العميل إرسال تنبيه لكل مشرفي المبيعات عند وجود عرض أسعار لبائع تحت إدارة المشرف ولم يتم تحويله إلى أمر بيع بعد مدة تزيد عن 9 أو 10 أيام، وذلك من خلال مهمة مجدولة.
+The customer wants to send notifications to all sales supervisors when a quotation exists for a salesperson under the supervisor's management that has not been converted to a sales order after more than 9 or 10 days, through a scheduled task.
 
-::: warning ملاحظة
-العميل يريد إرسال **تنبيهات** داخل النظام وليس بريد إلكتروني أو تقرير.
+::: warning Note
+The customer wants to send **in-app notifications** and not emails or reports.
 :::
 
-- الاستعلام
+- The Query
 
-الاستعلام التالي يقوم بجلب عروض الأسعار التي مرّ عليها 10 أيام ولم تُحوَّل إلى أوامر بيع:
+The following query retrieves quotations that have been pending for 10 days without being converted to sales orders:
 
 ```sql
 select s.code, c.name1 customername, s.valuedate,
@@ -156,7 +154,7 @@ where datediff(day, s.valuedate, getdate()) + 1 = 10
 ORDER BY esu.code
 ```
 
-- قالب التنبيه
+- Notification Template
 
 ```
 {loop()}
@@ -178,18 +176,16 @@ ORDER BY esu.code
 {endloop}
 ```
 
-- ** شرح القالب **
+- **Template Explanation**
 
-يستخدم هذا القالب تقنية التجميع (`header`/`footer`) لتجميع عروض الأسعار حسب المشرف (`supervisorCode`)، بحيث يتلقى كل مشرف تنبيهًا واحدًا يحتوي على جدول بجميع عروض الأسعار المتأخرة للبائعين تحت إدارته.
+This template uses the grouping technique (`header`/`footer`) to group quotations by supervisor (`supervisorCode`), so that each supervisor receives a single notification containing a table with all overdue quotations for the salespersons under their management.
 
-- `{loop()}` — يبدأ التكرار على نتائج الاستعلام.
-- `{header(supervisorCode)}` — يبدأ تجميع السطور حسب كود المشرف، ويُكتب محتوى الـ header مرة واحدة لكل مجموعة.
-- `{sendto}{supervisorId}{endsendto}` — يُرسل التنبيه إلى المشرف المعني.
-- `{opentable}` / `{closetable}` — ينشئ جدولًا يحتوي على تفاصيل عروض الأسعار.
-- `{footer(supervisorCode)}` — يُغلق المجموعة ويُنهي الرسالة.
+- `{loop()}` — begins iteration over query results.
+- `{header(supervisorCode)}` — begins grouping lines by supervisor code; the header content is written once per group.
+- `{sendto}{supervisorId}{endsendto}` — sends the notification to the relevant supervisor.
+- `{opentable}` / `{closetable}` — creates a table containing quotation details.
+- `{footer(supervisorCode)}` — closes the group and ends the message.
 
-::: warning ملاحظة مهمة
-يجب أن يحتوي الاستعلام على `ORDER BY esu.code` لضمان أن سجلات كل مشرف تأتي متتالية في النتائج. بدون الترتيب، قد تتداخل سجلات المشرفين ولن يعمل التجميع بـ `header`/`footer` بشكل صحيح.
+::: warning Important Note
+The query must include `ORDER BY esu.code` to ensure that each supervisor's records appear consecutively in the results. Without ordering, supervisor records may be interleaved and the `header`/`footer` grouping will not work correctly.
 :::
-
-</rtl>

@@ -1,101 +1,97 @@
-<rtl>
+# Users and Login
 
-# المستخدمون وتسجيل الدخول
+The **User** record is where identity, authentication, and personal permission overrides converge. This page covers creating users, user-level permission overrides, and everything related to login: passwords, LDAP, two-factor authentication, and session control.
 
-سجل **المستخدم** هو نقطة التقاء الهوية والتحقق والاستثناءات الشخصية من الصلاحيات. تغطي هذه الصفحة إنشاء المستخدمين، وتجاوزات الصلاحيات على مستوى المستخدم، وكل ما يتعلق بالدخول: كلمات السر، LDAP، التحقق بخطوتين، والتحكم في الجلسات.
+**Path**: Administration > Security > User
 
-**المسار**: إدارة النظام > الصلاحيات > مستخدم (Administration > Security > User)
+![User — Main Screen](../../ar/platform/security/images/user-main.png)
 
-![المستخدم — الشاشة الرئيسية](./images/user-main.png)
+## User Record Components
 
-## مكونات سجل المستخدم
+The most important parts of the main page:
 
-أهم ما في الصفحة الرئيسية:
+- **Login ID** — The name typed at login. If left blank it takes the value of the record code. Must be unique system-wide.
+- **Password** — Stored encrypted with a hash function (see *Passwords* below).
+- **Employee** — Links the user to an employee record in HR; mandatory for POS users, and is the source of contact data and many behaviors. When set, it is automatically used as the related entity if none is specified.
+- **Related Entity Type / Related Entity** — Who this user *is* in business terms: employee, customer, supplier, salesman… This reference powers additional filters ("show me only my records") — see [Record-Level Security](/platform/security/record-level-security.md).
+- **Security Profile** — The role template this user inherits. See [Security Profiles](/platform/security/security-profiles.md).
+- **Default Settings** — Default company, default menu, shortcuts, preferred language, dashboard, reading theme, plus personal preferences such as fonts and notification sounds.
 
-- **كود المستخدم (Login ID)** — الاسم الذي يُكتب عند الدخول. إذا تُرك فارغاً أخذ قيمة كود السجل. ويجب أن يكون فريداً على مستوى النظام.
-- **باسورد (Password)** — تُخزن مشفرة بدالة هاش (انظر *كلمات السر* أدناه).
-- **الموظف (Employee)** — يربط المستخدم بسجل الموظف في شؤون العاملين؛ إلزامي لمستخدمي نقاط البيع، وهو مصدر بيانات التواصل وسلوكيات كثيرة. وعند ضبطه يُستخدم تلقائياً كذمة متعلقة بالمستخدم إن لم تُحدد.
-- **نوع الذمة المتعلق / الذمة المتعلقة (Related Entity)** — من *هو* هذا المستخدم في لغة الأعمال: موظف، عميل، مورد، مندوب بيع... هذا المرجع هو وقود الفلاتر الإضافية ("أرني سجلاتي فقط") — راجع [الصلاحيات على مستوى السجلات](/platform/security/record-level-security.md).
-- **الصلاحيات (Security Profile)** — قالب الدور الذي يرثه هذا المستخدم. راجع [ملف الصلاحيات](/platform/security/security-profiles.md).
-- **الإعدادات الافتراضية** — الشركة الافتراضية، القائمة الافتراضية، الاختصارات، اللغة المفضلة، اللوحة، نسق المطالعة، إضافة إلى تفضيلات شخصية كالخطوط وأصوات التنبيهات.
+### User Dimensions and Login Dimensions
 
-### محددات المستخدم ومحددات الدخول
+Like any master file, the user record itself carries the five dimensions (company, branch, department, sector, analysis group) — these define the broadest scope the user can work within. The **Login Dimensions** set and the alternative login dimensions table define what the user acts as in each session. The full story is in [Record-Level Security](/platform/security/record-level-security.md).
 
-كأي ملف رئيسي، يحمل سجل المستخدم نفسه المحددات الخمسة (الشركة، الفرع، الإدارة، القطاع، المجموعة التحليلية) — وهي تعرّف أوسع نطاق يمكن للمستخدم العمل فيه. أما مجموعة **محددات الدخول** وجدول محددات الدخول البديلة فيعرّفان ما يعمل المستخدم بصفته في كل جلسة. القصة الكاملة في [الصلاحيات على مستوى السجلات](/platform/security/record-level-security.md).
+## User-Level Permission Overrides
 
-## تجاوزات الصلاحيات على مستوى المستخدم
+The user screen repeats the permission tables you know from the Security Profile — and user rows always take precedence over profile rows when the scope matches:
 
-تكرر شاشة المستخدم جداول الصلاحيات التي تعرفها من ملف الصلاحيات — وسطور المستخدم تتقدم دائماً على سطور الملف عند تطابق النطاق:
+![User — User Security Tab](../../ar/platform/security/images/user-security-tab.png)
 
-![المستخدم — صفحة صلاحيات المستخدم](./images/user-security-tab.png)
+- **User Security tab** — Basic and custom permissions, and the *Treat Users as Creator* table.
+- **Field Settings tab** — Field-level permissions specific to this user.
+- **Page Security tab** — Page-level permissions specific to this user.
+- **Extra Filters tab** — Row-level filters specific to this user.
+- **Audit Log tab** — Who modified this user record and when.
+- **Additional Security Profile tab** — Delegation documents that currently grant this user extra permissions; see [Temporary Additional Permissions](/platform/security/security-delegation.md).
 
-- **صفحة صلاحيات المستخدم** — الصلاحيات الأساسية والصلاحيات المخصصة، وجدول *اعتبار مستخدمين كمنشئ*.
-- **صفحة إعدادات الحقول** — صلاحيات حقول خاصة بهذا المستخدم.
-- **صفحة صلاحيات الصفحات** — صلاحيات صفحات خاصة به.
-- **صفحة Extra Filters** — فلاتر صفوف خاصة به.
-- **صفحة سجل التعديل** — من عدّل سجل المستخدم هذا ومتى.
-- **صفحة ملف صلاحيات إضافي** — مستندات التفويض التي تمنح هذا المستخدم صلاحيات إضافية حالياً؛ راجع [الصلاحيات الإضافية المؤقتة](/platform/security/security-delegation.md).
+The intended workflow: keep roles in Security Profiles, and use user-level tables only for personal exceptions. A few rows on a user is healthy; fifty rows usually means you need a new Security Profile.
 
-أسلوب العمل المقصود: أبقِ الأدوار في ملفات الصلاحيات، واستخدم جداول المستخدم للاستثناءات الشخصية فقط. بضعة سطور على المستخدم أمر صحي؛ أما خمسون سطراً فمعناها غالباً أنك تحتاج ملف صلاحيات جديداً.
+## Login Control
 
-## التحكم في الدخول
-
-| الإعداد | وظيفته |
+| Setting | Purpose |
 |---|---|
-| **منع الدخول (Prevent Login)** | تعطيل الحساب. وبجانبه **رسالة منع الدخول للمستخدم** لإخبار المستخدم بالسبب. |
-| **أقصى عدد مرات تسجيل الدخول المتزامن (Max Login Sessions)** | سقف الجلسات المتزامنة (1 افتراضياً للمستخدمين الجدد). ومع تفعيل **تسجيل الخروج آلياً عند تعدي أقصى عدد مرات تسجيل دخول** فإن الدخول الجديد يُخرج أقدم جلسة بدلاً من أن يُرفض. |
-| **تسجيل الخروج آلياً عند عدم وجود نشاط لمدة (دقيقة) (Auto Logout Time)** | دقائق الخمول قبل إنهاء الجلسة. |
-| **السماح بالدخول من تطبيقات الهاتف (Allow Login From Apps)** | يسمح بالدخول من تطبيقات الجوال. ويُحتسب مستخدمو الجوال ضمن حد *مستخدمي الجوال* في الرخصة. |
-| **السماح بتسجيل الدخول من خلال التطبيقات فقط (Login From Apps Only)** | القيد المعاكس — لا دخول من المتصفح. |
-| **منع من الدخول إلى تطبيق ESS (Prevent ESS Login)** | حجب بوابة الخدمة الذاتية للموظفين. |
-| **عدم السماح بالدخول على الشركة عام (Prevent Public Login)** | إجبار المستخدم على اختيار شركة محددة عند الدخول بدلاً من السياق العام. |
-| **مستخدم برنامج نقاط البيع (POS User)** + **صلاحيات نقاط البيع (POS Security Profile)** | يَسِم المستخدم لتطبيق نقاط البيع ويسند ملف صلاحيات نقاط البيع الخاص؛ ويجب ربط مستخدمي نقاط البيع بموظف. |
+| **Prevent Login** | Disable the account. The adjacent **Prevent Login Message for User** field lets you tell the user why. |
+| **Max Login Sessions** | Maximum concurrent sessions (defaults to 1 for new users). With **Auto Logout on Exceeding Max Sessions** enabled, a new login logs out the oldest session instead of being rejected. |
+| **Auto Logout Time (minutes)** | Minutes of inactivity before the session ends. |
+| **Allow Login From Apps** | Permits login from mobile applications. Mobile users count against the *mobile users* limit in the license. |
+| **Login From Apps Only** | The inverse restriction — no browser login. |
+| **Prevent ESS Login** | Block access to the Employee Self-Service portal. |
+| **Prevent Public Login** | Force the user to choose a specific company at login instead of the general context. |
+| **POS User** + **POS Security Profile** | Marks the user for the POS application and assigns a dedicated POS security profile; POS users must be linked to an employee. |
 
-وفي شاشة قائمة المستخدمين يساعد إجراء **Change Multi Users Password** المدراء على إعادة ضبط كلمات سر عدة حسابات دفعة واحدة، بينما يفتح إجراء **allowLoginAfterFailedLogins** على شاشة المستخدم حساباً قُفل بسبب محاولات دخول فاشلة متكررة.
+From the user list screen, the **Change Multi Users Password** action helps administrators reset passwords for several accounts at once, while the **allowLoginAfterFailedLogins** action on the user screen unlocks an account that was locked due to repeated failed login attempts.
 
-## كلمات السر
+## Passwords
 
-- كلمات السر تُخزن **مشفرة بدالة هاش** (لا يمكن عكسها) ما لم تكن المنشأة تعمل صراحة بالنمط القديم للكلمات المكشوفة.
-- علامة **يجب تغيير كلمة السر (Password Must Be Changed)** تفرض كلمة سر جديدة عند الدخول التالي؛ ويتتبع النظام **تاريخ آخر تغيير لكلمة السر** للتدقيق والسياسات.
-- إجراء **تغيير كلمة السر (changePassword)** على شاشة المستخدم هو مسار إعادة الضبط الإداري؛ أما المستخدمون فيغيرون كلماتهم من قائمة الجلسة.
+- Passwords are stored **hash-encrypted** (irreversible) unless the organization explicitly operates in legacy plaintext mode.
+- The **Password Must Be Changed** flag forces a new password on next login; the system tracks **Last Password Change Date** for auditing and policy enforcement.
+- The **changePassword** action on the user screen is the administrative reset path; users change their own passwords from the session menu.
 
 ## LDAP / Active Directory
 
-عند تفعيل **Use LDAP for users login** في الإعدادات العامة، يتحقق النظام من هوية المستخدمين عبر الدليل (Directory) بدلاً من كلمة السر المحلية. ويوجد استثناءان للحسابات التي يجب أن تبقى محلية:
+When **Use LDAP for users login** is enabled in General Settings, the system authenticates users through the directory instead of a local password. Two exceptions exist for accounts that must remain local:
 
-- علامة **Do Not Use LDAP For Login** على المستخدم،
-- ونفس العلامة على ملف الصلاحيات (مفيدة لأدوار كاملة، كحسابات الخدمة).
+- The **Do Not Use LDAP For Login** flag on the user,
+- The same flag on the Security Profile (useful for entire roles, such as service accounts).
 
-المستخدم `admin` لا يدخل عبر LDAP أبداً.
+The `admin` user never authenticates via LDAP.
 
-## التحقق بخطوتين (2FA)
+## Two-Factor Authentication (2FA)
 
-إعداد **Login 2FA Method** في الإعدادات العامة يقبل:
+The **Login 2FA Method** setting in General Settings accepts:
 
-- **Authenticator App** — أكواد TOTP من تطبيقات مثل Google Authenticator،
-- **Message OTP** — كود لمرة واحدة يُرسل للمستخدم،
-- **Estidamah API** — تكامل التحقق من الهوية السعودي (استدامة)، أو
+- **Authenticator App** — TOTP codes from apps such as Google Authenticator,
+- **Message OTP** — A one-time code sent to the user,
+- **Estidamah API** — Saudi identity-verification integration (Estidamah), or
 - **None**.
 
-ويمكن استثناء مستخدمين بعينهم عبر علامة **استثناء من التحقق بخطوتين (Exclude From 2FA)**. خطوات الإعداد الكاملة في [دليل التحقق بخطوتين](/getting-started/two-factor-authentication.md).
+Individual users can be exempted via the **Exclude From 2FA** flag. Full setup steps are in the [Two-Factor Authentication Guide](/getting-started/two-factor-authentication.md).
 
-## الصلاحيات الإدارية
+## Administrative Privileges
 
-### المستخدم admin
+### The admin User
 
-الحساب الذي كوده/كود دخوله `admin` هو المستخدم الأعلى المدمج في النظام. يتجاوز نموذج الصلاحيات، والنظام **يحميه من الإضعاف** — فيرفض عند الحفظ أي محاولة لـ:
+The account whose code/login ID is `admin` is the built-in super user. It bypasses the permission model, and the system **protects it from being weakened** — on save it rejects any attempt to:
 
-- منع دخوله أو فرض تغيير كلمة سره أو قصره على الدخول من الجوال،
-- إسناد أي ملف صلاحيات له غير الملف الافتراضي كامل الصلاحيات،
-- إعطائه محددات غير عامة أو مستوى مستخدم، أو إخفاء الأخطاء الحرجة والرسائل النظامية عنه،
-- تغيير كوده أو كود دخوله.
+- Prevent its login, force a password change, or restrict it to mobile-only login,
+- Assign it any Security Profile other than the default full-access profile,
+- Give it non-global dimensions or a user level, or hide critical errors and system messages from it,
+- Change its code or login ID.
 
 ### Treat As Admin
 
-علامة **Treat As Admin** في إعدادات المستخدم *لا* تمنح صلاحيات على البيانات — بل تمنح الوصول إلى *الوظائف* الإدارية المقيدة: صفحة الصيانة `utils.html`، إيقاف المهام الجارية، تسجيل خروج المستخدمين الآخرين، وما شابه. امنحها بحذر لكبار مديري النظام الذين يشغلون النظام لكنهم يخضعون لملف صلاحيات عادي في بيانات الأعمال.
+The **Treat As Admin** flag in user settings does *not* grant data permissions — it grants access to restricted *administrative functions*: the maintenance page `utils.html`, stopping running tasks, logging out other users, and similar. Grant it carefully to senior system administrators who operate the system but are subject to a normal Security Profile for business data.
 
-### مستوى المستخدم (User Level)
+### User Level
 
-يمكن للرخص تعريف مستويات مستخدمين مسماة بأعداد مختلفة. حقل **مستوى المستخدم** يضع المستخدم في أحد المستويات المتاحة في رخصتك؛ ويتحقق النظام من وجود المستوى ويفرض الأعداد المرخصة (بالتكامل مع سجلات **عداد مستخدمين (Users Counter)** التي يمكن ربطها أيضاً على مستوى ملف الصلاحيات).
-
-</rtl>
+Licenses can define named user levels with different counts. The **User Level** field places the user in one of the levels available in your license; the system verifies the level exists and enforces the licensed counts (integrated with **Users Counter** records that can also be linked at the Security Profile level).

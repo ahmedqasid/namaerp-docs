@@ -1,174 +1,174 @@
-# استلام المخزون في المستودع (Receiving Stock)
+# Receiving Stock
 
-المخزون لا يصل إلى مستودعك بصورة آلية - بل يصل عبر طرق متعددة ولأسباب مختلفة. لنستعرض جميع الطرق التي تدخل بها الأصناف إلى النظام داخل وحدة المخزون، وكيفية تسجيل كل سيناريو بالطريقة الصحيحة.
+Inventory doesn't magically appear in your warehouse - it arrives through various means and for various reasons. Let's explore all the ways items come into the system within the Inventory sub-module, and how to record each scenario properly.
 
-## مستند الاستلام: نقطة دخول المخزون
+## The Receipt Document: Your Inventory's Entry Point
 
-في جوهره، **التوريد المخزني** (StockReceipt) بسيط: فهو السجل الرسمي الذي يثبت أن "هذه الأصناف دخلت مستودعنا في هذا الوقت." لكن بحسب المصدر والغرض، ستستخدم أنواعًا مختلفة من مستندات الاستلام.
+At its core, the **Stock Receipt** (StockReceipt) is simple: it's the official record proving that "these items entered our warehouse at this time." But depending on the source and purpose, you'll use different kinds of receipt documents.
 
-فكّر في الأمر كأنواع مختلفة من الأظرف لأنواع مختلفة من البريد. رسالة شخصية، ووثيقة قانونية، وطرد - كلها تُسلَّم، لكن كلًّا منها يحتاج معالجة وتتبعًا مختلفَين.
+Think of them as different envelopes for different kinds of mail. A personal letter, a legal document, a parcel - all get delivered, but each needs different handling and tracking.
 
-![قائمة التوريدات المخزنية في Nama ERP](images/receiving/stock-receipt-list-ar.png)
+![Stock receipt list in NaMa ERP](../../ar/modules/supplychain/images/receiving/stock-receipt-list-en.png)
 
-## التوريد المخزني العام: أداتك الأساسية
+## The General Stock Receipt: Your Primary Tool
 
-التوريد المخزني (StockReceipt) هو أداة الاستلام العامة داخل المخزون. استخدمه عندما تدخل الأصناف إلى المخزون من مصادر غير مرتبطة مباشرةً بفاتورة مورّد (التي لها مسارها الخاص في [رحلة الشراء](./purchasing-journey.md)).
+The Stock Receipt is the general receiving tool within inventory. Use it when items enter stock from sources not directly tied to a supplier invoice (which has its own path in [The Purchasing Journey](./purchasing-journey.md)).
 
-### متى تستخدمه
+### When to Use It
 
-إليك السيناريوهات الشائعة:
+Here are the common scenarios:
 
-**مرتجعات داخلية**
-اقترضت إدارة تقنية المعلومات 5 حواسيب محمولة للتدريب وهي تعيدها الآن. يُوثِّق التوريد المخزني عودتها إلى المخزون المتاح.
+**Internal returns**
+The IT department borrowed 5 laptops for training and is now returning them. The stock receipt documents their return to available stock.
 
-**الأصناف المكتشفة**
-خلال الجرد الفعلي، اكتشفت 10 قطع لم تكن مسجلة في النظام. أنشئ توريدًا لإدخالها إلى المخزون المتتبَّع مع ملاحظة توضح أنها "وُجدت أثناء الجرد".
+**Discovered items**
+During a physical count, you discovered 10 pieces not recorded in the system. Create a receipt to bring them into tracked inventory with a note explaining they were "found during stock taking."
 
-**الاستلام كعينات**
-أرسل مورّد عينات مجانية. استلمها بتكلفة صفرية لتتبعها في المخزون دون أثر مالي.
+**Receiving as samples**
+A supplier sent free samples. Receive them at zero cost to track them in inventory without a financial effect.
 
-::: info الاستلام من الإنتاج له مستنداته الخاصة
-عند استلام منتجات تامة أو خردة أو مواد عائدة من الإنتاج، تُستخدم مستندات وحدة **التصنيع** (مثل تسليم المنتج واستلام الخردة) لا التوريد المخزني العام. راجع [وحدة التصنيع](/modules/manufacturing/) لتفاصيل تلك المسارات.
+::: info Receipts from production have their own documents
+When receiving finished products, scrap, or materials returning from production, you use the **Manufacturing** module's documents (such as product delivery and scrap receipt), not the general stock receipt. See the [Manufacturing module](/modules/manufacturing/) for those paths.
 :::
 
-### كيف يعمل
+### How It Works
 
-كل مستند استلام يحتاج:
+Every receipt document needs:
 
-1. **المستودع والموقع**: أين ستُودَع هذه الأصناف؟ المخزن الرئيسي؟ منطقة البضائع المعيبة؟ موقع تخزيني محدد؟
-2. **الأصناف والكميات**: ما الذي يرد وبأي كمية؟ اذكر وحدة القياس - هل هي 10 صناديق أم 240 زجاجة؟
-3. **معلومات التكلفة**: ما قيمة هذه الأصناف؟ أحيانًا تكون صفرًا (عينات)، وأحيانًا تُحدِّدها مباشرةً.
-4. **معلومات المصدر**: من أين جاءت؟ استخدم حقول المرجع لربط المستندات معًا.
+1. **Warehouse and locator**: Where will these items be stored? The main warehouse? The defective goods area? A specific locator?
+2. **Items and quantities**: What's arriving and how much? State the unit of measure - is it 10 boxes or 240 bottles?
+3. **Cost information**: What are these items worth? Sometimes zero (samples), sometimes you specify it directly.
+4. **Source information**: Where did it come from? Use the reference fields to link documents together.
 
-يقوم النظام بعد ذلك بـ:
-- رفع كمية المخزون في الموقع المحدد
-- تحديث قيمة المخزون بناءً على طريقة التسعير المعتمدة
-- إنشاء القيود المحاسبية (تحميل حسابات أصول المخزون)
-- تسجيل سجل الحركات
-- تحديث حسابات الكميات المتاحة
+The system then:
+- Increases the inventory quantity at the specified location
+- Updates inventory value based on the adopted costing method
+- Creates accounting entries (debiting inventory asset accounts)
+- Records the movement history
+- Updates available-quantity calculations
 
-إذا كانت الأصناف تحمل أرقامًا تسلسلية أو أرقام دفعات، ستُدخل تلك التفاصيل، فيتتبع النظام كل وحدة أو دفعة فردية من هذه اللحظة فصاعدًا.
+If items carry serial or batch numbers, you'll enter those details, and the system tracks each individual unit or batch from that moment on.
 
-### طلب التوريد المخزني (StockReceiptReq)
+### Stock Receipt Request (StockReceiptReq)
 
-في المؤسسات التي تفصل بين من يطلب الاستلام ومن ينفّذه، يأتي **طلب التوريد المخزني** أولًا: يوثّق نية الاستلام (والموافقة عليها عند اللزوم)، ثم يُحوَّل إلى توريد مخزني فعلي عند وصول البضاعة.
+In organizations that separate who requests a receipt from who executes it, the **Stock Receipt Request** comes first: it documents the intent to receive (and the approval where required), then is converted to an actual stock receipt when the goods arrive.
 
-## البداية من الصفر: الأرصدة الافتتاحية
+## Starting from Scratch: Opening Balances
 
-عند التطبيق الأول لنظام Nama ERP، لديك مخزون بالفعل - لست تبدأ من الصفر. كيف تُدخل المخزون الحالي إلى النظام؟
+When you first implement NaMa ERP, you already have inventory - you're not starting from zero. How do you bring existing stock into the system?
 
-### الاستلام الأولي (InitialReceipt)
+### Initial Receipt (InitialReceipt)
 
-**الاستلام الأولي** هو نوع استلام خاص يُستخدم أثناء تطبيق النظام. يُتيح لك إدخال كميات المخزون الموجودة وتحديد قيمها الحالية وتأسيس الأرصدة الافتتاحية وإنشاء القيود المحاسبية الأولية.
+The **Initial Receipt** is a special receipt type used during system implementation. It lets you enter existing inventory quantities, set their current values, establish opening balances, and create the initial accounting entries.
 
-فكّر فيه كلقطة لمخزونك في اليوم صفر من استخدام Nama ERP. بعد الانطلاق، لن تستخدم هذا النوع من المستندات مجددًا - إنه مخصص للتهيئة الأولى فقط.
+Think of it as a snapshot of your inventory on day zero of using NaMa ERP. After go-live, you won't use this document type again - it's meant for first-time setup only.
 
-**أفضل ممارسة للانطلاق:**
-1. أجرِ جردًا فعليًا شاملًا قبل الانطلاق
-2. قيِّم مخزونك باستخدام طريقة التسعير التي اخترتها
-3. أنشئ استلامات أولية لكل مجموعة صنف/موقع
-4. تحقق من أن إجمالي قيمة المخزون يطابق سجلاتك المحاسبية
-5. انطلق!
+**Go-live best practice:**
+1. Perform a comprehensive physical count before go-live
+2. Value your inventory using your chosen costing method
+3. Create initial receipts for each item/location group
+4. Verify that total inventory value matches your accounting records
+5. Go live!
 
-### الرصيد الافتتاحي (OpeningStockDocument)
+### Opening Stock Document (OpeningStockDocument)
 
-**الرصيد الافتتاحي** مرتبط بالسابق لكنه مختلف قليلًا - كثيرًا ما يُولَّد من النظام ويمثّل المركز الافتتاحي الرسمي لأغراض محاسبية. قد لا تُنشئه مباشرةً؛ فالنظام يولّده بناءً على استلاماتك الأولية أو بيانات الترحيل.
+The **Opening Stock Document** is related to the previous one but slightly different - it's often system-generated and represents the official opening position for accounting purposes. You may not create it directly; the system generates it based on your initial receipts or migration data.
 
-## استلام البضائع التالفة (PurgeStockReceipt)
+## Receiving Damaged Goods (PurgeStockReceipt)
 
-ليس كل ما يرد في حالة جيدة. **توريد الإتلاف** مخصص لاستلام الأصناف التالفة أو المعيبة أو المخصصة للتخلص منها.
+Not everything arrives in good condition. The **Purge Stock Receipt** is for receiving damaged, defective, or to-be-disposed items.
 
-لماذا تهتم باستلام أصناف ستتخلص منها؟ لأن:
-1. **التتبع المالي**: تحتاج إلى معرفة قيمة البضائع التالفة لمطالبات التأمين أو النزاعات مع الموردين
-2. **الامتثال**: الصناعات الخاضعة للتنظيم ملزمة بتتبع التخلص من مواد معينة
-3. **تحليل الجودة**: فهم نسبة التالف في الواردات يساعدك على تقييم جودة الموردين
+Why bother receiving items you'll dispose of? Because:
+1. **Financial tracking**: You need to know the value of damaged goods for insurance claims or supplier disputes
+2. **Compliance**: Regulated industries are required to track the disposal of certain materials
+3. **Quality analysis**: Understanding the defect rate in receipts helps you evaluate supplier quality
 
-تستلم هذه الأصناف في موقع "إتلاف" خاص، ثم تُنشئ مستندات التخلص لاحقًا لإخراجها من المخزون، فيكون مسار التوثيق مكتملًا.
+You receive these items into a special "purge" location, then create disposal documents later to remove them from inventory, so the documentation trail is complete.
 
-## التكامل مع فحص الاستلام
+## Integration with Receipt Inspection
 
-كثير من المنشآت لا تستلم الأصناف مباشرةً في المخزون العادي - بل تذهب أولًا إلى منطقة الفحص.
+Many facilities don't receive items directly into normal stock - they go to an inspection area first.
 
-### فحص الاستلام (ReceiptInspection)
+### Receipt Inspection (ReceiptInspection)
 
-يُسجِّل مستند **فحص الاستلام** الأصناف الواصلة للفحص، فينشئ عملية استلام من خطوتين:
-1. **الاستلام الأولي إلى الفحص**: تصل الأصناف وتُودَع في مخزن/موقع "تحت الفحص"
-2. **القرار النهائي بعد الفحص**:
-   - **قبول**: نقل إلى المخزون العادي
-   - **رفض**: إنشاء مرتجع للمورّد أو نقل إلى البضائع المعيبة
-   - **قبول جزئي**: قبول جزء من الكمية ورفض الباقي
+The **Receipt Inspection** document records arriving items for inspection, creating a two-step receiving process:
+1. **Initial receipt into inspection**: items arrive and are placed in an "under inspection" warehouse/location
+2. **Final decision after inspection**:
+   - **Accept**: move to normal stock
+   - **Reject**: create a return to the supplier or move to defective goods
+   - **Partial accept**: accept part of the quantity and reject the rest
 
-يضمن هذا أن تصل إلى مخزونك المتاح أصناف موافَق على جودتها فقط. مزيد من التفاصيل في [ضبط الجودة](./quality-control.md).
+This ensures only quality-approved items reach your available stock. More details in [Quality Control](./quality-control.md).
 
-::: tip التكاليف الإضافية وإعادة التقييم
-عندما تحتاج إلى توزيع مصاريف شحن أو جمارك على توريد، أو إلى تعديل قيمة المخزون دون تغيير الكمية، فتلك مستندات مستقلة (التكلفة الإضافية وإعادة تقييم التكلفة) تجدها في [تكلفة المخزون وإعادة التقييم](./inventory-costing.md). وللمواد السائبة التي تُوزن على ميزان، راجع [موازين الوزن](./weight-scale.md).
+::: tip Additional costs and revaluation
+When you need to distribute freight or customs charges across a receipt, or adjust inventory value without changing quantity, those are separate documents (additional cost and cost revaluation) covered in [Inventory Costing & Revaluation](./inventory-costing.md). For bulk materials weighed on a scale, see [Weight Scale](./weight-scale.md).
 :::
 
-## معالجة التصحيحات والإلغاءات
+## Handling Corrections and Cancellations
 
-تحدث الأخطاء. أنشأت توريدًا ثم أدركت أنه خاطئ. ماذا تفعل الآن؟
+Mistakes happen. You created a receipt and then realized it was wrong. What now?
 
-### إلغاء التوريد المخزني (StockReceiptCancellation)
+### Stock Receipt Cancellation (StockReceiptCancellation)
 
-مستند **إلغاء التوريد المخزني** يعكس توريدًا محفوظًا مسبقًا.
+The **Stock Receipt Cancellation** document reverses a previously-saved receipt.
 
-**مهم**: هذا ليس حذفًا! يبقى التوريد الأصلي في النظام مع سجله. يُنشئ الإلغاء حركة معاكسة مساوية تُعيد المخزون إلى ما كان عليه قبله.
+**Important**: This is not a deletion! The original receipt stays in the system with its history. The cancellation creates an equal, opposite movement that returns inventory to what it was before.
 
-لماذا هذا مهم؟
-- **مسار المراجعة**: يمكن لأي شخص رؤية التوريد الأصلي وسبب إلغائه ووقته
-- **سلامة المحاسبة**: ينشئ الإلغاء قيودًا عكسية محاسبية صحيحة
-- **لا يمكن تغيير الماضي**: لا يمكنك التظاهر بأن الحركة الأصلية لم تحدث - يمكنك فقط إلغاء أثرها مستقبلًا
+Why does this matter?
+- **Audit trail**: anyone can see the original receipt, why it was cancelled, and when
+- **Accounting integrity**: the cancellation creates correct reversing accounting entries
+- **The past can't be changed**: you can't pretend the original movement never happened - you can only cancel its effect going forward
 
-استخدم الإلغاء عندما تُدخَل كميات خاطئة، أو تُستلَم الأصناف في موقع خاطئ، أو يُنشأ التوريد بالخطأ (البضاعة لم تصل فعليًا).
+Use cancellation when wrong quantities were entered, items were received into the wrong location, or the receipt was created by mistake (the goods never actually arrived).
 
-## دورة حياة مستند الاستلام
+## The Receipt Document Lifecycle
 
-فهم رحلة مستند الاستلام يساعدك على استخدام النظام بفاعلية:
+Understanding a receipt document's journey helps you use the system effectively:
 
-1. **الإنشاء**: يُنشئ شخص ما مستند الاستلام. في هذه المرحلة هو مسودة - لم يحدث شيء بعد.
-2. **إدخال البيانات**: الأصناف والكميات، ووجهة الإيداع، والتكلفة، ومعلومات المصدر، والأرقام التسلسلية/الدفعات إن وُجدت.
-3. **المراجعة (اختياري)**: بحسب ضوابط مؤسستك، قد تستلزم التوريدات موافقة قبل الحفظ.
-4. **حفظ المستند**: عند الحفظ (ليس كمسودة) تتحدث كميات المخزون والقيود المحاسبية **فورًا**.
-5. **السجل التاريخي**: يصبح التوريد جزءًا دائمًا من سجل الصنف.
+1. **Creation**: Someone creates the receipt document. At this stage it's a draft - nothing has happened yet.
+2. **Data entry**: Items and quantities, storage destination, cost, source information, and serial/batch numbers if any.
+3. **Review (optional)**: Depending on your organization's controls, receipts may require approval before saving.
+4. **Saving the document**: When saved (not as a draft), inventory quantities and accounting entries update **immediately**.
+5. **Historical record**: The receipt becomes a permanent part of the item's history.
 
-::: tip مسودة مقابل حفظ
-- **الحفظ كمسودة**: يُخزَّن المستند دون أي أثر على المخزون أو المحاسبة. استخدمه للتحضير والمراجعة.
-- **الحفظ (ليس مسودة)**: يُحدِّث المستند المخزون والمحاسبة وجميع الحسابات المرتبطة فورًا.
-- أي تعديلات مستقبلية على المستندات المحفوظة تُحدِّث النظام فورًا - لا تحتاج إلى خطوة "ترحيل" منفصلة.
+::: tip Draft vs. Saved
+- **Save as draft**: the document is stored with no effect on inventory or accounting. Use it for preparation and review.
+- **Save (not draft)**: the document updates inventory, accounting, and all related accounts immediately.
+- Any future edits to saved documents update the system immediately - no separate "post" step needed.
 :::
 
-![شاشة التوريد المخزني في Nama ERP](images/receiving/stock-receipt-edit-ar.png)
+![Stock receipt screen in NaMa ERP](../../ar/modules/supplychain/images/receiving/stock-receipt-edit-en.png)
 
-## نصائح للاستلام الدقيق
+## Tips for Accurate Receiving
 
-::: tip أفضل الممارسات
-**احسب كل شيء**: لا تفترض أن بوليصة الشحن صحيحة. أجرِ عدًّا فعليًا لكل توريد.
+::: tip Best Practices
+**Count everything**: Don't assume the shipping note is correct. Do a physical count for every receipt.
 
-**استخدم التوريد الدُّفعي حين يناسب**: إذا وصلت 100 قطعة، لا تحتاج إلى إنشاء 100 مستند منفصل - مستند واحد بسطر لكمية 100 يكفي.
+**Use line receiving when it fits**: If 100 pieces arrive, you don't need 100 separate documents - one document with a line for quantity 100 is enough.
 
-**سجِّل وقت الاستلام لا وقت تحرير المستند**: أدخل التوريدات فور وصول البضاعة. دقة المخزون تعتمد على التسجيل الفوري.
+**Record receipt time, not document-editing time**: Enter receipts as soon as goods arrive. Inventory accuracy depends on immediate recording.
 
-**استخدم المواقع باتساق**: ضع اصطلاحات تسمية واضحة للمواقع. رموز المواقع غير المتسقة تؤدي إلى "ضياع" المخزون.
+**Use locators consistently**: Set clear naming conventions for locators. Inconsistent location codes lead to "lost" inventory.
 
-**الانضباط في الأرقام التسلسلية**: إذا كانت الأصناف تستلزم أرقامًا تسلسلية، سجِّلها بدقة عند الاستلام. استرجاعها بعد أشهر شبه مستحيل.
+**Serial number discipline**: If items require serial numbers, record them accurately on receipt. Recovering serials months later is nearly impossible.
 
-**اربط مستندات المصدر**: اربط دائمًا التوريدات بمصدرها. هذا التتبع لا يُقدَّر بثمن عند التحقيق في الفروقات.
+**Link source documents**: Always link receipts to their source. This traceability is invaluable when investigating discrepancies.
 :::
 
-## أسئلة شائعة
+## Frequently Asked Questions
 
-**س: استلمنا 100 قطعة لكن 95 منها فقط سليمة. كيف نسجل ذلك؟**
+**Q: We received 100 pieces but only 95 are good. How do we record this?**
 
-ج: خياران: (1) استلم الـ100 جميعها ثم اصرف 5 فورًا إلى موقع المعيبة، أو (2) استلم 95 في المخزون العادي و5 في موقع المعيبة ضمن مستند استلام واحد. الاختيار يعتمد على ما إذا كنت تريد إظهار كامل كمية الاستلام مطابقًا لأوراق المورّد.
+A: Two options: (1) receive all 100, then immediately issue 5 to a defective location, or (2) receive 95 into normal stock and 5 into a defective location within a single receipt document. The choice depends on whether you want to show the full received quantity matching the supplier's paperwork.
 
-**س: ماذا نفعل إذا استلمنا أصنافًا بتكلفة خاطئة؟**
+**Q: What do we do if we received items at the wrong cost?**
 
-ج: إذا حفظت كمسودة، صحِّح التكلفة قبل الحفظ النهائي. أما إذا حُفظ المستند نهائيًا، فيمكنك إنشاء مستند [إعادة تقييم تكلفة](./inventory-costing.md)، أو الإلغاء وإعادة الاستلام، أو قبوله والسماح للتوريدات اللاحقة بمعادلة متوسط التكلفة.
+A: If you saved as a draft, correct the cost before final save. If the document was saved permanently, you can create a [cost revaluation](./inventory-costing.md) document, cancel and re-receive, or accept it and let subsequent receipts average out the cost.
 
-## الخطوات التالية
+## Next Steps
 
-الآن بعد أن فهمت كيفية دخول الأصناف إلى مخزونك، تعرّف على:
-- [إصدار المخزون](./issuing-stock.md) - كيف تخرج الأصناف من مستودعك
-- [تحريك المخزون بين المخازن](./moving-stock.md) - التحويلات والنقل بين المواقع
-- [تكلفة المخزون وإعادة التقييم](./inventory-costing.md) - التكاليف الإضافية وتعديل القيم
-- [رحلة الشراء](./purchasing-journey.md) - عملية الشراء الكاملة التي كثيرًا ما تنتهي بتوريدات
+Now that you understand how items enter your inventory, learn about:
+- [Issuing Stock](./issuing-stock.md) - how items leave your warehouse
+- [Moving Stock Between Warehouses](./moving-stock.md) - transfers and movement between locations
+- [Inventory Costing & Revaluation](./inventory-costing.md) - additional costs and value adjustments
+- [The Purchasing Journey](./purchasing-journey.md) - the full purchase process that often ends in receipts

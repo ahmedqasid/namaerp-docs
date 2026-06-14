@@ -1,6 +1,6 @@
 <div class="ignore-in-full-text-search">
 
-# وحدة سلسلة التوريد
+# Supply Chain Module
   - [EAApplyReservationOfDocsByQuery](/entity-flows/supplychain/EAApplyReservationOfDocsByQuery.md)
   - [EAAutoCreateSCDocSecondSerial](/entity-flows/supplychain/EAAutoCreateSCDocSecondSerial.md)
   - [EAAutoCreateSCDocSerial](/entity-flows/supplychain/EAAutoCreateSCDocSerial.md)

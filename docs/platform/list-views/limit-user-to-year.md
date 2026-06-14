@@ -1,142 +1,138 @@
-<rtl>
 
-# قصر المستخدم على سنة مالية (Limit User To Year)
+# Limit User To Year
 
-تتيح هذه الميزة تقييد وصول المستخدمين إلى السنوات المالية والفترات المحاسبية المحددة، مما يمنع المستخدمين من عرض أو إنشاء مستندات في سنوات مالية غير مصرح لهم بالعمل عليها.
+This feature lets you restrict users' access to specific fiscal years and accounting periods, preventing them from viewing or creating documents in fiscal years they are not authorized to work with.
 
-## الوصول للشاشة
+## Screen Location
 
-- **المسار بالعربية**: إدارة النظام > الصلاحيات > قصر المستخدم على سنة مالية
-- **المسار بالإنجليزية**: Administration > Security > Limit User To Year
+- **Arabic path**: Administration > Security > Limit User To Year
+- **English path**: Administration > Security > Limit User To Year
 
-## نظرة عامة
+## Overview
 
-تُستخدم شاشة "قصر المستخدم على سنة مالية" للتحكم في:
+The "Limit User To Year" screen is used to control:
 
-1. **تقييد المستندات**: منع المستخدمين من عرض أو إنشاء مستندات في سنوات مالية أو فترات محاسبية معينة
-2. **تقييد التقارير**: تحديد أقل تاريخ يمكن للمستخدم استخدامه في التقارير
+1. **Document restrictions**: Prevent users from viewing or creating documents in specific fiscal years or accounting periods
+2. **Report restrictions**: Set a minimum date that a user can use in reports
 
-## التفاصيل (Details)
+## Details
 
-### حقول تقييد السنوات والفترات
+### Fiscal Year and Period Restriction Fields
 
-| الحقل | الوصف |
-|-------|-------|
-| **تطبق على (Apply To)** | الجهة التي سيُطبق عليها التقييد: مستخدم، مجموعة مستخدمين، ملف صلاحيات، أو موظف |
-| **نوع المستند (Document Type)** | نوع المستند المراد تقييده (اختياري) |
-| **قائمة أنواع (Type List)** | قائمة أنواع مستندات مُعرّفة مسبقاً لتقييدها دفعة واحدة (اختياري) |
-| **السنة المالية (Fiscal Year)** | السنة المالية المسموح للمستخدم بالعمل عليها |
-| **الفترة المحاسبية (Fiscal Period)** | الفترة المحاسبية المسموح بها (اختياري - للتقييد الأكثر دقة) |
+| Field | Description |
+|-------|-------------|
+| **Apply To** | The party the restriction will be applied to: user, user group, permission file, or employee |
+| **Document Type** | The document type to restrict (optional) |
+| **Type List** | A predefined list of document types to restrict at once (optional) |
+| **Fiscal Year** | The fiscal year the user is allowed to work with |
+| **Fiscal Period** | The accounting period allowed (optional — for more granular restriction) |
 
-### سلوك تقييد السنوات والفترات
+### Fiscal Year and Period Restriction Behavior
 
-- إذا تركت حقلي "نوع المستند" و"قائمة أنواع" فارغين، سيُطبق التقييد على **جميع أنواع المستندات**
-- يمكن إضافة عدة سطور لنفس الجهة للسماح بعدة سنوات مالية
-- التقييد **تراكمي**: إذا كان للمستخدم تقييدات متعددة (عبر المستخدم مباشرة، مجموعته، ملف صلاحياته، أو الموظف)، فإن النظام يجمع كل السنوات المسموحة
+- If you leave both "Document Type" and "Type List" blank, the restriction will apply to **all document types**
+- You can add multiple lines for the same party to allow several fiscal years
+- Restrictions are **cumulative**: if a user has multiple restrictions (directly, through their group, permission file, or employee), the system combines all allowed years
 
-## قصر مستخدم على تواريخ في التقارير (Limit User to Dates In Reports)
+## Limit User to Dates In Reports
 
-### حقول تقييد التواريخ
+### Date Restriction Fields
 
-| الحقل | الوصف |
-|-------|-------|
-| **تطبق على (Apply To)** | الجهة التي سيُطبق عليها التقييد |
-| **أقل تاريخ (Min Date)** | أقل تاريخ ثابت يمكن للمستخدم اختياره في التقارير |
-| **أقل تاريخ بالأيام من اليوم الحالي (Min Date From Today)** | عدد الأيام قبل اليوم الحالي كحد أدنى للتاريخ (قيمة متحركة) |
+| Field | Description |
+|-------|-------------|
+| **Apply To** | The party the restriction will be applied to |
+| **Min Date** | A fixed minimum date the user can select in reports |
+| **Min Date From Today** | Number of days before the current date as a minimum date (a dynamic value) |
 
-### سلوك تقييد التواريخ
+### Date Restriction Behavior
 
-- إذا تم تحديد "أقل تاريخ بالأيام من اليوم الحالي"، فإنه يأخذ الأولوية ويتم حساب التاريخ ديناميكياً
-- النظام يختار التاريخ الأحدث (الأكبر) من بين جميع التقييدات المطبقة على المستخدم
+- If "Min Date From Today" is specified, it takes priority and the date is calculated dynamically
+- The system chooses the most recent (largest) date from all restrictions applied to the user
 
-## كيف يعمل النظام
+## How the System Works
 
-### 1. تقييد قوائم المستندات (List Views)
+### 1. Restricting Document List Views
 
-عند عرض قائمة مستندات (مثل قائمة الفواتير)، يقوم النظام تلقائياً بـ:
+When displaying a document list (such as an invoice list), the system automatically:
 
 ```
-1. التحقق من نوع المستند
-2. البحث عن تقييدات المستخدم الحالي (مباشرة أو عبر المجموعة/ملف الصلاحيات/الموظف)
-3. إضافة فلتر تلقائي على السنة المالية و/أو الفترة المحاسبية
+1. Checks the document type
+2. Looks up restrictions for the current user (directly or via group/permission file/employee)
+3. Adds an automatic filter on the fiscal year and/or accounting period
 ```
 
-::: tip ملاحظة
-المستخدم لن يرى المستندات في السنوات غير المسموحة له، حتى لو كان لديه صلاحية على نوع المستند نفسه.
+::: tip Note
+The user will not see documents in unauthorized years, even if they have permission for the document type itself.
 :::
 
-### 2. تقييد أسئلة التقارير (Report Questions)
+### 2. Restricting Report Questions
 
-عند تشغيل تقرير، يقوم النظام بـ:
+When running a report, the system:
 
-- **حقول التاريخ**: تلقائياً تعديل تاريخ "من" ليكون أقل تاريخ مسموح
-- **حقول السنة المالية**: تلقائياً اختيار أول سنة مسموحة إذا كانت القيمة المختارة غير مسموحة
-- **حقول الفترة المحاسبية**: تلقائياً اختيار أول فترة مسموحة
+- **Date fields**: Automatically adjusts the "from" date to be the minimum allowed date
+- **Fiscal Year fields**: Automatically selects the first allowed year if the selected value is not permitted
+- **Fiscal Period fields**: Automatically selects the first allowed period
 
-::: warning تنبيه
-حقول التاريخ التي تمثل "إلى تاريخ" (To Date) لا تتأثر بهذا التقييد - فقط حقول "من تاريخ" (From Date).
+::: warning
+Date fields representing a "To Date" are not affected by this restriction — only "From Date" fields are.
 :::
 
-## أمثلة عملية
+## Practical Examples
 
-### مثال 1: تقييد محاسب على السنة الحالية فقط
+### Example 1: Restrict an Accountant to the Current Year Only
 
-1. أنشئ سجل جديد في شاشة "قصر المستخدم على سنة مالية"
-2. في جدول التفاصيل:
-   - **تطبق على**: اختر المستخدم المراد تقييده
-   - **السنة المالية**: اختر السنة المالية الحالية (مثال: 2024)
-3. احفظ السجل
+1. Create a new record in the "Limit User To Year" screen
+2. In the details grid:
+   - **Apply To**: Select the user to restrict
+   - **Fiscal Year**: Select the current fiscal year (e.g., 2024)
+3. Save the record
 
-**النتيجة**: المستخدم لن يستطيع رؤية مستندات السنوات السابقة في أي قائمة.
+**Result**: The user will not be able to see documents from previous years in any list.
 
-### مثال 2: تقييد مجموعة على آخر 90 يوم في التقارير
+### Example 2: Restrict a Group to the Last 90 Days in Reports
 
-1. أنشئ سجل جديد
-2. في جدول "قصر مستخدم على تواريخ في التقارير":
-   - **تطبق على**: اختر مجموعة المستخدمين
-   - **أقل تاريخ بالأيام من اليوم الحالي**: 90
-3. احفظ السجل
+1. Create a new record
+2. In the "Limit User to Dates In Reports" grid:
+   - **Apply To**: Select the user group
+   - **Min Date From Today**: 90
+3. Save the record
 
-**النتيجة**: أي تقرير يشغله مستخدم من هذه المجموعة، سيكون تاريخ "من" على الأقل 90 يوم قبل اليوم.
+**Result**: Any report run by a user in this group will have the "from" date set to at least 90 days before today.
 
-### مثال 3: تقييد على نوع مستند محدد
+### Example 3: Restrict to a Specific Document Type
 
-1. أنشئ سجل جديد
-2. في جدول التفاصيل:
-   - **تطبق على**: اختر المستخدم
-   - **نوع المستند**: اختر "فاتورة مبيعات" مثلاً
-   - **السنة المالية**: 2024
-3. أضف سطر آخر:
-   - **تطبق على**: نفس المستخدم
-   - **نوع المستند**: اترك فارغاً (لباقي المستندات)
-   - **السنة المالية**: 2023
+1. Create a new record
+2. In the details grid:
+   - **Apply To**: Select the user
+   - **Document Type**: Select "Sales Invoice" for example
+   - **Fiscal Year**: 2024
+3. Add another line:
+   - **Apply To**: Same user
+   - **Document Type**: Leave blank (for the remaining document types)
+   - **Fiscal Year**: 2023
 
-**النتيجة**: المستخدم يرى فواتير المبيعات لسنة 2024 فقط، لكن باقي المستندات لسنة 2023.
+**Result**: The user sees sales invoices for 2024 only, but all other documents for 2023.
 
-## أولوية التطبيق
+## Application Priority
 
-عندما يكون للمستخدم تقييدات متعددة، يتم التطبيق كالتالي:
+When a user has multiple restrictions, they are applied as follows:
 
-1. تقييدات المستخدم المباشرة
-2. تقييدات مجموعة المستخدمين
-3. تقييدات ملف الصلاحيات
-4. تقييدات الموظف المرتبط
+1. Direct user restrictions
+2. User group restrictions
+3. Permission file restrictions
+4. Linked employee restrictions
 
-::: info معلومة
-جميع التقييدات **تُجمع** معاً - أي أن المستخدم يحصل على اتحاد (Union) جميع السنوات/الفترات المسموحة من كل المصادر.
+::: info
+All restrictions are **combined** — meaning the user receives the union of all allowed years/periods from all sources.
 :::
 
-## ملاحظات فنية
+## Technical Notes
 
-### التخزين المؤقت (Caching)
+### Caching
 
-- يتم تخزين بيانات التقييدات مؤقتاً في الذاكرة لتحسين الأداء
-- يتم مسح التخزين المؤقت تلقائياً عند أي تغيير في سجلات "قصر المستخدم على سنة مالية"
+- Restriction data is cached in memory to improve performance
+- The cache is cleared automatically whenever any "Limit User To Year" record is changed
 
-### التأثير على الأداء
+### Performance Impact
 
-- التقييدات تُضاف كفلاتر SQL على قوائم المستندات
-- لا يوجد تأثير ملحوظ على الأداء في الاستخدام العادي
-
-
-</rtl>
+- Restrictions are added as SQL filters on document lists
+- There is no noticeable performance impact during normal use

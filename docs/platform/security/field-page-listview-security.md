@@ -1,80 +1,76 @@
-<rtl>
+# Field, Page, and List View Security
 
-# صلاحيات الحقول والصفحات والقوائم
+Basic permissions answer the question "what can the user do with a type?" But you often need finer control: hide the *Cost* column from sales reps, lock the *System Entries* page for data-entry operators, or prevent a role from opening a sensitive list view. That is exactly what these three pages do — and each one lives in **two places**: on the security profile and on the user record, with user-level rows taking precedence over profile rows when their scope overlaps.
 
-الصلاحيات الأساسية تجيب عن سؤال "ماذا يفعل المستخدم بالنوع؟". لكنك كثيراً ما تحتاج لمسات أدق: إخفاء عمود *التكلفة* عن المندوبين، إقفال صفحة *الحركات النظامية* أمام مدخلي البيانات، أو منع دور من فتح شاشة عرض حساسة. هذا بالضبط ما تفعله هذه الصفحات الثلاث — وكل واحدة منها موجودة **في مكانين**: على ملف الصلاحيات وعلى سجل المستخدم، وسطور المستخدم تتقدم على سطور الملف عند تطابق النطاق.
+## Field Settings
 
-## إعدادات الحقول (Field Settings)
+Open the **Field Settings** page inside the security profile (or user) screen.
 
-افتح صفحة **إعدادات الحقول** في شاشة ملف الصلاحيات (أو المستخدم).
+![Field Settings page](../../ar/platform/security/images/security-profile-field-settings.png)
 
-![صفحة إعدادات الحقول](./images/security-profile-field-settings.png)
+Each row targets a type (or a type list, or nothing — meaning all types) and a single field:
 
-كل سطر يستهدف نوعاً (أو قائمة أنواع، أو لا شيء — فيسري على كل الأنواع) وحقلاً واحداً:
-
-| العمود | المعنى |
+| Column | Meaning |
 |---|---|
-| **النوع / قائمة الأنواع** | الأنواع التي يسري عليها السطر. اتركهما فارغين ليسري على الجميع. |
-| **الحقل (Field)** | معرف الحقل المراد التحكم فيه. استخدم `*` كرمز عام يشمل *كل* حقول النوع المستهدف. |
-| **نوع التحكم (Control Type)** | **Normal** — بلا قيود؛ **Disabled** — الحقل ظاهر لكنه للقراءة فقط؛ **InVisible** — الحقل يختفي من الشاشة كلياً. |
-| **تطبق عند: جديد / تعديل / مسودة** | ثلاث علامات تحدد *متى* يسري القيد. فعّل الثلاثة (أو اترك الافتراضي) ليسري دائماً؛ أو فعّل *تعديل* وحدها ليتمكن المستخدم من تعبئة الحقل عند الإنشاء دون تغييره لاحقاً. |
-| **منع ادراج سطر / منع حذف سطر / منع نسخ سطر** | عندما يكون "الحقل" جدول تفاصيل (مثل بنود الفاتورة)، تمنع هذه الأعمدة إضافة سطور أو حذفها أو نسخها في ذلك الجدول — بمعزل عن قابلية تعديل السطور الموجودة. |
+| **Type / Type List** | The types this row applies to. Leave both empty to apply to all types. |
+| **Field** | The field ID to control. Use `*` as a wildcard to cover *all* fields of the targeted type. |
+| **Control Type** | **Normal** — no restriction; **Disabled** — field is visible but read-only; **InVisible** — field is hidden from the screen entirely. |
+| **Apply on: New / Edit / Draft** | Three flags that define *when* the restriction takes effect. Enable all three (or leave the default) for it to always apply; or enable *Edit* only so the user can fill the field on creation but cannot change it afterward. |
+| **Prevent Insert Row / Prevent Delete Row / Prevent Copy Row** | When the "Field" is a detail grid (such as invoice lines), these columns prevent adding, deleting, or copying rows in that grid — independently of whether existing rows can be edited. |
 
-### كيف تُحسم سطور الحقول؟
+### How are field rows resolved?
 
-عندما تُعرض شاشة ما حقلاً، يبحث النظام عن أول سطر مطابق بهذا الترتيب:
+When a screen shows a field, the system looks for the first matching row in this order:
 
-1. سطور المستخدم ثم سطور ملف الصلاحيات — سجل المستخدم يفوز.
-2. داخل كل مجموعة: سطر النوع المحدد بعينه، ثم سطر قائمة أنواع تحتوي النوع، ثم سطر بلا نوع إطلاقاً.
-3. السطر الذي يسمي الحقل بعينه يتقدم على سطر الرمز العام `*` في نفس المستوى.
+1. User rows first, then security profile rows — the user record wins.
+2. Within each group: a row for the exact type, then a row for a type list containing that type, then a row with no type at all.
+3. A row naming the specific field takes precedence over a wildcard `*` row at the same level.
 
-إذا لم يطابق أي سطر، يتصرف الحقل طبيعياً. وأصحاب ملفات الصلاحيات الكاملة يتجاوزون صلاحيات الحقول كلياً.
+If no row matches, the field behaves normally. Users with a full-access security profile bypass field settings entirely.
 
-::: tip إقفال بيانات لحظة الإنشاء
-الطلب الشائع جداً — "حقل العميل في الفاتورة يجب ألا يتغير بعد إنشاء المستند" — هو سطر واحد: استهدف الفاتورة، الحقل `customer`، نوع التحكم *Disabled*، ويطبق عند **تعديل** فقط.
+::: tip Locking data at creation time
+The very common requirement — "the Customer field on an invoice must not change after the document is created" — is a single row: target the invoice, field `customer`, Control Type *Disabled*, apply on **Edit** only.
 :::
 
-::: warning صلاحيات الحقول حاجز واجهة، لا خزنة
-إخفاء الحقل يخفيه عن شاشة التحرير. البيانات نفسها قد تظهر عبر التقارير أو أعمدة القوائم أو التصدير — فاجمع بين صلاحيات الحقول وقيود التقارير وشاشات العرض (انظر *صلاحيات مطالعة القوائم* أدناه) عندما تكون البيانات ذاتها حساسة.
+::: warning Field security is a UI barrier, not a vault
+Hiding a field removes it from the edit screen. The data itself may still appear in reports, list view columns, or exports — combine field settings with report restrictions and list view security (see *List View Security* below) when the data itself is sensitive.
 :::
 
-## صلاحيات الصفحات (Page Security)
+## Page Security
 
-شاشات تحرير الأنواع منظمة في صفحات (Tabs). صفحة **صلاحيات الصفحات** تتيح لك إزالة صفحات كاملة أو تجميدها لكل دور بدلاً من تعطيل الحقول واحداً واحداً.
+Type edit screens are organized into pages (tabs). The **Page Security** page lets you remove or freeze entire pages for a role instead of disabling fields one by one.
 
-![صفحة صلاحيات الصفحات](./images/security-profile-page-security.png)
+![Page Security page](../../ar/platform/security/images/security-profile-page-security.png)
 
-| العمود | المعنى |
+| Column | Meaning |
 |---|---|
-| **النوع / قائمة الأنواع** | الأنواع التي يسري عليها السطر (أحدهما مطلوب هنا — لا يوجد سطر عام شامل). |
-| **اسم الصفحة (Page Name)** | معرف الصفحة — أو ببساطة *رقم* الصفحة كما يراها المستخدم (1، 2، 3...). |
-| **نوع التحكم (Control Type)** | **Disabled** — تفتح الصفحة للقراءة فقط؛ **InVisible** — تُخفى الصفحة؛ **Normal** — بلا قيود صراحةً. |
+| **Type / Type List** | The types this row applies to (at least one is required here — there is no all-types wildcard). |
+| **Page Name** | The page identifier — or simply the page *number* as the user sees it (1, 2, 3...). |
+| **Control Type** | **Disabled** — page opens read-only; **InVisible** — page is hidden; **Normal** — no restriction explicitly set. |
 
-سطور الصفحات على مستوى المستخدم تُفحص قبل سطور الملف، والصلاحيات الكاملة تتجاوز الميزة كلها.
+User-level page rows are checked before profile rows, and a full-access profile bypasses the feature entirely.
 
-## صلاحيات مطالعة القوائم (List View Security)
+## List View Security
 
-قد يكون للنوع الواحد عدة شاشات عرض — ويمكنك إضافة شاشات مخصصة. وأحياناً تكشف شاشة عرض أعمدة لا ينبغي لدور ما تصفحها (أعمدة التكاليف، هوامش الربح...). هذه الصفحة تسمح بشاشات عرض بعينها أو تمنعها.
+A single type may have several list views — and you can add custom ones. Sometimes a list view exposes columns a role should not browse (cost columns, profit margins...). This page allows or blocks specific list views.
 
-![صفحة صلاحيات مطالعة القوائم](./images/security-profile-listview-security.png)
+![List View Security page](../../ar/platform/security/images/security-profile-listview-security.png)
 
-| العمود | المعنى |
+| Column | Meaning |
 |---|---|
-| **النوع / قائمة الأنواع** | الأنواع التي يسري عليها السطر. |
-| **معرف العرض (List View ID)** | معرف شاشة العرض. |
-| **سماح - منع (Allow / Prevent)** | هل شاشة العرض المستهدفة مسموحة أم ممنوعة. |
+| **Type / Type List** | The types this row applies to. |
+| **List View ID** | The list view identifier. |
+| **Allow / Prevent** | Whether the targeted list view is allowed or blocked. |
 
-الحسم يتبع النمط المعتاد — سطور المستخدم أولاً ثم سطور الملف، وأول سطر يطابق الشاشة والنوع هو الذي يقرر. **وإذا لم يطابق شيء فالشاشة مسموحة**: صلاحيات مطالعة القوائم قيد اختياري، فلا تضيف سطوراً إلا للشاشات التي تعنيك.
+Resolution follows the usual pattern — user rows first, then profile rows, and the first row that matches the view and type decides. **If nothing matches, the view is allowed**: list view security is an opt-in restriction, so only add rows for the views you care about.
 
 ::: info
-ملف الصلاحيات الكاملة لا يمكن أن يحتوي على سطور صلاحيات مطالعة قوائم أصلاً — النظام يرفض هذا الجمع عند الحفظ، لأن الصلاحيات الكاملة ستتجاهلها على أي حال.
+A full-access security profile cannot contain list view security rows at all — the system rejects that combination on save, because the full-access profile would ignore them anyway.
 :::
 
-## مفاتيح ذات صلة تستحق المعرفة
+## Related Settings Worth Knowing
 
-- **اقل عدد حروف للبدأ بالبحث** (على سطور الصلاحيات الأساسية) يمنع البحث المرجعي من سرد الملفات الضخمة — راجع [ملف الصلاحيات](/platform/security/security-profiles.md).
-- **أقصى عدد سجلات في صفحة القوائم** موجود في رأس ملف الصلاحيات وإعدادات المستخدم والإعدادات العامة، والقيمة الأكثر تخصيصاً تفوز.
-- لتقييد *الصفوف* الظاهرة داخل شاشة عرض مسموحة، فأنت تريد الفلاتر الإضافية (Extra Filters) — راجع [الصلاحيات على مستوى السجلات](/platform/security/record-level-security.md).
-- ولقصر مستخدم على سنة مالية أو فترة محددة في المستندات والتقارير راجع [قصر المستخدم على سنة مالية](/platform/list-views/limit-user-to-year.md).
-
-</rtl>
+- **Minimum characters to start search** (on basic permission rows) prevents reference lookups from listing large master files — see [Security Profiles](/platform/security/security-profiles.md).
+- **Maximum records per list page** exists in the security profile header, user settings, and global settings; the most specific value wins.
+- To restrict the *rows* visible within an allowed list view, you want Extra Filters — see [Record-Level Security](/platform/security/record-level-security.md).
+- To limit a user to a specific fiscal year or period in documents and reports, see [Limit User to a Fiscal Year](/platform/list-views/limit-user-to-year.md).

@@ -1,84 +1,84 @@
-# الجرد المخزني (Stock Taking)
+# Stock Taking
 
-مهما كان نظامك دقيقًا، يبقى السؤال الجوهري: هل ما في الدفاتر يطابق ما على الرفوف فعلًا؟ **الجرد المخزني** هو العملية التي تتحقق بها من ذلك وتسوّي الفروق. إنه نبض الثقة في أرقام مخزونك.
+No matter how accurate your system is, one fundamental question remains: does what's in the books actually match what's on the shelves? **Stock taking** is the process by which you verify that and reconcile the differences. It's the heartbeat of confidence in your inventory numbers.
 
-## لماذا نجرد؟
+## Why Count?
 
-حتى مع التسجيل الفوري لكل حركة، تتسرب الفروق:
-- نقص أو فقدان أو سرقة
-- تلف لم يُسجَّل
-- معاملات أُدخلت بكميات أو مواقع خاطئة
-- نقص طبيعي (تبخّر، جفاف، فاقد وزني)
-- أخطاء بشرية في العد أو المناولة
+Even with immediate recording of every movement, discrepancies creep in:
+- Shortages, loss, or theft
+- Unrecorded damage
+- Transactions entered with wrong quantities or locations
+- Natural loss (evaporation, drying, weight loss)
+- Human error in counting or handling
 
-الجرد يكشف هذه الفروق ويعيد مطابقة الرصيد الدفتري مع الواقع، فتبقى قراراتك (الشراء، البيع، التسعير) مبنية على أرقام صحيحة.
+Stock taking surfaces these differences and re-aligns the book balance with reality, so your decisions (purchasing, selling, pricing) stay based on correct numbers.
 
-![قائمة مستندات بدء الجرد في Nama ERP](images/stock-taking/start-stock-taking-list-ar.png)
+![Start stock taking list in NaMa ERP](../../ar/modules/supplychain/images/stock-taking/start-stock-taking-list-en.png)
 
-## دورة الجرد: البداية والنهاية
+## The Counting Cycle: Start and End
 
-يُبنى الجرد في Nama ERP على مستندَين متلازمَين يحدّدان نافذة العد:
+Stock taking in NaMa ERP is built on two paired documents that define the counting window:
 
-### بدء الجرد (StartStockTaking)
+### Start Stock Taking (StartStockTaking)
 
-**مستند بدء الجرد** يلتقط لقطة لرصيد المخزون عند لحظة بدء العد. من هذه اللحظة:
-- يُثبَّت الرصيد المتوقع للأصناف المشمولة كمرجع للمقارنة
-- يُحدَّد نطاق الجرد (المخزن، الموقع، مجموعة الأصناف، الفرع)
-- يُختار ما إذا كان جردًا افتتاحيًا شاملًا أم جردًا دوريًا جزئيًا (Cycle Count)
+The **Start Stock Taking** document captures a snapshot of the inventory balance at the moment counting begins. From that point:
+- The expected balance for the included items is frozen as a reference for comparison
+- The scope of the count is defined (warehouse, locator, item group, branch)
+- You choose whether it's a comprehensive opening count or a partial cycle count
 
-### إنهاء الجرد (EndStockTaking)
+### End Stock Taking (EndStockTaking)
 
-**مستند إنهاء الجرد** يُغلق النافذة ويعالج النتائج: يقارن الكميات المعدودة فعليًا بالرصيد المتوقع، ثم **يولّد تلقائيًا** مستندات التسوية اللازمة - توريدات للأصناف الزائدة وصرفًا للأصناف الناقصة - لتعود الدفاتر مطابقةً للواقع. ويمكنك ضبط طريقة الاحتساب وما إذا كانت حركات يوم الجرد تُحتسب ضمن المطابقة.
+The **End Stock Taking** document closes the window and processes the results: it compares the physically-counted quantities to the expected balance, then **automatically generates** the necessary adjustment documents - receipts for surplus items and issues for short items - so the books return to matching reality. You can configure the calculation method and whether the count-day's transactions are included in the reconciliation.
 
-::: tip النافذة الزمنية للجرد
-بين بدء الجرد وإنهائه توجد نافذة يجري فيها العد. كلما قصرت هذه النافذة قلّت حركة المخزون أثناء العد وزادت دقة المطابقة. للمخازن الكبيرة، الجرد الدوري المتكرر على نطاقات أصغر أدق من جرد سنوي واحد ضخم.
+::: tip The Counting Window
+Between starting and ending the count there's a window during which counting happens. The shorter this window, the less stock moves during the count and the more accurate the reconciliation. For large warehouses, frequent cycle counts over smaller scopes are more accurate than one giant annual count.
 :::
 
-![شاشة إنهاء الجرد في Nama ERP](images/stock-taking/end-stock-taking-ar.png)
+![End stock taking screen in NaMa ERP](../../ar/modules/supplychain/images/stock-taking/end-stock-taking-en.png)
 
-## إدخال نتائج العد
+## Entering Count Results
 
-### تفاصيل الجرد (StockTakingDetails)
+### Stock Taking Details (StockTakingDetails)
 
-يحمل **مستند تفاصيل الجرد** الكميات المعدودة فعليًا سطرًا بسطر، فيُقارَن المتوقع بالفعلي ويُبرَز الفرق لكل صنف/موقع. هنا تُدخَل نتائج فرق العد الميداني.
+The **Stock Taking Details** document carries the physically-counted quantities line by line, so expected is compared to actual and the difference is highlighted per item/location. This is where field count results are entered.
 
-### الجرد الإلكتروني (StockTakingElectronic)
+### Electronic Stock Taking (StockTakingElectronic)
 
-عندما يجري العد بأجهزة المسح الضوئي للباركود، يلتقط **الجرد الإلكتروني** القراءات إلكترونيًا ويغذّيها إلى عملية الجرد مباشرةً. يقلّل هذا أخطاء الإدخال اليدوي ويسرّع العد في المخازن الكبيرة وكثيفة الأصناف.
+When counting is done with barcode scanners, **Electronic Stock Taking** captures the readings electronically and feeds them straight into the counting process. This reduces manual-entry errors and speeds up counting in large, item-dense warehouses.
 
-## التصويت على العد: عندما يعدّ أكثر من شخص
+## Vote Counting: When More Than One Person Counts
 
-في المخازن الكبيرة قد يعدّ الصنف ذاته أكثر من شخص لضمان الدقة. يتولّى ذلك نظام **التصويت**:
+In large warehouses, the same item may be counted by more than one person to ensure accuracy. The **voting** system handles this:
 
-- **وثيقة التصويت (ItemVotingDoc)**: يسجّل فيها كل "مصوِّت" (عادّ) الكمية التي عدّها للصنف في الموقع نفسه.
-- **ملف التصويت (ItemVotingFile)**: يجمع وثائق التصويت ضمن نطاق وفترة، ويحدّد قائمة المصوّتين وآلية الوصول إلى الرقم المعتمد (توافق أو متوسط) قبل اعتماد الفرق.
+- **Voting document (ItemVotingDoc)**: each "voter" (counter) records the quantity they counted for the item at the same location.
+- **Voting file (ItemVotingFile)**: gathers voting documents within a scope and period, defines the list of voters, and sets the mechanism for reaching the approved figure (consensus or average) before the difference is accepted.
 
-الفائدة: لا يُعتمد فرق صنف ثمين بناءً على عدّ شخص واحد فقط، بل بعد تطابق عدّتين أو أكثر - ما يقلّل أخطاء العد ويضيف رقابة على عملية الجرد ذاتها.
+The benefit: a valuable item's difference isn't accepted based on one person's count alone, but after two or more counts agree - reducing counting errors and adding control over the stock-taking process itself.
 
-## معالجة النقص الطبيعي والفاقد
+## Handling Natural Loss and Shrinkage
 
-::: warning هنا تُعالَج خسائر الوزن
-الفاقد الطبيعي - كنقص وزن اللحوم أو جفاف بعض المواد أو التبخّر - لا يُسجَّل بمستند تلف يدوي، بل يظهر كفرق عند العد ويُسوّى عبر الجرد. هذه هي الطريقة الصحيحة في النظام لمعالجة النقص الوزني والفاقد الطبيعي، إذ يعيد الرصيد الدفتري إلى مطابقة الوزن الفعلي مع قيد محاسبي سليم للخسارة.
+::: warning This Is Where Weight Losses Are Handled
+Natural loss - such as meat losing weight, some materials drying, or evaporation - isn't recorded with a manual damage document; it appears as a difference during counting and is settled through stock taking. This is the system's correct way to handle weight loss and natural shrinkage, returning the book balance to match the actual weight with a proper accounting entry for the loss.
 :::
 
-أما التلف العارض المحدد (واقعة بعينها) فيُسجَّل عبر [صرف مخزني](./issuing-stock.md) موجَّه إلى حساب خسائر، لا عبر الجرد.
+Specific incidental damage (a particular event), on the other hand, is recorded through a [stock issue](./issuing-stock.md) directed to a loss account, not through stock taking.
 
-## أفضل الممارسات للجرد
+## Best Practices for Stock Taking
 
-::: tip نصائح عملية
-**جمِّد الحركة أثناء العد**: قلّل أو أوقف حركات المخزن المشمول أثناء فترة العد لتفادي تغيّر الرصيد بين البدء والإنهاء.
+::: tip Practical Tips
+**Freeze movement during counting**: Reduce or stop movements in the warehouse being counted during the count period to avoid the balance changing between start and end.
 
-**اعتمد الجرد الدوري**: لا تنتظر جردًا سنويًا واحدًا. جرد دوري منتظم على نطاقات صغيرة يكتشف المشكلات مبكرًا ويبقي الدقة عالية على مدار العام.
+**Adopt cycle counting**: Don't wait for a single annual count. Regular cycle counts over small scopes catch problems early and keep accuracy high year-round.
 
-**استخدم التصويت للأصناف الثمينة**: للأصناف عالية القيمة، اشترط أكثر من عدّة قبل اعتماد الفرق.
+**Use voting for valuable items**: For high-value items, require more than one count before accepting the difference.
 
-**وثّق سبب الفرق**: عند تسوية فرق، سجّل ما كشف عنه التحقيق (موقع معيّن دائمًا ناقص؟ وردية بعينها تواجه مشكلات تسجيل؟) - فالأنماط أهم من الأرقام المفردة.
+**Document the reason for the difference**: When settling a difference, record what the investigation revealed (a location always short? a particular shift with recording issues?) - patterns matter more than individual numbers.
 
-**طابق المحاسبة بعد الجرد**: بعد إنهاء الجرد، تحقق من أن قيمة المخزون في الدفاتر تطابق إجمالي التسويات.
+**Reconcile accounting after the count**: After ending the count, verify that the inventory value in the books matches the total adjustments.
 :::
 
-## الخطوات التالية
+## Next Steps
 
-- [تكلفة المخزون وإعادة التقييم](./inventory-costing.md) - تعديل قيم المخزون بعد التسويات
-- [إصدار المخزون](./issuing-stock.md) - تسجيل التلف العارض عبر صرف
-- [المخازن والمواقع التخزينية](./warehouses-and-locators.md) - تنظيم المخزون لتسهيل العد
+- [Inventory Costing & Revaluation](./inventory-costing.md) - adjusting inventory values after reconciliation
+- [Issuing Stock](./issuing-stock.md) - recording incidental damage via an issue
+- [Warehouses & Locators](./warehouses-and-locators.md) - organizing inventory to ease counting

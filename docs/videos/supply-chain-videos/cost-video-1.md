@@ -1,264 +1,259 @@
-<rtl>
+# Inventory Costing Explained - Video 1
 
-# فيديو طريقة عمل التكاليف - 1
+### Description
+Learn how to manage and accurately determine inventory cost using the FIFO system, with a detailed explanation of cost-tracking dimensions and their impact on inventory reports and profitability.
 
-### الوصف التعريفي
-تعلم كيفية إدارة وتحديد تكلفة المخزون بدقة عبر نظام الفيفو مع شرح مفصل لمحددات متابعة التكلفة وأثرها على تقارير المخزون والأرباح.
+### Keywords
+Inventory cost, FIFO system, warehouse management, cost of goods sold
 
-### الكلمات المفتاحية
-تكلفة المخزون، نظام الفيفو، إدارة المخازن، تحديد تكلفة البضاعة
+### Title
+A Comprehensive Guide to Understanding Inventory Cost and FIFO in Warehouse Management
 
-### العنوان
-دليل شامل لفهم تكلفة المخزون ونظام الفيفو في إدارة المخازن
+### Content
 
-### المحتوى
+#### Introduction
+Inventory management and the determination of cost of goods are among the foundational pillars of commercial and industrial business operations. With multiple branches, warehouses, and a wide variety of products in different specifications and sizes, tracking inventory cost becomes complex — yet essential for measuring profitability and making sound financial decisions.
 
-#### مقدمة
-تعتبر إدارة المخزون وتحديد تكلفة البضاعة من الأركان الأساسية التي تقوم عليها عمليات الشركات التجارية والصناعية. في ظل تعدد الفروع والمخازن وتنوع أصناف المنتجات بمختلف المواصفات والأحجام، تصبح متابعة تكلفة المخزون أمرًا معقدًا لكنه ضروري لقياس الربحية واتخاذ القرارات المالية الصائبة.
-
-في هذا المقال، نستعرض بالتفصيل المفاهيم الأساسية والأدوات المستخدمة في تحديد تكلفة المخزون، مع التركيز على نظام الفيفو (FIFO) ودوره في تحسين دقة التكلفة، وأهمية متابعة تكلفة المخزون على مستويات مختلفة، بالإضافة إلى شرح التداخل بين الكميات والتكاليف، وكيفية التعامل مع التقريب والفروقات الصغيرة في القوائم المالية.
+In this article, we walk through the core concepts and tools used to determine inventory cost in detail, focusing on the FIFO (First In, First Out) system and its role in improving cost accuracy, the importance of tracking inventory cost at multiple levels, the interplay between quantities and costs, and how to handle rounding differences and minor discrepancies in financial statements.
 
 ---
 
-#### الفصل الأول: مفهوم تكلفة المخزون وأهميتها
-##### 1.1 ما هي تكلفة المخزون؟
-تكلفة المخزون هي القيمة المالية التي يتحملها النشاط التجاري عند اقتناء البضائع ومواد الإنتاج. تشمل هذه التكلفة سعر الشراء بالإضافة إلى المصاريف المتعلقة بالتوريد والنقل والتخزين. الهدف من تحديد تكلفة المخزون بدقة هو معرفة القيمة الحقيقية للبضائع الموجودة في المخازن وبالتالي تحديد تكلفة البضاعة المباعة بدقة.
+#### Chapter 1: The Concept of Inventory Cost and Its Importance
+##### 1.1 What Is Inventory Cost?
+Inventory cost is the financial value a business incurs when acquiring goods and production materials. This cost includes the purchase price plus expenses related to supply, transportation, and storage. The goal of accurately determining inventory cost is to know the true value of goods held in warehouses and, consequently, to accurately determine the cost of goods sold.
 
-##### 1.2 أهمية متابعة تكلفة المخزون
-- تحديد هوامش الربح بدقة من خلال معرفة تكلفة البضائع التي تم بيعها.
-- تقديم تقارير مالية موثوقة تساعد في اتخاذ قرارات استراتيجية.
-- التحكم في الأسعار حسب تكلفة كل فرع أو مخزن لتفادي الخسائر أو الازدواجية.
-- تقليل الفقد والهدر من خلال ملاحظة الفروقات بين الكميات والتكاليف.
-
----
-
-#### الفصل الثاني: محددات متابعة تكلفة المخزون
-##### 2.1 مستويات تتبع التكلفة
-يتطلب تحديد التكلفة الدقيقة للمخزون متابعة التكلفة على مستويات مختلفة مثل:
-- المخزن (A، B، ...): حيث تختلف تكلفة الصنف حسب المخزن بسبب عوامل مثل النقل والتخزين.
-- الفرع أو المنطقة الجغرافية: ما يعني أن سعر شراء ونقل المنتج إلى فرع في جدّة يختلف عن فرع الرياض.
-- الإصدار (Version) والمقاس (Size) واللون (Color): في المنتجات التي تحتوي على تنوع من حيث المواصفات، مثل الملابس أو الهواتف الذكية، حيث تؤثر المواصفات على التكلفة.
-
-##### 2.2 تأثير التنقل بين المخازن على التكلفة
-عند تحويل البضائع من مخزن إلى آخر، يجب تعديل تكلفة المنتج حسب تكلفة النقل والفروقات في أسعار المخازن لضمان دقة التقارير المالية والفنية. على سبيل المثال، عند نقل البضاعة من القاهرة إلى أسوان، تضيف تكلفة النقل إلى قيمة البضاعة، ما يجعل البيع في أسوان أغلى.
-
-##### 2.3 أهمية تحديد التكلفة على مستوى التفصيل المناسب
-على حسب طبيعة المنتج وطريقة البيع، قد تحتاج بعض الشركات إلى متابعة التكلفة حتى على مستوى الشحنات (Batch Number) أو السيريال نمبر، خاصةً في الصناعات التي تعتمد على تتبع الإنتاج الدقيق مثل الأدوية والمعدات الإلكترونية.
+##### 1.2 Why Tracking Inventory Cost Matters
+- Accurately determining profit margins by knowing the cost of goods sold.
+- Producing reliable financial reports that support strategic decision-making.
+- Controlling prices per branch or warehouse to avoid losses or double-counting.
+- Reducing waste and shrinkage by spotting discrepancies between quantities and costs.
 
 ---
 
-#### الفصل الثالث: نظام الفيفو (FIFO) وأثره على تحديد تكلفة المخزون
-##### 3.1 ما هو نظام الفيفو؟
-هو اختصار لـ "First In, First Out" أو "الوارد أولاً يصرف أولاً"، وهو نظام متبع في محاسبة المخزون يُفترض فيه أن البضائع التي دخلت المخزون أولاً يتم صرفها أولاً، وبالتالي تكلفة المخزون المستبقي تعتمد على آخر الواردات.
+#### Chapter 2: Dimensions of Inventory Cost Tracking
+##### 2.1 Cost-Tracking Levels
+Accurate inventory costing requires tracking cost at various levels, such as:
+- Warehouse (A, B, …): the item's cost varies by warehouse due to factors such as transportation and storage.
+- Branch or geographic region: the purchase and transportation price of a product shipped to a Jeddah branch differs from that of a Riyadh branch.
+- Version, Size, and Color: in products with specification variety — such as clothing or smartphones — specifications directly affect cost.
 
-##### 3.2 مزايا وعيوب نظام الفيفو
-**المزايا:**
-- يعكس سعر السوق الحقيقي في حالة ارتفاع أسعار البضائع.
-- يساعد في حساب تكلفة البضاعة المباعة بدقة نسبية في الظروف العادية.
-- يعزز من دقة التقارير بالاعتماد على الترتيب الزمني للورادات.
+##### 2.2 How Transfers Between Warehouses Affect Cost
+When goods are transferred from one warehouse to another, the product cost must be adjusted to account for transportation costs and price differences between warehouses, ensuring the accuracy of financial and operational reports. For example, when goods are moved from Cairo to Aswan, the transportation cost is added to the goods' value, making sales in Aswan more expensive.
 
-**العيوب:**
-- يمكن أن يظهر بعض الاختلافات بسبب تأثير التقريب في الحسابات وخاصة مع الحركات الكبيرة.
-- لا يناسب الأوضاع التي تتغير فيها أسعار البضائع بشكل كبير أو نتيجة ظروف استثنائية مثل الأزمات الاقتصادية.
-- يحتاج إلى نظام محاسبي دقيق ويُرجح أن يكون معقد بعض الشيء في تطبيقه لدى العملاء العاديين الذين لا يتابعون المخزون بدقة.
-
-##### 3.3 تطبيق الفيفو على عدة مخازن ومواقع جغرافية
-يمكن تطبيق نظام الفيفو بأكثر من طريقة:
-- على مستوى مخزن واحد.
-- على مستوى مجموع مخازن داخل نفس الفرع أو المنطقة.
-- بشكل مركزي يغطي جميع المخازن والفروع.
-
-وطريقة التطبيق تؤثر على دقة تكلفة المنتج في كل موقع وفهم دقيقة لهوامش الربح أو الخسارة.
+##### 2.3 The Importance of Tracking Cost at the Right Level of Detail
+Depending on the nature of the product and the selling method, some companies may need to track cost down to the level of individual batches (Batch Number) or serial numbers — particularly in industries that rely on precise production tracking, such as pharmaceuticals and electronics.
 
 ---
 
-#### الفصل الرابع: التعامل مع الفروقات في التكلفة والتقريب
-##### 4.1 أسباب الفروقات في التكاليف
-- اختلاف الأسعار في واردات متعددة لنفس المنتج.
-- اختلاف تكاليف النقل والتخزين بين الفروع.
-- تأثير عمليات التقريب في الحسابات التي قد تؤدي إلى فروقات طفيفة في التقارير.
-- وجود اختلاف في نظام تتبع التكلفة بحسب المخزن أو الفروع.
+#### Chapter 3: The FIFO System and Its Effect on Inventory Costing
+##### 3.1 What Is FIFO?
+FIFO stands for "First In, First Out." It is an inventory accounting method that assumes goods that entered the warehouse first are issued first, so the cost of remaining inventory is based on the most recent receipts.
 
-##### 4.2 كيفية معالجة الفروقات والفائدة من زيادة دقة التقريب
-عند وجود فروقات بين التكلفة والكمية في تقرير المخزون النهائي، يتم النظر إلى التوزيع المتوسط للتكلفة لاحتساب المبلغ الحقيقي للبضاعة. يمكن تقليل الفروقات من خلال زيادة دقة التقريب ضمن العملة المالية المتداولة (مثلاً زيادة عدد الأرقام العشرية).
+##### 3.2 Advantages and Disadvantages of FIFO
+**Advantages:**
+- Reflects the true market price when goods prices are rising.
+- Helps calculate the cost of goods sold with reasonable accuracy under normal conditions.
+- Enhances report accuracy by relying on the chronological order of receipts.
 
-##### 4.3 أهمية إدراك طبيعة الفروقات وعدم الخلط بينها وبين أخطاء النظام
-الفروقات الناتجة عن التقريب أو اختلاف مواعيد الورادات والصرف هي فروقات طبيعية ومتوقعة، وليست بالضرورة خطأ في النظام، ويجب فهمها لكي لا تُساءل دقة النظام أو يتم تحميل الفريق خطأ غير مبرر.
+**Disadvantages:**
+- Can produce some discrepancies due to rounding effects, especially with high-volume transactions.
+- Does not suit situations where goods prices fluctuate significantly or as a result of exceptional circumstances such as economic crises.
+- Requires a precise accounting system and is likely somewhat complex to implement for customers who do not closely track their inventory.
 
----
+##### 3.3 Applying FIFO Across Multiple Warehouses and Locations
+FIFO can be applied in more than one way:
+- At the level of a single warehouse.
+- At the level of all warehouses within the same branch or region.
+- Centrally, covering all warehouses and branches.
 
-#### الفصل الخامس: أنواع التكاليف ومتابعتها حسب حالة البضاعة
-##### 5.1 تكلفة الشحنة (Batch Cost)
-تُستخدم لتتبع تكلفة كل شحنة من البضاعة، خصوصاً في الصناعات الدوائية أو الغذائية، حيث يحتاج المتعاملون إلى السحب من شحنة محددة لأسباب تتعلق بالصلاحية أو الجودة.
-
-##### 5.2 تكلفة اللون والمقاس والإصدار
-في منتجات مثل الملابس أو الإلكترونيات، حيث يختلف سعر المنتج حسب اللون أو المقاس أو الإصدار الجديد من المنتج، لذا من الضروري متابعة التكاليف على هذه المستويات لضمان دقة التسعير والتقارير.
-
-##### 5.3 تكلفة الأقسام والهدايا
-في حالات وجود منتجات تقدم كهدايا ضمن شحنات البضائع (مثل خلاطات أو شاشات مرفقة)، يجب الفصل بين تكلفة المنتج والهدايا لتحديد الربحية بشكل صحيح.
+The method of application affects the accuracy of the product's cost at each location and the precise understanding of profit or loss margins.
 
 ---
 
-#### الفصل السادس: دور العميل ونظام التكلفة في اتخاذ القرار
-##### 6.1 ارتباط التكلفة بسلوك العميل وأنماط البيع
-تؤثر دقة التكلفة على قدرة الشركة في تحديد الأسعار التنافسية في فروع مختلفة ومتاجر متعددة، إذ يمكن أن تكون تكلفة المنتج في الإسكندرية أقل منها في أسوان بسبب اختلاف تكلفة النقل والتوزيع.
+#### Chapter 4: Handling Cost Discrepancies and Rounding
+##### 4.1 Causes of Cost Discrepancies
+- Price differences across multiple receipts of the same product.
+- Differences in transportation and storage costs between branches.
+- The effect of rounding in calculations, which may lead to minor discrepancies in reports.
+- Differences in the cost-tracking method per warehouse or branch.
 
-##### 6.2 أهمية مراقبة المخزون وجودة البيانات لدى العملاء
-العملاء الذين لا يتابعون نظام مخزون دقيق أو يعتمدون على بيانات جزئية لن يتمكنوا من اتخاذ قرارات سليمة بخصوص التسعير أو الشراء، مما يؤدي إلى خسائر محتملة أو تراكم غير مبرر للبضائع.
+##### 4.2 How to Handle Discrepancies and the Benefit of Increased Rounding Precision
+When discrepancies exist between cost and quantity in the final inventory report, the average cost distribution is examined to calculate the true value of the goods. Discrepancies can be reduced by increasing the rounding precision within the financial currency being used (for example, increasing the number of decimal places).
 
-##### 6.3 كيف يساعد نظام الفيفو العملاء المحترفين في إدارة تكلفة المخزون؟
-يوفر نظام الفيفو دقة وشفافية في حساب تكلفة المخزون، مما يمكن العملاء المحترفين من:
-- متابعة تكاليف المخزون بدقة متناهية.
-- اتخاذ قرارات بيع وشحن تنافسية مدعومة بالبيانات الحقيقية.
-- تحسين تقارير الأرباح والخسائر مع كل فرع أو فئة من البضائع.
-
----
-
-#### الفصل السابع: نصائح عملية لإدارة تكلفة المخزون وتحسين تقارير التكلفة
-##### 7.1 توحيد معايير متابعة التكلفة عبر الفروع والمخازن
-يجب تحديد معايير موحدة لتتبع التكلفة حسب الفروع مع مراعاة اختلافات التكلفة الفعلية لكل موقع، وتحديد إذا ما كانت تتبع التكلفة على مستوى المخزن أو الفرع الجغرافي أو الشركة بشكل عام.
-
-##### 7.2 تحديث دقيق للبيانات وخفض تأثير التقريب
-- تحسين دقة الوقت لتحديث بيانات التكلفة والكمية.
-- زيادة دقة النظام المالي بتحسين عدد الأرقام العشرية للعملات.
-- تقليل حركات النقل بين المخازن لتفادي الفروقات الكبيرة.
-
-##### 7.3 استخدام برامج متخصصة تدعم نظام الفيفو
-العمل على استخدام أنظمة ERP أو برامج إدارة مخزون قادرة على تطبيق نظام الفيفو بدقة ومتابعة الشحنات والإصدارات والمقاسات، لضمان شفافية تقارير المخزون والتكلفة.
+##### 4.3 The Importance of Understanding Discrepancy Nature — Not Confusing Them with System Errors
+Discrepancies arising from rounding or differences in receipt and issue timing are normal and expected; they are not necessarily a system error. Understanding them is essential so that system accuracy is not questioned and teams are not unfairly blamed.
 
 ---
 
-#### الخاتمة
-إدارة تكلفة المخزون ليست مهمة سهلة، لكنها ضرورية لضمان استمرارية الربحية ودقة التقارير المالية. نظام الفيفو يمثل أداة قوية تساعد في ذلك عند استخدامه بشكل صحيح مع مراعاة محددات متابعة التكلفة على مختلف المستويات، مثل المخازن، الفروع، المقاسات، الألوان والباتشات. يجب أن يكون لدى المؤسسات وعي كامل بكيفية التعامل مع الفروقات والتقريب في التكلفة لتجنب المشكلات وضمان اتخاذ قرارات صائبة تؤدي إلى تحسين الأداء المالي وتعزيز تنافسية السوق.
+#### Chapter 5: Types of Costs and Tracking Them by Product Condition
+##### 5.1 Batch Cost
+Used to track the cost of each batch of goods, especially in pharmaceutical or food industries where users need to draw from a specific batch for reasons related to expiry or quality.
+
+##### 5.2 Color, Size, and Version Cost
+In products such as clothing or electronics, where the product price differs by color, size, or a new product version, it is essential to track costs at these levels to ensure accurate pricing and reporting.
+
+##### 5.3 Department and Gift Cost
+When products are provided as gifts within goods shipments (such as blenders or screens included in a delivery), the cost of the product must be separated from the gifts to correctly determine profitability.
 
 ---
 
-#### الأسئلة الشائعة
-**س1: هل نظام الفيفو مناسب لكل أنواع الشركات؟**  
-نظام الفيفو مناسب للشركات ذات حركة مخزون منتظمة وأسعار ثابتة نسبياً، لكنه قد لا يكون مثاليًا في بيئات تتغير فيها الأسعار بسرعة أو بسبب ظروف استثنائية.
+#### Chapter 6: The Role of the Customer and the Costing System in Decision-Making
+##### 6.1 How Cost Relates to Customer Behavior and Sales Patterns
+Cost accuracy affects a company's ability to set competitive prices across different branches and multiple stores. For instance, the cost of a product in Alexandria may be lower than in Aswan due to differences in transportation and distribution costs.
 
-**س2: كيف يمكن التعامل مع اختلاف تكلفة المنتج في أكثر من فرع؟**  
-يمكن تعيين تكلفة المنتج حسب المنطقة الجغرافية لكل فرع مع إضافة تكاليف النقل والتخزين بحيث يظهر لكل فرع تكلفة فعلية مختلفة تعكس تكاليف تشغيله.
+##### 6.2 The Importance of Inventory Monitoring and Data Quality for Customers
+Customers who do not maintain an accurate inventory system or rely on partial data will not be able to make sound decisions regarding pricing or purchasing, leading to potential losses or unjustified stock accumulation.
 
-**س3: هل يجب تتبع التكلفة على مستوى الشحنات لكل المنتجات؟**  
-لا يشترط ذلك لجميع المنتجات، إلا أنه ضروري في الصناعات التي تتطلب تتبعًا دقيقًا مثل الأدوية والأغذية لضمان السلامة وجودة المنتج.
-
-**س4: كيف نحد من تأثير التقريب على تقارير التكلفة؟**  
-عن طريق زيادة دقة الحسابات وتوسيع عدد الأرقام العشرية في العملة المستخدمة، وتحديث البيانات بشكل مستمر.
-
----
-
-هذه الأفكار والخطوات ستساعد الشركات على تحسين عمليات مراقبة تكلفة المخزون وأتمتتها، مما يضمن دقة مالية وبيانات تجارية صحية تدعم نمو النشاط التجاري والاستثماري.
+##### 6.3 How the FIFO System Helps Professional Customers Manage Inventory Cost
+The FIFO system provides accuracy and transparency in calculating inventory cost, enabling professional customers to:
+- Track inventory costs with great precision.
+- Make competitive sales and shipping decisions supported by real data.
+- Improve profit and loss reports for each branch or goods category.
 
 ---
 
-## مقدمة وتركيز على موضوع التخريب وتنظيم التكلفة  
-[00:00:00](https://youtu.be/yNUC9cRLQ9E?t=0)  
-بدأ الفيديو بمحاولة التركيز على موضوع التخريب وأنواع التخريب المرتبطة بإدارة التكاليف، ثم تقديم توضيح مبسط لمفهوم "إكسيلات" وشرح المبدأ العام لمتابعة تكلفة المخزون بطريقة مبسطة لتسهيل الفهم.
+#### Chapter 7: Practical Tips for Managing Inventory Cost and Improving Cost Reports
+##### 7.1 Standardizing Cost-Tracking Criteria Across Branches and Warehouses
+Unified criteria for cost tracking per branch should be established while accounting for actual cost differences at each location, and it should be determined whether cost tracking applies at the warehouse level, the geographic branch level, or the company as a whole.
+
+##### 7.2 Accurate Data Updates and Reducing the Impact of Rounding
+- Improve timing accuracy for updating cost and quantity data.
+- Increase financial system precision by improving the number of decimal places for currencies.
+- Minimize transfer movements between warehouses to avoid large discrepancies.
+
+##### 7.3 Using Specialized Software That Supports FIFO
+Work with ERP systems or inventory management software capable of applying FIFO accurately and tracking batches, versions, and sizes, to ensure transparency in inventory and cost reports.
 
 ---
 
-## فكرة التدرج في التكلفة  
-[00:00:27](https://youtu.be/yNUC9cRLQ9E?t=27)  
-تم التطرق إلى فكرة التدرج أو التتبع في التكلفة، حيث يبدأ بالنظر في توتر التكلفة وسحب (أسيتين) لتقييم تكلفة الكمية في المخزون واستخراج التكلفة الدقيقة لهذه الكمية.
+#### Conclusion
+Managing inventory cost is not an easy task, but it is essential for maintaining profitability and the accuracy of financial reports. The FIFO system is a powerful tool that helps achieve this when used correctly, taking into account the dimensions of cost tracking at various levels — such as warehouses, branches, sizes, colors, and batches. Organizations must be fully aware of how to handle discrepancies and rounding in costs to avoid problems and ensure sound decisions that improve financial performance and strengthen market competitiveness.
 
 ---
 
-## شرح الأمثلة الرقمية على حساب التكلفة  
-[00:01:35](https://youtu.be/yNUC9cRLQ9E?t=95)  
-ناقش الفيديو مثالاً يحتوي على عدد من القطع والتكلفة المرتبطة بها، كحساب التوتر وقيمة التكلفة لكل وحدة باستخدام عمليات حسابية دقيقة (مثلاً 20 تقسيم 3= 6.66).
+#### Frequently Asked Questions
+**Q1: Is FIFO suitable for all types of companies?**
+FIFO is suitable for companies with regular inventory movement and relatively stable prices, but it may not be ideal in environments where prices change rapidly or due to exceptional circumstances.
+
+**Q2: How can you handle different product costs across more than one branch?**
+Product cost can be assigned per geographic region for each branch, with transportation and storage costs added, so that each branch shows a different actual cost that reflects its operating expenses.
+
+**Q3: Must costs be tracked at the batch level for all products?**
+This is not required for all products; however, it is necessary in industries that require precise tracking — such as pharmaceuticals and food — to ensure product safety and quality.
+
+**Q4: How do we limit the impact of rounding on cost reports?**
+By increasing calculation precision and expanding the number of decimal places in the currency used, and by updating data continuously.
 
 ---
 
-## متابعة رصيد المخزون مع اختلاف التكاليف  
-[00:02:59](https://youtu.be/yNUC9cRLQ9E?t=179)  
-تم شرح حركة المخزون مع وجود عدة دفعات (Batch) بأسعار مختلفة مثل دفعة بـ10 جنيه ودفعة أخرى بـ5 جنيه، وكيف يتم التعامل مع متبقي التكلفة عند صرف البضاعة.
+These ideas and steps will help companies improve and automate their inventory cost-monitoring operations, ensuring financial accuracy and healthy business data that supports commercial and investment growth.
 
 ---
 
-## محددات متابعة التكلفة وعلاقة المخازن وطرق حساب المتوسط  
-[00:03:28](https://youtu.be/yNUC9cRLQ9E?t=208)  
-تحدث الفيديو عن محددات متابعة التكلفة وأهمية التعامل مع المخازن المختلفة وكيف لا تتغير التكلفة مع اختلاف صرف واستلام البضاعة بين هذه المخازن، بشرط متابعة التكلفة على مستوى المخازن أو المستودعات.
+## Introduction and Focus on the Topic of Cost Structuring and Organization
+[00:00:00](https://youtu.be/yNUC9cRLQ9E?t=0)
+The video begins by focusing on the topic of cost types related to cost management, then provides a simplified explanation of the concept of "spreadsheets" and an overview of the general principle of tracking inventory cost in an accessible way to aid understanding.
 
 ---
 
-## مشكلة الرصيد الحالي وتكاليفه في حالة النقل بين المخازن  
-[00:04:24](https://youtu.be/yNUC9cRLQ9E?t=264)  
-شرح كيفية حساب الرصيد في مخزن واحد عند نقل بضاعة من مخزن إلى آخر، وظهور اختلاف في التكاليف بسبب الفروق بين تكاليف الوارد والصادر، مع التأكيد أنه لا خطأ في النظام وإنما نتيجة للمتوسط الحسابي.
+## The Idea of Gradation in Cost
+[00:00:27](https://youtu.be/yNUC9cRLQ9E?t=27)
+The concept of gradation or tracking in cost is introduced, starting with examining cost accumulation and drawing on assets to evaluate the cost of the quantity in inventory and extract the precise cost of that quantity.
 
 ---
 
-## تأثير الكميات الكثيرة على القوائم المالية وتغيير تكلفة البضاعة المباعة  
-[00:06:50](https://youtu.be/yNUC9cRLQ9E?t=410)  
-أوضح أن وجود حركات كثيرة في المخزون يغير تفاصيل القوائم المالية، خاصة تكلفة البضاعة المباعة التي تختلف بعد إعادة المعالجة (pre-process)، حيث قد تتغير من 6.6 إلى 10 جنيهات في المثال المعطى.
+## Numerical Examples of Cost Calculation
+[00:01:35](https://youtu.be/yNUC9cRLQ9E?t=95)
+The video discusses an example containing a number of units and their associated cost, such as calculating the accumulated value and the unit cost using precise arithmetic (for example, 20 divided by 3 = 6.66).
 
 ---
 
-## تأثير تعدد المخازن والفروع الجغرافية على التكلفة والأسعار  
-[00:08:12](https://youtu.be/yNUC9cRLQ9E?t=492)  
-تم توضيح كيفية تأثير اختلاف تكاليف المخازن أو الفروع (مثل الإسكندرية وأسوان والقاهرة) على سعر البيع والتكاليف، مع أمثلة من الخضروات التي قد تكون أرخص في المزارع مقارنة بالسوق.
+## Tracking Inventory Balance with Differing Costs
+[00:02:59](https://youtu.be/yNUC9cRLQ9E?t=179)
+Inventory movement is explained with multiple batches (Batch) at different prices — for example, one batch at 10 EGP and another at 5 EGP — and how the remaining cost is handled when goods are issued.
 
 ---
 
-## أهمية متابعة التكلفة على المستويات المختلفة: الصنف، الإصدار، المقاس، اللون، والشحنة (Batch)  
-[00:24:51](https://youtu.be/yNUC9cRLQ9E?t=1491)  
-تطرق إلى اختلاف التكاليف بناءً على خصائص المنتج كالمقاسات والإصدارات والألوان، مع التوضيح أن متابعة التكلفة يجب أن تكون مفصلة حسب هذه الخصائص لتجنب حدوث فجوات في التقارير.
+## Cost-Tracking Dimensions, Warehouse Relationships, and Average Cost Methods
+[00:03:28](https://youtu.be/yNUC9cRLQ9E?t=208)
+The video discusses cost-tracking dimensions and the importance of dealing with different warehouses, and how cost does not change with varying issuance and receipt of goods between these warehouses, provided that cost is tracked at the warehouse or depot level.
 
 ---
 
-## مفهوم الرقم التسلسلي (Serial Number) والباتش نمبر (Batch Number) في تتبع المنتج  
-[00:30:22](https://youtu.be/yNUC9cRLQ9E?t=1822)  
-شرح كيفية استخدام الباتش نمبر لتعريف دفعات الإنتاج ومتابعة احتمال الأخطاء في كل وردية إنتاج، وكيف يمكن سحب المنتجات ذات الباتش رقم معين في حالات الاستدعاء أو المشاكل.
+## The Problem of Current Balance and Its Costs When Transferring Between Warehouses
+[00:04:24](https://youtu.be/yNUC9cRLQ9E?t=264)
+Explains how to calculate the balance in a single warehouse when goods are transferred from one warehouse to another, and how cost differences appear due to discrepancies between inbound and outbound costs, confirming that this is not a system error but rather a result of the arithmetic average.
 
 ---
 
-## مشاكل التقريب في التكلفة وطرق معالجتها بزيادة عدد الفروض  
-[00:15:32](https://youtu.be/yNUC9cRLQ9E?t=932)  
-تناول موضوع الفروقات الناتجة عن تقريب العملة وكيف تسبب فروقات مالية رغم حجم المخزون الكبير، مع اقتراح إمكانية زيادة الدقة عن طريق زيادة عدد قصور العملة لتحسين دقة التكلفة.
+## The Effect of High Transaction Volumes on Financial Statements and Changes in Cost of Goods Sold
+[00:06:50](https://youtu.be/yNUC9cRLQ9E?t=410)
+Explains that a high volume of inventory movements changes the details of financial statements, especially the cost of goods sold, which differs after pre-processing — changing from 6.6 to 10 EGP in the given example.
 
 ---
 
-## أساليب وأمثلة على حساب تكلفة المخزون بنظام FIFO (الداخل أولاً، الخارج أولاً)  
-[00:50:31](https://youtu.be/yNUC9cRLQ9E?t=3031)  
-تم شرح أسس نظام FIFO مع بعض الأمثلة على كيفية التعامل مع الوارد والصرف المتتابع للبضائع عند اختلاف أسعار الدخول، وما يحدث عند صرف كميات متعددة بأسعار مختلفة.
+## The Effect of Multiple Warehouses and Geographic Branches on Cost and Prices
+[00:08:12](https://youtu.be/yNUC9cRLQ9E?t=492)
+Illustrates how differences in warehouse or branch costs (such as Alexandria, Aswan, and Cairo) affect the selling price and costs, with examples from vegetables that may be cheaper at farms compared to the market.
 
 ---
 
-## حالات عملية وتحديات في متابعة تكلفة المخزون عبر المخازن والفروع بمستويات متعددة  
-[00:36:58](https://youtu.be/yNUC9cRLQ9E?t=2218)  
-تناول تأثير وجود مستويات متعددة للمتابعة مثل المخزن، الشركة، الفرع، والمجموعة التعبيرية (المنطقة الجغرافية) وكيف أن التكلفة تختلف من فرع لآخر رغم وجود نفس الصنف والمورد.
+## The Importance of Tracking Cost at Multiple Levels: Item, Version, Size, Color, and Batch
+[00:24:51](https://youtu.be/yNUC9cRLQ9E?t=1491)
+Addresses cost differences based on product characteristics such as sizes, versions, and colors, explaining that cost tracking must be detailed according to these characteristics to avoid gaps in reports.
 
 ---
 
-## تطبيقات عملية على متابعة القسم والقسم المهدى (الهدايا) وتأثيره على تكلفة الأقسام  
-[00:40:02](https://youtu.be/yNUC9cRLQ9E?t=2402)  
-شرح حالات شركات توزع منتجات هدايا ضمن خطوط إنتاج مختلفة، وكيف أن التتبع الدقيق لتكاليف الأقسام المختلفة (كما في مثال خلاط وشاشة) يؤثر على حسابات التكلفة والتقارير.
+## The Concept of Serial Number and Batch Number in Product Tracking
+[00:30:22](https://youtu.be/yNUC9cRLQ9E?t=1822)
+Explains how Batch Numbers are used to identify production batches and track potential errors in each production shift, and how products with a specific Batch Number can be recalled in cases of product recalls or problems.
 
 ---
 
-## تحليل شرح الربحية مع الأخذ بالخصومات والفواتير النهائية  
-[00:44:45](https://youtu.be/yNUC9cRLQ9E?t=2685)  
-تم استعراض سيناريو يوضح كيف يتم حساب الربحية ضمن المبيعات حسب التكاليف والخصومات، وكيف يمكن أن يظهر الربح أو الخسارة بناءً على تسجيل الفواتير والخصومات.
+## Rounding Problems in Cost and How to Address Them by Increasing Decimal Precision
+[00:15:32](https://youtu.be/yNUC9cRLQ9E?t=932)
+Covers discrepancies caused by currency rounding and how they create financial differences despite large inventory volumes, with a suggestion to increase precision by expanding the number of decimal places for the currency to improve cost accuracy.
 
 ---
 
-## تطبيقات معقدة وأسئلة متكررة حول نظام FIFO وطرق التكاليف  
-[01:01:46](https://youtu.be/yNUC9cRLQ9E?t=3706)  
-ناقش الفيديو تحديات وأسئلة متعددة حول تطبيق النظام وإمكانيات تعديل التكلفة حسب التغيرات الكبيرة في الأسعار، مع تأكيد أهمية فهم استخدام النظام بشكل دقيق وعدم الخلط بالمصطلحات.
+## Methods and Examples of Calculating Inventory Cost Using FIFO (First In, First Out)
+[00:50:31](https://youtu.be/yNUC9cRLQ9E?t=3031)
+The principles of the FIFO system are explained with examples of how to handle sequential receipts and issues of goods at different entry prices, and what happens when multiple quantities are issued at different prices.
 
 ---
 
-## خاتمة ودعوة للفهم العميق للنظام والتعامل معه بحكمة  
-[01:06:53](https://youtu.be/yNUC9cRLQ9E?t=4013)  
-ختم الفيديو بالتأكيد على ضرورة الفهم العميق لأنظمة تكاليف المخزون مثل FIFO، وأن العملاء غير المتابعين بتفاصيل المخزون لن يستفيدوا من النظام، مع توضيح الحاجة إلى الحكمة في تطبيق هذه المفاهيم.
+## Practical Cases and Challenges in Tracking Inventory Cost Across Warehouses and Branches at Multiple Levels
+[00:36:58](https://youtu.be/yNUC9cRLQ9E?t=2218)
+Addresses the impact of multiple tracking levels such as warehouse, company, branch, and geographic group, and how cost differs from one branch to another even for the same item and supplier.
 
 ---
 
-> **نصيحة**  
->  
-> ينصح بمتابعة تكاليف المخزون بدقة وعلى مستويات متعددة (بالإصدار، المقاس، المخزن، الفرع، الشحنة)، واستخدام نظام FIFO بشكل صحيح لتجنب الأخطاء الحسابية الكبيرة والحصول على تقارير مالية دقيقة وموثوقة.
+## Practical Applications of Department and Gift Department Tracking and Its Effect on Department Costs
+[00:40:02](https://youtu.be/yNUC9cRLQ9E?t=2402)
+Explains cases of companies distributing gift products within different product lines, and how precise tracking of the costs of different departments (as in the blender and screen example) affects cost calculations and reports.
 
 ---
 
+## Profitability Analysis with Discounts and Final Invoices
+[00:44:45](https://youtu.be/yNUC9cRLQ9E?t=2685)
+A scenario is presented showing how profitability is calculated within sales based on costs and discounts, and how profit or loss can appear depending on how invoices and discounts are recorded.
 
-</rtl>
+---
+
+## Complex Applications and Frequently Asked Questions About FIFO and Costing Methods
+[01:01:46](https://youtu.be/yNUC9cRLQ9E?t=3706)
+The video discusses various challenges and questions about applying the system and the possibilities of adjusting cost in response to major price changes, emphasizing the importance of understanding the system accurately and avoiding terminology confusion.
+
+---
+
+## Conclusion and an Invitation to Deeply Understand the System and Apply It Wisely
+[01:06:53](https://youtu.be/yNUC9cRLQ9E?t=4013)
+The video closes by emphasizing the necessity of deeply understanding inventory costing systems such as FIFO, noting that customers who do not closely follow inventory details will not benefit from the system, and clarifying the need for wisdom in applying these concepts.
+
+---
+
+> **Tip**
+>
+> It is recommended to track inventory costs accurately and at multiple levels (by version, size, warehouse, branch, and batch), and to use the FIFO system correctly to avoid major calculation errors and obtain accurate, reliable financial reports.
+
+---

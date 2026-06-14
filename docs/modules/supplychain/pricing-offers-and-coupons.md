@@ -1,60 +1,60 @@
-# التسعير والعروض والكوبونات (Pricing, Offers & Coupons)
+# Pricing, Offers & Coupons
 
-السعر الذي يدفعه العميل ليس رقمًا واحدًا، بل نتيجة طبقات متعددة: قائمة أسعار، وخصم كمية، وعرض ترويجي، وربما كوبون. يجمع هذا الدليل أدوات التسعير الخاصة بسلسلة التوريد ويشرح كيف تتراكم.
+The price a customer pays isn't a single number, but the result of several layers: a price list, a quantity discount, a promotional offer, and maybe a coupon. This guide gathers the supply-chain pricing tools and explains how they stack.
 
-::: info تكامل مع وحدة الفوترة
-آليات الخصم والعروض ونقاط الولاء المشتركة على مستوى المستند موثّقة في [وحدة الفوترة](/modules/invoicing/) (أدلة الخصومات والعروض ونقاط المكافأة). تركّز هذه الصفحة على كيانات التسعير الخاصة بسلسلة التوريد وتُحيل إلى تلك الأدلة عند التقاطع، تفاديًا للتكرار.
+::: info Integration with the Invoicing Module
+The shared document-level discount, offer, and loyalty-point mechanics are documented in the [Invoicing module](/modules/invoicing/) (the discounts, offers, and reward-points guides). This page focuses on the supply-chain-specific pricing entities and refers to those guides where they intersect, to avoid duplication.
 :::
 
-## قوائم أسعار البيع (SalesPriceList)
+## Sales Price Lists (SalesPriceList)
 
-**قائمة أسعار البيع** هي العمود الفقري للتسعير: تحدّد سعر كل صنف لشريحة عملاء وفترة وعملة محددة. يمكنك امتلاك قوائم متعددة (تجزئة، جملة، عملاء مميزون، عروض ترويجية)، ولكل قائمة نطاق تاريخ سريان وأولوية تمنع التعارض عند تداخل أكثر من قائمة. عند إنشاء الفاتورة تختار القائمة المناسبة فيملأ النظام الأسعار تلقائيًا.
+The **Sales Price List** is the backbone of pricing: it sets each item's price for a specific customer segment, period, and currency. You can have multiple lists (retail, wholesale, VIP customers, promotions), and each list has an effective date range and a priority that prevents conflicts when more than one list overlaps. When creating an invoice, you choose the appropriate list and the system fills prices automatically.
 
-![شاشة قائمة أسعار البيع في Nama ERP](images/pricing/sales-price-list-ar.png)
+![Sales price list screen in NaMa ERP](../../ar/modules/supplychain/images/pricing/sales-price-list-en.png)
 
-### التسعير حسب الكمية (PricingRange)
+### Quantity-Based Pricing (PricingRange)
 
-**نطاق التسعير** يتيح أسعارًا متدرّجة حسب الكمية: 1-10 قطع بسعر، و11-50 بسعر أقل، وما فوق بسعر أقل - فيكافئ الشراء بكميات أكبر تلقائيًا.
+The **Pricing Range** enables tiered prices by quantity: 1-10 pieces at one price, 11-50 at a lower price, and above that even lower - automatically rewarding larger purchases.
 
-### التسعير التلقائي (AutoSalesPricing)
+### Automatic Pricing (AutoSalesPricing)
 
-بدل تحديد سعر البيع يدويًا، يحسبه **التسعير التلقائي** من التكلفة زائد هامش ربح (افتراضي، وحد أدنى، وحد أقصى). فعند تغيّر التكلفة يُعاد حساب السعر مع احترام سياسة الهامش. ويُضبط سلوكه العام عبر **إعداد التسعير التلقائي** (AutoSalesPricingSetting).
+Instead of setting the sales price manually, **Automatic Pricing** computes it from cost plus a profit margin (default, minimum, and maximum). When cost changes, the price is recalculated while respecting the margin policy. Its global behavior is configured via the **Auto Sales Pricing Setting** (AutoSalesPricingSetting).
 
-### التسعير بالنقاط (SalesPriceInPoints)
+### Pricing in Points (SalesPriceInPoints)
 
-لبرامج الولاء، يتيح **سعر البيع بالنقاط** تسعير الأصناف بنقاط قابلة للاستبدال بدل النقود (أو إلى جانبها).
+For loyalty programs, the **Sales Price in Points** lets you price items in points redeemable instead of (or alongside) money.
 
-## العروض والأصناف المجانية (SalesOffers)
+## Offers and Free Items (SalesOffers)
 
-**عروض المبيعات** هي محرّك الترويج: خصم نسبي أو مبلغي، أو أصناف مجانية، أو حوافز حسب قيمة الفاتورة أو حدّ أدنى للسلة. تستطيع استهدافها بفلاتر (تصنيف الفاتورة، العميل، القطاع) وربطها بموسم بحيث تُفعَّل تلقائيًا في فترته.
+**Sales Offers** are the promotion engine: a percentage or amount discount, free items, or incentives based on invoice value or a minimum cart. You can target them with filters (invoice classification, customer, sector) and link them to a season so they activate automatically in its period.
 
-![شاشة عروض المبيعات في Nama ERP](images/pricing/sales-offers-ar.png)
+![Sales offers screen in NaMa ERP](../../ar/modules/supplychain/images/pricing/sales-offers-en.png)
 
-و**مجموعة الأصناف المجانية** (FreeItemGroup) تتيح تقديم عدة أصناف مجانية كحزمة واحدة ضمن العرض، مع ضبط قواعد التكرار والسياسات.
+And the **Free Item Group** (FreeItemGroup) lets you offer several free items as a single bundle within the offer, with repeat rules and policies configured.
 
-## عروض ما بعد البيع (PostSalesOffer)
+## Post-Sales Offers (PostSalesOffer)
 
-بعض الحوافز لا تُمنح وقت البيع بل بعده (حوافز، خصومات رجعية، استرداد). **عرض ما بعد البيع** يحدّد البرنامج وشروطه عبر **إعداد عرض ما بعد البيع** (PostSalesOfferConfig)، ويطالب العميل باستحقاقه عبر **مطالبة عرض ما بعد البيع** (PostSalesOfferClaim) التي تُراجَع وتُعتمد وتؤثر في رصيد العميل. وهناك **العرض الشهري الدوري** (PeriodicMonthlySalesOffer) الذي يُولِّد حوافزه شهريًا بحساب دوري.
+Some incentives aren't granted at the time of sale but afterward (incentives, retroactive discounts, rebates). The **Post-Sales Offer** defines the program and its conditions via the **Post-Sales Offer Config** (PostSalesOfferConfig), and the customer claims their entitlement via the **Post-Sales Offer Claim** (PostSalesOfferClaim), which is reviewed, approved, and affects the customer's balance. There's also the **Periodic Monthly Offer** (PeriodicMonthlySalesOffer) that generates its incentives monthly via a periodic calculation.
 
-## الكوبونات (DiscountCoupon)
+## Coupons (DiscountCoupon)
 
-**كوبون الخصم** أداة ترويج موجّهة: قيمة خصم ونطاق أصناف وحدود استخدام وصلاحية وأهلية عملاء. وتنتظم الكوبونات في:
-- **نوع الكوبون** (DiscountCouponType): فئة تحكم قواعده (متجر، إلكتروني، موسمي).
-- **دفتر الكوبونات** (DiscountCouponBook): مجموعة كوبونات لحملة ترويجية وتوزيعها.
-- **طريقة ترميز الكوبونات** (SalesCouponsCodingMethod): شكل الرمز وخوارزمية توليده والتحقق من تفرّده.
+The **Discount Coupon** is a targeted promotion tool: a discount value, item scope, usage limits, validity, and customer eligibility. Coupons are organized into:
+- **Coupon type** (DiscountCouponType): a category that governs its rules (store, online, seasonal).
+- **Coupon book** (DiscountCouponBook): a collection of coupons for a promotional campaign and its distribution.
+- **Coupon coding method** (SalesCouponsCodingMethod): the code format, its generation algorithm, and uniqueness validation.
 
-وعند البيع، يُطبَّق الكوبون عبر **أمر بيع الكوبونات** (CouponsSalesOrder)، ويُعالَج إلغاؤه عند الإرجاع عبر **مرتجع أمر بيع الكوبونات** (CouponsSalesOrderReturn).
+At the point of sale, the coupon is applied via the **Coupons Sales Order** (CouponsSalesOrder), and its reversal on a return is handled via the **Coupons Sales Order Return** (CouponsSalesOrderReturn).
 
-## التصويت على الأسعار (PriceVotingDoc)
+## Price Voting (PriceVotingDoc)
 
-في المنشآت التي تتطلب اعتماد تغييرات الأسعار، يوفّر **مستند التصويت على الأسعار** سير عمل: تُقترح الأسعار الجديدة وتُعرض على المعتمِدين للتصويت قبل سريانها، ويُحفظ سجلها في **ملف التصويت على الأسعار** (PriceVotingFile) كمسار تدقيق لقرارات التسعير.
+In organizations that require approval of price changes, the **Price Voting Document** provides a workflow: new prices are proposed and presented to approvers for a vote before taking effect, with their record kept in the **Price Voting File** (PriceVotingFile) as an audit trail of pricing decisions.
 
-## كيف تتراكم الطبقات
+## How the Layers Stack
 
-عند تسعير سطر في الفاتورة، يطبّق النظام الطبقات بالترتيب: السعر الأساس من **قائمة الأسعار** (أو **التسعير التلقائي**)، ثم تعديل **نطاق الكمية**، ثم **العروض** المؤهَّلة، ثم **الكوبون** إن وُجد، مع احترام **الحد الأدنى للسعر** المعرّف على الصنف. فهم هذا الترتيب يفسّر السعر النهائي الذي يراه العميل.
+When pricing an invoice line, the system applies the layers in order: the base price from the **price list** (or **automatic pricing**), then a **quantity range** adjustment, then eligible **offers**, then a **coupon** if present, while respecting the **minimum price** defined on the item. Understanding this order explains the final price the customer sees.
 
-## الخطوات التالية
+## Next Steps
 
-- [رحلة المبيعات](./sales-journey.md) - حيث تُطبَّق هذه الأسعار على الأوامر والفواتير
-- [فهم أصناف المخزون](./understanding-items.md) - الحد الأدنى للسعر والتسعير التلقائي على الصنف
-- [وحدة الفوترة](/modules/invoicing/) - آليات الخصم والعروض ونقاط الولاء على مستوى المستند
+- [The Sales Journey](./sales-journey.md) - where these prices are applied to orders and invoices
+- [Understanding Inventory Items](./understanding-items.md) - minimum price and automatic pricing on the item
+- [Invoicing module](/modules/invoicing/) - document-level discount, offer, and loyalty mechanics

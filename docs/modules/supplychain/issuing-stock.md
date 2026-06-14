@@ -1,137 +1,137 @@
-# إصدار المخزون من المستودع (Issuing Stock)
+# Issuing Stock
 
-ما يدخل لا بد أن يخرج! بينما يتعلق [استلام المخزون](./receiving-stock.md) بإدخال الأصناف إلى المستودع، فإن الصرف يتعلق بإطلاقها للاستخدام. لنستعرض متى ولماذا وكيف تغادر الأصناف مخزونك.
+What goes in must come out! While [receiving stock](./receiving-stock.md) is about bringing items into your warehouse, issuing is about releasing them for use. Let's explore when, why, and how items leave your inventory.
 
-## الصرف المخزني: نقطة الخروج من المخزون
+## The Stock Issue: Your Inventory's Exit Point
 
-**الصرف المخزني** (StockIssue) هو السجل الرسمي الذي يُثبت خروج الأصناف من المستودع في وقت محدد ولغرض محدد. تمامًا كوثائق الاستلام، تستدعي السيناريوهات المختلفة معالجة مختلفة.
+The **Stock Issue** (StockIssue) is the official record proving that items left the warehouse at a specific time for a specific purpose. Just like receipt documents, different scenarios call for different handling.
 
-![قائمة الصرف المخزني في Nama ERP](images/issuing/stock-issue-list-ar.png)
+![Stock issue list in NaMa ERP](../../ar/modules/supplychain/images/issuing/stock-issue-list-en.png)
 
-## الصرف المخزني العام: أداتك الأساسية
+## The General Stock Issue: Your Primary Tool
 
-مستند الصرف المخزني هو أداتك متعددة الأغراض لإخراج الأصناف من المخزون لأي سبب غير البيع المباشر (الذي يمتلك مساره الخاص في [رحلة المبيعات](./sales-journey.md)).
+The stock issue document is your multipurpose tool for taking items out of inventory for any reason other than a direct sale (which has its own path in [The Sales Journey](./sales-journey.md)).
 
-### السيناريوهات الشائعة
+### Common Scenarios
 
-**الاستخدام الداخلي للأقسام**
-يحتاج قسم تقنية المعلومات إلى 10 أجهزة لابتوب لمشروع جديد. أنشئ صرفًا مخزنيًا لنقل الأجهزة من "متاح" إلى عهدة القسم، وتقليل المخزون المتاح (حتى لا تبيعها بالخطأ)، ومعرفة مكانها لاحقًا.
+**Internal department use**
+The IT department needs 10 laptops for a new project. Create a stock issue to move them from "available" into the department's custody, reduce available stock (so you don't accidentally sell them), and know their location later.
 
-**العينات والعروض التوضيحية**
-يحتاج فريق المبيعات إلى عينات للمعرض التجاري. اصرفها مع ملاحظات عن الغرض، لتتبع ما وُزِّع مقابل المتاح للبيع، واحتساب تكلفتها كمصروف تسويقي.
+**Samples and demos**
+The sales team needs samples for a trade show. Issue them with notes about the purpose, to track what's been distributed vs. available for sale, and book their cost as a marketing expense.
 
-**العجز والخسائر والتلف**
-خلال الجرد اكتشفت نقصًا في 5 قطع، أو تلف بعض البضاعة في التخزين. لا يوجد في النظام "سند تلفيات" مستقل؛ فالطريقة الصحيحة لتسجيل أي خسارة أو تلف عارض هي **صرف مخزني** موجَّه إلى حساب خسائر مناسب. يُزيل ذلك الأصناف رسميًا من المخزون المتتبَّع ويسجّل الخسارة محاسبيًا مع توثيق السبب.
+**Shortages, losses, and damage**
+During stock taking you discovered a shortage of 5 pieces, or some goods were damaged in storage. The system has no standalone "damage voucher"; the correct way to record any incidental loss or damage is a **stock issue** directed to an appropriate loss account. This formally removes the items from tracked inventory and records the loss in accounting, with the reason documented.
 
-::: warning النقص الطبيعي والفروق الدورية
-إذا كان النقص ناتجًا عن نقص طبيعي أو فروق دورية تُكتشف عند العد (لا عن واقعة تلف محددة)، فالأنسب تسويته عبر [الجرد المخزني](./stock-taking.md)، لا عبر صرف يدوي.
+::: warning Natural loss and periodic differences
+If the shortage results from natural loss or periodic differences discovered during counting (not a specific damage event), it's better settled through [Stock Taking](./stock-taking.md), not a manual issue.
 :::
 
-**التبرعات**
-تتبرع بمعدات قديمة لجمعية خيرية. اصرف الأصناف مع توثيق مناسب للأغراض الضريبية وتسجيل القيمة العادلة ومعلومات جهة الاستلام.
+**Donations**
+You donate old equipment to a charity. Issue the items with proper documentation for tax purposes, recording the fair value and the recipient's information.
 
-### كيف يعمل النظام
+### How It Works
 
-يتطلب كل مستند صرف:
-1. **موقع المصدر**: من أين تُؤخذ الأصناف؟ أي مخزن وموقع تخزيني محدد؟
-2. **الأصناف والكميات**: ما الذي يخرج وبأي كمية؟ مع تحديد وحدة القياس.
-3. **الغرض / جهة الاستلام**: إلى أين تذهب؟ قسم؟ مشروع؟ حساب خسائر؟
-4. **طريقة التكلفة**: عادةً تلقائية بناءً على طريقة التكليف المعتمدة.
+Every issue document needs:
+1. **Source location**: Where are the items taken from? Which warehouse and specific locator?
+2. **Items and quantities**: What's leaving and how much? With the unit of measure specified.
+3. **Purpose / destination**: Where is it going? A department? A project? A loss account?
+4. **Costing method**: Usually automatic, based on the adopted costing method.
 
-يقوم النظام بعدها بتخفيض كمية المخزون في موقع المصدر، وتقليل قيمة أصل المخزون، وإنشاء القيود المحاسبية (دائن المخزون، مدين المصروف أو الحساب المستهدف)، وتسجيل الأرقام التسلسلية أو الدُّفعات المحددة التي صُرفت، وتحديث الكميات المتاحة.
+The system then reduces the inventory quantity at the source location, decreases inventory asset value, creates accounting entries (crediting inventory, debiting the expense or target account), records the specific serials or batches issued, and updates available quantities.
 
-## نهج الطلب أولًا: طلب الصرف (StockIssueReq)
+## The Request-First Approach: Stock Issue Request (StockIssueReq)
 
-في كثير من المنظمات، لا تُصرف الأصناف عشوائيًا — بل يطلبها شخص ما أولًا. **طلب الصرف المخزني** هو طلب للحصول على أصناف يجب مراجعته واعتماده قبل الصرف الفعلي.
+In many organizations, items aren't issued at random - someone requests them first. The **Stock Issue Request** is a request for items that must be reviewed and approved before the actual issue.
 
-**سير العمل:**
-1. **الطلب**: يُنشئ القسم طلب صرف: "نحتاج 100 كغ مادة، 50 قطعة لأمر العمل #12345".
-2. **المراجعة**: يراجع مشرف المستودع التوفر وصحة الطلب ومعقولية الكميات.
-3. **الاعتماد**: بعد الاعتماد يصبح الطلب مُرخَّصًا.
-4. **التنفيذ**: يُنشئ المستودع مستند الصرف الفعلي مرتبطًا بالطلب.
+**Workflow:**
+1. **Request**: The department creates an issue request: "we need 100 kg of material, 50 pieces for work order #12345."
+2. **Review**: The warehouse supervisor checks availability, the request's validity, and the reasonableness of quantities.
+3. **Approval**: After approval, the request is authorized.
+4. **Execution**: The warehouse creates the actual issue document linked to the request.
 
-**لماذا الخطوة الإضافية؟** لأنها تمنحك التحكم (لا أحد يأخذ الأصناف دون طلب واعتماد)، والتخطيط (تحضير الأصناف مسبقًا)، والرؤية (اطلاع الإدارة قبل الاستهلاك)، ومسار تدقيق واضح. هذا بالغ الأهمية للأصناف عالية القيمة والمواد الخاضعة للرقابة والأصناف المقيدة بميزانية.
+**Why the extra step?** Because it gives you control (no one takes items without a request and approval), planning (preparing items in advance), visibility (management sees consumption before it happens), and a clear audit trail. This is critical for high-value items, controlled materials, and budget-restricted items.
 
-::: info الصرف للإنتاج والأقسام المتخصصة
-صرف المواد الخام لأوامر الإنتاج له مستنداته في وحدتي **التصنيع** و**مكونات التصنيع (MC)**، وصرف المستلزمات لأجنحة المرضى في **إدارة المستشفيات**، وصرف مواد مواقع العمل في **المقاولات**. كل وحدة من هذه تتبع تكلفتها بطريقتها الخاصة، فراجع توثيق كل وحدة لتلك المسارات. يبقى الصرف المخزني العام هنا أداتك للأغراض غير المتخصصة.
+::: info Issuing to production and specialized departments
+Issuing raw materials to production orders has its documents in the **Manufacturing** and **Manufacturing Components (MC)** modules; issuing supplies to patient wards is in **Hospital Management**; and issuing site materials is in **Contracting**. Each of these tracks its cost its own way, so see each module's documentation for those paths. The general stock issue here remains your tool for non-specialized purposes.
 :::
 
-## تقطيع المواد ثنائية الأبعاد (ItemCuttingDoc)
+## Cutting Two-Dimensional Materials (ItemCuttingDoc)
 
-يُعالج **مستند التقطيع** حالة خاصة بالأصناف **ثنائية الأبعاد** (مثل ألواح الفولاذ والزجاج والخشب): عندما لا تصرف المادة فحسب، بل تُحوِّلها إلى قطع أصغر بأبعاد محددة.
+The **Item Cutting Document** handles a special case for **two-dimensional** items (such as steel, glass, and wood sheets): when you don't just issue the material, but transform it into smaller pieces of specific dimensions.
 
-**مثال**: لديك لوح فولاذ بمقاس 2×3 متر. تقطعه إلى عدة قطع بأبعاد مختلفة وفق احتياج التصنيع. هذا المستند **يصرف** اللوح الكامل، **ويستلم** القطع الناتجة بأبعادها، **ويتتبع** الهدر (الفرق بين مساحة اللوح ومجموع مساحات القطع). إنه صرف واستلام في آنٍ واحد — مستند تحويل مخصص للأصناف ذات البُعدين.
+**Example**: You have a steel sheet measuring 2×3 meters. You cut it into several pieces of various dimensions per the manufacturing need. This document **issues** the full sheet, **receives** the resulting pieces with their dimensions, and **tracks** the waste (the difference between the sheet's area and the sum of the pieces' areas). It's an issue and a receipt at once - a transformation document for two-dimensional items.
 
-::: tip ليس للنقص الوزني
-مستند التقطيع مخصص للتحويل الهندسي للأصناف ثنائية الأبعاد، وليس لمعالجة النقص الوزني أو الفاقد الطبيعي (كنقص وزن اللحوم مثلًا)؛ فذلك يُعالَج عبر [الجرد المخزني](./stock-taking.md).
+::: tip Not for weight loss
+The cutting document is for the geometric transformation of two-dimensional items, not for handling weight loss or natural shrinkage (such as meat losing weight); that's handled through [Stock Taking](./stock-taking.md).
 :::
 
-## اختيار الدُّفعات: أي الأصناف تُصرف؟
+## Batch Selection: Which Items Are Issued?
 
-عندما يكون لديك عدة دفعات من الصنف ذاته، أيها يُصرف؟ يمكن للنظام الاختيار تلقائيًا بناءً على:
+When you have several batches of the same item, which one is issued? The system can select automatically based on:
 
-- **FIFO (أول داخل أول خارج)**: صرف أقدم المخزون أولًا - مناسب للأصناف القابلة للتلف والوقاية من التقادم.
-- **LIFO (آخر داخل أول خارج)**: صرف أحدث المخزون أولًا - يُستخدم أحيانًا للأصناف التي يكون فيها الأحدث أفضل.
-- **FEFO (أول انتهاء صلاحية أول خارج)**: صرف الأقرب انتهاءً أولًا - ضروري للأدوية والمواد الغذائية وأي صنف له تاريخ انتهاء.
-- **الاختيار اليدوي**: عند الحاجة لاختيار دُفعة بعينها لاعتبارات جودة أو تفضيل عميل.
+- **FIFO (First In First Out)**: issue the oldest stock first - suitable for perishable items and obsolescence prevention.
+- **LIFO (Last In First Out)**: issue the newest stock first - sometimes used for items where newer is better.
+- **FEFO (First Expiry First Out)**: issue the nearest-to-expiry first - essential for medicines, food, and any item with an expiry date.
+- **Manual selection**: when you need to pick a specific batch for quality considerations or a customer preference.
 
-## إدارة الأرقام التسلسلية
+## Serial Number Management
 
-للأصناف المرقَّمة تسلسليًا، يستلزم الصرف تحديد الأرقام التسلسلية المغادِرة بدقة. يعرض النظام الأرقام المتاحة في موقع المصدر، فيختار المستخدم (أو يمسح ضوئيًا) ما يُصرف، ويتحقق النظام من التوفر، وعند الحفظ تنتقل تلك الأرقام من "متاح" إلى "مصروف". يبقى التتبع المستقبلي ممكنًا: "أين الرقم التسلسلي #12345؟" يُظهر أنه صُرف في تاريخ كذا لجهة كذا. هذا ضروري لتتبع الضمان وإدارة الاستدعاء وإدارة الأصول.
+For serialized items, issuing requires specifying exactly which serials are leaving. The system displays available serials at the source location, the user selects (or scans) which to issue, the system verifies availability, and on save those serials move from "available" to "issued." Future tracing stays possible: "where is serial #12345?" shows it was issued on such a date to such a destination. This is essential for warranty tracking, recall management, and asset management.
 
-![شاشة الصرف المخزني في Nama ERP](images/issuing/stock-issue-edit-ar.png)
+![Stock issue screen in NaMa ERP](../../ar/modules/supplychain/images/issuing/stock-issue-edit-en.png)
 
-## الأثر المحاسبي للصرف
+## The Accounting Effect of Issuing
 
-لكل عملية صرف تبعات محاسبية تعتمد على الغرض:
+Every issue has accounting consequences that depend on the purpose:
 
-- **الصرف لقسم (استخدام داخلي)**: دائن المخزون / مدين مصروفات القسم
-- **الصرف للعينات (تسويق)**: دائن المخزون / مدين مصروف التسويق
-- **الصرف للخسائر/التلف**: دائن المخزون / مدين حساب الخسائر
-- **الصرف للإصلاح (يُعاد لاحقًا)**: دائن المخزون / مدين مخزون تحت الإصلاح (لا يزال أصلًا!)
+- **Issue to a department (internal use)**: credit inventory / debit department expense
+- **Issue for samples (marketing)**: credit inventory / debit marketing expense
+- **Issue for losses/damage**: credit inventory / debit loss account
+- **Issue for repair (returned later)**: credit inventory / debit inventory-under-repair (still an asset!)
 
-يُنشئ النظام هذه القيود تلقائيًا بناءً على إعدادات المحاسبة التي هيأتها للصنف وغرض الصرف.
+The system creates these entries automatically based on the accounting setup you configured for the item and the issue's purpose.
 
-## تصحيح أخطاء الصرف
+## Correcting Issue Errors
 
-ماذا لو صرفت أكثر مما يجب؟ أو أقل؟ أو الصنف الخطأ؟
-- **الإعادة عبر استلام**: إذا أُعيدت الأصناف، أنشئ استلامًا لإعادتها إلى المخزون المتاح.
-- **صرف تعديلي**: إذا صرفت أقل، أنشئ صرفًا إضافيًا للكمية الباقية.
-- **الإلغاء وإعادة الإصدار**: أوضح مسار تدقيق لكنه الأكثر جهدًا.
+What if you issued too much? Too little? The wrong item?
+- **Return via receipt**: if items are returned, create a receipt to bring them back into available stock.
+- **Adjustment issue**: if you issued too little, create an additional issue for the remaining quantity.
+- **Cancel and re-issue**: clearer audit trail but the most effort.
 
-اختر بناءً على ضوابط مؤسستك، والوقت المنقضي، وما إذا كانت العمليات اللاحقة (كاحتساب تكلفة الإنتاج) قد استخدمت بيانات الصرف بالفعل.
+Choose based on your organization's controls, the time elapsed, and whether downstream operations (like production costing) have already used the issue data.
 
-## نصائح للصرف الدقيق
+## Tips for Accurate Issuing
 
-::: tip أفضل الممارسات
-**تحقق قبل الحفظ**: راجع الكميات والأصناف قبل الحفظ (لا كمسودة). بمجرد الحفظ يؤثر المستند على النظام فورًا.
+::: tip Best Practices
+**Verify before saving**: Review quantities and items before saving (not as a draft). Once saved, the document affects the system immediately.
 
-**استخدم المواقع بدقة**: اصرف من الموقع الفعلي الذي تتواجد فيه الأصناف، لا من المخزن بشكل عام.
+**Use locators precisely**: Issue from the actual location where the items reside, not from the warehouse in general.
 
-**اربط بمستندات المصدر**: اربط الصرف دائمًا بغرضه. هذا التتبع ضروري عند التحقيق في الفروقات.
+**Link to source documents**: Always link the issue to its purpose. This traceability is essential when investigating discrepancies.
 
-**لا تؤخر تسجيل الصرف**: سجِّله فور حدوثه. دقة المخزون اللحظية تتطلب تسجيلًا لحظيًا.
+**Don't delay recording issues**: Record them as soon as they happen. Real-time inventory accuracy requires real-time recording.
 
-**عالج الصرف الجزئي**: إذا توفر جزء فقط من الطلب، اصرف ما لديك وسجِّل النقص بدلًا من الانتظار.
+**Handle partial issues**: If only part of the request is available, issue what you have and record the shortage rather than waiting.
 :::
 
-## أسئلة شائعة
+## Frequently Asked Questions
 
-**س: هل يمكننا صرف أصناف غير موجودة في المخزون (الدخول في الرصيد السالب)؟**
+**Q: Can we issue items not in stock (go negative)?**
 
-ج: يعتمد على سياسة السحب على المكشوف للصنف؛ فبعض الأصناف الحرجة تمنع المخزون السالب، وأخرى تُنبِّه لكن تسمح. راجع [فهم أصناف المخزون](./understanding-items.md#ضبط-المخزون-كيف-يتصرف-المخزون).
+A: It depends on the item's overdraft policy; some critical items prevent negative stock, while others warn but allow. See [Understanding Inventory Items](./understanding-items.md#Inventory-Control-How-Does-Stock-Behave).
 
-**س: ما الفرق بين الصرف والتحويل؟**
+**Q: What's the difference between an issue and a transfer?**
 
-ج: **الصرف** يُقلِّص إجمالي المخزون (خرجت الأصناف من سيطرة المنشأة). **التحويل** ينقل الأصناف بين المواقع مع بقاء الإجمالي كما هو. النقل من مخزن إلى آخر تحويل، تجده في [تحريك المخزون](./moving-stock.md).
+A: An **issue** reduces total inventory (items left the organization's control). A **transfer** moves items between locations while the total stays the same. Moving from one warehouse to another is a transfer, covered in [Moving Stock](./moving-stock.md).
 
-**س: كيف نسجّل تلف بضاعة دون وجود "سند تلفيات"؟**
+**Q: How do we record damaged goods without a "damage voucher"?**
 
-ج: استخدم صرفًا مخزنيًا موجَّهًا إلى حساب خسائر. هذه هي الطريقة المعتمدة في النظام لتسجيل التلف العارض، مع توثيق السبب في الملاحظات.
+A: Use a stock issue directed to a loss account. This is the system's adopted way to record incidental damage, with the reason documented in the notes.
 
-## الخطوات التالية
+## Next Steps
 
-الآن وقد فهمت الاستلام والصرف معًا، تعلَّم ما يلي:
-- [تحريك المخزون بين المخازن](./moving-stock.md) - التحويلات والتجميعات
-- [الجرد المخزني](./stock-taking.md) - تسوية الفروق والنقص الطبيعي
-- [رحلة المبيعات](./sales-journey.md) - كيف تغادر الأصناف المباعة (مما يؤدي إلى الصرف)
+Now that you understand receiving and issuing together, learn about:
+- [Moving Stock Between Warehouses](./moving-stock.md) - transfers and consolidations
+- [Stock Taking](./stock-taking.md) - reconciling differences and natural loss
+- [The Sales Journey](./sales-journey.md) - how sold items leave (leading to issues)

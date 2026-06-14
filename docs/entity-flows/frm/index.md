@@ -1,6 +1,6 @@
 <div class="ignore-in-full-text-search">
 
-# وحدة إدارة الشحن
+# Freight Management System Module
   - [EAKWSendIPSEvents](/entity-flows/frm/EAKWSendIPSEvents.md)
 
 </div>

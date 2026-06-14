@@ -1,109 +1,109 @@
-# إعدادات الحسابات (كتالوج خيارات الوحدة)
+# Accounting Configuration (module option catalog)
 
-كثير من سلوكيات الوحدة المحاسبية لا تُبرمَج، بل **تُضبَط** من شاشة إعدادات الوحدة المحاسبية (إعدادات الوحدات ← إعدادات الحسابات / *Account Configurations*). هذه الصفحة كتالوج مرجعي لأهمّ هذه الخيارات، مجمّعة حسب الغرض: ما الذي يفعله كل خيار، وأي سلوك يغيّره. وهي مصمّمة لتجيب سؤال الدعم المتكرّر: «أين أضبط هذا التصرّف؟».
+Many of the accounting module's behaviors aren't coded — they're **configured** from the accounting module's configuration screen (Module Configurations → Account Configurations). This page is a reference catalog of the most important of these options, grouped by purpose: what each option does, and which behavior it changes. It's designed to answer the recurring support question: "where do I set this behavior?"
 
-## المحددات في التفاصيل
+## Dimensions in details
 
-| الخيار | الأثر |
+| Option | Effect |
 |---|---|
-| إظهار الفرع / الإدارة / المجموعة التحليلية / القطاع في التفاصيل | إظهار كل محدِّد على مستوى أسطر المستندات لا الرأس فقط. |
+| Show branch / department / analysis set / sector in details | Show each dimension at the document line level, not just the header. |
 
-## سندات القبض والصرف
+## Receipt and payment vouchers
 
-| الخيار | الأثر |
+| Option | Effect |
 |---|---|
-| عدم اقتراح أسطر في سند القبض/الصرف | إيقاف الاقتراح التلقائي لأسطر السند. |
-| استخدام المستخدم الحالي كمحصِّل | تعبئة المحصِّل بالمستخدم الحالي تلقائيًا. |
-| السماح بأكثر من طريقة دفع في سندات القبض/الصرف | تفعيل تعدّد طرق الدفع في السند. |
-| استخدام القيمة المحلية في القبض والصرف | اعتماد القيمة المحلية في السند. |
-| السماح بتعديل الذمة في تفاصيل القبض/الصرف | إتاحة تغيير الذمة على مستوى السطر. |
-| السماح بتجاوز قيمة السند لقيمة الطلب (قبضًا/صرفًا) | السماح بأن يتجاوز السند قيمة طلبه. |
+| Do not suggest lines in receipt/payment voucher | Turn off the automatic suggestion of voucher lines. |
+| Use current user as collector | Auto-fill the collector with the current user. |
+| Allow multiple payment methods in receipt/payment vouchers | Enable multiple payment methods in the voucher. |
+| Use local amount in receipt and payment | Adopt the local value in the voucher. |
+| Allow changing subsidiary in receipt/payment details | Allow changing the subsidiary at the line level. |
+| Allow voucher value to exceed request value (receipt/payment) | Permit the voucher to exceed its request's value. |
 
-## حسابات النظام لكل نوع مستند
+## System accounts per document type
 
-| الخيار | الأثر |
+| Option | Effect |
 |---|---|
-| السماح باستخدام حساب نظام في سند القبض / الصرف / التحويل البنكي / سند القيد | السماح بانتقاء حساب «خاص بالنظام» يدويًا في كل نوع على حدة. |
+| Allow using a system account in receipt / payment / bank transfer / journal entry | Permit manually picking a "system" account in each type individually. |
 
-## حماية تغيير طبيعة رصيد الحساب
+## Prevent change of account balance nature
 
-| الخيار | الأثر |
+| Option | Effect |
 |---|---|
-| تفعيل منع تغيير طبيعة رصيد الحساب | تشغيل الحارس الذي يمنع قلب رصيد الحساب لجانبه غير الطبيعي. |
-| هامش منع تغيير طبيعة الرصيد | قيمة سماحية يُتجاوز عندها المنع. |
-| اعتبار الإدارة/القطاع/المجموعة التحليلية/محدد الكيان/الفرع في المنع | تحديد المحددات التي تُحتسب عند تطبيق المنع. |
+| Enable prevent changing account balance nature | Turn on the guard that blocks flipping an account's balance to its unnatural side. |
+| Prevent balance-nature-change margin | A tolerance value at which the prevention is bypassed. |
+| Consider department/sector/analysis set/entity dimension/branch in the prevention | Choose which dimensions are accounted for when applying the prevention. |
 
-(يقابل هذا الخيار علم **منع تغيير طبيعه رصيد الحساب** على [الحساب](../accounts.md) نفسه.)
+(This corresponds to the **Prevent Changing Account Balance Nature** flag on the [account](../accounts.md) itself.)
 
-## الذمم
+## Subsidiaries
 
-| الخيار | الأثر |
+| Option | Effect |
 |---|---|
-| السماح بحسابات بلا نوع ذمة | السماح بحساب ذمة دون تحديد نوع الطرف. |
-| تفعيل السماح بالحركة بدون ذمة | إتاحة الحركة على حساب ذمة دون طرف. |
-| السماح بتعديل حسابات الذمة بعد الاستخدام | إتاحة تغيير ربط حسابات الذمة بعد بدء الحركة. |
-| عدم التحقق من الذمة مع الحساب (حتى تاريخ) | تعطيل التحقق من تطابق الذمة والحساب قبل تاريخ. |
-| عدم التحقق من الذمم في القيد الختامي | تجاوز فحص الذمم عند الإقفال. |
+| Allow accounts without a subsidiary type | Permit a subsidiary account with no party type set. |
+| Enable allow transactions without subsidiary | Permit transactions on a subsidiary account with no party. |
+| Allow changing subsidiary accounts after usage | Permit changing subsidiary-account mappings after movement begins. |
+| Do not check subsidiary with account (until a date) | Disable the subsidiary-account consistency check before a date. |
+| Do not validate subsidiaries in the closing entry | Skip the subsidiary check at closing. |
 
-## الأوراق التجارية والبنوك
+## Financial papers and banks
 
-| الخيار | الأثر |
+| Option | Effect |
 |---|---|
-| إنشاء أوراق تجارية من سند الصرف / القبض / مستند الافتتاح | توليد الأوراق التجارية تلقائيًا من هذه المستندات. |
-| حذف الأوراق المولَّدة عند حذف المستند المصدر | تنظيف الأوراق التابعة تلقائيًا. |
-| السماح بترك تاريخ استحقاق الورقة فارغًا | عدم إلزام تاريخ الاستحقاق. |
-| السماح بإشعار على الأوراق المنشأة | إتاحة الإشعار البنكي على ورقة بحالة «تم إنشاؤه». |
-| السماح بدفتر شيكات بلا حساب بنكي | عدم إلزام ربط الدفتر بحساب بنكي. |
-| السماح بالتعامل بالكمبيالات | تفعيل الكمبيالات إلى جانب الشيكات. |
-| تجميع سطور الأوراق ذات أرقام الشيكات المتشابهة | دمج الأسطر المتشابهة. |
+| Create financial papers from payment / receipt / opening document | Auto-generate financial papers from these documents. |
+| Delete generated papers when deleting the owner document | Auto-clean dependent papers. |
+| Allow the paper's due date to be empty | Don't mandate the due date. |
+| Allow a notice on created papers | Allow a bank notice on a paper in "Created" status. |
+| Allow a chequebook without a bank account | Don't mandate linking the book to a bank account. |
+| Allow dealing with bills of exchange | Enable bills of exchange alongside cheques. |
+| Aggregate paper lines with similar cheque numbers | Merge similar lines. |
 
-## فروق العملة
+## Currency differences
 
-| الخيار | الأثر |
+| Option | Effect |
 |---|---|
-| تسوية فرق العملة | تفعيل التسوية التلقائية لفروق العملة. |
+| Adjust currency difference | Enable automatic adjustment of currency differences. |
 
-## الإقفال
+## Closing
 
-| الخيار | الأثر |
+| Option | Effect |
 |---|---|
-| السماح بعمل قيد الإغلاق حتى مع وجود حركات غير معالجة | تجاوز حجب الإقفال عند وجود طلبات أعمال متعثّرة (انظر [كيف تُعالَج المستندات](./accounting-request-processing.md)). |
+| Allow making the closing entry even with unprocessed transactions | Bypass blocking the close when there are stuck business requests (see [How documents are processed](./accounting-request-processing.md)). |
 
-## الموازنات
+## Budgets
 
-| الخيار | الأثر |
+| Option | Effect |
 |---|---|
-| تفعيل الموافقات للموازنات | طلب موافقة عند تجاوز الموازنة. |
-| تفعيل منع الحفظ للموازنات | رفض الحفظ عند تجاوز الموازنة. |
-| استخدام من تاريخ/إلى تاريخ في التحقق والموافقة | اعتماد المدى الزمني في فحص الموازنة. |
+| Enable approvals for budgets | Require approval when a budget is exceeded. |
+| Enable prevent saving for budgets | Reject saving when a budget is exceeded. |
+| Use from-date/to-date in validation and approval | Adopt the date range in budget checking. |
 
-## الضريبة والفاتورة الإلكترونية
+## Tax and e-invoicing
 
-| الخيار | الأثر |
+| Option | Effect |
 |---|---|
-| إضافة حقول الضريبة لسند الصرف / القبض | إظهار حقول الضريبة على السندات. |
-| إضافة حقول الضريبة 1 / 2 لسند القيد | إظهار جانبَي الضريبة في القيد اليدوي. |
-| تحديث رقم التسجيل الضريبي والسجل التجاري مع الحفظ في فواتير المشتريات المتنوعة | تحديث البيانات الضريبية آليًا. |
+| Add tax fields to payment / receipt voucher | Show tax fields on the vouchers. |
+| Add tax 1 / 2 fields to the journal entry | Show the tax sides in the manual entry. |
+| Update tax-registration and commercial-registration numbers on save in misc purchase invoices | Auto-update tax data. |
 
-## القروض والودائع والتسهيلات
+## Loans, deposits, and facilities
 
-| الخيار | الأثر |
+| Option | Effect |
 |---|---|
-| عدد أيام السنة لاحتساب فائدة التسهيل الائتماني | أساس احتساب الفائدة (الافتراضي 365). |
-| عدم تجميع أسطر سداد فائدة الوديعة بعد تاريخ نهايتها | ضبط احتساب فائدة الوديعة. |
-| عدم التحقق من القروض والودائع قبل تاريخ | تجاوز التحقق قبل تاريخ معيّن. |
+| Days per year for credit-facility interest calculation | The interest-calculation basis (default 365). |
+| Do not collect deposit interest payment lines after the deposit's end date | Tune deposit-interest calculation. |
+| Do not validate loans and deposits before a date | Skip validation before a given date. |
 
-## التكويد وأخرى
+## Coding and others
 
-| الخيار | الأثر |
+| Option | Effect |
 |---|---|
-| دمج تكويد الحسابات والشجرة | توحيد منطق التكويد التلقائي. |
-| السماح بتكرار بادئة التكويد في دفتر الأوراق | إتاحة تكرار البادئة. |
-| إنشاء حركات للأسطر الفارغة | معالجة الأسطر الخالية. |
-| السماح بالتحويل بين أكثر من شركتين في جاري تحويل الشركات | تمديد تحويل الشركات لأكثر من طرفين. |
+| Merge accounts and charts auto-coding | Unify the auto-coding logic. |
+| Allow repeating the auto-coding prefix in the paper book | Permit prefix repetition. |
+| Create transactions for empty lines | Process empty lines. |
+| Allow transfers between more than two companies in inter-company transfer | Extend inter-company transfer beyond two parties. |
 
-## للدعم الفني
+## For Support
 
-- عند أي سؤال «أين أُفعِّل/أُعطِّل هذا السلوك؟» ابدأ من هذه الشاشة قبل الافتراض أنها مشكلة برمجية.
-- الخيارات المتعلقة بالحسابات والذمم تتقاطع مع إعداد [الحساب](../accounts.md) نفسه؛ راجِع الاثنين معًا.
-- خيارات الفترات والإقفال تكمّلها صفحة [الإقفال والتحكم في الفترات](../year-end-and-period-control.md).
+- For any "where do I enable/disable this behavior?" question, start from this screen before assuming it's a code issue.
+- Account and subsidiary options intersect with the [account](../accounts.md) setup itself; review both together.
+- Period and closing options are complemented by the [Year-end & period control](../year-end-and-period-control.md) page.

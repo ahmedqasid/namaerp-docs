@@ -1,21 +1,19 @@
-<rtl>
+# Some Information About Using This Site
 
-# بعض المعلومات عن استعمال هذا الموقع
+This site contains technical documentation for the **Namasoft ERP** system.
 
-هذا الموقع يحتوي على توثيق فني لنظام **نماسوفت ERP**.
+The content is divided into three main sections:
 
-المحتوى مقسم إلى ثلاثة أجزاء رئيسية:
-
-1. **دليل الاستخدام**: يشمل شرحًا لتقارير النظام، ومسارات الكيان، ولغة Tempo، وغيرها.
-2. **أمثلة متنوعة**: تشمل سيناريوهات جاهزة وكود يمكن نسخه أو استيراده.
-3. **أسئلة شائعة ومشاكل عامة**: تحتوي على حلول مختصرة لأشهر الاستفسارات والمشاكل.
+1. **Usage Guide**: Covers explanations of system reports, Entity Flows, the Tempo language, and more.
+2. **Various Examples**: Includes ready-made scenarios and code that can be copied or imported.
+3. **Common Questions and General Issues**: Contains concise solutions to the most frequently asked questions and problems.
 
 ---
 
-## طريقة استيراد الأمثلة على هيئة JSON مدمج
+## How to Import Examples in Embedded JSON Format
 
-في بعض الأحيان يتم توفير كود بصيغة JSON يمكن استيراده مباشرة داخل النظام.
-مثلًا، في قسم الأسئلة الشائعة عن الموافقات، قد تجد المثال التالي:
+In some cases, code in JSON format is provided that can be imported directly into the system.
+For example, in the FAQ section on approvals, you might find the following example:
 
 ```json
 {
@@ -33,30 +31,30 @@
 }
 ```
 
-### لاستيراد المثال داخل النظام:
+### To Import the Example into the System:
 
-* انسخ محتوى الكود.
-* افتح شاشة **تعريف الموافقة**.
-* اضغط على `Alt + Ctrl + X`.
-* من قائمة "المزيد"، اختر **Import Into Current Record**.
-* الصق الكود داخل حقل JSON.
-* إذا كنت تريد إضافة السطور إلى السطور الحالية بدلاً من استبدالها، فعّل خيار **Add To Current Lines**.
+* Copy the code content.
+* Open the **Approval Definition** screen.
+* Press `Alt + Ctrl + X`.
+* From the "More" menu, choose **Import Into Current Record**.
+* Paste the code into the JSON field.
+* If you want to add the lines to the existing lines instead of replacing them, enable the **Add To Current Lines** option.
 
 ---
 
-## نسخ مثال لاستخدامه في التوثيق
+## Copying an Example to Use in Documentation
 
-إذا أردت نسخ سجل من النظام بصيغة مبسطة لوضعه في مقالة داخل هذا الموقع:
+If you want to copy a record from the system in a simplified format to include in an article on this site:
 
-* اذهب إلى السجل المطلوب.
-* اضغط على `Alt + Ctrl + X`.
-* من "المزيد"، اختر **Simple Export For Docs**.
-* انسخ المحتوى والصقه داخل المقالة.
+* Go to the desired record.
+* Press `Alt + Ctrl + X`.
+* From "More", choose **Simple Export For Docs**.
+* Copy the content and paste it into the article.
 
 
-## روابط الخيارات والأدوات
+## Links for Options and Tools
 
-لتسهيل تشغيل الأدوات والخيارات المختلفة داخل النظام، ستجد في كثير من المقالات روابط تشغيل على الشكل التالي:
+To make it easier to launch various tools and options within the system, many articles contain launcher links in the following format:
 
 <UtilityLinkBuilder
   className="com.namasoft.erp.gui.server.RecommitFromFile"
@@ -68,16 +66,14 @@
   :gui="true"
 />
 
-عند عرض الرابط، ستجد زرين بجواره:
+When the link is displayed, you will find two buttons next to it:
 
-### الزر الأول:
+### First Button:
 
 <CopyIcon/>  
-زر النسخ — يسمح لك بنسخ الرابط كما هو واستعماله مباشرة في متصفحك أو داخل أدوات النظام.
+The copy button — allows you to copy the link as-is and use it directly in your browser or within the system's tools.
 
-### الزر الثاني:
+### Second Button:
 
 <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="width: 24px; height: 24px;stroke-width: 2;"><path d="M17.94 17.94A10.93 10.93 0 0112 20c-7 0-11-8-11-8a21.55 21.55 0 014.22-5.89M9.88 9.88A3 3 0 0114.12 14.12M3 3l18 18" /></svg>
-زر التعديل — عند الضغط عليه يظهر حقل نصي يمكنك من خلاله تعديل **رابط السيرفر** قبل تشغيل الأداة، مما يسهل عليك نسخ الرابط الكامل بعد التعديل أو الانتقال إليه مباشرة.
-
-</rtl>
+The edit button — when clicked, a text field appears that allows you to modify the **server address** before launching the tool, making it easy to copy the complete link after editing or navigate to it directly.

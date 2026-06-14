@@ -1,4 +1,4 @@
-# دليل استعمال النقاط الفنية في نقاط البيع
+# Nama POS — Technical Points of Use Guide
 
 Nama ERP is a web-based system, but its **Nama POS** module includes a dedicated **desktop application** for Points of Sale (POS), offering both online and offline capabilities:
 
@@ -121,324 +121,320 @@ Displays the remaining change to be returned to the customer.
 
 These templates provide a flexible way to control real-time messaging on POS displays using Tempo syntax.
 
-<rtl>
+## Filtering Search Screens in POS Using Machine Dimensions
 
+In Nama ERP, access dimension filters (such as company, branch, sector, etc.) are applied automatically on standard screens. However, in the **POS system**, these filters are not applied automatically because the system relies on the machine's (register's) dimensions rather than the user's dimensions.
 
-## فلترة البحث في شاشات نقاط البيع باستخدام محددات الماكينة
+To enable filtering in POS search screens based on machine dimensions, use the **POS Settings** screen, specifically the **"Dimension Filtering"** table.
 
-في نظام نما، يتم تطبيق الفلترة تلقائيًا على محددات الدخول (مثل الشركة، الفرع، القطاع...) في الشاشات العادية.
-ولكن في **نظام نقاط البيع (POS)**، لا يتم تطبيق هذه الفلاتر بشكل تلقائي، لأن النظام يعتمد على محددات الجهاز (الماكينة) بدلاً من المستخدم.
+### Example:
 
-لذلك، لتفعيل الفلترة في شاشات البحث داخل نقاط البيع بناءً على محددات الماكينة، يتم استخدام **شاشة إعدادات نقاط البيع**، وتحديدًا من خلال جدول **"فلترة المحددات"**.
+Suppose you want to filter the **Zone (used in the delivery address)** in a **POS Sales Invoice** so that only zones linked to the current machine's branch are displayed:
 
-### مثال:
+1. Open the **POS Settings** screen.
+2. In the **"Dimension Filtering"** table:
 
-لنفترض أنك تريد فلترة **المنطقة (المستخدمة في عنوان التوصيل)** في **فاتورة مبيعات نقاط البيع** بحيث تظهر فقط المناطق المرتبطة بفرع الماكينة الحالية:
+    * Add a new row.
+    * Select the type **"Zone"** in the **Type** field.
+    * In the **"Filtered In Type"** field, select **"POS Sales Invoice"**.
+    * Enable the **"Filter by Branch"** option.
+3. You can also create a **type list** containing "Zone" and other data types to apply the same filtering to all of them.
 
-1. افتح **شاشة إعدادات نقاط البيع**.
-2. في جدول **"فلترة المحددات"**:
+### Available Filtering Options:
 
-    * أضف سطرًا جديدًا.
-    * اختر النوع **"منطقة"** في حقل **النوع**.
-    * في حقل **"مفلتر في النوع"**، اختر **"فاتورة مبيعات نقاط البيع"**.
-    * فعّل خيار **"فلترة بالفرع"**.
-3. يمكنك أيضًا إنشاء **قائمة أنواع** تحتوي على "منطقة" وأنواع بيانات أخرى لتطبيق نفس الفلترة عليها.
+* Filter by Company
+* Filter by Branch
+* Filter by Sector
+* Filter by Department
+* Filter by Analytical Group
 
-### الخيارات المتاحة للفلترة:
+## Logging In Using an API Key in POS
 
-* ✅ فلترة بالشركة
-* ✅ فلترة بالفرع
-* ✅ فلترة بالقطاع
-* ✅ فلترة بالإدارة
-* ✅ فلترة بالمجموعة التحليلية
+A new login mechanism has been added to the POS system using an **API Key** instead of a username and password. The purpose of this mechanism is to avoid storing the password (even if encrypted) inside POS configuration files, while ensuring the POS continues to work even after a password change.
 
-## تسجيل الدخول باستخدام API Key في نقاط البيع
-
-أضيفت آلية جديدة لتسجيل الدخول إلى نظام نقاط البيع باستخدام **مفتاح API** بدلاً من اسم المستخدم وكلمة المرور. الهدف من هذه الآلية هو تجنّب تخزين كلمة المرور (حتى وإن كانت مشفّرة) داخل ملفات نقاط البيع، مع ضمان استمرار عمل النقاط حتى بعد تغيير كلمة المرور.
-
-يمكن تفعيل هذه الآلية بطريقتين:
+This mechanism can be activated in two ways:
 
 ---
 
-### الطريقة الأولى: الإنشاء التلقائي عبر تسجيل الدخول التقليدي
+### Method 1: Automatic Creation via Traditional Login
 
-1. قم بتشغيل نقطة البيع باستخدام اسم المستخدم وكلمة المرور كما هو معتاد.
-2. يقوم النظام تلقائيًا بـ:
-   - إنشاء ملف `APICredentials`
-      - الكود الخاص بالملف يتضمن معرف المستخدم الذي تم استخدامه.
-   - حفظ مفتاح API داخل ملف `nama.properties`.
-   - عند التشغيل، يبحث النظام أولًا عن ملف `APICredentials` بالكود المناسب، وإن وُجد يستخدمه بدلاً من إنشاء واحد جديد.
+1. Start the POS using the username and password as usual.
+2. The system automatically:
+   - Creates an `APICredentials` file
+      - The file's code includes the user ID that was used.
+   - Saves the API key inside the `nama.properties` file.
+   - On startup, the system first looks for an `APICredentials` file with the matching code; if found, it uses it instead of creating a new one.
 
-هذه الطريقة تتيح الانتقال السلس إلى تسجيل الدخول بمفتاح API دون الحاجة لأي تعديل يدوي.
+This method enables a smooth transition to API key login without any manual configuration.
 
 ---
 
-### الطريقة الثانية: الإنشاء اليدوي
+### Method 2: Manual Creation
 
-1. أنشئ ملف `APICredentials` يدويًا وعيّن فيه المستخدم الذي سيتم تنفيذ العمليات باسمه داخل نقاط البيع (قراءة / كتابة السجلات).
-2. انسخ المفتاح من الملف الناتج.
-3. يمكنك استخدام المفتاح في أحد المواضع التالية:
-   - إدخاله في نافذة الإعدادات المبدئية بدلاً من اسم المستخدم وكلمة المرور.
-   - أو وضعه مباشرة في ملف `nama.properties` الخاص بنقطة البيع:
+1. Create an `APICredentials` file manually and assign the user under whose name POS operations will be performed (reading/writing records).
+2. Copy the key from the resulting file.
+3. You can use the key in one of the following places:
+   - Enter it in the initial settings window instead of the username and password.
+   - Or place it directly in the POS `nama.properties` file:
      ```
      apiKey=dddsbddhbskbsdhdd
      ```
 
 ---
 
-استخدام API Key يمنحك مرونة وأمانًا أكبر، خصوصًا عند الحاجة لتحديث كلمات المرور أو عند إدارة عدد كبير من نقاط البيع.
+Using an API Key gives you greater flexibility and security, especially when updating passwords or managing a large number of POS terminals.
 
-## طرق متطورة لتغيير عرض أعمدة جدول المبيعات في نظام نقاط البيع
+## Advanced Methods for Changing Sales Table Column Widths in POS
 
-### الطريقة اليدوية (السحب والتعديل المباشر)
+### Manual Method (Drag and Direct Edit)
 
-- **كيفية الاستخدام**:  
-  - يتم سحب حدود الأعمدة يدوياً (مشابه لبرنامج Excel) لتغيير العرض.  
-  - عند تعديل العرض لأول مرة، يحفظ النظام القيم الجديدة تلقائياً في ملف:  
-    ```screenProperties.properties```  
-  - يمكن نسخ هذا الملف بعد ضبط جميع الحقول كما هو مطلوب.  
+- **How to use**:
+  - Drag column borders manually (similar to Excel) to change the width.
+  - When a width is modified for the first time, the system automatically saves the new values in the file:
+    ```screenProperties.properties```
+  - You can copy this file after adjusting all fields as required.
 
-- **نشر التعديلات على أجهزة نقاط البيع**:  
-  - **الخيار الأول**: لصق الملف يدوياً في كل جهاز.  
-  - **الخيار الثاني**: الدخول إلى إعدادات النظام ← **خصائص أعمدة المبيعات** ← لصق محتويات الملف ← اختيار **"إرسال الخصائص إلى أجهزة نقاط البيع"** ← حفظ.  
+- **Deploying changes to POS machines**:
+  - **Option 1**: Paste the file manually on each machine.
+  - **Option 2**: Go to system settings → **Sales Column Properties** → paste the file contents → select **"Send Properties to POS Machines"** → save.
 
-- **مميزاتها**:  
-  - مرنة وسريعة للتعديلات الأولية.  
-  - تسمح بضبط دقيق حسب احتياجات المستخدم.  
+- **Advantages**:
+  - Flexible and quick for initial adjustments.
+  - Allows precise control based on user needs.
 
-- **عيوبها**:  
-  - تتطلب تدخلاً يدوياً في حالة التحديث على عدة أجهزة.  
-
----
-
-### التحكم في العرض عبر إعدادات واجهة نقاط البيع
-
-- **كيفية الاستخدام**:  
-  - في صفحة **"إعدادات واجهة نقاط البيع"**، تم إضافة عمود جديد باسم **"العرض"** لكل حقل في جدول المبيعات.  
-  - يمكن تحديد حجم العمود من خلال خيارات محددة مسبقاً (مثل: صغير، صغير جداً، متوسط، كبير، ... إلخ).  
-  - يتم توزيع المساحة تلقائياً بناءً على المقاس المحدد لكل حقل.  
-
-- **متى تُستخدم؟**  
-  - عند الرغبة في ضبط العرض بشكل منظم دون الحاجة للسحب اليدوي.  
-  - في حالات التوزيع النسبي للحقول داخل الجدول.  
-
-- **ماذا لو أردت السحب اليدوي مع تفعيل هذه الميزة؟**  
-  - يتم ترك حقل **"العرض"** فارغاً، مما يسمح للمستخدم بتعديل الحجم يدوياً عند التشغيل.  
-
-- **مميزاتها**:  
-  - لا تحتاج إلى تعديل يدوي لكل جهاز.  
-  - توفر خيارات محددة مسبقاً لتوحيد الشكل عبر الفروع.  
-  - توزع المساحة تلقائياً بين الحقول.  
-
-- **عيوبها**:  
-  - أقل مرونة من الطريقة اليدوية في بعض الحالات الخاصة.  
+- **Disadvantages**:
+  - Requires manual intervention when updating across multiple machines.
 
 ---
 
-# ميزة مركز الاتصال - نظام الطلبات الإلكترونية
+### Controlling Width via POS Interface Settings
 
-## نظرة عامة
-تحوّل ميزة مركز الاتصال ماكينات نقاط البيع إلى محطات عمل قوية لمراكز الاتصال، مما يمكّن المشغلين من استقبال الطلبات عن بُعد وإرسالها إلى ماكينات نقاط بيع أخرى للمعالجة. هذه الميزة مثالية للشركات ذات المواقع المتعددة أو خدمات التوصيل أو عمليات استقبال الطلبات المركزية.
+- **How to use**:
+  - In the **"POS Interface Settings"** page, a new column named **"Width"** has been added for each field in the sales table.
+  - You can specify the column size through predefined options (e.g., small, extra small, medium, large, etc.).
+  - Space is distributed automatically based on the size specified for each field.
 
-### 1. كيفية استخدام الميزة
+- **When to use?**
+  - When you want to set widths in an organized way without manual dragging.
+  - For proportional distribution of fields within the table.
 
-#### وضع مركز الاتصال
+- **What if you want manual dragging with this feature enabled?**
+  - Leave the **"Width"** field empty, which allows the user to manually adjust the size at runtime.
 
-**الخطوة 1: تفعيل وضع مركز الاتصال**
-- اذهب إلى ملف الماكينة وقم بتفعيل "وضع خدمة العملاء"
+- **Advantages**:
+  - No manual editing required on each machine.
+  - Provides predefined options for a consistent look across branches.
+  - Automatically distributes space between fields.
 
-**الخطوة 2: إنشاء طلب**
-1. ابدأ عملية بيع جديدة كالمعتاد
-2. اختر الماكينة/الفرع المرسل إليها الطلب
-3. أضف المنتجات ومعلومات العميل وأي تعليمات خاصة
-4. بدلاً من إكمال البيع، انقر على "تعليق" أو اضغط اختصار التعليق
-5. يتم إرسال الطلب تلقائياً إلى الماكينة المحددة
-6. ستظهر لك رسالة تأكيد بإرسال الطلب
+- **Disadvantages**:
+  - Less flexible than the manual method in some special cases.
 
+---
 
-#### للماكينات المستقبلة
+# Call Center Feature - Electronic Orders System
 
-**الخطوة 1: تفعيل الاستقبال التلقائي للطلبات**
-- اذهب إلى ملف الماكينة وقم بتفعيل هذا الخيار "قراءة الطلبات من مركز خدمة العملاء"
+## Overview
+The Call Center feature turns POS machines into powerful workstations for call centers, enabling operators to receive remote orders and send them to other POS machines for processing. This feature is ideal for businesses with multiple locations, delivery services, or centralized order intake operations.
 
-**الخطوة 2: معالجة الطلب**
-1. بعد التفعيل، ستظهر الطلبات تلقائياً (يتم الفحص كل دقيقة)
-2. سيظهر إشعار منبثق عند وصول طلبات جديدة
-3. اذهب إلى شاشة "الطلبات المعلقة"
-4. ابحث عن الطلب المستلم (محدد كمعلق)
-5. افتح وراجع الطلب
-6. أكمل المعالجة كعملية بيع عادية
+### 1. How to Use the Feature
 
-### 2. فوائد الميزة
-- **استقبال الطلبات المركزي**: استقبال الطلبات من موقع مركزي لعدة فروع
-- **توزيع فعّال للطلبات**: توجيه الطلبات تلقائياً إلى الموقع المناسب
-- **إشعارات فورية**: تنبيهات لحظية عند إرسال واستقبال الطلبات
-- **تكامل سلس**: يعمل مع البنية التحتية الحالية لنقاط البيع
-- **تحسين خدمة العملاء**: معالجة أسرع للطلبات وتقليل أوقات الانتظار
+#### Call Center Mode
 
-### 3. حالات الاستخدام التجارية
+**Step 1: Enable Call Center Mode**
+- Go to the machine record and enable "Customer Service Mode"
 
-#### خدمات التوصيل
-- مركز الاتصال يدير جميع طلبات التوصيل
-- توزيع الطلبات على المواقع المناسبة
-- تتبع الطلبات في الوقت الفعلي
-- تحسين تنسيق التوصيل
+**Step 2: Create an Order**
+1. Start a new sale as usual
+2. Select the machine/branch to which the order will be sent
+3. Add products, customer information, and any special instructions
+4. Instead of completing the sale, click "Suspend" or press the suspend shortcut
+5. The order is automatically sent to the selected machine
+6. A confirmation message will appear confirming the order was sent
 
 
-### 4. ما يميز هذه الخاصية في نما سوفت
+#### For Receiving Machines
 
-#### المزامنة الفورية
-- نقل الطلبات فورياً إلى الخادم
-- الماكينات المستهدفة تفحص الطلبات الجديدة كل دقيقة
-- إعادة محاولة تلقائية في حالة مشاكل الشبكة
+**Step 1: Enable Automatic Order Reception**
+- Go to the machine record and enable "Read Orders from Customer Service Center"
 
-#### نقل كامل للطلب
-- جميع المنتجات مع الكميات والأسعار
-- معلومات العميل
-- التعليمات والملاحظات الخاصة
-- الخصومات والعروض الترويجية
+**Step 2: Process the Order**
+1. After activation, orders will appear automatically (checked every minute)
+2. A pop-up notification will appear when new orders arrive
+3. Go to the "Suspended Orders" screen
+4. Find the received order (marked as suspended)
+5. Open and review the order
+6. Complete processing as a normal sale
 
-#### الإشعارات الذكية
-- نوافذ منبثقة مرئية لأحداث الطلبات
-- رسائل خطأ واضحة في حالة المشاكل
+### 2. Feature Benefits
+- **Centralized Order Intake**: Receive orders from a central location for multiple branches
+- **Efficient Order Distribution**: Automatically route orders to the appropriate location
+- **Real-Time Notifications**: Instant alerts when orders are sent and received
+- **Seamless Integration**: Works with the existing POS infrastructure
+- **Improved Customer Service**: Faster order processing and reduced wait times
 
-# ميزة الأصناف الإضافية للصنف - نظام نقاط البيع
+### 3. Business Use Cases
 
-## نظرة عامة
-تتيح ميزة الأصناف الإضافية للعملاء إضافة عناصر مكملة لأصناف رئيسية في نقطة البيع. يمكن ربط كل صنف بمجموعة من الأصناف الإضافية مثل الإضافات (كالسكر والحليب للقهوة)، أو الاختيارات المتعددة (كالمقاسات والألوان). هذه الميزة ضرورية للمطاعم والمقاهي ومحلات بيع الملابس.
-
-### 1. فوائد الميزة
-- **إضافات مخصصة**: إضافة عناصر مكملة لأصناف رئيسية
-- **خيارات متعددة**: دعم ما يصل إلى 10 مجموعات من الأصناف الإضافية
-- **مرونة في العرض**: عرض خصائص الصنف الرئيسي (الإصدارات، الألوان، المقاسات) بطرق مختلفة
-- **تحكم في الواجهة**: تخصيص طريقة عرض كل مجموعة من العناصر
-- **تحسين الطلبات**: تسهيل تخصيص الطلبات للعملاء
-
-### 2. حالات الاستخدام
-
-#### محلات الإلكترونيات
-- إضافة ضمانات إضافية
-- اختيار اكسسوارات مكملة
-- خدمات التركيب والتوصيل
-- تخصيص المواصفات التقنية
-
-### 3. كيفية استخدام الميزة
-
-#### إعداد الأصناف الإضافية
-
-**الخطوة 1: إنشاء ملف الأصناف الإضافية**
-1. اذهب إلى "الأصناف الإضافية للصنف في نقاط البيع"
-3. أضف ملف جديد بالمعلومات التالية:
-    - **الصنف الأساسي**: اختر الصنف أو المجموعة المراد ربطها
-
-**إضافة الأصناف الإضافية**
-1. في قسم "الأصناف الإضافية"، اختر المجموعة المطلوبة (1-10)
-2. أضف العناصر بالمعلومات التالية:
-    - **الصنف**: اختر الصنف الإضافي
-    - **صنف افتراضي**: حدد إذا كان هذا الصنف مختاراً بشكل افتراضي
-    - **الوحدة الافتراضية**: حدد وحدة القياس الافتراضية
-3. في قسم "إعدادات الأصناف الإضافية"، أضف إعدادات كل مجموعة:
-    - **نوع الأصناف الإضافية**: اختر المجموعة (1-10)
-    - **العنوان في نقطة البيع**: النص الذي سيظهر للمستخدم
-    - **إمكانية اختيار متعدد**: إمكانية اختيار عدة أصناف إضافية من نفس المجموعة
-    - **جعل الإضافات إجبارية**: إجبار المستخدم على الاختيار
-    - **إضافة زر البحث**: إضافة زر بحث للعناصر
-    - **إضافة زر التصفح**: إضافة زر للتنقل بين الصفحات
-
-**إظهار خصائص الصنف الأساسي**
-1. **لإظهار الإصدارات**:
-    - فعل "إظهار إصدارات الصنف"
-    - حدد ترتيب الظهور
-    - اختر طريقة العرض (الاسم فقط، الكود فقط، الكود والاسم)
-    - أدخل عنوان الإصدارات في نقطة البيع
-
-2. **لإظهار الألوان**:
-    - فعل "إظهار ألوان الصنف"
-    - حدد ترتيب الظهور
-    - اختر طريقة العرض
-    - أدخل عنوان الألوان في نقطة البيع
-
-3. **لإظهار المقاسات**:
-    - فعل "إظهار مقاسات الصنف"
-    - حدد ترتيب الظهور
-    - اختر طريقة العرض
-    - أدخل عنوان المقاسات في نقطة البيع
+#### Delivery Services
+- The call center manages all delivery orders
+- Distribute orders to appropriate locations
+- Track orders in real time
+- Improve delivery coordination
 
 
-#### استخدام الأصناف الإضافية في نقطة البيع
+### 4. What Sets This Feature Apart in Nama ERP
 
-**الخطوة 1: اختيار الصنف الاساسي**
-1. في شاشة البيع، اختر الصنف الاساسي
-2. ستظهر نافذة الأصناف الإضافية تلقائياً إذا كانت مفعلة
+#### Instant Synchronization
+- Orders are transferred immediately to the server
+- Target machines check for new orders every minute
+- Automatic retry in case of network issues
 
-**الخطوة 2: تحديد خصائص الصنف الأساسي إذا كانت مفعلة**
-1. **اختيار الإصدار**: إذا كانت الخاصية مفعلة، اختر الإصدار المطلوب
-2. **اختيار اللون**: حدد اللون المطلوب من القائمة
-3. **اختيار المقاس**: حدد المقاس المناسب
+#### Full Order Transfer
+- All products with quantities and prices
+- Customer information
+- Special instructions and notes
+- Discounts and promotions
 
-**الخطوة 3: إضافة الأصناف الإضافية**
-1. لكل مجموعة من الأصناف الإضافية:
-    - راجع العنوان المخصص للمجموعة
-    - اختر العنصر أو العناصر المطلوبة
-    - استخدم البحث إذا كان متاحاً
-    - تصفح الصفحات للمزيد من الخيارات
+#### Smart Notifications
+- Visual pop-up windows for order events
+- Clear error messages in case of problems
 
-**الخطوة 4: تأكيد الاختيار**
-1. راجع جميع الاختيارات
-2. تأكد من اختيار العناصر الإجبارية
-3. اضغط "موافق" لإضافة الصنف مع إضافاته للفاتورة
+# Item Add-ons Feature - POS System
 
-### 4. الميزات الرئيسية
+## Overview
+The Item Add-ons feature allows customers to add complementary elements to main items at the point of sale. Each item can be linked to a set of add-on items such as extras (like sugar and milk for coffee), or multiple-choice options (like sizes and colors). This feature is essential for restaurants, cafes, and clothing stores.
 
-#### المرونة
-- دعم ما يصل إلى 10 مجموعات من الأصناف الإضافية
-- تخصيص عنوان كل مجموعة
-- تحديد العناصر الإجبارية والاختيارية
-- دعم الاختيار المتعدد أو المفرد
+### 1. Feature Benefits
+- **Custom Add-ons**: Add complementary elements to main items
+- **Multiple Options**: Support for up to 10 groups of add-on items
+- **Display Flexibility**: Display main item properties (versions, colors, sizes) in different ways
+- **Interface Control**: Customize how each group of elements is displayed
+- **Improved Orders**: Facilitate order customization for customers
 
-#### خيارات العرض
-- عرض بالاسم فقط أو الكود فقط أو كليهما
-- ترتيب العرض قابل للتخصيص
-- عناوين مخصصة لكل خاصية
-- تحكم في عدد العناصر المعروضة في الصفحة
+### 2. Use Cases
 
-#### سهولة الاستخدام
-- واجهة بديهية في نقطة البيع
-- أزرار بحث وتصفح عند الحاجة
-- إمكانية جعل الاختيارات إجبارية
-- دعم التصفح بين الصفحات للمجموعات الكبيرة
+#### Electronics Stores
+- Adding extended warranties
+- Selecting complementary accessories
+- Installation and delivery services
+- Customizing technical specifications
 
-#### التكامل مع المخزون
-- ربط الأصناف الإضافية بنظام المخزون
-- تتبع كميات الأصناف الإضافية
-- حساب التكلفة الإجمالية تلقائياً
-- دعم وحدات القياس المختلفة
+### 3. How to Use the Feature
 
-### 5. أفضل الممارسات
+#### Setting Up Add-ons
 
-#### تنظيم الأصناف الإضافية
-- قم بتجميع العناصر المترابطة في مجموعة واحدة
-- استخدم أسماء واضحة وسهلة الفهم للمجموعات
-- رتب العناصر حسب الأهمية أو الشعبية
-- تجنب إضافة عدد كبير من العناصر في مجموعة واحدة
+**Step 1: Create the Add-ons Record**
+1. Go to "Item Add-ons for POS"
+3. Add a new record with the following information:
+    - **Base Item**: Select the item or group to link
 
-#### تحسين تجربة المستخدم
-- اجعل العناصر الأكثر شعبية مرئية أولاً
-- استخدم عناوين وصفية للمجموعات
-- فعّل البحث للمجموعات الكبيرة
-- حدد عدد مناسب من العناصر في كل صفحة
+**Adding Add-on Items**
+1. In the "Add-on Items" section, select the desired group (1-10)
+2. Add elements with the following information:
+    - **Item**: Select the add-on item
+    - **Default Item**: Specify if this item is selected by default
+    - **Default Unit**: Specify the default unit of measure
+3. In the "Add-on Item Settings" section, add settings for each group:
+    - **Add-on Item Type**: Select the group (1-10)
+    - **Title in POS**: The text that will appear to the user
+    - **Allow Multiple Selection**: Ability to select multiple add-on items from the same group
+    - **Make Add-ons Mandatory**: Force the user to make a selection
+    - **Add Search Button**: Add a search button for elements
+    - **Add Browse Button**: Add a button to navigate between pages
 
-#### إدارة العناصر الإجبارية
-- اجعل الخيارات الأساسية إجبارية فقط
-- وضح للمستخدم العناصر الإجبارية بشكل واضح
-- تجنب جعل عدد كبير من العناصر إجبارياً
-- اسمح بالاختيار المتعدد عند الضرورة فقط
+**Displaying Main Item Properties**
+1. **To display versions**:
+    - Enable "Show Item Versions"
+    - Set the display order
+    - Choose the display method (name only, code only, code and name)
+    - Enter the versions title in POS
 
-## إعادة تعيين عداد محاولات الإرسال للمستندات غير المرسلة
+2. **To display colors**:
+    - Enable "Show Item Colors"
+    - Set the display order
+    - Choose the display method
+    - Enter the colors title in POS
 
-عندما تفشل مستندات نقاط البيع في الإرسال إلى الخادم، يقوم النظام بزيادة عداد المحاولات الفاشلة (`writeFailures`). بعد 25 محاولة فاشلة (القيمة الافتراضية)، يتوقف النظام عن محاولة إرسال المستند.
+3. **To display sizes**:
+    - Enable "Show Item Sizes"
+    - Set the display order
+    - Choose the display method
+    - Enter the sizes title in POS
 
-لإعادة تعيين العداد والسماح للنظام بمحاولة الإرسال مرة أخرى، قم بتنفيذ الاستعلام التالي على قاعدة بيانات نقاط البيع:
+
+#### Using Add-ons at the Point of Sale
+
+**Step 1: Select the Main Item**
+1. In the sales screen, select the main item
+2. The add-ons window will appear automatically if enabled
+
+**Step 2: Specify Main Item Properties if Enabled**
+1. **Select Version**: If the feature is enabled, choose the desired version
+2. **Select Color**: Choose the desired color from the list
+3. **Select Size**: Choose the appropriate size
+
+**Step 3: Add the Add-on Items**
+1. For each group of add-on items:
+    - Review the group's designated title
+    - Select the desired element or elements
+    - Use search if available
+    - Browse pages for more options
+
+**Step 4: Confirm Selection**
+1. Review all selections
+2. Make sure mandatory elements are selected
+3. Click "OK" to add the item with its add-ons to the invoice
+
+### 4. Key Features
+
+#### Flexibility
+- Support for up to 10 groups of add-on items
+- Customize the title for each group
+- Specify mandatory and optional elements
+- Support for multiple or single selection
+
+#### Display Options
+- Display by name only, code only, or both
+- Display order is customizable
+- Custom titles for each property
+- Control the number of elements displayed per page
+
+#### Ease of Use
+- Intuitive interface at the point of sale
+- Search and browse buttons when needed
+- Ability to make selections mandatory
+- Support for pagination for large groups
+
+#### Inventory Integration
+- Link add-on items to the inventory system
+- Track add-on item quantities
+- Automatically calculate total cost
+- Support for different units of measure
+
+### 5. Best Practices
+
+#### Organizing Add-on Items
+- Group related elements together in one group
+- Use clear and easy-to-understand names for groups
+- Arrange elements by importance or popularity
+- Avoid adding too many elements in a single group
+
+#### Improving User Experience
+- Make the most popular elements visible first
+- Use descriptive titles for groups
+- Enable search for large groups
+- Set an appropriate number of elements per page
+
+#### Managing Mandatory Elements
+- Make only essential options mandatory
+- Clearly indicate mandatory elements to the user
+- Avoid making a large number of elements mandatory
+- Allow multiple selection only when necessary
+
+## Resetting the Send Attempt Counter for Unsent Documents
+
+When POS documents fail to send to the server, the system increments a failed-attempt counter (`writeFailures`). After 25 failed attempts (the default value), the system stops trying to send the document.
+
+To reset the counter and allow the system to retry sending, run the following query against the POS database:
 
 ```sql
 UPDATE POSSalesInvoice SET writeFailures = 0 WHERE sent = 0;
@@ -463,12 +459,11 @@ UPDATE POSInventory SET writeFailures = 0 WHERE sent = 0;
 ```
 
 ::: warning
-تأكد من حل المشكلة الأساسية التي تسببت في فشل الإرسال (مثل مشاكل الشبكة أو إعدادات الخادم) قبل تنفيذ هذا الاستعلام.
+Make sure to resolve the underlying issue that caused the send failure (such as network problems or server configuration) before running this query.
 :::
 
-## تسجيل الدخول بالبصمة
+## Fingerprint Login
 
-يدعم نظام نقاط البيع تسجيل الدخول باستخدام بصمة الإصبع عبر جهاز Digital Persona URU4500، مما يتيح تبديل المستخدمين بسرعة وأمان دون الحاجة لكتابة بيانات الدخول في كل مرة.
+The POS system supports login using a fingerprint via the Digital Persona URU4500 device, allowing users to switch quickly and securely without needing to type login credentials each time.
 
-للاطلاع على التفاصيل الكاملة: [تسجيل الدخول بالبصمة في نقاط البيع](./pos-fingerprint-login.md)
-</rtl>
+For full details: [Fingerprint Login in POS](./pos-fingerprint-login.md)

@@ -1,54 +1,54 @@
-# الملفات الأساسية لإدارة الشحن
+# Freight Master Files
 
-قبل أن تنشئ أول أمر تشغيل، تحتاج إلى تعريف اللبنات التي تتكوّن منها كل شحنة: ما الخدمات التي تقدّمها، وفي أي حاويات، وعلى أي بواخر، ومن وإلى أي موانئ. هذه الملفات الأساسية (Master Files) تجدها جميعًا تحت **نظام إدارة الشحن ← الملفات**، وتُعرَّف مرة واحدة ثم تُستخدم في كل المستندات.
+Before you create your first operation order, you need to define the building blocks every shipment is made of: which services you offer, in which containers, on which vessels, and to and from which ports. You'll find all of these master files under **Freight Management System → Master Files**, defined once and then reused across every document.
 
-## بنود الخدمة (Service Items)
+## Service Items
 
-بنود الخدمة هي "أصناف" وحدة الشحن — لكنها خدمات لا بضائع. كل بند يمثّل خدمة تبيعها أو تشتريها: شحن بحري، تخليص جمركي، نقل بري، مولّد تبريد (Genset)، بريد سريع، أو خدمة أخرى.
+Service items are the "items" of the freight module — but they're services, not goods. Each one represents a service you sell or buy: ocean freight, customs clearance, trucking, a refrigeration genset, courier, or another service.
 
-عند تعريف بند الخدمة تحدّد طبيعته عبر مجموعة من العلامات:
+When you define a service item you set its nature through a set of flags:
 
-- **شحن بحري / تخليص جمركي / نقل بري / مولّدات / بريد سريع / أخرى** — تصنّف البند ضمن نوع الخدمة المناسب، فيظهر في القسم الصحيح داخل أمر التشغيل وقوائم الأسعار.
-- **خطة الضريبة (Tax Plan)** — كيف تُحسب الضريبة على هذه الخدمة.
-- **الحسابات الفرعية (Subsidiary Accounts)** — حسابات الإيراد/التكلفة التي يرحّل إليها البند.
-- **الكمية والوحدة الافتراضية** — لتسريع إدخال السطور.
+- **Ocean Freight / Custom Clearance / Trucking / Genset / Courier / Other** — classify the item under the right service type, so it appears in the correct section inside the operation order and price lists.
+- **Tax Plan** — how tax is calculated on this service.
+- **Subsidiary Accounts** — the revenue/cost accounts the item posts to.
+- **Default quantity and unit** — to speed up line entry.
 
-::: info حقول مرتبطة بالفاتورة الإلكترونية
-يحمل بند الخدمة ثلاثة حقول تخصّ الفاتورة الإلكترونية: **كود هيئة الضرائب (Tax Authority Code)** لتصنيف الخدمة لدى الهيئة، و**بند الفاتورة الإلكترونية** لإرسال بند بديل/مجمَّع بدل البند التشغيلي، و**بند العمولة** لفصل العمولة عن التكلفة في نموذج الوكيل. تفاصيل ذلك في صفحة [الفاتورة الإلكترونية](./freight-einvoicing.md).
+::: info Fields related to e-invoicing
+A service item carries three fields for e-invoicing: a **Tax Authority Code** to classify the service for the authority, an **E-Invoice Item** to send a substitute/consolidated item instead of the operational one, and a **Commission Item** to separate commission from cost in the agent model. Details are in the [E-Invoicing](./freight-einvoicing.md) page.
 :::
 
-![بند خدمة](./images/master-files/service-item-ar.png)
+![Service item](../../ar/modules/freight/images/master-files/service-item-en.png)
 
-## الحاويات وأنواعها وأحجامها
+## Containers, Types, and Sizes
 
-تُعرّف **الحاوية (Container)** بنوعها وحجمها:
+A **Container** is defined by its type and size:
 
-- **نوع الحاوية (Container Type)** — جافة (Dry)، مبرّدة (Reefer)، مفتوحة السقف، خزّان… إلخ.
-- **حجم الحاوية (Container Size)** — 20 قدم، 40 قدم، 40 عالية (HC)… إلخ.
+- **Container Type** — dry, reefer, open-top, tank, etc.
+- **Container Size** — 20ft, 40ft, 40ft High Cube (HC), etc.
 
-تُختار الحاوية لاحقًا في أمر التشغيل وبوليصة الشحن وسطور الخدمة، وتُستخدم كأحد محدِّدات مطابقة سطور البيع بالشراء عند حساب التكلفة.
+The container is later selected on the operation order, bill of lading, and service lines, and is used as one of the keys when matching sales lines to purchase lines for cost calculation.
 
-![حاوية](./images/master-files/container-ar.png)
+![Container](../../ar/modules/freight/images/master-files/container-en.png)
 
-## البواخر والموانئ وجداول الإبحار
+## Vessels, Ports, and Sailing Schedules
 
-- **الباخرة (Ocean Vessel)** — ملف بسيط بكود واسم لكل سفينة تتعامل معها.
-- **الميناء (Shipping Port)** — موانئ التحميل والتفريغ والوجهة النهائية، وتُستخدم في أمر التشغيل والبوليصة وسطور الخدمة.
-- **جدول الإبحار (Sailing Schedule)** — جدول مرجعي يجمع في سطوره خطوط الرحلات المتاحة: الدولة، ميناء التحميل والتفريغ، الخط الملاحي، الباخرة والرحلة، التواريخ المتوقعة للإبحار والوصول، وزمن العبور (Transit Time) بعدد الأسابيع. يساعد فريق المبيعات على اختيار أنسب رحلة وأسرعها للعميل.
+- **Ocean Vessel** — a simple file with a code and name for each ship you deal with.
+- **Shipping Port** — loading, discharge, and final-destination ports, used on the operation order, bill of lading, and service lines.
+- **Sailing Schedule** — a reference table whose lines gather the available sailings: country, loading and discharge ports, shipping line, vessel and voyage, estimated sailing and arrival dates, and transit time in weeks. It helps the sales team pick the fastest, most suitable sailing for the customer.
 
-![جدول إبحار](./images/master-files/sailing-schedule-ar.png)
+![Sailing schedule](../../ar/modules/freight/images/master-files/sailing-schedule-en.png)
 
-## السلع والدول والمواقع
+## Commodities, Countries, and Locations
 
-- **السلعة (Commodity)** — وصف البضاعة المشحونة (إلكترونيات، مواد غذائية مبرّدة، مواد خطرة…)؛ تُستخدم في أمر التشغيل والبوليصة وكأحد محدِّدات السعر.
-- **الدولة (Country)** — دول المنشأ والوجهة، وتظهر في جداول الإبحار والمواد البريدية.
-- **المواقع (Location) وأقسامها وفئاتها وأنواعها** — تنظيم مكاني يُستخدم بشكل أساسي في نظام البريد لتحديد مكان حفظ المواد.
+- **Commodity** — a description of the shipped goods (electronics, chilled foods, dangerous goods…); used on the operation order, bill of lading, and as one of the pricing keys.
+- **Country** — origin and destination countries, appearing on sailing schedules and mail items.
+- **Locations** (with sections, classes, and types) — spatial organization used mainly in the postal system to record where items are stored.
 
-## أنواع بوالص الشحن ووحدات القياس
+## Bill of Lading Types and Units of Measure
 
-- **نوع بوليصة الشحن (Bill of Lading Type)** — تصنيف البوالص (Master B/L, House B/L… إلخ).
-- **وحدة القياس (FRM UOM)** — وحدات القياس الخاصة بالشحن (وزن، حجم/CBM، عدد…) المستخدمة في كميات السطور.
+- **Bill of Lading Type** — classifies bills of lading (Master B/L, House B/L, etc.).
+- **FRM UOM** — freight-specific units of measure (weight, volume/CBM, count…) used in line quantities.
 
-::: tip ابدأ صغيرًا
-لا تحتاج إلى تعريف كل شيء مقدّمًا. ابدأ ببنود الخدمة التي تبيعها فعلًا وأنواع الحاويات التي تتعامل معها، وأضف البواخر والموانئ والسلع تدريجيًا كلما ظهرت في شحناتك.
+::: tip Start small
+You don't need to define everything up front. Start with the service items you actually sell and the container types you handle, and add vessels, ports, and commodities gradually as they appear in your shipments.
 :::

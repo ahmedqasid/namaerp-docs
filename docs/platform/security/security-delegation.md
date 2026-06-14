@@ -1,50 +1,46 @@
-<rtl>
+# Temporary Additional Permissions (Delegation)
 
-# الصلاحيات الإضافية المؤقتة (التفويض)
+The purchasing manager is on two weeks' leave, and purchase order approvals must keep flowing. The wrong solution — sharing the manager's password or permanently upgrading the stand-in's security profile and forgetting to revert it — is common enough to deserve a better alternative. The right answer in Nama is the **Temporary Additional Permissions (Security Profile Transfer)** document: a tracked, time-bounded delegation that is added on top of the stand-in's existing permissions and then expires on its own.
 
-مدير المشتريات في إجازة لأسبوعين، ويجب أن يستمر اعتماد أوامر الشراء. الحل الخاطئ المعتاد هو إعطاء النائب كلمة سر المدير أو رفع ملف صلاحياته نهائياً ثم نسيان إرجاعه. أما الحل الصحيح في نما فهو مستند **الصلاحيات الإضافية المؤقتة (Security Profile Transfer)**: تفويض موثق، محدد المدة، يضاف فوق صلاحيات النائب ثم ينتهي وحده.
+**Path**: Administration > Security > Security Profile Transfer
 
-**المسار**: إدارة النظام > الصلاحيات > صلاحيات إضافية مؤقته (Administration > Security > Security Profile Transfer)
+![Temporary Additional Permissions document](../../ar/platform/security/images/security-profile-transfer.png)
 
-![مستند الصلاحيات الإضافية المؤقتة](./images/security-profile-transfer.png)
+## Document Structure
 
-## بنية المستند
+The document is straightforward: a standard header (number, date, period, dimensions) and a detail grid where each row is an independent delegation:
 
-المستند بسيط: رأس اعتيادي (الرقم، التاريخ، الفترة، المحددات) وجدول تفاصيل، كل سطر فيه تفويض مستقل:
-
-| العمود | المعنى |
+| Column | Meaning |
 |---|---|
-| **المستخدم المضاف إلى صلاحيته (Granted User)** | النائب — المستخدم الذي *يستلم* الصلاحيات الإضافية. (إلزامي) |
-| **صلاحيات المستخدم (User Profile)** | المفوِّض — المستخدم الذي تُمنح صلاحياته (بسطوره الأساسية وملف صلاحياته وكل ما يخصه) للنائب. |
-| **ملف صلاحيات إضافي (Additional Security Profile)** | بديل أو إضافة: ملف صلاحيات يُمنح مباشرة دون الإشارة لمستخدم بعينه. |
-| **من تاريخ / إلى تاريخ (From / To Date)** | فترة سريان التفويض. خارجها لا أثر للسطر. |
+| **Granted User** | The stand-in — the user who *receives* the additional permissions. (Required) |
+| **User Profile** | The delegator — the user whose permissions (basic rows, security profile, and everything associated with them) are granted to the stand-in. |
+| **Additional Security Profile** | An alternative or addition: a security profile granted directly without referencing a specific user. |
+| **From Date / To Date** | The period during which the delegation is active. Outside this range the row has no effect. |
 
-يمكنك في نفس المستند تفويض عدة أشخاص أو تغطية عدة فترات — كل سطر مستقل بحساباته.
+You can delegate to multiple people or cover multiple periods in the same document — each row is self-contained.
 
-## كيف يعمل التفويض؟
+## How Does Delegation Work?
 
-خلال فترة السريان يعامل النظام المستخدم المستلم كأنه يحمل صلاحياته **وصلاحيات كل من فُوّض عنهم معاً**:
+During the active period, the system treats the receiving user as if they hold their own permissions **plus the permissions of everyone delegated to them**:
 
-- عند فحص أي صلاحية (مطالعة، تعديل، حذف، طباعة، مراجعة، إجراءات، صلاحيات مخصصة...) يُسأل أولاً المستخدم نفسه، فإن لم يملكها سُئل المفوِّضون — وتُمنح الصلاحية إذا منحها *أي منهم*.
-- النتيجة عملياً هي **اتحاد الصلاحيات**: التفويض يضيف ولا ينقص أبداً. لا يمكن استخدامه لتقييد مستخدم — للتقييد عدّل ملف الصلاحيات أو سطور المستخدم نفسها.
-- إذا كان لدى المفوِّض صلاحيات كاملة، فالنائب يكتسب فعلياً صلاحيات كاملة طوال الفترة — فانتبه لمن تفوض عنه.
+- When checking any permission (view, edit, delete, print, review, actions, custom capabilities...) the system asks the user first; if they do not hold it, it asks the delegators — and the permission is granted if *any of them* hold it.
+- The practical result is a **union of permissions**: delegation adds and never subtracts. It cannot be used to restrict a user — to restrict someone, edit their security profile or user rows directly.
+- If a delegator holds full access, the stand-in effectively gains full access for the entire period — be careful about whom you delegate from.
 
-::: info خيار الدمج في الإعدادات العامة
-يوفر النظام إعداداً عاماً باسم **Merge Alternate Security Profiles Into Main User** يغيّر آلية الاحتساب: بدلاً من سؤال المفوِّضين واحداً واحداً، تُدمج سطورهم (الصلاحيات الأساسية، صلاحيات الصفحات، إعدادات الحقول، الإجراءات) في نسخة موحدة من المستخدم تُحسب منها الإجابات. الناتج النهائي مكافئ من حيث المبدأ (اتحاد الصلاحيات) لكنه أسرع في البيئات كثيفة التفويض.
+::: info Merge option in global settings
+The system offers a global setting called **Merge Alternate Security Profiles Into Main User** that changes the calculation mechanism: instead of querying delegators one by one, their rows (basic permissions, page security, field settings, actions) are merged into a unified copy of the user from which all answers are computed. The end result is equivalent in principle (union of permissions) but faster in delegation-heavy environments.
 :::
 
-## أين أرى تفويضات مستخدم؟
+## Where Can I See a User's Delegations?
 
-في شاشة المستخدم نفسها، صفحة **ملف صلاحيات إضافي** تعرض مستندات التفويض التي تخص هذا المستخدم — فلا تحتاج لمطاردة المستندات لتعرف لماذا يرى النائب شاشات لم تكن متاحة له أمس.
+Inside the user screen itself, the **Additional Security Profile** page lists the delegation documents that concern this user — so you do not have to hunt through documents to understand why a stand-in suddenly sees screens that were not available to them yesterday.
 
-## حالات استخدام شائعة
+## Common Use Cases
 
-- **الإجازات**: فوّض صلاحيات المدير لنائبه من تاريخ بداية الإجازة إلى نهايتها. لا شيء يُنسى — التفويض يموت بانتهاء التاريخ.
-- **فترات الإقفال**: امنح فريق الحسابات ملف صلاحيات إضافياً (عبر عمود *ملف صلاحيات إضافي*) يفتح قيود التسوية خلال أسبوع الإقفال فقط.
-- **التشغيل المؤقت**: موظف جديد يحتاج صلاحيات موسعة خلال فترة التدريب تحت إشراف، ثم يعود تلقائياً لصلاحيات دوره الأساسية.
+- **Leave coverage**: Delegate the manager's permissions to the stand-in from the first day of leave to the last. Nothing is forgotten — the delegation dies when the date ends.
+- **Closing periods**: Grant the accounting team an additional security profile (via the *Additional Security Profile* column) that unlocks reconciliation entries during the closing week only.
+- **Temporary onboarding**: A new employee who needs expanded permissions during a supervised training period automatically reverts to their base role when the period ends.
 
-::: warning التفويض ليس تبديل هوية
-النائب يعمل بحسابه هو: اسمه هو الذي يُسجل منشئاً للمستندات وفي سجلات التدقيق. التفويض يمنحه الصلاحيات فقط — وهذا مقصود، فالمساءلة تبقى واضحة.
+::: warning Delegation is not identity switching
+The stand-in works under their own account: their name is recorded as the creator on documents and in audit logs. Delegation grants permissions only — which is intentional, keeping accountability clear.
 :::
-
-</rtl>

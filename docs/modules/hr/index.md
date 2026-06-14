@@ -1,8 +1,8 @@
 <div class="ignore-in-full-text-search">
 
-# الموارد البشرية
-  - [صيغ الحضور والانصراف](/modules/hr/attendance-machine-formula.md)
-  - [تجاهل سطور الحضور والانصراف المتقاطعة](/modules/hr/ignore-overlapping-attendance.md)
-  - [أسئلة شائعة في موديول الرواتب والموارد البشرية](/modules/hr/human-resources-faq.md)
+# Human Resources
+  - [Attendance and Departure Formulas](/modules/hr/attendance-machine-formula.md)
+  - [Ignoring Overlapping Attendance and Departure Lines](/modules/hr/ignore-overlapping-attendance.md)
+  - [Frequently Asked Questions — Payroll and Human Resources Module](/modules/hr/human-resources-faq.md)
 
 </div>

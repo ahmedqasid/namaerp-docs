@@ -1,138 +1,132 @@
-<rtl>
+# Video (1): Report Designer Tool Walkthrough
 
-# فيديو (1) شرح أداة انشاء التقار 
+[Watch the video](https://youtu.be/EUY4PkQbwp0)
 
-[لمشاهدة الفيديو](https://youtu.be/EUY4PkQbwp0)
-
-هذه الصفحة توضح شرحًا مفصلًا مستندًا على محتوى الفيديو الخاص بشرح كيفية إنشاء تقرير معقد باستخدام أداة تصميم تقارير متقدمة (كأنها Jasper أو أي أداة تصميم تقارير)، مع تضمين روابط إلى أجزاء محددة في الفيديو كمرجع.
+This page provides a detailed explanation based on the content of the video, which covers how to build a complex report using an advanced report design tool, with links to specific parts of the video for reference.
 
 ---
 
-## 1. مكونات التقرير
+## 1. Report Components
 
-التقرير يتكون من عدة مكونات أساسية:
+A report consists of several core components:
 
-- **مصدر البيانات (Data Source):** مثل قواعد البيانات التي تحتوي على جداول (Tables) تتكون من أعمدة (Columns) وصفوف (Rows). على سبيل المثال: جدول الموظفين يحتوي على عدة أعمدة مثل الكود، الاسم، تاريخ الميلاد، الوظيفة، إلخ. والصفوف هي بيانات الموظفين مثل أحمد ومحمد.
+- **Data Source:** Such as databases containing Tables made up of Columns and Rows. For example, an Employees table has columns like code, name, date of birth, job title, etc., and the rows are the employee records such as Ahmed and Mohammed.
 
-- **صياغة الاستعلام (Query):** تستخرج البيانات باستخدام لغة استعلام (مثل SQL). من المهم استخدام جداول الـ JOIN لدمج البيانات بين الجداول المختلفة مع شروط معينة مثل WHERE لتصفية النتائج (مثلاً: جلب الموظفين الذين تاريخ ميلادهم أكبر من 2000).
+- **Query:** Data is extracted using a query language (such as SQL). It is important to use JOINs to combine data across tables, along with conditions such as WHERE to filter results (e.g., fetch employees born after 2000).
 
-- **هيكل التقرير (Report Structure):** يحتوي عادة على أجزاء:
-  - **الهيدر (Header):** يظهر مرة واحدة في أول صفحة أو مرة في أول كل صفحة.
-  - **الأعمدة (Columns):** تعرض البيانات في شكل أعمدة منظمة رأسياً وأفقياً، ويمكن تكرارها وتهيئتها للحجم المناسب.
-  - **الجروبات (Groups):** لتجميع البيانات حسب معايير معينة مثل تجميع الفواتير حسب العميل أو الفرع مع إمكانية وجود جروبات متداخلة.
-  - **التفاصيل (Details):** بيانات السطور المتكررة في التقرير.
-  - **الفوتر (Footer):** ملخصات أو إجماليات تظهر في نهاية التقرير أو نهاية الجروب.
-  - **السمري (Summary):** ملخص يظهر في بداية أو نهاية التقرير لتلخيص المعلومات.
+- **Report Structure:** Typically contains the following parts:
+  - **Header:** Appears once at the top of the first page, or once at the top of every page.
+  - **Columns:** Display data in an organized vertical and horizontal layout; they can be repeated and sized as needed for readability and printing.
+  - **Groups:** Group data by criteria such as grouping invoices by customer or branch, with support for nested groups.
+  - **Details:** The repeating row-level data in the report.
+  - **Footer:** Summaries or totals that appear at the end of the report or at the end of each group.
+  - **Summary:** A summary section that appears at the beginning or end of the report to consolidate information.
   
-> يمكن مشاهدة شرح مكونات التقرير بالتفصيل في [00:00:21 - 00:05:56](https://youtu.be/EUY4PkQbwp0?t=21)
+> You can watch a detailed explanation of report components at [00:00:21 - 00:05:56](https://youtu.be/EUY4PkQbwp0?t=21)
 
 ---
 
-## 2. خطوات إنشاء التقرير
+## 2. Steps to Create a Report
 
-### أ. اختيار الجداول والمجالات
+### a. Selecting Tables and Domains
 
-- تحديد الجداول التي ستشملها البيانات مثل:
-  - جدول فاتورة المبيعات
-  - جدول العملاء
-  - جدول فاتورة المشتريات
+- Identify the tables to include in the data, such as:
+  - Sales Invoice table
+  - Customers table
+  - Purchase Invoice table
 
-- الانتقال بين الجداول باستخدام الجوينز (JOINs) لاستيراد التفاصيل المرتبطة.
+- Navigate between tables using JOINs to pull in related details.
 
-### ب. اختيار الحقول (Fields)
+### b. Selecting Fields
 
-- يتم اختيار الحقول المراد عرضها مثل كود العميل، اسم العميل، الصنف، الكمية، السعر، التواريخ، إلخ.
+- Choose the fields to display, such as customer code, customer name, item, quantity, price, dates, etc.
 
-- يمكن التحكم في ترتيب وأحجام الأعمدة (بالبيكسل) حسب الحاجة لسهولة القراءة والطباعة.
+- You can control the order and sizes of columns (in pixels) as needed for easy reading and printing.
 
-### ج. التعامل مع الروابط (Hyperlinks)
+### c. Working with Hyperlinks
 
-- إنشاء روابط داخل التقرير تتيح الانتقال إلى بيانات مفصلة (مثل رابط لمعلومات الفاتورة أو العميل).
+- Create links within the report that navigate to detailed data (e.g., a link to invoice or customer information).
 
-- يمكن تفعيل أو تعطيل إنشاء هذه الروابط حسب الحاجة.
+- Hyperlink generation can be enabled or disabled as needed.
 
-> مشاهدة تطبيق عملي لاختيار الحقول وضبط الأعمدة والروابط في [00:13:00 - 00:20:00](https://youtu.be/EUY4PkQbwp0?t=780)
-
----
-
-## 3. الجروبات والتجميع (Grouping and Aggregation)
-
-- تقسيم البيانات إلى مجموعات مثل مجموعات داخلية (داخل جروب أكبر).
-
-- مثلا: مجموعة رئيسية حسب الفرع، ثم جروب فرعي حسب العميل.
-
-- عرض التجميعات مثل مجموع الفواتير، التوتال الكميات، إنشاء إجماليات في الفوتر لكل جروب.
-
-- التعامل مع عداد السطور داخل كل جروب أو للصفحة بأكملها.
-
-> عرض ومناقشة الجروبات وتوضيح المفهوم في [00:03:44 - 00:05:56](https://youtu.be/EUY4PkQbwp0?t=224)
+> Watch a practical demonstration of selecting fields, adjusting columns, and configuring links at [00:13:00 - 00:20:00](https://youtu.be/EUY4PkQbwp0?t=780)
 
 ---
 
-## 4. البراميترات والفلاتر (Parameters & Filters)
+## 3. Groups and Aggregation (Grouping and Aggregation)
 
-- تسمح للمستخدم باختيار نطاق بيانات معين عبر إدخال معايير مثل التاريخ، اسم العميل، الفئة، إلخ.
+- Split data into groups, including nested groups within a larger group.
 
-- يمكن ضبط المعايير لتكون إجبارية أو اختيارية.
+- For example: a primary group by branch, then a sub-group by customer.
 
-- دعم أنواع متعددة من الفلاتر مثل "أكبر من"، "أقل من"، "يساوي" أو "بين قيمتين".
+- Display aggregations such as total invoices, total quantities, and create subtotals in the footer for each group.
 
-- إمكانية معالجة القيم الفارغة (NULL) بطريقة ذكية لا تؤثر على النتائج.
+- Handle line counters within each group or across the entire page.
 
-- دعم إعدادات براميترات متقدمة تشمل القيم الافتراضية والمرجعية.
-
-> التعرف على البراميترات واستخدام الفلاتر بالتفصيل في [00:49:37 - 01:06:23](https://youtu.be/EUY4PkQbwp0?t=2977)
+> Watch the discussion and demonstration of groups at [00:03:44 - 00:05:56](https://youtu.be/EUY4PkQbwp0?t=224)
 
 ---
 
-## 5. الترتيب (Sorting)
+## 4. Parameters and Filters (Parameters & Filters)
 
-- ترتيب النتائج حسب أحد الحقول مثل تاريخ الفاتورة، كود العميل، الأكواد الأخرى.
+- Allow the user to select a specific data range by entering criteria such as date, customer name, category, etc.
 
-- يمكن ضبط الترتيب تصاعدي أو تنازلي.
+- Criteria can be set as mandatory or optional.
 
-- ترتيب متعدد المستويات عبر اختيار أكثر من حقل كمعيار للترتيب.
+- Supports multiple filter types such as "greater than", "less than", "equals", or "between two values".
 
-> شرح الترتيب وكيفية استخدامه في [01:07:18 - 01:12:53](https://youtu.be/EUY4PkQbwp0?t=4038)
+- Intelligent handling of NULL values that does not affect the results.
 
----
+- Supports advanced parameter settings including default and reference values.
 
-## 6. التعامل مع القيم المعقدة (Calculations & Expressions)
-
-- يمكن كتابة التعبيرات لحساب بيانات مركبة كجمع أو طرح أو ضرب أو قسمة.
-
-- مثال: حساب الصافي من المبيعات أو المردودات بإضافة أو طرح القيم.
-
-- إمكانية التعامل مع خلايا ذات صيغ إضافية مع الحفاظ على التنسيق.
+> Learn about parameters and how to use filters in detail at [00:49:37 - 01:06:23](https://youtu.be/EUY4PkQbwp0?t=2977)
 
 ---
 
-## 7. التصدير وعرض التقرير
+## 5. Sorting
 
-- إمكانية تصدير التقارير إلى Excel أو PDF مع ضمان عدم وجود مشاكل في محاذاة البيانات.
+- Sort results by a chosen field such as invoice date, customer code, or other codes.
 
-- سهولة عرض التقرير في صفحة مستقلة أو ضمن نفس الصفحة.
+- Sorting can be set to ascending or descending.
 
-- دعم الخصائص التي تمنع ظهور الفروق (Pixel gaps) بين الهيدر والفوتر والتفاصيل عند التصدير.
+- Multi-level sorting by selecting more than one field as a sort criterion.
 
----
-
-## 8. ملخص ونهائي
-
-الأداة التي تشرح في الفيديو تتيح لكل من المستخدم والخبراء والفنيين إنشاء تقارير متعددة ومتقدمة بطريقة سهلة وسريعة، دون الحاجة لمعرفة متعمقة بالعناصر التقنية أو البرمجية. يركز النظام على جعل تصميم التقرير من حيث اختيار الحقول، الجروبات، الفلاتر، البراميترات والترتيب مرنًا وبسيطًا مع دعم الربط الديناميكي.
+> Learn about sorting and how to use it at [01:07:18 - 01:12:53](https://youtu.be/EUY4PkQbwp0?t=4038)
 
 ---
 
-# روابط مهمة في الفيديو (للرجوع السريع)
+## 6. Working with Complex Values (Calculations & Expressions)
 
-| الموضوع                    | وقت البداية | الرابط                                        |
-| -------------------------- | ----------- | --------------------------------------------- |
-| مقدمة ومكونات التقرير      | 00:00:21    | [مشاهدة](https://youtu.be/EUY4PkQbwp0?t=21)   |
-| اختيار الحقول وضبط الأعمدة | 00:13:00    | [مشاهدة](https://youtu.be/EUY4PkQbwp0?t=780)  |
-| شرح الجروبات والتجميع      | 00:03:44    | [مشاهدة](https://youtu.be/EUY4PkQbwp0?t=224)  |
-| شرح البراميترات والفلاتر   | 00:49:37    | [مشاهدة](https://youtu.be/EUY4PkQbwp0?t=2977) |
-| شرح ترتيب البيانات         | 01:07:18    | [مشاهدة](https://youtu.be/EUY4PkQbwp0?t=4038) |
+- Write expressions to compute composite data such as addition, subtraction, multiplication, or division.
 
+- Example: calculating net from sales or returns by adding or subtracting values.
 
-</rtl>
+- Ability to work with cells that have additional formulas while preserving formatting.
 
+---
+
+## 7. Exporting and Displaying the Report
+
+- Export reports to Excel or PDF while ensuring there are no data alignment issues.
+
+- Easy display of the report on a separate page or within the same page.
+
+- Support for properties that prevent pixel gaps between the header, footer, and details when exporting.
+
+---
+
+## 8. Summary
+
+The tool demonstrated in the video allows both end users and technical experts to create multiple advanced reports quickly and easily, without needing deep technical or programming knowledge. The system focuses on making report design — including field selection, groups, filters, parameters, and sorting — flexible and straightforward, with support for dynamic linking.
+
+---
+
+# Key Video Links (Quick Reference)
+
+| Topic | Start Time | Link |
+| --- | --- | --- |
+| Introduction and report components | 00:00:21 | [Watch](https://youtu.be/EUY4PkQbwp0?t=21) |
+| Selecting fields and adjusting columns | 00:13:00 | [Watch](https://youtu.be/EUY4PkQbwp0?t=780) |
+| Groups and aggregation explained | 00:03:44 | [Watch](https://youtu.be/EUY4PkQbwp0?t=224) |
+| Parameters and filters explained | 00:49:37 | [Watch](https://youtu.be/EUY4PkQbwp0?t=2977) |
+| Data sorting explained | 01:07:18 | [Watch](https://youtu.be/EUY4PkQbwp0?t=4038) |

@@ -1,8 +1,8 @@
 <div class="ignore-in-full-text-search">
 
-# فيديوهات سلسلة التوريد
-  - [فيديو طريقة عمل التكاليف - 1](/videos/supply-chain-videos/cost-video-1.md)
-  - [فيديو طريقة عمل التكاليف - 2](/videos/supply-chain-videos/cost-video-2.md)
-  - [فيديو طريقة عمل التكاليف - 3](/videos/supply-chain-videos/cost-video-3.md)
+# Supply Chain Videos
+  - [Inventory Costing Explained - Video 1](/videos/supply-chain-videos/cost-video-1.md)
+  - [Inventory Costing Methods - Video 2](/videos/supply-chain-videos/cost-video-2.md)
+  - [Costing Tutorial Video - 3](/videos/supply-chain-videos/cost-video-3.md)
 
 </div>

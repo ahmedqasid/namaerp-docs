@@ -1,510 +1,510 @@
-# تكاليف الإنتاج: تتبع الأموال
+# Production Costing: Following the Money
 
-## التكلفة الحقيقية للتصنيع
+## The Real Cost of Making Things
 
-سؤال يُقلق مدراء التصنيع كثيراً: *كم كلّفنا فعلاً تصنيع هذا المنتج؟*
+Here's a question that keeps manufacturing managers up at night: *How much did it actually cost to make that product?*
 
-يبدو السؤال بسيطاً، لكنه في الواقع أكثر تعقيداً مما يبدو. نعم، تعرف ما أنفقته على المواد - لديك الفواتير. وتعرف ساعات العمل المُنفّقة - لقد تتبعتها. لكن ماذا عن إيجار المصنع؟ فاتورة الكهرباء؟ راتب المشرف؟ إهلاك المعدات؟ كيف تُوزّع هذه التكاليف بصورة عادلة على مختلف المنتجات؟
+It sounds simple, but it's surprisingly tricky. Sure, you know what you spent on materials - you have the invoices. You know how much labor time went into it - you tracked the hours. But what about the factory rent? The electricity bill? The supervisor's salary? The equipment depreciation? How do you fairly allocate those costs across all the different products you make?
 
-والأهم من ذلك: هل سار الإنتاج وفق الخطة؟ هل أنفقت ما كنت تتوقعه، أم كانت هناك مفاجآت؟ وإن كانت التكاليف أعلى من المتوقع، فأين تذهب الأموال؟
+And even more important: Did production go according to plan? Did you spend what you expected, or were there surprises? If you're spending more than expected, where is the money going?
 
-هذا بالضبط ما تعنيه تكاليف الإنتاج. إنها الجانب المالي الصادق في التصنيع - تتبّع كل ريال أُنفق في تصنيع منتجاتك، ومعرفة ما إذا كنت تحقق ربحاً أم خسارة.
+This is what production costing is all about. It's the financial truth-telling part of manufacturing - tracking every dollar (or riyal, or whatever currency you use) that went into making your products, and figuring out if you're making money or losing it.
 
-ستجد المستند الرئيسي في **التصنيع > المستندات > إغلاق أمر إنتاج**.
+You'll find the main document under **Manufacturing > Documents > Order Close** (التصنيع > المستندات > إغلاق أمر إنتاج).
 
-## فهم تكاليف التصنيع: الثلاثة دلاء
+## Understanding Manufacturing Costs: The Three Buckets
 
-تخيل أن تكاليف التصنيع تقع في ثلاثة دلاء. اثنان منها سهلا التتبع، والثالث... معقد.
+Think of manufacturing costs as falling into three buckets. Two are easy to track, one is... complicated.
 
-### الدلو الأول: المواد المباشرة - السهل
+### Bucket 1: Direct Materials - The Easy One
 
-هي المواد الخام والمكوّنات التي تدخل فعلياً في المنتج. يمكنك الإشارة إليها وقول "هذه الصفيحة الفولاذية، والمسامير، والطلاء - كلها جزء من المنتج النهائي."
+These are the raw materials and components that physically go into your product. You can point at them and say "this steel sheet, these screws, that paint - they're all in the finished product."
 
-التتبع سهل: عندما تصدر المواد لأمر إنتاج، يسجّل النظام التكلفة. إذا صدرت 100 كجم من الفولاذ بسعر 5$/كجم، فتلك 500$ تكلفة مواد. تمام.
+Tracking this is straightforward: When you issue materials to a production order, the system records the cost. If you issued 100 kg of steel at $5/kg, that's $500 of material cost. Done.
 
-يستخدم النظام طريقة تكلفة المخزون لديك (FIFO أو المتوسط أو المعياري) لتقييم المواد. وإن كنت تستخدم مواد مُتتبَّعة بالدُّفعات، فالنظام يعرف تماماً أي دُفعة استهلكت وما كلفتها.
+The system uses your inventory costing method (FIFO, Average, or Standard) to value the materials. If you're using lot-tracked materials, it knows exactly which lot you consumed and what that lot cost.
 
-### الدلو الثاني: العمالة المباشرة ووقت الآلات - لا يزال واضحاً
+### Bucket 2: Direct Labor and Machine Time - Still Pretty Clear
 
-هؤلاء هم الأشخاص والآلات الذين يصنعون المنتج مباشرة. اللحّام الذي يقضي 4 ساعات على الأمر، وآلة CNC التي تعمل لساعتين - يمكن ربطهما مباشرة بأمر الإنتاج.
+These are the people and machines directly making the product. The welder spending 4 hours on this order, the CNC machine running for 2 hours - you can tie these directly to the production order.
 
-عند تسجيل تنفيذ الإنتاج، يُنشئ النظام سندات موارد لتتبع هذا الوقت. إذا كان اللحّام يكلّف 30$/ساعة وعمل 4 ساعات، فتلك 120$ تكلفة عمالة. وإذا كانت آلة CNC تكلّف 75$/ساعة وعملت ساعتين، فتلك 150$ تكلفة آلة.
+When you record production executions, the system creates Resource Vouchers tracking this time. If your welder costs $30/hour and worked 4 hours, that's $120 of labor cost. If your CNC machine costs $75/hour and ran for 2 hours, that's $150 of machine cost.
 
-مرة أخرى، الأمر واضح. لديك الوقت والأسعار، فقط اضرب. تتراكم التكاليف على أمر الإنتاج.
+Again, pretty straightforward. You have the time, you have the rates, you multiply. The costs get accumulated on the production order.
 
-### الدلو الثالث: التكاليف الغير مباشرة - المعقد
+### Bucket 3: Manufacturing Overhead - The Complicated One
 
-هنا يصبح الأمر مثيراً للاهتمام. هذه هي التكاليف الأخرى لتشغيل المصنع التي لا يمكن ربطها بمنتج معين:
+This is where it gets interesting. These are all the other costs of running a factory that you can't tie to a specific product:
 
-**المصنع نفسه**: تدفع الإيجار سواء صنعت 100 وحدة أو 1000 وحدة. كم من هذا الإيجار يجب أن يتحمله أمر الإنتاج هذا؟
+**The factory itself**: You pay rent whether you make 100 units or 1000 units. How much of that rent should this particular production order bear?
 
-**المرافق**: فاتورة الكهرباء تغطي المصنع بأكمله. نعم، تشغيل الآلات يستهلك طاقة، لكن كذلك الإضاءة والتدفئة والتهوية. كيف تُقسّم التكلفة؟
+**Utilities**: The electricity bill covers the whole factory. Sure, running machines uses power, but so does lighting, heating, ventilation. How do you split it up?
 
-**العمالة الغير مباشرة**: مشرف الإنتاج يُشرف على خطوط إنتاج متعددة. مفتشو الجودة يفحصون منتجات متنوعة. عمال المناولة يُحركون المواد. كم من رواتبهم ينسب لكل أمر؟
+**Indirect labor**: Your production supervisor oversees multiple production lines. Quality inspectors check various products. Material handlers move stuff around. How much of their salary goes to each order?
 
-**إهلاك المعدات**: تلك الآلة الغالية تُهلَك كل شهر سواء استُخدمت بكثافة أم لا. كيف تُحمّل المنتجات هذه التكلفة؟
+**Equipment depreciation**: That expensive machine depreciates every month whether you use it heavily or barely at all. How do you charge that to products?
 
-**المستلزمات والمواد الاستهلاكية**: المشحّمات، ومواد التنظيف، ومعدات الوقاية، والأدوات الصغيرة - تدعم الإنتاج لكنها ليست في المنتج النهائي.
+**Supplies and consumables**: Lubricants, cleaning materials, protective equipment, small tools - they support production but aren't in the final product.
 
-**تكاليف المنشأة**: التأمين، والضرائب العقارية، والصيانة، والأمن - كلها ضرورية، ولا يمكن تتبع أي منها مباشرة لمنتج معين.
+**Facility costs**: Insurance, property taxes, maintenance, security - all necessary, none directly traceable to a specific product.
 
-هذه التكاليف الغير مباشرة أموال حقيقية تُنفقها. يجب استردادها عبر أسعار المنتجات. لكن كيف توزّعها بصورة عادلة؟
+This overhead is real money you're spending. It needs to be recovered through product pricing. But how do you allocate it fairly?
 
-## توزيع التكاليف الغير مباشرة: إظهار الخفيّ
+## Overhead Allocation: Making the Invisible Visible
 
-هنا يأتي دور **أنواع التكاليف الغير مباشرة** (Overhead Types). نوع التكلفة الغير مباشرة هو صيغتك لتوزيع التكاليف غير المباشرة على المنتجات.
+This is where **Overhead Types** (التكاليف الغير مباشرة) come in. An overhead type is your formula for spreading indirect costs across products.
 
-فكر فيه كوصفة لتوزيع التكاليف الغير مباشرة. تُعرّف "عناصر" التكاليف الغير مباشرة (مثل "إيجار المصنع" و"المرافق" و"الإشراف") وتُخبر النظام كيف يحسب كل واحد منها.
+Think of it as a recipe for overhead allocation. You define overhead "elements" (like "Factory Rent", "Utilities", "Supervision") and tell the system how to calculate each one.
 
-### الطريقة 1: مبلغ ثابت لكل أمر
+### Method 1: Fixed Amount per Order
 
-الأسلوب الأبسط. يُحمَّل كل أمر إنتاج مبلغاً ثابتاً.
-
-```
-عنصر التكلفة الغير مباشرة: "تكلفة الإعداد"
-الطريقة: 500$ ثابتة لكل أمر
-```
-
-سواء كنت تصنع 10 وحدات أو 1000 وحدة، تُحمَّل 500$. هذا مناسب إذا كانت تكاليف الإعداد والإدارة متقاربة بغض النظر عن حجم الأمر.
-
-**متى تستخدمها**: التصنيع بدُفعات صغيرة حيث تكاليف الإعداد سائدة. ورش العمل. التصنيع المخصص.
-
-**القيد**: غير عادل للأوامر الكبيرة (فهي تدعم الصغيرة) وقد تبدو الأوامر الصغيرة غير مربحة بينما هي ليست كذلك فعلاً.
-
-### الطريقة 2: نسبة مئوية من تكلفة المواد
-
-توزيع التكاليف الغير مباشرة كنسبة مئوية من تكلفة المواد المباشرة.
+The simplest approach. Every production order gets charged a flat amount.
 
 ```
-عنصر التكلفة الغير مباشرة: "تكاليف مناولة المواد"
-الطريقة: 12% من تكلفة المواد
+Overhead Element: "Production Setup Cost"
+Method: Fixed $500 per order
 ```
 
-إذا استهلك أمر ما 10,000$ في المواد، يُحمَّل 1,200$ تكاليف غير مباشرة.
+Whether you're making 10 units or 1000 units, you get charged $500. This works if setup/administrative overhead is roughly the same regardless of order size.
 
-**متى تستخدمها**: عندما ترتبط التكاليف الغير مباشرة بقيمة المواد. المواد الأغلى غالباً تستلزم معالجة وتخزيناً ورقابة جودة أدق.
+**When to use it**: Small-batch manufacturing where setup costs dominate. Job shops. Custom manufacturing.
 
-**مثال حقيقي**: تصنع منتجات اقتصادية بمواد رخيصة ومنتجات فاخرة بمواد غالية. المنتجات الفاخرة تحتاج تخزيناً بدرجات حرارة محكومة، وأمناً إضافياً، ومعالجة أكثر حذراً. نسبة من تكلفة المواد طريقة عادلة لتوزيع هذه التكاليف.
+**Limitation**: Unfair to large orders (they subsidize small orders) and small orders might look unprofitable when they're really not.
 
-### الطريقة 3: نسبة مئوية من تكلفة العمالة
+### Method 2: Percentage of Material Cost
 
-فكرة مشابهة، لكن بناءً على العمالة المباشرة.
-
-```
-عنصر التكلفة الغير مباشرة: "أعباء العمالة"
-الطريقة: 35% من تكلفة العمالة المباشرة
-```
-
-إذا استهلك أمر ما 8,000$ في العمالة المباشرة، يُحمَّل 2,800$ تكاليف غير مباشرة.
-
-**لماذا 35%؟** قد تغطي ضرائب الرواتب والمزايا والتدريب والإشراف وتكاليف الموارد البشرية. في كثير من الدول، مقابل كل ريال تدفعه أجوراً، تُنفق 30-40% إضافية على التكاليف الغير مباشرة المرتبطة بالعمالة.
-
-**متى تستخدمها**: عندما تكون تكاليف العمالة الغير مباشرة (الإشراف، التدريب، الموارد البشرية) كبيرة. التصنيع كثيف العمالة.
-
-### الطريقة 4: سعر لكل ساعة إنتاج
-
-الاحتساب بناءً على المدة الزمنية للإنتاج.
+Allocate overhead as a percentage of direct material cost.
 
 ```
-عنصر التكلفة الغير مباشرة: "تكاليف المنشأة"
-الطريقة: 50$ لكل ساعة إنتاج
+Overhead Element: "Material Handling Overhead"
+Method: 12% of material cost
 ```
 
-إذا استغرق أمر ما 80 ساعة للإنتاج (من البداية للنهاية)، يُحمَّل 4,000$ تكاليف غير مباشرة.
+If an order consumed $10,000 in materials, it gets charged $1,200 in overhead.
 
-**متى تستخدمها**: عندما يكون الوقت في أرض المصنع هو المحرّك الرئيسي للتكلفة. كلما احتلّ المنتج مرفقك لفترة أطول، زادت حصته من الإيجار والمرافق والإهلاك.
+**When to use it**: When overhead correlates with material value. More expensive materials often require more careful handling, storage, and quality control.
 
-**كيف تحسب السعر**: اجمع كل تكاليفك الغير مباشرة الشهرية (إيجار، مرافق، إهلاك، إشراف، إلخ)، قسّمها على إجمالي ساعات الإنتاج في الشهر. هذا هو سعر التكلفة الغير مباشرة لكل ساعة.
+**Real example**: You make both budget products with cheap materials and premium products with expensive materials. The premium products need climate-controlled storage, extra security, more careful handling. A percentage of material cost is a fair way to allocate those costs.
 
-### الطريقة 5: سعر لكل وحدة منتَجة
+### Method 3: Percentage of Labor Cost
 
-احتساب مبلغ ثابت لكل وحدة.
-
-```
-عنصر التكلفة الغير مباشرة: "تكاليف رقابة الجودة"
-الطريقة: 3$ لكل وحدة
-```
-
-أنتج 500 وحدة، تُحمَّل 1,500$ تكاليف غير مباشرة.
-
-**متى تستخدمها**: عندما تتناسب بعض التكاليف الغير مباشرة مباشرةً مع الحجم. إذا كانت كل وحدة تحتاج فحصاً وكانت تكلفة الفحص متقاربة لكل وحدة، فهذا منطقي.
-
-### الطريقة 6: حساب التكاليف الغير مباشرة الفعلية - الواقع الحقيقي
-
-كل الطرق السابقة تستخدم أسعاراً محددة مسبقاً - أي أنك تُقدّر ما يجب أن تكون عليه التكاليف الغير مباشرة. لكن ماذا لو أردت استخدام التكاليف الغير مباشرة الفعلية؟
-
-هنا يأتي دور **طريقة حساب فعلي للمصاريف الغير مباشرة** (Actual Overhead Calculator).
-
-بدلاً من التخمين، تُخبر النظام: "اذهب وانظر في حسابات دفتر الأستاذ الفعلية للتكاليف الغير مباشرة للمصنع. خذ الأرقام الحقيقية من المحاسبة."
+Similar idea, but based on direct labor.
 
 ```
-عنصر التكلفة الغير مباشرة: "مرافق المصنع الفعلية"
-المصدر: حساب دفتر الأستاذ 5400 (مصروف المرافق)
-الفترة: هذا الشهر
+Overhead Element: "Labor Burden"
+Method: 35% of direct labor cost
 ```
 
-في نهاية الشهر، يستعلم النظام في الحساب 5400، يجد أنك أنفقت 15,200$ على المرافق هذا الشهر، ويوزّع تلك التكلفة الفعلية على جميع أوامر الإنتاج المُغلقة خلال الشهر.
+If an order consumed $8,000 in direct labor, it gets charged $2,800 in overhead.
 
-**الميزة**: تستخدم أرقاماً حقيقية، لا تقديرات.
+**Why 35%?** That might cover payroll taxes, benefits, training, supervision, and HR costs. In many countries, for every dollar you pay in wages, you're spending another 30-40% on labor-related overhead.
 
-**المقايضة**: لا يمكنك إتمام حساب التكاليف إلا في نهاية الفترة حين تتوفر الأرقام الفعلية. إذا احتجت تكلفة فورية، فعليك استخدام أسعار محددة مسبقاً.
+**When to use it**: When indirect labor overhead (supervision, training, HR) is significant. Labor-intensive manufacturing.
 
-**آلية التوزيع**: عادةً بالتناسب مع شيء ما - ربما ساعات الإنتاج، أو تكلفة العمالة المباشرة، أو الوحدات المنتجة. يقسّم النظام إجمالي التكاليف الغير مباشرة الفعلية على الأوامر بناءً على حصة كل منها من تلك القاعدة.
+### Method 4: Rate per Production Hour
 
-مثال:
+Charge based on how long products were in production.
+
 ```
-مرافق يناير الفعلية: 15,200$
-إجمالي ساعات الإنتاج في يناير: 1,900 ساعة
-
-الأمر A: 200 ساعة → يُحمَّل 15,200$ × (200/1900) = 1,600$
-الأمر B: 500 ساعة → يُحمَّل 15,200$ × (500/1900) = 4,000$
-الأمر C: 300 ساعة → يُحمَّل 15,200$ × (300/1900) = 2,400$
+Overhead Element: "Facility Overhead"
+Method: $50 per production hour
 ```
 
-## إغلاق أوامر الإنتاج: الحساب الختامي
+If an order took 80 hours to produce (from start to finish), it gets charged $4,000 in overhead.
 
-في نهاية المطاف، ينتهي الإنتاج. استُهلكت المواد، ونُفّذ العمل، وأصبحت البضاعة التامة في المخزون. حان وقت إقفال الحسابات على أمر الإنتاج هذا.
+**When to use it**: When time on the factory floor is the main cost driver. The longer something occupies your facility, the more rent, utilities, and depreciation it should bear.
 
-هنا يأتي دور **سند إغلاق أمر الإنتاج** (Order Close Voucher). إنها الخطوة المحاسبية النهائية التي تقول "ها هو ما أنفقناه فعلاً، وهذا ما يعنيه مالياً."
+**Getting the rate**: Add up all your monthly overhead costs (rent, utilities, depreciation, supervision, etc.), divide by the total production hours per month. That's your overhead rate per hour.
 
-### متى تُغلق أمراً
+### Method 5: Rate per Unit Produced
 
-تُغلق الأمر حين:
-- ✅ اكتملت جميع تنفيذات الإنتاج
-- ✅ تم تسليم جميع البضاعة التامة للمخزون
-- ✅ حُوسبت جميع إصدارات المواد
-- ✅ لن يجري أي عمل إضافي على هذا الأمر
-- ✅ أنت مستعد لتثبيت التكاليف والمضي قدماً
+Charge a fixed amount per unit.
 
-**مهم**: لن يسمح لك النظام عادةً بإغلاق أمر إذا كانت لا تزال توجد كميات في عمليات وسيطة. إذا كان هناك 20 وحدة عند العملية 30 بانتظار التقدم للأمام، فتلك تمثّل عملاً غير مكتمل. يجب عليك إما إكمالها أو إلغاؤها قبل الإغلاق.
-
-### ماذا يحدث عند الإغلاق
-
-عند إنشاء سند إغلاق أمر الإنتاج وتثبيته، تحدث عدة أشياء:
-
-**1. تجميع التكاليف**
-
-يجمع النظام كل تكلفة مرتبطة بأمر الإنتاج هذا:
-- جميع إصدارات المواد (صرف مواد خام)
-- جميع سندات الموارد (سند موارد) لتتبع وقت العمالة والآلات
-- جميع استخدامات القوالب والأدوات (سند قوالب)
-- أي مواد مُرجعة (تكلفة سالبة)
-- أي وحدات مُهلّكة (تكلفة الهدر)
-- البضاعة التامة المسلّمة
-
-يجمع الكل معاً. هذه هي تكلفتك الفعلية الإجمالية قبل التكاليف الغير مباشرة.
-
-**2. تطبيق التكاليف الغير مباشرة**
-
-إذا حددت نوع تكاليف غير مباشرة (إما في سند الإغلاق أو جاء من توجيه أمر الإنتاج الافتراضي)، يُنشئ النظام سطور التكاليف الغير مباشرة.
-
-لكل عنصر في نوع التكلفة الغير مباشرة، يحسب النظام مبلغ التكلفة بناءً على الطريقة التي حددتها. إذا كنت تستخدم حساب التكاليف الغير مباشرة الفعلي، يسحب أرقاماً حقيقية من حسابات دفتر الأستاذ.
-
-تُضاف مبالغ التكاليف الغير مباشرة هذه إلى إجمالي تكلفتك.
-
-**3. إعادة تقييم المخزون**
-
-الجزء الذكي: يعود النظام إلى جميع مستندات تسليم المنتج لهذا الأمر ويُحدّثها بتكلفة الوحدة الفعلية.
-
-ربما عند تسليم 100 وحدة، استخدم النظام تكلفة معيارية 50$/وحدة. الآن بعد الإغلاق، التكلفة الفعلية 52$/وحدة. يضبط النظام قيمة المخزون وفقاً لذلك.
-
-هذا يضمن أن مخزون البضاعة التامة يعكس تكاليف الإنتاج الفعلية، لا التقديرات.
-
-**4. القيود المحاسبية**
-
-تُنشأ قيود اليومية لـ:
-- تطبيق التكاليف الغير مباشرة (مدين: إنتاج تحت التشغيل، دائن: حسابات التكاليف الغير مباشرة)
-- تحويل إنتاج تحت التشغيل إلى بضاعة تامة
-- أي انحرافات (عند استخدام التكلفة المعيارية)
-
-يُحدَّث دفتر الأستاذ ليعكس واقع ما كلّف هذا الإنتاج.
-
-**5. تغيير الحالة**
-
-تتغير حالة أمر الإنتاج من "قيد التنفيذ" إلى "مُغلق". يُقفل - لا مزيد من التغييرات. ما تراه هو ما حدث.
-
-إذا جاء الأمر من طلب أمر إنتاج (Production Order Request)، تتحدث حالة ذلك الطلب إلى "منتهٍ" أيضاً.
-
-## طريقتا الإغلاق
-
-### الإغلاق العادي: إتمام المهمة
-
-هذه الطريقة القياسية - اكتمل الإنتاج بنجاح وتمت محاسبة جميع الوحدات. عند اختيار نوع "الإغلاق العادي"، يتحقق النظام من:
-- عدم وجود كميات عالقة في عمليات وسيطة
-- تسليم أو إلغاء جميع إنتاج تحت التشغيل
-- أن أمر الإنتاج مكتمل فعلاً
-
-إذا اجتاز التحقق، يتم الإغلاق وتُثبَّت التكاليف.
-
-### الإنهاء: الاستسلام
-
-أحياناً تحتاج إلى إلغاء أمر قبل اكتماله:
-- العميل ألغى الطلب
-- اكتُشف خلل في التصميم
-- مشكلات جودة المواد لم تُحلّ
-- تغيّرت أولويات العمل
-
-عند اختيار نوع "الإنهاء"، يقوم النظام بـ:
-- إغلاق الأمر دون اشتراط تسليم جميع الكميات
-- شطب أي إنتاج تحت التشغيل كخسارة
-- تخصيص التكاليف لحسابات الانحرافات
-- تحديد حالة الأمر إلى "مُنهى" (لا "مُغلق")
-
-لا تزال تمر بحساب التكاليف - لقد أنفقت مالاً على إنتاج جزئي، وتلك التكلفة يجب تسجيلها. لكن بدلاً من أن تتدفق إلى مخزون البضاعة التامة، تتدفق إلى حسابات الخسائر.
-
-## تحليل الانحرافات: لعب دور المحقق
-
-إذا كنت تستخدم التكلفة المعيارية (حيث تحدد التكاليف المتوقعة للمواد والعمالة)، يمكن لسند إغلاق أمر الإنتاج أن يُظهر لك الانحرافات - الفوارق بين ما توقعت إنفاقه وما أنفقته فعلاً.
-
-هذا ذو قيمة هائلة للتحسين المستمر. لنستعرض أنواع الانحرافات:
-
-### انحرافات المواد
-
-لكل مكوّن استهلكته، يمكن للنظام المقارنة بين المتوقع والفعلي على بُعدين:
-
-**انحراف الكمية** (هل استخدمت الكمية الصحيحة من المواد؟)
 ```
-معياري: يجب استخدام 100 كجم
-فعلي: استُخدم 110 كجم
-الانحراف: 10 كجم إضافية
-
-بالسعر المعياري 10$/كجم: 10 كجم × 10$ = 100$ انحراف غير مفضّل
+Overhead Element: "Quality Control Overhead"
+Method: $3 per unit
 ```
 
-**ما يخبرك به**: تستهلك مواداً أكثر مما هو متوقع. ربما هناك هدر في العملية، أو يحتاج BOM تحديثاً، أو مشكلات جودة تسبب خردة. هذه إشارة تحذير للتحقيق.
+Produce 500 units, get charged $1,500 in overhead.
 
-**انحراف السعر** (هل دفعت السعر المتوقع؟)
+**When to use it**: When certain overhead costs scale directly with volume. If every unit needs an inspection and inspections cost about the same per unit, this makes sense.
+
+### Method 6: The Actual Overhead Calculator - Getting Real
+
+All the above methods use predetermined rates - you're estimating what overhead should be. But what if you want to use actual overhead costs?
+
+That's where the **Actual Overhead Calculator** (طريقة حساب فعلي للمصاريف الغير مباشرة) comes in.
+
+Instead of guessing, you tell the system: "Go look at the actual general ledger accounts for factory overhead. Take the real numbers from accounting."
+
 ```
-معياري: متوقع 10$/كجم
-فعلي: دُفع 11$/كجم
-الانحراف: 1$/كجم إضافي
-
-لـ 110 كجم مستهلكة فعلاً: 110 كجم × 1$ = 110$ انحراف غير مفضّل
-```
-
-**ما يخبرك به**: تكاليف المواد أعلى من المتوقع. ربما رفع المورّد الأسعار، أو اشتريت من مصدر غالٍ بسبب نقص، أو ارتفعت تكاليف الشحن. هذا الانحراف يشير إلى مشكلات الشراء لا مشكلات التصنيع.
-
-**إجمالي انحراف المواد**: انحراف الكمية + انحراف السعر = الإجمالي
-
-### انحرافات الموارد
-
-تحليل مشابه للعمالة ووقت الآلات:
-
-**انحراف الكفاءة** (هل استغرق العمل وقته المعتاد؟)
-```
-معياري: يجب أن يستغرق 40 ساعة
-فعلي: استغرق 45 ساعة
-الانحراف: 5 ساعات إضافية
-
-بالسعر المعياري 25$/ساعة: 5 ساعات × 25$ = 125$ انحراف غير مفضّل
+Overhead Element: "Actual Factory Utilities"
+Source: GL Account 5400 (Utilities Expense)
+Period: This month
 ```
 
-**ما يخبرك به**: العمل يستغرق وقتاً أطول من المتوقع. ربما يحتاج العمال مزيداً من التدريب، أو أوقات المسار متفائلة جداً، أو كانت هناك تأخيرات أو مشكلات. ابحث عن الأسباب الجذرية.
+At month-end, the system queries account 5400, finds you spent $15,200 on utilities this month, and allocates that actual cost across all production orders closed this month.
 
-**انحراف السعر** (هل دفعت السعر المتوقع؟)
+**The beauty**: You're using real numbers, not estimates.
+
+**The trade-off**: You can only finalize costs at period-end when you have actual numbers. If you need real-time costing, you have to use predetermined rates.
+
+**How allocation works**: Usually proportional to something - maybe production hours, maybe direct labor cost, maybe units produced. The system divides the total actual overhead across orders based on their share of that allocation base.
+
+Example:
 ```
-معياري: متوقع 25$/ساعة
-فعلي: دُفع 28$/ساعة
-الانحراف: 3$/ساعة إضافية
+January actual utilities: $15,200
+Total production hours in January: 1,900 hours
 
-لـ 45 ساعة عمل فعلي: 45 ساعة × 3$ = 135$ انحراف غير مفضّل
-```
-
-**ما يخبرك به**: تكلفة العمالة أعلى من المتوقع. ربما استخدمت وقتاً إضافياً (سعر أعلى)، أو استخدمت عاملاً أكثر مهارة (وأغلى) مما كان مخططاً، أو ارتفعت الأسعار. هذا يشير إلى مشكلات تكلفة العمالة أو التوظيف.
-
-### قراءة الأدلة
-
-الانحرافات تحكي قصصاً. إليك بعض الأنماط الشائعة:
-
-**انحراف كمية مواد مرتفع + انحراف سعر طبيعي**: تهدر موادك أو لديك مشكلات جودة. تحقق من معدلات الخردة، وابحث عن مشكلات العملية.
-
-**كمية مواد طبيعية + انحراف سعر مرتفع**: الشراء يدفع أكثر من المتوقع. تحقق من عقود الموردين وتكاليف الشحن وأوضاع السوق.
-
-**انحراف كفاءة عمالة مرتفع + انحراف سعر طبيعي**: العمل يستغرق وقتاً أطول مما ينبغي. تحقق من نقاط الاختناق واحتياجات التدريب ومشكلات المعدات.
-
-**كفاءة عمالة طبيعية + انحراف سعر مرتفع**: ارتفعت تكاليف العمالة. تحقق من استخدام الوقت الإضافي ومزيج المهارات وتغيرات الأجور.
-
-**انحرافات كبيرة في بعض الأوامر دون غيرها**: تفاوت في العملية. بعض الأوامر تسير بشكل جيد وأخرى بها مشكلات. ابحث عما يجعلها مختلفة.
-
-**انحرافات مفضّلة باستمرار**: ربما معاييرك متشائمة. أو لقد حسّنت العملية فعلاً - حان وقت تحديث المعايير والاعتراف بذلك!
-
-## التكلفة لكل دُفعة: حين لا يكفي مقياس واحد للجميع
-
-أحياناً تحتاج تتبع التكاليف بصورة منفصلة لكل دُفعة أو lot منتَج. هذا شائع في:
-
-**الصناعات الدوائية**: المتطلبات التنظيمية تتطلب تكلفة على مستوى الدُّفعة. الدُّفعة 2024-001 قد تختلف تكاليفها عن الدُّفعة 2024-002.
-
-**إنتاج الغذاء**: دورات الإنتاج المختلفة يمكن أن تختلف في تكاليف المكوّنات والعوائد ونتائج الجودة.
-
-**الصناعات الكيماوية**: عوائد الدُّفعات تتفاوت. دُفعة واحدة قد تُنتج 95% منتجاً جيداً، وأخرى 98%. يجب أن تعكس التكاليف ذلك.
-
-عند تفعيل "التكلفة لكل دُفعة" (Cost Per Batch) في توجيه أمر الإنتاج، يقوم النظام بـ:
-
-1. **تتبع التكاليف بصورة منفصلة لكل lot**: كل رقم lot في تسليمات المنتج يحصل على حساب تكلفة خاص.
-
-2. **توزيع التكاليف الغير مباشرة حسب الـ lot**: تُقسَّم التكاليف الغير مباشرة بالتناسب بناءً على ما أنتجته كل دُفعة.
-
-3. **إنشاء قيم مخزون منفصلة**: البضاعة التامة للـ Lot A قد تكلّف 50$/وحدة بينما Lot B كلّف 52$/وحدة لأن عوائدهما كانت مختلفة.
-
-**مثال**:
-```
-أمر الإنتاج: تصنيع 200 وحدة إجمالاً
-  - Lot 2024-001: 100 وحدة مسلّمة
-  - Lot 2024-002: 100 وحدة مسلّمة
-
-إجمالي التكاليف:
-  - مواد: 8,000$
-  - عمالة: 3,000$
-  - تكاليف غير مباشرة: 1,000$
-  - الإجمالي: 12,000$
-
-لكن Lot 2024-001 استخدمت موادًا أكثر (عائد أقل):
-  - Lot 2024-001: 5,000$ مواد + 1,500$ عمالة + 500$ تكاليف غير مباشرة = 7,000$ (100 وحدة = 70$/وحدة)
-  - Lot 2024-002: 3,000$ مواد + 1,500$ عمالة + 500$ تكاليف غير مباشرة = 5,000$ (100 وحدة = 50$/وحدة)
+Order A: 200 hours → gets charged $15,200 × (200/1900) = $1,600
+Order B: 500 hours → gets charged $15,200 × (500/1900) = $4,000
+Order C: 300 hours → gets charged $15,200 × (300/1900) = $2,400
 ```
 
-الآن يُظهر مخزونك بصورة صحيحة أن وحدات Lot 2024-001 أغلى تكلفةً من Lot 2024-002. حين تبيعها أو تستهلكها لاحقاً، تعكس تكلفة البضاعة المباعة التكلفة الفعلية لتلك الدُّفعة المحددة.
+## Closing Production Orders: The Final Reckoning
 
-## سيناريوهات عملية
+Eventually, production is done. Materials are consumed, work is executed, finished goods are in inventory. Time to close the books on this production order.
 
-### السيناريو 1: أمر بسيط بتكاليف غير مباشرة معيارية
+This is where the **Order Close Voucher** (إغلاق أمر إنتاج) comes in. It's the final accounting step that says "here's what we actually spent, here's what it means financially."
 
-صنعت 100 قطعة:
-- تكلفة المواد: 5,000$ (من إصدارات المواد)
-- تكلفة العمالة: 2,000$ (من سندات الموارد)
-- تكلفة الآلات: 1,500$ (من سندات الموارد)
-- المجموع الفرعي: 8,500$
+### When to Close an Order
 
-نوع التكاليف الغير مباشرة يُحمّل 20% من التكاليف المباشرة:
-- التكاليف الغير مباشرة: 8,500$ × 20% = 1,700$
+You close an order when:
+- ✅ All production executions are complete
+- ✅ All finished goods have been delivered to inventory
+- ✅ All material issues are accounted for
+- ✅ No more work will happen on this order
+- ✅ You're ready to lock the costs and move on
 
-إجمالي التكلفة: 8,500$ + 1,700$ = 10,200$
-تكلفة الوحدة: 10,200$ / 100 = 102$/وحدة
+**Important**: The system won't let you normally close an order if there are still quantities in intermediate operations. If you have 20 units sitting at Operation 30 waiting to move forward, those represent unfinished work. You need to either complete them or scrap them before closing.
 
-عند إغلاق الأمر:
-1. يجمع النظام 8,500$ في التكاليف المباشرة
-2. يحسب 1,700$ في التكاليف الغير مباشرة
-3. يُحدّث 100 وحدة في المخزون بـ 102$/وحدة لكل منها
-4. يُنشئ قيود محاسبية
-5. يُقفل الأمر بحالة "مُغلق"
+### What Happens When You Close
 
-بسيط ونظيف ومكتمل.
+When you create and commit an Order Close Voucher, several things happen:
 
-### السيناريو 2: تحليل الانحرافات يكشف مشكلات
+**1. Cost Collection**
 
-التكاليف المتوقعة (من المعايير):
-- مواد: 100 كجم × 10$/كجم = 1,000$
-- عمالة: 40 ساعة × 25$/ساعة = 1,000$
-- الإجمالي المتوقع: 2,000$
+The system gathers every cost related to this production order:
+- All material issues (صرف مواد خام)
+- All resource vouchers (سند موارد) tracking labor and machine time
+- All mold/tooling usage (سند قوالب)
+- Any returned materials (negative cost)
+- Any scrapped units (cost of waste)
+- Finished goods delivered
 
-التكاليف الفعلية:
-- مواد: 115 كجم × 11$/كجم = 1,265$
-- عمالة: 50 ساعة × 25$/ساعة = 1,250$
-- الإجمالي الفعلي: 2,515$
+It adds them all up. This is your total actual cost before overhead.
 
-الانحراف: 515$ غير مفضّل (25% فوق الميزانية - مقلق!)
+**2. Overhead Application**
 
-يُفصّل سند إغلاق أمر الإنتاج ذلك:
+If you specified an overhead type (either in the close voucher or it came from the production order's default), the system generates overhead lines.
 
-**انحرافات المواد**:
-- الكمية: (115 - 100) × 10$ = 150$ غير مفضّل
-- السعر: (11 - 10) × 115 = 115$ غير مفضّل
-- إجمالي المواد: 265$ غير مفضّل
+For each element in your overhead type, it calculates the overhead amount based on the method you defined. If you use actual overhead calculator, it pulls real numbers from GL accounts.
 
-**انحرافات العمالة**:
-- الكفاءة: (50 - 40) × 25$ = 250$ غير مفضّل
-- السعر: (25$ - 25$) × 50 = 0$ (لا انحراف)
-- إجمالي العمالة: 250$ غير مفضّل
+These overhead amounts get added to your total cost.
 
-**القصة**: استخدمت 15% مواداً أكثر من المتوقع (مشكلة هدر أو خردة) ودفعت 10% أكثر (مشكلة شراء). بالإضافة إلى ذلك، استغرقت العمالة 25% وقتاً أطول (مشكلة كفاءة). ثلاث مشكلات منفصلة كُشفت.
+**3. Inventory Revaluation**
 
-الآن يمكنك التحقيق:
-- لماذا هدر المواد؟ راجع سجلات الخردة
-- لماذا السعر الأعلى؟ تحدث مع المشتريات
-- لماذا ساعات العمالة الإضافية؟ راجع سجلات التنفيذ لذلك الأمر
+Here's the clever part: The system goes back to all the Product Delivery documents for this order and updates them with the actual unit cost.
 
-بدون تحليل الانحرافات، ستعرف فقط أن "هذا الأمر كلّف أكثر من المتوقع" لكن لا تعرف لماذا. بفضله، لديك أدلة محددة للمتابعة.
+Maybe when you delivered 100 units, the system used a standard cost of $50/unit. Now, after closing, the actual cost is $52/unit. The system adjusts the inventory value accordingly.
 
-### السيناريو 3: استخدام التكاليف الغير مباشرة الفعلية
+This ensures your finished goods inventory reflects actual production costs, not estimates.
 
-تُغلق الأوامر في نهاية الشهر باستخدام حساب التكاليف الغير مباشرة الفعلي.
+**4. Accounting Entries**
 
-يستعلم الحساب في حسابات دفتر الأستاذ:
-- الحساب 5100 (إيجار المصنع): 12,000$
-- الحساب 5200 (المرافق): 8,500$
-- الحساب 5300 (الإشراف): 15,000$
-- الحساب 5400 (الصيانة): 4,500$
-- إجمالي التكاليف الغير مباشرة الفعلية للشهر: 40,000$
+Journal entries are generated for:
+- Overhead application (DR: Work in Process, CR: Overhead accounts)
+- WIP to finished goods transfer
+- Any variances (if using standard costing)
 
-ثلاثة أوامر إنتاج أُغلقت هذا الشهر:
-- الأمر A: 150 ساعة إنتاج
-- الأمر B: 250 ساعة إنتاج
-- الأمر C: 100 ساعة إنتاج
-- الإجمالي: 500 ساعة إنتاج
+The general ledger gets updated to reflect the reality of what this production cost.
 
-التكاليف الغير مباشرة مُوزَّعة بالتناسب:
-- الأمر A: 40,000$ × (150/500) = 12,000$
-- الأمر B: 40,000$ × (250/500) = 20,000$
-- الأمر C: 40,000$ × (100/500) = 8,000$
+**5. Status Change**
 
-يُحمَّل كل أمر بناءً على حصته من إجمالي ساعات الإنتاج. الأمر B الذي استهلك نصف وقت الإنتاج يُحمَّل نصف التكاليف الغير مباشرة.
+The production order status changes from "In Progress" to "Closed". It's locked - no more changes allowed. What you see is what happened.
 
-هذا يعكس الواقع - أنفقت 40,000$ في التكاليف الغير مباشرة هذا الشهر، واسترددتها كلها عبر تكاليف المنتجات.
+If the order came from a Production Order Request, that request's status updates to "Finished" too.
 
-## الإعدادات التي تتحكم بكل شيء
+## The Two Ways to Close
 
-عدة إعدادات تتحكم في آلية عمل التكاليف:
+### Normal Close: Mission Accomplished
 
-### توجيه أمر الإنتاج (Production Order Term)
+This is the standard way - production completed successfully, all units are accounted for. When you select "Normal Close" type, the system validates that:
+- No quantities are stuck in intermediate operations
+- All work-in-process has been delivered or scrapped
+- The production order is truly done
 
-**التكلفة لكل دُفعة (Cost Per Batch)**: تفعيل التكلفة الخاصة بكل lot. يحصل كل lot على حساب تكلفة خاص.
+If validation passes, closure proceeds and costs are finalized.
 
-**حساب الانحرافات (Calculate Deviations)**: تفعيل تحليل الانحرافات. يملأ النظام سطور انحرافات المواد والموارد مُظهراً المتوقع مقابل الفعلي.
+### Terminate: Calling It Quits
 
-**التكاليف الغير مباشرة (Overhead)**: نوع التكاليف الغير مباشرة الافتراضي لجميع الأوامر التي تستخدم هذا التوجيه.
+Sometimes you need to cancel an order before completion:
+- Customer cancelled the order
+- Design flaw discovered
+- Material quality issues can't be resolved
+- Business priorities changed
 
-### توجيه إغلاق الأمر (Order Close Term)
+When you select "Terminate" type, the system:
+- Closes the order without requiring all quantities to be delivered
+- Writes off any work-in-process as loss
+- Allocates costs to variance accounts
+- Marks the order status as "Terminated" (not "Closed")
 
-**التكاليف الغير مباشرة (Overhead)**: إذا حُدّد، يتجاوز نوع التكاليف الغير مباشرة لأمر الإنتاج. مفيد إذا كان لديك توزيع خاص للتكاليف الغير مباشرة في حالات معينة.
+You still go through the costing calculation - you spent money on partial production, and that cost needs to be recorded. But instead of flowing to finished goods inventory, it flows to loss accounts.
 
-**عدم تحديث الآثار المحاسبية بالقيم الفعلية**: استخدام التكاليف المعيارية في المحاسبة بدلاً من الفعلية. تُرحَّل الانحرافات بصورة منفصلة. هذا قرار سياسي - بعض الشركات تفضّل محاسبة التكلفة المعيارية وأخرى تفضّل الفعلية.
+## Variance Analysis: Playing Detective
 
-### إعداد نوع التكاليف الغير مباشرة (Overhead Type Configuration)
+If you're using standard costing (where you set expected costs for materials and labor), the Order Close Voucher can show you variances - the differences between what you expected to spend and what you actually spent.
 
-**العناصر (Elements)**: تعريف كل مكوّن من مكوّنات التكاليف الغير مباشرة (إيجار، مرافق، إشراف، إلخ)
+This is incredibly valuable for continuous improvement. Let's look at the types of variances:
 
-**طرق الحساب (Calculation Methods)**: ثابت، نسبة من تكلفة المواد، نسبة من تكلفة العمالة، سعر لكل ساعة، سعر لكل وحدة، أو فعلي من حسابات دفتر الأستاذ.
+### Material Variances
 
-**الحسابات المحاسبية (Accounting Accounts)**: أين تُقيَّد مديناً ودائناً لكل عنصر من عناصر التكاليف الغير مباشرة.
+For each component you consumed, the system can compare expected vs. actual on two dimensions:
 
-## نصائح لتكلفة فعّالة
+**Quantity Variance** (Did you use the right amount of material?)
+```
+Standard: Should use 100 kg
+Actual: Used 110 kg
+Variance: 10 kg over
 
-**أغلق الأوامر بانتظام**: لا تدعها تتراكم. أغلق الأوامر بعد أسبوع أو أسبوعين من اكتمال الإنتاج. البيانات حديثة والذاكرة حاضرة إذا نشأت تساؤلات.
+At standard price of $10/kg: 10 kg × $10 = $100 unfavorable variance
+```
 
-**راجع الانحرافات**: إذا كنت تستخدم التكلفة المعيارية، انظر في الانحرافات فعلاً. إنها تخبرك شيئاً. الانحرافات الكبيرة إشارات تحذير.
+**What it tells you**: You're consuming more material than expected. Maybe there's waste in the process, maybe the BOM needs updating, maybe quality issues are causing scrap. This is a red flag to investigate.
 
-**حدّث المعايير دورياً**: إذا كانت لديك باستمرار انحرافات مفضّلة بنسبة 20%، فمعاييرك غالباً قديمة. حدّثها لتعكس الواقع الحالي.
+**Price Variance** (Did you pay the expected price?)
+```
+Standard: Expected $10/kg
+Actual: Paid $11/kg
+Variance: $1/kg over
 
-**اختر طرق التكاليف الغير مباشرة المناسبة لعملك**: لا تنسخ ما تفعله شركة أخرى. إذا كانت تكاليفك الغير مباشرة مدفوعة فعلاً بساعات الإنتاج، استخدم السعر لكل ساعة. إذا كانت مدفوعة بمناولة المواد، استخدم نسبة من تكلفة المواد.
+For 110 kg actually consumed: 110 kg × $1 = $110 unfavorable variance
+```
 
-**استخدم التكاليف الغير مباشرة الفعلية لدقة نهاية الفترة**: الأسعار المحددة مسبقاً مناسبة للتكلفة السريعة، لكن شغّل حساباً فعلياً للتكاليف الغير مباشرة في نهاية الفترة لتسوية تكاليفك.
+**What it tells you**: Material costs are higher than expected. Maybe supplier raised prices, maybe you bought from an expensive source due to shortage, maybe freight costs increased. This variance points to purchasing issues, not manufacturing issues.
 
-**تتبّع اتجاهات التكلفة عبر الزمن**: هل تكلفة الوحدة في ارتفاع أم انخفاض؟ هل الانحرافات تتحسن أم تتدهور؟ الاتجاهات تخبرك إذا كنت تتحسن أم تنحدر.
+**Total Material Variance**: Quantity variance + Price variance = Total
 
-**حقّق لا تكتفِ بالتسجيل**: انحراف مواد غير مفضّل بنسبة 15% بيانات. فهم السبب (مشكلات جودة المورّد، هدر في العملية، عدم دقة BOM) معلومات. المعلومات تُحرّك التحسين.
+### Resource Variances
 
-**فكّر في التكلفة لكل دُفعة للامتثال**: إذا كنت في صناعة خاضعة للرقابة (دواء، غذاء، أجهزة طبية)، فالتكلفة على مستوى الدُّفعة قد لا تكون اختيارية - بل قد تكون مطلوبة لأغراض التتبع والامتثال.
+Similar analysis for labor and machine time:
+
+**Efficiency Variance** (Did the work take as long as it should?)
+```
+Standard: Should take 40 hours
+Actual: Took 45 hours
+Variance: 5 hours over
+
+At standard rate of $25/hour: 5 hours × $25 = $125 unfavorable variance
+```
+
+**What it tells you**: Work is taking longer than expected. Maybe workers need more training, maybe the routing times are optimistic, maybe there were delays or problems. Look for root causes.
+
+**Rate Variance** (Did you pay the expected rate?)
+```
+Standard: Expected $25/hour
+Actual: Paid $28/hour
+Variance: $3/hour over
+
+For 45 hours actually worked: 45 hours × $3 = $135 unfavorable variance
+```
+
+**What it tells you**: Labor is costing more than expected. Maybe you used overtime (higher rate), maybe you used a more skilled (expensive) worker than planned, maybe rates increased. This points to labor cost or staffing issues.
+
+### Reading the Clues
+
+Variances tell stories. Here are some common patterns:
+
+**High material quantity variance + normal price variance**: You're wasting material or having quality issues. Check scrap rates, look for process problems.
+
+**Normal material quantity + high price variance**: Purchasing is paying more than expected. Check supplier contracts, freight costs, market conditions.
+
+**High labor efficiency variance + normal rate variance**: Work is taking longer than it should. Check for bottlenecks, training needs, equipment issues.
+
+**Normal labor efficiency + high rate variance**: Labor costs increased. Check overtime usage, skill mix, wage changes.
+
+**Large variances on some orders but not others**: Process inconsistency. Some orders go well, others have problems. Look for what's different.
+
+**Consistently favorable variances**: Your standards might be too pessimistic. Or you've genuinely improved the process - time to update standards and take credit!
+
+## Cost Per Batch: When One Size Doesn't Fit All
+
+Sometimes you need to track costs separately for each batch or lot produced. This is common in:
+
+**Pharmaceuticals**: Regulatory requirements demand batch-level costing. Batch 2024-001 might have different costs than Batch 2024-002.
+
+**Food production**: Different production runs can have different ingredient costs, yields, and quality results.
+
+**Chemicals**: Batch yields vary. One batch might produce 95% good product, another 98%. Costs should reflect that.
+
+When you enable "Cost Per Batch" in the production order term configuration, the system:
+
+1. **Tracks costs separately per lot**: Each lot number in your product deliveries gets its own cost calculation.
+
+2. **Allocates overhead by lot**: Overhead is split proportionally based on what each lot produced.
+
+3. **Creates separate inventory values**: Lot A finished goods might cost $50/unit while Lot B cost $52/unit because they had different yields.
+
+**Example**:
+```
+Production Order: Make 200 units total
+  - Lot 2024-001: 100 units delivered
+  - Lot 2024-002: 100 units delivered
+
+Total Costs:
+  - Materials: $8,000
+  - Labor: $3,000
+  - Overhead: $1,000
+  - Total: $12,000
+
+But Lot 2024-001 used more material (lower yield):
+  - Lot 2024-001: $5,000 materials + $1,500 labor + $500 overhead = $7,000 (100 units = $70/unit)
+  - Lot 2024-002: $3,000 materials + $1,500 labor + $500 overhead = $5,000 (100 units = $50/unit)
+```
+
+Now your inventory correctly shows that Lot 2024-001 units cost more than Lot 2024-002 units. When you sell or consume them later, COGS reflects the actual cost of that specific lot.
+
+## Practical Scenarios
+
+### Scenario 1: Simple Order with Standard Overhead
+
+You made 100 widgets:
+- Material cost: $5,000 (from material issues)
+- Labor cost: $2,000 (from resource vouchers)
+- Machine cost: $1,500 (from resource vouchers)
+- Subtotal: $8,500
+
+Your overhead type charges 20% of direct costs:
+- Overhead: $8,500 × 20% = $1,700
+
+Total cost: $8,500 + $1,700 = $10,200
+Unit cost: $10,200 / 100 = $102/unit
+
+When you close the order:
+1. System tallies the $8,500 in direct costs
+2. Calculates $1,700 in overhead
+3. Updates the 100 units in inventory to $102/unit each
+4. Generates accounting entries
+5. Locks the order as Closed
+
+Simple, clean, done.
+
+### Scenario 2: Variance Analysis Reveals Problems
+
+Expected costs (from standards):
+- Materials: 100 kg @ $10/kg = $1,000
+- Labor: 40 hours @ $25/hour = $1,000
+- Total expected: $2,000
+
+Actual costs:
+- Materials: 115 kg @ $11/kg = $1,265
+- Labor: 50 hours @ $25/hour = $1,250
+- Total actual: $2,515
+
+Variance: $515 unfavorable (25% over budget - yikes!)
+
+The Order Close Voucher breaks it down:
+
+**Material Variances**:
+- Quantity: (115 - 100) × $10 = $150 unfavorable
+- Price: (11 - 10) × 115 = $115 unfavorable
+- Total material: $265 unfavorable
+
+**Labor Variances**:
+- Efficiency: (50 - 40) × $25 = $250 unfavorable
+- Rate: ($25 - $25) × 50 = $0 (no variance)
+- Total labor: $250 unfavorable
+
+**The story**: You used 15% more material than expected (waste or scrap issue) AND paid 10% more for it (purchasing issue). Plus labor took 25% longer (efficiency issue). Three separate problems revealed.
+
+Now you can investigate:
+- Why the material waste? Check scrap records
+- Why the higher price? Talk to purchasing
+- Why the extra labor hours? Check execution records for that order
+
+Without variance analysis, you'd just know "this order cost more than expected" but not why. With it, you have specific clues to follow.
+
+### Scenario 3: Using Actual Overhead
+
+You're closing orders at month-end using actual overhead calculator.
+
+Your actual overhead calculator queries GL accounts:
+- Account 5100 (Factory Rent): $12,000
+- Account 5200 (Utilities): $8,500
+- Account 5300 (Supervision): $15,000
+- Account 5400 (Maintenance): $4,500
+- Total actual overhead for month: $40,000
+
+Three production orders closed this month:
+- Order A: 150 production hours
+- Order B: 250 production hours
+- Order C: 100 production hours
+- Total: 500 production hours
+
+Overhead allocated proportionally:
+- Order A: $40,000 × (150/500) = $12,000
+- Order B: $40,000 × (250/500) = $20,000
+- Order C: $40,000 × (100/500) = $8,000
+
+Each order gets charged based on its share of total production hours. Order B, which consumed half the production time, gets charged half the overhead.
+
+This reflects reality - you spent $40,000 in overhead this month, and you've recovered all of it through product costs.
+
+## Configuration That Controls Everything
+
+Several settings control how costing works:
+
+### Production Order Term
+
+**Cost Per Batch**: Enable lot-specific costing. Each lot gets its own cost calculation.
+
+**Calculate Deviations**: Enable variance analysis. System will populate material and resource deviation lines showing expected vs. actual.
+
+**Overhead**: Default overhead type for all orders using this term.
+
+### Order Close Term
+
+**Overhead**: If specified, overrides the production order's overhead type. Useful if you have a special overhead allocation for certain situations.
+
+**Do Not Update Accounting Effects With Actual Values**: Use standard costs in accounting instead of actual. Variances are posted separately. This is a policy decision - some companies prefer standard cost accounting, others prefer actual.
+
+### Overhead Type Configuration
+
+**Elements**: Define each overhead component (rent, utilities, supervision, etc.)
+
+**Calculation Methods**: Fixed, percentage of material cost, percentage of labor cost, rate per hour, rate per unit, or actual from GL accounts.
+
+**Accounting Accounts**: Where to debit and credit for each overhead element.
+
+## Tips for Effective Costing
+
+**Close orders regularly**: Don't let them pile up. Close orders a week or two after production completes. Fresh data, fresh memories if questions arise.
+
+**Review variances**: If you're using standard costing, actually look at the variances. They're telling you something. Big variances are red flags.
+
+**Update standards periodically**: If you consistently have 20% favorable variances, your standards are probably outdated. Update them to reflect current reality.
+
+**Choose overhead methods that match your business**: Don't just copy what another company does. If your overhead really is driven by production hours, use rate per hour. If it's driven by material handling, use percentage of material cost.
+
+**Use actual overhead for period-end accuracy**: Predetermined rates are fine for quick costing, but run an actual overhead calculation at period-end to true up your costs.
+
+**Track cost trends over time**: Is the cost per unit going up or down? Are variances getting better or worse? Trends tell you if you're improving or declining.
+
+**Investigate, don't just record**: A 15% unfavorable material variance is data. Understanding why (supplier quality issues, process waste, BOM inaccuracy) is information. Information drives improvement.
+
+**Consider cost-per-batch for compliance**: If you're in a regulated industry (pharma, food, medical devices), batch-level costing might not be optional - it might be required for traceability and compliance.
 
 ---
 
-::: tip الصورة الكبيرة
-تكاليف الإنتاج تربط واقع التصنيع بالنتائج المالية. إنها الجسر بين "صنعنا 100 وحدة" و"كلّفنا X$ تصنيعها، وهذا هو السبب."
+::: tip The Big Picture
+Production costing connects manufacturing reality to financial results. It's the bridge between "we made 100 units" and "it cost us $X to make them, and here's why."
 :::
 
-::: warning اقفل جيداً
-بمجرد إغلاق الأمر، تُقفَل التكاليف. تأكد من اكتمال الإنتاج فعلاً قبل الإغلاق. لا يمكنك بسهولة إعادة فتح أمر مغلق إذا اكتشفت أنك نسيت شيئاً.
+::: warning Lock It Down
+Once an order is closed, costs are locked. Make sure all production is truly complete before closing. You can't easily reopen a closed order if you realize you forgot something.
 :::
 
-::: info تحليل الانحرافات ذهب
-إذا كنت تستخدم التكلفة المعيارية، فتحليل الانحرافات ليس مجرد إجراء محاسبي روتيني - إنه نظام الإنذار المبكر لمشكلات العملية وتجاوزات التكلفة. انتبه إليه.
+::: info Variance Analysis is Gold
+If you're using standard costing, the variance analysis isn't just accounting busywork - it's your early warning system for process problems and cost overruns. Pay attention to it.
 :::

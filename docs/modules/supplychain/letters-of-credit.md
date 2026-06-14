@@ -1,57 +1,57 @@
-# الاعتمادات المستندية (Letters of Credit)
+# Letters of Credit
 
-عندما تستورد بضاعة من مورّد في الخارج، يحتاج الطرفان إلى ضمان: المورّد يريد ضمان الدفع، وأنت تريد ضمان الشحن المطابق. **الاعتماد المستندي (Letter of Credit)** هو الأداة المصرفية التي توفّق بينهما، ويدير النظام دورته كاملةً - من الفتح إلى الشحنات إلى التكاليف.
+When you import goods from a supplier abroad, both parties need a guarantee: the supplier wants assured payment, and you want assured conforming shipment. The **Letter of Credit (LC)** is the banking instrument that reconciles the two, and the system manages its full cycle - from opening to shipments to costs.
 
-::: info الجانب البنكي للاعتماد
-هذه الصفحة تغطّي إدارة الاستيراد (الشحنات والتكاليف والتكلفة الواصلة). أمّا الجانب المصرفي البحت — حجز حدّ التسهيلات ورسوم الفتح والقيود المحاسبية — فيُدار عبر [الاعتماد البنكي في الحسابات](../accounting/bank-letters-of-credit.md).
+::: info The banking side of the LC
+This page covers import management (shipments, costs, and landed cost). For the purely banking side — reserving the facility limit, opening fees, and ledger postings — see the [Bank LC in Accounting](../accounting/bank-letters-of-credit.md).
 :::
 
-## ما الاعتماد المستندي؟
+## What Is a Letter of Credit?
 
-هو تعهّد من بنكك بدفع قيمة البضاعة للمورّد عند استيفائه شروطًا متفقًا عليها (مستندات شحن مطابقة ضمن مهلة محددة). فبدل تحويل المال مباشرةً لمورّد بعيد لم تتعامل معه من قبل، يقف البنك وسيطًا موثوقًا يحمي الطرفين.
+It's an undertaking by your bank to pay the supplier the value of the goods once they meet agreed conditions (conforming shipping documents within a set deadline). Instead of wiring money directly to a distant supplier you've never dealt with, the bank stands as a trusted intermediary protecting both parties.
 
-![شاشة الاعتماد المستندي في Nama ERP](images/lc/letter-of-credit-ar.png)
+![Letter of credit screen in NaMa ERP](../../ar/modules/supplychain/images/lc/letter-of-credit-en.png)
 
-## ملف الاعتماد (LetterOfCredit)
+## The LC File (LetterOfCredit)
 
-**الاعتماد المستندي** هو الملف الرئيسي الذي يربط المورّد والبنك وتفاصيل الشحن والشروط: نوع الدفع (مقدّم أو آجل)، وسياسة الشحن وشكل الاعتماد (اطلاعي أو آجل)، وقيمة الاعتماد وتاريخ انتهائه، وموانئ الشحن، وأطراف التأمين والجمارك والشحن. ويدعم شحنات متعددة بفترات تسليم متوقعة، ويخزّن المرفقات والفواتير المبدئية المرتبطة.
+The **Letter of Credit** is the master file linking the supplier, bank, shipment details, and terms: the payment type (prepaid or deferred), the shipment policy and LC shape (sight or usance), the LC value and expiry date, the shipping ports, and the insurance, customs, and shipping parties. It supports multiple shipments with expected delivery periods, and stores attachments and the associated proforma invoices.
 
-## دورة الفتح
+## The Opening Cycle
 
 ```
-طلب الاعتماد → طلب الفتح → مستند الفتح → الشحنات → التكاليف والمصروفات
+LC Request → Opening Request → Opening Document → Shipments → Costs & Expenses
 ```
 
-- **طلب الاعتماد** (LetterOfCreditRequest): يبدأ مسار العمل بنسبة دفعة مقدّمة وبيانات المورّد، مع تتبّع حالة للاعتماد.
-- **طلب الفتح** (LCOpeningRequest): مرحلة ما قبل الفتح، تمهّد لإنشاء الاعتماد لدى البنك.
-- **مستند الفتح** (LCOpeningDoc): يُنهي الفتح بحساب بنكي وعمولة فتح وتأكيد القيمة، ويوزّع الدفعة المقدّمة والعمولة كتكاليف إضافية، ويُنشئ القيود المحاسبية اللازمة، ويرتبط بمستند المصروفات لتتبع تكاليف الاعتماد عبر دورته.
+- **LC Request** (LetterOfCreditRequest): starts the workflow with a down-payment percentage and supplier details, with status tracking for the LC.
+- **Opening Request** (LCOpeningRequest): the pre-opening stage that prepares for establishing the LC at the bank.
+- **Opening Document** (LCOpeningDoc): finalizes the opening with a bank account, opening commission, and value confirmation, distributes the down payment and commission as additional costs, creates the necessary accounting entries, and links to the expense document to track LC costs across its cycle.
 
-## الشحنات (LCShipment)
+## Shipments (LCShipment)
 
-![شاشة شحنة الاعتماد في Nama ERP](images/lc/lc-shipment-ar.png)
+![LC shipment screen in NaMa ERP](../../ar/modules/supplychain/images/lc/lc-shipment-en.png)
 
-**شحنة الاعتماد** تتتبع إرسال البضاعة تحت الاعتماد: مستندات الحاوية وبوليصة الشحن والتخليص، والتواريخ المتوقعة مقابل الفعلية وأيام العبور، والفاتورة التجارية بعملتها وبنود الشحنة، وتعيين خط الشحن وتوجيه الموانئ. ويرتبط بها على المستوى المستندي:
-- **الفاتورة المبدئية للاعتماد** (LCProformaInvoice): فاتورة مبدئية قبل الشحن تحدّد الأصناف والأسعار، مع دعم جدولة الدفع الآجل.
-- **الفاتورة المبدئية للشحنة** (LCShipmentProformaInvoice): تُصدر عند تنفيذ الشحنة، وبنودها مرتبطة بكميات الشحنة الفعلية.
+The **LC Shipment** tracks the dispatch of goods under the LC: container, bill of lading, and customs documents, expected vs. actual dates and transit days, the commercial invoice with its currency and shipment lines, and shipping-line assignment and port routing. Linked to it at the document level are:
+- **LC Proforma Invoice** (LCProformaInvoice): a proforma invoice before shipment that defines the items and prices, with support for deferred payment scheduling.
+- **LC Shipment Proforma Invoice** (LCShipmentProformaInvoice): issued upon shipment execution, with lines keyed to the actual shipment quantities.
 
-## التكاليف والمصروفات
+## Costs and Expenses
 
-تكلفة البضاعة المستوردة ليست سعرها فقط، بل تشمل التأمين والشحن والجمارك والعمولات والتمويل. يجمعها **مستند مصروفات الاعتماد** (LcExpenseDocument) ويحمّلها على البضاعة، بدعم بنود يدوية ومحسوبة ومجدولة الدفع، وتكامل مع الإعداد المحاسبي للضرائب المتعددة. ويتوفر **مستند تكاليف الاعتماد** (LCCostDoc) لتتبع تكلفي إضافي. وبهذا تصل إلى **التكلفة الواصلة** الحقيقية للبضاعة المستوردة - وهي امتداد لمفهوم [التكاليف الإضافية](./inventory-costing.md).
+The cost of imported goods isn't just their price; it includes insurance, freight, customs, commissions, and financing. The **LC Expense Document** (LcExpenseDocument) accumulates these and loads them onto the goods, supporting manual, calculated, and scheduled-payment lines, and integrating with the accounting setup for multiple taxes. The **LC Cost Document** (LCCostDoc) is available for additional cost tracking. This brings you to the true **landed cost** of the imported goods - an extension of the [additional costs](./inventory-costing.md) concept.
 
-## سجل الأحداث (LCAction)
+## Event Log (LCAction)
 
-طوال حياة الاعتماد تطرأ أحداث إدارية: تعديلات، وإشعارات، ومطالبات، وإفراجات. يسجّلها **مستند حركة الاعتماد** (LCAction) بأنواعها ومرفقاتها وربطها بالشحنات، فيكوّن مسار تدقيق كامل لدورة حياة الاعتماد.
+Throughout the LC's life, administrative events arise: amendments, notifications, claims, and releases. The **LC Action** document records them with their types, attachments, and shipment links, forming a complete audit trail of the LC lifecycle.
 
-## الصورة الكاملة
+## The Full Picture
 
-1. تتفق مع مورّد خارجي، فتُنشئ **طلب الاعتماد** ثم **طلب الفتح**.
-2. يفتح البنك الاعتماد عبر **مستند الفتح**، فتُحمَّل الدفعة المقدّمة والعمولة كتكاليف.
-3. يشحن المورّد البضاعة، فتُسجَّل **الشحنة** بمستنداتها وفاتورتها.
-4. تتجمّع مصاريف التأمين والشحن والجمارك في **مستند المصروفات** فتُحمَّل على البضاعة.
-5. تصل البضاعة فتُستلم في المخزون بتكلفتها الواصلة الكاملة، وتُسجَّل أي أحداث عبر **سجل الحركة**.
+1. You agree with a foreign supplier, so you create the **LC Request** then the **Opening Request**.
+2. The bank opens the LC via the **Opening Document**, and the down payment and commission are loaded as costs.
+3. The supplier ships the goods, so the **Shipment** is recorded with its documents and invoice.
+4. Insurance, freight, and customs charges accumulate in the **Expense Document** and are loaded onto the goods.
+5. The goods arrive and are received into inventory at their full landed cost, with any events recorded via the **Action Log**.
 
-## الخطوات التالية
+## Next Steps
 
-- [رحلة الشراء](./purchasing-journey.md) - المشتريات المحلية مقابل الاستيرادية
-- [تكلفة المخزون وإعادة التقييم](./inventory-costing.md) - تحميل التكاليف الإضافية على البضاعة
-- [استلام المخزون](./receiving-stock.md) - استلام البضاعة المستوردة في المخزون
+- [The Purchasing Journey](./purchasing-journey.md) - local vs. import purchases
+- [Inventory Costing & Revaluation](./inventory-costing.md) - loading additional costs onto goods
+- [Receiving Stock](./receiving-stock.md) - receiving imported goods into inventory

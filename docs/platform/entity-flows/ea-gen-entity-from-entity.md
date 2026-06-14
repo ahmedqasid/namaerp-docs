@@ -1,11 +1,7 @@
 # EAGenerateEntityFromEntityAction
-<rtl>
 
-وظيفة هذا العنصر الأساسية هي انشاء سجلات مع حفظ سجلات أخرى
+The primary purpose of this element is to create records while saving other records.
 
-عادة ما نستعمل هذا المسار مع الإجراء "تأثيرات الحفظ"
+This Entity Flow is typically used with the "Save Effects" action.
 
-إذا كنت ترغب في حذف السجل المنشأ آليا فستحتاج العنصير `DeleteRelatedEntityAction` مع الإجراء "تأثيرات الحذف"
-
-
-</rtl>
+If you want to delete the automatically created record, you will need the `DeleteRelatedEntityAction` element with the "Delete Effects" action.

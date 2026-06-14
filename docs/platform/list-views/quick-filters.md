@@ -1,101 +1,101 @@
-# الفلاتر السريعة في قوائم المستندات (Quick Filters in List Views)
+# Quick Filters in List Views
 
-::: tip ميزة جديدة
-تم تطوير الفلاتر السريعة (Quick Filters) لتحسين تجربة المستخدم في تصفية البيانات بسرعة وبشكل بديهي عبر جميع قوائم المستندات في نظام نما ERP.
+::: tip New Feature
+Quick Filters have been developed to enhance user experience in filtering data quickly and intuitively across all list views in Nama ERP system.
 :::
 
-## نظرة عامة
+## Overview
 
-الفلاتر السريعة أدوات تفاعلية تظهر في أعلى قوائم المستندات، تتيح للمستخدمين تصفية البيانات بسرعة استنادًا إلى أكثر القيم شيوعًا أو أهمية في الحقول. صُمّمت هذه الميزة لتوفير طريقة بصرية وسريعة للوصول إلى البيانات المطلوبة.
+Quick Filters are interactive tools that appear at the top of list views, allowing users to filter data quickly based on the most common or important values in fields. This feature is designed to provide a fast and visual way to access the required data.
 
-## المزايا الرئيسية
+## Key Features
 
-### 1. التصفية السريعة المبنية على القيم
-- **أزرار ديناميكية**: تعرض أزرارًا تحتوي على أكثر القيم تكرارًا في الحقول المحددة
-- **أيقونات ذكية**: تعرض أيقونات مناسبة لكل نوع بيانات (enums، مراجع، تواريخ، إلخ)
-- **إحصاءات فورية**: تعرض عدد السجلات لكل قيمة ونسبتها
+### 1. Value-Based Quick Filtering
+- **Dynamic Buttons**: Display buttons containing the most frequently occurring values in specified fields
+- **Smart Icons**: Show appropriate icons for each data type (enums, references, dates, etc.)
+- **Real-time Statistics**: Display record counts for each value and their percentages
 
-### 2. الفلاتر المخصصة المحددة مسبقًا
-- **معايير مخصصة**: إمكانية إنشاء فلاتر معقدة باستخدام SQL أو معايير محددة
-- **عناوين قابلة للترجمة**: دعم عناوين الفلاتر بالعربية والإنجليزية
-- **إعداد مرن**: ربط الفلاتر بكيانات أو شاشات محددة
+### 2. Pre-defined Custom Filters
+- **Custom Criteria**: Ability to create complex filters using SQL or specific criteria
+- **Translatable Titles**: Support for Arabic and English filter titles
+- **Flexible Configuration**: Link filters to specific entities or screens
 
-### 3. واجهة مستخدم محسّنة
-- **تجميع ذكي**: تجميع الفلاتر المترابطة في مجموعات منطقية
-- **مؤشرات بصرية**: عرض النسب المئوية كدوائر تقدم ملوّنة
-- **استجابة تفاعلية**: تحديث النتائج فورًا عند تطبيق الفلاتر
+### 3. Enhanced User Interface
+- **Smart Grouping**: Group related filters into logical groups
+- **Visual Indicators**: Display percentages as colored progress circles
+- **Interactive Response**: Instant result updates when applying filters
 
-## طريقة الاستخدام
+## How to Use
 
-### للمستخدمين النهائيين
+### For End Users
 
-#### 1. الوصول إلى الفلاتر السريعة
-1. انتقل إلى أي شاشة قائمة مستندات في النظام
-2. ستظهر الفلاتر السريعة في أعلى الجدول (إذا كانت مُعدّة للكيان)
-3. الفلاتر مجمّعة في صناديق بعناوين وصفية
+#### 1. Accessing Quick Filters
+1. Navigate to any list view screen in the system
+2. Quick filters will appear at the top of the table (if configured for the entity)
+3. Filters are grouped in boxes with descriptive titles
 
-#### 2. استخدام فلاتر القيم
+#### 2. Using Value Filters
 
-![Quick Filters Overview](./images/crm-lead-quick-filters-1.png)
+![Quick Filters Overview](../../ar/platform/list-views/images/crm-lead-quick-filters-1.png)
 
-![Custom Quick Filters](./images/crm-lead-quick-filters-2.png)
+![Custom Quick Filters](../../ar/platform/list-views/images/crm-lead-quick-filters-2.png)
 
-تظهر الفلاتر السريعة كأزرار تفاعلية في أعلى قوائم المستندات، وتعرض أكثر القيم شيوعًا للحقول المحددة:
+The quick filters appear as interactive buttons at the top of list views, showing the most common values for specific fields:
 
-- **النقر على الزر**: يطبّق الفلتر فورًا على الجدول
-- **الألوان**: تتغير حسب نوع البيانات (أخضر للمدفوع، أحمر لغير المدفوع)
-- **العداد**: يعرض عدد السجلات والنسبة المئوية
+- **Click Button**: Applies the filter instantly to the table
+- **Colors**: Vary by data type (green for paid, red for unpaid)
+- **Counter**: Shows record count and percentage
 
-#### 3. استخدام الفلاتر المخصصة
+#### 3. Using Custom Filters
 
-الفلاتر المخصصة توفر معايير تصفية متخصصة يُعدّها المسؤولون مسبقًا لتلبية الاحتياجات التجارية الشائعة.
+Custom filters provide specialized filtering criteria that are pre-configured by administrators to address common business needs.
 
-#### 4. دمج الفلاتر
+#### 4. Combining Filters
 
-![Combined Quick Filters](./images/crm-lead-quick-filters-3.png)
+![Combined Quick Filters](../../ar/platform/list-views/images/crm-lead-quick-filters-3.png)
 
-- يمكن تطبيق فلاتر متعددة معًا
-- الفلاتر من مجموعات مختلفة تعمل معًا (منطق AND)
-- الفلاتر من المجموعة نفسها تعمل كبدائل (منطق OR)
+- Multiple filters can be applied together
+- Filters from different groups work together (AND logic)
+- Filters from the same group work as alternatives (OR logic)
 
-### للمسؤولين وفريق الدعم
+### For Administrators and Support Staff
 
-#### إعداد الفلاتر السريعة باستخدام Screen Modifier
+#### Configuring Quick Filters Using Screen Modifier
 
-تُعدّ الفلاتر السريعة من خلال نظام Screen Modifier الذي يتيح التخصيص لكل كيان ومستخدم.
+Quick Filters are configured through the Screen Modifier system, which allows customization per entity and user.
 
-##### الوصول إلى إعداد Screen Modifier
-1. انتقل إلى **الأساسيات** ← **Screen Modifier**
-2. ابحث عن سجل للكيان المستهدف أو أنشئه (مثل "فاتورة")
-3. انتقل إلى جدول **Quick Filter**
+##### Accessing Screen Modifier Configuration
+1. Navigate to **Basic Module** → **Screen Modifier**
+2. Search for or create a record for your target entity (e.g., "Invoice")
+3. Go to the **Quick Filter** grid
 
-##### إعداد فلاتر القيم
-* **إعداد المجموعة**:
-   - **العنوان بالعربية**: عنوان المجموعة بالعربية
+##### Setting Up Value-Based Filters
+* **Configure Group Settings**:
+   - **Arabic Title**: Arabic group title
    - **English Title**: Group Title in English
-   - **Column Names**: أدخل معرّفات الحقول مفصولة بفواصل (مثل `status,customerType`)
-   - **Show Count**: فعّل هذا الخيار لعرض عدد السجلات
-   - **Max Button Count**: حدد الحد الأقصى لعدد الأزرار (عادةً 5-10)
-   - **Remove**: ضع علامة هنا لإخفاء/إزالة مجموعة فلتر سريع (مفيد للتجاوز عند الإرث من إعدادات أخرى)
-   - **Quick Filter Values Criteria**: اختر Criteria Definition لتصفية القيم التي تظهر في أزرار الفلتر السريع
-   - **Quick Filter Values Dynamic Criteria**: أدخل نص المعايير مباشرة لتصفية القيم المعروضة (يستخدم نفس صياغة [Text Criteria](../text-criteria-guide.md))
+   - **Column Names**: Enter comma-separated field IDs (e.g., "status,customerType")
+   - **Show Count**: Enable to display record counts
+   - **Max Button Count**: Set maximum number of buttons (typically 5-10)
+   - **Remove**: Check this to hide/remove a quick filter group (useful for overriding inherited configurations)
+   - **Quick Filter Values Criteria**: Select a Criteria Definition to filter which values appear in the quick filter buttons
+   - **Quick Filter Values Dynamic Criteria**: Enter dynamic criteria text to filter which values are shown (uses the same syntax as [Text Criteria](../text-criteria-guide.md))
 
-##### تصفية قيم الفلتر السريع
-يمكنك التحكم في القيم التي تظهر في أزرار الفلتر السريع باستخدام المعايير. تُصفّي هذه المعايير استعلام قاعدة البيانات الذي يجلب القيم المتمايزة، ويمكن تطبيقها على **أي عمود في الجدول** — وليس فقط العمود المعروض في الفلتر السريع.
+##### Filtering Quick Filter Values
+You can control which values appear in the quick filter buttons using criteria. These criteria filter the database query that fetches distinct values, and can be applied on **any column in the table** - not just the column being displayed in the quick filter.
 
-على سبيل المثال، إذا كان لديك فلتر سريع على حقل "status"، يمكنك إضافة معايير تاريخ لعرض الحالات التي ظهرت في السجلات الأخيرة فقط:
+For example, if you have a quick filter on the "status" field, you could add a date criteria to show only statuses that appeared in recent records:
 
-- **مثال**: عرض حالات الفواتير للشهر الحالي فقط بإضافة المعايير: `invoiceDate,GreaterThanOrEqual,$monthStart()`
+- **Example**: Show only invoice statuses from the current month by adding criteria: `invoiceDate,GreaterThanOrEqual,$monthStart()`
 
-**خيارات الإعداد:**
-- **استخدام Criteria Definition**: أنشئ معايير قابلة لإعادة الاستخدام وارتبط بها في حقل "Quick Filter Values Criteria"
-- **استخدام Dynamic Criteria**: أدخل نص المعايير مباشرة في حقل "Quick Filter Values Dynamic Criteria"
+**Configuration Options:**
+- **Using Criteria Definition**: Create a reusable criteria and link it in the "Quick Filter Values Criteria" field
+- **Using Dynamic Criteria**: Enter criteria text directly in the "Quick Filter Values Dynamic Criteria" field
 
-هذا مفيد عندما تريد أن تعكس أزرار الفلتر السريع القيم ذات الصلة بالسياق أو الفترة الزمنية الحالية فقط، بدلًا من عرض جميع القيم الموجودة في قاعدة البيانات.
+This is useful when you want the quick filter buttons to reflect only values that are relevant to the current context or time period, rather than showing all values that ever existed in the database.
 
-##### مثال على إعداد فلتر حالة الفاتورة
+##### Example Configuration for Invoice Status Filter
 ```
-Arabic Title: حالة الفاتورة
+Arabic Title: Invoice Status (Arabic)
 English Title: Invoice Status
 Column Names: status
 Show Count: ✓ (checked)
@@ -103,17 +103,17 @@ Max Button Count: 8
 Quick Filter Values Dynamic Criteria: (optional - leave empty to show all values)
 ```
 
-##### إعداد فلاتر المعايير المخصصة
-1. **إنشاء Quick Filter Criteria**:
-   - انتقل إلى **الأساسيات** ← **Quick Filter Criteria**
-   - أنشئ سجلًا جديدًا لنوع الكيان المستهدف
+##### Setting Up Custom Criteria Filters
+1. **Create Quick Filter Criteria**:
+   - Navigate to **Basic Module** → **Quick Filter Criteria**
+   - Create new record for your entity type
 
-2. **إضافة سطور المعايير**:
-   - **Dynamic Criteria**: أدخل نص المعايير (مثل `dueDate,LessThanOrEqual,$today()'`)
-     - لمزيد من التفاصيل راجع: [Text Criteria Guide](../text-criteria-guide.md)
-   - **العنوان بالعربية**: العنوان بالعربية
+2. **Add Criteria Lines**:
+   - **Dynamic Criteria**: Enter Criteria Text  (e.g., `dueDate,LessThanOrEqual,$today()'`)
+     - For more details refer to: [Text Criteria Guide](../text-criteria-guide.md)
+   - **Arabic Title**: Arabic title
    - **English Title**: Title in English
 
-3. **الربط بـ Screen Modifier**:
-   - في جدول Quick Filter داخل Screen Modifier
-   - اختر المعايير المنشأة في حقل **Criteria**
+3. **Link to Screen Modifier**:
+   - In Screen Modifier Quick Filter grid
+   - Select the created criteria in the **Criteria** field

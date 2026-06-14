@@ -1,1198 +1,1207 @@
-# أداة إنشاء التقارير (ReportWizard) - دليل المستخدم
-## دليل شامل لإنشاء التقارير وإدارتها
+# ReportWizard User Documentation (Report Creation Tool)
+## Complete Guide to Report Creation and Management
 
 ---
 
-## مقدمة
+## Introduction
 
-أداة إنشاء التقارير (**ReportWizard**) هي أداة قوية لتوليد التقارير ضمن نظام Nama ERP، تتيح للمستخدمين إنشاء تقارير احترافية غنية بالبيانات دون كتابة أي أكواد. تُنتج مخرجات مبنية على JasperReports مع خيارات تخصيص واسعة لاستخراج البيانات وتنسيقها وعرضها.
+The ReportWizard (**Report Creation Tool**) is a powerful report generation tool within Nama ERP that enables users to create professional, data-rich reports without writing code. It generates JasperReports-based outputs with extensive customization options for data extraction, formatting, and presentation.
 
-::: info معلومات الكيان
-- **نوع الكيان**: ReportWizard
-- **الاسم العربي**: أداة إنشاء تقرير
-- **الاسم الإنجليزي**: Report Wizard
-- **تصنيف الكيان**: ملف رئيسي
-- **جدول قاعدة البيانات**: ReportWizard
+::: info Entity Information
+- **Entity Type**: ReportWizard
+- **Arabic Name**: أداة إنشاء تقرير  
+- **English Name**: Report Wizard
+- **Entity Classification**: Master File
+- **Database Table**: ReportWizard
 :::
 
-### نظرة عامة على بنية الكيان
+### Entity Structure Overview
 
-يحتوي كيان ReportWizard على **32 مجموعة تفصيلية** لتكوين التقارير بشكل شامل:
+The ReportWizard entity contains **32 detail collections** for comprehensive report configuration:
 
-| المجموعة | الاسم العربي | الاسم الإنجليزي | الغرض |
-|-----------|-------------|-----------------|-------|
-| `fields` | الحقول | Fields | تعريفات حقول التقرير وتنسيقها |
-| `parameters` | المدخلات | Parameters | مدخلات المستخدم لتصفية التقارير |
-| `group1Lines` - `group5Lines` | سطور المجموعة 1-5 | Group 1-5 Lines | إعداد التجميع الهرمي بخمسة مستويات |
-| `crosstabColumns` | الأعمدة | Columns | حقول الأبعاد الأفقية للجدول المحوري |
-| `crosstabRows` | الصفوف | Rows | حقول الأبعاد الرأسية للجدول المحوري |
-| `crosstabMeasures` | المعادلات | Measures | حقول القيم المجمّعة للجدول المحوري |
-| `dataSource1FilterLines` - `dataSource5FilterLines` | سطور الفلترة لمصدر البيانات 1-5 | Data Source 1-5 Filter Lines | تصفية بيانات متعددة المصادر |
-| `conditionalStyleLines1` - `conditionalStyleLines5` | جدول التنسيق الشرطي 1-5 | Conditional Style 1-5 Lines | قواعد التنسيق الديناميكي |
-| `securityConstraints` | Security Constraints | Security Constraints | إعداد الأمان على مستوى الصفوف |
-| `includeTablesByParameters` | تضمين الجداول بشرط من خلال مدخلات | Include Tables By Parameters | تضمين الجداول بشكل ديناميكي |
-### المزايا الرئيسية
-- **لا حاجة لـ SQL**: اختَر الكيانات والحقول من خلال واجهة بديهية
-- **دعم متعدد اللغات**: دعم كامل للعربية والإنجليزية في كل مكان
-- **معاينة فورية**: شاهد التغييرات فور إجرائها
-- **قوالب قابلة للإعادة**: احفظ إعدادات التقارير وانسخها
-- **أمان على مستوى المؤسسة**: أمان مدمج على مستوى الصفوف والحقول
-- **تنسيقات مخرجات متعددة**: PDF وExcel وHTML والطباعة المباشرة
+| Collection | Arabic Name | English Name | Purpose |
+|------------|-------------|--------------|---------|
+| `fields` | الحقول | Fields | Report field definitions and formatting |
+| `parameters` | المدخلات | Parameters | User input parameters for report filtering |
+| `group1Lines` - `group5Lines` | سطور المجموعة 1-5 | Group 1-5 Lines | 5-level hierarchical grouping configuration |
+| `crosstabColumns` | الأعمدة | Columns | Crosstab horizontal dimension fields |
+| `crosstabRows` | الصفوف | Rows | Crosstab vertical dimension fields |
+| `crosstabMeasures` | المعادلات | Measures | Crosstab aggregated value fields |
+| `dataSource1FilterLines` - `dataSource5FilterLines` | سطور الفلترة لمصدر البيانات 1-5 | Data Source 1-5 Filter Lines | Multi-source data filtering |
+| `conditionalStyleLines1` - `conditionalStyleLines5` | جدول التنسيق الشرطي 1-5 | Conditional Style 1-5 Lines | Dynamic formatting rules |
+| `securityConstraints` | Security Constraints | Security Constraints | Row-level security configuration |
+| `includeTablesByParameters` | تضمين الجداول بشرط من خلال مدخلات | Include Tables By Parameters | Dynamic table inclusion |
 
-### أنواع التقارير المدعومة
-- **قوائم قياسية**: تقارير جدولية بسيطة مع التصفية والترتيب
-- **تقارير مجمّعة**: تقارير هرمية متعددة المستويات مع المجاميع الفرعية
-- **تقارير Crosstab/Pivot**: تحليل متعدد الأبعاد بتجميع الصفوف والأعمدة
-- **تقارير رئيسية-تفصيلية**: علاقات بين الأب والابن مع بيانات متداخلة
-- **تقارير إحصائية**: تجميعات وحسابات وملخصات
-- **خطابات نموذجية**: توليد مستندات بقوالب خلفية
-- **تقارير لوحة المعلومات**: عرض مؤشرات الأداء الرئيسية والمقاييس
+### Key Benefits
+- **No SQL Required**: Select entities and fields through intuitive interface
+- **Multi-Language Support**: Full Arabic and English support throughout
+- **Real-Time Preview**: See changes as you make them
+- **Reusable Templates**: Save and copy report configurations
+- **Enterprise Security**: Built-in row and field-level security
+- **Multiple Output Formats**: PDF, Excel, HTML, and direct printing
 
----
-
-## البدء
-
-### إنشاء تقرير جديد
-
-1. **الوصول إلى أداة إنشاء التقارير**
-   - انتقل إلى Basic → Reports → Report Wizard
-   - انقر على "جديد" لإنشاء تقرير جديد
-   - أو انسخ تقريراً موجوداً باستخدام "نسخ الإعداد من تقرير"
-
-2. **الإعداد الأساسي**
-   - **الكود**: معرّف فريد للتقرير (مثال: "SALES_MONTHLY_001")
-   - **الاسم**: الاسم المعروض في قوائم التقارير
-   - **مجموعة التقارير**: تصنيف لتنظيم التقارير
-   - **العنوان العربي**: عنوان التقرير بالعربية
-   - **العنوان الإنجليزي**: عنوان التقرير بالإنجليزية
-
-3. **اختيار طريقة التخطيط**
-   - **Standard**: تخطيط عمودي تقليدي
-   - **Crosstab**: تنسيق جدول محوري
-   - **Custom**: تخطيطات متقدمة بإعداد يدوي
-
-### إعداد الصفحة
-
-#### خيارات تنسيق الصفحة
-- **A4** (210 × 297 مم): المقاس الدولي القياسي
-- **Letter** (8.5 × 11 بوصة): المعيار الأمريكي الشمالي
-- **Legal** (8.5 × 14 بوصة): مستندات ذات طول ممتد
-- **Custom**: حدّد العرض والارتفاع بالمليمتر
-
-#### اتجاه الصفحة
-- **Portrait**: اتجاه رأسي (الطول أكبر من العرض)
-- **Landscape**: اتجاه أفقي (العرض أكبر من الطول)
-
-#### ضبط الهوامش
-- **الهامش العلوي**: المسافة فوق المحتوى
-- **الهامش السفلي**: المسافة أسفل المحتوى
-- **الهامش الأيسر**: المسافة على الجانب الأيسر
-- **الهامش الأيمن**: المسافة على الجانب الأيمن
-- **Gutter**: هامش التجليد الإضافي
-
-### ارتفاعات الأشرطة
-الأشرطة هي أقسام التقرير التي تظهر في مواضع محددة:
-
-- **ارتفاع شريط العنوان**: رأس مرة واحدة في بداية التقرير (الافتراضي: 50px)
-- **ارتفاع شريط رأس الصفحة**: يتكرر في أعلى كل صفحة (الافتراضي: 30px)
-- **ارتفاع شريط رأس العمود**: رؤوس الجداول (الافتراضي: 30px)
-- **ارتفاع شريط التفاصيل**: صفوف البيانات (الافتراضي: 20px)
-- **ارتفاع شريط تذييل الصفحة**: يتكرر في أسفل كل صفحة (الافتراضي: 30px)
-- **ارتفاع شريط تذييل الصفحة الأخيرة**: تذييل خاص بالصفحة الأخيرة فقط
-- **ارتفاع شريط الملخص**: قسم إجماليات التقرير (الافتراضي: 30px)
+### Report Types Supported
+- **Standard Lists**: Simple tabular reports with filtering and sorting
+- **Grouped Reports**: Multi-level hierarchical reports with subtotals
+- **Crosstab/Pivot Reports**: Multi-dimensional analysis with row and column grouping
+- **Master-Detail Reports**: Parent-child relationships with nested data
+- **Statistical Reports**: Aggregations, calculations, and summaries
+- **Form Letters**: Document generation with background templates
+- **Dashboard Reports**: KPI and metric displays
 
 ---
 
-## إعداد مصدر البيانات
+## Getting Started
 
-### اختيار الجدول الرئيسي
+### Creating a New Report
 
-الجدول الرئيسي هو مصدر البيانات الأساسي للتقرير:
+1. **Access the ReportWizard**
+   - Navigate to Basic → Reports → Report Wizard
+   - Click "New" to create a new report
+   - Or copy an existing report using "Copy Configuration From Report"
 
-1. **اختيار نوع الجدول**
-   - **Entity**: كائنات العمل (Customer وInvoice وProduct وغيرها)
-   - **SQL View**: views محددة مسبقاً في قاعدة البيانات
-   - **Custom Query**: اكتب SQL خاصاً بك (للمستخدمين المتقدمين)
+2. **Basic Configuration**
+   - **Code**: Unique identifier for the report (e.g., "SALES_MONTHLY_001")
+   - **Name**: Display name in report lists
+   - **Report Group**: Category for organizing reports
+   - **Arabic Title**: Report title in Arabic
+   - **English Title**: Report title in English
 
-2. **متصفح الكيانات**
-   - البحث باسم الكيان أو كوده
-   - التصفية حسب الوحدة (Accounting وCRM وHR وغيرها)
-   - عرض أوصاف الكيانات وعدد الحقول
-   - التحقق من التوافق مع POS عند الحاجة
+3. **Layout Method Selection**
+   - **Standard**: Traditional columnar layout
+   - **Crosstab**: Pivot table format
+   - **Custom**: Advanced layouts with manual configuration
 
-### جداول الدمج - Union Tables (دمج مصادر متعددة)
+### Page Setup
 
-تتيح لك جداول الدمج الجمع بين بيانات كيانات متشابهة متعددة تخدم أغراضاً مختلفة أو تأتي من أنظمة مختلفة في تقرير موحد واحد.
+#### Page Format Options
+- **A4** (210 × 297 mm): Standard international size
+- **Letter** (8.5 × 11 inches): North American standard
+- **Legal** (8.5 × 14 inches): Extended length documents
+- **Custom**: Define specific width and height in millimeters
 
-#### متى تستخدم جداول الدمج
-- **الحسابات الصافية**: دمج المعاملات الموجبة والسالبة (مثال: فواتير المبيعات + مردودات المبيعات للحصول على صافي المبيعات)
-- **المستندات متعددة المصادر**: دمج مستندات مشابهة من أنظمة مختلفة (مثال: SalesInvoice + NamaPOSSalesInvoice)
-- **توحيد المدفوعات**: دمج أنواع مدفوعات مختلفة (مثال: ReceiptVoucher + BankTransfers)
-- **التقارير عبر الأنظمة**: توحيد بيانات من عمليات تجارية متعددة في عرض واحد
-- **تجميع أنواع المستندات**: دمج أنواع مستندات متنوعة تتشارك معنى تجارياً مماثلاً
+#### Page Orientation
+- **Portrait**: Vertical orientation (taller than wide)
+- **Landscape**: Horizontal orientation (wider than tall)
 
-#### كيف تعمل جداول الدمج
-1. **تعيين الحقول**: يعيّن النظام الحقول المقابلة بين الجداول
-2. **مرونة الأعمدة**: إذا اختلفت أسماء الأعمدة يمكنك تحديد العمود من كل جدول الذي يتوافق مع حقل التقرير
-3. **معالجة الدمج (Union Handling)**: تطبيق تحويلات لتمييز أو تعديل بيانات كل مصدر
+#### Margin Configuration
+- **Top Margin**: Space above content
+- **Bottom Margin**: Space below content
+- **Left Margin**: Space on left side
+- **Right Margin**: Space on right side
+- **Gutter**: Additional binding margin
 
-#### خطوات الإعداد
-1. أضف جداول الدمج في قسم "Union Tables"
-2. عيّن الحقول بين الجداول (تلقائي عند تطابق الأسماء، يدوي عند الاختلاف)
-3. اضبط تعبيرات "Union Handling" لتحويل البيانات لكل مصدر
-4. اختبر مجموعة النتائج المدمجة
+### Band Heights
+Bands are sections of the report that appear in specific locations:
 
-#### مثال 1: تقرير صافي المبيعات
+- **Title Band Height**: One-time header at report start (default: 50px)
+- **Page Header Band Height**: Repeated at top of each page (default: 30px)
+- **Column Header Band Height**: Table headers (default: 30px)
+- **Detail Band Height**: Data rows (default: 20px)
+- **Page Footer Band Height**: Repeated at bottom of each page (default: 30px)
+- **Last Page Footer Band Height**: Special footer for last page only
+- **Summary Band Height**: Report totals section (default: 30px)
+
+---
+
+## Data Source Configuration
+
+### Main Table Selection
+
+The main table is the primary data source for your report:
+
+1. **Table Type Selection**
+   - **Entity**: Business objects (Customer, Invoice, Product, etc.)
+   - **SQL View**: Pre-defined database views
+   - **Custom Query**: Write your own SQL (advanced users)
+
+2. **Entity Browser**
+   - Search by entity name or code
+   - Filter by module (Accounting, CRM, HR, etc.)
+   - View entity descriptions and field counts
+   - Check POS compatibility if needed
+
+### Union Tables (Combining Multiple Sources)
+
+Union tables allow you to combine data from multiple similar entities that serve different purposes or come from different systems into a single unified report.
+
+#### When to Use Union Tables
+- **Net Calculations**: Combine positive and negative transactions (e.g., Sales Invoices + Sales Returns for net sales)
+- **Multi-Source Documents**: Merge similar documents from different systems (e.g., SalesInvoice + NamaPOSSalesInvoice)
+- **Payment Consolidation**: Combine different payment types (e.g., ReceiptVoucher + BankTransfers)
+- **Cross-System Reporting**: Unite data from multiple business processes into one view
+- **Document Type Aggregation**: Combine various document types that share similar business meaning
+
+#### How Union Tables Work
+1. **Field Mapping**: The system maps corresponding fields between tables
+2. **Column Flexibility**: If column names differ, you can specify which column from each table maps to the report field
+3. **Union Handling**: Apply transformations to differentiate or modify data from each source
+
+#### Configuration Steps
+1. Add union tables in the "Union Tables" section
+2. Map fields between tables (automatic for matching names, manureal for different names)
+3. Configure "Union Handling" expressions to transform data per source
+4. Test the combined result set
+
+#### Example 1: Net Sales Report
 ```
 Main Table: SalesInvoice
 Union Table: SalesReturn
-Union Handling:
-  - SalesInvoice: إبقاء الكميات موجبة
-  - SalesReturn: جعل الكميات سالبة
-النتيجة: صافي المبيعات مع خصم المردودات تلقائياً
+Union Handling: 
+  - SalesInvoice: Keep quantities positive
+  - SalesReturn: Make quantities negative
+Result: Net sales with returns automatically deducted
 ```
 
-#### مثال 2: مبيعات موحدة من أنظمة متعددة
+#### Example 2: Unified Sales from Multiple Systems
 ```
-Main Table: SalesInvoice (المبيعات العادية)
-Union Table: NamaPOSSalesInvoice (مبيعات نقاط البيع)
-النتيجة: صورة مبيعات كاملة من جميع القنوات
-```
-
-#### مثال 3: التدفق النقدي الموحد
-```
-Main Table: ReceiptVoucher (المقبوضات النقدية)
-Union Table 1: BankTransfers (المقبوضات البنكية)
-Union Table 2: PaymentVoucher (المدفوعات النقدية - سالبة)
-النتيجة: تقرير تدفق نقدي كامل
+Main Table: SalesInvoice (Regular sales)
+Union Table: NamaPOSSalesInvoice (POS terminal sales)
+Result: Complete sales picture from all channels
 ```
 
-### تضمين الجداول الديناميكي
+#### Example 3: Consolidated Cash Flow
+```
+Main Table: ReceiptVoucher (Cash receipts)
+Union Table 1: BankTransfers (Bank receipts)
+Union Table 2: PaymentVoucher (Cash payments - negative)
+Result: Complete cash flow report
+```
 
-تتيح ميزة "Include Tables By Parameters" اختيار الجداول في وقت التشغيل:
+### Dynamic Table Inclusion
 
-1. **الإعداد**
-   - حدّد ما يصل إلى 10 فتحات جداول لكل سطر مدخلات
-   - أنشئ مدخلاً لاختيار المستخدم
-   - تُضمَّن الجداول بناءً على قيمة المدخل
+The "Include Tables By Parameters" feature enables runtime table selection:
 
-2. **حالات الاستخدام**
-   - **تقارير متعددة الشركات**: يختار المستخدم الشركات المراد تضمينها
-   - **اختيار الفترة**: تضمين جداول أشهر/سنوات محددة
-   - **التقارير الإقليمية**: تضمين جداول خاصة بالمنطقة ديناميكياً
-   - **فئات المنتجات**: تضمين جداول الفئات المختارة فقط
+1. **Configuration**
+   - Define up to 10 table slots per parameter line
+   - Create parameter for user selection
+   - Tables are included based on parameter value
 
-3. **مثال على الإعداد**
+2. **Use Cases**
+   - **Multi-Company Reports**: User selects which companies to include
+   - **Period Selection**: Include specific month/year tables
+   - **Regional Reports**: Dynamically include region-specific tables
+   - **Product Categories**: Include only selected category tables
+
+3. **Example Setup**
    ```
-   المدخل: "اختر المناطق للتضمين"
-   الجدول 1: NorthRegionSales (مضمّن عند اختيار "North")
-   الجدول 2: SouthRegionSales (مضمّن عند اختيار "South")
-   الجدول 3: EastRegionSales (مضمّن عند اختيار "East")
+   Parameter: "Select Regions to Include"
+   Table 1: NorthRegionSales (included if "North" selected)
+   Table 2: SouthRegionSales (included if "South" selected)
+   Table 3: EastRegionSales (included if "East" selected)
    ```
 
-### مصادر بيانات متعددة
+### Multiple Data Sources
 
-تدعم الأداة ما يصل إلى 5 مصادر بيانات إضافية بعيداً عن الجدول الرئيسي:
+The wizard supports up to 5 additional data sources beyond the main table:
 
-#### إعداد مصدر البيانات
-1. **مصدر البيانات 1-5**: اختر كيانات أو استعلامات إضافية
-2. **إعداد الربط**: حدّد العلاقات بين المصادر
-3. **إعداد التصفية**: أضف شروط WHERE لكل مصدر
+#### Data Source Configuration
+1. **Data Source 1-5**: Select additional entities or queries
+2. **Linking Configuration**: Define relationships between sources
+3. **Filter Configuration**: Add WHERE conditions per source
 
-#### خيارات الربط
-- **Inner Join**: تضمين السجلات المطابقة فقط
-- **Left Join**: تضمين جميع سجلات المصدر الرئيسي مع ما يقابلها عند توفره
-- **Subquery**: استخدام مصدر البيانات كاستعلام فرعي للحسابات
-- **Independent**: لا علاقة (حاصل ضربي ديكارتي - استخدمه بحذر)
+#### Linking Options
+- **Inner Join**: Include only matching records
+- **Left Join**: Include all main records, matching additional when available
+- **Subquery**: Use data source as a subquery for calculations
+- **Independent**: No relationship (Cartesian product - use carefully)
 
-#### خيار الاستخدام كـ Subquery
-عند التفعيل يصبح مصدر البيانات استعلاماً فرعياً مترابطاً:
-- مفيد للحسابات (مثال: "إجمالي الطلبات لكل عميل")
-- تجميعات مستقلة عن تجميع الاستعلام الرئيسي
-- تحسين الأداء للحسابات المعقدة
+#### Use as Subquery Option
+When enabled, the data source becomes a correlated subquery:
+- Useful for calculations (e.g., "Total orders per customer")
+- Aggregations independent of main query grouping
+- Performance optimization for complex calculations
 
-#### خيار عرض جميع القيم
-يتحكم في سلوك الانضمام الخارجي:
-- **مفعّل**: Left outer join (عرض جميع سجلات المصدر الرئيسي)
-- **معطّل**: Inner join (السجلات المطابقة فقط)
+#### Show All Values Option
+Controls outer join behavior:
+- **Enabled**: Left outer join (show all main records)
+- **Disabled**: Inner join (only matching records)
 
 ---
-## إدارة الحقول
 
-### أنواع الحقول
+## Field Management
 
-#### 1. حقول قاعدة البيانات
-أعمدة مباشرة من الكيان المختار:
-- **حقول بسيطة**: نصوص وأرقام وتواريخ
-- **حقول مرجع**: روابط لكيانات أخرى (تظهر بالكود أو الاسم)
-- **حقول النظام**: تاريخ الإنشاء والتعديل ومنشئ السجل وغيرها
+### Field Types
 
-#### 2. حقول التعبيرات المخصصة
-حسابات يعرّفها المستخدم:
-- **تعبيرات SQL**: حسابات على مستوى قاعدة البيانات
-- **تعبيرات Jasper**: حسابات محرك التقارير
-- **أمثلة على الصيغ**:
-  - `amount * 1.15` (إضافة ضريبة 15%)
-  - `CONCAT(firstName, ' ', lastName)` (دمج الأسماء)
-  - `DATEDIFF(endDate, startDate)` (حساب الأيام بين تاريخين)
+#### 1. Database Fields
+Direct columns from the selected entity:
+- **Simple Fields**: Text, numbers, dates
+- **Reference Fields**: Links to other entities (shown as codes or names)
+- **System Fields**: Created date, modified date, created by, etc.
 
-#### 3. الحقول البديلة
-بدائل يوفرها النظام للبيانات المعقدة:
-- خيارات عرض المرجع (الكود والاسم والوصف الكامل)
-- القيم المترجمة
-- التمثيلات المنسقة
+#### 2. Custom Expression Fields
+User-defined calculations:
+- **SQL Expressions**: Database-level calculations
+- **Jasper Expressions**: Report-engine calculations
+- **Formula Examples**:
+  - `amount * 1.15` (Add 15% tax)
+  - `CONCAT(firstName, ' ', lastName)` (Combine names)
+  - `DATEDIFF(endDate, startDate)` (Calculate days between)
 
-### خيارات إعداد الحقول
+#### 3. Alternative Fields
+System-provided alternatives for complex data:
+- Reference display options (Code, Name, Full Description)
+- Translated values
+- Formatted representations
 
-تحتوي مجموعة `fields` (**الحقول**) على إعداد شامل للحقول بأكثر من 50 خاصية لكل حقل:
+### Field Configuration Options
 
-::: details البنية التقنية لمجموعة الحقول
-**الجدول**: `ReportWizardFieldLine`
-**عمود الربط**: `reportWizard_id`
+The `fields` collection (**Fields**) contains comprehensive field configuration with 50+ properties per field:
 
-**الخصائص الرئيسية تشمل:**
-- **الإعداد الأساسي**: `fieldId`، `arabicTitle`، `englishTitle`، `type`، `namaFieldType`
-- **إعدادات العرض**: `fieldWidth`، `widthSize`، `hidden`، `displayFieldAs`
-- **التنسيق**: `patternType`، `customPattern`، `barcodeType`
-- **التجميع**: `sqlAggregationType`، `totalPosition`، `showRunningTotalInsteadOfValue`
-- **إجماليات المجموعة**: `showTotalInGroup1Section` حتى `showTotalInGroup5Section`
-- **المراجع**: `displayReferenceAs`، `doNotAddLinkToReferences`، `referenceOrderBy`
-- **المنطق المخصص**: `customSqlExpression`، `customJasperExpression`، `unionHandling`
-- **التصميم**: `style`، `conditionalStyleGrid`، `summaryStyle`
+::: details Field Collection Technical Structure
+**Table**: `ReportWizardFieldLine`  
+**Join Column**: `reportWizard_id`
+
+**Key Properties Include:**
+- **Basic Configuration**: `fieldId`, `arabicTitle`, `englishTitle`, `type`, `namaFieldType`
+- **Display Settings**: `fieldWidth`, `widthSize`, `hidden`, `displayFieldAs`
+- **Formatting**: `patternType`, `customPattern`, `barcodeType`
+- **Aggregation**: `sqlAggregationType`, `totalPosition`, `showRunningTotalInsteadOfValue`
+- **Group Totals**: `showTotalInGroup1Section` through `showTotalInGroup5Section`
+- **References**: `displayReferenceAs`, `doNotAddLinkToReferences`, `referenceOrderBy`
+- **Custom Logic**: `customSqlExpression`, `customJasperExpression`, `unionHandling`
+- **Styling**: `style`, `conditionalStyleGrid`, `summaryStyle`
 :::
 
-#### خصائص العرض
+#### Display Properties
 
-1. **عرض الحقل**
-   - **عرض ثابت**: حدد العرض بالبكسل
-   - **حجم الشبكة**: تحجيم تكيفي (Small وMedium وLarge وXLarge)
-   - **تلقائي**: يحدده النظام بناءً على المحتوى
+1. **Field Width**
+   - **Fixed Width**: Specify exact width in pixels
+   - **Grid Size**: Responsive sizing (Small, Medium, Large, XLarge)
+   - **Auto**: System determines based on content
 
-2. **العناوين والتسميات**
-   - **العنوان العربي**: التسمية في التقارير العربية
-   - **العنوان الإنجليزي**: التسمية في التقارير الإنجليزية
-   - **العناوين المدمجة**: رؤوس مجمّعة للأعمدة المجمّعة
-   - **الاسم المستعار للمستخدم**: اسم داخلي بديل للتعبيرات
+2. **Titles and Labels**
+   - **Arabic Title**: Label shown in Arabic reports
+   - **English Title**: Label shown in English reports
+   - **Merged Titles**: Combined headers for grouped columns
+   - **User Alias**: Alternative internal name for expressions
 
-3. **التحكم في الرؤية**
-   - **مخفي**: الحقل مضمّن في البيانات لكنه لا يُعرض
-   - **عرض المرفق كصورة**: عرض المرفقات كصور مضمّنة
-   - **عدم إضافة رابط للمراجع**: تعطيل الوصول التفصيلي على حقول المرجع
+3. **Visibility Control**
+   - **Hidden**: Field is included in data but not displayed
+   - **Display Attachment as Image**: Show file attachments as embedded images
+   - **Do Not Add Link to References**: Disable drill-down on reference fields
 
-#### خيارات التنسيق
+#### Formatting Options
 
-1. **أنواع النمط**
-   - **رقم**: المنازل العشرية وفاصل الآلاف وتنسيق السالب
-   - **عملة**: رمز العملة والمنازل العشرية
-   - **تاريخ**: تنسيقات تواريخ متنوعة (dd/MM/yyyy وMMM dd yyyy وغيرها)
-   - **وقت**: تنسيقات وقت (HH:mm:ss وhh:mm AM/PM)
-   - **نسبة مئوية**: عرض كنسبة مئوية بمنازل عشرية محددة
-   - **مخصص**: أنماط تنسيق يعرّفها المستخدم
+1. **Pattern Types**
+   - **Number**: Decimal places, thousand separators, negative format
+   - **Currency**: Currency symbol, decimal places
+   - **Date**: Various date formats (dd/MM/yyyy, MMM dd yyyy, etc.)
+   - **Time**: Time formats (HH:mm:ss, hh:mm AM/PM)
+   - **Percentage**: Show as percentage with specified decimals
+   - **Custom**: User-defined format patterns
 
-2. **الأنماط المخصصة**
-   - `#,##0.00`: رقم بمنزلتين عشريتين
-   - `dd/MM/yyyy`: تنسيق التاريخ
-   - `#,##0.00;(#,##0.00)`: تنسيق موجب؛سالب
-   - `00000`: أصفار بادئة (مثال: 00123)
+2. **Custom Patterns**
+   - `#,##0.00`: Number with 2 decimals
+   - `dd/MM/yyyy`: Date format
+   - `#,##0.00;(#,##0.00)`: Positive;Negative format
+   - `00000`: Leading zeros (e.g., 00123)
 
-3. **خيارات العرض**
-   - **عرض الحقل كـ**: نص أو رقم أو باركود أو QR Code
-   - **نوع الباركود**: Code128 وCode39 وQR وDataMatrix وEAN13
-   - **حقل العملة**: ربط بحقل عملة للتقارير متعددة العملات
-   - **عرض الصفر فارغاً**: إخفاء القيم الصفرية
+3. **Display Options**
+   - **Display Field As**: Text, Number, Barcode, QR Code
+   - **Barcode Type**: Code128, Code39, QR, DataMatrix, EAN13
+   - **Currency Field**: Link to currency field for multi-currency reports
+   - **Show Zero as Empty**: Hide zero values
 
-#### دوال التجميع
+#### Aggregation Functions
 
-1. **أنواع تجميع SQL**
-   - **SUM**: مجموع جميع القيم
-   - **COUNT**: عدد السجلات
-   - **COUNT DISTINCT**: عدد القيم الفريدة
-   - **AVG**: متوسط القيم
-   - **MIN**: القيمة الدنيا
-   - **MAX**: القيمة القصوى
-   - **GROUP_CONCAT**: دمج القيم النصية
+1. **SQL Aggregation Types**
+   - **SUM**: Total of all values
+   - **COUNT**: Number of records
+   - **COUNT DISTINCT**: Number of unique values
+   - **AVG**: Average value
+   - **MIN**: Minimum value
+   - **MAX**: Maximum value
+   - **GROUP_CONCAT**: Concatenate text values
 
-2. **مواضع الإجماليات**
-   - **None**: بلا إجماليات
-   - **Summary Only**: الإجمالي الكلي في نهاية التقرير
-   - **Group Footers**: إجماليات فرعية لكل مجموعة
-   - **Both**: إجماليات فرعية للمجموعات والإجمالي الكلي
+2. **Total Positions**
+   - **None**: No totals
+   - **Summary Only**: Grand total at report end
+   - **Group Footers**: Subtotals per group
+   - **Both**: Group subtotals and grand total
 
-3. **الإجماليات المتراكمة**
-   - **عرض الإجمالي المتراكم بدلاً من القيمة**: عرض المجموع التراكمي
-   - **إعادة الضبط عند المجموعة**: إعادة ضبط الإجمالي المتراكم عند حدود المجموعة
+3. **Running Totals**
+   - **Show Running Total Instead of Value**: Display cumulative sum
+   - **Reset at Group**: Restart running total at group boundaries
 
-#### الميزات المتقدمة للحقول
+#### Advanced Field Features
 
-1. **إعداد الروابط التشعبية**
-   - إنشاء روابط قابلة للنقر في التقارير
-   - الربط بتقارير أخرى أو URLs خارجية
-   - تمرير المدخلات عبر الروابط
-   - مثال: `"http://erp/customer/" + $F{customerId}`
+1. **Hyperlink Configuration**
+   - Create clickable links in reports
+   - Link to other reports or external URLs
+   - Pass parameters through links
+   - Example: `"http://erp/customer/" + $F{customerId}`
 
-2. **التنسيق الشرطي**
-   - تطبيق تنسيقات مختلفة بناءً على القيم
-   - إبراز الأرقام السالبة
-   - تلوين حقول الحالة
-   - تغليظ القيم المهمة
+2. **Conditional Styling**
+   - Apply different styles based on values
+   - Highlight negative numbers
+   - Color-code status fields
+   - Bold important values
 
-3. **خيارات عرض المرجع**
-   - **الكود فقط**: عرض كود المرجع
-   - **الاسم فقط**: عرض اسم المرجع
-   - **الكود والاسم**: عرض كليهما
-   - **التفاصيل الكاملة**: معلومات المرجع الكاملة
-
----
-## التجميع والتنظيم
-
-### فهم المجموعات
-
-تنظّم المجموعات البيانات بشكل هرمي، مما يُنشئ أقساماً برؤوس وتذييلات ومجاميع فرعية. تدعم أداة ReportWizard 5 مستويات من التجميع.
-
-### مثال على التسلسل الهرمي للمجموعات
-```
-Country (المجموعة 1)
-  ├── Region (المجموعة 2)
-  │   ├── City (المجموعة 3)
-  │   │   ├── District (المجموعة 4)
-  │   │   │   ├── Store (المجموعة 5)
-  │   │   │   │   └── سجلات التفاصيل
-  │   │   │   └── إجماليات المتجر
-  │   │   └── إجماليات المنطقة
-  │   └── إجماليات المدينة
-  └── إجماليات الإقليم
-إجماليات الدولة
-```
-
-### ضبط كل مستوى مجموعة
-
-#### حقول المجموعة
-- اختر حقلاً أو أكثر للتجميع بناءً عليه
-- الترتيب مهم للتسلسل الهرمي
-- يمكن التجميع بواسطة تعبيرات
-
-#### رؤوس المجموعة
-1. **عرض رأس المجموعة**: تفعيل/تعطيل قسم الرأس
-2. **العنوان العربي**: تسمية الرأس بالعربية
-3. **العنوان الإنجليزي**: تسمية الرأس بالإنجليزية
-4. **تعبير الرأس المخصص**: محتوى رأس ديناميكي
-
-#### تذييلات المجموعة
-1. **ارتفاع شريط التذييل**: مسافة لإجماليات المجموعة
-2. **عنوان الإجماليات العربي**: تسمية الإجماليات الفرعية بالعربية
-3. **عنوان الإجماليات الإنجليزي**: تسمية الإجماليات الفرعية بالإنجليزية
-4. **تعبير التذييل المخصص**: محتوى تذييل محسوب
-
-#### خيارات سلوك المجموعة
-
-1. **التحكم في الصفحة**
-   - **بدء صفحة جديدة**: بدء صفحة جديدة عند تغيير المجموعة
-   - **إعادة طباعة الرأس في كل صفحة**: تكرار رأس المجموعة بعد فواصل الصفحات
-   - **إعادة ضبط رقم الصفحة**: إعادة ترقيم الصفحات لكل مجموعة
-
-2. **المواصفات المرئية**
-   - **الارتفاع**: ارتفاع شريط المجموعة بالبكسل
-   - **حجم الخط**: حجم النص لرؤوس/تذييلات المجموعة
-   - **لون المقدمة**: لون النص
-   - **لون الخلفية**: لون خلفية الشريط
-
-### تعبيرات المجموعة المخصصة
-
-تدعم المجموعات تعبيرات مخصصة للحسابات المعقدة:
-
-#### تعبيرات الرأس المخصصة
-- عرض القيم المحسوبة في رؤوس المجموعة
-- عرض إحصائيات المجموعة
-- محتوى شرطي بناءً على قيم المجموعة
-
-#### تعبيرات التذييل المخصصة
-- حسابات مجاميع فرعية معقدة
-- حسابات النسبة المئوية من الإجمالي
-- تجميعات على مستوى المجموعة
-
-#### سطور التعبيرات
-أضف حقول تعبيرات متعددة للرؤوس/التذييلات:
-1. عرّف التعبير
-2. اضبط الموضع والتنسيق
-3. اضبط شروط الرؤية
-
-### ضبط إجماليات المجموعة
-
-لكل حقل يحتوي على تجميع:
-- **عرض الإجمالي في قسم المجموعة 1**: None/Header/Footer/Both
-- **عرض الإجمالي في قسم المجموعة 2**: None/Header/Footer/Both
-- (يستمر لجميع المستويات الخمسة)
+3. **Reference Display Options**
+   - **Code Only**: Show reference code
+   - **Name Only**: Show reference name
+   - **Code and Name**: Show both
+   - **Full Details**: Complete reference information
 
 ---
 
-## الترتيب والتصفية
+## Grouping and Organization
 
-### طرق الترتيب
+### Understanding Groups
 
-يحدد حقل `sortMethod` (**طريقة الترتيب**) كيفية ترتيب البيانات في التقرير:
+Groups organize data hierarchically, creating sections with headers, footers, and subtotals. The ReportWizard supports 5 levels of grouping.
 
-#### 1. الترتيب بناءً على حقول الترتيب (ترتيب محدد من خلال حقول الترتيب)
-- **قيمة Enum**: `SortBasedOnSortFields`
-- **عدد مدخلات الترتيب**: عدد حقول الترتيب (1-10)
-- **تصاعدي/تنازلي**: اتجاه الترتيب لكل حقل
-- **الأداء**: الأكثر كفاءة للبيانات الكبيرة
-- **الإعداد**: يستخدم مجموعة `sortFields` (حقول الترتيب) لتحديد معايير الترتيب
+### Group Hierarchy Example
+```
+Country (Group 1)
+  ├── Region (Group 2)
+  │   ├── City (Group 3)
+  │   │   ├── District (Group 4)
+  │   │   │   ├── Store (Group 5)
+  │   │   │   │   └── Detail Records
+  │   │   │   └── Store Totals
+  │   │   └── District Totals
+  │   └── City Totals
+  └── Region Totals
+Country Totals
+```
 
-#### 2. الترتيب بناءً على مدخل التقرير (ترتيب من خلال مدخلات يقوم باختيارها المستخدم)
-- **قيمة Enum**: `SortBasedOnReportParameter`
-- **حقول ترتيب Jasper**: يستخدم مجموعة `jasperSortFieldsLines`
-- **الاستخدام عند**: ترتيب قابل للاختيار من المستخدم أو ترتيب بحقول محسوبة
-- **التحكم في وقت التشغيل**: يمكن للمستخدمين تعديل ترتيب الفرز أثناء تنفيذ التقرير
+### Configuring Each Group Level
 
-#### 3. الترتيب متعدد المستويات
-اضبط حقول الترتيب الأساسي والثانوي والثالثي:
-1. أساسي: معيار الترتيب الرئيسي
-2. ثانوي: الترتيب داخل المجموعات الأساسية
-3. ثالثي: المستوى الأخير من الترتيب
+#### Group Fields
+- Select one or more fields to group by
+- Order matters for hierarchy
+- Can group by expressions
 
-### خيارات التصفية
+#### Group Headers
+1. **Show Group Header**: Enable/disable header section
+2. **Arabic Title**: Header label in Arabic
+3. **English Title**: Header label in English
+4. **Custom Header Expression**: Dynamic header content
 
-#### شروط WHERE الثابتة
-مرشحات دائمة تُطبَّق دائماً:
+#### Group Footers
+1. **Footer Band Height**: Space for group totals
+2. **Totals Arabic Title**: Label for subtotals in Arabic
+3. **Totals English Title**: Label for subtotals in English
+4. **Custom Footer Expression**: Calculated footer content
+
+#### Group Behavior Options
+
+1. **Page Control**
+   - **Start New Page**: Begin new page when group changes
+   - **Reprint Header on Each Page**: Repeat group header after page breaks
+   - **Reset Page Number**: Restart page numbering for each group
+
+2. **Visual Specifications**
+   - **Height**: Group band height in pixels
+   - **Font Size**: Text size for group headers/footers
+   - **Foreground Color**: Text color
+   - **Background Color**: Band background color
+
+### Custom Group Expressions
+
+Groups support custom expressions for complex calculations:
+
+#### Header Custom Expressions
+- Display calculated values in group headers
+- Show group statistics
+- Conditional content based on group values
+
+#### Footer Custom Expressions
+- Complex subtotal calculations
+- Percentage of total calculations
+- Group-level aggregations
+
+#### Expression Lines
+Add multiple expression fields to headers/footers:
+1. Define expression
+2. Set position and formatting
+3. Configure visibility conditions
+
+### Group Totals Configuration
+
+For each field with aggregation:
+- **Show Total in Group 1 Section**: None/Header/Footer/Both
+- **Show Total in Group 2 Section**: None/Header/Footer/Both
+- (Continues for all 5 group levels)
+
+---
+
+## Sorting and Filtering
+
+### Sorting Methods
+
+The `sortMethod` field (**Sort Method**) determines how data is sorted in the report:
+
+#### 1. Sort Based On Sort Fields (Sort defined through sort fields)
+- **Enum Value**: `SortBasedOnSortFields`
+- **Sort Parameters Count**: Number of sort fields (1-10)  
+- **Ascending/Descending**: Sort direction per field
+- **Performance**: Most efficient for large datasets
+- **Configuration**: Uses `sortFields` collection (Sort Fields) to define sort criteria
+
+#### 2. Sort Based On Report Parameter (Sort through parameters selected by the user)
+- **Enum Value**: `SortBasedOnReportParameter`
+- **Jasper Sort Fields**: Uses `jasperSortFieldsLines` collection
+- **Use When**: User-selectable sorting or sorting by calculated fields
+- **Runtime Control**: Users can modify sort order during report execution
+
+#### 3. Multi-Level Sorting
+Configure primary, secondary, tertiary sort fields:
+1. Primary: Main sort criterion
+2. Secondary: Sort within primary groups
+3. Tertiary: Final sort level
+
+### Filtering Options
+
+#### Static WHERE Conditions
+Permanent filters always applied:
 ```sql
--- أمثلة:
+-- Examples:
 status = 'Active'
 amount > 1000
 date >= '2024-01-01'
 region IN ('North', 'South')
 ```
 
-#### شروط HAVING الثابتة
-مرشحات تُطبَّق بعد التجميع:
+#### Static HAVING Conditions
+Filters applied after grouping:
 ```sql
--- أمثلة:
+-- Examples:
 SUM(amount) > 10000
 COUNT(*) >= 5
 AVG(score) > 75
 ```
 
-#### التصفية الديناميكية بالمدخلات
-أنشئ مرشحات قابلة للاختيار من المستخدم:
-1. عرّف المدخل
-2. أضفه لجملة WHERE
-3. يختار المستخدم القيمة في وقت التشغيل
+#### Dynamic Parameter Filtering
+Create user-selectable filters:
+1. Define parameter
+2. Add to WHERE clause
+3. User selects value at runtime
 
-#### إعداد سطور WHERE
-بناء شروط تصفية معقدة:
-1. أضف شروط سطور WHERE متعددة
-2. ادمجها بمنطق AND/OR
-3. دعم للاستعلامات الفرعية وجمل EXISTS
+#### Where Lines Configuration
+Build complex filter conditions:
+1. Add multiple WHERE line conditions
+2. Combine with AND/OR logic
+3. Support for subqueries and EXISTS clauses
 
-### تعبيرات Print When
+### Print When Expressions
 
-التحكم في ظهور العناصر:
+Control when elements appear:
 ```
--- أمثلة:
-$F{amount} > 0  -- اعرض فقط إذا كانت القيمة موجبة
-$V{PAGE_NUMBER} == 1  -- في الصفحة الأولى فقط
-$P{showDetails} == true  -- بناءً على المدخل
+-- Examples:
+$F{amount} > 0  -- Only show if amount is positive
+$V{PAGE_NUMBER} == 1  -- Only on first page
+$P{showDetails} == true  -- Based on parameter
 ```
 
 ---
-## المدخلات وإدخال المستخدم
 
-### أنواع المدخلات
+## Parameters and User Input
 
-#### 1. المدخلات البسيطة
-- **نص**: إدخال نص حر
-- **رقم**: قيم رقمية مع التحقق
-- **تاريخ**: منتقي تاريخ بتقويم
-- **منطقي**: مربع تحديد نعم/لا
+### Parameter Types
 
-#### 2. مدخلات الاختيار
-- **اختيار واحد**: قائمة منسدلة
-- **اختيار متعدد**: خانات اختيار متعددة
-- **مرجع كيان**: الاختيار من قائمة الكيانات
+#### 1. Simple Parameters
+- **Text**: Free text input
+- **Number**: Numeric values with validation
+- **Date**: Date picker with calendar
+- **Boolean**: Yes/No checkbox
 
-#### 3. مدخلات النطاق
-- **نطاق تاريخ**: من وإلى تاريخ
-- **نطاق رقمي**: الحد الأدنى والأقصى
-- **نطاق مخصص**: منطق نطاق يعرّفه المستخدم
+#### 2. Selection Parameters
+- **Single Select**: Dropdown list
+- **Multi-Select**: Multiple choice checkboxes
+- **Entity Reference**: Select from entity list
 
-### إعداد المدخلات
+#### 3. Range Parameters
+- **Date Range**: From and To dates
+- **Number Range**: Minimum and Maximum values
+- **Custom Range**: User-defined range logic
 
-تحتوي مجموعة `parameters` (**المدخلات**) على خيارات إعداد واسعة:
+### Parameter Configuration
 
-::: details البنية التقنية لمجموعة المدخلات
-**الجدول**: `ReportWizardParameterLine`
-**عمود الربط**: `reportWizard_id`
+The `parameters` collection (**Parameters**) provides extensive parameter configuration options:
 
-**الخصائص الرئيسية تشمل:**
-- **الإعداد الأساسي**: `fieldId`، `arabicTitle`، `englishTitle`، `required`، `requiredGroup`
-- **أنواع البيانات**: `paramType`، `parameterType`، `namaFieldType`
-- **القيم الافتراضية**: `defaultValue`، `defaultValueDate`، `defaultValueDateTime`، `refDefaultValue`
-- **دعم النطاق**: `defaultValueWithBetween`، `defaultValueDateWithBetween`، `refDefaultValueWithBetween`
-- **مدخلات المرجع**: `refEntityType`، `filter`، `filterType`، `referenceOrderBy`
-- **التحكم في التخطيط**: `layout`، `showInsideReport`، `hidden`
-- **المنطق المتسلسل**: `sourceParameter`، `sourceProperty`، `allowedValues`
-- **التعبيرات المخصصة**: `customSqlExpression`، `customJasperExpression`
+::: details Parameter Collection Technical Structure
+**Table**: `ReportWizardParameterLine`  
+**Join Column**: `reportWizard_id`
+
+**Key Properties Include:**
+- **Basic Setup**: `fieldId`, `arabicTitle`, `englishTitle`, `required`, `requiredGroup`
+- **Data Types**: `paramType`, `parameterType`, `namaFieldType`
+- **Default Values**: `defaultValue`, `defaultValueDate`, `defaultValueDateTime`, `refDefaultValue`
+- **Range Support**: `defaultValueWithBetween`, `defaultValueDateWithBetween`, `refDefaultValueWithBetween`
+- **Reference Parameters**: `refEntityType`, `filter`, `filterType`, `referenceOrderBy`
+- **Layout Control**: `layout`, `showInsideReport`, `hidden`
+- **Cascading Logic**: `sourceParameter`, `sourceProperty`, `allowedValues`
+- **Custom Expressions**: `customSqlExpression`, `customJasperExpression`
 :::
 
-#### الإعدادات الأساسية
-1. **معرّف الحقل**: اسم مرجع المدخل
-2. **العنوان العربي**: التسمية في الواجهة العربية
-3. **العنوان الإنجليزي**: التسمية في الواجهة الإنجليزية
-4. **القيمة الافتراضية**: قيمة مسبقة التعبئة
-5. **مطلوب**: يجب تعبئته قبل التشغيل
+#### Basic Settings
+1. **Field ID**: Parameter reference name
+2. **Arabic Title**: Label in Arabic interface
+3. **English Title**: Label in English interface
+4. **Default Value**: Pre-filled value
+5. **Required**: Must be filled before running
 
-#### إعداد التخطيط
-1. **موضع المدخلات** (`parametersPosition`):
-   القيم المتاحة من النظام:
-   - **FirstPageHeaderOnly**: عرض في رأس الصفحة الأولى فقط
-   - **AllPagesHeader**: تكرار في رأس كل صفحة
-   - **AllPagesFooter**: عرض في تذييل كل صفحة
-   - **None**: عدم عرض المدخلات في التقرير
-   - **GroupHeader**: عرض في رؤوس المجموعات
-   - **GroupFooter**: عرض في تذييلات المجموعات
-   - **LastPageFooter**: عرض في تذييل الصفحة الأخيرة فقط
-   - **Summary**: عرض في قسم الملخص
+#### Layout Configuration
+1. **Parameters Position** (`parametersPosition`):
+   Available values from the system:
+   - **FirstPageHeaderOnly**: Show only on first page header
+   - **AllPagesHeader**: Repeat on every page header  
+   - **AllPagesFooter**: Show on every page footer
+   - **None**: Don't display parameters in report
+   - **GroupHeader**: Display in group headers
+   - **GroupFooter**: Display in group footers
+   - **LastPageFooter**: Show only on last page footer
+   - **Summary**: Display in summary section
 
-2. **عدد المدخلات في الصف** (`numberOfParametersInRow`): أعمدة لكل صف (1-4)
+2. **Number of Parameters in Row** (`numberOfParametersInRow`): Columns per row (1-4)
 
-3. **مواصفات شبكة المدخلات**:
-   - الارتفاع وحجم الخط والألوان
-   - المحاذاة والتباعد
-   - الحدود والخلفية
+3. **Parameters Grid Specs**:
+   - Height, font size, colors
+   - Alignment and spacing
+   - Border and background
 
-### الميزات المتقدمة للمدخلات
+### Advanced Parameter Features
 
-#### المدخلات المتسلسلة
-مدخلات تعتمد على مدخلات أخرى:
-1. اختيار الدولة يصفّي المدن المتاحة
-2. اختيار القسم يصفّي الموظفين
-3. اختيار السنة يحدد الأشهر المتاحة
+#### Cascading Parameters
+Parameters that depend on other parameters:
+1. Country selection filters available cities
+2. Department selection filters employees
+3. Year selection determines available months
 
-#### المدخلات المخفية
-قيم محسوبة بواسطة النظام:
-- المستخدم الحالي
-- التاريخ/الوقت الحالي
-- وحدة التنظيم
-- سياق الأمان
+#### Hidden Parameters
+System-calculated values:
+- Current user
+- Current date/time
+- Organization unit
+- Security context
 
-#### التحقق من صحة المدخلات
-- التحقق من الحقول المطلوبة
-- التحقق من التنسيق (بريد إلكتروني وهاتف وغيرها)
-- التحقق من النطاق
-- تعبيرات التحقق المخصصة
+#### Parameter Validation
+- Required field validation
+- Format validation (email, phone, etc.)
+- Range validation
+- Custom validation expressions
 
-### استخدام المجموعات كمدخلات
+### Using Groups as Parameters
 
-تمكين المستخدمين من اختيار التجميع في وقت التشغيل:
-1. **استخدام المجموعات كمدخلات**: تفعيل الخيار
-2. **الإعداد**: تحديد مستويات المجموعة القابلة للاختيار
-3. **وقت التشغيل**: يختار المستخدم بنية التجميع
+Enable users to select grouping at runtime:
+1. **Use Groups as Parameter**: Enable option
+2. **Configure**: Which group levels are selectable
+3. **Runtime**: User chooses grouping structure
+
+---
+
+## Crosstab Reports
+
+### Understanding Crosstabs
+
+Crosstabs (pivot tables) transform row-based data into a matrix format, ideal for comparative analysis across multiple dimensions.
+
+### Basic Structure
+```
+                 Column Dimension →
+                 Jan    Feb    Mar    Total
+Row       North   100    150    125    375
+Dimension South   200    175    225    600
+    ↓     East    150    160    180    490
+          Total   450    485    530   1465
+```
+
+### Crosstab Configuration
+
+#### Row Fields (Vertical Dimension)
+1. **Select Row Fields**: Choose fields for vertical grouping
+2. **Row Order**: Determines hierarchy
+3. **Row Parameters**: Allow runtime selection
+   - **Select as Parameter**: Enable user selection
+   - **Parameters Count**: Max selectable fields
+   - **Title Prefix**: Parameter label prefix
+
+#### Column Fields (Horizontal Dimension)
+1. **Select Column Fields**: Choose fields for horizontal grouping
+2. **Column Order**: Determines hierarchy
+3. **Column Parameters**: Allow runtime selection
+   - **Select as Parameter**: Enable user selection
+   - **Parameters Count**: Max selectable fields
+   - **Title Prefix**: Parameter label prefix
+
+#### Measures (Values)
+1. **Select Measure Fields**: Values to aggregate
+2. **Aggregation Type**: SUM, COUNT, AVG, MIN, MAX
+3. **Display Format**: Number format, decimals
+4. **Multiple Measures**: Support for multiple value fields
+
+### Crosstab Display Options
+
+#### Cell Configuration
+- **Cell Width**: Width in pixels
+- **Cell Height**: Height in pixels
+- **Ignore Width**: Auto-size based on content
+- **Display Measures Vertically**: Stack multiple measures
+
+#### Visual Settings
+- **Show Grid**: Display cell borders
+- **Use White Grid**: Light border color
+- **Color Scheme**: Apply to crosstab structure
+
+### Advanced Crosstab Features
+
+#### Dynamic Dimensions
+Allow users to select dimensions at runtime:
+1. Enable parameter selection
+2. Provide dimension choices
+3. Report adapts to selection
+
+#### Calculated Measures
+Create derived values:
+- Percentages of totals
+- Growth calculations
+- Ratios and indices
+- Custom formulas
+
+#### Drill-Down Support
+Click on cells to see details:
+- Link to detail reports
+- Pass cell context as parameters
+- Maintain navigation context
 
 ---
 
-## تقارير Crosstab
+## Visual Formatting
 
-### فهم تقارير Crosstab
+### Color Schemes
 
-تحوّل تقارير Crosstab (الجداول المحورية) البيانات المبنية على صفوف إلى تنسيق مصفوفي، مثالية للتحليل المقارن عبر أبعاد متعددة.
+#### Predefined Schemes
 
-### البنية الأساسية
-```
-                 البُعد الأفقي للعمود →
-                 يناير  فبراير  مارس   الإجمالي
-البُعد   الشمال  100    150    125    375
-الرأسي   الجنوب  200    175    225    600
-  ↓      الشرق   150    160    180    490
-         الإجمالي 450   485    530   1465
-```
+The `colorScheme` field provides extensive color options. Key schemes include:
 
-### إعداد Crosstab
+**Professional/Business Colors:**
+- **Aliceblue**: Light blue professional theme
+- **Ghostwhite**: Clean white-based theme  
+- **Lightgray**: Professional gray theme
+- **Silver**: Metallic corporate theme
+- **Gainsboro**: Subtle gray professional
 
-#### حقول الصفوف (البُعد الرأسي)
-1. **اختيار حقول الصفوف**: حدد الحقول للتجميع الرأسي
-2. **ترتيب الصفوف**: يحدد التسلسل الهرمي
-3. **مدخلات الصفوف**: السماح بالاختيار في وقت التشغيل
-   - **الاختيار كمدخل**: تمكين اختيار المستخدم
-   - **عدد المدخلات**: الحد الأقصى للحقول القابلة للاختيار
-   - **بادئة العنوان**: بادئة تسمية المدخل
+**Vibrant Colors:**
+- **Blue**: Classic blue scheme
+- **Green**: Nature-inspired green
+- **Red**: Bold red theme
+- **Purple**: Rich purple scheme  
+- **Orange**: Energetic orange theme
 
-#### حقول الأعمدة (البُعد الأفقي)
-1. **اختيار حقول الأعمدة**: حدد الحقول للتجميع الأفقي
-2. **ترتيب الأعمدة**: يحدد التسلسل الهرمي
-3. **مدخلات الأعمدة**: السماح بالاختيار في وقت التشغيل
-   - **الاختيار كمدخل**: تمكين اختيار المستخدم
-   - **عدد المدخلات**: الحد الأقصى للحقول القابلة للاختيار
-   - **بادئة العنوان**: بادئة تسمية المدخل
+**Neutral/Print-Friendly:**
+- **White**: Clean white background
+- **Black**: High contrast black theme
+- **Gray**: Standard gray scheme
 
-#### المعادلات (القيم)
-1. **اختيار حقول المعادلات**: القيم المراد تجميعها
-2. **نوع التجميع**: SUM وCOUNT وAVG وMIN وMAX
-3. **تنسيق العرض**: تنسيق الأرقام والمنازل العشرية
-4. **معادلات متعددة**: دعم حقول قيم متعددة
-
-### خيارات عرض Crosstab
-
-#### إعداد الخلايا
-- **عرض الخلية**: العرض بالبكسل
-- **ارتفاع الخلية**: الارتفاع بالبكسل
-- **تجاهل العرض**: التحجيم التلقائي بناءً على المحتوى
-- **عرض المعادلات رأسياً**: تكديس المعادلات المتعددة
-
-#### الإعدادات المرئية
-- **عرض الشبكة**: عرض حدود الخلايا
-- **استخدام شبكة بيضاء**: لون حدود فاتح
-- **نظام الألوان**: تطبيق على بنية Crosstab
-
-### الميزات المتقدمة لـ Crosstab
-
-#### الأبعاد الديناميكية
-السماح للمستخدمين باختيار الأبعاد في وقت التشغيل:
-1. تمكين اختيار المدخلات
-2. توفير خيارات الأبعاد
-3. يتكيف التقرير مع الاختيار
-
-#### المعادلات المحسوبة
-إنشاء قيم مشتقة:
-- نسب مئوية من الإجماليات
-- حسابات النمو
-- النسب والمؤشرات
-- صيغ مخصصة
-
-#### دعم Drill-Down
-النقر على الخلايا لرؤية التفاصيل:
-- الربط بتقارير تفصيلية
-- تمرير سياق الخلية كمدخلات
-- الحفاظ على سياق التنقل
-
----
-## التنسيق المرئي
-
-### أنظمة الألوان
-
-#### الأنظمة المحددة مسبقاً
-
-يوفر حقل `colorScheme` خيارات ألوان واسعة. تشمل الأنظمة الرئيسية:
-
-**ألوان احترافية/تجارية:**
-- **Aliceblue**: ثيم أزرق فاتح احترافي
-- **Ghostwhite**: ثيم أبيض نظيف
-- **Lightgray**: ثيم رمادي احترافي
-- **Silver**: ثيم فضي مؤسسي
-- **Gainsboro**: رمادي هادئ احترافي
-
-**ألوان زاهية:**
-- **Blue**: نظام أزرق كلاسيكي
-- **Green**: أخضر مستوحى من الطبيعة
-- **Red**: ثيم أحمر جريء
-- **Purple**: نظام بنفسجي غني
-- **Orange**: ثيم برتقالي نشط
-
-**محايد/مناسب للطباعة:**
-- **White**: خلفية بيضاء نظيفة
-- **Black**: ثيم أسود عالي التباين
-- **Gray**: نظام رمادي قياسي
-
-::: details قائمة الألوان الكاملة (أكثر من 100 خيار)
-يدعم النظام أكثر من 100 لون محدد مسبقاً منها: Aliceblue وAntiquewhite وAqua وAquamarine وAzure وBeige وBisque وBlack وBlanchedalmond وBlue وBlueviolet وBrown وBurlywood وCadetblue وChartreuse وChocolate وCoral وCornflowerblue وCornsilk وCrimson وCyan وغيرها الكثير. يمكن تطبيق كل لون بتغييرات (Default وLight وDark).
+::: details Complete Color List (100+ Options)
+The system supports over 100 predefined colors including: Aliceblue, Antiquewhite, Aqua, Aquamarine, Azure, Beige, Bisque, Black, Blanchedalmond, Blue, Blueviolet, Brown, Burlywood, Cadetblue, Chartreuse, Chocolate, Coral, Cornflowerblue, Cornsilk, Crimson, Cyan, and many more. Each color can be applied with variations (Default, Light, Dark).
 :::
 
-#### تغييرات الألوان
-- **Default**: ألوان النظام القياسية
-- **Light**: متغيرات أفتح
-- **Dark**: متغيرات أغمق
+#### Color Variations
+- **Default**: Standard scheme colors
+- **Light**: Lighter shade variants
+- **Dark**: Darker shade variants
 
-#### ألوان المكونات
-ضبط الألوان لكل عنصر في التقرير:
+#### Component Colors
+Configure colors for each report element:
 
-1. **الرؤوس والإجماليات**
-   - **لون الإجمالي**: خلفية صفوف الإجماليات
-   - **لون نص الإجمالي**: النص في صفوف الإجماليات
-   - **لون المجموعة**: خلفية رأس المجموعة
-   - **لون نص المجموعة**: نص رأس المجموعة
+1. **Headers and Totals**
+   - **Total Color**: Background for total rows
+   - **Total Text Color**: Text in total rows
+   - **Group Color**: Group header background
+   - **Group Text Color**: Group header text
 
-2. **مناطق البيانات**
-   - **لون المعادلات**: خلفية خلايا المعادلات
-   - **لون نص المعادلات**: نص خلايا المعادلات
-   - **لون التفاصيل**: خلفية صفوف البيانات
-   - **لون نص التفاصيل**: نص صفوف البيانات
+2. **Data Areas**
+   - **Measures Color**: Measure cell background
+   - **Measures Text Color**: Measure cell text
+   - **Detail Color**: Data row background
+   - **Detail Text Color**: Data row text
 
-3. **الصفوف المتبادلة**
-   - **تلوين سطر بسطر**: تمكين الألوان المتبادلة
-   - **خلفية السطر الزوجي**: خلفية الصفوف الزوجية
-   - **لون مقدمة السطر الزوجي**: نص الصفوف الزوجية
+3. **Alternating Rows**
+   - **Line by Line Coloring**: Enable alternating colors
+   - **Even Line Background**: Even row background
+   - **Even Line Foreground**: Even row text
 
-### مواصفات الأشرطة
+### Band Specifications
 
-لكل شريط (قسم) خصائص قابلة للضبط:
+Each band (section) has configurable properties:
 
-#### شريط رأس العمود
-- **الارتفاع**: ارتفاع صف الرأس
-- **حجم الخط**: حجم نص الرأس
-- **غامق**: تغليظ الرؤوس
-- **المحاذاة**: يسار/وسط/يمين
-- **الخلفية**: لون خلفية الرأس
+#### Column Header Band
+- **Height**: Header row height
+- **Font Size**: Header text size
+- **Bold**: Make headers bold
+- **Alignment**: Left/Center/Right
+- **Background**: Header background color
 
-#### شريط التفاصيل
-- **الارتفاع**: ارتفاع صف البيانات
-- **حجم الخط**: حجم نص البيانات
-- **الحشو**: حشو الخلية
-- **الحدود**: حدود الخلية
+#### Detail Band
+- **Height**: Data row height
+- **Font Size**: Data text size
+- **Padding**: Cell padding
+- **Borders**: Cell borders
 
-#### شريط الملخص
-- **الارتفاع**: ارتفاع قسم الملخص
-- **حجم الخط**: حجم نص الإجماليات
-- **النمط**: غامق ومائل وتحته خط
-- **فاصل**: خط فوق الإجماليات
+#### Summary Band
+- **Height**: Summary section height
+- **Font Size**: Total text size
+- **Style**: Bold, italic, underline
+- **Separator**: Line above totals
 
-### إعداد الشبكة
+### Grid Configuration
 
-#### خيارات عرض الشبكة
-1. **عرض الشبكة**: عرض حدود الجدول
-2. **استخدام شبكة بيضاء**: حدود رمادي فاتح
-3. **نمط الشبكة**: صلبة ومنقطة ومتقطعة
+#### Grid Display Options
+1. **Show the Grid**: Display table borders
+2. **Use White Grid**: Light gray borders
+3. **Grid Style**: Solid, dotted, dashed
 
-#### إعداد خطوط الشبكة
-- **الخطوط الرأسية**: فواصل الأعمدة
-- **الخطوط الأفقية**: فواصل الصفوف
-- **الإطار الخارجي**: إطار الجدول
-- **الحدود الداخلية**: أقسام الخلايا
+#### Grid Line Configuration
+- **Vertical Lines**: Column separators
+- **Horizontal Lines**: Row separators
+- **Outer Border**: Table frame
+- **Inner Borders**: Cell divisions
 
-### التنسيق الشرطي
+### Conditional Styling
 
-تطبيق التنسيق بناءً على قيم البيانات:
+Apply formatting based on data values:
 
-#### شروط التنسيق (5 شبكات متاحة)
-1. **تعبير الشرط**: متى يُطبَّق التنسيق
-2. **خصائص التنسيق**: ما الذي يتغير
-3. **الأولوية**: ترتيب التقييم
+#### Style Conditions (5 Available Grids)
+1. **Condition Expression**: When to apply style
+2. **Style Properties**: What to change
+3. **Priority**: Order of evaluation
 
-#### التنسيقات الشرطية الشائعة
-- **القيم السالبة**: نص أحمر للأرقام السالبة
-- **الحدود**: لون بناءً على النطاقات
-- **مؤشرات الحالة**: اللون حسب حقل الحالة
-- **الإبراز**: تغليظ القيم المهمة
+#### Common Conditional Styles
+- **Negative Values**: Red text for negative numbers
+- **Thresholds**: Color based on ranges
+- **Status Indicators**: Color by status field
+- **Highlights**: Bold important values
 
-#### مثال على الشروط
+#### Example Conditions
 ```
-$F{amount} < 0           → نص أحمر
-$F{status} == "Urgent"    → غامق + خلفية صفراء
-$F{score} >= 90          → خلفية خضراء
-$V{ROW_COUNT} % 2 == 0   → لون صف متبادل
+$F{amount} < 0           → Red text
+$F{status} == "Urgent"    → Bold + Yellow background
+$F{score} >= 90          → Green background
+$V{ROW_COUNT} % 2 == 0   → Alternate row color
 ```
 
-### الصور الخلفية
+### Background Images
 
-#### إعداد الصورة
-1. **رفع صورة**: JPEG أو PNG أو GIF
-2. **الشفافية**: 0-255 (0=شفاف، 255=معتم)
-3. **الحجم**: العرض والارتفاع بالبكسل
-4. **الموضع**: إحداثيات X وY
+#### Image Configuration
+1. **Upload Image**: JPEG, PNG, or GIF
+2. **Opacity**: 0-255 (0=transparent, 255=opaque)
+3. **Size**: Width and height in pixels
+4. **Position**: X and Y coordinates
 
-#### حالات استخدام الصور
-- **العلامات المائية**: شعار الشركة بشفافية منخفضة
-- **ورق الرسائل الرسمية**: قالب مستند رسمي
-- **النماذج**: خلفيات نماذج مطبوعة مسبقاً
-- **الأمان**: أنماط حماية النسخ
+#### Image Use Cases
+- **Watermarks**: Company logo at low opacity
+- **Letterhead**: Official document template
+- **Forms**: Pre-printed form backgrounds
+- **Security**: Copy protection patterns
 
-#### شفافية الحقول
-- **جعل الحقول شفافة**: الدمج مع الخلفية
-- **إبقاء الحقول معتمة**: خلفيات حقول صلبة
+#### Field Transparency
+- **Make Fields Transparent**: Blend with background
+- **Keep Fields Opaque**: Solid field backgrounds
 
 ---
-## الميزات المتقدمة
 
-### قيود الأمان
+## Advanced Features
 
-#### الأمان على مستوى الصفوف
-تصفية البيانات بناءً على أذونات المستخدم:
-1. **بناءً على المستخدم**: عرض بيانات المستخدم فقط
-2. **بناءً على الدور**: التصفية حسب دور المستخدم
-3. **التنظيم**: تقييد بيانات المستخدم بوحدته التنظيمية
-4. **قواعد مخصصة**: منطق أمان معقد
+### Security Constraints
 
-#### الأمان على مستوى الحقول
-التحكم في رؤية الحقول:
-- إخفاء الحقول الحساسة
-- إخفاء البيانات جزئياً
-- الرؤية الشرطية
+#### Row-Level Security
+Filter data based on user permissions:
+1. **User-Based**: Show only user's data
+2. **Role-Based**: Filter by user role
+3. **Organization**: Limit to user's organization
+4. **Custom Rules**: Complex security logic
 
-### متغيرات Jasper
+#### Field-Level Security
+Control field visibility:
+- Hide sensitive fields
+- Mask partial data
+- Conditional visibility
 
-إنشاء متغيرات مخصصة للحسابات:
+### Jasper Variables
 
-#### أنواع المتغيرات
-1. **Sum**: إجماليات متراكمة أو مجموعة
-2. **Count**: أعداد السجلات
-3. **Average**: حسابات المتوسط
-4. **Min/Max**: القيم الحدية
-5. **Custom**: تعبيرات المستخدم
+Create custom variables for calculations:
 
-#### إعداد المتغير
-- **الاسم**: معرّف المتغير
-- **التعبير**: صيغة الحساب
-- **نوع إعادة الضبط**: متى تُعاد تهيئة القيمة
-- **القيمة الابتدائية**: قيمة البداية
+#### Variable Types
+1. **Sum**: Running or group totals
+2. **Count**: Record counts
+3. **Average**: Mean calculations
+4. **Min/Max**: Extreme values
+5. **Custom**: User expressions
 
-### مكونات الرأس
+#### Variable Configuration
+- **Name**: Variable identifier
+- **Expression**: Calculation formula
+- **Reset Type**: When to reset value
+- **Initial Value**: Starting value
 
-إضافة عناصر مخصصة لرؤوس التقارير:
+### Header Components
 
-#### أنواع المكونات
-1. **نص ثابت**: تسميات وعناوين
-2. **حقول ديناميكية**: التاريخ الحالي وأرقام الصفحات
-3. **صور**: شعارات ورسومات
-4. **مدخلات**: عرض قيم المدخلات
-5. **مخصص**: محتوى مبني على تعبيرات
+Add custom elements to report headers:
 
-#### تخطيط المكونات
-- وضع المكونات بدقة
-- تطبيق طبقات على مكونات متعددة
-- العرض الشرطي
+#### Component Types
+1. **Static Text**: Labels and titles
+2. **Dynamic Fields**: Current date, page numbers
+3. **Images**: Logos and graphics
+4. **Parameters**: Display parameter values
+5. **Custom**: Expression-based content
 
-### ميزات مصدر البيانات
+#### Component Layout
+- Position components precisely
+- Layer multiple components
+- Conditional display
 
-#### الاستعلامات الفرعية
-استخدام مصادر البيانات كاستعلامات فرعية:
+### Data Source Features
+
+#### Subqueries
+Use data sources as subqueries:
 ```sql
--- الاستعلام الرئيسي يجلب العملاء
--- الاستعلام الفرعي يجلب عدد الطلبات لكل عميل
+-- Main query gets customers
+-- Subquery gets order count per customer
 SELECT c.*, 
   (SELECT COUNT(*) FROM orders WHERE customerId = c.id) as orderCount
 FROM customers c
 ```
 
-#### معالجة الدمج (Union Handling)
+#### Union Handling
 
-تتيح لك تعبيرات Union Handling تحويل بيانات كل جدول مصدر في استعلامات الدمج والتمييز بينها:
+Union Handling expressions allow you to transform and differentiate data from each source table in union queries:
 
-**الغرض**: تطبيق منطق أو تحويلات مختلفة على البيانات بحسب الجدول الذي تأتي منه.
+**Purpose**: Apply different logic or transformations to data depending on which table it comes from.
 
-**حالات الاستخدام الشائعة**:
-1. **تحويل الإشارة**: جعل المردودات سالبة مع إبقاء المبيعات موجبة
-2. **تحديد المصدر**: إضافة تسميات لتحديد النظام الذي جاءت منه البيانات
-3. **تحويلات القيم**: تطبيق حسابات مختلفة لكل مصدر
-4. **توحيد البيانات**: تطبيع التنسيقات المختلفة لبنية موحدة
+**Common Use Cases**:
+1. **Sign Conversion**: Make returns negative while keeping sales positive
+2. **Source Identification**: Add labels to identify which system the data comes from
+3. **Value Transformations**: Apply different calculations per source
+4. **Data Standardization**: Normalize different formats to a common structure
 
-**الإعداد**:
-- يمكن لكل حقل أن يحتوي على تعبير union handling
-- يحدد التعبير كيفية معالجة قيمة الحقل من كل مصدر
-- يمكن الإشارة إلى جدول المصدر لتطبيق منطق شرطي
+**Configuration**:
+- Each field can have a union handling expression
+- Expression determines how to process the field value from each source
+- Can reference the source table to apply conditional logic
 
 
-**تعيين الحقول بأسماء أعمدة مختلفة**:
-عندما لا تتشارك جداول الدمج أسماء الأعمدة نفسها يمكنك تعيينها:
-- عمود الجدول الرئيسي: `customer_name`
-- عمود جدول الدمج: `client_name`
-- يعيّن النظام هذين الحقلين كحقل واحد في التقرير
+**Field Mapping with Different Column Names**:
+When union tables don't share the same column names, you can map them:
+- Main Table column: `customer_name`
+- Union Table column: `client_name`
+- System maps these as the same field in the report
 
 ---
 
-## مخرجات التقرير والتصدير
+## Report Output and Export
 
-### تشغيل التقارير
+### Running Reports
 
-#### خيارات التنفيذ
-1. **تشغيل التقرير**: توليد وعرض
-2. **تحميل التقرير**: حفظ في ملف
-3. **إرسال التقرير بالبريد**: إرسال للمستلمين
-4. **جدولة التقرير**: التوليد التلقائي
+#### Execution Options
+1. **Run Report**: Generate and display
+2. **Download Report**: Save to file
+3. **Email Report**: Send to recipients
+4. **Schedule Report**: Automatic generation
 
-#### تنسيقات المخرجات
+#### Output Formats
 
 1. **PDF**
-   - طباعة عالية الجودة
-   - خطوط مضمّنة
-   - نص قابل للبحث
-   - إشارات مرجعية وروابط
+   - High-quality printing
+   - Embedded fonts
+   - Searchable text
+   - Bookmarks and links
 
 2. **Excel**
-   - تصدير البيانات مع التنسيق
-   - تصفية تلقائية مفعّلة
+   - Data export with formatting
+   - Auto-filter enabled
 
 3. **HTML**
-   - عرض في متصفح الويب
-   - عناصر تفاعلية
+   - Web browser viewing
+   - Interactive elements
 
-### خيارات الطباعة
+### Print Options
 
-#### الطباعة المباشرة
-- الإرسال مباشرة للطابعة
-- اختيار الطابعة
-- النسخ والترتيب
-- اختيار نطاق الصفحات
+#### Direct Printing
+- Send directly to printer
+- Printer selection
+- Copies and collation
+- Page range selection
 
-#### إعدادات الطباعة
-- تطابق حجم الورق
-- التعامل مع الاتجاه
-- ضبط الهوامش
-- التحجيم للملاءمة
-
----
-## تحسين الأداء
-
-### تحسين الاستعلامات
-
-#### استخدام الجداول المؤقتة مقابل CTEs
-- **CTEs**: أفضل لمجموعات البيانات الصغيرة
-- **الجداول المؤقتة**: أفضل لمجموعات البيانات الكبيرة
-- **الإعداد**: `useTempTablesInsteadOfCTE`
-
-#### التحكم في الصفحات
-- **تفعيل**: تحميل البيانات بصفحات
-- **تعطيل**: تحميل جميع البيانات دفعة واحدة
-- **الإعداد**: `ignorePagination`
-
-### تحسين الترتيب
-
-#### الترتيب قبل المجموعات
-- ترتيب البيانات قبل التجميع
-- يحسّن أداء المجموعات
-- الإعداد: `usedBeforeGroupsSort`
-
-#### ترتيب قاعدة البيانات مقابل ترتيب التقرير
-- **قاعدة البيانات**: أسرع للبيانات الكبيرة
-- **التقرير**: مطلوب للحقول المحسوبة
-
-### استراتيجيات تحميل البيانات
-
-#### التحميل الكسول
-- تحميل البيانات عند الحاجة
-- تقليل وقت التحميل الأولي
-- أفضل للتقارير الكبيرة
-
-#### التحميل المسبق
-- تحميل جميع البيانات مسبقاً
-- أفضل للتقارير الصغيرة
-- تنقل أسرع
-
-### استخدام الفهارس
-
-#### تأكد من وجود فهارس لـ
-- أعمدة JOIN
-- أعمدة جملة WHERE
-- أعمدة ORDER BY
-- أعمدة GROUP BY
-
-### أفضل ممارسات تصميم التقارير
-
-1. **تحديد الحقول**: أدرج الحقول الضرورية فقط
-2. **تحسين التعبيرات**: التعبيرات البسيطة تعمل بشكل أفضل
-3. **تقليل المجموعات**: مستويات مجموعة أقل = معالجة أسرع
-4. **التجميع المبكر**: استخدم تجميع SQL عند الإمكان
-5. **التصفية المبكرة**: طبّق جمل WHERE لتقليل البيانات
+#### Print Settings
+- Paper size matching
+- Orientation handling
+- Margin adjustment
+- Scale to fit
 
 ---
 
-## حالات استخدام شائعة
+## Performance Optimization
 
-### تقارير المبيعات
+### Query Optimization
 
-#### ملخص المبيعات الشهري
-1. الجدول الرئيسي: SalesInvoice
-2. المجموعات: الشهر والمنطقة وموظف المبيعات
-3. المعادلات: إجمالي المبيعات والعدد والمتوسط
-4. المدخلات: نطاق التاريخ ومرشح المنطقة
+#### Use Temp Tables vs CTEs
+- **CTEs**: Better for smaller datasets
+- **Temp Tables**: Better for large datasets
+- **Configuration**: `useTempTablesInsteadOfCTE`
 
-#### تحليل مبيعات العملاء
-1. الجدول الرئيسي: Customer
-2. مصدر البيانات 2: SalesInvoice (مرتبط)
-3. المجموعات: فئة العميل والعميل
-4. المعادلات: مبيعات العام الحالي ومبيعات السنة الماضية ونسبة النمو
+#### Pagination Control
+- **Enable**: Load data in pages
+- **Disable**: Load all data at once
+- **Configuration**: `ignorePagination`
 
-### التقارير المالية
+### Sorting Optimization
 
-#### قائمة الدخل
-1. الجدول الرئيسي: GeneralLedger
-2. المجموعات: نوع الحساب والحساب
-3. المعادلات: المدين والدائن والرصيد
-4. خاص: إخفاء الأرصدة الصفرية
+#### Before Groups Sort
+- Sort data before grouping
+- Improves group performance
+- Configuration: `usedBeforeGroupsSort`
 
-#### الذمم المدينة المتقادمة
-1. الجدول الرئيسي: AccountsReceivable
-2. المجموعات: فئات التقادم (0-30، 31-60، وغيرها)
-3. المعادلات: المبلغ المستحق
-4. المدخلات: تاريخ الاحتساب
+#### Database vs Report Sorting
+- **Database**: Faster for large datasets
+- **Report**: Required for calculated fields
 
-### تقارير المخزون
+### Data Loading Strategies
 
-#### تقرير حالة المخزون
-1. الجدول الرئيسي: InventoryItem
-2. مصدر البيانات 2: StockMovement
-3. المجموعات: الفئة والبند
-4. المعادلات: الكمية الموجودة والمتاحة والمطلوبة
+#### Lazy Loading
+- Load data as needed
+- Reduce initial load time
+- Better for large reports
 
-#### تحليل الحركة
-1. الجدول الرئيسي: StockMovement
-2. المجموعات: الفترة ونوع الحركة
-3. Crosstab: البنود × الأشهر
-4. المعادلات: الكمية والقيمة
+#### Eager Loading
+- Load all data upfront
+- Better for small reports
+- Faster navigation
 
-### تقارير الموارد البشرية
+### Index Utilization
 
-#### قائمة الموظفين
-1. الجدول الرئيسي: Employee
-2. المجموعات: القسم والمسمى الوظيفي
-3. الحقول: الاسم وتاريخ التعيين والراتب
-4. الأمان: رؤية الراتب حسب الدور
+#### Ensure Indexes Exist For:
+- JOIN columns
+- WHERE clause columns
+- ORDER BY columns
+- GROUP BY columns
 
-#### ملخص الحضور
-1. الجدول الرئيسي: Attendance
-2. Crosstab: الموظف × التاريخ
-3. المعادلات: الساعات والإضافي
-4. التنسيق الشرطي: إبراز حالات الغياب
+### Report Design Best Practices
+
+1. **Limit Fields**: Only include necessary fields
+2. **Optimize Expressions**: Simple expressions perform better
+3. **Reduce Groups**: Fewer group levels = faster processing
+4. **Aggregate Early**: Use SQL aggregation when possible
+5. **Filter Early**: Apply WHERE clauses to reduce data
 
 ---
-## استكشاف الأخطاء وإصلاحها
 
-### المشكلات الشائعة وحلولها
+## Common Use Cases
 
-#### التقرير يعمل ببطء
-**الأسباب والحلول:**
-1. **بيانات كبيرة**: تفعيل الصفحات واستخدام المرشحات
-2. **تعبيرات معقدة**: تبسيطها أو نقلها لـ SQL
-3. **مجموعات كثيرة**: تقليل مستويات التجميع
-4. **فهارس مفقودة**: إضافة فهارس لقاعدة البيانات
+### Sales Reports
 
-#### البيانات لا تظهر
-**تحقق من:**
-1. شروط WHERE التي تستثني البيانات
-2. قيود الأمان التي تحد من الوصول
-3. شروط JOIN المقيدة جداً
-4. القيم الافتراضية للمدخلات
+#### Monthly Sales Summary
+1. Main Table: SalesInvoice
+2. Groups: Month, Region, Salesperson
+3. Measures: Total Sales, Count, Average
+4. Parameters: Date range, Region filter
 
-#### إجماليات غير صحيحة
-**تحقق من:**
-1. نوع التجميع (SUM مقابل COUNT)
-2. إعدادات إعادة ضبط المجموعة
-3. البيانات المكررة من JOINs
-4. التعامل مع قيم NULL
+#### Customer Sales Analysis
+1. Main Table: Customer
+2. Data Source 2: SalesInvoice (linked)
+3. Groups: Customer Category, Customer
+4. Measures: YTD Sales, Last Year Sales, Growth %
 
-#### مشكلات في التنسيق
-**راجع:**
-1. إعداد النمط
-2. إعدادات اللغة المحلية
-3. توفر الخطوط
-4. اختيار نظام الألوان
+### Financial Reports
 
-### أخطاء التحقق
+#### Income Statement
+1. Main Table: GeneralLedger
+2. Groups: Account Type, Account
+3. Measures: Debit, Credit, Balance
+4. Special: Hide zero balances
+
+#### Aged Receivables
+1. Main Table: AccountsReceivable
+2. Groups: Aging Buckets (0-30, 31-60, etc.)
+3. Measures: Outstanding Amount
+4. Parameters: As-of date
+
+### Inventory Reports
+
+#### Stock Status Report
+1. Main Table: InventoryItem
+2. Data Source 2: StockMovement
+3. Groups: Category, Item
+4. Measures: On Hand, Available, On Order
+
+#### Movement Analysis
+1. Main Table: StockMovement
+2. Groups: Period, Movement Type
+3. Crosstab: Items × Months
+4. Measures: Quantity, Value
+
+### HR Reports
+
+#### Employee List
+1. Main Table: Employee
+2. Groups: Department, Position
+3. Fields: Name, Hire Date, Salary
+4. Security: Salary visibility by role
+
+#### Attendance Summary
+1. Main Table: Attendance
+2. Crosstab: Employee × Date
+3. Measures: Hours, Overtime
+4. Conditional Style: Highlight absences
+
+---
+
+## Troubleshooting
+
+### Common Issues and Solutions
+
+#### Report Runs Slowly
+**Causes & Solutions:**
+1. **Large Dataset**: Enable pagination, use filters
+2. **Complex Expressions**: Simplify or move to SQL
+3. **Many Groups**: Reduce grouping levels
+4. **Missing Indexes**: Add database indexes
+
+#### Data Not Appearing
+**Check:**
+1. WHERE conditions excluding data
+2. Security constraints limiting access
+3. JOIN conditions too restrictive
+4. Parameter default values
+
+#### Incorrect Totals
+**Verify:**
+1. Aggregation type (SUM vs COUNT)
+2. Group reset settings
+3. Duplicate data from JOINs
+4. NULL value handling
+
+#### Formatting Issues
+**Review:**
+1. Pattern configuration
+2. Locale settings
+3. Font availability
+4. Color scheme selection
+
+### Validation Errors
 
 #### "Fields grid validation failed"
-- تحقق من صحة مراجع الحقول
-- تأكد من صحة بناء التعبيرات
-- تحقق من تطابق أنواع الحقول مع الاستخدام
+- Check field references are valid
+- Ensure expressions are syntactically correct
+- Verify field types match usage
 
 #### "Group validation failed"
-- تأكد من اختيار حقول المجموعة
-- تحقق من صحة تعبيرات المجموعة
-- تحقق من إعداد إجماليات المجموعة
+- Ensure group fields are selected
+- Check group expressions are valid
+- Verify group totals configuration
 
 #### "Parameter validation failed"
-- أسماء المدخلات يجب أن تكون فريدة
-- القيم الافتراضية يجب أن تتطابق مع النوع
-- المدخلات المطلوبة تحتاج لقيم افتراضية
+- Parameter names must be unique
+- Default values must match type
+- Required parameters need defaults
 
-### نصائح الأداء
+### Performance Tips
 
-#### للتقارير الكبيرة (أكثر من 10,000 صف)
-1. استخدم ترتيب قاعدة البيانات
-2. فعّل الصفحات
-3. حدّد الحقول المرئية
-4. استخدم تقارير الملخصات مع Drill-Down
+#### For Large Reports (>10,000 rows)
+1. Use database sorting
+2. Enable pagination
+3. Limit visible fields
+4. Use summary reports with drill-down
 
-#### للحسابات المعقدة
-1. احسب مسبقاً في views قاعدة البيانات
-2. استخدم متغيرات Jasper بكفاءة
-3. خزّن مؤقتاً الحسابات المتكررة
-4. حسّن تعقيد التعبيرات
+#### For Complex Calculations
+1. Pre-calculate in database views
+2. Use jasper variables efficiently
+3. Cache repeated calculations
+4. Optimize expression complexity
 
-#### لمصادر بيانات متعددة
-1. استخدم أنواع الانضمام المناسبة
-2. فكّر في الاستعلامات الفرعية للتجميعات
-3. حدّد الحواصل الضربية
-4. صفّ مبكراً في كل مصدر
+#### For Multiple Data Sources
+1. Use appropriate join types
+2. Consider subqueries for aggregations
+3. Limit cross-products
+4. Filter early in each source
 
-### ميزات وضع التصحيح
+### Debug Mode Features
 
-عند استكشاف الأخطاء:
-1. **عرض SQL المولّد**: رؤية الاستعلام الفعلي
-2. **تقييم التعبيرات**: اختبار التعبيرات
-3. **معاينة ببيانات عينة**: مجموعة بيانات محدودة
-4. **خطة التنفيذ**: خطة استعلام قاعدة البيانات
-5. **مقاييس الأداء**: الوقت لكل مرحلة
+When troubleshooting:
+1. **View Generated SQL**: See actual query
+2. **Expression Evaluation**: Test expressions
+3. **Preview with Sample Data**: Limited dataset
+4. **Execution Plan**: Database query plan
+5. **Performance Metrics**: Time per phase
+
+---
+
+## Best Practices
+
+### Report Design
+
+1. **Start Simple**: Begin with basic report, add features gradually
+2. **Test Incrementally**: Verify each section works before adding more
+3. **Use Templates**: Copy successful reports as starting points
+4. **Document Purpose**: Use descriptions and comments
+
+### Naming Conventions
+
+1. **Report Codes**: Use prefixes (FIN_*, HR_*, SALES_*)
+2. **Field Aliases**: Meaningful names for expressions
+3. **Parameter Names**: Clear, user-friendly labels
+4. **Group Names**: Hierarchical naming
+
+### Maintenance
+
+1. **Version Control**: Keep report backup before major changes
+2. **Change Documentation**: Document modifications
+3. **Test After Updates**: Verify after entity changes
+4. **Regular Review**: Audit report usage and performance
+
+### Security
+
+1. **Least Privilege**: Only grant necessary access
+2. **Test Security**: Verify constraints work correctly
+3. **Audit Sensitive Reports**: Log access to confidential data
+4. **Regular Reviews**: Update security as roles change
+
+### User Experience
+
+1. **Clear Parameters**: Provide helpful parameter descriptions
+2. **Meaningful Defaults**: Set sensible default values
+3. **Consistent Formatting**: Use standard formats across reports
+4. **Helpful Totals**: Include relevant subtotals and grand totals
+5. **Error Messages**: Provide clear guidance when issues occur
 
 ---
 
-## أفضل الممارسات
+## Appendix
 
-### تصميم التقارير
+### Field Type Reference
+- `TextDF`: Text fields
+- `IntegerDF`: Whole numbers
+- `DecimalDF`: Decimal numbers
+- `BooleanDF`: True/False values
+- `DateDF`: Date fields
+- `DateTimeDF`: Date and time fields
+- `LongTextDF`: Large text fields
+- `FieldID`: Entity field references
 
-1. **ابدأ بسيطاً**: ابدأ بتقرير أساسي وأضف الميزات تدريجياً
-2. **اختبر بشكل تدريجي**: تحقق من عمل كل قسم قبل إضافة المزيد
-3. **استخدم القوالب**: انسخ التقارير الناجحة كنقطة انطلاق
-4. **وثّق الغرض**: استخدم الأوصاف والتعليقات
+### SQL Aggregation Functions
+- `SUM()`: Total of values
+- `COUNT()`: Number of rows
+- `COUNT(DISTINCT)`: Unique values
+- `AVG()`: Average value
+- `MIN()`: Minimum value
+- `MAX()`: Maximum value
+- `GROUP_CONCAT()`: Concatenated text
+- `STDDEV()`: Standard deviation
+- `VARIANCE()`: Statistical variance
 
-### معايير التسمية
+### Jasper Expression Functions
+- `$F{fieldname}`: Field value
+- `$P{parameter}`: Parameter value
+- `$V{variable}`: Variable value
+- `$R{resource}`: Resource bundle
+- `PAGE_NUMBER`: Current page
+- `REPORT_COUNT`: Total records
+- `ROW_COUNT`: Current row
 
-1. **أكواد التقارير**: استخدم البادئات (FIN_* وHR_* وSALES_*)
-2. **الأسماء المستعارة للحقول**: أسماء ذات معنى للتعبيرات
-3. **أسماء المدخلات**: تسميات واضحة وسهلة للمستخدم
-4. **أسماء المجموعات**: تسمية هرمية
-
-### الصيانة
-
-1. **التحكم في الإصدارات**: احتفظ بنسخة احتياطية قبل إجراء تغييرات كبيرة
-2. **توثيق التغييرات**: وثّق التعديلات
-3. **الاختبار بعد التحديثات**: التحقق بعد تغيير الكيانات
-4. **المراجعة الدورية**: مراجعة استخدام التقارير وأدائها
-
-### الأمان
-
-1. **أقل الصلاحيات**: امنح الوصول الضروري فقط
-2. **اختبار الأمان**: تحقق من صحة عمل القيود
-3. **مراجعة التقارير الحساسة**: سجّل الوصول للبيانات السرية
-4. **مراجعات دورية**: حدّث الأمان مع تغيير الأدوار
-
-### تجربة المستخدم
-
-1. **مدخلات واضحة**: قدّم أوصافاً مفيدة للمدخلات
-2. **قيم افتراضية ذات معنى**: اضبط قيماً افتراضية منطقية
-3. **تنسيق متسق**: استخدم تنسيقات قياسية عبر التقارير
-4. **إجماليات مفيدة**: أدرج الإجماليات الفرعية والكلية ذات الصلة
-5. **رسائل خطأ**: قدّم توجيهاً واضحاً عند حدوث مشكلات
-
----
-## الملاحق
-
-### مرجع أنواع الحقول
-- `TextDF`: حقول النص
-- `IntegerDF`: أعداد صحيحة
-- `DecimalDF`: أعداد عشرية
-- `BooleanDF`: قيم صح/خطأ
-- `DateDF`: حقول التاريخ
-- `DateTimeDF`: حقول التاريخ والوقت
-- `LongTextDF`: حقول نص طويل
-- `FieldID`: مراجع حقول الكيانات
-
-### دوال تجميع SQL
-- `SUM()`: مجموع القيم
-- `COUNT()`: عدد الصفوف
-- `COUNT(DISTINCT)`: القيم الفريدة
-- `AVG()`: متوسط القيم
-- `MIN()`: القيمة الدنيا
-- `MAX()`: القيمة القصوى
-- `GROUP_CONCAT()`: نص مدمج
-- `STDDEV()`: الانحراف المعياري
-- `VARIANCE()`: التباين الإحصائي
-
-### دوال تعبيرات Jasper
-- `$F{fieldname}`: قيمة الحقل
-- `$P{parameter}`: قيمة المدخل
-- `$V{variable}`: قيمة المتغير
-- `$R{resource}`: حزمة الموارد
-- `PAGE_NUMBER`: الصفحة الحالية
-- `REPORT_COUNT`: إجمالي السجلات
-- `ROW_COUNT`: الصف الحالي
-
-### أنماط تنسيق التاريخ
+### Date Format Patterns
 - `dd/MM/yyyy`: 31/12/2024
 - `MM/dd/yyyy`: 12/31/2024
 - `yyyy-MM-dd`: 2024-12-31
@@ -1200,87 +1209,87 @@ FROM customers c
 - `MMMM dd, yyyy`: December 31, 2024
 - `EEEE, MMMM dd, yyyy`: Tuesday, December 31, 2024
 
-### أنماط تنسيق الأرقام
+### Number Format Patterns
 - `#,##0`: 1,234
 - `#,##0.00`: 1,234.00
-- `#,##0.00;(#,##0.00)`: 1,234.00 أو (1,234.00)
+- `#,##0.00;(#,##0.00)`: 1,234.00 or (1,234.00)
 - `0.00%`: 12.34%
 - `$ #,##0.00`: $ 1,234.00
 - `00000`: 01234
 
-### رموز الألوان (Hex)
-- `#000000`: أسود
-- `#FFFFFF`: أبيض
-- `#FF0000`: أحمر
-- `#00FF00`: أخضر
-- `#0000FF`: أزرق
-- `#FFFF00`: أصفر
-- `#808080`: رمادي
-- `#E6E6E6`: رمادي فاتح
+### Color Codes (Hex)
+- `#000000`: Black
+- `#FFFFFF`: White
+- `#FF0000`: Red
+- `#00FF00`: Green
+- `#0000FF`: Blue
+- `#FFFF00`: Yellow
+- `#808080`: Gray
+- `#E6E6E6`: Light Gray
 
 ---
 
-## الملحق التقني
+## Technical Appendix
 
-### البنية الكاملة للكيان
+### Complete Entity Structure
 
-::: details التفاصيل التقنية لكيان ReportWizard
-**معلومات الكيان:**
-- **نوع الكيان**: ReportWizard
-- **الاسم العربي**: أداة إنشاء تقرير
-- **الاسم الإنجليزي**: Report Wizard
-- **جدول قاعدة البيانات**: ReportWizard
-- **التصنيف**: ملف رئيسي (وليس ملف مستند)
+::: details ReportWizard Entity Technical Details
+**Entity Information:**
+- **Entity Type**: ReportWizard
+- **Arabic Name**: أداة إنشاء تقرير
+- **English Name**: Report Wizard  
+- **Database Table**: ReportWizard
+- **Classification**: Master File (not Document File)
 
-**حقول الرأس الرئيسية:**
-- **التخطيط والتصميم**: `layoutMethod`، `pageFormat`، `pageOrientation`، `colorScheme`، `variation`
-- **مصادر البيانات**: `mainTable`، `dataSource1`-`dataSource5`، `tableType`، `entityType`
-- **الترتيب**: `sortMethod`، `sortParametersCount`، `ascendingOrDescending`، `usedBeforeGroupsSort`
-- **التجميع**: `useGroupsAsParameter`، `startNewPageGroup1`-`startNewPageGroup5`
-- **الأداء**: `useTempTablesInsteadOfCTE`، `ignorePagination`، `usedBeforeGroupsSort`
-- **الأمان**: صلاحيات العرض والتحديث والاستخدام مع قيود على مستوى الصفوف
-- **Crosstab**: `crosstabCellWidth`، `crosstabCellHeight`، `displayCrosstabMeasuresVertically`
+**Key Header Fields:**
+- **Layout & Design**: `layoutMethod`, `pageFormat`, `pageOrientation`, `colorScheme`, `variation`
+- **Data Sources**: `mainTable`, `dataSource1`-`dataSource5`, `tableType`, `entityType`
+- **Sorting**: `sortMethod`, `sortParametersCount`, `ascendingOrDescending`, `usedBeforeGroupsSort`
+- **Grouping**: `useGroupsAsParameter`, `startNewPageGroup1`-`startNewPageGroup5`
+- **Performance**: `useTempTablesInsteadOfCTE`, `ignorePagination`, `usedBeforeGroupsSort`
+- **Security**: View, update, and usage capabilities with row-level constraints
+- **Crosstab**: `crosstabCellWidth`, `crosstabCellHeight`, `displayCrosstabMeasuresVertically`
 
-**قائمة المجموعات الكاملة (32 مجموعة):**
-1. **fields** (الحقول) - تعريفات الحقول
-2. **parameters** (المدخلات) - إعدادات المدخلات
-3. **userAliases** - الأسماء المستعارة للمستخدم
-4. **headerComponents** - مكونات تخطيط الرأس
-5. **sortFields** (حقول الترتيب) - تعريفات حقول الترتيب في قاعدة البيانات
-6. **group1Lines** حتى **group5Lines** (سطور المجموعة 1-5) - تجميع بخمسة مستويات
-7. **group1HeaderCustomExpressionLines** حتى **group5HeaderCustomExpressionLines** - تعبيرات رأس المجموعة
-8. **group1FooterCustomExpressionLines** حتى **group5FooterCustomExpressionLines** - تعبيرات تذييل المجموعة
-9. **unionTables** - إعدادات جداول الدمج
-10. **whereLines** - شروط جملة WHERE
-11. **jasperSortFieldsLines** - إعدادات ترتيب Jasper
-12. **jasperVariables** - متغيرات Jasper المخصصة
-13. **dataSource1FilterLines** حتى **dataSource5FilterLines** - تصفية متعددة المصادر
-14. **dataSource1LinkingLines** حتى **dataSource5LinkingLines** - ربط متعدد المصادر
-15. **printWhenExpressionLines** - قواعد الطباعة الشرطية
-16. **crosstabColumns** (الأعمدة) - حقول أعمدة Crosstab
-17. **crosstabRows** (الصفوف) - حقول صفوف Crosstab
-18. **crosstabMeasures** (المعادلات) - حقول معادلات Crosstab
-19. **securityConstraints** - قواعد قيود الأمان
-20. **conditionalStyleLines1** حتى **conditionalStyleLines5** (جدول التنسيق الشرطي 1-5) - 5 شبكات تنسيق شرطي
-21. **includeTablesByParameters** (تضمين الجداول بشرط من خلال مدخلات) - التضمين الديناميكي للجداول
+**Complete Collection List (32 Collections):**
+1. **fields** (Fields) - Field definitions
+2. **parameters** (Parameters) - Parameter configurations  
+3. **userAliases** - User-defined field aliases
+4. **headerComponents** - Header layout components
+5. **sortFields** (Sort Fields) - Database sort field definitions
+6. **group1Lines** through **group5Lines** (Group 1-5 Lines) - 5-level grouping
+7. **group1HeaderCustomExpressionLines** through **group5HeaderCustomExpressionLines** - Group header expressions
+8. **group1FooterCustomExpressionLines** through **group5FooterCustomExpressionLines** - Group footer expressions
+9. **unionTables** - Union table configurations
+10. **whereLines** - WHERE clause conditions
+11. **jasperSortFieldsLines** - Jasper sort configurations
+12. **jasperVariables** - Custom Jasper variables
+13. **dataSource1FilterLines** through **dataSource5FilterLines** - Multi-source filtering
+14. **dataSource1LinkingLines** through **dataSource5LinkingLines** - Multi-source linking
+15. **printWhenExpressionLines** - Conditional printing rules
+16. **crosstabColumns** (Columns) - Crosstab column fields
+17. **crosstabRows** (Rows) - Crosstab row fields  
+18. **crosstabMeasures** (Measures) - Crosstab measure fields
+19. **securityConstraints** - Security constraint rules
+20. **conditionalStyleLines1** through **conditionalStyleLines5** (Conditional Style 1-5) - 5 grids of conditional formatting
+21. **includeTablesByParameters** (Include Tables By Parameters) - Dynamic table inclusion
 
-**قيم حقول Enum:**
-- **sortMethod**: `SortBasedOnSortFields` (ترتيب محدد من خلال حقول الترتيب)، `SortBasedOnReportParameter` (ترتيب من خلال مدخلات يقوم باختيارها المستخدم)
-- **parametersPosition**: `FirstPageHeaderOnly` و`AllPagesHeader` و`AllPagesFooter` و`None` و`GroupHeader` و`GroupFooter` و`LastPageFooter` و`Summary`
-- **colorScheme**: أكثر من 100 لون محدد مسبقاً من `Aliceblue` إلى `Yellowgreen`
-- **layoutMethod**: `Manual` و`FromUploadedFile` و`FromEditor`
+**Enum Field Values:**
+- **sortMethod**: `SortBasedOnSortFields` (Sort defined through sort fields), `SortBasedOnReportParameter` (Sort through parameters selected by the user)
+- **parametersPosition**: `FirstPageHeaderOnly`, `AllPagesHeader`, `AllPagesFooter`, `None`, `GroupHeader`, `GroupFooter`, `LastPageFooter`, `Summary`
+- **colorScheme**: 100+ predefined colors from `Aliceblue` to `Yellowgreen`
+- **layoutMethod**: `Manual`, `FromUploadedFile`, `FromEditor`
 :::
 
-### التكامل مع Nama ERP
+### Integration with Nama ERP
 
-تتكامل أداة ReportWizard بعمق مع نظام Nama ERP:
+The ReportWizard integrates deeply with the Nama ERP system:
 
-- **تكامل الكيانات**: يمكنها إعداد تقارير عن أي كيان في النظام
-- **تكامل الأمان**: تحترم أذونات المستخدم والقيود التنظيمية
-- **تعدد اللغات**: دعم كامل للعربية والإنجليزية في أسماء الحقول والواجهة
-- **تحسين الأداء**: تحسين متقدم للاستعلامات والتخزين المؤقت
-- **قدرات التصدير**: تنسيقات مخرجات متعددة (PDF وExcel وHTML)
+- **Entity Integration**: Can report on any entity in the system
+- **Security Integration**: Respects user permissions and organizational constraints  
+- **Multi-Language**: Full Arabic/English support in field names and UI
+- **Performance Optimization**: Advanced query optimization and caching
+- **Export Capabilities**: Multiple output formats (PDF, Excel, HTML)
 
 ---
 
-يقدم هذا الدليل الشامل للمستخدمين معلومات تفصيلية عن كل جانب من جوانب أداة ReportWizard، من الإعداد الأساسي إلى الميزات المتقدمة، مع أمثلة وأفضل الممارسات وإرشادات استكشاف الأخطاء وتفاصيل التنفيذ التقنية باستخدام ترجمات دقيقة للنظام ومعلومات الحقول.
+This comprehensive documentation provides users with detailed information about every aspect of the ReportWizard, from basic setup to advanced features, complete with examples, best practices, troubleshooting guidance, and technical implementation details using accurate system translations and field information.

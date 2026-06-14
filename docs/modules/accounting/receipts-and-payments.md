@@ -1,53 +1,53 @@
-# سندات القبض والصرف
+# Receipt & Payment Vouchers
 
-كل نقود تدخل خزينتك أو بنكك أو تخرج منهما تمرّ عبر هذه العائلة من المستندات. وهي مصمّمة على هيئة **سلسلة من ثلاث مراحل** تفصل بين «من يطلب الصرف» و«من يأذن به» و«من ينفّذه فعلًا» — وهي بنية رقابية مهمّة في المنشآت التي تفصل الصلاحيات.
+Every bit of money that enters or leaves your safe or bank passes through this family of documents. They're designed as a **three-stage chain** that separates "who requests the payment", "who authorizes it", and "who actually executes it" — an important control structure in organizations that segregate duties.
 
-::: info الترخيص المطلوب
-سندات وأوامر وطلبات القبض والصرف ضمن ترخيص المحاسبة الأساسي `accounting`.
+::: info Required license
+Receipt and payment vouchers, orders, and requests are part of the core `accounting` license.
 :::
 
-## السلسلة: طلب ← أمر ← سند
+## The chain: Request → Order → Voucher
 
-- **طلب قبض / طلب صرف** (`Accounting > Documents > Receipt Request`) — مطالبة بتحصيل مبلغ أو دفعه. هو مستند تنظيمي **لا يُحدِث أثرًا محاسبيًا**؛ مجرّد توثيق للحاجة.
-- **أمر قبض / أمر صرف** (`Accounting > Documents > Receipt Order`) — الإذن بتنفيذ القبض أو الصرف. يحمل **حالة الأمر** التي تتتبّع تقدّمه حتى يتحوّل إلى سند.
-- **سند قبض / سند صرف** (`Accounting > Documents > Receipt Voucher`) — هو لحظة الحقيقة: تحرّك النقد فعلًا، وهنا يُسجَّل **الأثر المحاسبي** في دفتر الأستاذ.
+- **Receipt Request / Payment Request** (`Accounting > Documents > Receipt Request`) — a demand to collect or pay an amount. It's an organizational document that produces **no accounting effect**; it merely records the need.
+- **Receipt Order / Payment Order** (`Accounting > Documents > Receipt Order`) — the authorization to execute the receipt or payment. It carries an **order status** that tracks its progress until it becomes a voucher.
+- **Receipt Voucher / Payment Voucher** (`Accounting > Documents > Receipt Voucher`) — the moment of truth: cash actually moves, and this is where the **accounting effect** is recorded in the general ledger.
 
-ليست كل منشأة بحاجة للسلسلة كاملةً؛ كثيرون يبدأون مباشرةً من **السند**. لكن من يحتاج فصل «الطلب» عن «الاعتماد» عن «الصرف» يجد البنية جاهزة.
+Not every organization needs the full chain; many start straight from the **voucher**. But those who need to separate "request" from "approval" from "disbursement" find the structure ready.
 
-## تشريح سند القبض
+## Anatomy of a receipt voucher
 
-![شاشة سند القبض](./images/receipts/receipt-voucher.png)
+![The Receipt Voucher screen](./images/receipts/receipt-voucher.png)
 
-في الرأس تحدّد **توجيه المستند** و**تاريخ التحرير** و**التاريخ الفعلي** (الذي يحدّد **الفترة**)، و**المحصِّل** و**دفتر الايصالات** ورقم **الايصال**، و**بناءا على** إن كان السند مولَّدًا من مستند سابق.
+In the header you set the **Document Term**, **Creation Date**, and **Value Date** (which determines the **Period**), the **Collector**, the **Receipt Book** and **Receipt** number, and **Based On** if the voucher was generated from a prior document.
 
-في كتلة **مدين** تحدّد الطرف الذي يخصّه المبلغ: **الذمة** (نوع الطرف وقيمته: عميل/مورّد/موظف...) و**الحساب** و**المبلغ** و**العملة**. والسند منظَّم في تبويبات:
+In the **Debit** block you specify the party the amount concerns: the **Subsidiary** (the party type and value: customer/supplier/employee...), the **Account**, the **Amount**, and the **Currency**. The voucher is organized into tabs:
 
-- **التفاصيل** — أسطر إضافية لتوزيع المبلغ على أكثر من حساب/ذمة.
-- **الفواتير** — مطابقة المبلغ المقبوض على فواتير محدّدة لإقفالها أو تخفيض رصيدها.
-- **أوراق تجارية** — ربط القبض بشيك/ورقة مالية (انظر [الشيكات والأوراق المالية](./cheques-financial-papers.md)).
-- **الدفعات** — أسطر طرق الدفع (نقد، تحويل، بطاقة...).
+- **Details** — extra lines to distribute the amount across more than one account/subsidiary.
+- **Invoices** — match the received amount against specific invoices to settle them or reduce their balance.
+- **Financial Papers** — link the receipt to a cheque/financial paper (see [Cheques & financial papers](./cheques-financial-papers.md)).
+- **Payments** — payment-method lines (cash, transfer, card...).
 
-كما يوفّر السند **أقساطًا** و**توزيع تكلفة** على مراكز التكلفة.
+The voucher also provides **installments** and **cost allocation** across cost centers.
 
-## الأثر المحاسبي
+## The accounting effect
 
-سند **القبض** يجعل جانب النقدية/البنك **مدينًا** (دخل المال) ويجعل حساب الطرف **دائنًا** (انخفض ما له علينا أو زاد ما لنا عليه بحسب الحالة). سند **الصرف** يعكس ذلك تمامًا. مصدر كل حساب من هذه الحسابات — وكذلك جانبا الضريبة وحساب الرسوم — يأتي من **توجيه المستند**؛ التفاصيل في مرجع [توجيهات المستندات](./support/accounting-document-terms.md).
+A **receipt** voucher makes the cash/bank side **debit** (money came in) and the party's account **credit** (what they owe us decreased, or what we owe them increased, depending on the case). A **payment** voucher reverses this exactly. The source of each of these accounts — as well as the two tax sides and the fees account — comes from the **document term**; details are in the [Document terms](./support/accounting-document-terms.md) reference.
 
-## الطلبات المجمّعة
+## Consolidated requests
 
-حين تتراكم طلبات قبض/صرف كثيرة تخصّ نفس الجهة وتريد تنفيذها دفعةً واحدة، يجمعها **طلب القبض المجمّع** / **طلب الصرف المجمّع** (`Accounting > Documents > Consolidate Receipt Voucher Request`): يضمّ عدّة طلبات في مستند واحد يُولِّد منه سندًا جامعًا، بدل إصدار سند لكل طلب على حدة.
+When many receipt/payment requests for the same party pile up and you want to execute them at once, the **Consolidated Receipt Request** / **Consolidated Payment Request** (`Accounting > Documents > Consolidate Receipt Voucher Request`) gathers them: it bundles several requests into one document from which a single combined voucher is generated, instead of issuing a voucher per request.
 
-![شاشة طلب القبض المجمّع](./images/receipts/consolidated-rv-request.png)
+![The Consolidated Receipt Request screen](./images/receipts/consolidated-rv-request.png)
 
-## التقارير والنماذج
+## Reports and forms
 
-- كشوف سندات القبض والصرف والطلبات والقيود (`SYSR-ACC015` إلى `ACC019` و`ACC046`–`ACC047`) موضّحة في [كشوف الحسابات وميزان المراجعة](./reports-account-statements-and-trial-balance.md).
-- النماذج المطبوعة: سند القبض `SYSF-ACC002`، سند الصرف `SYSF-ACC003`، أمر القبض `SYSF-ACC010`، أمر الصرف `SYSF-ACC022`، طلب القبض `SYSF-ACC014`، طلب الصرف `SYSF-ACC021`، طلب الصرف المجمّع `SYSF-ACC017`.
+- Receipt/payment voucher, request, and entry statements (`SYSR-ACC015` to `ACC019` and `ACC046`–`ACC047`) are covered in [Account statements & trial balance](./reports-account-statements-and-trial-balance.md).
+- Printed forms: receipt voucher `SYSF-ACC002`, payment voucher `SYSF-ACC003`, receipt order `SYSF-ACC010`, payment order `SYSF-ACC022`, receipt request `SYSF-ACC014`, payment request `SYSF-ACC021`, consolidated payment request `SYSF-ACC017`.
 
-## للدعم الفني
+## For Support
 
-- **«الطلب/الأمر لا يظهر له أثر في الحسابات»** — هذا متوقّع؛ الطلب لا يُرحَّل، والأثر المحاسبي يُسجَّل عند **السند**.
-- **«المبلغ المقبوض لم يُقفِل الفاتورة»** — تحقّق من تبويب **الفواتير** وأن السطر مطابَق على الفاتورة الصحيحة.
-- **«حساب النقدية/الطرف الخطأ في القيد»** — مصدر الحسابات هو **توجيه المستند**؛ راجِع توجيه سند القبض/الصرف في مرجع [توجيهات المستندات](./support/accounting-document-terms.md).
-- **«حقول الضريبة/الرسوم لا تظهر»** — مفاتيحها في كتالوج [إعدادات الحسابات](./support/accounting-configuration.md).
-- آلية تحوّل السند إلى أثر وإعادة معالجة سند متعثّر في [كيف تُعالَج المستندات إلى أثر محاسبي](./support/accounting-request-processing.md).
+- **"The request/order has no effect in the accounts"** — that's expected; the request doesn't post, and the accounting effect is recorded at the **voucher**.
+- **"The received amount didn't settle the invoice"** — check the **Invoices** tab and that the line is matched to the correct invoice.
+- **"The wrong cash/party account in the entry"** — the accounts' source is the **document term**; review the receipt/payment voucher term in the [Document terms](./support/accounting-document-terms.md) reference.
+- **"Tax/fees fields don't appear"** — their switches are in the [Accounting configuration](./support/accounting-configuration.md) catalog.
+- How a voucher turns into an effect and how to reprocess a stuck voucher are in [How documents are processed into accounting effects](./support/accounting-request-processing.md).

@@ -1,221 +1,221 @@
-# نظرة عامة على وحدة التصنيع (Manufacturing Module Overview)
+# Manufacturing Module Overview
 
-## ماذا يعني التصنيع؟
+## What Manufacturing is All About
 
-فكر في كيفية صنع المنتجات في العالم الحقيقي. تبدأ بمواد خام - ربما صفائح صلب، أو حبيبات بلاستيك، أو بكرات قماش - وعبر سلسلة من الخطوات تحوّلها إلى منتجات نهائية يرغب العملاء في شرائها. هذه عملية التحويل هي جوهر التصنيع، ووحدة التصنيع في Nama ERP مصممة لمساعدتك على إدارة كل جانب منها.
+Think about how products get made in the real world. You start with raw materials - maybe steel sheets, plastic pellets, or fabric rolls - and through a series of steps, you transform them into finished products that customers want to buy. That transformation process is what manufacturing is all about, and Nama ERP's Manufacturing module is designed to help you manage every aspect of it.
 
-التحدي في التصنيع لا يقتصر على صنع الأشياء فحسب. إنه يتعلق بمعرفة المواد التي تحتاجها، ومتى تحتاجها، ومن سينجز العمل، وكم من الوقت سيستغرق، والأهم من ذلك - كم ستكلف جميعاً. تحتاج إلى تتبع العمل أثناء تحركه في مصنعك، ومعالجة مشكلات الجودة عند ظهورها، والتأكد من أنه حين تنتهي الإنتاج، يتم تسجيل المخزون والتكاليف بدقة.
+The challenge with manufacturing isn't just about making things. It's about knowing what materials you need, when you need them, who's going to do the work, how long it will take, and most importantly - how much it's all going to cost. You need to track work as it moves through your factory, handle quality issues when they come up, and make sure that when production is done, your inventory and costs are accurately recorded.
 
-يتعامل Nama ERP مع كل هذا التعقيد. سواء كنت تصنع منتجات بسيطة أو تجميعات معقدة تحتوي على مئات المكونات، يمنحك النظام الأدوات اللازمة لتخطيط عمليات التصنيع وتنفيذها وتتبعها من البداية إلى النهاية.
+Nama ERP handles all of this complexity. Whether you're making simple products or complex assemblies with hundreds of components, the system gives you the tools to plan, execute, and track your manufacturing operations from start to finish.
 
-## اللبنات الأساسية: ما تحتاج إلى إعداده
+## The Building Blocks: What You Need to Set Up
 
-قبل أن تبدأ في صنع أي شيء، تحتاج إلى تعليم النظام كيفية صنع منتجاتك. هنا يأتي دور البيانات الأساسية (master data) - فكر فيها كدليل تعليمات لمصنعك.
+Before you can start making anything, you need to teach the system how your products are made. This is where the master data comes in - think of it as the instruction manual for your factory.
 
-### مكونات المنتج (Bill of Materials / BOM) - الوصفة
+### Bill of Materials (BOM) - The Recipe
 
-**مكونات المنتج** (Bill of Materials) تشبه وصفة منتجك. تماماً كما تخبرك الوصفة "لصنع كعكة تحتاج إلى دقيق وبيض وسكر وزبدة"، تخبرك BOM "لصنع هذا المنتج تحتاج إلى هذه الأجزاء والمواد."
+A **Bill of Materials** (BOM) is like a recipe for your product. Just as a recipe tells you "to make a cake, you need flour, eggs, sugar, and butter," a BOM tells you "to make this widget, you need these parts and materials."
 
-ما يجعل BOM قوياً في Nama ERP هو أنها ليست مجرد قوائم بسيطة. يمكنك الحصول على BOM متعددة المستويات حيث يُصنع المنتج النهائي من تجميعات فرعية، وهذه التجميعات الفرعية تُصنع من مكونات. فكر في الأمر كبناء سيارة - السيارة مصنوعة من هيكل ومحرك وجسم. المحرك نفسه مصنوع من مكابس وأسطوانات وعمود مرفقي. يتعامل النظام مع جميع هذه المستويات تلقائياً.
+Here's what makes BOMs powerful in Nama ERP: they're not just simple lists. You can have multi-level BOMs where a finished product is made from sub-assemblies, and those sub-assemblies are made from components. Think of it like building a car - the car is made from a chassis, engine, and body. The engine itself is made from pistons, cylinders, and a crankshaft. The system handles all these levels automatically.
 
-تأخذ BOM أيضاً في الحسبان الواقع الفعلي للتصنيع. ربما تتوقع تالفاً بنسبة 5% من مادتك أثناء الإنتاج - يمكنك تضمين ذلك في BOM. ربما لديك مواد بديلة يمكنك استخدامها عند عدم توفر المادة المفضلة - يمكن لـ BOM التعامل مع ذلك أيضاً. يمكنك حتى تتبع المنتجات الثانوية - الأشياء التي تنتجها كأثر جانبي لصنع المنتج الرئيسي.
+BOMs also account for the messy reality of manufacturing. Maybe you expect to scrap 5% of your material during production - you can build that into the BOM. Maybe you have substitute materials you can use when the preferred one isn't available - the BOM can handle that too. You can even track by-products - things you produce as a side effect of making the main product.
 
-### التوجيه (Routing) - التعليمات
+### Routing - The Instructions
 
-بينما تخبرك BOM *بما* تحتاجه من مواد، يخبرك **التوجيه** (Routing / عملية تشغيل) *بكيفية* صنع المنتج - الخطوات الفعلية للتصنيع.
+While the BOM tells you *what* materials you need, the **Routing** tells you *how* to make the product - the actual manufacturing steps.
 
-تخيل أنك تصنع أثاثاً. قد يحدد التوجيه الخاص بك:
-1. قطع قطع الخشب (Operation 10)
-2. صنفرة القطع (Operation 20)
-3. تطبيق الصبغة (Operation 30)
-4. تجميع القطع (Operation 40)
-5. الفحص النهائي والتعبئة (Operation 50)
+Imagine you're making furniture. Your routing might say:
+1. Cut the wood pieces (Operation 10)
+2. Sand the pieces (Operation 20)
+3. Apply stain (Operation 30)
+4. Assemble the pieces (Operation 40)
+5. Final inspection and packaging (Operation 50)
 
-لكل عملية، تحدد أين تتم (في أي صالة إنتاج)، ومدة تنفيذها، والموارد المطلوبة (أشخاص أو آلات)، وأي فحوصات جودة يجب إجراؤها. يصبح هذا خارطة طريق الإنتاج الخاصة بك.
+For each operation, you specify where it happens (which work center), how long it should take, what resources (people or machines) are needed, and any quality checks that need to be done. This becomes your production roadmap.
 
-### صالات الإنتاج (Work Centers) - حيث يحدث العمل
+### Work Centers - Where the Magic Happens
 
-تمثل **صالة الإنتاج** (Work Center) موقعاً فعلياً في مصنعك حيث يتم العمل. يمكن أن تكون آلة قطع، أو محطة تجميع، أو كشك طلاء، أو منطقة تعبئة.
+A **Work Center** represents a physical location in your factory where work gets done. It could be a cutting machine, an assembly station, a paint booth, or a packaging area.
 
-صالات الإنتاج مهمة لأنها تساعدك على فهم الطاقة الاستيعابية. إذا كانت آلة القطع لديك لا تعالج سوى 100 قطعة يومياً، ولديك طلبات لـ 150 قطعة، فلديك مشكلة. يساعدك النظام على اكتشاف هذه الاختناقات قبل أن تتحول إلى أزمات.
+Work centers are important because they help you understand capacity. If your cutting machine can only process 100 pieces per day, and you have orders for 150 pieces, you have a problem. The system helps you spot these bottlenecks before they become crises.
 
-### العمليات القياسية (Standard Operations) - قوالب للمهام الشائعة
+### Standard Operations - Templates for Common Tasks
 
-إذا وجدت نفسك تعرّف نفس العملية مراراً وتكراراً - مثل "الفحص النهائي للجودة" - يمكنك إنشاء **عملية قياسية** (Standard Operation) كقالب. وبعد ذلك، في كل مرة تحتاج فيها إلى تلك العملية في مسار توجيه، تقوم فقط بالإشارة إلى القالب بدلاً من إدخال جميع التفاصيل مرة أخرى. وهذا يوفر الوقت ويضمن الاتساق.
+If you find yourself defining the same operation over and over - say, "Final Quality Inspection" - you can create a **Standard Operation** as a template. Then, whenever you need that operation in a routing, you just reference the template instead of entering all the details again. It's a time-saver and ensures consistency.
 
-## كيف يسير التصنيع فعلياً
+## How Manufacturing Actually Flows
 
-لنتعرف على عملية تصنيع نموذجية لنرى كيف يتصل كل شيء.
+Let's walk through a typical manufacturing process to see how everything connects.
 
-### يبدأ بأمر إنتاج
+### It Starts with a Production Order
 
-عندما تحتاج إلى صنع شيء ما، تنشئ **أمر إنتاج** (Production Order). هذا هو تعليمك الرسمي للمصنع: "اصنع 1000 وحدة من المنتج XYZ، بدءاً من الاثنين القادم."
+When you need to make something, you create a **Production Order**. This is your formal instruction to the factory: "Make 1000 units of product XYZ, starting next Monday."
 
-عند تحديد المنتج، يبحث النظام عن BOM والتوجيه الخاص به. وينسخ تلقائياً جميع مواد المكونات وخطوات العمليات إلى أمر الإنتاج، محسوباً الكميات بناءً على عدد الوحدات التي تريد صنعها. إذا كانت BOM تقول إنك تحتاج إلى 2 مسمار لكل وحدة وكنت تصنع 1000 وحدة، يحسب النظام أنك تحتاج إلى 2000 مسمار.
+When you select the product, the system looks up its BOM and Routing. It automatically copies all the component materials and operation steps into the production order, calculating quantities based on how many units you want to make. If your BOM says you need 2 screws per widget and you're making 1000 widgets, the system calculates that you need 2000 screws.
 
-في هذه المرحلة، الأمر مجرد خطة. يمكنك مراجعته وتعديل الكميات وتغيير التواريخ وحتى استبدال المواد البديلة إذا لزم الأمر. وبمجرد رضاك عنه، "تبدأ" الأمر، مما يثبّت الهيكل ويخبر أرضية المصنع بأن الإنتاج معتمد.
+At this point, the order is just a plan. You can review it, adjust quantities, change dates, even swap in substitute materials if needed. Once you're happy with it, you "start" the order, which locks down the structure and tells the factory floor that production is approved.
 
-### تجهيز المواد
+### Getting Materials Ready
 
-قبل بدء الإنتاج، تحتاج إلى إحضار المواد الخام إلى أرضية المصنع. يمكن للنظام مساعدتك في تحديد الدُفعات (lots) التي يجب استخدامها (مهم بشكل خاص إذا كنت تتبع الدفعات)، ويمكنك إنشاء صرف مواد خام لسحب المكونات من مستودعك وتخصيصها لأمر الإنتاج.
+Before production can begin, you need to get the raw materials to the shop floor. The system can help you identify which lots to use (especially important if you're tracking batches), and you can create Material Issues to withdraw components from your warehouse and allocate them to the production order.
 
-تفضّل بعض الشركات إصدار المواد مسبقاً. وتنتظر شركات أخرى حتى تحتاج كل عملية فعلاً إليها. يتعامل Nama ERP مع كلا النهجين - تقوم بتهيئته بناءً على كيفية عمل مصنعك.
+Some companies prefer to issue materials upfront. Others wait until each operation actually needs them. Nama ERP handles both approaches - you configure it based on how your factory works.
 
-### تنفيذ الإنتاج - حيث يحدث العمل الفعلي
+### Production Execution - Where Real Work Happens
 
-الآن نصل إلى جوهر التصنيع: الإنتاج الفعلي. مع إكمال العمال للعمليات في أرضية المصنع، يسجلون تقدمهم باستخدام مستندات **تنفيذ الإنتاج** (Production Execution).
+Now we get to the heart of manufacturing: actual production. As workers complete operations on the shop floor, they record their progress using **Production Execution** documents.
 
-هنا يصبح الأمر مثيراً للاهتمام. في التصنيع، لا تتدفق المنتجات بسلاسة من عملية 1 إلى عملية 2 إلى عملية 3. الواقع أكثر تعقيداً. أحياناً:
-- تتقدم المنتجات بنجاح (الحالة الطبيعية)
-- تجد عمليات فحص الجودة مشكلات، وتحتاج العناصر إلى إعادة المعالجة
-- يتم إتلاف بعض القطع لأنها تجاوزت حد الإصلاح
-- قد تأخذ عينات للاختبار
+Here's where it gets interesting. In manufacturing, products don't just smoothly flow from operation 1 to operation 2 to operation 3. Reality is messier. Sometimes:
+- Products move forward successfully (the normal case)
+- Quality inspection finds problems, and items need to go back for rework
+- Some pieces are scrapped because they're beyond repair
+- You might take samples for testing
 
-يتعامل Nama ERP مع جميع هذه السيناريوهات من خلال "خطوات العملية". يمكن أن يكون لكل عملية كميات في حالات مختلفة:
-- **ToMove** (للنقل): جاهزة للانتقال إلى العملية التالية - العمل الجاري العادي
-- **Rejected** (مرفوض): فشل في فحص الجودة، يحتاج إلى إعادة معالجة
-- **Scrap** (تالف): معيب، لا يمكن إصلاحه
-- **Sample** (عينة): مأخوذة لاختبار الجودة
+Nama ERP handles all these scenarios with "operation steps." Each operation can have quantities in different states:
+- **ToMove**: Ready to move to the next operation - the normal work-in-process
+- **Rejected**: Failed quality check, needs rework
+- **Scrap**: Defective, can't be fixed
+- **Sample**: Taken for quality testing
 
-عند تسجيل تنفيذ إنتاج، فأنت في الأساس تقول "نقلت X وحدة من Operation 10-ToMove إلى Operation 20-ToMove" أو "وجدت عيوباً، أنقل Y وحدة من Operation 30-ToMove إلى Operation 30-Rejected."
+When you record a production execution, you're essentially saying "I moved X units from Operation 10-ToMove to Operation 20-ToMove" or "I found defects, moving Y units from Operation 30-ToMove to Operation 30-Rejected."
 
-يتتبع النظام كل هذا في الوقت الفعلي، لذا تعرف دائماً بالضبط أين كل وحدة في عملية الإنتاج الخاصة بك. تعرف كم وحدة في كل عملية، وكم نجحت في الفحص، وكم فشلت، وكم تالف أنتجته - كل شيء.
+The system tracks all this in real-time, so you always know exactly where every unit is in your production process. You know how many units are at each operation, how many passed inspection, how many failed, how much scrap you've generated - everything.
 
-### إنشاء المستندات تلقائياً
+### Automatic Document Generation
 
-هنا يتميز Nama ERP بشكل حقيقي: يمكنه إنشاء المستندات الداعمة تلقائياً بناءً على ما يحدث في الإنتاج.
+Here's where Nama ERP really shines: it can automatically create supporting documents based on what's happening in production.
 
-عند تسجيل تنفيذ إنتاج لتحريك العناصر عبر العمليات، يمكن للنظام تلقائياً:
-- صرف المواد الخام اللازمة لتلك العمليات
-- إنشاء قسائم موارد لتتبع ساعات العمل وساعات الآلات
-- إنشاء مستندات مراقبة الجودة إذا كانت عمليات الفحص مطلوبة
-- تسليم المنتجات النهائية إلى المخزون عند اكتمال العملية الأخيرة
+When you record a production execution moving items through operations, the system can automatically:
+- Issue the raw materials needed for those operations
+- Create resource vouchers tracking labor and machine hours
+- Generate quality control documents if inspections are required
+- Deliver finished goods to inventory when the last operation completes
 
-تقوم بتهيئة ما يتم إنشاؤه تلقائياً مقابل ما تريد القيام به يدوياً. المرونة موجودة لعمليتك المحددة.
+You configure what gets generated automatically versus what you want to do manually. The flexibility is there for your specific process.
 
-### الإنهاء: إغلاق الأمر
+### Wrapping Up: Closing the Order
 
-في نهاية المطاف، يكتمل الإنتاج. تم تسليم جميع منتجاتك النهائية إلى المخزون. الآن حان الوقت لإغلاق أمر الإنتاج وإنهاء التكاليف.
+Eventually, production is complete. All your finished goods have been delivered to inventory. Now it's time to close the production order and finalize the costs.
 
-هنا يأتي دور **إغلاق أمر الإنتاج** (Order Close Voucher). عند إغلاق أمر، يقوم Nama ERP بـ:
+This is where the **Order Close Voucher** comes in. When you close an order, Nama ERP:
 
-1. **جمع جميع التكاليف الفعلية** - كل ما أنفقته على المواد والعمالة ووقت الآلات والموارد الأخرى
-2. **تطبيق التكاليف الغير مباشرة** - تلك التكاليف غير المباشرة كإيجار المصنع والمرافق ورواتب المشرفين التي لا يمكن ربطها بمنتج محدد لكنها لا تزال تحتاج إلى توزيع
-3. **المقارنة بالتكاليف المعيارية** - إذا كانت لديك تكاليف معيارية معدّة، فإنه يعرض لك الفروق (حيث أنفقت أكثر أو أقل مما هو متوقع)
-4. **تحديث قيم المخزون** - يتم تقييم منتجاتك النهائية بناءً على التكاليف الفعلية للإنتاج
-5. **قفل الأمر** - بمجرد الإغلاق، لا يمكن تعديل الأمر، مما يضمن بقاء سجلاتك التاريخية سليمة
+1. **Adds up all the actual costs** - everything you spent on materials, labor, machine time, and other resources
+2. **Applies overhead costs** - those indirect costs like factory rent, utilities, and supervisors' salaries that can't be tied to a specific product but still need to be allocated
+3. **Compares to standard costs** - if you have standard costs set up, it shows you the variances (where you spent more or less than expected)
+4. **Updates inventory values** - your finished goods get valued based on the actual costs of production
+5. **Locks the order** - once closed, the order can't be modified, ensuring your historical records stay intact
 
-إذا كنت بحاجة لأي سبب من الأسباب إلى إلغاء أمر لم يكتمل، يمكنك إنهاؤه بدلاً من الإغلاق العادي. يقوم النظام بشطب الأعمال قيد التنفيذ ومعالجة المحاسبة بشكل مناسب.
+If for some reason you need to cancel an order that wasn't completed, you can terminate it instead of doing a normal close. The system writes off the work-in-process and handles the accounting appropriately.
 
-## فهم التكاليف في التصنيع
+## Understanding Costs in Manufacturing
 
-من أصعب جوانب التصنيع الحصول على تكاليف دقيقة. الأمر لا يتعلق فقط بالمواد - هناك الكثير غير ذلك.
+One of the trickiest parts of manufacturing is getting accurate costs. It's not just about materials - there's so much more.
 
-### التكاليف المباشرة - الجزء السهل
+### Direct Costs - The Easy Part
 
-بعض التكاليف سهلة التتبع:
-- **المواد**: الصلب والبلاستيك والمكونات التي تستهلكها
-- **العمالة**: الوقت الذي يقضيه العمال في صنع المنتجات مباشرةً
-- **الآلات**: الساعات التي تعمل فيها معداتك
+Some costs are straightforward to trace:
+- **Materials**: The steel, plastic, components you consume
+- **Labor**: The time workers spend directly making products
+- **Machines**: The hours your equipment runs
 
-هذه تكاليف مباشرة - يمكنك الإشارة إلى أمر إنتاج محدد والقول "استخدم هذا الأمر هذه المواد وهذا العدد من ساعات العمل وهذا القدر من وقت الآلات."
+These are direct costs - you can point to a specific production order and say "this order used these materials, this many labor hours, and this much machine time."
 
-### التكاليف الغير مباشرة - الجزء الصعب (Overheads)
+### Indirect Costs - The Tricky Part (Overheads)
 
-ماذا عن جميع التكاليف الأخرى لتشغيل مصنع؟
-- إيجار المصنع - لا يمكنك القول إن المنتج A استخدم 100 ريال من الإيجار والمنتج B استخدم 200 ريال
-- الكهرباء للمنشأة بأكملها
-- راتب مدير الإنتاج
-- مستلزمات التنظيف
-- صيانة المعدات
-- مفتشو الجودة الذين يفحصون جميع المنتجات
+But what about all the other costs of running a factory?
+- The factory rent - you can't say product A used $100 of rent and product B used $200
+- Electricity for the whole facility
+- The production manager's salary
+- Cleaning supplies
+- Equipment maintenance
+- Quality inspectors who check all products
 
-هذه هي **التكاليف الغير مباشرة** (Manufacturing Overheads) - التكاليف غير المباشرة التي تحتاج إلى توزيعها على منتجاتك بطريقة ما.
+These are **Manufacturing Overheads** - indirect costs that need to be spread across your products somehow.
 
-يتيح لك Nama ERP تعريف **أنواع التكاليف الغير مباشرة** (Overhead Types) (قوالب لكيفية تخصيص هذه التكاليف). قد تقول:
-- "أضف 15% من تكاليف المواد كتكاليف غير مباشرة" (لتغطية مناولة المواد والتخزين)
-- "أضف 5 ريال لكل وحدة منتجة" (لتغطية التكاليف العامة للمصنع)
-- "أضف 50 ريال لكل ساعة إنتاج" (لتغطية المرافق والاستهلاك)
+Nama ERP lets you define **Overhead Types** (templates for how to allocate these costs). You might say:
+- "Add 15% of material costs as overhead" (to cover material handling and storage)
+- "Add $5 per unit produced" (to cover general factory costs)
+- "Add $50 per production hour" (to cover utilities and depreciation)
 
-يمكنك الجمع بين طرق التخصيص المختلفة لتتوافق مع كيفية عمل مصنعك فعلاً.
+You can mix and match different allocation methods to match how your factory actually works.
 
-### الفعلي مقابل المعياري: الحصول على أرقام حقيقية
+### Actual vs. Standard: Getting Real Numbers
 
-تستخدم كثير من الشركات التكلفة المعيارية - تُقدّر ما يجب أن يكلفه الإنتاج، ثم تقارن التكاليف الفعلية للعثور على الفروق. وهذا ذو قيمة لا تصدق للكشف المبكر عن المشكلات.
+Many companies use standard costing - they estimate what production should cost, then compare actual costs to find variances. This is incredibly valuable for spotting problems early.
 
-ربما تسير تكاليف المواد أعلى بنسبة 10% مما هو متوقع - هل هذا بسبب ارتفاع الأسعار أم بسبب هدر المواد؟ ربما تستغرق العمالة وقتاً أطول من المعياري - هل يحتاج العمال إلى مزيد من التدريب، أم أن الوقت المعياري غير واقعي؟
+Maybe your material costs are running 10% higher than expected - is it because prices went up, or because you're wasting material? Maybe labor is taking longer than standard - do workers need more training, or is the standard time unrealistic?
 
-**طريقة حساب فعلي للمصاريف الغير مباشرة** (Actual Overhead Calculator) في Nama ERP تأخذ هذا إلى مستوى أعمق. بدلاً من استخدام معدلات التكاليف الغير مباشرة المحددة مسبقاً، يمكنها الاستعلام عن حسابات دفتر أستاذك الفعلي لمعرفة ما أنفقته فعلاً على المرافق والصيانة والإشراف وغيرها. ثم تخصص تلك التكاليف الفعلية لأوامر الإنتاج. وهذا يمنحك التكلفة الأكثر دقة للمنتج.
+Nama ERP's **Actual Overhead Calculator** takes this a step further. Instead of using predetermined overhead rates, it can query your actual general ledger accounts to see how much you really spent on utilities, maintenance, supervision, etc. Then it allocates those actual costs to production orders. This gives you the most accurate product costing possible.
 
-## كيف يتصل كل شيء
+## How Everything Connects
 
-ما يجعل وحدة التصنيع في Nama ERP قوية هو كيفية ترابط كل شيء:
+What makes Nama ERP's Manufacturing module powerful is how everything ties together:
 
-- **Items** الخاصة بك تحدد ما تصنعه وما تستخدمه في الصنع
-- **BOMs** تفصّل المنتجات إلى مكوناتها
-- **Routings** تعرّف عملية التصنيع
-- **أوامر الإنتاج** تأذن بصنع كميات محددة
-- **تنفيذ الإنتاج** يسجل العمل الفعلي عند حدوثه
-- **صرف المواد** و**تسليم المنتجات** يحركان المخزون
-- **إغلاق أوامر الإنتاج** ينهي التكاليف ويقفل السجلات
+- Your **Items** define what you make and what you use to make it
+- **BOMs** break down products into their components
+- **Routings** define the manufacturing process
+- **Production Orders** authorize making specific quantities
+- **Production Execution** records actual work as it happens
+- **Material Issues** and **Product Deliveries** move inventory
+- **Order Close Vouchers** finalize costs and lock the records
 
-خلف الكواليس، يتتبع النظام الأعمال قيد التنفيذ في كل عملية، ويحافظ على دقة المخزون، ويجمع التكاليف، ويبقي دفتر الأستاذ متزامناً. كل شيء متصل ومتكامل.
+Behind the scenes, the system is tracking work-in-process at each operation, maintaining inventory accuracy, collecting costs, and keeping the general ledger in sync. It's all connected, all integrated.
 
-يمكنك بدء أمر إنتاج لتجميع معقد، وسيقوم النظام تلقائياً بتفصيل جميع المستويات الفرعية للـ BOM. يعرف كل مكون مطلوب في كل مستوى. عند تنفيذ الإنتاج، يتتبع الكميات عملية بعملية. عند صرف المواد، ينخفض المخزون. عند تسليم المنتجات النهائية، يرتفع المخزون بالقيمة الجديدة. عند إغلاق الأمر، تنتقل الفروق إلى دفتر الأستاذ العام.
+You can start a production order for a complex assembly, and the system automatically explodes all the sub-levels of the BOM. It knows every component needed, at every level. When you execute production, it tracks quantities operation by operation. When materials are issued, inventory decreases. When finished goods are delivered, inventory increases at the new value. When you close the order, variances flow to the general ledger.
 
-## طرق مختلفة للعمل
+## Different Ways to Work
 
-من أعظم مزايا Nama ERP أنه لا يجبرك على طريقة واحدة للعمل. للصناعات والشركات المختلفة احتياجات مختلفة، والنظام يتكيف.
+One of the great things about Nama ERP is that it doesn't force you into one way of doing things. Different industries and companies have different needs, and the system adapts.
 
-**بعض المصانع** تصرف جميع المواد دفعة واحدة عند بدء الإنتاج. وتصرف مصانع أخرى المواد عملية بعملية حسب الحاجة. يمكنك تهيئة أي من الطريقتين.
+**Some factories** issue all materials at once when production starts. Others issue materials operation by operation as they're needed. You can configure either way.
 
-**بعض الصناعات** (كالأدوية أو الغذاء) تحتاج إلى تتبع التكاليف بشكل منفصل لكل دفعة أو lot منتج. ربما كلفت إحدى الدفعات أكثر قليلاً بسبب جودة المكونات أو وقت معالجة أطول - تحتاج إلى تلك التفاصيل للامتثال والتحليل. يدعم Nama ERP تتبع التكلفة لكل دفعة.
+**Some industries** (like pharmaceuticals or food) need to track costs separately for each batch or lot produced. Maybe one batch cost slightly more due to ingredient quality or longer processing time - you need that detail for compliance and analysis. Nama ERP supports cost-per-batch tracking.
 
-**بعض الشركات** تحتاج إلى التعامل مع العمليات المتوازية - صالات إنتاج متعددة تؤدي نفس العملية في وقت واحد لزيادة الطاقة الاستيعابية. يتعامل النظام مع ذلك من خلال تهيئات العمليات المتوازية.
+**Some companies** need to handle parallel operations - multiple work centers doing the same operation simultaneously to increase capacity. The system handles this with parallel operation configurations.
 
-**بعض المنتجات** تولّد منتجات مشتركة أو منتجات ثانوية - ربما تعالج لحوماً وتحصل على المنتج الرئيسي وأجزاء أخرى قابلة للبيع. يتتبع النظام جميع المخرجات ويخصص التكاليف بشكل مناسب.
+**Some products** generate co-products or by-products - maybe you're processing meat and you get both the main product and other saleable parts. The system tracks all outputs and allocates costs appropriately.
 
-المرونة موجودة. تهيئ النظام ليتوافق مع عمليتك، وليس العكس.
+The flexibility is there. You configure the system to match your process, not the other way around.
 
-## البدء
+## Getting Started
 
-جمال هذه الوحدة هو أنك تستطيع البدء ببساطة والنمو نحو الميزات المتقدمة.
+The beauty of this module is that you can start simple and grow into the advanced features.
 
-**في البداية:**
-1. إعداد Items الخاصة بك (ما تصنعه وما تشتريه)
-2. إنشاء BOMs أساسية لمنتجاتك
-3. تعريف Routings بسيطة مع العمليات الرئيسية
-4. بدء إنشاء أوامر الإنتاج وتنفيذها
+**Starting out:**
+1. Set up your items (what you make and what you buy)
+2. Create basic BOMs for your products
+3. Define simple routings with main operations
+4. Start creating production orders and executing them
 
-**مع نضجك:**
-- إضافة قوائم فحص الجودة للعمليات
-- تطبيق التكلفة المعيارية وتحليل الفروق
-- إعداد تخصيصات التكاليف الغير مباشرة المعقدة
-- استخدام MRP للتخطيط الآلي
-- تتبع الموارد والطاقة الاستيعابية بالتفصيل
-- تطبيق تكلفة لكل دفعة للتحليل التفصيلي
+**As you mature:**
+- Add quality check lists to operations
+- Implement standard costing and variance analysis
+- Set up complex overhead allocations
+- Use MRP for automated planning
+- Track resources and capacity in detail
+- Implement cost-per-batch for detailed analysis
 
-النظام يدعمك أينما كنت في رحلتك التصنيعية.
+The system supports wherever you are in your manufacturing journey.
 
-## ما التالي؟
+## What's Next?
 
-هذه النظرة العامة تعطيك الصورة الكاملة. للتعمق في موضوعات محددة:
+This overview gives you the big picture. To dive deeper into specific topics:
 
-**[أوامر الإنتاج](./production-orders.md)** - تعلم كيفية إنشاء الأوامر والعمل مع BOMs وRoutings وإدارة المكونات وبدء الإنتاج. هذا هو المكان الذي ستقضي فيه معظم وقتك في تخطيط ما تصنع.
+**[Production Orders](./production-orders.md)** - Learn how to create orders, work with BOMs and routings, manage components, and start production. This is where you'll spend most of your time planning what to make.
 
-**[تنفيذ الإنتاج](./production-execution.md)** - افهم كيفية تسجيل أنشطة أرضية المصنع، وتتبع الكميات عبر العمليات، والتعامل مع إعادة المعالجة والتالف، والتقاط الوقت الفعلي واستخدام الموارد.
+**[Production Execution](./production-execution.md)** - Understand how to record shop floor activities, track quantities through operations, handle rework and scrap, and capture actual time and resource usage.
 
-**[تكاليف الإنتاج وإغلاق الأوامر](./production-costing.md)** - رأيّ كيف تتدفق التكاليف عبر النظام، وكيف يعمل تخصيص التكاليف الغير مباشرة، وكيف تحلل الفروق، وكيف تغلق الأوامر بشكل صحيح.
+**[Production Costing and Order Closing](./production-costing.md)** - See how costs flow through the system, how overhead allocation works, how to analyze variances, and how to close orders properly.
 
-كل دليل يتناول التفاصيل وسير العمل والخيارات المتاحة. لكنها جميعاً تبني على الأساس الذي غطيناه هنا: التصنيع هو تحويل المواد عبر عمليات لإنشاء منتجات، وNama ERP يمنحك رؤية كاملة وتحكماً كاملاً في هذه العملية.
+Each guide goes into the details, the workflows, and the options available. But they all build on the foundation we've covered here: manufacturing is about transforming materials through operations to create products, and Nama ERP gives you complete visibility and control over that process.
 
 ---
 
-**التنقل**:
-- عربي: التصنيع > المستندات
+**Navigation**:
+- Arabic: التصنيع > المستندات
 - English: Manufacturing > Documents
 
-المستندات الرئيسية التي ستتعامل معها يومياً:
-- أمر إنتاج (Production Order) - تفويضك بالتصنيع
-- تنفيذ إنتاج (Production Execution) - تسجيل ما حدث فعلياً
-- إغلاق أمر إنتاج (Order Close Voucher) - إنهاء التكاليف عند الانتهاء
+The main documents you'll work with daily:
+- Production Order (أمر إنتاج) - Your authorization to manufacture
+- Production Execution (تنفيذ إنتاج) - Recording what actually happened
+- Order Close Voucher (إغلاق أمر إنتاج) - Finalizing costs when done

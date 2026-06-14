@@ -1,6 +1,6 @@
 <div class="ignore-in-full-text-search">
 
-# وحدة العقارات
+# Real Estate Module
   - [EAAutoExtendExpiredRentContracts](/entity-flows/realestate/EAAutoExtendExpiredRentContracts.md)
   - [EAAutoGenerateREFineDoc](/entity-flows/realestate/EAAutoGenerateREFineDoc.md)
   - [EACancelReservationOFSalesInitialDoc](/entity-flows/realestate/EACancelReservationOFSalesInitialDoc.md)

@@ -1,72 +1,72 @@
-# الاعتمادات المستندية
+# Letters of Credit
 
-الاعتماد المستندي (LC) أداة يستخدمها المستورد لطمأنة المورّد: يتعهّد البنك بدفع قيمة الشحنة للمورّد متى قدّم مستندات الشحن المطابقة للشروط. مثل خطاب الضمان، الاعتماد **يحجز جزءًا من حدّ تسهيلاتك** ويُحمّلك **رسومًا**، ويُتتبَّع كملفٍ رئيسي تتعاقب عليه مستندات فتح وتعديل وإنهاء، مع لقطتي **القيم المبدئية** و**القيم الحالية**. وبنيته شبيهة جدًّا ببنية [خطابات الضمان](./letters-of-guarantee.md).
+A letter of credit (LC) is a tool an importer uses to reassure the supplier: the bank undertakes to pay the supplier the shipment's value once they present shipping documents matching the terms. Like a letter of guarantee, an LC **reserves part of your facility limit** and charges you **fees**, and it's tracked as a master file with a succession of opening, amendment and closing documents, keeping the two snapshots of **initial values** and **current values**. Its structure is very close to that of [Letters of Guarantee](./letters-of-guarantee.md).
 
-::: info الترخيص المطلوب
-الاعتمادات المستندية ضمن ترخيص `accounting-blc`.
+::: info Required license
+Letters of credit are part of the `accounting-blc` license.
 :::
 
-## دورة حياة الاعتماد
+## The LC's lifecycle
 
-تبدأ كل الشاشات من جذر **البنوك > اعتماد بنكى**:
+Every screen hangs off the **Banks > Bank LC** root:
 
-1. **طلب اعتماد بنكى** — توثيق طلب الاعتماد قبل فتحه (لا أثر محاسبي).
-2. **اعتماد بنكى** — الملف الرئيسي بحالته المبدئية «مبدئي».
-3. **فتح اعتماد بنكى** — اللحظة التي يفتح فيها البنك الاعتماد فعلًا (يُرحَّل محاسبيًا، ويحجز التسهيلات، وتتحوّل الحالة إلى «تم إصداره»).
-4. **تعديل اعتماد بنكى** — تعديل القيمة أو المدة أو الرسوم (يُحدِّث القيم الحالية).
-5. **إنهاء اعتماد بنكى** — إقفال الاعتماد وتحرير ما حُجز من تسهيلات.
+1. **Bank LC Request** — documenting the LC request before opening it (no accounting effect).
+2. **Bank LC** — the master file in its initial status "Initial".
+3. **Bank LC Opening** — the moment the bank actually opens the LC (it posts to the ledger, reserves the facility, and the status flips to "Issued").
+4. **Bank LC Changing** — changing the value, term or fees (updates the current values).
+5. **Bank LC Closing** — closing the LC and releasing the reserved facility.
 
-## الملف الرئيسي للاعتماد
+## The LC's master file
 
-في شاشة **اعتماد بنكى** (`البنوك > اعتماد بنكى > اعتماد بنكى`) تُعرّف بيانات الاعتماد:
+On the **Bank LC** screen (`Banks > Bank LC > Bank LC`) the LC's data is defined:
 
-- **المعلومات الأساسية**: **البنك** و**حساب البنك**، وربط الاعتماد بـ **طلب الاعتماد** و**حدّ التسهيلات** و**عقد المشروع** (و**مستخلص عقد المشروع**) عند الحاجة، و**نوع الاعتماد**.
-- **القيم المبدئية للاعتماد**: لقطة شروط الفتح — **مبلغ الاعتماد** و**العملة**، **من تاريخ / إلى تاريخ**، **التغطية** (المبلغ المغطّى نقدًا) ونسبتها، **التسهيلات** (الجزء المحجوز) ونسبتها، **رسوم الفتح** و**رسوم التعديل**.
-- **القيم الحالية**: القيم السارية بعد أي تعديل، إلى جانب **الحالة**.
+- **Basic information**: the **bank** and **bank account**, linking the LC to the **LC request**, **facility limit** and **project contract** (and **project contract extract**) when needed, and the **LC type**.
+- **Initial BLC values**: a snapshot of the opening terms — the **LC amount** and **currency**, **from date / to date**, the **covered amount** (covered in cash) and its percentage, the **facilities** (reserved portion) and its percentage, the **issue fees** and **change fees**.
+- **Current values**: the values in force after any amendment, plus the **status**.
 
-![شاشة الاعتماد البنكي](./images/lc/bank-lc.png)
+![Bank LC screen](./images/lc/bank-lc.png)
 
-### حالات الاعتماد
+### LC statuses
 
-يمرّ الاعتماد بالحالات نفسها التي يمرّ بها خطاب الضمان: **مبدئي** → **تم إصداره** → (**تم استلامه** / **توصيل كلي**) → **منتهي** / **ألغيت** / **مُسيل**.
+The LC moves through the same statuses as a letter of guarantee: **Initial** → **Issued** → (**Received** / **Totally Delivered**) → **Finished** / **Canceled** / **Liquidated**.
 
-## الفتح وحجز التسهيلات
+## Opening and reserving the facility
 
-عند تحرير **فتح اعتماد بنكى** (`البنوك > اعتماد بنكى > فتح اعتماد بنكى`) يُرحَّل الأثر المحاسبي ويُحجز جزء التسهيلات. ويغطّي توجيه الفتح جوانب: **قيمة الاعتماد مدين/دائن**، و**مدين/دائن التسهيلات**، و**مدين/دائن الرسوم** (مع **ضريبة الرسوم 1 و2**)، وجانب **التغطية**. (مصدر الحسابات في مرجع [توجيهات المستندات](./support/accounting-document-terms.md).)
+When a **Bank LC Opening** (`Banks > Bank LC > Bank LC Opening`) is recorded the accounting effect posts and the facility portion is reserved. The opening term covers the sides: **LC amount debit/credit**, **facilities amount debit/credit**, **fees debit/credit** (with **tax fees 1 and 2**), and the **covering** side. (Where the accounts come from is in the [Document terms](./support/accounting-document-terms.md) reference.)
 
-![شاشة فتح الاعتماد البنكي](./images/lc/blc-opening.png)
+![Bank LC Opening screen](./images/lc/blc-opening.png)
 
-::: warning التحقق من حدّ التسهيلات
-عند الفتح يتحقّق النظام من ألّا يتجاوز إجمالي المحجوز **حدّ التسهيلات** المرتبط بالاعتماد، فيُمنع الفتح عند التجاوز. تفاصيل في [التسهيلات الائتمانية](./credit-facilities.md).
+::: warning Facility-limit check
+At opening, the system checks that the total reserved doesn't exceed the **facility limit** linked to the LC, blocking the opening if it does. Details in [Credit Facilities](./credit-facilities.md).
 :::
 
-## التعديل والإنهاء
+## Amendment and closing
 
-يُستخدم **التعديل** لرفع قيمة الاعتماد أو خفضها أو تمديد مدته — فيُحدِّث القيم الحالية مع الإبقاء على القيم المبدئية للمقارنة، ويُسجّل **رسوم التعديل**. ويُقفل **الإنهاء** الاعتماد ويحرّر ما حُجز من تسهيلات.
+**Changing** is used to raise or lower the LC value or extend its term — it updates the current values while keeping the initial values for comparison, and records the **change fees**. **Closing** closes the LC and releases the reserved facility.
 
-## التقارير
+## Reports
 
-| التقرير | يجيب عن |
+| Report | Answers |
 |---|---|
-| أسعار المواد الخام حسب الفواتير المبدئية للاعتماد (SYSR-LCD001) | ربط تكلفة المواد المستوردة بالفواتير المبدئية للاعتماد. |
-| تحليل الاعتمادات مرتفعة التكلفة (SYSR-LCD002) | الاعتمادات الأعلى تكلفةً للمقارنة والتحليل. |
+| Raw-material prices by initial LC invoices (SYSR-LCD001) | Linking imported-material cost to the LC's initial invoices. |
+| Analysis of costly LCs (SYSR-LCD002) | The highest-cost LCs for comparison and analysis. |
 
-## بنكي أم استيرادي؟ — الفرق عن اعتماد سلسلة الإمداد
+## Banking or Import? — How It Differs from the Supply-Chain LC
 
-في نما يوجد اعتمادان مستنديان يحملان الاسم نفسه لكن لكلٍّ غرضه:
+Nama has two letters of credit that share a name but serve different purposes:
 
-- **الاعتماد البنكي (هذه الصفحة)** أداة *خزينة ومصرفية*: يهتم بالتزامك تجاه البنك — كم يحجز من **حدّ تسهيلاتك**، و**رسوم** الفتح والتعديل، و**القيود المحاسبية**. لا يتتبّع شحنات ولا فواتير مبدئية ولا بضاعة، ولا يمسّ المخزون.
-- **اعتماد سلسلة الإمداد** (`الإعتمادات > الملفات > الإعتماد المستندي`) عملية *استيراد ومشتريات*: يدير المورّد و**الشحنات** (الحاويات، وبوالص الشحن، والتخليص) و**الفواتير المبدئية**، ويجمّع مصاريف التأمين والشحن والجمارك على البضاعة للوصول إلى **التكلفة الواصلة**، ثم استلامها في المخزون.
+- **The Bank LC (this page)** is a *treasury/banking* instrument: it cares about your commitment to the bank — how much of your **facility limit** it reserves, the opening and amendment **fees**, and the **ledger postings**. It tracks no shipments, no proforma invoices, no goods, and never touches inventory.
+- **The Supply-Chain LC** (`LC > Master Files > Letter of Credit`) is an *import/procurement* process: it manages the supplier, the **shipments** (containers, bills of lading, customs), and the **proforma invoices**, and accumulates insurance, freight, and customs charges onto the goods to reach the true **landed cost**, then receives them into inventory.
 
-باختصار: الاعتماد البنكي يجيب عن «ماذا يفعل هذا الاعتماد بتسهيلاتي ودفاتري؟»، واعتماد سلسلة الإمداد يجيب عن «كيف أدير هذه الشحنة الاستيرادية وتكاليفها حتى دخولها المخزن؟». وهما ميزتان مستقلتان (كيانان وترخيصان مختلفان)، لا وجهان لمستندٍ واحد.
+In short: the Bank LC answers "what does this LC do to my facility and my ledger?", while the Supply-Chain LC answers "how do I run this import shipment and its costs all the way into the warehouse?" They are two independent features — different entities and licenses — not two views of one document.
 
-::: info الاستيراد وإدارة الشحنات
-لإدارة دورة الاستيراد الكاملة — الشحنات والفواتير المبدئية والتكاليف الإضافية والتكلفة الواصلة — راجِع [الاعتمادات المستندية في سلسلة الإمداد](../supplychain/letters-of-credit.md).
+::: info Imports and shipment management
+For the full import cycle — shipments, proforma invoices, additional costs, and landed cost — see [Letters of Credit in Supply Chain](../supplychain/letters-of-credit.md).
 :::
 
-## للدعم الفني
+## For Support
 
-- **«تعذّر فتح الاعتماد — تجاوز الحدّ»** — المبلغ المحجوز يتجاوز حدّ التسهيلات المرتبط؛ راجِع [التسهيلات الائتمانية](./credit-facilities.md).
-- **«ما الفرق بين القيم المبدئية والحالية؟»** — المبدئية لقطة شروط الفتح، والحالية تعكس آخر تعديل.
-- **«من أين تأتي حسابات القيمة والتسهيلات والرسوم؟»** — من توجيه **فتح الاعتماد**؛ راجِع [توجيهات المستندات](./support/accounting-document-terms.md).
-- آلية المعالجة المحاسبية في [كيف تُعالَج المستندات إلى أثر محاسبي](./support/accounting-request-processing.md).
+- **"Couldn't open the LC — limit exceeded"** — the reserved amount exceeds the linked facility limit; see [Credit Facilities](./credit-facilities.md).
+- **"What's the difference between initial and current values?"** — the initial ones are a snapshot of the opening terms, and the current ones reflect the latest amendment.
+- **"Where do the amount, facility and fee accounts come from?"** — from the **Bank LC Opening** term; see [Document terms](./support/accounting-document-terms.md).
+- The accounting-processing mechanism is in [How documents are processed into accounting effects](./support/accounting-request-processing.md).

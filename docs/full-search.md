@@ -1,6 +1,9 @@
 
-# البحث
+# Search
 
-يمكنك استخدام هذه الصفحة للبحث عن أي محتوى داخل موقع التوثيق
+You can use this page to search for any content inside our documentation site
 
 <EmbeddableSearchBox fullHeight />
+
+
+

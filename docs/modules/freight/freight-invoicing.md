@@ -1,54 +1,54 @@
-# الفواتير والمرتجعات
+# Invoices & Returns
 
-هنا يتحوّل العمل التشغيلي إلى أثر مالي: تبيع الخدمات للعميل، وتشتريها من الموردين، وتتابع الفرق بينهما. كل مستندات هذا القسم تجدها تحت **نظام إدارة الشحن ← المستندات**، وكلها مرتبطة عادةً بـ[أمر تشغيل](./operation-orders.md).
+This is where operational work turns into financial effect: you sell services to the customer, buy them from suppliers, and track the difference between the two. Every document in this section is found under **Freight Management System → Documents**, and all are usually linked to an [operation order](./operation-orders.md).
 
-## دورة المبيعات
+## The sales cycle
 
-### أمر بيع خدمة (Sales Order)
+### Sales Order
 
-نقطة البداية الاختيارية: تعرض على العميل الخدمات وأسعارها قبل تنفيذ الشحنة. أمر البيع يحمل نفس بنية الفاتورة (العميل، المندوب، أمر التشغيل، سطور الخدمة بأسعارها وضرائبها) لكنه لا يُنشئ أثرًا ماليًا — هو وعد بالخدمة، يُحوَّل لاحقًا إلى فاتورة.
+The optional starting point: you offer the customer the services and their prices before executing the shipment. The sales order carries the same structure as the invoice (customer, sales man, operation order, service lines with prices and taxes) but creates no financial effect — it's a promise of service, later converted into an invoice.
 
-![أمر بيع خدمة](./images/invoicing/sales-order-ar.png)
+![Sales order](../../ar/modules/freight/images/invoicing/sales-order-en.png)
 
-### فاتورة مبيعات خدمة (Sales Invoice)
+### Sales Invoice
 
-الفاتورة هي المستند الذي يسجّل البيع محاسبيًا ويحمّل العميل قيمة الخدمات. تتكوّن من:
+The invoice is the document that records the sale in accounting and bills the customer for the service value. It consists of:
 
-- **العميل والمندوب وأمر التشغيل** ومقدّم الخدمة.
-- **سطور الخدمة (Details)** — كل سطر ببند خدمته وكميته وسعره وعملته وضريبته، إضافةً إلى **التكلفة (Cost)** و**الفرق (Diff)** المحسوبَين تلقائيًا.
-- **سطور البوالص المُفوتَرة (Invoiced Bills of Lading)** — تربط البوالص بالفاتورة، فتُجمَّع أرقام البوالص والحاويات في رأس الفاتورة.
-- **سطور الفاتورة الإلكترونية (E-Invoice Details)** — نسخة مجمَّعة من السطور تُرسَل لهيئة الضرائب (انظر [الفاتورة الإلكترونية](./freight-einvoicing.md)).
-- **الدفعات (Payment Lines / External Payments)** — لتسجيل التحصيل النقدي أو عبر وسائل الدفع.
+- **Customer, sales man, and operation order**, plus the service provider.
+- **Service lines (Details)** — each line with its service item, quantity, price, currency, and tax, plus the **Cost** and **Diff** computed automatically.
+- **Invoiced Bills of Lading** — links bills to the invoice, so bill and container numbers are gathered into the invoice header.
+- **E-Invoice Details** — a consolidated version of the lines sent to the tax authority (see [E-Invoicing](./freight-einvoicing.md)).
+- **Payment Lines / External Payments** — to record cash collection or collection via payment methods.
 
-![فاتورة مبيعات خدمة](./images/invoicing/sales-invoice-ar.png)
+![Sales invoice](../../ar/modules/freight/images/invoicing/sales-invoice-en.png)
 
-::: info ربط التكلفة بالبيع تلقائيًا
-عند ترحيل فاتورة المبيعات، يبحث النظام عن سطور الشراء المطابقة في نفس أمر التشغيل ويربطها بسطور البيع، فيحسب تكلفة كل خدمة ويعلّم سطور الشراء بأنها «مُستخدَمة» في هذه الفاتورة. بهذا تعرف صافي ربحك على كل خدمة، ولا تُحتسب التكلفة مرتين.
+::: info Linking cost to sale automatically
+When the sales invoice is posted, the system looks for the matching purchase lines in the same operation order and links them to the sale lines, computing each service's cost and marking the purchase lines as "used" in this invoice. This way you know your net profit on each service, and cost is never counted twice.
 :::
 
-### مرتجع مبيعات (Sales Return)
+### Sales Return
 
-لعكس فاتورة مبيعات كليًا أو جزئيًا (خدمة لم تُنفَّذ، أو تصحيح فوترة)، فيُسجَّل الأثر العكسي على حساب العميل والإيراد.
+To reverse a sales invoice fully or partially (a service that wasn't performed, or an invoicing correction), recording the reverse effect on the customer and revenue accounts.
 
-## دورة المشتريات
+## The purchase cycle
 
-### فاتورة مشتريات خدمة (Purchase Invoice)
+### Purchase Invoice
 
-تسجّل ما تشتريه من الموردين (الخط الملاحي، وكيل التخليص، شركة النقل…). تُنشأ غالبًا من [أمر التشغيل](./operation-orders.md) بزر **إنشاء فاتورة مشتريات**، فترث سطور الخدمات المشتراة. سطورها هي مصدر **التكلفة** التي تُطابَق لاحقًا بسطور البيع.
+Records what you buy from suppliers (shipping line, clearance agent, transport company…). It's usually created from the [operation order](./operation-orders.md) with the **Create Purchase Invoice** button, inheriting the purchased service lines. Its lines are the source of the **cost** that is later matched against the sale lines.
 
-![فاتورة مشتريات خدمة](./images/invoicing/purchase-invoice-ar.png)
+![Purchase invoice](../../ar/modules/freight/images/invoicing/purchase-invoice-en.png)
 
-### مرتجع مشتريات (Purchase Return)
+### Purchase Return
 
-لعكس فاتورة مشتريات كليًا أو جزئيًا عند إلغاء خدمة اشتريتها من مورد أو تصحيح قيمتها.
+To reverse a purchase invoice fully or partially when cancelling a service you bought from a supplier or correcting its value.
 
-## التوجيه (Term Config) والأثر المحاسبي
+## Term Config and accounting effect
 
-يتحكّم **توجيه المستند (Term Config)** في كيفية ترحيل كل فاتورة محاسبيًا: حسابات الإيراد/التكلفة، حسابات الضريبة (Tax / Tax 2 / ضرائب الإضافة والخصم)، حسابات الخصومات بأنواعها، والنقدية. كما يحمل توجيه فاتورة المبيعات إعدادين خاصّين بالشحن:
+The document's **Term Config** controls how each invoice is posted to accounting: revenue/cost accounts, tax accounts (Tax / Tax 2 / addition and discount taxes), the various discount accounts, and cash. The sales invoice term config also carries two freight-specific settings:
 
-- **الحالة (Status)** — حالة أمر التشغيل التي تُسجَّل تلقائيًا عند ترحيل الفاتورة، فتتابع أي شحنة فُوتِرت.
-- **عدم إرسال سطر تكلفة بنود العمولة** — خيار يخصّ نموذج الوكيل في [الفاتورة الإلكترونية](./freight-einvoicing.md).
+- **Status** — the operation-order status that is recorded automatically when the invoice is posted, so you track which shipment has been invoiced.
+- **Do not send a cost line for commission items** — an option for the agent model in [E-Invoicing](./freight-einvoicing.md).
 
-::: warning تكرار البند ممنوع
-لا يقبل النظام تكرار نفس بند الخدمة بنفس العملة ونفس الكمية في فاتورة واحدة، لضمان دقّة مطابقة التكلفة. إن احتجت لسطرين متطابقين، ادمجهما في سطر واحد بكمية مجمّعة.
+::: warning Repeated items not allowed
+The system won't accept the same service item with the same currency and same quantity twice in one invoice, to keep cost matching accurate. If you need two identical lines, merge them into one line with a combined quantity.
 :::

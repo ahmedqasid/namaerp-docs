@@ -1,28 +1,27 @@
-<rtl>
+# Approvals FAQ
 
-# أسئلة شائعة عن الموافقات 
-## إعداد الموافقة على سند التحويل بناءً على المخزن المستلم
+## Setting Up Approval for a Stock Transfer Based on the Receiving Warehouse
 
-في حال وجود عدة مخازن، ولكل مخزن **أمين مخزن** ومدير مباشر مختلف، وترغب بأن تكون **الموافقة على سند التحويل من مسؤولية المخزن الذي ستُرسل إليه البضاعة** (وليس المخزن المُرسل)، يمكنك تحقيق ذلك من خلال إعداد الموافقة على النحو التالي:
+If you have multiple warehouses, each with a different **warehouse keeper** and direct supervisor, and you want the **approval of a stock transfer to be the responsibility of the warehouse that will receive the goods** (not the sending warehouse), you can achieve this by configuring the approval as follows:
 
-### الحل
+### Solution
 
-* قم بإنشاء **تعريف موافقة** للكيان `StockTransfer`.
-* أضف خطوة موافقة يكون المسؤول فيها محددًا بناءً على **حقل داخل السند**.
-* استخدم الحقل التالي لتحديد المسؤولين:
+* Create an **approval definition** for the `StockTransfer` entity.
+* Add an approval step where the responsible person is determined based on a **field within the document**.
+* Use the following field to identify the responsible parties:
 
 ```
 toWarehouse.warehouseKeeper,toWarehouse.warehouseKeeper.directSupervisor
 ```
 
-وذلك يعني أن الموافقة ستكون من:
+This means the approval will be from:
 
-* **أمين المخزن المستلم**
-* **المدير المباشر لأمين المخزن المستلم**
+* The **receiving warehouse keeper**
+* The **direct supervisor of the receiving warehouse keeper**
 
 ---
 
-::: details اضغط لعرض ملف JSON للاستيراد المباشر
+::: details Click to view the JSON file for direct import
 
 ```json
 {
@@ -42,61 +41,59 @@ toWarehouse.warehouseKeeper,toWarehouse.warehouseKeeper.directSupervisor
 
 :::
 
-بهذا الإعداد، يقوم النظام بتوجيه طلب الموافقة تلقائيًا إلى المسؤولين المعنيين في **المخزن المستلم**، مما يضمن سير عملية الموافقة وفق التسلسل الإداري المعتمد.
+With this setup, the system automatically routes the approval request to the relevant parties in the **receiving warehouse**, ensuring the approval process follows the established management hierarchy.
 
-## حاولت عمل موافقة "مع التعديل" لسند تحويل مخزني لكن النظام رفض الحفظ
+## I Tried to Create an "Update Approval" for a Stock Transfer but the System Refused to Save
 
-عند تعريف موافقة لسند تحويل مخزني واختيار نوع الموافقة "مع التعديل" (Update Approval)، قد تظهر رسالة الخطأ التالية:
+When defining an approval for a stock transfer and selecting the approval type "Update Approval" (مع التعديل), you may see the following error:
 
 ```
 Update approval can not be used with documents, can be used with documents only  
 لا يمكن استعمال "مع التعديل" مع المستندات - تستعمل مع الملفات فقط
 ```
 
-### السبب
+### Reason
 
-بشكل افتراضي، لا يسمح نظام Nama ERP بإجراء موافقات على تعديل المستندات (مثل سندات التحويل، الفواتير، وغيرها)، لأن تعديل المستندات بعد اعتمادها يعتبر مخاطرة وقد يفتح الباب للتلاعب. يُفضل عكس المستند ثم إصدار مستند جديد بدلاً من تعديله.
+By default, Nama ERP does not allow update approvals on documents (such as stock transfers, invoices, etc.) because modifying documents after they have been approved is considered a risk and may open the door to manipulation. It is preferable to reverse the document and issue a new one instead of editing it.
 
-### الحل
+### Solution
 
-إذا كان هناك سيناريو منطقي يستدعي السماح بتعديل المستندات مع وجود موافقة، يمكن تفعيل الخيار التالي من الإعدادات العامة:
+If there is a legitimate scenario that requires allowing document modification with an approval workflow, you can enable the following option in the global configuration:
 
 <GlobalConfigOption option-code="value.info.allowApprovalsOnDocumentsUpdate" />
 
-### ملاحظات إضافية
+### Additional Notes
 
-::: tip يمكنك التحكم في التعديل أو الحذف بعد الموافقة من خلال الصلاحيات
+::: tip You can control editing or deletion after approval through permissions
 
-* لمنع تعديل السندات التي تمت الموافقة عليها، فعّل خيار `preventEditAfterApproval` في ملف الصلاحيات أو المستخدم.
-* لمنع حذف السندات بعد الموافقة، فعّل خيار `preventDeleteAfterApproval`.
+* To prevent editing of approved documents, enable the `preventEditAfterApproval` option in the permissions file or user settings.
+* To prevent deletion of documents after approval, enable the `preventDeleteAfterApproval` option.
 
 :::
 
-## النظام يطلب الموافقة على فاتورة المشتريات عند حفظ سند استلام أو سند تكاليف إضافية مرتبط بها
+## The System Requests Approval on a Purchase Invoice When Saving a Receipt Voucher or Additional Costs Voucher Linked to It
 
-عند تعريف موافقة على فاتورة المشتريات من نوع "مع التعديل" (Update Approval)، قد تلاحظ أن النظام يطلب موافقة جديدة على الفاتورة عند:
+When you define an "Update Approval" on a purchase invoice, you may notice that the system requests a new approval on the invoice when:
 
-* إنشاء **سند استلام مخزني** مرتبط بهذه الفاتورة.
-* إنشاء **سند تكاليف إضافية على الاستلام** (Receipt Additional Costs) مرتبط بهذه الفاتورة.
+* Creating a **stock receipt voucher** linked to that invoice.
+* Creating a **receipt additional costs voucher** linked to that invoice.
 
-- السبب
+### Reason
 
-سندات الاستلام وسندات التكاليف الإضافية تقوم بتعديل فاتورة المشتريات المرتبطة بها، لأنها:
+Receipt vouchers and additional cost vouchers modify the linked purchase invoice because they:
 
-* تُحدّث **الكميات المُستلمة** على بنود الفاتورة.
-* تُحدّث **توزيع التكلفة** على بنود الفاتورة.
-* تُجبر الفاتورة على إعادة حفظ سندات الاستلام الأخرى المرتبطة بها.
+* Update the **received quantities** on the invoice lines.
+* Update the **cost distribution** on the invoice lines.
+* Force the invoice to re-save other linked receipt vouchers.
 
-نظرًا لأن هذه التعديلات تتم تلقائيًا من خلال إجراء داخلي في النظام (system action) وليست من المستخدم، فإن طلب الموافقة في هذه الحالة لا يكون منطقيًا.
+Since these modifications are made automatically through a system action (not by the user), requesting approval in this case does not make logical sense.
 
-- الحل
+### Solution
 
-يقوم النظام بتعليم الكيانات التي يتم حفظها عبر إجراء داخلي بضبط الحقل `systemIsCommiting` ليصبح `true` خلال هذه العمليات. لتجنب تشغيل الموافقة في هذه الحالات، أضف الاستعلام التالي في الحقل **applyWhenQuery** الخاص بتعريف الموافقة:
+The system marks entities that are saved via a system action by setting the `systemIsCommiting` field to `true` during these operations. To avoid triggering the approval in these cases, add the following query in the **applyWhenQuery** field of the approval definition:
 
 ```sql
 select case when {$systemIsCommiting} = 1 then 0 else 1 end
 ```
 
-بهذا الإعداد، لن يتم تفعيل الموافقة عندما يقوم النظام بتعديل الفاتورة من خلال سند استلام أو سند تكاليف إضافية، بينما يستمر تفعيلها عند تعديل الفاتورة مباشرةً من قِبل المستخدم.
-
-</rtl>
+With this setup, the approval will not be triggered when the system modifies the invoice through a receipt voucher or additional costs voucher, while it will continue to be triggered when the user edits the invoice directly.

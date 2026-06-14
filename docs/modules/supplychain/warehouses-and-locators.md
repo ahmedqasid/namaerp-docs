@@ -1,97 +1,97 @@
-# المخازن والمواقع التخزينية (Warehouses & Locators)
+# Warehouses & Locators
 
-عرّفت أصنافك - رائع. لكن أين ستضعها فعليًا؟ هنا يأتي دور **المخازن (Warehouses)** و**المواقع التخزينية (Locators)**. إنها الخريطة المكانية لمخزونك: المكان الذي يعيش فيه كل صنف، وكيف يتنقل، ومن المسؤول عنه.
+You've defined your items - great. But where will you actually put them? This is where **Warehouses** and **Locators** come in. They're the spatial map of your inventory: where each item lives, how it moves, and who's responsible for it.
 
-## المخزن: حاوية مخزونك الأساسية
+## The Warehouse: Your Primary Inventory Container
 
-المخزن في Nama ERP ليس بالضرورة مبنى. إنه أي مكان تريد أن تتتبع فيه رصيدًا منفصلًا للمخزون. قد يكون:
-- مستودعًا فعليًا كبيرًا
-- رفًا في صالة عرض
-- شاحنة توزيع متنقلة
-- منطقة "بضاعة في الطريق" بين فرعين
-- منطقة فرز أو حجر صحي للبضاعة قيد الفحص
+A warehouse in NaMa ERP isn't necessarily a building. It's any place where you want to track a separate inventory balance. It could be:
+- A large physical warehouse
+- A shelf in a showroom
+- A mobile distribution truck
+- A "goods in transit" area between two branches
+- A sorting or quarantine area for goods under inspection
 
-القاعدة البسيطة: **إذا أردت أن تعرف "كم لديّ هنا؟" بشكل مستقل، فاجعله مخزنًا.**
+The simple rule: **if you want to know "how much do I have here?" independently, make it a warehouse.**
 
-![قائمة المخازن في Nama ERP](images/warehouses/warehouse-list-ar.png)
+![Warehouse list in NaMa ERP](../../ar/modules/supplychain/images/warehouses/warehouse-list-en.png)
 
-### أنواع المخازن
+### Warehouse Types
 
-ليست كل المخازن متشابهة. يميّز النظام بين عدة أنواع، ولكل منها سلوك مختلف:
+Not all warehouses are the same. The system distinguishes several types, each with different behavior:
 
-- **مخزن عادي**: التخزين الاعتيادي للبضاعة المتاحة للبيع والصرف.
-- **مخزن بضاعة في الطريق (Transit)**: يحتجز البضاعة أثناء تنقلها بين موقعين، فلا تظهر متاحة في الطرف المُرسِل ولا المُستقبِل حتى يكتمل التحويل.
-- **مخزن فحص/فرز (Inspection)**: تصل إليه البضاعة المستلمة قبل اعتمادها، فلا تدخل المخزون المتاح حتى يجيزها قسم الجودة.
-- **مخزن حجوزات (Reservation)**: مخصص للأصناف المحجوزة لعملاء أو أوامر بعينها.
+- **Standard warehouse**: ordinary storage for goods available to sell and issue.
+- **Transit warehouse**: holds goods while they move between two locations, so they appear available at neither the sending nor the receiving side until the transfer completes.
+- **Inspection/sorting warehouse**: received goods land here before approval, so they don't enter available stock until quality clears them.
+- **Reservation warehouse**: dedicated to items reserved for specific customers or orders.
 
-اختيار النوع الصحيح مهم لأنه يحدد متى يُحتسب مخزون هذا المكان ضمن "المتاح للبيع".
+Choosing the right type matters because it determines when a location's stock counts toward "available to sell."
 
-### من المسؤول؟ أمين المخزن والصلاحيات
+### Who's Responsible? The Warehouse Keeper and Permissions
 
-لكل مخزن يمكنك تعيين **أمين مخزن** - الموظف المسؤول عنه. يفيد ذلك في:
-- توجيه مهام الاستلام والصرف للشخص الصحيح
-- ضبط صلاحيات تمنع المستخدمين من التحريك في مخازن ليست من اختصاصهم
-- المساءلة عند الجرد وتسوية الفروقات
+For each warehouse you can assign a **warehouse keeper** - the employee responsible for it. This helps you:
+- Route receiving and issuing tasks to the right person
+- Set permissions that prevent users from transacting in warehouses outside their scope
+- Maintain accountability during stock taking and reconciling differences
 
-كما يمكنك ربط المخزن بفرع ومجموعة، وضبط أولويته (لترشيح المخزن الأنسب تلقائيًا)، ووحدات الشراء والبيع الافتراضية الخاصة به.
+You can also link the warehouse to a branch and a group, set its priority (for automatic warehouse selection), and configure its own default purchase and sales units.
 
-### مخازن وتخطيط الاحتياجات (MRP)
+### Warehouses and Requirements Planning (MRP)
 
-يمكنك تحديد ما إذا كان مخزن معيّن مشمولًا في حسابات تخطيط احتياجات المواد (MRP). فمخزن العرض في صالة البيع قد لا ترغب في احتسابه ضمن المتاح للإنتاج، بينما مخزن المواد الخام الرئيسي يجب أن يُحتسب.
+You can decide whether a particular warehouse is included in Material Requirements Planning (MRP) calculations. A showroom display warehouse may not be something you want counted as available for production, while your main raw-materials warehouse should be.
 
-## المواقع التخزينية: الدقة داخل المخزن
+## Locators: Precision Inside the Warehouse
 
-داخل مخزن كبير، معرفة أن لديك "200 علبة" لا يكفي - أين هي بالضبط؟ في أي ممر، أي رف، أي طبلية؟ هنا يأتي دور **المواقع التخزينية (Locators)**.
+Inside a large warehouse, knowing you have "200 boxes" isn't enough - where exactly are they? Which aisle, which shelf, which pallet? This is where **Locators** come in.
 
-الموقع التخزيني هو تقسيم داخل المخزن: ممر A، رف 3، أو منطقة "بضاعة سريعة الحركة". تفعيل المواقع التخزينية يمنحك:
-- معرفة المكان الدقيق لكل صنف
-- توجيه عمال المستودع مباشرةً إلى موقع التحضير
-- تنظيم البضاعة حسب الحركة أو الحجم أو متطلبات التخزين
+A locator is a subdivision within the warehouse: aisle A, shelf 3, or a "fast-moving goods" zone. Enabling locators gives you:
+- The exact location of each item
+- Direction for warehouse staff straight to the pick location
+- Organization of goods by movement, size, or storage requirements
 
-### سياسة المواقع: مطلوبة أم ممنوعة؟
+### Locator Policy: Required or Prevented?
 
-لكل مخزن تضبط سياسة المواقع التخزينية:
-- **مطلوبة**: لا يمكن استلام أو صرف أي صنف دون تحديد موقعه - مثالي للمستودعات الكبيرة المنظمة.
-- **ممنوعة**: لا تستخدم المواقع إطلاقًا - مناسب لمخزن صغير أو شاحنة توزيع.
+For each warehouse you set the locator policy:
+- **Required**: no item can be received or issued without specifying its location - ideal for large, organized warehouses.
+- **Prevented**: don't use locators at all - suitable for a small warehouse or a distribution truck.
 
-كما يمكن لكل موقع تخزيني أن يمنع الاستلام أو الصرف على حدة (مثلًا موقع "تالف" يستقبل البضاعة لكن يمنع صرفها للبيع)، وأن يُربط بمورّد أو عميل بعينه عند الحاجة، وأن يأخذ أولوية ترشيح ضمن التحضير الآلي.
+Each locator can also prevent receiving or issuing individually (e.g. a "damaged" locator that accepts goods but prevents issuing them for sale), be linked to a specific supplier or customer when needed, and take a selection priority within automatic picking.
 
-### تصنيف المواقع (Location Classes)
+### Location Classes
 
-عندما تتعدد المواقع، يساعدك **تصنيف المواقع** على تجميعها بحسب طبيعتها: تبريد، تجميد، عالية القيمة، حجر صحي... ثم تطبيق قواعد على فئة كاملة بدلًا من موقع واحد. صنف يستلزم التبريد يمكن توجيهه تلقائيًا إلى مواقع من فئة "مبرّد".
+When locators multiply, **location classes** help you group them by nature: refrigerated, frozen, high-value, quarantine... then apply rules to a whole class rather than a single locator. An item requiring refrigeration can be routed automatically to locators of the "refrigerated" class.
 
-### تتبع الأرفف (Rack Quantities)
+### Rack Quantities
 
-للمستودعات التي تحتاج دقة أعلى من مستوى الموقع، يتيح النظام تتبع الكميات على مستوى **الرف** داخل الموقع الواحد - مفيد في مراكز التوزيع الكبيرة حيث يضم الموقع الواحد عدة أرفف.
+For warehouses that need precision beyond the locator level, the system supports tracking quantities at the **rack** level within a single locator - useful in large distribution centers where one locator contains several racks.
 
-## ربط الأصناف بالمخازن
+## Linking Items to Warehouses
 
-من غير العملي أن يُخزَّن كل صنف في كل مخزن. لذا يتيح النظام **ربط الصنف بالمخزن** لتحديد المخازن المفضّلة لكل صنف بأولوية معيّنة. الفائدة:
-- يرشّح النظام المخزن الأنسب تلقائيًا عند الاستلام أو الصرف
-- يمنع تخزين أصناف في مخازن غير مناسبة لها
-- يبسّط إدخال المستندات على المستخدم
+It's impractical for every item to be stored in every warehouse. So the system lets you **link items to warehouses**, defining the preferred warehouses for each item with a given priority. The benefits:
+- The system automatically suggests the most appropriate warehouse on receipt or issue
+- It prevents storing items in warehouses unsuited to them
+- It simplifies document entry for the user
 
-## مجموعات المخازن
+## Warehouse Groups
 
-عندما يكبر عدد المخازن، تجمعها **مجموعات المخازن** لأغراض التقارير والتنظيم: مثلًا مجموعة "مخازن المنطقة الشمالية" أو "مخازن صالات العرض". تستطيع حينها استخراج تقرير مخزون لمجموعة كاملة دفعة واحدة.
+When the number of warehouses grows, **warehouse groups** bundle them for reporting and organization: for example a "Northern Region Warehouses" group or a "Showroom Warehouses" group. You can then pull an inventory report for an entire group at once.
 
-![شاشة تعريف المخزن في Nama ERP](images/warehouses/warehouse-edit-ar.png)
+![Warehouse definition screen in NaMa ERP](../../ar/modules/supplychain/images/warehouses/warehouse-edit-en.png)
 
-## كيف يتلاءم كل هذا معًا
+## How It All Fits Together
 
-تخيّل مركز توزيع نموذجيًا:
+Imagine a typical distribution center:
 
-1. تصل شحنة، فتُستلم أولًا في **مخزن الفحص**.
-2. بعد إجازتها من الجودة، تُحوَّل إلى **المخزن الرئيسي**، وتحديدًا إلى **موقع تخزيني** في الممر المناسب.
-3. الأصناف التي تستلزم تبريدًا تُوجَّه تلقائيًا إلى مواقع من **تصنيف "مبرّد"**.
-4. عند ورود أمر بيع، يرشّح النظام المخزن والموقع وفق **ربط الأصناف بالمخازن** و**أولويات المواقع**.
-5. تُحجز البضاعة الموزّعة على فروع بعيدة في **مخزن بضاعة في الطريق** أثناء النقل حتى تصل ويُستلم التحويل.
+1. A shipment arrives and is first received into the **inspection warehouse**.
+2. After quality clears it, it's transferred to the **main warehouse**, specifically to a **locator** in the appropriate aisle.
+3. Items requiring refrigeration are routed automatically to locators of the **"refrigerated" class**.
+4. When a sales order arrives, the system suggests the warehouse and locator based on **item-warehouse links** and **locator priorities**.
+5. Goods distributed to distant branches are held in a **transit warehouse** during transport until they arrive and the transfer is received.
 
-هذه البنية المكانية هي الأساس الذي تعمل فوقه كل حركات المخزون التي سنتناولها في الأقسام التالية.
+This spatial structure is the foundation on which all the stock movements we'll cover in the next sections operate.
 
-## الخطوات التالية
+## Next Steps
 
-- [استلام المخزون](./receiving-stock.md) - إدخال الأصناف إلى هذه المخازن
-- [إصدار المخزون](./issuing-stock.md) - إخراجها منها
-- [تحريك المخزون بين المخازن](./moving-stock.md) - نقلها من مخزن إلى آخر
-- [الجرد المخزني](./stock-taking.md) - التحقق من المطابقة بين الرصيد الدفتري والفعلي
+- [Receiving Stock](./receiving-stock.md) - bringing items into these warehouses
+- [Issuing Stock](./issuing-stock.md) - taking them out
+- [Moving Stock Between Warehouses](./moving-stock.md) - transferring them from one warehouse to another
+- [Stock Taking](./stock-taking.md) - verifying that book and physical balances match

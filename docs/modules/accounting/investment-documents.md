@@ -1,51 +1,51 @@
-# مستندات الاستثمار وشهادات الصناديق
+# Investment Documents & Fund Certificates
 
-إلى جانب منظومة المحافظ التي تتبع *الأصول* الاستثمارية، لدى نما عالمٌ استثماريٌّ ثانٍ للأدوات **الورقية** التي تشتريها الشركة وتحتفظ بها: السندات وشهادات الصناديق. وهذه تتصرّف تصرّفًا مختلفًا تمامًا عن الحصّة في رأس المال، فلها مستنداتها الخاصّة. تغطّي هذه الصفحة كليهما — وهما نفساهما ينقسمان إلى نوعين، وهذا أوّل ما ينبغي ضبطه.
+Beyond the portfolio system that tracks investment *assets*, Nama has a second investment world for the **paper instruments** a company buys and holds: bonds and fund certificates. These behave very differently from an equity stake, so they get their own documents. This page covers both — and they themselves split into two kinds, which is the first thing to get straight.
 
-::: info الترخيص المطلوب
-مستندات الاستثمار ضمن ترخيص `accounting-investment-documents` — وهو الترخيص نفسه الذي يغطّي **[أذون الخزانة](./treasury-bills.md)**. والشاشات تحت **البنوك > سندات الاستثمار** (و**البنوك > استثمارات الوثائق** للصناديق).
+::: info Required license
+Investment documents are part of the `accounting-investment-documents` license — the same license that covers **[treasury bills](./treasury-bills.md)**. Screens are under **Banks > Investment Documents** (and **Banks > Document Investments** for funds).
 :::
 
-## نوعان من الأدوات — ولماذا وُجِد كلاهما
+## Two kinds of instrument — and why both exist
 
-يلبّي النوعان حاجتين مختلفتين، فلا تخلط بينهما:
+The two answer different needs, so don't mix them up:
 
-- **سند استثمار** — أداةٌ **شبيهة بالسند**. تُقرِض مالًا مقابل ورقةٍ لها **قيمة اسمية** وتدفع **عائدًا** دوريًا (كوبون). وقد تكون **سند خزانة** أو **سند شركة**، وقد يكون ردُّ أصلها **ثابتًا** (تعود القيمة الاسمية كاملةً عند الاستحقاق) أو **متناقصًا** (تُسدَّد القيمة الاسمية تدريجيًا على عمر السند). والعائد كوبونٌ معلوم — أنت هنا مُقرِض.
-- **صندوق استثمار وثيقة** — شهادة صندوقٍ **مبنيّة على الوحدات**. تشتري **عددًا من الوحدات** بـ**سعر وحدة**، فتساوي حصّتُك الوحداتِ × السعر الحالي. ولا كوبون ثابت؛ فمكسبك أو خسارتك هو حركة سعر الوحدة — أنت هنا حاملُ وحدات.
+- **Investment Document** (سند استثمار) — a **bond-like** instrument. You lend money against a paper that has a **nominal (name) value** and pays a periodic **coupon return** (ROI). It can be a **treasury bond** or a **company bond**, and its principal repayment can be **fixed** (the whole nominal comes back at maturity) or **decreasing** (the nominal is paid down over the life of the bond). The return is a known coupon — you're a lender.
+- **Investment Document Fund** (صندوق استثمار وثيقة) — a **unit-based** fund certificate. You buy a **number of units** at a **unit price**, and your holding is worth units × current price. There's no fixed coupon; your gain or loss is the movement in the unit price — you're a unit-holder.
 
-باختصار: السندات لعائدٍ ثابتٍ على هيئة كوبون؛ والصناديق لحيازةٍ يقودها السعر. أمّا **أذون الخزانة** (أداةٌ ثالثةٌ خصمية قصيرة الأجل) فلها [صفحتها الخاصّة](./treasury-bills.md).
+In short: bonds for a fixed, coupon-style return; funds for a price-driven holding. Treasury **bills** (a third, short-term discount instrument) are covered on their [own page](./treasury-bills.md).
 
-## سندات الاستثمار (السندات)
+## Investment documents (bonds)
 
-يصف الملفُّ الرئيسي **سند استثمار** (`Banks > Investment Documents > Investment Document`) السندَ: **نوعه** (سند خزانة / سند شركة)، و**قيمته الاسمية**، ونسبة **الكوبون** و**فترة العائد**، ونوع الأقساط **ثابت / متناقص** (مع **تاريخ بدء التناقص** وتتبّع **القيمة الاسمية المتبقية للمتناقص**)، و**خصم الإصدار / علاوة الإصدار**، و**سعر السوق**، و**شركة الاستثمار**. وتتبع **حالته** المسارَ المألوف **مبدئي ← جاري ← مغلقة**.
+The **Investment Document** master (`Banks > Investment Documents > Investment Document`) describes the bond: its **type** (treasury / company bond), **nominal value**, **coupon** rate and **ROI period**, the **fixed / decreasing** installments type (with a **decreasing start date** and the **remaining nominal of decreasing** tracked), the **issue discount / issue premium**, the **market price**, and the **investment company**. Its **status** follows the familiar **Initial → Ongoing → Closed** path.
 
-![الملف الرئيسي لسند الاستثمار](./images/invdocs/investment-doc.png)
+![The Investment Document (bond) master file](./images/invdocs/investment-doc.png)
 
-ويُبعَث السند بسلسلةٍ من المستندات:
+The bond is brought to life by a chain of documents:
 
-1. **مستند شراء سند استثمار** (`Banks > Investment Documents > Investment Doc Purchase Document`) — الشراء، وهو المستند الذي **يُرحِّل**. يحمل أثرُه جانبَي **القيمة الاسمية** مدين/دائن، إضافةً إلى جانبَي **خصم الإصدار** و**علاوة الإصدار** — فالسند نادرًا ما يُشترى بقيمته الاسمية تمامًا.
+1. **Investment Doc Purchase Document** (`Banks > Investment Documents > Investment Doc Purchase Document`) — the purchase, and the document that **posts**. Its effect carries the **nominal value** debit/credit, plus the **issue discount** and **issue premium (raise)** sides — because a bond is rarely bought exactly at par.
 
-   ![شاشة شراء سند الاستثمار](./images/invdocs/investment-doc-purchase.png)
+   ![The Investment Doc Purchase screen](./images/invdocs/investment-doc-purchase.png)
 
-2. **إثبات العائد** (و**إثبات عائد مجمع** لعدّةٍ دفعةً واحدة) — تثبيت الكوبون الدوري.
-3. **المطالبة** — تحصيل قيمة السند عند الاستحقاق.
+2. **ROI Proof** (and **Aggregated ROI Proof** for several at once) — locking in the periodic coupon return.
+3. **Claiming** — collecting the document's value at maturity.
 
-## صناديق استثمار الوثائق (شهادات الوحدات)
+## Investment document funds (unit certificates)
 
-يتتبّع الملفُّ الرئيسي **صندوق استثمار وثيقة** (`Banks > Investment Document > Investment Document Fund`) حيازةً مبنيّةً على الوحدات، تُقيَّم بالوحدات × سعر الوحدة.
+The **Investment Document Fund** master (`Banks > Investment Document > Investment Document Fund`) tracks a unit-based holding, valued as units × unit price.
 
-![الملف الرئيسي لصندوق استثمار الوثيقة](./images/invdocs/investment-document-fund.png)
+![The Investment Document Fund master file](./images/invdocs/investment-document-fund.png)
 
-وله مستنداته الثلاثة: **شراء** (شراء وحدات)، و**بيع** (بيع وحدات)، و**تحديث سعر** (إعادة تقييم الحيازة مع حركة سعر الوحدة). ولأنّ قيمة الصندوق تتبع السوق، فمستند تحديث السعر هو ما يبقي قيمته محدَّثةً بين الشراء والبيع.
+It has its own three documents: a **Purchase** (buying units), a **Sale** (selling units), and a **Price Update** (revaluing the holding as the unit price moves). Because a fund's worth tracks the market, the price-update document is what keeps its value current between buying and selling.
 
-## توزيع الأرباح
+## Profit distribution
 
-حين تدرّ الاستثماراتُ ربحًا يُوزَّع على الشركاء، يسجّله ويوزّعه **مستند توزيع أرباح** (`Accounting > Documents > Profits Distribution Doc`). ونموذجه المطبوع `SYSF-ACC023`.
+When investments yield profit to be shared out among partners, the **Profits Distribution Doc** (`Accounting > Documents > Profits Distribution Doc`) records and distributes it. Its printed form is `SYSF-ACC023`.
 
-## للدعم الفني
+## For Support
 
-- **«أيّهما أُنشئ — سندًا أم صندوقًا؟»** — سندٌ له قيمة اسمية وكوبون ← **سند استثمار**؛ حيازةٌ تُقاس بالوحدات بسعر وحدة ← **صندوق استثمار وثيقة**.
-- **«لا توجد شاشة لإنشاء السند يدويًا»** — الملف الرئيسي للسند يُعَدّ، لكنّ محاسبته تبدأ بـ**مستند الشراء**؛ ثم يأتي العائد عبر **إثبات العائد**.
-- **«قيمة الصندوق قديمة»** — تُعاد تقييمات الصناديق بمستند **تحديث سعر**؛ وبدونه تُظهِر الحيازةُ آخر سعرٍ معروف.
-- **«القيمة الاسمية لسندٍ متناقص لا تنخفض»** — تحقّق من **تاريخ بدء التناقص** ونوع الأقساط؛ و**القيمة الاسمية المتبقية للمتناقص** تتبّع ما تبقّى.
-- **«من أين تأتي حسابات القيمة الاسمية / الخصم / العلاوة؟»** — من توجيه **شراء سند الاستثمار**؛ راجِع [توجيهات المستندات](./support/accounting-document-terms.md).
+- **"Which one do I create — a document or a fund?"** — a bond with a nominal value and coupon → **Investment Document**; a holding measured in units at a unit price → **Investment Document Fund**.
+- **"There's no screen to create the bond manually"** — the bond master is set up, but its accounting starts with the **Purchase Document**; the return then comes via **ROI Proof**.
+- **"The fund's value is stale"** — funds are revalued by a **Price Update** document; without one, the holding shows its last known price.
+- **"A decreasing bond's nominal isn't going down"** — check the **decreasing start date** and installments type; the **remaining nominal of decreasing** tracks what's left.
+- **"Where do the nominal / discount / premium accounts come from?"** — from the **Investment Doc Purchase** term; see [Document terms](./support/accounting-document-terms.md).

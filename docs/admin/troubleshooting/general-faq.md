@@ -1,51 +1,48 @@
-<rtl>
 
-# أسئلة عامة 
+# General FAQ
 <ServerBaseURL/>
 
-### للبحث عن مستندات عن طريق العدسة بعض الأحيان يظهر خطأ فارغ
-يمكن حلها بتحديد رَقْم مناسب في`MaxRecordsPerPageForListViews` داخل الإعدادات العامة
+### When Searching for Documents via the Lens, a Blank Error Sometimes Appears
+This can be resolved by setting an appropriate number in `MaxRecordsPerPageForListViews` inside the General Settings.
 <GlobalConfigOption option-code="value.info.maxRecordsPerPageForListViews" />
 
-##  كيف يمكن تحديد الصلاحيات لكل أنواع السجلات في نظام نما بطريقة مرنة وسريعة دون الحاجة إلى إدراج سطر لكل نوع؟
+##  How Can Permissions Be Assigned to All Record Types in Nama ERP in a Flexible and Fast Way Without Adding a Row for Each Type?
 
-✅ **الإجابة:**
+✅ **Answer:**
 
-في نظام نما، يمكنك تحديد الصلاحيات للسجلات باستخدام أحد الخيارات التالية داخل كل سطر صلاحية:
+In Nama ERP, you can assign permissions to records using one of the following options within each permission row:
 
-1. **نوع واحد محدد** (مثل: "عميل").
-2. **قائمة أنواع** تحتوي على أكثر من نوع.
-3. **كلا الخيارين معًا**.
+1. **A single specific type** (e.g., "Customer").
+2. **A type list** containing more than one type.
+3. **Both options together**.
 
-حسب ما تحدده، يتم تطبيق الصلاحيات في ذلك السطر على:
+Depending on what you specify, the permissions in that row apply to:
 
-* النوع فقط.
-* أو قائمة الأنواع فقط.
-* أو كلاهما معًا.
+* The type only.
+* Or the type list only.
+* Or both together.
 
-كما يمكنك ترك **كل من حقل النوع وقائمة الأنواع فارغين**، وفي هذه الحالة تُطبَّق الصلاحيات على **جميع الشاشات** في النظام.
+You can also leave **both the type field and the type list field empty**, in which case the permissions apply to **all screens** in the system.
 
-🔽 **آلية تحديد السطر المناسب عند تنفيذ الصلاحيات:**
+🔽 **How the system selects the appropriate row when applying permissions:**
 
-عند فتح شاشة (مثلاً: شاشة العميل)، يقوم النظام بالبحث عن السطر الأنسب بناءً على **الأولوية التالية**:
+When a screen is opened (e.g., the Customer screen), the system searches for the most appropriate row based on the following **priority order**:
 
-1. سطر يحتوي على **النوع المحدد** (مثلاً: "عميل").
-2. إذا لم يوجد، يبحث في **قائمة الأنواع** عن سطر يحتوي على النوع "عميل".
-3. إذا لم يوجد، يبحث عن **سطر عام** (لا يحتوي على نوع ولا قائمة أنواع).
+1. A row containing the **specific type** (e.g., "Customer").
+2. If not found, it searches the **type list** for a row containing the "Customer" type.
+3. If not found, it searches for a **general row** (containing no type and no type list).
 
-بمجرد العثور على أول سطر مطابق حسب الترتيب أعلاه، يتوقف النظام عن البحث ويطبّق صلاحيات هذا السطر فقط.
+Once the first matching row is found according to the order above, the system stops searching and applies only that row's permissions.
 
-::: tip ️ **ملاحظة عند وجود صلاحيات إضافية مؤقتة:**
+::: tip Note on Additional Temporary Permissions:
 
-* يتم اختيار **الصلاحية الأوسع نطاقًا** (التي تمنح صلاحيات أكثر).
-* لكن **الأولوية في السطور** ما تزال تطبق:
+* The **broadest permission** (the one granting more access) is selected.
+* But the **row priority order** still applies:
 
-    * إذا كانت صلاحية "الحفظ فقط" مخصصة لنوع "عميل"،
-    * وصلاحية "الحفظ والتعديل" موجودة في سطر عام أو لقائمة أنواع،
-    * فإن الأولوية تذهب لسطر "الحفظ فقط" لأنه أكثر تحديدًا حسب ترتيب الأولويات.
+    * If "Save Only" permission is assigned to the "Customer" type,
+    * And "Save and Edit" permission exists in a general row or a type list row,
+    * Then the "Save Only" row takes priority because it is more specific according to the priority order.
 :::
-
-<ltr>
 
 ## SQL Server Installation problem related to block size on new M2 SSDs (especially on new hetzner servers)
 * Refer to [this article](https://learn.microsoft.com/en-us/troubleshoot/sql/database-engine/database-file-operations/troubleshoot-os-4kb-disk-sector-size?tabs=PowerShell)
@@ -62,39 +59,37 @@ The window should be blue, not black
 * Restart the server
 * Then install SQL Server again
 
-</ltr>
-
-## كيف يمكن إضافة شاشة النقاش إلى شاشة بعينها
-يمكن عمل المطلوب من خلال إعدادات الحقول والشاشات
+## How Can the Discussion Screen Be Added to a Specific Screen
+This can be done through the Fields and Screens Settings.
 <NamaOptionURL entityType="GenericReferenceOverrider" new-mode optionCode="addDiscussionTo.addToPage" link-title="addDiscussionTo"/>
 
-1. يمكنك إضافة النقاش إلى أي شاشة في النظام من خلال جدول "إضافة النقاش إلي" الموجود بإعدادات الحقول والشاشات
-::: tip يمكنك التحكم في الحقول الظاهرة في النقاشات
-يمكنك التحكم في الحقول الظاهرة في شاشة النقاش من خلال تعديل الشاشة - بلوك "تعديل حقول النقاش"
-  - إزالة حقل النقاش
-  - إزالة مرفق 1 - 2 - 3 - 4
-  - إزالة مرجع 1 - 2
+1. You can add the discussion to any screen in the system through the "Add Discussion To" table found in the Fields and Screens Settings.
+::: tip You Can Control the Fields Shown in Discussions
+You can control which fields appear in the discussion screen by editing the screen - "Edit Discussion Fields" block:
+  - Remove the Discussion field
+  - Remove Attachment 1 - 2 - 3 - 4
+  - Remove Reference 1 - 2
 :::
 
-::: warning النقاش يظهر بعد الحفظ وليس قبله
-لا تظهر شاشة النقاشات إلا في السجلات المحفوظة - مع إنشاء جديد قبل الحفظ لا تظهر النقاشات
+::: warning The Discussion Appears After Saving, Not Before
+The discussion screen only appears on saved records - when creating a new record before saving, discussions are not shown.
 :::
 
-## في الرسائل النصية تصل الرسالة بحرف زائد + بدلا من المسافات
-تصل الرسائل النصية بشكل غير صحيح بعلامة plus (+) بدلا من المسافات space
-`عزيزي+العميل` بدلا من `عزيزي العميل`
-### الحل هو استعمال `{utf8msg_sp20}` في حقل إعدادات أخرى في شاشة البريد والرسائل القصيرة بالإعدادات العامة بدلا من `{utf8msh`}
-كمثال إذا كانت القيمة الحالية في اعدادات الرسائل كالتالي:
+## SMS Messages Arrive with a Plus Sign (+) Instead of Spaces
+Messages arrive incorrectly with a plus sign (+) instead of spaces.
+`Dear+Customer` instead of `Dear Customer`
+### The Solution is to Use `{utf8msg_sp20}` in the Other Settings Field in the Mail and SMS Settings Screen in General Settings Instead of `{utf8msh`}
+For example, if the current value in the message settings is:
 ```
 https://api.oursms.com/api-a/msgs?username=info@xyz.com&token=ToKenVaLue&src=SourceName&dests={to}&body={utf8msg}&priority=0&delay=0&validity=0&maxParts=0&dlr=0&prevDups=0
 ```
-يجب تغييرها للتالي:
+It should be changed to:
 ```
 https://api.oursms.com/api-a/msgs?username=info@xyz.com&token=ToKenVaLue&src=SourceName&dests={to}&body={utf8msg_sp20}&priority=0&delay=0&validity=0&maxParts=0&dlr=0&prevDups=0
 ```
-## عند فتح شاشة الحركات بالصنف تظهر رسالة خطأ 
+## When Opening the Item Transactions Screen, an Error Appears
 `Can not find Field getter method : userQty.measures.clippedHeight1`
-::: details وهذا هو اللوج الكامل
+::: details Full Log Details
 ```
 com.namasoft.infra.domainbase.util.NaMaBusinessLogicExeption: Can not find Field getter method : userQty.measures.clippedHeight1 
 	at com.namasoft.infra.domainbase.metadata.EntityReflection.getFieldValue(EntityReflection.java:292) ~[domain-base-0.0.1-SNAPSHOT.jar:?]
@@ -108,12 +103,12 @@ com.namasoft.infra.domainbase.util.NaMaBusinessLogicExeption: Can not find Field
 ```
 :::
 
-سبب المشكلة هو وجود حقل تم إزالته من النظام في عرض القائمة
-الحل أن تقوم بعمل RegenUI من تعديل شاشة
+The cause of the problem is a field that was removed from the system still appearing in the list view.
+The solution is to perform a RegenUI from the screen editing options.
 
-## عند فتح شاشة تغيير الترجمة أو أي ملف آخر تظهر رسالة الخطأ `لم يمكن تنفيذ العملية`
+## When Opening the Translation Override Screen or Any Other File, the Error Message "Operation Could Not Be Executed" Appears
 
-::: details  تفاصيل الخطأ من السجل (Log)
+::: details Error Details from the Log
 
 ```log
 org.hibernate.query.sqm.PathElementException: Could not resolve attribute 'valueDate' of 'com.namasoft.modules.basic.domain.entities.TranslationOverRider'
@@ -133,60 +128,58 @@ org.hibernate.query.sqm.PathElementException: Could not resolve attribute 'value
 
 :::
 
-### التفسير
+### Explanation
 
-غالبًا ما يحدث هذا الخطأ عندما يتم تعديل شاشة من النوع "لكل الشاشات" أو "كل الملفات"، ويتم فيها إضافة العمود `valueDate` ضمن الأعمدة المعروضة في جدول القائمة.
+This error most commonly occurs when a screen of type "For All Screens" or "All Files" is edited and the `valueDate` column is added to the columns displayed in the list table.
 
-لكن الحقل `valueDate` (التاريخ الفعلي) موجود فقط في السندات (مثل فواتير أو إيصالات)، وليس موجودًا في الملفات (مثل ملفات تغيير الترجمة).
-لذلك، عند محاولة تحميل قائمة تحتوي على هذا العمود لملف لا يدعمه، تحدث المشكلة.
+However, the `valueDate` field (actual date) exists only in vouchers (such as invoices or receipts) and is not present in files (such as translation override files).
+Therefore, when attempting to load a list that includes this column for a file that does not support it, the problem occurs.
 
-### الحل
+### Solution
 
-قم بإزالة العمود `valueDate` من الأعمدة الظاهرة في هذا التعديل العام (لكل الشاشات أو كل الملفات) أو قم بتحديد نوع الشاشة بدقة بحيث لا يتم تطبيق هذا التعديل على ملفات لا تحتوي على هذا الحقل.
+Remove the `valueDate` column from the visible columns in this general modification (For All Screens or All Files), or specify the screen type precisely so that this modification is not applied to files that do not contain this field.
 
-##  تنبيهات عند الدخول للنظام
+##  Warnings When Logging Into the System
 
-### الخطأ: `There are fiscal years with AllowCostProcessingWithClosingEntry set to TRUE`
+### Error: `There are fiscal years with AllowCostProcessingWithClosingEntry set to TRUE`
 
-### سبب المشكلة:
+### Cause of the Problem:
 
-يحدث هذا الخطأ عندما تكون بعض السنوات المالية مفعّل فيها الخيار **"السماح بمعالجة التكاليف والكميات والقيود بعد القيد الختامي"**.
+This error occurs when some fiscal years have the option **"Allow cost, quantity, and entry processing after the closing entry"** enabled.
 
-### خطوات الحل:
+### Steps to Resolve:
 
-1. افتح شاشة **السنوات المالية**.
-2. ابحث عن كل سنة مالية مفعّل بها هذا الخيار.
-3. قم **بإزالة العلامة** من خانة "السماح بمعالجة التكاليف والكميات والقيود بعد القيد الختامي".
-4. اضغط **حفظ**.
+1. Open the **Fiscal Years** screen.
+2. Find each fiscal year that has this option enabled.
+3. **Uncheck** the "Allow cost, quantity, and entry processing after the closing entry" checkbox.
+4. Click **Save**.
 
-### ما وظيفة هذا الخيار؟
+### What Does This Option Do?
 
-بشكل افتراضي، يمنع النظام **إجراء أي تغييرات على القيود المحاسبية** في تواريخ تسبق تاريخ **القيد الختامي** الخاص بالشركة.
+By default, the system prevents **any changes to accounting entries** on dates prior to the company's **closing entry** date.
 
-لكن عند تفعيل هذا الخيار:
+However, when this option is enabled:
 
-* يُسمح بإجراء تعديلات بعد القيد الختامي.
-* وهذا **يؤدي إلى تغيير نتائج القوائم المالية** بعد الإغلاق، وهو أمر **غير محبّذ** ويتطلب **مراجعة دقيقة** قبل استخدامه.
+* Modifications are allowed after the closing entry.
+* This **changes the results of financial statements** after closing, which is **not recommended** and requires **careful review** before use.
 
-::: danger مهم
-ننصح بإبقاء هذا الخيار غير مفعّل في جميع السنوات المالية، إلا في حالات خاصة وبموافقة الإدارة المالية.
+::: danger Important
+We recommend keeping this option disabled for all fiscal years, except in special cases and with the approval of financial management.
 :::
 
-::: tip ملحوظة هامة
-يرجى أن تقوم بعمل Refresh Critical Errors من صفحة أدوات النظام Utilities بعد تصحيح هذه الأخطأء
+::: tip Important Note
+Please perform a Refresh Critical Errors from the System Utilities page after correcting these errors.
 :::
 
-## الخطأ: `There are X user notifications which exceeds the limit of Y, this may affect system performance`
+## Error: `There are X user notifications which exceeds the limit of Y, this may affect system performance`
 
-هذا التنبيه يظهر عند تجاوز عدد الإشعارات في النظام الحد الأقصى المسموح به (الافتراضي 10,000 إشعار).
+This warning appears when the number of notifications in the system exceeds the maximum allowed limit (default 10,000 notifications).
 
-### الحل: إنشاء مهمة مجدولة لحذف الإشعارات القديمة
+### Solution: Create a Scheduled Task to Delete Old Notifications
 
-قم بإنشاء مهمة مجدولة من نوع Action لحذف الإشعارات التي مضى عليها أكثر من 25 يومًا تلقائيًا.
+Create a scheduled task of type Action to automatically delete notifications older than 25 days.
 
-يمكنك استيراد المهمة مباشرة باستخدام JSON التالي:
-
-<ltr>
+You can import the task directly using the following JSON:
 
 ```json
 {
@@ -206,47 +199,43 @@ org.hibernate.query.sqm.PathElementException: Could not resolve attribute 'value
 }
 ```
 
-</ltr>
+In this example, the task will run daily at 2:30 AM and delete all notifications older than 25 days.
 
-في هذا المثال ستعمل المهمة يوميًا الساعة 2:30 صباحًا وتحذف جميع الإشعارات الأقدم من 25 يومًا.
-
-#### خيارات المهمة:
-* **Duration Days**: عدد الأيام - يتم حذف الإشعارات الأقدم من هذا العدد (الافتراضي 25 يومًا)
+#### Task Options:
+* **Duration Days**: Number of days - notifications older than this number will be deleted (default 25 days)
 * **Delete Type**:
-  * `all` - حذف جميع الإشعارات القديمة (الافتراضي)
-  * `readonly` - حذف الإشعارات المقروءة فقط
+  * `all` - Delete all old notifications (default)
+  * `readonly` - Delete only read notifications
 
-### تغيير الحد الأقصى لعدد الإشعارات
+### Changing the Maximum Notification Limit
 
-إذا كنت تريد تغيير الحد الأقصى الافتراضي (10,000) بدلاً من حذف الإشعارات، يمكنك ذلك من خلال الإعدادات العامة:
+If you want to change the default maximum limit (10,000) instead of deleting notifications, you can do so through the General Settings:
 <GlobalConfigOption option-code="value.maxUserNotificationCount" />
 
-::: tip ملحوظة هامة
-يرجى أن تقوم بعمل Refresh Critical Errors من صفحة أدوات النظام Utilities بعد تصحيح هذا الخطأ
+::: tip Important Note
+Please perform a Refresh Critical Errors from the System Utilities page after correcting this error.
 :::
 
-## أريد أن أجعل حقلًا نصيًا يتحول إلى رابط بحيث أستطيع وضع رابط موقع مثلًا، ويتم إظهار زر بجوار الحقل النصي، وعند الضغط عليه يقوم بفتح الرابط
+## I Want to Make a Text Field Convert to a Link So I Can Enter a Website URL, with a Button Appearing Next to the Field That Opens the Link When Clicked
 
-لتحقيق ذلك في نظام Nama ERP، يمكنك استخدام الجدول التالي:
+To achieve this in Nama ERP, you can use the following table:
 
-### الجدول: `الحقول النصية المحوّلة إلى روابط`
+### Table: `Text Fields Converted to Links`
 
-رمز الجدول: `textToLinkFields`
-يوجد داخل ملف إعدادات الحقول والشاشات.
+Table code: `textToLinkFields`
+Located inside the Fields and Screens Settings file.
 
-- طريقة الإعداد:
+- Setup method:
 
-* قم بإضافة سجل جديد في الجدول.
-* حدد اسم الحقل الذي يحتوي على الرابط (مثل: `details.text1` أو `description2`).
-* يمكنك تحديد:
+* Add a new record in the table.
+* Specify the name of the field that contains the link (e.g., `details.text1` or `description2`).
+* You can specify:
 
-  * **النوع (Type)**: مثل `SalesInvoice` أو `Customer`
-  * أو **قائمة الأنواع (Entity Type List)**: لتطبيقه على أكثر من نوع
-* أو ترك كلا الحقلين فارغين، وفي هذه الحالة سيتم تطبيق التحويل على هذا الحقل في جميع الشاشات التي يظهر بها.
+  * **Type**: such as `SalesInvoice` or `Customer`
+  * Or **Entity Type List**: to apply it to more than one type
+* Or leave both fields empty, in which case the conversion will be applied to this field on all screens where it appears.
 
-- النتيجة:
+- Result:
 
-* سيظهر زر بجوار الحقل النصي.
-* عند الضغط عليه، سيتم فتح الرابط الموجود في الحقل في نافذة جديدة.
-
-</rtl>
+* A button will appear next to the text field.
+* When clicked, the link stored in the field will open in a new window.

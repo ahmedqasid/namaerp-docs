@@ -1,4 +1,4 @@
-# إعداد اتصال Oracle JDBC في ملف context.xml لأغراض التكامل
+# ORACLE JDBC Integration Connection in context.xml for integration purposes
 
 ```xml
 <Resource name="jdbc/ldm" auth="Container" type="javax.sql.DataSource"
@@ -14,13 +14,13 @@
 
 > [! WARNING]
 > 
-> توجد مشكلة في Oracle تتعلق بأسماء الأعمدة الطويلة؛ الحد الأقصى لطول اسم أي عمود هو 30 حرفاً، بينما تحتاج SQLImporter إلى أسماء طويلة للأعمدة. كحلٍّ لهذه المشكلة، قمنا بتنفيذ التذكرة التالية: [https://namasoft.com/reqs/ECDR03542](https://namasoft.com/reqs/ECDR03542)
-محتوى التذكرة:
-قاعدة بيانات Oracle لا تسمح بأسماء مستعارة (aliases) تزيد عن 30 حرفاً، مما يُشكّل مشكلة مع مسار كيان SQLImporter الذي نستخدمه للتكامل على مستوى قاعدة البيانات مع الأنظمة الأخرى.
+> There is a problem with oracle and long column names, the max length of any column name is 30 characters, SQLImporter needs long names for columns. As a solution to this problem, we implemented the following ticket: [https://namasoft.com/reqs/ECDR03542](https://namasoft.com/reqs/ECDR03542)
+This is the ticket content:
+Oracle DB does not allow aliases longer than 30 characters, this creates a problem with SQLImporter entity flow that we use to do DB level integration with other systems
 
 > [! Solution]
 > 
-> كحل، نحتاج إلى إضافة أعمدة خاصة بعد الأعمدة التي تحتاج إلى اسم طويل. فيما يلي استعلام استيراد تفاصيل فعلي للتكامل مع نظام NTME لمعلومات المختبر (LDM):
+> As a solution, we need to add special columns after columns that need a long name. As an example this is an actual details importer query for integration with NTME Lab Information Systems (LDM):
 
 ```sql
 select '' ":-detail:details", r.REQUEST_ID "#description1",'1000001' "details.item.itemCode",'1000001' "details.item.item",rl.SERVICE_CODE "details.n1",rl.SERVICE_NAME "details.text1",'1' "details.quantity.quantity.primeQty.value",'101' "details.quantity.quantity.primeQty.uom",
@@ -30,7 +30,7 @@ left join Requests r on rl.REQUEST_ID = r.REQUEST_ID
 where r.REQUEST_ID = '468273'
 ```
 
-#### للأسف، Oracle يرفض هذا الاستعلام لأن الأسماء المستعارة details.quantity.quantity.primeQty.value وdetails.quantity.quantity.primeQty.uom تتجاوز 30 حرفاً. الاستعلام المعدَّل التالي سيعمل بشكل صحيح؛ أضفنا عمودين "وهميين" بأسماء مستعارة تبدأ بالرمز $alias$ وتحتوي قيمتهما على الاسم المستعار الفعلي، وسيقوم نما بحذف هذه الأعمدة الوهمية:
+#### Unfortunately oracle rejects this query because the aliases details.quantity.quantity.primeQty.value, details.quantity.quantity.primeQty.uom  are too long (more than 30 characters long). The following modified query will work, we added two 'dummy' columns with an alias starting with the symbol $alias$ in its alias and the actual alias in the value, Nama will remove those pseudo columns:
 
 ```sql
 select '' ":-detail:details", r.REQUEST_ID "#description1",'1000001' "details.item.itemCode",'1000001' "details.item.item",rl.SERVICE_CODE "details.n1",rl.SERVICE_NAME "details.text1",'1' "c1", 'details.quantity.quantity.primeQty.value' "$alias$1",
@@ -41,7 +41,7 @@ left join Requests r on rl.REQUEST_ID = r.REQUEST_ID
 where r.REQUEST_ID = '468273'
 ```
 
-#### الجزء المهم في الاستعلام هو:
+#### This is the interesting part in the query:
 
 ```sql
 '1' "c1", 'details.quantity.quantity.primeQty.value' "$alias$1",
@@ -49,7 +49,7 @@ where r.REQUEST_ID = '468273'
 ```
 
 
-#### سيتم التعامل مع هذا كما لو كتبت التالي
+#### This will be changed as if you wrote the following
 
 ```sql
 '1' "details.quantity.quantity.primeQty.value",

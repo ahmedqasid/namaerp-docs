@@ -29,13 +29,13 @@ export type SearchIndices = { [indexName: string]: PageIndexEntry[] }
 export const SEARCH_INDEX_FILE_NAME = 'search-index.json'
 
 const INDEX_PATH_PREFIXES: { [indexName: string]: string[] } = {
-    'videos': ['/videos/', '/en/videos/'],
+    'videos': ['/videos/', '/ar/videos/'],
     'entity-flows': ['/entity-flows/'],
-    'release-notes': ['/release-notes/'],
+    'release-notes': ['/ar/release-notes/'],
 }
 
 // The search pages themselves must not show up as search results
-const EXCLUDED_PAGES = new Set(['full-search.md', 'en/full-search.md', '404.md'])
+const EXCLUDED_PAGES = new Set(['full-search.md', 'ar/full-search.md', '404.md'])
 
 const collectedPages: PageIndexEntry[] = []
 
@@ -46,7 +46,7 @@ export function collectPageForSearchIndex(html: string, relativeMdPath: string, 
     collectedPages.push({
         title: title || '',
         path: sitePath,
-        pathLocale: sitePath.startsWith('/en/') ? '/en/' : '/',
+        pathLocale: sitePath.startsWith('/ar/') ? '/ar/' : '/',
         hasCounterpart: false, // computed in writeSearchIndexJSON once all pages are known
         contents: extractSections(html),
     })
@@ -95,29 +95,29 @@ function mdPathToSitePath(relativeMdPath: string) {
 }
 
 /**
- * A root (Arabic) page "has a counterpart" when the same path exists under /en/, and vice versa.
- * The servlet uses this for locale filtering: English-locale searches include untranslated
- * root-only content (entity-flows, release-notes, faq) so it stays findable from /en/ pages.
+ * A root (English) page "has a counterpart" when the same path exists under /ar/, and vice versa.
+ * The servlet uses this for locale filtering: Arabic-locale searches include untranslated
+ * root-only content (entity-flows) so it stays findable from /ar/ pages.
  */
 function computeHasCounterpart(pages: PageIndexEntry[]) {
     const rootPaths = new Set<string>()
-    const enPathsAsRoot = new Set<string>()
+    const arPathsAsRoot = new Set<string>()
     for (const page of pages) {
-        if (page.pathLocale === '/en/')
-            enPathsAsRoot.add(stripEnPrefix(page.path))
+        if (page.pathLocale === '/ar/')
+            arPathsAsRoot.add(stripArPrefix(page.path))
         else
             rootPaths.add(page.path)
     }
     for (const page of pages) {
-        if (page.pathLocale === '/en/')
-            page.hasCounterpart = rootPaths.has(stripEnPrefix(page.path))
+        if (page.pathLocale === '/ar/')
+            page.hasCounterpart = rootPaths.has(stripArPrefix(page.path))
         else
-            page.hasCounterpart = enPathsAsRoot.has(page.path)
+            page.hasCounterpart = arPathsAsRoot.has(page.path)
     }
 }
 
-function stripEnPrefix(sitePath: string) {
-    return sitePath.replace(/^\/en\//, '/')
+function stripArPrefix(sitePath: string) {
+    return sitePath.replace(/^\/ar\//, '/')
 }
 
 /**

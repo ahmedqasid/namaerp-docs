@@ -1,10 +1,10 @@
-# مرجع BI — EnhancedTable
+# BI Reference — EnhancedTable
 
-مرجع مكمّل لـ [`bi-module-technical-reference.md`](./bi-module-technical-reference.md). استخدمه عند تأليف widget من نوع `type: "EnhancedTable"` (أو وضع الـ pivot/cross-tab).
+Companion to [`bi-module-technical-reference.md`](./bi-module-technical-reference.md). Load this when authoring a widget with `type: "EnhancedTable"` (or its pivot/cross-tab mode).
 
-`EnhancedTable` هو جدول مدفوع بـ JSON — كل عمود معرَّف في `chartConfigJSON` له تنسيقه الخاص، وrenderer، وتنسيق شرطي، وتثبيت، وتجميع، وإجماليات. يعيد استخدام آلية تفاعل BI (`clickEmitMapping`، `drillDownMapping`، `linkMappings`، `clickAction` — المرجع الرئيسي §4–5b) مع حقل `column` اختياري في كل مدخل للتحديد إلى خلية بعينها. يبقى widget الكلاسيكي `Table` متاحاً؛ للانتقال استخدم `"type": "EnhancedTable"`.
+`EnhancedTable` is the JSON-driven table widget — every column declared in `chartConfigJSON` with its own formatting, renderer, conditional formatting, pinning, grouping, aggregation. Reuses the BI interaction machinery (`clickEmitMapping`, `drillDownMapping`, `linkMappings`, `clickAction` — main reference §4–5b) with an optional `column` field on each entry to scope to a specific cell. Classic `Table` widget remains; opt in via `"type": "EnhancedTable"`.
 
-## 1. بنية chartConfigJSON
+## 1. chartConfigJSON structure
 
 ```json
 {
@@ -19,15 +19,15 @@
 }
 ```
 
-| المفتاح | مطلوب | الوصف |
+| Key | Required | Description |
 |---|---|---|
-| `columns` | نعم | تعريفات الأعمدة مرتبةً (§3 أدناه). يحدد ترتيب أعمدة الشبكة. |
-| `columnGroups` | لا | مصفوفة من `{id, headerArTitle, headerEnTitle, marryChildren, openByDefault}`. تستعين الأعمدة بها عبر `groupId`. |
-| `tableOptions` | لا | خيارات مستوى الشبكة (§2). القيم الافتراضية مناسبة. |
-| `rowConditionalFormatting` | لا | تنسيق على مستوى الصف (§5). |
-| `clickEmitMapping` / `drillDownMapping` / `linkMappings` / `clickAction` | لا | حقل `column` في كل مدخل يضيّق النطاق على عمود واحد؛ `onCellClick: true` يُطلَق عند النقر الأيسر. يُفضَّل استخدام `onCellClick` لكل مدخل بدلاً من `clickAction` على مستوى الـ widget للجداول — انظر المرجع الرئيسي §5a.1. |
+| `columns` | Yes | Ordered column definitions (§3 below). Defines grid column order. |
+| `columnGroups` | No | Array of `{id, headerArTitle, headerEnTitle, marryChildren, openByDefault}`. Columns reference via `groupId`. |
+| `tableOptions` | No | Grid-level options (§2). Defaults are reasonable. |
+| `rowConditionalFormatting` | No | Per-row formatting (§5). |
+| `clickEmitMapping` / `drillDownMapping` / `linkMappings` / `clickAction` | No | Per-cell `column` field scopes to one column; `onCellClick: true` fires on left-click. Prefer per-entry `onCellClick` over widget-level `clickAction` for tables — see main reference §5a.1. |
 
-لا يوجد `dataMapping` / `echartOption` — لا يستخدم EnhancedTable مكتبة ECharts.
+No `dataMapping` / `echartOption` — EnhancedTable does not use ECharts.
 
 ## 2. tableOptions
 
@@ -51,13 +51,13 @@
 }
 ```
 
-| الحقل | الافتراضي | ملاحظات |
+| Field | Default | Notes |
 |---|---|---|
-| `pagination` | `false` | مُعطَّل افتراضياً — تحميل كامل مع التمرير. عند تفعيله، يُقسِّم AG Grid البيانات المحمَّلة في الذاكرة (لا ترقيم صفحات من جانب الخادم). |
-| `grandTotalRow` | `null` | `"top"` / `"bottom"` / `null`. يُحسَب من جانب العميل من الصفوف المرئية. **الأعمدة التي لها `aggFunc` فقط تُظهر قيمة في صف الإجمالي الكلي** — غيرها يبقى فارغاً. |
-| `enableRowGroup` / `enablePivot` | `true` / `false` | وضعَا تجميع الصفوف والـ pivot في AG Grid. الأعمدة تحتاج `rowGroup: true` / `pivot: true` لتُجمَّع/تُحوَّل pivot افتراضياً. |
+| `pagination` | `false` | Off by default — load-all-and-scroll. When on, AG Grid paginates the in-memory data (no server-side paging). |
+| `grandTotalRow` | `null` | `"top"` / `"bottom"` / `null`. Computed client-side from visible rows. **Only columns with `aggFunc` set show a value in the grand-total row** — others render blank. |
+| `enableRowGroup` / `enablePivot` | `true` / `false` | AG Grid row-grouping / pivot modes. Columns need `rowGroup: true` / `pivot: true` to be grouped/pivoted by default. |
 
-## 3. تعريف العمود (Column definition)
+## 3. Column definition
 
 ```json
 {
@@ -86,27 +86,27 @@
 }
 ```
 
-| الحقل | مطلوب | الوصف |
+| Field | Required | Description |
 |---|---|---|
-| `id` | نعم | معرِّف ثابت. يُستخدم بواسطة الـ mappings (حقل `column`)، و`compareColumn`، ومعرِّف عمود AG Grid. |
-| `field` | أحدهما | اسم عمود SQL من `dataSource` الـ widget. |
-| `wizardFieldId` | أحدهما | معرِّف حقل الـ wizard (وضع wizard). يُحلَّل عبر `displayAlias` المخزَّن مؤقتاً. انظر `bi-reference-wizard-mode.md`. |
-| `groupId` | لا | يُشير إلى `columnGroups[].id`. |
-| `headerArTitle` / `headerEnTitle` | لا | رأس العمود بلغتين. يرجع إلى `id` في حالة الغياب. |
-| `hide`، `width`، `minWidth`، `maxWidth`، `flex` | لا | تخطيط AG Grid. |
-| `pinned` | لا | `"start"` / `"end"` / `null`. تثبيت منطقي يتقلب مع اتجاه القراءة. |
-| `sort`، `sortIndex` | لا | ترتيب أولي. |
-| `rowGroup`، `rowGroupIndex`، `pivot`، `aggFunc` | لا | التجميع. `aggFunc`: `"sum"`، `"avg"`، `"min"`، `"max"`، `"count"`، `"first"`، `"last"`. |
-| `tooltipField` | لا | `id` عمود آخر تُعرض قيمته كـ tooltip لهذه الخلية. |
-| `formatting` | لا | §4.1 أدناه. |
-| `renderer` | لا | §4.2 أدناه. الافتراضي `text`. |
-| `conditionalFormatting` | لا | §5 أدناه. |
+| `id` | Yes | Stable identifier. Used by mappings (`column` field), `compareColumn`, AG Grid column ID. |
+| `field` | One of | SQL column name from widget's `dataSource`. |
+| `wizardFieldId` | One of | Wizard field ID (wizard mode). Resolved via cached `displayAlias`. See `bi-reference-wizard-mode.md`. |
+| `groupId` | No | References `columnGroups[].id`. |
+| `headerArTitle` / `headerEnTitle` | No | Localized header. Falls back to `id`. |
+| `hide`, `width`, `minWidth`, `maxWidth`, `flex` | No | AG Grid layout. |
+| `pinned` | No | `"start"` / `"end"` / `null`. Logical pinning that flips with reading direction. |
+| `sort`, `sortIndex` | No | Initial sort. |
+| `rowGroup`, `rowGroupIndex`, `pivot`, `aggFunc` | No | Aggregation. `aggFunc`: `"sum"`, `"avg"`, `"min"`, `"max"`, `"count"`, `"first"`, `"last"`. |
+| `tooltipField` | No | `id` of another column whose display value is this cell's tooltip. |
+| `formatting` | No | §4.1 below. |
+| `renderer` | No | §4.2 below. Defaults to `text`. |
+| `conditionalFormatting` | No | §5 below. |
 
-## 4. التنسيق والـ renderers (Formatting & renderers)
+## 4. Formatting & renderers
 
 ### 4.1 `formatting`
 
-سلسلة عرض تُحسَب من جانب الخادم؛ يستخدمها العميل كما هي.
+Server-computed display string; client uses verbatim.
 
 ```json
 "formatting": {
@@ -124,19 +124,19 @@
 }
 ```
 
-| `type` | الناتج | خيارات إضافية |
+| `type` | Output | Extra options |
 |---|---|---|
-| `text` | بدون تغيير | — |
-| `number` | `1,234.50` | `decimals`، `thousandSeparator` |
-| `currency` | `1,234.50 SAR` | `decimals`، `currencySymbol`، `currencyPlacement` (`prefix`/`suffix`) |
-| `percent` | `45.00%` | `decimals`، `percentScale` (`asIs`: 45→45%; `fraction`: 0.45→45%) |
-| `date` | `2026-04-19` | `dateFormat` (SimpleDateFormat، الافتراضي `yyyy-MM-dd`) |
-| `datetime` | `2026-04-19 14:30` | `dateFormat` (الافتراضي `yyyy-MM-dd HH:mm`) |
-| `duration` | `1:23:45` | المدخل بالثواني |
+| `text` | unchanged | — |
+| `number` | `1,234.50` | `decimals`, `thousandSeparator` |
+| `currency` | `1,234.50 SAR` | `decimals`, `currencySymbol`, `currencyPlacement` (`prefix`/`suffix`) |
+| `percent` | `45.00%` | `decimals`, `percentScale` (`asIs`: 45→45%; `fraction`: 0.45→45%) |
+| `date` | `2026-04-19` | `dateFormat` (SimpleDateFormat, default `yyyy-MM-dd`) |
+| `datetime` | `2026-04-19 14:30` | `dateFormat` (default `yyyy-MM-dd HH:mm`) |
+| `duration` | `1:23:45` | seconds input |
 
-`prefix`/`suffix` تُلتصق بالسلسلة المنسَّقة. `nullDisplay` تحلّ محل القيم الفارغة (الافتراضي `""`).
+`prefix`/`suffix` wrap the formatted string. `nullDisplay` replaces empty values (default `""`).
 
-**ملاحظة:** حقل رمز العملة هنا هو `currencySymbol`. الكتلة `dataMapping.series[].format` في ECharts تستخدم `currency` بدلاً منه — ليسا قابلَين للتبادل. انظر المرجع الرئيسي §7.
+**Note:** The currency-symbol field here is `currencySymbol`. The ECharts `dataMapping.series[].format` block uses `currency` instead — they are not interchangeable. See main reference §7.
 
 ### 4.2 `renderer`
 
@@ -151,30 +151,30 @@
 }
 ```
 
-حقل `style` في `bar` و`progress` يختار محرك الرسم:
+The `style` field on `bar` and `progress` selects the rendering engine:
 
-| `style` | المظهر البصري |
+| `style` | Visual |
 |---|---|
-| `simple` *(الافتراضي)* | div بـ CSS خالص مع تعبئة ملوَّنة — خفيف الوزن، بدون محرك رسم، واضح بأي حجم |
-| `interactive` | شريط أفقي بـ ECharts مع tooltip عند التمرير |
+| `simple` *(default)* | Pure CSS div + colored fill — lightweight, no chart engine, crisp at any size |
+| `interactive` | ECharts horizontal bar with hover tooltip |
 
-تُرسَم الـ sparklines دائماً عبر ECharts (رسم مصغَّر line / area / column مع tooltip)؛ لا يوجد خيار style.
+Sparklines always render via ECharts (mini line / area / column with hover tooltip); there is no style option.
 
-دمج `simple` و`interactive` في صف واحد مدعوم ومفيد في أغلب الأحيان — مثلاً: شريط CSS لـ `invoiced %` بجانب شريط ECharts تفاعلي لـ `revenue` يُشير بصرياً إلى أيهما يستحق الاستكشاف.
+Mixing `simple` and `interactive` in one row is supported and often useful — e.g., a CSS-bar `invoiced %` next to an interactive ECharts `revenue` bar visually signals which one rewards exploration.
 
-| النوع | المظهر البصري | ملاحظات |
+| Type | Visual | Notes |
 |---|---|---|
-| `text` | نص عادي | الافتراضي. لا حاجة لكتلة renderer. |
-| `html` | HTML خام عبر `v-html` | نموذج الثقة يطابق `Param_INHTML` القديم — لا تطهير من جانب العميل. |
-| `badge` | pill/مربع بنص الخلية | `bg`/`color` تأتي من `conditionalFormatting`؛ يرجع إلى أزرق فاتح. مع variant `outline` يتناسب مع `bg` الشرطي لتأثير pill مصبوغ. |
-| `bar` | شريط أفقي مملوء (CSS افتراضياً، ECharts عند `style: "interactive"`) | القيمة مُدرجَة من `min` إلى `max`. **`max` اختياري** — عند حذفه يُضبط الـ renderer تلقائياً على الحد الأقصى لبيانات العمود (النمط الشائع). |
-| `progress` | نفس آلية `bar`، تعبئة زرقاء | دلالياً "تقدّم نحو الهدف". |
-| `sparkline` | رسم ECharts مصغَّر متعدد النقاط | يقرأ السلسلة من حقل SQL الخاص بالعمود — سلسلة CSV مثل `1,5,9,12` أو مصفوفة JSON `[1,5,9,12]`. |
-| `icon` | قيمة الخلية مطابَقة مع `mapping[].when` | المدخل المطابق يُظهر أيقونة (يحلّ محل النص عند `position: "replace"`). |
+| `text` | Plain string | Default. No renderer block needed. |
+| `html` | Raw HTML via `v-html` | Trust model matches legacy `Param_INHTML` — no client sanitization. |
+| `badge` | Pill/square with cell text | `bg`/`color` come from `conditionalFormatting`; falls back to subtle blue. `outline` variant pairs with conditional `bg` for tinted-pill effect. |
+| `bar` | Horizontal filled bar (CSS by default, ECharts when `style: "interactive"`) | Value scaled `min`→`max`. **`max` is optional** — when omitted, renderer auto-scales to the column's data max (the common pattern). |
+| `progress` | Same mechanism as `bar`, blue fill | Semantically "progress toward target". |
+| `sparkline` | Mini multi-point ECharts chart | Reads series from the column's own SQL `field` — CSV string `1,5,9,12` or JSON array `[1,5,9,12]`. |
+| `icon` | Cell value matched against `mapping[].when` | Matched entry renders an icon (replaces text when `position: "replace"`). |
 
-## 5. التنسيق الشرطي (Conditional formatting)
+## 5. Conditional formatting
 
-القواعد تُقيَّم من جانب الخادم؛ النمط الفائز مضمَّن في حمولة الاتصال — العميل لا يُقيِّم أي قواعد.
+Rules evaluated server-side; winning style baked into the wire payload — client does zero rule evaluation.
 
 ```json
 "conditionalFormatting": {
@@ -196,21 +196,21 @@
 }
 ```
 
-**أنواع القواعد**:
+**Rule types**:
 
-| `type` | المعاملات | المقارنة |
+| `type` | Operands | Comparison |
 |---|---|---|
-| `threshold` | `op`، `value` | رقمي (أو تاريخ إذا كان `formatting.type` للعمود هو `date`/`datetime`). يُحوِّل كلا الطرفين؛ تُتجاهَل القاعدة إذا فشل التحويل — لا يمر أبداً إلى مقارنة نصية. |
-| `range` | `min`، `max`، `minExclusive?`، `maxExclusive?` | نفس التحويل. |
-| `compareColumn` | `op`، `column` (`id` عمود آخر) | مقارنة بخلية أخرى في نفس الصف. |
-| `enum` | `values[]` | مساواة نصية حساسة لحالة الأحرف على قيمة الخلية بعد trim. |
-| `isNull` / `isNotNull` | — | يختبر القيمة الخام قبل التحويل. |
+| `threshold` | `op`, `value` | Numeric (or date if column's `formatting.type` is `date`/`datetime`). Coerces both sides; rule misses if coercion fails — never falls through to string. |
+| `range` | `min`, `max`, `minExclusive?`, `maxExclusive?` | Same coercion. |
+| `compareColumn` | `op`, `column` (another column's `id`) | Compare to another cell on same row. |
+| `enum` | `values[]` | Case-sensitive string equality on trimmed cell value. |
+| `isNull` / `isNotNull` | — | Tests raw value before coercion. |
 
-العوامل: `>`، `>=`، `<`، `<=`، `=`، `!=`.
+Operators: `>`, `>=`, `<`, `<=`, `=`, `!=`.
 
-**`cascade`**: `false` (الافتراضي) ← أول تطابق يفوز وتتوقف المعالجة. `true` ← كل تطابق يُضاف فوق السابق (المفاتيح اللاحقة تُلغي السابقة).
+**`cascade`**: `false` (default) → first match wins, evaluation stops. `true` → every match merges on top of previous (later keys override).
 
-**وصفة إشارة المرور**: مع `cascade: false` (الافتراضي)، رتّب القواعد **بالأشد تحديداً أولاً** حتى تفوز الحالة الأشد:
+**Traffic-light recipe**: with `cascade: false` (default), order rules **tightest first** so the most-extreme condition wins:
 
 ```json
 "rules": [
@@ -221,21 +221,21 @@
 ]
 ```
 
-**مفردات الـ style** (لا CSS خام — مجموعة ثابتة محدودة):
+**Style vocabulary** (no raw CSS — small fixed set):
 
-| المفتاح | CSS المقابل |
+| Key | CSS |
 |---|---|
 | `bg` | `background-color` |
 | `color` | `color` |
 | `bold` | `font-weight: 700` |
 | `italic` | `font-style: italic` |
 | `underline` | `text-decoration: underline` |
-| `border` | `border` (اختصار، سلسلة موثوقة) |
+| `border` | `border` (shorthand, trusted string) |
 | `align` | `text-align` (`start`/`center`/`end`) |
 
 ### 5.1 `rowConditionalFormatting`
 
-نفس المفردات، تُطبَّق على مستوى الصف. **يجب أن تسمّي كل قاعدة عمود الاختبار عبر `when.column`** — لا يوجد "هذه الخلية" ضمني. النمط الفائز يُطبَّق على الصف كاملاً عبر `getRowStyle` في AG Grid.
+Same vocabulary, applied per row. **Each rule must name the test column via `when.column`** — there is no implicit "this cell". Winning style applied to whole row via AG Grid's `getRowStyle`.
 
 ```json
 "rowConditionalFormatting": {
@@ -249,7 +249,7 @@
 }
 ```
 
-## 6. مثال كامل (Complete example)
+## 6. Complete example
 
 ```json
 {
@@ -293,21 +293,21 @@
 }
 ```
 
-## 7. الترحيل من `Table`
+## 7. Migration from `Table`
 
-لا يوجد ترقية تلقائية. التفعيل يتم لكل widget على حدة:
+No automatic upgrade. Per-widget opt-in:
 
-1. غيّر `type` من `Table` إلى `EnhancedTable`.
-2. افتح محرر chart-config ← تبويب **Table Columns** ← انقر **Generate Columns From Result Set**.
-3. خصِّص التنسيق / الـ renderers / التنسيق الشرطي.
+1. Change `type` from `Table` to `EnhancedTable`.
+2. Open chart-config editor → **Table Columns** tab → click **Generate Columns From Result Set**.
+3. Customize formatting / renderers / conditional formatting.
 
-تستمر `clickEmitMapping` / `drillDownMapping` / `linkMappings` الموجودة في العمل — يطابق `column` معرِّفات الأعمدة المُولَّدة تلقائياً (التي تأخذ اسم عمود SQL افتراضياً).
+Existing `clickEmitMapping` / `drillDownMapping` / `linkMappings` continue to work — `column` matches auto-generated column `id`s (which default to the SQL column name).
 
-## 8. تخطيط الـ Pivot (cross-tab)
+## 8. Pivot (cross-tab) layout
 
-يحوِّل وضع الـ pivot الـ `EnhancedTable` إلى cross-tab بأسلوب JasperReports: محددات الصفوف تصبح مجموعات صفوف، ومحددات الأعمدة تصبح رؤوس أعمدة متداخلة، والمقاييس تملأ تقاطعات الخلايا — مع إجماليات جزئية اختيارية في كل مستوى وإجمالي كلي. تُتجاهَل كتلة `columns` المكتوبة يدوياً عند تعيين `pivot`؛ يُركِّب المحرك الأعمدة والمجموعات المتداخلة وخطة الصفوف من جانب الخادم.
+Pivot mode turns an `EnhancedTable` into a JasperReports-style cross-tab: row dimensions become row groups, column dimensions become nested column-group headers, measures fill cell intersections — with optional subtotals at each level and a grand total. The hand-authored `columns` block is ignored when `pivot` is set; the engine synthesizes columns + nested groups + row plan server-side.
 
-### 8.1 الإعداد (Configuration)
+### 8.1 Configuration
 
 ```json
 {
@@ -331,43 +331,43 @@
 }
 ```
 
-| الحقل | الافتراضي | ملاحظات |
+| Field | Default | Notes |
 |---|---|---|
-| `rowDimensions` | مطلوب | مرتبة من الخارج للداخل. كل مدخل: `field` (اسم alias في SQL) **أو** `wizardFieldId`، رؤوس اختيارية + `formatting`. |
-| `colDimensions` | مطلوب | نفس الشكل؛ الترتيب يتحكم في تداخل الرؤوس. |
-| `measures` | مطلوب | كل مدخل: `field`/`wizardFieldId`، رؤوس، `aggFunc` (الافتراضي `sum`؛ الإصدار الأول يدعم `sum` فقط)، `formatting`، `conditionalFormatting` اختياري (يُطبَّق على أعمدة الورقة والإجماليات الجزئية والكلية المشتقة من هذا المقياس). |
-| `useRowGrouping` | `true` | عند true وعدد محددات الصفوف ≥2، تصبح N-1 المحددات الخارجية مجموعات صفوف في AG Grid؛ أدناها هو صف الورقة. مع محدد صف واحد، التجميع لا فائدة منه — يعود الـ backend لصفوف مسطحة مع صفوف إجمالية جزئية/كلية مضمَّنة. |
-| `rowSubtotals` | `false` | صفوف تذييل إجمالي جزئي لكل مجموعة. مع التجميع النشط ← AG Grid يُنشئها من جانب العميل. بدونه ← الـ backend يضمِّنها في النتائج. |
-| `colSubtotals` | `false` | أعمدة إجمالي جزئي في كل مستوى col-dim غير ورقي. تُنشأ دائماً من جانب الـ backend (AG Grid لا يستطيع تركيب أعمدة cross-tab). |
-| `rowGrandTotal` | `null` | `"top"` / `"bottom"` / `null`. مع التجميع: `grandTotalRow` في AG Grid. بدونه: مضمَّن في مجموعة النتائج. |
-| `colGrandTotal` | `null` | `"start"` / `"end"` / `null`. **منطقي** — `start` = الحافة الأمامية بأي اتجاه قراءة. |
-| `subtotalLabelKey` / `grandTotalLabelKey` | مُضمَّن | مفاتيح i18n؛ الواجهة الأمامية تحلّها عبر `Translator.translate()`. يرجع إلى `Subtotal` / `Grand Total` (والعربية). |
-| `emptyCellAs` | `null` | ما تعرضه خلايا بلا بيانات: `null` (فارغة)، `0`، `"-"`، إلخ. |
-| `zeroAsEmpty` | `false` | المقياس الذي يُجمِّع إلى صفر بالضبط ← يُعرَض كـ `emptyCellAs`. |
+| `rowDimensions` | required | Ordered, outermost first. Each: `field` (raw SQL alias) **or** `wizardFieldId`, optional headers + `formatting`. |
+| `colDimensions` | required | Same shape; ordering controls header nesting. |
+| `measures` | required | Each: `field`/`wizardFieldId`, headers, `aggFunc` (default `sum`; v1 supports `sum` only), `formatting`, optional `conditionalFormatting` (applied to leaf, subtotal, and grand-total columns derived from this measure). |
+| `useRowGrouping` | `true` | When true and ≥2 row dims, outer N-1 dims become AG Grid row groups; innermost is the leaf row. With one row dim, grouping is a no-op — backend falls back to flat rows + baked subtotal/grand-total rows. |
+| `rowSubtotals` | `false` | Per-group subtotal footer rows. With grouping active → AG Grid renders client-side. Without → backend bakes them in. |
+| `colSubtotals` | `false` | Subtotal columns at each non-leaf col-dim level. Always backend-rendered (AG Grid can't synthesize cross-tab columns). |
+| `rowGrandTotal` | `null` | `"top"` / `"bottom"` / `null`. With grouping: AG Grid `grandTotalRow`. Without: baked into result set. |
+| `colGrandTotal` | `null` | `"start"` / `"end"` / `null`. **Logical** — `start` = leading edge in either reading direction. |
+| `subtotalLabelKey` / `grandTotalLabelKey` | hardcoded | i18n keys; frontend resolves via `Translator.translate()`. Falls back to `Subtotal` / `Grand Total` (and Arabic). |
+| `emptyCellAs` | `null` | What no-data cells render: `null` (blank), `0`, `"-"`, etc. |
+| `zeroAsEmpty` | `false` | Measure aggregating to exactly 0 → render as `emptyCellAs`. |
 
-### 8.2 ما يُصدره المحرك
+### 8.2 What the engine emits
 
-يمر على الصفوف مرة واحدة، يبني أشجاراً متميزة من tuples الصفوف/الأعمدة (مرتبة أبجدياً لكل مستوى)، يُعيد تجميع `(rowTuple, colTuple) → measures` عبر `sum`، ويُصدر:
+Walks rows once, builds distinct row-tuple/col-tuple trees (alphabetically sorted per level), re-aggregates `(rowTuple, colTuple) → measures` via `sum`, emits:
 
-- **`columns` مُركَّبة**: M أعمدة من محددات الصفوف (مثبتة `start`) + أعمدة مقاييس الورقة متخللة مع أعمدة إجمالي جزئي للأعمدة (لكل بادئة غير ورقية) + أعمدة إجمالي كلي للأعمدة في الطرف المختار. معرِّفات ثابتة مثل `pv:bCode=B1.wCode=W1:m=netQty`.
-- **`columnGroups` متداخلة** مع `parentGroupId`: واحدة لكل بادئة tuple أعمدة غير ورقية.
-- **صفوف مُركَّبة**: مع التجميع، صفوف البيانات الورقية فقط؛ بدونه، صفوف ورقية + إجمالية جزئية + إجمالية كلية متداخلة.
-- **`enhancedTableData.styles`**: الصفوف/الأعمدة الإجمالية مُوسَمة عبر علامة `t` (`0`=كلي، `n>0`=جزئي عند العمق `n`)؛ يُطبَّق عريض + صبغة افتراضياً. `conditionalFormatting` الصريح يفوز دائماً.
-- **`agColumnCellDataTypes`**: كل عمود مقياس مُوسَم `"number"` حتى تتدفق قيم الخلايا كأرقام JSON (مطلوب لتجميعات `aggFunc` في صفوف المجموعات).
+- **Synthetic `columns`**: M row-dim columns (pinned `start`) + leaf measure columns interleaved with col-subtotal columns (per non-leaf prefix) + col grand-total columns at chosen end. Stable IDs like `pv:bCode=B1.wCode=W1:m=netQty`.
+- **Nested `columnGroups`** with `parentGroupId`: one per non-leaf col-tuple prefix.
+- **Synthetic rows**: with grouping, only leaf data rows; without, leaf + subtotal + grand-total rows interleaved.
+- **`enhancedTableData.styles`**: total rows/cols tagged via `t` flag (`0`=grand, `n>0`=subtotal at depth `n`); default bold + tint applied. Explicit `conditionalFormatting` always wins.
+- **`agColumnCellDataTypes`**: every measure column tagged `"number"` so cell values flow as JSON numbers (required for `aggFunc` aggregations on group rows).
 
-### 8.3 وضع Wizard
+### 8.3 Wizard mode
 
-في وضع wizard (الـ widget له `wizardDataSource`)، استخدم `wizardFieldId` بدلاً من `field` في كل محدد/مقياس. `WizardChartConfigRewriter` يحلّه إلى SQL alias المخزَّن مؤقتاً (`displayAlias`) قبل تشغيل المحرك.
+In wizard mode (widget has `wizardDataSource`), use `wizardFieldId` instead of `field` on every dim/measure. `WizardChartConfigRewriter` resolves to cached SQL alias (`displayAlias`) before the engine runs.
 
-### 8.4 تخطي التفاعل على الإجماليات
+### 8.4 Interaction skipping on totals
 
-صفوف وأعمدة الإجمالي الجزئي والكلي هي تجميعات مشتقة بلا صف مصدر أساسي، لذا تتجاوزها click-emit / drill-down / link / drill-down-by جميعها. تُكشَف عبر علامة `t` في بيانات الصف (`_totalLevel`) وإعداد العمود (`t`). تلميح المؤشر مُعطَّل أيضاً.
+Subtotal and grand-total rows + columns are derived aggregates with no underlying source row, so click-emit / drill-down / link / drill-down-by all skip them. Detected via `t` flag on row data (`_totalLevel`) and column config (`t`). Cursor hint also disabled.
 
-### 8.5 التعايش مع pivot من جانب العميل في AG Grid
+### 8.5 Coexistence with AG Grid client-side pivot
 
-`tableOptions.enablePivot` (pivot بالسحب في وقت التشغيل) مستقل تماماً ويبقى كما هو. استخدمه للاستكشاف الحر؛ استخدم كتلة `pivot` للتقارير cross-tab التي يحددها المؤلف.
+`tableOptions.enablePivot` (drag-pivot at runtime) is unrelated and stays untouched. Use it for free-form exploration; use the `pivot` block for author-defined cross-tab reports.
 
-### 8.6 مثال pivot كامل
+### 8.6 Complete pivot example
 
 ```sql
 select w.code wCode, b.code bCode, i.code iCode, s.code sCode,

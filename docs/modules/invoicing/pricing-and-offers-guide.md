@@ -1,630 +1,630 @@
-# دليل إدارة الأسعار والعروض (Pricing and Offers Management Guide)
-
-يغطي هذا الدليل الشامل نظام التسعير في Nama ERP، بما في ذلك قوائم الأسعار وعروض المبيعات وآليات التسعير الآلي التي تساعد على الحفاظ على أسعار دقيقة وتنافسية طوال عمليات البيع.
-
-## نظرة عامة (Overview)
-
-يوفر Nama ERP محرك تسعير متطوراً يدعم:
-- **قوائم أسعار المبيعات** (Sales Price Lists) - هياكل تسعير ثابتة للأصناف
-- **عروض المبيعات** (Sales Offers) - تسعير ترويجي قائم على الخصومات
-- **تحديثات الأسعار الآلية** (Automated Price Updates) - تعديلات أسعار يقودها النظام
-- **التسعير متعدد المحددات** (Multi-dimensional Pricing) - دعم لفئات العملاء والمواسم والتصنيفات
-
-## قوائم أسعار المبيعات (Sales Price Lists)
-
-### التنقل (Navigation)
-**مسار القائمة**: المبيعات > قوائم الأسعار والعروض > قائمة أسعار
-
-### الغرض (Purpose)
-تحدد قوائم أسعار المبيعات هياكل تسعير موحدة لأصناف المخزون، مما يتيح للشركات الحفاظ على أسعار متسقة عبر شرائح العملاء المختلفة والفترات الزمنية وسيناريوهات الأعمال.
-
-### الميزات الرئيسية (Key Features)
-
-#### إعداد الرأسية (Header Configuration)
-
-**المعلومات الأساسية:**
-- **الرمز** (Code) - معرّف فريد لقائمة الأسعار
-- **الاسم** (Name) - اسم وصفي لسهولة التعريف
-- **الأولوية** (Priority) - تحدد أي قائمة أسعار تأخذ الأسبقية عند تطبيق أكثر من قائمة
-- **العملة** (Currency) - العملة الأساسية لجميع الأسعار في القائمة
-
-**إدارة نطاق التاريخ:**
-- **من تاريخ** (From Date) - تاريخ البدء الذي تصبح فيه الأسعار سارية
-- **إلى تاريخ** (To Date) - تاريخ الانتهاء الذي تنتهي فيه الأسعار
-- **من وقت/إلى وقت** (From Time/To Time) - تسعير اختياري مرتبط بأوقات محددة
-
-**استهداف العملاء:**
-- **العميل** (Customer) - ربط بعملاء محددين أو فئات أو تصنيفات عملاء
-- **تصنيف الفاتورة** (Invoice Classification) - تطبيق على أنواع فواتير محددة
-- **محددات السعر 1-5** (Price Classifiers 1-5) - نظام تصنيف متعدد المحددات
-
-#### تفاصيل قائمة الأسعار (Price List Details)
-
-تحتوي كل قائمة أسعار على سطور تفصيلية شاملة مع خيارات إعداد واسعة:
-
-**تحديد الصنف واختياره:**
-- **الصنف** (Item) - صنف المخزون الرئيسي للتسعير
-- **رمز الصنف** (Item Code) - طريقة بديلة لتحديد الصنف
-- **محددات الصنف** (Item Dimensions) - دعم محددات كامل:
-  - اللون، المقاس، Revision ID، Lot ID، الأرقام التسلسلية (الأول والثاني)
-  - Box، المقاييس، Sub-item، المخزن، Locator
-  - نسب نشط/غير نشط لمتغيرات الصنف
-- **تطبيق على الأصناف** (Apply On Items) - ربط بمجموعات الأصناف أو نطاقات التسعير
-- **تطبيق فقط إذا كان الصنف في الفاتورة** (Apply Only If Item In Invoice) - تفعيل تسعير مشروط
-
-**هيكل التسعير:**
-- **السعر الافتراضي** (Default Price) - سعر البيع القياسي للصنف
-- **السعر المخصص** (Custom Price) - سعر تجاوز للظروف الخاصة
-- **أدنى سعر** (Min Price) - أدنى سعر بيع مسموح به
-- **أعلى سعر** (Max Price) - أعلى سعر بيع مسموح به
-- **السعر بعد الضريبة 1/2** (Price After Tax 1/2) - خيارات تسعير شاملة للضريبة
-- **هذه الوحدة فقط** (This Unit Only) - قيود سعر خاصة بالوحدة
-
-**إعداد الكميات ووحدة القياس:**
-- **الكمية** (Quantity) - الحد الأدنى للكمية المشتراة للشريحة السعرية
-- **أقصى كمية** (Max Qty) - الحد الأقصى للكمية لهذا المستوى السعري
-- **وحدة القياس** (Unit of Measure) - وحدة قياس التسعير
-- **الكمية بوحدة القياس الأساسية** (Qty In Base UOM) - الكمية المحولة بالوحدة الأساسية
-
-**استهداف العملاء والتصنيف:**
-- **العميل** (Customer) - استهداف عميل محدد أو فئة أو تصنيف
-- **محددات السعر 1-5** (Price Classifiers 1-5) - تصنيف سعر متعدد المحددات
-- **المحددات** (Dimensions) - قيود محددات عامة
-- **تصنيف الفاتورة** (Invoice Classification) - تسعير خاص بنوع المستند
-- **الصلاحية الأمنية** (Security Capability) - متطلبات صلاحيات المستخدم
-
-**إدارة الوقت والدفعات:**
-- **من تاريخ/إلى تاريخ** (From Date/To Date) - فترة صلاحية السعر
-- **من/إلى رقم دفعة** (From/To Lot ID) - فترات تسعير خاصة بالدفعة
-
-**ميزات متقدمة:**
-- **إيقاف الخصومات** (Stop Discounts) - يمنع تطبيق الخصومات على هذا الصنف
-- **محدد لتغيير السعر** (Selected For Price Change) - يحدد الأصناف لتحديثات الأسعار الجماعية
-- **الصنف المجاني هو نفس صنف الفاتورة** (Free Item Is Same As Invoice Item) - تسعير ذاتي المرجع
-- **إلغاء تفعيل قائمة الأسعار** (Deactivate Price List) - إلغاء تفعيل على مستوى السطر
-- **الأصل** (Origin) - مرجع إلى قائمة الأسعار المصدر للتتبع
-
-**حقول العرض والمرجع:**
-- **اسم اللون** (Color Name) - اسم عرض لون الصنف
-- **اسم المقاس** (Size Name) - اسم عرض مقاس الصنف
-- **اسم المراجعة** (Revision Name) - اسم عرض مراجعة الصنف
-
-**تخزين البيانات الموسعة:**
-- **حقول رقمية (n1-n5)** - بيانات رقمية مخصصة
-- **حقول مرجع (ref1-ref5)** - بيانات مرجع مخصصة
-- **حقول نصية (text1-text5)** - معلومات نصية مخصصة
-- **حقول تاريخ (date1-date5)** - تتبع تواريخ مخصصة
-
-**تتبع النظام:**
-- **معرّف الأمر/معرّف السطر المنشأ منه** (Created From Order ID/Line ID) - يتتبع إنشاء قائمة الأسعار من أوامر البيع لأغراض التدقيق
-
-#### ميزات التسعير المتقدمة (Advanced Pricing Features)
-
-**محدثات الأسعار (Price Updaters):**
-يوفر النظام آلية تحديث أسعار متطورة من 5 مراحل مع قدرات حساب وتقريب شاملة:
-
-**نظرة عامة على عملية التحديث:**
-تُنسق عملية `updatePrices` في واجهة المستخدم تحديثات الأسعار من خلال عملية متسلسلة من 5 مراحل، حيث يمكن إعداد كل محدّث بشكل مستقل ويعمل على نتيجة المرحلة السابقة.
-
-**منطق المعالجة المتسلسلة:**
-1. **المرحلة 1**: سعر المصدر → محدّث السعر 1 → حقل الوجهة 1
-2. **المرحلة 2**: النتيجة السابقة → محدّث السعر 2 → حقل الوجهة 2
-3. **المرحلة 3**: النتيجة السابقة → محدّث السعر 3 → حقل الوجهة 3
-4. **المرحلة 4**: النتيجة السابقة → محدّث السعر 4 → حقل الوجهة 4
-5. **المرحلة 5**: النتيجة السابقة → محدّث السعر 5 → حقل الوجهة النهائي
-
-**إعداد حقل المصدر:**
-- **حقل المصدر** (Source Field) - يحدد السعر الابتدائي للحسابات:
-  - السعر الافتراضي، السعر المخصص، أدنى سعر، أعلى سعر
-  - حقول قائمة على تكلفة الصنف، آخر سعر بيع
-  - السعر الثابت - يستخدم قيمة السعر الثابت على مستوى الرأسية
-- **السعر الثابت** (Fixed Price) - مبلغ ثابت على مستوى الرأسية يُستخدم عندما يكون حقل المصدر "FixedPrice"
-
-**تعيين حقل الوجهة:**
-- **حقل الوجهة** (Destination Field) - الحقل الهدف النهائي لتحديثات الأسعار
-- **حقول الوجهة 1-4** (Destination Fields 1-4) - أهداف المراحل الوسيطة
-- **السلوك الافتراضي**: إذا لم تُحدد وجهة، يُستخدم حقل المصدر كوجهة
-
-**إعداد محدّث السعر (لكل مرحلة):**
-كل من محدّثات الأسعار الخمس تدعم:
-
-**أنواع العمليات** (Operation Types):
-- **جمع** (Add) - يضيف قيمة أو نسبة إلى السعر الحالي
-- **طرح** (Subtract) - يطرح قيمة أو نسبة من السعر الحالي
-- **ضرب** (Multiply) - يضرب السعر الحالي في قيمة (النسب المئوية غير مسموح بها)
-- **قسمة** (Divide) - يقسم السعر الحالي على قيمة (النسب المئوية غير مسموح بها)
-
-**أنواع القيم** (Value Types):
-- **قيمة ثابتة** (Fixed Value) - مبلغ نقدي مطلق
-- **نسبة مئوية** (Percentage) - نسبة من السعر الحالي (مع عمليات الجمع/الطرح فقط)
-
-**ضبط التقريب** (Rounding Control):
-- **نوع التقريب** (Rounding Type) - طريقة التقريب الرياضية
-- **قيمة التقريب** (Rounding Value) - مستوى الدقة للتقريب
-- **مقياس العملة** (Currency Scale) - ضبط تلقائي للمنازل العشرية بناءً على إعداد العملة
-
-**التحكم في تطبيق السطور:**
-- **تطبيق على الخطوط** (Applied On Lines):
-  - **الكل** (All) - تطبيق على جميع سطور قائمة الأسعار
-  - **المحددة** (Selected) - فقط السطور المحددة بـ "محدد لتغيير السعر"
-  - **غير المحددة** (Not Selected) - السطور غير المحددة لتغيير الأسعار
-
-**التحقق من الصحة ومعالجة الأخطاء:**
-- **التحقق من النسب المئوية**: النظام يمنع قيم النسب مع عمليات الضرب/القسمة
-- **معالجة المحدثات الفارغة**: يتخطى المعالجة لإعدادات المحدثات الفارغة
-- **تكامل العملة**: يطبق تلقائياً قياس الأرقام العشرية الخاص بالعملة
-- **تصفية السطور**: يحترم إعدادات التطبيق على مستوى السطر
-
-**التجميع الجماعي للأصناف (الإجراء `collectItems`):**
-تجميع آلي للأصناف لملء قائمة الأسعار مع معايير تصفية شاملة:
-
-**الاختيار القائم على النطاق:**
-- **نطاق الصنف** (Item Range) - اختيار نطاق رمز الصنف
-- **نطاقات الفئة** (Category Ranges) - تصفية 5 مستويات للفئات
-- **نطاقات التصنيف** (Classification Ranges) - تصفية 5 مستويات لفئات الصنف
-- **نطاق العلامة التجارية** (Brand Range) - اختيار قائم على العلامة التجارية
-- **نطاق القسم** (Section Range) - تصفية القسم
-- **نطاقات المحددات** (Dimensional Ranges) - تصفية الفرع والقطاع ومجموعة التحليل والإدارة
-
-**خيارات النشر التلقائي:**
-- **نشر الوحدات** (Spread Units) - ينشئ سطوراً لجميع متغيرات وحدة قياس الصنف
-- **نشر المراجعات** (Spread Revisions) - يتضمن جميع متغيرات مراجعة الصنف
-- **نشر الألوان/الأحجام** (Spread Colors/Sizes) - يوسع لجميع تركيبات الألوان/الأحجام
-
-**حساب متوسط سعر التكلفة (الإجراء `calculateAverageCostPrice`):**
-تسعير آلي قائم على التكلفة مع حساب تكلفة في الوقت الفعلي:
-
-**الإعداد:**
-- **حقل متوسط التكلفة** (Average Cost Field) - الحقل المصدر لحساب التكلفة
-- **حقل الوجهة** (Destination Field) - الحقل الهدف للأسعار المحسوبة
-- **تطبيق على الخطوط** (Applied On Lines) - التحكم في تطبيق السطور
-
-**عملية الحساب:**
-- يسترجع متوسط تكاليف الوقت الفعلي من نظام المخزون
-- يأخذ في الاعتبار محددات الصنف (اللون، المقاس، المراجعة، الدفعة) في حساب التكلفة
-- يطبق قيود المحددات التجارية (الفرع، الإدارة، الشركة)
-- يحدث حقول الوجهة المحددة بالتكاليف المحسوبة
-
-**إجراءات مساعدة إضافية:**
-- **نسخ حالة إلغاء التفعيل** (Copy Deactivate Status) - ينشر علامة إلغاء تفعيل الرأسية على جميع السطور
-- **إضافة سطور مصدر إضافية** (Add Additional Source Lines) - يدمج السطور من قوائم أسعار مصدر إضافية
-- **نشر بيانات السطر المحدد** (Spread Selected Line Data) - يوسع السطور المحددة عبر المحددات
-
-**النشر الآلي:**
-- **نشر الوحدات** (Spread Units) - إنشاء تلقائي للسطور لجميع وحدات قياس الصنف
-- **نشر المراجعات** (Spread Revisions) - تضمين جميع مراجعات الصنف
-- **نشر الأحجام/الألوان** (Spread Sizes/Colors) - توسيع لجميع المتغيرات
-
-### إدارة قوائم الأسعار (Price List Management)
-
-#### إنشاء قوائم الأسعار (Creating Price Lists)
-
-1. **الانتقال** إلى المبيعات > قوائم الأسعار والعروض > قائمة أسعار
-2. **تعيين معلومات الرأسية**:
-   - أدخل رمزاً فريداً واسماً وصفياً
-   - حدد نطاق التاريخ للصلاحية
-   - اضبط مستوى الأولوية (الأرقام الأصغر = أولوية أعلى)
-   - اختر العملاء المستهدفين أو مجموعات العملاء
-
-3. **إعداد تحديثات الأسعار** (اختياري):
-   - إعداد ما يصل إلى 5 محدثات أسعار للحسابات الآلية
-   - اختر حقول المصدر (التكلفة، السعر السابق، إلخ)
-   - حدد العمليات الرياضية وقواعد التقريب
-
-4. **إضافة سطور التفاصيل**:
-   - اختر الأصناف يدوياً أو استخدم الاستيراد الجماعي
-   - أعدّ محددات الصنف والكميات
-   - اضبط الأسعار أو استخدم المحدثات للحساب التلقائي
-
-#### تحديثات الأسعار الجماعية (Bulk Price Updates)
-
-**من المستندات المصدر:**
-- **المصدر** (Source) - استيراد من قوائم أسعار أو فواتير أو أوامر قائمة
-- **المصدر الإضافي** (Additional Source) - دمج مصادر متعددة
-- **تضمين الخصومات** (Include Discounts) - الأخذ بالتسعير الترويجي
-
-**معايير التصفية:**
-- نطاقات الأصناف (من الصنف إلى الصنف)
-- نطاقات الفئات عبر 5 مستويات تصنيف
-- تصفية الإدارة والفرع والقطاع
-- قيود مجموعة التحليل
-
-### تكامل النظام (System Integration)
-
-#### منطق تحديد السعر (Price Resolution Logic)
-
-عند تحديد الأسعار، يتبع النظام هذا التسلسل الهرمي:
-
-1. **التسعير الخاص بالمستند** (Document-Specific Pricing) - تجاوزات يدوية على مستندات المبيعات
-2. **قوائم الأسعار النشطة** (Active Price Lists) - بناءً على الأولوية والتاريخ ومطابقة العميل
-3. **آخر سعر بيع** (Last Sales Price) - تسعير تاريخي عند تفعيله في الإعداد
-4. **سعر بطاقة الصنف** (Item Master Price) - سعر بيع الصنف الافتراضي
-5. **التسعير على أساس التكلفة** (Cost-Plus Pricing) - محسوب من تكلفة الصنف مع هامش ربح
-
-#### تحديثات الأسعار في الوقت الفعلي (Real-Time Price Updates)
-
-محرك التسعير يعمل تلقائياً على:
-- التحقق من نطاقات التاريخ وأهلية العميل
-- تطبيق التسعير المتدرج القائم على الكمية
-- حساب الضرائب
-- مراعاة اتفاقيات تسعير العقود
-- الأخذ بالعروض الترويجية والخصومات
-
-## عروض المبيعات (Sales Offers)
-
-### التنقل (Navigation)
-**مسار القائمة**: المبيعات > قوائم الأسعار والعروض > عرض
-
-### الغرض (Purpose)
-توفر عروض المبيعات إدارة متطورة للخصومات والعروض الترويجية، مما يمكّن الشركات من إنشاء حملات ترويجية معقدة مع أنواع خصومات متعددة وأصناف مجانية وتطبيقات مشروطة.
-
-### أنواع العروض والتجميعات (Offer Types and Collections)
-
-#### 1. خصومات الأصناف (Item Discounts)
-**التجميع**: `details`
-**الجدول**: `ItemDiscountLine`
-
-يوفر هياكل خصم متطورة خاصة بالصنف مع استهداف شامل ومنطق مشروط:
-
-**استهداف الصنف واختياره:**
-- **الصنف** (Item) - صنف المخزون المحدد لتطبيق الخصم
-- **رمز الصنف** (Item Code) - طريقة بديلة لتحديد الصنف
-- **محددات الصنف** (Item Dimensions) - دعم محددات كامل يشمل:
-  - اللون، المقاس، Revision ID، Lot ID، الأرقام التسلسلية
-  - Box، المقاييس، Sub-item
-  - التسعير الخاص بالمخزن وLocator
-- **الأصناف المرتبطة** (Related Items) - تطبيق على مجموعات الأصناف أو مجموعات الأصناف المجانية
-- **تطبيق على الأصناف** (Apply On Items) - ربط بمجموعات الأصناف المجانية أو نطاقات التسعير
-
-**معايير الفئة والتصنيف:**
-- **الفئات 1-5** (Categories 1-5) - استهداف متعدد المستويات للفئات
-- **تصنيفات الصنف 1-10** (Item Classes 1-10) - نظام تصنيف موسع
-- **العلامة التجارية** (Brand) - خصومات خاصة بالعلامة التجارية
-- **القسم** (Section) - تجميع الأصناف حسب القسم
-
-**إعداد الخصم:**
-- **وقت حساب التخفيض في الفاتورة** (Discount Location) - **حقل مطلوب** يحدد متى/أين يُطبق الخصم في معالجة الفاتورة
-- **قيمة أم نسبة** (Value or Percent) - طريقة حساب الخصم
-- **أدنى قيمة خصم** (Discount Min Value) - الحد الأدنى لمبلغ الخصم
-- **أعلى قيمة خصم** (Discount Max Value) - الحد الأقصى للخصم
-- **قيمة الخصم الافتراضية** (Discount Default Value) - مبلغ الخصم القياسي
-- **خصم خاص** (Special Discount) - علامة للمعالجة الاستثنائية للخصم
-
-**التحكم في الكميات والقيم:**
-- **الكمية** (Quantity) - الحد الأدنى للكمية المشتراة لأهلية الخصم
-- **أقصى كمية** (Max Qty) - الحد الأقصى للكمية للتسعير المتدرج
-- **أدنى قيمة صنف لتطبيق الخصم** (Min Item Value to Apply Discount) - حد قيمة الصنف الفردي
-- **أعلى قيمة صنف لتطبيق الخصم** (Max Item Value to Apply Discount) - الحد الأعلى لقيمة الصنف
-- **أدنى قيمة فاتورة لتطبيق الخصم** (Min Invoice Value to Apply Discount) - الحد الأدنى على مستوى المستند
-- **أعلى قيمة فاتورة لتطبيق الخصم** (Max Invoice Value to Apply Discount) - الحد الأقصى على مستوى المستند
-
-**قيود الوقت والتاريخ:**
-- **من تاريخ/إلى تاريخ** (From Date/To Date) - فترة صلاحية الخصم
-- **من وقت/إلى وقت** (From Time/To Time) - قيود النافذة الزمنية اليومية
-- **من/إلى رقم دفعة** (From/To Lot ID) - فترات خصم خاصة بالدفعة
-
-**منطق الخصم المتقدم:**
-- **تجميع القيمة حسب** (Accumulate Value By) - يحدد كيفية تراكم القيم لحساب الخصم:
-  - أقسام الأصناف، الفئات، التصنيفات 1-5
-  - المجموعات الرئيسية، قيمة الفاتورة
-- **تطبيق خصم العرض مرة واحدة** (Apply Offer Discount Once) - يمنع التطبيقات المتعددة
-- **إيقاف خصومات أخرى من نفس النوع** (Stop Same Type Other Discounts) - يتحكم في تكديس الخصومات
-- **نوع عد أصناف المبيعات** (Sales Items Count Type) - طريقة عد الأصناف المؤهلة
-
-**التطبيق المشروط:**
-- **تطبيق فقط إذا كان الصنف في الفاتورة** (Apply Only If Item In Invoice) - يتطلب وجود أصناف محددة
-- **محددات السعر 1-5** (Price Classifiers 1-5) - تصنيف سعر متعدد المحددات
-- **المحددات** (Dimensions) - قيود محددات عامة (الفرع، الإدارة، القطاع، إلخ)
-- **الصلاحية الأمنية** (Security Capability) - متطلبات صلاحيات المستخدم
-- **التابعة** (Subsidiary) - استهداف وحدة أعمال متعددة الكيانات
-
-#### 2. الأصناف المجانية (Free Items)
-**التجميع**: `freeItems`
-**الجدول**: `FreeItemLine`
-
-إدارة شاملة للأصناف المجانية توسع وظائف سطر العرض الأساسية بمنطق مشروط متطور:
-
-**إعداد صنف المشغّل:**
-- **الصنف** (Item) - الصنف الرئيسي الذي يشغّل عرض الصنف المجاني
-- **رمز الصنف** (Item Code) - تعريف بديل لصنف المشغّل
-- **محددات الصنف** (Item Dimensions) - دعم محددات كامل لأصناف المشغّل:
-  - اللون، المقاس، Revision ID، Lot ID، الأرقام التسلسلية
-  - Box، المقاييس، المخزن، Locator
-- **الكمية** (Quantity) - كمية الشراء المطلوبة لتفعيل العرض
-- **أقصى كمية** (Max Qty) - الحد الأقصى للكمية المؤهلة
-
-**تعريف الصنف المجاني:**
-- **كود الصنف المجاني** (Free Item Code) - معرّف فريد للصنف المجاني
-- **بيانات الصنف المجاني** (Free Item Data) - **مطلوب** إعداد شامل للصنف المجاني:
-  - **الصنف المجاني** (Free Item) - الصنف الفعلي المقدم مجاناً
-  - **محددات الصنف المجاني** (Free Item Dimensions) - مواصفات محددات كاملة
-  - **الكمية المجانية** (Free Quantity) - الكمية المقدمة مجاناً
-  - **أقصى كمية** (Max Qty) - حد على الكمية المجانية
-  - **سياسة مجاني** (Free Policy) - قواعد حوكمة تقديم الصنف المجاني
-  - **سياسة الاستبدال** (Replace Policy) - قواعد استبدال الصنف
-  - **قواعد تطبيق العرض** (Offer Apply Rules) - منطق تطبيق معقد
-  - **خاضع للضريبة** (Taxable) - المعالجة الضريبية للأصناف المجانية
-  - **يدوي** (Manual) - قدرة التجاوز اليدوي
-
-**وضع الخصم البديل:**
-- **خصم نسبة من السعر بدلا من مجاني** (Not Free But Discount) - **ميزة رئيسية** - بدلاً من تقديم الأصناف مجاناً، تطبيق خصم نسبة مئوية على سعر الصنف
-- **وقت حساب التخفيض في الفاتورة** (Discount Location) - يحدد أين يُطبق الخصم في معالجة الفاتورة
-- **نسبة الخصم** (Discount Percentage) - مبلغ الخصم المئوي عند استخدام وضع الخصم
-
-**استهداف الفئة والتصنيف:**
-- **الفئات 1-5** (Categories 1-5) - تصفية متعددة المستويات للفئات لأصناف المشغّل
-- **تصنيفات الصنف 1-10** (Item Classes 1-10) - استهداف تصنيف موسع
-- **العلامة التجارية** (Brand) - عروض أصناف مجانية خاصة بالعلامة التجارية
-- **تطبيق على الأصناف** (Apply On Items) - ربط بمجموعات الأصناف أو نطاقات التسعير
-- **تطبيق فقط إذا كان الصنف في الفاتورة** (Apply Only If Item In Invoice) - تفعيل مشروط
-
-**الإعداد المتقدم:**
-- **تطبيق العرض بطريقة الشرائح** (Apply Offer By Slides Way) - منهجية تطبيق متخصصة
-- **نوع عد أصناف المبيعات** (Sales Items Count Type) - طريقة عد الأصناف المؤهلة
-- **أقصى كمية للصنف** (Item Max Qty) - حدود الكمية القصوى لكل صنف
-- **الصنف المجاني هو نفس صنف الفاتورة** (Free Item Is Same As Invoice Item) - عروض ذاتية المرجع
-- **هذه الوحدة فقط** (This Unit Only) - قيود خاصة بالوحدة
-- **عدم نسخ بيانات الصنف الرئيسي** (Do Not Copy Master Item Data) - التحكم في وراثة البيانات
-
-**إدارة الوقت والتاريخ:**
-- **من تاريخ/إلى تاريخ** (From Date/To Date) - فترة صلاحية العرض
-- **من/إلى رقم دفعة** (From/To Lot ID) - فترات عرض خاصة بالدفعة
-- **تصنيف الفاتورة** (Invoice Classification) - استهداف نوع المستند
-
-**تصنيف الأسعار والاستهداف:**
-- **محددات السعر 1-5** (Price Classifiers 1-5) - استهداف سعر متعدد المحددات
-- **المحددات** (Dimensions) - قيود محددات عامة
-- **التابعة** (Subsidiary) - دعم وحدة أعمال متعددة الكيانات
-
-**حقول البيانات الموسعة:**
-- **حقول رقمية (n1-n5)** - تخزين بيانات رقمية مخصصة
-- **حقول مرجع (ref1-ref5)** - بيانات مرجع مخصصة
-- **حقول نصية (text1-text5)** - معلومات نصية مخصصة
-- **حقول تاريخ (date1-date5)** - تتبع تواريخ مخصصة
-
-#### 3. خصومات الفاتورة (Invoice-Level Discounts)
-**التجميع**: `invDiscountLines`
-**الجدول**: `InvoiceDiscountLine`
-
-إدارة خصومات على مستوى المستند مع عتبات متطورة ومنطق مشروط:
-
-**عتبات قيمة الفاتورة:**
-- **أدنى قيمة فاتورة** (Min Invoice Value) - الحد الأدنى لإجمالي المستند لأهلية الخصم
-- **أعلى قيمة فاتورة** (Max Invoice Value) - الحد الأقصى لإجمالي المستند لتطبيق الخصم
-- **أدنى عدد أصناف الفاتورة** (Min Invoice Items) - الحد الأدنى المطلوب لعدد بنود السطر
-- **أعلى عدد أصناف الفاتورة** (Max Invoice Items) - الحد الأقصى لعدد بنود السطر للأهلية
-
-**إعداد الخصم:**
-- **نوع الخصم** (Discount Type) - طريقة حساب الخصم (نسبة مئوية، مبلغ ثابت، إلخ)
-- **أدنى قيمة خصم** (Discount Min Value) - الحد الأدنى لمبلغ الخصم للتطبيق
-- **أعلى قيمة خصم** (Discount Max Value) - الحد الأقصى للخصم
-
-**منطق التحكم في الخصم:**
-- **إيقاف خصومات أخرى** (Stop Other Discounts) - يمنع تطبيقات الخصم الأخرى عند تطبيق هذا الخصم
-- **اعتبار إيقاف الخصومات الأخرى** (Consider Stop Other Discounts) - يحترم علامات إيقاف الخصومات الأخرى
-- **تجاهل العروض الأخرى** (Ignore Other Offers) - يستثني العروض الترويجية الأخرى
-- **تجاهل الأصناف المجانية في العد** (Ignore Free Items In Count) - يستثني الأصناف المجانية من حسابات عد الأصناف
-
-**عد الأصناف المتقدم:**
-- **آلية عد الأصناف** (Items Count Mechanism) - يحدد كيفية عد الأصناف لحسابات العتبة
-- **أساس الخصم من الخطوط المطابقة** (Discount Basis From Matched Lines) - يحسب الخصم فقط على بنود السطر المؤهلة
-
-**التطبيق المشروط:**
-- **قواعد تطبيق العرض** (Offer Apply Rules) - يرتبط بمجموعات قواعد معقدة للمنطق المشروط
-- **محددات السعر 1-5** (Price Classifiers 1-5) - استهداف سعر متعدد المحددات
-- **المحددات** (Dimensions) - قيود محددات عامة (الفرع، الإدارة، الشركة، إلخ)
-- **الصلاحية الأمنية** (Security Capability) - متطلبات صلاحيات المستخدم
-- **التابعة** (Subsidiary) - استهداف وحدة أعمال متعددة الكيانات
-
-#### 4. أصناف مجانية للفاتورة (Invoice Free Items)
-**التجميع**: `invOffersLines`
-**الجدول**: `InvoiceFreeItemLine`
-
-عروض أصناف مجانية على مستوى المستند مع إدارة شاملة للعتبات وضوابط المحددات:
-
-**عتبات الفاتورة:**
-- **أدنى قيمة فاتورة** (Min Invoice Value) - الحد الأدنى لإجمالي المستند لتشغيل الأصناف المجانية
-- **أعلى قيمة فاتورة** (Max Invoice Value) - الحد الأقصى لإجمالي المستند لأهلية الصنف المجاني
-
-**إعداد الصنف المجاني:**
-- **بيانات الصنف المجاني** (Free Item Data) - مواصفات الصنف المجاني الكاملة تشمل:
-  - **الصنف المجاني** (Free Item) - الصنف المقدم مجاناً
-  - **محددات الصنف المجاني** (Free Item Dimensions) - دعم محددات كامل (اللون، المقاس، المراجعة، الدفعة، إلخ)
-  - **الكمية المجانية** (Free Quantity) - الكمية المقدمة مجاناً
-  - **أقصى كمية** (Max Qty) - الحد الأقصى للكمية المجانية
-  - **سياسة مجاني** (Free Policy) - قواعد حوكمة تقديم الصنف المجاني
-  - **سياسة الاستبدال** (Replace Policy) - منطق استبدال الصنف
-  - **قواعد تطبيق العرض** (Offer Apply Rules) - قواعد تطبيق مشروط معقدة
-  - **خاضع للضريبة** (Taxable) - المعالجة الضريبية للأصناف المجانية
-  - **يدوي** (Manual) - قدرة التجاوز اليدوي
-  - **كمية مباعة** (Sold Qty) - تتبع الكميات في سياق المبيعات
-
-**التحكم في الخصم:**
-- **إيقاف خصومات أخرى** (Stop Other Discounts) - يمنع تطبيقات الخصم الأخرى
-- **اعتبار إيقاف الخصومات الأخرى** (Consider Stop Other Discounts) - يحترم علامات إيقاف الخصومات الأخرى
-- **تجاهل العروض الأخرى** (Ignore Other Offers) - يستثني العروض الترويجية الأخرى
-
-**الاستهداف والتصنيف:**
-- **محددات السعر 1-5** (Price Classifiers 1-5) - استهداف سعر متعدد المحددات
-- **المحددات** (Dimensions) - قيود محددات عامة (الفرع، الإدارة، الشركة، إلخ)
-- **الصلاحية الأمنية** (Security Capability) - متطلبات صلاحيات المستخدم
-- **التابعة** (Subsidiary) - استهداف وحدة أعمال متعددة الكيانات
-
-#### 5. عروض عدد الأصناف (Items Count Offers)
-**التجميع**: `itemsCountOffers`
-**الجدول**: `OfferOnItemsCountLine`
-
-نظام ترويجي متقدم قائم على الكمية مع آليات عد متطورة وهياكل مكافآت مرنة:
-
-**إعداد العد والعتبة:**
-- **عدد أصناف الفاتورة** (Number of Invoice Items) - الحد الأدنى لعدد الأصناف لتشغيل العرض
-- **آلية عد الأصناف** (Items Count Mechanism) - يحدد كيفية عد الأصناف وتجميعها
-- **آلية سياسة متعددة** (Multiple Policy Mechanism) - يتحكم في السلوك عند وجود مجموعات مؤهلة متعددة
-- **الأولوية** (Priority) - ترتيب التقييم عند تطبيق عروض متعددة
-- **تجاهل الصنف المطابق ليكون كمية مجانية** (Ignore Matched Item To Be Free Qty) - يستثني أصناف المشغّل من الكمية المجانية
-
-**استهداف الصنف والتصنيف:**
-- **الفئات 1-5** (Categories 1-5) - استهداف متعدد المستويات للفئات للعد
-- **تصنيفات الصنف 1-10** (Item Classes 1-10) - نظام تصنيف موسع
-- **العلامة التجارية** (Brand) - عد ومكافآت خاصة بالعلامة التجارية
-- **القسم** (Section) - تجميع الأصناف حسب القسم
-- **مجموعة أصناف** (Items Group) - تجميعات أصناف محددة مسبقاً للعد
-- **مجموعة الصنف المجاني** (Free Item Group) - فئات الأصناف المتاحة كمكافآت
-- **تصنيف الصنف المجاني** (Free Item Classification) - نظام تصنيف لأصناف المكافآت
-
-**إعداد المكافأة:**
-- **كمية الصنف المجاني** (Free Item Qty) - كمية الأصناف المجانية المقدمة
-- **سياسة مجاني** (Free Policy) - قواعد حوكمة توزيع الأصناف المجانية
-- **خصم نسبة من السعر بدلا من مجاني** (Not Free But Discount) - **وضع بديل** - تطبيق خصم بدلاً من الأصناف المجانية
-- **وقت حساب التخفيض في الفاتورة** (Discount Location) - أين يُطبق الخصم في معالجة الفاتورة
-- **نسبة الخصم** (Discount Percentage) - الخصم المئوي عند استخدام وضع الخصم
-- **قيمة الخصم** (Discount Value) - خيار مبلغ الخصم الثابت
-
-**إدارة الوقت والتاريخ:**
-- **من تاريخ/إلى تاريخ** (From Date/To Date) - فترة صلاحية العرض لهذا العرض المحدد
-
-**منطق التحكم والاستثناء:**
-- **إيقاف خصومات أخرى** (Stop Other Discounts) - يمنع تطبيقات الخصم الأخرى
-- **تجاهل العروض الأخرى** (Ignore Other Offers) - يستثني العروض الترويجية الأخرى من الاعتبار
-
-**الاستهداف والتصنيف:**
-- **محددات السعر 1-5** (Price Classifiers 1-5) - استهداف سعر متعدد المحددات
-- **المحددات** (Dimensions) - قيود محددات عامة (الفرع، الإدارة، الشركة، إلخ)
-- **التابعة** (Subsidiary) - استهداف وحدة أعمال متعددة الكيانات
-
-#### 6. إدارة قسائم الخصم (Coupon Management)
-**التجميع**: `coupons`
-**الجدول**: `OfferCouponLine`
-
-نظام شامل لإدارة القسائم والبطاقات مع قدرات تحقق وتتبع متقدمة:
-
-**إعداد القسيمة:**
-- **قيمة القسيمة** (Coupon Value) - القيمة النقدية أو مبلغ الخصم
-- **نوع قيمة القسيمة** (Coupon Value Type) - يحدد ما إذا كانت القيمة نسبة مئوية أو مبلغ ثابت إلخ
-- **فترة القسيمة** (Coupon Period) - مدة الصلاحية مع وحدة القياس (أيام، أشهر، إلخ)
-- **استخدام القسيمة مرة واحدة** (Coupon Used Once) - قيد الاستخدام المرة الواحدة
-- **معطلة** (Deactivated) - علامة إلغاء التفعيل اليدوي
-
-**عتبات قيمة الفاتورة:**
-- **قيمة الفاتورة من** (Invoice Value From) - الحد الأدنى لمبلغ الفاتورة لأهلية القسيمة
-- **قيمة الفاتورة إلى** (Invoice Value To) - الحد الأقصى لمبلغ الفاتورة لتطبيق القسيمة
-
-**منطق الإنشاء والتحكم:**
-- **عدم إنشاء قسيمة إذا كانت الفاتورة تحتوي على** (Do Not Create Coupon If Invoice Has) - إنشاء قسيمة مشروط بناءً على محتوى الفاتورة
-- **نوع عد أصناف المبيعات** (Sales Items Count Type) - طريقة عد الأصناف المؤهلة لإنشاء القسيمة
-- **طريقة نسخ الأبعاد** (Dimensions Copy Method) - كيفية وراثة بيانات المحددات في إنشاء القسيمة
-
-**إدارة الوقت والتاريخ:**
-- **من تاريخ/إلى تاريخ** (From Date/To Date) - فترة صلاحية القسيمة
-- **الأولوية** (Priority) - ترتيب التحليل عند تطبيق قسائم متعددة
-
-**قواعد التطبيق:**
-- **قواعد تطبيق العرض** (Offer Apply Rules) - منطق مشروط معقد لتطبيق القسيمة
-- **اعتبار إيقاف الخصومات الأخرى** (Consider Stop Other Discounts) - يحترم علامات استثناء الخصومات الأخرى
-
-**الاستهداف والتصنيف:**
-- **المحددات** (Dimensions) - قيود محددات عامة (الفرع، الإدارة، الشركة، إلخ)
-- **التابعة** (Subsidiary) - استهداف وحدة أعمال متعددة الكيانات
-
-### إعداد العروض (Offer Configuration)
-
-#### إعدادات الرأسية (Header Settings)
-
-**الإعداد الأساسي:**
-- **الرمز/الاسم** (Code/Name) - تعريف العرض
-- **الأولوية** (Priority) - ترتيب التحليل عند تطبيق عروض متعددة
-- **نطاق التاريخ/الوقت** (Date/Time Range) - جدولة دقيقة للفترات الترويجية
-- **استهداف العملاء** (Customer Targeting) - عملاء محددون أو فئات أو تصنيفات
-
-**ضوابط السلوك:**
-- **إيقاف خصومات أخرى** (Stop Other Discounts) - منع دمج الخصومات
-- **العملة** (Currency) - عملة تسعير العرض
-- **الموسم** (Season) - ربط العروض الموسمية
-
-**الميزات المتقدمة:**
-- **محددات السعر 1-5** (Price Classifiers 1-5) - استهداف متعدد المحددات
-- **قيود الموظفين** (Employee Restrictions) - تحديد العروض لموظفي مبيعات محددين
-- **ضوابط التابعة** (Subsidiary Controls) - دعم أعمال متعددة الكيانات
-
-#### تنفيذ منطق العروض (Offer Logic Implementation)
-
-**تتالي الخصومات:**
-يُنفذ النظام تتالياً متطوراً للخصومات حيث:
-1. يمنع "إيقاف خصومات أخرى" على مستوى الرأسية جميع تطبيقات الخصم الأخرى
-2. تتحكم الإيقافات على مستوى السطر في تكديس خصومات الصنف الفردي
-3. يضمن التحليل القائم على الأولوية تطبيقاً متوقعاً للعروض
-
-**تكامل محدّث السعر:**
-يمكن للعروض استخدام نفس نظام محدّث الأسعار من 5 مستويات كقوائم الأسعار:
-- **حقل المصدر** (Source Field) - حقل الحساب الأساسي
-- **حقل الوجهة** (Destination Field) - الحقل الهدف للتحديثات
-- **العمليات الرياضية** (Mathematical Operations) - جمع، طرح، ضرب، قسمة
-- **ضبط التقريب** (Rounding Control) - إدارة الدقة
-
-## آليات تحديث أسعار النظام (System Price Update Mechanisms)
-
-### الحساب الآلي للأسعار (Automated Price Calculation)
-
-تُنسّق طريقة `SalesPriceUtils.updateLinePriceAndDiscounts()` في النظام حسابات تسعير معقدة:
-
-#### عملية تحديد السعر (Price Resolution Process)
-
-1. **حساب الضريبة** (Tax Calculation) - يعيد حساب نسب الضريبة عند الحاجة
-2. **التحقق من التفاصيل** (Detail Validation) - يزيل السطور بدون أصناف
-3. **تحميل الإعداد** (Configuration Loading) - يسترجع تفضيلات تسعير النظام
-4. **حساب السعر الأساسي** (Base Price Calculation) - يحدد الأسعار الابتدائية من:
-   - قوائم الأسعار (حسب الأولوية والأهلية)
-   - آخر أسعار البيع (إذا كانت مُعدّة)
-   - أسعار بطاقة الصنف
-   - حسابات التكلفة مع هامش ربح
-
-#### تسلسل تطبيق الخصم (Discount Application Sequence)
-
-1. **خصومات مستوى الصنف** (Item-Level Discounts) - تُطبق أولاً من العروض
-2. **حساب خصم الرأسية** (Header Discount Calculation) - تحديد الخصم على مستوى المستند
-3. **معالجة تتالي الخصومات** (Discount Cascade Processing) - تطبيق الخصومات بترتيب الأولوية
-4. **إعادة حساب الضريبة** (Tax Recalculation) - تحديث مبالغ الضريبة بعد الخصومات
-5. **معالجة الأصناف المجانية** (Free Item Processing) - إضافة الأصناف المجانية المؤهلة
-6. **التحقق من الحدود** (Boundary Validation) - يضمن الامتثال لأدنى/أعلى سعر
-
-### نقاط التكامل (Integration Points)
-
-#### معالجة مستندات المبيعات (Sales Document Processing)
-
-طريقة `updateLinesPrices()` في `SalesOrderInvoicePostActions` توضح تحديث الأسعار في العالم الحقيقي:
-
-#### ضوابط الإعداد (Configuration Controls)
-
-يحترم النظام علامات إعداد متنوعة:
-- **doNotUpdatePricesAtAll** - تعطيل التسعير الآلي بالكامل
-- **doNotUpdatePricesWhenThereSalesDocInFromDoc** - الحفاظ على الأسعار من المستندات المصدر
-- **considerValueDateFromFromDocInPricingAndOffers** - استخدام تواريخ المستند المصدر لأهلية السعر/العرض
-
-## الإعداد المتقدم (Advanced Configuration)
-
-### التسعير متعدد العملات (Multi-Currency Pricing)
-
-عند العمل عبر عملات متعددة:
-- اضبط العملة الأساسية على مستوى قائمة الأسعار
-- استخدم قوائم أسعار خاصة بكل عملة للأسواق المحلية
-- ضع في الاعتبار تأثير تقلبات أسعار الصرف
-- نفذ استراتيجيات عروض خاصة بكل عملة
-
-### التكامل مع الوحدات الأخرى (Integration with Other Modules)
-
-**إدارة المخزون:**
-- تصفّي قوائم الأسعار الأصناف القابلة للبيع تلقائياً
-- توفر الصنف يؤثر على عروض الأصناف المجانية
-- محددات المخزون تتكامل مع محددات التسعير
-
-**إدارة العملاء:**
-- تمكّن فئات العملاء استراتيجيات تسعير جماعية
-- حدود الائتمان للعملاء قد تؤثر على أهلية العرض
-- مواءمة مناطق المبيعات مع مناطق التسعير
-
-**الإدارة المالية:**
-- تغييرات الأسعار تشغّل تقارير الأثر المالي
-- تحليل الهامش بناءً على بيانات التسعير مقابل التكلفة
-- الآثار الضريبية للأصناف المجانية على الإيرادات
-
-يوفر هذا النظام للأسعار والعروض أدوات شاملة للحفاظ على أسعار تنافسية مع تعظيم الربحية من خلال الحملات الترويجية الاستراتيجية وإدارة الأسعار الآلية.
+# Pricing and Offers Management Guide
+
+This comprehensive guide covers the pricing system in Nama ERP, including price lists, sales offers, and automated pricing mechanisms that help maintain accurate and competitive pricing throughout your sales processes.
+
+## Overview
+
+Nama ERP provides a sophisticated pricing engine that supports:
+- **Sales Price Lists** - Fixed pricing structures for items
+- **Sales Offers** - Discount-based promotional pricing  
+- **Automated Price Updates** - System-driven price adjustments
+- **Multi-dimensional Pricing** - Support for customer classes, seasons, and classifications
+
+## Sales Price Lists
+
+### Navigation
+**Menu Path**: Sales > Prices And Offers > Price List  
+
+### Purpose
+Sales Price Lists define standardized pricing structures for inventory items, allowing businesses to maintain consistent pricing across different customer segments, time periods, and business scenarios.
+
+### Key Features
+
+#### Header Configuration
+
+**Basic Information:**
+- **Code** - Unique identifier for the price list
+- **Name** - Descriptive name for easy identification
+- **Priority** - Determines which price list takes precedence when multiple apply
+- **Currency** - Base currency for all prices in the list
+
+**Date Range Management:**
+- **From Date** - Start date when prices become effective
+- **To Date** - End date when prices expire
+- **From Time/To Time** - Optional time-specific pricing
+
+**Customer Targeting:**
+- **Customer** - Link to specific customers, customer classes, or categories
+- **Invoice Classification** - Apply to specific invoice types
+- **Price Classifiers 1-5** - Multi-dimensional classification system
+
+#### Price List Details
+
+Each price list contains comprehensive detail lines with extensive configuration options:
+
+**Item Identification & Selection:**
+- **Item** - Primary inventory item for pricing
+- **Item Code** - Alternative item identification method
+- **Item Dimensions** - Complete dimensional support:
+  - Color, Size, Revision ID, Lot ID, Serial Numbers (first and second)
+  - Box, Measures, Sub-item, Warehouse, Locator specifications
+  - Active/Inactive percentages for item variants
+- **Apply On Items** - Link to item groups or pricing ranges
+- **Apply Only If Item In Invoice** - Conditional pricing activation
+
+**Pricing Structure:**
+- **Default Price** - Standard selling price for the item
+- **Custom Price** - Override price for special circumstances
+- **Min Price** - Minimum allowable selling price
+- **Max Price** - Maximum allowable selling price
+- **Price After Tax 1/2** - Tax-inclusive pricing options
+- **This Unit Only** - Unit-specific price constraints
+
+**Quantity & UOM Configuration:**
+- **Quantity** - Minimum purchase quantity for price tier
+- **Max Qty** - Maximum quantity for this price level
+- **Unit of Measure** - Pricing UOM specification
+- **Qty In Base UOM** - Converted base unit quantity
+
+**Customer & Classification Targeting:**
+- **Customer** - Specific customer, class, or category targeting
+- **Price Classifiers 1-5** - Multi-dimensional price classification
+- **Dimensions** - Generic dimensional constraints
+- **Invoice Classification** - Document type specific pricing
+- **Security Capability** - User permission requirements
+
+**Time & Lot Management:**
+- **From Date/To Date** - Price validity period
+- **From/To Lot ID** - Lot-specific pricing periods
+
+**Advanced Features:**
+- **Stop Discounts** - Prevents discount applications on this item
+- **Selected For Price Change** - Marks items for bulk price updates
+- **Free Item Is Same As Invoice Item** - Self-referential pricing
+- **Deactivate Price List** - Line-level deactivation
+- **Origin** - Reference to source price list for traceability
+
+**Display & Reference Fields:**
+- **Color Name** - Display name for item color
+- **Size Name** - Display name for item size  
+- **Revision Name** - Display name for item revision
+
+**Extended Data Storage:**
+- **Numeric Fields (n1-n5)** - Custom numeric data
+- **Reference Fields (ref1-ref5)** - Custom reference data
+- **Text Fields (text1-text5)** - Custom text information
+- **Date Fields (date1-date5)** - Custom date tracking
+
+**System Tracking:**
+- **Created From Order ID/Line ID** - Tracks price list generation from sales orders for audit purposes
+
+#### Advanced Pricing Features
+
+**Price Updaters:**
+The system provides a sophisticated 5-stage price update mechanism with comprehensive calculation and rounding capabilities:
+
+**Update Process Overview:**
+The `updatePrices` GUI action orchestrates price updates through a sequential 5-stage process, where each updater can be configured independently and operates on the result of the previous stage.
+
+**Sequential Processing Logic:**
+1. **Stage 1**: Source price → Price Updater 1 → Destination Field 1
+2. **Stage 2**: Previous result → Price Updater 2 → Destination Field 2  
+3. **Stage 3**: Previous result → Price Updater 3 → Destination Field 3
+4. **Stage 4**: Previous result → Price Updater 4 → Destination Field 4
+5. **Stage 5**: Previous result → Price Updater 5 → Final Destination Field
+
+**Source Field Configuration:**
+- **Source Field** - Defines the starting price for calculations:
+  - Default Price, Custom Price, Min Price, Max Price
+  - Item cost-based fields, last sales price
+  - Fixed Price - Uses header-level fixed price value
+- **Fixed Price** - Header-level fixed amount used when source field is "FixedPrice"
+
+**Destination Field Mapping:**
+- **Destination Field** - Final target field for price updates
+- **Destination Fields 1-4** - Intermediate stage targets
+- **Default behavior**: If no destination specified, uses source field as destination
+
+**Price Updater Configuration (Per Stage):**
+Each of the 5 price updaters supports:
+
+**Operation Types:**
+- **Add** - Adds value/percentage to current price
+- **Subtract** - Subtracts value/percentage from current price  
+- **Multiply** - Multiplies current price by value (percentages not allowed)
+- **Divide** - Divides current price by value (percentages not allowed)
+
+**Value Types:**
+- **Fixed Value** - Absolute monetary amount
+- **Percentage** - Percentage of current price (only with Add/Subtract operations)
+
+**Rounding Control:**
+- **Rounding Type** - Mathematical rounding method
+- **Rounding Value** - Precision level for rounding
+- **Currency Scale** - Automatic decimal place adjustment based on currency configuration
+
+**Line Applicability Control:**
+- **Applied On Lines:**
+  - **All** - Apply to all price list lines
+  - **Selected** - Only lines marked with "Selected for Price Change"
+  - **Not Selected** - Lines not marked for price changes
+
+**Validation & Error Handling:**
+- **Percentage Validation**: System prevents percentage values with multiply/divide operations
+- **Empty Updater Handling**: Skips processing for empty updater configurations  
+- **Currency Integration**: Automatically applies currency-specific decimal scaling
+- **Line Filtering**: Respects line-level applicability settings
+
+**Bulk Item Collection (`collectItems` Action):**
+Automated item collection for price list population with comprehensive filtering:
+
+**Range-Based Selection:**
+- **Item Range** - Item code range selection
+- **Category Ranges** - 5-level category filtering
+- **Classification Ranges** - 5-level item class filtering
+- **Brand Range** - Brand-based selection
+- **Section Range** - Departmental section filtering
+- **Dimensional Ranges** - Branch, sector, analysis set, department filtering
+
+**Automatic Spreading Options:**
+- **Spread Units** - Creates lines for all item UOM variants
+- **Spread Revisions** - Includes all item revision variants
+- **Spread Colors/Sizes** - Expands for all color/size combinations
+
+**Average Cost Price Calculation (`calculateAverageCostPrice` Action):**
+Automated cost-based pricing with real-time cost calculation:
+
+**Configuration:**
+- **Average Cost Field** - Source field for cost calculation
+- **Destination Field** - Target field for calculated prices
+- **Applied On Lines** - Line applicability control
+
+**Calculation Process:**
+- Retrieves real-time average costs from inventory system
+- Considers item dimensions (color, size, revision, lot) in cost calculation
+- Applies business dimensional constraints (branch, department, legal entity)
+- Updates specified destination fields with calculated costs
+
+**Additional Utility Actions:**
+- **Copy Deactivate Status** - Propagates header deactivation flag to all lines
+- **Add Additional Source Lines** - Merges lines from additional source price lists
+- **Spread Selected Line Data** - Expands selected lines across dimensions
+
+**Automated Spreading:**
+- **Spread Units** - Automatically create lines for all item UOMs
+- **Spread Revisions** - Include all item revisions  
+- **Spread Sizes/Colors** - Expand for all variants
+
+### Price List Management
+
+#### Creating Price Lists
+
+1. **Navigate** to Sales > Prices And Offers > Price List
+2. **Set Header Information**:
+   - Enter unique code and descriptive name
+   - Define date range for validity
+   - Set priority level (lower numbers = higher priority)
+   - Select target customers or customer groups
+
+3. **Configure Price Updates** (Optional):
+   - Set up to 5 price updaters for automated calculations
+   - Choose source fields (cost, previous price, etc.)
+   - Define mathematical operations and rounding rules
+
+4. **Add Detail Lines**:
+   - Select items manually or use bulk import
+   - Configure item dimensions and quantities
+   - Set prices or use updaters for automatic calculation
+
+#### Bulk Price Updates
+
+**From Source Documents:**
+- **Source** - Import from existing price lists, invoices, or orders
+- **Additional Source** - Combine multiple sources
+- **Include Discounts** - Factor in promotional pricing
+
+**Filter Criteria:**
+- Item ranges (From Item to To Item)
+- Category ranges across 5 classification levels
+- Department, branch, sector filtering
+- Analysis set constraints
+
+### System Integration
+
+#### Price Resolution Logic
+
+When determining prices, the system follows this hierarchy:
+
+1. **Document-Specific Pricing** - Manual overrides on sales documents
+2. **Active Price Lists** - Based on priority, date, and customer matching
+3. **Last Sales Price** - Historical pricing when enabled in configuration
+4. **Item Master Price** - Default item selling price
+5. **Cost-Plus Pricing** - Calculated from item cost with markup
+
+#### Real-Time Price Updates
+
+The pricing engine automatically:
+- Validates date ranges and customer eligibility
+- Applies quantity-based tiered pricing
+- Calculates tax implications
+- Considers contract pricing agreements
+- Factors in promotional offers and discounts
+
+## Sales Offers
+
+### Navigation  
+**Menu Path**: Sales > Prices And Offers > Sales Offer  
+
+### Purpose
+Sales Offers provide sophisticated discount and promotion management, enabling businesses to create complex promotional campaigns with multiple discount types, free items, and conditional applications.
+
+### Offer Types and Collections
+
+#### 1. Item Discounts
+**Collection**: `details`  
+**Table**: `ItemDiscountLine`
+
+Provides sophisticated item-specific discount structures with comprehensive targeting and conditional logic:
+
+**Item Targeting & Selection:**
+- **Item** - Specific inventory item for discount application
+- **Item Code** - Alternative item identification method
+- **Item Dimensions** - Full dimensional support including:
+  - Color, Size, Revision ID, Lot ID, Serial Numbers
+  - Box, Measures, Sub-item specifications
+  - Warehouse and Locator specific pricing
+- **Related Items** - Apply to item groups or free item groups
+- **Apply On Items** - Link to free item groups or pricing ranges
+
+**Category & Classification Filters:**
+- **Categories 1-5** - Multi-level category targeting
+- **Item Classes 1-10** - Extended classification system
+- **Brand** - Brand-specific discounts
+- **Section** - Departmental item grouping
+
+**Discount Configuration:**
+- **Discount Location** - **Required field** defining when/where discount applies in invoice processing
+- **Value or Percent** - Discount calculation method
+- **Discount Min Value** - Minimum discount amount
+- **Discount Max Value** - Maximum discount ceiling  
+- **Discount Default Value** - Standard discount amount
+- **Special Discount** - Flag for exceptional discount handling
+
+**Quantity & Value Controls:**
+- **Quantity** - Minimum purchase quantity for discount eligibility
+- **Max Qty** - Maximum quantity for tiered pricing
+- **Min Item Value to Apply Discount** - Individual item value threshold
+- **Max Item Value to Apply Discount** - Upper item value limit
+- **Min Invoice Value to Apply Discount** - Document-level minimum amount
+- **Max Invoice Value to Apply Discount** - Document-level maximum amount
+
+**Time & Date Restrictions:**
+- **From Date/To Date** - Validity period for discount
+- **From Time/To Time** - Daily time window restrictions
+- **From/To Lot ID** - Lot-specific discount periods
+
+**Advanced Discount Logic:**
+- **Accumulate Value By** - Defines how values are accumulated for discount calculation:
+  - Item sections, classes, categories 1-5
+  - Master groups, invoice value
+- **Apply Offer Discount Once** - Prevents multiple applications
+- **Stop Same Type Other Discounts** - Controls discount stacking
+- **Sales Items Count Type** - Method for counting qualifying items
+
+**Conditional Application:**
+- **Apply Only If Item In Invoice** - Requires specific items presence
+- **Price Classifiers 1-5** - Multi-dimensional price classification
+- **Dimensions** - Generic dimensional constraints (branch, department, sector, etc.)
+- **Security Capability** - User permission requirements
+- **Subsidiary** - Multi-entity business unit targeting
+
+#### 2. Free Items  
+**Collection**: `freeItems`  
+**Table**: `FreeItemLine`
+
+Comprehensive free item management extending base offer line functionality with sophisticated conditional logic:
+
+**Trigger Item Configuration:**
+- **Item** - Primary item that triggers the free item offer
+- **Item Code** - Alternative identification for trigger item
+- **Item Dimensions** - Full dimensional support for trigger items:
+  - Color, Size, Revision ID, Lot ID, Serial Numbers
+  - Box, Measures, Warehouse, Locator specifications
+- **Quantity** - Required purchase quantity to activate offer
+- **Max Qty** - Maximum qualifying quantity
+
+**Free Item Definition:**
+- **Free Item Code** - Unique identifier for the free item
+- **Free Item Data** - **Required** comprehensive free item configuration:
+  - **Free Item** - The actual item to be given free
+  - **Free Item Dimensions** - Complete dimensional specifications
+  - **Free Quantity** - Amount to be provided free
+  - **Max Qty** - Limit on free quantity
+  - **Free Policy** - Rules governing free item provision
+  - **Replace Policy** - Item replacement rules
+  - **Offer Apply Rules** - Complex application logic
+  - **Taxable** - Tax treatment for free items
+  - **Manual** - Manual override capability
+
+**Alternative Discount Mode:**
+- **Not Free But Discount** - **Key Feature** - Instead of providing items free, apply percentage discount to the item price
+- **Discount Location** - Defines where discount is applied in invoice processing
+- **Discount Percentage** - Percentage discount amount when using discount mode
+
+**Category & Classification Targeting:**
+- **Categories 1-5** - Multi-level category filtering for trigger items
+- **Item Classes 1-10** - Extended classification targeting
+- **Brand** - Brand-specific free item offers
+- **Apply On Items** - Link to item groups or pricing ranges
+- **Apply Only If Item In Invoice** - Conditional activation
+
+**Advanced Configuration:**
+- **Apply Offer By Slides Way** - Specialized application methodology
+- **Sales Items Count Type** - Method for counting qualifying items
+- **Item Max Qty** - Maximum quantity limits per item
+- **Free Item Is Same As Invoice Item** - Self-referential offers
+- **This Unit Only** - Unit-specific constraints
+- **Do Not Copy Master Item Data** - Data inheritance control
+
+**Time & Date Management:**
+- **From Date/To Date** - Offer validity period
+- **From/To Lot ID** - Lot-specific offer periods
+- **Invoice Classification** - Document type targeting
+
+**Price Classification & Targeting:**
+- **Price Classifiers 1-5** - Multi-dimensional price targeting
+- **Dimensions** - Generic dimensional constraints
+- **Subsidiary** - Multi-entity business unit support
+
+**Extended Data Fields:**
+- **Numeric Fields (n1-n5)** - Custom numeric data storage
+- **Reference Fields (ref1-ref5)** - Custom reference data
+- **Text Fields (text1-text5)** - Custom text information
+- **Date Fields (date1-date5)** - Custom date tracking
+
+#### 3. Invoice-Level Discounts
+**Collection**: `invDiscountLines`  
+**Table**: `InvoiceDiscountLine`
+
+Document-wide discount management with sophisticated threshold and conditional logic:
+
+**Invoice Value Thresholds:**
+- **Min Invoice Value** - Minimum document total for discount eligibility
+- **Max Invoice Value** - Maximum document total for discount application
+- **Min Invoice Items** - Minimum line item count requirement
+- **Max Invoice Items** - Maximum line item count for eligibility
+
+**Discount Configuration:**
+- **Discount Type** - Method of discount calculation (percentage, fixed amount, etc.)
+- **Discount Min Value** - Minimum discount amount to apply
+- **Discount Max Value** - Maximum discount ceiling
+
+**Discount Control Logic:**
+- **Stop Other Discounts** - Prevents other discount applications when this discount is applied
+- **Consider Stop Other Discounts** - Respects other discounts' stop flags
+- **Ignore Other Offers** - Excludes other promotional offers
+- **Ignore Free Items In Count** - Excludes free items from item count calculations
+
+**Advanced Item Counting:**
+- **Items Count Mechanism** - Defines how items are counted for threshold calculations
+- **Discount Basis From Matched Lines** - Calculates discount only on qualifying line items
+
+**Conditional Application:**
+- **Offer Apply Rules** - Links to complex rule sets for conditional logic
+- **Price Classifiers 1-5** - Multi-dimensional price targeting
+- **Dimensions** - Generic dimensional constraints (branch, department, legal entity, etc.)
+- **Security Capability** - User permission requirements
+- **Subsidiary** - Multi-entity business unit targeting
+
+#### 4. Invoice Free Items
+**Collection**: `invOffersLines`  
+**Table**: `InvoiceFreeItemLine`
+
+Document-level free item promotions with comprehensive threshold management and dimensional controls:
+
+**Invoice Thresholds:**
+- **Min Invoice Value** - Minimum document total to trigger free items
+- **Max Invoice Value** - Maximum document total for free item eligibility
+
+**Free Item Configuration:**
+- **Free Item Data** - Complete free item specification including:
+  - **Free Item** - The item to be provided free
+  - **Free Item Dimensions** - Full dimensional support (color, size, revision, lot, etc.)
+  - **Free Quantity** - Amount to be given free
+  - **Max Qty** - Maximum free quantity limit
+  - **Free Policy** - Rules governing free item provision
+  - **Replace Policy** - Item replacement logic
+  - **Offer Apply Rules** - Complex conditional application rules
+  - **Taxable** - Tax handling for free items
+  - **Manual** - Manual override capability
+  - **Sold Qty** - Track quantities in sales context
+
+**Discount Control:**
+- **Stop Other Discounts** - Prevents other discount applications
+- **Consider Stop Other Discounts** - Respects other discounts' stop flags
+- **Ignore Other Offers** - Excludes other promotional offers
+
+**Targeting & Classification:**
+- **Price Classifiers 1-5** - Multi-dimensional price targeting
+- **Dimensions** - Generic dimensional constraints (branch, department, legal entity, etc.)
+- **Security Capability** - User permission requirements
+- **Subsidiary** - Multi-entity business unit targeting
+
+#### 5. Items Count Offers
+**Collection**: `itemsCountOffers`  
+**Table**: `OfferOnItemsCountLine`
+
+Advanced quantity-based promotional system with sophisticated counting mechanisms and flexible reward structures:
+
+**Counting & Threshold Configuration:**
+- **Number of Invoice Items** - Minimum item count to trigger offer
+- **Items Count Mechanism** - Defines how items are counted and grouped
+- **Multiple Policy Mechanism** - Controls behavior when multiple qualifying groups exist
+- **Priority** - Order of evaluation when multiple offers apply
+- **Ignore Matched Item To Be Free Qty** - Excludes trigger items from free quantity
+
+**Item Targeting & Classification:**
+- **Categories 1-5** - Multi-level category targeting for counting
+- **Item Classes 1-10** - Extended classification system
+- **Brand** - Brand-specific counting and rewards
+- **Section** - Departmental item grouping
+- **Items Group** - Predefined item collections for counting
+- **Free Item Group** - Categories of items available as rewards
+- **Free Item Classification** - Classification system for reward items
+
+**Reward Configuration:**
+- **Free Item Qty** - Quantity of free items to provide
+- **Free Policy** - Rules governing free item distribution
+- **Not Free But Discount** - **Alternative Mode** - Apply discount instead of free items
+- **Discount Location** - Where discount is applied in invoice processing
+- **Discount Percentage** - Percentage discount when using discount mode
+- **Discount Value** - Fixed discount amount option
+
+**Time & Date Management:**
+- **From Date/To Date** - Offer validity period for this specific count offer
+
+**Control & Exclusion Logic:**
+- **Stop Other Discounts** - Prevents other discount applications
+- **Ignore Other Offers** - Excludes other promotional offers from consideration
+
+**Targeting & Classification:**
+- **Price Classifiers 1-5** - Multi-dimensional price targeting
+- **Dimensions** - Generic dimensional constraints (branch, department, legal entity, etc.)
+- **Subsidiary** - Multi-entity business unit targeting
+
+#### 6. Coupon Management
+**Collection**: `coupons`  
+**Table**: `OfferCouponLine`
+
+Comprehensive coupon and voucher management system with advanced validation and tracking capabilities:
+
+**Coupon Configuration:**
+- **Coupon Value** - Monetary value or discount amount
+- **Coupon Value Type** - Defines whether value is percentage, fixed amount, etc.
+- **Coupon Period** - Validity duration with UOM (days, months, etc.)
+- **Coupon Used Once** - Single-use restriction
+- **Deactivated** - Manual deactivation flag
+
+**Invoice Value Thresholds:**
+- **Invoice Value From** - Minimum invoice amount for coupon eligibility
+- **Invoice Value To** - Maximum invoice amount for coupon application
+
+**Generation & Control Logic:**
+- **Do Not Create Coupon If Invoice Has** - Conditional coupon creation based on invoice content
+- **Sales Items Count Type** - Method for counting qualifying items for coupon generation
+- **Dimensions Copy Method** - How dimensional data is inherited in coupon creation
+
+**Time & Date Management:**
+- **From Date/To Date** - Coupon validity period
+- **Priority** - Resolution order when multiple coupons apply
+
+**Application Rules:**
+- **Offer Apply Rules** - Complex conditional logic for coupon application
+- **Consider Stop Other Discounts** - Respects other discounts' exclusion flags
+
+**Targeting & Classification:**
+- **Dimensions** - Generic dimensional constraints (branch, department, legal entity, etc.)
+- **Subsidiary** - Multi-entity business unit targeting
+
+### Offer Configuration
+
+#### Header Settings
+
+**Basic Configuration:**
+- **Code/Name** - Offer identification
+- **Priority** - Resolution order when multiple offers apply
+- **Date/Time Range** - Precise scheduling of promotional periods
+- **Customer Targeting** - Specific customers, classes, or categories
+
+**Behavior Controls:**
+- **Stop Other Discounts** - Prevent discount combination
+- **Currency** - Offer pricing currency
+- **Season** - Seasonal promotion linking
+
+**Advanced Features:**
+- **Price Classifiers 1-5** - Multi-dimensional targeting
+- **Employee Restrictions** - Limit offers to specific sales staff
+- **Subsidiary Controls** - Multi-entity business support
+
+#### Offer Logic Implementation
+
+**Discount Cascading:**
+The system implements sophisticated discount cascading where:
+1. Header-level "Stop Other Discounts" prevents all other discount applications
+2. Line-level stops control individual item discount stacking  
+3. Priority-based resolution ensures predictable offer application
+
+**Price Updater Integration:**
+Sales offers can use the same 5-level price updater system as price lists:
+- **Source Field** - Base calculation field
+- **Destination Field** - Target field for updates
+- **Mathematical Operations** - Add, subtract, multiply, divide
+- **Rounding Control** - Precision management
+
+## System Price Update Mechanisms
+
+### Automated Price Calculation
+
+The system's `SalesPriceUtils.updateLinePriceAndDiscounts()` method orchestrates complex pricing calculations:
+
+#### Price Resolution Process
+
+1. **Tax Calculation** - Recalculates tax percentages if required
+2. **Detail Validation** - Removes lines without items
+3. **Configuration Loading** - Retrieves system pricing preferences
+4. **Base Price Calculation** - Determines starting prices from:
+   - Price lists (by priority and eligibility)
+   - Last sales prices (if configured)
+   - Item master prices
+   - Cost-plus calculations
+
+#### Discount Application Sequence
+
+1. **Item-Level Discounts** - Applied first from offers
+2. **Header Discount Calculation** - Document-wide discount determination
+3. **Discount Cascade Processing** - Applies discounts in priority order
+4. **Tax Recalculation** - Updates tax amounts after discounts
+5. **Free Item Processing** - Adds qualifying free items
+6. **Boundary Validation** - Ensures min/max price compliance
+
+### Integration Points
+
+#### Sales Document Processing
+
+The `updateLinesPrices()` method in `SalesOrderInvoicePostActions` demonstrates real-world price updating:
+
+#### Configuration Controls
+
+The system respects various configuration flags:
+- **doNotUpdatePricesAtAll** - Completely disable automatic pricing
+- **doNotUpdatePricesWhenThereSalesDocInFromDoc** - Preserve prices from source documents
+- **considerValueDateFromFromDocInPricingAndOffers** - Use source document dates for price/offer eligibility
+
+## Advanced Configuration
+
+### Multi-Currency Pricing
+
+When operating across multiple currencies:
+- Set base currency at price list level
+- Use currency-specific price lists for local markets
+- Consider exchange rate fluctuation impact
+- Implement currency-specific offer strategies
+
+### Integration with Other Modules
+
+**Inventory Management:**
+- Price lists automatically filter for sellable items
+- Item availability impacts free item offers
+- Inventory dimensions integrate with pricing dimensions
+
+**Customer Management:**
+- Customer classes enable group pricing strategies
+- Customer credit limits may affect offer eligibility
+- Sales territory alignment with pricing regions
+
+**Financial Management:**
+- Price changes trigger financial impact reporting
+- Margin analysis based on pricing vs. cost data
+- Revenue recognition implications for free items
+
+This pricing and offers system provides comprehensive tools for maintaining competitive pricing while maximizing profitability through strategic promotional campaigns and automated price management.

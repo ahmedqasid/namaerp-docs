@@ -1,51 +1,51 @@
-# كيف تُعالَج المستندات إلى أثر محاسبي (وإعادة معالجة طلب متعثّر)
+# How Documents Are Processed Into Accounting Effects (and reprocessing a stuck request)
 
-هذه أهمّ صفحة لفريق الدعم في الوحدة المحاسبية. تشرح ما يحدث **بعد** حفظ المستند: كيف يتحوّل إلى أثر في دفتر الأستاذ، ولماذا قد يتعثّر، وكيف تُعيد معالجته بنفسك دون تدخّل فنّي.
+This is the most important page for the support team in the accounting module. It explains what happens **after** you save a document: how it turns into an effect in the general ledger, why it might get stuck, and how to reprocess it yourself without technical intervention.
 
-## لماذا لا يُسجَّل الأثر فورًا؟
+## Why isn't the effect recorded instantly?
 
-حين تحفظ فاتورة أو سندًا، لا يكتب النظام أثرها المحاسبي في نفس اللحظة سطرًا بسطر. بدل ذلك يُنشئ **طلب أعمال** (Business Request) يُعالَج في الخلفية. الفائدة مزدوجة: الحفظ يصبح **فوريًا** للمستخدم، والمعالجة تصبح **موثوقة وقابلة لإعادة المحاولة** إن حدث خطأ، بدل أن يفشل الحفظ كلّه.
+When you save an invoice or a voucher, the system doesn't write its accounting effect line by line at that very moment. Instead it creates a **business request** that is processed in the background. The benefit is twofold: saving becomes **instant** for the user, and processing becomes **reliable and retryable** if an error occurs, instead of the whole save failing.
 
-هناك نوعان رئيسيان من الطلبات:
+There are two main kinds of request:
 
-- **طلب الحركة المحاسبية** (LedgerTransReq) — يُسجِّل الأثر في دفتر الأستاذ. هذا ما يخصّ هذه الصفحة.
-- **طلب الحركة المخزنية** (InvTransReq) — يُسجِّل أثر المخزون (الكميات والتكاليف).
+- **Ledger transaction request** (LedgerTransReq) — records the effect in the general ledger. This is what this page concerns.
+- **Inventory transaction request** (InvTransReq) — records the inventory effect (quantities and costs).
 
-## حالة المعالجة
+## Processing status
 
-يحمل كل مستند **حالة معالجة** تخبرك أين وصل طلبه:
+Every document carries a **processing status** that tells you how far its request got:
 
-- **في الانتظار** — أُنشئ الطلب وينتظر دوره.
-- **قيد المعالجة** — يُعالَج الآن.
-- **تمّت المعالجة** — كُتب الأثر المحاسبي بنجاح.
-- **فشل** — تعثّرت المعالجة لسبب ما (فترة مغلقة، حساب ناقص الإعداد، منع حركة...).
+- **Queued** — the request was created and is waiting its turn.
+- **Processing** — it's being processed now.
+- **Processed** — the accounting effect was written successfully.
+- **Failed** — processing stalled for some reason (closed period, an under-configured account, a transaction prevention...).
 
-## قائمة طلبات الأعمال: مكان المتابعة والإصلاح
+## The Business Requests list: where to monitor and fix
 
-عندما يتعثّر طلب أو يتأخّر، الوجهة الطبيعية هي **قائمة طلبات الأعمال** (Business Requests). منها:
+When a request gets stuck or is delayed, the natural destination is the **Business Requests** list. From it:
 
-1. **افتح القائمة** واعرض الطلبات.
-2. **رشِّح حسب الحالة** (مثلًا: فشل) وحسب نوع المستند والتاريخ، لتصل بسرعة إلى الطلبات المتعثّرة. الأعمدة المعروضة تساعدك: المستند، الحالة، تاريخ القيمة.
-3. **حدّد الصف/الصفوف** المتعثّرة.
-4. من قائمة **المزيد** اختر **إعادة المعالجة (Reprocess)** أو **إعادة الاعتماد (Recommit)** لإعادة المحاولة بعد معالجة السبب.
+1. **Open the list** and view the requests.
+2. **Filter by status** (e.g., failed) and by document type and date, to quickly reach the stuck requests. The displayed columns help: document, status, value date.
+3. **Select the stuck row(s)**.
+4. From the **More** menu choose **Reprocess** or **Recommit** to retry after the cause is handled.
 
-::: tip ما الفرق بين إعادة المعالجة وإعادة الاعتماد؟
-كلاهما يعيد محاولة كتابة الأثر؛ استخدم إعادة المعالجة كخطوة أولى، فإن استمرّ التعثّر جرّب إعادة الاعتماد. المهم أن **تعالج السبب أولًا** (افتح الفترة، أكمِل إعداد الحساب، أزِل مستند المنع) ثم تُعيد المحاولة.
+::: tip What's the difference between Reprocess and Recommit?
+Both retry writing the effect; use Reprocess as a first step, and if the stall persists, try Recommit. The key is to **handle the cause first** (open the period, complete the account setup, remove the prevention document) and then retry.
 :::
 
-## الأسباب الشائعة للتعثّر
+## Common causes of failure
 
-- **فترة مغلقة** — تاريخ المستند يقع في فترة محاسبية مغلقة (راجِع [الإقفال والتحكم في الفترات](../year-end-and-period-control.md)).
-- **مستند منع حركات محاسبية** نشط يغطّي الحساب/الذمة/التاريخ.
-- **إعداد حساب ناقص** — حساب ذمة بلا تحديد طرف، أو حساب مفعّل عليه منع تغيير طبيعة الرصيد (راجِع [الحسابات](../accounts.md)).
-- **توجيه مستند ناقص** — حساب مطلوب لم يُحدَّد في التوجيه.
+- **Closed period** — the document's date falls in a closed accounting period (see [Year-end & period control](../year-end-and-period-control.md)).
+- An active **Prevent Accounting Transactions** document covering the account/subsidiary/date.
+- **Incomplete account setup** — a subsidiary account with no party specified, or an account with "prevent changing balance nature" enabled (see [Accounts](../accounts.md)).
+- **Incomplete document term** — a required account not specified in the term.
 
-## الأداة الإدارية للمعالجة بالجملة
+## The bulk administrative tool
 
-توجد **أداة إدارية** لإعادة المعالجة بالجملة (لإعادة بناء الأستاذ وأعمار الديون على نطاق واسع). هذه أداة **طوارئ وتعافٍ** تحت إشراف فنّي، وليست الطريق اليومي. الطريق الطبيعي اليومي هو **قائمة طلبات الأعمال** الموضّحة أعلاه.
+There's an **administrative tool** for bulk reprocessing (to rebuild the ledger and debt ages at scale). This is an **emergency/recovery** tool under technical supervision, not the day-to-day path. The normal daily path is the **Business Requests** list described above.
 
-## للدعم الفني
+## For Support
 
-- **«المستند محفوظ لكن لا أثر له في الحسابات»** — افحص **حالة المعالجة**؛ إن كانت «فشل» فعالِج السبب ثم أعِد المعالجة من قائمة طلبات الأعمال.
-- **«عالجت السبب لكن الحالة ما زالت فشل»** — يجب إعادة المحاولة يدويًا (إعادة معالجة/اعتماد)؛ معالجة السبب وحدها لا تُعيد المحاولة تلقائيًا دائمًا.
-- خيارات تتعلّق بمهلة المعالجة والإقفال مع وجود حركات غير معالجة في كتالوج [إعدادات الحسابات](./accounting-configuration.md).
+- **"The document is saved but has no effect in the accounts"** — check the **processing status**; if it's "Failed", handle the cause then reprocess from the Business Requests list.
+- **"I handled the cause but the status is still Failed"** — you must retry manually (Reprocess/Recommit); handling the cause alone doesn't always retry automatically.
+- Options related to processing tolerance and closing with unprocessed transactions are in the [Accounting configuration](./accounting-configuration.md) catalog.

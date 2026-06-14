@@ -1,69 +1,69 @@
-# تكلفة المخزون وإعادة التقييم (Inventory Costing & Revaluation)
+# Inventory Costing & Revaluation
 
-كمية المخزون نصف الحقيقة فقط؛ النصف الآخر هو **قيمته**. هذا الدليل يجمع المستندات التي تضبط تكلفة مخزونك: توزيع المصاريف الإضافية على التوريدات، وإعادة تقييم التكلفة، وتجميد التكلفة عند الإقفال.
+Inventory quantity is only half the truth; the other half is its **value**. This guide gathers the documents that adjust your inventory's cost: distributing additional charges across receipts, revaluing cost, and freezing cost at period close.
 
-## كيف يتتبع النظام التكلفة
+## How the System Tracks Cost
 
-يحتفظ النظام بتكلفة كل صنف ويحدّثها مع كل حركة وفق طريقة التكليف المعتمدة - مثل **الوارد أولًا صادر أولًا (FIFO)**، و**متوسط التكلفة المتحرك**، و**آخر تكلفة شراء**. عند كل توريد تُحدَّث التكلفة، وعند كل صرف تُحتسب تكلفة المنصرف بالطريقة ذاتها، فتبقى تكلفة البضاعة المبيعة وقيمة المخزون متّسقتين تلقائيًا.
+The system keeps each item's cost and updates it with every movement according to the adopted costing method - such as **First In First Out (FIFO)**, **moving average cost**, and **last purchase cost**. On each receipt the cost is updated, and on each issue the cost of the issued goods is computed the same way, so cost of goods sold and inventory value stay automatically consistent.
 
-لكن الواقع يفرض حالات يحتاج فيها هذا التتبع التلقائي إلى تدخّل: مصاريف شحن تصل بعد التوريد، أو قيمة سوقية تنخفض، أو إقفال شهري يجب تثبيت التكلفة عنده. وتلك حالات هذه الصفحة.
+But reality imposes cases where this automatic tracking needs intervention: freight charges that arrive after the receipt, a market value that drops, or a monthly close at which cost must be fixed. Those are the cases this page covers.
 
-## التكاليف الإضافية على التوريدات (ReceiptAdditionalCost)
+## Additional Costs on Receipts (ReceiptAdditionalCost)
 
-سعر الصنف عند المورّد ليس كل تكلفته الحقيقية. هناك الشحن، والتأمين، والجمارك، والتخليص، والعمولات. **مستند التكلفة الإضافية** يوزّع هذه المصاريف على أصناف التوريد لتصل إلى **التكلفة الواصلة (Landed Cost)** الحقيقية.
+The supplier's item price isn't the whole true cost. There's freight, insurance, customs, clearance, and commissions. The **Additional Cost** document distributes these charges across the receipt's items to arrive at the true **landed cost**.
 
-![شاشة التكلفة الإضافية في Nama ERP](images/inventory-costing/additional-cost-ar.png)
+![Additional cost screen in NaMa ERP](../../ar/modules/supplychain/images/inventory-costing/additional-cost-en.png)
 
-### كيف يعمل
+### How It Works
 
-تربط المستند بالتوريد (أو أمر الشراء) المعني، ثم تُدخل بنود المصاريف. ويوزّعها النظام على الأصناف وفق أساس تختاره - بالقيمة، أو بالوزن، أو بالكمية، أو يدويًا. النتيجة أن تكلفة كل صنف ترتفع بنصيبه العادل من المصاريف، فتصبح قيمة المخزون - وتاليًا تكلفة البيع - معبّرة عن التكلفة الحقيقية لا سعر المورّد وحده.
+You link the document to the relevant receipt (or purchase order), then enter the charge lines. The system distributes them across the items on a basis you choose - by value, by weight, by quantity, or manually. The result is that each item's cost rises by its fair share of the charges, so inventory value - and therefore cost of sale - reflects the true cost, not the supplier price alone.
 
-يدعم المستند بنودًا تلقائية ويدوية ومحسوبة، كما يدعم جدولة سداد المصاريف الخارجية عبر قوالب الجدولة، فتُربط المصاريف بمستحقّيها زمنيًا.
+The document supports automatic, manual, and calculated lines, and supports scheduling payment of external charges via scheduling templates, linking charges to their payees over time.
 
-::: tip التكاليف الإضافية والاعتمادات المستندية
-في الاستيراد عبر الاعتمادات المستندية، تُجمَّع مصاريف الاعتماد (شحن، تأمين، جمارك، عمولات بنك) وتُحمَّل على البضاعة ضمن مسار الاعتماد. راجع [الاعتمادات المستندية](./letters-of-credit.md).
+::: tip Additional Costs and Letters of Credit
+In imports via letters of credit, the LC charges (freight, insurance, customs, bank commissions) are accumulated and loaded onto the goods within the LC path. See [Letters of Credit](./letters-of-credit.md).
 :::
 
-## إعادة تقييم التكلفة (CostRevaluation)
+## Cost Revaluation (CostRevaluation)
 
-أحيانًا تكون الكمية صحيحة لكن **القيمة** تحتاج تعديلًا. **مستند إعادة تقييم التكلفة** يغيّر تكلفة الأصناف دون تغيير كمياتها - لا حركة فعلية، أثر محاسبي فقط.
+Sometimes the quantity is right but the **value** needs adjusting. The **Cost Revaluation** document changes items' cost without changing their quantities - no physical movement, accounting effect only.
 
-![شاشة إعادة تقييم التكلفة في Nama ERP](images/inventory-costing/cost-revaluation-ar.png)
+![Cost revaluation screen in NaMa ERP](../../ar/modules/supplychain/images/inventory-costing/cost-revaluation-en.png)
 
-حالات الاستخدام:
-- **انخفاض القيمة السوقية**: إلكترونيات اشتُريت بسعر مرتفع ثم صدر طراز أحدث، فتُخفَّض قيمتها لتطابق السوق (التقييم بالأقل من التكلفة أو السوق).
-- **التقادم**: مخزون قديم لن يُباع بالسعر الكامل، فتُعدَّل قيمته إلى المبلغ القابل للاسترداد المتوقع.
-- **تصحيح أخطاء التكلفة**: أصناف استُلمت بتكلفة خاطئة، فتُعاد إلى التكلفة الصحيحة.
+Use cases:
+- **Market value decline**: electronics bought at a high price, then a newer model is released, so their value is reduced to match the market (lower of cost or market).
+- **Obsolescence**: old stock that won't sell at full price, so its value is adjusted to the expected recoverable amount.
+- **Correcting cost errors**: items received at the wrong cost, restored to the correct cost.
 
-يبقى الموقع والكمية كما هما، ويتغيّر الرصيد القيمي في الدفاتر فقط، مع قيد محاسبي يعكس فرق القيمة.
+The location and quantity stay the same, and only the value balance in the books changes, with an accounting entry reflecting the value difference.
 
-## تسعير المنتجات التامة (FinishedProductPricing)
+## Finished Product Pricing (FinishedProductPricing)
 
-عند تجميع أو تصنيع منتج نهائي، تتجمّع تكلفته من مكوناته. **مستند تسعير المنتجات التامة** يلتقط هذا التجميع: يجمع تكاليف المكونات من قائمة المواد (BOM) أو مستند التجميع، ويوزّع المنتجات المشتركة والتكاليف الإضافية غير المباشرة، ليصل إلى التكلفة النهائية للمنتج المجمَّع. يكمّل هذا المستند مسار [التجميع والتعبئة](./assembly-and-packaging.md) من الجانب التكلفوي. أما تكلفة الإنتاج الكاملة (عمالة ومصاريف غير مباشرة لأوامر الإنتاج) فموطنها [وحدة التصنيع](/modules/manufacturing/).
+When you assemble or manufacture a finished product, its cost accumulates from its components. The **Finished Product Pricing** document captures this roll-up: it gathers component costs from the bill of materials (BOM) or the assembly document, allocates co-products and indirect additional costs, and arrives at the final cost of the assembled product. This document complements the [Assembly & Packaging](./assembly-and-packaging.md) path from the costing side. Full production costing (labor and overhead for production orders), however, lives in the [Manufacturing module](/modules/manufacturing/).
 
-## تجميد التكلفة عند الإقفال (FrozenCostAccounts)
+## Freezing Cost at Close (FrozenCostAccounts)
 
-عند إقفال فترة محاسبية (نهاية الشهر مثلًا)، لا تريد أن تتغيّر تكلفة المخزون بأثر رجعي بعد إصدار القوائم. **تجميد حسابات التكلفة** يمنع تعديل التكلفة خلال فترة محدّدة بتاريخ، فيحافظ على ثبات الأرقام التي بُنيت عليها القوائم المالية، ويمنع التوريدات أو التعديلات المتأخرة من تحريك تكلفة فترة مُقفلة.
+When you close an accounting period (month-end, for example), you don't want inventory cost changing retroactively after statements are issued. **Frozen Cost Accounts** prevents cost adjustments during a date-bounded period, preserving the stability of the numbers your financial statements were built on, and preventing late receipts or adjustments from moving the cost of a closed period.
 
-::: tip منع استخدام دفعات بعينها
-إلى جانب تجميد التكلفة، يتيح النظام **منع استخدام دفعة** خلال فترة (مثلًا دفعة قيد الاستدعاء أو الحجر الصحي)، فلا تُصرف تلك الدفعة حتى يُرفع المنع - أداة رقابة جودة تتقاطع مع التكلفة عبر منع تحريك مخزون لا يجب بيعه.
+::: tip Preventing the Use of Specific Batches
+Alongside freezing cost, the system lets you **prevent using a batch** during a period (for example a batch under recall or quarantine), so that batch can't be issued until the prevention is lifted - a quality-control tool that intersects with cost by preventing movement of stock that shouldn't be sold.
 :::
 
-## أفضل الممارسات
+## Best Practices
 
-::: tip نصائح عملية
-**وزّع التكاليف الإضافية قبل الإقفال**: أدخل مصاريف الشحن والجمارك على التوريد فور توفّرها، حتى تعكس تكلفة المخزون الواقع قبل احتساب تكلفة المبيعات.
+::: tip Practical Tips
+**Distribute additional costs before close**: Enter freight and customs charges on the receipt as soon as they're available, so inventory cost reflects reality before cost of sales is computed.
 
-**وثّق سبب إعادة التقييم**: كل إعادة تقييم تحتاج مبررًا واضحًا (هبوط سوق، تقادم، تصحيح) لأغراض المراجعة والامتثال.
+**Document the reason for revaluation**: Every revaluation needs a clear justification (market drop, obsolescence, correction) for audit and compliance purposes.
 
-**جمّد التكلفة بعد الإقفال مباشرةً**: فعّل التجميد بمجرد اعتماد قوائم الفترة لمنع أي تحريك لاحق لأرقامها.
+**Freeze cost right after close**: Enable freezing as soon as the period's statements are approved to prevent any later movement of their numbers.
 
-**راجع التكلفة الواصلة دوريًا**: قارن التكلفة الواصلة الفعلية بالمتوقعة لاكتشاف انحرافات الموردين أو الشحن مبكرًا.
+**Review landed cost periodically**: Compare actual landed cost to expected to catch supplier or freight deviations early.
 :::
 
-## الخطوات التالية
+## Next Steps
 
-- [استلام المخزون](./receiving-stock.md) - حيث تبدأ تكلفة المخزون
-- [الجرد المخزني](./stock-taking.md) - تسوية الكميات قبل تثبيت القيم
-- [التجميع والتعبئة](./assembly-and-packaging.md) - بناء المنتجات وتجميع تكاليفها
-- [الاعتمادات المستندية](./letters-of-credit.md) - تكاليف الاستيراد عبر الاعتمادات
+- [Receiving Stock](./receiving-stock.md) - where inventory cost begins
+- [Stock Taking](./stock-taking.md) - reconciling quantities before fixing values
+- [Assembly & Packaging](./assembly-and-packaging.md) - building products and rolling up their costs
+- [Letters of Credit](./letters-of-credit.md) - import costs via letters of credit

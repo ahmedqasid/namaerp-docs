@@ -1,103 +1,99 @@
-<rtl>
+# Fingerprint Login in Point of Sale
 
-# تسجيل الدخول بالبصمة في نقاط البيع
+Imagine you have several employees taking turns at the same POS terminal throughout the day. Instead of typing a username and password every time, the employee simply places a finger on the fingerprint reader and the system recognizes them automatically and logs them in. This feature makes switching between users faster and more secure.
 
-تخيّل أن لديك عدة موظفين يتناوبون على نفس ماكينة نقاط البيع خلال اليوم. بدلاً من كتابة اسم المستخدم وكلمة المرور في كل مرة، يكفي أن يضع الموظف إصبعه على قارئ البصمة ليتعرّف النظام عليه تلقائياً ويُسجّل دخوله. هذه الميزة تجعل عملية تبديل المستخدمين أسرع وأكثر أماناً.
+## How Does the Feature Work?
 
-## كيف تعمل الميزة؟
+The system uses a fingerprint reader of the **Digital Persona URU4500** type. When registering a new fingerprint, the system asks the user to place their finger **4 times** to ensure recognition accuracy. After registration, the fingerprint is stored in the POS database and synchronized with the main server.
 
-النظام يستخدم جهاز قارئ بصمات من نوع **Digital Persona URU4500**. عند تسجيل بصمة جديدة، يطلب النظام من المستخدم وضع إصبعه **4 مرات** لضمان دقة التعرّف. بعد التسجيل، تُخزَّن البصمة في قاعدة بيانات نقاط البيع وتُزامَن مع الخادم الرئيسي.
+Whenever any screen appears that requires login credentials — whether the main login screen, the unlock window, or the security authorization window — the system automatically starts listening to the fingerprint reader in the background. As soon as the fingerprint is recognized, login happens directly without any manual input.
 
-عند ظهور أي شاشة تطلب بيانات الدخول — سواء شاشة تسجيل الدخول الرئيسية، أو نافذة فك القفل، أو نافذة الصلاحيات الأمنية — يبدأ النظام تلقائياً بالاستماع لقارئ البصمة في الخلفية. بمجرد التعرّف على البصمة، يتم تسجيل الدخول مباشرة دون الحاجة لأي إدخال يدوي.
+## Requirements
 
-## المتطلبات
+Before using the fingerprint feature, you need to install the driver for the reader:
 
-قبل استخدام ميزة البصمة، تحتاج إلى تثبيت برنامج التشغيل الخاص بجهاز القارئ:
-
-1. حمّل **Digital Persona SDK** من الرابط التالي:
+1. Download the **Digital Persona SDK** from the following link:
    `https://github.com/iamonuwa/Digital-Persona-SDK/blob/master/SDK/Install/x64/Setup.exe`
-2. ثبّت البرنامج على الجهاز الذي يعمل عليه نقاط البيع.
-3. وصّل جهاز قارئ البصمة **Digital Persona URU4500** بمنفذ USB.
+2. Install the software on the machine running the POS application.
+3. Connect the **Digital Persona URU4500** fingerprint reader to a USB port.
 
 ::: warning
-تأكد من تثبيت SDK قبل تشغيل تطبيق نقاط البيع. إذا لم يكن القارئ موصولاً أو البرنامج غير مثبّت، ستظهر رسالة "لا يوجد قارئ بصمة متاح" عند محاولة التسجيل.
+Make sure to install the SDK before launching the POS application. If the reader is not connected or the software is not installed, the message "No fingerprint reader available" will appear when attempting to register.
 :::
 
-## إعداد الميزة
+## Setting Up the Feature
 
-### الخطوة 1: تفعيل البصمة في إعدادات نقاط البيع
+### Step 1: Enable Fingerprint in POS Settings
 
-1. افتح ملف **إعدادات نقاط البيع** (POSConfiguration).
-2. فعّل خيار **"تفعيل البصمة"** (Enable Fingerprint).
-3. احفظ الإعدادات.
+1. Open the **POS Settings** file (POSConfiguration).
+2. Enable the **"Enable Fingerprint"** option.
+3. Save the settings.
 
-هذا الخيار هو المفتاح الرئيسي — بدون تفعيله، لن تعمل أي من ميزات البصمة في النظام، ولن يظهر زر تسجيل البصمة في القائمة.
+This option is the master switch — without enabling it, none of the fingerprint features will work in the system, and the fingerprint enrollment button will not appear in the menu.
 
-### الخطوة 2: منح صلاحية تسجيل البصمات
+### Step 2: Grant the Fingerprint Enrollment Permission
 
-ليس كل مستخدم يجب أن يكون قادراً على تسجيل بصمات الآخرين. لذلك أضفنا صلاحية مخصصة للتحكم في ذلك:
+Not every user should be able to enroll other users' fingerprints. That is why a dedicated permission was added to control this:
 
-1. افتح **ملف الصلاحيات الأمنية** (POS Security Profile) الخاص بالمستخدم أو المجموعة.
-2. فعّل صلاحية **"CanEnrollFingerprints"** (إمكانية تسجيل البصمات).
-3. احفظ الملف.
+1. Open the **POS Security Profile** (POS Security Profile) for the user or group.
+2. Enable the **"CanEnrollFingerprints"** permission.
+3. Save the file.
 
 ::: tip
-يمكنك منح هذه الصلاحية فقط للمشرفين أو مديري الفروع، بحيث يكونون هم المسؤولين عن تسجيل بصمات باقي الموظفين.
+You can grant this permission only to supervisors or branch managers, making them responsible for enrolling the fingerprints of other employees.
 :::
 
-## تسجيل بصمة جديدة
+## Registering a New Fingerprint
 
-بعد الإعداد، أصبح بإمكان المستخدمين المصرّح لهم تسجيل بصمات جديدة. العملية تتم من داخل تطبيق نقاط البيع مباشرة:
+After setup, authorized users can enroll new fingerprints. The process is done directly inside the POS application:
 
-1. افتح **القائمة الجانبية**.
-2. اذهب إلى **"الإجراءات"** (Actions).
-3. اختر **"تسجيل البصمة"** (Fingerprint Enrollment).
+1. Open the **side menu**.
+2. Go to **"Actions"**.
+3. Select **"Fingerprint Enrollment"**.
 
-ستظهر نافذة التسجيل التي تحتوي على:
+The enrollment window will appear, containing:
 
-### اختيار المستخدم
-- في حقل **"المستخدم"**، اختر المستخدم المراد تسجيل بصمته.
-- بمجرد اختيار المستخدم، يعرض النظام **البصمات المسجّلة مسبقاً** لهذا المستخدم (إن وُجدت)، مع تاريخ كل بصمة والملاحظات المرفقة بها.
-- يمكنك حذف أي بصمة قديمة بالضغط على زر (**✕**) بجانبها.
+### Selecting the User
+- In the **"User"** field, choose the user whose fingerprint is to be enrolled.
+- Once the user is selected, the system displays the **previously enrolled fingerprints** for that user (if any), along with the date of each fingerprint and its attached remarks.
+- You can delete any old fingerprint by clicking the (**✕**) button next to it.
 
-### إضافة ملاحظة
-- في حقل **"الملاحظات"** (Remarks)، أضف وصفاً يساعد المستخدم على تذكّر البصمة — مثلاً: "السبابة اليمنى" أو "الإبهام الأيسر".
+### Adding a Remark
+- In the **"Remarks"** field, add a description to help the user remember the fingerprint — for example: "Right index finger" or "Left thumb".
 
-### بدء التسجيل
-1. اضغط على زر **"بدء التسجيل"** (Start Enrollment).
-2. سيطلب منك النظام وضع الإصبع على القارئ **4 مرات**.
-3. مع كل مسح ناجح، تتحول إحدى نقاط التقدم إلى اللون الأخضر.
-4. إذا كانت جودة المسح ضعيفة، يطلب النظام إعادة المحاولة دون خسارة المسحات الناجحة السابقة.
-5. بعد اكتمال المسحات الأربع، تظهر رسالة **"تم تسجيل البصمة بنجاح!"**.
+### Starting Enrollment
+1. Click the **"Start Enrollment"** button.
+2. The system will ask you to place your finger on the reader **4 times**.
+3. With each successful scan, one of the progress indicators turns green.
+4. If the scan quality is poor, the system asks you to try again without losing the previous successful scans.
+5. After all four scans are complete, the message **"Fingerprint enrolled successfully!"** appears.
 
 ::: info
-يمكنك تسجيل أكثر من بصمة لنفس المستخدم — مثلاً بصمة لكل يد. كل بصمة تُسجَّل كسطر منفصل مع ملاحظاتها وتاريخها.
+You can enroll more than one fingerprint for the same user — for example, one fingerprint per hand. Each fingerprint is stored as a separate row with its own remarks and date.
 :::
 
-## استخدام البصمة لتسجيل الدخول
+## Using Fingerprint to Log In
 
-بعد تسجيل البصمات، تعمل ميزة التعرّف بالبصمة تلقائياً في ثلاثة مواضع:
+After enrolling fingerprints, the fingerprint recognition feature works automatically in three places:
 
-### شاشة تسجيل الدخول
-عند تشغيل تطبيق نقاط البيع وظهور شاشة تسجيل الدخول، يبدأ النظام فوراً بالاستماع لقارئ البصمة. ضع إصبعك على القارئ والنظام يتعرّف عليك ويُسجّل دخولك مباشرة — لا حاجة لكتابة اسم المستخدم أو كلمة المرور.
+### Login Screen
+When the POS application starts and the login screen appears, the system immediately starts listening to the fingerprint reader. Place your finger on the reader and the system recognizes you and logs you in directly — no need to type a username or password.
 
-### نافذة فك القفل
-عندما تكون الشاشة مقفلة ويطلب النظام بيانات الدخول لفك القفل، يمكنك ببساطة وضع إصبعك على القارئ لفك القفل.
+### Unlock Window
+When the screen is locked and the system asks for login credentials to unlock it, you can simply place your finger on the reader to unlock.
 
-### نافذة الصلاحيات الأمنية
-عند تنفيذ إجراء يتطلب صلاحية خاصة (مثل منح خصم أو إلغاء فاتورة)، تظهر نافذة تطلب بيانات مستخدم لديه الصلاحية المطلوبة. بدلاً من إدخال البيانات يدوياً، يمكن للمشرف وضع بصمته مباشرة على القارئ.
+### Security Authorization Window
+When performing an action that requires a special permission (such as applying a discount or canceling an invoice), a window appears asking for the credentials of a user who has the required permission. Instead of entering the credentials manually, the supervisor can place their fingerprint directly on the reader.
 
 ::: tip
-في جميع الحالات الثلاث، يبقى خيار تسجيل الدخول التقليدي (اسم المستخدم وكلمة المرور) متاحاً. البصمة هي طريقة إضافية وليست بديلاً إجبارياً.
+In all three cases, the traditional login option (username and password) remains available. Fingerprint is an additional method, not a mandatory replacement.
 :::
 
-## مزامنة البيانات مع الخادم
+## Data Synchronization with the Server
 
-بيانات البصمات تتبع نفس آلية مزامنة بيانات نقاط البيع مع الخادم الرئيسي:
+Fingerprint data follows the same synchronization mechanism as other POS data with the main server:
 
-- عند تسجيل بصمة جديدة أو حذف بصمة موجودة، يُعلّم السجل بأنه **غير مُرسَل** (sent = false).
-- يقوم النظام تلقائياً بإرسال البصمات غير المرسلة إلى الخادم ضمن دورة المزامنة الاعتيادية.
-- على الخادم، تُحفظ البصمات في ملف **"بصمات المستخدمين"** (User Fingerprint) ضمن النظام الأساسي.
-- يتم تسجيل معرّف ملف البصمة في **سجل الإجراءات** (Action History) لأغراض المتابعة والمراجعة.
-
-</rtl>
+- When a new fingerprint is enrolled or an existing one is deleted, the record is flagged as **not sent** (sent = false).
+- The system automatically sends unsent fingerprints to the server within the regular synchronization cycle.
+- On the server, fingerprints are stored in the **"User Fingerprint"** file within the core system.
+- The fingerprint file ID is recorded in the **Action History** for tracking and auditing purposes.

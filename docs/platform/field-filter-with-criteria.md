@@ -1,69 +1,69 @@
-# فلتر الحقل بالمعايير (Field Filter with Criteria)
+# Field Filter with Criteria
 
-يمكنك استخدام شاشة **فلتر الحقل بالمعايير** لتطبيق فلاتر مخصصة عند البحث داخل حقول محددة في أي شاشة من شاشات Nama ERP.
+You can use the **Field Filter with Criteria** screen to apply custom filters when searching within specific fields on any Nama ERP screen.
 
-على سبيل المثال:
-- في **فاتورة الشراء**، قد ترغب في عرض الأصناف التي يكون موردها الافتراضي هو نفس مورد الفاتورة فقط.
-- في **فاتورة المبيعات**، قد ترغب في إظهار **الأصناف غير الخدمية** فقط عند اختيار الصنف.
+For example:
+- In a **purchase invoice**, you may want to display only items whose default supplier matches the invoice's supplier.
+- In a **sales invoice**, you may want to show only **non-service items** when selecting an item.
 
-## كيفية تعريف فلتر الحقل بالمعايير
+## How to Define a Field Filter with Criteria
 
-1. **إنشاء سجل المعايير**
-    - في ملف *تعريف المعايير*، حدد الشرط الذي تريد تطبيقه (مثل: الأصناف غير الخدمية).
+1. **Create a Criteria Record**
+    - In the *Criteria Definition* file, define the condition you want to apply (e.g., non-service items).
 
-2. **إنشاء سجل فلتر الحقل**
-    - افتح شاشة **فلتر الحقل بالمعايير** وأنشئ سجلاً جديداً.
-    - حدد **نوع المستند** (مثل: فاتورة المبيعات).
-    - حدد **الحقل** الذي سيُطبَّق عليه الفلتر (مثل: `details.item.item`).
-    - أسند **المعايير** المعرَّفة مسبقاً إلى هذا الحقل.
+2. **Create a Field Filter Record**
+    - Open the **Field Filter with Criteria** screen and create a new record.
+    - Specify the **Document Type** (e.g., Sales Invoice).
+    - Define the **Field** to apply the filter on (e.g., `details.item.item`).
+    - Assign the previously defined **Criteria** to this field.
 
-3. **إسناد فلتر الحقل**
-    - انتقل إلى أحد مواقع الإعداد التالية وأسند الفلتر في حقل **فلتر الحقل**:
-        - نوع المستند
-        - دفتر المستند
-        - مجموعة ملفات رئيسية
-        - تحديث تعريف القائمة
-    - أو اختر خيار **تلقائي** لتطبيقه تلقائياً.
+3. **Assign the Field Filter**
+    - Go to one of the following configuration locations and assign the filter in the **Field Filter** field:
+        - Document Type
+        - Document Book
+        - Master Group
+        - Menu Definition Update
+    - Alternatively, select the **Automatic** option to apply it automatically.
 
-4. **احفظ** التغييرات.
+4. **Save** your changes.
 
-> إذا كان فلترك يتطلب منطقاً ديناميكياً مثل الحلقات أو الشروط، استخدم **لغة Tempo** بدلاً من تعريف المعايير.
+> If your filter requires dynamic logic such as loops or conditions, use **Tempo Language** instead of a criteria definition.
 
-![Field Filter Screenshot](images/field-filter.png)
+![Field Filter Screenshot](../ar/platform/images/field-filter.png)
 
 ---
 
-## مثال: فلترة الأصناف غير الخدمية في فاتورة المبيعات
+## Example: Filter Non-Service Items in Sales Invoice
 
-لعرض الأصناف غير الخدمية فقط عند اختيار صنف في شاشة **فاتورة المبيعات**:
+To show only non-service items when selecting an item in the **Sales Invoice** screen:
 
-1. في ملف *تعريف المعايير*، عرِّف شرطاً للأصناف غير الخدمية.
-2. أنشئ سجلاً جديداً في **فلتر الحقل بالمعايير**:
-    - نوع المستند: فاتورة المبيعات
-    - الحقل: `details.item.itemCode`
-    - المعايير: معاييرك للأصناف غير الخدمية
-3. احفظ الفلتر باسم مثل `NonService`.
-4. في **توجيه فاتورة المبيعات** الخاص بك، عيِّن **فلتر الحقل = NonService**.
-5. أنشئ فاتورة مبيعات جديدة باستخدام ذلك التوجيه.
-6. عند اختيار الأصناف، ستظهر الأصناف غير الخدمية فقط.
+1. In the *Criteria Definition* file, define a condition for non-service items.
+2. Create a new record in **Field Filter with Criteria**:
+    - Document Type: Sales Invoice
+    - Field: `details.item.itemCode`
+    - Criteria: Your non-service items criteria
+3. Save the filter with a name like `NonService`.
+4. In your **Sales Invoice document term**, set **Field Filter = NonService**.
+5. Create a new Sales Invoice using that term.
+6. When selecting items, only non-service items will be shown.
 
 ::: tip
-- يجب إسناد الفلتر في حقل **فلتر الحقل** الموجود في نوع المستند أو الدفتر أو مجموعة الملفات الرئيسية أو تحديث القائمة.
-- لاختبار معاييرك:
-    - فعِّل **الاستخدام في شاشة القائمة** في سجل المعايير.
-    - افتح قائمة الأصناف وأدخل فلترك في حقل **فلتر إضافي**.
-    - يجب أن تعرض القائمة الأصناف المطابقة فقط.
-- يمكنك استرجاع **المعايير النصية** من سجل المعايير لعرض شروط الفلتر أو تعديلها يدوياً.
-- للمنطق المتقدم، استخدم **لغة Tempo**.
+- You must assign the filter in **Field Filter** field of a document type, book, master group, or menu update.
+- To test your criteria:
+    - Enable **Use In List View** in the criteria record.
+    - Open the item list and enter your filter in the **Extra Filter** field.
+    - The list should show only matching items.
+- You can retrieve the **Textual Criteria** from the criteria record to see or manually adjust the filter conditions.
+- For advanced logic, use **Tempo Language**.
   :::
 
 ---
 
-## مثال: فلتر ديناميكي باستخدام Tempo
+## Example: Dynamic Filter Using Tempo
 
-لنفترض أن **فاتورة مبيعات** مبنية على **أمر مبيعات** يحتوي على عدة عملاء في السطور. تريد إدراج العملاء الذين لا تزال لديهم كميات متبقية (`unsatisfiedQty2`) فقط عند اختيار العميل في فاتورة المبيعات.
+Suppose a **Sales Invoice** is based on a **Sales Order** containing multiple customers in the lines. You want to list only the customers with remaining quantities (`unsatisfiedQty2`) when selecting a customer in the sales invoice.
 
-استخدم كود **Tempo** التالي في حقل `Dynamic Filter` لفلتر الحقل:
+Use this **Tempo** code in the `Dynamic Filter` field of the field filter:
 
 ```
 {loop(fromDoc.$toReal.details)}

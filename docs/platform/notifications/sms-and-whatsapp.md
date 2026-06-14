@@ -1,277 +1,277 @@
-﻿# إعداد الرسائل القصيرة (SMS) و WhatsApp في نظام نما ERP
+﻿# SMS and WhatsApp Configuration in Nama ERP
 
-يدعم نظام نما ERP إرسال الرسائل عبر SMS و WhatsApp إلى المستخدمين والعملاء والموردين وغيرهم.
-لتفعيل هذه الميزة، قم بتهيئة الإعدادات المناسبة من شاشة **الإعدادات العامة** (Global Configuration).
+Nama ERP supports sending messages via SMS and WhatsApp to users, customers, suppliers, and other entities.
+To enable this feature, configure the appropriate settings from the **Global Configuration** screen.
 
-## مزود SMS: SMS Misr ([smsmisr.com](https://smsmisr.com/))
+## SMS Provider: SMS Misr ([smsmisr.com](https://smsmisr.com/))
 
-* **مزود الخدمة**: `SMS Misr`
-* **Sender Token**: احصل عليه من [smsmisr.com/Client/senderid](https://smsmisr.com/Client/senderid)
-  ![صفحة Sender Token](images/sms-misr-token.png)
-* **API Username** و **API Password**: احصل عليهما من [smsmisr.com/Client/Settings](https://smsmisr.com/Client/Settings)
-  ![صفحة بيانات الاعتماد](images/sms-misr-api-key.png)
+* **SMS Provider**: `SMS Misr`
+* **Sender Token**: Obtain from [smsmisr.com/Client/senderid](https://smsmisr.com/Client/senderid)
+  ![Sender Token Page](../../ar/platform/notifications/images/sms-misr-token.png)
+* **API Username** and **API Password**: Get them from [smsmisr.com/Client/Settings](https://smsmisr.com/Client/Settings)
+  ![API Credentials Page](../../ar/platform/notifications/images/sms-misr-api-key.png)
 
 ---
 
-## مزود SMS: Taqnyat ([taqnyat.sa](https://portal.taqnyat.sa))
+## SMS Provider: Taqnyat ([taqnyat.sa](https://portal.taqnyat.sa))
 
-* **مزود الخدمة**: `Taqneyat`
+* **SMS Provider**: `Taqneyat`
 * **Sender**:
-  ادخل إلى [portal.taqnyat.sa](https://portal.taqnyat.sa)، انتقل إلى **Send SMS**، وانسخ اسم المرسل من القائمة المنسدلة.
+  Visit [portal.taqnyat.sa](https://portal.taqnyat.sa), go to **Send SMS**, and copy the sender name from the dropdown list.
 ::: tip
-💡 استخدم أداة Inspect في متصفح Chrome لنسخ القيمة بدقة.
+💡 Use Chrome's Inspect Tool to accurately copy the value.
 :::
-  ![لقطة شاشة حقل المرسل](images/taqnyat-sender.png)
+  ![Sender Field Screenshot](../../ar/platform/notifications/images/taqnyat-sender.png)
 * **Password (Bearer Token)**:
-  انتقل إلى **Developers > Application**، اضغط أيقونة ➕، أدخل اسمًا، ثم اضغط علامة ✔️. انسخ الـ **Bearer Token** الناتج.
-  ![لقطة شاشة Bearer Token](images/taqnyat-bearer-token.png)
+  Go to **Developers > Application**, click the ➕ icon, provide a name, then click the ✔️ mark. Copy the resulting **Bearer Token**.
+  ![Bearer Token Screenshot](../../ar/platform/notifications/images/taqnyat-bearer-token.png)
 
 ---
 
-## مزود SMS: Vodafone Egypt
+## SMS Provider: Vodafone Egypt
 
-* **مزود الخدمة**: `Vodafone Egypt`
-* **User Name**: معرّف الحساب (Account ID)
-* **Password**: كلمة مرور API
-* **Sender**: اسم المرسل
-* **Other Settings**: المفتاح السري (Secret Key)
-* **استعلام التصحيح** (للتأكد من صيغة رقم الهاتف الصحيحة):
+* **SMS Provider**: `Vodafone Egypt`
+* **User Name**: Account ID
+* **Password**: API Password
+* **Sender**: Sender Name
+* **Other Settings**: Secret Key
+* **Correction Query** (to ensure correct phone format):
 
   ```sql
   select case when {to} like '2%' then {to} else concat('2',{to}) end
   ```
 
 ::: tip
-✅ بعد حفظ الإعدادات، سيتمكن نظام نما ERP من إرسال الإشعارات والرسائل عبر المزود المحدد. تأكد من صحة بيانات الاعتماد ومعرّفات المرسل مع مزود الخدمة.
+✅ After saving the configuration, Nama ERP will be able to send notifications and messages via the selected provider. Make sure credentials and sender IDs are valid and verified with the provider.
 :::
 
 ---
 
-# تكامل WhatsApp
+# WhatsApp Integration
 
-## تكامل WhatsApp عبر WAAPI.app
+## WAAPI.app WhatsApp Integration
 
-لتفعيل إرسال الرسائل عبر WhatsApp باستخدام منصة [waapi.app](https://waapi.app)، اتبع الخطوات التالية:
+To enable sending messages via WhatsApp using the [waapi.app](https://waapi.app) platform, follow these steps:
 
 ---
 
-### خطوات الإعداد
+### Setup Steps
 
-1. **إنشاء الحساب وربط واتساب**
+1. **Create an Account and Link WhatsApp**
 
-  * قم بإنشاء Instance جديدة على [waapi.app](https://waapi.app)
-  * سجّل الدخول إلى WhatsApp عبر مسح رمز QR
-    ![مسح رمز QR من الهاتف](images/waapi-qr.png)
+  * Create a new Instance on [waapi.app](https://waapi.app)
+  * Log in to WhatsApp by scanning the QR code
+    ![Scan QR Code from Phone](../../ar/platform/notifications/images/waapi-qr.png)
 ::: tip
-    ⚠️ **يجب** مسح رمز QR باستخدام الهاتف الذي عليه حساب WhatsApp الفعّال.
+    ⚠️ You **must** scan the QR code using the phone that has the active WhatsApp account.
 ::: 
 
-2. **الحصول على API Token**
+2. **Get the API Token**
 
-  * انتقل إلى [صفحة API Tokens](https://waapi.app/user/api-tokens)
-  * أدخل اسمًا مناسبًا، ثم اضغط "Create"
-  * سيتم عرض الـ Token في نافذة منبثقة — انسخه وضعه في حقل **كلمة المرور** في إعدادات Nama
-    ![شاشة رمز التوكن](images/waapi-token.png)
+  * Go to the [API Tokens page](https://waapi.app/user/api-tokens)
+  * Enter a suitable name, then click "Create"
+  * The Token will be displayed in a popup window — copy it and place it in the **Password** field in Nama settings
+    ![Token Screen](../../ar/platform/notifications/images/waapi-token.png)
 
-3. **الحصول على Instance ID**
+3. **Get the Instance ID**
 
-  * انتقل إلى [صفحة Instances](https://waapi.app/account/instances)
-  * انسخ **معرّف الـ Instance**
-  * ضعه في حقل **اسم المستخدم** أو **الإعدادات الأخرى** في إعدادات الرسائل القصيرة في Nama
-    ![شاشة معرف الـ Instance](images/waapi-instance-id.png)
-
----
-
-### إعدادات Nama ERP
-
-في شاشة إعدادات الرسائل:
-
-* **مزود الخدمة**: `waapi.app WhatsApp Integration`
-* **اسم المستخدم** أو **Other Settings**: معرّف الـ Instance (Instance ID)
-* **كلمة المرور**: رمز الـ Token
+  * Go to the [Instances page](https://waapi.app/account/instances)
+  * Copy the **Instance ID**
+  * Place it in the **Username** or **Other Settings** field in the SMS settings in Nama
+    ![Instance ID Screen](../../ar/platform/notifications/images/waapi-instance-id.png)
 
 ---
 
-## التكامل مع WhatsApp باستخدام ultramsg.com
+### Nama ERP Settings
 
-لإرسال رسائل WhatsApp من نظام نما ERP باستخدام [ultramsg.com](https://ultramsg.com)، اتبع الخطوات التالية:
+In the SMS settings screen:
 
-### الخطوة 1: إنشاء وربط الـ Instance
+* **Provider**: `waapi.app WhatsApp Integration`
+* **Username** or **Other Settings**: Instance ID
+* **Password**: Token
 
-* سجّل الدخول إلى [لوحة تحكم UltraMsg](https://user.ultramsg.com/).
-* أنشئ **Instance** جديدًا وقم بربطه بحساب WhatsApp عن طريق مسح رمز QR.
+---
 
-### الخطوة 2: الدخول إلى إعدادات الـ Instance
+## WhatsApp Integration Using ultramsg.com
 
-* بعد الربط، انتقل إلى [لوحة المستخدم في UltraMsg](https://user.ultramsg.com/).
-* اختر الـ **Instance** الخاص بك، ثم اضغط على **Manage** (إدارة).
+To send WhatsApp messages from Nama ERP using [ultramsg.com](https://ultramsg.com), follow these steps:
 
-![لقطة شاشة لإدارة الـ Instance](images/ultramsg-instance.png)
+### Step 1: Create and Link the Instance
 
-### الخطوة 3: الحصول على الـ Instance ID والرمز (Token)
+* Log in to the [UltraMsg Dashboard](https://user.ultramsg.com/).
+* Create a new **Instance** and link it to your WhatsApp account by scanning the QR code.
 
-* ستجد **Instance ID** في رابط المتصفح، مثلًا:
+### Step 2: Access the Instance Settings
+
+* After linking, go to the [UltraMsg User Panel](https://user.ultramsg.com/).
+* Select your **Instance**, then click **Manage**.
+
+![Instance Management Screenshot](../../ar/platform/notifications/images/ultramsg-instance.png)
+
+### Step 3: Get the Instance ID and Token
+
+* You will find the **Instance ID** in the browser URL, for example:
   `https://user.ultramsg.com/app/instances/instance.php?id=103251`
-  في هذا المثال، الـ Instance ID هو `103251`.
+  In this example, the Instance ID is `103251`.
 
-* من قسم اختبار الواجهة، اختر **Shell (cURL)** لعرض مثال الاستخدام.
+* From the API testing section, select **Shell (cURL)** to view a usage example.
 
-![لقطة شاشة لاختيار cURL](images/ultramsg-curl.png)
+![cURL Selection Screenshot](../../ar/platform/notifications/images/ultramsg-curl.png)
 
-* انسخ **Instance ID** و**Token** من النموذج الظاهر.
+* Copy the **Instance ID** and **Token** from the displayed form.
 
-![لقطة شاشة لـ Instance ID والرمز](images/ultramsg-instance-id.png)
+![Instance ID and Token Screenshot](../../ar/platform/notifications/images/ultramsg-instance-id.png)
 
-### الخطوة 4: الإعداد داخل نظام نما
+### Step 4: Configure in Nama ERP
 
-* استخدم **Instance ID** كاسم المستخدم (Username) أو كمُعرف للخدمة.
-* استخدم **Token** ككلمة مرور (Password) للمصادقة.
+* Use the **Instance ID** as the Username or service identifier.
+* Use the **Token** as the Password for authentication.
 
 
-## تكامل WhatsApp عبر WaPilot
+## WaPilot WhatsApp Integration
 
-لتفعيل إرسال رسائل WhatsApp من نظام Nama ERP باستخدام [wapilot.net](https://wapilot.net)، اتبع الخطوات التالية:
-
----
-
-### خطوات الإعداد
-
-1. **إنشاء حساب وربط واتساب**
-
-   * قم بإنشاء حساب على [app.wapilot.net](https://app.wapilot.net)
-   * أنشئ **Instance** جديدًا وقم بربطه بحساب WhatsApp عن طريق مسح رمز QR
-
-2. **الحصول على Instance ID**
-
-   * من لوحة التحكم، انتقل إلى قائمة الـ Instances
-   * انسخ **Instance ID** الخاص بك
-
-3. **الحصول على API Token**
-
-   * من إعدادات الحساب أو صفحة API، قم بإنشاء أو نسخ **API Token**
+To enable sending WhatsApp messages from Nama ERP using [wapilot.net](https://wapilot.net), follow these steps:
 
 ---
 
-### إعدادات Nama ERP
+### Setup Steps
 
-في شاشة إعدادات رسائل الواتساب:
+1. **Create an Account and Link WhatsApp**
 
-* **مزود الخدمة**: `WaPilot`
-* **اسم المستخدم (Public ID)**: معرّف الـ Instance (Instance ID)
-* **كلمة المرور (Secret)**: رمز الـ API Token
+   * Create an account on [app.wapilot.net](https://app.wapilot.net)
+   * Create a new **Instance** and link it to your WhatsApp account by scanning the QR code
+
+2. **Get the Instance ID**
+
+   * From the dashboard, go to the Instances list
+   * Copy your **Instance ID**
+
+3. **Get the API Token**
+
+   * From the account settings or API page, create or copy the **API Token**
+
+---
+
+### Nama ERP Settings
+
+In the WhatsApp message settings screen:
+
+* **Provider**: `WaPilot`
+* **Username (Public ID)**: Instance ID
+* **Password (Secret)**: API Token
 
 ::: tip
-يمكن استخدام WaPilot أيضًا كمزود للرسائل القصيرة (SMS) من خلال شاشة إعدادات الرسائل القصيرة، حيث يتم إرسال الرسائل عبر WhatsApp بدلاً من SMS التقليدي.
+WaPilot can also be used as an SMS provider through the SMS settings screen, where messages are sent via WhatsApp instead of traditional SMS.
 :::
 
 ---
 
-## إرسال الواتساب من هواتف الموظفين (المرسل الديناميكي)
+## Sending WhatsApp from Employee Phones (Dynamic Sender)
 
-تتيح هذه الميزة إرسال رسائل WhatsApp من هواتف الموظفين بدلاً من رقم ثابت واحد. على سبيل المثال، عندما يُرسل النظام رسالة لعميل، يمكن أن تظهر الرسالة من رقم هاتف مندوب المبيعات المسؤول عن هذا العميل، مما يتيح للمندوب متابعة المحادثة مباشرة من هاتفه الشخصي.
+This feature allows sending WhatsApp messages from employees' phones instead of a single fixed number. For example, when the system sends a message to a customer, the message can appear from the phone number of the sales representative responsible for that customer, allowing the representative to follow up on the conversation directly from their personal phone.
 
 ::: tip
-هذه الميزة متاحة لجميع مزودي خدمة WhatsApp المدعومين في النظام.
+This feature is available for all WhatsApp service providers supported in the system.
 :::
 
 ---
 
-### إعداد أرقام متعددة في إعدادات WhatsApp
+### Setting Up Multiple Numbers in WhatsApp Settings
 
-في شاشة **إعدادات رسائل WhatsApp**، يوجد جدول **Public IDs by Sender** يتيح تعريف عدة أرقام (Instances) لنفس الإعدادات:
+In the **WhatsApp Message Settings** screen, there is a **Public IDs by Sender** table that allows you to define multiple numbers (Instances) for the same settings:
 
-| الحقل | الوصف | مطلوب |
-|-------|-------|-------|
-| **Sender ID** | معرّف المرسل (مثل رقم الهاتف أو كود الموظف) | نعم |
-| **Public ID** | معرّف الـ Instance الخاص بهذا الرقم | نعم |
-| **Secret** | الرمز السري - يمكن تركه فارغاً ليُقرأ من الحقل الرئيسي | لا |
+| Field | Description | Required |
+|-------|-------------|----------|
+| **Sender ID** | Sender identifier (such as phone number or employee code) | Yes |
+| **Public ID** | The Instance identifier for this number | Yes |
+| **Secret** | The secret key — can be left empty to be read from the main field | No |
 
 ::: tip
-إذا تُرك حقل **Secret** فارغاً في أي سطر، سيستخدم النظام القيمة الموجودة في الحقل الرئيسي (Secret) في رأس الشاشة.
+If the **Secret** field is left empty in any row, the system will use the value in the main (Secret) field in the screen header.
 :::
 
 ---
 
-### تحديد المرسل المفضل في الإشعارات والموافقات
+### Setting the Preferred Sender in Notifications and Approvals
 
-في شاشة **تعريف الإشعار** أو **تعريف الموافقة**، يوجد حقل **المرسل المفضل لواتساب** (WhatsApp Preferred Sender) يدعم صيغة Tempo للقيم الديناميكية.
+In the **Notification Definition** or **Approval Definition** screen, there is a **WhatsApp Preferred Sender** field that supports Tempo syntax for dynamic values.
 
-#### أمثلة على صيغة المرسل المفضل:
+#### Examples of Preferred Sender Syntax:
 
-| الصيغة | الوصف |
-|--------|-------|
-| `{salesRep.mobile}` | رقم هاتف مندوب المبيعات المرتبط بالسجل |
-| `{createdByUser.mobile}` | رقم هاتف المستخدم الذي أنشأ السجل |
-| `{customer.accountManager.mobile}` | رقم هاتف مدير حساب العميل |
+| Syntax | Description |
+|--------|-------------|
+| `{salesRep.mobile}` | Phone number of the sales representative linked to the record |
+| `{createdByUser.mobile}` | Phone number of the user who created the record |
+| `{customer.accountManager.mobile}` | Phone number of the customer's account manager |
 
-::: info كيف يعمل النظام
-1. عند إرسال رسالة WhatsApp، يحسب النظام قيمة **المرسل المفضل** باستخدام صيغة Tempo
-2. يبحث النظام عن هذه القيمة في جدول **Public IDs by Sender**
-3. إذا وُجد تطابق، يستخدم الـ Public ID والـ Secret من ذلك السطر
-4. إذا لم يُوجد تطابق، يستخدم القيم الافتراضية من رأس الشاشة
+::: info How the System Works
+1. When sending a WhatsApp message, the system calculates the **Preferred Sender** value using Tempo syntax
+2. The system searches for this value in the **Public IDs by Sender** table
+3. If a match is found, it uses the Public ID and Secret from that row
+4. If no match is found, it uses the default values from the screen header
 :::
 
 ---
 
-## تكامل WhatsApp عبر WaboxApp
+## WaboxApp WhatsApp Integration
 
 
-لتفعيل إرسال رسائل WhatsApp من نظام Nama ERP باستخدام WaboxApp، اتبع الخطوات التالية:
+To enable sending WhatsApp messages from Nama ERP using WaboxApp, follow these steps:
 
 ---
 
-### خطوات الإعداد
+### Setup Steps
 
-1. **تسجيل رقم الهاتف**
-   قم بتسجيل رقم WhatsApp الخاص بالشركة على هاتف متصل دائمًا بالإنترنت.
-   💡 يفضل استخدام محاكي أندرويد مثل [www.memuplay.com](https://www.memuplay.com) لتوفير اتصال دائم.
+1. **Register the Phone Number**
+   Register the company's WhatsApp number on a phone that is always connected to the internet.
+   💡 It is recommended to use an Android emulator such as [www.memuplay.com](https://www.memuplay.com) for a permanent connection.
 
-2. **إنشاء حساب في WaboxApp**
+2. **Create an Account in WaboxApp**
 
-  * انتقل إلى [www.waboxapp.com](https://www.waboxapp.com)
-  * أنشئ حسابًا جديدًا (يتطلب إدخال بيانات بطاقة ائتمان)
+  * Go to [www.waboxapp.com](https://www.waboxapp.com)
+  * Create a new account (requires entering credit card details)
 
-3. **إضافة رقم الهاتف إلى WaboxApp**
+3. **Add the Phone Number to WaboxApp**
 
-  * ادخل إلى [https://www.waboxapp.com/manager/accounts](https://www.waboxapp.com/manager/accounts)
-  * اختر **Add New Phone Number**
+  * Go to [https://www.waboxapp.com/manager/accounts](https://www.waboxapp.com/manager/accounts)
+  * Select **Add New Phone Number**
 
-4. **إعداد إضافة كروم الخاصة بـ WaboxApp**
+4. **Set Up the WaboxApp Chrome Extension**
 
-  * حمّل الإضافة من متجر Chrome
-  * انسخ **API Key** من موقع WaboxApp إلى الإضافة، ثم اضغط **Validate**
+  * Download the extension from the Chrome store
+  * Copy the **API Key** from the WaboxApp website into the extension, then click **Validate**
 
-5. **ربط واتساب ويب**
+5. **Link WhatsApp Web**
 
-  * افتح [web.whatsapp.com](https://web.whatsapp.com) باستخدام نفس متصفح كروم الذي يحتوي على الإضافة
-  * امسح رمز QR من الهاتف
+  * Open [web.whatsapp.com](https://web.whatsapp.com) using the same Chrome browser that has the extension
+  * Scan the QR code from the phone
 
-6. **الحصول على بيانات الاتصال**
+6. **Get Connection Credentials**
 
-  * من لوحة التحكم في WaboxApp، انسخ:
+  * From the WaboxApp dashboard, copy:
 
     * **API Token**
-    * **رقم الهاتف بصيغة دولية** (مثال: `201065122360` بدلاً من `01065122360`)
+    * **Phone number in international format** (example: `201065122360` instead of `01065122360`)
 
-7. **إعداد Nama ERP**
+7. **Configure Nama ERP**
 
-  * افتح شاشة إعدادات الرسائل القصيرة
-  * أضف سطرًا جديدًا واختر المزود: `WaboxApp WhatsApp Integration`
-  * أدخل:
+  * Open the SMS settings screen
+  * Add a new row and select the provider: `WaboxApp WhatsApp Integration`
+  * Enter:
 
-    * **رقم الهاتف بصيغة دولية** في حقل *المرسل* أو *اسم المستخدم*
-    * **API Token** في حقل *كلمة المرور*
+    * **Phone number in international format** in the *Sender* or *Username* field
+    * **API Token** in the *Password* field
 
 
-::: tip ملاحظات مهمة
+::: tip Important Notes
 
-* يجب إبقاء الهاتف **يعمل دائمًا** واتصال الإنترنت مستمر.
-* يجب إبقاء **WhatsApp Web مفتوحًا** في متصفح كروم.
-* في حالة إغلاق أي من الطرفين، **لن تُرسل الرسائل**.
-* WaboxApp يخصم مبلغًا من بطاقة الائتمان إذا تجاوزت **100 رسالة/شهر** (مرسلة أو مستقبلة).
-* يفضل استخدام هذا المزود في حقل `مزود الرسائل المفضل` ضمن إعدادات التنبيهات والمهام المجدولة.
-* استخدم الحقل `يُستعمل فقط إذا كان مضافًا في المرسل المفضل` في إعدادات مزود الخدمة (كما في الطلب `KKDRQ00577`) لتجنب استبدال مزود الرسائل دائمًا بـ WhatsApp.
-* يجب أن يكون رقم الهاتف بصيغة دولية، أي يبدأ بـ **كود الدولة**.
+* The phone must be kept **always on** with a continuous internet connection.
+* **WhatsApp Web must remain open** in the Chrome browser.
+* If either side is closed, **messages will not be sent**.
+* WaboxApp charges the credit card if you exceed **100 messages/month** (sent or received).
+* It is preferable to use this provider in the `Preferred Message Provider` field in notification and scheduled task settings.
+* Use the field `Used only if added in the preferred sender` in the service provider settings (as in request `KKDRQ00577`) to avoid always replacing the message provider with WhatsApp.
+* The phone number must be in international format, i.e. starting with the **country code**.
 
 :::
 

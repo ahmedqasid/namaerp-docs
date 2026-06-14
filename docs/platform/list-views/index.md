@@ -1,7 +1,7 @@
 <div class="ignore-in-full-text-search">
 
-# قوائم العرض
-  - [الفلاتر السريعة في قوائم المستندات (Quick Filters in List Views)](/platform/list-views/quick-filters.md)
-  - [قصر المستخدم على سنة مالية (Limit User To Year)](/platform/list-views/limit-user-to-year.md)
+# List Views
+  - [Quick Filters in List Views](/platform/list-views/quick-filters.md)
+  - [Limit User To Year](/platform/list-views/limit-user-to-year.md)
 
 </div>

@@ -1,94 +1,94 @@
-# دليل المستخدم لجداول الدفع (Payment Schedules)
+# Payment Schedules User Guide
 
-## نظرة عامة
+## Overview
 
-تتيح ميزة جداول الدفع (Payment Schedules) في نظام Nama ERP تحديد شروط دفع مرنة وخطط تقسيط للمستندات المبيعاتية. يغطي هذا الدليل إعداد نماذج جداول الدفع واستخدامها وتطبيقها على عمليات المبيعات.
+The Payment Schedules feature in Nama ERP allows you to define flexible payment terms and installment plans for sales documents. This comprehensive guide covers the setup and usage of payment schedule templates and their application to sales transactions.
 
-## فهم جداول الدفع
+## Understanding Payment Schedules
 
-تتيح جداول الدفع للشركات:
-- تحديد خطط دفع بالتقسيط للعملاء
-- إعداد الدفعات المقدمة وشروط الدفع الآجلة
-- حساب تواريخ الدفع والمبالغ تلقائيًا
-- متابعة تحصيل المدفوعات مقابل الأقساط المجدولة
-- إدارة خطط الدفع ذات القيمة الثابتة والنسبة المئوية
+Payment schedules allow businesses to:
+- Define installment payment plans for customers
+- Set up down payments and deferred payment terms
+- Automatically calculate payment dates and amounts
+- Track payment collections against scheduled payments
+- Manage both fixed-value and percentage-based payment plans
 
-### المكونات الرئيسية
+### Key Components
 
-1. **نموذج جدولة الدفعات (Payment Schedule Template):** ملف رئيسي يحدد شروط الدفع القابلة لإعادة الاستخدام
-2. **سطور الجدول (Schedule Lines):** أقساط الدفع الفردية مع تواريخها ومبالغها
-3. **متابعة الدفع (Payment Tracking):** متابعة نظامية للمدفوعات الفعلية مقابل المبالغ المجدولة
+1. **Payment Schedule Template** (نموذج جدولة الدفعات): Master file defining reusable payment terms
+2. **Schedule Lines**: Individual payment installments with dates and amounts
+3. **Payment Tracking**: System tracking of actual payments against scheduled amounts
 
-## نماذج جداول الدفع
+## Payment Schedule Templates
 
-نماذج جداول الدفع هي ملفات رئيسية تحدد شروط الدفع القياسية التي يمكن تطبيقها على مستندات مبيعات متعددة.
+Payment Schedule Templates are master files that define standard payment terms that can be applied to multiple sales documents.
 
-### حقول النموذج
+### Template Fields
 
-#### البيانات الأساسية
-- **الرمز (Code):** معرّف فريد للنموذج
-- **الاسم (Name):** اسم وصفي للنموذج
-- **الوصف (Description):** وصف تفصيلي لشروط الدفع
+#### Basic Information
+- **Code** (الرمز): Unique identifier for the template
+- **Name** (الاسم): Descriptive name for the template
+- **Description** (الوصف): Detailed description of payment terms
 
-#### إعداد الدفع
+#### Payment Configuration
 
-##### إعدادات الدفعة المقدمة
-- **قيمة الدفعة المقدمة (Down Payment Value):** مبلغ ثابت للدفعة المقدمة
-- **نسبة الدفعة المقدمة (Down Payment Percentage):** نسبة مئوية من الإجمالي كدفعة مقدمة
+##### Down Payment Settings
+- **Down Payment Value** (قيمة الدفعة المقدمة): Fixed amount for down payment
+- **Down Payment Percentage** (نسبة الدفعة المقدمة): Percentage of total as down payment
 
 ::: warning
-لا يمكن تحديد قيمة ثابتة ونسبة مئوية للدفعة المقدمة في آن واحد. اختر إحدى الطريقتين فقط.
+You cannot specify both a fixed down payment value AND a percentage. Choose one method only.
 :::
 
-##### طريقة السداد (Payment Type)
-- **دفعات متغيرة (Variable Payments):** مبالغ مختلفة لكل قسط
-- **دفعات متساوية (Equal Payments):** نفس المبلغ موزعًا على جميع الأقساط
+##### Payment Type (طريقة السداد)
+- **Variable Payments**: Different amounts for each installment
+- **Equal Payments**: Same amount divided across all installments
 
-##### طريقة التحديث (Update Settings)
-- **يدوي (Manual):** لا يتم تحديث جدول الدفع تلقائيًا
-- **عند أول حفظ (With First Save):** يُحسب الجدول عند الحفظ الأول فقط
-- **عند كل حفظ (With Every Save):** يُعاد حساب الجدول عند كل حفظ
+##### Update Settings (طريقة التحديث)
+- **Manual**: Payment schedule is not automatically updated
+- **With First Save**: Schedule calculated only on first save
+- **With Every Save**: Schedule recalculated on each save
 
 ::: tip
-استخدم "عند أول حفظ" للعقود التي يجب أن تبقى فيها شروط الدفع ثابتة بعد الاتفاق الأولي.
+Use "With First Save" for contracts where payment terms should remain fixed after initial agreement.
 :::
 
-#### إعداد الدفعات المتساوية
+#### Equal Payments Configuration
 
-عند استخدام نوع الدفعات المتساوية:
-- **عدد الدفعات (Payments Count):** عدد الأقساط
-- **فترة الدفع (Payment Period):** الفترة الزمنية بين الدفعات
-  - القيمة: رقم (مثال: 30)
-  - الوحدة: يوم / أسبوع / شهر / سنة
-- **فترة السماح (Grace Period):** التأخير الأولي قبل أول دفعة
-  - القيمة: رقم
-  - الوحدة: يوم / أسبوع / شهر / سنة
+When using Equal Payments type:
+- **Payments Count** (عدد الدفعات): Number of installments
+- **Payment Period**: Time between payments
+  - Value: Numeric value (e.g., 30)
+  - Unit: Day/Week/Month/Year
+- **Grace Period** (فترة السماح): Initial delay before first payment
+  - Value: Numeric value
+  - Unit: Day/Week/Month/Year
 
-#### الإعدادات المتقدمة
-- **التقريب (Approximation):** قيمة تقريب مبالغ الدفع
-- **نوع التقريب (Rounding Type):** كيفية تقريب قيم الدفع
-- **اليوم في الشهر (Payment Date at Day):** يوم محدد من الشهر للدفعات
-- **إضافة دفعة بالمتبقي دائمًا مع الحفظ (Add Remaining Payment With Save):** إضافة دفعة نهائية تلقائيًا لأي رصيد متبقٍ
-- **فترة الدفعات من تاريخ الاستحقاق (Payments Period From Due Date):** حساب فترات الدفع من تاريخ الاستحقاق بدلًا من تاريخ المستند
-- **تاريخ أول دفعة هو تاريخ المستند (First Payment Date Is Document Date):** تعيين أول دفعة في تاريخ المستند
+#### Advanced Settings
+- **Approximation** (التقريب): Rounding value for payment amounts
+- **Rounding Type** (نوع التقريب): How to round payment values
+- **Payment Date at Day** (اليوم في الشهر): Specific day of month for payments
+- **Add Remaining Payment With Save** (إضافة دفعه بالمتبقي دائما مع الحفظ): Automatically add a final payment for any remaining balance
+- **Payments Period From Due Date** (فترة الدفعات من تاريخ الاستحقاق): Calculate payment periods from due date instead of document date
+- **First Payment Date Is Document Date** (تاريخ أول دفعة هو تاريخ المستند): Set first payment on the document date
 
-## إنشاء نماذج جداول الدفع
+## Creating Payment Schedule Templates
 
-### الخطوة الأولى: الوصول إلى نماذج جداول الدفع
+### Step 1: Access Payment Schedule Templates
 
-انتقل إلى: **المشتريات > الملفات > نموذج جدولة الدفعات** (Purchases > Master Files > Payment Schedule Template)
+Navigate to: **Purchases > Master Files > Payment Schedule Template** (المشتريات > الملفات > نموذج جدولة الدفعات)
 
-### الخطوة الثانية: إنشاء نموذج جديد
+### Step 2: Create New Template
 
-1. انقر على **جديد** لإنشاء نموذج
-2. أدخل البيانات الأساسية:
-   - الرمز (مطلوب)
-   - الاسم (مطلوب)
-   - الوصف (اختياري)
+1. Click **New** to create a template
+2. Enter basic information:
+   - Code (required)
+   - Name (required)
+   - Description (optional)
 
-### الخطوة الثالثة: إعداد طريقة الدفع
+### Step 3: Configure Payment Method
 
-#### للدفعات المتساوية:
+#### For Equal Payments:
 ```
 Payment Type: Equal Payments
 Payments Count: 12
@@ -96,160 +96,160 @@ Payment Period: 30 Days
 Grace Period: 0 Days
 ```
 
-#### للدفعات المتغيرة:
+#### For Variable Payments:
 ```
 Payment Type: Variable Payments
 Configure individual payment lines in the Details grid
 ```
 
-### الخطوة الرابعة: تعيين الدفعة المقدمة (اختياري)
+### Step 4: Set Down Payment (Optional)
 
-اختر إحدى الطريقتين:
-- **قيمة ثابتة:** أدخل مبلغًا محددًا
-- **نسبة مئوية:** أدخل النسبة (0-100)
+Choose one method:
+- **Fixed Value**: Enter specific amount
+- **Percentage**: Enter percentage (0-100)
 
-### الخطوة الخامسة: إعداد سطور الدفع (للدفعات المتغيرة فقط)
+### Step 5: Configure Payment Lines (Variable Payments Only)
 
-في شبكة التفاصيل، لكل سطر دفع:
+In the Details grid, for each payment line:
 
-| الحقل | الوصف | مثال |
-|-------|-------|------|
-| نوع الدفعة (Payment Type) | قيمة ثابتة أو نسبة مئوية | نسبة مئوية |
-| نسبة الدفعة (Payment Percent) | نسبة من الإجمالي | 25% |
-| القيمة الثابتة (Fixed Value) | مبلغ دفع ثابت | 5,000 |
-| فترة الدفع (Payment Period) | أيام/أشهر بعد تاريخ المستند | 30 يومًا |
-| ملاحظات (Remarks) | ملاحظات حول هذه الدفعة | القسط الأول |
+| Field | Description | Example |
+|-------|-------------|---------|
+| Payment Type (نوع الدفعة) | Fixed Value or Percentage | Percentage |
+| Payment Percent (نسبة الدفعة) | Percentage of total | 25% |
+| Fixed Value (القيمة الثابتة) | Fixed payment amount | 5,000 |
+| Payment Period | Days/months after document date | 30 Days |
+| Remarks (ملاحظات) | Notes about this payment | First installment |
 
 ::: info
-عند استخدام الدفعات بالنسبة المئوية، تأكد من أن مجموع جميع النسب مضافًا إليها الدفعة المقدمة يساوي 100%.
+When using percentage-based payments, ensure the total of all percentages plus down payment equals 100%.
 :::
 
-### الخطوة السادسة: إعداد سلوك التحديث
+### Step 6: Configure Update Behavior
 
-اختر نوع التحديث:
-- **يدوي (Manual):** للنماذج التي لا ينبغي أن تحسب تلقائيًا
-- **عند أول حفظ (With First Save):** للعقود الثابتة
-- **عند كل حفظ (With Every Save):** للتسعير الديناميكي
+Select the Updating Type:
+- **Manual**: For templates that should not auto-calculate
+- **With First Save**: For fixed contracts
+- **With Every Save**: For dynamic pricing
 
-### الخطوة السابعة: حفظ النموذج
+### Step 7: Save Template
 
-انقر على **حفظ** لتخزين النموذج للاستخدام في مستندات المبيعات.
+Click **Save** to store the template for use in sales documents.
 
-## أنواع الدفع وطرقه
+## Payment Types and Methods
 
-### طريقة الدفعات المتساوية
+### Equal Payments Method
 
-يقوم النظام تلقائيًا بتقسيم المبلغ المتبقي إلى أقساط متساوية:
+The system automatically divides the remaining amount into equal installments:
 
-**صيغة الحساب:**
+**Calculation Formula:**
 ```
 Payment Amount = (Total - Down Payment) / Number of Payments
 Last Payment = Adjusted for rounding differences
 ```
 
-**مثال:**
-- إجمالي الفاتورة: 120,000
-- الدفعة المقدمة: 20,000 (أو 16.67%)
-- المتبقي: 100,000
-- عدد الدفعات: 10
-- كل دفعة: 10,000
+**Example:**
+- Invoice Total: 120,000
+- Down Payment: 20,000 (or 16.67%)
+- Remaining: 100,000
+- Payments: 10
+- Each Payment: 10,000
 
-### طريقة الدفعات المتغيرة
+### Variable Payments Method
 
-حدد مبالغ أو نسبًا مخصصة لكل قسط:
+Define custom payment amounts or percentages for each installment:
 
-**بالنسبة المئوية:**
+**Percentage-Based:**
 ```
 Payment Amount = Total × Payment Percentage
 ```
 
-**بقيمة ثابتة:**
+**Fixed Value:**
 ```
 Payment Amount = Specified Fixed Value
 ```
 
-**مثال مختلط:**
-| الدفعة | النوع | القيمة | المبلغ |
-|--------|-------|--------|--------|
-| 1 | نسبة مئوية | 30% | 36,000 |
-| 2 | ثابت | - | 20,000 |
-| 3 | نسبة مئوية | 25% | 30,000 |
-| 4 | نسبة مئوية | 28.33% | 34,000 |
+**Mixed Example:**
+| Payment | Type | Value | Amount |
+|---------|------|-------|--------|
+| 1 | Percentage | 30% | 36,000 |
+| 2 | Fixed | - | 20,000 |
+| 3 | Percentage | 25% | 30,000 |
+| 4 | Percentage | 28.33% | 34,000 |
 
-## تطبيق النماذج على مستندات المبيعات
+## Applying Templates to Sales Documents
 
-يمكن تطبيق نماذج جداول الدفع على:
-- عروض أسعار المبيعات
-- أوامر البيع
-- فواتير المبيعات
-- أي مستند ينفّذ واجهة `HasPaymentSchedule`
+Payment Schedule Templates can be applied to:
+- Sales Quotations
+- Sales Orders
+- Sales Invoices
+- Any document implementing the `HasPaymentSchedule` interface
 
-### عملية التطبيق
+### Application Process
 
-1. **فتح مستند المبيعات**
-2. **اختيار نموذج الدفع** في قسم جدول الدفع
-3. **يحسب النظام** الجدول بناءً على:
-   - المبلغ الإجمالي للمستند
-   - إعدادات النموذج
-   - إعدادات نوع التحديث
-4. **مراجعة الجدول المُنشأ** في شبكة سطور الجدول
-5. **التعديلات اليدوية** (إذا سمح النموذج بذلك)
-6. **حفظ المستند** لإتمام الجدول
+1. **Open Sales Document**
+2. **Select Payment Template** in the Payment Schedule section
+3. **System Calculates** schedule based on:
+   - Document total amount
+   - Template configuration
+   - Update type settings
+4. **Review Generated Schedule** in the Schedule Lines grid
+5. **Manual Adjustments** (if template allows)
+6. **Save Document** to finalize schedule
 
-### معلومات الجدول المُنشأ
+### Generated Schedule Information
 
-لكل دفعة مجدولة:
-- **تاريخ الدفع (Payment Date):** محسوب بناءً على فترات النموذج
-- **قيمة الدفع (Payment Value):** المبلغ المحسوب
-- **نسبة الدفع (Payment Percent):** نسبة من الإجمالي
-- **المتبقي (Remaining):** المبلغ المستحق بعد الدفعات
-- **كود القسط (Installment Code):** معرّف فريد للمتابعة
+For each scheduled payment:
+- **Payment Date**: Calculated based on template periods
+- **Payment Value**: Calculated amount
+- **Payment Percent**: Percentage of total
+- **Remaining**: Outstanding amount after payments
+- **Installment Code**: Unique identifier for tracking
 
-## حسابات جدول الدفع
+## Payment Schedule Calculations
 
-### حسابات التواريخ
+### Date Calculations
 
-**تاريخ أول دفعة:**
+**First Payment Date:**
 ```
 Document Date + Grace Period = First Payment Date
 ```
 
-**الدفعات اللاحقة:**
+**Subsequent Payments:**
 ```
 Previous Payment Date + Payment Period = Next Payment Date
 ```
 
-### حسابات المبالغ
+### Amount Calculations
 
-#### مع الدفعة المقدمة:
+#### With Down Payment:
 ```
 Remaining Amount = Total - Down Payment - External Payments
 Payment Amount = Remaining Amount × Payment Configuration
 ```
 
-#### التقريب والتجريد:
+#### Rounding and Approximation:
 ```
 Rounded Payment = Round(Payment Amount, Approximation, Rounding Type)
 Last Payment = Remaining Amount - Sum of Previous Payments
 ```
 
-### قواعد التحقق
+### Validation Rules
 
-يتحقق النظام من:
-1. **إجمالي النسبة المئوية:** يجب أن تساوي 100% للنماذج ذات النسب المئوية
-2. **الدفعة المقدمة:** لا يمكن تحديد قيمة ونسبة في الوقت نفسه
-3. **قيم الدفع:** يجب ألا تتجاوز المبلغ المتبقي
-4. **تواريخ الدفع:** يجب أن تكون تواريخ مستقبلية صالحة
-5. **سطور النموذج:** سطر دفع واحد على الأقل مطلوب للدفعات المتغيرة
+The system validates:
+1. **Total Percentage**: Must equal 100% for percentage-based templates
+2. **Down Payment**: Cannot specify both value and percentage
+3. **Payment Values**: Must not exceed remaining amount
+4. **Payment Dates**: Must be valid future dates
+5. **Template Lines**: At least one payment line required for variable payments
 
 ::: info
-في حال فشل التحقق، سيعرض النظام رسائل خطأ محددة توضح أي قاعدة تم انتهاكها.
+If validation fails, the system will display specific error messages indicating which rule was violated.
 :::
 
 
-## السيناريوهات الشائعة
+## Common Scenarios
 
-### السيناريو الأول: دفعة مقدمة 50%، والرصيد خلال 30 يومًا
+### Scenario 1: 50% Down Payment, Balance in 30 Days
 
 ```
 Template Configuration:
@@ -259,7 +259,7 @@ Template Configuration:
 - Grace Period: 30 Days
 ```
 
-### السيناريو الثاني: أقساط شهرية على مدار عام
+### Scenario 2: Monthly Installments Over One Year
 
 ```
 Template Configuration:
@@ -270,7 +270,7 @@ Template Configuration:
 - First Payment Date Is Document Date: Yes
 ```
 
-### السيناريو الثالث: خطة دفع مخصصة
+### Scenario 3: Custom Payment Plan
 
 ```
 Template Configuration:
@@ -281,7 +281,7 @@ Template Configuration:
   Line 3: 40% after 60 days
 ```
 
-### السيناريو الرابع: دفعات ربع سنوية مع فترة سماح
+### Scenario 4: Quarterly Payments with Grace
 
 ```
 Template Configuration:
@@ -292,70 +292,70 @@ Template Configuration:
 - Payment Date at Day: 1 (First of month)
 ```
 
-## مستندات الدفع ومتابعة الأقساط
+## Payment Documents and Installment Tracking
 
-بمجرد إنشاء جداول الدفع وتطبيقها على مستندات المبيعات، يوفر النظام متابعة شاملة عبر مستندات الدفع التي يمكنها تمييز الأقساط على أنها مدفوعة.
+Once payment schedules are created and applied to sales documents, the system provides comprehensive tracking through payment documents that can mark installments as paid.
 
-### سندات القبض وسندات الصرف
+### Receipt Vouchers and Payment Vouchers
 
-يتضمن كل من **سندات القبض (Receipt Vouchers)** و**سندات الصرف (Payment Vouchers)** جدول **الأقساط (Installment Lines)** الذي يُمكّن من متابعة الدفع مقابل الأقساط المجدولة:
+Both **Receipt Vouchers** (سندات القبض) and **Payment Vouchers** (سندات الدفع) include an **Installment Lines** (الأقساط) collection that enables payment tracking against scheduled installments:
 
-- **سندات القبض:** تُستخدم أساسًا لمستندات المبيعات لتسجيل مدفوعات العملاء
-- **سندات الصرف:** تُستخدم أساسًا لمستندات المشتريات لتسجيل مدفوعات الموردين
+- **Receipt Vouchers**: Used primarily for sales documents to record customer payments
+- **Payment Vouchers**: Used primarily for purchase documents to record supplier payments
 
-### جدول سطور الأقساط
+### Installment Lines Collection
 
-يحتوي جدول سطور الأقساط في مستندات الدفع على الحقول الرئيسية التالية:
+The installment lines grid in payment documents contains the following key fields:
 
-| الحقل | الاسم بالعربية | الوصف |
-|-------|----------------|-------|
-| **Installment Doc** | مستند القسط | مرجع المستند الذي يحتوي على جدول الدفع |
-| **Installment Code** | كود القسط | كود فريد يُعرّف القسط المحدد |
-| **Paid Value** | القيمة المدفوعة | المبلغ المدفوع مقابل هذا القسط |
-| **Due Date** | تاريخ الاستحقاق | تاريخ استحقاق القسط الأصلي |
-| **Remaining** | المتبقي | الرصيد المستحق بعد هذا الدفع |
-| **Net Value** | صافي القيمة | القيمة الإجمالية للقسط |
+| Field | Arabic Name | Description |
+|-------|-------------|-------------|
+| **Installment Doc** | مستند القسط | Reference to the document containing the payment schedule |
+| **Installment Code** | كود القسط | Unique code identifying the specific installment |
+| **Paid Value** | القيمة المدفوعة | Amount being paid against this installment |
+| **Due Date** | تاريخ الاستحقاق | Original due date of the installment |
+| **Remaining** | المتبقي | Outstanding balance after this payment |
+| **Net Value** | صافي القيمة | Total value of the installment |
 
-### منطق معالجة الدفع
+### Payment Processing Logic
 
-عند ترحيل مستندات الدفع، يستخدم النظام `InstallmentUtils` لـ:
+When payment documents are committed, the system uses `InstallmentUtils` to:
 
-1. **تحديث حقول المدفوع نظاميًا (System Paid Fields):** تحديث مبلغ `systemPaid` لكل قسط تلقائيًا
-2. **حساب الأرصدة المتبقية:** إعادة حساب المبالغ المتبقية عبر جميع الأقساط ذات الصلة
-3. **التحقق من ترتيب الدفع:** ضمان اتباع المدفوعات للتسلسل الصحيح (دفع الأقساط الأقدم أولًا)
-4. **منع الدفع الزائد:** التحقق من عدم تجاوز المبالغ المدفوعة لقيم الأقساط
+1. **Update System Paid Fields**: Automatically updates the `systemPaid` amount for each installment
+2. **Calculate Remaining Balances**: Recalculates remaining amounts across all related installments
+3. **Validate Payment Order**: Ensures payments follow proper sequence (earlier installments paid first)
+4. **Prevent Overpayments**: Validates that paid amounts don't exceed installment values
 
-### عملية متابعة الدفع
+### Payment Tracking Process
 
-#### الخطوة الأولى: إنشاء مستند الدفع
-1. افتح سند قبض أو سند صرف
-2. أدخل معلومات الدفع الأساسية (العميل/المورد، المبلغ، التاريخ)
-3. انتقل إلى تبويب **الأقساط (Installment Lines)**
+#### Step 1: Create Payment Document
+1. Open Receipt Voucher or Payment Voucher
+2. Enter basic payment information (customer/supplier, amount, date)
+3. Navigate to the **Installment Lines** tab
 
-#### الخطوة الثانية: إضافة مدفوعات الأقساط
-1. انقر على **إضافة سطر** في جدول الأقساط
-2. اختر **مستند القسط** (فاتورة مبيعات، عرض سعر، إلخ)
-3. اختر **كود القسط** المحدد من المستند
-4. أدخل **القيمة المدفوعة** (يمكن أن تكون دفعة جزئية أو كاملة)
-5. كرر العملية لأقساط متعددة إذا لزم الأمر
+#### Step 2: Add Installment Payments
+1. Click **Add Line** in the Installment Lines grid
+2. Select the **Installment Document** (sales invoice, quotation, etc.)
+3. Choose the specific **Installment Code** from the document
+4. Enter the **Paid Value** (can be partial or full payment)
+5. Repeat for multiple installments if needed
 
-#### الخطوة الثالثة: التحقق من الدفع
-يتحقق النظام تلقائيًا من:
-- عدم تجاوز مبالغ الدفع لأرصدة الأقساط
-- اتباع ترتيب الدفع لتسلسل تاريخ الاستحقاق (إذا كان مُهيَّأً)
-- وجود الأقساط المُشار إليها في المستند المصدر
-- تطابق إجمالي المدفوعات مع مبلغ المستند
+#### Step 3: Payment Validation
+The system automatically validates:
+- Payment amounts don't exceed installment balances
+- Payment order follows due date sequence (if configured)
+- Referenced installments exist in the source document
+- Total payments match the document amount
 
-#### الخطوة الرابعة: تطبيق الأثر
-عند حفظ مستند الدفع:
-- تُحدَّث أرصدة الأقساط عبر النظام
-- تعرض مستندات المبيعات/المشتريات ذات الصلة حالة الدفع المحدّثة
-- تعكس تقارير الأعمار معلومات الدفع الجديدة
-- تُحدَّث حسابات العميل/المورد
+#### Step 4: Effect Application
+Upon saving the payment document:
+- Installment balances are updated across the system
+- Related sales/purchase documents show updated payment status
+- Aging reports reflect the new payment information
+- Customer/supplier accounts are updated
 
-### دعم الدفع من مستندات متعددة
+### Multi-Document Payment Support
 
-يمكن لمستندات الدفع معالجة أقساط من مستندات مصدر متعددة في معاملة واحدة:
+Payment documents can process installments from multiple source documents in a single transaction:
 
 ```
 Receipt Voucher RV-2024-001
@@ -367,33 +367,33 @@ Receipt Voucher RV-2024-001
     └── Invoice INV-002, Installment #1: 75,000
 ```
 
-### فرض ترتيب الدفع
+### Payment Order Enforcement
 
-::: warning ترتيب الأقساط (Payment Sequence)
-يمكن للنظام فرض دفع الأقساط تسلسليًا بناءً على تواريخ الاستحقاق، مما يمنع العملاء من دفع أقساط لاحقة بينما لا تزال الأقساط الأسبق غير مدفوعة.
+::: warning Payment Sequence
+The system can enforce sequential payment of installments based on due dates. This prevents customers from paying later installments while earlier ones remain unpaid.
 :::
 
-**خيارات الإعداد:**
-- **ترتيب صارم (Strict Order):** يجب دفع الأقساط بتسلسل تاريخ الاستحقاق
-- **ترتيب مرن (Flexible Order):** السماح بالدفع بأي ترتيب
-- **إعداد على مستوى المستند (Document-Level Setting):** تجاوز الإعداد على مستوى المستند الفردي
+**Configuration Options:**
+- **Strict Order**: Must pay installments in due date sequence
+- **Flexible Order**: Allow payments in any order
+- **Document-Level Setting**: Override at individual document level
 
-### نظام سجلات دفع الأقساط
+### Installment Payment Entry System
 
-خلف الكواليس، يحتفظ النظام بسجلات `InstallmentPaymentEntry` تتتبع:
-- **مستند الدفع (Payment Document):** أي سند قبض/صرف قام بالدفع
-- **مستند القسط (Installment Document):** أي مستند مبيعات/مشتريات يحتوي على القسط
-- **كود القسط (Installment Code):** القسط المحدد الذي تم سداده
-- **نوع الأثر (Effect Type):** كيفية تأثير الدفع على القسط (SystemPaid, CollectedByFP, إلخ)
-- **القيمة المدفوعة (Paid Value):** المبلغ المطبّق على القسط
+Behind the scenes, the system maintains `InstallmentPaymentEntry` records that track:
+- **Payment Document**: Which receipt/payment voucher made the payment
+- **Installment Document**: Which sales/purchase document contains the installment
+- **Installment Code**: Specific installment being paid
+- **Effect Type**: How the payment affects the installment (SystemPaid, CollectedByFP, etc.)
+- **Paid Value**: Amount applied to the installment
  
 
-## ملخص
+## Summary
 
-توفر جداول الدفع إدارة مرنة لشروط الدفع في نظام Nama ERP، مما يُمكّن من:
-- شروط دفع موحدة عبر النماذج
-- حساب تلقائي لخطط التقسيط
-- التكامل مع الوحدات المالية
-- متابعة شاملة للمدفوعات
+Payment Schedules provide flexible payment term management in Nama ERP, enabling:
+- Standardized payment terms through templates
+- Automatic calculation of installment plans
+- Integration with financial modules
+- Comprehensive payment tracking
 
-باتباع هذا الدليل، يمكنك تطبيق جداول الدفع وإدارتها بفعالية لتحسين إدارة التدفق النقدي وشروط دفع العملاء.
+By following this guide and best practices, you can effectively implement and manage payment schedules to improve cash flow management and customer payment terms.

@@ -1,54 +1,52 @@
-<rtl>
+# Entity Flow FAQ
 
-# أسئلة شائعة عن مسارات الكيان
-
-## كيف يمكن تثبيت قيمة في حقل مرجع عام عند الحفظ داخل مسار كيان؟ حاولت استخدام:
+## How can I set a value in a generic reference field when saving inside an entity flow? I tried:
 
 ```groovy
 details.ref1='MCI0001'
 ```
 
-مع العلم أنني حددت النوع المطلوب في إعدادات الحقول والشاشات، لكن القيمة لا تُحفظ. كما جرّبت تعيين النوع والكود معًا هكذا:
+I set the required type in the field and screen settings, but the value is not saved. I also tried setting the type and code together like this:
 
 ```groovy
 details.ref1.entityType='PurchaseElement'
 details.ref1='MCI0001'
 ```
 
-أو على سطرين:
+Or on two lines:
 
 ```groovy
 details.ref1.entityType='PurchaseElement'
 details.ref1.code='MCI0001'
 ```
 
-لكن عند فتح المرجع في النظام، لا يتم عرضه بشكل صحيح. ما الطريقة الصحيحة لتعيين هذا النوع من الحقول؟
+But when opening the reference in the system, it is not displayed correctly. What is the correct way to assign this type of field?
 
 ---
 
-### الإجابة:
+### Answer:
 
-عند التعامل مع الحقول المرجعية العامة (التي تقبل مراجع من أكثر من جدول وتُعرض في الواجهة باختيار النوع ثم الكود)، يجب تعبئتها بطريقة واحدة متكاملة، وليس بتعيين النوع والكود بشكل منفصل.
+When working with generic reference fields (which accept references from more than one table and are displayed in the UI by selecting the type then the code), you must fill them in one integrated step — not by setting the type and code separately.
 
-الطريقة الموصى بها هي استخدام دالة `ref` بهذا الشكل:
+The recommended approach is to use the `ref` function as follows:
 
 ```groovy
 details.ref1=ref('PurchaseElement', 'MCI0001')
 ```
 
-كما يمكن استخدام استعلام SQL يُرجع النوع والكود أو المعرف، مثل:
+You can also use a SQL query that returns the type and code or the ID, such as:
 
 ```groovy
 details.ref1=sql(select 'PurchaseElement', 'MCI0001')
 ```
 
-أو:
+Or:
 
 ```groovy
 details.ref1=sql(select entityType, id from PurchaseElement where code = 'MCI0001')
 ```
 
-وإذا كنت مضطرًا لاستخدام الطريقة التي تعتمد على تحديد النوع والكود يدويًا، فيجب أيضًا تعيين المعرف (id) حتى يتعرف النظام على المرجع بشكل صحيح:
+If you must use the approach that sets the type and code manually, you also need to set the ID so the system can identify the reference correctly:
 
 ```groovy
 details.ref1.entityType='PurchaseElement'
@@ -56,50 +54,46 @@ details.ref1.code='MCI0001'
 details.ref1.id='0xFFFF00018C21ED75F9000100FF1573C6'
 ```
 
-لكن هذه الطريقة معقدة ولا يُنصح باستخدامها ما لم يكن هناك ضرورة قصوى. الأفضل دائمًا استخدام `ref` أو `sql` لسهولة القراءة وضمان عمل المرجع بطريقة سليمة.
+However, this approach is complex and not recommended unless absolutely necessary. It is always better to use `ref` or `sql` for readability and to ensure the reference works correctly.
 
-<ltr>
-
-::: tip Summary in English
+::: tip Summary
 This question explains how to correctly assign a value to a generic reference field (`ref`) in an entity flow,
 especially when the reference can point to multiple entity types.
 
 It clarifies that you must set both the type and the code together using `ref()` or `sql()` instead of assigning them separately.
 :::
 
-</ltr>
+## Fixing Doubled Accounting Effects Caused by Using the Wrong Field
 
-## تصحيح مضاعفة التأثير المحاسبي الناتج عن استخدام الحقل الخطأ
+In one scenario within a `CPAProjectInvoice` document, an entity flow was set up to calculate a commission for each line of the document by:
 
-في أحد السيناريوهات ضمن مستند "فاتورة مشروع" (`CPAProjectInvoice`)، تم إعداد مسار كيان لحساب العمولة في كل سطر من سطور المستند، من خلال:
-
-* نسخ قيمة `n2` من المشروع الموجود في السطر إلى الحقل `details.n3`
-* حساب نسبة العمولة عن طريق ضرب هذه القيمة في الحقل `totalActualValue` الموجود في رأس المستند، ثم تخزين الناتج في `details.n4`:
+* Copying the `n2` value from the project in the line into the `details.n3` field
+* Calculating the commission percentage by multiplying this value by the `totalActualValue` field in the document header, then storing the result in `details.n4`:
 
 ```
 details.n3=details.project.n2
 details.n4=sql(select {details.n3} * {totalActualValue} / 100)
 ```
 
-ثم تم استخدام قيمة `details.n4` لإضافة تأثير محاسبي عبر المسار `EAAddAccountingEffect` بالشكل التالي:
+The `details.n4` value was then used to add an accounting effect via the `EAAddAccountingEffect` flow as follows:
 
 ```
 details.n4=DrEffect,CrEffect
 ```
 
-### سبب المشكلة
+### Root Cause
 
-القيمة في `totalActualValue` تمثل مجموع الحقل `details.price.actualValue` لجميع السطور. وعند ضربها في كل سطر على حدة، أدى ذلك إلى مضاعفة قيمة التأثير المحاسبي النهائي.
+The value in `totalActualValue` represents the sum of the `details.price.actualValue` field across all lines. Multiplying it by each line individually caused the final accounting effect value to be doubled.
 
-### الحل الصحيح
+### Correct Solution
 
-بدلاً من استخدام `totalActualValue` من الرأس، يجب استخدام قيمة `actualVal` الخاصة بكل سطر على حدة لحساب العمولة بدقة، كالتالي:
+Instead of using `totalActualValue` from the header, use the `actualVal` value specific to each line to calculate the commission accurately:
 
 ```
 details.n4=sql(select {details.n3} * {details.price.actualVal} / 100)
 ```
 
-### المسار المصحح الكامل
+### Full Corrected Flow
 
 ::: details Copy and use in Direct Import Menu Item
 
@@ -129,21 +123,21 @@ details.n4=sql(select {details.n3} * {details.price.actualVal} / 100)
 
 :::
 
-بهذا التعديل، يتم احتساب التأثير المحاسبي بدقة لكل سطر على حدة دون مضاعفة.
+With this correction, the accounting effect is calculated accurately for each line individually without doubling.
 
-## حذف المستندات المرتبطة تلقائيًا عند حذف فاتورة الشراء
+## Automatically Deleting Related Documents When Deleting a Purchase Invoice
 
-في بعض الحالات، يطلب العميل حذف المستند المرتبط (مثل سند صرف) تلقائيًا عند حذف مستند آخر (مثل فاتورة الشراء). يمكن تنفيذ هذا من خلال مسار الكيان (Entity Flow)، ولكن يجب الانتباه للقيود التالية.
+In some cases, a client may require that a related document (such as a payment voucher) be automatically deleted when another document (such as a purchase invoice) is deleted. This can be implemented through an entity flow, but the following limitations must be noted.
 
-### التحدي
+### The Challenge
 
-إذا تم إنشاء سند صرف تلقائيًا بناءً على فاتورة الشراء، فإن حذف الفاتورة سيفشل بشكل افتراضي، لأن النظام يمنع حذف مستندات مرتبطة بمستندات أخرى. وبالتالي، **لن يتم تنفيذ مسار الحذف** الموجود في مسار الكيان.
+If a payment voucher was automatically created based on the purchase invoice, deleting the invoice will fail by default, because the system prevents deleting documents that are linked to other documents. As a result, **the delete flow in the entity flow will not execute**.
 
-### الحل المقترح 1: استخدام زر لحذف المستند المرتبط
+### Proposed Solution 1: Use a Button to Delete the Related Document
 
-الأفضلية هي إنشاء إجراء يدوي في شاشة فاتورة الشراء لحذف المستند المرتبط (مثل سند الصرف)، ثم يقوم المستخدم بحذف الفاتورة بالطريقة العادية.
+The preferred approach is to create a manual action on the purchase invoice screen to delete the related document (such as the payment voucher), and then let the user delete the invoice in the normal way.
 
-#### مثال لمسار كيان يحذف سند الصرف المرتبط:
+#### Example entity flow that deletes the related payment voucher:
 
 ::: details JSON for direct import
 
@@ -164,29 +158,29 @@ details.n4=sql(select {details.n3} * {details.price.actualVal} / 100)
 :::
 
 ::: warning
-  هذا المسار لن يعمل تلقائيًا عند حذف الفاتورة إلا إذا لم يكن هناك قيد يمنع حذف الفاتورة (مثل وجود موافقات أو علاقات أخرى). لذا يُفضل استخدام هذا المسار في زر يدوي فقط.
+  This flow will not run automatically when the invoice is deleted unless there is no constraint preventing the invoice from being deleted (such as approvals or other relationships). It is therefore preferable to use this flow only in a manual button.
 :::
 
-### الحل المقترح 2: تغيير نقطة التنفيذ في مسار الكيان
+### Proposed Solution 2: Change the Execution Point in the Entity Flow
 
-إذا لم يكن هناك موافقات أو قيود على حذف الفاتورة، يمكن ربط مسار الحذف بنقطة `PreValidateOnDelete` بحيث يتم تنفيذ المسار **قبل** محاولة الحذف الفعلي. لكن في هذه الحالة، لا يزال هناك احتمال أن النظام يمنع الحذف بسبب وجود المستند المرتبط.
+If there are no approvals or constraints on deleting the invoice, the delete flow can be bound to the `PreValidateOnDelete` point so that it executes **before** the actual deletion attempt. However, in this case there is still a possibility that the system will prevent the deletion because the related document exists.
 
 
-## إضافة قيد خاص بالمصاريف البنكية في سند القبض بدون استخدام طريقة دفع
+## Adding a Bank Charges Entry in a Receipt Voucher Without Using a Payment Method
 
-### السيناريو
+### Scenario
 
-يرغب العميل في تسجيل قيمة **المصاريف البنكية** داخل سند القبض، ولكن **دون استخدام طريقة دفع**، ويريد بدلاً من ذلك إدخال القيمة يدويًا في حقل رقمي مخصص (مثل `n1`).
+A client wants to record **bank charges** inside a receipt voucher, but **without using a payment method**, and instead wants to enter the value manually in a custom numeric field (such as `n1`).
 
-### التوصية
+### Recommendation
 
-من الأفضل دائمًا استخدام **طريقة دفع** لتسجيل المصاريف البنكية، حيث توفر مرونة أعلى في التوزيع والنسب وربطها بحسابات بطريقة نظامية ومباشرة.
+It is always better to use a **payment method** to record bank charges, as it provides greater flexibility in distribution, ratios, and linking to accounts in a systematic and direct way.
 
-لكن في حال الإصرار على عدم استخدام طريقة دفع، يمكن تحقيق ذلك عبر **مسار كيان (Entity Flow)** باستخدام الإجراء:
+However, if it is necessary to avoid using a payment method, this can be achieved through an **entity flow** using the action:
 
 ### EAAddAccountingEffect
 
-#### مثال لمسار كيان لإضافة تأثير محاسبي بناءً على الحقل `n1`:
+#### Example entity flow to add an accounting effect based on the `n1` field:
 ::: details JSON for direct import
 ```json
 {
@@ -211,53 +205,53 @@ details.n4=sql(select {details.n3} * {details.price.actualVal} / 100)
 ```
 :::
 
-### شرح المدخلات:
+### Parameter Explanation:
 
-* `parameter1`: يربط الحقل `n1` بالقيد المحاسبي (مدين ودائن) باستخدام رموز تأثير مثل `BankExpensesDebit` و`BankExpensesCredit`.
-* `parameter3`: عند ضبطه على `true` يجعل النظام يختصر اليومية ولا يعرض التفاصيل إذا لم تتطلب.
-* `parameter4` و `parameter5`: تُستخدم لضبط العملة ومعدل التحويل عند الحاجة.
+* `parameter1`: Links the `n1` field to the accounting entry (debit and credit) using effect codes such as `BankExpensesDebit` and `BankExpensesCredit`.
+* `parameter3`: When set to `true`, the system shortens the journal and does not display details if not required.
+* `parameter4` and `parameter5`: Used to set the currency and conversion rate when needed.
 
 ::: tip
-💡 يمكن تغيير اسم الحقل `n1` والرموز `BankExpensesDebit` و `BankExpensesCredit` حسب الإعدادات الفعلية في النظام.
+You can change the field name `n1` and the codes `BankExpensesDebit` and `BankExpensesCredit` according to the actual settings in the system.
 :::
 
-## إذا كنت ترغب في إنشاء مسار كيان يقوم بجلب سعر بيع الصنف من قائمة الأسعار وتخزينه في الحقل `n1` ضمن سطور إذن التوريد المخزني، فكيف يتم ذلك؟
+## How can I create an entity flow that fetches the item's selling price from the price list and stores it in the `n1` field within the lines of a stock supply order?
 
-يمكنك تنفيذ هذا الطلب من خلال استخدام **مسار كيان** من النوع `EAFieldsValuesCalculator` مع الدالة `itemprice` التابعة لمكتبة `tempo`، وذلك بالشكل التالي:
+You can implement this request by using an **entity flow** of type `EAFieldsValuesCalculator` with the `itemprice` function from the `tempo` library, as follows:
 
 ```
 details.n1=tempo({itemprice(itemIdOrCode=details.item.item)})
 ```
 
-### شرح المكونات:
+### Component Explanation:
 
-* `details.n1`: هو الحقل الذي سيتم فيه حفظ السعر المستخرج من قائمة الأسعار.
-* `tempo(...)`: تقوم هذه الدالة بتقييم التعبير الموجود داخلها باستخدام محرك Tempo.
-* `itemprice(...)`: تقوم هذه الدالة بجلب سعر بيع الصنف من قائمة الأسعار.
-* `itemIdOrCode=details.item.item`: تشير إلى كود أو معرف الصنف ضمن سطر إذن التوريد.
+* `details.n1`: The field where the price extracted from the price list will be stored.
+* `tempo(...)`: This function evaluates the expression inside it using the Tempo engine.
+* `itemprice(...)`: This function fetches the item's selling price from the price list.
+* `itemIdOrCode=details.item.item`: Refers to the code or ID of the item in the supply order line.
 
-يُرجى التأكد من إضافة هذا المسار إلى نوع المستند "توريد مخزني"، وتفعيله مع الإجراء المناسب مثل ما قبل تحديث الحقول المحسوبة.
+Please ensure that this flow is added to the "Stock Supply" document type and activated with the appropriate action, such as before updating calculated fields.
 
-##  أحاول إنشاء مسار كيان يقوم بحساب حقل المخزن تلقائيًا، لكن الكود الذي كتبته لم يعمل. ما السبب؟
+## I am trying to create an entity flow that automatically calculates the warehouse field, but the code I wrote did not work. Why?
 
-**ج:** عند استخدامك للجملة التالية:
+**Answer:** When using the following statement:
 
 ```
 details.specificDimensions.warehouse=sql(select case when {details.item.item.section.code} = '1' then 'W-MG' else  warehouse_id end from SrvJOrderMaterialLine where SrvCJobOrder_id = {ref1.$toReal.id} and {details.item.item.id} = material_id)
 ```
 
-حدثت مشكلتان:
+Two problems occurred:
 
-1. **نوع القيمة غير واضح:**
-   في عبارة `case when`، قمت بإرجاع معرف (`'W-MG'`) في أحد الفروع، وفي الفرع الآخر قمت بإرجاع حقل `warehouse_id` مباشرةً. هذا تسبب في صعوبة على SQL Server في تحديد نوع القيمة المطلوبة (هل هو نص أم معرف؟). هذا الخلط يؤدي إلى فشل التنفيذ.
+1. **Ambiguous value type:**
+   In the `case when` statement, you returned an identifier (`'W-MG'`) in one branch, and in the other branch you returned the `warehouse_id` field directly. This made it difficult for SQL Server to determine the required value type (is it text or an ID?). This mixing causes the execution to fail.
 
-2. **غياب نتائج من الجدول:**
-   في حالة عدم وجود أي سطر في جدول `SrvJOrderMaterialLine` يحقق شروط الفلترة، فإن الاستعلام بأكمله لن يعيد أي قيمة، وبالتالي لن يتم تعيين أي مخزن للسطر.
+2. **No results from the table:**
+   If there is no row in the `SrvJOrderMaterialLine` table that meets the filter criteria, the entire query will return no value, and therefore no warehouse will be assigned to the line.
 
-**الحل:**
-استخدم صيغة `sub-query` بشكل صحيح داخل فرع `else` في `case when` لضمان أن الاستعلام دائمًا يرجع قيمة (حتى لو كانت `null`) بدلًا من أن لا يرجع شيئًا على الإطلاق.
+**Solution:**
+Use a `sub-query` correctly inside the `else` branch of `case when` to ensure the query always returns a value (even if `null`) rather than returning nothing at all.
 
-الصيغة المصححة:
+Corrected syntax:
 
 ```ini
 details.specificDimensions.warehouse=mlsql(
@@ -269,20 +263,18 @@ details.specificDimensions.warehouse=mlsql(
 )endmlsql
 ```
 
-بهذا الشكل، يتم ضمان أن الجملة تعيد دائمًا قيمة واحدة منطقية يمكن لـ SQL Server التعامل معها، كما يتم التأكد من أن الاستعلام لا يفشل في حالة عدم وجود سطور مطابقة في الجدول.
+This way, the statement is guaranteed to always return a single logical value that SQL Server can handle, and it ensures that the query does not fail if there are no matching rows in the table.
 
-## أريد إحضار آخر سعر شراء للصنف في حقل `details.n2`
+## I want to fetch the last purchase price of an item into the `details.n2` field
 
-الطريقة الأسهل لتحقيق المطلوب هي استعمال الصيغة التالية:
+The easiest way to achieve this is to use the following syntax:
 
 ```ini
 details.n2=sql(select top 1 cast(l.unitPrice as decimal(20,2)) lastPrice from PurchaseInvoiceLine l where l.item_id = {details.item.item.id} order by l.valueDate desc)
 ```
 
-إذا أردت إحضار آخر سعر شراء في تاريخ يسبق تاريخ السند الحالي:
+If you want to fetch the last purchase price on a date before the current document's date:
 
 ```ini
 details.n2=sql(select top 1 cast(l.unitPrice as decimal(20,2)) lastPrice from PurchaseInvoiceLine l where l.item_id = {details.item.item.id} and l.valueDate <= {valueDate} order by l.valueDate desc)
 ```
-
-</rtl>

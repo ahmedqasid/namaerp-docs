@@ -1,35 +1,35 @@
-# موازين الوزن (Weight Scale)
+# Weight Scale
 
-في المنشآت التي تتعامل مع مواد سائبة تُباع أو تُستلم بالوزن - حبوب، خرسانة، ركام، معادن - يصبح الميزان جزءًا من خط العمل. يربط Nama ERP موازين الوزن الإلكترونية بمحطات الاستلام والتحميل، فيلتقط الأوزان مباشرةً ويحوّلها إلى حركات مخزنية دون إدخال يدوي.
+In facilities that handle bulk materials sold or received by weight - grains, concrete, aggregates, metals - the scale becomes part of the workflow. NaMa ERP connects electronic weight scales to receiving and loading stations, capturing weights directly and turning them into inventory movements without manual entry.
 
-## إعداد الميزان (WeightScaleConfig)
+## Scale Configuration (WeightScaleConfig)
 
-**إعداد ميزان الوزن** هو الملف المركزي الذي يهيّئ محطات الموازين عند مواقع الاستلام والتحميل. يضبط:
-- **صيغ الباركود**: حتى خمس صيغ، لكل منها مواصفاتها ومكوّناتها، لقراءة كود الصنف والعبوة والأرفف والوزن من ملصق الميزان.
-- **ربط الحقول**: تعيين معرّفات الحقول لكود الصنف والعبوة والأرفف ومتوسط الوقت والقيم المحسوبة.
-- **الصلاحيات**: مصفوفة صلاحيات لعمليات الميزان وأدوار المستخدمين.
-- **الطباعة والاتصال**: تعريف التقرير المرتبط، وإعداد الطابعة والمنفذ، ومؤقّت الخروج عند الخمول.
-- **التحكم بالصرف**: طرق ترتيب طلبات الصرف، وحدود انحراف الكمية المسموح بها.
+The **Weight Scale Configuration** is the central file that sets up scale terminals at receiving and loading stations. It configures:
+- **Barcode formats**: up to five formats, each with its specifications and component parts, to read the item code, package, racks, and weight from the scale label.
+- **Field mapping**: assigning field IDs for item code, package, racks, average time, and computed values.
+- **Permissions**: a permissions matrix for scale operations and user roles.
+- **Printing and connection**: the linked report definition, printer and port setup, and an inactivity logout timer.
+- **Issue control**: stock-issue-request ordering methods and allowed quantity-deviation tolerance.
 
-![شاشة إعداد ميزان الوزن في Nama ERP](images/weight-scale/weight-scale-config-ar.png)
+![Weight scale configuration screen in NaMa ERP](../../ar/modules/supplychain/images/weight-scale/weight-scale-config-en.png)
 
-## مستند تحضير الصرف (WeightScalePreparationDoc)
+## Issue Preparation Document (WeightScalePreparationDoc)
 
-**مستند تحضير الصرف بالميزان** يربط قراءة الوزن بعملية الصرف الفعلية: يلتقط الوزن من الميزان ويحضّر الكمية الصافية المراد صرفها، فتنتقل البيانات إلى حركة المخزون دون أخطاء الإدخال اليدوي. ولتوليد هذه المستندات بكميات أو دفعات، يساعد **مولّد تحضير الصرف** (WeightScalePrepGenerator) في إنشائها وفق قواعد محددة.
+The **Weight Scale Preparation Document** links the weight reading to the actual issue operation: it captures the weight from the scale and prepares the net quantity to be issued, so the data flows into the inventory movement without manual-entry errors. To generate these documents in quantities or batches, the **Preparation Generator** (WeightScalePrepGenerator) helps create them according to defined rules.
 
-## كيف تعمل العملية
+## How the Process Works
 
-تخيّل استلام شاحنة حبوب:
-1. تُوزَن الشاحنة محمّلة (الوزن الإجمالي).
-2. تُفرَّغ الحمولة.
-3. تُوزَن الشاحنة فارغة (وزن الفارغ/التاريه).
-4. يحسب النظام الوزن الصافي تلقائيًا.
-5. يلتقط **مستند التحضير** القيمة الصافية، فتُنشأ حركة المخزون المقابلة وفق الإعداد.
+Imagine receiving a truck of grain:
+1. The truck is weighed loaded (gross weight).
+2. The load is unloaded.
+3. The truck is weighed empty (tare weight).
+4. The system computes the net weight automatically.
+5. The **Preparation Document** captures the net value, and the corresponding inventory movement is created per the configuration.
 
-هذا يُلغي أخطاء إدخال الوزن يدويًا ويُسرّع الاستلام والصرف في المواقع كثيفة الحركة.
+This eliminates manual weight-entry errors and speeds up receiving and issuing at high-traffic locations.
 
-## الخطوات التالية
+## Next Steps
 
-- [استلام المخزون](./receiving-stock.md) - استلام المواد السائبة الموزونة
-- [إصدار المخزون](./issuing-stock.md) - صرف المواد بالوزن الصافي
-- [فهم أصناف المخزون](./understanding-items.md) - الأصناف ذات القياس الوزني
+- [Receiving Stock](./receiving-stock.md) - receiving weighed bulk materials
+- [Issuing Stock](./issuing-stock.md) - issuing materials by net weight
+- [Understanding Inventory Items](./understanding-items.md) - items with weight measurement

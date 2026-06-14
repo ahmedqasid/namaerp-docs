@@ -1,43 +1,43 @@
-# كتالوج الخدمات الطبية
+# Medical Service Catalog
 
-إلى جانب الخدمات الطبية العامة، يحتفظ المستشفى بكتالوجات متخصّصة لكل نوع من الأنشطة الإكلينيكية: **التحاليل**، **الأشعة**، **العلاج الطبيعي**، و**العمليات الجراحية**. هذه الكتالوجات هي ما يطلبه الطبيب وما تُسعَّر به الفواتير لاحقًا.
+Alongside general medical services, the hospital keeps specialized catalogs for each kind of clinical activity: **lab tests**, **radiology**, **physiotherapy**, and **surgeries**. These catalogs are what a doctor orders and what invoices are later priced from.
 
-## نمط مشترك: "نوع خدمة قابل للبيع"
+## A shared pattern: "a sellable service type"
 
-أنواع التحاليل والأشعة والعلاج الطبيعي والعمليات تشترك جميعها في الشكل نفسه — فهي البنود التي يُحاسَب عليها فعلًا:
+Lab, radiology, physiotherapy and surgery types all share the same shape — they are the items the hospital actually charges for:
 
-- **المعلومات الأساسية:** الكود، الاسم، **التصنيف** الأب، **سياسة الضريبة**، و**الصنف المرسل لمصلحة الضرائب** (للفاتورة الإلكترونية).
-- **جدول الأسعار في القوائم:** طريقة سريعة لدفع سعر هذا البند مباشرةً إلى قائمة أسعار واحدة أو أكثر، مع تنويع حسب الطبيب/الدرجة/التأمين/فئة المريض والفترة.
-- **الحسابات والضرائب:** فكل نوع يتصرّف كذمّة محاسبية مستقلة.
-- **تبويب المستلزمات الطبية:** الأصناف الافتراضية التي تُصرف من المخزن عند أداء الخدمة.
-- **تبويب الخدمات الطبية:** خدمات طبية افتراضية مرتبطة.
+- **Basic Information:** code, name, the parent **category**, **tax plan**, and the **tax-authority item** (for e-invoicing).
+- **Price-in-lists grid:** a quick way to push this item's price straight into one or more price lists, varying by doctor/degree/insurer/patient class and period.
+- **Accounts and Taxes:** each type behaves as its own accounting party.
+- **Medical Supplies tab:** the default items issued from the warehouse when the service is performed.
+- **Medical Services tab:** default linked medical services.
 
-## التحاليل
+## Lab tests
 
-**نوع تحليل طبي (Laboratory Test Type)** هو تعريف تحليل واحد يقدّمه المعمل (صورة دم كاملة، سكر صائم…). بالإضافة إلى النمط المشترك، له تبويب فريد يحدّد **المعدّلات المرجعية الطبيعية** لكل مكوّن نتيجة، مقسومةً حسب الفئة: ذكر/أنثى/طفل ذكر/طفلة أنثى (من–إلى) ووحدة القياس. هذا الجدول هو ما يحدّد لاحقًا إن كانت نتيجة المريض ضمن المعدّل أم خارجه.
+**Laboratory Test Type** defines a single test the lab offers (CBC, fasting glucose…). On top of the shared pattern, it has a unique tab defining the **normal reference ranges** for each result component, split by demographic: male / female / male-child / female-child (from–to) and the measuring unit. This grid is what later decides whether a patient's result is in or out of range.
 
-![نوع تحليل طبي](./images/catalog/lab-test-type-ar.png)
+![Laboratory test type](../../ar/modules/hms/images/catalog/lab-test-type-en.png)
 
-وتُجمَّع التحاليل تحت **تصنيف تحليل طبى (Laboratory Test Category)**. كما يضمّ النظام لوائح مساندة للمعمل: **اختبار (HMS Test)** كمكوّن نتيجة، و**أنبوبة اختبار (Test Tube)** و**لون أنبوبة الاختبار (Test Tube Color)** لوصف أنابيب سحب العيّنات وألوانها المتعارف عليها.
+Tests are grouped under a **Laboratory Test Category**. The system also includes lab support lists: **HMS Test** as a result component, and **Test Tube** and **Test Tube Color** to describe sample tubes and their conventional cap colours.
 
-## الأشعة والعلاج الطبيعي
+## Radiology and physiotherapy
 
-**نوع أشعة (Radiology Type)** يُعرّف إجراء تصوير واحدًا (أشعة عادية، مقطعية، رنين، موجات فوق صوتية…) ويتبع النمط المشترك، ويُجمَّع تحت **تصنيف أشعة (Radiology Category)**.
+**Radiology Type** defines a single imaging procedure (X-ray, CT, MRI, ultrasound…), follows the shared pattern, and is grouped under a **Radiology Category**.
 
-![نوع أشعة](./images/catalog/radiology-type-ar.png)
+![Radiology type](../../ar/modules/hms/images/catalog/radiology-type-en.png)
 
-وبالمثل **نوع العلاج الطبيعى (Physical Therapy Type)** يُعرّف جلسة/إجراء علاج طبيعي، ويُجمَّع تحت **تصنيف علاج طبيعى (Physical Therapy Category)**.
+Similarly, **Physical Therapy Type** defines a physiotherapy session/procedure, grouped under a **Physical Therapy Category**.
 
-## العمليات الجراحية
+## Surgeries
 
-**نوع عملية جراحية (Surgery Type)** يُعرّف العملية التي يجريها المستشفى، ويضيف على النمط المشترك تفاصيل خاصة بالجراحة: عدد الساعات القياسية وسعر الساعة الإضافية، و**مكوّنات الأجر** (أجر الجرّاح، المساعد، التخدير، الجراحة المفتوحة، أخرى)، إلى جانب مخزن المستلزمات ومرفقات المستندات الجراحية. ويُجمَّع تحت **تصنيف عملية جراحية (Surgery Classification)** الذي يُستخدم كمحدِّد تسعير.
+**Surgery Type** defines an operation the hospital performs, adding surgery-specific details to the shared pattern: standard hours and the additional-hour price, and the **fee components** (surgeon fees, assistant, anesthesia, open surgery, other), along with a supplies warehouse and operative-document attachments. It's grouped under a **Surgery Classification** used as a pricing dimension.
 
-![نوع عملية جراحية](./images/catalog/surgery-type-ar.png)
+![Surgery type](../../ar/modules/hms/images/catalog/surgery-type-en.png)
 
-## اتفاقات العمليات (Packages)
+## Surgery packages
 
-بدلًا من فوترة عملية بندًا بندًا، يمكن الاتفاق على **سعر إجمالي ثابت** لها عبر **اتفاق عملية (Surgery Package)**. يربط الاتفاق طبيبًا ونوع عملية ببند للفواتير غير المتفق عليها (ما يخرج عن الباقة)، وفي تفاصيله قائمة من **بنود اتفاق العملية** كلٌّ بسعره وربما حسب تصنيف الغرفة.
+Instead of billing an operation item by item, you can agree a **fixed all-in price** for it via a **Surgery Package**. The package links a doctor and surgery type to a billing item for non-agreed items (anything outside the bundle), and its details list a set of **package items**, each priced and optionally per room classification.
 
-![اتفاق عملية](./images/catalog/surgery-package-ar.png)
+![Surgery package](../../ar/modules/hms/images/catalog/surgery-package-en.png)
 
-و**بند اتفاق عملية (Package Item)** هو السطر الذي يظهر داخل الباقة، ويحمل علامات تحدّد **ما الذي يغطّيه هذا البند** (مستلزمات، كشف، إقامة، مرافق، إشراف، تحاليل، أشعة، علاج طبيعي، صيدلية، خدمة، جراحة، بنك دم…) — أي يربط سطر الباقة بفئة الخدمة الحقيقية التي يقابلها. تُفوتَر الباقة لاحقًا عبر **[فاتورة اتفاق عملية](./hms-invoicing.md)** التي تقارن السعر المتفق عليه بالسعر الفعلي وتُرحّل الفرق.
+A **Package Item** is the line that appears inside the package, carrying flags that define **what this line covers** (supplies, check, accommodation, attendant, supervision, lab, radiology, physiotherapy, pharmacy, service, surgery, blood bank…) — i.e. it maps the package line to the real service category it represents. The package is later billed via the **[Surgery Package Invoice](./hms-invoicing.md)**, which compares the agreed price to the actual price and posts the difference.

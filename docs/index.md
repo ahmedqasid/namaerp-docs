@@ -5,56 +5,48 @@ layout: home
 title: Nama ERP Docs
 hero:
   name: Nama ERP
-  text: دليل الاستخدام والتوثيق
-  tagline: أدلة تفصيلية وشروحات فيديو وأسئلة شائعة لجميع وحدات نظام نما — من التثبيت حتى الاحتراف
+  text: Documentation & User Guides
+  tagline: Step-by-step guides, video tutorials, and FAQs covering every module of Nama ERP — from installation to mastery
   image:
     src: /hero.svg
     alt: Nama ERP
   actions:
     - theme: brand
-      text: ابدأ من هنا
+      text: Get Started
       link: /getting-started/
     - theme: alt
-      text: البحث المتقدم
+      text: Advanced Search
       link: /full-search
     - theme: alt
-      text: شروحات الفيديو
+      text: Video Tutorials
       link: /videos/
 features:
   - icon: 🚀
-    title: بدء الاستخدام
-    details: الحد الأدنى لمتطلبات التشغيل، دليل تثبيت النظام، إعدادات Nama Properties، والمصادقة الثنائية (2FA)
+    title: Getting Started
+    details: System minimum requirements, the installation guide, Nama Properties configuration, and two-factor authentication (2FA)
     link: /getting-started/
   - icon: ⚙️
-    title: الخصائص العامة للنظام
-    details: تعديل الشاشات، الموافقات، الصلاحيات والأمان، مسارات الكيان، التقارير، ذكاء الأعمال (BI)، والتنبيهات
+    title: Platform Features
+    details: Screen modifier, approvals, security & permissions, entity flows, reports, business intelligence (BI), and notifications
     link: /platform/
   - icon: 📦
-    title: الوحدات
-    details: الفواتير والضرائب، سلسلة التوريد، التصنيع، الموارد البشرية، نقاط البيع، العقارات، تطبيقات الجوال، والتجارة الإلكترونية
+    title: Modules
+    details: Invoicing & taxes, supply chain, manufacturing, human resources, point of sale, real estate, mobile apps, and e-commerce
     link: /modules/
   - icon: 🔗
-    title: التكاملات الخارجية
-    details: واجهة برمجة التطبيقات (API)، سيناريوهات التكامل مع الأنظمة الأخرى، استرجاع الفواتير، وتكامل أجهزة البصمة
+    title: External Integrations
+    details: The Nama ERP API, integration scenarios with other systems, invoice retrieval, and attendance machine integration
     link: /integration/
   - icon: 🛠️
-    title: إدارة النظام
-    details: حل المشكلات الشائعة، إعادة معالجة الكميات والتكاليف والأستاذ العام، وأدوات قواعد البيانات
+    title: System Administration
+    details: Troubleshooting common issues, reprocessing quantities, costs and the ledger, and database utilities
     link: /admin/
   - icon: 👨‍💻
-    title: مرجع المطور
-    details: إرشادات كتابة التوثيق، ضوابط طلبات التطوير، وأسئلة شائعة حول GUI Post Actions
+    title: Developer Reference
+    details: Documentation writing guidelines, development request guidelines, and GUI post actions FAQ
     link: /developer/
-  - icon: 🤖
-    title: توثيق مسارات الكيان
-    details: توثيق مولّد بالذكاء الاصطناعي لمسارات الكيان في جميع وحدات النظام
-    link: /entity-flows/
-  - icon: 📋
-    title: ملاحظات الإصدارات
-    details: الجديد في كل إصدار من إصدارات Nama ERP — خصائص، تحسينات، وإصلاحات
-    link: /release-notes/
   - icon: 🎬
-    title: شروحات الفيديو
-    details: مكتبة فيديوهات تدريبية تغطي التثبيت، أداة إنشاء التقارير، الموارد البشرية، وسلسلة التوريد
+    title: Video Tutorials
+    details: A training video library covering installation, the report wizard, human resources, and supply chain
     link: /videos/
 ---

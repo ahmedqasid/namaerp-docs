@@ -1,33 +1,33 @@
-# الفترات المالية وإقفال الفترات وتعدّد العملات
+# Fiscal Periods, Period Locking & Multi-Currency
 
-سؤالان يكمنان خلف كثيرٍ من بلاغات الدعم: «لماذا لا يُحفَظ هذا المستند في هذا التاريخ؟» و«لماذا تغيّر رصيدٌ بعملةٍ أجنبية فجأةً؟». ويعود كلاهما إلى الآليّتين نفسيهما — كيف يُقسَّم الزمن إلى **فتراتٍ مالية** تُفتَح وتُقفَل، وكيف يتعامل النظام مع **أكثر من عملة**. هذه الصفحة هي المرجع الذي تشير إليه أقسام «للدعم الفني» في الصفحات.
+Two questions sit underneath a lot of support tickets: "why won't this document save into this date?" and "why did a foreign-currency balance suddenly change?" Both come down to the same two machineries — how time is divided into **fiscal periods** that can be opened and locked, and how the system handles **more than one currency**. This page is the reference the per-page "For Support" sections point to.
 
-## السنوات والفترات المالية
+## Fiscal years and periods
 
-يُقسَّم الزمنُ المحاسبي إلى **سنةٍ مالية** (`Basic > Master Files > Fiscal Year`)، وتُقسَّم كلُّ سنةٍ إلى **فتراتٍ مالية** (عادةً الأشهر الاثني عشر، وإن كانت بنية الفترات تُولَّد بما يناسب التركيب). ويحمل كلُّ مستندٍ **تاريخ قيمة**، ومنه يستنتج النظامُ **الفترة** التي يقع فيها — وهي الفترة المختومة على أثره المحاسبي والتي تتجمّع أرقامه فيها.
+Accounting time is divided into a **Fiscal Year** (`Basic > Master Files > Fiscal Year`), and each year is split into **fiscal periods** (normally the twelve months, though the period structure is generated to suit the installation). Every document carries a **value date**, and from that date the system derives which **period** it falls into — that's the period stamped on its ledger effect and the one its figures roll up into.
 
-ولهذا يهمّ تاريخُ القيمة كثيرًا: تغيّره فتغيّر الفترة (والسنة) التي ينتمي إليها المستند.
+This is why the value date matters so much: change it and you change which period (and which year) the document belongs to.
 
-## فتح الفترات وإقفالها
+## Opening and locking periods
 
-يمكن أن تكون الفترةُ **مفتوحة** (الترحيل مسموح) أو **مغلقة** (مقفلة). وتتحكّم في ذلك عبر **تحديث حالة السنة المالية** (`Basic > Master Files > Fiscal Year Status Update`)، الذي يفتح أو يغلق **مدًى** من الفترات دفعةً واحدة — فبعد مراجعة شهرٍ والتقرير عنه تُغلِقه فلا يتغيّر شيءٌ تحت الأرقام التي نشرتها.
+A period can be **open** (postings allowed) or **closed** (locked). You control this through **Fiscal Year Status Update** (`Basic > Master Files > Fiscal Year Status Update`), which opens or closes a **range** of periods at once — so after a month is reviewed and reported, you close it and nothing can change underneath the numbers you've already published.
 
-ولتحكّمٍ أدقّ من فترةٍ كاملة، يقفل **منع الحركات على حسابات أو ذمم** (`Accounting > Master Files > Prevent Transactions On Accounts Or Subsidiaries`) الترحيلَ على **حساباتٍ أو ذممٍ بعينها** (ضمن مدى تواريخ اختياريًا) — وهو مفيدٌ لتجميد حسابٍ واحدٍ مع بقاء الفترة مفتوحةً. ويُشرَح مسارُ نهاية العام الذي يستخدم هذه الأدوات في [الإقفال السنوي والتحكم في الفترات](../year-end-and-period-control.md).
+For finer control than a whole period, **Prevent Transactions On Accounts Or Subsidiaries** (`Accounting > Master Files > Prevent Transactions On Accounts Or Subsidiaries`) locks postings on **specific accounts or subsidiaries** (optionally within a date range) — useful for freezing a single account while the rest of the period stays open. The year-end workflow that uses these is described in [Year-end closing & period control](../year-end-and-period-control.md).
 
-## العمل بأكثر من عملة
+## Working in more than one currency
 
-يقوم تعدّدُ العملات على **دفتر الحسابات** (`Ledger`)، الذي يحدّد **العملة الرئيسية** التي تُمسَك بها الدفاتر و**عملة تقارير** للعرض. وتُخزَّن كلُّ حركةٍ بعملةٍ أجنبية بـ**قيمتها الأصلية** و**قيمتها المحلية** بسعر اليوم، فيمكن إظهار الأرصدة بأيّ الطريقتين دائمًا.
+Multi-currency rests on the **Ledger** (`دفتر حسابات`), which defines the **main currency** the books are kept in and a **reporting currency** for presentation. Every foreign-currency transaction is stored with both its **original value** and its **local value** at the day's rate, so balances can always be shown either way.
 
-لكنّ الأسعار تتحرّك، وهذا يولّد **فروق عملةٍ** على الأرصدة الأجنبية المفتوحة. ويعالج ذلك مستندان:
+Rates move, though, and that creates **currency differences** on open foreign balances. Two documents handle this:
 
-- **سند تغيير سعر صرف** (`Accounting > Documents > Exchange Rate Update`) — يعيد تقييم أرصدة الحسابات بالعملة الأجنبية بسعرٍ جديد ويرحّل الربح/الخسارة الناتجة، فتعكس القيمةُ المحلية لتلك الأرصدة سعرَ اليوم.
-- **سند قيد فرق عملة** (`Accounting > Documents > Currency Diff Journal`) — يسجّل قيد فرق عملةٍ مباشرةً (انظر أيضًا [سندات القيد والتسويات](../journal-entries.md) حيث تُغطّى قيود فروق العملة).
+- **Exchange Rate Update** (`Accounting > Documents > Exchange Rate Update`) — revalues foreign-currency account balances at a new rate and posts the resulting gain/loss, so the local value of those balances reflects today's rate.
+- **Currency Diff Journal** (`Accounting > Documents > Currency Diff Journal`) — records a currency-difference entry directly (see also [Journal entries & adjustments](../journal-entries.md), where currency-difference journals are covered).
 
-وعلامتان على مستوى الحساب تشكّلان هذا السلوك: إحداهما تجعل الحسابَ **يُبقي العملة المحلية لحركته** (بدل إعادة تقييمه)، والأخرى **تستثني الحساب من تحديث سعر الصرف التلقائي** — فتُترَك الحساباتُ التي لا ينبغي إعادة تقييمها (حساب تسويةٍ بسعرٍ ثابت مثلًا) على حالها.
+Two account-level flags shape this behavior: one makes an account **keep its transaction's local currency** (rather than being revalued), and another **excludes the account from the automatic exchange-rate update** — so accounts that shouldn't be revalued (a fixed-rate settlement account, say) are left alone.
 
-## للدعم الفني
+## For Support
 
-- **«المستند لا يُحفَظ في هذا التاريخ»** — **فترته** مغلقة؛ أعِد فتح المدى بـ**تحديث حالة السنة المالية**، أو تحقّق من أقفال **منع الحركات** على الحساب/الذمة.
-- **«تغيّرت القيمة المحلية لرصيدٍ أجنبي»** — أعاد **سند تغيير سعر صرف** تقييمَه بسعرٍ جديد؛ وهذا متوقَّع، والفرق هو ربح/خسارة العملة.
-- **«حسابٌ لا ينبغي إعادة تقييمه لكنّه يُقيَّم (أو العكس)»** — تحقّق من علامتَي **إبقاء العملة المحلية للحركة** و**الاستثناء من تحديث سعر الصرف**.
-- **«خُتِمت فترةٌ خاطئة»** — تتبع **تاريخ قيمة** المستند؛ صحّح التاريخ وأعِد المعالجة (انظر [كيف تُعالَج المستندات إلى أثر محاسبي](./accounting-request-processing.md)).
+- **"The document won't save into this date"** — its **period** is closed; reopen the range with **Fiscal Year Status Update**, or check **Prevent Transactions** locks on the account/subsidiary.
+- **"A foreign balance's local value changed"** — an **Exchange Rate Update** revalued it at a new rate; that's expected, and the difference is the currency gain/loss.
+- **"An account shouldn't be revalued but is (or vice-versa)"** — check its **keep transaction local currency** and **exclude from exchange-rate update** flags.
+- **"The wrong period was stamped"** — it follows the document's **value date**; correct the date and reprocess (see [How documents are processed into accounting effects](./accounting-request-processing.md)).

@@ -1,72 +1,72 @@
-# المساعد الذكي داخل النظام
+# The In-System AI Assistant
 
-إلى جانب ربط العملاء الخارجيين عبر [خادم MCP](./ai-mcp-server.md)، يحتوي نظام نما ERP على **مساعد ذكي مدمج** يعمل من داخل الواجهة مباشرة: نافذة محادثة يفتحها المستخدم ويسأل فيها بلغته الطبيعية — عربيةً أو إنجليزية — فيجيب المساعد من بيانات النظام الفعلية، ويشغّل التقارير، بل وينفّذ إجراءات، مستخدمًا نفس [أدوات الذكاء الاصطناعي](./ai-tool-definitions.md) التي عرّفها مدير النظام وبنفس صلاحيات المستخدم الجالس أمام الشاشة.
+Besides connecting external clients through the [MCP server](./ai-mcp-server.md), Nama ERP ships with a **built-in AI assistant** that works right inside the interface: a chat window the user opens to ask questions in natural language — Arabic or English — and the assistant answers from the system's actual data, runs reports, and even performs actions, using the same [AI tools](./ai-tool-definitions.md) the administrator defined and under the same permissions as the user sitting at the screen.
 
-::: info المتطلبات
-- وحدة الذكاء الاصطناعي (AI Module) مركبة ومرخصة.
-- نموذج محادثة واحد على الأقل معرَّف في [إعداد وحدة الذكاء الاصطناعي](./ai-configuration.md).
-- أداة واحدة على الأقل معتمدة في شاشة [AI Tool Definition](./ai-tool-definitions.md) (وإلا فالمساعد يحاور لكنه لا يصل إلى بيانات النظام).
+::: info Requirements
+- The AI module installed and licensed.
+- At least one chat model defined in [AI Module Configuration](./ai-configuration.md).
+- At least one committed tool in the [AI Tool Definition](./ai-tool-definitions.md) screen (otherwise the assistant chats but cannot reach system data).
 :::
 
-## أين تجد المساعد؟
+## Where to Find the Assistant
 
-أيقونة المساعد الذكي (**Nama AI Assistant**) ظاهرة في **شريط الأدوات العلوي** للنظام، تفتح نافذة المحادثة في أي وقت. كما يظهر المساعد أيضًا:
+The AI assistant icon (**Nama AI Assistant**) is shown in the system's **top toolbar** and opens the chat window at any time. The assistant also appears:
 
-- **داخل شاشات التقارير**: تفتح المحادثة وأنت أمام تقرير، فيصبح ناتج التقرير الظاهر **سياقًا** يستطيع المساعد قراءته وتحليله — تسأله مثلًا أن يلخّص النتائج أو يبرز أعلى القيم.
-- **داخل شاشات تحرير السجلات**: لمناقشة السجل المفتوح أمامك.
+- **Inside report screens**: open the chat while viewing a report, and the displayed report output becomes **context** the assistant can read and analyze — ask it to summarize the results or highlight the top values.
+- **Inside record edit screens**: to discuss the record open in front of you.
 
-## ماذا يستطيع المساعد أن يفعل؟
+## What Can the Assistant Do?
 
-المساعد لا يملك أي قدرة من تلقاء نفسه — كل ما يفعله يمر عبر **أداة** معرّفة في شاشة AI Tool Definition. فإذا عرّفت أدوات استعلام وتقارير ومسارات كيان وأدوات نظام، صار بإمكان المساعد أن:
+The assistant has no capability of its own — everything it does goes through a **tool** defined in the AI Tool Definition screen. So once you define query, report, entity-flow, and system tools, the assistant can:
 
-- يجيب عن أسئلة من بياناتك («كم عدد فواتير المبيعات هذا الشهر؟»، «من هم أعلى خمسة عملاء رصيدًا؟»).
-- يشغّل تقريرًا بمدخلات يستنتجها من سؤالك ويقرأ ناتجه.
-- ينفّذ إجراءً على مستند عبر مسار كيان (اعتماد، ترحيل، ...).
-- يقرأ سجلًا أو يستورد سجلات جديدة إن فُعّلت أدوات الاستيراد.
-- يبحث في توثيق نما ERP إن فُعّلت أداة وثائق النظام.
+- Answer questions from your data ("How many sales invoices this month?", "Who are the top five customers by balance?").
+- Run a report with parameters it infers from your question, and read its output.
+- Perform an action on a document through an entity flow (approve, post, ...).
+- Read a record or import new records, if the import tools are enabled.
+- Search the Nama ERP documentation, if the docs system tool is enabled.
 
-وفي كل الأحوال تسري صلاحيات المستخدم ومحدداته (الشركة، الفرع، ...): لا يرى المساعد إلا ما يراه المستخدم، ولا ينفّذ إلا ما يُسمح له به.
+In all cases the user's permissions and dimensions (legal entity, branch, ...) apply: the assistant only sees what the user sees, and only does what the user is allowed to do.
 
-## التعامل مع نافذة المحادثة
+## Working With the Chat Window
 
-### اختيار النموذج
+### Choosing the Model
 
-أعلى النافذة قائمة منسدلة لاختيار **نموذج المحادثة**، تعرض النماذج المعرَّفة في [إعداد الوحدة](./ai-configuration.md). يمكنك التنقل بين النماذج بحسب المهمة — نموذج أسرع للأسئلة البسيطة وآخر أقوى للتحليل المعقّد.
+At the top of the window is a drop-down to choose the **chat model**, listing the models defined in [Module Configuration](./ai-configuration.md). You can switch models by task — a faster model for simple questions and a stronger one for complex analysis.
 
-### سجل المحادثات
+### Chat History
 
-يحفظ النظام محادثاتك في **جلسات (Sessions)** يمكن الرجوع إليها لاحقًا. من شريط المحادثة الجانبي:
+The system saves your conversations in **sessions** you can return to later. From the chat side panel:
 
-- **محادثة جديدة**: لبدء جلسة نظيفة بلا سياق سابق.
-- **السجل (History)**: يستعرض جلساتك السابقة لاستئناف أيٍّ منها.
+- **New chat**: start a clean session with no prior context.
+- **History**: browse your previous sessions to resume any of them.
 
-كل مستخدم يرى جلساته هو فقط.
+Each user sees only their own sessions.
 
-### تقييم الإجابات (Like / Dislike)
+### Rating Answers (Like / Dislike)
 
-أسفل كل رد من المساعد زرّا **إعجاب** و**عدم إعجاب**. تقييمك يُحفظ مع الرسالة، ويساعد على متابعة جودة الإجابات وتحسين إعداد الأدوات والأوصاف لاحقًا.
+Below each assistant reply are **Like** and **Dislike** buttons. Your rating is saved with the message and helps track answer quality and refine tool setup and descriptions over time.
 
-### الوضع المتقدّم (Expert Mode)
+### Expert Mode
 
-في الوضع العادي ترى المحادثة كحوار بسيط (سؤالك وجواب المساعد). أمّا **الوضع المتقدّم** فيكشف ما يجري خلف الكواليس ويصنّف كل رسالة:
+In normal mode you see the conversation as a simple dialog (your question and the assistant's answer). **Expert Mode** reveals what happens behind the scenes and classifies every message:
 
-| نوع الرسالة | المعنى |
+| Message Type | Meaning |
 |---|---|
-| **User** | رسالتك أنت |
-| **Assistant** | رد النموذج اللغوي |
-| **System** | تعليمات النظام الموجِّهة للنموذج |
-| **Tool Execution Result** | ناتج تنفيذ أداة استدعاها النموذج |
+| **User** | Your own message |
+| **Assistant** | The language model's reply |
+| **System** | The system instructions guiding the model |
+| **Tool Execution Result** | The output of a tool the model called |
 
-هذا الوضع مفيد جدًا للدعم الفني وللمستخدمين المتقدمين: يكشف **أي أداة استدعاها المساعد وبأي مدخلات وما الذي أعادته**، فيسهّل تشخيص إجابة غير متوقعة — هل المشكلة في وصف الأداة؟ في الاستعلام؟ أم في الصلاحيات؟
+This mode is very useful for technical support and power users: it reveals **which tool the assistant called, with what parameters, and what it returned**, making it easy to diagnose an unexpected answer — is the problem in the tool's description? the query? the permissions?
 
-### قائمة الأدوات المتاحة
+### The Available Tools List
 
-يعرض الشريط الجانبي الأدوات المتاحة للمساعد في هذه الجلسة — وهي نفسها الأدوات المعتمدة وغير المعطلة المسموح بها لهذا المستخدم في شاشة AI Tool Definition. إن غابت أداة تتوقعها، فالغالب أنها غير معتمدة، أو معطّلة، أو ممنوعة عن المستخدم بجدول الصلاحيات.
+The side panel shows the tools available to the assistant in this session — the same committed, non-inactive tools this user is allowed to use in the AI Tool Definition screen. If a tool you expect is missing, it is most likely not committed, inactive, or prevented for the user by the access-control grid.
 
-## حين لا يجد المساعد ما يبحث عنه
+## When the Assistant Can't Find Something
 
-كثير من الأدوات تأخذ **مرجعًا** (عميل، صنف، ...). إذا أرسل المستخدم اسمًا تقريبيًا بدل الكود، يستعين المساعد بـ**البحث الدلالي (Semantic Search)** ليجد أقرب السجلات — شريطة أن يكون نوع الكيان مفهرسًا في [إعداد التضمين الدلالي](./ai-configuration.md#lbHth-ldlly-wthyy-ltDmyn). بدون هذه التهيئة يبقى المساعد قادرًا على العمل بالأكواد الصريحة، لكنه لا «يخمّن» المرجع من نص حر.
+Many tools take a **reference** (customer, item, ...). If the user sends an approximate name instead of the code, the assistant relies on **semantic search** to find the closest records — provided the entity type is indexed in [embedding configuration](./ai-configuration.md#Semantic-Search-and-Embedding-Setup). Without it the assistant still works with explicit codes, but it does not "guess" the reference from free text.
 
-## علاقة المساعد بخادم MCP
+## The Assistant and the MCP Server
 
-المساعد الداخلي وعملاء MCP الخارجيون **وجهان لقاعدة واحدة**: كلاهما يستخدم نفس مجموعة الأدوات المعرَّفة في شاشة AI Tool Definition، وبنفس فحص الصلاحيات عند التنفيذ. الفرق أن المساعد الداخلي يعمل داخل واجهة النظام بهوية المستخدم المسجَّل دخوله، بينما يتصل العميل الخارجي عبر بيانات اعتماد API كما في [دليل خادم MCP](./ai-mcp-server.md).
+The in-system assistant and external MCP clients are **two faces of one base**: both use the same set of tools defined in the AI Tool Definition screen, with the same access check at execution time. The difference is that the in-system assistant runs inside the interface as the logged-in user, while an external client connects through API credentials as in the [MCP Server guide](./ai-mcp-server.md).

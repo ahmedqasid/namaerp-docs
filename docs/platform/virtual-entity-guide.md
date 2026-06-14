@@ -1,14 +1,14 @@
-# الكيانات الافتراضية (Virtual Entities) — وحدات SQL قابلة لإعادة الاستخدام في التقارير ولوحات المعلومات
+# Virtual Entities — Reusable SQL Building Blocks for Reports & Dashboards
 
-ربما مررت بهذا الموقف من قبل: نفس استعلام SQL المعقد يظهر في خمسة سجلات مختلفة من معالج التقارير وثلاثة widgets في لوحة المعلومات. وفي كل مرة تعدّله، عليك أن تتذكر كل مكان حُفظ فيه. علاوة على ذلك، يعرض منتقي الجدول في المعالج الكيانات *الحقيقية* فحسب، مثل `SalesInvoice` أو `CostInTransLine`، وبالتالي فإن أي استعلام يحتاج إلى `UNION` أو join مكتوب يدويًا أو قلب للإشارة على مستوى الصف لا بد من إعادة كتابته في كل محرر SQL لكل widget.
+You've probably been here before: the same complex SQL query keeps showing up in five different report-wizard records and three dashboard widgets. Every time you tweak it, you have to remember every place that copy lives. And the wizard's table picker only ever lists *real* entities like `SalesInvoice` or `CostInTransLine` — so anything that needs a `UNION`, a hand-rolled join, or a per-row sign flip has to keep being re-written by hand inside each widget's SQL editor.
 
-**الكيانات الافتراضية (Virtual Entities)** تحل هذه المشكلة. تكتب SELECT واحدة —بقدر ما تشاء من التعقيد: `UNION` و`JOIN` وتعبيرات وتجميعات— وتمنحها كودًا واسمًا، فيحولها النظام إلى كيان من الدرجة الأولى. ومن تلك اللحظة، يظهر هذا الكيان في منتقي الجدول الرئيسي في معالج التقارير وفي معالج Widget لوحة المعلومات *تمامًا كجدول حقيقي* — نفس منتقي الحقول، ونفس الربط التلقائي على الحقول المرجعية، ونفس الترجمات، ونفس لوحة المدخلات.
+**Virtual Entities** solve that. You write one SELECT (as fancy as you want — `UNION`, `JOIN`, expressions, aggregates, the lot), give it a code and a name, and the system turns it into a first-class entity. From that moment on, it shows up in the Report Wizard's main-table picker and in the Dashboard Widget Wizard *exactly like a real table* — same field selector, same auto-joins on reference fields, same translations, same parameters panel.
 
 ---
 
-## الفكرة الأساسية في مثال واحد
+## The Big Idea in One Example
 
-لنفترض أنك تريد تحليل حركات المخزون الصادرة من نوعين مختلفين من المعاملات: تكلفة بضاعة في الطريق واردة (`CostInTransLine`، كميات موجبة) وتكلفة بضاعة في الطريق صادرة (`CostOutTransLine`، كميات سالبة). لا يوجد جدول فيزيائي واحد يعطيك كليهما باتفاقية إشارة موحدة. لذلك تكتب:
+Suppose you want to analyze stock movements that come from two different transactions: in-transit cost arriving (`CostInTransLine`, positive quantities) and in-transit cost leaving (`CostOutTransLine`, negative quantities). There's no single physical table that gives you both with a unified sign convention. So you write:
 
 ```sql
 select l.totalCost, l.totalQty, l.item_id, l.legalEntity_id, l.valueDate
@@ -18,101 +18,101 @@ select l.totalCost * -1, l.totalQty * -1, l.item_id, l.legalEntity_id, l.valueDa
 from CostOutTransLine l
 ```
 
-تحفظ هذا بوصفه كيانًا افتراضيًا يُسمى `InTransitMovements`. خلف الكواليس، يُنشئ النظام view في SQL Server باسم `vw_InTransitMovements`، ويسجل تعريف كيان جديد يشير إلى هذا الـ view، ويضيفه إلى النموذج الذي يستشيره المعالجان.
+You save this as a Virtual Entity called `InTransitMovements`. Behind the scenes, the system creates a SQL Server view named `vw_InTransitMovements`, registers a new entity definition pointing at that view, and adds it to the model the wizards consult.
 
-الآن في معالج التقارير، تختار "الجدول الرئيسي → InTransitMovements"، فتحصل على:
+Now in the Report Wizard, you pick "Main Table → InTransitMovements", and you get:
 
-- حقل يُسمى `item` من النوع `Reference → InvItem` (لأن `item_id` في الجدول المصدر يرتبط بهذه الخاصية).
-- حقل يُسمى `legalEntity` من النوع `Reference → LegalEntity`.
-- حقل يُسمى `valueDate` من النوع `Date`.
-- حقول رقمية `totalCost` و`totalQty`.
+- A field called `item` typed as `Reference → InvItem` (because `item_id` on the source table mapped to that property).
+- A field called `legalEntity` typed as `Reference → LegalEntity`.
+- A field called `valueDate` typed as `Date`.
+- Numeric fields `totalCost` and `totalQty`.
 
-يمكنك إضافتها إلى تقرير، والتجميع حسب `item`، وحساب مجموع التكلفة والكمية، وتكون قد انتهيت. لا يوجد SQL خام في أي مكان في التقرير. كما يمكن اختيار نفس الكيان الافتراضي من معالج Widget لوحة المعلومات — نفس سلوك الربط التلقائي، ونفس الترجمات، ونفس دعم التعمق في البيانات (drill-down).
-
----
-
-## أين تجده
-
-تتوفر شاشة Virtual Entity في قائمة وحدة **Basic**. افتحها كما تفتح أي ملف رئيسي: انقر **جديد**، أكمل ترويسة السجل، وستكون جاهزًا.
-
-تحتوي الترويسة على عدد محدود من الحقول:
-
-- **Code** — معرّف قصير، يتكون من حروف أو أرقام أو شرطة سفلية فقط، ويجب أن يبدأ بحرف. يستخدم النظام هذا الكود لتسمية الـ view الأساسي (`vw_<code>`) وبوصفه اسم نوع الكيان. بمجرد الحفظ، لا يمكن تغيير الكود (إذ يستلزم إعادة التسمية حذف الـ view وإعادة إنشائه، وهو ما لا تتيحه المرحلة الأولى — راجع [ما القادم لاحقًا](#m-lqdm-lHqan)).
-- **Arabic Name** / **English Name** — ما سيراه المستخدمون في منتقي الجدول بالمعالج، وفي تسميات الحقول، وعناوين الشاشات.
-- **SQL Query** — جملة SELECT التي تُعرّف الكيان. متعددة الأسطر؛ استخدم `UNION` و`JOIN` والتعبيرات والتجميعات — كل ما تحتاجه.
-- **Materialization** — في الوقت الحالي، `View` فقط مسموح به. خيار `Table` محجوز لمرحلة مستقبلية لتجسيد البيانات في جدول فيزيائي قابل للتحديث.
-
-بعد ملء هذه الحقول، انقر **حفظ**. ثم لربط أعمدة SELECT بخصائص الكيان، انقر زر **Edit Mappings** في أعلى الشاشة. يفتح هذا المحرر الذي تحدث فيه المعجزة الحقيقية.
+You can drop them into a report, group by `item`, sum the cost and quantity, and you're done. No raw SQL anywhere in the report. The same Virtual Entity is also pickable from the Dashboard Widget Wizard — same auto-join behavior, same translations, same drill-down support.
 
 ---
 
-## نافذة Edit Mappings
+## Where to Find It
 
-تنقسم النافذة إلى قسمين متراكمين عموديًا.
+The Virtual Entity screen lives in the **Basic** module's menu. Open it like you would any other master file: click **New**, fill in the header, and you're in business.
 
-### الأعلى — محرر SQL
+The header has just a handful of fields:
 
-محرر Monaco (نفس المحرر المستخدم في VS Code) مع إبراز لغوي لـ SQL وإكمال تلقائي وارتفاع يمتد للشاشة كاملة. عدّل استعلامك بحرية؛ يُحلله النظام أثناء الكتابة لاكتشاف الأعمدة التي يرتبط بها كل خاصية.
+- **Code** — short identifier, letters/digits/underscore only, must start with a letter. The system uses this to name the underlying view (`vw_<code>`) and as the entity's type name. Once you save, the code can't be changed (renaming would mean dropping and re-creating the view, which Phase 1 doesn't do — see [What's Coming Later](#Whats-Coming-Later)).
+- **Arabic Name** / **English Name** — what users will see in the wizard's table picker, in field labels, and in screen titles.
+- **SQL Query** — the SELECT statement that defines the entity. Multi-line; use `UNION`, `JOIN`, expressions, aggregates — whatever you need.
+- **Materialization** — for now, only `View` is allowed. The `Table` option is reserved for a future phase that will materialize the data into a refreshable physical table.
 
-فوق المحرر، يقوم زر **Bootstrap** بالعمل الجوهري: يُحلل SELECT بالكامل، ويمر بكل عمود في مجموعة النتائج، ويحدد الجدول الفيزيائي والعمود الذي أتى منه كل عمود، ويبحث عن الخاصية المطابقة في تعريف كيان ذلك الجدول، ثم يقترح قائمة كاملة من الخصائص. انقره وسيمتلئ القسم السفلي باقتراحات الربط.
+After filling these in, click **Save**. Then, to map the SELECT columns to entity properties, click the **Edit Mappings** button at the top of the screen. That opens the editor where the real magic happens.
+
+---
+
+## The Edit Mappings Dialog
+
+The dialog has two halves stacked vertically.
+
+### Top — The SQL Editor
+
+A Monaco editor (the same one that powers VS Code) with SQL syntax highlighting, autocomplete, and full-screen height. Edit your query freely; the system parses it as you type so it can spot which columns each property is mapped to.
+
+Above the editor, the **Bootstrap** button does the heavy lifting: it parses the entire SELECT, walks every column in the result set, figures out which physical table and column each one came from, looks up the matching property on that table's entity definition, and proposes a complete property list. Click it and the bottom half fills up with suggested mappings.
 
 ::: tip
-Bootstrap هو نقطة البداية الموصى بها. نادرًا ما ستحتاج إلى كتابة عشرين ربطًا للخصائص يدويًا حين يستطيع المحلل اشتقاقها جميعًا من SQL الخاص بك. فكر فيه كزر "Select Fields" في معالج التقارير — نفس الفكرة، مطبقة على أعمدة الكيانات الافتراضية.
+Bootstrap is the recommended starting point. You almost never want to type out twenty property mappings by hand when the parser can derive them all from your SQL. Think of it like the "Select Fields" button in the Report Wizard — same idea, applied to virtual-entity columns.
 :::
 
-إذا فشل تحليل SQL، يعرض المحرر رسالة خطأ باللون الأحمر مباشرة فوقه. لا يزال بإمكانك النقر على Bootstrap في هذه الحالة، لكن معظم الاقتراحات ستعود بوصفها `Unresolved` — وستحتاج إلى تعبئة تفاصيل الخصائص يدويًا.
+If your SQL doesn't parse, the editor shows a parse error in red just above it. The Bootstrap button still works in that case, but the proposals will mostly come back as `Unresolved` — you'll need to fill in the property details by hand.
 
-### الأسفل — قائمة الخصائص
+### Bottom — The Property List
 
-هذا هو الجدول الذي يُعرّف الحقول التي سيراها المعالج. كل صف يمثل خاصية واحدة بالأعمدة التالية:
+This is the table that defines what fields the wizard will see. Each row is one property, with these columns:
 
-| العمود | وظيفته |
+| Column | What it does |
 |---|---|
-| **Column Name** | اسم العمود في قائمة SELECT (أو الاسم البديل alias). هذا هو الرابط بين الخاصية وعمود الـ view الأساسي. |
-| **Full Name** | الاسم المنطقي للخاصية — مثلًا `item` أو `legalEntity` أو `valueDate`. هذا ما يظهر في معرفات الحقول (`InTransitMovements.item.code` إلخ). |
-| **Field Type** | `Reference` أو `Decimal` أو `Text` أو `Date` أو `Integer` أو `Boolean` إلخ. أنواع Reference تُتيح الربط التلقائي في المعالج. |
-| **Reference To** | وثيق الصلة فقط حين يكون نوع الحقل `Reference` — الكيان الذي يشير إليه هذا العمود (مثلًا `InvItem` لعمود `item`). |
-| **Arabic Name / English Name** | الترجمات التي سيراها المستخدمون في منتقي الحقول بالمعالج. |
+| **Column Name** | The name of the column in the SELECT list (or its alias). This is the system's link between the property and the underlying view column. |
+| **Full Name** | The property's logical name — e.g., `item`, `legalEntity`, `valueDate`. This is what shows up in field IDs (`InTransitMovements.item.code`, etc.). |
+| **Field Type** | `Reference`, `Decimal`, `Text`, `Date`, `Integer`, `Boolean`, etc. Reference types unlock auto-joins in the wizard. |
+| **Reference To** | Only relevant when the field type is `Reference` — the entity this column points to (e.g., `InvItem` for an `item` column). |
+| **Arabic Name / English Name** | The translations users will see in the wizard's field picker. |
 
-طريقتان لإضافة الصفوف:
+Two ways to add rows:
 
-1. **انقر "Add Column"**. يظهر صف فارغ. عنصر تحكم Column Name في ذلك الصف هو منتقٍ على الأعمدة التي وجدها المحلل في SQL — الأعمدة غير المربوطة أولًا (محددة)، ثم المربوطة مسبقًا مع تعليق "pick to overwrite". اختيار عمود يُشغّل Bootstrap على مستوى عمود واحد ويملأ بقية الصف.
-2. **استخدم Bootstrap**. كما هو موضح أعلاه — يستبدل القائمة بالكامل باقتراح المحلل.
+1. **Click "Add Column"**. An empty row appears. The Column Name control on that row is a picker over the columns the parser found in your SQL — unmapped ones first (highlighted), then already-mapped ones marked "pick to overwrite". Picking a column runs single-column bootstrap and fills the rest of the row.
+2. **Use Bootstrap**. As described above — replaces the whole list with the parser's proposal.
 
-إذا نقرت Bootstrap وكانت صفوف موجودة بالفعل، يطلب النظام تأكيدًا أولًا. وكذلك الحال عند اختيار عمود في صف تحتوي Bootstrap-derived mapping — يسأل قبل الكتابة فوق عملك.
+If you bootstrap and rows already exist, the system asks for confirmation first. Same for picking a column on a row that already has a bootstrap-derived mapping — it asks before clobbering your work.
 
-### الإبلاغ عن الخصائص اليتيمة (Orphan Flagging)
+### Orphan Flagging
 
-إذا عدّلت SQL بعد ربط الخصائص، ولم يعد `Column Name` لإحدى الخصائص يطابق أي عمود في قائمة SELECT الجديدة، تُوسَم الصف بتحذير: *"هذا العمود لم يعد موجودًا في استعلام SQL الحالي."* لا يحذف النظام أي شيء تلقائيًا — أنت تقرر ما إذا كنت ستُعيد تشغيل Bootstrap، أو تختار عمودًا بديلًا، أو تحذف الصف.
+If you edit your SQL after mapping properties, and a property's `Column Name` no longer matches any column in the new SELECT list, the row gets badged with a warning: *"This column is no longer in the current SQL query."* The system doesn't auto-remove anything — you decide whether to re-bootstrap, pick a replacement column, or delete the row.
 
-تعيد عملية التحليل نفسها التشغيل بعد ~2.5 ثانية من توقفك عن الكتابة، لذا يتحدث الوسم أثناء عملك.
+The re-parse runs ~2.5 seconds after you stop typing, so the badge updates as you work.
 
 ---
 
-## كيف يُحلّل Bootstrap كل عمود
+## How Bootstrap Resolves Each Column
 
-فهم ما يفعله المحلل يُسهّل التنبؤ بمخرجاته كثيرًا.
+Understanding what the parser does makes it much easier to predict its output.
 
-لمرجع عمود بسيط مثل `l.item_id` من `CostInTransLine l`:
+For a plain column reference like `l.item_id` from `CostInTransLine l`:
 
-1. يرى المحلل أن `item_id` ينتمي إلى الاسم البديل `l`، الذي هو `CostInTransLine`.
-2. يبحث عن `CostInTransLine` في نموذج البيانات ويجد الخاصية التي يكون عمودها الأساسي هو `item_id` — وهي `item`.
-3. ينسخ الاسم الكامل للخاصية (`item`) ونوعها (`Reference`) والكيان المستهدف (`InvItem`) والتسميات العربية والإنجليزية إلى الاقتراح.
-4. يُعيد تعيين `Column Name` على الاقتراح ليكون ما استخدمته في قائمة SELECT، حتى يتوافق اسم عمود الـ view.
+1. The parser sees `item_id` belongs to alias `l`, which is `CostInTransLine`.
+2. It looks up `CostInTransLine` in the data model and finds the property whose underlying column is `item_id` — that's `item`.
+3. It copies that property's full name (`item`), its type (`Reference`), its target entity (`InvItem`), and its Arabic/English labels into the proposal.
+4. It overrides the `Column Name` on the proposal to whatever alias you used in the SELECT list, so the view's column name lines up.
 
-النتيجة: صف محلول بالكامل لا يحتاج إلى أي تعديل يدوي.
+Result: a fully-resolved row that needs no manual editing.
 
-لتجميع مثل `SUM(l.totalCost)`:
+For an aggregate like `SUM(l.totalCost)`:
 
-يُصنّف المحلل هذا بوصفه `Aggregate Numeric`. يحصل الاقتراح على `Decimal` كنوع حقل، وبلا هدف مرجعي، ويستخدم الاسم البديل في SELECT كاسم العمود. قد ترغب في ملء تسمية أكثر وضوحًا.
+The parser tags this as `Aggregate Numeric`. The proposal gets `Decimal` as the field type, no reference target, and uses the SELECT alias as the column name. You may want to fill in a friendlier label.
 
-لتعبير مثل `l.totalCost * -1`:
+For an expression like `l.totalCost * -1`:
 
-إذا كان التعبير يلف عمودًا أساسيًا واحدًا، يحلّ المحلل بيانات وصف الخاصية لذلك العمود — فـ`l.totalCost * -1` يُحلَّل بنفس طريقة `l.totalCost`. إذا جمع التعبير أعمدة متعددة أو استخدم جملة CASE، يرجع المحلل إلى نوع `Text` بلا مرجع، ويُعلّم الاقتراح بـ`Expression Partial`. أكمل الباقي يدويًا.
+If the expression wraps a single underlying column, the parser still resolves to that column's property metadata — so `l.totalCost * -1` resolves the same way `l.totalCost` would. If the expression mixes multiple columns or uses a CASE statement, the parser falls back to a `Text` type with no reference, marking the proposal as `Expression Partial`. Fill in the rest by hand.
 
-لـ`UNION ALL` (أو أي عملية مجموعة):
+For a `UNION ALL` (or any set operation):
 
-يمر المحلل بكل فرع ويُحلل الأعمدة موضعًا بموضع. للموضع N، يمر بالفروع بالترتيب **ويأخذ أول فرع ينتج اقتراحًا محلولًا بالكامل**. ولهذا السبب يعمل هذا:
+The parser walks each branch and resolves columns position-by-position. For position N, it walks the branches in order and **takes the first branch that produces a fully-resolved proposal**. That's why this works:
 
 ```sql
 select 0 as x from a
@@ -120,54 +120,54 @@ union all
 select x from b
 ```
 
-الفرع الأول يحتوي على ثابت في الموضع 0 (لا عمود مصدر). الفرع الثاني لديه `b.x`. يختار الدمج تحليل الفرع الثاني.
+Branch 1 has a constant at position 0 (no source column). Branch 2 has `b.x`. The merger picks branch 2's resolution.
 
 ---
 
-## ما الذي يحدث عند الحفظ
+## What Happens When You Save
 
-تنفيذ الحفظ يمر بثلاث خطوات:
+Saving runs three things:
 
-1. **التحقق** — شكل الكود، وعدم التعارض في الاسم مع كيان موجود، وكون Materialization هو `View`، وأن SQL غير فارغ.
-2. **إعادة بناء XML لنموذج البيانات** — يُحوَّل JSON الخاص بالربط إلى تعريف `DMEntity` (بنفس الشكل الذي يمتلكه كل كيان آخر) ويُخزَّن على السجل.
-3. **View DDL** — يُشغّل النظام `DROP VIEW IF EXISTS dbo.vw_<code>` ثم `CREATE VIEW dbo.vw_<code> AS <your SELECT>` داخل نفس معاملة قاعدة البيانات لحفظ الكيان. إذا فشل View DDL — خطأ نحوي، أو عمود مفقود، أو `ORDER BY` غير قانوني بدون `TOP`، أو مشكلة صلاحيات — تُلغى المعاملة بأكملها وترى خطأ SQL Server مباشرةً. لا يُثبَّت أي شيء جزئي.
+1. **Validation** — Code shape, no name collision with an existing entity, materialization is `View`, SQL is non-empty.
+2. **Data-model XML rebuild** — The mapping JSON is converted into a `DMEntity` definition (the same shape every other entity has) and stored on the record.
+3. **View DDL** — The system runs `DROP VIEW IF EXISTS dbo.vw_<code>` followed by `CREATE VIEW dbo.vw_<code> AS <your SELECT>` inside the same database transaction as the entity save. If the view DDL fails — bad syntax, missing column, illegal `ORDER BY` without `TOP`, permission issue — the whole transaction rolls back and you see the SQL Server error inline. Nothing partial gets persisted.
 
-بعد اكتمال الحفظ، تُعاد بناء ذاكرة التخزين المؤقت لنموذج البيانات حتى يرى الاستدعاء التالي لمعالج التقارير أو معالج Widget لوحة المعلومات الكيان الجديد في منتقي الجدول الرئيسي. لا يلزم إعادة التشغيل ولا مسح يدوي للتخزين المؤقت.
-
----
-
-## استخدام الكيانات الافتراضية في معالج التقارير
-
-افتح معالج التقارير، انقر **الجدول الرئيسي**، وسيظهر كيانك الافتراضي جانبًا الكيانات الحقيقية. يعرضها المنتقي تحت نوع الجدول **`Virtual Entity`** (بالتوازي مع `Entity` و`Detail Line` و`System Table`).
-
-من هنا يعمل كل شيء كما لو كنت على جدول حقيقي:
-
-- **اختيار الحقول** — انقر **Select Fields** وسترى قائمة الخصائص التي عرّفتها: `item` و`legalEntity` و`valueDate` و`totalCost` و`totalQty`. تتوسع الحقول المرجعية تلقائيًا لمنحك `item.code` و`item.name1` و`item.name2` إلخ.
-- **المدخلات** — أضف `valueDate` كمدخل بنوع فلتر `Between` وستحصل على موجه نطاق التاريخ القياسي.
-- **التجميعات** — أضف `totalCost` و`totalQty` كمقاييس، وجمّع حسب `item`، واحصل على تقرير مُجمَّع.
-- **الترجمات** — تظهر الأسماء العربية والإنجليزية التي حددتها لكل خاصية كعناوين للأعمدة.
-
-راجع [دليل معالج التقارير](./reports/report-wizard-guide.md) للاطلاع على بقية آليات المعالج — وهي جميعًا تنطبق دون تغيير.
+After the save commits, the data-model cache is rebuilt so the next call to the Report Wizard or the Dashboard Widget Wizard sees the new entity in their main-table picker. No restart, no manual cache clear.
 
 ---
 
-## استخدام الكيانات الافتراضية في معالج Widget لوحة المعلومات
+## Using Virtual Entities in the Report Wizard
 
-في وحدة Dashboard، عند إنشاء widget مدعوم بمصدر بيانات من المعالج، يظهر نفس منتقي الجدول الرئيسي مع كيانك الافتراضي مدرجًا فيه. بمجرد اختياره، تعمل كل ميزات BI التي تحصل عليها الـ widgets المدعومة بالمعالج — التعمق حسب المحدد (dimension drill-by)، وأعمدة cross-filter المستنتجة تلقائيًا، ومنتقيات معرف الحقل — مع الكيان الافتراضي تمامًا كما لو كانت كيانًا حقيقيًا.
+Open the Report Wizard, click **Main Table**, and your virtual entity appears alongside the real ones. The picker shows them under the table type **`Virtual Entity`** (parallel to `Entity`, `Detail Line`, and `System Table`).
 
-هنا تتجلى أكثر فائدة الكيانات الافتراضية: تبنيها مرة واحدة، وبعد ذلك تستطيع إنشاء widgets جديدة للوحة المعلومات بصريًا دون لمس SQL مجددًا.
+From there, everything works as if you were on a real table:
 
-لمعرفة تفاصيل سلوك الـ widgets المدعومة بالمعالج، راجع [دليل وحدة BI](./bi/bi-module-guide.md#mSdr-lbynt-Data-Sources) ومرجع [Wizard Mode](./bi/bi-module-technical-reference.md#13-Wizard-Mode).
+- **Field selection** — Click **Select Fields** and you'll see the property list you defined: `item`, `legalEntity`, `valueDate`, `totalCost`, `totalQty`. Reference fields auto-expand to give you `item.code`, `item.name1`, `item.name2`, etc.
+- **Parameters** — Add `valueDate` as a parameter with `Between` filter type and you get the standard date-range prompt.
+- **Aggregations** — Drop `totalCost` and `totalQty` in as measures, group by `item`, get a totaled report.
+- **Translations** — The Arabic/English names you set on each property show up as the column headers.
+
+See the [Report Wizard Guide](./reports/report-wizard-guide.md) for the rest of the wizard mechanics — they all apply unchanged.
 
 ---
 
-## مثال عملي — تقرير حركات تكاليف البضاعة في الطريق
+## Using Virtual Entities in the Dashboard Widget Wizard
 
-لنستعرض الخطوات الكاملة من منظور المستخدم باستخدام SQL من بداية الدليل.
+In the Dashboard module, when you create a widget backed by a wizard data source, the same main-table picker appears with your virtual entity listed. Once you pick it, every BI feature that wizard-backed widgets get — dimension drill-by, auto-inferred cross-filter columns, field-ID pickers — works against the virtual entity exactly as it would against a real one.
 
-### الخطوة 1 — إنشاء الكيان الافتراضي
+This is where Virtual Entities pay off the most: you build one once, and from then on you can spin up new dashboard widgets visually without touching SQL again.
 
-افتح **Virtual Entity** من قائمة وحدة Basic، انقر **جديد**، وأدخل:
+For details on how wizard-backed widgets behave, see the [BI Module Guide](./bi/bi-module-guide.md#Data-Sources) and the [Wizard Mode reference](./bi/bi-module-technical-reference.md#13-Wizard-Mode).
+
+---
+
+## Worked Example — In-Transit Cost Movements Report
+
+Let's walk the user-facing flow end to end with the SQL from the opening section.
+
+### Step 1 — Create the Virtual Entity
+
+Open **Virtual Entity** from the Basic module menu, click **New**, and fill in:
 
 - **Code:** `InTransitMovements`
 - **Arabic Name:** `حركات البضاعة في الطريق`
@@ -183,11 +183,11 @@ select l.totalCost * -1, l.totalQty * -1, l.item_id, l.legalEntity_id, l.valueDa
 from CostOutTransLine l
 ```
 
-احفظ الترويسة.
+Save the header.
 
-### الخطوة 2 — ربط الأعمدة
+### Step 2 — Map the Columns
 
-انقر **Edit Mappings**. تفتح النافذة مع SQL محمّل مسبقًا. انقر **Bootstrap**. تمتلئ قائمة الخصائص:
+Click **Edit Mappings**. The dialog opens with the SQL already loaded. Click **Bootstrap**. The property list fills in:
 
 | Column Name | Full Name | Field Type | Reference To |
 |---|---|---|---|
@@ -197,55 +197,55 @@ from CostOutTransLine l
 | `legalEntity_id` | `legalEntity` | Reference | `LegalEntity` |
 | `valueDate` | `valueDate` | Date | — |
 
-انقر **OK**. تُغلق النافذة؛ في شاشة الكيان، انقر **حفظ**. يُنشأ الـ view `vw_InTransitMovements` ويسجّل الكيان نفسه في نموذج البيانات.
+Click **OK**. The dialog closes; on the entity screen, click **Save**. The view `vw_InTransitMovements` is created and the entity registers itself in the data model.
 
-### الخطوة 3 — بناء التقرير
+### Step 3 — Build a Report
 
-افتح معالج التقارير، أنشئ معالجًا جديدًا، واختر `In-Transit Movements` كجدول رئيسي. أضف الحقول:
+Open the Report Wizard, create a new wizard, and pick `In-Transit Movements` as the Main Table. Add fields:
 
-- `this` — مرجع الكيان (حتى تتمكن من التعمق)
-- `item` — مربوط تلقائيًا بـ `InvItem` لأن الخاصية مرجعية
+- `this` — the entity reference (so you can drill down)
+- `item` — auto-joined to `InvItem` because the property is a reference
 - `valueDate`
-- `totalQty` (مع تجميع `Sum`)
-- `totalCost` (مع تجميع `Sum`)
+- `totalQty` (with `Sum` aggregation)
+- `totalCost` (with `Sum` aggregation)
 
-أضف `valueDate` كمدخل بنوع فلتر `Between`. احفظ وشغّل. ستحصل على ملخص لكل صنف يعرض صافي حركة البضاعة في الطريق خلال نطاق التاريخ المحدد، بلا SQL خام في أي مكان بالمعالج.
+Add `valueDate` as a parameter with filter type `Between`. Save and run. You get a per-item summary of net in-transit movement over your selected date range, with no raw SQL anywhere in the wizard.
 
 ---
 
-## حالات الحافة والمزالق الشائعة
+## Edge Cases & Common Pitfalls
 
-| الحالة | ما يحدث |
+| Situation | What happens |
 |---|---|
-| SQL لديك يحتوي على خطأ نحوي | يعرض المحرر شكوى المحلل مباشرة. لا يزال بإمكانك الحفظ، لكن View DDL سيفشل ويظهر خطأ SQL Server. |
-| تشير إلى عمود لم يعد موجودًا في الجدول المصدر | يفشل View DDL عند الحفظ. أصلح SELECT وحاول مجددًا. |
-| SQL يحتوي على `ORDER BY` بدون `TOP` | SQL Server يرفض هذا في الـ views. يفشل الحفظ مع خطأ SQL Server. انقل الترتيب إلى التقرير المستهلك عوضًا عن ذلك. |
-| تبني كيانًا افتراضيًا يشير إلى كيان افتراضي آخر | مسموح. قاعدة البيانات تفرض اشتراط عدم وجود تبعيات دائرية — إذا أنشأت دائرة عن طريق الخطأ (A → B → A)، سيفشل الأمر الثاني `CREATE VIEW`. |
-| يحفظ مستخدمان نفس الكيان الافتراضي في الوقت نفسه | تعارض القفل التفاؤلي القياسي؛ يفوز حفظ واحد، والآخر يرى خطأ عدم تطابق الإصدار. |
-| تحفظ بدون ربط أي خصائص | مسموح. يُنشأ الـ view لكن الكيان لا يحتوي على حقول قابلة للاستخدام في المعالج. أضف الأعمدة لاحقًا. |
-| SQL يحتوي على معامل `:placeholder` | مرفوض عند التحقق. يجب أن يكون SQL للكيان الافتراضي مكتفيًا بذاته. |
-| تغير **Code** بعد الحفظ الأول | مرفوض عند التحقق. أنشئ كيانًا افتراضيًا جديدًا بالكود الجديد إذا أردت إعادة التسمية. |
+| Your SQL has a syntax error | The editor shows the parser's complaint inline. You can still save, but the view DDL will then fail and surface the SQL Server error. |
+| You reference a column that no longer exists in the source table | The view DDL fails on save. Fix your SELECT and try again. |
+| Your SQL has `ORDER BY` without `TOP` | SQL Server rejects this in views. The save fails with the SQL Server error. Move the sort to the consuming report instead. |
+| You build a virtual entity that references another virtual entity | Allowed. The DB enforces non-cyclic dependencies — if you accidentally create a cycle (A → B → A), the second `CREATE VIEW` fails. |
+| Two users save the same Virtual Entity at the same time | Standard optimistic-locking conflict; one save wins, the other sees a version mismatch error. |
+| You save with zero properties mapped | Allowed. The view is created but the entity has no usable fields in the wizard. Add columns later. |
+| Your SQL contains a `:placeholder` parameter | Rejected at validation. Virtual Entity SQL must be self-contained. |
+| You change the **Code** after first save | Rejected at validation. Create a new Virtual Entity with the new code if you need to rename. |
 
 ---
 
-## نموذج الثقة — من يجب أن يتمتع بالوصول
+## Trust Model — Who Should Have Access
 
-تعريف الكيان الافتراضي يُشغّل SQL داخل اتصال قاعدة بيانات التطبيق. لا توجد بيئة معزولة (sandbox): ما يستطيع مستخدم التطبيق فعله، يستطيع SELECT الكيان الافتراضي فعله. وهذا يعني:
+A Virtual Entity definition runs SQL inside the application's database connection. There's no sandbox: whatever the application user can do, the Virtual Entity's SELECT can do. That means:
 
-- قيّد قائمة **Virtual Entity** وصلاحيات تعديل الكيان للمستخدمين المتقدمين / المسؤولين.
-- لا تكشف شاشة إنشاء الكيان للأدوار التي لن تثق بها لكتابة SQL قراءة فقط اعتباطي ضد قاعدة البيانات الإنتاجية.
-- الـ view المُنشأ من SELECT هو *view SQL عادي* — أي شخص يستطيع قراءة صفوفه يستطيع الاستعلام عنه بحرية بمجرد وجوده، لكن إنشاء/تعديل التعريف هو ما يحتاج إلى تقييد.
+- Restrict the **Virtual Entity** menu and entity-edit permissions to power users / admins.
+- Don't expose the entity-creation screen to roles you wouldn't trust to write arbitrary read-only SQL against the production database.
+- The view created from the SELECT is a *normal SQL view* — anyone who can read its rows can query it freely once it exists, but creating/editing the definition is what needs gating.
 
 ---
 
-## ما القادم لاحقًا
+## What's Coming Later
 
-تُوفّر المرحلة الأولى الكيانات الافتراضية بوصفها **views فقط**. يحمل JSON للإعدادات حقولًا متوافقة مستقبلًا للمرحلة التالية، لذا سيتحمّل أي شيء تحفظه الآن التحولات القادمة بسلاسة:
+Phase 1 ships Virtual Entities as **views only**. The JSON config already carries forward-compatible fields for the next phase, so anything you save now will round-trip cleanly when these features land:
 
-- **Materialization → Table** — جداول مُجمَّعة مسبقًا فيزيائيًا للاستعلامات المُكلفة جدًا لتشغيلها عند كل تحميل للوحة المعلومات.
-- **سياسات التحديث (Refresh policies)** — تحديث يدوي أو مُجدول (cron) أو عند الكتابة للجداول المُجسَّدة.
-- **إدارة الفهارس (Index management)** — تعريف فهارس على الجدول المُجسَّد لتحسين أداء الاستعلام.
-- **إعادة تسمية الكود (Code rename)** — حذف الـ view القديم وإنشاء جديد في معاملة واحدة.
-- **تتبع التبعيات (Dependency tracking)** — معرفة التقارير ولوحات المعلومات والكيانات الافتراضية الأخرى التي تعتمد على كيان افتراضي معين قبل تغييره أو حذفه.
+- **Materialization → Table** — physical pre-aggregated tables for queries that are too expensive to run on every dashboard load.
+- **Refresh policies** — manual, scheduled (cron), or on-write refresh of materialized tables.
+- **Index management** — define indexes on the materialized table for query performance.
+- **Code rename** — drop the old view and create a new one in a single transaction.
+- **Dependency tracking** — see which reports, dashboards, and other virtual entities depend on a given virtual entity before you change or delete it.
 
-في الوقت الحالي، اعتبر Materialization إشارة خارطة طريق: القائمة المنسدلة تعرض `Table` معطلًا مع تلميح "Coming later".
+For now, treat materialization as a roadmap signal: the dropdown shows `Table` disabled with a "Coming later" tooltip.

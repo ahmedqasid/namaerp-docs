@@ -1,25 +1,23 @@
-<rtl>
+# Frequently Asked Questions — Manufacturing Module in Nama ERP
 
-# أسئلة شائعة حول موديول التصنيع في نظام Nama ERP
+## I want the production order status to change to "In Progress" immediately upon saving, so I can execute the production order right after saving
 
-## أريد عند حفظ أمر الإنتاج أن تتغير حالته مباشرة إلى "قيد التنفيذ" بحيث أتمكن من تنفيذ أمر الإنتاج بعد الحفظ مباشرة
+You can achieve this through an **Entity Flow** (مسار كيان) that executes during the production order save operation.
 
-يمكنك تحقيق ذلك من خلال **مسار كيان (Entity Flow)** يُنفذ أثناء عملية حفظ أمر الإنتاج.
+### The Action Used
 
-### الإجراء المستخدم
+`PreUpdateCalculatedFields`
 
-`ما قبل تحديث الحقول المحسوبة` (`PreUpdateCalculatedFields`)
-
-### العنصر الجاهز
+### The Ready-Made Component
 
 `EAStartOrderIfNotStarted`
-هذا العنصر يقوم بفحص حالة أمر الإنتاج، وإذا لم تكن الحالة قد بدأت، فإنه يغيرها إلى "قيد التنفيذ".
+This component checks the production order status, and if it has not yet started, it changes it to "In Progress".
 
-### طريقة التفعيل
+### How to Activate
 
-قم بإضافة مسار كيان من النوع `ProductionOrder`، وضع به العنصر المذكور على الإجراء `PreUpdateCalculatedFields`.
+Add an Entity Flow of type `ProductionOrder`, and place the mentioned component on the `PreUpdateCalculatedFields` action.
 
-::: details JSON للاستيراد المباشر
+::: details JSON for Direct Import
 
 ```json
 {
@@ -33,6 +31,3 @@
 }
 ```
 :::
-
-
-</rtl>

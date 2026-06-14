@@ -1,200 +1,196 @@
-<rtl>
+# Detailed Explanation of the Payroll System in Nama ERP - 4
 
-# شرح مفصل لنظام إدارة الرواتب في نظام نما - 4
+# Attendance and Departure System in Detail
+[Go to video 00:00:11](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=11s)
 
-# نظام الحضور والانصراف بالتفصيل
-[العودة إلى الفيديو 00:00:11](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=11s)
+## Introduction to the Attendance and Departure System
+The video begins by explaining the concept of attendance and departure in the system, and how it relates to employees and shifts, especially in different work environments in Saudi Arabia and the Gulf. The presenter explains that employees may work more than one shift during the day — for example, a morning shift from 10 AM to 2 PM, then returning to work from 6 PM to 10 PM. The video also covers special rules for handling forgotten punches (either check-in or check-out) and how penalties are applied in such cases.
 
-## مقدمة حول نظام الحضور والانصراف
-في البداية، يتم شرح مفهوم الحضور والانصراف في النظام، ومدى ارتباطه بالموظفين والدوام، خاصة في بيئات العمل المختلفة داخل السعودية والخليج. يوضح المتحدث أن الموظفين قد يعملون في أكثر من دوام خلال اليوم، مثل دوام الصباح من الساعة 10 صباحًا حتى 2 ظهرًا، ثم يعود للعمل من الساعة 6 مساءً حتى 10 مساءً. يتطرق إلى وجود قواعد خاصة بالتعامل مع نسيان البصمة سواء كانت بصمة الدخول أو الخروج، وكيفية تطبيق العقوبات في هذه الحالة.
+[Go to video 00:01:44](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=104s)
 
-[العودة إلى الفيديو 00:01:44](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=104s)
+## Documents That Affect Attendance and Departure
 
-## المستندات المؤثرة في الحضور والانصراف
+### The Timer
+The Timer file is one of the most important documents in the system. It is a simple file that contains attachments such as employee attendance data. For example: the attendance day, the time the employee started work, and the machine code on which the fingerprint was recorded. This data is populated automatically and requires no manual entry.
+The video explains how to identify the day by date and day of the week, which helps in accurately tracking lateness or absence.
 
-### التايمر (Timer)
-يعتبر ملف التايمر من أهم المستندات في النظام، وهو ملف بسيط يحتوي على مرفقات مثل بيانات حضور وانصراف الموظفين. مثال: يوم الحضور، الساعة التي بدأ فيها الموظف العمل، وكود الماكينة التي تم تسجيل البصمة عليها. هذه البيانات تأتي تلقائيًا ولا تحتاج لإدخال يدوي.  
-يتم ذكر كيف يمكن معرفة اليوم بالتاريخ واليوم من الأسبوع، مما يساعد في متابعة حالات التأخير أو الغياب بدقة.
+### Adding Employees Manually
+There is a button for adding employees manually, which allows entering employees for a specific period without affecting their pre-registered attendance plans. For example, employees can be added automatically from June 1 to June 6.
 
-### إضافة الموظفين يدويًا
-يوجد زر لإضافة الموظفين يدويًا، يمكن من خلاله إدخال موظفين لفترة محددة دون تأثرهم بخطط الحضور المسجلة مسبقًا. على سبيل المثال، يمكن إضافة موظفين من تاريخ 1 يونيو حتى 6 يونيو تلقائيًا.
+[Go to video 00:03:28](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=208s)
 
-[العودة إلى الفيديو 00:03:28](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=208s)
+## Shift System and Setting Work Hours
 
-## نظام الورديات وتحديد مواعيد العمل
+### How to Define an Employee's Shift
+The employee's shift is defined through a duty plan that covers the department, section, or specific employee.
+Example: an employee working from January 1, 2023 to December 31, 2023, with a shift from 8 AM to 4 PM.
 
-### كيفية تحديد وردية الموظف
-يتم تعريف وردية الموظف من خلال خطة الدوام التي تشمل الإدارة أو القسم أو الموظف بعينه.  
-مثال: موظف يعمل من 1 يناير 2023 حتى 31 ديسمبر 2023، ورديته من 8 صباحًا حتى 4 عصرًا.
+### Priorities in Defining Shifts
+There is a priority concept to determine which duty plan applies to an employee when more than one plan exists. Priority number 1 means it is the highest priority and is applied first, while higher numbers mean lower priority.
+Example: a Ramadan plan may have a higher priority than the regular year plan because work hours differ during Ramadan.
 
-### الأولويات في تحديد الورديات
-يوجد مفهوم الأولوية لتحديد أي خطة دوام تسري على الموظف في حال وجود أكثر من خطة. الأولوية رقم 1 تعني أنها الأعلى أولوية وتنفذ أولًا، بينما الأرقام الأكبر تعني أولوية أقل.  
-مثال: خطة رمضان قد تكون لها أولوية أعلى من خطة السنة العادية لأن مواعيد العمل تختلف في رمضان.
+[Go to video 00:05:41](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=341s)
 
-[العودة إلى الفيديو 00:05:41](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=341s)
+### Aggregating Attendance and Departure Data
+Attendance data can be aggregated for employees who have specific shifts or who are expected to be present at certain times, using the "Add Employees Manually" button.
+This is used in cases where an employee is on leave or not present during a specified period.
 
-### تجميع بيانات الحضور والإنصراف
-يمكن تجميع بيانات الموظفين الذين لهم ورديات محددة أو الذين من المتوقع حضورهم في أوقات معينة، وذلك عبر زر "إضافة الموظفين يدويًا".  
-يستخدم هذا في الحالات التي يكون فيها الموظف على إجازة أو غير موجود في الفترة المحددة.
+[Go to video 00:07:28](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=448s)
 
-[العودة إلى الفيديو 00:07:28](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=448s)
+## Handling Leave and Updating Employee Data
 
-## التعامل مع الإجازات وتحديث بيانات الموظفين
+### How to Handle Employee Data While on Leave
+A leave status can be entered for a specific period — for example, from January 1 to June 30 — and this data is entered into the system so that the employee is excluded from attendance during those periods.
 
-### كيفية التعامل مع بيانات الموظف في الإجازة
-يمكن إدخال حالة الإجازة لفترة معينة مثل من 1 يناير حتى 30 يونيو، ويتم إدخال هذه البيانات في النظام ليتم استثناء الموظف من الحضور في هذه الفترات.
+### Adjusting and Controlling Attendance Data
+There is the ability to manually edit attendance and departure data as needed. It is noted that sometimes there may be issues related to the configuration or the system that require updating or correcting the data.
 
-### التكييف والتحكم في بيانات الحضور
-يوجد إمكانية تعديل بيانات الحضور والإنصراف يدويًا حسب الحاجة، مع ذكر أن في بعض الأحيان قد تكون هناك مشاكل متعلقة بالتكييف أو النظام ويحتاج الأمر إلى تحديث أو تعديل البيانات.
+[Go to video 00:11:11](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=671s)
 
-[العودة إلى الفيديو 00:11:11](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=671s)
+## Using the App and Modern Technologies for Attendance
 
-## استخدام التطبيق والتقنيات الحديثة في الحضور والانصراف
+### Electronic Attendance App
+An electronic app can be used to record employee attendance, where the app sends the employee's geographic location and automatically registers check-in and check-out.
 
-### التطبيق الإلكتروني (Electronic Attendance)
-يمكن استخدام تطبيق إلكتروني لتسجيل حضور الموظف، حيث يرسل التطبيق بيانات الموقع الجغرافي للموظف ويقوم بتسجيل الحضور والانصراف تلقائيًا.
+### Defining the Allowed Geographic Area
+A specific geographic area can be defined (for example, a circle with a radius of 300–500 meters around the workplace) within which the employee is allowed to punch in, to ensure the employee is actually at the workplace when recording attendance.
 
-### تحديد النطاق الجغرافي المسموح
-يمكن تحديد نطاق جغرافي معين (مثل دائرة نصف قطرها 300-500 متر حول موقع العمل) يتم السماح للموظف بالبصمة ضمنه، وذلك لضمان أن الموظف موجود في مكان العمل أثناء تسجيل الحضور.
+[Go to video 00:12:58](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=778s)
 
-[العودة إلى الفيديو 00:12:58](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=778s)
+## Importing Attendance Data from Excel Files
 
-## استيراد بيانات الحضور من ملفات Excel
+### Importance of the Employee Code (Attendance Code)
+Each employee has a unique code linked to the fingerprint device. This code is used to link data imported from Excel files to the correct employee attendance record.
+Example: employee Ahmed has code 1002, and this code must be present in the attendance file to accurately record his data.
 
-### أهمية كود الموظف (Attendance Code)
-كل موظف له كود خاص مرتبط بجهاز البصمة، يستخدم هذا الكود لربط البيانات المستوردة من ملفات Excel بحضور وانصراف الموظف الصحيح.  
-مثال: الموظف أحمد لديه كود 1002، وهذا الكود يجب أن يكون موجود في ملف الحضور لتسجيل بياناته بدقة.
+### Excel File Format
+- The first row is left as a header (it contains column headers).
+- Dates are written in day/month/year format (without a leading zero for days or months less than 10).
+- Time is written in 24-hour format (e.g., 09:03, 17:10).
+- In some cases, AM or PM is appended to the time to specify the morning or evening period.
 
-### تنسيق ملف Excel
-- السطر الأول يترك فارغًا (لأنه يحتوي على رؤوس الأعمدة).
-- التاريخ يكتب بصيغة يوم/شهر/سنة (دون صفر بادئ للأيام أو الشهور التي تقل عن 10).
-- الوقت يكتب بصيغة 24 ساعة (مثل 09:03، 17:10).
-- في بعض الحالات يضاف AM أو PM في نهاية الوقت لتحديد الفترة الصباحية أو المسائية.
+[Go to video 00:18:19](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=1099s)
 
-[العودة إلى الفيديو 00:18:19](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=1099s)
+### Handling Multiple Files from More Than One Fingerprint Device
+When more than one fingerprint device exists, each device is assigned a unique code in the system to distinguish its data.
+The data is later aggregated within the system, identifying the source of each punch (which device it came from).
 
-### التعامل مع ملفات متعددة من أكثر من جهاز بصمة
-في حالة وجود أكثر من جهاز بصمة، يتم إعطاء كل جهاز كود خاص في النظام لتمييز بياناته.  
-يتم تجميع البيانات لاحقًا داخل النظام مع تحديد مصدر كل بصمة (من أي جهاز جاءت).
+[Go to video 00:20:44](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=1244s)
 
-[العودة إلى الفيديو 00:20:44](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=1244s)
+## Importing Data into the System and Saving Settings
 
-## استيراد البيانات داخل النظام وحفظ الإعدادات
+### Steps for Saving Data Import Settings
+- Go to System Settings > Payroll Settings > Human Resources > Payroll.
+- Enter the date and time format appropriate for the imported file.
+- Specify the file columns such as date, time, and employee code.
+- Save the settings to simplify the import process later.
 
-### خطوات حفظ إعدادات استيراد البيانات
-- الدخول إلى إعدادات النظام > إعدادات الرواتب > الموارد البشرية > الرواتب.
-- إدخال صيغة التاريخ والوقت المناسبة للملف المستورد.
-- تحديد أعمدة الملف مثل التاريخ، الوقت، وكود الموظف.
-- حفظ الإعدادات لتسهيل عملية الاستيراد لاحقًا.
+[Go to video 00:25:24](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=1524s)
 
-[العودة إلى الفيديو 00:25:24](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=1524s)
+### Importing the Attendance and Departure File
+- Upload an Excel file from the computer.
+- Use the "Import" button to load the data into the system.
+- Verify that the columns match the previously saved settings.
 
-### استيراد ملف الحضور والإنصراف
-- رفع ملف Excel من جهاز الكمبيوتر.
-- استخدام زر "استيراد" لتحميل البيانات داخل النظام.
-- التأكد من تطابق الأعمدة مع الإعدادات السابقة.
+[Go to video 00:28:28](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=1708s)
 
-[العودة إلى الفيديو 00:28:28](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=1708s)
+## Handling Overlapping Attendance Data and Double Shifts
 
-## التعامل مع بيانات الحضور والإنصراف المتداخلة والوردية المزدوجة
+### The Issue of Two Shifts on the Same Day
+If an employee works two shifts on the same day, the first punch is recorded as check-in and the last punch as check-out, regardless of time-period overlap.
+Example: an employee who came in the morning, went home, and returned to work in the evening — only the first entry and last exit are used to calculate attendance.
 
-### مشكلة وجود ورديتين في نفس اليوم
-إذا كان الموظف يعمل ورديتين في نفس اليوم، يتم تسجيل أول بصمة كحضور وأخر بصمة كإنصراف، بغض النظر عن التداخل في الفترات الزمنية.  
-مثال: موظف جاء في الصباح، ثم ذهب للبيت وعاد للعمل في المساء، يتم التعامل مع أول دخول وآخر خروج فقط لضبط الحضور.
+### Handling Forgotten Punches or Tampering Attempts
+- Penalties exist for forgetting to punch.
+- Cases of evasion or attempting to corrupt the fingerprint (e.g., using dirty fingers).
+- Suggestions for addressing the lack of devices or internet connectivity, such as placing fingerprint devices at factory entrances and exits.
 
-### التعامل مع حالات نسيان البصمة أو محاولة التلاعب
-- وجود عقوبات على نسيان البصمة.
-- حالات التهرب أو محاولة إفساد البصمة (مثل استخدام أصابع ملوثة).
-- اقتراحات لحل مشاكل عدم توفر الأجهزة أو الإنترنت، مثل وضع أجهزة بصمة على مداخل ومخارج المصنع.
+[Go to video 00:30:36](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=1836s)
 
-[العودة إلى الفيديو 00:30:36](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=1836s)
+## Adjusting Attendance According to Work Plans and Shift Changes
 
-## ضبط الحضور حسب خطط العمل وتغيير الوردية
+### Modifying Daily Work Plans
+Work plans are adjusted based on circumstances, such as an employee arriving at a different time than their assigned shift, or switching to a different shift on a given day.
+The system is configured to calculate attendance and departure based on the new plan for each day.
 
-### تعديل خطط العمل اليومية
-يتم تعديل خطط العمل حسب الظروف، مثل حضور الموظف في وقت مختلف عن ورديته المحددة، أو تغييره لوردية أخرى في يوم معين.  
-يتم ضبط النظام ليحسب الحضور والانصراف بناء على الخطة الجديدة لكل يوم.
+### Handling Early Departure or Lateness
+The system is able to determine whether a given punch is a check-in or check-out based on shift times and scheduled work hours.
 
-### التعامل مع حالات الخروج المبكر أو التأخير
-النظام قادر على تخمين ما إذا كانت بصمة معينة دخول أو خروج بناءً على أوقات الورديات وساعات العمل المقررة.
+[Go to video 00:34:18](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=2058s)
 
-[العودة إلى الفيديو 00:34:18](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=2058s)
+## Details on Using System Buttons and Their Functions
 
-## تفاصيل استخدام أزرار النظام ووظائفها
+### Using the "Punch" Button
+- Allows you to take attendance and departure data from an Excel file and prepare it for processing inside the system.
+- Can be used to reorganize columns in the file so they do not affect the data order.
 
-### استخدام زر "البانش" (Punch)
-- يسمح لك بأخذ بيانات الحضور والانصراف من ملف Excel وتجهيزها للمعالجة داخل النظام.
-- يمكن استخدامه لتنظيم الأعمدة في الملف بحيث لا تؤثر على ترتيب البيانات.
+### Handling Different Column Orders
+If the column order in the file differs from what is expected, the columns can be reordered using this button to simplify the import.
 
-### التعامل مع اختلاف ترتيب الأعمدة
-إذا كان ترتيب الأعمدة في الملف مختلفًا عن المتوقع، يمكن إعادة ترتيبها باستخدام هذا الزر لتسهيل الاستيراد.
+[Go to video 00:39:12](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=2352s)
 
-[العودة إلى الفيديو 00:39:12](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=2352s)
+## Handling Attendance Data Where Time and Date Are in a Single Column
 
-## كيفية التعامل مع بيانات الحضور التي تحتوي على الوقت والتاريخ في عمود واحد
+### Date and Time Format
+In some cases, the date and time are written in the same cell, for example "01-01-2023 18:05 PM."
+This data is handled by separating the date from the time within the system, or by using Excel tools before importing.
 
-### تنسيق الوقت والتاريخ
-في بعض الحالات، يتم كتابة التاريخ والوقت في نفس الخلية، مثل "01-01-2023 18:05 PM".  
-يتم التعامل مع هذه البيانات عن طريق فصل التاريخ عن الوقت داخل النظام أو باستخدام أدوات Excel قبل الاستيراد.
+### Distinguishing Between Employee Check-In and Check-Out
+Additional columns can be used to specify the punch type (check-in or check-out), or the system can determine this automatically based on the punch time relative to the employee's scheduled shift.
 
-### التمييز بين دخول وخروج الموظف
-يمكن استخدام أعمدة إضافية لتحديد نوع البصمة (دخول أو خروج)، أو الاعتماد على توقيت البصمة بالنسبة لدوام الموظف لتحديد ذلك تلقائيًا.
+[Go to video 00:42:00](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=2520s)
 
-[العودة إلى الفيديو 00:42:00](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=2520s)
+## Handling Multiple Devices and Different Work Locations
 
-## التعامل مع تعدد الماكينات وأماكن العمل المختلفة
+### Importance of Knowing Where the Punch Was Recorded
+- There may be several fingerprint devices in different locations within the company or its branches.
+- The code for each device or location is recorded in the attendance file to facilitate tracking of employee movements.
 
-### أهمية معرفة مكان تسجيل البصمة
-- يمكن أن تكون هناك عدة أجهزة بصمة في أماكن مختلفة داخل الشركة أو الفروع.
-- يتم تسجيل كود كل ماكينة أو الموقع داخل ملف الحضور لتسهيل تتبع حركة الموظف.
+### Using Device Information in Salary Distribution
+Device information helps in distributing salaries according to the work location or project where the work was performed.
 
-### استخدام معلومات الجهاز في توزيع المرتبات
-معلومات الجهاز تساعد في توزيع المرتبات حسب موقع العمل أو المشروع الذي تم العمل فيه.
+[Go to video 00:44:08](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=2648s)
 
-[العودة إلى الفيديو 00:44:08](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=2648s)
+## Processing Multiple Punches on the Same Day
 
-## معالجة حالات البصمة المتعددة في نفس اليوم
+### Using the First and Last Punch of the Day
+Normally, the first punch of the day is considered the employee's check-in and the last punch is their check-out.
+However, in some cases — such as working a night shift — this rule may need to be adjusted to match practical reality.
 
-### استخدام أول وأخر بصمة في اليوم
-في العادة، يتم اعتبار أول بصمة في اليوم هي دخول الموظف وأخر بصمة هي خروجه.  
-ولكن في بعض الحالات، مثل العمل بنظام الورديات الليلة، قد يحتاج الأمر إلى تعديل هذه القاعدة لتتناسب مع الواقع العملي.
+### Handling Day Differences Due to Night Shifts
+The difference in day is taken into account between a night punch that occurred before midnight and one that occurred after midnight, to correctly identify the day for each punch.
 
-### التعامل مع اختلاف اليوم بسبب الورديات الليلية
-يتم أخذ بعين الاعتبار اختلاف اليوم بين البصمة الليلية التي تمت قبل منتصف الليل وتلك التي تمت بعد منتصف الليل لتحديد اليوم الصحيح للبصمة.
+[Go to video 00:45:57](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=2757s)
 
-[العودة إلى الفيديو 00:45:57](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=2757s)
+## Importance of Adjusting System Settings to Match Practical Reality
 
-## أهمية ضبط إعدادات النظام لتناسب الواقع العملي
+### Setting Time Intervals and Time Gaps
+- Time intervals can be defined — for example, 5 minutes between two consecutive punches — to determine whether two consecutive punches count as a check-in/check-out pair or not.
+- This helps handle cases such as an employee who enters and exits several times in a short period (e.g., to take a break).
 
-### ضبط المسافات الزمنية والفواصل الزمنية
-- يمكن تحديد فواصل زمنية مثل 5 دقائق بين البصمتين لتحديد ما إذا كانت بصمتين متتاليتين تعتبر بصمة دخول وخروج أم لا.
-- هذا يساعد في التعامل مع حالات مثل الموظف الذي يدخل ويخرج عدة مرات في فترة قصيرة (مثلاً لأخذ استراحة).
+### Handling Text Data and Text Fields in Excel Files
+The video explains how to handle fields that may contain text, numbers, or extra spaces in attendance files to avoid import errors.
 
-### التعامل مع البيانات النصية والحقول النصية في ملفات Excel
-يتم شرح كيفية التعامل مع الحقول التي قد تحتوي على نصوص أو أرقام أو مسافات زائدة في ملفات الحضور لتجنب أخطاء الاستيراد.
+[Go to video 00:49:59](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=2999s)
 
-[العودة إلى الفيديو 00:49:59](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=2999s)
+## Questions and Practical Scenarios
 
-## الأسئلة والمواقف العملية
+### Data Volume and Its Impact on the System
+Example: handling 1,500 employees over 30 days produces more than 45,000 records in the system, and how to manage such large volumes of data.
 
-### حجم البيانات وتأثيرها على النظام
-مثال: التعامل مع 1500 موظف على مدى 30 يومًا ينتج عنه أكثر من 45 ألف سجل في النظام، وكيفية التعامل مع هذه الكميات الكبيرة من البيانات.
+### Handling Unreasonable Client Requests
+A real-world example of a client who wanted to combine various deductions under a single line item, and how the importance of separating deductions was explained to simplify management.
+It is noted that cooperation between management and employees is essential to ensure the system's accuracy and successful implementation.
 
-### التعامل مع طلبات غير منطقية من العملاء
-مثال واقعي عن عميل يريد جمع خصومات مختلفة تحت بند واحد، وتم توضيح له أهمية فصل الخصومات لسهولة الإدارة.  
-يتم التنويه إلى ضرورة التعاون بين الإدارة والموظفين لضمان دقة النظام ونجاح تطبيقه.
+[Go to video 00:54:39](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=3279s)
 
-[العودة إلى الفيديو 00:54:39](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=3279s)
+## Closing and Final Questions
 
-## الخاتمة والأسئلة النهائية
+Several important points about the attendance and departure system were discussed, and the floor was opened for questions from attendees.
+The importance of fully understanding the system was emphasized, along with avoiding hasty evaluation or decisions without knowing all the details.
 
-تمت مناقشة عدة نقاط مهمة حول نظام الحضور والانصراف، وتم فتح المجال للأسئلة من الحضور.  
-يتم التشديد على أهمية فهم النظام بشكل كامل وعدم الاستعجال في التقييم أو اتخاذ قرارات بدون معرفة التفاصيل.
-
-[العودة إلى الفيديو 00:57:29](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=3449s)
+[Go to video 00:57:29](https://www.youtube.com/watch?v=2KL8FjiXx4Q&t=3449s)
 
 ---
 
-*تم إعداد هذا الدليل بدقة وبالتفصيل لتغطية كافة جوانب نظام الحضور والانصراف كما وردت في الفيديو، مع الحفاظ على الترتيب الزمني للمعلومات والتفاصيل الفنية والإدارية.*
-
-</rtl>
+*This guide was prepared in detail to cover all aspects of the attendance and departure system as presented in the video, preserving the chronological order of information along with all technical and administrative details.*

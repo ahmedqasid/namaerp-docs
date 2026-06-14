@@ -1,75 +1,75 @@
-# نظام الموافقات - الدليل الشامل لتعريف الموافقة
+# Approvals System - Approval Definition Full Guide
 
-## نظرة عامة
+## Overview
 
-يوفر نظام موافقات Nama ERP حلاً شاملاً لإدارة سير العمل يتيح للمؤسسات تعريف عمليات الموافقة لمختلف العمليات التجارية. يضمن هذا النظام التفويض الملائم والرقابة على المعاملات التجارية الحيوية قبل إتمامها.
+The Nama ERP Approvals System provides a comprehensive workflow management solution that allows organizations to define approval processes for various business operations. This system ensures proper authorization and control over critical business transactions before they are finalized.
 
-::: tip المزايا الرئيسية
-- **تصميم مرن لسير العمل**: إنشاء سير عمل موافقات مخصصة لأي نوع كيان
-- **موافقات متعددة المراحل**: دعم لعمليات الموافقة المتعددة والمعقدة
-- **منطق قائم على القواعد**: تطبيق قواعد الموافقة بناءً على شروط عمل محددة
-- **إشعارات فورية**: إشعارات تلقائية عبر البريد الإلكتروني والرسائل القصيرة والرسائل داخل التطبيق
-- **سجل مراجعة**: تتبع كامل لقرارات الموافقة والتعليقات
+::: tip Key Benefits
+- **Flexible Workflow Design**: Create custom approval workflows for any entity type
+- **Multi-step Approvals**: Support for complex, multi-level approval processes
+- **Rule-based Logic**: Apply approval rules based on specific business conditions
+- **Real-time Notifications**: Automatic notifications via email, SMS, and in-app messages
+- **Audit Trail**: Complete tracking of approval decisions and comments
 :::
 
-## المفاهيم الأساسية
+## Core Concepts
 
-### تعريف الموافقة (Approval Definition)
-تعريف الموافقة هو الإعداد الرئيسي الذي يحدد متى وكيف ومن يجب أن يوافق على معاملات تجارية معينة. يحتوي كل تعريف على:
+### Approval Definition (تعريف موافقه)
+An Approval Definition is the master configuration that defines when, how, and who should approve specific business transactions. Each definition contains:
 
-- **الكيان المستهدف (Target Entity)**: نوع السجل الذي يتطلب موافقة (فواتير، أوامر شراء، إلخ)
-- **خطوات الموافقة (Approval Steps)**: مراحل الموافقة المتسلسلة أو المتوازية
-- **الأطراف المسؤولة (Responsible Parties)**: من يمكنه الموافقة في كل خطوة
-- **الشروط (Conditions)**: متى يجب تفعيل الموافقة
-- **قوالب الإشعارات (Notification Templates)**: كيفية إخطار المعتمِدين
+- **Target Entity**: Which type of record requires approval (invoices, purchase orders, etc.)
+- **Approval Steps**: Sequential or parallel approval stages
+- **Responsible Parties**: Who can approve at each step
+- **Conditions**: When the approval should be triggered
+- **Notification Templates**: How approvers are notified
 
-### حالة الموافقة (Approval Case)
-عندما تستوفي معاملة ما معايير الموافقة، تُنشأ حالة موافقة تلقائياً. تمثل هذه الحالة طلب موافقة نشطاً يتتبع:
+### Approval Case
+When a transaction meets approval criteria, an Approval Case is automatically created. This represents an active approval request that tracks:
 
-- **الحالة الراهنة (Current Status)**: قيد التنفيذ، مقبولة، مرفوضة، أو مُعادة
-- **خطوات الموافقة (Approval Steps)**: سجل القرارات التي اتخذها كل معتمِد
-- **المرشحون التاليون (Next Candidates)**: من يحتاج إلى التصرف بعد ذلك
-- **المعلومات الملخصة (Summary Information)**: تفاصيل رئيسية حول المعاملة التي تتطلب موافقة
+- **Current Status**: In Progress, Approved, Rejected, or Returned
+- **Approval Steps**: History of decisions made by each approver
+- **Next Candidates**: Who needs to act next
+- **Summary Information**: Key details about the transaction requiring approval
 
-## البدء
+## Getting Started
 
-### الوصول إلى تعريفات الموافقة
+### Accessing Approval Definitions
 
-انتقل إلى: **الأساسيات > الإعدادات > تعريف موافقه** (Basic > Settings > Approval Definition)
+Navigate to: **Basic > Settings > Approval Definition** (الأساسيات > الإعدادات > تعريف موافقه)
 
-### إنشاء تعريف الموافقة الأول
+### Creating Your First Approval Definition
 
-1. **المعلومات الأساسية**
-   - **الكود (Code)**: معرّف فريد لتعريف الموافقة
-   - **الاسم (Name)**: اسم وصفي (مثل "موافقة الفاتورة فوق 10,000")
-   - **الكيان المستهدف (Target Entity)**: اختر نوع الكيان الذي يتطلب موافقة
+1. **Basic Information**
+   - **Code**: Unique identifier for the approval definition
+   - **Name**: Descriptive name (e.g., "Invoice Approval Above 10,000")
+   - **Target Entity**: Select the entity type that requires approval
 
-2. **شروط الموافقة**
-   - **Use With Insert**: تطبيق عند إنشاء سجلات جديدة
-   - **Use With Update**: تطبيق عند تعديل السجلات الموجودة
-   - **Use With Delete**: تطبيق عند حذف السجلات
-   - **Use With Budget Exceeded**: تطبيق عند تجاوز المعاملات حدود الميزانية
-   - **Apply When Query**: استعلام SQL لتحديد متى تكون الموافقة مطلوبة
+2. **Approval Conditions**
+   - **Use With Insert**: Apply when creating new records
+   - **Use With Update**: Apply when modifying existing records
+   - **Use With Delete**: Apply when deleting records
+   - **Use With Budget Exceeded**: Apply when transactions exceed budget limits
+   - **Apply When Query**: SQL query to determine when approval is needed
 
-3. **تعريف خطوات الموافقة**
-   - إضافة خطوات موافقة متسلسلة
-   - تعيين موظفين أو أدوار مسؤولة
-   - ضبط فترات التصعيد الزمنية
-   - تهيئة خيارات القرار (موافقة، رفض، إرجاع، إلخ)
+3. **Define Approval Steps**
+   - Add sequential approval steps
+   - Assign responsible employees or roles
+   - Set escalation timeframes
+   - Configure decision options (Approve, Reject, Return, etc.)
 
-### خيارات الموافقة الخاصة
+### Special Approval Options
 
-#### تطلب التنفيذ (Require Execution)
-عند تفعيل **Require Execution**، يضيف النظام تلقائياً خطوة تنفيذ نهائية بعد اكتمال جميع خطوات الموافقة. تتطلب هذه الخطوة من **مُنشئ الموافقة (Approval Initiator)** الأصلي (الشخص الذي أنشأ/عدّل السجل) تأكيد التنفيذ النهائي.
+#### Require Execution
+When **Require Execution** is enabled, the system automatically adds a final execution step after all approval steps are completed. This step requires the original **Approval Initiator** (the person who created/modified the record) to confirm final execution.
 
-::: info سلوك خطوة التنفيذ
-- **الإضافة التلقائية**: يضيف النظام خطوة التنفيذ برقم تسلسلي بعد آخر خطوة موافقة
-- **الطرف المسؤول**: يُعيَّن دائماً لمُنشئ الموافقة (مقدم الطلب الأصلي)
-- **الغرض**: يضمن أن الشخص الذي طلب الموافقة يؤكد التنفيذ النهائي
-- **حالة الاستخدام**: شائعة في السيناريوهات التي تتطلب فيها المعاملات المعتمدة تأكيداً نهائياً قبل المعالجة
+::: info Execution Step Behavior
+- **Automatic Addition**: System adds execution step with sequence number after the last approval step
+- **Responsible Party**: Always assigned to the approval initiator (original requester)
+- **Purpose**: Ensures the person who requested the approval confirms final execution
+- **Use Case**: Common in scenarios where approved transactions need final confirmation before processing
 :::
 
-**مثال لمسار العمل مع Require Execution:**
+**Example Flow with Require Execution:**
 ```
 1. User creates Invoice → Approval triggered
 2. Manager approves → Next step
@@ -78,17 +78,17 @@
 5. Original user confirms execution → Document is committed
 ```
 
-#### التأكيد قبل البدء (Confirm Before Starting)
-عند تفعيل **Confirm Before Starting**، يعرض النظام مربع حوار تأكيد قبل بدء عملية الموافقة. يمنح هذا المستخدمين فرصة أخيرة لمراجعة مدخلاتهم والإلغاء إذا ارتكبوا خطأ.
+#### Confirm Before Starting
+When **Confirm Before Starting** is enabled, the system displays a confirmation dialog before initiating the approval process. This gives users a final opportunity to review their input and cancel if they made an error.
 
-::: info ميزات مربع حوار التأكيد
-- **لغة Tempo**: استخدام حقلَي `arabicConfirmation` و`englishConfirmation` مع صيغة قوالب Tempo
-- **المحتوى الديناميكي**: دعم مراجع الحقول من العنصر المعتمَد (مثل `{totalAmount}` و`{code}` و`{department}`)
-- **خيار المستخدم**: يمكن للمستخدمين النقر على "تأكيد" للمتابعة أو "إلغاء" لإيقاف عملية الموافقة
-- **دعم اللغات**: يعرض الرسالة المناسبة بناءً على تفضيل لغة المستخدم
+::: info Confirmation Dialog Features
+- **Tempo Language**: Use `arabicConfirmation` and `englishConfirmation` fields with Tempo template syntax
+- **Dynamic Content**: Support for field references from the approved element (e.g., `{totalAmount}`, `{code}`, `{department}`)
+- **User Choice**: Users can click "Confirm" to proceed or "Cancel" to abort the approval process
+- **Language Support**: Displays appropriate message based on user's language preference
 :::
 
-**أمثلة رسائل التأكيد مع المحتوى الديناميكي:**
+**Example Confirmation Messages with Dynamic Content:**
 ```
 Arabic Confirmation:
 "تأكيد: هل أنت متأكد من طلب الموافقة على {entityType} رقم {code} بمبلغ {totalAmount} للقسم {department.name1}؟"
@@ -101,59 +101,59 @@ Arabic: "تأكيد: هذا المبلغ كبير، هل تريد المتابع
 English: "Confirmation: This is a large amount, do you want to proceed?"
 ```
 
-**الحقول الديناميكية المتاحة:**
-- **حقول الكيان (Entity Fields)**: أي حقل من السجل المراد اعتماده (مثل `{totalAmount}` و`{customerName}`)
-- **حقول النظام (System Fields)**: حقول مدمجة مثل `{code}` و`{entityType}` و`{creationDate}`
-- **حقول الكيان المرتبط (Related Entity Fields)**: حقول الكيان المرجعي باستخدام الترميز النقطي (مثل `{department.name1}` و`{customer.creditLimit}`)
-- **القيم المحسوبة (Calculated Values)**: حسابات مخصصة أو قيم منسقة
+**Available Dynamic Fields:**
+- **Entity Fields**: Any field from the record being approved (e.g., `{totalAmount}`, `{customerName}`)
+- **System Fields**: Built-in fields like `{code}`, `{entityType}`, `{creationDate}`
+- **Related Entity Fields**: Referenced entity fields using dot notation (e.g., `{department.name1}`, `{customer.creditLimit}`)
+- **Calculated Values**: Custom calculations or formatted values
 
-#### المراجعة عند الاكتمال (Revise On Completion)
-عند تفعيل **Revise On Completion**، يضع النظام تلقائياً علامة "مراجَع" على السجل بعد اكتمال عملية الموافقة بنجاح. يوفر هذا طبقة إضافية من سلامة البيانات ورقابة المراجعة.
+#### Revise On Completion
+When **Revise On Completion** is enabled, the system automatically marks the record as "revised" after the approval process is successfully completed. This provides an additional layer of data integrity and audit control.
 
-#### التعديل أثناء الموافقة (Modify While Under Approval)
-بشكل افتراضي، لا يمكن تعديل السجلات التي تنتظر الموافقة للحفاظ على سلامة البيانات أثناء عملية الموافقة. ومع ذلك، يوفر النظام خيارات مرنة تسمح بالتعديلات في ظروف معينة.
+#### Modify While Under Approval
+By default, records awaiting approval cannot be edited to maintain data integrity during the approval process. However, the system provides flexible options to allow modifications under specific conditions.
 
-**خيارات الإعداد:**
+**Configuration Options:**
 
-**Allow Modify While Under Approval** (إعداد عام):
-- عند **التعطيل** (الافتراضي): لا يمكن تعديل السجلات أثناء عملية الموافقة
-- عند **التفعيل**: يمكن تعديل السجلات بناءً على إعدادات السياسة أدناه
+**Allow Modify While Under Approval** (Global Setting):
+- When **disabled** (default): Records cannot be edited during approval process
+- When **enabled**: Records can be modified based on the policy settings below
 
-**Modify While Under Approval Policy** (لكل خطوة):
-يدعم النظام ثلاث سياسات مختلفة للتحكم في التعديلات أثناء الموافقة:
+**Modify While Under Approval Policy** (Per Step):
+The system supports three different policies for controlling modifications during approval:
 
-::: info سياسات التعديل
-1. **Allow For Authorized Users** (الافتراضي)
-   - يمكن للمستخدمين الذين لديهم صلاحية `EditUnderApproval` تعديل السجل
-   - يتطلب إذن أمان محدداً
-   - الخيار الأكثر مرونة للموظفين المخوَّلين
+::: info Modify Policies
+1. **Allow For Authorized Users** (Default)
+   - Users with `EditUnderApproval` capability can modify the record
+   - Requires specific security permission
+   - Most flexible option for authorized personnel
 
 2. **Allow For Authorized And Can Approve**
-   - يجب أن يمتلك المستخدمون صلاحية `EditUnderApproval` وأن يكونوا مؤهلين للموافقة على الخطوة الحالية
-   - أكثر تقييداً - يمكن فقط لمعتمِدي الخطوة الحالية إجراء التعديلات
-   - يضمن إجراء التعديلات من قِبل المسؤولين عن الموافقة
+   - Users must have `EditUnderApproval` capability AND be eligible to approve current step
+   - More restrictive - only current step approvers can modify
+   - Ensures modifications are made by those responsible for approval
 
 3. **Prevent Modify**
-   - لا يُسمح بأي تعديلات بغض النظر عن أذونات المستخدم
-   - أعلى مستوى أمان لخطوات الموافقة الحرجة
-   - يتجاوز الإعداد العام `allowModifyWhileUnderApproval`
+   - No modifications allowed regardless of user permissions
+   - Highest security level for critical approval steps
+   - Overrides the global `allowModifyWhileUnderApproval` setting
 :::
 
-#### التحكم في التعديل على مستوى الحقل (Field-Level Editing Control)
+#### Field-Level Editing Control
 
-بالإضافة إلى الإعداد العام `allowModifyWhileUnderApproval`، يوفر النظام تحكماً دقيقاً على مستوى الحقل في ما يمكن تعديله أثناء الموافقة. يتيح هذا للمؤسسات السماح بتعديل حقول معينة مع إبقاء حقول أخرى مقفلة.
+Beyond the global `allowModifyWhileUnderApproval` setting, the system provides granular field-level control over what can be edited during approval. This allows organizations to permit modifications to specific fields while keeping others locked.
 
-**خيارات الإعداد:**
+**Configuration Options:**
 
-**Allow Editing Fields (لكل خطوة):**
-- **اسم الحقل**: `allowEditingFields`
-- **الصيغة**: قائمة مفصولة بفواصل من معرّفات الحقول
-- **النطاق**: ينطبق على خطوة الموافقة المحددة
-- **سلوك الواجهة**: تبقى الحقول المدرجة فقط قابلة للتعديل؛ تُعطَّل جميع الحقول الأخرى
+**Allow Editing Fields (Per Step):**
+- **Field Name**: `allowEditingFields`
+- **Format**: Comma-separated list of field IDs
+- **Scope**: Applies to the specific approval step
+- **UI Behavior**: Only listed fields remain editable; all others are disabled
 
-**كيف يعمل التحكم على مستوى الحقل:**
+**How Field-Level Control Works:**
 
-::: info منطق تعديل الحقل
+::: info Field Editing Logic
 ```
 User attempts to edit field during approval:
 1. Check if approval is pending
@@ -167,57 +167,57 @@ User attempts to edit field during approval:
 ```
 :::
 
-#### أمان OTP (كلمة مرور لمرة واحدة)
-يوفر النظام أماناً محسّناً من خلال التحقق عبر OTP لقرارات الموافقة. تضمن هذه الميزة أن إجراءات الموافقة تُنفَّذ من قِبل الشخص المقصود وتضيف طبقة إضافية من المصادقة.
+#### OTP (One-Time Password) Security
+The system provides enhanced security through OTP verification for approval decisions. This feature ensures that approval actions are performed by the intended person and adds an extra layer of authentication.
 
-**خيارات الإعداد:**
+**Configuration Options:**
 
-**Require OTP For All Steps** (إعداد عام):
-- عند **التفعيل**: تتطلب جميع خطوات الموافقة التحقق عبر OTP
-- ينطبق على كل خطوة في تعريف الموافقة
-- يتجاوز إعدادات الخطوة الفردية
+**Require OTP For All Steps** (Global Setting):
+- When **enabled**: All approval steps require OTP verification
+- Applies to every step in the approval definition
+- Overrides individual step settings
 
-**Require OTP** (إعداد لكل خطوة):
-- عند **التفعيل**: تتطلب خطوة الموافقة المحددة التحقق عبر OTP
-- يسمح بمتطلب OTP انتقائي للخطوات الحساسة
+**Require OTP** (Per Step Setting):
+- When **enabled**: Specific approval step requires OTP verification
+- Allows selective OTP requirement for sensitive steps
 
-#### تطلب موافقة الجميع (Require All Approvers)
+#### Require All Approvers
 
-عند تعيين مسؤوليات الموافقة لعدة موظفين في وقت واحد (إما عبر مجموعات الموظفين أو المسؤوليات الخاصة أو مرشحين متعددين)، يتحكم إعداد **Require All Approvers** في ما إذا كان يجب على جميع الموظفين المعيَّنين الموافقة قبل اعتبار الخطوة مكتملة.
+When approval responsibilities are assigned to multiple employees simultaneously (either through employee groups, special responsibilities, or multiple candidates), the **Require All Approvers** setting controls whether ALL designated employees must approve before the step is considered complete.
 
-**خيارات الإعداد:**
+**Configuration Options:**
 
-**Require All Approvers** (إعداد لكل خطوة):
-- **اسم الحقل**: `requireAllApprovers` (يتطلب موافقة الجميع)
-- **النوع**: Boolean (نعم/لا)
-- **الافتراضي**: معطَّل (يمكن لأي معتمِد منفرد إتمام الخطوة)
+**Require All Approvers** (Per Step Setting):
+- **Field Name**: `requireAllApprovers` (يتطلب موافقة الجميع)
+- **Type**: Boolean (Yes/No)
+- **Default**: Disabled (any single approver can complete the step)
 
-**كيف يعمل:**
+**How It Works:**
 
-::: info السلوك الافتراضي (Require All Approvers = معطَّل)
-عند **التعطيل** (السلوك الافتراضي):
-- يعيّن النظام خطوة الموافقة لمرشحين متعددين
-- يمكن لأي **واحد** من المرشحين الموافقة
-- بمجرد أن يوافق أحد المرشحين، تُعتبر الخطوة مكتملة
-- ينتقل سير عمل الموافقة فوراً إلى الخطوة التالية
-- لا يُطلب من المرشحين الآخرين التصرف بعد الآن
+::: info Default Behavior (Require All Approvers = Disabled)
+When **disabled** (default behavior):
+- The system assigns the approval step to multiple candidates
+- **Any ONE** of the candidates can approve
+- Once one candidate approves, the step is considered complete
+- The approval workflow proceeds to the next step immediately
+- Other candidates are no longer required to act
 :::
 
-::: warning Require All Approvers = مفعَّل
-عند **التفعيل**:
-- يعيّن النظام خطوة الموافقة لمرشحين متعددين
-- يجب على **جميع** المرشحين الموافقة قبل اكتمال الخطوة
-- يوافق كل مرشح بشكل مستقل
-- بعد كل موافقة، يزيل النظام ذلك المرشح من القائمة
-- تبقى الخطوة **قيد التنفيذ** حتى يوافق جميع المرشحين
-- فقط بعد استلام جميع الموافقات ينتقل سير العمل إلى الخطوة التالية
+::: warning Require All Approvers = Enabled
+When **enabled**:
+- The system assigns the approval step to multiple candidates
+- **ALL** candidates must approve before the step is complete
+- Each candidate approves independently
+- After each approval, the system removes that candidate from the list
+- The step remains **in progress** until ALL candidates have approved
+- Only after ALL approvals are received does the workflow proceed to the next step
 :::
 
-## الإعداد المتقدم
+## Advanced Configuration
 
-### الموافقات الشرطية
+### Conditional Approvals
 
-استخدم **Criteria Definition** و**Apply When Query** لإنشاء مشغلات موافقة متطورة:
+Use **Criteria Definition** and **Apply When Query** to create sophisticated approval triggers:
 
 ```sql
 -- Example: Approve invoices above 50,000 SAR
@@ -225,44 +225,44 @@ SELECT case when {totalAmount} > 50000 then 1 else 0 end
 
 ```
 
-### قواعد الموافقة (Approval Rules)
+### Approval Rules
 
-قواعد الموافقة هي مكونات منطق أعمال جاهزة تكتشف تلقائياً متى تكون الموافقة مطلوبة بناءً على شروط عمل محددة. يمكن إرفاق هذه القواعد بتعريفات الموافقة لتشغيل الموافقات للسيناريوهات التي تتطلب منطق تحقق معقداً.
+Approval Rules are pre-built business logic components that automatically detect when approval is needed based on specific business conditions. These rules can be attached to approval definitions to trigger approvals for scenarios that require complex validation logic.
 
-#### كيف تعمل قواعد الموافقة
+#### How Approval Rules Work
 
-1. **تقييم القاعدة**: عند حفظ مستند، تُقيَّم القواعد المرفقة
-2. **فحص التطبيق**: تحدد كل قاعدة ما إذا كانت تنطبق على المعاملة الحالية
-3. **اكتشاف السطر**: يمكن للقواعد تحديد الأسطر المحددة التي أدت إلى الموافقة
-4. **تشغيل الموافقة**: إذا انطبقت أي قاعدة، تبدأ عملية الموافقة
-5. **معلومات السياق**: تُخزَّن الأسطر المشغِّلة في `$map.approvalRuleLines` للاستخدام في القوالب
+1. **Rule Evaluation**: When a document is saved, attached rules are evaluated
+2. **Applicability Check**: Each rule determines if it applies to the current transaction
+3. **Line Detection**: Rules can identify specific lines that triggered the approval
+4. **Approval Triggering**: If any rule applies, the approval process starts
+5. **Context Information**: The triggering lines are stored in `$map.approvalRuleLines` for use in templates
 
-#### القواعد المدمجة المتاحة
+#### Available Built-in Rules
 
-::: info قواعد الموافقة الشائعة
-يتضمن النظام عدة قواعد جاهزة لسيناريوهات المبيعات والمشتريات:
+::: info Common Approval Rules
+The system includes several pre-built rules for sales and purchasing scenarios:
 
-**قواعد أسعار المبيعات:**
-- **BelowMinSalesPriceApprovalRule**: يُشغَّل عند البيع بأقل من الحد الأدنى المسموح به للسعر
-- **BelowDefaultSalesPriceApprovalRule**: يُشغَّل عند البيع بأقل من السعر القياسي
-- **AboveMaxSalesPriceApprovalRule**: يُشغَّل عند تجاوز السعر الحد الأقصى
-- **MaxUserDiscountPercentageApprovalRule**: يُشغَّل عند تجاوز الخصم النسبة المسموح بها للمستخدم
+**Sales Price Rules:**
+- **BelowMinSalesPriceApprovalRule**: Triggers when selling below minimum allowed price
+- **BelowDefaultSalesPriceApprovalRule**: Triggers when selling below standard price
+- **AboveMaxSalesPriceApprovalRule**: Triggers when price exceeds maximum limit
+- **MaxUserDiscountPercentageApprovalRule**: Triggers when discount exceeds user's allowed percentage
 
-**قواعد أسعار المشتريات:**
-- **AboveLastPricePurchasesApprovalRule**: يُشغَّل عند تجاوز سعر الشراء آخر سعر شراء
+**Purchase Price Rules:**
+- **AboveLastPricePurchasesApprovalRule**: Triggers when purchase price exceeds last purchase price
 
 
-#### تهيئة قواعد الموافقة
+#### Configuring Approval Rules
 
-**الخطوة 1: إضافة القواعد إلى تعريف الموافقة**
-في تعريف الموافقة، أضف القواعد في قسم "القواعد":
-- الاختيار من القواعد المتاحة لنوع كيانك
-- تُقيَّم القواعد بالتسلسل
-- يجب أن تجتاز جميع القواعد حتى يُتجاوز الاعتماد
+**Step 1: Add Rules to Approval Definition**
+In the approval definition, add rules in the "Rules" section:
+- Select from available rules for your entity type
+- Rules are evaluated in sequence
+- All rules must pass for approval to be skipped
 
-#### استخدام معلومات القاعدة في القوالب
+#### Using Rule Information in Templates
 
-عند تشغيل قاعدة للموافقة، تكون الأسطر المتأثرة متاحة في القوالب:
+When a rule triggers approval, the affected lines are available in templates:
 
 ```
 {if($map.approvalRuleLines)}
@@ -280,315 +280,315 @@ SELECT case when {totalAmount} > 50000 then 1 else 0 end
 {endif}
 ```
 
-### موافقات تجاوز الميزانية (Budget Exceeded Approvals)
+### Budget Exceeded Approvals
 
-يدعم النظام متطلبات الموافقة التلقائية عند تجاوز المعاملات المالية حدود الميزانية المحددة مسبقاً. تتكامل هذه الميزة مع وحدة المحاسبة لمراقبة استهلاك الميزانية في الوقت الفعلي.
+The system supports automatic approval requirements when financial transactions exceed predefined budget limits. This feature integrates with the accounting module to monitor budget consumption in real-time.
 
-#### كيف تعمل موافقات الميزانية
+#### How Budget Approvals Work
 
-1. **التحقق من الميزانية**: عند حفظ مستند، يتحقق النظام مما إذا كان يولّد قيوداً محاسبية تتجاوز حدود الميزانية
-2. **الإعداد على مستوى الحساب**: يمكن إعداد كل حساب بسلوك تجاوز الميزانية:
-   - **Prevent Saving**: حظر المعاملة كلياً
-   - **Request Approval**: السماح بالحفظ مع اشتراط الموافقة قبل الإلزام
-3. **الفحص الديناميكي**: يأخذ التحقق من الميزانية في الاعتبار أبعاداً متعددة (القسم، الفرع، الفترة المالية، إلخ)
+1. **Budget Validation**: When a document is saved, the system checks if it generates accounting entries that exceed budget limits
+2. **Account-Level Configuration**: Each account can be configured with budget exceeded behavior:
+   - **Prevent Saving**: Block the transaction entirely
+   - **Request Approval**: Allow saving but require approval before commitment
+3. **Dynamic Checking**: Budget validation considers multiple dimensions (department, branch, fiscal period, etc.)
 
-#### متطلبات الإعداد
+#### Configuration Requirements
 
-::: warning المتطلبات الأساسية
-لكي تعمل موافقات الميزانية، تأكد من إعداد ما يلي:
+::: warning Prerequisites
+For budget approvals to function, ensure the following are configured:
 
-1. **تفعيل موافقات الميزانية**: تعيين `Enable Approvals For Budgets` إلى `true` في الإعدادات العامة
-2. **تعريفات الميزانية**: إنشاء سجلات ميزانية في النظام للحسابات ذات الصلة
-3. **إعداد الحساب**: تعيين `budgetExceededBehavior` على الحسابات إلى "Request Approval"
-4. **تعريف الموافقة**: إنشاء تعريف موافقة مع `useWithBudgetExceeded = true`
+1. **Enable Budget Approvals**: Set `Enable Approvals For Budgets` to `true` in global configuration
+2. **Budget Definitions**: Create budget records in the system for relevant accounts
+3. **Account Configuration**: Set `budgetExceededBehavior` on accounts to "Request Approval"
+4. **Approval Definition**: Create approval definition with `useWithBudgetExceeded = true`
 :::
 
-#### عملية التحقق من الميزانية
+#### Budget Validation Process
 
-يجري النظام هذه الفحوصات عند حفظ المستندات:
+The system performs these checks when documents are saved:
 
-::: tip منطق التحقق من الميزانية
-1. توليد قيود محاسبية مؤقتة للمستند
-2. المقارنة مع تخصيصات الميزانية الموجودة
-3. التحقق مما إذا كانت المعاملة ستتجاوز حدود الميزانية
-4. مراعاة إعداد `budgetExceededBehavior` للحساب
-5. إذا كان "Request Approval" ← تشغيل سير عمل الموافقة
-6. إذا كان "Prevent Saving" ← حظر المعاملة مع إظهار خطأ
+::: tip Budget validation logic
+1. Generate pseudo accounting entries for the document
+2. Compare against existing budget allocations
+3. Check if transaction will exceed budget limits
+4. Consider account's budgetExceededBehavior setting
+5. If "Request Approval" → trigger approval workflow
+6. If "Prevent Saving" → block transaction with error
 :::
 
-#### أبعاد الميزانية المعتبرة
+#### Budget Dimensions Considered
 
-يمكن للتحقق من الميزانية مراعاة أبعاد تنظيمية متعددة:
+Budget validation can consider multiple organizational dimensions:
 
-- **شركة (Legal Entity)**: ميزانيات على مستوى الشركة
-- **السنة/الفترة المالية (Fiscal Year/Period)**: تخصيص الميزانية على أساس زمني
-- **القسم (Department)**: حدود الإنفاق الإدارية
-- **الفرع (Branch)**: ميزانيات على أساس الموقع
-- **القطاع (Sector)**: ضوابط على مستوى الأقسام
-- **مجموعة التحليل (Analysis Set)**: تجميعات تحليلية مخصصة
-- **فروع الحسابات (Account Subsidiaries)**: ميزانيات على مستوى الحساب الفرعي
+- **Legal Entity**: Company-level budgets
+- **Fiscal Year/Period**: Time-based budget allocation
+- **Department**: Departmental spending limits
+- **Branch**: Location-based budgets
+- **Sector**: Division-level controls
+- **Analysis Set**: Custom analytical groupings
+- **Account Subsidiaries**: Sub-account level budgets
 
-### الأطراف المسؤولة الديناميكية
+### Dynamic Responsible Parties
 
-تهيئة توجيه الموافقة بناءً على:
+Configure approval routing based on:
 
-- **التسلسل الهرمي التنظيمي**: سلاسل موافقة المشرف
-- **القائم على القسم**: التوجيه إلى مديري الأقسام
-- **القائم على الحقل**: استخدام حقول الموظفين من المعاملة
-- **المحددات المخصصة**: منطق متقدم لاختيار المعتمِد
+- **Organizational Hierarchy**: Supervisor approval chains
+- **Department-based**: Route to department managers
+- **Field-based**: Use employee fields from the transaction
+- **Custom Selectors**: Advanced logic for approver selection
 
-### المعتمِدون البدلاء (Alternate Approvers)
+### Alternate Approvers
 
-يوفر النظام مرونة من خلال السماح للمعتمِدين البدلاء الذين يمكنهم التصرف في أي خطوة من خطوات عملية الموافقة، بغض النظر عن تعيينات الخطوة المحددة. يضمن هذا إمكانية المضي في الموافقات حتى عند عدم توافر المعتمِدين الأساسيين.
+The system provides flexibility by allowing alternate approvers who can act on ANY step of the approval process, regardless of the specific step assignments. This ensures approvals can proceed even when primary approvers are unavailable.
 
-#### أنواع البدلاء
+#### Types of Alternates
 
-**1. المعتمِد البديل (Alternate) - موظف منفرد**
-- **الإعداد**: تحديد موظف واحد بوصفه بديلاً عاماً
-- **النطاق**: يمكنه الموافقة على أي خطوة في عملية الموافقة
-- **حالة الاستخدام**: تعيين نائب أو معتمِد احتياطي لسير العمل بأكمله
+**1. Alternate (Single Employee)**
+- **Configuration**: Select a single employee as global alternate
+- **Scope**: Can approve any step in the approval process
+- **Use Case**: Designate a deputy or backup approver for the entire workflow
 
-**2. بدلاء آخرون (Other Alternates) - قائمة ديناميكية**
-- **الإعداد**: استخدام محددات SpecialResponsible لتحديد البدلاء ديناميكياً
-- **النطاق**: يمكنهم الموافقة على أي خطوة بناءً على معايير ديناميكية
-- **الخيارات**:
-  - **Initiator**: الشخص الذي أنشأ/عدّل المستند
-  - **Supervisor**: المشرف المباشر لمُنشئ الطلب
-  - **Field-based**: الموظفون المشار إليهم في حقول المستند
-  - **Custom Logic**: الاختيار الديناميكي بناءً على قواعد الأعمال
+**2. Other Alternates (Dynamic List)**
+- **Configuration**: Use SpecialResponsible selectors to dynamically determine alternates
+- **Scope**: Can approve any step based on dynamic criteria
+- **Options**:
+  - **Initiator**: The person who created/modified the document
+  - **Supervisor**: Direct supervisor of the initiator
+  - **Field-based**: Employees referenced in document fields
+  - **Custom Logic**: Dynamic selection based on business rules
 
-#### الفرق عن الاحتياطي (Fallback)
+#### Difference from Fallback
 
-::: warning تمييز مهم
-- **Fallback**: يُستخدم فقط عندما لا يستطيع النظام تحديد المعتمِد المعتاد (معالجة الأخطاء)
-- **Alternate**: متاح دائماً للموافقة جنباً إلى جنب مع المعتمِدين المعتادين (مرونة الأعمال)
-- **Other Alternates**: بدلاء محددون ديناميكياً بناءً على السياق
+::: warning Important Distinction
+- **Fallback**: Only used when system cannot determine regular approver (error handling)
+- **Alternate**: Always available to approve alongside regular approvers (business flexibility)
+- **Other Alternates**: Dynamically determined alternates based on context
 :::
 
-#### حقول مرجع الموافقة (Approval Reference Fields)
+#### Approval Reference Fields
 
-يوفر نظام الموافقات حقلَي مرجع اختياريَّين يمكن استخدامهما لتخزين معلومات سياقية إضافية حول السجلات المعتمدة. تساعد هذه المراجع في التصفية وإعداد التقارير والحصول على معلومات إضافية حول حالة الموافقة.
+The approval system provides two optional reference fields that can be used to store additional contextual information about approved records. These references help with filtering, reporting, and obtaining extra information about the approval case.
 
-**الإعداد:**
+**Configuration:**
 
-**Approval Reference 1 Source (approvalRef1Source)** و**Approval Reference 2 Source (approvalRef2Source)**:
-- **نوع الحقل**: FieldID (محدد الحقل)
-- **المصدر**: اختيار أي حقل مرجع أو مرجع عام من الكيان المعتمَد
-- **الغرض**: تعبئة `approvalRef1` و`approvalRef2` تلقائياً في حالة الموافقة
-- **التوافر**: يراعي السياق بناءً على كيان الموافقة وإعدادات "Apply Also To"
+**Approval Reference 1 Source (approvalRef1Source)** and **Approval Reference 2 Source (approvalRef2Source)**:
+- **Field Type**: FieldID (field selector)
+- **Source**: Select any reference or generic reference field from the approved entity
+- **Purpose**: Automatically populate `approvalRef1` and `approvalRef2` in the approval case
+- **Availability**: Context-aware based on approval entity and "Apply Also To" settings
 
-::: info كيف تعمل حقول المرجع
-1. **إعداد المصدر**: في تعريف الموافقة، اختر الحقول المصدر من الكيان المعتمَد
-2. **التعبئة التلقائية**: عند إنشاء حالة الموافقة، تُنسخ القيم من الحقول المصدر
-3. **التصفية**: استخدام `approvalRef1` و`approvalRef2` لتصفية حالات الموافقة في القوائم
-4. **إعداد التقارير**: تضمين المراجع في تقارير وملخصات الموافقة
-5. **معلومات السياق**: الوصول إلى البيانات ذات الصلة دون التنقل إلى السجل المعتمَد
-6. **يدعم صيغة Field Values Calculator** مثلاً `sql(select entityType,id from Table where x= {y})` 
+::: info How Reference Fields Work
+1. **Configure Source**: In approval definition, select source fields from the approved entity
+2. **Automatic Population**: When approval case is created, values are copied from source fields
+3. **Filtering**: Use `approvalRef1` and `approvalRef2` to filter approval cases in lists
+4. **Reporting**: Include references in approval reports and summaries
+5. **Context Information**: Access related data without navigating to the approved record
+6. **Supports Field Values Calculator Syntax** for example `sql(select entityType,id from Table where x= {y})` 
 :::
 
-**أمثلة حالات الاستخدام:**
-- **موافقات العملاء**: تخزين مرجع العميل لتصفية الموافقات الخاصة بالعملاء
-- **تتبع القسم**: ربط الموافقات بالأقسام لإعداد التقارير الإدارية
-- **ارتباط المشروع**: تتبع الموافقات حسب المشروع لإدارة المشاريع
-- **القائم على الموقع**: تصفية الموافقات حسب الفرع أو المخزن
-- **التجميع حسب الفئة**: تجميع الموافقات حسب فئة المنتج أو نوع الخدمة
+**Example Use Cases:**
+- **Customer Approvals**: Store customer reference for filtering customer-specific approvals
+- **Department Tracking**: Link approvals to departments for departmental reporting
+- **Project Association**: Track approvals by project for project management
+- **Location-Based**: Filter approvals by branch or warehouse
+- **Category Grouping**: Group approvals by product category or service type
 
-#### اعتبار تاريخ الطلب كتاريخ الإنشاء (Consider Request Date As Creation Date)
+#### Consider Request Date As Creation Date
 
-بشكل افتراضي، يعيّن النظام `creationDate` للسجل عند اكتمال خطوة الموافقة النهائية وإلزام السجل. ومع ذلك، يغيّر خيار `considerRequestDateAsCreationDate` هذا السلوك ليستخدم تاريخ طلب الموافقة بدلاً من ذلك.
+By default, the system sets the record's `creationDate` when the final approval step is completed and the record is committed. However, the `considerRequestDateAsCreationDate` option changes this behavior to use the approval request date instead.
 
-#### إعداد ملخص الموافقة (Approval Summary Configuration)
+#### Approval Summary Configuration
 
-يمكن للنظام توليد ملخصات مخصصة لطلبات الموافقة تزود المعتمِدين بالمعلومات الأساسية حول ما يعتمدونه. تظهر هذه الملخصات في قوائم الموافقة ويمكن تضمينها في رسائل البريد الإلكتروني للإشعارات.
+The system can generate customized summaries for approval requests that provide approvers with essential information about what they're approving. These summaries appear in approval lists and can be included in notification emails.
 
-**خيارات توليد الملخص:**
+**Summary Generation Options:**
 
-**1. ملخص الكيان الافتراضي**
-- إذا لم يُعدَّ ملخص مخصص، يستخدم النظام الطريقة المدمجة `summaryForApproval()` للكيان
-- يوفر معلومات أساسية حول السجل
-- صيغة قياسية عبر جميع كيانات من نفس النوع
+**1. Default Entity Summary**
+- If no custom summary is configured, the system uses the entity's built-in `summaryForApproval()` method
+- Provides basic information about the record
+- Standard format across all entities of the same type
 
-**2. قالب ملخص مخصص**
-- **summaryTemplate**: يستخدم لغة Tempo لإنشاء ملخصات منسقة
-- الوصول إلى جميع حقول الكيان والبيانات ذات الصلة
-- تنسيق مرن مع دعم HTML
-- محتوى ديناميكي بناءً على بيانات السجل
+**2. Custom Summary Template**
+- **summaryTemplate**: Uses Tempo language to create formatted summaries
+- Access to all entity fields and related data
+- Flexible formatting with HTML support
+- Dynamic content based on record data
 
-**3. ملخص قائم على الاستعلام**
-- **summaryQuery**: استعلام SQL لجمع بيانات محددة للملخص
-- **summaryTemplate**: قالب يعالج نتائج الاستعلام
-- قوي للملخصات المعقدة التي تتطلب بيانات محسوبة أو تجميعات
+**3. Query-Based Summary**
+- **summaryQuery**: SQL query to gather specific data for the summary
+- **summaryTemplate**: Template that processes query results
+- Powerful for complex summaries requiring calculated data or aggregations
 
-**4. مسح قبل الملخص (Flush Before Summary)**
-- **flushBeforeSummary**: يفرض إلزام قاعدة البيانات قبل توليد الملخص
-- يضمن حفظ جميع التغييرات قبل حساب الملخص
-- مطلوب عندما يعتمد الملخص على بيانات قد لا تكون محفوظة بعد
-- استخدم فقط مع summaryQuery
+**4. Flush Before Summary**
+- **flushBeforeSummary**: Forces database commit before generating summary
+- Ensures all changes are persisted before summary calculation
+- Required when summary depends on data that might not be saved yet
+- Use only with summaryQuery
 
-## دليل الإعداد خطوة بخطوة
+## Step-by-Step Configuration Guide
 
-### الخطوة 1: تعريف الإعدادات الأساسية
+### Step 1: Define Basic Settings
 
-| الحقل | الوصف |
+| Field | Description |
 |-------|-------------|
-| **Approval Entity** | نوع السجل المراد اعتماده |
-| **Priority** | ترتيب المعالجة عند تطابق تعريفات متعددة |
-| **Use With Insert** | التشغيل عند السجلات الجديدة |
-| **Use With Update** | التشغيل عند التعديلات |
-| **Comment Required** | إلزام المعتمِدين بإضافة تعليقات |
-| **Require Execution** | إضافة خطوة تنفيذ نهائية لمُنشئ الطلب |
-| **Confirm Before Starting** | عرض مربع حوار تأكيد قبل بدء الموافقة |
-| **Revise On Completion** | تمييز السجل كمراجَع بعد الموافقة (يقفل التعديل/الحذف) |
-| **Allow Modify While Under Approval** | السماح بتعديل السجلات أثناء عملية الموافقة |
-| **Require OTP For All Steps** | اشتراط التحقق عبر OTP لجميع قرارات الموافقة |
-| **Fallback** | الموظف للتعامل مع أخطاء النظام (مطلوب) |
-| **Alternate** | الموظف الذي يمكنه الموافقة على أي خطوة |
-| **Other Alternates** | بدلاء ديناميكيون (المشرف، القائم على الحقل، إلخ) |
-| **Approval Reference 1 Source** | الحقل المصدر لمرجع الموافقة الأول (approvalRef1Source) |
-| **Approval Reference 2 Source** | الحقل المصدر لمرجع الموافقة الثاني (approvalRef2Source) |
-| **Consider Request Date As Creation Date** | استخدام تاريخ طلب الموافقة كتاريخ إنشاء السجل |
-| **Summary Template** | قالب Tempo لملخصات الموافقة المخصصة |
-| **Summary Query** | استعلام SQL لجمع بيانات توليد الملخص |
-| **Flush Before Summary** | إلزام التغييرات في قاعدة البيانات قبل توليد الملخص |
+| **Approval Entity** | Type of record to approve |
+| **Priority** | Processing order when multiple definitions match |
+| **Use With Insert** | Trigger on new records |
+| **Use With Update** | Trigger on modifications |
+| **Comment Required** | Force approvers to add comments |
+| **Require Execution** | Add final execution step for initiator |
+| **Confirm Before Starting** | Show confirmation dialog before starting approval |
+| **Revise On Completion** | Mark record as revised after approval (locks editing/deletion) |
+| **Allow Modify While Under Approval** | Allow editing records during approval process |
+| **Require OTP For All Steps** | Require OTP verification for all approval decisions |
+| **Fallback** | Employee to handle system errors (required) |
+| **Alternate** | Employee who can approve any step |
+| **Other Alternates** | Dynamic alternates (supervisor, field-based, etc.) |
+| **Approval Reference 1 Source** | Source field for first approval reference (approvalRef1Source) |
+| **Approval Reference 2 Source** | Source field for second approval reference (approvalRef2Source) |
+| **Consider Request Date As Creation Date** | Use approval request date as record creation date |
+| **Summary Template** | Tempo template for custom approval summaries |
+| **Summary Query** | SQL query to gather data for summary generation |
+| **Flush Before Summary** | Commit changes to database before generating summary |
 
-### الخطوة 2: إعداد خطوات الموافقة
+### Step 2: Configure Approval Steps
 
-1. **إضافة خطوات الموافقة**
-   - تسلسل الخطوة: 1، 2، 3، إلخ
-   - اسم الخطوة: "موافقة مدير القسم"
-   - الحالة المطلوبة: يجب على جميع المرشحين الموافقة
+1. **Add Approval Steps**
+   - Step Sequence: 1, 2, 3, etc.
+   - Step Name: "Department Manager Approval"
+   - Required Status: All candidates must approve
 
-2. **تعيين المسؤوليات**
-   - **التعيين المباشر**: موظف محدد
-   - **القائم على الدور**: المسمى الوظيفي أو دور القسم
-   - **الديناميكي**: بناءً على بيانات المعاملة
+2. **Assign Responsibilities**
+   - **Direct Assignment**: Specific employee
+   - **Role-based**: Job title or department role
+   - **Dynamic**: Based on transaction data
 
-3. **تعيين خيارات القرار**
-   - **Approve**: الانتقال إلى الخطوة التالية
-   - **Reject**: إيقاف العملية والرفض
-   - **Return**: إعادة الإرسال للتعديلات
-   - **Escalate**: إحالة إلى المشرف
+3. **Set Decision Options**
+   - **Approve**: Move to next step
+   - **Reject**: Stop process and reject
+   - **Return**: Send back for modifications
+   - **Escalate**: Forward to supervisor
 
-#### إعداد قرار الموافقة العام (Global Approval Decision Configuration)
+#### Global Approval Decision Configuration
 
-يوفر النظام خيارات إعداد عامة للتحكم في قرارات الموافقة المتاحة في سير عمل الموافقات. تُعدَّل هذه الإعدادات في الإعدادات العامة (Global Configuration) وتؤثر على جميع عمليات الموافقة على مستوى النظام.
+The system provides global configuration options to control which approval decisions are available in approval workflows. These settings are configured in the Global Configuration (إعدادات عامة) and affect all approval processes system-wide.
 
-##### خيارات إعداد القرارات المتاحة
+##### Available Decision Configuration Options
 
-| خيار الإعداد | الاسم بالعربية | الاسم بالإنجليزية | الوصف |
+| Configuration Option | Arabic Name | English Name | Description |
 |---------------------|-------------|--------------|-------------|
-| **useRejectDecision** | استعمال قرار الرفض | Use Reject Decision | يتحكم في توافر خيار قرار "Reject" (رفض) |
-| **useReturnDecision** | استعمال قرار الارجاع | Use Return Decision | يتحكم في توافر خيار قرار "Return" (إرجاع) |
-| **useEscalateToSupervisor** | استخدام قرار تصعيد الي المدير المباشر | Use Escalate To Supervisor | يتحكم في توافر خيار "Escalate to Supervisor" (تصعيد الي المدير المباشر) |
-| **useEscalateToSpecificEmployee** | استخدام قرار تصعيد الي موظف بعينه | Use Escalate To Specific Employee | يتحكم في توافر خيار "Escalate to Specific Employee" (تصعيد الي موظف بعينه) |
-| **useReturnToPreviousStep** | استخدام قرار إرجاع إلي الخطوة السابقة | Use Return To Previous Step | يتحكم في توافر خيار "Return to Previous Step" (إرجاع للخطوة السابقة) |
+| **useRejectDecision** | استعمال قرار الرفض | Use Reject Decision | Controls availability of "Reject" (رفض) decision option |
+| **useReturnDecision** | استعمال قرار الارجاع | Use Return Decision | Controls availability of "Return" (إرجاع) decision option |
+| **useEscalateToSupervisor** | استخدام قرار تصعيد الي المدير المباشر | Use Escalate To Supervisor | Controls availability of "Escalate to Supervisor" (تصعيد الي المدير المباشر) option |
+| **useEscalateToSpecificEmployee** | استخدام قرار تصعيد الي موظف بعينه | Use Escalate To Specific Employee | Controls availability of "Escalate to Specific Employee" (تصعيد الي موظف بعينه) option |
+| **useReturnToPreviousStep** | استخدام قرار إرجاع إلي الخطوة السابقة | Use Return To Previous Step | Controls availability of "Return to Previous Step" (إرجاع للخطوة السابقة) option |
 
-##### تأثير الإعداد
+##### Configuration Impact
 
-**عند تعطيل خيارات القرار:**
-- لن يظهر القرار المقابل في القائمة المنسدلة للموافقة
-- لا يمكن للمعتمِدين اختيار ذلك النوع من القرار
-- تعريفات الموافقة الحالية التي تعتمد على القرارات المعطَّلة قد تكون محدودة الوظائف
-- سيعرض النظام فقط خيارات القرار المفعَّلة
+**When Decision Options are Disabled:**
+- The corresponding decision will not appear in the approval dropdown
+- Approvers cannot select that decision type
+- Existing approval definitions that rely on disabled decisions may have limited functionality
+- The system will show only the enabled decision options
 
-**سيناريوهات مثالية:**
-1. **عملية موافقة مبسطة**: تعطيل خياري "Return" و"Escalate" للسماح فقط بـ"Approve" أو"Reject"
-2. **سياسة عدم الرفض**: تعطيل "Reject" لإجبار المعتمِدين على استخدام "Return" للتعديلات
-3. **هرمي فقط**: تعطيل "Escalate to Specific Employee" لفرض تصعيد صارم عبر المشرف
+**Example Scenarios:**
+1. **Simplified Approval Process**: Disable "Return" and "Escalate" options to only allow "Approve" or "Reject"
+2. **No Rejection Policy**: Disable "Reject" to force approvers to use "Return" for modifications instead
+3. **Hierarchical Only**: Disable "Escalate to Specific Employee" to enforce strict supervisor escalation
 
-::: warning اعتبارات الإعداد
-- تعطيل خيارات القرار يؤثر على جميع عمليات الموافقة على مستوى النظام
-- تأكد من توافق تعريفات الموافقة مع مجموعة القرارات المفعَّلة
-- ضع في الاعتبار تأثير التغييرات على سير عمل الموافقة الموجودة قبل تطبيقها
-- قد تتطلب بعض عمليات الموافقة أنواعاً محددة من القرارات لتعمل بشكل صحيح
+::: warning Configuration Considerations
+- Disabling decision options affects all approval processes system-wide
+- Ensure that approval definitions are compatible with the enabled decision set
+- Consider the impact on existing approval workflows before making changes
+- Some approval processes may require specific decision types to function properly
 :::
 
-### الخطوة 3: إعداد الإشعارات
+### Step 3: Notification Configuration
 
-#### قوالب البريد الإلكتروني
-إعداد إشعارات البريد الإلكتروني التلقائية مع:
-- **Email Template**: قالب HTML لطلبات الموافقة
-- **Email Subject**: سطر موضوع ديناميكي
-- **Additional Recipients**: إرسال نسخة لأصحاب المصلحة الآخرين
+#### Email Templates
+Configure automated email notifications with:
+- **Email Template**: HTML template for approval requests
+- **Email Subject**: Dynamic subject line
+- **Additional Recipients**: CC other stakeholders
 
-#### إشعارات الرسائل القصيرة
-- **SMS Template**: صيغة الرسالة النصية
-- **Mobile Number Source**: معلومات الاتصال بالموظف
+#### SMS Notifications
+- **SMS Template**: Text message format
+- **Mobile Number Source**: Employee contact info
 
-#### الإشعارات داخل التطبيق
-- **Notification Template**: صيغة الرسالة داخل النظام
-- **FCM Templates**: الإشعارات الفورية لتطبيقات الجوال
+#### In-App Notifications
+- **Notification Template**: In-system message format
+- **FCM Templates**: Push notifications for mobile apps
 
-### الخطوة 4: الميزات المتقدمة
+### Step 4: Advanced Features
 
-#### مراقبة الحقول الحرجة (Critical Fields Monitoring)
-تتبع تغييرات حقول محددة تستلزم إعادة الموافقة:
-- تغييرات المبالغ تجاوزاً للحد المسموح
-- تعديلات التواريخ الرئيسية
-- تحديثات حقل الحالة
+#### Critical Fields Monitoring
+Track specific field changes that require re-approval:
+- Amount changes beyond tolerance
+- Key date modifications
+- Status field updates
 
-#### التصعيد التلقائي (Auto-escalation)
-تعيين حدود زمنية لخطوات الموافقة:
-- **Auto Escalate After**: الفترة الزمنية (ساعات/أيام)
-- **Escalation Target**: المشرف أو موظف محدد
+#### Auto-escalation
+Set time limits for approval steps:
+- **Auto Escalate After**: Time period (hours/days)
+- **Escalation Target**: Supervisor or specific employee
 
-::: warning مطلوب جدول مهام (Task Schedule)
-لكي يعمل التصعيد التلقائي، يجب إنشاء **Task Schedule** بالإعداد التالي:
+::: warning Task Schedule Required
+For auto-escalation to work, you must create a **Task Schedule** with the following configuration:
 - **Schedule Type**: Action
-- **Class Name**: اختيار أحد الخيارين:
-  - `EAAutoEscalateApprovalToSupervisor` - يصعّد إلى المشرف المباشر للمعتمِد
-  - `EAAutoEscalateApprovalToFallBackEmployee` - يصعّد إلى الموظف الاحتياطي المحدد في تعريف الموافقة
-- **Schedule Frequency**: يوصى بالتشغيل كل 15-30 دقيقة للتحقق من الموافقات المتأخرة
+- **Class Name**: Choose one of:
+  - `EAAutoEscalateApprovalToSupervisor` - Escalates to the approver's direct supervisor
+  - `EAAutoEscalateApprovalToFallBackEmployee` - Escalates to the fallback employee defined in the approval definition
+- **Schedule Frequency**: Recommended to run every 15-30 minutes to check for overdue approvals
 :::
 
-## سير عمل المستخدم
+## User Workflow
 
-### لمُنشئي المعاملات
+### For Transaction Creators
 
-1. **إنشاء/تعديل السجل**: إدخال بيانات المعاملة بصورة عادية
-2. **حفظ السجل**: يتحقق النظام من متطلبات الموافقة
-3. **تشغيل الموافقة**: إذا تحققت المعايير، تُنشأ حالة موافقة
-4. **إرسال الإشعار**: يتلقى المعتمِدون الإشعارات
-5. **تتبع الحالة**: مراقبة تقدم الموافقة في المعاملة
+1. **Create/Modify Record**: Enter transaction data normally
+2. **Save Record**: System checks approval requirements
+3. **Approval Triggered**: If criteria met, approval case is created
+4. **Notification Sent**: Approvers receive notifications
+5. **Track Status**: Monitor approval progress in transaction
 
-### للمعتمِدين
+### For Approvers
 
-1. **استلام الإشعار**: تنبيه عبر البريد الإلكتروني أو الرسائل القصيرة أو داخل التطبيق
-2. **مراجعة الطلب**: الوصول إلى تفاصيل الموافقة وملخص المعاملة
-3. **اتخاذ القرار**: موافقة، رفض، إرجاع، أو تصعيد
-4. **إضافة تعليقات**: تقديم مبرر للقرار
-5. **الإرسال**: يُسجَّل القرار ويستمر سير العمل
+1. **Receive Notification**: Email, SMS, or in-app alert
+2. **Review Request**: Access approval details and transaction summary
+3. **Make Decision**: Approve, Reject, Return, or Escalate
+4. **Add Comments**: Provide reasoning for decision
+5. **Submit**: Decision is recorded and workflow continues
 
-### إجراءات الموافقة المتاحة
+### Approval Actions Available
 
-| الإجراء | الوصف | الخطوة التالية |
+| Action | Description | Next Step |
 |--------|-------------|-----------|
-| **Approve** | قبول الطلب | الانتقال إلى خطوة الموافقة التالية |
-| **Reject** | رفض الطلب | إيقاف سير العمل وإخطار مُنشئه |
-| **Return** | إعادة للتعديلات | السماح بالتعديلات وإعادة تشغيل الموافقة |
-| **Escalate to Supervisor** | إحالة إلى المدير | يصبح المدير المعتمِد التالي |
-| **Escalate to Specific Employee** | إحالة إلى شخص محدد | يوافق الموظف المحدد |
+| **Approve** | Accept the request | Move to next approval step |
+| **Reject** | Deny the request | Stop workflow, notify creator |
+| **Return** | Send back for changes | Allow modifications, restart approval |
+| **Escalate to Supervisor** | Forward to manager | Manager becomes next approver |
+| **Escalate to Specific Employee** | Forward to chosen person | Specific employee approves |
 
-## نظام الإشعارات
+## Notification System
 
-### أنواع الإشعارات
+### Notification Types
 
-1. **إشعارات البريد الإلكتروني**
-   - روابط موافقة مدمجة
-   - دعم المرفقات
-2. **رسائل SMS**
-3. **الإشعارات داخل التطبيق**
-4. **الإشعارات الفورية (Push)**
-   - تنبيهات تطبيق الجوال
+1. **Email Notifications**
+   - Embedded approval links
+   - Attachment support
+2. **SMS Messages**
+3. **In-App Notifications**
+4. **Push Notifications**
+   - Mobile app alerts
 
-### قوالب الإشعارات
+### Notification Templates
 
-تستخدم القوالب لغة Tempo لعرض المحتوى الديناميكي. تتمتع القوالب بالوصول إلى الكائن `$notificationInfo` الذي يحتوي على:
-- `$notificationInfo.employee` - الموظف الذي يجب أن يوافق
-- `$notificationInfo.approvalCase` - تفاصيل حالة الموافقة الكاملة
-- `$notificationInfo.otp` - رمز OTP للموافقة (إذا تم إعداده)
+Templates use Tempo language for dynamic content rendering. The templates have access to the `$notificationInfo` object containing:
+- `$notificationInfo.employee` - The employee who should approve
+- `$notificationInfo.approvalCase` - The full approval case details
+- `$notificationInfo.otp` - The approval OTP (if configured)
 
-**مثال قالب البريد الإلكتروني:**
+**Email Template Example:**
 ```
 <h2>Approval Required: {entityType} #{code}</h2>
 <p>Dear {$notificationInfo.employee.name2},</p>
@@ -619,7 +619,7 @@ SELECT case when {totalAmount} > 50000 then 1 else 0 end
 </table>
 ```
 
-**مثال قالب الرسائل القصيرة:**
+**SMS Template Example:**
 ```
 {$notificationInfo.employee.name2}: Approval needed for {entityType} #{code}
 Amount: {totalAmount}
@@ -629,7 +629,7 @@ OTP: {$notificationInfo.otp}
 {rejectlink}
 ```
 
-**قالب الإشعار داخل التطبيق:**
+**In-App Notification Template:**
 ```
 <strong>Approval Request</strong>{enter}
 {entityType} #{code} requires your approval{enter}
@@ -639,103 +639,103 @@ Department: {department.name1}{enter}
 {titledlink("View Details", this)}
 ```
 
-#### متغيرات Tempo المتاحة لقوالب الموافقة
+#### Available Tempo Variables for Approval Templates
 
-::: info متغيرات السياق
-تتمتع جميع قوالب الإشعارات بالوصول إلى كائنات السياق والمتغيرات التالية:
+::: info Context Variables
+All notification templates have access to the following context objects and variables:
 
-**حقول المستند:**
-- الوصول المباشر للحقل: `{code}` و`{totalAmount}` و`{creationDate}` إلخ
-- حقول الكيان المرتبط: `{customer.name1}` و`{department.code}` إلخ
-- حقول النظام: `{entityType}` و`{firstAuthor}` و`{currentVersion}`
+**Document Fields:**
+- Direct field access: `{code}`, `{totalAmount}`, `{creationDate}`, etc.
+- Related entity fields: `{customer.name1}`, `{department.code}`, etc.
+- System fields: `{entityType}`, `{firstAuthor}`, `{currentVersion}`
 
-**كائن NotificationInfo (`$notificationInfo`):**
-- `$notificationInfo.employee` - الموظف الذي يجب أن يوافق
-- `$notificationInfo.approvalCase` - كائن حالة الموافقة الكامل
-- `$notificationInfo.approvalCase.summary` - ملخص الموافقة
-- `$notificationInfo.approvalCase.requestedBy` - من طلب الموافقة
-- `$notificationInfo.approvalCase.nextStepName1` - اسم الخطوة الحالية بالعربية
-- `$notificationInfo.approvalCase.nextStepName2` - اسم الخطوة الحالية بالإنجليزية
-- `$notificationInfo.otp` - رمز OTP (إذا تم إعداده)
-- `$notificationInfo.concernedLines` - الأسطر التي تتطلب موافقة
+**NotificationInfo Object (`$notificationInfo`):**
+- `$notificationInfo.employee` - The employee who should approve
+- `$notificationInfo.approvalCase` - The full approval case object
+- `$notificationInfo.approvalCase.summary` - Approval summary
+- `$notificationInfo.approvalCase.requestedBy` - Who requested approval
+- `$notificationInfo.approvalCase.nextStepName1` - Current step Arabic name
+- `$notificationInfo.approvalCase.nextStepName2` - Current step English name
+- `$notificationInfo.otp` - The OTP code (if configured)
+- `$notificationInfo.concernedLines` - Lines requiring approval
 
-**روابط إجراءات الموافقة:**
-- `{approvelink}` - رابط/زر للموافقة
-- `{rejectlink}` - رابط/زر للرفض
-- `{returnlink}` - رابط/زر للإرجاع للتعديلات
-- `{escalatelink}` - رابط/زر للتصعيد
+**Approval Action Links:**
+- `{approvelink}` - Link/button to approve
+- `{rejectlink}` - Link/button to reject
+- `{returnlink}` - Link/button to return for modifications
+- `{escalatelink}` - Link/button to escalate
 
 :::
 
-### الوصول إلى بيانات حالة الموافقة في قوالب الإشعارات
+### Accessing Approval Case Data in Notification Templates
 
-في قوالب الإشعارات (البريد الإلكتروني، الرسائل القصيرة، الإشعارات داخل التطبيق، إلخ)، يمكنك الوصول إلى معلومات حالة الموافقة التفصيلية باستخدام بادئة `currentApprovalCase`. يتيح هذا عرض سجل الموافقة والقرارات السابقة ومعلومات المرشح ورموز OTP في إشعاراتك.
+In notification templates (email, SMS, in-app notifications, etc.), you can access detailed approval case information using the `currentApprovalCase` prefix. This allows you to display approval history, previous decisions, candidate information, and OTP codes in your notifications.
 
-#### حقول ApprovalCase المتاحة
+#### Available ApprovalCase Fields
 
-الوصول إلى معلومات حالة الموافقة باستخدام `{currentApprovalCase.<field>}`:
+Access approval case information using `{currentApprovalCase.<field>}`:
 
-**معلومات الخطوة:**
-- `{currentApprovalCase.$lastStep}` - آخر خطوة موافقة
-- `{currentApprovalCase.$firstStep}` - أول خطوة موافقة
-- `{currentApprovalCase.nextStepSequence}` - الرقم التسلسلي للخطوة الحالية
-- `{currentApprovalCase.nextStepName1}` - اسم الخطوة الحالية بالعربية
-- `{currentApprovalCase.nextStepName2}` - اسم الخطوة الحالية بالإنجليزية
+**Step Information:**
+- `{currentApprovalCase.$lastStep}` - The most recent approval step
+- `{currentApprovalCase.$firstStep}` - The first approval step
+- `{currentApprovalCase.nextStepSequence}` - Current step sequence number
+- `{currentApprovalCase.nextStepName1}` - Current step Arabic name
+- `{currentApprovalCase.nextStepName2}` - Current step English name
 
-**معلومات المرشح:**
-- `{currentApprovalCase.$firstCandidate}` - المرشح الأول في الخطوة الحالية
-- `{currentApprovalCase.$secondCandidate}` - المرشح الثاني
-- `{currentApprovalCase.$thirdCandidate}` - المرشح الثالث
-- `{currentApprovalCase.$fourthCandidate}` - المرشح الرابع
-- `{currentApprovalCase.$fifthCandidate}` - المرشح الخامس
+**Candidate Information:**
+- `{currentApprovalCase.$firstCandidate}` - First candidate in current step
+- `{currentApprovalCase.$secondCandidate}` - Second candidate
+- `{currentApprovalCase.$thirdCandidate}` - Third candidate
+- `{currentApprovalCase.$fourthCandidate}` - Fourth candidate
+- `{currentApprovalCase.$fifthCandidate}` - Fifth candidate
 
-**حالة الموافقة:**
-- `{currentApprovalCase.state}` - حالة الموافقة الحالية (InProgress, Approved, Rejected, Returned)
-- `{currentApprovalCase.requestedBy}` - الموظف الذي بدأ الموافقة
-- `{currentApprovalCase.requestDate}` - وقت طلب الموافقة
-- `{currentApprovalCase.completionDate}` - وقت اكتمال الموافقة
-- `{currentApprovalCase.summary}` - نص ملخص الموافقة
-- `{currentApprovalCase.approvalRef1}` - مرجع الموافقة الأول (إذا تم إعداده)
-- `{currentApprovalCase.approvalRef2}` - مرجع الموافقة الثاني (إذا تم إعداده)
+**Approval State:**
+- `{currentApprovalCase.state}` - Current approval state (InProgress, Approved, Rejected, Returned)
+- `{currentApprovalCase.requestedBy}` - Employee who initiated the approval
+- `{currentApprovalCase.requestDate}` - When approval was requested
+- `{currentApprovalCase.completionDate}` - When approval was completed
+- `{currentApprovalCase.summary}` - Approval summary text
+- `{currentApprovalCase.approvalRef1}` - First approval reference (if configured)
+- `{currentApprovalCase.approvalRef2}` - Second approval reference (if configured)
 
-#### حقول ApprovalCaseStep
+#### ApprovalCaseStep Fields
 
-الوصول إلى تفاصيل الخطوة من `$lastStep` أو `$firstStep` أو مراجع خطوات أخرى:
+Access step details from `$lastStep`, `$firstStep`, or other step references:
 
-- `{currentApprovalCase.$lastStep.decision}` - القرار المتخذ (Approve, Reject, Return, إلخ)
-- `{currentApprovalCase.$lastStep.actualResponsible}` - الموظف الذي اتخذ القرار
-- `{currentApprovalCase.$lastStep.approvalDate}` - وقت اتخاذ القرار
-- `{currentApprovalCase.$lastStep.comment}` - التعليق المقدم مع القرار
-- `{currentApprovalCase.$lastStep.approvalStepName1}` - اسم الخطوة بالعربية
-- `{currentApprovalCase.$lastStep.approvalStepName2}` - اسم الخطوة بالإنجليزية
-- `{currentApprovalCase.$lastStep.approvalReason}` - سبب الموافقة (إذا تم تقديمه)
-- `{currentApprovalCase.$lastStep.escalated}` - ما إذا كانت الخطوة قد صُعِّدت
-- `{currentApprovalCase.$lastStep.escalatedFrom}` - من صعَّدها
-- `{currentApprovalCase.$lastStep.escalateTo}` - من صُعِّدت إليه
+- `{currentApprovalCase.$lastStep.decision}` - The decision made (Approve, Reject, Return, etc.)
+- `{currentApprovalCase.$lastStep.actualResponsible}` - Employee who made the decision
+- `{currentApprovalCase.$lastStep.approvalDate}` - When the decision was made
+- `{currentApprovalCase.$lastStep.comment}` - Comment provided with the decision
+- `{currentApprovalCase.$lastStep.approvalStepName1}` - Step Arabic name
+- `{currentApprovalCase.$lastStep.approvalStepName2}` - Step English name
+- `{currentApprovalCase.$lastStep.approvalReason}` - Reason for the approval (if provided)
+- `{currentApprovalCase.$lastStep.escalated}` - Whether step was escalated
+- `{currentApprovalCase.$lastStep.escalatedFrom}` - Who escalated it
+- `{currentApprovalCase.$lastStep.escalateTo}` - Who it was escalated to
 
-#### حقول ApprovalCaseStepCandidate
+#### ApprovalCaseStepCandidate Fields
 
-الوصول إلى تفاصيل المرشح من `$firstCandidate` أو `$secondCandidate` إلخ:
+Access candidate details from `$firstCandidate`, `$secondCandidate`, etc.:
 
-- `{currentApprovalCase.$firstCandidate.candidate}` - الموظف المرشح
-- `{currentApprovalCase.$firstCandidate.concernedLines}` - الأسطر المعيَّنة لهذا المرشح
-- `{currentApprovalCase.$firstCandidate.otp}` - رمز OTP لهذا المرشح (إذا فُعِّل OTP)
-- `{currentApprovalCase.$firstCandidate.requestedOn}` - وقت تعيين المرشح
-- `{currentApprovalCase.$firstCandidate.escalated}` - ما إذا كان قد صُعِّد إلى هذا المرشح
-- `{currentApprovalCase.$firstCandidate.escalatedFrom}` - المعتمِد الأصلي الذي صعَّد
-- `{currentApprovalCase.$firstCandidate.source}` - مصدر تعيين المسؤولية
-- `{currentApprovalCase.$firstCandidate.responsibility}` - نوع المسؤولية
+- `{currentApprovalCase.$firstCandidate.candidate}` - The employee candidate
+- `{currentApprovalCase.$firstCandidate.concernedLines}` - Lines assigned to this candidate
+- `{currentApprovalCase.$firstCandidate.otp}` - OTP code for this candidate (if OTP is enabled)
+- `{currentApprovalCase.$firstCandidate.requestedOn}` - When candidate was assigned
+- `{currentApprovalCase.$firstCandidate.escalated}` - Whether escalated to this candidate
+- `{currentApprovalCase.$firstCandidate.escalatedFrom}` - Original approver who escalated
+- `{currentApprovalCase.$firstCandidate.source}` - Source of responsibility assignment
+- `{currentApprovalCase.$firstCandidate.responsibility}` - Type of responsibility
 
-#### أمثلة عملية لقوالب الإشعارات
+#### Practical Examples for Notification Templates
 
-**مثال 1: عرض رمز OTP**
+**Example 1: Display OTP Code**
 ```
 {if(currentApprovalCase.$firstCandidate.otp)}
 <p>Your Security Code (OTP): <strong>{currentApprovalCase.$firstCandidate.otp}</strong></p>
 {endif}
 ```
 
-**مثال 2: عرض قرار المعتمِد السابق وتعليقه**
+**Example 2: Show Previous Approver's Decision and Comment**
 ```
 {if(currentApprovalCase.$lastStep)}
 <h3>Previous Approval Step:</h3>
@@ -748,7 +748,7 @@ Department: {department.name1}{enter}
 {endif}
 ```
 
-**مثال 3: عرض معلومات التصعيد**
+**Example 3: Display Escalation Information**
 ```
 {if(currentApprovalCase.$firstCandidate.escalated)}
 <p style="color: orange;">
@@ -757,7 +757,7 @@ Department: {department.name1}{enter}
 {endif}
 ```
 
-**مثال 4: عرض جميع المرشحين الحاليين**
+**Example 4: Show All Current Candidates**
 ```
 <h3>Awaiting Approval From:</h3>
 <ul>
@@ -773,7 +773,7 @@ Department: {department.name1}{enter}
 </ul>
 ```
 
-**مثال 5: قالب بريد إلكتروني كامل مع سجل الموافقة**
+**Example 5: Complete Email Template with Approval History**
 ```
 <h2>Approval Request: {entityType} #{code}</h2>
 <p>Dear {$notificationInfo.employee.name2},</p>
@@ -805,16 +805,16 @@ Department: {department.name1}{enter}
 <p>{approvelink} {rejectlink} {returnlink}</p>
 ```
 
-::: tip حالات استخدام currentApprovalCase
-- **عرض OTP**: عرض كلمات المرور لمرة واحدة للمرشحين في الإشعارات
-- **سجل الموافقة**: عرض قرارات الموافقة السابقة والتعليقات
-- **تنبيهات التصعيد**: الإشارة إلى وقت التصعيد ومن قام به
-- **إشعارات المرشحين المتعددين**: عرض جميع المرشحين الذين ينتظرون الموافقة
-- **سجل المراجعة**: تضمين سلسلة الموافقة الكاملة في إشعارات البريد الإلكتروني
-- **معلومات السياق**: عرض أسماء الخطوات والتواريخ والأطراف المسؤولة
+::: tip Use Cases for currentApprovalCase
+- **OTP Display**: Show one-time passwords to candidates in notifications
+- **Approval History**: Display previous approval decisions and comments
+- **Escalation Alerts**: Indicate when approval was escalated and by whom
+- **Multi-Candidate Notifications**: Show all candidates awaiting approval
+- **Audit Trail**: Include complete approval chain in email notifications
+- **Context Information**: Display step names, dates, and responsible parties
 :::
 
-#### الموافقات القائمة على الميزانية
+#### Budget-Based Approvals
 ```
 Account Setup:
 - Expense Accounts → budgetExceededBehavior = "Request Approval"
@@ -825,125 +825,125 @@ Process:
 Document Creation → Budget Check → Approval (if exceeded) → Commitment
 ```
 
-#### الموافقات متعددة المعايير
+#### Multi-criteria Approvals
 ```
 IF (Amount > 50,000 OR Customer = "High Risk" OR Payment Terms > 60 days)
 THEN Require: Credit Manager + Finance Director approval
 ```
 
-### نصائح الأداء
+### Performance Tips
 
-- **تحسين الاستعلامات**: تأكد من أداء Apply When Query بكفاءة
-- **المعالجة الدفعية**: تجميع الموافقات المتشابهة لتحقيق الكفاءة
-- **أرشفة الحالات القديمة**: الحفاظ على أداء النظام بسياسات الاحتفاظ بالبيانات
-- **مراقبة نقاط الاختناق**: تحديد وحل تأخيرات الموافقة
+- **Optimize Queries**: Ensure Apply When Query performs efficiently
+- **Batch Processing**: Group similar approvals for efficiency
+- **Archive Old Cases**: Maintain system performance with data retention policies
+- **Monitor Bottlenecks**: Identify and resolve approval delays
 
-## استكشاف الأخطاء وإصلاحها
+## Troubleshooting
 
-### المشكلات الشائعة
+### Common Issues
 
-| المشكلة | السبب | الحل |
+| Problem | Cause | Solution |
 |---------|-------|----------|
-| **لم يُشغَّل الاعتماد** | المعايير غير محققة | مراجعة Apply When Query والشروط |
-| **تعيين معتمِد خاطئ** | إعداد طرف مسؤول غير صحيح | التحقق من إعداد مسؤوليات الخطوة |
-| **الإشعارات لم تُرسَل** | مشكلة في القالب أو معلومات الاتصال | التحقق من قوالب البريد الإلكتروني وبيانات الموظفين |
-| **الموافقة عالقة** | معتمِد مفقود أو خطأ في النظام | التحقق من حالة حالة الموافقة وقواعد التصعيد |
-| **موافقة الميزانية لا تعمل** | إعداد مفقود | التحقق من إعدادات الميزانية وإعداد الحساب والإعدادات العامة |
+| **Approval not triggered** | Criteria not met | Review Apply When Query and conditions |
+| **Wrong approver assigned** | Incorrect responsible party setup | Check step responsibilities configuration |
+| **Notifications not sent** | Template or contact info issues | Verify email templates and employee contacts |
+| **Approval stuck** | Missing approver or system error | Check approval case status and escalation rules |
+| **Budget approval not working** | Configuration missing | Verify budget settings, account configuration, and global config |
 
-### إدارة النظام
+### System Administration
 
-#### مراقبة الموافقات
-- مراجعة منتظمة لحالات الموافقة المعلقة
-- مراقبة أداء استعلامات الموافقة
-- تحليل سجل المراجعة للامتثال
-- تحليل الميزانية مقابل الإنفاق الفعلي
+#### Monitoring Approvals
+- Regular review of pending approval cases
+- Performance monitoring of approval queries
+- Audit trail analysis for compliance
+- Budget vs actual spending analysis
 
-#### مهام الصيانة
-- أرشفة حالات الموافقة المكتملة
-- تحديث مسؤوليات الموظفين
-- تحديث ذاكرة التخزين المؤقت لتعريف الموافقة
-- مراجعة وتحسين قوالب الإشعارات
-- تحديث تخصيصات الميزانية دورياً
+#### Maintenance Tasks
+- Archive completed approval cases
+- Update employee responsibilities
+- Refresh approval definition cache
+- Review and optimize notification templates
+- Update budget allocations periodically
 
-## نقاط التكامل
+## Integration Points
 
-### الأنظمة الخارجية
-يمكن لنظام الموافقات التكامل مع:
-- **خوادم البريد الإلكتروني**: إعداد SMTP للإشعارات
-- **بوابات الرسائل القصيرة**: مزودو خدمة SMS من جهات خارجية
-- **تطبيقات الجوال**: خدمات الإشعارات الفورية
-- **أنظمة BI**: مقاييس الموافقة وإعداد التقارير
-- **أنظمة الميزانية**: تتبع استهلاك الميزانية في الوقت الفعلي
+### External Systems
+The approval system can integrate with:
+- **Email Servers**: SMTP configuration for notifications
+- **SMS Gateways**: Third-party SMS providers
+- **Mobile Apps**: Push notification services
+- **BI Systems**: Approval metrics and reporting
+- **Budget Systems**: Real-time budget consumption tracking
 
-### وصول API
-الوصول البرمجي لـ:
-- إنشاء حالات الموافقة
-- الاستعلام عن حالة الموافقة
-- تقديم قرارات الموافقة
-- توليد تقارير الموافقة
-- فحوصات التحقق من الميزانية
+### API Access
+Programmatic access for:
+- Creating approval cases
+- Querying approval status
+- Submitting approval decisions
+- Generating approval reports
+- Budget validation checks
 
-## سجل الإجراءات وسجل المراجعة
+## Actions History and Audit Trail
 
-يُنشئ النظام تلقائياً سجلات مراجعة تفصيلية لجميع أنشطة الموافقة من خلال نظام سجل الإجراءات. يوفر هذا تتبعاً شاملاً لقرارات الموافقة وتقدم سير العمل.
+The system automatically creates detailed audit trails for all approval activities through the Actions History system. This provides comprehensive tracking of approval decisions and workflow progression.
 
-### السلوك الافتراضي لسجل الإجراءات
+### Default Actions History Behavior
 
-بشكل افتراضي، يُنشئ النظام **سجل إجراءات واحداً** عند اكتمال عملية الموافقة بأكملها:
+By default, the system creates **one Actions History record** when the entire approval process is completed:
 
-- **نوع الإجراء**: `Approval`
-- **الإنشاء**: بعد انتهاء خطوة الموافقة النهائية
-- **المحتوى**: يسجل اكتمال سير عمل الموافقة بأكمله
-- **الغرض**: توفير سجل مراجعة أساسي للموافقات المكتملة
+- **Action Type**: `Approval`
+- **Created**: After the final approval step is finished
+- **Content**: Records the completion of the entire approval workflow
+- **Purpose**: Provides basic audit trail for completed approvals
 
-### التتبع المحسّن خطوة بخطوة
+### Enhanced Step-by-Step Tracking
 
-للمؤسسات التي تتطلب سجلات مراجعة تفصيلية، يدعم النظام التتبع الدقيق لكل خطوة موافقة من خلال خيار الإعداد العام:
+For organizations requiring detailed audit trails, the system supports granular tracking of every approval step through the global configuration option:
 
-**خيار الإعداد**: `addApprovalStepsToActionHistory` (إضافة خطوات الموافقة إلى سجل الإجراءات)
+**Configuration Setting**: `addApprovalStepsToActionHistory` (Add Approval Steps to Action History)
 
-عند **التفعيل**، يُنشئ هذا الخيار سجل إجراءات لـ**كل خطوة موافقة فردية**:
+When **enabled**, this option creates an Actions History record for **each individual approval step**:
 
-::: info ميزات التتبع المحسّن
-- **سجلات الخطوات الفردية**: إدخال مراجعة منفصل لكل قرار موافقة
-- **أنواع القرارات المتتبعة**:
-  - `Approve` - عند اعتماد خطوة
-  - `Reject` - عند رفض خطوة
-  - `Return` - عند الإرجاع للتعديلات
-  - `Escalate` - عند التصعيد إلى مشرف/موظف محدد
-- **سجل الاكتمال النهائي**: لا يزال يُنشئ سجل `Approval` القياسي عند اكتمال سير العمل
-- **سياق المستخدم**: يلتقط من اتخذ كل قرار ومتى
+::: info Enhanced Tracking Features
+- **Individual Step Records**: Separate audit entry for each approval decision
+- **Decision Types Tracked**:
+  - `Approve` - When a step is approved
+  - `Reject` - When a step is rejected
+  - `Return` - When returned for modifications
+  - `Escalate` - When escalated to supervisor/specific employee
+- **Final Completion Record**: Still creates the standard `Approval` record when workflow completes
+- **User Context**: Captures who made each decision and when
 :::
 
-## اعتبارات الأمان
+## Security Considerations
 
-### التحكم في الوصول
-- **الأذونات القائمة على الأدوار**: التحكم في من يمكنه إنشاء/تعديل تعريفات الموافقة
-- **التحقق من المعتمِد**: التحقق من تفويض المعتمِد لكل خطوة
-- **تسجيل المراجعة**: تتبع جميع أنشطة الموافقة من خلال سجل الإجراءات
-- **فصل البيانات**: احترام الحدود التنظيمية
-- **الوصول إلى الميزانية**: التحكم في رؤية معلومات الميزانية
+### Access Control
+- **Role-based Permissions**: Control who can create/modify approval definitions
+- **Approver Validation**: Verify approver authorization for each step
+- **Audit Logging**: Track all approval activities through Actions History
+- **Data Segregation**: Respect organizational boundaries
+- **Budget Access**: Control budget information visibility
 
-### ميزات الامتثال
-- **التوقيعات الرقمية**: دعم تكامل التوقيع الإلكتروني
-- **سياسات الاحتفاظ**: الحفاظ على سجلات الموافقة وفق المتطلبات التنظيمية
-- **تقارير المراجعة**: توليد وثائق الامتثال
-- **التحكم في الإصدار**: تتبع التغييرات في تعريفات الموافقة
-- **فصل المهام**: ضمان الفصل المناسب للضوابط المالية
+### Compliance Features
+- **Digital Signatures**: Support for electronic signature integration
+- **Retention Policies**: Maintain approval records per regulatory requirements
+- **Audit Reports**: Generate compliance documentation
+- **Version Control**: Track changes to approval definitions
+- **Segregation of Duties**: Ensure proper separation of financial controls
 
-## الخاتمة
+## Conclusion
 
-يوفر نظام موافقات Nama ERP أساساً متيناً لتطبيق سير عمل الموافقات التنظيمية، بما في ذلك آليات متطورة للتحكم في الميزانية. باتباع هذا الدليل، يمكنك إنشاء عمليات موافقة فعّالة تحسّن الرقابة والامتثال والكفاءة التشغيلية مع الحفاظ على المرونة للتكيف مع احتياجات الأعمال المتغيرة.
+The Nama ERP Approvals System provides a robust foundation for implementing organizational approval workflows, including sophisticated budget control mechanisms. By following this guide, you can create effective approval processes that improve control, compliance, and operational efficiency while maintaining flexibility to adapt to changing business needs.
 
-يضمن التكامل مع إدارة الميزانية الانضباط المالي مع توفير المرونة للتعامل مع الظروف الاستثنائية من خلال عملية الموافقة.
+The integration with budget management ensures financial discipline while providing the flexibility to handle exceptional circumstances through the approval process.
 
-::: tip الخطوات التالية
-1. ابدأ بتعريفات موافقة بسيطة للمعاملات عالية التأثير
-2. إعداد موافقات الميزانية لحسابات المصروفات الحيوية
-3. تدريب المستخدمين الرئيسيين على عمليات الموافقة القياسية وموافقات الميزانية
-4. مراقبة أداء النظام وملاحظات المستخدمين
-5. التوسع تدريجياً لتشمل عمليات أعمال إضافية
-6. مراجعة وتحسين منتظمان لسير عمل الموافقة وتخصيصات الميزانية
+::: tip Next Steps
+1. Start with simple approval definitions for high-impact transactions
+2. Configure budget approvals for critical expense accounts
+3. Train key users on both standard and budget approval processes
+4. Monitor system performance and user feedback
+5. Gradually expand to cover additional business processes
+6. Regular review and optimization of approval workflows and budget allocations
 :::
 
-للدعم الإضافي أو أسئلة الإعداد المتقدم، استشر مدير النظام أو تواصل مع دعم Nama ERP.
+For additional support or advanced configuration questions, consult your system administrator or contact Nama ERP support.

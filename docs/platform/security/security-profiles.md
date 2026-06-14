@@ -1,183 +1,179 @@
-<rtl>
+# Security Profile
 
-# ملف الصلاحيات (Security Profile)
+The Security Profile is where most of your permission settings live. You create one profile per job role, fill in its tables once, and then assign it to every user who performs that role. This page walks through the Security Profile screen tab by tab.
 
-ملف الصلاحيات هو المكان الذي تعيش فيه معظم إعدادات الصلاحيات لديك. تنشئ ملفاً واحداً لكل دور وظيفي، تملأ جداوله مرة واحدة، ثم تسنده إلى كل مستخدم يقوم بهذا الدور. هذه الصفحة تستعرض شاشة ملف الصلاحيات صفحة صفحة.
+**Path**: Administration > Security > Security Profile
 
-**المسار**: إدارة النظام > الصلاحيات > ملف الصلاحيات (Administration > Security > Security Profile)
+![Security Profile — Main Screen](../../ar/platform/security/images/security-profile-main.png)
 
-![ملف الصلاحيات — الشاشة الرئيسية](./images/security-profile-main.png)
+## Full Authority
 
-## صلاحيات كاملة (Full Authority)
+The most powerful flag in the entire system. When **Full Authority** is enabled, the profile grants *everything*: all types, all permissions, all fields, all pages, all list views. The rest of the permission tables are ignored entirely.
 
-أقوى علامة في النظام كله. عند تفعيل **صلاحيات كاملة** يمنح الملف *كل شيء*: كل الأنواع، كل الصلاحيات، كل الحقول، كل الصفحات، كل شاشات العرض. وتُتجاهل بقية جداول الصلاحيات تماماً.
+A few rules the system enforces around this:
 
-بعض القواعد التي يفرضها النظام حولها:
-
-- ملف الصلاحيات المدمج **default** يجب أن تبقى علامة الصلاحيات الكاملة مفعلة فيه — فهو ملف المستخدم `admin`.
-- الملف *بدون* صلاحيات كاملة يجب أن يحتوي على سطر صلاحيات أساسية واحد على الأقل، وإلا فهو لا يمنح شيئاً ويرفضه النظام عند الحفظ.
-- ملف الصلاحيات الكاملة لا يمكن أن يحتوي على سطور صلاحيات مطالعة قوائم — فهما متناقضان.
+- The built-in **default** security profile must always have Full Authority enabled — it is the `admin` user's profile.
+- A profile *without* Full Authority must contain at least one standard security line, otherwise it grants nothing and the system rejects it on save.
+- A Full Authority profile cannot contain list-view security lines — the two are contradictory.
 
 ::: tip
-حتى مع ملف صلاحيات كاملة، يمكن تضييق رؤية السجلات عبر المحددات على سجل المستخدم ومحددات الدخول — راجع [الصلاحيات على مستوى السجلات](/platform/security/record-level-security.md).
+Even with a full-authority profile, record visibility can still be narrowed through Dimensions on the user record and login dimensions — see [Record-Level Security](/platform/security/record-level-security.md).
 :::
 
-## الصلاحيات الأساسية (Standard Security Lines)
+## Standard Security Lines
 
-هذا الجدول في الصفحة الرئيسية هو قلب ملف الصلاحيات: سطر لكل نوع كيان (أو مجموعة أنواع) يصف ما يستطيع الدور فعله به.
+This table on the main page is the heart of the Security Profile: one line per entity type (or group of types) describing what the role can do with it.
 
-### تحديد نطاق السطر
+### Defining the Line's Scope
 
-كل سطر يبدأ بسؤال "أي أنواع يحكم هذا السطر؟":
+Every line starts with the question "which types does this line govern?":
 
-- **النوع** — نوع كيان واحد، مثل فاتورة مبيعات.
-- **قائمة الأنواع** — سجل *قائمة أنواع (EntityType List)* يجمع عدة أنواع.
-- **كلاهما فارغ** — سطر عام (Wildcard) يطابق أي نوع لم يغطه سطر أكثر تحديداً.
+- **Type** — a single entity type, such as a sales invoice.
+- **Type List** — an *EntityType List* record that groups several types together.
+- **Both empty** — a Wildcard line that matches any type not covered by a more specific line.
 
-عند فحص صلاحية، السطر الذي يسمي النوع بعينه يتقدم دائماً على سطر قائمة الأنواع، الذي يتقدم بدوره على السطر العام. والسطور المكررة لنفس النطاق تُرفض عند الحفظ.
+When checking a permission, a line that names the type explicitly always takes priority over a type-list line, which in turn takes priority over the wildcard. Duplicate lines covering the same scope are rejected on save.
 
-ولست مضطراً لإضافة السطور واحداً واحداً: حقلا **نسخ الأنواع من قائمة (Copy Entities From Menu)** و**نسخ من مجموعة (Copy Entities From Group)** في رأس الشاشة مع زري **إضافة الأنواع الموجودة بالمجموعة / Add From Menu Definition** يولّدون سطوراً لكل الأنواع التي تظهر في قائمة أو مجموعة قوائم — طريقة سريعة لتأسيس دور انطلاقاً من القائمة التي سيستخدمها فعلاً.
+You do not have to add lines one by one: the **Copy Entities From Menu** and **Copy Entities From Group** fields in the screen header, together with the **Add From Menu Definition** buttons, generate lines for every type that appears in a menu or menu group — a fast way to seed a role from the menu the user will actually use.
 
-### صلاحيات المطالعة
+### View Permissions
 
-| العمود | المعنى |
+| Column | Meaning |
 |---|---|
-| **كل الصلاحيات (Full)** | يمنح كل الصلاحيات على أنواع هذا السطر — "صلاحيات كاملة" على مستوى السطر. |
-| **مطالعة السجل (Record View)** | فتح السجل وقراءة تفاصيله. |
-| **مطالعة القوائم (List View)** | مشاهدة شاشات القوائم الخاصة بالنوع. |
-| **العرض بالبحث (Search View)** | ظهور سجلات النوع في نتائج البحث في الحقول المرجعية. منح مطالعة القوائم يتضمن البحث. |
-| **اقل عدد حروف للبدأ بالبحث (Min Search Query Length)** | يجب أن يكتب المستخدم هذا العدد من الحروف على الأقل قبل أن يعيد البحث نتائج — مفيد للملفات الضخمة كالأصناف والعملاء. |
-| **مطالعة السجلات التي أنشأها فقط (View Only Created Records)** | لا يرى المستخدم إلا السجلات التي أنشأها بنفسه. راجع [الصلاحيات على مستوى السجلات](/platform/security/record-level-security.md). |
-| **السماح بمطالعة سجلات الآخرين عند البحث (Allow View Other Records At Search)** | تلطيف للعلامة السابقة: سجلات الآخرين تظهر في نتائج البحث المرجعي رغم أن شاشاتها ممنوعة عليه. |
+| **Full** | Grants all permissions for the types in this line — "full authority" at the line level. |
+| **Record View** | Open a record and read its details. |
+| **List View** | See list screens for the type. |
+| **Search View** | The type's records appear in reference-field search results. Granting List View includes Search View. |
+| **Min Search Query Length** | The user must type at least this many characters before the search returns results — useful for large files like items and customers. |
+| **View Only Created Records** | The user sees only records they themselves created. See [Record-Level Security](/platform/security/record-level-security.md). |
+| **Allow View Other Records At Search** | Softens the above flag: other users' records still appear in reference search results even though their screens are blocked. |
 
-### الإضافة والتعديل والحذف
+### Add, Edit, and Delete
 
-| العمود | المعنى |
+| Column | Meaning |
 |---|---|
-| **الإضافة والتعديل (Can Edit)** | مستوى وليس مجرد علامة: **Disabled** (لا كتابة إطلاقاً) ← **Save Draft** (مسودات فقط) ← **Commit** (إنشاء وحفظ، لكن السجل المحفوظ يُقفل) ← **Edit After Commit** (تعديل كامل حتى بعد الحفظ). |
-| **تعديل السجلات التي أنشأها فقط (Edit Only Created Records)** | يعدّل فقط ما أنشأه بنفسه. يتطلب مستوى *Edit After Commit*. |
-| **الحذف (Can Delete)** | حذف السجلات. |
-| **حذف السجلات التي أنشأها (Delete Only Created Records)** | يحذف فقط ما أنشأه بنفسه. يتطلب صلاحية الحذف. |
-| **حذف المسودات (Draft Deletion Capability)** | تحكم مستقل في حذف المسودات: **Yes** أو **No** أو **Same As Delete** (نفس صلاحية الحذف). |
-| **حذف المسودات التي أنشأها فقط (Delete Only Created Drafts)** | يحذف فقط المسودات التي أنشأها. |
-| **منع حفظ مسودة (Prevent Save Draft)** | تعطيل آلية المسودات كلياً لهذا النوع. |
-| **منع التعديل/الحذف بعد الطباعة (Prevent Edit/Delete After Print)** | بعد طباعة السجل يُقفل عن التعديل / الحذف. |
-| **منع التعديل/الحذف بعد الموافقة (Prevent Edit/Delete After Approval)** | بعد اكتمال مسار الموافقات يُقفل السجل. |
-| **منع التعديل أثناء الموافقة (Prevent Modify While Under Approval)** | منع التعديل ما دامت هناك حالة موافقة جارية (راجع [نظام الموافقات](/platform/approvals/approvals-system.md)). |
+| **Can Edit** | A level, not just a flag: **Disabled** (no writing at all) ← **Save Draft** (drafts only) ← **Commit** (create and save, but the saved record is then locked) ← **Edit After Commit** (full editing even after saving). |
+| **Edit Only Created Records** | The user can only edit records they created. Requires *Edit After Commit* level. |
+| **Can Delete** | Delete records. |
+| **Delete Only Created Records** | The user can only delete records they created. Requires the Delete permission. |
+| **Draft Deletion Capability** | Independent control over draft deletion: **Yes**, **No**, or **Same As Delete** (mirrors the Delete permission). |
+| **Delete Only Created Drafts** | The user can only delete drafts they created. |
+| **Prevent Save Draft** | Disables the draft mechanism entirely for this type. |
+| **Prevent Edit/Delete After Print** | Once a record is printed it is locked for editing/deletion. |
+| **Prevent Edit/Delete After Approval** | Once the approval workflow completes the record is locked. |
+| **Prevent Modify While Under Approval** | Prevents editing while an approval is in progress (see [Approvals System](/platform/approvals/approvals-system.md)). |
 
-### الطباعة
+### Printing
 
-| العمود | المعنى |
+| Column | Meaning |
 |---|---|
-| **الطباعة (Can Print)** | **Disabled** أو **One** (يُطبع السجل مرة واحدة) أو **More Than One**. |
-| **أقصى عدد مرات طباعة (Max Print Count)** | سقف رقمي لعدد مرات طباعة نفس السجل. |
-| **منع طباعة المسودات (Do Not Allow Print Drafts)** | المسودات لا تُطبع. |
+| **Can Print** | **Disabled**, **One** (print once), or **More Than One**. |
+| **Max Print Count** | A numeric cap on how many times the same record can be printed. |
+| **Do Not Allow Print Drafts** | Drafts cannot be printed. |
 
-بدمج هذه الأعمدة مع *منع التعديل بعد الطباعة* تحصل على سياسة محكمة "الطباعة = نهائي" لمستندات مثل الفواتير الرسمية.
+Combining these columns with *Prevent Edit/Delete After Print* gives you a tight "printing = final" policy for documents such as official invoices.
 
-### المراجعة (Revision)
+### Revision
 
-المستندات في نما يمكن أن *تُراجع* — أي تُختم كمراجَعة على أحد خمسة مستويات (L1–L5):
+Documents in Nama can be *revised* — stamped as reviewed at one of five levels (L1–L5):
 
-| العمود | المعنى |
+| Column | Meaning |
 |---|---|
-| **مراجعة (Can Revise)** | يستطيع المستخدم ختم المستندات كمراجَعة. |
-| **مستويات المراجعة (Revise Levels)** | المستويات المسموح له بختمها، مثل `1,2` أو `1-3`. |
-| **إلغاء المراجعة / مستويات إلغاء المراجعة (Can UnRevise / UnRevise Levels)** | نفس الثنائية لإزالة ختم المراجعة. |
+| **Can Revise** | The user can stamp documents as revised. |
+| **Revise Levels** | The levels the user is allowed to stamp, e.g. `1,2` or `1-3`. |
+| **Can UnRevise / UnRevise Levels** | The same pair for removing a revision stamp. |
 
-### نقل البيانات ومتفرقات
+### Data Transfer and Miscellaneous
 
-| العمود | المعنى |
+| Column | Meaning |
 |---|---|
-| **نسخة مماثلة (Can Duplicate)** | إنشاء نسخة مماثلة من سجل موجود (مفعلة افتراضياً). |
-| **نسخ من / نسخ إلى (Copy From / Copy To)** | السماح بأن يكون النوع مصدراً / هدفاً لميزة "النسخ من كيان آخر". |
-| **استيراد / تصدير (Can Import / Can Export)** | استيراد وتصدير سجلات النوع عبر إكسل. |
-| **المطالعة من المستند المصدر (Can View With From Doc)** | فتح السجل من مراجع "من مستند" في الشاشات الأخرى. |
-| **منع مطالعة الحركات النظامية (Prevent View System Transaction)** | إخفاء الآثار النظامية للسجل (القيود والحركات المخزنية). |
-| **منع قائمة المزيد (Prevent View More Menu)** | إخفاء قائمة "المزيد" على شاشات النوع. |
-| **تغيير الصلاحية (Can Change Capability)** | السماح بإسناد/تغيير صلاحية على مستوى السجل الواحد (راجع [الصلاحيات على مستوى السجلات](/platform/security/record-level-security.md)). |
-| **عرض السجلات الممنوعة من الاستعمال (Display Prevent-Usage Records)** | هل تظهر السجلات الموسومة "ممنوع من الاستعمال" لهذا الدور: **Display** أو **Hide** أو **Same As Config** (حسب الإعدادات العامة). |
-| **تعديل/حذف مستندات في ورديات مغلقة (Can Edit/Delete Docs In Closed Shifts)** | خاص بنقاط البيع: السماح بالتعامل مع مستندات تابعة لوردية نقدية أُغلقت. |
+| **Can Duplicate** | Create a copy of an existing record (enabled by default). |
+| **Copy From / Copy To** | Allow the type to be a source / target for the "copy from another entity" feature. |
+| **Can Import / Can Export** | Import and export records of this type via Excel. |
+| **Can View With From Doc** | Open a record from a "from document" reference on other screens. |
+| **Prevent View System Transaction** | Hide the system effects of the record (journal entries, stock movements). |
+| **Prevent View More Menu** | Hide the "More" menu on the type's screens. |
+| **Can Change Capability** | Allow assigning/changing a capability at the individual record level (see [Record-Level Security](/platform/security/record-level-security.md)). |
+| **Display Prevent-Usage Records** | Whether records flagged "prevent usage" are visible to this role: **Display**, **Hide**, or **Same As Config** (follows global settings). |
+| **Can Edit/Delete Docs In Closed Shifts** | POS-specific: allow interacting with documents that belong to a closed cash shift. |
 
-## السماح/المنع في القوائم
+## Menu Allow/Block
 
-في الصفحة الرئيسية أيضاً، جدول **السماح/المنع في القوائم** يتحكم في عناصر القوائم التي يراها الدور. كل سطر يستهدف إما نوعاً / قائمة أنواع، **أو** كود عنصر قائمة / كود مجموعة — وليس الاثنين معاً. هذه أنظف طريقة لتقليص قائمة التنقل لكل دور دون إعادة تعريف القوائم.
+Also on the main page, the **Menu Allow/Block** table controls which menu items the role sees. Each line targets either a type / type list, **or** a menu item code / group code — not both at once. This is the cleanest way to trim the navigation menu per role without redefining the menus themselves.
 
-## صفحة إعدادات الحقول
+## Field Settings Page
 
-إخفاء حقول بعينها أو منع تعديلها لكل نوع. مشروحة بالتفصيل في [صلاحيات الحقول والصفحات والقوائم](/platform/security/field-page-listview-security.md).
+Hide specific fields or prevent editing them per type. Documented in full detail in [Field, Page, and List-View Security](/platform/security/field-page-listview-security.md).
 
-![ملف الصلاحيات — إعدادات الحقول](./images/security-profile-field-settings.png)
+![Security Profile — Field Settings](../../ar/platform/security/images/security-profile-field-settings.png)
 
-## صفحة صلاحيات الصفحات
+## Page Security Page
 
-إخفاء صفحات كاملة من شاشة النوع أو جعلها للقراءة فقط.
+Hide entire pages from the type's screen or make them read-only.
 
-![ملف الصلاحيات — صلاحيات الصفحات](./images/security-profile-page-security.png)
+![Security Profile — Page Security](../../ar/platform/security/images/security-profile-page-security.png)
 
-## صفحة صلاحيات مطالعة القوائم
+## List View Security Page
 
-السماح بشاشات عرض معينة أو منعها.
+Allow or block specific list views.
 
-![ملف الصلاحيات — صلاحيات مطالعة القوائم](./images/security-profile-listview-security.png)
+![Security Profile — List View Security](../../ar/platform/security/images/security-profile-listview-security.png)
 
-## صفحة الصلاحيات المخصصة
+## Custom Capabilities Page
 
-بعض الفحوصات في النظام ليست عمليات قياسية (إضافة/تعديل/حذف) — بل صلاحيات مسماة خاصة بميزات معينة، تُعرّف كسجلات **نوع الصلاحيات (Capability Types)** من **إدارة النظام > الصلاحيات > نوع الصلاحيات**.
+Some checks in the system are not standard operations (add/edit/delete) — they are named permissions specific to certain features, defined as **Capability Type** records under **Administration > Security > Capability Types**.
 
-![ملف الصلاحيات — الصلاحيات المخصصة](./images/security-profile-custom-lines.png)
+![Security Profile — Custom Capabilities](../../ar/platform/security/images/security-profile-custom-lines.png)
 
-طريقة العمل:
+How it works:
 
-1. عرّف سجل **نوع صلاحيات** (مثلاً "مطالعة التقارير النظامية"، أو صلاحية تُستخدم لوسم السجلات الحساسة).
-2. في الصلاحيات المخصصة على ملف الصلاحيات (أو المستخدم) أضف سطراً يمنح هذه الصلاحية، مع إمكانية حصره بنوع أو قائمة أنواع.
-3. حيثما يتحقق النظام — أو أي تخصيص — من هذه الصلاحية، يمر حاملوها فقط. وبخلاف الصلاحيات الأساسية لا يوجد منطق سطر عام هنا: إما أنك تحمل الصلاحية أو لا.
+1. Define a **Capability Type** record (for example "View System Reports", or a capability used to tag sensitive records).
+2. In the Custom Capabilities section on the security profile (or user), add a line granting that capability, optionally scoped to a type or type list.
+3. Wherever the system — or any customization — checks for that capability, only users who hold it pass through. Unlike standard security lines, there is no wildcard-line logic here: either you hold the capability or you don't.
 
-تحمل سطور الصلاحيات المخصصة أيضاً مدخلات اختيارية (مرجعان، تاريخان، نصان) يمكن لميزات بعينها تفسيرها — مثل مرجع لمركز تكلفة تسري عليه الصلاحية.
+Custom capability lines also carry optional inputs (two references, two dates, two text fields) that specific features can interpret — for example a reference to a cost center to which the capability applies.
 
-::: info التقارير النظامية
-علامة **عرض التقارير النظامية (View System Reports)** في رأس الشاشة منفذة داخلياً كصلاحية مدمجة كودها `SYSTEMREPORTS`. تفعيلها على الملف أو المستخدم يمنح هذه الصلاحية تلقائياً، والتقارير الموسومة *كتقارير نظامية* لا تظهر إلا لحامليها.
+::: info System Reports
+The **View System Reports** flag in the screen header is implemented internally as a built-in capability with code `SYSTEMREPORTS`. Enabling it on the profile or user automatically grants that capability, and reports tagged as *system reports* are visible only to users who hold it.
 :::
 
-![شاشة نوع الصلاحيات](./images/security-capability.png)
+![Capability Type Screen](../../ar/platform/security/images/security-capability.png)
 
-## صفحة Extra Filters
+## Extra Filters Page
 
-فلاتر على مستوى الصفوف تقيّد *أي السجلات* يراها الدور لكل نوع — بمطابقة حقل مع الذمة المتعلقة بالمستخدم، أو بتعبير معايير حر. ولأن هذا موضوع رؤية سجلات، فهو موثق في [الصلاحيات على مستوى السجلات](/platform/security/record-level-security.md).
+Row-level filters that restrict *which records* the role sees for each type — by matching a field against something related to the user, or via a free-form criteria expression. Because this is a record-visibility topic it is documented in [Record-Level Security](/platform/security/record-level-security.md).
 
-![ملف الصلاحيات — Extra Filters](./images/security-profile-extra-filters.png)
+![Security Profile — Extra Filters](../../ar/platform/security/images/security-profile-extra-filters.png)
 
-## صفحة صلاحيات الإجراءات
+## Action Security Page
 
-شاشات الأنواع تحمل إجراءات تتجاوز العمليات القياسية — أزرار توليد، أدوات إعادة احتساب، مسارات كيانات. كل سطر هنا يستهدف نوعاً (أو قائمة أنواع، أو سطراً عاماً) مع **نوع الإجراء (Action ID)** و**نوع التحكم** بقيمة *enabled* أو *disabled*.
+Type screens carry actions beyond the standard operations — generation buttons, recalculation tools, entity flows. Each line here targets a type (or type list, or a wildcard) together with an **Action ID** and a **Control Type** of either *enabled* or *disabled*.
 
-![ملف الصلاحيات — صلاحيات الإجراءات](./images/security-profile-action-lines.png)
+![Security Profile — Action Security](../../ar/platform/security/images/security-profile-action-lines.png)
 
-منطق الحسم هنا معكوس عن الصلاحيات الأساسية:
+The resolution logic here is the inverse of standard security lines:
 
-- **لا يوجد سطر مطابق ← الإجراء مسموح.** فالإجراءات مفتوحة افتراضياً.
-- السطر المطابق يسمح بالإجراء فقط إذا كان نوع التحكم فيه *enabled* — أي أن سطر *disabled* هو طريقة سحب إجراء من الدور.
-- نوع الإجراء `*` يعمل كرمز عام لكل إجراءات النوع المستهدف، والسطر الذي يسمي الإجراء صراحة يتقدم على سطر `*`.
+- **No matching line → the action is allowed.** Actions are open by default.
+- A matching line allows the action only if its control type is *enabled* — a *disabled* line is how you remove an action from a role.
+- Action ID `*` acts as a wildcard for all actions on the targeted type, and a line that names the action explicitly takes priority over `*`.
 
-لذا فالنمط الشائع: سطر بإجراء `*` و*disabled* لنوع ما (إقفال كل شيء)، مع سطور *enabled* صريحة للإجراءات القليلة التي يحتاجها الدور.
+The common pattern therefore is: a line with action `*` and *disabled* for a type (locking everything down), plus explicit *enabled* lines for the few actions the role actually needs.
 
-## خيارات رأس الشاشة في الصفحة الرئيسية
+## Header Options on the Main Page
 
-إلى جانب الجداول، يحمل رأس ملف الصلاحيات إعدادات افتراضية ومفاتيح تسري على كل مستخدم مسند إليه الملف (معظمها موجود أيضاً على سجل المستخدم حيث تتقدم قيمة المستخدم):
+Alongside the tables, the security profile header carries defaults and switches that apply to every user assigned this profile (most are also present on the user record, where the user's value takes priority):
 
-- **الجلسات والدخول**: أقصى عدد جلسات دخول متزامنة مع خيار تسجيل الخروج الآلي لأقدم جلسة، *السماح بتسجيل الدخول من خلال التطبيقات فقط*، و*Do Not Use LDAP For Login*.
-- **التقارير والطباعة**: أقصى عدد تقارير يشغلها المستخدم في وقت واحد، *منع المستخدم من تشغيل نفس التقرير مرتين في نفس الوقت*، *السماح بطباعة PDF فقط* للتقارير و/أو لنماذج الشاشة، و*عرض التقارير النظامية*.
-- **السجلات الممنوعة من الاستعمال**: السماح باستعمالها في الإدخال/التعديل، وعرضها أو إخفاؤها في البحث والقوائم.
-- **الإعدادات الافتراضية**: القائمة الافتراضية، معرف شاشات العرض الافتراضي، اللوحة، الإيميل المستعمل مع نافذة الإرسال كإيميل، أقصى عدد سجلات في صفحة القوائم.
-- **ضوابط إعادة المعالجة**: السماح بإعادة حفظ الملفات، إعادة إصدار التأثيرات المحاسبية، إعادة إصدار التأثيرات المخزنية، وإعادة مزامنة الملفات — أربعة مفاتيح (مفعلة افتراضياً) يمكنك سحبها من الأدوار الحساسة.
-- **متفرقات**: عدم عرض رسائل المساعدة النظامية، عدم إظهار الأخطاء الحرجة، منع الوصول إلى خيوط البيع التي لم تخصص للموظف، استحضار وردية المستخدم آلياً، الوصول لقدرات الذكاء الاصطناعي، منع الوصول إلى المحادثات اللحظية، وأصوات التنبيهات.
+- **Sessions and Login**: maximum number of concurrent login sessions with an option to auto-logout the oldest session, *Allow Login Through Applications Only*, and *Do Not Use LDAP For Login*.
+- **Reports and Printing**: maximum number of reports a user can run simultaneously, *Prevent the user from running the same report twice at the same time*, *Allow PDF Printing Only* for reports and/or screen forms, and *View System Reports*.
+- **Prevent-Usage Records**: allow their use in data entry/editing, and show or hide them in search and list views.
+- **Default Settings**: default menu, default list-view ID, dashboard, the email used with the send-as-email window, maximum records per list page.
+- **Reprocessing Controls**: allow re-saving files, re-issuing accounting effects, re-issuing stock effects, and re-syncing files — four switches (enabled by default) that you can remove from sensitive roles.
+- **Miscellaneous**: do not show system help messages, do not display critical errors, prevent access to sales threads not assigned to the employee, auto-load user shift, access to AI capabilities, prevent access to instant messaging, and notification sounds.
 
-## صفحة المستخدمين
+## Users Page
 
-آخر صفحة هي للعرض فقط: قائمة بكل المستخدمين المسند إليهم هذا الملف حالياً، لترى فوراً نطاق تأثير أي تغيير قبل حفظه.
+The last page is view-only: a list of all users currently assigned this profile, so you can immediately see the scope of any change before saving it.
 
-::: warning التغييرات تسري عند الدخول التالي
-بيانات الصلاحيات تُحمّل مع الجلسة. عادةً يلتقط المستخدمون تغييرات ملف الصلاحيات عند تسجيل دخولهم التالي — ضع ذلك في الحسبان أثناء الاختبار.
+::: warning Changes Take Effect at Next Login
+Permission data is loaded with the session. Users typically pick up security profile changes at their next login — keep this in mind during testing.
 :::
-
-</rtl>

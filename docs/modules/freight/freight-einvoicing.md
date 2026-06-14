@@ -1,57 +1,57 @@
-# التعامل مع الفاتورة الإلكترونية في وحدة الشحن
+# E-Invoicing in the Freight Module
 
-ترتبط فواتير وحدة الشحن بمنظومة الفاتورة الإلكترونية في Nama ERP تمامًا كفواتير المبيعات العادية — فهي مستندات هيئة ضرائب (Tax Authority Documents) تُرسَل إلى الهيئة المختصّة (ZATCA في السعودية، الهيئة المصرية، منظومة الإمارات…). لكن طبيعة عمل الشحن تفرض معالجةً خاصة، أهمّها **نموذج الوكيل** حيث جزء من قيمة الفاتورة تكلفة تمرّ عبرك وجزء عمولتك. هذه الصفحة تشرح ما يخصّ وحدة الشحن تحديدًا؛ أمّا الإعداد العام للمنظومة فتجده في **[دليل الفواتير الإلكترونية](../invoicing/e-invoices-guide.md)** و**[دليل ZATCA](../invoicing/zatca-guide.md)**.
+The freight module's invoices plug into Nama ERP's e-invoicing framework exactly like ordinary sales invoices — they are Tax Authority Documents sent to the relevant authority (ZATCA in Saudi Arabia, the Egyptian Tax Authority, the UAE system…). But the nature of freight work imposes special handling, chiefly the **agent model**, where part of the invoice value is a pass-through cost and part is your commission. This page explains what is specific to the freight module; for the general setup of the framework, see the **[E-Invoices Guide](../invoicing/e-invoices-guide.md)** and the **[ZATCA Guide](../invoicing/zatca-guide.md)**.
 
-## أي مستندات الشحن تُرسَل للهيئة؟
+## Which freight documents are sent to the authority?
 
-تحمل المستندات التالية حقول هيئة الضرائب وتُرسَل إلكترونيًا:
+The following documents carry tax-authority fields and are sent electronically:
 
-- **فاتورة مبيعات خدمة** ومرتجعها.
-- **طلب التوصيل** و**فاتورة التوصيل** في نظام [البريد (IPS)](./ips-delivery.md).
+- **Sales Invoice** and its return.
+- **Delivery Request** and **Delivery Invoice** in the [postal (IPS)](./ips-delivery.md) system.
 
-أمّا أوامر البيع وفواتير المشتريات فلا تُرسَل للهيئة (المشتريات ليست فاتورة صادرة منك).
+Sales orders and purchase invoices, on the other hand, are not sent to the authority (a purchase isn't an invoice issued by you).
 
-## سطور الفاتورة الإلكترونية (E-Invoice Details)
+## E-Invoice Details
 
-أهم ما يميّز فاتورة الشحن أنها تحتفظ بقائمتين من السطور:
+The most distinctive thing about a freight invoice is that it keeps two sets of lines:
 
-1. **سطور الخدمة (Details)** — السطور التشغيلية التي يدخلها المستخدم، بتكلفتها وسعر بيعها وكل محدِّداتها (ميناء، حاوية، سلعة…).
-2. **سطور الفاتورة الإلكترونية (E-Invoice Details)** — قائمة **مولَّدة تلقائيًا** يُعاد بناؤها عند كل ترحيل، وهي ما يُرسَل فعليًا للهيئة.
+1. **Service lines (Details)** — the operational lines the user enters, with their cost, selling price, and all their keys (port, container, commodity…).
+2. **E-Invoice Details** — an **automatically generated** list, rebuilt on every posting, and the one actually sent to the authority.
 
-لماذا قائمتان؟ لأن ما تحتاجه عمليًا (تفصيل كل خدمة لكل ميناء وحاوية) يختلف عمّا تطلبه الهيئة (بنود مجمَّعة بصورة نظيفة). عند الترحيل، يجمّع النظام السطور التشغيلية في سطور إلكترونية حسب: **بند الخدمة، العملة، سعر الصرف، نسب الضرائب الأربع، ونسب الخصومات** — فالسطور المتطابقة في هذه المفاتيح تُدمَج في سطر إلكتروني واحد. وأي سطر إلكتروني سعره صفر يُحذف قبل الإرسال.
+Why two lists? Because what you need operationally (a line per service per port and container) differs from what the authority expects (clean, consolidated items). At posting, the system consolidates the operational lines into e-invoice lines by: **service item, currency, exchange rate, the four tax percentages, and the discount percentages** — lines matching on these keys are merged into a single e-invoice line. Any e-invoice line with a zero price is dropped before sending.
 
-::: info لا تعدّل سطور الفاتورة الإلكترونية يدويًا
-هذه السطور نتيجة محسوبة، يُعاد توليدها في كل ترحيل من السطور التشغيلية. عدّل السطور التشغيلية، ودع النظام يبني النسخة الإلكترونية.
+::: info Don't edit the e-invoice lines manually
+These lines are a computed result, regenerated on every posting from the operational lines. Edit the operational lines and let the system build the electronic version.
 :::
 
-## نموذج الوكيل: التكلفة مقابل العمولة
+## The agent model: cost versus commission
 
-في كثير من خدمات الشحن، أنت **وكيل**: تحصّل من العميل مبلغًا، جزء منه تكلفة تمرّ إلى الخط الملاحي أو الجهة الفعلية، وجزء عمولتك أنت. تحتاج الهيئة أحيانًا إلى التمييز بين الاثنين، أو إلى عدم احتساب التكلفة المارّة كإيراد لك.
+In many freight services you are an **agent**: you collect an amount from the customer, part of which is a cost that passes through to the shipping line or the actual party, and part of which is your own commission. The authority sometimes needs to distinguish the two, or to not count the pass-through cost as your revenue.
 
-يعالج النظام ذلك عبر **بند العمولة (Commission Item)** المعرَّف على [بند الخدمة](./freight-master-files.md):
+The system handles this through the **Commission Item** defined on the [service item](./freight-master-files.md):
 
-- إذا كان لبند الخدمة **بند عمولة**، يقسم النظام قيمة السطر إلى جزأين في الفاتورة الإلكترونية: **جزء التكلفة** يُرسَل ببند الخدمة الأصلي، و**جزء العمولة** (الفرق بين البيع والتكلفة) يُرسَل ببند العمولة.
-- يضبط خيار **عدم إرسال سطر تكلفة بنود العمولة** (في [توجيه الفاتورة](./freight-invoicing.md)) ما إذا كان جزء التكلفة يُرسَل أصلًا، أم يُرسَل سطر العمولة فقط — وهو ما يناسب الحالات التي تُفوتَر فيها العمولة فقط للهيئة.
+- If a service item has a **commission item**, the system splits the line value into two parts in the e-invoice: the **cost part** is sent under the original service item, and the **commission part** (the difference between sale and cost) is sent under the commission item.
+- The **Do not send a cost line for commission items** option (in the [invoice term config](./freight-invoicing.md)) controls whether the cost part is sent at all, or only the commission line is sent — which suits cases where only the commission is invoiced to the authority.
 
-بهذا يعكس المستند المُرسَل للهيئة طبيعة دخلك الحقيقي (عمولة الوكالة) لا إجمالي المبلغ المار عبرك.
+This way the document sent to the authority reflects the real nature of your income (the agency commission) rather than the gross amount passing through you.
 
-## أكواد بنود الخدمة لدى الهيئة
+## Service-item codes for the authority
 
-تحتاج كل خدمة إلى تعريف صحيح لدى الهيئة. يوفّر [بند الخدمة](./freight-master-files.md) ثلاثة حقول لذلك:
+Each service needs a correct definition with the authority. The [service item](./freight-master-files.md) provides three fields for this:
 
-- **كود هيئة الضرائب (Tax Authority Code)** — التصنيف الرسمي للخدمة لدى الهيئة، يُرسَل مع كل سطر.
-- **بند الفاتورة الإلكترونية (E-Invoice Item)** — بند بديل يُرسَل للهيئة بدل البند التشغيلي، عندما تريد تجميع عدّة بنود تشغيلية تحت بند ضريبي واحد ممثِّل.
-- **الإرسال بالعملة المحلية (Send By Local Currency)** — يفرض إرسال السطر بالعملة المحلية حتى لو كانت الخدمة مسعّرة بعملة أجنبية، كما تتطلّب بعض الهيئات.
+- **Tax Authority Code** — the official classification of the service with the authority, sent with each line.
+- **E-Invoice Item** — a substitute item sent to the authority instead of the operational one, when you want to consolidate several operational items under one representative tax item.
+- **Send By Local Currency** — forces the line to be sent in local currency even if the service is priced in a foreign currency, as some authorities require.
 
-## التحقّق والإرسال والمتابعة
+## Validation, sending, and follow-up
 
-من شريط أدوات الفاتورة تجد إجراءات الفاتورة الإلكترونية:
+From the invoice toolbar you'll find the e-invoicing actions:
 
-- **التأكد من صحة المستند بالنسبة للضرائب (Validate Tax Authority Document)** — يفحص الفاتورة قبل الإرسال ويبيّن ما ينقصها (كود ضريبي مفقود، بيانات عميل ناقصة…).
-- **عرض الفاتورة في موقع الفاتورة الإلكترونية** — يفتح الفاتورة على بوّابة الهيئة (للمستخدم المسجّل أو كزائر).
+- **Validate Tax Authority Document** — checks the invoice before sending and shows what it's missing (a missing tax code, incomplete customer data…).
+- **View Invoice at E-Invoice Site** — opens the invoice on the authority's portal (for a logged-in user or as a visitor).
 
-تُخزَّن حالة الإرسال ومعرّفات الهيئة (UUID وغيرها) في **حقول نظام هيئة الضرائب (Tax Authority System Fields)** المرفقة بالمستند. وإذا فشل الإرسال، تُعاد المعالجة من عرض **طلبات الأعمال (Business Requests)** كبقيّة مستندات المنظومة.
+The send status and authority identifiers (UUID and others) are stored in the document's **Tax Authority System Fields**. And if sending fails, it is reprocessed from the **Business Requests** view like the rest of the framework's documents.
 
-::: tip الإعداد مرة واحدة
-أكواد الهيئة وبنود العمولة تُعرَّف مرّة واحدة على بنود الخدمة وتوجيه الفاتورة. بعد ضبطها، تتولّد سطور الفاتورة الإلكترونية وتُرسَل تلقائيًا مع كل فاتورة دون تدخّل يدوي.
+::: tip Set up once
+Authority codes and commission items are defined once on the service items and the invoice term config. Once set, the e-invoice lines are generated and sent automatically with every invoice, with no manual intervention.
 :::

@@ -1,6 +1,6 @@
 <div class="ignore-in-full-text-search">
 
-# وحدة مركز الخدمة
+# Service Center Module
   - [EACopyMotorAndChassisSerialsAndLotsToAssembledItemInCoProds](/entity-flows/srvcenter/EACopyMotorAndChassisSerialsAndLotsToAssembledItemInCoProds.md)
   - [EARecalculateSrvcOperationsAndMaterialsPrices](/entity-flows/srvcenter/EARecalculateSrvcOperationsAndMaterialsPrices.md)
   - [EARecalculateSrvcOperationsAndMaterialsPricesFromQuery](/entity-flows/srvcenter/EARecalculateSrvcOperationsAndMaterialsPricesFromQuery.md)

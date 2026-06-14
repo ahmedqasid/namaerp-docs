@@ -1,34 +1,34 @@
-# الأكياس البريدية (Receptacles)
+# Receptacles
 
-الكيس البريدي (Receptacle) هو حاوية النقل التي تجمع عدّة مواد بريدية للنقل بين المكاتب — كيس أو صندوق مختوم. قبل أن تتعامل مع المواد الفردية، تتعامل مع الأكياس: تستلمها، تخلّصها جمركيًا، وترسلها على خطوط الطريق. مستندات هذه المرحلة تجدها تحت **نظام إدارة الشحن ← المستندات**.
+A receptacle is the transport container that gathers several mail items for movement between offices — a sealed bag or box. Before you deal with individual items, you deal with receptacles: you receive them, clear them through customs, and dispatch them on route schedules. The documents for this stage are found under **Freight Management System → Documents**.
 
-كل مستندات الأكياس تشترك في رأس يحمل **المُستلَم منه** و**المُستلَم فيه**، وإجمالي عدد المواد ووزن الأكياس.
+All receptacle documents share a header carrying **Received From** and **Received In**, and the total item count and receptacle weight.
 
-## استلام الكيس (Receptacles Receipt)
+## Receptacles Receipt
 
-نقطة دخول البريد الوارد. عند وصول الأكياس من الخارج، يسجّل هذا المستند كل كيس ببياناته:
+The entry point for inbound mail. When receptacles arrive from abroad, this document records every receptacle with its data:
 
-- **معرّف الكيس (Receptacle ID)** و**رقم الختم (Seal No)** و**معرّف الإرسالية (Dispatch ID)**.
-- **الفئة الفرعية للبريد** ودولة المنشأ.
-- **عدد المواد داخل الكيس** ووزنه **المُعلَن (IPS)** مقابل **الوزن الفعلي**، مع **فرق الوزن** المحسوب تلقائيًا.
-- **نوع الإجراء (Action Type)** الذي يحدّد طبيعة عملية الاستلام.
+- **Receptacle ID**, **Seal No**, and **Dispatch ID**.
+- **Mail subclass** and country of origin.
+- **Number of items inside the receptacle**, and its **declared (IPS)** weight versus the **actual weight**, with the **weight difference** computed automatically.
+- The **Action Type** that defines the nature of the receipt operation.
 
-كما يجمّع المستند **إجمالي الوزن الفعلي** و**انحراف الوزن الكلّي** للمطابقة الجمركية.
+The document also totals the **actual weight total** and the **overall weight variance** for customs reconciliation.
 
-![استلام الكيس](./images/ips/receptacles-receipt-ar.png)
+![Receptacles receipt](../../ar/modules/freight/images/ips/receptacles-receipt-en.png)
 
-::: info فرق الوزن مؤشّر مهم
-المقارنة بين الوزن المُعلَن في وثائق الإرسالية والوزن الفعلي عند الاستلام تكشف النقص أو التلاعب مبكرًا. يحسب النظام الفرق على مستوى الكيس الواحد وعلى مستوى المستند كله.
+::: info Weight difference is an important indicator
+Comparing the declared weight in the dispatch documents against the actual weight at receipt reveals shortages or tampering early. The system computes the difference at the level of a single receptacle and at the level of the whole document.
 :::
 
-## منافيست للجمرك (Manifest For Custody)
+## Manifest for Custody
 
-لتخليص المواد الخاضعة للرقابة الجمركية، يجمّع هذا المستند المواد البريدية في منافيست يُقدَّم للجمارك. يحمل بيانات المواد (الأصناف، أكواد HS، القيم، دول المنشأ) في صورة تتوافق مع متطلّبات الإفراج الجمركي عن البريد الوارد.
+To clear items subject to customs control, this document gathers the mail items into a manifest presented to customs. It carries the items' data (classes, HS codes, values, countries of origin) in a form that matches the requirements for customs release of inbound mail.
 
-## مستند إرسال الأكياس على جدول الطريق (Transfer Receptacles)
+## Transfer Receptacles
 
-عكس الاستلام: لإرسال الأكياس الصادرة على خطوط النقل (جدول الطريق) إلى المكتب التالي أو الوجهة الخارجية. يسجّل الأكياس المُرسَلة وأوزانها ومساراتها، فيكتمل تتبّع الكيس من لحظة استلامه حتى مغادرته الشبكة.
+The reverse of receipt: to dispatch outbound receptacles on transport routes (the route schedule) to the next office or external destination. It records the dispatched receptacles, their weights, and their routes, completing the tracking of a receptacle from the moment it's received until it leaves the network.
 
-## كيف تتّصل الأكياس بالمواد
+## How receptacles connect to items
 
-العلاقة بسيطة ومتدرّجة: **استلام الكيس** يُدخِل الأكياس المختومة إلى الشبكة → عند فتحها يسجّل [مستند تجميع المواد](./ips-mail-items.md) المواد الفردية بداخلها → ومنها تبدأ رحلة [المادة البريدية](./ips-mail-items.md) نحو التحويل والفرز و[التوصيل](./ips-delivery.md). هكذا ينتقل العمل من وحدة النقل (الكيس) إلى وحدة التسليم (المادة).
+The relationship is simple and gradual: **Receptacles Receipt** brings the sealed receptacles into the network → when opened, the [Mail Item Manifest](./ips-mail-items.md) records the individual items inside → and from there the [mail item's](./ips-mail-items.md) journey begins toward transfer, sorting, and [delivery](./ips-delivery.md). This is how the work moves from the transport unit (the receptacle) to the delivery unit (the item).

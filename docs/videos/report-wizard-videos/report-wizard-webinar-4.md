@@ -1,192 +1,190 @@
-<rtl>
+﻿# Documentation for the Sales Invoice Report Training Video and New GUI Features
 
-# توثيق فيديو تدريب تقرير فاتورة المبيعات وميزات الجيو الجديدة
+[Watch the video](https://youtube.com/watch?v=524hzeG10Ic)
 
-[لمشاهدة االفيديو](https://youtube.com/watch?v=524hzeG10Ic)
-
-هذا المستند يوثق محتوى الفيديو التدريبي بالتفصيل الكامل دون تلخيص أو حذف لأي جزء. تم تنظيم المحتوى وفقًا للأقسام التي تم التطرق إليها في الفيديو مع توفير روابط زمنية دقيقة لكل جزء.
+This document provides a complete and detailed record of the training video content without summarizing or omitting any part. The content is organized according to the sections covered in the video, with precise timestamps for each part.
 
 ---
 
-## 00:00:01 - مقدمة ونظرة على تقرير فاتورة المبيعات
+## 00:00:01 - Introduction and Overview of the Sales Invoice Report
 
-- بدأ الفيديو بالاعتذار عن التأخير في بدء التسجيل.
-- تم شرح إنشاء تقرير فاتورة المبيعات يحتوي على:
-  - عدد السطور الكلي في البداية.
-  - حقل الكود والتاريخ الفعلي للفاتورة.
-  - حقل العميل مكرر مرتين (كود واسم) ليظهر الاسم والصافي في النهاية.
-- تم إنشاء باراميتر (مدخل) لتاريخ الفاتورة بحيث يكون بين قيمتين، حيث يسأل المستخدم عن "من تاريخ" و"إلى تاريخ".
-- عند إدخال القيم (مثلاً من 23 حتى اليوم)، يظهر التقرير في نفس النافذة، ويعرض البيانات بالشكل المطلوب مثل كود العميل، الاسم، الكود مرة أخرى، الاسم وهكذا.
+- The video began with an apology for the delay in starting the recording.
+- Creating a sales invoice report was explained, containing:
+  - Total number of lines at the top.
+  - The code field and actual date of the invoice.
+  - The customer field repeated twice (code and name) to display the name and net amount at the end.
+- A parameter (input) was created for the invoice date so that it falls between two values, asking the user for "from date" and "to date".
+- When the values are entered (e.g., from the 23rd until today), the report appears in the same window, displaying the data in the required format such as customer code, name, code again, name, and so on.
 
-[شاهد من 00:00:01](https://youtube.com/watch?v=524hzeG10Ic&t=1s)
-
----
-
-## 00:01:50 - ربط كود العميل برابط تقرير كشف حساب
-
-- شرح كيفية تحويل كود العميل إلى رابط (Hyperlink) لتقرير كشف حساب.
-- استخدام "Open Hyperlink Expression" لاختيار التقرير المناسب.
-- اختيار تقرير كشف حساب النظامي (رقم 32 في النظام).
-- ضبط باراميترات التقرير (مثل تاريخ البداية والنهاية، نوع الزمة: العميل).
-- نسخ الكود وتسجيل التقرير لحفظ التغييرات.
-- عند التشغيل، يظهر التقرير مرتبط بالعميل، مع فلترة بالتواريخ ونوع الزمة.
-- تجربة الضغط على العميل رقم 6 وأظهرت بيانات الرصيد الختامي بشكل صحيح.
-
-[شاهد من 00:01:50](https://youtube.com/watch?v=524hzeG10Ic&t=110s)
+[Watch from 00:00:01](https://youtube.com/watch?v=524hzeG10Ic&t=1s)
 
 ---
 
-## 00:06:12 - دمج رؤوس الأعمدة (Merge Headers)
+## 00:01:50 - Linking the Customer Code to an Account Statement Report Hyperlink
 
-- شرح خاصية دمج عناوين الأعمدة لاستخدام عنوان مشترك (مثل "العميل" مع "الكود" و"الاسم" تحته).
-- استخدام حقول `mergeArabicTitle` و`mergeEnglishTitle` لتعيين العناوين العليا.
-- توضيح أهمية عدم ترك العناوين مكررة لأنه يظهر بشكل غير منطقي (مثلاً العميل العميل العميل).
-- مثال على دمج عمودين مثل "بيانات الفاتورة" تشمل "الكود" و"التاريخ الفعلي"، مع التنبيه أن الدمج ينبغي أن يكون بين أعمدة متجاورة دون أعمدة تفصل بينهم.
+- Explanation of how to convert the customer code into a Hyperlink to an account statement report.
+- Using "Open Hyperlink Expression" to select the appropriate report.
+- Selecting the system account statement report (number 32 in the system).
+- Setting the report parameters (such as start and end date, liability type: customer).
+- Copying the code and saving the report to preserve the changes.
+- When run, the report appears linked to the customer, with filtering by dates and liability type.
+- Testing by clicking on customer number 6, which correctly displayed the closing balance data.
 
-[شاهد من 00:06:12](https://youtube.com/watch?v=524hzeG10Ic&t=372s)
-
----
-
-## 00:08:08 - تفاصيل استخدام خاصية الهايبرلينك والمعاملات
-
-- عرض كامل لنص تعبير الهايبرلينك لتوضيح كافة تفاصيل الرابط والباراميترات.
-- التأكيد على أهمية إدراج كافة المعاملات المنطقية المرتبطة بالتقرير (مثلاً لا يمكن عمل رابط كشف حساب بدون معرّف العميل).
-- إمكانية اختيار معاملات إضافية حسب طبيعة التقرير، مثل الحسابات والبرامج الزمنية.
-- تعليمات عامة للتفكير في كيفية ظهور الرابط وفق البراميترات المدخلة.
-
-[شاهد من 00:08:08](https://youtube.com/watch?v=524hzeG10Ic&t=488s)
+[Watch from 00:01:50](https://youtube.com/watch?v=524hzeG10Ic&t=110s)
 
 ---
 
-## 00:09:53 - التنسيق الشرطي (Conditional Styling)
+## 00:06:12 - Merge Headers
 
-- تعريف التنسيق الشرطي وحالته مع البرامج التي تعمل بشكل مشابه (مثل جاسبر).
-- إنشاء أنماط جديدة (Styles) منها:
-  - Default (افتراضي).
-  - أحمر (Red).
-  - أصفر (Yellow).
-  - أخضر (Green).
-- تطبيق هذه الأنماط على الحقول حسب قيمة معينة مثل قيمة الحقل "الصافي".
-- الشروط التي تم إعدادها:
-  - ما أقل من أو يساوي 100 يأخذ اللون الأصفر (بشكل طبيعي لا لون).
-  - أكبر من 100 وأقل من أو يساوي 500 يأخذ اللون الأحمر.
-  - أكبر من 1000 يأخذ اللون الأخضر.
-- الشرح أن الشرط الأول الذي ينطبق سيتم تطبيقه فقط ولن يتم اختبار الشروط التي تليه (أولوية الشروط مهمة).
-- الحقول الأخرى مثل التاريخ يمكن تطبيق شروط منفصلة عليها.
+- Explanation of the merge column headers feature to use a shared header (e.g., "Customer" with "Code" and "Name" underneath).
+- Using `mergeArabicTitle` and `mergeEnglishTitle` fields to set the upper headers.
+- Clarifying the importance of not leaving headers duplicated because it looks illogical (e.g., Customer Customer Customer).
+- An example of merging two columns such as "Invoice Data" covering "Code" and "Actual Date", with a note that the merge should be between adjacent columns without any separating columns.
 
-[شاهد من 00:09:53](https://youtube.com/watch?v=524hzeG10Ic&t=593s)
+[Watch from 00:06:12](https://youtube.com/watch?v=524hzeG10Ic&t=372s)
 
 ---
 
-## 00:15:14 - تطبيق التنسيق الشرطي داخل التقرير
+## 00:08:08 - Details of Using the Hyperlink Feature and Parameters
 
-- شرح ربط التنسيقات الشرطية المخصصة مع الحقول المختلفة.
-- تذكير أن يمكن تطبيق تنسيق ثابت (Static Style) أو تنسيق شرطي (Conditional Style).
-- التجربة والتعديل على الشروط لرؤية نتائجها على التقرير.
-- الملاحظ أن تقرير العميل بكامله باللون الأحمر لم يتغير إلا بعد تعديل شروط الشرط الأول.
-- التأكيد على حساسية ترتيب الشروط لأن أول شرط منطبق يتم تطبيقه مباشرة ويتوقف.
+- A full display of the hyperlink expression text to clarify all link details and parameters.
+- Emphasis on the importance of including all related logical parameters for the report (e.g., you cannot create an account statement link without the customer identifier).
+- The ability to select additional parameters depending on the nature of the report, such as accounts and time schedules.
+- General instructions on how to think about how the link will appear based on the entered parameters.
 
-[شاهد من 00:15:14](https://youtube.com/watch?v=524hzeG10Ic&t=914s)
-
----
-
-## 00:18:41 - استعراض الشكل الجديد للواجهة (الجيو الجديد)
-
-- عرض واجهة الجيو الجديدة بشكل سريع بما فيها من ميزات مثل:
-  - قائمة البحث (Search).
-  - التقرير الرئيس لفواتير المبيعات (Sales Invoice).
-- القدرة على تعديل أماكن الأعمدة وإظهار/إخفاء الأعمدة حسب الحاجة.
-- إمكانية عمل تجميع (Grouping) للسجلات المتكررة، مثلاً تجميع المشتريات لنفس العميل أو صنف معين.
-- عرض أزرار تصدير البيانات إلى إكسل مشابهة للنسخة القديمة.
-- مشاهدات على اختلاف شكل التقرير حسب وجود التجميع أو غيابه.
-
-[شاهد من 00:18:41](https://youtube.com/watch?v=524hzeG10Ic&t=1121s)
+[Watch from 00:08:08](https://youtube.com/watch?v=524hzeG10Ic&t=488s)
 
 ---
 
-## 00:22:31 - مميزات تعديل الفاتورة والجريد داخل النظام
+## 00:09:53 - Conditional Styling
 
-- الفاتورة أصبحت قابلة للطي (Collapsible) وإمكانية التحكم بفتح/إغلاق الأجزاء.
-- زرار إضافة سطر جديد، نسخ السطر، حذف السطر، وفتح المحرر الخاص للفاتورة.
-- إمكانية تطبيق التجميعات داخل الفاتورة نفسها (داخل تفاصيل السطر).
-- دعم نسخ متعدد للصفوف وتشغيل التجميعات عليها.
-- توضيحات مهمة حول الحفاظ على المساحات من خلال خيارات داخل الجريد.
-- إظهار بيانات الفاتورة بشكل واضح مع إمكانية تحكم أكثر.
+- Defining conditional styling and its situation with programs that work similarly (such as Jasper).
+- Creating new Styles including:
+  - Default.
+  - Red.
+  - Yellow.
+  - Green.
+- Applying these styles to fields based on a specific value such as the "Net" field value.
+- The conditions that were set up:
+  - Less than or equal to 100 takes the yellow color (by default no color).
+  - Greater than 100 and less than or equal to 500 takes the red color.
+  - Greater than 1000 takes the green color.
+- The explanation that the first matching condition will be applied and subsequent conditions will not be tested (order of conditions matters).
+- Other fields such as date can have separate conditions applied to them.
 
-[شاهد من 00:22:31](https://youtube.com/watch?v=524hzeG10Ic&t=1351s)
-
----
-
-## 00:24:02 - تفاصيل ثيمات النظام وألوان الواجهة
-
-- وجود نوعين من ستايلات النظام:
-  - الثيم العادي (Light Theme) مع ألوان مثل الأخضر والتباينات الأخرى.
-  - الثيم الداكن (Dark Theme) مع خلفية سوداء ونصوص فاتحة للحماية من إجهاد العين خاصة أثناء الليل.
-- إمكانية اختيار ألوان خاصة للمستخدم وحفظ تسميات الألوان الخاصة به.
-- استخدام الألوان لتفريق بين الشركات المختلفة والعملاء في النظام.
-- ميزة اختيار الثيم تتفاعل بشكل بسيط مع النظام دون الحاجة لتغيير جدري في كل العناصر.
-
-[شاهد من 00:24:02](https://youtube.com/watch?v=524hzeG10Ic&t=1442s)
+[Watch from 00:09:53](https://youtube.com/watch?v=524hzeG10Ic&t=593s)
 
 ---
 
-## 00:26:00 - النسخة البيتا للجيو الجديد وإمكانية التجربة
+## 00:15:14 - Applying Conditional Styling Inside the Report
 
-- شرح وضع البيتا للجيو الجديد وأنه لا ينصح بالتحويل الكامل إليه حتى الآن لأنه ما زال به بعض الأمور غير مكتملة.
-- الدعوة للعملاء المهتمين لتجربة البيتا بإبلاغ الدعم الفني والحصول على نسخة لتجربتها.
-- التغيير في نسخة البيتا بسيط وفي نطاق تحديثات.
-- النسخة القديمة لا تزال تعمل بشكل جيد ومتزامنة مع التحديثات.
+- Explaining how to link custom conditional styles to different fields.
+- A reminder that a Static Style or a Conditional Style can be applied.
+- Testing and adjusting the conditions to see their results on the report.
+- It was noted that the entire customer report in red did not change until the first condition was modified.
+- Emphasis on the sensitivity of condition order because the first matching condition is applied immediately and stops.
 
-[شاهد من 00:26:00](https://youtube.com/watch?v=524hzeG10Ic&t=1560s)
-
----
-
-## 00:27:36 - مثال حول الجداول المحورية (Cross Tab)
-
-- استعراض مثال على تقارير Cross Tab وعرض الكميات والتكلفة.
-- تغيير ترتيب العرض حسب الكود أو الاسم العربي أو الاسم الإنجليزي.
-- إمكانية عمل ترتيب متقدم حسب اسم الصنف أو الكود.
-- دعم أكثر من مقياس (Measure) في التقرير الواحد، مثل الكمية والتكلفة.
-- إمكانية تصنيف البنود ضمن جداول Cross Tab وأقسام متعددة.
-- تفعيل خاصية عرض صفحة واحدة بدلًا من عدة صفحات لجعل عرض البيانات أفضل للعرض وليس للطباعة.
-
-[شاهد من 00:27:36](https://youtube.com/watch?v=524hzeG10Ic&t=1656s)
+[Watch from 00:15:14](https://youtube.com/watch?v=524hzeG10Ic&t=914s)
 
 ---
 
-## 00:33:56 - تقرير الفواتير لمندوب المبيعات الحالي فقط
+## 00:18:41 - Overview of the New GUI Interface
 
-- طريقة إنشاء تقرير يعرض فواتير المندوب الحالي الجالس في النظام فقط.
-- ضبط الشروط بحيث يكون "Salesman = ID العامل الحالي".
-- تجربة التقرير لإظهار الفواتير المرتبطة بذلك المستخدم فقط.
-- إزالة أو تعديل فلتر التاريخ لضبط عرض الفواتير بحسب الحاجة.
-- ذكر إمكانية تعديل التقرير ليظهر بيانات المرتبات أيضاً الخاصة بالموظف الحالي.
-- إمكانية تعديل التقرير لعرض بيانات المدير ورؤساء الأقسام عند الحاجة.
+- A quick display of the new GUI interface with its features such as:
+  - The Search list.
+  - The main report for Sales Invoices.
+- The ability to modify column positions and show/hide columns as needed.
+- The ability to do Grouping of repeated records, for example grouping purchases for the same customer or a specific item.
+- Showing data export buttons to Excel similar to the old version.
+- Observations on the difference in the report appearance depending on whether grouping is present or not.
 
-[شاهد من 00:33:56](https://youtube.com/watch?v=524hzeG10Ic&t=2036s)
-
----
-
-## 00:36:36 - ختام الجلسة والأسئلة العامة
-
-- انتهاء وقت الجلسة الرسمية مع فتح باب الأسئلة.
-- استعداد الفريق لتلقي الاقتراحات والأسئلة سواء في الجروب الخاص بالدعم.
-- وعد بعقد جلسات توضيحية إضافية بناءً على الطلبات والأسئلة.
-- شكر الحضور والثناء على مستوى العمل والتعاون.
-
-[شاهد من 00:36:36](https://youtube.com/watch?v=524hzeG10Ic&t=2196s)
+[Watch from 00:18:41](https://youtube.com/watch?v=524hzeG10Ic&t=1121s)
 
 ---
 
-## ملاحظات عامة
+## 00:22:31 - Invoice and Grid Editing Features Inside the System
 
-> **نصيحة**: عند التعامل مع التقارير والتنسيقات داخل النظام، يجب التركيز على ترتيب الشروط في التنسيق الشرطي وعدم نسيان تعيين المعاملات المهمة مثل العميل والتواريخ لضمان عمل الروابط بشكل صحيح.
+- The invoice has become Collapsible with the ability to control opening/closing sections.
+- A button to add a new line, copy the line, delete the line, and open the dedicated invoice editor.
+- The ability to apply groupings inside the invoice itself (within line details).
+- Support for multiple row copies and running groupings on them.
+- Important explanations on preserving spacing through options inside the Grid.
+- Displaying invoice data clearly with greater control.
 
-> **معلومة تقنية**: الدمج بين الأعمدة (Merge Headers) يجب أن يتم على أعمدة متجاورة فقط ولا يسمح بتجاوز الأعمدة غير المتجاورة.
+[Watch from 00:22:31](https://youtube.com/watch?v=524hzeG10Ic&t=1351s)
 
 ---
 
-## أمثلة كود للتنسيق الشرطي في التقرير
+## 00:24:02 - System Themes and Interface Colors
+
+- There are two types of system styles:
+  - The normal theme (Light Theme) with colors such as green and other contrasts.
+  - The dark theme (Dark Theme) with a black background and light text to protect from eye strain, especially at night.
+- The ability to choose custom colors for the user and save their custom color names.
+- Using colors to differentiate between different companies and customers in the system.
+- The theme selection feature interacts simply with the system without the need for a radical change in all elements.
+
+[Watch from 00:24:02](https://youtube.com/watch?v=524hzeG10Ic&t=1442s)
+
+---
+
+## 00:26:00 - Beta Version of the New GUI and the Ability to Try It
+
+- Explanation of the beta status of the new GUI and that a complete switch is not recommended yet because some things are still incomplete.
+- An invitation to interested customers to try the beta by informing technical support and getting a copy to try.
+- The change in the beta version is simple and within the scope of updates.
+- The old version still works well and is synchronized with updates.
+
+[Watch from 00:26:00](https://youtube.com/watch?v=524hzeG10Ic&t=1560s)
+
+---
+
+## 00:27:36 - Example of Cross Tab Reports
+
+- Reviewing an example of Cross Tab reports and displaying quantities and cost.
+- Changing the display order by code, Arabic name, or English name.
+- The ability to do advanced sorting by item name or code.
+- Support for more than one Measure in a single report, such as quantity and cost.
+- The ability to categorize items within Cross Tab tables and multiple sections.
+- Activating the single-page display feature instead of multiple pages to make data display better for viewing rather than printing.
+
+[Watch from 00:27:36](https://youtube.com/watch?v=524hzeG10Ic&t=1656s)
+
+---
+
+## 00:33:56 - Invoice Report for the Current Sales Representative Only
+
+- How to create a report that shows only the invoices of the current representative logged into the system.
+- Setting the criteria so that "Salesman = ID of the current employee".
+- Testing the report to show invoices related to that user only.
+- Removing or modifying the date filter to adjust invoice display as needed.
+- Mentioning the ability to modify the report to also show salary data for the current employee.
+- The ability to modify the report to show manager and department head data when needed.
+
+[Watch from 00:33:56](https://youtube.com/watch?v=524hzeG10Ic&t=2036s)
+
+---
+
+## 00:36:36 - Session Closing and General Questions
+
+- The official session time ended with the floor open for questions.
+- The team expressed readiness to receive suggestions and questions in the dedicated support group.
+- A promise to hold additional clarification sessions based on requests and questions.
+- Thanks to attendees and appreciation for the level of work and cooperation.
+
+[Watch from 00:36:36](https://youtube.com/watch?v=524hzeG10Ic&t=2196s)
+
+---
+
+## General Notes
+
+> **Tip**: When working with reports and formatting inside the system, focus on the order of conditions in conditional styling and do not forget to set important parameters such as customer and dates to ensure links work correctly.
+
+> **Technical note**: Merging columns (Merge Headers) must be done on adjacent columns only; skipping non-adjacent columns is not allowed.
+
+---
+
+## Conditional Styling Code Examples
 
 ```json
 [
@@ -207,19 +205,16 @@
 
 ---
 
-## مثال تعبير هايبرلينك مبسط
+## Simplified Hyperlink Expression Example
 
 ```text
 OpenHyperlink(
-  ReportName = "كشف حساب",
+  ReportName = "Account Statement",
   Parameters = {
     "fromDate": [ParameterFromDate],
     "toDate": [ParameterToDate],
-    "customerType": "عميل",
+    "customerType": "Customer",
     "customerCode": [FieldCustomerCode]
   }
 )
 ```
-
-
-</rtl>

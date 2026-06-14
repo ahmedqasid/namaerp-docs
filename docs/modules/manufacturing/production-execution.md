@@ -1,249 +1,249 @@
-# تنفيذ الإنتاج (Production Execution): تسجيل ما يحدث فعلاً
+# Production Execution: Recording What Actually Happens
 
-## لحظة الحقيقة
+## The Moment of Truth
 
-لقد أنشأت أمر إنتاج - هذه هي خطتك. الآن يأتي العمل الحقيقي: صنع المنتجات فعلاً. وكما يعرف أي شخص عمل في التصنيع، الواقع لا يتطابق أبداً مع الخطة. الآلات تتعطل، الجودة تكشف مشكلات، العمال لديهم أيام جيدة وأيام سيئة، والمواد تختلف أحياناً عما كان متوقعاً.
+You've created a production order - that's your plan. Now comes the real work: actually making the products. And as anyone who's worked in manufacturing knows, reality never quite matches the plan. Machines break down, quality finds issues, workers have good days and bad days, materials turn out different than expected.
 
-**تنفيذ الإنتاج (Production Execution)** هو المكان الذي تُسجّل فيه ما حدث فعلياً على أرض المصنع. إنه الجزء الذي يقول الحقيقة في النظام - يُسجّل الكميات المنتجة الفعلية، والوقت الفعلي المستغرق، والعيوب المكتشفة، والمواد المستهلكة، والموارد المستخدمة.
+**Production Execution** (تنفيذ إنتاج) is where you capture what actually happened on the shop floor. It's the truth-telling part of the system - recording the real quantities produced, the actual time taken, the defects found, the materials consumed, and the resources used.
 
-ستجده ضمن **التصنيع > المستندات > تنفيذ إنتاج**.
+You'll find it under **Manufacturing > Documents > Production Execution** (التصنيع > المستندات > تنفيذ إنتاج).
 
-فكّر في تنفيذ الإنتاج باعتباره صوت أرض المصنع في النظام. إنه يقول "هذا ما أنجزناه اليوم فعلاً" - ليس ما قالت الخطة إنه يجب أن يحدث، بل ما حدث بالفعل.
+Think of production execution as the shop floor's voice in the system. It says "here's what we actually accomplished today" - not what the plan said should happen, but what really did happen.
 
-## فهم خطوات العملية (Operation Steps): الحالات الأربع
+## Understanding Operation Steps: The Four States
 
-قبل أن نتعمق في التنفيذ، تحتاج إلى فهم كيف يتتبع Nama ERP الكميات أثناء التصنيع. هذا على الأرجح أهم مفهوم يجب استيعابه.
+Before we dive into execution, you need to understand how Nama ERP tracks quantities during manufacturing. This is probably the most important concept to grasp.
 
-في أي عملية (operation)، يمكن أن تكون المنتجات في إحدى أربع حالات:
+At any operation, products can be in one of four states:
 
-### ToMove (للنقل) - التدفق الطبيعي
+### ToMove (للنقل) - The Normal Flow
 
-هذه هي عملية الإنتاج الجاري (work-in-process) المعتادة. الوحدات انتهت من هذه العملية وجاهزة للتقدم للخطوة التالية. تمت مراجعتها من قِبَل الجودة (إذا كان ذلك مطلوباً)، اجتازت الاختبار، وهي جاهزة للمضي قدماً.
+This is your standard work-in-process. Units are done with this operation and ready to move forward to the next step. Quality has checked them (if required), they passed, and they're good to go.
 
-معظم إنتاجك سيكون بحالة ToMove - إنها تمثل المسار المثالي حيث يسير كل شيء وفق الخطة.
+Most of your production will be in ToMove status - it represents the happy path where everything is going according to plan.
 
-### Rejected (مرفوض) - يحتاج إعادة عمل
+### Rejected (مرفوض) - Needs Rework
 
-اكتشفت الجودة مشكلات. هذه الوحدات لم تجتز الفحص. لكنها ليست خردة - يمكن إصلاحها وإعادة إرسالها إلى عمليات سابقة لإعادة العمل.
+Quality found problems. These units didn't pass inspection. But they're not trash - they can be fixed and sent back through earlier operations for rework.
 
-ربما يكون طلاء غير منتظم، فتحتاج العودة إلى مرحلة الصنفرة وإعادة الطلاء. ربما تكون لحمة ضعيفة تحتاج إعادة العمل. حالة Rejected تُشير إلى هذه الوحدات بأنها "تحتاج انتباهاً" وتتبعها بشكل منفصل عن الإنتاج الجيد.
+Maybe the paint job is uneven, so they need to go back to sanding and repainting. Maybe a weld is weak and needs to be redone. Rejected status flags these units as "need attention" and tracks them separately from good work-in-process.
 
-### Scrap (تالف) - ما لا يمكن إصلاحه
+### Scrap (تالف) - Beyond Repair
 
-بعض العيوب لا يمكن إصلاحها. القطعة متشققة، القياس خارج المواصفات تماماً، المادة ملوثة. هذه الوحدات تنتقل إلى حالة Scrap.
+Some defects can't be fixed. The part is cracked, the measurement is way off spec, the material is contaminated. These units move to Scrap status.
 
-يُشطب التالف - إنه خسارة. يتتبع النظام كميات التالف لمحاسبة التكاليف (لقد أنفقت مالاً على تلك الوحدات) ولتحسين العمليات (معدلات التالف المرتفعة تشير إلى مشكلات تستحق التحقيق).
+Scrap gets written off - it's a loss. The system tracks scrap quantities for cost accounting (you still spent money on those units) and process improvement (high scrap rates indicate problems to investigate).
 
-### Sample (عينة) - محتجزة للاختبار
+### Sample (عينة) - Held for Testing
 
-قد يطلب منك ضمان الجودة سحب عينات للاختبار - ربما اختبار مدمّر، أو تحليل كيميائي، أو تقييم أداء طويل الأمد. هذه الوحدات تنتقل إلى حالة Sample.
+Quality assurance might require you to pull samples for testing - maybe destructive testing, chemical analysis, or long-term performance evaluation. These units move to Sample status.
 
-ليست معيبة، بل مجرد موضوعة جانباً لأغراض الاختبار. بحسب نتائج الاختبار وما إذا كان الاختبار مدمراً، قد تعود إلى ToMove (إذا أمكن استخدامها بعد الاختبار) أو إلى Scrap (إذا دمّرها الاختبار).
+They're not defective, they're just set aside for testing purposes. Depending on the test results and whether the testing is destructive, they might move back to ToMove (if they can be used after testing) or to Scrap (if the testing destroyed them).
 
-## كيف تتحرك المنتجات عبر العمليات
+## How Products Move Through Operations
 
-هنا يصبح الأمر مثيراً للاهتمام. تنفيذ الإنتاج في جوهره عملية نقل الكميات من عملية وحالة معينة إلى عملية وحالة أخرى.
+Here's where it gets interesting. Production execution is all about moving quantities from one operation-and-step to another operation-and-step.
 
-### التدفق الطبيعي للأمام
+### The Normal Forward Flow
 
-معظم عمليات التنفيذ تبدو هكذا:
+Most executions look like this:
 ```
 From: Operation 10, ToMove status, 50 units
 To:   Operation 20, ToMove status, 50 units
 ```
 
-أنت تقول "عالجتُ 50 وحدة عبر Operation 10. اجتازت فحوصات الجودة. هي الآن جاهزة للانتقال إلى Operation 20."
+You're saying "I processed 50 units through Operation 10. They passed quality checks. They're now ready to move to Operation 20."
 
-يُحدِّث النظام تتبعه: 50 وحدة أقل في Op 10، و50 وحدة أكثر في Op 20. تقدم!
+The system updates its tracking: 50 fewer units at Op 10, 50 more units at Op 20. Progress!
 
-### تحديد العيوب
+### Identifying Defects
 
-أحياناً تكتشف مشكلات في عملية ما:
+Sometimes you find problems at an operation:
 ```
 From: Operation 30, ToMove status, 10 units
 To:   Operation 30, Rejected status, 10 units
 ```
 
-أنت لا تتقدم للأمام أو تتراجع للخلف في العمليات - أنت فقط تغير الحالة في العملية الحالية. نظر مفتش الجودة إلى 10 وحدات كانت جاهزة للنقل وقال "هذه بها مشكلات." الآن صُنِّفت كمرفوضة.
+You're not moving forward or backward in operations - you're just changing the status at the current operation. Quality inspector looked at 10 units that were ready to move and said "these have issues." Now they're flagged as rejected.
 
-### الإرسال للخلف لإعادة العمل
+### Sending Back for Rework
 
-بمجرد أن تكون الوحدات بحالة Rejected، عادةً ما ترسلها للخلف إلى عملية سابقة لإصلاح المشكلة:
+Once units are in Rejected status, you typically send them back to an earlier operation to fix the problem:
 ```
 From: Operation 30, Rejected status, 10 units
 To:   Operation 20, ToMove status, 10 units
 ```
 
-تعود الوحدات المعيبة إلى Operation 20. ستمر عبر Op 20 وOp 30 مرة أخرى، على أمل أن تخرج جيدة هذه المرة.
+The defective units go back to Operation 20. They'll work through Op 20 and Op 30 again, hopefully coming out good this time.
 
-هذه ميزة قوية - يمكنك تتبع حلقات إعادة العمل، ورؤية كمية الوقت الذي تقضيه في إعادة العمل، وتحديد العمليات التي تولّد أكثر مشكلات الجودة.
+This is a powerful feature - you can track rework loops, see how much time you're spending on rework, and identify which operations generate the most quality issues.
 
-### إعلان التالف
+### Declaring Scrap
 
-عندما لا يمكن إنقاذ الوحدات:
+When units can't be saved:
 ```
 From: Operation 40, ToMove status, 3 units
 To:   Operation 40, Scrap status, 3 units
 ```
 
-هذه الوحدات الثلاث ذهبت. سيتتبع النظام تكلفة التالف ويُنشئ قيود المحاسبة المناسبة.
+These 3 units are gone. The system will track the scrap cost and generate the appropriate accounting entries.
 
-### أخذ العينات
+### Taking Samples
 
-لمراقبة الجودة:
+For quality control:
 ```
 From: Operation 50, ToMove status, 5 units
 To:   Operation 50, Sample status, 5 units
 ```
 
-سحبتَ 5 وحدات جانباً للاختبار. لا تزال في Operation 50، لكنها مصنّفة بشكل مختلف.
+You've pulled 5 units aside for testing. They're still at Operation 50, just flagged differently.
 
-لاحقاً، إذا اجتازت العينات الاختبار ويمكن استخدامها:
+Later, if the samples pass testing and can be used:
 ```
 From: Operation 50, Sample status, 5 units
 To:   Operation 50, ToMove status, 5 units
 ```
 
-أو إذا كان الاختبار مدمراً:
+Or if the testing was destructive:
 ```
 From: Operation 50, Sample status, 5 units
 To:   Operation 50, Scrap status, 5 units
 ```
 
-## إنشاء تنفيذ إنتاج
+## Creating a Production Execution
 
-لنتعرف على كيفية تسجيل عمل أرض المصنع فعلياً.
+Let's walk through actually recording shop floor work.
 
-### الأسلوب الأساسي
+### The Basic Approach
 
-تبدأ بمستند تنفيذ إنتاج جديد وتملأ بعض معلومات الرأس:
-- **الدفتر والتوجيه (Book and Term)**: يتحكم في الترقيم وإنشاء المستندات التلقائية
-- **تاريخ القيمة (Value Date)**: متى حدث هذا العمل
-- **من مستند (From Doc)**: إذا كنت تنفّذ أمر إنتاج واحداً، حدّده هنا
+You start a new production execution document and fill in some header information:
+- **Book and Term**: Controls numbering and automatic document generation
+- **Value Date**: When this work happened
+- **From Doc**: If you're executing a single production order, select it here
 
-في اللحظة التي تختار فيها أمر الإنتاج، يحدث السحر. ينظر النظام إلى أين توجد الكميات في ذلك الأمر (باستخدام Production System Entries التي ذكرناها) وينشئ أول سطر تنفيذ بإعدادات افتراضية ذكية.
+The moment you select a production order, magic happens. The system looks at where quantities are in that order (using the Production System Entries we mentioned) and creates a first execution line with intelligent defaults.
 
-إذا كان لديك عملية "من" (from operation) وعملية "إلى" (to operation) افتراضيتان في الرأس، فسيستخدمهما. وإلا يبحث عن مكان انتظار الإنتاج الجاري ويقترح نقله للأمام.
+If you have a default "from operation" and "to operation" set in the header, it uses those. Otherwise, it looks for where work-in-process is waiting and suggests moving it forward.
 
-### طرق مختلفة للعمل
+### Different Ways to Work
 
-هناك عدة طرق لإنشاء تنفيذات، بحسب سير العمل في مصنعك:
+There are several ways to create executions, depending on your shop floor workflow:
 
-**تنفيذ أمر واحد (Single Order Execution)**: الأكثر شيوعاً. تختار أمر إنتاج واحداً وتسجّل العمل عليه. ربما تنقل وحدات من Operation 10 إلى Operation 20.
+**Single Order Execution**: Most common. Pick one production order, record work on it. Maybe you're moving units from Operation 10 to Operation 20.
 
-**تنفيذ مجمّع لمركز عمل (Batch Work Center Execution)**: مركز عملك يعالج أوامر متعددة في آنٍ واحد. تختار "Aggregated Production Order" يحتوي على أوامر إنتاج متعددة. ينشئ النظام سطر تنفيذ واحداً لكل أمر، وكلها تقوم بنفس حركة العملية. فعّال لمعالجة الدُّفعات.
+**Batch Work Center Execution**: Your work center processes multiple orders at once. Select an "Aggregated Production Order" that contains multiple production orders. The system creates one execution line per order, all doing the same operation movement. Efficient for batch processing.
 
-**تنفيذ مبني على المورد (Resource-Based Execution)**: بعض المصانع تتتبع بالمورد (آلة أو مركز عمل) بدلاً من الأمر. تختار مورداً، ويساعدك النظام في إيجاد الأوامر التي تحتاج عملاً في عمليات ذلك المورد.
+**Resource-Based Execution**: Some factories track by resource (machine or work center) rather than by order. Select a resource, and the system helps you find which orders need work at that resource's operations.
 
-**تنفيذ تخطيط مواد (Material Planning Execution)**: إذا كنت تستخدم Carton Material Planning، يمكنك اختيار مستند التخطيط وتنفيذ جميع أوامره معاً.
+**Material Planning Execution**: If you're using Carton Material Planning, you can select the planning document and execute all its orders together.
 
-اختر الأسلوب الذي يتناسب مع طريقة عمل مصنعك.
+Pick the approach that matches how your factory operates.
 
-### ملء تفاصيل سطر التنفيذ
+### Filling in the Execution Line Details
 
-كل سطر في التنفيذ يمثل عملاً تم على أمر إنتاج واحد. تُحدد:
+Each line in an execution represents work done on one production order. You specify:
 
-**من أين بدأت**:
-- من العملية (From Operation) (مثل "10"، "20"، "30")
-- من الخطوة (From Step) (ToMove أو Rejected أو Scrap أو Sample)
-- تاريخ ووقت البداية (when work started)
+**Where you started**:
+- From Operation (like "10", "20", "30")
+- From Step (ToMove, Rejected, Scrap, or Sample)
+- From Date and Time (when work started)
 
-**إلى أين انتهيت**:
-- إلى العملية (To Operation) (نفس رقم العملية أو مختلف)
-- إلى الخطوة (To Step) (عادةً ToMove، لكن يمكن أن تكون أي حالة)
-- تاريخ ووقت النهاية (when work finished)
+**Where you ended**:
+- To Operation (same or different operation number)
+- To Step (usually ToMove, but could be any status)
+- To Date and Time (when work finished)
 
-**الكمية**:
-- الكمية التي أدخلها المستخدم (User Quantity) بأي وحدة تناسب هذه العملية - قد تكون قطعاً أو كيلوجرامات أو أمتاراً وما إلى ذلك
-- يُحوّل النظام هذه الكمية إلى وحدة القياس الأساسية للأمر إذا لزم
+**How much**:
+- User Quantity (in whatever unit makes sense for this operation - might be pieces, kilograms, meters, etc.)
+- The system converts this to the order's base UOM if needed
 
-**الموارد المستخدمة** (اختياري):
-- أي موظف أو آلة قام بالعمل
+**Resources used** (optional):
+- Which employee or machine did the work
 
-النظام ذكي في الاقتراحات. عند اختيار "من العملية"، يستعلم عن Production System Entry لرؤية كم من الوحدات متاحة في تلك العملية والحالة. يملأ الكمية مسبقاً بما هو متاح. يمكنك قبولها أو تعديلها.
+The system is smart about suggestions. When you select "from operation", it queries the Production System Entry to see how many units are available in that operation-and-step. It pre-fills the quantity with what's available. You can accept it or adjust it.
 
-### تتبع الوقت
+### Time Tracking
 
-يمكنك تسجيل أوقات البداية والنهاية للعمل. هذا يخدم عدة أغراض:
+You can record start and end times for the work. This serves several purposes:
 
-**تكلفة العمالة (Labor costing)**: كم ساعة أمضى العمال على هذا الأمر؟
+**Labor costing**: How many hours did workers spend on this order?
 
-**الجدولة (Scheduling)**: كم استغرقت هذه العملية فعلياً؟ هل تتوافق مع الأوقات المعيارية في مسار الإنتاج (routing)؟
+**Scheduling**: How long did this operation actually take? Is it matching the standard times in the routing?
 
-**تخطيط الطاقة الإنتاجية (Capacity planning)**: هل نسير أسرع أم أبطأ من المتوقع؟
+**Capacity planning**: Are we running faster or slower than expected?
 
-يمكن للنظام حتى مساعدتك في حساب وقت الانتهاء. إذا قال مسار الإنتاج إن Operation 20 تستغرق 30 دقيقة لكل وحدة وأنت تعالج 10 وحدات، فسيقترح وقت انتهاء بعد 5 ساعات من وقت البداية (30 دقيقة × 10 وحدات = 300 دقيقة = 5 ساعات).
+The system can even help calculate the end time. If the routing says Operation 20 takes 30 minutes per unit and you're processing 10 units, it suggests an end time of 5 hours from the start time (30 min × 10 units = 300 minutes = 5 hours).
 
-بالطبع يمكنك تجاوز هذا بالأوقات الفعلية إذا تتبعتها بدقة أكبر.
+Of course, you can override this with actual times if you tracked them more precisely.
 
-### التسليم التلقائي (Auto-Delivery): إنهاء الإنتاج تلقائياً
+### Auto-Delivery: Finishing Production Automatically
 
-هذه ميزة رائعة حقاً. إذا ضبطت "Auto Delivery" على true في الرأس، يراقب النظام التنفيذات التي تُكمل العملية الأخيرة.
+Here's a really nice feature. If you set "Auto Delivery" to true in the header, the system watches for executions that complete the final operation.
 
-عندما يرى تنفيذاً ينقل وحدات من العملية الأخيرة إلى حالة ToMove، يقوم تلقائياً بـ:
-1. إنشاء مستند تسليم منتج (Product Delivery)
-2. استلام البضائع التامة في المخزون
-3. تطبيق جميع أرقام الدُّفعات والأرقام التسلسلية والخصائص الأبعادية من التنفيذ
-4. التسليم إلى المخزن والموقع الذي حددته
-5. معالجة المنتجات المشتركة (co-products) إذا كان أمر الإنتاج يحتوي على أي منها
+When it sees an execution moving units from the last operation to ToMove status, it automatically:
+1. Creates a Product Delivery document
+2. Receives the finished goods into inventory
+3. Applies all the lot numbers, serial numbers, and dimensional attributes from the execution
+4. Delivers to the warehouse and location you specified
+5. Handles co-products if your production order has any
 
-هذا يُلغي خطوة يدوية ويضمن أنه بمجرد انتهاء الإنتاج، تصبح البضائع التامة متاحة في المخزون.
+This eliminates a manual step and ensures that as soon as production is done, finished goods are available in inventory.
 
-## ما يحدث عند ترحيل التنفيذ
+## What Happens When You Commit an Execution
 
-عند حفظ تنفيذ الإنتاج وترحيله، تحدث عدة أشياء تلقائياً (بحسب إعداداتك):
+When you save and commit a production execution, several things happen automatically (depending on your configuration):
 
-### إنشاء مستندات صرف المواد
+### Material Issues are Generated
 
-إذا كانت المكونات مُعدَّة للصرف "تلقائياً مع التنفيذ" (Auto with Execution)، ينشئ النظام مستندات صرف مواد (Material Issue). ينظر إلى المكونات التي يجب استهلاكها في العمليات التي نفّذتها للتو وينشئ مستندات صرف لها.
+If components are configured to be issued "Auto with Execution", the system creates Material Issue documents. It looks at which components should be consumed at the operations you just executed and creates issues for them.
 
-على سبيل المثال، إذا نقلتَ 50 وحدة عبر Operation 20 وتستهلك Operation 20 مسماراً 2 لكل وحدة، يصرف النظام 100 مسمار من المخزون إلى أمر الإنتاج.
+For example, if you moved 50 units through Operation 20 and Operation 20 consumes 2 screws per unit, the system issues 100 screws from inventory to the production order.
 
-هذا يُبقي المواد تتدفق دون تدخل يدوي.
+This keeps materials flowing without manual intervention.
 
-### سندات الموارد تسجّل الوقت
+### Resource Vouchers Record Time
 
-يُوثَّق الوقت والموارد التي سجّلتها في سندات موارد (Resource Vouchers). تتتبع هذه ساعات العمل وساعات الآلة لمحاسبة التكاليف.
+The time and resources you recorded get documented in Resource Vouchers. These track labor hours and machine hours for cost accounting.
 
-إذا سجّلت أن الموظف أحمد عمل 4 ساعات في هذا التنفيذ، يلتقط سند المورد ذلك ويربطه بأمر الإنتاج ويُغذّيه في نظام التكاليف.
+If you recorded that Employee John worked 4 hours on this execution, a resource voucher captures that, links it to the production order, and feeds it into the costing system.
 
-### تتبع استخدام القوالب
+### Mold Usage is Tracked
 
-إذا كانت العمليات تستخدم قوالب أو أدوات، تُنشأ سندات قوالب (Mold Vouchers) لتتبع الاستخدام. هذا يساعد في جدولة صيانة القوالب وتخصيص التكاليف.
+If operations use molds or tooling, Mold Vouchers are created to track usage. This helps with mold maintenance scheduling and cost allocation.
 
-### إنشاء وثائق الجودة
+### Quality Documents are Created
 
-إذا كانت للعمليات قوائم تحقق جودة مرفقة، ينشئ النظام وثائق ضبط الجودة (Quality Control) أو ضمان الجودة (Quality Assurance). يجب على مفتشي الجودة ملء هذه الوثائق وتسجيل القياسات ونتائج النجاح والفشل.
+If operations have quality checklists attached, the system generates Quality Control or Quality Assurance documents. Quality inspectors must fill these out, recording measurements and pass/fail results.
 
-يمكنك حتى ضبطه بحيث لا يمكن الاستمرار في الإنتاج حتى تُوافق الجودة على هذه الوثائق. يُطبّق النظام بوابات الجودة الخاصة بك.
+You can even configure that production can't continue until quality approves these documents. The system enforces your quality gates.
 
-### وثائق العينات
+### Sample Documents
 
-إذا كان "Auto Gen Sample Docs" مُفعّلاً ونقلتَ كميات إلى حالة Sample، ينشئ النظام وثائق عينات (Sample Documents) لتتبع العينات المأخوذة والغرض منها.
+If "Auto Gen Sample Docs" is enabled and you moved quantities to Sample status, the system creates Sample Documents to track what samples were taken and for what purpose.
 
-### الأهم: تسليمات المنتجات
+### The Big One: Product Deliveries
 
-كما ذكرنا، مع تفعيل Auto Delivery، يؤدي إكمال العملية الأخيرة إلى استلام تلقائي للبضائع التامة في المخزون.
+As mentioned, with Auto Delivery enabled, completing the final operation triggers automatic receipt of finished goods into inventory.
 
-كل هذا يحدث تلقائياً لأنك ضبطته في إعدادات توجيه المستند. أنت تتحكم في ما يُنشأ تلقائياً وما تتعامل معه يدوياً.
+All of this happens automatically because you configured it in the document term settings. You control what gets auto-generated and what you handle manually.
 
-### تحديث Production System Entries
+### Production System Entries Update
 
-خلف كل هذه المستندات، يتحدث التتبع الجوهري. يُظهر Production System Entry لأمر الإنتاج هذا:
-- انخفاض الكميات عند عملية وحالة "المصدر"
-- ارتفاع الكميات عند عملية وحالة "الهدف"
+Behind all these documents, the core tracking updates. The Production System Entry for this production order shows:
+- Decreased quantities at the "from" operation-and-step
+- Increased quantities at the "to" operation-and-step
 
-هذا يحدث في الوقت الفعلي. المستخدمون الآخرون الذين ينظرون إلى أمر الإنتاج يرون الحالة المحدَّثة فوراً.
+This is real-time. Other users looking at the production order immediately see the updated status.
 
-## السيناريوهات الشائعة
+## Common Scenarios
 
-لنرى كيف يعمل هذا في الواقع العملي.
+Let's see how this works in practice.
 
-### السيناريو 1: إنتاج سلس
+### Scenario 1: Smooth Production
 
-تصنع 100 وحدة. كل شيء يسير بشكل جيد:
+You're making 100 widgets. Everything goes well:
 
-**التنفيذ 1**:
+**Execution 1**:
 ```
 From: Op 10 (Cutting), ToMove, 100 units
 To:   Op 20 (Assembly), ToMove, 100 units
@@ -251,9 +251,9 @@ Time: 8:00 AM to 10:00 AM
 Worker: Ahmed
 ```
 
-ينشئ النظام مستند صرف مواد للمكونات المستخدمة في القطع، ويسجّل ساعتين من عمل أحمد.
+System creates material issue for components used in cutting, records 2 hours of labor from Ahmed.
 
-**التنفيذ 2**:
+**Execution 2**:
 ```
 From: Op 20 (Assembly), ToMove, 100 units
 To:   Op 30 (Painting), ToMove, 100 units
@@ -261,9 +261,9 @@ Time: 10:30 AM to 2:00 PM
 Worker: Fatima
 ```
 
-صرف مواد لمكونات التجميع، 3.5 ساعة من عمل فاطمة.
+Material issue for assembly components, 3.5 hours of labor from Fatima.
 
-**التنفيذ 3**:
+**Execution 3**:
 ```
 From: Op 30 (Painting), ToMove, 100 units
 To:   Op 40 (Final QC), ToMove, 100 units
@@ -271,7 +271,7 @@ Time: 2:30 PM to 4:00 PM
 Worker: Mohammed
 ```
 
-**التنفيذ 4**:
+**Execution 4**:
 ```
 From: Op 40 (Final QC), ToMove, 100 units
 To:   [Last operation complete, ToMove status]
@@ -279,111 +279,111 @@ Time: 4:15 PM to 5:00 PM
 Worker: Sara
 ```
 
-بما أن هذه هي العملية الأخيرة وAuto Delivery مُفعَّل، ينشئ النظام تلقائياً تسليم منتج (Product Delivery)، ويستلم جميع الـ100 وحدة في مخزون البضائع التامة.
+Since this is the last operation and Auto Delivery is enabled, the system automatically creates a Product Delivery, receiving all 100 widgets into finished goods inventory.
 
-تم! دورة إنتاج نظيفة مع إمكانية التتبع الكاملة لمن فعل ماذا ومتى وبأي مواد.
+Done! Clean production run with full traceability of who did what, when, and with which materials.
 
-### السيناريو 2: مشكلات الجودة وإعادة العمل
+### Scenario 2: Quality Issues and Rework
 
-تصنع 100 وحدة، لكن الجودة تكتشف مشكلات:
+You're making 100 widgets, but quality finds problems:
 
-**التنفيذ 1**: قطع 100 وحدة بنجاح
+**Execution 1**: Cut 100 units successfully
 ```
 From: Op 10 (Cutting), ToMove, 100 units
 To:   Op 20 (Assembly), ToMove, 100 units
 ```
 
-**التنفيذ 2**: تجميع الوحدات
+**Execution 2**: Assemble units
 ```
 From: Op 20 (Assembly), ToMove, 100 units
 To:   Op 30 (Painting), ToMove, 100 units
 ```
 
-**التنفيذ 3**: فحص الطلاء يكشف عيوباً في 15 وحدة
+**Execution 3**: Paint inspection finds 15 units with defects
 ```
 From: Op 30 (Painting), ToMove, 15 units
 To:   Op 30 (Painting), Rejected, 15 units
 ```
 
-**التنفيذ 4**: الوحدات الجيدة تستمر
+**Execution 4**: Good units continue
 ```
 From: Op 30 (Painting), ToMove, 85 units
 To:   Op 40 (Final QC), ToMove, 85 units
 ```
 
-**التنفيذ 5**: إرسال الوحدات المعيبة للخلف لإعادة العمل
+**Execution 5**: Send defective units back for rework
 ```
 From: Op 30 (Painting), Rejected, 15 units
 To:   Op 20 (Assembly), ToMove, 15 units
 ```
 
-الـ15 وحدة تعود إلى التجميع (ربما لم يلتصق الطلاء لأن التجميع ترك بقايا على السطح).
+The 15 units go back to assembly (maybe the paint didn't stick because assembly left residue on the surface).
 
-**التنفيذ 6**: إعادة عمل الـ15 وحدة عبر التجميع
+**Execution 6**: Rework the 15 units through assembly
 ```
 From: Op 20 (Assembly), ToMove, 15 units
 To:   Op 30 (Painting), ToMove, 15 units
 ```
 
-**التنفيذ 7**: إعادة طلاؤها
+**Execution 7**: Repaint them
 ```
 From: Op 30 (Painting), ToMove, 15 units
 To:   Op 40 (Final QC), ToMove, 15 units
 ```
 
-الآن جميع الـ100 وحدة في Op 40. حلقة إعادة العمل مرئية في النظام - يمكنك رؤية أن 15 وحدة مرّت عبر التجميع والطلاء مرتين. بيانات رائعة لتحسين العمليات.
+Now all 100 units are at Op 40. The rework loop is visible in the system - you can see that 15 units went through assembly and painting twice. Great data for process improvement.
 
-### السيناريو 3: تالف جزئي وعينات
+### Scenario 3: Partial Scrap and Samples
 
-إنتاج مع تعقيدات:
+Production with complications:
 
-**التنفيذ 1**: بدء إنتاج 100 وحدة
+**Execution 1**: Start production of 100 units
 ```
 From: Op 10 (Machining), ToMove, 100 units
 To:   Op 20 (Grinding), ToMove, 100 units
 ```
 
-**التنفيذ 2**: في الطحن، تتشقق 3 وحدات (عيب في المادة)
+**Execution 2**: At grinding, 3 units crack (material defect)
 ```
 From: Op 20 (Grinding), ToMove, 3 units
 To:   Op 20 (Grinding), Scrap, 3 units
 ```
 
-**التنفيذ 3**: أخذ عينتين للاختبار المدمّر
+**Execution 3**: Take 2 samples for destructive testing
 ```
 From: Op 20 (Grinding), ToMove, 2 units
 To:   Op 20 (Grinding), Sample, 2 units
 ```
 
-**التنفيذ 4**: نقل الـ95 وحدة الجيدة للأمام
+**Execution 4**: Move the good 95 units forward
 ```
 From: Op 20 (Grinding), ToMove, 95 units
 To:   Op 30 (Heat Treatment), ToMove, 95 units
 ```
 
-**التنفيذ 5**: اختبار العينات (مدمّر)
+**Execution 5**: Samples are tested (destructive)
 ```
 From: Op 20 (Grinding), Sample, 2 units
 To:   Op 20 (Grinding), Scrap, 2 units
 ```
 
-**التنفيذ 6**: الاستمرار بالـ95 وحدة عبر العمليات المتبقية
+**Execution 6**: Continue with the 95 units through remaining operations
 
-النتيجة النهائية: 95 وحدة جيدة تم تسليمها، 5 وحدات تالفة (3 من العيوب، 2 من الاختبار). تتبّع النظام بالضبط ما حدث ولماذا.
+Final result: 95 good units delivered, 5 units scrapped (3 from defects, 2 from testing). System tracked exactly what happened and why.
 
-### السيناريو 4: الإنتاج الزائد
+### Scenario 4: Over-Production
 
-أحياناً تكون المخرجات أفضل من المتوقع:
+Sometimes yields are better than expected:
 
-أمرك لـ100 وحدة. لأنك تتوقع بعض التالف، بدأت بـ110 وحدة من المادة الخام.
+Your order is for 100 units. Because you expect some scrap, you started with 110 units of raw material.
 
-**التنفيذ 1**: قطع 110 قطعة (مسموح بالإكمال الزائد في العملية الأولى)
+**Execution 1**: Cut 110 pieces (permitted over-completion at first operation)
 ```
 From: Op 10 (Cutting), ToMove, 110 units
 To:   Op 20 (Assembly), ToMove, 110 units
 ```
 
-**التنفيذ 2**: التجميع يسير بشكل مفاجئ جيد، تالف 2 فقط
+**Execution 2**: Assembly goes surprisingly well, only 2 scrapped
 ```
 From: Op 20 (Assembly), ToMove, 2 units
 To:   Op 20 (Assembly), Scrap, 2 units
@@ -392,68 +392,68 @@ From: Op 20 (Assembly), ToMove, 108 units
 To:   Op 30 (Finishing), ToMove, 108 units
 ```
 
-**التنفيذ 3**: التشطيب يسير بشكل جيد أيضاً، لا خسائر
+**Execution 3**: Finishing also goes well, no losses
 ```
 From: Op 30 (Finishing), ToMove, 108 units
 To:   [Last operation]
 ```
 
-كان الأمر لـ100 لكنك أنتجت 108. إذا كانت النسبة المسموح بها تسمح بذلك (مثلاً، 10% إكمال زائد)، يقبله النظام. تُسلّم 108 وحدة.
+The order was for 100, but you produced 108. If your permitted percentage allows this (say, 10% over-completion), the system accepts it. You deliver 108 units.
 
-الآن لديك مخزون إضافي - هدية! سيُحاسب نظام التكاليف هذا بشكل صحيح عند إغلاق الأمر.
+Now you have extra inventory - bonus! The costing system will account for this properly when you close the order.
 
-## الإعدادات المهمة
+## Configuration That Matters
 
-بعض الإعدادات تتحكم في كيفية عمل التنفيذ:
+A few settings control how execution works:
 
-### إعداد توجيه المستند
+### Document Term Configuration
 
-التوجيه (Term) الذي تختاره في التنفيذ يتحكم في:
-- المستندات التي تُنشأ تلقائياً (صرف مواد، سندات موارد، تسليمات منتجات، إلخ)
-- ما إذا كانت هناك موافقات مطلوبة لتلك المستندات المُنشأة
-- إعداد "Auto Delivery" الافتراضي
-- ما إذا كان سيُحذف المستندات المُنشأة تلقائياً عند حذف التنفيذ
+The term you select on the execution controls:
+- Which documents get auto-generated (material issues, resource vouchers, product deliveries, etc.)
+- Whether approvals are required for those generated documents
+- Default "Auto Delivery" setting
+- Whether to delete auto-generated documents when you delete the execution
 
-اضبط هذه الإعدادات بشكل صحيح، وسيقوم النظام بالكثير من العمل الثقيل نيابةً عنك.
+Get these settings right, and the system does a lot of heavy lifting for you.
 
-### إعداد التصنيع
+### Manufacturing Configuration
 
-إعدادات على مستوى الوحدة مثل:
-- **Subtract Lines Quantities From Operation Calculated Quantities**: عند اقتراح الكميات للنقل، هل يجب على النظام طرح الكميات المُدخلة بالفعل في أسطر أخرى من نفس التنفيذ؟ مفيد لمنع النقل العرضي لنفس الوحدات مرتين في مستند واحد.
+Module-wide settings like:
+- **Subtract Lines Quantities From Operation Calculated Quantities**: When suggesting quantities to move, should the system subtract quantities already entered in other lines of the same execution? Useful to prevent accidentally moving the same units twice in one document.
 
-- **Do Not Suggest From Time**: بعض المصانع لا تريد من النظام ملء أوقات البداية مسبقاً - تريد إدخالها يدوياً لتحقيق الدقة.
+- **Do Not Suggest From Time**: Some shops don't want the system pre-filling start times - they want to enter them manually for accuracy.
 
-### إعداد توجيه أمر الإنتاج
+### Production Order Term Configuration
 
-الإعدادات على أمر الإنتاج نفسه تؤثر على التنفيذ:
-- **Cost Per Batch**: إذا كان مُفعَّلاً، تُتتبع التكاليف بشكل منفصل لكل دُفعة/lot. يجب أن يُحدّد التنفيذ أرقام الدُّفعات.
+Settings on the production order itself affect execution:
+- **Cost Per Batch**: If enabled, costs are tracked separately for each lot/batch. Execution must specify lot numbers.
 
-## نصائح للتنفيذ الفعّال
+## Tips for Effective Execution
 
-**سجّل التنفيذات بشكل متكرر**. لا تنتظر حتى نهاية الوردية أو نهاية اليوم. سجّل العمل كما يحدث (أو على الأقل بعد كل عملية). هذا يمنح المديرين رؤية فورية ويجعل استكشاف الأخطاء أسهل إذا ظهرت مشكلات.
+**Record executions frequently**. Don't wait until the end of the shift or end of the day. Record work as it happens (or at least by operation). This gives managers real-time visibility and makes troubleshooting easier if issues arise.
 
-**استخدم Auto Delivery للعمليات الأخيرة**. لماذا تقوم بتسليم منتج يدوي عندما يمكن للنظام فعل ذلك تلقائياً؟ عمل أقل، أخطاء أقل، توافر أسرع للبضائع التامة.
+**Use Auto Delivery for final operations**. Why do a manual product delivery when the system can do it automatically? Less work, fewer errors, faster availability of finished goods.
 
-**لا تتجاوز خطوات الجودة**. إذا كان لعملية ما قائمة تحقق جودة، أكمل بتعبئتها فعلاً. بيانات الجودة قيّمة، وتجاوز الفحوصات يُفضي إلى مشكلات لاحقة.
+**Don't skip quality steps**. If an operation has a quality checklist, actually fill it out. The quality data is valuable, and skipping inspections leads to downstream problems.
 
-**تتبّع الأوقات الفعلية قدر الإمكان**. بيانات الوقت تُغذّي تحسينات الجدولة. لا يمكنك تحسين تقديرات وقت مسار الإنتاج إذا كنت لا تعرف كم تستغرق العمليات فعلياً.
+**Track actual times when possible**. Time data feeds scheduling improvements. You can't make routing time estimates better if you don't know how long operations actually take.
 
-**حقّق في معدلات التالف أو إعادة العمل المرتفعة**. النظام يتتبع هذه البيانات لسبب. إذا كانت Operation 30 تحتوي باستمرار على 15% من معدلات الرفض، فثمة خطأ ما - ربما تدريب، ربما أدوات، ربما جودة المواد. بيانات التنفيذ تُرشدك إلى المشكلة.
+**Investigate high scrap or rework rates**. The system is tracking this data for a reason. If Operation 30 consistently has 15% rejection rates, something's wrong - maybe training, maybe tooling, maybe material quality. The execution data points you to the problem.
 
-**استفد من تنفيذ العمل على أساس المورد لمراكز العمل**. إذا كان مصنعك منظماً حول مراكز عمل تعالج أوامر متعددة، استخدم وضع التنفيذ هذا. إنه يتوافق مع سير عملك.
+**Leverage resource-based execution for work centers**. If your factory is organized around work centers that process multiple orders, use that execution mode. It matches your workflow.
 
-**درّب موظفي أرض المصنع بشكل صحيح**. تنفيذ الإنتاج لا يكون جيداً إلا بجودة البيانات المُدخلة. تأكد من أن العمال يفهمون المفاهيم (ToMove وRejected وScrap وSample) ومتى يستخدمون كل حالة.
+**Train shop floor staff properly**. Production execution is only as good as the data entered. Make sure workers understand the concepts (ToMove, Rejected, Scrap, Sample) and when to use each status.
 
 ---
 
-::: tip رؤية في الوقت الفعلي
-يُحدّث تنفيذ الإنتاج تتبع الإنتاج الجاري في الوقت الفعلي. يمكن للمديرين رؤية حالة العمليات دون الحاجة للتجوال في أرض المصنع.
+::: tip Real-Time Visibility
+Production execution updates work-in-process tracking in real-time. Managers can see operation status without walking the factory floor.
 :::
 
-::: warning بوابات الجودة
-إذا كانت الموافقة على الجودة مطلوبة في توجيه المستند وكانت للعملية قوائم تحقق جودة، فقد يُحظر التنفيذ حتى تتم الموافقة على وثائق الجودة. خطّط لذلك.
+::: warning Quality Gates
+If quality approval is required in the document term and an operation has quality checklists, execution may be blocked until quality documents are approved. Plan accordingly.
 :::
 
-::: info الخطوة التالية: الإغلاق
-بمجرد اكتمال الإنتاج وتسجيل جميع التنفيذات، ستُغلق أمر الإنتاج لاستكمال التكاليف. انظر [تكاليف الإنتاج وإغلاق الأمر](./production-costing.md).
+::: info Next Step: Closing
+Once production is complete and all executions are recorded, you'll close the production order to finalize costs. See [Production Costing and Order Closing](./production-costing.md).
 :::

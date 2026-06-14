@@ -1,27 +1,21 @@
-<rtl>
+# Real Estate Investment FAQ
 
-# أسئلة شائعة عن الاستثمار العقاري
+## How do I extract the journal entry from a real estate investment cost distribution?
 
-## كيف أُخرج القيد من توزيع تكاليف الاستثمار العقاري؟
+**Question:**
+In the *Real Estate Investment Cost Document* (**RECostDocument**), I need to extract the accounting journal entry based on the distribution the system created and added to the **REEstateCostEntry** table. How can I do that?
 
-**السؤال:**  
-في مستند *سند تكاليف استثمار عقاري* (**RECostDocument**) أحتاج إلى استخراج القيد المحاسبي بناءً على التوزيعة التي أنشأها النظام وأضافها في جدول **REEstateCostEntry**. كيف يمكنني عمل ذلك؟
+**Answer:**
+There is a utility named **fetchCostEntries** that returns the **REEstateCostEntry** lines belonging to the current document.
+You can then use the entity flow **EAAddAccountingEffects** to add the accounting effect based on the values in that table.
 
-**الإجابة:**  
-يوجد أداة (Utility) باسم **fetchCostEntries** تقوم بإرجاع سطور **REEstateCostEntry** الخاصة بالسند الحالي.  
-بعد ذلك يمكنك استخدام مسار الكيان **EAAddAccountingEffects** لإضافة التأثير المحاسبي اعتمادًا على القيم الموجودة في هذا الجدول.
-
-**مثال:**
+**Example:**
 ```text
 $fetchCostEntries.costValue=CostDR,CostCR
 ````
 
-في التأثير المحاسبي يمكنك استخدام أي حقل من السطر، ومن بين الحقول المتاحة:
+In the accounting effect you can use any field from the line. Among the available fields are:
 
 * `estate`
 * `owner`
-* وبقية الحقول المعرفة في جدول **REEstateCostEntry**
-
-
-
-</rtl>
+* and the rest of the fields defined in the **REEstateCostEntry** table

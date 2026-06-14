@@ -1,174 +1,174 @@
-# اختصارات لوحة المفاتيح
+# Keyboard Shortcuts
 
 
-## اختصارات الدعم الفني / التشخيص
-هذه اختصارات عامة (تعمل في أي مكان داخل التطبيق) ومخصصة لفريق الدعم والمطوّرين.
+## Support / Debug Shortcuts
+These are global shortcuts (handled anywhere in the app) intended for support staff and developers.
 
-- **Ctrl + Alt + X**: تفعيل خيارات النسخ المتماثل (Replication)
-- **Ctrl + Alt + Shift + X**: تبديل وضع "إظهار المعرّفات" (يُظهر معرّفات الحقول والكيانات الداخلية)
-- **Ctrl + Alt + I**: تفعيل "إظهار معلومات الحقل" (انقر بزر الفأرة الأيمن على الحقل بعدها لفحص بياناته الوصفية)
-- **Ctrl + Alt + L**: تفعيل وفتح نافذة سجلّات الخادم (Server Logs)
-- **Ctrl + Alt + H**: إظهار رسائل المساعدة
-- **Ctrl + Alt + T**: تفعيل تحرير خصائص عناصر الواجهة
-- **F9** (مع وجود حقل في وضع التركيز): إظهار التلميح / المساعدة للحقل المُركَّز عليه
+- **Ctrl + Alt + X**: Activate replication options
+- **Ctrl + Alt + Shift + X**: Toggle "Show IDs" mode (reveals internal field/entity IDs)
+- **Ctrl + Alt + I**: Activate "Show Field Info" (right-click a field afterwards to inspect its metadata)
+- **Ctrl + Alt + L**: Activate and open the Server Logs dialog
+- **Ctrl + Alt + H**: Show help messages
+- **Ctrl + Alt + T**: Activate editing of UI element properties
+- **F9** (with a field focused): Show the tooltip / help for the focused field
 
-## اختصارات الجداول
-متاحة أثناء تحرير جداول التفاصيل في شاشة التحرير.
+## Grid Shortcuts
+Available while editing detail grids on an edit screen.
 
-- **Insert**: إدراج صف جديد بعد الصف الحالي
-- **Ctrl + Insert**: نسخ الصف الحالي إلى صف جديد
-- **Shift + Insert**: نسخ الصف الحالي إلى صف جديد
-- **Ctrl + Alt + Insert**: نسخ الصف الحالي **عدة مرات** (يفتح نافذة لتحديد العدد)
-- **Ctrl + Delete**: حذف الصف الحالي
-- **Arrow Down** (أثناء تحرير خلية): الانتقال إلى الصف التالي؛ وإذا كنت في آخر صف يُنشأ صف جديد تلقائيًا
-- **Arrow Up** (أثناء تحرير خلية): الانتقال إلى الصف السابق
-- **F9**: إظهار التلميح / المساعدة لحقل الخلية المُركَّز عليها
-- **Alt + F**: إظهار/إخفاء شريط البحث (Find) داخل الجدول
+- **Insert**: Insert a new row after the current row
+- **Ctrl + Insert**: Copy the current row into a new row
+- **Shift + Insert**: Copy the current row into a new row
+- **Ctrl + Alt + Insert**: Copy the current row **multiple times** (opens a count dialog)
+- **Ctrl + Delete**: Delete the current row
+- **Arrow Down** (while editing a cell): Move to the next row; if you are on the last row, a new row is created automatically
+- **Arrow Up** (while editing a cell): Move to the previous row
+- **F9**: Show the tooltip / help for the focused grid cell's field
+- **Alt + F**: Toggle the find (search) bar for the grid
 
-## اختصارات شريط البحث
-متاحة عند فتح شريط البحث داخل الجدول.
+## Find Bar Shortcuts
+Available when the grid find bar is open.
 
-- **Enter**: الانتقال إلى النتيجة التالية
-- **Shift + Enter**: الانتقال إلى النتيجة السابقة
-- **Escape**: إغلاق شريط البحث
-- **Alt + F**: إظهار/إخفاء شريط البحث
+- **Enter**: Go to the next match
+- **Shift + Enter**: Go to the previous match
+- **Escape**: Close the find bar
+- **Alt + F**: Toggle the find bar
 
-## اختصارات حقول المرجع (Reference)
-متاحة عند التركيز على حقل مرجع (بحث)، سواء في شاشات التحرير أو في خلايا الجداول.
+## Reference Field Shortcuts
+Available when a reference (lookup) field is focused, both on edit screens and in grid cells.
 
-- **F4**: فتح نافذة البحث / الاستعراض
-- **F6** (أو **Ctrl + Click** على الرابط): فتح السجل المرجعي في تبويب جديد
-- **F7** (أو **Alt + Click** على الرابط): تحرير السجل المرجعي في نافذة منبثقة
-- **F8**: إنشاء سجل مرجعي جديد
+- **F4**: Open the search / browse picker
+- **F6** (or **Ctrl + Click** on the link): Open the referenced record in a new tab
+- **F7** (or **Alt + Click** on the link): Edit the referenced record in a popup
+- **F8**: Create a new referenced record
 
-## اختصارات حقول التاريخ / الوقت
-- **F4**: فتح منتقي التاريخ / الوقت
-- **Tab**: إغلاق منتقي التاريخ / الوقت المفتوح والانتقال إلى الحقل التالي
+## Date / Time Field Shortcuts
+- **F4**: Open the date / time picker
+- **Tab**: Close the open date / time picker and move to the next field
 
-## التنقل بين الحقول
-- **Enter**: الانتقال إلى الحقل التالي (ما لم يكن الحقل مُهيّأً للبقاء عند الضغط على Enter)
-- **Shift + Enter**: الرجوع إلى الحقل السابق
+## Field Navigation
+- **Enter**: Move to the next field (unless the field is configured to keep focus on Enter)
+- **Shift + Enter**: Move back to the previous field
 
-## اختصارات محرر المعايير (Criteria)
-متاحة في محرر المعايير.
+## Criteria / Expression Editor Shortcuts
+Available in the criteria expression editor.
 
-- **F7**: إضافة سطر معيار جديد
-- **F8**: إضافة نسخة من سطر المعيار الحالي
-- **Ctrl + Delete**: حذف سطر المعيار الحالي
+- **F7**: Append a new expression line
+- **F8**: Append a copy of the current expression line
+- **Ctrl + Delete**: Remove the current expression line
 
-## اختصارات القوائم والبحث
-- **Arrow Up / Arrow Down**: تحريك التحديد في قائمة "المزيد" (More) وفي نتائج بحث شريط التنقل
-- **Enter**: فتح عنصر القائمة أو نتيجة البحث المُحدَّدة
-- **Escape**: إغلاق القائمة أو القائمة المنسدلة أو النافذة المفتوحة
+## Menu & Search Shortcuts
+- **Arrow Up / Arrow Down**: Move the selection in the "More" menu and the navbar search results
+- **Enter**: Open the highlighted menu item or search result
+- **Escape**: Close the open menu, dropdown, or dialog
 
-## اختصارات المحادثة
-- **Enter**: إرسال الرسالة (في محادثة المستخدم والمساعد الذكي على حدٍّ سواء)
-- **Escape**: إغلاق قائمة اقتراحات الإشارة (@mention)
+## Chat Shortcuts
+- **Enter**: Send the message (in both the user chat and the AI assistant)
+- **Escape**: Close the @mention suggestions dropdown
 
-## اختصارات تسجيل الدخول
-- **Enter**: إرسال نموذج تسجيل الدخول أو تغيير كلمة المرور أو نسيان كلمة المرور أو رمز التحقق (OTP)
+## Login Shortcuts
+- **Enter**: Submit the sign-in, change-password, forgot-password, or OTP form
 
-## اختصارات مسارات الأعمال (Business Functions)
-هذه الاختصارات تُشغّل مسارات الأعمال (الإجراءات القياسية في شاشات التحرير والقوائم). وهي معرّفة في تعريف الاختصارات `default` المرفق مع النظام، ويمكن تخصيصها لكل مستخدم. وعندما يكون لمسارٍ ما اختصار، يظهر تركيب المفاتيح بين قوسين مربعين بجوار زرّه أو عنصر قائمته (مثال: `[Ctrl + S]`).
+## Business Function Shortcuts
+These shortcuts trigger business functions (the standard actions on edit and list screens). They are defined by the `default` Shortcuts Definition that ships with the system, and they can be customized per user. When a function has a shortcut assigned, the key combination is shown in square brackets next to its button or menu item (for example, `[Ctrl + S]`).
 
-### إجراءات السجل
-- **Ctrl + S**: حفظ
-- **Alt + S**: حفظ ومتابعة (حفظ ثم بدء سجل جديد)
-- **Ctrl + R**: اعتماد (تأكيد / ترحيل المستند)
-- **Alt + R**: عكس المستند
-- **Alt + N**: سجل جديد
-- **Ctrl + D**: نسخة مماثلة من السجل الحالي
-- **Alt + Delete**: حذف السجل الحالي
-- **Alt + P**: طباعة
-- **Alt + F5**: تحديث
-- **Ctrl + M**: فتح قائمة "المزيد" (More)
+### Record Actions
+- **Ctrl + S**: Save
+- **Alt + S**: Save and continue (save then start a new record)
+- **Ctrl + R**: Accept (confirm / post the document)
+- **Alt + R**: Reverse document
+- **Alt + N**: New record
+- **Ctrl + D**: Duplicate the current record
+- **Alt + Delete**: Delete the current record
+- **Alt + P**: Print
+- **Alt + F5**: Refresh
+- **Ctrl + M**: Open the "More" menu
 
-### التنقل
-- **Alt + F**: بحث عام
-- **Ctrl + G**: انتقال (فتح سجل عبر الكود)
-- **Alt + H**: الانتقال إلى سجل
-- **Ctrl + L**: عرض القائمة
-- **Ctrl + T**: العرض الشجري
-- **Alt + Page Down**: السجل السابق
-- **Alt + Page Up**: السجل التالي
-- **Alt + Home**: السجل الأول
-- **Alt + End**: السجل الأخير
+### Navigation
+- **Alt + F**: General search
+- **Ctrl + G**: Go (open a record by code)
+- **Alt + H**: Go to record
+- **Ctrl + L**: List view
+- **Ctrl + T**: Tree view
+- **Alt + Page Down**: Previous record
+- **Alt + Page Up**: Next record
+- **Alt + Home**: First record
+- **Alt + End**: Last record
 
-### صفوف الجداول
-- **Alt + Ctrl + N**: إضافة صف
-- **Shift + Insert**: إدراج صف
-- **Shift + Delete**: حذف الصف الحالي
-- **Ctrl + Arrow Up**: تحريك الصف الحالي لأعلى
-- **Ctrl + Arrow Down**: تحريك الصف الحالي لأسفل
-- **Alt + Arrow Up** / **Alt + Arrow Down**: تبديل اتجاه الترتيب
+### Grid Rows
+- **Alt + Ctrl + N**: Append a row
+- **Shift + Insert**: Insert a row
+- **Shift + Delete**: Delete the current row
+- **Ctrl + Arrow Up**: Move the current row up
+- **Ctrl + Arrow Down**: Move the current row down
+- **Alt + Arrow Up** / **Alt + Arrow Down**: Toggle the sort direction
 
-::: tip قابلة للتخصيص
-تأتي هذه الاختصارات من تعريف الاختصارات `default`. ويمكن للمسؤول تغيير أيٍّ منها، لذا فإن المفاتيح المعروضة أعلاه هي القيم الافتراضية الجاهزة — وقد يختلف نظامك عنها.
+::: tip Customizable
+These mappings come from the `default` Shortcuts Definition. An administrator can change any of them, so the keys shown above are the out-of-the-box defaults — your system may differ.
 :::
 
-## اختصارات نقاط البيع (POS)
-تنطبق هذه الاختصارات على تطبيق نقاط البيع (POS). المفاتيح المذكورة هي القيم الافتراضية — ويمكن إعادة تعيين كلٍّ منها (أو إزالته) لكل نقطة بيع من خلال إعداد اختصارات نقاط البيع.
+## POS Shortcuts
+These shortcuts apply to the Point of Sale (POS) application. The keys listed are the defaults — each one can be reassigned (or cleared) per register through the POS Shortcuts configuration.
 
-### الشاشات والتنقل
-- **F1**: التنقل بين الشاشات
-- **Alt + F1**: فاتورة مبيعات جديدة
-- **Shift + F1**: استبدال (فاتورة استبدال)
-- **Ctrl + F1**: فاتورة مرتجع
-- **F2**: شاشة الوردية (Shift)
-- **Ctrl + F2**: شاشة المخزون
-- **F3**: إظهار جدول البحث
-- **Ctrl + F3**: فتح فاتورة
-- **Ctrl + F4**: إظهار شاشة حالة البيانات
-- **Page Down**: نقل التركيز إلى جدول الأصناف
-- **Page Up**: نقل التركيز إلى حقول الرأس
+### Screens & Navigation
+- **F1**: Move between screens
+- **Alt + F1**: New sales invoice
+- **Shift + F1**: Replacement (replacement invoice)
+- **Ctrl + F1**: Return invoice
+- **F2**: Shift screen
+- **Ctrl + F2**: Inventory screen
+- **F3**: Show the search table
+- **Ctrl + F3**: Open invoice
+- **Ctrl + F4**: Show the data status screen
+- **Page Down**: Move focus to the lines grid
+- **Page Up**: Move focus to the header fields
 
-### الدفع والفوترة
-- **F5**: نافذة الدفع (ودفع الفاتورة)
-- **Ctrl + F5**: الدفع بدون طباعة (نافذة الدفع المتعدد)
-- **Alt + R**: الدفع باستخدام نقاط المكافآت
-- **Alt + P**: إعادة طباعة
-- **Ctrl + D**: تعطيل الطباعة
-- **Alt + V**: تعديل تكلفة التوصيل
-- **Ctrl + Shift + N**: تحويل الإشعارات الدائنة
-- **Ctrl + R**: المرتجع بعد المدة المسموح بها
-- **Ctrl + O**: الاستعلام عن الطلبات الأونلاين
+### Payment & Invoicing
+- **F5**: Pay dialog (and Invoice pay)
+- **Ctrl + F5**: Pay without printing (multi-payment dialog)
+- **Alt + R**: Pay using reward points
+- **Alt + P**: Reprint
+- **Ctrl + D**: Disable printing
+- **Alt + V**: Edit delivery cost
+- **Ctrl + Shift + N**: Transfer credit notes
+- **Ctrl + R**: Return after the allowed period
+- **Ctrl + O**: Online order inquiry
 
-### الفواتير المعلّقة
-- **F6**: تعليق فاتورة
-- **Ctrl + I**: فتح فاتورة معلّقة
-- **Ctrl + F6**: إظهار الفواتير المعلّقة
-- **Ctrl + Shift + F6**: إظهار الفواتير المعلّقة لمركز الاتصال
-- **Alt + F6**: حذف الفواتير المعلّقة
-- **Shift + F6**: حذف كل الفواتير المعلّقة
+### Held Invoices
+- **F6**: Hold invoice
+- **Ctrl + I**: Open held invoice
+- **Ctrl + F6**: Show held invoices
+- **Ctrl + Shift + F6**: Show call-center held invoices
+- **Alt + F6**: Delete held invoices
+- **Shift + F6**: Delete all held invoices
 
-### الخصومات
-- **F10**: خصم الفاتورة
-- **Ctrl + F10**: حذف الخصم
-- **Alt + 1** حتى **Alt + 8**: تطبيق خصم السطر من 1 إلى 8
+### Discounts
+- **F10**: Invoice discount
+- **Ctrl + F10**: Delete discount
+- **Alt + 1** through **Alt + 8**: Apply line discount 1–8
 
-### الأصناف (السطور)
-- **Ctrl + Delete**: حذف السطر الحالي
-- **Num +** (علامة الجمع في لوحة الأرقام): نسخة مماثلة من السطر الحالي
-- **Ctrl + Q**: تعديل كمية السطر
+### Lines
+- **Ctrl + Delete**: Delete the current line
+- **Num +** (numpad plus): Duplicate the current line
+- **Ctrl + Q**: Edit the line quantity
 
-### العميل والمندوب
-- **F7**: تفعيل حقل العميل
-- **Shift + F7**: إضافة عميل جديد
-- **Ctrl + Shift + C**: تعديل العميل
-- **Ctrl + F7**: حذف العميل
-- **F8**: تفعيل حقل المندوب
-- **Ctrl + F8**: حذف المندوب
-- **Ctrl + F**: تفعيل حقل الصنف
+### Customer & Salesman
+- **F7**: Activate the customer field
+- **Shift + F7**: Add a new customer
+- **Ctrl + Shift + C**: Edit the customer
+- **Ctrl + F7**: Delete the customer
+- **F8**: Activate the salesman field
+- **Ctrl + F8**: Delete the salesman
+- **Ctrl + F**: Activate the item field
 
-### أخرى
-- **Ctrl + F9**: الاستعلام عن السعر
-- **F4**: تغيير الخط
-- **F11**: قفل الشاشة
-- **F12**: المساعدة
-- **Ctrl + F11**: إظهار كل التنبيهات
-- **Ctrl + Shift + I**: تعديل تصنيف الفاتورة
-- **Alt + F4**: إنهاء (الخروج من) تطبيق نقاط البيع
+### Other
+- **Ctrl + F9**: Price inquiry
+- **F4**: Change font
+- **F11**: Lock screen
+- **F12**: Help
+- **Ctrl + F11**: Show all notifications
+- **Ctrl + Shift + I**: Edit the invoice classification
+- **Alt + F4**: Terminate (exit) the POS application
 
-::: tip قابلة للتخصيص
-اختصارات نقاط البيع أعلاه قيمٌ افتراضية معرّفة في الكود. وإذا عرّف إعداد نقطة البيع اختصارًا خاصًا به لإحدى الوظائف فإنه يأخذ الأولوية — وإذا كان مفتاح افتراضي مستخدَمًا بالفعل لوظيفة أخرى فيُهمَل المفتاح الافتراضي لتجنّب التعارض.
+::: tip Customizable
+The POS shortcuts above are defaults defined in code. If a register's POS configuration defines its own shortcut for a function, that takes precedence — and if a default key is already used by another function, the default is dropped to avoid conflicts.
 :::

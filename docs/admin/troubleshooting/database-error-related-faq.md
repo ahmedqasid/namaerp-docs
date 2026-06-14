@@ -1,14 +1,13 @@
-<rtl>
 
 # Database Related Errors FAQ
 
-## عند فتح سند مصاريف اعتماد أصل تظهر رسالة خطأ "لم يمكن تنفيذ العملية"
-وظهر معي لوج هذا جزء منه
+## When Opening a Fixed Asset Custody Expense Voucher, the Error "Operation Could Not Be Executed" Appears
+The following log excerpt was observed:
 ```log
 Could not extract column [19] from JDBC ResultSet [The conversion from nvarchar to NCLOB is unsupported.]
 ```
 --------
-لحل المشكلة قم بتنفيذ الاستعلام التالي:
+To resolve the issue, execute the following query:
 ::: details SQL Query to convert remarks to NCLOB (NVARCHAR(MAX)) instead of NVARCHAR(255)
 ```sql
 ALTER TABLE FACustodyScheduledPayLine ALTER COLUMN remarks NVARCHAR(MAX);
@@ -35,5 +34,3 @@ ALTER TABLE FACustodyTransferToLine ALTER COLUMN remark NVARCHAR(MAX);
 ALTER TABLE FACustodianLine ALTER COLUMN remark NVARCHAR(MAX);
 ```
 :::
-
-</rtl>

@@ -1,53 +1,53 @@
-# الودائع الثابتة
+# Fixed Deposits
 
-الوديعة الثابتة هي صورة القرض معكوسةً: بدل أن تقترض من البنك، تودِع لديه مبلغًا لمدّة محدّدة مقابل فائدة. وتتبعها نما بالمنطق نفسه الذي تتبع به [القروض البنكية](./bank-loans.md): ملفٌ رئيسي يحمل شروط الوديعة، ثم سند إصدار يُرحّلها، ثم سندات إصدار أرباح دورية تثبّت الفوائد.
+A fixed deposit is the mirror image of a loan: instead of borrowing from the bank, you place an amount with it for a set term in return for interest. Nama tracks it with the same logic it uses for [Bank Loans](./bank-loans.md): a master file holding the deposit terms, then an issue document that posts it, then periodic interest-payment documents that lock in the interest.
 
-::: info الترخيص المطلوب
-الودائع الثابتة ضمن ترخيص `accounting-loans` — وهو الترخيص نفسه الذي يغطّي [القروض البنكية](./bank-loans.md) و[التسهيلات الائتمانية](./credit-facilities.md).
+::: info Required license
+Fixed deposits are part of the `accounting-loans` license — the same license that covers [Bank Loans](./bank-loans.md) and [Credit Facilities](./credit-facilities.md).
 :::
 
-## دورة حياة الوديعة
+## The deposit's lifecycle
 
-تبدأ كل الشاشات من جذر **البنوك > ودائع بنكية**:
+Every screen hangs off the **Banks > Fixed Deposits** root:
 
-1. **وديعة بنكية** — الملف الرئيسي بحالته المبدئية «مبدئي».
-2. **إصدار وديعة** — اللحظة التي يخرج فيها المبلغ إلى الوديعة فعلًا (يُرحَّل محاسبيًا، وتتحوّل الحالة إلى «تم إصدارها»).
-3. **سند إصدار أرباح** — تثبيت دفعات الفوائد الدورية (المستند نفسه المستخدَم في القروض).
-4. **سند تعديل وديعة** — تعديل بيانات الوديعة بعد إصدارها.
+1. **Fixed Deposit** — the master file in its initial status "Initial".
+2. **Fixed Deposit Issue** — the moment the amount actually goes out into the deposit (it posts to the ledger, and the status flips to "Released").
+3. **Interest Payment Document** — locking in the periodic interest payments (the same document used for loans).
+4. **Fixed Deposit Changing** — amending the deposit data after it's been issued.
 
-## الملف الرئيسي للوديعة
+## The deposit's master file
 
-في شاشة **وديعة بنكية** (`Banks > Fixed Deposits > Fixed Deposit`) تُعرّف الشروط: **البنك** و**حساب البنك**، و**نوع الوديعة**، و**قيمة الوديعة**، و**من تاريخ / إلى تاريخ**، و**تُحسب كل** (فترة احتساب الفائدة)، و**نسبة الفائدة** و**نوع الفائدة** و**طريقة احتساب الفائدة** و**تاريخ بدء دفع الفوائد**.
+On the **Fixed Deposit** screen (`Banks > Fixed Deposits > Fixed Deposit`) the terms are defined: the **bank** and **bank account**, the **deposit type**, the **deposit value**, the **from date / to date**, the **calculated per** (the interest-calculation period), the **interest percentage**, **interest type**, **interest calculation method** and **interest payment start date**.
 
-![شاشة الوديعة البنكية](./images/deposits/fixed-deposit.png)
+![Fixed Deposit screen](./images/deposits/fixed-deposit.png)
 
-**نوع الفائدة:** بسيط (Simple) أو مركّب (Compound). و**طريقة احتساب الفائدة** تحدّد دورية الاحتساب: سنوي (Yearly) أو شهري (Monthly) أو يومي (Daily).
+**Interest type:** Simple or Compound. The **interest calculation method** sets the calculation frequency: Yearly, Monthly or Daily.
 
-**حالات الوديعة:** مبدئي (Initial) → تم إصدارها (Released) → قيد التنفيذ (In Progress) → منتهي (Finished) / ملغي (Cancelled).
+**Deposit statuses:** Initial → Released → In Progress → Finished / Cancelled.
 
-## الإصدار ودفع الأرباح
+## Issuing and paying interest
 
-عند تحرير **إصدار وديعة** (`Banks > Fixed Deposits > Fixed Deposit Issue`) يخرج المبلغ من حسابك إلى الوديعة لدى البنك، ويُرحَّل الأثر المحاسبي عبر جانبَي **مدين/دائن قيمة الفائدة** إلى جانب أصل المبلغ، وتتحوّل حالة الوديعة إلى «تم إصدارها».
+When a **Fixed Deposit Issue** (`Banks > Fixed Deposits > Fixed Deposit Issue`) is recorded, the amount goes out of your account into the deposit with the bank, the accounting effect posts via the **interest value debit/credit** sides alongside the principal, and the deposit's status flips to "Released".
 
-![شاشة إصدار الوديعة](./images/deposits/fixed-deposit-issue.png)
+![Fixed Deposit Issue screen](./images/deposits/fixed-deposit-issue.png)
 
-ثم تُثبَّت الفوائد المستحقّة دوريًا عبر **سند إصدار أرباح** (`Banks > Fixed Deposits > Interest Payment Document`) — وهو المستند المشترك مع القروض. (مصدر حسابات الإصدار والأرباح في مرجع [توجيهات المستندات](./support/accounting-document-terms.md).)
+The due interest is then locked in periodically via the **Interest Payment Document** (`Banks > Fixed Deposits > Interest Payment Document`) — the document shared with loans. (Where the issue and interest accounts come from is in the [Document terms](./support/accounting-document-terms.md) reference.)
 
-## التعديل
+## Amendment
 
-يُستخدم **سند تعديل وديعة** لتعديل بيانات الوديعة بعد إصدارها ضمن ضوابط النظام.
+A **Fixed Deposit Changing** document is used to amend the deposit data after it's been issued, within the system's controls.
 
-## النماذج المطبوعة
+## Printed forms
 
-| النموذج | المستند |
+| Form | Document |
 |---|---|
-| الوديعة البنكية (SYSF-BNK010) | مطبوعة بيانات الوديعة. |
-| إصدار الوديعة (SYSF-BNK011) | مطبوعة سند إصدار الوديعة. |
+| Fixed Deposit (SYSF-BNK010) | The deposit's data printout. |
+| Fixed Deposit Issue (SYSF-BNK011) | The deposit-issue document printout. |
 
-## للدعم الفني
+## For Support
 
-- **«الوديعة ما زالت مبدئية»** — لم يُحرَّر سند إصدار الوديعة بعد؛ الإصدار هو ما يُخرج المبلغ ويحرّك الحالة.
-- **«الفوائد لا تُحتسب كما أتوقّع»** — تحقّق من **نوع الفائدة** (بسيط/مركّب) و**طريقة احتساب الفائدة** (سنوي/شهري/يومي) على الوديعة.
-- **«سند إصدار الأرباح نفسه يظهر في القروض»** — هذا صحيح؛ المستند مشترك بين الودائع و[القروض](./bank-loans.md).
-- **«من أين تأتي حسابات الفائدة؟»** — من توجيه **إصدار الوديعة** و**سند إصدار الأرباح**؛ راجِع [توجيهات المستندات](./support/accounting-document-terms.md).
-- آلية المعالجة المحاسبية في [كيف تُعالَج المستندات إلى أثر محاسبي](./support/accounting-request-processing.md).
+- **"The deposit is still Initial"** — the deposit-issue document hasn't been recorded yet; issuing is what moves the amount out and advances the status.
+- **"The interest isn't computed as I expect"** — check the **interest type** (Simple/Compound) and the **interest calculation method** (Yearly/Monthly/Daily) on the deposit.
+- **"The same interest-payment document shows up under loans"** — that's correct; the document is shared between deposits and [Loans](./bank-loans.md).
+- **"Where do the interest accounts come from?"** — from the **Fixed Deposit Issue** and **Interest Payment Document** terms; see [Document terms](./support/accounting-document-terms.md).
+- The accounting-processing mechanism is in [How documents are processed into accounting effects](./support/accounting-request-processing.md).

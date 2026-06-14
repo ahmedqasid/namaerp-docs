@@ -1,12 +1,12 @@
-# أسماء التخطيط (Layout Names):
+# Layout Names:
 
-#### يمكنك تجاوز التخطيطات الافتراضية للنظام (ذات المعرف default) بإنشاء تخطيطات بالمعرف (dbdefault)، أو يمكنك تحديد تخطيطات افتراضية لكل شركة باستخدام (legalentitycodedefault). تذكر دائمًا تغيير المسار إلى الكود الجديد الذي تستخدمه.
+#### You can override system default layouts (with id default) by creating layouts with id (dbdefault) or you can specify default layouts for each company by using (legalentitycodedefault) Always remember to change the path to the new code you use
 
 
-# الأعمدة الخاصة في Screen Modifier:
+# Screen Modifier Special Columns:
 
- - #### يمكنك إضافة كود المرجع بإلحاق .code باسم العمود، مثال: lines.account.code
- - #### يمكنك إضافة اسم المرجع بإلحاق .name باسم العمود، مثال: lines.account.name
- - #### يمكنك إضافة صورة المرجع بإلحاق .image باسم العمود، مثال: lines.account.image
-[فيديو 1](https://youtu.be/LaBbI6yyIhg?si=exaaxilwJCZRNo2k)
-[فيديو 2](https://www.youtube.com/watch?v=RX83qUZGr60)
+ - #### You can add a reference code if you append .code to column name, example: lines.account.code
+ - #### You can add a reference name if you append .name to column name, example: lines.account.name
+ - #### You can add a reference image if you append .image to column name, example: lines.account.image
+[Video 1](https://youtu.be/LaBbI6yyIhg?si=exaaxilwJCZRNo2k)
+[Video 2](https://www.youtube.com/watch?v=RX83qUZGr60)

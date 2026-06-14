@@ -1,98 +1,98 @@
-# تحريك المخزون بين المخازن (Moving Stock)
+# Moving Stock Between Warehouses
 
-في بعض الأحيان لا تدخل الأصناف ولا تخرج - بل تنتقل فقط من مكان إلى آخر. يركّز هذا الدليل على **التحويلات المخزنية**: نقل المخزون بين المخازن والمواقع مع بقاء ملكيته داخل المنشأة.
+Sometimes items don't come in or go out - they just move from one place to another. This guide focuses on **stock transfers**: moving inventory between warehouses and locations while its ownership stays within the organization.
 
-::: info حركات أخرى لها أدلتها الخاصة
-تحويل المخزون من خلال **تجميعه** يجده القارئ في [التجميع والتعبئة](./assembly-and-packaging.md)؛ و**حجز** الأصناف دون تحريكها في [دليل نظام الحجوزات](./reservation-system-guide.md)؛ و**تحميلها وتسليمها** للعملاء في [التسليم والتحميل](./delivery-and-loading.md)؛ وتسوية الفروق عبر **الجرد** في [الجرد المخزني](./stock-taking.md). يبقى هذا الدليل مخصصًا للتحويلات بين المخازن.
+::: info Other movements have their own guides
+Transforming stock by **assembling** it is covered in [Assembly & Packaging](./assembly-and-packaging.md); **reserving** items without moving them in the [Reservation System Guide](./reservation-system-guide.md); **loading and delivering** them to customers in [Delivery & Loading](./delivery-and-loading.md); and reconciling differences through **counting** in [Stock Taking](./stock-taking.md). This guide stays focused on inter-warehouse transfers.
 :::
 
-## تحويلات المخزون: الأساسيات
+## Stock Transfers: The Basics
 
-**تحويل المخزون** هو أي حركة للأصناف من موقع إلى آخر دون تغيير الجهة المالكة لها. إجمالي المخزون يبقى كما هو - فقط الموقع يتغير.
+A **stock transfer** is any movement of items from one location to another without changing their owner. Total inventory stays the same - only the location changes.
 
-فكّر في الأمر كنقل الأموال بين حساب الجاري وحساب التوفير. ثروتك الإجمالية لا تتغير، لكن مكان تواجد المال يتغير، وتحتاج إلى تتبع ذلك.
+Think of it like moving money between your checking and savings accounts. Your total wealth doesn't change, but where the money sits does, and you need to track that.
 
-![قائمة التحويلات المخزنية في Nama ERP](images/moving/stock-transfer-list-ar.png)
+![Stock transfer list in NaMa ERP](../../ar/modules/supplychain/images/moving/stock-transfer-list-en.png)
 
-## التحويل البسيط: مستند واحد وحركة كاملة
+## The Simple Transfer: One Document, Complete Movement
 
-يعالج مستند **التحويل المخزني** (StockTransfer) التحويلات المباشرة في خطوة واحدة.
+The **Stock Transfer** (StockTransfer) document handles direct transfers in a single step.
 
-### سيناريوهات التحويل الشائعة
+### Common Transfer Scenarios
 
-**بين المخازن**
-لديك ثلاثة مخازن: الرئيسي، والفرع الشمالي، والفرع الجنوبي. عميل في الفرع الشمالي يريد صنفًا موجودًا فقط في المخزن الرئيسي. أنشئ تحويلًا من المخزن الرئيسي إلى الفرع الشمالي بالكمية المطلوبة. سيخفّض النظام المخزون في المصدر ويزيده في الوجهة، مع بقاء الإجمالي ثابتًا، وتتبّع سجل حركة الصنف.
+**Between warehouses**
+You have three warehouses: main, north branch, and south branch. A customer at the north branch wants an item that's only in the main warehouse. Create a transfer from the main warehouse to the north branch for the required quantity. The system reduces stock at the source and increases it at the destination, with the total staying constant, and tracks the item's movement history.
 
-**داخل مخزن واحد**
-حتى داخل مبنى واحد قد تحتاج إلى نقل الأصناف: من رصيف الاستلام إلى موقع التخزين، أو من التخزين إلى منطقة التجهيز، أو من رف إلى آخر أثناء إعادة التنظيم. أنشئ تحويلات لتحديث سجلات مواقع النظام بما يطابق الواقع الفعلي.
+**Within a single warehouse**
+Even inside one building you may need to move items: from the receiving dock to a storage location, from storage to a staging area, or from shelf to shelf during reorganization. Create transfers to update the system's location records to match physical reality.
 
-### آلية عمل التحويلات
+### How Transfers Work
 
-يقوم التحويل في آنٍ واحد بـ:
-1. **الصرف** من الموقع المصدر (يخفض الكمية هناك)
-2. **الاستلام** في الموقع الوجهة (يزيد الكمية هناك)
+A transfer simultaneously:
+1. **Issues** from the source location (reducing the quantity there)
+2. **Receives** at the destination location (increasing the quantity there)
 
-هو في جوهره عملية صرف واستلام معًا، مجمّعتان في مستند واحد. إذا فشل التحويل أو أُلغي، يُعكس الجانبان معًا - لن تجد أصنافًا ضائعة في المنتصف.
+It's essentially an issue and a receipt together, bundled into one document. If the transfer fails or is cancelled, both sides are reversed together - you won't find items lost in the middle.
 
-**ملاحظة التكلفة**: تُنقل الأصناف عادةً بتكلفتها الحالية - دون إعادة تقييم. فالصنف يحمل التكلفة ذاتها أينما كان.
+**Cost note**: Items are usually moved at their current cost - no revaluation. An item carries the same cost wherever it is.
 
-## التحويل ذو الخطوتين: مزيد من التحكم والتتبع
+## The Two-Step Transfer: More Control and Tracking
 
-بعض المؤسسات تريد تحكمًا أشد في التحويلات، خاصة عندما تنتقل الأصناف بين مواقع بعيدة، أو يكون وقت العبور ملحوظًا، أو تتغير الحيازة من يد إلى أخرى، أو يتطلب الأمن والامتثال تتبع المخزون أثناء العبور. هنا يأتي دور عملية التحويل ذات الخطوتين.
+Some organizations want tighter control over transfers, especially when items move between distant locations, transit time is significant, custody changes hands, or security and compliance require tracking inventory in transit. This is where the two-step transfer process comes in.
 
-### صرف التحويل المخزني (IssueStockTransfer)
+### Issue Stock Transfer (IssueStockTransfer)
 
-يوثّق **صرف التحويل** جانب الإرسال: الأصناف تغادر المخزن المصدر، فينخفض المخزون هناك وتصبح الأصناف "في الطريق"، ويسجّل المستند ما أُرسل ومتى وبواسطة من.
+The **Issue Stock Transfer** documents the sending side: items leave the source warehouse, so stock decreases there and the items become "in transit," and the document records what was sent, when, and by whom.
 
-### استلام التحويل المخزني (ReceiptStockTransfer)
+### Receipt Stock Transfer (ReceiptStockTransfer)
 
-يوثّق **استلام التحويل** جانب الوصول: الأصناف تصل إلى المخزن الوجهة، فيزداد المخزون هناك وتصبح "متاحة" في الموقع الجديد، ويسجّل المستند ما استُلم ومتى وبواسطة من.
+The **Receipt Stock Transfer** documents the arrival side: items reach the destination warehouse, so stock increases there and they become "available" in the new location, and the document records what was received, when, and by whom.
 
-### لماذا خطوتان؟
+### Why Two Steps?
 
-- **تتبع المخزون أثناء العبور**: إذا كانت الأصناف في شاحنة لمدة يومين بين المخازن، تعرف أنها غير متاحة في المصدر (شُحنت)، وغير متاحة في الوجهة (لم تصل)، وأنها في الطريق. كثيرًا ما يُستخدم لذلك **مخزن "بضاعة في الطريق"** ([راجع أنواع المخازن](./warehouses-and-locators.md)).
-- **إدارة الفروقات**: أرسل المصدر 100 صنف لكن الوجهة استلمت 98؛ يُبرز النظام فارق الوحدتين للتحقيق (تلف؟ نقص في العد؟).
-- **نقل الحيازة**: موظف المصدر يوقّع على الصرف، وموظف الوجهة يوقّع على الاستلام، فتكون المساءلة واضحة في كل مرحلة.
-- **نقاط الاعتماد**: قد تشترط اعتمادًا للصرف واعتمادًا منفصلًا للاستلام.
+- **Tracking inventory in transit**: If items are on a truck for two days between warehouses, you know they're unavailable at the source (shipped), unavailable at the destination (not arrived), and in transit. A **"goods in transit" warehouse** is often used for this ([see warehouse types](./warehouses-and-locators.md)).
+- **Managing discrepancies**: The source sent 100 items but the destination received 98; the system highlights the 2-unit difference for investigation (damage? miscount?).
+- **Custody transfer**: The source employee signs off on the issue, and the destination employee signs off on the receipt, so accountability is clear at each stage.
+- **Approval points**: You may require an approval for the issue and a separate approval for the receipt.
 
-### طلب التحويل (StockTransferReq)
+### Stock Transfer Request (StockTransferReq)
 
-يضيف **طلب التحويل المخزني** طبقة أعلى: طلب التحويل قبل تنفيذه.
+The **Stock Transfer Request** adds a layer above: requesting the transfer before executing it.
 
-**سير العمل:** يطلب الفرع الشمالي 50 وحدة من الصنف X من المخزن الرئيسي → يراجع المخزن الرئيسي ويوافق → يشحن 50 وحدة → تعبر الأصناف → يستلم الفرع الشمالي 50 وحدة (أو أقل مع التفسير). هذا يضمن تحويلات مخطَّطة، وتنسيقًا بين المواقع، ورؤية للحركات القادمة.
+**Workflow:** the north branch requests 50 units of item X from the main warehouse → the main warehouse reviews and approves → it ships 50 units → the items transit → the north branch receives 50 units (or fewer, with an explanation). This ensures planned transfers, coordination between locations, and visibility of upcoming movements.
 
-وعندما تتكرر طلبات التحويل من عدة فروع أو لعدة أصناف، يجمعها **طلب التحويل المجمَّع** (AggrStockTransferReq) في مستند واحد يسهّل التخطيط والتنفيذ دفعةً واحدة.
+When transfer requests recur from several branches or for several items, the **Aggregated Transfer Request** (AggrStockTransferReq) consolidates them into a single document that makes planning and execution easier in one batch.
 
-![شاشة التحويل المخزني في Nama ERP](images/moving/stock-transfer-edit-ar.png)
+![Stock transfer screen in NaMa ERP](../../ar/modules/supplychain/images/moving/stock-transfer-edit-en.png)
 
-## نصائح لتتبع دقيق للتحويلات
+## Tips for Accurate Transfer Tracking
 
-::: tip أفضل الممارسات
-**التحويل للحركات الفعلية فقط**: أنشئ التحويلات فقط عند تحرك الأصناف فعليًا، لا تحويلات "افتراضية" لأغراض التقارير.
+::: tip Best Practices
+**Transfer only for real movements**: Create transfers only when items physically move, not "virtual" transfers for reporting purposes.
 
-**ادمج التحويلات بذكاء**: إذا نقلت 100 صنف دفعةً واحدة، فمستند واحد بكمية 100 أنظف من 100 مستند. أما إذا تحركت في أوقات مختلفة فأنشئ تحويلات منفصلة.
+**Consolidate transfers wisely**: If you move 100 items in one batch, one document for quantity 100 is cleaner than 100 documents. But if they move at different times, create separate transfers.
 
-**تتبّع وقت العبور**: في التحويلات ذات الخطوتين، قلّل الوقت بين الصرف والاستلام. فترات العبور الطويلة تشير إلى ضياع الأصناف أو حاجة العملية إلى تحسين.
+**Track transit time**: In two-step transfers, minimize the time between issue and receipt. Long transit periods signal lost items or a process that needs improvement.
 
-**عالج الفروقات فورًا**: عند استلام كمية أقل من المشحونة، وثّق الفارق وحقّق فيه بدلًا من تجاهله.
+**Handle discrepancies immediately**: When you receive less than was shipped, document the difference and investigate rather than ignoring it.
 :::
 
-## أسئلة شائعة
+## Frequently Asked Questions
 
-**س: هل يمكننا تحويل الأصناف بين شركات مختلفة؟**
+**Q: Can we transfer items between different companies?**
 
-ج: التحويلات داخل الشركة الواحدة بسيطة. أما بين الشركات فتحتاج عادةً إلى مستندات البيع/الشراء بين الشركات لحساب تغيّر الملكية بشكل صحيح.
+A: Transfers within a single company are simple. Between companies, you usually need intercompany sale/purchase documents to account for the change of ownership correctly.
 
-**س: ماذا يحدث للحجوزات عند تحويل أصناف محجوزة؟**
+**Q: What happens to reservations when transferring reserved items?**
 
-ج: الحجوزات عادةً تنتقل مع الأصناف - إذا حوّلت مخزونًا محجوزًا إلى مخزن آخر، يبقى محجوزًا لنفس الغرض في الموقع الجديد.
+A: Reservations usually travel with the items - if you transfer reserved stock to another warehouse, it stays reserved for the same purpose at the new location.
 
-**س: نستخدم التحويل ذا الخطوتين أم الخطوة الواحدة؟**
+**Q: Do we use the two-step or one-step transfer?**
 
-ج: استخدم الخطوة الواحدة للتحويلات داخل موقع واحد أو بين مواقع قريبة بوقت عبور ضئيل. واستخدم الخطوتين عندما يكون وقت العبور ملحوظًا، أو يتعامل أشخاص مختلفون مع الشحن مقابل الاستلام، أو تحتاج إلى تتبع المخزون أثناء العبور.
+A: Use one-step for transfers within a single location or between nearby locations with negligible transit time. Use two-step when transit time is significant, different people handle shipping vs. receiving, or you need to track inventory in transit.
 
-## الخطوات التالية
+## Next Steps
 
-- [الجرد المخزني](./stock-taking.md) - التحقق من مطابقة الرصيد الدفتري للفعلي
-- [تكلفة المخزون وإعادة التقييم](./inventory-costing.md) - تعديل القيم دون تحريك الكميات
-- [رحلة المبيعات](./sales-journey.md) - كيف تغادر الأصناف المباعة المنشأة
+- [Stock Taking](./stock-taking.md) - verifying that book and physical balances match
+- [Inventory Costing & Revaluation](./inventory-costing.md) - adjusting values without moving quantities
+- [The Sales Journey](./sales-journey.md) - how sold items leave the organization

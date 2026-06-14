@@ -1,69 +1,69 @@
-# الشيكات والأوراق المالية (دورة الحياة)
+# Cheques & Financial Papers (Lifecycle)
 
-الشيك ليس مجرّد مبلغ؛ هو ورقة لها رحلة: تُستلَم، تُودَع في البنك، تُحصَّل أو تُرتجَع، وقد تُظهَّر لطرف آخر أو تُخصَم قبل موعدها. تتبّع كل ذلك يدويًا كابوس، لذلك تعامل نما كل شيك أو كمبيالة كـ **ورقة تجارية** لها **حالة** تنتقل عبر دورة حياة واضحة، وتُحرّكها مجموعة من المستندات المتخصّصة.
+A cheque isn't just an amount; it's a paper with a journey: it's received, deposited at the bank, collected or returned, and may be endorsed to another party or discounted before its due date. Tracking all that by hand is a nightmare, so Nama treats every cheque or bill as a **financial paper** with a **status** that moves through a clear lifecycle, driven by a set of specialized documents.
 
-::: info الترخيص المطلوب
-الأوراق التجارية ضمن ترخيص البنوك `accounting-banks`.
+::: info Required license
+Financial papers are part of the banks license `accounting-banks`.
 :::
 
-## الورقة التجارية وحالتها
+## The financial paper and its status
 
-**الورقة التجارية** (`Banks > Master Files > Commercial Paper`) تمثّل الشيك أو الكمبيالة. أهم حقولها: **اتجاه الورقة** (**واردة** من عميل أو **صادرة** لمورّد)، و**نوع الورقة** (**شيك** أو **كمبيالة**)، و**القيمة** و**تاريخ الاستحقاق** و**رقم الشيك** و**البنك** و**المستفيد/المُصدِر**، و**دفتر الأوراق التجارية** الذي تتبع له، و**الحالة**.
+The **Commercial Paper** (`Banks > Master Files > Commercial Paper`) represents the cheque or bill of exchange. Its key fields: the **paper direction** (**Received** from a customer or **Issued** to a supplier), the **paper type** (**Cheque** or **Bill Of Exchange**), the **value**, **due date**, **cheque number**, **bank**, and **beneficiary/issuer**, the **commercial-paper book** it belongs to, and the **status**.
 
-![شاشة الورقة التجارية](./images/cheques/financial-paper.png)
+![The Commercial Paper screen](./images/cheques/financial-paper.png)
 
-نادرًا ما تُنشأ الورقة بمفردها؛ غالبًا تُولَّد من **سند قبض** (للواردة) أو **سند صرف** (للصادرة)، ثم تتحرّك حالتها بالمستندات أدناه. والحالات الممكنة:
+The paper is rarely created on its own; it's usually generated from a **receipt voucher** (for received papers) or a **payment voucher** (for issued papers), then its status moves via the documents below. The possible statuses:
 
-| الحالة | المعنى |
+| Status | Meaning |
 |---|---|
-| **تم إنشاؤه** | أُنشئت الورقة ولم تُستلَم بعد. |
-| **مستلم** | استُلمت الورقة الواردة وأصبحت في عهدتك. |
-| **تم إصداره** | أُصدرت الورقة الصادرة لطرف خارجي. |
-| **بحافظة بنكية** | أُودِعت في حافظة البنك للتحصيل. |
-| **بحافظة بنكية مؤجلة** | أُودِعت إيداعًا مؤجّلًا (قبل موعد الاستحقاق). |
-| **اجيو** | خُصِمت لدى البنك قبل موعدها (تحصيل معجّل بخصم). |
-| **مظهر** | ظُهِّرت (حُوِّلت) لطرف آخر. |
-| **تم تحصيله** | حُصِّلت قيمتها فعليًا. |
-| **رفض مؤقت / رفض نهائي** | ارتدّت مؤقتًا (قابلة لإعادة المحاولة) أو نهائيًا. |
-| **مسدد جزئيا / ملغاة جزئيا** | سُدِّد/أُلغي جزء من قيمتها. |
-| **ملغي** | أُلغيت الورقة. |
+| **Created** | The paper has been created but not yet received. |
+| **Received** | The incoming paper has been received and is in your custody. |
+| **Issued** | The outgoing paper has been issued to an external party. |
+| **Portfolioed** | Deposited into the bank portfolio for collection. |
+| **Postponed Portfolioed** | Deposited as a postponed deposit (before the due date). |
+| **Agio** | Discounted at the bank before its due date (accelerated collection at a discount). |
+| **Endorsed** | Endorsed (transferred) to another party. |
+| **Collected** | Its value has actually been collected. |
+| **Temporary / Finally Bounced** | Bounced temporarily (retryable) or finally. |
+| **Partial Paid / Partial Cancel** | Part of its value has been paid/cancelled. |
+| **Cancelled** | The paper has been cancelled. |
 
-## دفتر الأوراق التجارية
+## The commercial-paper book
 
-**دفتر الأوراق التجارية** (`Banks > Settings > Commercial Paper Book`) ينظّم ترقيم الأوراق وعهدتها — كدفتر الشيكات الورقي تمامًا — فتعرف أي أوراق في أي دفتر ومع من.
+The **Commercial Paper Book** (`Banks > Settings > Commercial Paper Book`) organizes the papers' numbering and custody — just like a physical chequebook — so you know which papers are in which book and with whom.
 
-## المستندات التي تُحرّك الدورة
+## The documents that drive the cycle
 
-- **افتتاح ورقة تجارية** (`Banks > Cheques > Openning Commercial Paper`) — لإدخال الأوراق القائمة عند بدء التشغيل برصيدها وحالتها الحالية.
-- **الحافظة البنكية** (`Banks > Cheques > Bank Portfolio`) — إيداع الأوراق الواردة في البنك للتحصيل (تنتقل الحالة إلى «بحافظة بنكية»). وهناك **الحافظة البنكية المؤجلة** و**ارتجاع الحافظة المؤجلة** للإيداع قبل الاستحقاق والتراجع عنه.
-- **الإشعار البنكي** (`Banks > Cheques > Bank Notice`) — إشعار البنك بنتيجة الورقة: **تحصيل** (تنتقل إلى «تم تحصيله») أو **ارتداد** (إلى «رفض مؤقت/نهائي»).
-- **الأجيو** (`Banks > Cheques > Agio`) و**ارتجاع الأجيو** — خصم الورقة لدى البنك قبل موعدها مقابل عمولة، والتراجع عن ذلك.
-- **إلغاء ورقة تجارية** — لإلغاء ورقة.
-- **السداد الجزئي للورقة** — لتسجيل سداد جزء من قيمة الورقة.
-- **تحويل ورقة تجارية** — لنقل/تظهير الورقة.
-- **طلب استلام ورقة** — لطلب استلام ورقة قبل إثباتها.
+- **Opening Commercial Paper** (`Banks > Cheques > Openning Commercial Paper`) — to enter existing papers at go-live with their balance and current status.
+- **Bank Portfolio** (`Banks > Cheques > Bank Portfolio`) — deposits received papers at the bank for collection (status moves to "Portfolioed"). There's also the **Postponed Bank Portfolio** and **Postponed Portfolio Return** for deposits before the due date and reversing them.
+- **Bank Notice** (`Banks > Cheques > Bank Notice`) — the bank's notification of the paper's outcome: **collection** (moves to "Collected") or **return** (to "Temporary/Finally Bounced").
+- **Agio** (`Banks > Cheques > Agio`) and **Agio Return** — discounting the paper at the bank before its due date for a commission, and reversing it.
+- **Financial Paper Cancel** — to cancel a paper.
+- **Partial Payment** — to record payment of part of a paper's value.
+- **Financial Paper Transfer** — to move/endorse a paper.
+- **Receipt Request** — to request receiving a paper before recording it.
 
-![شاشة الحافظة البنكية](./images/cheques/bank-portfolio.png)
+![The Bank Portfolio screen](./images/cheques/bank-portfolio.png)
 
-::: tip دورة حياة مبسّطة لشيك وارد
-استلام (سند قبض) ← مستلم ← إيداع (حافظة بنكية) ← بحافظة بنكية ← إشعار بنكي بالتحصيل ← تم تحصيله. وإن ارتدّ: إشعار بنكي بالارتداد ← رفض مؤقت/نهائي.
+::: tip A simplified lifecycle for a received cheque
+Receive (receipt voucher) → Received → Deposit (bank portfolio) → Portfolioed → Bank notice of collection → Collected. And if it bounces: bank notice of return → Temporary/Finally Bounced.
 :::
 
-كل مستند من هذه يُحرِّك حالة الورقة ويُسجِّل أثره المحاسبي المناسب (نقل القيمة بين حساب «شيكات تحت التحصيل» وحساب البنك مثلًا)، ومصدر هذه الحسابات هو توجيه كل مستند.
+Each of these documents moves the paper's status and records its appropriate accounting effect (moving the value between a "cheques under collection" account and the bank account, for example), and the source of these accounts is each document's term.
 
-## الطباعة على نماذج البنوك
+## Printing on bank forms
 
-طباعة الشيك نفسه تستخدم **قوالب خاصة بكل بنك** (الأهلي المتحد، العربي الأفريقي، عوده، التجاري الدولي CIB، الخليج، أبوظبي الوطني، الأهلي المصري، QNB...) ضمن نماذج الشيكات `SYSF-BNK-CHQ-*`، كي يخرج الشيك مطابقًا لتنسيق كل بنك.
+Printing the cheque itself uses **bank-specific templates** (Ahli United, Arab African, Audi, CIB, Gulf, NBAD, NBE, QNB...) within the cheque forms `SYSF-BNK-CHQ-*`, so the cheque comes out matching each bank's format.
 
-## التقارير والنماذج
+## Reports and forms
 
-- التقارير: كشف الأوراق التجارية `SYSR-BNK001`، الشيكات تحت التحصيل `SYSR-BNK002`، الشيكات حسب الحالة `SYSR-BNK003`، دفاتر الأوراق المالية `SYSR-BNK004` (انظر [كشوف الحسابات وميزان المراجعة](./reports-account-statements-and-trial-balance.md)).
-- النماذج: الحافظة البنكية `SYSF-BNK003`، الإشعار البنكي `SYSF-BNK004`، تحويل ورقة `SYSF-BNK005`, إلغاء ورقة `SYSF-BNK006`، الأجيو `SYSF-BNK007`، ارتجاع الأجيو `SYSF-BNK008`، افتتاح ورقة `SYSF-BNK009`، طلب استلام ورقة `SYSF-ACC013`.
+- Reports: commercial-paper statement `SYSR-BNK001`, cheques under collection `SYSR-BNK002`, cheques by status `SYSR-BNK003`, financial-paper books `SYSR-BNK004` (see [Account statements & trial balance](./reports-account-statements-and-trial-balance.md)).
+- Forms: bank portfolio `SYSF-BNK003`, bank notice `SYSF-BNK004`, paper transfer `SYSF-BNK005`, paper cancel `SYSF-BNK006`, agio `SYSF-BNK007`, agio return `SYSF-BNK008`, opening paper `SYSF-BNK009`, receipt request `SYSF-ACC013`.
 
-## للدعم الفني
+## For Support
 
-- **«حالة الورقة لا تتقدّم»** — كل انتقال يحتاج مستنده: الإيداع بالحافظة، التحصيل/الارتداد بالإشعار البنكي. تحقّق من أن المستند المناسب صدر وعُولج.
-- **«الشيك المرتدّ لا يعود لرصيد العميل»** — يجب إصدار **إشعار بنكي** بالارتداد لينقل الحالة ويعكس الأثر.
-- **«حساب شيكات تحت التحصيل/البنك خطأ في القيد»** — مصدره توجيه المستند المعني (الحافظة/الإشعار/الأجيو)؛ راجِع مرجع [توجيهات المستندات](./support/accounting-document-terms.md).
-- **«الشيك لا يُطبَع بتنسيق بنكي صحيح»** — تأكّد من اختيار قالب الشيك الخاص بالبنك المناسب.
-- آلية المعالجة وإعادة معالجة مستند متعثّر في [كيف تُعالَج المستندات إلى أثر محاسبي](./support/accounting-request-processing.md).
+- **"The paper's status won't advance"** — each transition needs its document: deposit via the portfolio, collection/return via the bank notice. Check that the right document was issued and processed.
+- **"A bounced cheque doesn't return to the customer's balance"** — a **bank notice** of return must be issued to move the status and reverse the effect.
+- **"The wrong cheques-under-collection/bank account in the entry"** — its source is the relevant document's term (portfolio/notice/agio); review the [Document terms](./support/accounting-document-terms.md) reference.
+- **"The cheque doesn't print in the correct bank format"** — make sure the cheque template for the right bank is selected.
+- Processing and reprocessing a stuck document are in [How documents are processed into accounting effects](./support/accounting-request-processing.md).

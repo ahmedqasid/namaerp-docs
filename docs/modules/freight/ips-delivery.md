@@ -1,38 +1,38 @@
-# خدمة التوصيل (Delivery)
+# Delivery Service
 
-المحطة الأخيرة في رحلة المادة البريدية: تسليمها إلى العميل وتحصيل قيمة الخدمة وأي رسوم جمركية. مستندا هذه المرحلة — **طلب التوصيل** و**فاتورة التوصيل** — يجمعان بين الجانب التشغيلي (مَن يتسلّم وأين ومتى) والجانب المالي (كم يُحصَّل)، وكلاهما يُرسَل إلكترونيًا لهيئة الضرائب.
+The final stage in a mail item's journey: delivering it to the customer and collecting the service value and any customs fees. The two documents of this stage — the **Delivery Request** and the **Delivery Invoice** — combine the operational side (who receives, where, and when) with the financial side (how much is collected), and both are sent electronically to the tax authority.
 
-تجدهما تحت **نظام إدارة الشحن ← المستندات**.
+You'll find them under **Freight Management System → Documents**.
 
-## طلب التوصيل (Delivery Request)
+## Delivery Request
 
-يبدأ التوصيل بطلب يحدّد العميل وعنوان التسليم وموعده:
+Delivery starts with a request that specifies the customer, the delivery address, and the delivery date:
 
-- **العميل (Customer) والمندوب (Sales Man)**.
-- **العنوان (Address) وعنوان الشحنة** و**رقم الهاتف** و**منطقة التوصيل (Delivery Area)**.
-- **تاريخ التوصيل وتاريخ الاستحقاق**.
-- **سطور الخدمة (Details)** — بنود خدمة التوصيل المطلوبة بأسعارها.
-- **الدفعات (Payment Lines / External Payments)** لتسجيل التحصيل عند التسليم (الدفع عند الاستلام).
+- **Customer and Sales Man**.
+- **Address and shipment address**, **phone number**, and **Delivery Area**.
+- **Delivery date and due date**.
+- **Service lines (Details)** — the requested delivery service items with their prices.
+- **Payment Lines / External Payments** to record collection on delivery (cash on delivery).
 
-![طلب توصيل](./images/ips/delivery-request-ar.png)
+![Delivery request](../../ar/modules/freight/images/ips/delivery-request-en.png)
 
-## فاتورة التوصيل (Delivery Invoice)
+## Delivery Invoice
 
-تسجّل الفاتورة قيمة خدمة التوصيل محاسبيًا وتحمّلها للعميل. تحمل نفس بنية الطلب (العميل، العنوان، منطقة التوصيل، سطور الخدمة، الدفعات)، لكنها تُنشئ الأثر المالي وتُرسَل لهيئة الضرائب كفاتورة إلكترونية. راجع [التعامل مع الفاتورة الإلكترونية](./freight-einvoicing.md) لتفاصيل الإرسال.
+The invoice records the value of the delivery service in accounting and bills it to the customer. It carries the same structure as the request (customer, address, delivery area, service lines, payments), but it creates the financial effect and is sent to the tax authority as an e-invoice. See [E-Invoicing Handling](./freight-einvoicing.md) for the sending details.
 
-![فاتورة توصيل](./images/ips/delivery-invoice-ar.png)
+![Delivery invoice](../../ar/modules/freight/images/ips/delivery-invoice-en.png)
 
-## تسعير التوصيل
+## Delivery pricing
 
-يُبنى تسعير التوصيل على ملفّين أساسيّين:
+Delivery pricing is built on two master files:
 
-- **بند خدمة التوصيل (Delivery Service Item)** — الخدمة التي تبيعها (توصيل عادي، سريع، رسوم جمركية…).
-- **سعر خدمة التوصيل (Delivery Service Price)** — جدول الأسعار الذي يربط بند الخدمة بالسعر، غالبًا حسب **منطقة التوصيل**، فتُسعَّر الوجهات الأبعد بسعر أعلى تلقائيًا.
+- **Delivery Service Item** — the service you sell (standard delivery, express, customs fees…).
+- **Delivery Service Price** — the price table that links the service item to the price, often by **delivery area**, so farther destinations are priced higher automatically.
 
-## معالجة عدم التسليم
+## Non-delivery handling
 
-ليست كل محاولة توصيل تنجح. عند تعذّر التسليم (المستلِم غير موجود، عنوان خاطئ، رفض الاستلام)، تُسجَّل الحالة بـ**سبب عدم التسليم (Non-Delivery Reason)** و**إجراء عدم التسليم (Non-Delivery Measure)** — المعرَّفَين في الملفات الأساسية — وتُعاد المادة إلى الفرز لإعادة المحاولة أو الاحتجاز. كما تتيح **أحداث (Events)** التتبُّع تسجيل محطات المادة عبر الرحلة.
+Not every delivery attempt succeeds. When delivery fails (recipient absent, wrong address, refused), the case is recorded with a **Non-Delivery Reason** and a **Non-Delivery Measure** — both defined in the master files — and the item is returned to sorting for a retry or held. **Events** also allow tracking by recording the item's stops across the journey.
 
-::: tip التوصيل يكمّل دورة البريد
-طلب وفاتورة التوصيل هما حيث تتحوّل العمليات البريدية إلى إيراد. اربط **مناطق التوصيل** بأسعار خدمة واضحة مرّة واحدة، فتُسعَّر طلبات التوصيل تلقائيًا، وتتدفّق الفواتير الإلكترونية للهيئة دون عمل يدوي.
+::: tip Delivery completes the postal cycle
+The delivery request and invoice are where postal operations turn into revenue. Link **delivery areas** to clear service prices once, and delivery requests are priced automatically, with e-invoices flowing to the authority with no manual work.
 :::

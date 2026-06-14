@@ -1,162 +1,158 @@
-<rtl>
-
-# توثيق فيديو تنصيب Nama ERP والبرامج المساعدة 
+# Documentation for the Nama ERP Installation Video and Supporting Software
 - Installing Nama ERP
 
-[لمشاهدة الفيديو](https://youtu.be/EVaF2BtVPUU)
+[Watch the video](https://youtu.be/EVaF2BtVPUU)
 
-## مقدمة وتثبيت السيرفر الأساسي
-[00:00:01 - فيديو اليوتيوب](https://youtu.be/EVaF2BtVPUU?t=1)  
-السلام عليكم ورحمة الله، في هذا الفيديو يتم شرح كيفية إعداد سيرفر جديد عليه أكثر من "تومكات" (Token) وأكثر من قاعدة بيانات من البداية. يُفضل العمل على متصفح جوجل كروم. أول خطوة هي تحميل SQL Server Edition التي تخص العميل، ويتم تغيير اللغة من الألمانية إلى الإنجليزية لتفادي مشاكل صفحة التنزيل الخاصة بمايكروسوفت. يتم نسخ رابط التحميل وفتحه على السيرفر لبدء تنزيل البرنامج.
-
----
-
-## تحميل وتثبيت تحديثات SQL Server
-[00:01:24 - فيديو اليوتيوب](https://youtu.be/EVaF2BtVPUU?t=84)  
-يجب تحميل آخر تحديثات SQL Server خاصة بنظام ويندوز حتى تكون النسخة محدثة. يُنصح باستخدام ترخيص ويندوز قانوني ورخيص متوفر بأسعار منخفضة. الفيديو يستخدم نظام ويندوز سيرفر 2022 إصدار Standard، والذي يعتبر ملائمًا جدًا للعمل.
+## Introduction and Basic Server Setup
+[00:00:01 - YouTube video](https://youtu.be/EVaF2BtVPUU?t=1)
+Hello everyone, this video explains how to set up a new server with multiple Tomcat instances and multiple databases from scratch. It is recommended to use Google Chrome. The first step is to download the SQL Server Edition relevant to the client, and the language is changed from German to English to avoid issues with the Microsoft download page. The download link is copied and opened on the server to begin downloading the software.
 
 ---
 
-## خطوات تثبيت SQL Server والانتهاء من الإعداد
-[00:02:46 - فيديو اليوتيوب](https://youtu.be/EVaF2BtVPUU?t=166)
-- فتح ملف الإعداد واختيار نوع التثبيت (New SQL Server Installation).
-- يتم اختيار الإصدار المناسب بناءً على ترخيص العميل (Developer أو Standard).
-- تفعيل خيار التحديثات التلقائية مع تحديثات ويندوز.
-- يُشرح توزيع البيانات على الأقراص المختلفة، ويتم تخصيص أقراص للأبليكاشن، أخرى للتومكاتات وقواعد البيانات، وأخرى للباك أب.
-- تنشيط خيارات الباك أب لضمان سرعة النسخ الاحتياطي.
-- اختيار وضع المصادقة (Authentication Mode) وتحديد كلمة سر آمنة للمستخدم "sa" وعدم استخدام اسامي ضعيفة.
-- إضافة مستخدمين جدد لإدارة قواعد البيانات.
-- متابعة عملية التثبيت حتى نهايتها.
+## Downloading and Installing SQL Server Updates
+[00:01:24 - YouTube video](https://youtu.be/EVaF2BtVPUU?t=84)
+The latest SQL Server updates for the Windows operating system must be downloaded to ensure the installation is up to date. It is recommended to use a legitimate and affordable Windows license available at low cost. The video uses Windows Server 2022 Standard Edition, which is considered very suitable for this purpose.
 
 ---
 
-## تثبيت أدوات الماجنت ستوديو ونوتباد بلس بلس
-[00:08:08 - فيديو اليوتيوب](https://youtu.be/EVaF2BtVPUU?t=488)
-- تحميل وتثبيت Microsoft Management Studio مع SQL Server أثناء التثبيت.
-- تنزيل Notepad++ إصدار 64 بت لاستخدامه في تحرير النصوص.
-- التأكد من تثبيت نسخة جافا 64 بت لأن بعض التومكاتات تعتمد عليها.
+## SQL Server Installation Steps and Completing the Setup
+[00:02:46 - YouTube video](https://youtu.be/EVaF2BtVPUU?t=166)
+- Open the setup file and choose the installation type (New SQL Server Installation).
+- Select the appropriate edition based on the client's license (Developer or Standard).
+- Enable the automatic updates option along with Windows updates.
+- An explanation is given of distributing data across different drives, allocating drives for the application, others for Tomcat instances and databases, and others for backups.
+- Enable backup options to ensure fast backup speeds.
+- Choose the Authentication Mode and set a strong password for the "sa" user, avoiding weak names.
+- Add new users to manage the databases.
+- Continue the installation process until it is complete.
 
 ---
 
-## إعداد عدة نسخ تومكات على السيرفر الواحد
-[00:10:05 - فيديو اليوتيوب](https://youtu.be/EVaF2BtVPUU?t=605)
-- في حال وجود أكثر من نسخة "تومكات" يفضل ترقيم الموانئ (Ports) والتركيز على تنظيم الأسماء.
-- تومكات رقم 10 يستخدم البورت 10.10.10.xxx وهكذا للأرقام الأخرى بالتتالي لتفادي التعارض.
-- إعادة تسمية خدمات السيرفر لمطابقة أرقام التومكاتات.
-- تثبيت كل نسخة تومكات مستقلة مع تنظيم قواعد البيانات الخاصة بها على الأقراص المخصصة.
+## Installing SQL Server Management Studio and Notepad++
+[00:08:08 - YouTube video](https://youtu.be/EVaF2BtVPUU?t=488)
+- Download and install Microsoft Management Studio alongside SQL Server during installation.
+- Download Notepad++ 64-bit version for use in text editing.
+- Make sure the 64-bit version of Java is installed, as some Tomcat instances depend on it.
 
 ---
 
-## تخصيص قواعد البيانات وأقراص التخزين
-[00:13:52 - فيديو اليوتيوب](https://youtu.be/EVaF2BtVPUU?t=832)
-- شرح كيفية تخصيص قواعد البيانات لتكون على أحد أقراص التخزين الكبيرة المناسبة بدلًا من القرص C الافتراضي.
-- إعادة التأكد من أسماء قواعد البيانات وربطها بالمستخدمين المناسبين لمنع تعارض الأذونات.
+## Setting Up Multiple Tomcat Instances on a Single Server
+[00:10:05 - YouTube video](https://youtu.be/EVaF2BtVPUU?t=605)
+- When more than one Tomcat instance is needed, it is preferable to number the ports and focus on organizing the names.
+- Tomcat number 10 uses port 10.10.10.xxx, and so on for other numbers in sequence, to avoid conflicts.
+- Rename server services to match the Tomcat numbers.
+- Install each Tomcat instance independently, organizing its respective databases on the designated drives.
 
 ---
 
-## التنزيل والتثبيت اليدوي للإنستولر والربط مع IIS
-[00:15:39 - فيديو اليوتيوب](https://youtu.be/EVaF2BtVPUU?t=939)
-- تحميل ملفات البرامج الضرورية لفك الضغط وربطها مع IIS (Internet Information Services) لتشغيل التومكاتات.
-- شرح ضبط تي سي بي آي (TCP/IP) الخاص بالسيرفر لتشغيل الخدمات والوصول إلى قواعد البيانات عبر الشبكة.
-- تأكيد عمل الاتصال بواسطة أدوات مايكروسوفت الرسمية.
+## Allocating Databases and Storage Drives
+[00:13:52 - YouTube video](https://youtu.be/EVaF2BtVPUU?t=832)
+- An explanation of how to allocate databases to one of the suitable large storage drives instead of the default C drive.
+- Re-verify the database names and link them to the appropriate users to prevent permission conflicts.
 
 ---
 
-## استعادة قواعد البيانات (Restore)
-[00:18:26 - فيديو اليوتيوب](https://youtu.be/EVaF2BtVPUU?t=1106)
-- استيراد قواعد البيانات عبر ملفات النسخ الاحتياطية.
-- تسمية قواعد البيانات واستعمال نسخة الـ Express حسب الحاجة.
-- إنشاء مستخدم قواعد بيانات منفصل لكل قاعدة بيانات لتأمين الوصول.
+## Manual Download and Installation of the Installer and Linking with IIS
+[00:15:39 - YouTube video](https://youtu.be/EVaF2BtVPUU?t=939)
+- Download the necessary software files, extract them, and link them with IIS (Internet Information Services) to run the Tomcat instances.
+- Configure the server's TCP/IP settings to run services and access databases over the network.
+- Confirm the connection works using official Microsoft tools.
 
 ---
 
-## تكوين حسابات المستخدمين لقواعد البيانات
-[00:20:10 - فيديو اليوتيوب](https://youtu.be/EVaF2BtVPUU?t=1210)
-- إنشاء حساب مستخدم (User) خاص لكل قاعدة بيانات، مع تحديد الأذونات المطلوبة بدقة.
-- ضبط كلمات المرور القوية والمختلفة لكل مستخدم لتفادي المشاكل الأمنية.
-- شرح كيفية ربط "تومكات" معين بقاعدة بيانات وسيرفر معين.
+## Restoring Databases (Restore)
+[00:18:26 - YouTube video](https://youtu.be/EVaF2BtVPUU?t=1106)
+- Import databases from backup files.
+- Name the databases and use the Express edition as needed.
+- Create a separate database user for each database to secure access.
 
 ---
 
-## إعداد مجلد النسخ الاحتياطي Backup Folder
-[00:23:34 - فيديو اليوتيوب](https://youtu.be/EVaF2BtVPUU?t=1414)
-- إعداد مجلد مخصص للنسخ الاحتياطي على قرص منفصل.
-- شرح آلية النسخ الاحتياطي التلقائي والفرق في الاستخدام بين بيئات "الكلاود" والمحلي (localhost).
-- يتم ضغط النسخ الاحتياطية ورفعها على الشبكة لضمان سهولة الاسترجاع.
+## Configuring User Accounts for Databases
+[00:20:10 - YouTube video](https://youtu.be/EVaF2BtVPUU?t=1210)
+- Create a dedicated user account for each database, with precise permission definitions.
+- Set strong, different passwords for each user to avoid security issues.
+- An explanation of how to link a specific Tomcat instance to a specific database and server.
 
 ---
 
-## سياسة التكرار والتكرار الدائم للنسخ الاحتياطية Backup Schedule
-[00:25:06 - فيديو اليوتيوب](https://youtu.be/EVaF2BtVPUU?t=1506)
-- النسخ الاحتياطي يتم على فترات متكررة (كل 10 دقائق أو ربع ساعة) لتقليل فقدان البيانات في حالات الطوارئ.
-- التكرار اليومي الكامل يتم في ساعات تكون فيها خوادم العمل أقل ضغطاً (مثلاً الساعة 3 صباحًا).
-- الفرق بين مخططات النسخ (Full backup و differential backup).
+## Setting Up the Backup Folder
+[00:23:34 - YouTube video](https://youtu.be/EVaF2BtVPUU?t=1414)
+- Set up a dedicated backup folder on a separate drive.
+- An explanation of the automatic backup mechanism and the difference in usage between cloud and local (localhost) environments.
+- Backups are compressed and uploaded to the network to ensure easy recovery.
 
 ---
 
-## تنفيذ SQL Scripts لإنشاء المستخدمين وضبط الصلاحيات
-[00:26:00 - فيديو اليوتيوب](https://youtu.be/EVaF2BtVPUU?t=1560)
-- شرح تنفيذ سكريبتات SQL الخاصة بإنشاء المستخدمين وربطهم بقواعد البيانات.
-- توضيح أهمية فصل المستخدمين لكل تومكات وقاعدة بيانات لمنع الأخطاء والمشاكل الأمنية.
-- تعديل كلمات الدخول حسب الحاجة.
+## Backup Repetition Policy and Backup Schedule
+[00:25:06 - YouTube video](https://youtu.be/EVaF2BtVPUU?t=1506)
+- Backups are performed at repeated intervals (every 10 minutes or every quarter hour) to minimize data loss in emergency situations.
+- Full daily backups are performed during hours when the workload on servers is lower (for example, at 3 AM).
+- The difference between backup schemes (Full backup and Differential backup).
 
 ---
 
-## استكمال تثبيت التومكاتات الإضافية
-[00:27:32 - فيديو اليوتيوب](https://youtu.be/EVaF2BtVPUU?t=1652)
-- توضيح خطوات إعادة تثبيت التومكاتات التالية (مثل 11، 12) مع التعديل اللازم على الأسماء والبورتات وقواعد البيانات.
-- التأكد من تشغيل جميع التومكاتات واستجابتها عبر اللينكات المخصصة.
+## Executing SQL Scripts to Create Users and Set Permissions
+[00:26:00 - YouTube video](https://youtu.be/EVaF2BtVPUU?t=1560)
+- An explanation of executing SQL scripts for creating users and linking them to databases.
+- Clarification of the importance of separating users for each Tomcat instance and database to prevent errors and security issues.
+- Modify login passwords as needed.
 
 ---
 
-## إعداد الشهادات SSL لتأمين الاتصال
-[00:30:23 - فيديو اليوتيوب](https://youtu.be/EVaF2BtVPUU?t=1823)
-- تثبيت شهادات SSL لتأمين الاتصال عبر HTTPS.
-- فتح المنافذ 80 و443 في جدار الحماية (Firewall) وعلى الراوتر في حالة العمل على شبكة خارجية.
-- التعامل مع تقنيات Let's Encrypt للحصول على شهادة SSL مجانية.
-- إعداد HTTPs على الـTomcat Server.
+## Completing the Installation of Additional Tomcat Instances
+[00:27:32 - YouTube video](https://youtu.be/EVaF2BtVPUU?t=1652)
+- Steps for reinstalling subsequent Tomcat instances (such as 11, 12) with the necessary adjustments to names, ports, and databases.
+- Confirm that all Tomcat instances are running and responding via their designated links.
 
 ---
 
-## حل مشاكل DNS و Domain Name وخطوات إضافية
-[00:31:24 - فيديو اليوتيوب](https://youtu.be/EVaF2BtVPUU?t=1884)
-- شرح مشاكل التوجيه DNS واسم النطاق (Domain Name) أثناء تثبيت SSL.
-- تعديل أسماء الزبائن في الإعدادات لتتوافق مع اسم دومين صحيح.
-- نصائح لحل مشكلات الراوتر الخاصة بالمنافذ خصوصاً في مصر وأماكن أخرى.
+## Setting Up SSL Certificates to Secure the Connection
+[00:30:23 - YouTube video](https://youtu.be/EVaF2BtVPUU?t=1823)
+- Install SSL certificates to secure the connection via HTTPS.
+- Open ports 80 and 443 in the firewall and on the router when working on an external network.
+- Work with Let's Encrypt technologies to obtain a free SSL certificate.
+- Configure HTTPS on the Tomcat Server.
 
 ---
 
-## اختبار التشغيل والتأكد من نجاح التثبيت
-[00:34:33 - فيديو اليوتيوب](https://youtu.be/EVaF2BtVPUU?t=2073)
-- اختبار فتح صفحات التومكات المختلفة عبر متصفح الإنترنت باستخدام عناوين IP أو الدومين مع HTTPS.
-- التعامل مع الأخطاء الناتجة عند عدم تحميل السيرفر والمطالبة بإعادة تشغيل الخدمة.
+## Resolving DNS and Domain Name Issues and Additional Steps
+[00:31:24 - YouTube video](https://youtu.be/EVaF2BtVPUU?t=1884)
+- An explanation of DNS routing issues and domain name problems during SSL installation.
+- Modify client names in the settings to match a correct domain name.
+- Tips for solving router port-forwarding issues, especially in Egypt and other locations.
 
 ---
 
-## باك أب برمجي كامل وإعداد جداول النسخ الاحتياطي الآلي
-[00:40:22 - فيديو اليوتيوب](https://youtu.be/EVaF2BtVPUU?t=2422)
-- شرح مفصل لإنشاء جدول النسخ الاحتياطي (Backup Job) عبر SQL Server Agent.
-- إعداد فترات النسخ الاحتياطي المختلفة (يوميًا، كل 10 دقائق حسب الحاجة).
-- تفعيل خاصية ملف الفول (Full Recovery Model) لجعل النسخ الاحتياطي محكمًا.
-- التعامل مع النسخ Differential وFull Backup في بيئات الحوسبة السحابية.
+## Testing Operation and Confirming Successful Installation
+[00:34:33 - YouTube video](https://youtu.be/EVaF2BtVPUU?t=2073)
+- Test opening different Tomcat pages via a web browser using IP addresses or the domain name with HTTPS.
+- Handle errors that occur when the server fails to load and the service needs to be restarted.
 
 ---
 
-## ختام الفيديو ونصائح عامة
-[00:43:35 - فيديو اليوتيوب](https://youtu.be/EVaF2BtVPUU?t=2615)
-- تأكيد أن كل الخطوات مفصلة وواضحة ويمكن التواصل مع مقدم الشرح لأي استفسارات.
-- تشجيع المتابعين على تطبيق الخطوات كما هي دون تعديل لتجنب المشاكل.
-- التوضيح أن العمل بشكل منظم خطوة بخطوة يضمن إعداد سيرفر SQL Server فعالًا ومتعدد التومكاتات وقواعد البيانات مع تأمين النسخ الاحتياطية.
+## Full Programmatic Backup and Setting Up Automated Backup Schedules
+[00:40:22 - YouTube video](https://youtu.be/EVaF2BtVPUU?t=2422)
+- A detailed explanation of creating a backup job via SQL Server Agent.
+- Set up different backup intervals (daily, every 10 minutes as needed).
+- Enable the Full Recovery Model to make backups comprehensive.
+- Handle Differential and Full Backup in cloud computing environments.
 
 ---
 
-> **نصيحة**  
-> تأكد دائمًا من استخدام كلمات مرور قوية لكل حسابات قاعدة البيانات، وتأمين فتح المنافذ الضرورية فقط، مع مراقبة تحديثات النظام والبرامج.
+## Video Conclusion and General Tips
+[00:43:35 - YouTube video](https://youtu.be/EVaF2BtVPUU?t=2615)
+- Confirmation that all steps are detailed and clear, and that viewers can contact the presenter for any inquiries.
+- Encouragement for viewers to follow the steps exactly as presented without modifications to avoid problems.
+- A clarification that working in an organized, step-by-step manner ensures the successful setup of an efficient SQL Server with multiple Tomcat instances and databases, with secured backups.
 
 ---
 
-# نهاية التوثيق
+> **Tip**
+> Always ensure you use strong passwords for all database accounts, secure only the necessary open ports, and monitor system and software updates.
 
-بهذا الشكل تم تغطية جميع محتويات الفيديو بدقة متناهية مع توثيق جميع الخطوات والنصائح والفروق التقنية، مع توفير روابط زمنية لسهولة التتبع في الفيديو الأصلي.
+---
 
-</rtl>
+# End of Documentation
+
+With this, all the video's content has been covered in meticulous detail, documenting all steps, tips, and technical differences, with timestamp links for easy reference in the original video.

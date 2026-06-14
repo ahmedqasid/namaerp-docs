@@ -1,122 +1,122 @@
-# رحلة المبيعات (The Sales Journey)
+# The Sales Journey
 
-رحلة المبيعات هي الصورة المعاكسة للمشتريات — بدلًا من إدخال الأصناف، أنت تبيعها وتسلّمها للعملاء. لكن المبادئ متشابهة: عرض أسعار ← أمر بيع ← تنفيذ ← فاتورة ← تحصيل. لنستعرض هذه الرحلة ونفهم متى يُستخدم كل مستند.
+The sales journey is the mirror image of purchasing - instead of bringing items in, you're selling and delivering them to customers. But the principles are similar: Quote → Order → Fulfill → Invoice → Collect. Let's walk through this journey and understand when to use each document.
 
-## الصورة الكاملة
+## The Full Picture
 
 ```
-استفسار → عرض أسعار → أمر بيع → حجز → تحضير → تسليم → فاتورة → تحصيل
+Inquiry → Quotation → Order → Reservation → Picking → Delivery → Invoice → Collection
 ```
 
-ليست كل عملية بيع تمر بكل هذه الخطوات (البيع النقدي يتخطى معظمها!)، لكن فهم المسار الكامل يساعدك على تصميم العملية الصحيحة لكل نوع بيع.
+Not every sale passes through all these steps (cash sales skip most of them!), but understanding the full path helps you design the right process for each kind of sale.
 
-![قائمة أوامر البيع في Nama ERP](images/sales/sales-order-list-ar.png)
+![Sales order list in NaMa ERP](../../ar/modules/supplychain/images/sales/sales-order-list-en.png)
 
-## الخطوة الأولى: استفسار العميل (SalesQuotationRequest)
+## Step One: The Customer Inquiry (SalesQuotationRequest)
 
-كل عملية بيع تبدأ باهتمام. **طلب عرض أسعار المبيعات** يُسجّل استفسار العميل: "نحن مهتمون بـ100 كرسي مكتبي، هل يمكنكم تزويدنا بسعر؟" ويلتقط بيانات العميل، والأصناف المطلوبة وكمياتها، ومتطلبات التسليم، وأي متطلبات خاصة.
+Every sale begins with interest. The **Sales Quotation Request** records the customer's inquiry: "We're interested in 100 office chairs, can you give us a price?" It captures the customer's details, the requested items and quantities, delivery requirements, and any special requirements.
 
-لماذا نُضفي طابعًا رسميًا على الاستفسارات؟ لتتبع فرص البيع المحتملة (رؤية خط الأنابيب)، وقياس معدلات تحويل العروض إلى أوامر، وضمان المتابعة في الوقت المناسب، وتعيين ممثلي المبيعات. وقبل تقديم العرض يساعدك النظام بعرض المخزون المتاح، ومدد التوريد للأصناف غير المتوفرة، ومعلومات التكلفة (لتسعير مربح)، وسجل العميل (مشترياته السابقة وسلوك دفعه وشروطه الخاصة).
+Why formalize inquiries? To track potential opportunities (pipeline visibility), measure quote-to-order conversion rates, ensure timely follow-up, and assign sales reps. And before presenting the quote, the system helps you by showing available stock, lead times for unavailable items, cost information (for profitable pricing), and the customer's history (past purchases, payment behavior, special terms).
 
-## الخطوة الثانية: عرض الأسعار (SalesQuotation)
+## Step Two: The Quotation (SalesQuotation)
 
-**عرض أسعار المبيعات** هو اقتراحك الرسمي بالسعر للعميل. يتضمن رقم العرض وتاريخه ومدة صلاحيته، وبيانات العميل وشروط التسليم والدفع وممثل المبيعات، وسطور الأصناف بأوصافها وكمياتها وأسعارها وخصوماتها وضرائبها، والإجماليات.
+The **Sales Quotation** is your formal price proposal to the customer. It includes the quote number, date, and validity period, the customer's details and delivery and payment terms and the sales rep, item lines with descriptions, quantities, prices, discounts, and taxes, and the totals.
 
-أما تفاصيل التسعير والخصومات والعروض — قوائم الأسعار، والتسعير التلقائي بهامش الربح، وطبقات الخصم، والحد الأدنى للسعر — فلها صفحتها المخصّصة: [التسعير والعروض والكوبونات](./pricing-offers-and-coupons.md).
+The pricing and discount details - price lists, automatic margin pricing, discount layers, and minimum price - have their own dedicated page: [Pricing, Offers & Coupons](./pricing-offers-and-coupons.md).
 
-**دورة حياة العرض:** بعد الإنشاء يراجعه مدير المبيعات (خاصةً عند التسعير الخاص)، ثم يُرسَل للعميل، فتُتابَع استجابته. والنتائج المحتملة: التحويل لأمر (قبول العميل)، أو المراجعة (تفاوض فتُنشئ عرضًا معدلًا)، أو الانتهاء (انتهاء الصلاحية)، أو الخسارة (اختيار جهة أخرى).
+**Quote lifecycle:** after creation, the sales manager reviews it (especially for special pricing), then it's sent to the customer, and the response is tracked. Possible outcomes: conversion to an order (customer accepts), revision (negotiation, so you create an amended quote), expiry (validity ends), or loss (they chose someone else).
 
-## الخطوة الثالثة: أمر البيع (SalesOrder)
+## Step Three: The Sales Order (SalesOrder)
 
-قبِل العميل عرضك! حان وقت الالتزام الرسمي. **أمر البيع** يقول: "سنبيعك هذه الأصناف وفق هذه الشروط."
+The customer accepted your quote! Time for the formal commitment. The **Sales Order** says: "We'll sell you these items on these terms."
 
-**التحويل من عرض الأسعار** هو الأسهل: ينسخ النظام كل المعلومات من العرض، ويربط الأمر به (مسار التدقيق)، ويغيّر الحالة من "عرض" إلى "أمر"، ويُطلق التنفيذ. وللعملاء الحاليين بأصناف معيارية يمكن تخطّي العرض وإنشاء الأمر مباشرةً.
+**Conversion from the quotation** is easiest: the system copies all the information from the quote, links the order to it (audit trail), changes the status from "quote" to "order," and starts fulfillment. For existing customers with standard items, you can skip the quote and create the order directly.
 
-يحمل الأمر كل ما في العرض، مضافًا إليه تفاصيل التنفيذ (تاريخ التسليم المطلوب، عنوان التسليم الذي قد يختلف عن عنوان الفوترة، طريقة الشحن)، وتخصيص المخزون (أي مخزن سينفّذ، وهل الأصناف متوفرة)، والشروط المالية (الأسعار النهائية، وشروط الدفع نقدًا أو آجلًا أو أقساطًا، والتحقق من حد الائتمان للعملاء الآجلين).
+The order carries everything in the quote, plus fulfillment details (requested delivery date, delivery address that may differ from the billing address, shipping method), inventory allocation (which warehouse will fulfill, and whether items are available), and financial terms (final prices, payment terms whether cash, credit, or installments, and credit-limit verification for credit customers).
 
-![شاشة أمر البيع في Nama ERP](images/sales/sales-order-edit-ar.png)
+![Sales order screen in NaMa ERP](../../ar/modules/supplychain/images/sales/sales-order-edit-en.png)
 
-### الفاتورة المبدئية (ProformaSalesInvoice)
+### The Proforma Invoice (ProformaSalesInvoice)
 
-**فاتورة المبيعات المبدئية** نقطة منتصف الطريق: تبدو كفاتورة وتعمل كعرض أسعار، وتُستخدم لموافقة ميزانية العميل أو الجمارك أو الدفع المسبق. وبمجرد دفع العميل أو موافقته تتحول إلى أمر فعلي.
+The **Proforma Sales Invoice** is a midway point: it looks like an invoice and works like a quote, used for the customer's budget approval, customs, or advance payment. Once the customer pays or approves, it converts to an actual order.
 
-## الخطوة الرابعة: الحجز والتحضير والتسليم
+## Step Four: Reservation, Preparation, and Delivery
 
-بعد تأكيد الأمر تأتي مرحلة التنفيذ المادي، ولها صفحتان مخصّصتان:
+After the order is confirmed comes physical fulfillment, which has two dedicated pages:
 
-- **الحجز**: يحجز النظام المخزون للأمر فلا يُباع لغيره، ويضمن قدرتك على التنفيذ. تفاصيله الكاملة في [دليل نظام الحجوزات](./reservation-system-guide.md).
-- **التحضير والتحميل والتسليم**: من قائمة التحضير (Pick) في المخزن، إلى مستند التحميل، إلى مستند التسليم وإثبات الاستلام. تجد ذلك في [التسليم والتحميل](./delivery-and-loading.md).
+- **Reservation**: the system reserves stock for the order so it isn't sold to others, ensuring you can fulfill. Full details in the [Reservation System Guide](./reservation-system-guide.md).
+- **Preparation, loading, and delivery**: from the pick list in the warehouse, to the loading document, to the delivery document and proof of receipt. You'll find this in [Delivery & Loading](./delivery-and-loading.md).
 
-## الخطوة الخامسة: فاتورة المبيعات (SalesInvoice)
+## Step Five: The Sales Invoice (SalesInvoice)
 
-**فاتورة المبيعات** هي في آنٍ واحد الفاتورة (العميل مدين لك بمبلغ) وحركة المخزون (الأصناف تغادر مخزونك). تتضمن رقمها وتاريخها وبيانات العميل وعنواني الفوترة والشحن وممثل المبيعات ومرجع الأمر وشروط الدفع، وسطور الأصناف المباعة بكمياتها وأسعارها وخصوماتها وضرائبها، والملخص المالي والإجمالي.
+The **Sales Invoice** is at once the invoice (the customer owes you an amount) and an inventory movement (the items leave your stock). It includes its number, date, customer details, billing and shipping addresses, the sales rep, the order reference, payment terms, sold-item lines with quantities, prices, discounts, and taxes, and the financial summary and total.
 
-### ما يفعله النظام
+### What the System Does
 
-عند حفظ الفاتورة (ليس كمسودة):
-- **حركة المخزون**: يُولِّد النظام تلقائيًا صرف الأصناف المباعة، فتنخفض كميات المخزون، وتُزال من مواقعها، وتُتتبَّع الأرقام التسلسلية/الدفعات المباعة، وتُسجَّل تكلفة البضاعة المبيعة.
-- **القيود المحاسبية**: مدين الذمم المدينة (أو النقد عند الدفع الفوري)، دائن إيرادات المبيعات، دائن الضريبة المحصّلة، مدين تكلفة البضاعة المبيعة، دائن المخزون.
-- **حساب العميل**: يزيد رصيده، ويُحدَّث استهلاك حد الائتمان، ويُنشأ تاريخ الاستحقاق.
+When the invoice is saved (not as a draft):
+- **Inventory movement**: the system automatically generates the issue of sold items, so inventory quantities decrease, they're removed from their locations, sold serials/batches are tracked, and the cost of goods sold is recorded.
+- **Accounting entries**: debit receivables (or cash on immediate payment), credit sales revenue, credit collected tax, debit cost of goods sold, credit inventory.
+- **Customer account**: the balance rises, credit-limit usage updates, and the due date is created.
 
-### الفوترة الإلكترونية
+### Electronic Invoicing
 
-في الدول التي تعتمد الفواتير الإلكترونية، يُنشئ النظام الفاتورة بالصيغة الضريبية المعتمدة ويرسلها لمنظومة الهيئة ويستقبل معرّفها الفريد ورمز QR. تفاصيل ذلك في [وحدة الفوترة](/modules/invoicing/).
+In countries that adopt electronic invoicing, the system creates the invoice in the approved tax format, sends it to the authority's system, and receives its unique identifier and QR code. Details are in the [Invoicing module](/modules/invoicing/).
 
-## الخطوة السادسة: تحصيل المدفوعات
+## Step Six: Collecting Payments
 
-الخطوة الأخيرة هي تحصيل ما هو مستحق. في **البيع النقدي** يُدفَع فورًا فتُغلق الفاتورة دون ذمة مدينة (أو تُصفّى فورًا). وفي **البيع الآجل** تُنشئ الفاتورة ذمة مدينة بتاريخ استحقاق وفق الشروط (صافي 30، صافي 60)، فيتتبع النظام التقادم ويُنبّه قرب الاستحقاق. وفي **البيع بالأقساط** تُقسَّم القيمة إلى دفعات مجدولة يتتبعها النظام كلًّا على حدة. وعند تسجيل الدفعة يُخفَّض رصيد العميل ويُحدَّث التقادم وتُغلق الفاتورة إن سُدِّدت بالكامل. (تفاصيل السداد والجدولة في وحدتي الفوترة والمحاسبة.)
+The last step is collecting what's due. In a **cash sale**, it's paid immediately so the invoice closes with no receivable (or it's settled at once). In a **credit sale**, the invoice creates a receivable with a due date per terms (net 30, net 60), so the system tracks aging and alerts near the due date. In **installment sales**, the value is split into scheduled payments tracked individually. When a payment is recorded, the customer's balance is reduced, aging is updated, and the invoice closes if fully paid. (Payment and scheduling details are in the Invoicing and Accounting modules.)
 
-## المرتجعات والاستبدالات
+## Returns and Replacements
 
-أحيانًا لا تكتمل المبيعات. **مرتجع المبيعات** يُستخدم عندما يريد العميل الإرجاع (صنف معيب، أو شحن خاطئ، أو تغيّر رأي ضمن فترة الإرجاع، أو تلف أثناء الشحن). يبدأ المسار غالبًا بـ**طلب مرتجع المبيعات** (SalesReturnRequest) للترخيص، ثم يُنشأ المرتجع الفعلي، فتُستلَم البضاعة وتُعالَج قيمتها.
+Sometimes sales don't stick. The **Sales Return** is used when the customer wants to return (a defective item, a wrong shipment, a change of mind within the return window, or damage in shipping). The path often starts with a **Sales Return Request** (SalesReturnRequest) for authorization, then the actual return is created, the goods are received, and their value is processed.
 
-**الأثر المحاسبي للمرتجع:** مدين مردودات المبيعات (حساب مضاد للإيراد)، مدين المخزون (عودة البضاعة)، مدين الضريبة (عكسها)، دائن الذمم المدينة (انخفاض مديونية العميل).
+**Accounting effect of a return:** debit sales returns (a contra-revenue account), debit inventory (goods coming back), debit tax (reversing it), credit receivables (the customer owes less).
 
-أما **استبدال المبيعات** (SalesReplacement) فيعالج التبديل في معاملة واحدة: العميل اشترى مقاسًا وسط ويريد كبيرًا، فيُرجِع النظام الوسط ويُصدِر الكبير ويعالج فرق السعر. مفيد لاستبدالات المقاس/اللون، والضمان، والترقية أو التخفيض.
+The **Sales Replacement** (SalesReplacement), on the other hand, handles a swap in a single transaction: the customer bought a medium and wants a large, so the system returns the medium, issues the large, and handles the price difference. Useful for size/color swaps, warranty, and upgrades or downgrades.
 
-## التنبؤ بالمبيعات
+## Sales Forecasting
 
-يساعد **التنبؤ بالمبيعات** (SalesForecast) على التخطيط للمبيعات المستقبلية اعتمادًا على الأنماط التاريخية والاتجاهات الموسمية وخط الأنابيب المفتوح، فيغذّي تخطيط المخزون وجدولة الإنتاج و[التنبؤ بالمشتريات](./purchase-forecast.md).
+The **Sales Forecast** (SalesForecast) helps you plan future sales based on historical patterns, seasonal trends, and the open pipeline, feeding inventory planning, production scheduling, and [purchase forecasting](./purchase-forecast.md).
 
-::: info البيع بالتجزئة في نقاط البيع
-البيع النقدي السريع عبر الكاشير له وحدته المستقلة الآن. راجع [وحدة نقاط البيع](/modules/pos/).
+::: info Retail Selling at the Point of Sale
+Fast cash selling at the register now has its own module. See the [Point of Sale module](/modules/pos/).
 :::
 
-## نصائح لإدارة مبيعات فعّالة
+## Tips for Effective Sales Management
 
-::: tip أفضل الممارسات
-**استجب للعروض بسرعة**: العملاء غير صبورين؛ سرعة الاستجابة ترتبط بمعدلات تحويل أعلى.
+::: tip Best Practices
+**Respond to quotes quickly**: Customers are impatient; response speed correlates with higher conversion rates.
 
-**تابع بمنهجية**: لا تدع العروض تموت بصمت؛ تابع بعد أيام وقبل انتهاء الصلاحية، وتتبّع أسباب الكسب والخسارة.
+**Follow up methodically**: Don't let quotes die silently; follow up after a few days and before expiry, and track win/loss reasons.
 
-**احجز المخزون بحكمة**: احجز للأوامر المؤكدة لا للاستفسارات الاحتمالية، فربط المخزون بـ"ربما" يمنع البيع لـ"نعم".
+**Reserve stock wisely**: Reserve for confirmed orders, not speculative inquiries; tying stock to a "maybe" prevents selling to a "yes."
 
-**أصدر الفواتير فورًا**: كلما أسرعت بالفوترة أسرعت بالتحصيل؛ افوتر ما سُلّم دون انتظار اكتمال كل التسليمات.
+**Invoice promptly**: The faster you invoice, the faster you collect; invoice what's delivered without waiting for all deliveries to complete.
 
-**تتبّع المرتجعات**: ارتفاع إرجاع صنف يشير لمشكلة جودة، وارتفاعه من عميل يشير لحاجة تدريب أو ملاءمة؛ حلّل الأنماط.
+**Track returns**: A high return rate for an item signals a quality problem, and a high rate from a customer signals a training or fit need; analyze the patterns.
 :::
 
-## أسئلة شائعة
+## Frequently Asked Questions
 
-**س: هل يمكننا الفوترة قبل التسليم؟**
+**Q: Can we invoice before delivery?**
 
-ج: نعم، وتُسمّى الفوترة المسبقة - شائعة للطلبات المخصّصة (دفع قبل التصنيع)، أو الطلبات الكبيرة (عربون)، أو العملاء عالي مخاطر الائتمان. يمكن للنظام الفوترة قبل صرف المخزون.
+A: Yes, called advance invoicing - common for custom orders (pay before manufacturing), large orders (a deposit), or high-credit-risk customers. The system can invoice before issuing stock.
 
-**س: ماذا لو أراد العميل تسليمًا جزئيًا؟**
+**Q: What if the customer wants a partial delivery?**
 
-ج: أنشئ فواتير متعددة للأمر ذاته؛ افوتر وسلّم المتاح الآن والباقي لاحقًا، ويتتبع النظام المُنفَّذ مقابل المعلّق.
+A: Create multiple invoices for the same order; invoice and deliver what's available now and the rest later, and the system tracks fulfilled vs. pending.
 
-**س: هل يمكن تغيير الأسعار بعد إنشاء الأمر؟**
+**Q: Can prices change after the order is created?**
 
-ج: يعتمد على ضوابطك؛ بعض المنظمات تثبّت الأسعار عند تأكيد الأمر، وأخرى تسمح بالتعديل حتى الفاتورة.
+A: It depends on your controls; some organizations lock prices at order confirmation, while others allow changes up to the invoice.
 
-**س: ماذا يحدث إن لم نتمكن من تنفيذ أمر؟**
+**Q: What happens if we can't fulfill an order?**
 
-ج: الخيارات: إنشاء أمر تأخير (تنفيذ عند توفر المخزون)، أو عرض بديل، أو الإلغاء والاسترداد، أو التنفيذ الجزئي. وأفضل ممارسة هي التواصل الفوري مع العميل للقرار معًا.
+A: Options: create a backorder (fulfill when stock is available), offer an alternative, cancel and refund, or partial fulfillment. Best practice is immediate communication with the customer to decide together.
 
-## الخطوات التالية
+## Next Steps
 
-- [التسعير والعروض والكوبونات](./pricing-offers-and-coupons.md) - كيف تُحسب الأسعار والخصومات
-- [دليل نظام الحجوزات](./reservation-system-guide.md) - حجز المخزون للعملاء
-- [التسليم والتحميل](./delivery-and-loading.md) - تنفيذ الأوامر وتسليمها
-- [رحلة الشراء](./purchasing-journey.md) - العملية المعاكسة
+- [Pricing, Offers & Coupons](./pricing-offers-and-coupons.md) - how prices and discounts are computed
+- [Reservation System Guide](./reservation-system-guide.md) - reserving stock for customers
+- [Delivery & Loading](./delivery-and-loading.md) - fulfilling and delivering orders
+- [The Purchasing Journey](./purchasing-journey.md) - the mirror process

@@ -1,269 +1,265 @@
-<rtl>
+# Introduction to Entity Flows
 
-# مقدمة عن مسارات الكيان
+Entity Flows are one of the most powerful features in Nama ERP. They provide high flexibility for executing custom actions based on user interactions with the system, without requiring programming experience.
 
-مسارات الكيان هي إحدى المميزات القوية في نظام Nama ERP، حيث توفر مرونة عالية في تنفيذ إجراءات مخصصة بناءً على تفاعل المستخدم مع النظام، دون الحاجة إلى خبرة برمجية.
+These flows are designed to give implementation consultants and technical support staff capabilities that were previously exclusive to developers, through a simplified and easy-to-use interface.
 
-تم تصميم هذه المسارات لتمنح استشاريي التجهيز والدعم الفني قدرات كانت سابقًا حكرًا على المبرمجين، من خلال واجهة مبسطة وسهلة الاستخدام.
+## When a Flow Is Triggered
 
-## متى يتم تشغيل المسار
+An Entity Flow is automatically executed after the user performs a specific action, such as:
 
-يتم تنفيذ مسار الكيان تلقائيًا بعد اتخاذ المستخدم لإجراء معين مثل:
+- Saving a record
+- Editing a record
+- Deleting a record
+- Revising a record
+- ... etc.
 
-- حفظ سجل
-- تعديل سجل
-- حذف سجل
-- مراجعة سجل
-- ... إلخ
+## How to Create an Entity Flow
 
-## كيفية إنشاء مسار كيان
+1. Open the **Entity Flows** screen.
+2. Select the entity type (e.g., Sales Invoice, Purchase Order, Customer, Supplier...).
+3. You can optionally specify a condition via the **"Apply When Matching Query"** field, to apply the flow only to records for which the query returns any value (other than 0 or NULL).
+4. You can also specify:
+    - A specific book
+    - A specific term config (توجيه)
+    - Additional criteria to filter the targeted records
 
-1. افتح شاشة **مسارات الكيان**.
-2. حدد نوع الكيان (مثل: فاتورة مبيعات، أمر شراء، عميل، مورد...).
-3. يمكن تحديد شرط اختياري عبر حقل **"يطبق عند التوافق مع الاستعلام"**، لتطبيق المسار فقط على السجلات التي يرجع منها الاستعلام أي قيمة (باستثناء 0 أو NULL).
-4. يمكن أيضًا تحديد:
-    - دفتر معين
-    - توجيه معين
-    - معايير إضافية لفلترة السجلات المستهدفة
+## Components of Flow Details
 
-## مكونات تفاصيل المسار
+In the details table of each Entity Flow, you will find:
 
-في جدول التفاصيل لكل مسار كيان، ستجد:
+- **Element Name**: The name of the associated programming class that performs the required task.
+- **Parameter 1 to 15 Title**: A description of each available parameter, explaining what to enter.
+- **Parameter 1 to 15 Value**: The actual value that will be passed to the element, defining how the task is executed.
+- **With Action**: Specifies when this element is executed within the flow's execution stages (e.g., after save, after revision, ...etc.).
 
-- **اسم العنصر**: اسم الـ Class البرمجي المرتبط، الذي ينفذ المهمة المطلوبة.
-- **عنوان مدخل 1 إلى 15**: وصف لكل مدخل متاح، يوضح المطلوب إدخاله.
-- **قيمة مدخل 1 إلى 15**: القيمة الفعلية التي سيتم تمريرها للعنصر، وتحدد كيفية تنفيذ المهمة.
-- **مع الإجراء**: يحدد متى يتم تنفيذ هذا العنصر ضمن مراحل تنفيذ المسار (مثل: بعد الحفظ، بعد المراجعة، ...إلخ).
-
-النظام يدعم حتى 15 مدخل لكل عنصر، مما يتيح مرونة كبيرة في تخصيص السلوك المطلوب.
+The system supports up to 15 parameters per element, allowing great flexibility in customizing the desired behavior.
 
 
 
-# فهم دورة حياة السجل في مسارات الكيان
+# Understanding the Record Lifecycle in Entity Flows
 
-لفهم كيفية عمل **مسارات الكيان** في نظام Nama ERP بشكل دقيق، من المهم أولًا فهم تسلسل الإجراءات التي يمر بها أي سجل أثناء إنشائه أو تعديله. النظام يوفر نقاط تنفيذ (Events) يمكنك ربط عناصر المسار بها للتحكم في منطق العمل بدقة.
+To understand precisely how **Entity Flows** work in Nama ERP, it is important to first understand the sequence of actions that any record goes through during creation or modification. The system provides execution points (Events) to which you can attach flow elements to control business logic with precision.
 
-## `Init` — عند إنشاء سجل جديد
+## `Init` — When Creating a New Record
 
-يتم تنفيذ هذا الإجراء مباشرة بعد ضغط المستخدم على زر "جديد".
+This action is executed immediately after the user clicks the "New" button.
 
-- الغرض: تعيين **قيم افتراضية** لبعض الحقول.
-- ملاحظة: يمكن للمستخدم تعديل هذه القيم لاحقًا قبل الحفظ.
+- Purpose: Assign **default values** to certain fields.
+- Note: The user can modify these values later before saving.
 
-## `PreUpdateCalculatedFields` — قبل تحديث الحقول المحسوبة
+## `PreUpdateCalculatedFields` — Before Updating Calculated Fields
 
-بعض الحقول يتم حسابها تلقائيًا أثناء الحفظ. مثل:
+Some fields are calculated automatically during saving. For example:
 
-- إجمالي السعر = الكمية × سعر الوحدة
-- قيمة الضريبة = النسبة × الأساس
-- إجمالي الفاتورة = مجموع القيم + الضرائب
+- Total price = quantity × unit price
+- Tax amount = rate × base
+- Invoice total = sum of values + taxes
 
-الغرض من هذا الإجراء هو تعديل القيم **قبل** أن يقوم النظام بحساب هذه الحقول المحسوبة.
+The purpose of this action is to modify values **before** the system calculates these computed fields.
 
-- مثال: إذا أردت تغيير الكمية قبل أن يُحسب إجمالي السعر، فيجب فعل ذلك هنا.
+- Example: If you want to change the quantity before the total price is calculated, you must do it here.
 
-## `AfterTemplate` — بعد تطبيق قالب القيم الافتراضية
+## `AfterTemplate` — After Applying a Default Value Template
 
-إذا كان هناك **قالب قيم افتراضية** (Template) مرتبط بالشاشة وتم تطبيقه، فإن العناصر المرتبطة بهذا الإجراء ستعمل بعد تطبيق هذا القالب مباشرة.
+If there is a **default values template** (Template) associated with the screen and it has been applied, elements attached to this action will run immediately after the template is applied.
 
-- مفيد لضبط قيم إضافية بناءً على ما تم تعيينه في القالب.
+- Useful for adjusting additional values based on what was set in the template.
 
-## `UpdateCalculatedFields` — بعد تحديث الحقول المحسوبة
+## `UpdateCalculatedFields` — After Updating Calculated Fields
 
-كما أوضحنا، النظام يقوم بحساب بعض الحقول تلقائيًا. هذا الإجراء يتم تنفيذه **بعد** اكتمال هذه العمليات الحسابية.
+As explained, the system automatically calculates certain fields. This action is executed **after** those calculations are complete.
 
-- استخدم هذا الإجراء إذا كنت بحاجة إلى التعامل مع القيم المحسوبة (مثل إجمالي السعر أو الضريبة).
-- يسمح لك بإجراء تعديلات إضافية تعتمد على القيم المحسوبة بالفعل.
+- Use this action if you need to work with calculated values (such as total price or tax).
+- It allows you to make further adjustments that depend on already-calculated values.
 
 
-## `SaveDraft` — حفظ كمسودة
+## `SaveDraft` — Save as Draft
 
-يتيح النظام حفظ السجل كمسودة، وهو وضع لا يتم فيه التحقق من صحة البيانات ولا تنفيذ التأثيرات (مثل التأثيرات المحاسبية أو المخزنية). في هذا الوضع:
+The system allows saving a record as a draft, a state in which data validation is not performed and effects (such as accounting or inventory effects) are not applied. In this state:
 
-- يتم **تحديث الحقول المحسوبة فقط**.
-- لا يتم تنفيذ باقي إجراءات الحفظ.
-- العناصر المرتبطة بهذا الإجراء لن تعمل إلا عند حفظ المسودة فقط.
+- Only **calculated fields are updated**.
+- The rest of the save actions are not executed.
+- Elements attached to this action will only run when saving as a draft.
 
-## `ValidateOnSave` — إمكانية الحفظ
+## `ValidateOnSave` — Save Validation
 
-بعد تطبيق القيم الافتراضية وحساب الحقول، يبدأ النظام في **التحقق من صحة البيانات**، مثل:
+After applying default values and calculating fields, the system begins **validating the data**, such as:
 
-- التأكد من وجود كمية كافية في المخزون.
-- التأكد من أن العميل مسموح له بالشراء.
+- Confirming sufficient stock quantity is available.
+- Confirming the customer is permitted to make purchases.
 
-يمكنك استخدام هذا الإجراء لربط عناصر تساعد في التحقق مثل:
+You can use this action to attach elements that assist with validation, such as:
 
-- `EAPreventChangingFields`: يمنع الحفظ إذا تم تغيير حقول محددة تم تحديدها في مدخلات المسار.
+- `EAPreventChangingFields`: Prevents saving if specific fields defined in the flow parameters have been changed.
 
-## `PreApplyEffects` — ما قبل تأثيرات الحفظ
+## `PreApplyEffects` — Before Save Effects
 
-بعد نجاح التحقق من البيانات، يستعد النظام لتطبيق التأثيرات مثل:
+After successful data validation, the system prepares to apply effects such as:
 
-- إنشاء قيود محاسبية.
-- تعديل الكميات بالمخزون.
-- تحديث ملفات مرتبطة.
+- Creating accounting entries.
+- Adjusting inventory quantities.
+- Updating related records.
 
-في هذه المرحلة، يمكنك استخدام هذا الإجراء لإجراء **تعديلات أخيرة** على السجل أو **إنشاء سجلات إضافية**، خصوصًا إذا كانت هذه التعديلات تؤثر على ما سيتم إنشاؤه من تأثيرات.
+At this stage, you can use this action to make **final adjustments** to the record or **create additional records**, especially if these adjustments affect the effects that will be generated.
 
-## `PostCommit` — تأثيرات الحفظ
+## `PostCommit` — Save Effects
 
-يتم تنفيذ هذا الإجراء **بعد إتمام جميع تأثيرات السند**.
+This action is executed **after all document effects are completed**.
 
-- يستخدم عادةً لإنشاء سجلات مرتبطة بعد الحفظ.
-- مثال شائع: إنشاء موقع مخزني بنفس كود العميل مباشرة بعد حفظ العميل.
+- Typically used to create related records after saving.
+- Common example: Creating an inventory location with the same customer code immediately after saving the customer.
 
 ## `PreSendRequest` — PreSend Business Request
 
-عند حفظ سند يؤدي إلى تأثيرات على الكميات أو التكاليف، لا يتم تنفيذ هذه التأثيرات مباشرة. بدلاً من ذلك، يتم إنشاء **طلبات معالجة** وإرسالها إلى **طابور مخصص** لضمان تنفيذها بشكل **متسلسل وآمن**، وذلك لتفادي تعارضات البيانات الناتجة عن المعالجة المتزامنة.
+When saving a document that results in effects on quantities or costs, these effects are not applied immediately. Instead, **processing requests** are created and sent to a **dedicated queue** to ensure they are executed **sequentially and safely**, avoiding data conflicts caused by concurrent processing.
 
-### أنواع طلبات المعالجة:
+### Types of Processing Requests:
 
-- `LedgerTransReq`: خاص بالتأثيرات المحاسبية.
-- `InvTransReq`: خاص بالتأثيرات المخزنية، ويشمل الكميات والتكاليف.
+- `LedgerTransReq`: For accounting effects.
+- `InvTransReq`: For inventory effects, including quantities and costs.
 
-### استخدام هذا الإجراء:
+### Using This Action:
 
-- يتم تنفيذ العناصر المرتبطة بهذا الإجراء **قبل إرسال** طلبات المعالجة.
-- يمكن استخدامه لإضافة تعديلات أو تأثيرات إضافية، مثل إنشاء تأثير محاسبي خاص.
-
----
-
-## `PostInvTransReqRequestCreation` — بعد إنشاء طلب التأثير المخزني
-
-كما ذكرنا، يتم إنشاء `InvTransReq` لكل تأثير مخزني (سواء تغيير في الكمية أو التكاليف) ويرسل إلى طابور المعالجة.
-
-حتى في الحالات التي لا يوجد فيها تأثير مباشر، قد يتم إنشاء هذا الطلب لأغراض تحقق مثل:
-
-- **التأكد من الكميات المتاحة** دون حجز فعلي، عند تفعيل خيار "التأكد من الكميات مع الحفظ" فقط.
-
-### استخدام هذا الإجراء:
-
-- يتم تنفيذه **بعد إنشاء** طلب `InvTransReq`.
-- يسمح بالتعامل مع الطلب الناتج وتعديله إذا لزم الأمر، لضمان صحة أو تخصيص تأثيرات الكمية والتكلفة قبل المعالجة الفعلية.
-
-## `PreValidateOnDelete` — ما قبل إمكانية الحذف
-
-عند محاولة حذف أي سجل، يبدأ النظام أولًا بالتحقق مما إذا كانت عملية الحذف ممكنة دون الإضرار بسلامة البيانات. من أمثلة الحالات التي يُمنع فيها الحذف:
-
-- وجود سجلات أخرى مرتبطة بالسجل (مثل سند يعتمد على السجل المراد حذفه).
-- في سندات التوريد المخزني، إذا كان الحذف سيؤدي إلى وجود **كميات سالبة**.
-- في مستخلصات المقاولات، إذا كان هناك **مستخلصات لاحقة** تعتمد على السجل الحالي.
-- في سندات القبض، إذا كان الحذف سيؤدي إلى **كشف رصيد الخزينة** (عند تفعيل منع تغيير طبيعة الجانب المحاسبي).
-
-يتم تنفيذ العناصر المرتبطة بـ `PreValidateOnDelete` **قبل عملية التحقق**.  
-يمكنك مثلًا:
-
-- **حذف سند تم إنشاؤه آليًا** بناءً على هذا السجل، كتحضير لعملية الحذف.
+- Elements attached to this action are executed **before sending** the processing requests.
+- It can be used to add adjustments or additional effects, such as creating a custom accounting effect.
 
 ---
 
-## `ValidateOnDelete` — إمكانية الحذف
+## `PostInvTransReqRequestCreation` — After Inventory Effect Request Creation
 
-بعد نجاح التحقق النظامي من أن السجل يمكن حذفه، يتم تشغيل العناصر المرتبطة بهذا الإجراء.
+As mentioned, an `InvTransReq` is created for each inventory effect (whether a change in quantity or costs) and sent to the processing queue.
 
-- يمكنك استغلال هذه المرحلة للتحقق من شروط إضافية أو لإلغاء الحذف في حالات معينة لم يغطيها النظام تلقائيًا.
+Even in cases where there is no direct effect, this request may be created for validation purposes such as:
 
----
+- **Confirming available quantities** without an actual reservation, when the "Confirm Quantities on Save" option is enabled only.
 
-## `PostDelete` — تأثيرات الحذف
+### Using This Action:
 
-عند حذف سجل، يقوم النظام تلقائيًا بإزالة التأثيرات التي كان قد أنشأها مع حفظ السجل.
+- It is executed **after creating** the `InvTransReq` request.
+- It allows working with the resulting request and modifying it if necessary, to ensure correctness or customization of quantity and cost effects before actual processing.
 
-- يمكنك استخدام هذا الإجراء لإزالة **سجلات إضافية تم إنشاؤها آليًا**.
-- مثال: حذف الموقع المخزني الذي تم إنشاؤه تلقائيًا عند حفظ العميل.
+## `PreValidateOnDelete` — Before Delete Validation
 
----
+When attempting to delete any record, the system first checks whether the deletion is possible without compromising data integrity. Examples of cases where deletion is prevented:
 
-## `DeleteDraft` — حذف المسودة
+- Other records are linked to the record (e.g., a document that depends on the record to be deleted).
+- In inventory receipt documents, if the deletion would result in **negative quantities**.
+- In contracting progress certificates, if there are **subsequent certificates** that depend on the current record.
+- In cash receipt documents, if the deletion would result in **a negative treasury balance** (when preventing changes to the accounting side nature is enabled).
 
-المسودات ليس لها تأثير مباشر على النظام، ولكن إذا كنت قد أنشأت تأثيرًا (مثل سجل مرتبط) أثناء تنفيذ الإجراء `SaveDraft`، يجب عليك **إزالته عند حذف المسودة** من خلال هذا الإجراء.
+Elements attached to `PreValidateOnDelete` are executed **before the validation process**.
+You can, for example:
 
-## `Revise` — مراجعة السجل
-
-يوفر نظام Nama ERP آلية مراجعة للسجلات تهدف إلى تثبيت البيانات وضمان سلامتها. بعد المراجعة:
-
-- لا يمكن تعديل أو حذف السجل.
-- يمكن تنفيذ إجراءات إضافية مرتبطة بالمراجعة تلقائيًا، مثل:
-    - إنشاء سجلات جديدة.
-    - تطبيق تأثيرات إضافية.
-
-يتم تشغيل العناصر المرتبطة بهذا الإجراء أثناء عملية المراجعة.
+- **Delete a document that was automatically created** based on this record, as preparation for the deletion.
 
 ---
 
-## `UnRevise` — إلغاء المراجعة
+## `ValidateOnDelete` — Delete Validation
 
-عند قيام المستخدم بإلغاء مراجعة سجل ما، يتم تنفيذ العناصر المرتبطة بهذا الإجراء تلقائيًا.
+After the system successfully validates that the record can be deleted, elements attached to this action are triggered.
 
-- مفيد لعكس التأثيرات أو حذف سجلات تم إنشاؤها مع المراجعة.
-
----
-
-## `EInvoiceCreation` — إنشاء الفاتورة الضريبية
-
-في العديد من الدول (مثل مصر، السعودية، الأردن)، يُطلب من الشركات إرسال فواتيرها إلكترونيًا إلى الجهات الضريبية الحكومية.
-
-- يقوم النظام بتحويل شكل الفاتورة في Nama ERP إلى الشكل المطلوب من الجهة الرسمية.
-- يتم تنفيذ العناصر المرتبطة بهذا الإجراء **بعد إنشاء الفاتورة الضريبية**، وقبل إرسالها.
-- يسمح ذلك بتنفيذ تعديلات إضافية مثل:
-    - إضافة ملاحظات.
-    - تعديل بنود.
-    - التأكد من توافق البيانات مع متطلبات الهيئة.
+- You can use this stage to verify additional conditions or cancel the deletion in certain cases not automatically covered by the system.
 
 ---
 
-## `PosteInvoiceSend` — بعد إرسال الفاتورة الضريبية
+## `PostDelete` — Delete Effects
 
-بعد أن يتم إرسال الفاتورة بنجاح إلى الهيئة المختصة (مثل مصلحة الضرائب أو هيئة الزكاة والدخل)، وتسجيل حالتها كـ "مرسلة"، يتم تشغيل العناصر المرتبطة بهذا الإجراء.
+When a record is deleted, the system automatically removes the effects it had created when the record was saved.
 
-- يُستخدم غالبًا لتنفيذ عمليات تسجيل أو تنبيه بناءً على نجاح الإرسال.
+- You can use this action to remove **additional records that were automatically created**.
+- Example: Deleting the inventory location that was automatically created when the customer was saved.
 
 ---
 
-## `PosteInvoiceValid` — بعد قبول الفاتورة الضريبية
+## `DeleteDraft` — Delete Draft
 
-تقوم الهيئة الحكومية بمراجعة الفاتورة والتحقق من:
+Drafts have no direct effect on the system, but if you created an effect (such as a linked record) while executing the `SaveDraft` action, you must **remove it when the draft is deleted** through this action.
 
-- صحة البيانات.
-- صحة الرقم الضريبي للعميل.
-- توافق الفاتورة مع اللوائح.
+## `Revise` — Record Revision
 
-عند تأكيد الهيئة على صحة الفاتورة وتغيير حالتها إلى "صحيحة" أو "مقبولة"، يتم تشغيل العناصر المرتبطة بهذا الإجراء تلقائيًا.
+Nama ERP provides a record revision mechanism aimed at locking data and ensuring its integrity. After revision:
 
-- يُستخدم لمتابعة الإجراءات اللاحقة مثل التأكيد النهائي أو الإرسال الداخلي أو التنبيهات.
+- The record cannot be edited or deleted.
+- Additional revision-related actions can be automatically executed, such as:
+    - Creating new records.
+    - Applying additional effects.
 
-## `RecordView` — مطالعة السجل
+Elements attached to this action run during the revision process.
 
-يتم تنفيذ العناصر المرتبطة بهذا الإجراء عند فتح أي سجل بواسطة أي مستخدم.
+---
+
+## `UnRevise` — Cancel Revision
+
+When a user cancels the revision of a record, elements attached to this action are automatically executed.
+
+- Useful for reversing effects or deleting records created during revision.
+
+---
+
+## `EInvoiceCreation` — E-Invoice Creation
+
+In many countries (such as Egypt, Saudi Arabia, Jordan), companies are required to submit their invoices electronically to government tax authorities.
+
+- The system converts the invoice format in Nama ERP to the format required by the official authority.
+- Elements attached to this action are executed **after the e-invoice is created**, and before it is sent.
+- This allows executing additional modifications such as:
+    - Adding notes.
+    - Editing lines.
+    - Ensuring data compliance with the authority's requirements.
+
+---
+
+## `PosteInvoiceSend` — After E-Invoice Is Sent
+
+After the invoice is successfully sent to the relevant authority (such as the Tax Authority or the Zakat, Tax and Customs Authority), and its status is recorded as "Sent", elements attached to this action are triggered.
+
+- Typically used to perform logging or notification operations based on successful submission.
+
+---
+
+## `PosteInvoiceValid` — After E-Invoice Is Accepted
+
+The government authority reviews the invoice and verifies:
+
+- Correctness of the data.
+- Correctness of the customer's tax number.
+- Compliance of the invoice with the regulations.
+
+When the authority confirms the invoice is valid and changes its status to "Valid" or "Accepted", elements attached to this action are triggered automatically.
+
+- Used to follow up on subsequent actions such as final confirmation, internal forwarding, or notifications.
+
+## `RecordView` — Record View
+
+Elements attached to this action are executed when any record is opened by any user.
 ::: danger
-نظرًا لأن هذا الحدث متكرر جدًا، فإن النظام **يعطل** تشغيل مسارات الكيان المرتبطة به بشكل افتراضي.
+Because this event occurs very frequently, the system **disables** running Entity Flows attached to it by default.
 
-لتفعيل هذا النوع من المسارات، يجب ضبط الخيار التالي في الإعدادات العامة:
+To enable this type of flow, you must set the following option in the global settings:
 <GlobalConfigOption option-code="value.info.enableRecordViewEntityFlows" title="Enable Record View Entity Flows"/>
 :::
 
 ---
 
-## `Manual` — تشغيل يدوي
+## `Manual` — Manual Execution
 
-يُستخدم هذا الإجراء لتشغيل مسار الكيان يدويًا بواسطة المستخدم، من خلال:
+This action is used to trigger an Entity Flow manually by the user, through:
 
-- زر داخل شاشة التحرير.
-- أو من قائمة "المزيد" في شاشة التحرير أو شاشة عرض القائمة.
+- A button inside the edit screen.
+- Or from the "More" menu in the edit screen or the list view screen.
 
 ::: tip
-- يجب إدراج مسارات الكيان التي تستخدم هذا الإجراء في الشاشة المستهدفة.
-- يتم ذلك عبر "تعديل الشاشة" → جدول "الإجراءات والتنويهات".
+- Entity Flows using this action must be added to the target screen.
+- This is done via "Edit Screen" → the "Actions and Notifications" table.
 :::
 ---
 
-## `Automatic` — تلقائي
+## `Automatic` — Automatic
 
-بعض العناصر البرمجية تحدد الإجراء المناسب تلقائيًا، لذا تضبط الإجراء إلى `Automatic` لضمان عدم حدوث أخطاء عند اختيار المستخدم لإجراء غير صحيح.
+Some programming elements determine the appropriate action automatically, so the action is set to `Automatic` to ensure no errors occur when the user selects an incorrect action.
 
 ::: warning
-- لا يُتوقع من المستخدمين إنشاء عناصر بهذا الإجراء.
-- إذا تم إنشاء عنصر باستخدام `Automatic`, فسيتم تشغيله مع **جميع الأحداث النظامية** الأخرى (باستثناء `Manual`).
+- Users are not expected to create elements with this action.
+- If an element is created using `Automatic`, it will run with **all other system events** (except `Manual`).
 :::
-
-</rtl>

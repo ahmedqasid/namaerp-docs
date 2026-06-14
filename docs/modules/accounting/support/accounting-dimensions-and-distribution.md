@@ -1,46 +1,46 @@
-# المحدِّدات ومراكز التكلفة والتوزيع
+# Dimensions, Cost Centers & Distribution
 
-يجيب الحسابُ عن «ماذا» — نقدية، مبيعات، رواتب. أمّا **المحدِّدات** فتجيب عمّا سوى ذلك: *أيُّ* فرع، *أيُّ* إدارة، *أيُّ* مركز تكلفة، *أيُّ* مشروع. إنّها الإحداثيات الإضافية التي يحملها كلُّ سطرٍ في دفتر الأستاذ، وهي ما يحوّل ميزان مراجعةٍ مسطّحًا إلى تقاريرَ تقطّعها حسب الفرع، أو القطاع، أو مركز التكلفة. تشرح هذه الصفحة مجموعة المحدِّدات، وكيف يمكن للحسابات أن تقيّد المحدِّدات التي تقبلها، وكيف يوزّع **توزيع الحسابات** قيمةً عليها تلقائيًا.
+An account answers "what" — cash, sales, salaries. **Dimensions** answer everything else: *which* branch, *which* department, *which* cost center, *which* project. They're the extra coordinates carried on every ledger line, and they're what turn a flat trial balance into reports you can slice by branch, by sector, by cost center. This page explains the dimension set, how accounts can restrict which dimensions they accept, and how **account distribution** spreads a value across them automatically.
 
-## مجموعة المحدِّدات
+## The dimension set
 
-يستطيع كلُّ سطرٍ محاسبي حملَ مجموعةٍ قياسية من المحدِّدات:
+Every accounting line can carry a standard set of dimensions:
 
-- **الشركة** — الشركة التي يخصّها السطر (في قاعدة بياناتٍ متعدّدة الشركات).
-- **القطاع** و**الفرع** و**الإدارة** — الإحداثيات التنظيمية.
-- **المجموعة التحليلية** — **شجرة مراكز التكلفة** الحرّة (`Basic > Dimensions > Analysis Set`). وخلافًا للقطاع/الفرع/الإدارة الثابتة، المجموعة التحليلية شجرةٌ تصوغها وفق بنية مراكز التكلفة أو المشاريع لديك، فهي أكثر المحدِّدات مرونة.
-- **المراجع 1–3** و**السجلّ** — خطّافاتٌ إضافية لتحليلٍ أدقّ.
+- **Legal Entity** — the company the line belongs to (in a multi-company database).
+- **Sector**, **Branch**, **Department** — the organizational coordinates.
+- **Analysis Set** — the free-form **cost-center tree** (`Basic > Dimensions > Analysis Set`). Unlike the fixed sector/branch/department, the analysis set is a tree you shape to your own cost-centre or project structure, so it's the most flexible dimension.
+- **References 1–3** and a **record (entity dimension)** — extra hooks for finer analysis.
 
-وإلى جوار هذه، يستطيع الحسابُ حملَ حتى **خمسة أنواع ذمم** (عميل، مورد، موظف، …)، فيُحلَّل الحسابُ الواحد بأكثر من نوع طرف.
+Alongside these, an account can carry up to **five subsidiary types** (customer, supplier, employee, etc.), so a single account can be analyzed by more than one kind of party.
 
-## تقييد المحدِّدات على حساب
+## Restricting dimensions on an account
 
-ليس كلُّ حسابٍ ينبغي أن يقبل كلَّ محدِّد. وعلى الحساب نفسه يمكنك تضييق ذلك:
+Not every account should accept every dimension. On the account itself you can tighten this:
 
-- **القصر على المحدِّد العام فقط** — لا يقبل الحسابُ إلّا القيمة العامة/المشتركة للمحدِّد، دون الخاصّة،
-- **عدم الاستخدام مع المحدِّد العام** — العكس: يرفض الحسابُ القيمة العامة،
-- **إلزامية المرجع / إلزامية البيان** — إجبار المستخدم على ملء مرجعٍ أو بيانٍ على السطور التي تمسّ هذا الحساب.
+- **restrict to the public dimension only** — the account only accepts the shared/public value of a dimension, not private ones,
+- **don't use with the public dimension** — the opposite: the account refuses the public value,
+- **mandatory reference / mandatory narration** — force the user to fill a reference or a narration on lines hitting this account.
 
-تُبقي هذه القواعدُ تحليلَك نظيفًا: فحساب مصروف إدارةٍ يمكن جعله *يتطلّب* إدارة، وحساب الإدارة العامة يمكن منعه من التحليل بالإدارات بالكامل.
+These rules keep your analysis clean: a department-expense account can be made to *require* a department, a head-office account can be barred from department analysis entirely.
 
-## توزيع الحسابات: تفريق قيمةٍ تلقائيًا
+## Account distribution: spreading a value automatically
 
-أحيانًا يلزم تقسيم رقمٍ واحد على محدِّداتٍ كثيرة — إيجارٌ مشترك على كلّ الفروع، أو تكلفة تسويقٍ على عدّة إدارات. وبدل إدخال التقسيم يدويًا في كلّ مرّة، تصف قاعدة **توزيع الحسابات** (`Accounting > Settings > Account Distribution`) كيفية تفريق القيمة، فيطبّقها النظام.
+Sometimes one figure needs to be split across many dimensions — shared rent across all branches, a marketing cost across several departments. Rather than entering the split by hand every time, an **Account Distribution** rule (`Accounting > Settings > Account Distribution`) describes how to spread a value, and the system applies it.
 
-تضبط قاعدة التوزيع، **لكلّ محدِّد** (الحساب، المجموعة التحليلية، الفرع، الإدارة، القطاع، المراجع، الذمة، السجلّ)، كيفية مشاركة ذلك المحدِّد:
+A distribution rule sets, **for each dimension** (account, analysis set, branch, department, sector, references, subsidiary, record), how that dimension participates:
 
-- **سياسة** — **بدون** (لا تُوزِّع هذا المحدِّد)، أو **توزيع المحددات العام فقط** (تفريق القيمة العامة وحدها)، أو **توزيع الكل** (التفريق على كلّ القيم)،
-- **ترتيب** (أيُّ محدِّدٍ يُوزَّع أولًا)، و**أدنى قيمةٍ غير موزّعة** (لا يُجشِّم نفسه التقسيم تحتها)، وخيار **الإبقاء والعكس**،
-- وللحالات المتقدّمة، **استعلام** أو **سكربت** يحسب التقسيم ديناميكيًا.
+- a **policy** — **None** (don't distribute this dimension), **Distribute Public Only** (spread only the public value), or **Distribute Any** (spread across all values),
+- an **order** (which dimension is distributed first), a **minimum undistributed value** (below which it won't bother splitting), and a **keep-and-invert** option,
+- and for advanced cases, a **query** or **script** that computes the split dynamically.
 
-و**نوع التوزيع** إمّا **عادي** أو **متكوّن من توزيعاتٍ أخرى** (توزيعٌ مبنيٌّ من توزيعاتٍ أخرى). وحين تنطبق عدّة سطورٍ من القاعدة، يقرّر إعداد **التوزيع المتعدّد** أيُّها يُطبَّق: **أول سطرٍ مطابق**، أو **كل السطور المطابقة على التوالي**، أو **كل السطور المطابقة على التوالي مع مراعاة الترتيب**.
+The **distribution type** is either **Normal** or **Composite** (a distribution built up from other distributions). When several rule lines could apply, the **multi-distribute** setting decides which fire: **first matching only**, **all matching consecutively**, or **all matching consecutively considering order**.
 
-وأخيرًا، يمكن أن يقوده **الجانب الآخر** من القيد — «التوزيع بناءً على فرع/إدارة/قطاع/ذمة الجانب الآخر…» — ويُضيَّق بـ**معايير الجانب الآخر**، فيحاكي التقسيمُ كيفية تحليل الطرف المقابل من الحركة.
+Finally, a distribution can be driven by the **other side** of the entry — "distribute based on the other side's branch / department / sector / subsidiary…" — and narrowed with **other-side criteria**, so the split mirrors how the opposite side of the transaction was analyzed.
 
-## للدعم الفني
+## For Support
 
-- **«سطرٌ لا يقبل إدارةً / مجموعةً تحليلية»** — الحساب مقيَّد؛ راجِع قواعد محدِّداته (**القصر على العام فقط** / **عدم الاستخدام مع العام**).
-- **«النظام يفرض مرجعًا أو بيانًا»** — لذلك الحساب **إلزامية المرجع / البيان** مفعّلة.
-- **«قيمةٌ لا تُقسَّم كما أتوقّع»** — راجِع قاعدة **توزيع الحسابات**: **سياسة** كلّ محدِّد، و**ترتيبه**، و**أدنى قيمةٍ غير موزّعة**، ونمط مطابقة **التوزيع المتعدّد**.
-- **«قائمة مراكز التكلفة خاطئة»** — مراكز التكلفة هي شجرة **المجموعة التحليلية** تحت `Basic > Dimensions`؛ صحّحها هناك.
-- لمعرفة مصدر *حسابات* المستند (لا محدِّداته)، راجِع [توجيهات المستندات](./accounting-document-terms.md).
+- **"A line won't accept a department / analysis set"** — the account is restricted; check its dimension rules (**restrict to public only** / **don't use with public**).
+- **"The system forces a reference or narration"** — that account has **mandatory reference / narration** turned on.
+- **"A value isn't being split the way I expect"** — review the **Account Distribution** rule: each dimension's **policy**, its **order**, the **minimum undistributed value**, and the **multi-distribute** matching mode.
+- **"The cost-center list is wrong"** — cost centers are the **Analysis Set** tree under `Basic > Dimensions`; fix it there.
+- For where a document's *accounts* (not dimensions) come from, see [Document terms](./accounting-document-terms.md).

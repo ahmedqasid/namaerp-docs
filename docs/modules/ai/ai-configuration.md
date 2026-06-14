@@ -1,69 +1,69 @@
-# إعداد وحدة الذكاء الاصطناعي
+# AI Module Configuration
 
-قبل أن يجيب [المساعد الذكي](./ai-assistant.md) عن سؤال، أو يتصل [عميل MCP](./ai-mcp-server.md) بالنظام، تحتاج الوحدة إلى تهيئة أساسية: **أي نموذج لغوي تستخدمه؟ وبأي مفتاح؟ وأين يُخزَّن الفهرس الدلالي؟** كل ذلك يُضبط في **إعدادات وحدة الذكاء الاصطناعي**، وهي إعدادات عامة على مستوى النظام.
+Before the [AI assistant](./ai-assistant.md) answers a question, or an [MCP client](./ai-mcp-server.md) connects to the system, the module needs basic setup: **which language model do you use? with which key? and where is the semantic index stored?** All of that is configured in the **AI Module settings**, which are system-wide.
 
-::: info الترخيص المطلوب
-تتطلب هذه الإعدادات تركيب وحدة الذكاء الاصطناعي (AI Module) وترخيصها.
+::: info Required License
+These settings require the AI module to be installed and licensed.
 :::
 
-## نماذج المحادثة (Models Definition)
+## Chat Models (Models Definition)
 
-قلب الإعداد هو جدول **تعريفات النماذج**: كل سطر فيه نموذج لغوي يصبح متاحًا للاختيار في نافذة المساعد. لكل نموذج:
+The heart of the setup is the **Models Definition** grid: each line is a language model that becomes available to pick in the assistant window. For each model:
 
-| الحقل | الدور |
+| Field | Role |
 |---|---|
-| **Cloud Provider** | مزوّد الخدمة (انظر القائمة أدناه) |
-| **Model Name** | اسم/معرّف النموذج لدى المزوّد، مثل `gpt-4o` أو `claude-...` |
-| **Model URL** | عنوان نقطة الوصول — يُملأ غالبًا تلقائيًا حسب المزوّد، ويُحدَّد يدويًا للمزودين المتوافقين أو المستضافين ذاتيًا |
-| **API Key** | مفتاح المصادقة لدى المزوّد (يُحفظ مشفّرًا) |
-| **Top P** | معامل اختياري يتحكم في تنوّع الإجابة |
+| **Cloud Provider** | The service provider (see the list below) |
+| **Model Name** | The model name/id at the provider, such as `gpt-4o` or `claude-...` |
+| **Model URL** | The endpoint address — usually filled automatically per provider, and set manually for compatible or self-hosted providers |
+| **API Key** | The authentication key at the provider (stored encrypted) |
+| **Top P** | An optional parameter controlling answer diversity |
 
-::: tip أكثر من نموذج في آنٍ واحد
-عرّف عدة نماذج لتتيح للمستخدم اختيار الأنسب لكل مهمة من قائمة النماذج أعلى نافذة المساعد — نموذج اقتصادي سريع للأسئلة اليومية، وآخر أقوى للتحليل المعقّد.
+::: tip More than one model at once
+Define several models to let the user pick the most suitable one for each task from the model list at the top of the assistant window — an economical, fast model for everyday questions and a stronger one for complex analysis.
 :::
 
-### المزوّدون المدعومون
+### Supported Providers
 
-تدعم الوحدة أحد عشر مزوّدًا:
+The module supports eleven providers:
 
-| المزوّد | المزوّد |
+| Provider | Provider |
 |---|---|
 | OpenAI | Anthropic |
 | Google Gemini | AWS (Bedrock) |
 | DeepSeek | GCP |
 | Mistral | Azure |
 | Zhipu AI | Hugging Face |
-| OpenAI Compatible (نقاط وصول متوافقة / مستضافة ذاتيًا) | |
+| OpenAI Compatible (compatible / self-hosted endpoints) | |
 
-## البحث الدلالي وتهيئة التضمين
+## Semantic Search and Embedding Setup
 
-كثير من قدرات الوحدة تقوم على **البحث الدلالي (Semantic Search)**: بدل مطابقة النص حرفيًا، يحوّل النظام السجلات والوثائق إلى تمثيلات رقمية (Embeddings) تُخزَّن في **قاعدة متجهات (Vector Store)**، فيصبح ممكنًا إيجاد «أقرب» سجل لمعنى ما لا لنصّه فقط. هذا ما يتيح للمساعد أن يفهم اسم عميل تقريبيًا، أو أن يجد فقرة التوثيق المناسبة لسؤال.
+Many of the module's capabilities rest on **semantic search**: instead of matching text literally, the system turns records and documents into numeric representations (embeddings) stored in a **vector store**, making it possible to find the record "closest" to a meaning rather than just its text. This is what lets the assistant understand an approximate customer name, or find the right documentation passage for a question.
 
-### إعدادات الفهرس الدلالي
+### Semantic Index Settings
 
-في إعدادات الوحدة نفسها تُضبط بنية البحث الدلالي:
+The semantic search infrastructure is configured in the module settings themselves:
 
-| الحقل | الدور |
+| Field | Role |
 |---|---|
-| **Open AI Embedding Key** | مفتاح OpenAI المستخدم لتوليد التضمينات |
-| **Text Embedding Model** | نموذج التضمين: `text-embedding-3-small` أو `text-embedding-3-large` أو `text-embedding-ada-002` |
-| **Vector Store URI** | عنوان قاعدة المتجهات (Zilliz أو Milvus) |
-| **Vector Store Token** | رمز الوصول إلى قاعدة المتجهات |
-| **Vector Store Username / Password** | بيانات اعتماد بديلة لقاعدة المتجهات (اختيارية) |
+| **Open AI Embedding Key** | The OpenAI key used to generate embeddings |
+| **Text Embedding Model** | The embedding model: `text-embedding-3-small`, `text-embedding-3-large`, or `text-embedding-ada-002` |
+| **Vector Store URI** | The vector store address (Zilliz or Milvus) |
+| **Vector Store Token** | The access token for the vector store |
+| **Vector Store Username / Password** | Alternative vector store credentials (optional) |
 
-### اختيار الكيانات المفهرسة
+### Choosing the Indexed Entities
 
-تحديد **أي السجلات تُفهرَس** يتم في شاشة **AI Record Embedding Config**: كل سطر فيها يحمل:
+Deciding **which records get indexed** is done in the **AI Record Embedding Config** screen: each line holds:
 
-- **Master File Entity Type**: نوع الملف الرئيسي المراد فهرسته (العملاء، الأصناف، الموردون، ...).
-- **Extra Fields For Embedding**: حقول إضافية تُضمَّن في الفهرس لتحسين دقة المطابقة (إلى جانب الكود والاسم).
+- **Master File Entity Type**: the master file type to index (customers, items, vendors, ...).
+- **Extra Fields For Embedding**: extra fields included in the index to improve match accuracy (alongside the code and name).
 
-بعد الفهرسة يصبح هذا النوع متاحًا للبحث الدلالي: يستطيع المساعد — وأدوات الاستعلام ذات المدخل المرجعي — إيجاد السجل من نص حر بدل الكود الصريح (انظر [النوع الأول: أداة مبنية على استعلام](./ai-tool-definitions.md#lnwaa-lwl-d-mbny-aal-staalm-Query-Based)).
+Once indexed, the type becomes available for semantic search: the assistant — and query tools with a reference parameter — can find the record from free text rather than the explicit code (see [Type 1: Query Based](./ai-tool-definitions.md#Type-1-Query-Based)).
 
-::: warning بدون فهرسة يعمل النظام لكن بلا «تخمين»
-البحث الدلالي اختياري: الأدوات والمساعد تعمل بالأكواد الصريحة دون أي تهيئة تضمين. لكن إيجاد المراجع من نص حر، وبحث التوثيق الدلالي، لا يعملان قبل ضبط قاعدة المتجهات وفهرسة الكيانات المطلوبة.
+::: warning Without indexing the system still works, but without "guessing"
+Semantic search is optional: the tools and the assistant work with explicit codes without any embedding setup. But finding references from free text, and semantic documentation search, do not work until the vector store is configured and the required entities are indexed.
 :::
 
-## ما تحتاجه قبل ربط عميل MCP
+## What You Need Before Connecting an MCP Client
 
-ربط عميل خارجي عبر [خادم MCP](./ai-mcp-server.md) يتطلب — إضافةً إلى ما سبق — سجل **API Credentials** معتمدًا ومربوطًا بمستخدم عبر حقل **Login As User**. تفاصيل العنوان والمصادقة وإعداد العملاء في [دليل خادم MCP لنظام نما ERP](./ai-mcp-server.md).
+Connecting an external client through the [MCP server](./ai-mcp-server.md) requires — in addition to the above — a committed **API Credentials** record linked to a user via the **Login As User** field. The endpoint, authentication, and client-setup details are in the [Nama ERP MCP Server guide](./ai-mcp-server.md).

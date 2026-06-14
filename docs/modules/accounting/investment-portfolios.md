@@ -1,50 +1,50 @@
-# المحافظ الاستثمارية
+# Investment Portfolios
 
-حين تضخّ الشركةُ مالًا في مشاريع — حصّةً في عملٍ آخر، أو مشروعًا، أو صندوقًا مُدارًا — تحتاج إلى تتبّع كلّ استثمارٍ كأصلٍ قائمٍ بذاته: كم من رأس المال دخل، وكم يساوي الآن، وكم درّ من ربح، ومتى صُفِّي. ومنظومة **المحافظ الاستثمارية** مبنيّةٌ لهذا تحديدًا: تتبع الأصل الاستثماري من فرصةٍ أولى، مرورًا بضخّ رأس المال، وصولًا إلى توزيع الأرباح ثم إقفاله.
+When a company puts money into ventures — a stake in another business, a project, a managed fund — it needs to track each investment as an asset in its own right: how much capital went in, what it's worth now, what profit it threw off, and when it was wound down. The **investment-portfolios** sub-system is built for exactly this: it follows an investment asset from a first opportunity, through deploying the capital, to distributing profits and finally closing it out.
 
-::: info الترخيص المطلوب
-المحافظ الاستثمارية ضمن ترخيص `accounting-investment`. ومعظم الشاشات تحت **الحسابات > محافظ استثمارية**.
+::: info Required license
+Investment portfolios are part of the `accounting-investment` license. Most screens are under **Accounting > Investment Portfolios**.
 :::
 
-::: tip منظومتا استثمارٍ متجاورتان
-لدى نما منظومتا استثمارٍ *متوازيتان*. تغطّي هذه الصفحة **المحافظ الاستثمارية** — تتبّع *الأصول* الاستثمارية (حصص، مشاريع، صناديق) عبر حياتها. أمّا الأخرى، **[مستندات الاستثمار وشهادات الصناديق](./investment-documents.md)**، فتغطّي الأدوات الشبيهة بالسندات وشهادات الصناديق المبنيّة على الوحدات. تحلّان مشكلتين مختلفتين؛ فاختر ما يطابق ما تملكه.
+::: tip Two investment systems, side by side
+Nama has *two* parallel investment sub-systems. This page covers **investment portfolios** — tracking investment *assets* (stakes, projects, funds) over their life. The other, **[investment documents & fund certificates](./investment-documents.md)**, covers bond-like instruments and unit-based fund certificates. They solve different problems; pick the one that matches what you hold.
 :::
 
-## الملفات الرئيسية
+## The master files
 
-قبل تسجيل النشاط تُعِدّ الأطراف والأصل:
+Before recording activity you set up the players and the asset:
 
-- **محفظة استثمارية** (`Accounting > Investment Portfolios > Investment Portfolio`) — الأصل الاستثماري نفسه. تحمل **شركة الاستثمار**، و**البنك / الحساب البنكي** المموِّل، و**إجمالي المحفظة** المتجدّد (بعملة المستند والعملة المحلية)، و**مبلغ الربح**، وأيّ **ضريبة**. وتتحرّك **حالتها** **مبدئي ← جاري ← مغلقة** بحسب ما تفعله مستندات دورة الحياة بها.
-- **مستثمر** (`Accounting > Investment Portfolios > Investor`) — طرفٌ يستثمر.
-- **مشروع استثماري** (`Accounting > Investment Portfolios > Investment Project`) — مشروعٌ يُخصَّص له رأس مال.
+- **Investment Portfolio** (`Accounting > Investment Portfolios > Investment Portfolio`) — the investment asset itself. It carries the **investment company**, the **bank / bank account** funding it, the running **total portfolio** value (in document and local currency), the **profit amount**, and any **tax**. Its **status** moves **Initial → Ongoing → Closed** as the lifecycle documents act on it.
+- **Investor** (`Accounting > Investment Portfolios > Investor`) — a party that invests.
+- **Investment Project** (`Accounting > Investment Portfolios > Investment Project`) — a project that capital is allocated to.
 
-وثمّة كذلك ملفاتُ بناءٍ — **الأسهم** و**الحصص** و**الودائع النقدية** و**الصناديق الاستثمارية** و**أنواع الصناديق** — تصف تركيبة ما هو مملوك.
+There are also building-block files — **shares**, **stakes**, **cash deposits**, **investment funds** and **fund types** — that describe the make-up of what's held.
 
-![الملف الرئيسي للمحفظة الاستثمارية](./images/ipfolio/investment-portfolio.png)
+![The Investment Portfolio master file](./images/ipfolio/investment-portfolio.png)
 
-## دورة الحياة
+## The lifecycle
 
-تقود حياةَ المحفظة سلسلةٌ من المستندات:
+The portfolio's life is driven by a sequence of documents:
 
-1. **فرصة استثمارية** (`Banks > Investment Documents > Investment Opportunity`) — مرحلة التخطيط: استثمارٌ مرشَّح يُدرَس قبل أن يتحرّك أيُّ مال.
-2. **فتح استثمار** (`Accounting > Investment Portfolios > Investment Start`) — يضخّ رأس المال. هذا هو المستند الذي **يُرحِّل**: ينقل المحفظة إلى **جاري** ويسجّل الاستثمار. ويجري أثره عبر جانبَي **مدين/دائن** (الأصل الاستثماري مقابل البنك/النقدية المموِّل)، وجانبَي **مصروفات الاستثمار** لأيّ تكاليف اقتناء، وجانبَي **الضريبة**.
+1. **Investment Opportunity** (`Banks > Investment Documents > Investment Opportunity`) — the planning stage: a candidate investment being studied before any money moves.
+2. **Investment Start** (`Accounting > Investment Portfolios > Investment Start`) — deploys the capital. This is the document that **posts**: it moves the portfolio to **Ongoing** and records the investment. Its effect runs through the **Debit / Credit** sides (the investment asset against the funding bank/cash), the **Investment Expense** sides for any acquisition costs, and the **Tax** sides.
 
-   ![شاشة فتح الاستثمار](./images/ipfolio/investment-start.png)
+   ![The Investment Start screen](./images/ipfolio/investment-start.png)
 
-3. **تحديث الاستثمار** (`Accounting > Investment Portfolios > Investment update`) و**زيادة رأس مال الاستثمار** (`… > Investment Capital Increase`) — إعادة تقييم الاستثمار أو ضخّ رأس مالٍ إضافي أثناء جريانه.
-4. **توزيع أرباح الاستثمار** (`Accounting > Investment Portfolios > Investment Profit Distribution`) — يقيّد الربح الذي يدرّه الاستثمار ويوزّعه.
-5. **إنهاء استثمار** (`Accounting > Investment Portfolios > Investment End`) — يصفّي الاستثمار ويضع المحفظة في حالة **مغلقة**.
+3. **Investment Update** (`Accounting > Investment Portfolios > Investment update`) and **Investment Capital Increase** (`… > Investment Capital Increase`) — revalue the investment or inject more capital while it's running.
+4. **Investment Profit Distribution** (`Accounting > Investment Portfolios > Investment Profit Distribution`) — books the profit the investment yields and distributes it.
+5. **Investment End** (`Accounting > Investment Portfolios > Investment End`) — winds the investment down and sets the portfolio to **Closed**.
 
-وإلى جوار هذه، يحرّك **تخصيص استثمار** و**رد تخصيص استثمار** (`… > Investment Allocation` / `Refund Investment Allocation`) رأسَ المال إلى **المشاريع الاستثمارية** ومنها، وتخطّط **موازنة المشاريع الاستثمارية** (`… > Investment Budget`) أرقام تلك المشاريع.
+Alongside these, **Investment Allocation** and **Refund Investment Allocation** (`… > Investment Allocation` / `Refund Investment Allocation`) move capital to and back from **investment projects**, and the **Investment Budget** (`… > Investment Budget`) plans figures for those projects.
 
-## التقارير
+## Reports
 
-تلخّص **ميزانية المشاريع الاستثمارية** (`SYSR-IVS001`) موقفَ المشاريع الاستثمارية.
+The **Investment Projects Balance Sheet** (`SYSR-IVS001`) summarizes the standing of the investment projects.
 
-## للدعم الفني
+## For Support
 
-- **«المحفظة عالقةٌ على مبدئي»** — لا تتحرّك إلى **جاري** إلّا باعتماد مستند **فتح استثمار** عليها؛ راجِع ذلك المستند.
-- **«لا أستطيع إقفال الاستثمار»** — يتمّ الإقفال بمستند **إنهاء استثمار**، لا بتعديل المحفظة.
-- **«الربح لا يظهر»** — يقيّد الربحَ مستندُ **توزيع أرباح الاستثمار**؛ و**مبلغ الربح** في المحفظة يعكس تلك المستندات.
-- **«أيّ منظومة استثمارٍ أستخدم؟»** — المحافظ (هنا) تتبع *الأصول* الاستثمارية عبر حياتها؛ أمّا السندات وشهادات الصناديق فاستخدم لها [مستندات الاستثمار](./investment-documents.md).
-- **«من أين تأتي حسابات الاستثمار / المصروف / الضريبة؟»** — من توجيه **فتح الاستثمار**؛ راجِع [توجيهات المستندات](./support/accounting-document-terms.md).
+- **"The portfolio is stuck at Initial"** — it only moves to **Ongoing** when an **Investment Start** is committed against it; check that document.
+- **"I can't close the investment"** — closing is done by an **Investment End** document, not by editing the portfolio.
+- **"Profit isn't showing"** — profit is booked by **Investment Profit Distribution**; the portfolio's **profit amount** reflects those documents.
+- **"Which investment system do I use?"** — portfolios (here) track investment *assets* over their life; for bonds and fund certificates use [investment documents](./investment-documents.md).
+- **"Where do the investment / expense / tax accounts come from?"** — from the **Investment Start** term; see [Document terms](./support/accounting-document-terms.md).

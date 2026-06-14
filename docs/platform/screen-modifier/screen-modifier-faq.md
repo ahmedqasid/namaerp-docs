@@ -1,33 +1,29 @@
-<rtl>
+# Frequently Asked Questions about Screen Modifier
 
-# أسئلة شائعة حول تعديل الشاشات
+## How can I control the fields displayed in the discussions block?
 
-## كيف يمكن التحكم في الحقول الظاهرة في بلوك النقاشات؟
+### Example: I want to remove references or attachments from the discussions section in the "Sales Invoice" screen
 
-### مثال: أريد حذف المراجع أو المرفقات من قسم النقاش في شاشة "فاتورة المبيعات"
+You can control the fields displayed inside the discussions block for any screen in Nama ERP via **Screen Modifier**.
 
-يمكنك التحكم في الحقول الظاهرة داخل بلوك النقاشات لأي شاشة في نظام Nama ERP عبر **تعديل الشاشات**.
+To do this:
 
-لتنفيذ ذلك:
+* Go to the **Screen Modifier** for the desired type (e.g. `SalesInvoice`).
+* Then navigate to the field group named: `Edit Discussion Fields`.
+* You will find 7 options that can be enabled as needed:
 
-* انتقل إلى **"تعديل شاشة"** الخاصة بالنوع المطلوب (مثل `SalesInvoice`).
-* ثم اذهب إلى **مجموعة الحقول** المسماة: `تعديل حقول النقاش`.
-* ستجد 7 خيارات يمكن تفعيلها حسب الحاجة:
+    * **Remove discussion field**
+    * **Remove attachment 1**
+    * **Remove attachment 2**
+    * **Remove attachment 3**
+    * **Remove attachment 4**
+    * **Remove reference 1**
+    * **Remove reference 2**
+* Enable the options you want to hide from the screen.
+* Save the modification.
+* After that, run one of the following commands:
 
-    * **إزالة حقل النقاش**
-    * **إزالة مرفق 1**
-    * **إزالة مرفق 2**
-    * **إزالة مرفق 3**
-    * **إزالة مرفق 4**
-    * **إزالة مرجع 1**
-    * **إزالة مرجع 2**
-* قم بتفعيل الخيارات التي تريد إخفاءها من الشاشة.
-* احفظ التعديل.
-* بعد ذلك، قم بتنفيذ أحد الأمرين التاليين:
+    * `Regenerate Screens` to regenerate all screens.
+    * Or `Regenerate Screens For Applicable Types Only` to update only the types that were modified.
 
-    * `Regenerate Screens` لإعادة توليد كافة الشاشات.
-    * أو `Regenerate Screens For Applicable Types Only` لتحديث الأنواع التي تم تعديلها فقط.
-
-بهذا، يتم إخفاء المراجع أو المرفقات أو حقل النقاش بحسب التخصيص الذي قمت به.
-
-</rtl>
+This will hide the references, attachments, or discussion field according to the customization you applied.

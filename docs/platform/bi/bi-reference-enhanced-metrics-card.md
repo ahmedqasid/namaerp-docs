@@ -1,17 +1,17 @@
-# مرجع BI — EnhancedMetricsCard (وwidget المقاييس القديم MetricsCards)
+# BI Reference — EnhancedMetricsCard (and legacy MetricsCards)
 
-مرافق لـ [`bi-module-technical-reference.md`](./bi-module-technical-reference.md). استخدم هذا الملف مع `type: "EnhancedMetricsCard"` (الحديث، يعتمد على JSON) أو `type: "MetricsCards"` (القديم، يعتمد على value-object).
+Companion to [`bi-module-technical-reference.md`](./bi-module-technical-reference.md). Load this for `type: "EnhancedMetricsCard"` (modern, JSON-driven) or `type: "MetricsCards"` (legacy, value-object driven).
 
-يقرأ `EnhancedMetricsCard` الحقل `chartConfigJSON` بالكامل، ويدعم sparklines مدمجة، وخلفيات بطاقة شرطية، وتبديل الأيقونات، وكامل مكدس التفاعل في BI (cross-filter / drill-down / link). يستمر widget المقاييس القديم `MetricsCards` في العمل جنبًا إلى جنب؛ للتحويل إلى النوع الجديد استخدم `type: "EnhancedMetricsCard"`.
+`EnhancedMetricsCard` reads `chartConfigJSON` end-to-end, supports embedded sparklines, conditional card backgrounds, icon swaps, and the full BI interaction stack (cross-filter / drill-down / link). The legacy `MetricsCards` widget continues to coexist; opt into the new one via `type: "EnhancedMetricsCard"`.
 
-## 1. متى تستخدم كل منهما
+## 1. When to use which
 
-- **شريط KPI سريع — header / value / subtitle / icon، مع شارة نسبة اختيارية** → `MetricsCards` القديم (لا يتطلب كتابة JSON؛ ولا يدعم sparklines أو خلفية شرطية).
-- **أي شيء أغنى** — sparklines، ألوان بطاقة شرطية، drill-down لكل بطاقة، تجميع قائم على partition عبر صفوف SQL متعددة → `EnhancedMetricsCard`.
+- **Quick KPI strip — header / value / subtitle / icon, optional percent badge** → legacy `MetricsCards` (no JSON authoring; no sparklines or conditional bg either).
+- **Anything richer** — sparklines, conditional card colors, drill-down per card, partition-driven aggregation across multiple SQL rows → `EnhancedMetricsCard`.
 
-## 2. الـ `MetricsCards` القديم (`type: "MetricsCards"`)
+## 2. Legacy `MetricsCards` (`type: "MetricsCards"`)
 
-يقرأ كائن القيمة `metricsCardConfig` على مستوى **أعلى** من `DashBoardWidget` مباشرة — **وليس** `chartConfigJSON`. بطاقة واحدة لكل صف SQL. تستبدل سلاسل Tempo الصيغة `{columnName}` بقيم الصف.
+Reads a **top-level** `metricsCardConfig` value object on the `DashBoardWidget` itself — **not** `chartConfigJSON`. One card per SQL row. Tempo strings substitute `{columnName}` against the row.
 
 ```json
 {
@@ -33,21 +33,21 @@
 }
 ```
 
-| الحقل | الوصف |
+| Field | Description |
 |---|---|
-| `headerTempoAr` / `headerTempoEn` | قالب الترويسة مع استبدال `{col}`. |
-| `headerColumnAr` / `headerColumnEn` | اسم العمود مباشرةً (بديل للقالب). |
-| `valueTempo` / `valueColumn` | الرقم الرئيسي — قالب أو عمود مباشر. |
-| `subtitleTempoAr` / `subtitleTempoEn` / `subtitleColumnAr` / `subtitleColumnEn` | السطر الثانوي. |
-| `iconCode` | اسم أيقونة Material؛ يدعم استبدال `{col}` لتغيير الأيقونة لكل صف. |
-| `badgePercentTempo` / `badgePercentColumn` | شارة نسبة تغيير اختيارية (الزخرفة الوحيدة الشبيهة بالرسم البياني في widget القديم). |
-| `linkTempo` / `linkColumn` | رابط عند النقر — قالب Tempo أو عمود مباشر. |
-| `numberFormat` | قناع numeral.js (`"0,0"` ، `"0,0.00"` ، `"0a"`). **لغة تنسيق مختلفة** عن كائن `formatting` المنظّم المستخدم في أماكن أخرى. |
-| `suffix` | نص ثابت يُلحق بعد القيمة المنسقة (مثل `" SAR"`). |
+| `headerTempoAr` / `headerTempoEn` | Header template with `{col}` substitution. |
+| `headerColumnAr` / `headerColumnEn` | Bare column name (alternative to template). |
+| `valueTempo` / `valueColumn` | Main number — template or bare column. |
+| `subtitleTempoAr` / `subtitleTempoEn` / `subtitleColumnAr` / `subtitleColumnEn` | Secondary line. |
+| `iconCode` | Material icon name; supports `{col}` substitution to drive icon per row. |
+| `badgePercentTempo` / `badgePercentColumn` | Optional percent-delta badge (legacy widget's only chart-like decoration). |
+| `linkTempo` / `linkColumn` | Click-through URL — Tempo template or bare column. |
+| `numberFormat` | numeral.js mask string (`"0,0"`, `"0,0.00"`, `"0a"`). **Different format language** from the structured `formatting` object used elsewhere. |
+| `suffix` | Static string appended after the formatted value (e.g. `" SAR"`). |
 
-عندما يكون هذا الشكل كافيًا، يكون widget القديم أقصر من `EnhancedMetricsCard`. انتقل إلى `EnhancedMetricsCard` عند الحاجة إلى sparklines أو ألوان بطاقة شرطية أو click-emit/drill-down.
+When this shape is enough, the legacy widget is shorter than `EnhancedMetricsCard`. Move to `EnhancedMetricsCard` when you need sparklines, conditional card colors, or click-emit/drill-down.
 
-## 3. الـ `chartConfigJSON` الخاص بـ EnhancedMetricsCard
+## 3. EnhancedMetricsCard `chartConfigJSON`
 
 ```jsonc
 {
@@ -146,14 +146,14 @@
 
 ### `cardLayout.direction`
 
-| القيمة | السلوك |
+| Value | Behavior |
 |---|---|
-| `"row"` | شريط يلتف تلقائيًا. يستخدم `minCardWidth` + `gap`. مناسب لأشرطة chip. |
-| `"grid"` | شبكة ثابتة بعدد N لكل صف (حدد `columnsPerRow`). يعود إلى auto-fit إذا كان `columnsPerRow` فارغًا. مناسب للـ KPI tiles المحاذاة لشبكة. |
+| `"row"` | Wrap-as-needed strip. Use `minCardWidth` + `gap`. Best for chip strips. |
+| `"grid"` | Fixed N-per-row (set `columnsPerRow`). Falls back to auto-fit if `columnsPerRow` is null. Best for KPI tiles aligned to a grid. |
 
-## 4. ربط البطاقة بالصف (الافتراضي — صف واحد → بطاقة واحدة)
+## 4. Card-to-row mapping (default — 1 row → 1 card)
 
-بشكل افتراضي، **ينتج كل صف من مجموعة النتائج بطاقة واحدة**. التمييز بين البطاقات يعتمد على الأعمدة (`iconCode`، `iconColor`، `valueColor`، إلخ) — اكتب UNION ALL بصف واحد لكل بطاقة واربط كل slot بعمودها.
+By default, **every result-set row produces one card**. Per-card differentiation is column-driven (`iconCode`, `iconColor`, `valueColor`, etc.) — write a UNION ALL with one row per card, point each slot at its column.
 
 ```sql
 SELECT 1 sortOrder, 'Active Headcount' headerEn, N'إجمالي الموظفين النشطين' headerAr,
@@ -177,9 +177,9 @@ ORDER BY sortOrder
 }
 ```
 
-## 5. وضع Partition — N صفوف → بطاقة واحدة
+## 5. Partition mode — N rows → 1 card
 
-عندما ينتج SQL صفًا واحدًا لكل `(كيان، دلو-زمني)` وتريد بطاقة واحدة لكل كيان مع sparkline عبر الدلاء، اضبط `cardLayout.partitionKeys` على أعمدة معرّف الكيان:
+When SQL produces one row per `(entity, time-bucket)` and you want one card per entity with a sparkline across buckets, set `cardLayout.partitionKeys` to entity-identifier columns:
 
 ```json
 {
@@ -195,21 +195,21 @@ ORDER BY sortOrder
 }
 ```
 
-يجمّع المحرك الصفوف وفق مفتاح tuple، ويختار **أول صف في كل partition** كممثل (يُستخدم للـ slots غير المجمّعة والتنسيق الشرطي وحمولات click/drill)، ويطوي الصفوف في slots الـ sparkline والتجميع.
+Engine groups rows by the key tuple, picks the **first row of each partition** as the representative (used for non-aggregated slots, conditional formatting, click/drill payloads), and folds rows into sparkline / aggregate slots.
 
-| `aggregate` | السلوك |
+| `aggregate` | Behavior |
 |---|---|
-| `field` (الافتراضي) | يُقرأ مباشرةً من الصف الممثل |
-| `sum` / `avg` / `max` / `min` | طي رقمي عبر كل صفوف الـ partition |
-| `first` / `last` | يأخذ أول / آخر صف بترتيب الـ partition |
+| `field` (default) | Read straight from the representative row |
+| `sum` / `avg` / `max` / `min` | Numeric fold across all partition rows |
+| `first` / `last` | Take the first / last row in partition order |
 
-**ترتيب Sparkline** يستخدم `orderByField` إذا كان محددًا؛ وإلا الترتيب الطبيعي لمجموعة النتائج (لذا يعمل `ORDER BY` في SQL).
+**Sparkline order** uses `orderByField` if set; otherwise result-set's natural order (so an `ORDER BY` in SQL works).
 
-**Sparkline مضمّن** (`mode: "inline"`) — مخرج طارئ عندما تكون السلسلة مجمّعة مسبقًا. اضبط `valuesField` على عمود قيمته CSV `"3,5,4,8,6"` أو مصفوفة JSON `"[3,5,4,8,6]"`.
+**Inline sparkline** (`mode: "inline"`) — escape hatch when the series is already aggregated upstream. Set `valuesField` to a column whose value is a CSV `"3,5,4,8,6"` or JSON array `"[3,5,4,8,6]"`.
 
-### وصفة Inline sparkline + SQL Server STUFF
+### Inline sparkline + SQL Server STUFF recipe
 
-لبناء sparklines من البيانات الأساسية في وضع inline، استخدم صيغة `STUFF / FOR XML PATH('')` داخل SQL:
+For inline-mode sparklines from base data, build the CSV with the `STUFF / FOR XML PATH('')` idiom inside the SQL:
 
 ```sql
 WITH months AS (
@@ -231,7 +231,7 @@ SELECT 1 sortOrder, N'Active Headcount' headerEn,
 ORDER BY sortOrder
 ```
 
-كل CTE يضم جدولًا مفلترًا يحتاج إلى `/*AND-FILTERS*/` خاص به — يُستبدل الحامل الوهمي في كل مكان يظهر فيه.
+Each CTE that joins a filtered table needs its own `/*AND-FILTERS*/` — the placeholder is replaced wherever it appears.
 
 ```json
 {
@@ -242,9 +242,9 @@ ORDER BY sortOrder
 }
 ```
 
-## 6. العناوين الفرعية بـ Tempo
+## 6. Tempo subtitles
 
-تستبدل قوالب العنوان الفرعي `{columnName}` بقيم أعمدة الصف:
+Subtitle templates substitute `{columnName}` against the row's columns:
 
 ```json
 "subtitle": {
@@ -253,17 +253,17 @@ ORDER BY sortOrder
 }
 ```
 
-في وضع partition، يتم الاستبدال من الصف الممثل. النمط الشائع: يعرض slot القيمة المقياس الأساسي، بينما يضم `tempoAr/En` عمودًا *ثانويًا* لإضافة السياق (مثل `"{expiredCount} منتهية · تنتهي خلال 30 يومًا"`).
+In partition mode, substitution reads from the representative row. Common pattern: the value slot shows the primary metric, `tempoAr/En` embeds a *secondary* column to add context (e.g. `"{expiredCount} expired · expiring in 30 days"`).
 
-## 7. خلفية البطاقة الشرطية وتبديل الأيقونة
+## 7. Conditional card background and icon swap
 
-يستخدم `cardConditionalFormatting` نفس شكل القاعدة في `rowConditionalFormatting` الخاص بـ EnhancedTable (`threshold` / `range` / `enum` / `compareColumn` / `isNull` / `isNotNull`) — لكن مفاتيح `style` المعترف بها في الإخراج تشمل على مستوى البطاقة: `bg`، `borderColor`، `borderWidth`، `borderRadius`، `padding`، `color`، بالإضافة إلى تبديل الأيقونة: `iconCode`، `iconColor`، `iconBg`.
+`cardConditionalFormatting` uses the same rule shape as EnhancedTable's `rowConditionalFormatting` (`threshold` / `range` / `enum` / `compareColumn` / `isNull` / `isNotNull`) — but recognized output `style` keys include card-level: `bg`, `borderColor`, `borderWidth`, `borderRadius`, `padding`, `color`, plus icon-swap: `iconCode`, `iconColor`, `iconBg`.
 
-اضبط `"cascade": true` لدمج قواعد متطابقة متعددة؛ وإلا تفوز أول قاعدة مطابقة.
+Set `"cascade": true` to merge multiple matching rules; otherwise first match wins.
 
-### وصفة شريط Chip (enum على عمود discriminator)
+### Chip strip recipe (enum-on-discriminator-column)
 
-مناسب لصفوف "حالة الفلتر" أو "رأس chip" — بطاقة واحدة لكل chip، كل منها بلون مختلف بناءً على عمود discriminator.
+Best for "filter status" or "header chip" rows — one card per chip, each tinted differently based on a discriminator column.
 
 ```sql
 SELECT 1 sortOrder, 'date' chipKind, N'📅 ' + CONVERT(NVARCHAR(20), GETDATE(), 23) chipText
@@ -289,14 +289,14 @@ ORDER BY sortOrder
 }
 ```
 
-## 8. Cross-filtering وDrill-down والروابط
+## 8. Cross-filtering, drill-down, links
 
-يستخدم `clickEmitMapping` و`drillDownMapping` و`linkMappings` و`clickAction` نفس الشكل تمامًا كما في EnhancedTable / legacy Table (المرجع الرئيسي §4 / §5 / §5b). مصفوفة `points` تتوافق 1:1 مع البطاقات المعروضة بالترتيب. في وضع partition، تتوفر فقط أعمدة الصف الممثل لحمولات النقر — أعمدة الصفوف الأخرى في الـ partition غير المفتاحية تُتجاهل.
+`clickEmitMapping`, `drillDownMapping`, `linkMappings`, `clickAction` use exactly the same shape as EnhancedTable / legacy Table (main reference §4 / §5 / §5b). The wire `points` array aligns 1:1 with rendered cards by index. In partition mode, only the representative row's columns are available for click payloads — non-key columns of other partition rows are ignored.
 
-## 9. وضع Wizard
+## 9. Wizard mode
 
-كل slot من نوع `*field` يقبل عنصرًا شقيقًا `wizardFieldId` يُحلَّل إلى `displayAlias` الخاص بالـ wizard عند وقت العرض، مطابقًا لنمط wizard في EnhancedTable / EChart. **استثناء**: `sparkline.valuesField` (وضع inline) — أعمدة CSV / JSON-array لا تتلاءم مع تجريد wizard-field؛ مراجع الأعمدة الخام فقط هناك.
+Each `*field` slot accepts a `wizardFieldId` sibling that resolves to the wizard's `displayAlias` at render time, identical to the EnhancedTable / EChart wizard pattern. **Exception**: `sparkline.valuesField` (inline mode) — CSV / JSON-array columns don't fit the wizard-field abstraction; raw column references only there.
 
-## 10. المصمم (Designer)
+## 10. Designer
 
-افتح مربع حوار chart-config من شاشة تعديل الـ widget. يكتشف مربع الحوار `type: "EnhancedMetricsCard"` ويعرض تبويب **Card Template** إلى جانب **Click & Links** و**Drill-Down**. يحتوي تبويب Card Template على أقسام قابلة للتوسع: Layout، Header، Value Slot، Subtitle، Icon، Badge، Sparkline، بالإضافة إلى محرري JSON خام لـ Card Style وCard Conditional Formatting. يتبدّل محدد الحقول تلقائيًا بين أعمدة SQL (الوضع الخام) وحقول wizard (عند ضبط `wizardDataSource`).
+Open the chart-config dialog from the widget edit screen. The dialog detects `type: "EnhancedMetricsCard"` and shows a **Card Template** tab alongside **Click & Links** and **Drill-Down**. Card Template tab has expandable sections: Layout, Header, Value Slot, Subtitle, Icon, Badge, Sparkline, plus raw-JSON editors for Card Style and Card Conditional Formatting. Field pickers switch automatically between SQL columns (raw mode) and wizard fields (when `wizardDataSource` is set).

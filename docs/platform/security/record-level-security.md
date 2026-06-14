@@ -1,19 +1,17 @@
-<rtl>
+# Record-Level Security (Dimensions and Filters)
 
-# الصلاحيات على مستوى السجلات (المحددات والفلاتر)
+Granting a user *list view* access to sales invoices answers the question "can they browse invoices?" This page answers the follow-up: **which invoices specifically?** Nama narrows record visibility through four independent mechanisms that sit on top of permission checks:
 
-منح المستخدم *مطالعة القوائم* على فواتير المبيعات يجيب عن سؤال "هل يتصفح الفواتير؟". هذه الصفحة تجيب عن السؤال التالي: **أي الفواتير تحديداً؟** يضيّق نظام نما رؤية السجلات عبر أربع آليات مستقلة تعمل فوق فحوصات الصلاحيات:
+1. **Dimensions** — the organizational scope system
+2. **Creator-only record restrictions** — "only what I created"
+3. **Extra Filters** — per-type row filters
+4. **Record Capabilities** — tagging specific records with a required capability
 
-1. **المحددات (Dimensions)** — نظام النطاقات التنظيمية
-2. **قيود سجلات المنشئ** — "ما أنشأته أنا فقط"
-3. **الفلاتر الإضافية (Extra Filters)** — فلاتر صفوف معرّفة لكل نوع
-4. **صلاحيات السجلات** — وسم سجلات بعينها بصلاحية مطلوبة
+## Dimensions
 
-## المحددات (Dimensions)
+Almost every record in Nama carries five organizational dimensions:
 
-كل سجل في نما تقريباً يحمل خمسة محددات تنظيمية:
-
-| المحدد | English |
+| Dimension | English |
 |---|---|
 | الشركة | Legal Entity |
 | الفرع | Branch |
@@ -21,83 +19,81 @@
 | القطاع | Sector |
 | المجموعة التحليلية | Analysis Set |
 
-كل محدد على السجل إما أن يحمل قيمة محددة أو يُترك **عام (PUBLIC)**. والمحدد العام معناه "لا تقييد على هذا المحور".
+Each dimension on a record either holds a specific value or is left as **PUBLIC**. A PUBLIC dimension means "no restriction on this axis."
 
-المستخدمون يحملون المحددات الخمسة نفسها مرتين، ولكل نسخة وظيفة مختلفة:
+Users carry the same five dimensions twice, each copy serving a different purpose:
 
-- **محددات سجل المستخدم نفسه** (في رأس الشاشة، كأي ملف رئيسي) تعرّف *الحد الأقصى* لما يمكن أن يُحصر فيه المستخدم يوماً.
-- **محددات الدخول (Login Context)** في إعدادات المستخدم تعرّف ما يعمل المستخدم *بصفته* الآن: لأي شركة وفرع... تنتمي جلسته الحالية.
+- **The user record's own dimensions** (in the screen header, like any master file) define the *maximum* scope the user can ever be restricted to.
+- **Login Context dimensions** in the user settings define what the user is *acting as* right now: which Legal Entity, Branch, etc. their current session belongs to.
 
-عندما ينشئ المستخدم مستنداً، يختمه النظام تلقائياً بمحددات دخول الجلسة. وعندما يتصفح أو يبحث، تُفلتر السجلات: السجل يظهر عندما يكون كل محدد من محدداته عاماً أو متوافقاً مع محددات جلسة المستخدم. والملفات الرئيسية التي يعتبرها النظام "عامة للجميع" معفاة من فلترة المحددات.
+When a user creates a document, the system automatically stamps it with the session's login context dimensions. When browsing or searching, records are filtered: a record appears when every one of its dimensions is either PUBLIC or compatible with the user's session dimensions. Master files the system considers "global" are exempt from dimension filtering.
 
-### محددات الدخول وجدول محددات الدخول البديلة
+### Login Context and the Alternate Login Context Table
 
-في شاشة المستخدم ستجد:
+Inside the user screen you will find:
 
-- **محددات الدخول** — مجموعة المحددات الخمسة الافتراضية التي تبدأ بها الجلسة.
-- **جدول محددات الدخول** — مجموعات كاملة بديلة يستطيع المستخدم التبديل بينها عند الدخول (مثلاً محاسب يخدم فرعين).
-- **منع تعديل محددات الدخول (Prevent Modify Context)** — عند تفعيلها *لا يستطيع* المستخدم الاختيار بحرية عند الدخول؛ بل يُحصر في محددات الرأس أو أحد سطور الجدول. ويشترط النظام حينها أن تكون كل مجموعة مكتملة التعبئة، وأن تقع كل قيمة داخل محددات سجل المستخدم نفسه.
-- عند عدم تفعيلها تعمل محددات الدخول كافتراضي فحسب، ويستطيع المستخدم تعديل محددات جلسته بعد الدخول (ضمن محددات سجله).
+- **Login Context** — the default set of five dimensions the session starts with.
+- **Login Context Table** — complete alternative sets the user can switch between at login (for example, an accountant who serves two branches).
+- **Prevent Modify Context** — when enabled the user *cannot* choose freely at login; they are restricted to the header dimensions or one of the table rows. The system then requires every set to be fully filled in, and every value must fall within the user record's own dimensions.
+- When not enabled, the login context works as a default only, and the user can adjust their session dimensions after login (within their record's dimensions).
 
-::: tip ابدأ التقييد من سجل المستخدم
-ضبط محددات سجل المستخدم (مثلاً الفرع = جدة) هو السياج الأقوى: كل محددات دخول — وبالتالي كل ما ينشئه ويراه — يجب أن يقع داخلها. أما ترك محددات المستخدم عامة والاعتماد على محددات الدخول وحدها فيمنح مرونة، مقابل قدرة المستخدم على تبديل سياقه.
+::: tip Start restrictions at the user record
+Setting the user record's dimensions (for example Branch = Jeddah) is the strongest fence: all login contexts — and therefore everything the user creates and sees — must fall within them. Leaving the user dimensions public and relying solely on the login context gives more flexibility, at the cost of letting the user switch their own context.
 :::
 
-## قيود "السجلات التي أنشأها فقط"
+## Creator-Only Record Restrictions
 
-ثلاث علامات على سطر الصلاحيات الأساسية (على مستوى الملف أو المستخدم — راجع [ملف الصلاحيات](/platform/security/security-profiles.md)) تربط الصلاحية بمنشئ السجل:
+Three flags on the basic permission row (at the profile or user level — see [Security Profiles](/platform/security/security-profiles.md)) tie a permission to the record's creator:
 
-- **مطالعة السجلات التي أنشأها فقط (View Only Created Records)** — قوائم المستخدم وبحثه وشاشاته لا تعرض إلا السجلات التي أنشأها هو.
-- **تعديل السجلات التي أنشأها فقط (Edit Only Created Records)** — سجلات الآخرين تفتح للقراءة فقط.
-- **حذف السجلات التي أنشأها فقط (Delete Only Created Records)** — وعلامة مماثلة للمسودات وحدها.
+- **View Only Created Records** — the user's lists, searches, and screens only show records they themselves created.
+- **Edit Only Created Records** — other users' records open read-only.
+- **Delete Only Created Records** — a matching flag for deletion; a separate flag covers drafts only.
 
-وإعدادان على مستوى المستخدم يعيدان تعريف مفهوم "المنشئ" نفسه:
+Two user-level settings redefine the concept of "creator" itself:
 
-- **اعتبار مستخدمين كمنشئ (Treat-as users in first author)**: جدول في صفحة صلاحيات المستخدم يسرد مستخدمين آخرين تُعامل سجلاتهم كأن هذا المستخدم أنشأها — مثالي لمشرف يجب أن يرى مستندات فريقه كله تحت سياسة *مطالعة السجلات التي أنشأها فقط*.
-- **عدم الاستخدام كمنشئ (Do not use as first author)**: هذا المستخدم لا يُسجل أبداً كمنشئ أول للمستندات (مفيد لحسابات الخدمة المشتركة).
+- **Treat-as users in first author**: a table in the user permissions page listing other users whose records are treated as if this user created them — ideal for a supervisor who must see their whole team's documents under a *View Only Created Records* policy.
+- **Do not use as first author**: this user is never recorded as the first author of documents (useful for shared service accounts).
 
-ومخرج طوارئ واحد: **السماح بمطالعة سجلات الآخرين عند البحث** يجعل سجلات الآخرين تظهر في نتائج البحث المرجعي حتى عندما لا يستطيع المستخدم تصفحها — فموظف التحصيل الذي لا يرى إلا مقبوضاته يستطيع مع ذلك اختيار أي عميل يشير إليه السند.
+One escape hatch: **Allow viewing other users' records in search** makes other users' records appear in reference-search results even when the user cannot browse them — a collections clerk who only sees their own receipts can still pick any customer on a new receipt.
 
-## الفلاتر الإضافية (Extra Filters)
+## Extra Filters
 
-الفلاتر الإضافية فلاتر صفوف لكل نوع، تُعرّف في صفحة **Extra Filters** على ملف الصلاحيات أو المستخدم (سطور المستخدم تتقدم على سطور الملف لنفس النوع).
+Extra Filters are per-type row filters, defined on the **Extra Filters** page of the security profile or user (user rows take precedence over profile rows for the same type).
 
-![صفحة Extra Filters](./images/security-profile-extra-filters.png)
+![Extra Filters page](../../ar/platform/security/images/security-profile-extra-filters.png)
 
-كل سطر يستهدف نوعاً أو قائمة أنواع، ثم يعرّف الفلتر بإحدى طريقتين:
+Each row targets a type or type list, then defines the filter in one of two ways:
 
-### 1. الحقل الذي يجب أن يطابق الذمة المتعلقة
+### 1. The field that must match the Related Entity
 
-الصيغة الأبسط والأكثر استخداماً. سجل المستخدم يحمل مرجع **الذمة المتعلقة (Related Entity)** — عادة الموظف، لكنها قد تكون عميلاً أو مورداً أو مندوب بيع وغير ذلك. أدخل معرف حقل هنا، فلا تظهر إلا السجلات التي يساوي هذا الحقل فيها الذمة المتعلقة بالمستخدم.
+The simplest and most common form. The user record holds a **Related Entity** reference — typically the employee, but it could be a customer, supplier, sales rep, or anything else. Enter a field ID here, and only records where that field equals the user's Related Entity will appear.
 
-مثال: على سطر فاتورة المبيعات ضع الحقل `salesMan`. المستخدم الذي ذمته المتعلقة هي مندوب البيع *أحمد* لن يرى الآن إلا الفواتير التي حقل المندوب فيها أحمد.
+Example: on a sales invoice row, set the field to `salesMan`. A user whose Related Entity is sales rep *Ahmed* will now only see invoices where the sales rep field is Ahmed.
 
 ### 2. Dynamic Tempo Criteria
 
-عندما لا تكفي مطابقة حقل واحد، اكتب تعبير معايير في عمود **Dynamic Tempo Criteria**. يدعم التعبير صيغة قوالب Tempo، فيستطيع الإشارة إلى بيانات المستخدم الحالي وتركيب عدة شروط معاً. استخدمه لقواعد مثل "فواتير العملاء الذين محصّلهم هو موظف المستخدم الحالي فقط" أو رؤية مقيدة بفترات زمنية.
+When matching a single field is not enough, write a criteria expression in the **Dynamic Tempo Criteria** column. The expression supports Tempo template syntax, so it can reference the current user's data and combine multiple conditions. Use it for rules like "only invoices for customers whose collector is the current user's employee" or a view restricted to specific time periods.
 
-::: info الفلاتر مطبقة في كل مكان
-تُضاف الفلاتر الإضافية إلى القوائم والبحث والتقارير المبنية على النوع — ويُعاد فحصها عند فتح سجل مباشرة (عبر رابط مثلاً)، فلا يستطيع المستخدم الالتفاف عليها بتخمين كود السجل أو عنوانه.
+::: info Filters are applied everywhere
+Extra Filters are added to lists, searches, and reports built on the type — and they are re-checked when a record is opened directly (via a link, for example), so the user cannot bypass them by guessing a record code or URL.
 :::
 
-## صلاحيات السجلات (تغيير الصلاحية على مستوى السجل)
+## Record Capabilities (Changing Capability at the Record Level)
 
-أحياناً تكون الحساسية في *سجل* بعينه لا في النوع كله: عقد واحد محدد، أو حفنة قيود يومية سرية. لهذا يمكن وسم سجلات بعينها بسجل **نوع صلاحيات (Capability Type)** للمطالعة/التعديل:
+Sometimes sensitivity lives in a *specific record*, not the whole type: one particular contract, or a handful of confidential journal entries. For this, individual records can be tagged with a **Capability Type** record that gates read/edit access:
 
-1. عرّف سجل نوع صلاحيات — راجع [ملف الصلاحيات](/platform/security/security-profiles.md).
-2. امنح صلاحية **تغيير الصلاحية (Can Change Capability)** على سطر الصلاحيات الأساسية لمن يحق لهم وسم السجلات.
-3. يستخدم هؤلاء إجراء تغيير الصلاحية على السجل لربطه بالصلاحية.
-4. من تلك اللحظة لا يرى السجلَ الموسوم أو يعدّله إلا من يحمل تلك الصلاحية (عبر سطور صلاحياته المخصصة)؛ أما السجلات غير الموسومة فتبقى ظاهرة لكل من يملك الصلاحيات العادية.
+1. Define a Capability Type record — see [Security Profiles](/platform/security/security-profiles.md).
+2. Grant the **Can Change Capability** permission on the basic permission row to those who may tag records.
+3. Those users apply the Change Capability action on a record to link it to the capability.
+4. From that point on, only users who hold that capability (through their dedicated permission rows) can see or edit the tagged record; untagged records remain visible to everyone with normal permissions.
 
-وتوفر الإعدادات العامة مفاتيح لتجاهل صلاحيات السجلات في القوائم حيث تكون الكلفة غير مرغوبة.
+Global settings provide switches to skip record capability checks in list views where the overhead is undesirable.
 
-## السجلات الممنوعة من الاستعمال
+## Records Blocked from Use
 
-الملفات الرئيسية يمكن وسمها بعلامة *منع الاستعمال* (صنف موقوف، عميل محظور...). والصلاحيات تقرر كيف يختبر كل دور هذه السجلات:
+Master files can be flagged as *blocked from use* (discontinued item, banned customer, etc.). Permissions control how each role experiences those records:
 
-- على سطر الصلاحيات الأساسية: **عرض السجلات الممنوعة من الاستعمال** — *Display* أو *Hide* أو *Same As Config*.
-- في رأس ملف الصلاحيات/المستخدم: السماح باستعمال السجلات الممنوعة في **الادخال** و/أو **التعديل**، وعرضها في **البحث**، وعرضها أو إخفاؤها في **القوائم**.
+- On the basic permission row: **Display Blocked Records** — *Display*, *Hide*, or *Same As Config*.
+- In the security profile / user header: allow using blocked records in **entry** and/or **editing**, show them in **search**, and show or hide them in **list views**.
 
-هذا الفصل يتيح لمدير المشتريات أن يظل يرى تاريخ مورد محظور بينما لا يستطيع مدخلو البيانات وضعه على أمر شراء جديد.
-
-</rtl>
+This separation lets a purchasing manager still view a blocked supplier's history while data-entry operators cannot put that supplier on a new purchase order.

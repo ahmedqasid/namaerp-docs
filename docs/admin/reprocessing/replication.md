@@ -1,6 +1,5 @@
-# أدوات النسخ المتطابق (Replication Utilities)
-
-## تنظيف النسخ المتطابق (Replication Clean Up)
+# Replication Utilities
+## Replication Clean Up
 ::: details
 ```sql
 update m set messageSent = 1 from SiteOutMessage m left join ReplicationSite rs on rs.code = m.siteCode where rs.inActive = 1 and m.messageSent = 0
@@ -30,13 +29,12 @@ go
 
 ```
 :::
-
-## خطوات أخذ نسخة احتياطية واستعادتها في الفرع (Take Backup and Restore It in Branch Steps)
-- تجهيز النسخة الاحتياطية ونسخها إلى الفرع
-- إيقاف Tomcat في الفرع
-- استعادة النسخة الاحتياطية في الفرع
-- إيقاف Tomcat في المركز الرئيسي
-- نفّذ ما يلي في المركز الرئيسي:
+## Take Backup and Restore It in Branch Steps
+- PREPARE BACKUP and COPY IT TO BRANCH
+- STOP TOMCAT IN BRANCH
+- RESTORE BACKUP IN BRANCH
+- STOP TOMCAT IN HEAD OFFICE
+- Run The Following in Head Office
 ::: details
 ```sql
 update ReplicationStatistics set lastSentMessage = 1, waitingReadCount = 0 , remoteFailuresCount = 0 , localFailuresCount = 0,
@@ -44,7 +42,7 @@ lastReceivedMessage = 0
 where siteCode = 'branchcode'
 ```
 :::
-- نفّذ ما يلي في الفرع:
+- Run The Following In Branch
 ::: details
 ```sql
 delete from SiteOutMessage
@@ -56,6 +54,6 @@ lastReceivedMessage = 0
 where siteCode = 'headoffice'
 ```
 :::
-- ابدأ تشغيل Tomcat في المركز الرئيسي وفي الفرع
-- أعد ترحيل أي شيء في الفرع وتأكد من استلام الرسالة في المركز الرئيسي
-- أعد ترحيل أي شيء في المركز الرئيسي وتأكد من استلام الرسالة في الفرع
+- START TOMCAT in HEAD OFFICE and in BRANCH
+- RECOMMIT ANY THING IN BRANCH and MAKE SURE THE MESSAGE IS RECEIVED IN HEAD OFFICE
+- RECOMMIT ANY THING IN HEAD OFFICE and MAKE SURE THE MESSAGE IS RECEIVED IN BRANCH

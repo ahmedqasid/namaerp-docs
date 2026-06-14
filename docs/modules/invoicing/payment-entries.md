@@ -1,125 +1,121 @@
-<rtl>
+# Linking Payment Vouchers to Invoices
 
-# ربط سندات الدفع بالفواتير
+**Nama ERP** supports linking invoices to payment vouchers flexibly across multiple scenarios.
 
-يدعم نظام **Nama ERP** ربط الفواتير بسندات الدفع بمرونة عبر سيناريوهات متعددة.
+## Definition of Payment Vouchers
 
-## تعريف سندات الدفع
+Payment vouchers in this context refer to any **receipt or payment of cash or its equivalent**. They include:
 
-يقصد بسندات الدفع في هذا السياق أي **سند قبض أو صرف نقدية أو ما يعادله**. وتشمل:
+* **Receipt Voucher:** Always represents the receipt of cash.
+* **Payment Voucher:** Always represents the disbursement of cash.
+* **Bank Transfer:**
 
-* **سند قبض (Receipt Voucher):** يمثل قبض نقدية دائمًا.
-* **سند صرف (Payment Voucher):** يمثل صرف نقدية دائمًا.
-* **تحويل بنكي (Bank Transfer):**
+    * Represents the receipt of cash by default.
+    * Can be directed to act as a **Receipt Voucher** or **Payment Voucher** via the option: `تعامل في أعمار الديون ومصاريف طرق الدفع مثل`
 
-    * يمثل قبض نقدية افتراضيًا.
-    * يمكن توجيهه ليصبح **سند قبض** أو **سند صرف** عبر خيار: `تعامل في أعمار الديون ومصاريف طرق الدفع مثل`
+* **Electronic Receipt Voucher:**
 
-* **سند قبض إلكتروني (Electronic Receipt Voucher):**
+    * Acts as a receipt voucher by default.
+    * Can be changed to a payment voucher using the same direction option.
+* **Debit Note:**
 
-    * يعمل كسند قبض افتراضيًا.
-    * يمكن تغييره لسند صرف بنفس خيار التوجيه.
-* **سند إشعار مدين (Debit Note):**
+    * Acts as a receipt voucher by default.
+    * Can be changed to a payment voucher using the same direction option.
+* **Credit Note:**
 
-    * يعمل كسند قبض افتراضيًا.
-    * يمكن تغييره لسند صرف بنفس خيار التوجيه.
-* **سند إشعار دائن (Credit Note):**
+    * Acts as a payment voucher by default.
+    * Can be changed to a receipt voucher using the same direction option.
+* **Invoice Returns:** Can be treated as a payment method by enabling the option: `addReturnToInvoicePayment`
 
-    * يعمل كسند صرف افتراضيًا.
-    * يمكن تغييره لسند قبض بنفس خيار التوجيه.
-* **مرتجعات الفواتير:** يمكن اعتبارها كوسيلة دفع بشرط تفعيل الخيار:`addReturnToInvoicePayment`
+  This option is found in the return's توجيه (Term Config) to specify whether it will be added to payment vouchers and deducted from the remaining balance.
 
-  وهو خيار موجود بتوجيه المرتجع لتحديد إن كان سيُضاف إلى سندات الدفع ويُخصم من المتبقي.
+## What Does Linking Invoices to Vouchers Mean?
 
-## ما المقصود بربط الفواتير بالسندات؟
+When an invoice is linked to a payment voucher, the system updates the `Remaining` field (`money.remaining`) in the invoice, which represents the outstanding balance to be collected or paid.
 
-عند ربط فاتورة بسند دفع، يقوم النظام بتحديث حقل `المتبقي` (`money.remaining`) في الفاتورة، والذي يمثل الرصيد المتبقي للتحصيل أو السداد.
+## What Are "Invoices" in This Context?
 
-## ما المقصود بالفواتير في هذا السياق؟
+Invoices here refer to **any document that generates a deferred obligation**, whether:
 
-المقصود بالفواتير هنا هو **أي مستند يترتب عليه استحقاق آجل**، سواء كان:
+* **In favor of the company** (e.g., sales invoices), or
+* **Against the company** (e.g., purchase invoices).
 
-* **لصالح الشركة** (مثل فواتير البيع)، أو
-* **على الشركة** (مثل فواتير الشراء).
+Linking between invoices and payment vouchers follows these rules:
 
-ويتم الربط بين الفواتير وسندات الدفع وفق القواعد التالية:
-
-* **فاتورة البيع:** تُربط بسندات **القبض**.
-* **مرتجع المبيعات:** يُربط بسندات **الصرف**،
-  كما يمكن اعتباره بديلًا عن سند قبض، ويُربط بفاتورة البيع كأنه سند قبض.
-* **فاتورة الشراء:** تُربط بسندات **الصرف**.
-* **مرتجع المشتريات:** يُربط بسندات **القبض**،
-  كما يمكن اعتباره بديلًا عن سند صرف، ويُربط بفاتورة الشراء كأنه سند صرف.
+* **Sales Invoice:** Linked to **Receipt** vouchers.
+* **Sales Return:** Linked to **Payment** vouchers;
+  it can also serve as a substitute for a receipt voucher and be linked to a sales invoice as if it were a receipt voucher.
+* **Purchase Invoice:** Linked to **Payment** vouchers.
+* **Purchase Return:** Linked to **Receipt** vouchers;
+  it can also serve as a substitute for a payment voucher and be linked to a purchase invoice as if it were a payment voucher.
 
 ---
 
-## تفعيل المتابعة الآلية للربط
+## Enabling Automatic Tracking of Links
 
-قبل البدء، يجب **تفعيل الخيار التالي في الإعدادات العامة**:
+Before you begin, you must **enable the following option in the global configuration**:
 `usePayReceiptDocsSysEntries`
 
-**(بالعربية: استعمال الجداول النظامية لمتابعة ربط الصرف والقبض بالفواتير)**
+**(In Arabic: استعمال الجداول النظامية لمتابعة ربط الصرف والقبض بالفواتير)**
 
-### جدول `PayReceiptDocsSysEntry`
+### The `PayReceiptDocsSysEntry` Table
 
-بمجرد تفعيل الخيار أعلاه، يتتبع النظام الربط بين السندات والفواتير في جدول نظامي خاص:
+Once the above option is enabled, the system tracks the link between vouchers and invoices in a dedicated system table:
 
-| الحقل                | الوظيفة                                                              |
-| -------------------- | -------------------------------------------------------------------- |
-| `valueDate`          | تاريخ التنفيذ الفعلي للسند                                           |
-| `creationDate`       | تاريخ إنشاء السند                                                    |
-| `owner`              | مرجع السند (القبض أو الصرف)                                          |
-| `target`             | مرجع الفاتورة المرتبطة                                               |
-| `currency`           | العملة المستخدمة في السند                                            |
-| `paymentLocalAmount` | قيمة الصرف بالعملة المحلية                                           |
-| `paymentAmount`      | قيمة الدفع بالعملة الأساسية للسند                                    |
-| `receiptLocalAmount` | قيمة القبض بالعملة المحلية                                           |
-| `receiptAmount`      | قيمة القبض بالعملة الأساسية للسند                                    |
-| `cloned`             | حقل منطقي (`true/false`) يُستخدم في حالة النسخ – سيتم شرح ذلك لاحقًا |
-
----
-
-## طرق ربط سند الدفع بالفاتورة
-
-يمكن ربط سندات الدفع (مثل سندات القبض) بفواتير المبيعات من خلال الحقول التالية:
-
-### 1. في رأس السند:
-
-* **`fromDoc` (بناءًا على):**
-  يحدد الفاتورة أو المستند المرتبط بالسند.
-
-### 2. في تفاصيل السند:
-
-* **`lines.originDoc` (# المستند):**
-  مرجع الفاتورة في جدول التفاصيل.
-
-### 3. في جدول الفواتير داخل السند:
-
-* **`invoices.invoice` (الفاتورة):**
-  يربط الفاتورة بسند الدفع بشكل مباشر.
+| Field                | Function                                                              |
+| -------------------- | --------------------------------------------------------------------- |
+| `valueDate`          | The actual execution date of the voucher                              |
+| `creationDate`       | The creation date of the voucher                                      |
+| `owner`              | Reference to the voucher (receipt or payment)                         |
+| `target`             | Reference to the linked invoice                                       |
+| `currency`           | The currency used in the voucher                                      |
+| `paymentLocalAmount` | Payment value in local currency                                       |
+| `paymentAmount`      | Payment value in the voucher's base currency                          |
+| `receiptLocalAmount` | Receipt value in local currency                                       |
+| `receiptAmount`      | Receipt value in the voucher's base currency                          |
+| `cloned`             | A boolean field (`true/false`) used in the cloning scenario — explained below |
 
 ---
 
-## السماح بدفع قيمة أكبر من المتبقي بالفاتورة
+## Ways to Link a Payment Voucher to an Invoice
 
-في بعض حالات العمل، قد يتطلب الأمر **دفع مبلغ يتجاوز المتبقي في الفاتورة**.
-لتفعيل هذا السلوك، يمكن استخدام الخيار التالي في **توجيه الفاتورة**:
-`allowPaymentMoreThanInvoiceAmount` `السماح بدفع مبلغ أكبر من قيمة الفاتورة`
+Payment vouchers (such as receipt vouchers) can be linked to sales invoices through the following fields:
+
+### 1. In the Voucher Header:
+
+* **`fromDoc` (Based On):**
+  Specifies the invoice or document linked to the voucher.
+
+### 2. In the Voucher Details:
+
+* **`lines.originDoc` (Document #):**
+  Reference to the invoice in the details table.
+
+### 3. In the Invoices Table Inside the Voucher:
+
+* **`invoices.invoice` (Invoice):**
+  Links the invoice to the payment voucher directly.
 
 ---
 
-## نسخ سندات الدفع من الأوامر إلى الفواتير
+## Allowing Payment Greater Than the Invoice Remaining Balance
 
-عند اتباع سيناريو يبدأ بـ **أمر بيع** يتم عليه إصدار **سند قبض جزئي**، ثم يُنشأ بناءً عليه **فاتورة مبيعات**، من الطبيعي أن يُخصم هذا المبلغ من المتبقي في الفاتورة.
+In some business scenarios, it may be necessary to **pay an amount that exceeds the remaining balance on an invoice**.
+To enable this behavior, use the following option in the **invoice's توجيه (Term Config)**:
+`allowPaymentMoreThanInvoiceAmount` — Allow payment of an amount greater than the invoice value
 
-لتنفيذ ذلك، فعّل الخيار التالي في **توجيه فاتورة المبيعات**:
+---
 
-`clonePayReceiptEntry` `نسخ الجداول النظامية لمتابعة ربط الصرف والقبض الخاصة ببناءًا على للسند`
+## Cloning Payment Vouchers from Orders to Invoices
 
-### تأثير التفعيل:
+When following a scenario that starts with a **Sales Order** on which a **partial receipt voucher** is issued, then a **Sales Invoice** is created based on it, it is natural for that amount to be deducted from the remaining balance on the invoice.
 
-* عند حفظ الفاتورة، يقوم النظام **بنسخ كل سندات القبض المرتبطة بأمر البيع** الذي تم إنشاء الفاتورة بناءً عليه.
-* وإذا تم لاحقًا **إضافة سند قبض جديد على أمر البيع**، فسيتم **ربطه تلقائيًا بالفاتورة** أيضًا.
-* وإذا تم **حذف أو تعديل سند القبض**، سيقوم النظام **بتحديث أثره على المتبقي في كل من أمر البيع والفاتورة**.
+To implement this, enable the following option in the **Sales Invoice توجيه (Term Config)**:
 
-</rtl>
+`clonePayReceiptEntry` — Clone the system tracking tables for receipt/payment links associated with the "Based On" document
+
+### Effect of Enabling This Option:
+
+* When the invoice is saved, the system **clones all receipt vouchers linked to the Sales Order** that the invoice was created from.
+* If a **new receipt voucher is later added to the Sales Order**, it will **automatically be linked to the invoice** as well.
+* If the **receipt voucher is deleted or modified**, the system will **update its effect on the remaining balance in both the Sales Order and the Invoice**.

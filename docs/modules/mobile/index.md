@@ -2,68 +2,64 @@
 # Handcrafted mobile landing — GenNamaDocsIndex skips this file because of the
 # .custom-index marker in this folder (see hasHandcraftedHomePage in GenNamaDocsIndex.java)
 layout: home
-title: تطبيقات الجوال
+title: Mobile Applications
 hero:
-  name: نما موبايل
-  text: نظام الـ ERP في جيبك
-  tagline: سجّل الحضور، وأصدر الفواتير، وجرد المخازن، وتابع زيارات العملاء — من الهاتف، وبالعربية والإنجليزية، ويعمل حتى دون اتصال
+  name: Nama Mobile
+  text: The ERP in your pocket
+  tagline: Clock in, issue invoices, count stock and follow up customer visits — from the phone, in Arabic and English, and it works even offline
   image:
     src: /hero.svg
     alt: Nama Mobile
   actions:
     - theme: brand
-      text: ابدأ من هنا
+      text: Start here
       link: /modules/mobile/mobile-application-guide
     - theme: alt
-      text: الأسئلة الشائعة
+      text: FAQ
       link: /modules/mobile/mobile-apps-faq
 features:
   - icon: 🧭
-    title: نظرة عامة والتنقل والإعدادات
-    details: تسجيل الدخول والعلامات التجارية، الشاشة الرئيسية وشريط التنقل، القوائم ومجموعات الوحدات، الإعدادات والطابعة والمزامنة
+    title: Overview, Navigation & Settings
+    details: Login and branding, the home screen and navigation bar, menus and module groups, settings, printer and sync
     link: /modules/mobile/mobile-application-guide
   - icon: 🕐
-    title: الخدمة الذاتية للموظفين
-    details: الحضور والانصراف ومناطق الحضور، سجلات الحضور، الإجازات والأذونات والمأموريات والسلف، ومستندات الموارد البشرية والخليج
+    title: Employee Self-Service
+    details: Check-in/out and attendance zones, attendance logs, vacations, permissions, missions and loans, plus HR and Gulf documents
     link: /modules/mobile/mobile-hr-self-service
   - icon: 🛒
-    title: المبيعات والمخازن
-    details: أوامر البيع والفواتير وعروض الأسعار والمردودات، الاستعلام عن الأصناف، التحويلات المخزنية، والجرد الإلكتروني بالباركود
+    title: Sales & Inventory
+    details: Sales orders, invoices, quotations and returns, item inquiry, stock transfers, and barcode-driven electronic stock taking
     link: /modules/mobile/mobile-sales-inventory
   - icon: 🚚
-    title: خدمة العملاء والتوصيل والقبض
-    details: زيارات العملاء والصيانة والاستبيانات، سندات التوصيل وأدوات السائق، والقبض الإلكتروني الميداني
+    title: Customer Service, Delivery & Receipts
+    details: Customer visits, maintenance and questionnaires, delivery vouchers and driver tools, and field electronic receipts
     link: /modules/mobile/mobile-crm-delivery
   - icon: 🔳
     title: Mobile QR Integrator
-    details: استجابة النظام لرموز QR الممسوحة لإنشاء الكيانات وتحديثها وتنفيذ إجراءات مخصصة ديناميكياً
+    details: The system's response to scanned QR codes to create and update entities and run custom actions dynamically
     link: /modules/mobile/mobile-qr-integrator
   - icon: ❓
-    title: أسئلة شائعة
-    details: إجابات سريعة حول تطبيقات الجوال في نظام نما — مثل دعم الطباعة على أجهزة Sunmi
+    title: Frequently Asked Questions
+    details: Quick answers about mobile apps in Nama ERP — such as printing support on Sunmi devices
     link: /modules/mobile/mobile-apps-faq
 ---
 
-<rtl>
+## One app for every field team
 
-## تطبيق واحد لكل فرق الميدان
-
-**نما موبايل** هو الواجهة المحمولة لنظام Nama ERP. يتصل التطبيق بنفس خادم الـ ERP الذي يعمل عليه فريق المكتب، فيضع بين يدي كل موظف ما يحتاجه ميدانياً: الموظف يسجّل حضوره ويتابع رصيد إجازاته، والمندوب يحرّر الفواتير من عند العميل، وأمين المخزن يجرّ الأصناف بالباركود، وفني الصيانة يوثّق زياراته، والسائق ينفّذ التوصيل ويلتقط توقيع العميل.
+**Nama Mobile** is the mobile front end for the Nama ERP system. It connects to the same ERP server the back-office team uses, putting in each employee's hands what they need in the field: the employee clocks in and tracks their leave balance, the rep writes invoices at the customer's site, the warehouse keeper pulls items by barcode, the maintenance technician documents their visits, and the driver executes the delivery and captures the customer's signature.
 
 <figure style="text-align:center; margin: 2rem auto; max-width: 320px;">
-  <img src="./images/overview/home-attendance-dashboard.jpg" alt="الشاشة الرئيسية لتطبيق نما موبايل" style="border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.12);" />
-  <figcaption style="color: var(--vp-c-text-2); font-size: 0.85rem; margin-top: 0.6rem;">الشاشة الرئيسية: تسجيل الحضور ولوحة المعلومات وملخص الشهر</figcaption>
+  <img src="../../ar/modules/mobile/images/overview/home-attendance-dashboard.jpg" alt="Nama Mobile home screen" style="border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.12);" />
+  <figcaption style="color: var(--vp-c-text-2); font-size: 0.85rem; margin-top: 0.6rem;">The home screen: check-in, the information panel, and the monthly summary</figcaption>
 </figure>
 
-## ما الذي يميّزه؟
+## What sets it apart?
 
-- **يعمل دون اتصال أولاً** — يحمّل التطبيق البيانات التي يحتاجها محلياً عند الدخول، ويزامن المستندات عند توفر الشبكة، فلا يتعطّل العمل في الميدان.
-- **يتكيّف مع ترخيصك** — تظهر الوحدات والشاشات في القائمة حسب ما رخّصته مؤسستك وصلاحيات المستخدم.
-- **يُضبط مركزياً** — يتحكم المسؤول في سلوك التطبيق بالكامل من شاشة إعدادات تطبيقات الجوال على الخادم: الدفاتر، المعايير، قوالب الطباعة، والصلاحيات.
-- **ثنائي اللغة وقابل لتغيير العلامة** — العربية والإنجليزية، ويصدر بعلامات تجارية متعددة لعملاء نما.
+- **Offline-first** — the app downloads the data it needs locally on login and syncs documents when the network is available, so work in the field never stalls.
+- **Adapts to your license** — modules and screens appear in the menu according to what your organization has licensed and the user's permissions.
+- **Configured centrally** — the administrator controls the app's behavior entirely from the Mobile App configuration screen on the server: books, criteria, print templates and permissions.
+- **Bilingual and white-labelable** — Arabic and English, and it ships under multiple brands for Nama's customers.
 
-## من أين أبدأ؟
+## Where do I start?
 
-ابدأ بصفحة [نظرة عامة والتنقل والإعدادات](./mobile-application-guide.md) لفهم تسجيل الدخول والشاشة الرئيسية والتنقل، ثم انتقل إلى الصفحة التي تناسب دورك من البطاقات بالأعلى.
-
-</rtl>
+Start with the [Overview, Navigation & Settings](./mobile-application-guide.md) page to understand login, the home screen and navigation, then move to the page that fits your role from the cards above.

@@ -1,144 +1,136 @@
-<rtl>
+# Detailed Guide to Grouping, Data Sources, and Report Sorting in Nama ERP
+[Watch the video](https://youtu.be/Vp3laGFs99U)
 
-# شرح تفصيلي لجروبنج (Grouping) ومصادر البيانات وترتيب التقارير في Nama ERP
-[لمشاهدة الفيديو](https://youtu.be/Vp3laGFs99U)
-
-بسم الله الرحمن الرحيم، في هذا الفيديو التعليمي التفصيلي شرحنا بشكل دقيق كيفية التعامل مع خصائص الجروبنج، استخدام مصادر البيانات (Data Sources)، وكيفية التحكم في الترتيب (Sorting) داخل التقارير باستخدام Nama ERP. يقدم الفيديو شرحًا عمليًا ومفصلًا دون تلخيص أو حذف أي تفاصيل.
+This educational video provides a detailed and precise walkthrough of how to work with grouping properties, use Data Sources, and control Sorting within reports using Nama ERP. The video offers a thorough, hands-on explanation with no omissions.
 
 ---
 
-## محتويات الشرح
+## Table of Contents
 
-1. [مقدمة عن الجروبنج](#1-mqdm-aan-ljrwbnj)
-2. [إعداد الجروبنج حسب العملاء والفروع](#2-aadd-ljrwbnj-Hsb-laaml-wlfrwaa)
-3. [تطبيق التجميع وعرض المجاميع](#3-tTbyq-ltjmyaa-waarD-lmjmyaa)
-4. [التحكم في الترتيب Sorting](#4-ltHkm-fy-ltrtyb-Sorting)
-5. [مصادر البيانات وكيفية التعامل معها Data Sources](#5-mSdr-lbynt-wkyfy-ltaaml-maah-Data-Sources)
-6. [تجميع المبيعات والمردودات والتحصيلات](#6-tjmyaa-lmbyaat-wlmrdwdt-wltHSylt)
-7. [إعداد تقارير كشف الحساب](#7-aadd-tqryr-kshf-lHsb)
-8. [أمثلة عملية وملاحظات هامة](#8-mthl-aamly-wmlHZt-hm)
+1. [Introduction to Grouping](#1-Introduction-to-Grouping)
+2. [Setting Up Grouping by Customers and Branches](#2-Setting-Up-Grouping-by-Customers-and-Branches)
+3. [Applying Grouping and Displaying Totals](#3-Applying-Grouping-and-Displaying-Totals)
+4. [Controlling Sorting](#4-Controlling-Sorting)
+5. [Data Sources and How to Work with Them](#5-Data-Sources-and-How-to-Work-with-Them)
+6. [Aggregating Sales, Returns, and Collections](#6-Aggregating-Sales-Returns-and-Collections)
+7. [Setting Up Account Statement Reports](#7-Setting-Up-Account-Statement-Reports)
+8. [Practical Examples and Important Notes](#8-Practical-Examples-and-Important-Notes)
 
 ---
 
 <a id="section-1"></a>
-## 1. مقدمة عن الجروبنج
+## 1. Introduction to Grouping
 
-- البداية كانت بالتأكيد على أهمية خاصية جروبنج البيانات في التقارير، حيث يمكن تجميع البيانات حسب العميل (Customer) أو الفرع (Branch).
-- الهدف من الجروبنج هو استخراج التوتال والملخصات لكل عميل ولكل فرع في جدول الإرسال.
-- تم توضيح أن العمل يعتمد على جدول يحتوي حقول العميل، الفرع، والصافي (Net).
+- The session begins by emphasizing the importance of grouping data in reports, where data can be grouped by Customer or Branch.
+- The goal of grouping is to extract totals and summaries for each customer and each branch in the report table.
+- The work is based on a table containing fields for customer, branch, and net (Net).
 
-**رابط الفيديو:** [بداية الشرح والتعريف بالجروبنج - 00:00:01](https://youtu.be/Vp3laGFs99U?t=1)
+**Video link:** [Introduction and definition of grouping - 00:00:01](https://youtu.be/Vp3laGFs99U?t=1)
 
 ---
 
 <a id="section-2"></a>
-## 2. إعداد الجروبنج حسب العملاء والفروع
+## 2. Setting Up Grouping by Customers and Branches
 
-- تم استعراض اختيار الحقول الأساسية مثل العميل، الفرع، والتوتال الصافي.
-- شرح كيفية تكوين مجموعة جديدة (Group) خاصة بكل عميل وعرض التوتال الخاص به.
-- تم التنويه على تغيير أسماء العملاء المتشابهة لتفادي الالتباس.
-- الإشارة إلى أهمية التحكم في العناوين لسهولة التعرف على المجموعات.
+- Review of selecting the core fields such as customer, branch, and total net.
+- Explaining how to form a new Group for each customer and display its total.
+- Noting the need to differentiate similar customer names to avoid confusion.
+- The importance of controlling headings for easy identification of groups.
 
-**رابط الفيديو:** [تفاصيل إعداد الجروبنج - 00:03:40](https://youtu.be/Vp3laGFs99U?t=220)
+**Video link:** [Grouping setup details - 00:03:40](https://youtu.be/Vp3laGFs99U?t=220)
 
 ---
 
 <a id="section-3"></a>
-## 3. تطبيق التجميع وعرض المجاميع
+## 3. Applying Grouping and Displaying Totals
 
-- كيفية استخدام خاصية المجموعات لتجميع بيانات العميل وعرض المجاميع بشكل مفصل.
-- إمكانية عرض الفوتر (Footer) لكل مجموعة مع إمكانية تعديل الألوان لتمييز كل جروب.
-- شرح تفعيل خيار إظهار في مجموعة 1 لعرض أسماء العملاء مع الإجماليات.
+- How to use the group feature to aggregate customer data and display totals in detail.
+- Ability to display a Footer for each group with the option to change colors to distinguish each group.
+- Explaining how to enable the "show in group 1" option to display customer names with their totals.
 
-**رابط الفيديو:** [عرض المجاميع وتخصيص الفوتر والجروب - 00:06:20](https://youtu.be/Vp3laGFs99U?t=380)
+**Video link:** [Displaying totals and customizing footer and group - 00:06:20](https://youtu.be/Vp3laGFs99U?t=380)
 
 ---
 
 <a id="section-4"></a>
-## 4. التحكم في الترتيب Sorting
+## 4. Controlling Sorting
 
-- تم التوضيح بأنه يمكن ترتيب العناصر داخل كل جروب باستخدام عدة معايير.
-- عند ترتيب الجروبنج حسب العميل والفرع، يجب ترتيب البيانات وفقًا للأولوية المختارة.
-- شرح كيفية ترتيب العملاء داخل الفروع أو العكس، وأهمية ترتيب الأعمدة حسب الحقول المستخدمة في التجميع.
-- إمكانية تحديد اتجاه الترتيب: تصاعدي أو تنازلي والتأثير على ظهور البيانات.
+- Elements within each group can be sorted using multiple criteria.
+- When grouping by customer and branch, data must be sorted according to the chosen priority.
+- Explaining how to sort customers within branches or vice versa, and the importance of ordering columns by the fields used in grouping.
+- Ability to set sort direction: ascending or descending, and the effect on data display.
 
-**رابط الفيديو:** [شرح الترتيب وتصاعدي/تنازلي - 00:09:40](https://youtu.be/Vp3laGFs99U?t=580)
+**Video link:** [Sorting explanation - ascending/descending - 00:09:40](https://youtu.be/Vp3laGFs99U?t=580)
 
 ---
 
 <a id="section-5"></a>
-## 5. مصادر البيانات وكيفية التعامل معها Data Sources
+## 5. Data Sources and How to Work with Them
 
-- شرح مشكلة جمع المبيعات (Sales) والمرتجعات (Returns) من جداول منفصلة وعدم دمجها بالطريقة التقليدية مثل اليونيون.
-- كيفية استخدام مصادر بيانات متعددة وربطها بمفاتيح مشتركة لعرض المعلومات بشكل موحد.
-- مثال عملي لإنشاء مصدر بيانات للمبيعات والمردودات بتحكم منفصل للحقلين.
-- توضيح مشاكل ربط البيانات خاصة مع التحصيلات التي قد لا تحمل نفس حقول العميل.
+- Explaining the challenge of combining Sales and Returns from separate tables without using a traditional UNION.
+- How to use multiple data sources and link them with common keys to display information in a unified view.
+- A practical example of creating a data source for sales and returns with separate control over the two fields.
+- Clarifying data linking issues, especially with collections that may not carry the same customer fields.
 
-**رابط الفيديو:** [شرح التعامل مع مصادر البيانات وربط الجداول - 00:23:40](https://youtu.be/Vp3laGFs99U?t=1420)
+**Video link:** [Working with data sources and linking tables - 00:23:40](https://youtu.be/Vp3laGFs99U?t=1420)
 
 ---
 
 <a id="section-6"></a>
-## 6. تجميع المبيعات والمردودات والتحصيلات
+## 6. Aggregating Sales, Returns, and Collections
 
-- بناء جدول مجمع يعرض العميل، المبيعات، المرتجعات، والتحصيلات الخاصة به.
-- التعامل مع تعقيدات البيانات مثل الحالات التي قد يظهر فيها العميل في أكثر من جدول بدون ربط مباشر.
-- ضبط الفلاتر لتحديد فترة زمنية معينة (من تاريخ إلى آخر).
-- كيفية التحكم في عرض الحقول وتجاهل أو إخفاء الحقول الغير مرغوب فيها لضبط المخرجات النهائية.
+- Building a combined table displaying the customer, their sales, returns, and collections.
+- Handling data complexities such as cases where a customer may appear in more than one table without a direct link.
+- Setting filters to target a specific time period (from one date to another).
+- Controlling the display of fields and hiding unwanted fields to refine the final output.
 
-**رابط الفيديو:** [كيفية تجميع وعرض المبيعات والمرتجعات والتحصيلات - 00:35:00](https://youtu.be/Vp3laGFs99U?t=2100)
+**Video link:** [How to aggregate and display sales, returns, and collections - 00:35:00](https://youtu.be/Vp3laGFs99U?t=2100)
 
 ---
 
 <a id="section-7"></a>
-## 7. إعداد تقارير كشف الحساب
+## 7. Setting Up Account Statement Reports
 
-- شرح خاصية إعداد تقارير كشف الحساب للعميل مع عرض الرصيد الافتتاحي والمدين والدائن.
-- طريقة تعريف الفلاتر المرتبطة بالتاريخ لضمان الحساب الدقيق للرصيد الافتتاحي.
-- استخدام المجموعات (Grouping) وتقسيم البيانات حسب الحسابات الفرعية.
-- كتابة تعبيرات مخصصة (Custom expressions) لحساب الأرصدة ضمن التقرير.
+- Explaining how to set up account statement reports for a customer, showing the opening balance, debit, and credit.
+- How to define date-based filters to ensure accurate calculation of the opening balance.
+- Using Groups and splitting data by sub-accounts.
+- Writing Custom expressions to calculate balances within the report.
 
-**رابط الفيديو:** [إعداد كشف الحساب مع تفاصيل الرصيد الافتتاحي - 00:58:00](https://youtu.be/Vp3laGFs99U?t=3480)
+**Video link:** [Setting up account statement with opening balance details - 00:58:00](https://youtu.be/Vp3laGFs99U?t=3480)
 
 ---
 
 <a id="section-8"></a>
-## 8. أمثلة عملية وملاحظات هامة
+## 8. Practical Examples and Important Notes
 
-- تقديم ملاحظات حول المشكلات الشائعة مثل ظهور بيانات خاطئة أو تداخل التجميع بسبب عدم ضبط الفلاتر بشكل صحيح.
-- نصائح تقنية لتفادي مشاكل التجميع والفرز.
-- توضيح كيفية التحكم في إظهار أو إخفاء تفاصيل معينة ضمن التقارير مثل العناوين والفوتر.
-- تحضير التصميم النهائي للتقارير ليكون مناسبًا للطباعة أو التصدير (Excel).
-- التشويق لاستكمال شرح جزء كشف الحساب والجزئية الخاصة بحركة المخزون في المحاضرات القادمة.
+- Notes on common problems such as incorrect data appearing or grouping overlap due to improperly configured filters.
+- Technical tips to avoid grouping and sorting issues.
+- Explaining how to show or hide specific details within reports such as headings and footers.
+- Preparing the final report design for printing or export (Excel).
+- A preview of the upcoming coverage of the account statement section and the inventory movement portion in future sessions.
 
-**رابط الفيديو:** [ملاحظات وإرشادات مهمة أثناء العمل - 01:20:00](https://youtu.be/Vp3laGFs99U?t=4800)
-
----
-
-## روابط مرجعية داخل الفيديو
-
-| الموضوع                   | بداية الوقت | رابط الفيديو                                  |
-| ------------------------- | ----------- | --------------------------------------------- |
-| المقدمة للجروبنج          | 00:00:01    | [مشاهدة](https://youtu.be/Vp3laGFs99U?t=1)    |
-| إعداد الجروبنج            | 00:03:40    | [مشاهدة](https://youtu.be/Vp3laGFs99U?t=220)  |
-| عرض المجاميع              | 00:06:20    | [مشاهدة](https://youtu.be/Vp3laGFs99U?t=380)  |
-| التحكم في الترتيب         | 00:09:40    | [مشاهدة](https://youtu.be/Vp3laGFs99U?t=580)  |
-| مصادر البيانات            | 00:23:40    | [مشاهدة](https://youtu.be/Vp3laGFs99U?t=1420) |
-| تجميع المبيعات والمردودات | 00:35:00    | [مشاهدة](https://youtu.be/Vp3laGFs99U?t=2100) |
-| إعداد كشف الحساب          | 00:58:00    | [مشاهدة](https://youtu.be/Vp3laGFs99U?t=3480) |
-| الملاحظات والتوصيات       | 01:20:00    | [مشاهدة](https://youtu.be/Vp3laGFs99U?t=4800) |
-
+**Video link:** [Important notes and guidance during work - 01:20:00](https://youtu.be/Vp3laGFs99U?t=4800)
 
 ---
 
-**ملاحظة:** هذه الصفحة تم إعدادها بدقة شديدة، وتحتوي على جميع التفاصيل التقنية التي تم شرحها في الفيديو بدون اختصار أو تلخيص، مع الإشارة إلى أوقات الشرح داخل الفيديو للرجوع إليها بسهولة.
+## Reference Links Within the Video
+
+| Topic | Start Time | Video Link |
+| --- | --- | --- |
+| Introduction to grouping | 00:00:01 | [Watch](https://youtu.be/Vp3laGFs99U?t=1) |
+| Setting up grouping | 00:03:40 | [Watch](https://youtu.be/Vp3laGFs99U?t=220) |
+| Displaying totals | 00:06:20 | [Watch](https://youtu.be/Vp3laGFs99U?t=380) |
+| Controlling sorting | 00:09:40 | [Watch](https://youtu.be/Vp3laGFs99U?t=580) |
+| Data sources | 00:23:40 | [Watch](https://youtu.be/Vp3laGFs99U?t=1420) |
+| Aggregating sales and returns | 00:35:00 | [Watch](https://youtu.be/Vp3laGFs99U?t=2100) |
+| Setting up account statement | 00:58:00 | [Watch](https://youtu.be/Vp3laGFs99U?t=3480) |
+| Notes and recommendations | 01:20:00 | [Watch](https://youtu.be/Vp3laGFs99U?t=4800) |
+
 
 ---
 
-# خاتمة
+# Conclusion
 
-هذا المحتوى التعليمي غني ومفصل جداً، يغطي كيفية التعامل مع جروبنج وتحكم الترتيب، إلى جانب مصادر البيانات المتعددة وكيفية إعداد تقارير مركبة مثل كشف الحساب مع تطبيقات حية على Nama ERP. أنصح بالرجوع للفيديو الأصلي لكل نقطة خلال العمل العملي.
+This educational content is rich and highly detailed, covering how to work with grouping and sorting control, along with multiple data sources and how to build complex reports such as account statements — all with live application on Nama ERP. It is recommended to refer to the original video for each point during practical work.
 
 ---
-
-</rtl>

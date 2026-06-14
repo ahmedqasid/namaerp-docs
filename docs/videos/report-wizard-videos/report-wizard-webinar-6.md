@@ -1,109 +1,105 @@
-<rtl>
+﻿# Comprehensive Documentation: Report Wizard Reports and Permission Management
 
-# توثيق شامل لمحتوى الفيديو حول إعداد تقارير الريبورت ويزرد وإدارة الصلاحيات  
-[لمشاهدة الفيديو](https://youtu.be/jvAJ5UjiIS8)
+[Watch the video](https://youtu.be/jvAJ5UjiIS8)
 
-_الفيديو الكامل مع شرح تفصيلي لجميع الأجزاء، الأمثلة، والتعليمات_   
-
----
-
-## المقدمة والتحية – [00:00:01](https://youtu.be/jvAJ5UjiIS8?t=1)
-بداية الفيديو تبدأ بتحية المتحدثين وتبادل المجاملات، حيث يرحب الأستاذ أحمد والحضور ويؤكد الالتزام بالاجتماع الأسبوعي وفتح باب الأسئلة الواضحة من الحضور.  
+_Full video with detailed explanations of all sections, examples, and instructions_
 
 ---
 
-## موضوع التقارير والتعامل مع صلاحيات المستخدم – [00:01:15](https://youtu.be/jvAJ5UjiIS8?t=75)
-- شرح أهمية تخصيص صلاحيات كل مستخدم ليستطيع رؤية البيانات المتاحة له فقط في التقارير.
-- توضيح وجود طرق عدة لإدارة صلاحيات المشاهد والقيام بالتعديل، مع التحديد في إعدادات "المزيد" ثم "تعديل الصلاحيات".
-- كيف يتم اختيار نوع الصلاحية المناسبة (مطالعة أو تعديل) ومن ثم ربطها بالتقرير أو المهمة.
+## Introduction and Greetings - [00:00:01](https://youtu.be/jvAJ5UjiIS8?t=1)
+The video opens with greetings from the speakers and an exchange of pleasantries. Ahmed and the attendees welcome each other and confirm the weekly meeting commitment and open Q&A session.
 
 ---
 
-## ضبط بيانات التقرير بناءً على فرع المستخدم – [00:02:17](https://youtu.be/jvAJ5UjiIS8?t=137)
-- كيفية تعيين فلتر للفرع بحيث يظهر في التقرير فواتير الفرع الذي ينتمي إليه المستخدم فقط.
-- مثال عملي في التقرير يشرح ضبط الفلتر على فرع الدخول داخل الجدول.
-- استخدام الحقول للاستعلام عن العملاء والفواتير المرتبطة بفروع متعددة، مع شرح الفرق بين ظهور بيانات الفواتير الخاصة بفرع المستخدم وبيانات العملاء التابعين لفرعه سواء في فروع أخرى أم لا.
+## Reports and User Permissions Management - [00:01:15](https://youtu.be/jvAJ5UjiIS8?t=75)
+- Explaining the importance of tailoring each user's permissions so they can only see the data available to them in reports.
+- Clarifying that there are multiple ways to manage viewer permissions and make edits, by navigating to "More" then "Edit Permissions".
+- How to choose the appropriate permission type (view or edit) and then link it to the report or task.
 
 ---
 
-## تطبيق الفلاتر المختلفة في التقارير – [00:04:38](https://youtu.be/jvAJ5UjiIS8?t=278)
-- شرح منهجي لكيفية تطبيق شروط متعددة معًا (AND) وليس OR في الفلترة.
-- أمثلة توضيحية على الفلاتر التي تعتمد على منشئ السجل، صلاحية المطالعة، الشركة، الفرع، القسم، والمجموعة.
-- توضيح آلية فلترة البيانات داخل قائمة العملاء لتكون متاحة فقط لمستخدمي الصلاحية المناسبة.
+## Filtering Report Data by User Branch - [00:02:17](https://youtu.be/jvAJ5UjiIS8?t=137)
+- How to set a branch filter so the report displays only the invoices belonging to the user's own branch.
+- A practical example in the report explaining how to apply the filter on the login branch inside the table.
+- Using fields to query customers and invoices linked to multiple branches, with an explanation of the difference between showing invoices for the user's own branch and showing customers belonging to that branch regardless of which branch their invoices belong to.
 
 ---
 
-## البدء بإنشاء تقرير عملي على فواتير المبيعات – [00:06:11](https://youtu.be/jvAJ5UjiIS8?t=371)
-- توضيح إنشاء تقرير جديد لاختبار عرض البيانات عن الفواتير.
-- شرح كيفية تقسيم الدفعات المتساوية لفاتورة معينة مع تحديد المبلغ وتواريخه.
-- إدخال فواتير متعددة ذات أسطر مختلفة مع تطبيق الدفعات المقسمة على عدة دفعات.
+## Applying Various Filters in Reports - [00:04:38](https://youtu.be/jvAJ5UjiIS8?t=278)
+- A systematic explanation of how to apply multiple conditions together (AND rather than OR) in filtering.
+- Illustrative examples of filters based on record creator, view permission, company, branch, department, and group.
+- Clarifying the mechanism for filtering data within the customer list so it is visible only to users with the appropriate permission.
 
 ---
 
-## إعدادات عرض بيانات الأصناف والأسعار – [00:08:31](https://youtu.be/jvAJ5UjiIS8?t=511)
-- استعراض كيفية جلب بيانات صنف معين واسمه وسعره في التقرير.
-- استخدام المداخل (inputs) للفلترة على كود الفاتورة والعميل.
-- توضيح الخطوات لحساب التواريخ الإجمالية مثل مجموع المدفوعات والمتبقيات.
+## Getting Started: Building a Practical Sales Invoice Report - [00:06:11](https://youtu.be/jvAJ5UjiIS8?t=371)
+- Demonstrating the creation of a new report to test data display for invoices.
+- Explaining how to split equal installments for a specific invoice, specifying the amount and its dates.
+- Entering multiple invoices with different lines and applying split payments across several installments.
 
 ---
 
-## التعامل مع مصادر البيانات و join بين الجداول – [00:11:58](https://youtu.be/jvAJ5UjiIS8?t=718)
-- شرح جلب بيانات دفعات الفواتير مع استخدام الربط بين جداول الفواتير والدفعات عبر مفتاح مشترك.
-- أهمية استخدام ال alias لتسهيل التعامل مع الحقول ومصدر البيانات داخل التقرير.
-- تبيان كيفية التخلص من الجدول الثاني (squale lines) عند عدم الحاجة له لتجنب تكرار السطور.
+## Item and Price Data Display Settings - [00:08:31](https://youtu.be/jvAJ5UjiIS8?t=511)
+- Reviewing how to fetch data for a specific item along with its name and price in the report.
+- Using inputs to filter by invoice code and customer.
+- Explaining the steps to calculate aggregate dates such as total payments and remaining balances.
 
 ---
 
-## حالات التطوير المتقدمة: تجميع العملاء وفواتيرهم – [00:14:14](https://youtu.be/jvAJ5UjiIS8?t=854)
-- تحويل التقرير للتركيز على العملاء بدلًا من الفواتير الفردية.
-- كيفية تجميع البيانات وإظهار إجمالي الفواتير والمبالغ المتبقية لكل عميل بناءً على join بين الفواتير والعملاء.
-- تفصيل الربط بين مفاتيح الكي (Key) مثل العميل ID لتجنب تكرار السطور.
+## Working with Data Sources and Joins Between Tables - [00:11:58](https://youtu.be/jvAJ5UjiIS8?t=718)
+- Explaining how to fetch invoice payment data using joins between invoice and payment tables via a shared key.
+- The importance of using aliases to simplify working with fields and data sources inside the report.
+- Demonstrating how to remove the second table (square lines) when it is not needed, to avoid duplicating rows.
 
 ---
 
-## استخدام SQL و Cartesian Product في تقارير معقدة – [00:20:45](https://youtu.be/jvAJ5UjiIS8?t=1245)
-- مناقشة تعقيدات التقارير التي تدمج بين الجداول بسطر بسطر (Line by Line) خاصة في حالة وجود أكواد متعددة أو مجموعات بيانات مركبة.
-- شرح كيفية استخدام joins لإظهار مجموعات بيانات متناسقة دون تكرار أو تضخيم النتائج.
+## Advanced Development: Grouping Customers and Their Invoices - [00:14:14](https://youtu.be/jvAJ5UjiIS8?t=854)
+- Converting the report to focus on customers rather than individual invoices.
+- How to aggregate data and display total invoices and remaining amounts per customer based on a join between invoices and customers.
+- Detailing the join between key fields such as Customer ID to avoid row duplication.
 
 ---
 
-## إعداد مصدر بيانات متعدد لعرض أول وآخر فاتورة للعميل – [00:23:20](https://youtu.be/jvAJ5UjiIS8?t=1400)
-- طريقة إنشاء مصدر بيانات ثاني في التقرير لجلب بيانات أول وآخر فاتورة للعميل باستخدام aggregate queries (مثل MIN و MAX للتواريخ).
-- ضرورة تسمية مصادر البيانات (Aliases) بشكل واضح لتمييز البيانات.
-- ربط هذا المصدر ببيانات العميل الأساسي في التقرير.
+## Using SQL and Cartesian Products in Complex Reports - [00:20:45](https://youtu.be/jvAJ5UjiIS8?t=1245)
+- Discussing the complexities of reports that merge tables line by line, especially when there are multiple codes or complex data sets.
+- Explaining how to use joins to display consistent data sets without repetition or result inflation.
 
 ---
 
-## تحسين الأداء واستخدام خيارات متقدمة للتقرير – [00:27:30](https://youtu.be/jvAJ5UjiIS8?t=1650)
-- شرح أهمية التحكم في شروط التصفية بدقة لتسريع العملية وأدوات تحسين الأداء.
-- التعامل مع التكرار في عرض البيانات من خلال ضبط الربط بين المصادر.
-- اقتراحات لإظهار البيانات بكفاءة عالية وتجنب الحقول المكررة.
+## Setting Up a Multiple Data Source to Show First and Last Customer Invoice - [00:23:20](https://youtu.be/jvAJ5UjiIS8?t=1400)
+- How to create a second data source in the report to fetch the first and last invoice for each customer using aggregate queries (such as MIN and MAX for dates).
+- The necessity of clearly naming data sources (aliases) to distinguish data.
+- Linking this source to the customer's primary data in the report.
 
 ---
 
-## حل مشاكل تعديل الفواتير بعد تغيير التبعية (فرع/قطاع) – [00:29:31](https://youtu.be/jvAJ5UjiIS8?t=1771)
-- عرض مشكلة عند نقل فرع من قطاع إلى آخر، وتأثير ذلك على تعديل الفواتير المرتبطة بهذا الفرع.
-- تفسير سبب ظهور أخطاء في التعديلات بسبب ارتباط الفواتير بوثائق مالية مرتبطة (سندات قيد، سندات صرف).
-- تقديم حلين: 
-  1. إنشاء فرع جديد وترك القديم دون تعديل.
-  2. تفعيل خيار مؤقت من الدعم لتجاوز قيود النظام حتى إتمام التعديل.
+## Performance Optimization and Advanced Report Options - [00:27:30](https://youtu.be/jvAJ5UjiIS8?t=1650)
+- Explaining the importance of controlling filter conditions precisely to speed up the process and the performance optimization tools available.
+- Handling repeated data display by adjusting the join between sources.
+- Suggestions for displaying data efficiently and avoiding duplicate fields.
 
 ---
 
-## الختام والدعوة للأسئلة القادمة – [00:31:30](https://youtu.be/jvAJ5UjiIS8?t=1890)
-- تلخيص سريع وفتح باب الأسئلة الإضافية والمقترحات.
-- الاتفاق على متابعة استفسارات جديدة واستخدام الجروب للمتابعة.
-- الإعلان عن موعد الاجتماع القادم وتوديع الحضور.
+## Resolving Invoice Editing Issues After Changing Branch/Sector Assignment - [00:29:31](https://youtu.be/jvAJ5UjiIS8?t=1771)
+- Presenting a problem that arises when moving a branch from one sector to another and its effect on editing invoices linked to that branch.
+- Explaining why errors appear during edits due to invoices being linked to related financial documents (journal entries, payment vouchers).
+- Offering two solutions:
+  1. Create a new branch and leave the old one unmodified.
+  2. Enable a temporary option from support to bypass system restrictions until the edit is complete.
 
 ---
 
-> **نصيحة:**  
-> يمكن إنشاء تقارير متعددة مقسمة حسب الجهات وبناء صلاحيات مختلفة لتوفير رؤية دقيقة وآمنة للمستخدمين، مع أهمية الحرص على ترتيب المصادر وعدم تكرار البيانات لتجنب أخطاء الحسابات.
+## Closing and Invitation for Future Questions - [00:31:30](https://youtu.be/jvAJ5UjiIS8?t=1890)
+- A quick summary and opening the floor for additional questions and suggestions.
+- Agreement to follow up on new inquiries and use the group for continued discussion.
+- Announcing the next meeting date and farewell.
 
 ---
 
-# ختام المحتوى  
-التوثيق أعلاه يعكس بدقة جميع الخطوات، الأمثلة، والإرشادات الواردة في الفيديو، مع ربط كل قسم برابط التوقيت المناسب لسهولة الرجوع ومراجعة التفاصيل.
+> **Tip:**
+> Multiple reports can be created, divided by entity, and different permissions built to provide users with a precise and secure view of data. It is important to carefully order sources and avoid duplicate data to prevent calculation errors.
 
+---
 
-</rtl>
+# Content Summary
+The documentation above accurately reflects all steps, examples, and instructions presented in the video, with each section linked to the appropriate timestamp for easy reference and review of details.

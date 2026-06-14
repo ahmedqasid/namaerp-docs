@@ -1,47 +1,43 @@
-<rtl>
+# Ignoring Specific Warehouses/Locators in Reservation Quantity Check by Date
 
-# تجاهل مخازن/مواقع معينة في التحقق من كمية الحجز بالتاريخ
+## Description
 
-## الوصف
+This feature allows you to exclude specific warehouses or locators from the overdraft-by-date check calculation when performing **Reservation** operations only. When this option is enabled on a warehouse or locator, the quantities held in that warehouse/locator will not be included in the available balance calculation when performing the overdraft-by-date check for reservations.
 
-تتيح هذه الخاصية استثناء مخازن أو مواقع معينة من حساب التحقق من السحب على المكشوف بالتاريخ عند تنفيذ عمليات **الحجز** فقط. عند تفعيل هذا الخيار على مخزن أو موقع، لن يتم احتساب الكميات الموجودة في هذا المخزن/الموقع ضمن حساب الرصيد المتاح عند التحقق من السحب على المكشوف بالتاريخ لعمليات الحجز.
-
-::: info ملاحظة
-هذه الخاصية تؤثر فقط على عمليات الحجز (Reservation)، ولا تؤثر على عمليات الصرف أو الاستلام العادية.
+::: info Note
+This feature only affects Reservation operations and has no impact on regular issue or receipt operations.
 :::
 
-## الإعدادات في تكوينات سلسلة التوريد (Supply Chain Configurations)
+## Settings in Supply Chain Configurations
 
-| الاسم بالعربية | معرف الحقل (Field ID) |
-|----------------|----------------------|
-| تفعيل التحقق من كمية الحجز بالتاريخ للمخازن | `enableIgnoreInReservationQtyCheckByDateForWarehouses` |
-| تفعيل التحقق من كمية الحجز بالتاريخ للمواقع | `enableIgnoreInReservationQtyCheckByDateForLocators` |
+| Name | Field ID |
+|------|----------|
+| Enable ignore in reservation quantity check by date for warehouses | `enableIgnoreInReservationQtyCheckByDateForWarehouses` |
+| Enable ignore in reservation quantity check by date for locators | `enableIgnoreInReservationQtyCheckByDateForLocators` |
 
-::: warning ملاحظة
-يجب تفعيل هذه الخيارات أولاً حتى يتم قراءة علامة التجاهل من المخزن أو الموقع. في حال محاولة تفعيل الخيار على مخزن أو موقع دون تفعيل الإعداد المقابل في تكوينات سلسلة التوريد، ستظهر رسالة خطأ مع رابط مباشر للإعداد المطلوب.
+::: warning Note
+These options must be enabled first for the ignore flag to be read from the warehouse or locator. If you attempt to enable the option on a warehouse or locator without enabling the corresponding setting in Supply Chain Configurations, an error message will appear with a direct link to the required setting.
 :::
 
-## الإعدادات في المخزن (Warehouse)
+## Settings in Warehouse
 
-| الاسم بالعربية | معرف الحقل (Field ID) |
-|----------------|----------------------|
-| التجاهل في التحقق من كمية الحجز بالتاريخ | `ignoreInReservationQtyCheckByDate` |
+| Name | Field ID |
+|------|----------|
+| Ignore in reservation quantity check by date | `ignoreInReservationQtyCheckByDate` |
 
-## الإعدادات في الموقع (Locator)
+## Settings in Locator
 
-| الاسم بالعربية | معرف الحقل (Field ID) |
-|----------------|----------------------|
-| التجاهل في التحقق من كمية الحجز بالتاريخ | `ignoreInReservationQtyCheckByDate` |
+| Name | Field ID |
+|------|----------|
+| Ignore in reservation quantity check by date | `ignoreInReservationQtyCheckByDate` |
 
-## طريقة الاستخدام
+## How to Use
 
-1. **تفعيل الخاصية:** اذهب إلى تكوينات سلسلة التوريد وفعّل الخيار المناسب:
-   - `enableIgnoreInReservationQtyCheckByDateForWarehouses` للمخازن
-   - `enableIgnoreInReservationQtyCheckByDateForLocators` للمواقع
+1. **Enable the feature:** Go to Supply Chain Configurations and enable the appropriate option:
+   - `enableIgnoreInReservationQtyCheckByDateForWarehouses` for warehouses
+   - `enableIgnoreInReservationQtyCheckByDateForLocators` for locators
 
-2. **تحديد المخازن/المواقع المستثناة:** اذهب إلى المخزن أو الموقع المراد استثناءه وفعّل خيار:
+2. **Specify the excluded warehouses/locators:** Go to the warehouse or locator to be excluded and enable the option:
    - `ignoreInReservationQtyCheckByDate`
 
-3. عند تنفيذ عملية حجز، لن يتم احتساب كميات حركات المخازن/المواقع المفعّل عليها هذا الخيار ضمن حساب الرصيد المتاح بالتاريخ، مما يعني أن النظام سيتجاهل أرصدة تلك المخازن/المواقع عند تحديد ما إذا كان هناك سحب على المكشوف.
-
-</rtl>
+3. When a reservation operation is performed, the quantities from the warehouse/locator transactions where this option is enabled will not be included in the available balance by date calculation, meaning the system will ignore the balances of those warehouses/locators when determining whether an overdraft exists.

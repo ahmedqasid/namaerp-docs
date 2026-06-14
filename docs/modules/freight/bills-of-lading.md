@@ -1,35 +1,35 @@
-# بوالص الشحن (Bills of Lading)
+# Bills of Lading
 
-بوليصة الشحن هي المستند الملاحي الرسمي الذي يثبت استلام الناقل للبضاعة وشروط نقلها وتسليمها. في Nama ERP تُنشأ عادةً من [أمر التشغيل](./operation-orders.md) بزر **إنشاء بوليصة شحن**، فترث بياناته، ويمكن أيضًا إنشاؤها مباشرة من **نظام إدارة الشحن ← المستندات ← بوليصة شحن**.
+The bill of lading is the official shipping document that proves the carrier's receipt of the goods and the terms of their carriage and delivery. In Nama ERP it's usually created from the [operation order](./operation-orders.md) with the **Create Bill of Lading** button, inheriting its data — and it can also be created directly from **Freight Management System → Documents → Bill of Lading**.
 
-![بوليصة شحن](./images/bill-of-lading/bill-of-lading-ar.png)
+![Bill of lading](../../ar/modules/freight/images/bill-of-lading/bill-of-lading-en.png)
 
-## رأس البوليصة
+## Bill header
 
-يحمل رأس البوليصة البيانات التي تُطبع على المستند الملاحي:
+The bill header carries the data printed on the shipping document:
 
-- **رقم البوليصة (Bill of Lading Number)** ونوعها (Master / House…).
-- **المُصدِّر (Shipper)** — حقل إلزامي — و**المُرسَل إليه (Consignee)** و**جهتا الإخطار**، مع عنوان كلٍّ منها كما يُطبع على البوليصة.
-- **نوع الأجرة (Freight Type)** — مدفوعة مقدّمًا أم تحصيل.
-- **الباخرة (Ocean Vessel) والرحلة (Voyage)** ورقم الحجز لدى الناقل.
-- **ميناء التحميل والتفريغ** و**تاريخ الوصول المتوقّع** و**تاريخ الإبحار الفعلي**.
-- بيانات الحاويات المبرّدة: **درجة الحرارة والرطوبة والتهوية**، و**عدد الحاويات**.
-- **السلعة (Commodity)** والمرفقات.
+- **Bill of Lading Number** and its type (Master / House…).
+- **Shipper** — a required field — plus the **Consignee** and the two **Notify** parties, each with the address printed on the bill.
+- **Freight Type** — prepaid or collect.
+- **Ocean Vessel and Voyage**, plus the carrier booking number.
+- **Loading and discharge ports**, the **estimated arrival date**, and the **actual sailing date**.
+- Reefer-container data: **temperature, humidity, and ventilation**, and the **container count**.
+- **Commodity** and attachments.
 
-## سطور البوليصة
+## Bill lines
 
-في تفاصيل البوليصة تُدرج البضاعة المشحونة سطرًا سطرًا:
+In the bill's details you list the shipped goods line by line:
 
-- **رقم الحاوية** و**الكمية**.
-- **الوصف والملاحظات** كما تُطبع على المستند.
-- **الوزن الصافي والقائم** للسطر، وإجمالي الوزن الصافي والقائم.
-- **الحجم (CBM Volume)**.
-- مرفقات لكل سطر عند الحاجة.
+- **Container number** and **quantity**.
+- **Description and remarks** as printed on the document.
+- **Net and gross weight** per line, plus total net and gross weight.
+- **CBM volume**.
+- Per-line attachments when needed.
 
-::: info البوليصة مستند ملاحي لا مالي
-بوليصة الشحن لا تُنشئ أثرًا محاسبيًا بذاتها — فالأثر المالي للشحنة يأتي من [فواتير المبيعات والمشتريات](./freight-invoicing.md). دور البوليصة هو توثيق الشحنة ملاحيًا وطباعة المستند الرسمي للعميل والناقل.
+::: info The bill is a shipping document, not a financial one
+The bill of lading creates no accounting effect by itself — the shipment's financial effect comes from the [sales and purchase invoices](./freight-invoicing.md). The bill's role is to document the shipment for carriage and to print the official document for the customer and carrier.
 :::
 
-## العلاقة بأمر التشغيل والفواتير
+## Relationship to the operation order and invoices
 
-عند الفوترة، تربط فاتورة المبيعات سطور البوالص المُفوتَرة (Invoiced Bills of Lading)، فتُجمّع أرقام البوالص وأرقام الحاويات تلقائيًا في الفاتورة — وهو ما يسهّل على العميل مطابقة الفاتورة بالشحنات. بهذا تترابط الثلاثة: **أمر التشغيل** (التخطيط والخدمات) ← **بوليصة الشحن** (التوثيق الملاحي) ← **الفاتورة** (التحصيل المالي).
+At invoicing time, the sales invoice links the invoiced bills of lading, so bill numbers and container numbers are gathered automatically into the invoice — making it easy for the customer to reconcile the invoice against shipments. This ties the three together: **operation order** (planning and services) → **bill of lading** (shipping documentation) → **invoice** (financial collection).

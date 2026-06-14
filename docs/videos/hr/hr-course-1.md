@@ -1,245 +1,265 @@
-<rtl>
-
-# شرح مفصل لنظام إدارة الرواتب في نظام نما - 1
-> فيديو تعليمي شامل حول تفاصيل إدارة الرواتب، مفردات الرواتب، السلف، المكافآت، الجزاءات، والمعادلات الحسابية في نظام نما  
-> [مشاهدة الفيديو على اليوتيوب](https://youtu.be/LYDjJMvG2JQ)
+# Detailed Explanation of the Payroll Management System in Nama ERP - 1
+> A comprehensive tutorial video on payroll management details, salary components, advances, bonuses, penalties, and calculation formulas in Nama ERP  
+> [Watch the video on YouTube](https://youtu.be/LYDjJMvG2JQ)
 
 ---
 
-## مقدمة عامة حول موضوع الرواتب
-**الزمن:** [00:00:14](https://youtu.be/LYDjJMvG2JQ?t=14)  
-في بداية الفيديو، يتم الترحيب بالمشاهدين والتأكيد على أن الهدف الأساسي هو شرح تفاصيل نظام الرواتب في نظام نما، وليس مجرد مسارات العمل أو الإجراءات العامة.  
-يبدأ الحديث بالعملية الرئيسية: إصدار عرض عمل (أوفر) للمرشحين، تسجيل بيانات المتقدمين، إجراء الفحوصات والامتحانات، ومن ثم فلترة المرشحين وقبولهم أو رفضهم. بعد قبول العرض يبدأ العمل على إدارة الرواتب.
+## General Introduction to Payroll
+
+**Time:** [00:00:14](https://youtu.be/LYDjJMvG2JQ?t=14)  
+The video opens by welcoming viewers and emphasizing that the primary goal is to explain the details of the payroll system in Nama ERP — not just workflows or general procedures.  
+The discussion begins with the main process: issuing a job offer to candidates, registering applicant data, conducting checks and examinations, then filtering, accepting, or rejecting candidates. After an offer is accepted, work on payroll management begins.
 
 ---
 
-## مكونات الراتب الأساسية
-**الزمن:** [00:02:50](https://youtu.be/LYDjJMvG2JQ?t=170)  
-يتم شرح مكونات الراتب والتي تنقسم إلى:
-- الراتب الأساسي (رقم ثابت)
-- حصة العامل في التأمينات الاجتماعية (مكون إضافي)
-- حصة الشركة في التأمينات الاجتماعية (مكون إضافي)
-- الضرائب (مكون استقطاع)
-- مكونات أخرى (قد تكون إضافة أو استقطاع حسب نوعها)
+## Core Salary Components
 
-### توضيح نوعية المكونات:
-- **أساسي:** إضافة
-- **حصة العامل في التأمينات:** إضافة
-- **حصة الشركة في التأمينات:** أخرى (لا تؤثر مباشرة على الراتب)
-- **الضرائب:** استقطاع
+**Time:** [00:02:50](https://youtu.be/LYDjJMvG2JQ?t=170)  
+The salary components are explained, divided into:
+- Basic salary (a fixed amount)
+- Employee's share of social insurance (an addition component)
+- Company's share of social insurance (an addition component)
+- Taxes (a deduction component)
+- Other components (may be additions or deductions depending on their type)
 
-يتم توضيح الفرق بين المكونات من ناحية تأثيرها على الراتب، سواء كانت زيادة أو نقصان.
+### Clarification of Component Types:
+- **Basic:** Addition
+- **Employee's social insurance share:** Addition
+- **Company's social insurance share:** Other (does not directly affect the salary)
+- **Taxes:** Deduction
 
----
-
-## مفهوم "نوع المفرد" و"المفرد" في الرواتب
-**الزمن:** [00:04:56](https://youtu.be/LYDjJMvG2JQ?t=296)
-- **نوع المفرد:** هو تصنيف عام للمفردات، ويحتوي على بيانات أقل. مثال: نوع مفرد واحد اسمه "أساسي".
-- **المفرد:** هو تفاصيل أكثر شمولاً، يحتوي على بيانات إضافية مثل مجال التطبيق (الدعم الفني، المطورين، الإدارة، إلخ).
-- يستخدم نوع المفرد لتسهيل عملية اختيار المفردات المناسبة للموظف بناءً على وظيفته أو قطاعه أو جنسيته.
-
-### مثال على الاستخدام:
-لديك نوع مفرد واحد "أساسي" وتحتها عدة مفردات مثل:
-- أساسي الدعم الفني
-- أساسي المطورين
-- أساسي الإدارة
-
-وهذا يساعد في توزيع الرواتب على حسابات مختلفة حسب المجال الوظيفي للموظف.
+The difference between components is clarified in terms of their effect on the salary — whether they increase or decrease it.
 
 ---
 
-## أهمية المعايير لتحديد المفردات المناسبة
-**الزمن:** [00:07:05](https://youtu.be/LYDjJMvG2JQ?t=425)  
-المعايير مثل القطاع، الوظيفة، الجنسية، مجموعة الموظف، إلخ، تساعد في اختيار المفرد المناسب للموظف تلقائياً، مما يقلل من الأخطاء ويوفر وقت الإدخال اليدوي.
+## The Concepts of "Component Type" and "Component" in Payroll
 
-> **نصيحة:** الهدف هو تسهيل عمل المستخدم وتقليل الأخطاء في توزيع الرواتب.
+**Time:** [00:04:56](https://youtu.be/LYDjJMvG2JQ?t=296)
+- **Component Type:** A general classification for components, containing less data. Example: one component type called "Basic".
+- **Component:** More comprehensive details, containing additional data such as the scope of application (technical support, developers, administration, etc.).
+- The component type is used to simplify the process of selecting the appropriate component for an employee based on their job, department, or nationality.
 
----
+### Usage Example:
+You have one component type "Basic" with several components under it, such as:
+- Basic — Technical Support
+- Basic — Developers
+- Basic — Administration
 
-## أنواع المفردات: ثابتة ومتغيرة
-**الزمن:** [00:09:15](https://youtu.be/LYDjJMvG2JQ?t=555)  
-يتم توضيح وجود مفردات ثابتة مثل الراتب الأساسي، ومفردات متغيرة تعتمد على بيانات متغيرة مثل:
-- التأمينات الاجتماعية
-- الضرائب
-- الغياب (مرتبط بالحضور والانصراف)
-- التأخير (مرتبط بالحضور والانصراف)
-- السلف (مرتبط بمستندات داخل النظام)
+This helps distribute salaries into different accounts based on the employee's job department.
 
 ---
 
-## حالات الغياب وتأثيرها على الراتب
-**الزمن:** [00:09:15](https://youtu.be/LYDjJMvG2JQ?t=555)  
-الغياب له ثلاث حالات:
-1. غياب بدون إذن ويؤدي لتعطيل العمل
-2. غياب بدون إذن ولا يؤدي لتعطيل
-3. غياب بإذن
+## The Importance of Criteria for Selecting the Appropriate Component
 
-### التعامل مع الغيابات:
-- الغياب بإذن يعتبر إذن غياب رسمي ولا يخصم من رصيد الإجازات.
-- الغياب بدون إذن يخصم من الراتب حسب تأثيره (يوم بيوم، أو يوم بثلاثة أيام حسب حالة التعطيل).
-- يتم تسجيل مستندات في النظام لتوثيق حالة الغياب وتأثيرها على العمل.
+**Time:** [00:07:05](https://youtu.be/LYDjJMvG2JQ?t=425)  
+Criteria such as department, job title, nationality, employee group, etc., help automatically select the appropriate component for the employee, reducing errors and saving manual entry time.
+
+> **Tip:** The goal is to simplify the user's work and reduce errors in salary distribution.
 
 ---
 
-## التعامل مع الغيابات وتأثيرها العملي
-**الزمن:** [00:10:59](https://youtu.be/LYDjJMvG2JQ?t=659)  
-عند تسجيل غياب بإذن أو بدون إذن، يجب إنشاء مستند يوضح سبب الغياب وتأثيره على العمل، مع إمكانية إرسال إنذار للموظف عبر البريد الإلكتروني.  
-هذا المستند مرتبط بسجلات الرواتب ويؤثر على خصم الراتب أو عدمه.
+## Component Types: Fixed and Variable
+
+**Time:** [00:09:15](https://youtu.be/LYDjJMvG2JQ?t=555)  
+The existence of fixed components such as the basic salary, and variable components that depend on changing data, is explained, such as:
+- Social insurance
+- Taxes
+- Absence (linked to attendance and departure records)
+- Lateness (linked to attendance and departure records)
+- Advances (linked to documents within the system)
 
 ---
 
-## مكونات الراتب: المكافآت، الجزاءات، والسلف
-**الزمن:** [00:12:36](https://youtu.be/LYDjJMvG2JQ?t=756)
-- المكافآت والجزاءات تنقسم إلى:
-    - **نقدية:** مبالغ مالية
-    - **عينية:** معنوية وغير مالية (مثل لقب الموظف المثالي)
-- الجزاءات المعنوية قد تتطور إلى جزاءات مادية بعد عدد معين من الإنذارات.
-- يتم تسجيل المكافآت والجزاءات ضمن مفردات الرواتب ولها حسابات خاصة.
+## Absence Cases and Their Effect on Salary
+
+**Time:** [00:09:15](https://youtu.be/LYDjJMvG2JQ?t=555)  
+Absence has three cases:
+1. Absence without authorization that causes work disruption
+2. Absence without authorization that does not cause disruption
+3. Authorized absence
+
+### Handling Absences:
+- Authorized absence is considered an official leave permit and is not deducted from the leave balance.
+- Unauthorized absence is deducted from the salary based on its impact (one day for one day, or one day for three days depending on whether work was disrupted).
+- Documents are recorded in the system to document the absence situation and its effect on work.
 
 ---
 
-## الفرق بين المستندات والملفات في النظام
-**الزمن:** [00:22:01](https://youtu.be/LYDjJMvG2JQ?t=1321)
-- **الملف:** يمثل كياناً دائماً مثل ملف الموظف، ملف العملاء، أو ملف العرض الوظيفي.
-- **المستند:** يمثل حدثاً أو واقعة مثل تعيين موظف، إصدار عرض عمل، سند راتب، سند مكافأة.
-- يتم إنشاء المستندات داخل الملفات ويتم تسجيل الأحداث والتغييرات من خلالها.
+## Handling Absences and Their Practical Impact
+
+**Time:** [00:10:59](https://youtu.be/LYDjJMvG2JQ?t=659)  
+When registering authorized or unauthorized absence, a document must be created explaining the reason for absence and its effect on work, with the possibility of sending a warning to the employee via email.  
+This document is linked to payroll records and affects whether the salary is deducted or not.
 
 ---
 
-## تفاصيل السلف والشروط المرتبطة بها
-**الزمن:** [00:26:13](https://youtu.be/LYDjJMvG2JQ?t=1573)
-- السلف هي مبالغ مالية تُعطى للموظف وتُخصم من راتبه تدريجياً.
-- يوجد شروط للسلف مثل:
-    - الحد الأدنى للراتب
-    - مدة العمل بالشركة قبل السماح بالسلفة
-    - الحد الأقصى للسلفة
-    - عدد أقساط السداد
-- يمكن جدولة دفعات السلف أو تأجيلها أو إعفاؤها عبر مستندات خاصة.
+## Salary Components: Bonuses, Penalties, and Advances
+
+**Time:** [00:12:36](https://youtu.be/LYDjJMvG2JQ?t=756)
+- Bonuses and penalties are divided into:
+    - **Monetary:** Cash amounts
+    - **Non-monetary:** Moral and non-financial (such as the title of "Employee of the Month")
+- Non-monetary penalties may escalate to financial penalties after a certain number of warnings.
+- Bonuses and penalties are recorded within payroll components and have dedicated accounts.
 
 ---
 
-## إدارة السلف: السداد، الإعفاء، والإعادة الجدولة
-**الزمن:** [00:27:55](https://youtu.be/LYDjJMvG2JQ?t=1675)
-- قسط السلفة يُخصم تلقائياً من الراتب.
-- إذا كان القسط أكبر من الراتب، قد يظهر الراتب بالسالب (مديونية على الموظف).
-- يمكن إنشاء سند قبض للسداد اليدوي.
-- يمكن عمل سند إعادة جدولة لتأجيل أو توزيع الأقساط على فترات أطول.
-- في حالات خاصة مثل رمضان يمكن عمل إعفاء للسلف.
+## The Difference Between Documents and Files in the System
+
+**Time:** [00:22:01](https://youtu.be/LYDjJMvG2JQ?t=1321)
+- **File:** Represents a permanent entity such as an employee file, customer file, or job offer file.
+- **Document:** Represents an event or occurrence such as hiring an employee, issuing a job offer, a salary voucher, or a bonus voucher.
+- Documents are created within files, and events and changes are recorded through them.
 
 ---
 
-## التعامل مع حالات السلف المجمع
-**الزمن:** [00:36:26](https://youtu.be/LYDjJMvG2JQ?t=2186)
-- هناك مستندات مجمعة للسلف، إعادة الجدولة، والمهام، بحيث يمكن التعامل مع عدة موظفين دفعة واحدة.
-- الفرق بين السند الفردي والمجمع هو أن المجمع يضم عدة سجلات في مستند واحد لتسهيل الإدارة.
+## Advance Details and Associated Conditions
+
+**Time:** [00:26:13](https://youtu.be/LYDjJMvG2JQ?t=1573)
+- Advances are cash amounts given to the employee and deducted from their salary gradually.
+- There are conditions for advances such as:
+    - Minimum salary requirement
+    - Length of service at the company before an advance is allowed
+    - Maximum advance amount
+    - Number of repayment installments
+- Advance payments can be scheduled, postponed, or forgiven through special documents.
 
 ---
 
-## أنواع المفردات: الثابتة والمتغيرة وترتيبها
-**الزمن:** [00:38:34](https://youtu.be/LYDjJMvG2JQ?t=2314)
-- المفردات قد تكون ثابتة (مثل الراتب الأساسي) أو متغيرة (مثل الغياب والضرائب).
-- ترتيب المفردات مهم جداً لتحديد كيفية حساب الضرائب والخصومات.
-- يمكن للضرائب أن تُطبق على بعض المفردات وتُعفى من أخرى حسب القوانين أو الاتفاقات.
+## Advance Management: Repayment, Forgiveness, and Rescheduling
+
+**Time:** [00:27:55](https://youtu.be/LYDjJMvG2JQ?t=1675)
+- The advance installment is automatically deducted from the salary.
+- If the installment exceeds the salary, the salary may appear as negative (debt owed by the employee).
+- A receipt voucher can be created for manual repayment.
+- A rescheduling voucher can be created to defer or spread installments over longer periods.
+- In special cases such as Ramadan, advances can be forgiven.
 
 ---
 
-## مفهوم "الوعاء" في حساب الضرائب والتأمينات
-**الزمن:** [00:40:16](https://youtu.be/LYDjJMvG2JQ?t=2416)
-- "الوعاء" هو تجميع مجموعة من المفردات التي تُحسب عليها الضرائب أو التأمينات.
-- هناك وعاء للضرائب، وعاء للتأمينات الثابتة، وعاء للتأمينات المتغيرة.
-- هذا التجميع يسهل عملية حساب المبلغ الواجب خصمه أو إضافته.
+## Handling Bulk Advance Cases
+
+**Time:** [00:36:26](https://youtu.be/LYDjJMvG2JQ?t=2186)
+- There are bulk documents for advances, rescheduling, and tasks, allowing multiple employees to be handled at once.
+- The difference between an individual voucher and a bulk voucher is that the bulk one groups multiple records in a single document to simplify management.
 
 ---
 
-## التعامل مع التغيرات في العروض الوظيفية والمفردات
-**الزمن:** [00:42:30](https://youtu.be/LYDjJMvG2JQ?t=2550)
-- يمكن تحديث بيانات العروض الوظيفية لتغيير مفردات الراتب مثل التأخير، الأوفر تايم، وغيرها.
-- يتم ضبط الحسابات والمعايير في النظام لتتناسب مع كل حالة.
-- الهدف هو تقليل تدخل المستخدم وتحسين دقة الحسابات.
+## Component Types: Fixed and Variable, and Their Order
+
+**Time:** [00:38:34](https://youtu.be/LYDjJMvG2JQ?t=2314)
+- Components may be fixed (such as the basic salary) or variable (such as absence and taxes).
+- The order of components is very important for determining how taxes and deductions are calculated.
+- Taxes can apply to some components and be exempt from others depending on laws or agreements.
 
 ---
 
-## طرق التقريب في الحسابات المالية
-**الزمن:** [00:46:29](https://youtu.be/LYDjJMvG2JQ?t=2789)
-- يوجد ثلاث طرق للتقريب العددي:
-    1. تقريب لأسفل (تقريب إلى الرقم الأدنى)
-    2. تقريب لأعلى (رفع الرقم لأعلى)
-    3. تقريب إلى أقرب رقم (حسب كسور معينة)
-- يتم استخدام هذه الطرق لتقريب المبالغ مثل الرواتب أو الخصومات إلى أقرب 10 أو 50 أو 100 جنيه.
-- التقريب يساعد في تسهيل التعاملات النقدية خاصة مع البنوك أو الكاش.
+## The Concept of "Base" in Tax and Insurance Calculations
+
+**Time:** [00:40:16](https://youtu.be/LYDjJMvG2JQ?t=2416)
+- The "base" is the aggregation of a group of components on which taxes or insurance are calculated.
+- There is a base for taxes, a base for fixed insurance, and a base for variable insurance.
+- This aggregation simplifies the process of calculating the amount to be deducted or added.
 
 ---
 
-## التعامل مع مفردات الإضافة والاستقطاع في التقريب
-**الزمن:** [00:50:34](https://youtu.be/LYDjJMvG2JQ?t=3034)
-- عندما يكون هناك إضافة وتقريب، يجب التنسيق بين مفردات الإضافة والاستقطاع بحيث لا تتعارض.
-- النظام يحدد الأولوية حسب ترتيب المفردات ويطبق الإضافة أو الاستقطاع لجعل الراتب أقرب رقم مرغوب.
-- مثال: إذا كان الراتب 556 جنيه ويراد تقريبه إلى أقرب 10 جنيه، يتم إضافة 4 جنيه أو خصم 6 جنيه حسب المفردات المرتبة.
+## Handling Changes in Job Offers and Components
+
+**Time:** [00:42:30](https://youtu.be/LYDjJMvG2JQ?t=2550)
+- Job offer data can be updated to change salary components such as lateness, overtime, and others.
+- Calculations and criteria in the system are adjusted to suit each case.
+- The goal is to minimize user intervention and improve calculation accuracy.
 
 ---
 
-## مفهوم الأولوية والترتيب في المفردات
-**الزمن:** [00:54:53](https://youtu.be/LYDjJMvG2JQ?t=3293)
-- الأولوية تحدد المفرد الذي يُطبق حال وجود أكثر من مفرد ينطبق على الموظف.
-- الترتيب يؤثر على ترتيب ظهور المفردات في سندات الرواتب وحساب التأثيرات المختلفة.
-- مثال عملي:
-    - نوع مفرد واحد "أساسي"، تحته مفردات متعددة لكل قسم (دعم فني، تطوير، تجهيز، إداري).
-    - لكل مفرد ترتيب وأولوية لتحديد المفرد المناسب للموظف.
+## Rounding Methods in Financial Calculations
+
+**Time:** [00:46:29](https://youtu.be/LYDjJMvG2JQ?t=2789)
+- There are three numerical rounding methods:
+    1. Round down (round to the lower number)
+    2. Round up (raise the number upward)
+    3. Round to the nearest number (based on certain fractions)
+- These methods are used to round amounts such as salaries or deductions to the nearest 10, 50, or 100 currency units.
+- Rounding helps simplify cash transactions, especially with banks or cash payments.
 
 ---
 
-## مجال التطبيق وأثره على اختيار المفرد المناسب
-**الزمن:** [00:56:58](https://youtu.be/LYDjJMvG2JQ?t=3418)
-- مجال التطبيق يشمل معايير مثل الجنسية، القسم، المجموعة، إلخ.
-- عند وجود أكثر من مفرد ينطبق على موظف، النظام يختار المفرد ذو الأولوية أو الترتيب الأعلى.
-- المثال يوضح وجود مفردين ينطبقان على نفس الموظف، ويتم اختيار المفرد ذو الترتيب الأدنى.
+## Handling Addition and Deduction Components in Rounding
+
+**Time:** [00:50:34](https://youtu.be/LYDjJMvG2JQ?t=3034)
+- When there is an addition and rounding, the addition and deduction components must be coordinated so they do not conflict.
+- The system determines priority based on the component order and applies the addition or deduction to bring the salary to the nearest desired number.
+- Example: If the salary is 556 currency units and it needs to be rounded to the nearest 10, either 4 units are added or 6 units are deducted based on the ordered components.
 
 ---
 
-## المفردات المتغيرة وتأثيرها على الرواتب
-**الزمن:** [01:00:40](https://youtu.be/LYDjJMvG2JQ?t=3640)
-- المفردات المتغيرة تشمل:
-    - التأخير
-    - الغياب
-    - الأوفر تايم
-- يمكن تطبيق هذه المفردات دون إضافتها إلى العروض الوظيفية، وتؤثر على الرواتب حسب المعادلات والمعايير.
-- يتم التعامل معها بشكل مستقل لتسهيل التعديل دون الحاجة لتغيير عرض العمل.
+## The Concept of Priority and Order in Components
+
+**Time:** [00:54:53](https://youtu.be/LYDjJMvG2JQ?t=3293)
+- Priority determines which component is applied when more than one component applies to an employee.
+- Order affects the sequence in which components appear in salary vouchers and how different effects are calculated.
+- Practical example:
+    - One component type "Basic" with multiple components for each department (technical support, development, provisioning, administration).
+    - Each component has an order and priority to determine the appropriate component for the employee.
 
 ---
 
-## التأثير المحاسبي للمفردات: الثابت والنسب
-**الزمن:** [01:02:30](https://youtu.be/LYDjJMvG2JQ?t=3750)
-- بعض المفردات تُعامل كمبالغ ثابتة تُسجل في حسابات المصروفات والذمم.
-- البعض الآخر يُحسب كنسب مئوية من الراتب أو من حسابات أخرى، لتوزيع المصروفات بين فروع أو أقسام متعددة.
-- المعايير تتيح تفعيل هذه الحسابات بشكل مرن حسب طبيعة المفرد.
+## Scope of Application and Its Effect on Selecting the Appropriate Component
+
+**Time:** [00:56:58](https://youtu.be/LYDjJMvG2JQ?t=3418)
+- The scope of application includes criteria such as nationality, department, group, etc.
+- When more than one component applies to an employee, the system selects the component with the higher priority or order.
+- The example illustrates two components applying to the same employee, and the component with the lower order number is selected.
 
 ---
 
-## كيف تتعامل مع اختلافات المعادلات داخل المفردات
-**الزمن:** [01:03:52](https://youtu.be/LYDjJMvG2JQ?t=3832)
-- يمكن استخدام نفس المفرد مع معادلات مختلفة حسب الحاجة دون الحاجة لإنشاء مفردات جديدة.
-- هذا يوفر سهولة التعديل والصيانة للنظام مع الحفاظ على تنظيم الرواتب.
-- في حالات الاختلاف الكبيرة في المعادلات، يمكن إنشاء مفردات منفصلة.
+## Variable Components and Their Effect on Salaries
+
+**Time:** [01:00:40](https://youtu.be/LYDjJMvG2JQ?t=3640)
+- Variable components include:
+    - Lateness
+    - Absence
+    - Overtime
+- These components can be applied without adding them to job offers and affect salaries based on formulas and criteria.
+- They are handled independently to facilitate modification without needing to change the job offer.
 
 ---
 
-## مقدمة إلى المعادلات الحسابية للمفردات
-**الزمن:** [01:05:46](https://youtu.be/LYDjJMvG2JQ?t=3946)
-- يتم تقديم مقدمة للمعادلات المستخدمة في حساب المفردات مثل التأخير، الغياب، وغيرها.
-- سيتم شرح المؤشرات المستخدمة وكيفية ربطها بالمعادلات.
-- سيتم تخصيص شرح مفصل في الدروس القادمة.
+## Accounting Effect of Components: Fixed and Percentage-Based
+
+**Time:** [01:02:30](https://youtu.be/LYDjJMvG2JQ?t=3750)
+- Some components are treated as fixed amounts recorded in expense and receivable accounts.
+- Others are calculated as percentages of the salary or other accounts, to distribute expenses across multiple branches or departments.
+- Criteria allow these calculations to be activated flexibly based on the nature of the component.
 
 ---
 
-## خاتمة الفيديو
-**الزمن:** [01:07:00](https://youtu.be/LYDjJMvG2JQ?t=4020)
-- تم توضيح أن الشرح الحالي هو نظرة عامة تمهيدية على نظام الرواتب.
-- سيتم تقديم مزيد من التفاصيل في الدروس القادمة، مع تمارين عملية لتثبيت المفاهيم.
-- دعوة للمشاركة في التمارين للحصول على فهم أفضل.
+## How to Handle Formula Differences Within Components
+
+**Time:** [01:03:52](https://youtu.be/LYDjJMvG2JQ?t=3832)
+- The same component can be used with different formulas as needed without creating new components.
+- This provides ease of modification and system maintenance while keeping payroll organized.
+- In cases of significant formula differences, separate components can be created.
 
 ---
 
-> **ملاحظة:**  
-> تم اعتماد استخدام المصطلحات الفنية والإدارية المتداولة في الشركات العربية لضمان دقة المعلومة وسهولة الفهم من قبل المختصين في الموارد البشرية وإدارة الرواتب.
+## Introduction to Calculation Formulas for Components
 
-</rtl>
+**Time:** [01:05:46](https://youtu.be/LYDjJMvG2JQ?t=3946)
+- An introduction is provided to the formulas used in calculating components such as lateness, absence, and others.
+- The indicators used and how they are linked to formulas will be explained.
+- A detailed explanation will be dedicated in upcoming lessons.
+
+---
+
+## Video Conclusion
+
+**Time:** [01:07:00](https://youtu.be/LYDjJMvG2JQ?t=4020)
+- It is clarified that the current explanation is a preliminary overview of the payroll system.
+- Further details will be provided in upcoming lessons, with practical exercises to consolidate the concepts.
+- An invitation to participate in the exercises for a better understanding.
+
+---
+
+> **Note:**  
+> Technical and administrative terminology commonly used in Arabic-speaking companies has been adopted to ensure information accuracy and ease of understanding for HR and payroll management specialists.

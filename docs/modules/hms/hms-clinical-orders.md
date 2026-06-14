@@ -1,45 +1,45 @@
-# الطلبات والنتائج الإكلينيكية
+# Clinical Orders & Results
 
-أثناء إقامة المريض (أو في زيارته الخارجية) يطلب له الطبيب فحوصًا وإجراءات: تحاليل، أشعة، عمليات. يتبع النظام في ذلك نمطًا واضحًا — **طلب** يفتحه الطبيب، ثم **نتيجة** تُدخلها المعامل أو الأقسام، ويرتبط الاثنان معًا. كل سطر مُسعَّر مقسوم بين المريض والتأمين كالعادة.
+During a patient's stay (or an outpatient visit), the doctor orders investigations and procedures: lab tests, radiology, surgeries. The system follows a clear pattern — a **request** opened by the doctor, then a **result** entered by the labs or departments, with the two linked together. Every priced line is split between patient and insurer as usual.
 
-## التحاليل: طلب ثم نتيجة
+## Lab tests: request then result
 
-**طلب تحليل (Lab Test Request)** أمر الطبيب بإجراء تحاليل: يحمل المريض والطبيب وإستمارة الدخول، وجدول التحاليل المطلوبة (نوع التحليل، الجهاز، كمية الدم، الأنبوبة ولونها، الوقت المستغرق، المضاد الحيوي) وأسعارها، ويرتبط لاحقًا بمستند النتيجة.
+**Lab Test Request** is the doctor's order to run tests: it carries the patient, doctor and admission, and a grid of requested tests (test type, device, blood quantity, tube and color, time taken, antibiotic) and their prices, and later links to the result document.
 
-![طلب تحليل](./images/clinical/lab-test-request-ar.png)
+![Lab test request](../../ar/modules/hms/images/clinical/lab-test-request-en.png)
 
-**نتيجة تحليل طبي (Lab Test Result)** تسجّل القيم المقيسة. وذكاؤها أنها — عند اختيار **نوع التحليل** — تُحمِّل مكوّناته (Test Cases) وتملأ **المعدّل الطبيعي المناسب لنوع المريض** (ذكر/أنثى، بالغ/طفل) تلقائيًا، فلا يُدخل الفنّي سوى القيمة المقيسة. وعند اختيار **طلب التحليل** تُنسخ بيانات المريض والطبيب، ومع طلب بنوع تحليل واحد تُحمَّل سطور النتيجة مسبقًا. كما تُرشَّح القوائم بذكاء: أنواع التحاليل المطابقة للطلب، والطلبات التي لم تُسجَّل نتيجتها بعد.
+**Lab Test Result** records the measured values. Its smartness: when you pick the **test type**, it loads its result components (test cases) and fills in **the normal range appropriate to the patient's demographic** (male/female, adult/child) automatically, so the technician enters only the measured value. Picking the **request** copies patient and doctor data, and for a single-test-type request it preloads the result lines. The lookups are filtered intelligently too: test types matching the request, and requests not yet resulted.
 
-![نتيجة تحليل طبي](./images/clinical/lab-test-result-ar.png)
+![Lab test result](../../ar/modules/hms/images/clinical/lab-test-result-en.png)
 
-## الأشعة: طلب ثم نتيجة
+## Radiology: request then result
 
-**طلب عمل أشعة (Radiology Request)** أمر الطبيب بإجراء تصوير: المريض، الطبيب، **نوع الأشعة**، الحالة، السعر، ومرفقات.
+**Radiology Request** is the doctor's order for an imaging study: patient, doctor, **radiology type**, status, price, and attachments.
 
-![طلب عمل أشعة](./images/clinical/radiology-req-ar.png)
+![Radiology request](../../ar/modules/hms/images/clinical/radiology-req-en.png)
 
-**نتيجة أشعة (Radiology Result)** تقرير الأخصائي وصوره: تُنشأ من الطلب (عبر "من مستند")، وتحمل بلوك **تقرير الأشعة** بنصوصه ومرفقاته (ملفات الصور والتقرير).
+**Radiology Result** is the radiologist's report and images: it's created from the request (via "from document") and carries a **radiology report** block with its texts and attachments (the image and report files).
 
-![نتيجة أشعة](./images/clinical/radiology-result-ar.png)
+![Radiology result](../../ar/modules/hms/images/clinical/radiology-result-en.png)
 
-## العمليات: طلب وحجز وموافقة
+## Surgeries: request, reservation and approval
 
-تمرّ العملية بثلاثة مستندات يكمّل بعضها بعضًا:
+A surgery moves through three complementary documents:
 
-- **طلب عملية جراحية (Surgery Request)** — يطلب العملية بنوعها وتصنيفها وحالتها وتسعيرها الكامل (تقسيم المريض/التأمين)، ويرتبط بفاتورة العملية.
+- **Surgery Request** — requests the operation with its type, classification, status and full pricing (patient/insurer split), and links to the surgery invoice.
 
-![طلب عملية جراحية](./images/clinical/surgery-req-ar.png)
+![Surgery request](../../ar/modules/hms/images/clinical/surgery-req-en.png)
 
-- **حجز عملية جراحية (Surgery Reservation)** — يحجز غرفة العمليات في موعد محدّد (الطبيب، التخصص، نوع العملية، الغرفة، تاريخ ووقت الحجز) — وهو الوجه الجدولي للطلب.
+- **Surgery Reservation** — books the operating room for a given slot (doctor, specialty, surgery type, room, reservation date and time) — the scheduling side of the request.
 
-![حجز عملية جراحية](./images/clinical/surgery-reservation-ar.png)
+![Surgery reservation](../../ar/modules/hms/images/clinical/surgery-reservation-en.png)
 
-- **سند موافقة على إجراء عملية جراحية (Surgery Approval)** — الموافقة/الإقرار الموقَّع للمضيّ في العملية، مع مرفقاته الداعمة.
+- **Surgery Approval** — the signed consent/approval to proceed, with its supporting attachments.
 
-![سند موافقة على عملية](./images/clinical/surgery-approval-ar.png)
+![Surgery approval](../../ar/modules/hms/images/clinical/surgery-approval-en.png)
 
-## بنك الدم
+## The blood bank
 
-**بنك دم (Blood Bank)** ملف أساسي يعمل كذمّة محاسبية (مصدر/وجهة وحدات الدم). وعندما تُعاد وحدات دم (مثلًا غير المستخدمة منها) يُسجَّل ذلك في **مردودات بنوك الدم (Blood Bank Return)** — مستند بسطور مخزنية كاملة (الصنف، الكمية، اللوت، الصلاحية) وتسعير مقسوم بين المريض والتأمين، ويُنتج إذن استلام مخزني. أما صرف الدم وفوترته فيتمّان عبر **[فاتورة بنك الدم](./hms-invoicing.md)**.
+**Blood Bank** is a master file that acts as an accounting party (the source/destination of blood units). When blood units are returned (e.g. unused ones), this is recorded in a **Blood Bank Return** — a document with full inventory lines (item, quantity, lot, expiry) and pricing split between patient and insurer, producing a stock receipt. Issuing and billing blood is done via the **[Blood Bank Invoice](./hms-invoicing.md)**.
 
-![مردودات بنوك الدم](./images/clinical/blood-bank-return-ar.png)
+![Blood bank return](../../ar/modules/hms/images/clinical/blood-bank-return-en.png)

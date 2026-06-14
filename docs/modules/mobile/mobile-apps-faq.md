@@ -1,10 +1,6 @@
-<rtl>
+# Frequently Asked Questions About Mobile Applications in Nama ERP
 
-# أسئلة شائعة حول تطبيقات الهواتف المحمولة في نظام Nama ERP
-
-## هل يدعم النظام الطباعة على أجهزة Sunmi؟
+## Does the system support printing on Sunmi devices?
 
 [https://www.sunmi.com/en-US/v2s/](https://www.sunmi.com/en-US/v2s/)
-نعم، يدعم تطبيق Nama Mobile العمل على أجهزة Sunmi، بما في ذلك طباعة الفواتير وسندات القبض والصرف الإلكتروني مباشرة من الجهاز.
-
-</rtl>
+Yes, the Nama Mobile application supports working on Sunmi devices, including printing invoices, receipts, and electronic payment vouchers directly from the device.

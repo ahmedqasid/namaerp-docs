@@ -1,41 +1,41 @@
-# ورديات الكاشير (درج النقدية)
+# Cashier Shifts (Cash Drawer)
 
-سندات القبض والصرف العامة ([انظر صفحتها](./receipts-and-payments.md)) مرنة لكنها مفصّلة أكثر مما يحتاجه موظف كاشير يستقبل عشرات الدفعات السريعة في اليوم. لذلك توفّر نما **منظومة كاشير** مبسّطة مبنية على فكرة **الوردية**: يفتح الكاشير ورديته في بداية المناوبة، يسجّل خلالها سندات قبض وصرف بسيطة بمبلغ واحد، ثم يغلق ورديته فيُطابَق النقد ويُرحَّل الفرق.
+The general receipt and payment vouchers ([see their page](./receipts-and-payments.md)) are flexible but more detailed than a cashier needs when handling dozens of quick payments a day. So Nama provides a simplified **cashier system** built on the idea of a **shift**: the cashier opens a shift at the start of the duty, records simple single-amount receipts and payments during it, then closes the shift — at which point the cash is reconciled and the difference is posted.
 
-::: info الترخيص المطلوب
-الكاشير ضمن ترخيص `accounting-cashier`. أما **سند القبض الإلكتروني** للتحصيل الميداني فضمن ترخيص `accounting-electronic-receipt`.
+::: info Required license
+The cashier is part of the `accounting-cashier` license. The **Electronic Receipt Voucher** for field collection is part of the `accounting-electronic-receipt` license.
 :::
 
-## دورة حياة الوردية
+## The shift lifecycle
 
-### 1) سند فتح وردية
+### 1) Open Shift
 
-في **سند فتح وردية** (`Accounting > Cashiers > Open Shift`) يبدأ الكاشير مناوبته: يُحدَّد **مستخدم الكاشير** و**خزينة الكاشير** التي سيعمل عليها، وتُحمَّل في الأسطر **الأرصدة الافتتاحية** المرحّلة من إغلاق الوردية السابقة (نقد متبقٍّ، طرق دفع...).
+In the **Open Shift** document (`Accounting > Cashiers > Open Shift`) the cashier starts the duty: the **cashier user** and the **cashier safe** they'll work on are set, and the lines load the **opening balances** carried over from the previous shift's close (remaining cash, payment methods...).
 
-![شاشة سند فتح وردية](./images/cashier/open-shift.png)
+![The Open Shift screen](./images/cashier/open-shift.png)
 
-::: warning وردية واحدة مفتوحة لكل مستخدم
-لا يمكن للكاشير فتح وردية جديدة وله وردية مفتوحة بالفعل؛ يجب إغلاق الحالية أولًا.
+::: warning One open shift per user
+A cashier can't open a new shift while one is already open; the current one must be closed first.
 :::
 
-### 2) سندات القبض والصرف خلال الوردية
+### 2) Receipts and payments during the shift
 
-أثناء الوردية يسجّل الكاشير **سند قبض كاشير** و**سند صرف كاشير** (`Accounting > Cashiers > Cashier Receipt Voucher`). هذه سندات **مبسّطة**: مبلغ واحد وطرف، بلا جداول تفاصيل كالسند العام، وتُربَط تلقائيًا بالوردية المفتوحة وبخزينة الكاشير — فالكاشير لا ينشغل باختيار الحسابات، بل يسجّل المبلغ فحسب.
+During the shift the cashier records **Cashier Receipt Vouchers** and **Cashier Payment Vouchers** (`Accounting > Cashiers > Cashier Receipt Voucher`). These are **simplified** vouchers: a single amount and a party, with no detail grids like the general voucher, and they're automatically linked to the open shift and the cashier safe — so the cashier doesn't bother choosing accounts, just records the amount.
 
-### 3) سند غلق وردية
+### 3) Close Shift
 
-في نهاية المناوبة يُحرَّر **سند غلق وردية** (`Accounting > Cashiers > Close Shift`): يُطابِق فيه النظام **رصيد النظام** (مجموع حركات الوردية) مع **المبلغ المعدود** فعليًا في الدرج، ويُرحِّل النتيجة عبر خزينة رئيسية (**الخزينة الرئيسية**). الأثر المحاسبي للإغلاق يغطّي حالتين: **فرق** الوردية (زيادة/عجز) عبر جانبَي **الفرق مدين/دائن**، و**المبلغ المحوَّل** إلى الخزينة الرئيسية عبر جانبَي **المحول مدين/دائن**.
+At the end of the duty a **Close Shift** document (`Accounting > Cashiers > Close Shift`) is issued: the system reconciles the **system balance** (the sum of the shift's transactions) against the **counted amount** actually in the drawer, and posts the result through a main safe (**Main Safe Deposit**). The closing's accounting effect covers two cases: the shift **difference** (overage/shortage) via the **Difference Debit/Credit** sides, and the **transferred amount** to the main safe via the **Transferred Debit/Credit** sides.
 
-![شاشة سند غلق وردية](./images/cashier/close-shift.png)
+![The Close Shift screen](./images/cashier/close-shift.png)
 
-## سند القبض الإلكتروني
+## Electronic Receipt Voucher
 
-للتحصيل خارج المكتب (مندوب ميداني بهاتف)، يوفّر **سند القبض الإلكتروني** (`Accounting > Mobile Apps - Accounting > Electronic Receipt Voucher`) نسخة موجّهة للجوال: يحمل **معرّف الجهاز** و**الموظف** المحصِّل و**الطرف** و**المبلغ**، ويميّز **نقدًا** أو **شيكًا** (برقم الشيك واسم البنك)، ويلتقط **توقيع العميل** و**توقيع الموظف**، ويطابق على **فواتير** الطرف. هو وسيلة تحصيل ميداني تُكمِّل منظومة الكاشير.
+For collection away from the office (a field rep with a phone), the **Electronic Receipt Voucher** (`Accounting > Mobile Apps - Accounting > Electronic Receipt Voucher`) provides a mobile-oriented version: it carries the **device ID**, the collecting **employee**, the **party**, and the **amount**; distinguishes **cash** from a **cheque** (with cheque number and bank name); captures the **client signature** and **employee signature**; and matches against the party's **invoices**. It's a field-collection tool that complements the cashier system.
 
-## للدعم الفني
+## For Support
 
-- **«لا أستطيع فتح وردية»** — للكاشير وردية مفتوحة بالفعل؛ أغلقها أولًا بسند غلق وردية.
-- **«سند قبض الكاشير لا يقبل تحديد حساب»** — هذا مقصود؛ السند المبسّط يأخذ حساباته من الوردية والتوجيه، لا يدويًا.
-- **«فرق عند الإغلاق»** — الفرق بين المعدود والنظام يُرحَّل عبر جانبَي **الفرق مدين/دائن** في توجيه سند غلق الوردية.
-- **«من أين تأتي حسابات الفرق/التحويل؟»** — من توجيه **سند غلق وردية** (راجِع مرجع [توجيهات المستندات](./support/accounting-document-terms.md)).
-- آلية المعالجة في [كيف تُعالَج المستندات إلى أثر محاسبي](./support/accounting-request-processing.md).
+- **"I can't open a shift"** — the cashier already has an open shift; close it first with a Close Shift document.
+- **"The cashier receipt voucher won't let me pick an account"** — that's intentional; the simplified voucher takes its accounts from the shift and the term, not manually.
+- **"A difference at closing"** — the gap between counted and system is posted via the **Difference Debit/Credit** sides in the Close Shift term.
+- **"Where do the difference/transfer accounts come from?"** — from the **Close Shift** term (see the [Document terms](./support/accounting-document-terms.md) reference).
+- Processing mechanics are in [How documents are processed into accounting effects](./support/accounting-request-processing.md).

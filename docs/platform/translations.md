@@ -1,86 +1,82 @@
-<rtl>
+# Modifying Translations in Nama ERP
 
-# تعديل الترجمات في نظام نما
+* Translations can be modified using the **Translation Change File**.
+* The lines in the translation file allow modifying translations for:
 
-* يمكن تعديل الترجمات باستخدام **ملف تغيير الترجمة**.
-* تتيح سطور ملف الترجمة تعديل ترجمات:
+    * Fields
+    * Screens
+    * Page titles
+    * Groups
+    * System actions
+      in Arabic, English, or both. (Either language can be left empty.)
 
-    * الحقول
-    * الشاشات
-    * عناوين الصفحات
-    * المجموعات
-    * الإجراءات النظامية
-      وذلك باللغة العربية أو الإنجليزية أو كليهما. (يمكن ترك إحدى اللغتين فارغة).
+### Supported Languages:
 
-### اللغات المدعومة:
-
-* العربية
-* الإنجليزية
-* الفرنسية (تُعتبر بديلة للإنجليزية)
+* Arabic
+* English
+* French (treated as an alternative to English)
 
 ---
 
-### ترجمة أسماء الشاشات (مفرد / جمع):
+### Translating Screen Names (Singular / Plural):
 
-* تُستخدم ترجمة المفرد في شاشة التحرير (مثلاً: *فاتورة مبيعات*).
-* تُستخدم ترجمة الجمع في شاشة القائمة (مثلاً: *فواتير مبيعات*).
+* The singular translation is used on the edit screen (e.g., *Sales Invoice*).
+* The plural translation is used on the list screen (e.g., *Sales Invoices*).
 
-لتعديل هذه الترجمات:
+To modify these translations:
 
-* **للمفرد**: اختر النوع، واترك حقل "المعرف" فارغًا، ثم املأ الحقول "عربي" و"إنجليزي".
-* **للجمع**: اختر نفس النوع، واكتب `s` في حقل "المعرف"، ثم املأ الحقول "عربي" و"إنجليزي".
-
----
-
-### ترجمة الحقول:
-
-* **ترجمة عامة للحقل**:
-
-    * ضع معرف الحقل في حقل "المعرف".
-    * املأ الحقول "عربي" و"إنجليزي".
-
-* **ترجمة حقل داخل شاشة محددة**:
-
-    * حدد اسم الشاشة في حقل "النوع".
-
-* **ترجمة حقل في عدة شاشات**:
-
-    * أنشئ ملف "قائمة أنواع" يحتوي على هذه الشاشات.
-    * استخدم هذا الملف في حقل "قائمة الأنواع".
+* **For singular**: Select the type, leave the "ID" field empty, then fill in the "Arabic" and "English" fields.
+* **For plural**: Select the same type, enter `s` in the "ID" field, then fill in the "Arabic" and "English" fields.
 
 ---
 
-### تسهيل الترجمة باستخدام اختصار لوحة المفاتيح
+### Translating Fields:
 
-* استخدم الاختصار **Alt + Ctrl + T** لعرض أزرار بجانب الحقول والعناوين لتعديل الترجمة.
-![Translation Button Screenshot](images/translation-button.png)
-* بالضغط على الزر يظهر مربع يحتوي على حقلين: عربي وإنجليزي.
-![Translation Editor Screenshot](images/translation-editor.png)
-* يتم تعديل الترجمة بشكل مباشر مؤقتًا داخل النظام.
-* بعد الانتهاء، من قائمة "المزيد" اختر **تصدير الترجمات**.
+* **General field translation**:
+
+    * Enter the field ID in the "ID" field.
+    * Fill in the "Arabic" and "English" fields.
+
+* **Translating a field within a specific screen**:
+
+    * Specify the screen name in the "Type" field.
+
+* **Translating a field across multiple screens**:
+
+    * Create a "Type List" file containing those screens.
+    * Use this file in the "Type List" field.
 
 ---
 
-### نافذة تصدير الترجمات
+### Simplifying Translation Using a Keyboard Shortcut
 
-تحتوي على الخيارات التالية:
-![Translation Export Screenshot](images/translation-export.png)
+* Use the shortcut **Alt + Ctrl + T** to show buttons next to fields and headings for editing translations.
+![Translation Button Screenshot](../ar/platform/images/translation-button.png)
+* Clicking the button displays a box containing two fields: Arabic and English.
+![Translation Editor Screenshot](../ar/platform/images/translation-editor.png)
+* The translation is modified temporarily and directly within the system.
+* When finished, from the "More" menu choose **Export Translations**.
+
+---
+
+### Export Translations Window
+
+This window contains the following options:
+![Translation Export Screenshot](../ar/platform/images/translation-export.png)
 * **Include Only Fields With Arabic Or English Translation**
-  تضمين فقط الحقول التي تم تعديل ترجمتها.
+  Include only fields whose translation has been modified.
 
 * **Include Arabic Translations**
-  إضافة الترجمة العربية.
+  Add the Arabic translation.
 
 * **Include English Translations**
-  إضافة الترجمة الإنجليزية.
+  Add the English translation.
 
 * **Use Full Field ID**
-  استخدام المعرف الكامل للحقول.
+  Use the full field ID.
 
 * **Add Entity Type**
-  إضافة النوع في ملف الترجمة (لربط الترجمة بالشاشة الحالية فقط).
+  Add the type to the translation file (to link the translation to the current screen only).
 
-بعد تحديد الخيارات، اضغط **"إنشاء ملف الترجمة"**، وستظهر نافذة تحتوي على الترجمات المختارة.
-املأ بقية البيانات واضغط "حفظ"، وسيتم تحميل الترجمات مباشرة.
-
-</rtl>
+After selecting the options, click **"Create Translation File"**, and a window will appear containing the selected translations.
+Fill in the remaining data and click "Save", and the translations will be loaded immediately.

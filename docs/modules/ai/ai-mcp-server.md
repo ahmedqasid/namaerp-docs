@@ -1,45 +1,45 @@
-# خادم MCP لنظام نما ERP
+# Nama ERP MCP Server
 
-بروتوكول **MCP (Model Context Protocol)** هو المعيار المفتوح الذي تتصل به مساعدات الذكاء الاصطناعي — مثل Claude Desktop و Claude Code وغيرهما — بالأنظمة الخارجية لتقرأ بياناتها وتنفذ أوامر فيها. يحتوي نظام نما ERP على **خادم MCP مدمج**: بمجرد تركيب وحدة الذكاء الاصطناعي، يستطيع أي عميل MCP الاتصال بالنظام مباشرة واستخدام الأدوات المعرفة في شاشة [AI Tool Definition](./ai-tool-definitions.md) — يبحث في السجلات، يقرأ المستندات، يشغّل التقارير، بل ويستورد سجلات جديدة — وكل ذلك بحساب مستخدم حقيقي تسري عليه كل صلاحيات النظام.
+**MCP (Model Context Protocol)** is the open standard AI assistants — such as Claude Desktop, Claude Code, and others — use to connect to external systems, read their data, and act on them. Nama ERP ships with a **built-in MCP server**: once the AI module is installed, any MCP client can connect to the system directly and use the tools defined on the [AI Tool Definition](./ai-tool-definitions.md) screen — searching records, reading documents, running reports, and even importing new records — all under a real user account with the full security model applied.
 
-::: info المتطلبات
-- وحدة الذكاء الاصطناعي (AI Module) مركبة ومرخصة — بدونها لا يعمل الخادم أصلًا.
-- سجل **API Credentials** معتمد (نفس بيانات الاعتماد المستخدمة مع الواجهة البرمجية REST).
-- أداة واحدة على الأقل معرفة ومعتمدة في شاشة **AI Tool Definition**.
+::: info Requirements
+- The AI module installed and licensed — without it, the server is not mounted at all.
+- A committed **API Credentials** record (the same credentials used with the REST API).
+- At least one committed tool defined on the **AI Tool Definition** screen.
 :::
 
-## عنوان الخادم
+## Server Endpoint
 
-يعمل الخادم بنقل **SSE (Server-Sent Events)** على المسار:
+The server uses the **SSE (Server-Sent Events)** transport at:
 
 ```
 http[s]://<server-ip-or-domain>/basic-services/mcp/sse
 ```
 
-(يتكفل الخادم تلقائيًا بالإعلان عن نقطة استقبال الرسائل `/basic-services/mcp/message` الصحيحة.)
+(The server automatically advertises the correct `/basic-services/mcp/message` message endpoint.)
 
-## المصادقة
+## Authentication
 
-يصادق الخادم **كل طلب** على حدة عبر بيانات اعتماد API:
+The server authenticates **every request** using API credentials:
 
-| الترويسة (Header) | القيمة | إلزامية |
+| Header | Value | Required |
 |---|---|---|
-| `X-API-Key` | حقل **Client Secret** من سجل API Credentials | نعم |
-| `X-API-Secret` | حقل **API Secret** — يُرسل فقط إذا كان الاعتماد يتطلب سرًّا إضافيًا | لا |
+| `X-API-Key` | The **Client Secret** field of the API Credentials record | Yes |
+| `X-API-Secret` | The **API Secret** field — sent only if the credential requires an extra secret | No |
 
-(تُقبل القيم أيضًا بأسماء بديلة: `apiKey`/`clientId` لمفتاح الوصول و `apiSecret`/`clientSecret` للسر — ترويسةً أو ضمن معاملات الرابط.)
+(The values are also accepted under the alternative names: `apiKey`/`clientId` for the access key and `apiSecret`/`clientSecret` for the secret — as a header or as a URL parameter.)
 
-سجل **API Credentials** يربط بيانات الاعتماد بمستخدم محدد عبر حقل **Login As User**، ويدعم تقييد فترة الصلاحية (**Valid From / Valid To**) وإيقاف الاعتماد (**Prevent Login**). كل أداة يستدعيها العميل تُنفَّذ بهوية ذلك المستخدم: صلاحيات السجلات، والمحددات (الشركة والفرع وغيرها)، وقواعد التحقق — كلها تسري كأن المستخدم يعمل من شاشات النظام.
+The **API Credentials** record maps the credentials to a specific user through its **Login As User** field, and supports a validity window (**Valid From / Valid To**) and disabling (**Prevent Login**). Every tool the client calls executes as that user: record security, dimensions (legal entity, branch, ...), and validation rules all apply exactly as if the user were working from the system screens.
 
-::: warning احمِ بيانات الاعتماد
-عميل MCP المتصل بهذه البيانات يستطيع فعل كل ما يستطيعه المستخدم المربوط بها — بما في ذلك إنشاء سجلات إذا كانت أدوات الاستيراد مفعّلة. خصص مستخدمًا بصلاحيات محسوبة لهذا الغرض، وقيّد الأدوات الحساسة عبر جدول الصلاحيات في تعريف الأداة.
+::: warning Protect the credentials
+An MCP client connected with these credentials can do everything the mapped user can — including creating records if the import tools are enabled. Dedicate a user with carefully measured permissions for this purpose, and restrict sensitive tools through the access-control grid on the tool definition.
 :::
 
-## إعداد العملاء
+## Client Setup
 
 ### Claude Code
 
-أضف الخادم إلى ملف `.mcp.json` في مجلد المشروع:
+Add the server to the project's `.mcp.json`:
 
 ```json
 {
@@ -57,89 +57,89 @@ http[s]://<server-ip-or-domain>/basic-services/mcp/sse
 
 ### Claude Desktop
 
-في ملف الإعدادات `claude_desktop_config.json` أضف نفس التعريف ضمن `mcpServers`.
+Add the same definition under `mcpServers` in `claude_desktop_config.json`.
 
 ### MCP Inspector
 
-أداة الفحص الرسمية للبروتوكول تعمل من المتصفح مباشرة (الخادم يسمح بطلبات CORS): اختر النقل `SSE`، وأدخل العنوان، وأضف ترويسة المصادقة.
+The protocol's official inspector works straight from the browser (the server allows CORS requests): choose the `SSE` transport, enter the URL, and add the authentication header.
 
-بعد الاتصال، استعرض قائمة الأدوات من العميل — ستجد كل الأدوات المعتمدة وغير المعطلة من شاشة AI Tool Definition، وأي تعديل على التعريفات ينعكس تلقائيًا في الاتصال التالي.
+After connecting, list the tools from the client — you will find every committed, non-inactive tool from the AI Tool Definition screen, and any change to the definitions is picked up automatically on the next connection.
 
-::: info ليست أدوات التصدير وحدها
-الخادم يعرض **كل** أداة معتمدة ومسموح بها للمستخدم المربوط بالاعتماد — أدوات استعلام وتقارير ومسارات كيان وأدوات نظام — لا أدوات التصدير الست فقط. هذه الصفحة تفصّل أدوات التصدير لأهميتها مع العملاء الخارجيين، وبقية الأنواع موثقة في [تعريفات أدوات الذكاء الاصطناعي](./ai-tool-definitions.md).
+::: info Not just the export tools
+The server exposes **every** committed tool the linked user is allowed to use — query, report, entity-flow, and system tools — not only the six export tools. This page details the export tools because of their importance with external clients; the other types are documented in [AI Tool Definitions](./ai-tool-definitions.md).
 :::
 
-## أدوات تصدير واستيراد السجلات
+## The Record Export/Import Tools
 
-المجموعة الأهم للاستخدام مع عملاء MCP الخارجيين هي أدوات النظام الست للتصدير والاستيراد، وتُضاف دفعة واحدة بزر **إضافة أدوات التصدير (Add Export Tools)** في صفحة System Tool من شاشة تعريف الأداة (انظر [تعريفات أدوات الذكاء الاصطناعي](./ai-tool-definitions.md)).
+The most useful group for external MCP clients is the six export/import system tools, added in one click with the **Add Export Tools** button on the System Tool page of the tool definition screen (see [AI Tool Definitions](./ai-tool-definitions.md)).
 
-تُسمّى الأدوات ببادئة من تعريف الأداة (حقل Tool Name أو Alt Code أو الكود). في الأمثلة التالية نفترض أن البادئة `import`.
+The tools are named with a prefix taken from the tool definition (the Tool Name, Alt Code, or code field). The examples below assume the prefix is `import`.
 
-### import_ResolveEntityType — تحويل مصطلح إلى نوع كيان
+### import_ResolveEntityType — resolve a term to an entity type
 
-نقطة البداية لأي عميل لا يعرف أسماء الكيانات الداخلية. أرسل مصطلحًا بالعربية أو الإنجليزية، واستلم أنواع الكيانات المطابقة بأسمائها المترجمة.
+The starting point for any client that does not know Nama's internal entity names. Send an Arabic or English term and receive the matching entity types with their translated names.
 
-| المدخل | إلزامي | الوصف |
+| Parameter | Required | Description |
 |---|---|---|
-| `query` | نعم | المصطلح المراد البحث عنه، مثل `فاتورة مبيعات` أو `sales invoice` |
+| `query` | Yes | The term to search for, such as `فاتورة مبيعات` or `sales invoice` |
 
-تعيد الأداة حتى 25 نتيجة، كل نتيجة تحمل `entityType` (الاسم الداخلي مثل `SalesInvoice`) والاسمين العربي والإنجليزي.
+Returns up to 25 matches, each carrying `entityType` (the internal name such as `SalesInvoice`) plus the Arabic and English names.
 
-### import_FindRecords — البحث عن سجلات
+### import_FindRecords — search records
 
-بحث مرقّم الصفحات عن سجلات نوع كيان، يمر عبر بوابة العرض القياسية فتسري عليه صلاحيات القوائم والمحددات.
+A paged search over an entity type's records, going through the standard list gate so list security and dimension filtering apply.
 
-| المدخل | إلزامي | الوصف |
+| Parameter | Required | Description |
 |---|---|---|
-| `entityType` | نعم | نوع الكيان، مثل `SalesInvoice` |
-| `criteria` | لا | تعبير معايير بصيغة نما، مثل `code = 'INV-1'` أو `the60 >= '2024-01-01'` |
-| `fields` | لا | معرفات حقول إضافية تُعاد في كل صف (مفصولة بفواصل) — يُعاد دائمًا `id` و `code` |
-| `orderBy` | لا | معرف حقل للترتيب |
-| `page` | لا | رقم الصفحة (يبدأ من 1) |
-| `pageSize` | لا | حجم الصفحة — الافتراضي 25 والحد الأقصى 200 |
+| `entityType` | Yes | The entity type, such as `SalesInvoice` |
+| `criteria` | No | A Nama criteria expression, such as `code = 'INV-1'` or `the60 >= '2024-01-01'` |
+| `fields` | No | Extra field ids to return in each row (comma-separated) — `id` and `code` are always returned |
+| `orderBy` | No | A field id to order by |
+| `page` | No | 1-based page number |
+| `pageSize` | No | Page size — default 25, maximum 200 |
 
-تعيد الأداة `totalRecordsCount` ورقم الصفحة وحجمها ومصفوفة `records`.
+Returns `totalRecordsCount`, the page number and size, and the `records` array.
 
-### import_GetRecord — قراءة سجل
+### import_GetRecord — read a record
 
-يقرأ سجلًا واحدًا بصيغة JSON عبر بوابة القراءة القياسية. الناتج بنفس صيغة الاستيراد، فيمكن قراءة سجل وتعديله وإعادة استيراده.
+Reads a single record as JSON through the standard read gate. The output has the same shape used for import, so a record can be read, edited, and imported back.
 
-| المدخل | إلزامي | الوصف |
+| Parameter | Required | Description |
 |---|---|---|
-| `entityType` | نعم | نوع الكيان |
-| `idOrCode` | نعم | كود السجل أو معرفه |
-| `mode` | لا | `visible` (الافتراضي): الحقول الظاهرة على الشاشة فقط — أو `all`: كل الحقول |
-| `fields` | لا | معرفات حقول محددة تُعاد وحدها (تتجاوز `mode`) |
+| `entityType` | Yes | The entity type |
+| `idOrCode` | Yes | The record's business code or id |
+| `mode` | No | `visible` (default): only on-screen fields — or `all`: every field |
+| `fields` | No | Specific field ids to return on their own (overrides `mode`) |
 
-### import_GetEnumValues — القيم المسموحة لحقل قائمة
+### import_GetEnumValues — allowed values of an enum field
 
-| المدخل | إلزامي | الوصف |
+| Parameter | Required | Description |
 |---|---|---|
-| `entityType` | نعم | نوع الكيان صاحب الحقل |
-| `fieldId` | نعم | معرف الحقل، مثل `invoiceLines.discountType` |
+| `entityType` | Yes | The entity type owning the field |
+| `fieldId` | Yes | The field id, such as `invoiceLines.discountType` |
 
-تعيد قائمة القيم مع عنوان كل قيمة بالعربية والإنجليزية — مفيدة قبل الاستيراد لضمان إرسال الثوابت الصحيحة.
+Returns the value list with each value's Arabic and English titles — useful before importing, to send the correct constants.
 
-### import_GetImportSchema — مخطط الاستيراد
+### import_GetImportSchema — the import schema
 
-يصف كيفية بناء سجل لنوع كيان: كل حقل ونوعه وهل هو إلزامي، والقيم المسموحة لحقول القوائم، ونوع الكيان المستهدف للحقول المرجعية (المراجع تُكتب بالكود)، وبنية الجداول التفصيلية (مثل بنود الفاتورة).
+Describes how to build a record for an entity type: every field with its type and whether it is required, the allowed values of enum fields, the target entity type of reference fields (references are written by code), and the nested structure of detail collections (such as invoice lines).
 
-| المدخل | إلزامي | الوصف |
+| Parameter | Required | Description |
 |---|---|---|
-| `entityType` | نعم | نوع الكيان |
-| `mode` | لا | `visible` (الافتراضي): الحقول الظاهرة على الشاشة — وهي ما يملؤه المستخدم عادة — أو `all`: كل الحقول القابلة للاستيراد |
-| `collections` | لا | حصر الجداول التفصيلية المعادة (أسماء مفصولة بفواصل، مثل `invoiceLines`) — حقول الرأس تُعاد دائمًا |
+| `entityType` | Yes | The entity type |
+| `mode` | No | `visible` (default): on-screen fields — what a user would normally fill — or `all`: every importable field |
+| `collections` | No | Limit the returned detail collections (comma-separated names, such as `invoiceLines`) — header fields are always included |
 
-### import_ImportRecord — استيراد سجلات
+### import_ImportRecord — import records
 
-يستورد سجلًا أو أكثر بصيغة JSON الخاصة بنما: كائن مفاتيحه أنواع الكيانات وقيمه مصفوفات سجلات.
+Imports one or more records in Nama's JSON format: an object keyed by entity type, each key holding an array of records.
 
-| المدخل | إلزامي | الوصف |
+| Parameter | Required | Description |
 |---|---|---|
-| `recordsJson` | نعم | السجلات المراد استيرادها |
-| `saveAsDraft` | لا | `true`: حفظ كمسودة غير معتمدة — `false` (الافتراضي): حفظ واعتماد |
+| `recordsJson` | Yes | The records to import |
+| `saveAsDraft` | No | `true`: save as an uncommitted draft — `false` (default): save and commit |
 
-الشكل العام:
+The general shape:
 
 ```json
 {
@@ -147,23 +147,23 @@ http[s]://<server-ip-or-domain>/basic-services/mcp/sse
     {
       "code": "INV-1001",
       "customer": "C-0005",
-      "invoiceLines": [ { "...": "حقول البند كما يصفها مخطط الاستيراد" } ]
+      "invoiceLines": [ { "...": "line fields as described by the import schema" } ]
     }
   ]
 }
 ```
 
-(المراجع — كالعميل والصنف — تُكتب بالكود مباشرة، والبنية الدقيقة لكل كيان هي ما تعيده أداة `GetImportSchema`؛ والأسلوب الأضمن أن يقرأ العميل سجلًا موجودًا بأداة `GetRecord` ويحاكي شكله.)
+(References — such as the customer and the item — are written directly by code; the exact structure of each entity is what `GetImportSchema` returns, and the safest approach is for the client to read an existing record with `GetRecord` and mirror its shape.)
 
-تُحفظ السجلات عبر بوابة الكيانات القياسية، فتعمل كل قواعد التحقق والتأثيرات (القيود، الحركات المخزنية، ...) كما لو أُدخل السجل من الشاشة. وإذا فشل سجل، تُعاد تفاصيل الخطأ للنموذج ليصححه ويعيد المحاولة.
+Records are persisted through the standard entity gate, so all validations and effects (journal entries, inventory transactions, ...) work exactly as if the record were entered from the screen. If a record fails, the error details are returned to the model so it can correct and retry.
 
-## سيناريو عمل متكامل
+## A Complete Workflow
 
-النمط المعتاد الذي يتبعه عميل MCP لاستيراد بيانات:
+The usual pattern an MCP client follows to import data:
 
-1. **import_ResolveEntityType**: «فاتورة مبيعات» ← `SalesInvoice`.
-2. **import_GetImportSchema**: معرفة الحقول الإلزامية وبنية بنود الفاتورة.
-3. **import_GetEnumValues**: القيم الصحيحة لحقول القوائم (نوع الخصم مثلًا).
-4. **import_FindRecords**: إيجاد أكواد المراجع (العميل، الصنف) قبل استخدامها.
-5. **import_ImportRecord**: الاستيراد كمسودة أولًا للمراجعة، أو حفظ واعتماد مباشرة.
-6. **import_GetRecord**: قراءة السجل المستورد للتحقق من النتيجة.
+1. **import_ResolveEntityType**: "sales invoice" → `SalesInvoice`.
+2. **import_GetImportSchema**: learn the required fields and the invoice-lines structure.
+3. **import_GetEnumValues**: the correct constants for enum fields (the discount type, for example).
+4. **import_FindRecords**: find the reference codes (customer, item) before using them.
+5. **import_ImportRecord**: import as a draft first for review, or save and commit directly.
+6. **import_GetRecord**: read the imported record back to verify the result.

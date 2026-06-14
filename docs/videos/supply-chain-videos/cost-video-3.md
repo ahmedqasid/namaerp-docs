@@ -1,402 +1,399 @@
-<rtl>
+# Costing Tutorial Video - 3
 
-# فيديو طريقة عمل التكاليف - 3
+### Description
+Learn the fundamentals of supply costing, letters of credit, and the distribution of transportation and manufacturing costs in a business environment, with a detailed explanation of modern accounting tools and systems.
 
-### الوصف التعريفي
-تعرف على أساسيات تكاليف التوريد، الاعتمادات المستندية، وتوزيع تكاليف النقل والتصنيع في بيئة الأعمال، مع شرح مفصل للأدوات والأنظمة المحاسبية الحديثة.
+### Keywords
+Supply costing, letters of credit, cost distribution, manufacturing and assembly
 
-### الكلمات المفتاحية
-تكاليف التوريد، الاعتمادات المستندية، توزيع التكاليف، تصنيع وتجميع
+### Title
+Fundamentals of Supply Costing and Letters of Credit in Accounting
 
-### العنوان
-أساسيات تكاليف التوريد والاعتمادات المستندية في المحاسبة
+### Content
 
-### المحتوى
-
-#### مقدمة
-في عالم الأعمال والإدارة المالية، يعد فهم كيفية احتساب التكاليف وتحليلها من الركائز الأساسية لضمان تحقيق ربحية مستدامة وتخطيط مالي ناجح. هذا المقال يقدم شرحاً تفصيلياً حول مفهوم التوريد المكلف وغير المكلف، الاعتمادات المستندية، وتوزيع التكاليف على المنتجات والخدمات المختلفة خاصة في مجالات النقل والتصنيع.
+#### Introduction
+In the world of business and financial management, understanding how to calculate and analyze costs is one of the fundamental pillars for ensuring sustainable profitability and successful financial planning. This article provides a detailed explanation of the concept of costed and uncosted supply, letters of credit, and the distribution of costs across various products and services — particularly in the areas of transportation and manufacturing.
 
 ---
 
-#### القسم الأول: أنواع التوريد وتقييم المخزون
+#### Section One: Types of Supply and Inventory Valuation
 
-##### التوريد المكلف وغير المكلف
-تتنوع أنواع التوريد بين توريد مكلف مرتبط بفواتير المشتريات وفواتير المبيعات، وتوريد غير مكلف يتم بدون ربط مباشر بفاتورة، مثل التوريدات الجردية أو التوريدات الناتجة عن فرق الجرد في المخازن. النوع الأخير يُعتبر تحدياً في تحديد تكلفة المنتجات بوضوح لأنه يتطلب آليات خاصة لاحتساب التكلفة بناءً على البيانات الجردية الفعلية.
+##### Costed and Uncosted Supply
+Supply comes in different types: costed supply linked to purchase invoices and sales invoices, and uncosted supply that occurs without a direct link to an invoice — such as inventory supplies or supplies resulting from stock-count discrepancies in warehouses. The latter type presents a challenge when clearly determining product cost, since it requires special mechanisms for calculating the cost based on actual inventory data.
 
-##### أهمية التوريد في تحديد متوسط التكلفة
-عند التعامل مع توريد غير مكلف، كالذي يحدث عندما يكون هناك زيادة في كميات المخزون عن الموجود مدوّنًا بالدفاتر، يتعين على النظام – أو السيستم – أن يطابق الكميات الفعلية مع الكميات الدفترية، ويحدد تكلفة إضافية لتلك الزيادة بطريقة حسابية دقيقة لضمان صحة القوائم المالية.
+##### The Importance of Supply in Determining Average Cost
+When dealing with uncosted supply — such as when there is a surplus in inventory quantities beyond what is recorded in the books — the system must reconcile the actual quantities with the book quantities and determine an additional cost for that surplus through a precise calculation method to ensure the accuracy of financial statements.
 
-##### عهد التقييم المخزوني
-عملية تقييم المخزون تُجرى بشكل دوري لتحديث تكلفة المنتجات بناءً على تغير الأسعار أو أضرار المخزون. هذا التقييم لا يظهر كتغير في حركة المخزون لكنه يؤثر على القيمة الدفترية للمخزون وصافي الربح من خلال تسجيل الفروقات بين القيم القديمة والجديدة في حسابات معينة مخصصة لذلك.
-
----
-
-#### القسم الثاني: تكاليف النقل وتوزيعها على المنتجات
-
-##### مفهوم تكاليف الاتفاقية أو التكليف
-في العمليات التي تضم فروعاً متعددة أو مراكز توزيع مختلفة، يُفرض على نقل البضائع بين هذه المواقع تكلفة إضافية. هذه التكلفة يجب توزيعها على المنتجات بناءً على أسس مقبولة مثل الكمية أو الحجم أو الوزن للتأكد من أن كل منتج يتحمل نصيبه العادل من تكلفة النقل.
-
-##### مثال عملي
-افترض أن شركة تنقل 500 موبايل وشاشة كمبيوتر وتلفاز من الإسكندرية إلى القاهرة بتكلفة نقل 10,000 جنيه. يتم تحديد نصيب كل منتج من تلك التكلفة بناءً على حجمه أو وزنه أو كميته. فإذا كان حجم وشكل المنتجات مختلفاً، فمن المنطقي توزيع التكلفة على الحجم وليس فقط على الكمية، حيث أن نقل شاشة كبيرة يستهلك مساحة وموارد أكثر من موبايل صغير.
-
-##### طرق التوزيع والتحليل
-هناك عدة طرق لتوزيع التكاليف ومنها:
-- توزيع التكلفة على أساس الكمية.
-- توزيع التكلفة على أساس الحجم (الطول × العرض × الارتفاع).
-- توزيع التكلفة على أساس الوزن.
-
-الاختيار بين هذه الطرق يعتمد على طبيعة المنتجات والخدمات ونوع التكلفة لتصل إلى تقدير واقعي وعادل.
+##### Inventory Revaluation
+The process of inventory valuation is carried out periodically to update product costs based on price changes or inventory damage. This revaluation does not appear as a change in inventory movement, but it does affect the book value of inventory and net profit by recording the differences between old and new values in specific designated accounts.
 
 ---
 
-#### القسم الثالث: الاعتمادات المستندية وأهميتها في التحكم المالي
+#### Section Two: Transportation Costs and Their Distribution Across Products
 
-##### ما هي الاعتمادات المستندية؟
-الاعتماد المستندي هو آلية مالية متقدمة يتم بموجبها ضمان حقوق الطرفين في عمليات الاستيراد أو الشراء الخارجي، حيث يتم إيداع المبلغ المطلوب في بنك يتم الاتفاق عليه، ويُصرف للبائع فقط بعد توفر المستندات المطلوبة التي تثبت تنفيذ الاتفاقية.
+##### The Concept of Agreement or Assignment Costs
+In operations that involve multiple branches or different distribution centers, an additional cost is imposed on the transfer of goods between these locations. This cost must be distributed across products based on acceptable bases such as quantity, volume, or weight to ensure that each product bears its fair share of the transportation cost.
 
-##### مميزات الاعتمادات المستندية
-- توفير ضمان مالي للبائع والمشتري.
-- حماية من المخاطر المرتبطة بعدم تنفيذ الطرف الآخر للاتفاق.
-- تنظيم وتحكم أفضل في دورة المشتريات والتوريد.
+##### Practical Example
+Suppose a company transfers 500 mobile phones, a computer monitor, and a TV from Alexandria to Cairo at a transportation cost of 10,000 EGP. Each product's share of that cost is determined based on its volume, weight, or quantity. If the products differ significantly in size, it makes sense to distribute the cost based on volume rather than just quantity, since transporting a large screen consumes more space and resources than a small mobile phone.
 
-##### توزيع تكاليف الاعتماد المستندي
-تكلفة الاعتماد المستندي عادةً ما تتضمن رسوم بنكية ورسوم مخزنية ورسوم شحن ونقل داخلية. يتم تسجيل هذه التكاليف بشكل منفصل ويتم توزيعها بشكل تقديري على البضائع الواردة. يمكن أيضاً تضمينها ضمن بنود تكلفة الشراء الإجمالية بعد دراسة مدى تأثيرها على تكاليف المنتجات.
+##### Distribution and Analysis Methods
+There are several methods for distributing costs, including:
+- Cost distribution based on quantity.
+- Cost distribution based on volume (length × width × height).
+- Cost distribution based on weight.
 
----
-
-#### القسم الرابع: التطبيقات العملية في التصنيع والتجميع
-
-##### خطوات تطبيق التكلفة في عمليات التجميع
-عملية التجميع تتطلب التعامل مع عدة عناصر تكلفة تشمل الخامات والموارد البشرية والطاقة والتكاليف غير المباشرة. يتم حساب تكلفة الوحدة المنتجة بناءً على إجمالي المواد المستخدمة بالإضافة إلى تكلفة التشغيل لكل مرحلة من مراحل الإنتاج.
-
-##### التكلفة المباشرة وغير المباشرة
-- **التكلفة المباشرة:** هي التكاليف التي يمكن تتبعها بسهولة للوحدة المنتجة مثل خامات التصنيع وأجور العمال الذين يعملون مباشرة على الإنتاج.
-- **التكلفة غير المباشرة:** تشمل المصاريف العامة مثل كهرباء المصنع، صيانة المعدات، ورواتب العاملين في الأمن أو الإدارة.
-
-##### نظام الروتينج (Routing) ودوره
-الروتينج هو تحديد مسار عملية التصنيع التفصيلية التي تمر بها المواد الخام حتى تتحول إلى منتج نهائي. هذا النظام يسمح بحساب دقيق لتكاليف كل مرحلة، وبالتالي يمكن تعيين التكاليف بشكل أفضل وتحليل كفاءة العمليات الإنتاجية.
-
-##### التحكم في الجودة
-تعتبر مراقبة الجودة جزءاً لا يتجزأ من عملية التصنيع، حيث يتم فحص المنتجات على مراحل مختلفة لضمان مطابقتها للمواصفات المطلوبة، وكذلك الحد من العيوب والفاقد. هذا يلعب دوراً مهما في تقليل التكاليف غير المباشرة المرتبطة بالعناصر المرفوضة أو المحتاجة لإعادة العمل.
+The choice between these methods depends on the nature of the products and services and the type of cost, in order to arrive at a realistic and fair estimate.
 
 ---
 
-#### القسم الخامس: تحديات محاسبة التكاليف وحلولها
+#### Section Three: Letters of Credit and Their Importance in Financial Control
 
-##### التعامل مع التوريدات غير المكلفة
-صعوبة تحديد تكاليف المواد التي لم تصدر لها فاتورة واضحة يستلزم تطوير سياسات نظامية لتقييم تكلفة هذه التوريدات بناءً على المعايير المتاحة كتكلفة الشراء السابقة أو التكلفة التقديرية.
+##### What Are Letters of Credit?
+A letter of credit is an advanced financial mechanism whereby the rights of both parties in import or external purchasing operations are guaranteed. The required amount is deposited in an agreed-upon bank and is only released to the seller once the required documents proving the execution of the agreement are provided.
 
-##### التعامل مع التكاليف الإضافية للمالك والشحن
-تكلفة الخدمات المساعدة مثل النقل الداخلي والشحن وآليات التخزين المتنوع يجب حسابها وتوزيعها بعناية لضمان عدم تحمّل منتج معين أكثر من نصيبه العادل، لأن ذلك يؤثر في تحديد الأسعار النهائية وربحية الوحدة.
+##### Advantages of Letters of Credit
+- Providing financial guarantees for both the seller and buyer.
+- Protection against risks associated with the other party's failure to fulfill the agreement.
+- Better organization and control over the procurement and supply cycle.
 
-##### إدارة الفروق في الحسابات
-تحدث فروق بين التكلفة المسجلة والتكلفة الفعلية في بعض الأحيان بسبب تغييرات الأسعار أو عمليات الاسترجاع أو عمليات الجرد. يجب توفير آليات تسجيل وتصحيح لهذه الفروق للحفاظ على صحة البيانات المالية وتقارير الأداء.
-
----
-
-#### القسم السادس: أهمية التكنولوجيا في إدارة التكاليف
-
-##### دور الأنظمة المحاسبية والسيستم
-الأنظمة الحديثة تساعد في:
-- متابعة التغيرات في المخزون بشكل آني.
-- توزيع التكاليف بشكل آلي ودقيق.
-- التعامل مع حالات الفقد أو التالف بشكل منطقي.
-- الربط الإلكتروني بين الفواتير والمخازن وإدارة الموارد.
-
-##### تقارير مفصلة وتعديلات فورية
-يمكن للأنظمة تقديم تقارير مخصصة عن تكاليف الإنتاج، وتتبع دورة حياة المنتجات، والتعامل مع تعديلات أسعار الموردين، مما يسرع من اتخاذ القرارات وتحسين العمليات.
+##### Distribution of Letter of Credit Costs
+The cost of a letter of credit typically includes bank fees, storage fees, and internal shipping and transportation fees. These costs are recorded separately and are distributed on an estimated basis across incoming goods. They can also be included within the overall purchase cost items after studying their impact on product costs.
 
 ---
 
-#### خاتمة
-يمكننا القول إن إدارة التكاليف بدقة وشفافية هي أساس نجاح أي نشاط تجاري أو صناعي. من خلال إتقان فهم أنواع التوريد وتقييم المخزون وتوزيع تكاليف النقل والاستخدام الأمثل للاعتمادات المستندية، يمكن للشركات تحسين الأداء المالي وتعزيز القدرة التنافسية. كما أن دمج التكنولوجيا في عمليات المحاسبة والتخطيط يسهم بشكل كبير في تحقيق هذا الهدف وتبسيط الإجراءات.
+#### Section Four: Practical Applications in Manufacturing and Assembly
 
-ندعو القراء إلى تطبيق المبادئ التي تناولناها، والسعي لطرح الأسئلة والمناقشات لتعميق الفهم وضمان تطبيق أفضل للممارسات.
+##### Steps for Applying Cost in Assembly Operations
+The assembly process requires dealing with multiple cost elements including raw materials, human resources, energy, and indirect costs. The cost per produced unit is calculated based on the total materials used plus the operating cost for each production stage.
+
+##### Direct and Indirect Costs
+- **Direct cost:** Costs that can be easily traced to the produced unit, such as manufacturing raw materials and wages of workers who work directly on production.
+- **Indirect cost:** Includes general expenses such as factory electricity, equipment maintenance, and the salaries of security or administrative personnel.
+
+##### The Routing System and Its Role
+Routing is the definition of the detailed manufacturing process path that raw materials go through until they are transformed into a finished product. This system allows for accurate calculation of costs at each stage, enabling better cost assignment and analysis of production efficiency.
+
+##### Quality Control
+Quality monitoring is an integral part of the manufacturing process, where products are inspected at various stages to ensure they meet required specifications and to minimize defects and waste. This plays an important role in reducing indirect costs associated with rejected items or those requiring rework.
 
 ---
-# شرح مفصل حول التكاليف والاعتمادات المستندية في نظام المخازن والتوريد
-[مشاهدة الفيديو من الدقيقة 00:00:00](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=0s)
+
+#### Section Five: Challenges in Cost Accounting and Their Solutions
+
+##### Handling Uncosted Supplies
+The difficulty of determining costs for materials without a clear invoice requires developing systematic policies for evaluating the cost of these supplies based on available criteria, such as previous purchase cost or estimated cost.
+
+##### Handling Additional Owner and Shipping Costs
+The cost of auxiliary services such as internal transportation, shipping, and various storage mechanisms must be calculated and distributed carefully to ensure that no single product bears more than its fair share — since this affects the final pricing and unit profitability.
+
+##### Managing Accounting Discrepancies
+Differences between the recorded cost and the actual cost sometimes occur due to price changes, return operations, or stocktaking processes. Mechanisms for recording and correcting these discrepancies must be provided to maintain the accuracy of financial data and performance reports.
 
 ---
 
-## المقدمة وترحيب بالمشاهدين
+#### Section Six: The Importance of Technology in Cost Management
+
+##### The Role of Accounting Systems
+Modern systems help in:
+- Monitoring inventory changes in real time.
+- Distributing costs automatically and accurately.
+- Handling cases of loss or damage in a logical manner.
+- Electronically linking invoices, warehouses, and resource management.
+
+##### Detailed Reports and Immediate Adjustments
+Systems can provide customized reports on production costs, track product life cycles, and handle supplier price adjustments — speeding up decision-making and improving operations.
+
+---
+
+#### Conclusion
+We can say that managing costs with accuracy and transparency is the foundation of success for any commercial or industrial activity. By mastering the understanding of supply types, inventory valuation, transportation cost distribution, and the optimal use of letters of credit, companies can improve their financial performance and strengthen their competitive position. Integrating technology into accounting and planning processes also contributes significantly to achieving this goal and simplifying procedures.
+
+We invite readers to apply the principles discussed, and to ask questions and engage in discussions to deepen understanding and ensure the best application of practices.
+
+---
+# Detailed Explanation of Costing and Letters of Credit in the Inventory and Supply System
+[Watch video from 00:00:00](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=0s)
+
+---
+
+## Introduction and Welcome to Viewers
 [00:00:00](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=0s)  
-• يبدأ الفيديو بترحيب متعدد وترحيب بالمشاهدين.
+• The video begins with multiple greetings and a welcome to viewers.
 
 ---
 
-## مراجعة محاضرة Overdraft والتوريد غير المكلف
+## Review of the Overdraft Lecture and Uncosted Supply
 [00:00:28](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=28s)  
-• سؤال: هل الناس التي لم تحضر المحاضرة السابقة تابعتها من البيت؟  
-• المحاضرة السابقة تناولت موضوع الـ Overdraft والتوريد الغير مكلف.  
-• شرح كيف يدخل هذا كله في موضوع متوسط التكلفة.
+• Question: Did those who missed the previous lecture watch it at home?  
+• The previous lecture covered the topic of Overdraft and uncosted supply.  
+• Explanation of how all this factors into the topic of average cost.
 
 ---
 
-## أنواع التوريد المكلف والتوريد غير المكلف
+## Types of Costed and Uncosted Supply
 [00:00:52](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=52s)  
-• توجد أنواع من التوريد المكلف ومنها التوريد الذي يأتي من منظومة المبيعات أو التوريد الذي ليس مرتبطًا بفاتورة.  
-• التوريد يتم في المبيعات وفي الصرف وفي المشتريات.  
-• الصرف دائمًا تكلفته تعمل على طريقة الفكرة المدرسية.  
-• أمثلة على عمليات الشراء وإنشاء فاتورة الشيرة ثم إنتاج توريدات عليها.  
-• حالات التوريد التي تتم قبل وصول الفاتورة وتم بيع السلع المنتجة إلى جهات أخرى قبل تحديد سعرها في النظام.  
-• يسمى هذا نوع من التوريد "توريد غير مكلف".  
-• مثال على التوريد غير المكلف يظهر عند استلام الجلد إذا وجدت كميات فعلية أكثر من الكميات المسجلة، يقوم النظام بإضافة توريد لتلك الكميات الفائضة بحسب قواعد التوريد غير المكلف.
+• There are various types of costed supply, including supply that comes from the sales system or supply not linked to an invoice.  
+• Supply occurs in sales, issuances, and purchases.  
+• Issuance always calculates its cost using the standard textbook method.  
+• Examples of purchasing operations and creating a purchase invoice, then generating supplies against it.  
+• Cases of supply that occur before the invoice arrives, where produced goods have been sold to other parties before their price is determined in the system.  
+• This is called "uncosted supply."  
+• An example of uncosted supply appears when receiving leather: if actual quantities exceed the recorded quantities, the system adds supply for those surplus quantities according to uncosted supply rules.
 
 ---
 
-## عهد تقييم المخزون وتعديله
+## Inventory Revaluation and Adjustment
 [00:02:43](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=163s)  
-• تأخذ حالات مثل وجود 10 قطع في المخزن تكلفتهم 150 جنيه.  
-• إمكانية إعادة تقريب المخزون لأي سعر بين هذه القيم.  
-• عند تغير السعر، يقوم النظام بخصم المخزون وإرجاعه بسعر جديد، والفارق يسجل في حساب مخصص يسمى "**عهد التقييم المخزون**".  
-• لا تظهر هذه العمليات في تقارير Q2I Transline لأنها ليست حركة فعلية في المخزون بل تعديلًا للقيمة فقط.
+• Cases such as having 10 units in the warehouse at a cost of 150 EGP.  
+• The ability to re-price inventory to any value within these parameters.  
+• When the price changes, the system deducts the inventory and restores it at the new price, with the difference recorded in a dedicated account called the "**Inventory Revaluation Account**."  
+• These operations do not appear in Q2I Transline reports because they are not actual inventory movements, only value adjustments.
 
 ---
 
-## الانتقال للحديث عن الاعتبارات المستندية وتكاليف الاتفاقية
+## Transition to Documentary Credits and Agreement Costs
 [00:05:09](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=309s)  
-• مثال على وجود فرع في القاهرة وآخر في أسوان.  
-• عندما تستورد البضاعة إلى فرع الإسكندرية وتنقلها بين الفروع، يتم حساب تكلفة النقل على البضاعة لتضمينها ضمن التكلفة الكلية.  
-• شرح كيفية نقل 500 موبايل وشاشة كمبيوتر وتلفزيون من الإسكندرية إلى القاهرة مع تكلفة نقل 10,000 جنيه.
+• Example of having a branch in Cairo and another in Aswan.  
+• When importing goods to the Alexandria branch and transferring them between branches, the transportation cost is calculated against the goods to include it within the total cost.  
+• Explanation of how to transfer 500 mobile phones, a computer monitor, and a TV from Alexandria to Cairo with a transportation cost of 10,000 EGP.
 
 ---
 
-## حساب نصيب أصناف متعددة من تكلفة النقل
+## Calculating Each Item's Share of Transportation Cost
 [00:07:28](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=448s)  
-• كيفية توزيع تكلفة النقل البالغة 10,000 جنيه بين 500 موبايل وشاشة وتلفزيون.  
-• الخطوات:
-- ضرب الكمية في حجم كل صنف.
-- جمع الأحجام للحصول على الحجم الكلي.
-- استخدام نسبة الحجم لتوزيع التكلفة على كل صنف.  
-  • مثال: حجم 500 موبايل، حجم شاشة كمبيوتر، وحجم التلفزيون.  
-  • النتيجة حساب نصيب كل صنف من تكلفة النقل.
+• How to distribute the 10,000 EGP transportation cost among 500 mobile phones, a monitor, and a TV.  
+• Steps:
+- Multiply quantity by the volume of each item.
+- Sum the volumes to get the total volume.
+- Use the volume ratio to distribute the cost to each item.  
+  • Example: volume of 500 mobile phones, volume of a computer monitor, and volume of the TV.  
+  • Result: calculating each item's share of the transportation cost.
 
 ---
 
-## مناقشة توزيع التكلفة بناء على الكمية مقابل الحجم
+## Discussion on Cost Distribution by Quantity vs. Volume
 [00:12:53](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=773s)  
-• مناقشة لوجهتي نظر: هل التوزيع يجب أن يكون على أساس الكمية أو الحجم؟  
-• توضيح أن في بعض الحالات من المنطقي التوزيع على الحجم، وفي حالات أخرى العميل يطلب التوزيع على الكمية.  
-• توضيح أن التلفزيون الواحد قد يستهلك تكلفة أكبر عند التوزيع على الحجم بسبب حجمه الكبير مقارنة بالموبايل.  
-• توجد حالات خاصة مثل نقل الذهب حيث يتم توزيع التكلفة حسب الوزن بدقة لتجنب الخطأ.
+• Discussion of two viewpoints: should distribution be based on quantity or volume?  
+• Clarification that in some cases it makes sense to distribute by volume, while in other cases the customer requests distribution by quantity.  
+• Clarification that a single TV may incur a greater cost when distributing by volume due to its larger size compared to a mobile phone.  
+• Special cases exist, such as transporting gold, where costs are distributed by weight precisely to avoid errors.
 
 ---
 
-## فروقات تكلفة استيراد لحوم مقابل موبايلات
+## Cost Differences in Importing Meat vs. Mobile Phones
 [00:14:30](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=870s)  
-• مقارنات بين استيراد اللحوم (مثلًا بالكيلو بسعر 17 جنيهًا) والموبايلات ذات القيمة العالية.  
-• مناقشة كيف تختلف طريقة تحمل تكاليف الاستيراد الداخلي وفقًا لنوع البضاعة وطبيعتها.  
-• شركة الشحن لا تتحمل التكاليف المباشرة للبضاعة وأهمية فهم من يتحمل تكاليف التخزين والنقل.
+• Comparisons between importing meat (e.g., by the kilogram at 17 EGP) and high-value mobile phones.  
+• Discussion of how internal import costs differ according to the type and nature of the goods.  
+• Shipping companies do not bear the direct costs of the goods, and the importance of understanding who bears storage and transportation costs.
 
 ---
 
-## شرح مفصل لطريقة توزيع التكاليف
+## Detailed Explanation of Cost Distribution Methods
 [00:16:17](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=977s)  
-• كيفية توزيع التكلفة بشكل تفصيلي لكل صنف.  
-• أمثلة على توزيع التكاليف حسب الطول، العرض، الارتفاع، والساعات التشغيلية.  
-• أهمية معرفة معايير التوزيع التي تحقق العدالة لتكلفة كل صنف بحسب طبيعة استخدامه.
+• How to distribute costs in detail for each item.  
+• Examples of distributing costs by length, width, height, and operating hours.  
+• The importance of knowing the distribution criteria that achieve fairness for each item's cost according to its nature of use.
 
 ---
 
-## مفهوم الأسهم ودور الحجم في توزيع التكاليف
+## The Concept of "Shares" and the Role of Volume in Cost Distribution
 [00:18:17](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=1097s)  
-• فكرة "الأسهم" كمقياس لحجم الصنف.  
-• حساب نصيب كل صنف كنسبة من إجمالي الأسهم، ويتم توزيع تكلفة إضافية على أساس هذه النسبة.  
-• مثال على تحويل مخزن إلى آخر مع وجود تكلفة إضافية على النقل.  
-• التمييز بين التكاليف والمصاريف وكيف يتم احتسابها ضمن التكلفة أو خارجها.
+• The concept of "shares" as a measure of an item's volume.  
+• Calculating each item's share as a proportion of total shares, with additional cost distributed based on this proportion.  
+• Example of transferring from one warehouse to another with an additional transportation cost.  
+• The distinction between costs and expenses and how they are included or excluded from the cost.
 
 ---
 
-## معالجة تكاليف التوالف والمخزون التالف
+## Handling Spoilage and Damaged Inventory Costs
 [00:21:03](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=1263s)  
-• كيفية تسجيل التكاليف السنوية المتعلقة بالتوالف في المخزون.  
-• استخدام بنود التكاليف لتسجيل كل بند وكيفية توزيعها.  
-• مثال توضيحي عن كيفية تقسيم التكلفة بين الأصناف المختلفة.
+• How to record annual costs related to inventory spoilage.  
+• Using cost items to record each entry and how to distribute them.  
+• Illustrative example of how to split the cost among different items.
 
 ---
 
-## فائدة توزيع التكاليف بالتناسب مع الجمال والكمية
+## Benefits of Proportional Cost Distribution by Size and Quantity
 [00:22:03](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=1323s)  
-• شرح سبب استخدام مقاييس مثل الطول والعرض والارتفاع لتوزيع التكاليف.  
-• أهمية عامل التوزيع العدلي حسب طبيعة السلعة وحجمها.  
-• توضيح كيف يؤثر تغيير طريقة التوزيع على تكلفة المنتج النهائي.
+• Explanation of why measures such as length, width, and height are used to distribute costs.  
+• The importance of a fair distribution factor based on the nature and size of the goods.  
+• Clarification of how changing the distribution method affects the final product cost.
 
 ---
 
-## الاعتمادات المستندية وتعريفها
+## Letters of Credit and Their Definition
 [00:22:48](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=1368s)  
-• تعريف الاعتمادات المستندية كوسيلة دفع تضمن حقوق البائع والمشتري.  
-• شرح عمل البنك كطرف ضامن في عمليات الاستيراد.  
-• وضوح دور البنك في تسهيل إيصال الأموال للبائع وحماية المشتري.
+• Definition of letters of credit as a payment method that guarantees the rights of both seller and buyer.  
+• Explanation of the bank's role as a guaranteeing party in import operations.  
+• The clarity of the bank's role in facilitating the transfer of funds to the seller and protecting the buyer.
 
 ---
 
-## تسجيل تكاليف الاعتمادات المستندية في النظام
+## Recording Letter of Credit Costs in the System
 [00:24:40](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=1480s)  
-• عند تسجيل توريد فاتورة مع اعتبار التكلفة الإضافية للاعتماد المستندي.  
-• كيفية توزيع قيمة التكلفة التقديرية على الكميات المفتوحة في النظام.  
-• تسجيل جنرال يوفر مصاريف اعتماد مستندية خاصة بالاستلام.  
-• التمييز بين المصاريف المتعلقة بالشراء والتحويل والتجميع من جهة واعتماد المستند من جهة أخرى.
+• When recording a supply invoice while accounting for the additional letter of credit cost.  
+• How to distribute the estimated cost value across open quantities in the system.  
+• Recording a journal entry providing documentary credit expenses specific to the receipt.  
+• Distinguishing between expenses related to purchasing, transfer, and assembly on one hand, and the letter of credit on the other.
 
 ---
 
-## التوجيهات والخصومات المتعلقة بالتكلفة
+## Term Configs and Discounts Related to Cost
 [00:26:26](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=1586s)  
-• أمثلة على توجيه تكاليف متعلقة بضريبة ومصاريف جمركية.  
-• كيفية التعامل مع التحصيلات أو الاستردادات التي قد تجيء من الموردين أو من الدولة.  
-• تسجيل عرض الفروق في التسجيلات المالية الخاصة بالتكلفة.
+• Examples of directing costs related to taxes and customs fees.  
+• How to handle collections or refunds that may come from suppliers or the government.  
+• Recording the display of discrepancies in financial entries specific to cost.
 
 ---
 
-## معالجة حالة الفرق في دفعات النقل والتكاليف
+## Handling Discrepancies in Transportation Payment and Costs
 [00:28:13](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=1693s)  
-• كيفية تعديل القيود في حال تم دفع مبلغ أكبر أو أقل من التكاليف المتوقعة.  
-• إمكانية إنشاء قيود تسوية صحيحة داخل النظام بحيث يظل الحساب متوازنًا.
+• How to adjust entries if an amount greater or lesser than the expected costs was paid.  
+• The ability to create correct reconciliation entries within the system so the account remains balanced.
 
 ---
 
-## التعامل مع ارتجاعات المبيعات وإعادة الفواتير
+## Handling Sales Returns and Re-invoicing
 [00:29:34](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=1774s)  
-• عند إرجاع عدد معين من القطع المباعة يتم تعديل الفاتورة وإضافتها كمردود.  
-• أهمية تسجيل العمليات بنفس يوم البيع لتكون عملية الأعمال واضحة وسلسة.
+• When returning a certain number of sold units, the invoice is adjusted and added as a return.  
+• The importance of recording transactions on the same day of the sale to keep the business process clear and smooth.
 
 ---
 
-## تكاليف استلام خلافية متعددة الفواتير
+## Costs of Receiving with Multiple Invoices
 [00:30:40](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=1840s)  
-• تسجيل التكاليف الخاصة بالاستلام والتي تتعلق بعدة فواتير.  
-• النظام يقوم بتوزيع التكلفة على كل الفواتير كما لو كانت فاتورة واحدة.  
-• تسهيل العمل الإداري وتقليل الارتباك في التوزيع المالي.
+• Recording the specific receiving costs that relate to multiple invoices.  
+• The system distributes the cost across all invoices as if they were a single invoice.  
+• Facilitating administrative work and reducing confusion in financial distribution.
 
 ---
 
-## الاعتمادات المستندية للقصور وأصول الاستيراد الجزئي
+## Letters of Credit for Partial Import Assets and Shortfalls
 [00:33:32](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=2012s)  
-• شرح اعتماد مستندي لقطع غيار باهظة الثمن أو ماكينات يسهل استيرادها على مراحل.  
-• يتم استيرادها على دفعات شهرية أو عدة مرات على أشهر مختلفة.  
-• يتم تجهيز اعتماد مستندي خاص بالقصور لضبط الحسابات.  
-• إعداد سند إضافي وتسوية الأصول العامة وعدم تسجيلها كبضاعة في المخزون.
+• Explanation of a letter of credit for expensive spare parts or machines that are easily imported in stages.  
+• They are imported in monthly installments or multiple times over different months.  
+• A special letter of credit is prepared for shortfalls to control the accounts.  
+• Preparing an additional voucher and settling general assets without recording them as goods in inventory.
 
 ---
 
-## التجميع والتصنيع داخل المخزون
+## Assembly and Manufacturing Within the Warehouse
 [00:36:22](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=2182s)  
-• الفرق بين عمليات التجميع والتصنيع.  
-• شرح مفصل لكيفية استخدام سنوات التحويل والتجميع لتسوية المخزون داخليًا.  
-• تسجيل وتحميل تكاليف محددة لكل مرحلة بشكل منفصل.  
-• مثال على تخصيص التكاليف على عدة مراحل إنتاجية.
+• The difference between assembly and manufacturing operations.  
+• Detailed explanation of how conversion and assembly orders are used to settle inventory internally.  
+• Recording and loading specific costs for each stage separately.  
+• Example of allocating costs across multiple production stages.
 
 ---
 
-## خطوات التجميع مع تنظيم العبوات والاستيكرات
+## Assembly Steps with Packaging and Labeling Organization
 [00:37:13](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=2233s)  
-• أهمية التعبئة الجيدة للمنتجات ضمن العبوات المخصصة.  
-• دور الملصقات (الاستيكرات) في تحديد المنتجات بنظام المخزون.  
-• الاستمرارية في متابعة جودة التغليف باعتبارها جزءًا من التكلفة.
+• The importance of proper product packaging in designated containers.  
+• The role of labels (stickers) in identifying products within the inventory system.  
+• Continuous monitoring of packaging quality as part of the cost.
 
 ---
 
-## متابعة الإنتاج في مصانع خارجية
+## Monitoring Production in External Factories
 [00:39:11](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=2351s)  
-• حالات يقوم فيها المصنع باستخدام مصانع أخرى لإتمام عمليات التصنيع بسبب عدم التوفر.  
-• استيراد الخامات والعبوات وإرسالها للمصنع الخارجي لإجراء التصنيع.  
-• مراقبة وضبط عمليات التصنيع الخارجية بشكل دقيق.
+• Cases where the factory uses other factories to complete manufacturing operations due to unavailability.  
+• Importing raw materials and packaging and sending them to the external factory for manufacturing.  
+• Precisely monitoring and controlling external manufacturing operations.
 
 ---
 
-## تفاصيل عمليات التجميع والتصنيع ومراحلها
+## Details of Assembly and Manufacturing Operations and Their Stages
 [00:40:07](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=2407s)  
-• توضيح فكرة السنة التحويلية وسنة التجميع في المخازن المختلفة.  
-• تسجيل التكاليف المتعلقة بالنقل الخارجي، التجميع، إضافة التكاليف الأخرى للحصول على تكلفة نهائية للمنتج.  
-• شرح كيفية تخصيص الموارد والمواد الخام على الإنتاج.
+• Clarification of the concept of the conversion order and the assembly order in different warehouses.  
+• Recording costs related to external transportation, assembly, and adding other costs to arrive at a final product cost.  
+• Explanation of how to allocate resources and raw materials to production.
 
 ---
 
-## الفرق بين التكلفة المباشرة وغير المباشرة
+## The Difference Between Direct and Indirect Costs
 [00:42:02](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=2522s)  
-• تكلفة مباشرة: تكاليف يمكن قياسها مباشرة مع المنتج (مثل تكلفة المواد الخام والعمالة المباشرة).  
-• تكلفة غير مباشرة: تكاليف صعبة التوزيع والإسناد مثل تكاليف الإدارة والأمن والصيانة.  
-• مثال على توزيع رواتب الموظفين عند التعامل مع التكاليف المباشرة.
+• Direct cost: costs that can be directly measured against the product (such as raw material costs and direct labor costs).  
+• Indirect cost: costs that are difficult to distribute and allocate, such as management, security, and maintenance costs.  
+• Example of distributing employee salaries when dealing with direct costs.
 
 ---
 
-## مثال عملي على توزيع عمليات التصنيع حسب الخطوات والكميات
+## Practical Example of Distributing Manufacturing Operations by Steps and Quantities
 [00:43:23](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=2603s)  
-• تقسيم العمالة والآلات حسب الخطوات الصناعية وأعداد المنتجات.  
-• تعيين أرقام خاصة لكل خطوة وتخصيص الموارد وفقًا لها.  
-• شرح كيفية طلب صرف المخزون اللازم للعمليات القياسية حسب كمية الإنتاج.
+• Dividing labor and machines according to production steps and product counts.  
+• Assigning specific numbers to each step and allocating resources accordingly.  
+• Explanation of how to request the issuance of the inventory needed for standard operations based on production quantity.
 
 ---
 
-## تطبيق نظام مراقبة الجودة على الإنتاج
+## Applying the Quality Control System to Production
 [00:46:16](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=2776s)  
-• استخدام عمليات التفتيش والفحص في مرحلة ما بعد التحضير.  
-• أخذ عينات من المنتجات للتأكد من المطابقة والمتطلبات.  
-• تسجيل نتائج فحص الجودة وتأثيرها على الإنتاج.
+• Using inspection and examination processes in the post-preparation stage.  
+• Taking product samples to verify conformance and requirements.  
+• Recording quality inspection results and their impact on production.
 
 ---
 
-## تجميع سريع وتأكيد الفارق بين التصنيع والتجميع
+## Quick Assembly and Confirming the Difference Between Manufacturing and Assembly
 [00:46:38](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=2798s)  
-• التأكيد على أن التجميع عمليات تحويلية بسيطة مقارنة بمراحل التصنيع المعقدة.  
-• تبسيط خطوات التصنيع عبر تركيب ودمج المواد والموارد.  
-• اعتبار التجميع جزء من عمليات إنتاجية متعددة الخطوات.
+• Confirmation that assembly consists of simple conversion operations compared to the complex stages of manufacturing.  
+• Simplifying manufacturing steps through the installation and combination of materials and resources.  
+• Considering assembly as part of multi-step production operations.
 
 ---
 
-## تحرير مواد خام، تشغيل ماكينات، إضافة التكاليف في التصنيع
+## Releasing Raw Materials, Running Machines, Adding Costs in Manufacturing
 [00:47:37](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=2857s)  
-• عملية سحب المواد الخام من المخزون لإنتاج كمية معينة.  
-• تخصيص تكاليف تشغيل المعدات والعمالة المتعلقة مباشرة بالمنتج.  
-• كيفية حسابها كمصاريف إنتاج ذات صلة.
+• The process of drawing raw materials from inventory to produce a specific quantity.  
+• Allocating equipment operating costs and labor directly related to the product.  
+• How to calculate them as relevant production expenses.
 
 ---
 
-## احتساب مكونات تكلفة التصنيع وخسائر الإنتاج
+## Calculating Manufacturing Cost Components and Production Losses
 [00:48:04](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=2884s)  
-• جمع مكونات تكلفة التصنيع: الخامات، الموارد، التكاليف العامة (الهيدر).  
-• طرح الكميات المرجعة للمخازن بسبب أعطال أو خلل.  
-• التأكد من تدوين المواد المرتجعة واحتسابها ضمن النظام بشكل دقيق.
+• Summing manufacturing cost components: raw materials, resources, and overhead (header).  
+• Deducting quantities returned to warehouses due to malfunctions or defects.  
+• Ensuring that returned materials are documented and accounted for within the system accurately.
 
 ---
 
-## شرح تفصيلي لخطوات وطريقة تنفيذ عملية التصنيع
+## Detailed Explanation of the Steps and Method for Executing the Manufacturing Process
 [00:48:49](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=2929s)  
-• على سبيل المثال تصنيع منتجات دوائية.  
-• تثبيت مراحل التعبئة والتغليف داخل نظام المخزون.  
-• التعامل مع عبوات وملصقات مختلفة وتعريفها بنظام الإنتاج.
+• For example, the manufacturing of pharmaceutical products.  
+• Establishing the packaging stages within the inventory system.  
+• Dealing with various containers and labels and defining them within the production system.
 
 ---
 
-## متابعة دقيقة لعمليات التعبئة والتغليف باستخدام نظام رقابي
+## Close Monitoring of Packaging Operations Using a Control System
 [00:49:44](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=2984s)  
-• وضع شروط رقابية حول التعبئة مثل عدد معين من العبوات داخل الحاوية.  
-• اعتماد آليات للفحص والتوثيق لضمان سلامة المنتجات.  
-• سير العمل من التعبئة إلى التغليف النهائي وجاهزية الصادرات.
+• Setting control conditions around packaging, such as a specific number of units inside the container.  
+• Adopting inspection and documentation mechanisms to ensure product safety.  
+• The workflow from packaging to final wrapping and export readiness.
 
 ---
 
-## خلاصة موضوع كيفية حساب التكلفة في عمليات التصنيع والتجميع
+## Summary of How to Calculate Cost in Manufacturing and Assembly Operations
 [00:50:41](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=3041s)  
-• مراجعة شاملة لكيفية حساب تكلفة الشراء والنقل والتحويل.  
-• التأكيد على أهمية متابعة مكونات تكلفة الاعتمادات المستندية.  
-• دعوة للمشاهدين لتقديم أسئلة ومتابعة تفاصيل الموضوع بشكل دوري.
+• Comprehensive review of how to calculate purchase, transportation, and conversion costs.  
+• Emphasis on the importance of tracking the cost components of letters of credit.  
+• Invitation to viewers to submit questions and periodically follow up on the topic's details.
 
 ---
 
-## الختام والدعوة للمشاركة
+## Closing and Call for Participation
 [00:51:09](https://www.youtube.com/watch?v=qbMd1tVYs_o&t=3069s)  
-• شكر الحضور والمتابعين.  
-• تشجيع على طرح الأسئلة للمزيد من التوضيح في المواضيع المطروحة.
+• Thanking attendees and followers.  
+• Encouraging questions for further clarification on the topics discussed.
 
 ---
 
-> **ملاحظة للمستخدم:**
+> **Note for the user:**
 >
-> تم توثيق كل جزء من المحتوى وفقًا للنص الموجود في الفيديو مع توفير روابط زمنية دقيقة للرجوع إلى أجزاء الفيديو الأصلية بكل سهولة للاطلاع المباشر.
+> Every part of the content has been documented according to the text in the video, with accurate timestamps provided to easily refer back to specific parts of the original video.
 >
-> جميع الأقسام والثيمات تم صياغتها باللغة العربية مع الالتزام الدقيق بأفضل ممارسات تنسيق Markdown و VuePress 2.
+> All sections and themes have been written in English with strict adherence to best Markdown and VuePress 2 formatting practices.
 
-# نهاية الوثيقة
-</rtl>
+# End of Document

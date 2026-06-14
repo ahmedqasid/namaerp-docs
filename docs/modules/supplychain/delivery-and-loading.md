@@ -1,51 +1,51 @@
-# التسليم والتحميل (Delivery & Loading)
+# Delivery & Loading
 
-بين تأكيد أمر البيع وإصدار الفاتورة تقع المرحلة المادية: تحضير البضاعة، وتحميلها، وإيصالها للعميل، والحصول على إثبات الاستلام. يجمع هذا الدليل المستندات والإعدادات التي تدير هذه الرحلة الأخيرة - من رف المخزن إلى باب العميل.
+Between confirming the sales order and issuing the invoice lies the physical stage: preparing the goods, loading them, getting them to the customer, and obtaining proof of receipt. This guide gathers the documents and configuration that manage this final journey - from the warehouse shelf to the customer's door.
 
-## التحضير: سحب الأصناف (Pick)
+## Preparation: Picking Items (Pick)
 
-قبل أن تغادر البضاعة، يجب جمعها من مواقعها في المخزن. **قواعد التحضير (PickRules)** تحدّد كيف يختار النظام ما يُسحب ومن أين: بالأقدم أولًا (FIFO)، أو بالأقرب انتهاءً (FEFO)، أو حسب الموقع الأقرب، أو الدفعة المناسبة. وتُولَّد قائمة التحضير التي توجّه عامل المخزن إلى الأصناف ومواقعها بالتسلسل الأمثل عبر الممرات، فتقلّ الأخطاء ويسرع التجهيز.
+Before goods can leave, they must be gathered from their locations in the warehouse. **Pick Rules (PickRules)** determine how the system selects what to pick and from where: oldest first (FIFO), nearest expiry (FEFO), nearest location, or the right batch. A pick list is generated that guides the warehouse worker to the items and their locations in the optimal sequence through the aisles, reducing errors and speeding preparation.
 
-## التحميل: تجميع الشحنة (LoadingDocument)
+## Loading: Consolidating the Shipment (LoadingDocument)
 
-**مستند التحميل** يسجّل تجميع عدة تسليمات في حمولة واحدة (شاحنة أو شحنة): يجمعها حسب المسار أو السائق أو المركبة، ويتتبع حالة التحميل وسعة المركبة، ويربط الأوامر/الفواتير المصدر بالشحنة. هذا يخلق "منطقة انتظار" منطقية: البضاعة لم تعد في التخزين العادي (لا تُباع لغيره)، ولم تُسلَّم بعد (لا تزال في مخزونك)، لكنها جاهزة على رصيف التحميل منظَّمةً حسب الشحنة.
+The **Loading Document** records the consolidation of several deliveries into a single load (truck or shipment): it groups them by route, driver, or vehicle, tracks loading status and vehicle capacity, and links the source orders/invoices to the shipment. This creates a logical "staging area": the goods are no longer in normal storage (not sold to others) and not yet delivered (still in your inventory), but ready on the loading dock organized by shipment.
 
-عند الحاجة لإلغاء شحنة وإعادة بضاعتها للتخزين، يتولّى ذلك **إلغاء التحميل** (LoadingCancellationDoc).
+When you need to cancel a shipment and return its goods to storage, the **Loading Cancellation** (LoadingCancellationDoc) handles it.
 
-## التسليم وإثبات الاستلام (DeliveryDocument)
+## Delivery and Proof of Receipt (DeliveryDocument)
 
-**مستند التسليم** يسجّل أن الأصناف حُمِّلت على المركبة وسُلِّمت للعميل ووُقِّع على استلامها، فخرجت من حيازتك. يتتبع المستند حالة التسليم (قيد الانتظار، مُسلَّم، جزئي، ملغى)، والسائق والمركبة لكل سطر، وقد يدعم تأكيد التسليم بكلمة مرور للعميل. وهو وثيقة **إثبات التسليم** - حيوية إن ادّعى العميل لاحقًا عدم الاستلام. كما يُرقَّم كل تسليم عبر **رقم التسليم** (DeliveryNumber) لتسهيل تتبعه ضمن إدارة الطوابير.
+The **Delivery Document** records that items were loaded onto the vehicle, delivered to the customer, and signed for, so they left your custody. The document tracks delivery status (pending, delivered, partial, cancelled), the driver and vehicle per line, and may support delivery confirmation with a customer password. It's the **proof of delivery** document - vital if the customer later claims non-receipt. Each delivery is also numbered via the **Delivery Number** (DeliveryNumber) to ease tracking within queue management.
 
-![شاشة مستند التسليم في Nama ERP](images/delivery/delivery-document-ar.png)
+![Delivery document screen in NaMa ERP](../../ar/modules/supplychain/images/delivery/delivery-document-en.png)
 
-عند فشل التسليم أو الحاجة لإلغائه وإعادة البضاعة، يتولّى ذلك **إلغاء التسليم** (DeliveryCancellationDoc)، فيعكس أثر التسليم ويعيد البضاعة إلى المخزون المتاح.
+When a delivery fails or needs to be cancelled and the goods returned, the **Delivery Cancellation** (DeliveryCancellationDoc) handles it, reversing the delivery's effect and returning the goods to available stock.
 
-::: tip التسليم والحجز
-يتكامل التسليم مع [نظام الحجوزات](./reservation-system-guide.md): فعند تسليم بضاعة محجوزة لأمر، يُحرَّر حجزها وتنتقل من "محجوز" إلى "خارج" فعليًا.
+::: tip Delivery and Reservation
+Delivery integrates with the [Reservation System](./reservation-system-guide.md): when delivering goods reserved for an order, the reservation is released and they move from "reserved" to actually "out."
 :::
 
-## طوابير التسليم: تنظيم التوصيل (DeliveryQueue)
+## Delivery Queues: Organizing Distribution (DeliveryQueue)
 
-في الأعمال كثيفة التوصيل (مطاعم، توزيع، تجارة إلكترونية)، يحتاج التسليم إلى تنظيم أعمق. **طابور التسليم** يدير توجيه التسليمات وتعيينها للسائقين بقواعد أولوية (عاجل، حسّاس للوقت، حسب المنطقة)، ويضبط منطق التعيين الآلي وحدود التحقق.
+In delivery-intensive businesses (restaurants, distribution, e-commerce), delivery needs deeper organization. The **Delivery Queue** manages routing deliveries and assigning them to drivers with priority rules (urgent, time-sensitive, by region), and configures automatic assignment logic and verification limits.
 
-![شاشة طابور التسليم في Nama ERP](images/delivery/delivery-queue-ar.png)
+![Delivery queue screen in NaMa ERP](../../ar/modules/supplychain/images/delivery/delivery-queue-en.png)
 
-يكتمل النظام بثلاثة ملفات إعداد:
-- **إعداد طابور التسليم** (DeliveryQueueConfiguration): معايير تشغيل الطابور، ومستويات الخدمة، والنوافذ الزمنية، وقواعد الأولوية والتعيين الآلي.
-- **إعداد سائق التسليم** (DeliveryDriverConfig): قدرات السائق، وأنواع المركبات المصرّح بها، والمناطق الجغرافية، والشهادات (مثل النقل المبرّد).
-- **منظمة التسليم** (DeliveryOrganization): الهيكل التنظيمي لعمليات التوصيل، وربط المناطق بالفروع/المخازن.
+The system is completed by three configuration files:
+- **Delivery Queue Configuration** (DeliveryQueueConfiguration): queue operation criteria, service levels, time windows, and priority and auto-assignment rules.
+- **Delivery Driver Config** (DeliveryDriverConfig): the driver's capabilities, authorized vehicle types, geographic zones, and certifications (such as refrigerated transport).
+- **Delivery Organization** (DeliveryOrganization): the organizational structure for delivery operations, linking zones to branches/warehouses.
 
-## الصورة الكاملة
+## The Full Picture
 
-تخيّل أمر بيع جاهزًا للتنفيذ:
-1. **التحضير**: تولّد قائمة التحضير وفق قواعدها، فيجمع العامل الأصناف من مواقعها.
-2. **التحميل**: يجمع مستند التحميل عدة تسليمات في شاحنة المسار، فتنتقل البضاعة إلى رصيف التحميل.
-3. **التوجيه**: يعيّن طابور التسليم الشحنة لسائق ومركبة مناسبين حسب المنطقة والأولوية.
-4. **التسليم**: يوصل السائق، ويُسجَّل مستند التسليم بإثبات الاستلام، فيتحرّر الحجز وتغادر البضاعة مخزونك.
-5. **الفوترة**: تُصدر [فاتورة المبيعات](./sales-journey.md) لتكمل المعاملة المالية.
+Imagine a sales order ready for fulfillment:
+1. **Preparation**: a pick list is generated per its rules, and the worker gathers items from their locations.
+2. **Loading**: the loading document consolidates several deliveries into the route truck, and the goods move to the loading dock.
+3. **Routing**: the delivery queue assigns the shipment to an appropriate driver and vehicle by region and priority.
+4. **Delivery**: the driver delivers, the delivery document is recorded with proof of receipt, the reservation is released, and the goods leave your inventory.
+5. **Invoicing**: the [Sales Invoice](./sales-journey.md) is issued to complete the financial transaction.
 
-## الخطوات التالية
+## Next Steps
 
-- [رحلة المبيعات](./sales-journey.md) - أين يقع التسليم في دورة البيع
-- [دليل نظام الحجوزات](./reservation-system-guide.md) - حجز المخزون قبل التسليم
-- [تحريك المخزون بين المخازن](./moving-stock.md) - التحويلات الداخلية قبل التحضير
+- [The Sales Journey](./sales-journey.md) - where delivery fits in the sales cycle
+- [Reservation System Guide](./reservation-system-guide.md) - reserving stock before delivery
+- [Moving Stock Between Warehouses](./moving-stock.md) - internal transfers before picking

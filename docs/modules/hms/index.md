@@ -1,15 +1,15 @@
 <div class="ignore-in-full-text-search">
 
-# نظام إدارة المستشفيات
-  - [نظام إدارة المستشفيات (Hospital Management System)](/modules/hms/hms-intro.md)
-  - [هيكل المستشفى والغرف](/modules/hms/hms-facility.md)
-  - [الملفات الطبية الأساسية](/modules/hms/hms-medical-master-files.md)
-  - [كتالوج الخدمات الطبية](/modules/hms/hms-service-catalog.md)
-  - [التأمين الطبي والموافقات](/modules/hms/hms-insurance.md)
-  - [الأسعار والتكاليف والخصومات](/modules/hms/hms-pricing.md)
-  - [المرضى والدخول](/modules/hms/hms-patients.md)
-  - [التسكين والتغذية](/modules/hms/hms-accommodation.md)
-  - [الطلبات والنتائج الإكلينيكية](/modules/hms/hms-clinical-orders.md)
-  - [الفواتير والمحاسبة](/modules/hms/hms-invoicing.md)
+# Hospital Management System
+  - [Hospital Management System](/modules/hms/hms-intro.md)
+  - [Hospital Structure & Rooms](/modules/hms/hms-facility.md)
+  - [Medical Master Files](/modules/hms/hms-medical-master-files.md)
+  - [Medical Service Catalog](/modules/hms/hms-service-catalog.md)
+  - [Medical Insurance & Approvals](/modules/hms/hms-insurance.md)
+  - [Pricing, Costing & Discounts](/modules/hms/hms-pricing.md)
+  - [Patients & Admission](/modules/hms/hms-patients.md)
+  - [Accommodation & Feeding](/modules/hms/hms-accommodation.md)
+  - [Clinical Orders & Results](/modules/hms/hms-clinical-orders.md)
+  - [Invoicing & Billing](/modules/hms/hms-invoicing.md)
 
 </div>

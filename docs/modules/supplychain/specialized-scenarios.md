@@ -1,52 +1,52 @@
-# سيناريوهات متخصصة (Specialized Scenarios)
+# Specialized Scenarios
 
-تغطّي الصفحات السابقة المسارات الأساسية لسلسلة التوريد. لكن تبقى حالات متخصصة لا تتّسع لها صفحة بعينها: أوامر عمل خاصة بقطاع، وأدوات أتمتة لتوليد المستندات، والمناقصات. يجمعها هذا الدليل، ويشير إلى مواطنها حين تتبع وحدات أخرى.
+The previous pages cover the core supply chain paths. But some specialized cases don't fit a page of their own: sector-specific job orders, document-automation tools, and tenders. This guide gathers them, and points to their homes when they belong to other modules.
 
-## أوامر عمل الزجاج (Glass Job Order)
+## Glass Job Orders (Glass Job Order)
 
-لقطاع تصنيع الزجاج وما يشبهه من تصنيع قائم على العمليات، يوفّر النظام مسار **أوامر عمل الزجاج** المتخصص: من تقدير الطلب إلى التنفيذ التشغيلي إلى التسليم.
+For the glass-manufacturing sector and similar process-based manufacturing, the system provides the specialized **Glass Job Order** path: from estimating the request to operational execution to delivery.
 
-![شاشة أمر عمل الزجاج في Nama ERP](images/specialized/glass-job-order-ar.png)
+![Glass job order screen in NaMa ERP](../../ar/modules/supplychain/images/specialized/glass-job-order-en.png)
 
-يبدأ المسار بـ**طلب أمر العمل** (GlassJobOrderReq) لدراسة التكلفة وعرض السعر، ثم يتحوّل إلى **أمر عمل الزجاج** (GlassJobOrder) الذي يحمل قائمة المواد والعمليات وأصناف التسليم. وتُعرّف العمليات عبر **خريطة العمليات** (GlassOperationMap)، وتُسجَّل التنفيذات عبر **تنفيذ العملية** (OrderExecution) التي تتتبع الموظف المسؤول والوقت والتكلفة الفعلية وتولّد صرف المواد. وتُحدَّث الحالة عبر **تحديث حالة أمر العمل** (GlassJobOrderStatusUpdate)، ويُسلَّم الناتج عبر **تسليم الأمر** (OrderDelivery) و**إنهاء الأمر** (OrderFinished). كما يدعم المسار التعاقد الخارجي عبر **طلب/صرف/استلام التعهيد** (OutsourceRequest / OutsourceIssue / OutsourceReceipt)، وتوثيق التلف عبر **تلف الأمر** (OrderDamage)، والمصاريف عبر **مصروف أمر العمل** (JOrderExpense).
+The path starts with the **Job Order Request** (GlassJobOrderReq) for cost study and quotation, then converts to the **Glass Job Order** (GlassJobOrder) that carries the bill of materials, operations, and delivery items. Operations are defined via the **Operation Map** (GlassOperationMap), and executions are recorded via **Order Execution** (OrderExecution), which tracks the responsible employee, time, and actual cost and generates material issues. Status is updated via **Job Order Status Update** (GlassJobOrderStatusUpdate), and output is delivered via **Order Delivery** (OrderDelivery) and **Order Finished** (OrderFinished). The path also supports outsourcing via **Outsource Request / Issue / Receipt** (OutsourceRequest / OutsourceIssue / OutsourceReceipt), damage documentation via **Order Damage** (OrderDamage), and expenses via **Job Order Expense** (JOrderExpense).
 
-::: info قطاع متخصص
-أوامر عمل الزجاج وحدة فرعية موجَّهة لقطاع محدد؛ إن لم يكن عملك في هذا المجال فلن تحتاج إليها. وتعتمد على نفس مفاهيم [التجميع](./assembly-and-packaging.md) و[الموارد](#الموارد-والأنشطة) لكن بمسار أوامر مخصّص.
+::: info A Specialized Sector
+Glass job orders are a sector-specific sub-module; if your business isn't in this field, you won't need them. They rely on the same concepts as [assembly](./assembly-and-packaging.md) and [resources](#Resources-and-Activities) but with a dedicated order path.
 :::
 
-## أدوات أتمتة المستندات
+## Document Automation Tools
 
-تتكرر في سلسلة التوريد عمليات توليد مستند من آخر (توريد من أمر شراء، فاتورة من تسليم...). يوفّر النظام أدوات تجعل هذا التوليد آليًا ومنضبطًا:
+Supply chain repeatedly generates one document from another (a receipt from a purchase order, an invoice from a delivery...). The system provides tools that make this generation automatic and controlled:
 
-- **مجموعة قواعد المستندات** (SCDocRuleSet): محرّك قواعد مركزي يُطلق إنشاء مستندات تلقائيًا من مستندات مصدر وفق شروط محددة.
-- **قاعدة إنشاء مستند إضافي** (SCExtraDocCreationRule): تعرّف توليد مستند إضافي عند حدث معيّن.
-- **حقول النسخ الإضافية** (SCCopierExtraFields): تحدّد الحقول التي تُنسخ عند اشتقاق مستند من آخر، مع نصوص نسخ خاصة بنوع الكيان.
-- **إعداد تتبع حالة الكمية** (OrderStatusQtyTrackConfig): يضبط انتقالات حالة الأمر بناءً على الكميات المستلمة/المصروفة، فيؤتمت سير العمل المدفوع بالكمية.
-- **إعداد التسليم** (DeliveryConfiguration): يعرّف قيود التسليم وعلاقات الكميات ومعايير تجميعه عبر الأوامر.
+- **Document Rule Set** (SCDocRuleSet): a central rules engine that triggers automatic document creation from source documents under defined conditions.
+- **Extra Document Creation Rule** (SCExtraDocCreationRule): defines generating an extra document on a particular event.
+- **Copier Extra Fields** (SCCopierExtraFields): determines which fields are copied when a document is derived from another, with entity-type-specific copy scripts.
+- **Order Status Quantity Tracking Config** (OrderStatusQtyTrackConfig): sets order-status transitions based on received/issued quantities, automating quantity-driven workflow.
+- **Delivery Configuration** (DeliveryConfiguration): defines delivery constraints, quantity relations, and consolidation criteria across orders.
 
-هذه الأدوات للمستخدمين المتقدمين ومسؤولي التطبيق الذين يفصّلون سلوك النظام دون برمجة.
+These tools are for advanced users and implementation administrators who tailor system behavior without coding.
 
-## المناقصات (Tender)
+## Tenders (Tender)
 
-عندما يجري الشراء عبر منافسة رسمية، يوفّر النظام **المناقصة** (Tender): دعوة الموردين لتقديم عروضهم وفق مواصفات، وتتبّع العروض ومقارنتها، ودعم التقييم الموزون والاختيار. وتُعرّف الشروط والأحكام القياسية للعروض عبر **شرط المناقصة** (TenderCondition). يكمّل هذا [رحلة الشراء](./purchasing-journey.md) في الحالات التي تستلزم تنافسًا منظّمًا.
+When purchasing goes through a formal competition, the system provides the **Tender** (Tender): inviting suppliers to submit bids to specifications, tracking and comparing bids, and supporting weighted evaluation and selection. Standard terms and conditions for bids are defined via the **Tender Condition** (TenderCondition). This complements [The Purchasing Journey](./purchasing-journey.md) in cases that require organized competition.
 
-## الموارد والأنشطة
+## Resources and Activities
 
-تستند بعض المسارات المتخصصة (كأوامر العمل) إلى ملفات أساسية مشتركة:
-- **المورد** (Resource): يعرّف الموارد البشرية والآلية لعمليات أوامر العمل والتصنيع، بمعدّلات وفترات وتكاليف وإعداد محاسبي.
-- **النشاط** (Activity): ملف مرن لتتبع أنشطة ومراحل متنوّعة ضمن أوامر العمل.
-- **تصنيف المواد** (MaterialClassification): تصنيف للمواد حسب النوع أو الدرجة أو المصدر لأغراض التقارير والتحليل.
+Some specialized paths (such as job orders) rely on shared master files:
+- **Resource** (Resource): defines human and machine resources for job-order and manufacturing operations, with rates, periods, costs, and accounting setup.
+- **Activity** (Activity): a flexible file for tracking various activities and milestones within job orders.
+- **Material Classification** (MaterialClassification): classifies materials by type, grade, or source for reporting and analysis.
 
-## سيناريوهات تتبعها وحدات أخرى
+## Scenarios That Belong to Other Modules
 
-بعض السيناريوهات المتخصصة لها وحداتها المستقلة وإن تقاطعت مع سلسلة التوريد:
-- **نقاط البيع (POS)**: البيع بالتجزئة السريع له [وحدته الخاصة](/modules/pos/).
-- **الصيدليات والمستلزمات الطبية**: في وحدة إدارة المستشفيات (HMS) بمساراتها الخاصة.
-- **مواد مواقع المشاريع**: في وحدة المقاولات.
-- **التصنيع المعقّد**: في [وحدة التصنيع](/modules/manufacturing/).
+Some specialized scenarios have their own standalone modules even though they intersect with supply chain:
+- **Point of Sale (POS)**: fast retail selling has its [own module](/modules/pos/).
+- **Pharmacies and medical supplies**: in the Hospital Management (HMS) module with its own paths.
+- **Project site materials**: in the Contracting module.
+- **Complex manufacturing**: in the [Manufacturing module](/modules/manufacturing/).
 
-## الخطوات التالية
+## Next Steps
 
-- [التجميع والتعبئة](./assembly-and-packaging.md) - الأساس الذي تبني عليه أوامر العمل
-- [رحلة الشراء](./purchasing-journey.md) - المناقصات ضمن الشراء
-- [الأسئلة الشائعة لسلسلة التوريد](./supply-chain-faq.md) - حالات وأسئلة متفرقة
+- [Assembly & Packaging](./assembly-and-packaging.md) - the foundation job orders build on
+- [The Purchasing Journey](./purchasing-journey.md) - tenders within purchasing
+- [Supply Chain FAQ](./supply-chain-faq.md) - miscellaneous cases and questions
