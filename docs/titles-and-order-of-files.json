@@ -109,7 +109,6 @@
     "/modules/accounting/support/accounting-dimensions-and-distribution.md",
     "/modules/accounting/support/accounting-periods-and-currency.md",
     "/modules/supplychain",
-    "/modules/supplychain/supply-chain-intro.md",
     "/modules/supplychain/understanding-items.md",
     "/modules/supplychain/warehouses-and-locators.md",
     "/modules/supplychain/receiving-stock.md",
@@ -130,8 +129,20 @@
     "/modules/supplychain/specialized-scenarios.md",
     "/modules/supplychain/ignore-reservation-qty-check-by-date.md",
     "/modules/supplychain/supply-chain-faq.md",
+    "/modules/supplychain/configuration",
+    "/modules/supplychain/configuration/costing-configuration.md",
+    "/modules/supplychain/configuration/overdraft-and-quantity-checking.md",
+    "/modules/supplychain/configuration/quantity-suggestion-configuration.md",
+    "/modules/supplychain/configuration/item-properties-configuration.md",
+    "/modules/supplychain/configuration/items-and-master-data-configuration.md",
+    "/modules/supplychain/configuration/purchasing-configuration.md",
+    "/modules/supplychain/configuration/sales-and-offers-configuration.md",
+    "/modules/supplychain/configuration/pricing-and-price-lists.md",
+    "/modules/supplychain/configuration/documents-and-details-configuration.md",
+    "/modules/supplychain/configuration/stock-taking-configuration.md",
+    "/modules/supplychain/configuration/stock-ages-configuration.md",
+    "/modules/supplychain/configuration/item-barcode-specifications.md",
     "/modules/freight",
-    "/modules/freight/freight-intro.md",
     "/modules/freight/freight-master-files.md",
     "/modules/freight/operation-orders.md",
     "/modules/freight/bills-of-lading.md",
@@ -143,7 +154,6 @@
     "/modules/freight/ips-receptacles.md",
     "/modules/freight/ips-delivery.md",
     "/modules/hms",
-    "/modules/hms/hms-intro.md",
     "/modules/hms/hms-facility.md",
     "/modules/hms/hms-medical-master-files.md",
     "/modules/hms/hms-service-catalog.md",
@@ -308,6 +318,10 @@
     "/modules/supplychain": {
       "ar": "سلسلة التوريد",
       "en": "Supply Chain"
+    },
+    "/modules/supplychain/configuration": {
+      "ar": "إعدادات سلسلة التوريد",
+      "en": "Configuration"
     },
     "/modules/manufacturing": {
       "ar": "التصنيع",

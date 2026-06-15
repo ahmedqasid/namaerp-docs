@@ -1,7 +1,7 @@
 export const SIDEBAR_CONFIG = {
   "/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -11,7 +11,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -40,21 +40,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -89,7 +94,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -103,7 +108,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -153,7 +158,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -168,7 +173,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "//" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -178,7 +183,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -207,21 +212,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -256,7 +266,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -270,7 +280,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -320,7 +330,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -335,14 +345,14 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/getting-started/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
     }, {
       text: "Getting Started",
       "link" : "/getting-started/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "System Minimum Requirements",
         "link" : "/getting-started/system-minimum-requirements"
@@ -359,7 +369,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -388,21 +398,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -437,7 +452,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -451,7 +466,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -501,7 +516,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -516,7 +531,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/platform/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -526,7 +541,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Utility Links",
         "link" : "/platform/utils"
@@ -588,21 +603,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -637,7 +657,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -651,7 +671,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -701,7 +721,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -716,7 +736,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/platform/screen-modifier/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -726,11 +746,11 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Layout Names:",
           "link" : "/platform/screen-modifier/screen-modifier"
@@ -763,21 +783,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -812,7 +837,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -826,7 +851,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -876,7 +901,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -891,7 +916,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/platform/list-views/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -901,14 +926,14 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
         text: "List Views",
         "link" : "/platform/list-views/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Quick Filters in List Views",
           "link" : "/platform/list-views/quick-filters"
@@ -938,21 +963,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -987,7 +1017,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -1001,7 +1031,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -1051,7 +1081,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -1066,7 +1096,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/platform/approvals/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -1076,7 +1106,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -1086,7 +1116,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Approvals",
         "link" : "/platform/approvals/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Approvals System - Approval Definition Full Guide",
           "link" : "/platform/approvals/approvals-system"
@@ -1116,21 +1146,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -1165,7 +1200,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -1179,7 +1214,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -1229,7 +1264,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -1244,7 +1279,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/platform/security/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -1254,7 +1289,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -1267,7 +1302,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Security & Permissions",
         "link" : "/platform/security/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Security System Overview",
           "link" : "/platform/security/security-overview"
@@ -1303,21 +1338,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -1352,7 +1392,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -1366,7 +1406,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -1416,7 +1456,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -1431,7 +1471,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/platform/entity-flows/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -1441,7 +1481,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -1457,7 +1497,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Entity Flows",
         "link" : "/platform/entity-flows/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Introduction to Entity Flows",
           "link" : "/platform/entity-flows/introduction-to-entity-flows"
@@ -1487,21 +1527,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -1536,7 +1581,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -1550,7 +1595,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -1600,7 +1645,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -1615,7 +1660,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/platform/reports/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -1625,7 +1670,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -1644,7 +1689,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Reports",
         "link" : "/platform/reports/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Jasper Reports Complete Guide for Nama ERP",
           "link" : "/platform/reports/reports-guide"
@@ -1671,21 +1716,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -1720,7 +1770,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -1734,7 +1784,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -1784,7 +1834,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -1799,7 +1849,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/platform/bi/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -1809,7 +1859,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -1831,7 +1881,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Business Intelligence",
         "link" : "/platform/bi/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "BI Module — Dashboards & Analytics",
           "link" : "/platform/bi/bi-module-guide"
@@ -1855,21 +1905,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -1904,7 +1959,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -1918,7 +1973,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -1968,7 +2023,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -1983,7 +2038,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/platform/notifications/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -1993,7 +2048,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -2018,7 +2073,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Notifications",
         "link" : "/platform/notifications/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Nama ERP Notification System",
           "link" : "/platform/notifications/notifications-system"
@@ -2033,21 +2088,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -2082,7 +2142,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -2096,7 +2156,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -2146,7 +2206,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -2161,7 +2221,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/modules/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -2171,7 +2231,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -2200,21 +2260,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -2249,7 +2314,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -2263,7 +2328,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -2313,7 +2378,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -2328,7 +2393,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/modules/invoicing/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -2338,7 +2403,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -2367,11 +2432,11 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Customer Reward Points (Loyalty Points)",
           "link" : "/modules/invoicing/reward-points"
@@ -2415,14 +2480,19 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -2457,7 +2527,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -2471,7 +2541,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -2521,7 +2591,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -2536,7 +2606,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/modules/accounting/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -2546,7 +2616,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -2575,14 +2645,14 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Accounting Concepts & First-Time Setup",
           "link" : "/modules/accounting/accounting-concepts-and-setup"
@@ -2670,7 +2740,12 @@ export const SIDEBAR_CONFIG = {
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -2705,7 +2780,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -2719,7 +2794,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -2769,7 +2844,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -2784,7 +2859,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/modules/accounting/support/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -2794,7 +2869,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -2823,18 +2898,18 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/",
-          "collapsed" : false,
+          "collapsed" : true,
           "items" : [ {
             text: "How Documents Are Processed Into Accounting Effects (and reprocessing a stuck request)",
             "link" : "/modules/accounting/support/accounting-request-processing"
@@ -2854,7 +2929,12 @@ export const SIDEBAR_CONFIG = {
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -2889,7 +2969,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -2903,7 +2983,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -2953,7 +3033,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -2968,7 +3048,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/modules/supplychain/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -2978,7 +3058,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -3007,14 +3087,14 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
@@ -3022,11 +3102,8 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Supply Chain",
         "link" : "/modules/supplychain/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
-          text: "Supply Chain Management",
-          "link" : "/modules/supplychain/supply-chain-intro"
-        }, {
           text: "Understanding Inventory Items",
           "link" : "/modules/supplychain/understanding-items"
         }, {
@@ -3086,6 +3163,9 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "FAQ — Distribution, Warehousing, Sales & Purchasing Module",
           "link" : "/modules/supplychain/supply-chain-faq"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
         } ]
       }, {
         text: "Freight Management",
@@ -3121,7 +3201,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -3135,7 +3215,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -3185,7 +3265,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -3198,9 +3278,9 @@ export const SIDEBAR_CONFIG = {
       } ]
     } ]
   } ],
-  "/modules/freight/" : [ {
+  "/modules/supplychain/configuration/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -3210,7 +3290,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -3239,29 +3319,241 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "Costing Configuration",
+            "link" : "/modules/supplychain/configuration/costing-configuration"
+          }, {
+            text: "Overdraft & Quantity Checking Configuration",
+            "link" : "/modules/supplychain/configuration/overdraft-and-quantity-checking"
+          }, {
+            text: "Quantity Suggestion Configuration",
+            "link" : "/modules/supplychain/configuration/quantity-suggestion-configuration"
+          }, {
+            text: "Item Properties Configuration",
+            "link" : "/modules/supplychain/configuration/item-properties-configuration"
+          }, {
+            text: "Items & Master Data Configuration",
+            "link" : "/modules/supplychain/configuration/items-and-master-data-configuration"
+          }, {
+            text: "Purchasing Configuration",
+            "link" : "/modules/supplychain/configuration/purchasing-configuration"
+          }, {
+            text: "Sales & Offers Configuration",
+            "link" : "/modules/supplychain/configuration/sales-and-offers-configuration"
+          }, {
+            text: "Pricing & Price Lists Configuration",
+            "link" : "/modules/supplychain/configuration/pricing-and-price-lists"
+          }, {
+            text: "Documents & Details Configuration",
+            "link" : "/modules/supplychain/configuration/documents-and-details-configuration"
+          }, {
+            text: "Stock Taking Configuration",
+            "link" : "/modules/supplychain/configuration/stock-taking-configuration"
+          }, {
+            text: "Stock Ages Configuration",
+            "link" : "/modules/supplychain/configuration/stock-ages-configuration"
+          }, {
+            text: "Item Barcode Specifications",
+            "link" : "/modules/supplychain/configuration/item-barcode-specifications"
+          } ]
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/"
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/freight/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
-          text: "Freight Management",
-          "link" : "/modules/freight/freight-intro"
-        }, {
           text: "Freight Master Files",
           "link" : "/modules/freight/freight-master-files"
         }, {
@@ -3323,7 +3615,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -3337,7 +3629,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -3387,7 +3679,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -3402,7 +3694,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/modules/hms/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -3412,7 +3704,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -3441,32 +3733,34 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
       }, {
         text: "Hospital Management System",
         "link" : "/modules/hms/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
-          text: "Hospital Management System",
-          "link" : "/modules/hms/hms-intro"
-        }, {
           text: "Hospital Structure & Rooms",
           "link" : "/modules/hms/hms-facility"
         }, {
@@ -3522,7 +3816,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -3536,7 +3830,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -3586,7 +3880,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -3601,7 +3895,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/modules/manufacturing/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -3611,7 +3905,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -3640,21 +3934,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -3664,7 +3963,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Manufacturing",
         "link" : "/modules/manufacturing/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Manufacturing Module Overview",
           "link" : "/modules/manufacturing/manufacturing-overview"
@@ -3724,7 +4023,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -3738,7 +4037,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -3788,7 +4087,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -3803,7 +4102,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/modules/hr/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -3813,7 +4112,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -3842,21 +4141,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -3869,7 +4173,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Human Resources",
         "link" : "/modules/hr/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Attendance and Departure Formulas",
           "link" : "/modules/hr/attendance-machine-formula"
@@ -3902,7 +4206,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -3916,7 +4220,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -3966,7 +4270,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -3981,7 +4285,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/modules/pos/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -3991,7 +4295,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -4020,21 +4324,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -4050,7 +4359,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Nama POS — Technical Points of Use Guide",
           "link" : "/modules/pos/nama-pos"
@@ -4083,7 +4392,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -4097,7 +4406,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -4147,7 +4456,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -4162,7 +4471,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/modules/realestate/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -4172,7 +4481,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -4201,21 +4510,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -4234,7 +4548,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Real Estate",
         "link" : "/modules/realestate/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Real Estate Investment FAQ",
           "link" : "/modules/realestate/real-estate-fq"
@@ -4255,7 +4569,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -4269,7 +4583,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -4319,7 +4633,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -4334,7 +4648,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/modules/mobile/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -4344,7 +4658,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -4373,21 +4687,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -4409,7 +4728,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Nama Mobile App — Overview, Navigation & Settings",
           "link" : "/modules/mobile/mobile-application-guide"
@@ -4442,7 +4761,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -4456,7 +4775,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -4506,7 +4825,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -4521,7 +4840,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/modules/ecommerce/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -4531,7 +4850,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -4560,21 +4879,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -4599,7 +4923,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "e-commerce Integration",
         "link" : "/modules/ecommerce/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Nama ERP E-Commerce Integration Guide",
           "link" : "/modules/ecommerce/magento-integration-guide"
@@ -4617,7 +4941,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -4631,7 +4955,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -4681,7 +5005,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -4696,7 +5020,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/modules/ai/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -4706,7 +5030,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -4735,21 +5059,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -4777,7 +5106,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Artificial Intelligence",
         "link" : "/modules/ai/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "AI Tool Definitions",
           "link" : "/modules/ai/ai-tool-definitions"
@@ -4798,7 +5127,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -4812,7 +5141,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -4862,7 +5191,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -4877,7 +5206,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/integration/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -4887,7 +5216,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -4916,21 +5245,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -4962,7 +5296,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "External Integrations",
       "link" : "/integration/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Nama ERP REST API",
         "link" : "/integration/nama-erp-api"
@@ -4982,7 +5316,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -4996,7 +5330,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -5046,7 +5380,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -5061,7 +5395,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/admin/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -5071,7 +5405,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -5100,21 +5434,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -5149,7 +5488,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Tempo Language Manual",
         "link" : "/admin/tempo"
@@ -5166,7 +5505,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -5216,7 +5555,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -5231,7 +5570,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/admin/troubleshooting/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -5241,7 +5580,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -5270,21 +5609,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -5319,11 +5663,11 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Troubleshooting System Hanging or Unresponsiveness",
           "link" : "/admin/troubleshooting/troubleshooting-system-hanging"
@@ -5344,7 +5688,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -5394,7 +5738,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -5409,7 +5753,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/admin/reprocessing/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -5419,7 +5763,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -5448,21 +5792,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -5497,14 +5846,14 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
       }, {
         text: "Reprocessing Transactions",
         "link" : "/admin/reprocessing/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Reprocessing Quantity, Cost, and Stock Ages",
           "link" : "/admin/reprocessing/reprocess-qty-and-cost"
@@ -5546,7 +5895,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -5596,7 +5945,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -5611,7 +5960,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/developer/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -5621,7 +5970,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -5650,21 +5999,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -5699,7 +6053,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -5710,7 +6064,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Developer Reference",
       "link" : "/developer/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Some Information About Using This Site",
         "link" : "/developer/docs-quick-guide"
@@ -5724,7 +6078,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -5774,7 +6128,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -5789,7 +6143,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/entity-flows/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -5799,7 +6153,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -5828,21 +6182,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -5877,7 +6236,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -5891,7 +6250,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -5941,7 +6300,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -5956,7 +6315,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/entity-flows/core/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -5966,7 +6325,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -5995,21 +6354,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -6044,7 +6408,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -6058,11 +6422,11 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Field Maps in Nama ERP - Complete Guide (AI-Generated by Claude.ai)",
           "link" : "/entity-flows/core/ai-generated-field-maps-documentation"
@@ -6392,7 +6756,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -6407,7 +6771,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/entity-flows/accounting/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -6417,7 +6781,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -6446,21 +6810,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -6495,7 +6864,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -6509,14 +6878,14 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
       }, {
         text: "Accounting Module",
         "link" : "/entity-flows/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "EAAddAccountingEffect",
           "link" : "/entity-flows/accounting/EAAddAccountingEffect"
@@ -6591,7 +6960,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -6606,7 +6975,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/entity-flows/ai/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -6616,7 +6985,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -6645,21 +7014,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -6694,7 +7068,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -6708,7 +7082,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -6718,7 +7092,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "AI Module",
         "link" : "/entity-flows/ai/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "EAEmbedFileToAIDB",
           "link" : "/entity-flows/ai/EAEmbedFileToAIDB"
@@ -6769,7 +7143,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -6784,7 +7158,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/entity-flows/contracting/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -6794,7 +7168,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -6823,21 +7197,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -6872,7 +7251,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -6886,7 +7265,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -6899,7 +7278,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Contracting Module",
         "link" : "/entity-flows/contracting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "EAUpdateExtractsEffectsOnPaymentDocs",
           "link" : "/entity-flows/contracting/EAUpdateExtractsEffectsOnPaymentDocs"
@@ -6947,7 +7326,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -6962,7 +7341,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/entity-flows/crm/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -6972,7 +7351,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -7001,21 +7380,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -7050,7 +7434,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -7064,7 +7448,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -7080,7 +7464,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "CRM Module",
         "link" : "/entity-flows/crm/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "EACRMContractBodyShapersCheckIn",
           "link" : "/entity-flows/crm/EACRMContractBodyShapersCheckIn"
@@ -7122,7 +7506,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -7137,7 +7521,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/entity-flows/egtax/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -7147,7 +7531,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -7176,21 +7560,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -7225,7 +7614,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -7239,7 +7628,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -7258,7 +7647,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "EGTax Reader Module",
         "link" : "/entity-flows/egtax/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "EAReadRecentTaxEInvoices",
           "link" : "/entity-flows/egtax/EAReadRecentTaxEInvoices"
@@ -7294,7 +7683,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -7309,7 +7698,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/entity-flows/frm/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -7319,7 +7708,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -7348,21 +7737,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -7397,7 +7791,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -7411,7 +7805,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -7433,7 +7827,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Freight Management System Module",
         "link" : "/entity-flows/frm/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "EAKWSendIPSEvents",
           "link" : "/entity-flows/frm/EAKWSendIPSEvents"
@@ -7466,7 +7860,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -7481,7 +7875,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/entity-flows/hms/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -7491,7 +7885,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -7520,21 +7914,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -7569,7 +7968,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -7583,7 +7982,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -7608,7 +8007,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Hospital Management System Module",
         "link" : "/entity-flows/hms/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "EACreateAccommodationInvoice",
           "link" : "/entity-flows/hms/EACreateAccommodationInvoice"
@@ -7638,7 +8037,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -7653,7 +8052,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/entity-flows/hr/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -7663,7 +8062,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -7692,21 +8091,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -7741,7 +8145,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -7755,7 +8159,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -7783,7 +8187,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "HR Module",
         "link" : "/entity-flows/hr/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "CalcBasicSalaryForNetSalary",
           "link" : "/entity-flows/hr/CalcBasicSalaryForNetSalary"
@@ -7885,7 +8289,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -7900,7 +8304,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/entity-flows/magento/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -7910,7 +8314,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -7939,21 +8343,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -7988,7 +8397,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -8002,7 +8411,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -8033,7 +8442,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "e-commerce Integration Module",
         "link" : "/entity-flows/magento/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "EAEcommerceAddItemToLinker",
           "link" : "/entity-flows/magento/EAEcommerceAddItemToLinker"
@@ -8078,7 +8487,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -8093,7 +8502,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/entity-flows/manufacturing/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -8103,7 +8512,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -8132,21 +8541,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -8181,7 +8595,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -8195,7 +8609,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -8229,7 +8643,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Manufacturing Module",
         "link" : "/entity-flows/manufacturing/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "EAStartOrderIfNotStarted",
           "link" : "/entity-flows/manufacturing/EAStartOrderIfNotStarted"
@@ -8250,7 +8664,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -8265,7 +8679,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/entity-flows/namapos/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -8275,7 +8689,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -8304,21 +8718,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -8353,7 +8772,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -8367,7 +8786,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -8404,7 +8823,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "POS Module",
         "link" : "/entity-flows/namapos/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "EADarTibaServiceInvoiceTermSetter",
           "link" : "/entity-flows/namapos/EADarTibaServiceInvoiceTermSetter"
@@ -8425,7 +8844,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -8440,7 +8859,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/entity-flows/realestate/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -8450,7 +8869,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -8479,21 +8898,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -8528,7 +8952,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -8542,7 +8966,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -8582,7 +9006,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Real Estate Module",
         "link" : "/entity-flows/realestate/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "EAAutoExtendExpiredRentContracts",
           "link" : "/entity-flows/realestate/EAAutoExtendExpiredRentContracts"
@@ -8606,7 +9030,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -8621,7 +9045,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/entity-flows/srvcenter/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -8631,7 +9055,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -8660,21 +9084,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -8709,7 +9138,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -8723,7 +9152,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -8766,7 +9195,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Service Center Module",
         "link" : "/entity-flows/srvcenter/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "EACopyMotorAndChassisSerialsAndLotsToAssembledItemInCoProds",
           "link" : "/entity-flows/srvcenter/EACopyMotorAndChassisSerialsAndLotsToAssembledItemInCoProds"
@@ -8793,7 +9222,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -8808,7 +9237,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/entity-flows/supplychain/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -8818,7 +9247,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -8847,21 +9276,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -8896,7 +9330,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -8910,7 +9344,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -8956,7 +9390,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Supply Chain Module",
         "link" : "/entity-flows/supplychain/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "EAApplyReservationOfDocsByQuery",
           "link" : "/entity-flows/supplychain/EAApplyReservationOfDocsByQuery"
@@ -9172,7 +9606,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -9187,7 +9621,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/videos/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -9197,7 +9631,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -9226,21 +9660,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -9275,7 +9714,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -9289,7 +9728,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -9339,7 +9778,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Documentation for the Nama ERP Installation Video and Supporting Software",
         "link" : "/videos/installation-video"
@@ -9360,7 +9799,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/videos/supply-chain-videos/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -9370,7 +9809,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -9399,21 +9838,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -9448,7 +9892,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -9462,7 +9906,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -9512,11 +9956,11 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Inventory Costing Explained - Video 1",
           "link" : "/videos/supply-chain-videos/cost-video-1"
@@ -9538,7 +9982,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/videos/report-wizard-videos/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -9548,7 +9992,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -9577,21 +10021,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -9626,7 +10075,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -9640,7 +10089,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -9690,14 +10139,14 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
       }, {
         text: "Report Wizard Videos",
         "link" : "/videos/report-wizard-videos/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Video (1): Report Designer Tool Walkthrough",
           "link" : "/videos/report-wizard-videos/report-wizard-webinar-1"
@@ -9725,7 +10174,7 @@ export const SIDEBAR_CONFIG = {
   } ],
   "/videos/hr/" : [ {
     text: "Home",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "Search",
       "link" : "/full-search"
@@ -9735,7 +10184,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Platform Features",
       "link" : "/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
@@ -9764,21 +10213,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Modules",
       "link" : "/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Invoicing, Taxes & Discounts",
         "link" : "/modules/invoicing/"
       }, {
         text: "Accounting & Banks",
         "link" : "/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Technical Reference",
           "link" : "/modules/accounting/support/"
         } ]
       }, {
         text: "Supply Chain",
-        "link" : "/modules/supplychain/"
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "Freight Management",
         "link" : "/modules/freight/"
@@ -9813,7 +10267,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "System Administration",
       "link" : "/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Troubleshooting",
         "link" : "/admin/troubleshooting/"
@@ -9827,7 +10281,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "AI Generated Entity Flows Documentation",
       "link" : "/entity-flows/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Core",
         "link" : "/entity-flows/core/"
@@ -9877,7 +10331,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "Video Tutorials",
       "link" : "/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "Supply Chain Videos",
         "link" : "/videos/supply-chain-videos/"
@@ -9887,7 +10341,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "Human Resources Videos",
         "link" : "/videos/hr/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "Detailed Explanation of the Payroll Management System in Nama ERP - 1",
           "link" : "/videos/hr/hr-course-1"
@@ -9907,7 +10361,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -9917,7 +10371,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -9946,21 +10400,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -9995,7 +10454,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -10009,7 +10468,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -10047,7 +10506,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -10063,14 +10522,14 @@ export const SIDEBAR_CONFIG = {
   "/ar/getting-started/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
     }, {
       text: "بدء الاستخدام",
       "link" : "/ar/getting-started/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الحد الأدنى لمتطلبات تشغيل النظام",
         "link" : "/ar/getting-started/system-minimum-requirements"
@@ -10087,7 +10546,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -10116,21 +10575,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -10165,7 +10629,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -10179,7 +10643,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -10217,7 +10681,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -10233,7 +10697,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/platform/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -10243,7 +10707,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "روابط الأدوات المساعدة (Utility Links)",
         "link" : "/ar/platform/utils"
@@ -10308,21 +10772,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -10357,7 +10826,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -10371,7 +10840,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -10409,7 +10878,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -10425,7 +10894,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/platform/screen-modifier/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -10435,11 +10904,11 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "أسماء التخطيط (Layout Names):",
           "link" : "/ar/platform/screen-modifier/screen-modifier"
@@ -10472,21 +10941,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -10521,7 +10995,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -10535,7 +11009,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -10573,7 +11047,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -10589,7 +11063,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/platform/list-views/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -10599,14 +11073,14 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
         text: "قوائم العرض",
         "link" : "/ar/platform/list-views/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "الفلاتر السريعة في قوائم المستندات (Quick Filters in List Views)",
           "link" : "/ar/platform/list-views/quick-filters"
@@ -10636,21 +11110,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -10685,7 +11164,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -10699,7 +11178,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -10737,7 +11216,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -10753,7 +11232,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/platform/approvals/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -10763,7 +11242,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -10773,7 +11252,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "الموافقات",
         "link" : "/ar/platform/approvals/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "نظام الموافقات - الدليل الشامل لتعريف الموافقة",
           "link" : "/ar/platform/approvals/approvals-system"
@@ -10803,21 +11282,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -10852,7 +11336,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -10866,7 +11350,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -10904,7 +11388,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -10920,7 +11404,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/platform/security/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -10930,7 +11414,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -10943,7 +11427,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "الصلاحيات والأمان",
         "link" : "/ar/platform/security/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "نظرة عامة على نظام الصلاحيات",
           "link" : "/ar/platform/security/security-overview"
@@ -10979,21 +11463,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -11028,7 +11517,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -11042,7 +11531,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -11080,7 +11569,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -11096,7 +11585,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/platform/entity-flows/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -11106,7 +11595,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -11122,7 +11611,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "مسارات الكيان",
         "link" : "/ar/platform/entity-flows/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مقدمة عن مسارات الكيان",
           "link" : "/ar/platform/entity-flows/introduction-to-entity-flows"
@@ -11152,21 +11641,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -11201,7 +11695,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -11215,7 +11709,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -11253,7 +11747,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -11269,7 +11763,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/platform/reports/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -11279,7 +11773,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -11298,7 +11792,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "التقارير",
         "link" : "/ar/platform/reports/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "دليل Jasper Reports الشامل لنظام Nama ERP",
           "link" : "/ar/platform/reports/reports-guide"
@@ -11325,21 +11819,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -11374,7 +11873,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -11388,7 +11887,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -11426,7 +11925,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -11442,7 +11941,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/platform/bi/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -11452,7 +11951,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -11474,7 +11973,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "ذكاء الأعمال (BI)",
         "link" : "/ar/platform/bi/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "وحدة BI — لوحات المعلومات والتحليلات (BI Module — Dashboards & Analytics)",
           "link" : "/ar/platform/bi/bi-module-guide"
@@ -11498,21 +11997,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -11547,7 +12051,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -11561,7 +12065,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -11599,7 +12103,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -11615,7 +12119,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/platform/notifications/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -11625,7 +12129,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -11650,7 +12154,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "التنبيهات",
         "link" : "/ar/platform/notifications/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "نظام التنبيهات في Nama ERP",
           "link" : "/ar/platform/notifications/notifications-system"
@@ -11665,21 +12169,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -11714,7 +12223,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -11728,7 +12237,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -11766,7 +12275,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -11782,7 +12291,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/modules/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -11792,7 +12301,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -11821,21 +12330,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -11870,7 +12384,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -11884,7 +12398,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -11922,7 +12436,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -11938,7 +12452,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/modules/invoicing/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -11948,7 +12462,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -11977,11 +12491,11 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "نقاط مكافآت العملاء (Customer Reward Points / Loyalty Points)",
           "link" : "/ar/modules/invoicing/reward-points"
@@ -12025,14 +12539,19 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -12067,7 +12586,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -12081,7 +12600,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -12119,7 +12638,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -12135,7 +12654,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/modules/accounting/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -12145,7 +12664,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -12174,14 +12693,14 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "المفاهيم الأساسية والإعداد المبدئي للحسابات",
           "link" : "/ar/modules/accounting/accounting-concepts-and-setup"
@@ -12269,7 +12788,12 @@ export const SIDEBAR_CONFIG = {
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -12304,7 +12828,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -12318,7 +12842,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -12356,7 +12880,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -12372,7 +12896,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/modules/accounting/support/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -12382,7 +12906,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -12411,18 +12935,18 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/",
-          "collapsed" : false,
+          "collapsed" : true,
           "items" : [ {
             text: "كيف تُعالَج المستندات إلى أثر محاسبي (وإعادة معالجة طلب متعثّر)",
             "link" : "/ar/modules/accounting/support/accounting-request-processing"
@@ -12442,7 +12966,12 @@ export const SIDEBAR_CONFIG = {
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -12477,7 +13006,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -12491,7 +13020,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -12529,7 +13058,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -12545,7 +13074,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/modules/supplychain/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -12555,7 +13084,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -12584,14 +13113,14 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
@@ -12599,11 +13128,8 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "سلسلة التوريد",
         "link" : "/ar/modules/supplychain/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
-          text: "إدارة سلسلة التوريد (Supply Chain Management)",
-          "link" : "/ar/modules/supplychain/supply-chain-intro"
-        }, {
           text: "فهم أصناف المخزون (Understanding Inventory Items)",
           "link" : "/ar/modules/supplychain/understanding-items"
         }, {
@@ -12663,6 +13189,9 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "أسئلة في موديول التوزيع والمخازن والمبيعات والمشتريات",
           "link" : "/ar/modules/supplychain/supply-chain-faq"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
         } ]
       }, {
         text: "إدارة الشحن",
@@ -12698,7 +13227,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -12712,7 +13241,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -12750,7 +13279,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -12763,10 +13292,10 @@ export const SIDEBAR_CONFIG = {
       } ]
     } ]
   } ],
-  "/ar/modules/freight/" : [ {
+  "/ar/modules/supplychain/configuration/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -12776,7 +13305,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -12805,29 +13334,230 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "إعدادات التكلفة (Costing Configuration)",
+            "link" : "/ar/modules/supplychain/configuration/costing-configuration"
+          }, {
+            text: "إعدادات السحب على المكشوف والتأكد من الكميات",
+            "link" : "/ar/modules/supplychain/configuration/overdraft-and-quantity-checking"
+          }, {
+            text: "إعدادات اقتراح الكميات (Quantity Suggestion Configuration)",
+            "link" : "/ar/modules/supplychain/configuration/quantity-suggestion-configuration"
+          }, {
+            text: "إعدادات خصائص الصنف",
+            "link" : "/ar/modules/supplychain/configuration/item-properties-configuration"
+          }, {
+            text: "إعدادات الأصناف والبيانات الرئيسية",
+            "link" : "/ar/modules/supplychain/configuration/items-and-master-data-configuration"
+          }, {
+            text: "إعدادات المشتريات",
+            "link" : "/ar/modules/supplychain/configuration/purchasing-configuration"
+          }, {
+            text: "إعدادات المبيعات والعروض",
+            "link" : "/ar/modules/supplychain/configuration/sales-and-offers-configuration"
+          }, {
+            text: "إعدادات التسعير وقوائم الأسعار",
+            "link" : "/ar/modules/supplychain/configuration/pricing-and-price-lists"
+          }, {
+            text: "إعدادات المستندات والتفاصيل",
+            "link" : "/ar/modules/supplychain/configuration/documents-and-details-configuration"
+          }, {
+            text: "إعدادات الجرد المخزني",
+            "link" : "/ar/modules/supplychain/configuration/stock-taking-configuration"
+          }, {
+            text: "إعدادات أعمار المخزون",
+            "link" : "/ar/modules/supplychain/configuration/stock-ages-configuration"
+          }, {
+            text: "مواصفات باركود الصنف",
+            "link" : "/ar/modules/supplychain/configuration/item-barcode-specifications"
+          } ]
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/"
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/freight/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
-          text: "إدارة الشحن (Freight Management)",
-          "link" : "/ar/modules/freight/freight-intro"
-        }, {
           text: "الملفات الأساسية لإدارة الشحن",
           "link" : "/ar/modules/freight/freight-master-files"
         }, {
@@ -12889,7 +13619,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -12903,7 +13633,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -12941,7 +13671,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -12957,7 +13687,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/modules/hms/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -12967,7 +13697,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -12996,32 +13726,34 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
       }, {
         text: "نظام إدارة المستشفيات",
         "link" : "/ar/modules/hms/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
-          text: "نظام إدارة المستشفيات (Hospital Management System)",
-          "link" : "/ar/modules/hms/hms-intro"
-        }, {
           text: "هيكل المستشفى والغرف",
           "link" : "/ar/modules/hms/hms-facility"
         }, {
@@ -13077,7 +13809,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -13091,7 +13823,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -13129,7 +13861,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -13145,7 +13877,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/modules/manufacturing/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -13155,7 +13887,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -13184,21 +13916,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -13208,7 +13945,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "التصنيع",
         "link" : "/ar/modules/manufacturing/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "نظرة عامة على وحدة التصنيع (Manufacturing Module Overview)",
           "link" : "/ar/modules/manufacturing/manufacturing-overview"
@@ -13268,7 +14005,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -13282,7 +14019,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -13320,7 +14057,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -13336,7 +14073,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/modules/hr/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -13346,7 +14083,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -13375,21 +14112,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -13402,7 +14144,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "الموارد البشرية",
         "link" : "/ar/modules/hr/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "صيغ الحضور والانصراف",
           "link" : "/ar/modules/hr/attendance-machine-formula"
@@ -13435,7 +14177,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -13449,7 +14191,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -13487,7 +14229,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -13503,7 +14245,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/modules/pos/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -13513,7 +14255,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -13542,21 +14284,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -13572,7 +14319,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "دليل استعمال النقاط الفنية في نقاط البيع",
           "link" : "/ar/modules/pos/nama-pos"
@@ -13605,7 +14352,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -13619,7 +14366,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -13657,7 +14404,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -13673,7 +14420,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/modules/realestate/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -13683,7 +14430,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -13712,21 +14459,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -13745,7 +14497,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "العقارات",
         "link" : "/ar/modules/realestate/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "أسئلة شائعة عن الاستثمار العقاري",
           "link" : "/ar/modules/realestate/real-estate-fq"
@@ -13766,7 +14518,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -13780,7 +14532,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -13818,7 +14570,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -13834,7 +14586,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/modules/mobile/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -13844,7 +14596,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -13873,21 +14625,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -13909,7 +14666,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "تطبيق نما للهواتف المحمولة — نظرة عامة والتنقل والإعدادات",
           "link" : "/ar/modules/mobile/mobile-application-guide"
@@ -13942,7 +14699,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -13956,7 +14713,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -13994,7 +14751,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -14010,7 +14767,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/modules/ecommerce/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -14020,7 +14777,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -14049,21 +14806,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -14088,7 +14850,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "تكامل التجارة الإلكترونية",
         "link" : "/ar/modules/ecommerce/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "دليل تكامل التجارة الإلكترونية مع Nama ERP",
           "link" : "/ar/modules/ecommerce/magento-integration-guide"
@@ -14106,7 +14868,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -14120,7 +14882,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -14158,7 +14920,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -14174,7 +14936,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/modules/ai/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -14184,7 +14946,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -14213,21 +14975,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -14255,7 +15022,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "الذكاء الاصطناعي",
         "link" : "/ar/modules/ai/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "تعريفات أدوات الذكاء الاصطناعي (AI Tool Definitions)",
           "link" : "/ar/modules/ai/ai-tool-definitions"
@@ -14276,7 +15043,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -14290,7 +15057,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -14328,7 +15095,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -14344,7 +15111,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/integration/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -14354,7 +15121,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -14383,21 +15150,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -14429,7 +15201,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "التكاملات الخارجية",
       "link" : "/ar/integration/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "واجهة برمجية REST لنظام نما ERP",
         "link" : "/ar/integration/nama-erp-api"
@@ -14449,7 +15221,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -14463,7 +15235,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -14501,7 +15273,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -14517,7 +15289,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/admin/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -14527,7 +15299,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -14556,21 +15328,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -14605,7 +15382,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "دليل لغة Tempo",
         "link" : "/ar/admin/tempo"
@@ -14622,7 +15399,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -14660,7 +15437,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -14676,7 +15453,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/admin/troubleshooting/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -14686,7 +15463,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -14715,21 +15492,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -14764,11 +15546,11 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "استكشاف أخطاء توقف النظام أو عدم استجابته (Troubleshooting System Hanging or Unresponsiveness)",
           "link" : "/ar/admin/troubleshooting/troubleshooting-system-hanging"
@@ -14789,7 +15571,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -14827,7 +15609,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -14843,7 +15625,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/admin/reprocessing/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -14853,7 +15635,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -14882,21 +15664,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -14931,14 +15718,14 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
       }, {
         text: "إعادة معالجة الحركات",
         "link" : "/ar/admin/reprocessing/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "إعادة معالجة الكميات والتكاليف وأعمار المخزون (Reprocessing Quantity, Cost, and Stock Ages)",
           "link" : "/ar/admin/reprocessing/reprocess-qty-and-cost"
@@ -14980,7 +15767,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -15018,7 +15805,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -15034,7 +15821,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/developer/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -15044,7 +15831,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -15073,21 +15860,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -15122,7 +15914,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -15133,7 +15925,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "مرجع المطور",
       "link" : "/ar/developer/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "بعض المعلومات عن استعمال هذا الموقع",
         "link" : "/ar/developer/docs-quick-guide"
@@ -15147,7 +15939,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -15185,7 +15977,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -15201,7 +15993,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/release-notes/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -15211,7 +16003,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -15240,21 +16032,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -15289,7 +16086,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -15303,7 +16100,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -15341,7 +16138,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -15357,7 +16154,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/release-notes/2016/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -15367,7 +16164,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -15396,21 +16193,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -15445,7 +16247,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -15459,11 +16261,11 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "ملاحظات إصدار نما ERP - أبريل 2016",
           "link" : "/ar/release-notes/2016/nama-erp-201604-release-notes-arabic"
@@ -15526,7 +16328,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -15542,7 +16344,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/release-notes/2017/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -15552,7 +16354,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -15581,21 +16383,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -15630,7 +16437,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -15644,14 +16451,14 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
       }, {
         text: "2017",
         "link" : "/ar/release-notes/2017/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "ملاحظات إصدار نما ERP - يناير 2017",
           "link" : "/ar/release-notes/2017/nama-erp-201701-release-notes-arabic"
@@ -15720,7 +16527,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -15736,7 +16543,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/release-notes/2018/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -15746,7 +16553,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -15775,21 +16582,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -15824,7 +16636,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -15838,7 +16650,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -15848,7 +16660,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "2018",
         "link" : "/ar/release-notes/2018/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "ملاحظات إصدار نما ERP - يناير 2018",
           "link" : "/ar/release-notes/2018/nama-erp-201801-release-notes-arabic"
@@ -15914,7 +16726,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -15930,7 +16742,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/release-notes/2019/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -15940,7 +16752,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -15969,21 +16781,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -16018,7 +16835,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -16032,7 +16849,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -16045,7 +16862,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "2019",
         "link" : "/ar/release-notes/2019/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "ملاحظات إصدار نما ERP - يناير 2019",
           "link" : "/ar/release-notes/2019/nama-erp-201901-release-notes-arabic"
@@ -16108,7 +16925,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -16124,7 +16941,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/release-notes/2020/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -16134,7 +16951,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -16163,21 +16980,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -16212,7 +17034,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -16226,7 +17048,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -16242,7 +17064,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "2020",
         "link" : "/ar/release-notes/2020/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "ملاحظات الإصدار - يناير 2020",
           "link" : "/ar/release-notes/2020/nama-erp-202001-release-notes-arabic"
@@ -16302,7 +17124,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -16318,7 +17140,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/release-notes/2021/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -16328,7 +17150,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -16357,21 +17179,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -16406,7 +17233,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -16420,7 +17247,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -16439,7 +17266,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "2021",
         "link" : "/ar/release-notes/2021/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "نما إي آر بي - ملاحظات الإصدار يناير 2021",
           "link" : "/ar/release-notes/2021/nama-erp-202101-release-notes-arabic"
@@ -16496,7 +17323,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -16512,7 +17339,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/release-notes/2022/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -16522,7 +17349,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -16551,21 +17378,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -16600,7 +17432,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -16614,7 +17446,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -16636,7 +17468,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "2022",
         "link" : "/ar/release-notes/2022/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "ملاحظات إصدار نما ERP - يناير 2022",
           "link" : "/ar/release-notes/2022/nama-erp-202201-release-notes-arabic"
@@ -16690,7 +17522,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -16706,7 +17538,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/release-notes/2023/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -16716,7 +17548,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -16745,21 +17577,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -16794,7 +17631,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -16808,7 +17645,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -16833,7 +17670,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "2023",
         "link" : "/ar/release-notes/2023/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "ملاحظات إصدار نما ERP - يناير 2023",
           "link" : "/ar/release-notes/2023/nama-erp-202301-release-notes-arabic"
@@ -16884,7 +17721,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -16900,7 +17737,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/release-notes/2024/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -16910,7 +17747,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -16939,21 +17776,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -16988,7 +17830,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -17002,7 +17844,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -17030,7 +17872,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "2024",
         "link" : "/ar/release-notes/2024/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "ملاحظات إصدار نما ERP - يناير 2024",
           "link" : "/ar/release-notes/2024/nama-erp-202401-release-notes-arabic"
@@ -17078,7 +17920,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -17094,7 +17936,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/release-notes/2025/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -17104,7 +17946,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -17133,21 +17975,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -17182,7 +18029,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -17196,7 +18043,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -17227,7 +18074,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "2025",
         "link" : "/ar/release-notes/2025/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "ملاحظات إصدار نما ERP - يناير 2025",
           "link" : "/ar/release-notes/2025/nama-erp-202501-release-notes-arabic"
@@ -17272,7 +18119,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -17288,7 +18135,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/release-notes/2026/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -17298,7 +18145,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -17327,21 +18174,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -17376,7 +18228,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -17390,7 +18242,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -17424,7 +18276,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "2026",
         "link" : "/ar/release-notes/2026/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "ملاحظات إصدار نما ERP - يناير 2026",
           "link" : "/ar/release-notes/2026/nama-erp-202601-release-notes-arabic"
@@ -17445,7 +18297,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -17461,7 +18313,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/videos/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -17471,7 +18323,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -17500,21 +18352,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -17549,7 +18406,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -17563,7 +18420,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -17601,7 +18458,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "توثيق فيديو تنصيب Nama ERP والبرامج المساعدة",
         "link" : "/ar/videos/installation-video"
@@ -17623,7 +18480,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/videos/supply-chain-videos/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -17633,7 +18490,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -17662,21 +18519,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -17711,7 +18573,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -17725,7 +18587,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -17763,11 +18625,11 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "فيديو طريقة عمل التكاليف - 1",
           "link" : "/ar/videos/supply-chain-videos/cost-video-1"
@@ -17790,7 +18652,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/videos/report-wizard-videos/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -17800,7 +18662,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -17829,21 +18691,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -17878,7 +18745,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -17892,7 +18759,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -17930,14 +18797,14 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
       }, {
         text: "فيديوهات أداة إنشاء التقارير",
         "link" : "/ar/videos/report-wizard-videos/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "فيديو (1) شرح أداة انشاء التقار",
           "link" : "/ar/videos/report-wizard-videos/report-wizard-webinar-1"
@@ -17966,7 +18833,7 @@ export const SIDEBAR_CONFIG = {
   "/ar/videos/hr/" : [ {
     text: "الرئيسية",
     "link" : "/ar/",
-    "collapsed" : false,
+    "collapsed" : true,
     "items" : [ {
       text: "البحث",
       "link" : "/ar/full-search"
@@ -17976,7 +18843,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الخصائص العامة للنظام",
       "link" : "/ar/platform/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
@@ -18005,21 +18872,26 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "الوحدات",
       "link" : "/ar/modules/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "الفواتير والضرائب والخصومات",
         "link" : "/ar/modules/invoicing/"
       }, {
         text: "الحسابات والبنوك",
         "link" : "/ar/modules/accounting/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "مرجع الدعم الفني",
           "link" : "/ar/modules/accounting/support/"
         } ]
       }, {
         text: "سلسلة التوريد",
-        "link" : "/ar/modules/supplychain/"
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        } ]
       }, {
         text: "إدارة الشحن",
         "link" : "/ar/modules/freight/"
@@ -18054,7 +18926,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "إدارة النظام",
       "link" : "/ar/admin/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "استكشاف الأخطاء وإصلاحها",
         "link" : "/ar/admin/troubleshooting/"
@@ -18068,7 +18940,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "ملاحظات الإصدارات",
       "link" : "/ar/release-notes/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "2016",
         "link" : "/ar/release-notes/2016/"
@@ -18106,7 +18978,7 @@ export const SIDEBAR_CONFIG = {
     }, {
       text: "شروحات الفيديو",
       "link" : "/ar/videos/",
-      "collapsed" : false,
+      "collapsed" : true,
       "items" : [ {
         text: "فيديوهات سلسلة التوريد",
         "link" : "/ar/videos/supply-chain-videos/"
@@ -18116,7 +18988,7 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "فيديوهات الموارد البشرية",
         "link" : "/ar/videos/hr/",
-        "collapsed" : false,
+        "collapsed" : true,
         "items" : [ {
           text: "شرح مفصل لنظام إدارة الرواتب في نظام نما - 1",
           "link" : "/ar/videos/hr/hr-course-1"

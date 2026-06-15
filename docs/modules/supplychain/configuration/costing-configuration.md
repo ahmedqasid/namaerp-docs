@@ -1,0 +1,130 @@
+# Costing Configuration
+
+This page documents the **Costing** tab of the Supply Chain configuration. These settings decide how the system values your inventory — how cost is taken out on every issue/sale, how it handles receipts that arrive without a cost, and how often it is allowed to re-run cost calculations.
+
+::: info Where to find it
+Open the Supply Chain module **Configuration** file and go to the **Costing** tab. The configuration is cached, so a change takes effect once you save it (the system refreshes the cached values automatically).
+:::
+
+## Costing Method
+
+This group holds the core valuation choices.
+
+**Issue Cost Policy** `value.costOutType` — The single most important costing switch. It decides how the cost of every issued, sold, or transferred quantity is calculated and removed from stock: **FIFO** (oldest layers consumed first) or **Average** (moving weighted average). It changes the whole costing path — how returns, overdraft and recalculation behave. Set it once at implementation to match your inventory valuation method; the system blocks changing it once stock transactions exist. Defaults to Average.
+
+**Tax Effect on Cost Type** `value.taxEffectOnCostsType` — Decides *where* the system reads the rule for whether purchase taxes are added to or excluded from item cost. Left empty (or "From Configurations") it applies the single *Exclude Purchase Taxes from Cost* switch below to every tax. The other values instead read each tax's include/exclude flag from the item's tax plan or the document term's tax plan, so different items or document types can treat taxes differently.
+
+**Exclude Purchase Taxes from Cost** `value.excludePurchaseTaxesFromCost` — When on (and the rule source above is the configuration), purchase taxes are *not* added to inventory cost — items are valued at their pre-tax price. Turn it on when purchase taxes are recoverable/deductible and shouldn't inflate inventory value; leave it off when taxes are a real, non-recoverable part of cost.
+
+**Exception for Circular Cost** `value.exceptionForCircularCost` — During cost processing the system can detect a "circular cost" loop (for example transfers whose costs depend on each other). When on, such a case raises a hard error that stops processing so the data can be fixed; when off, it is only written to the cost log and processing continues.
+
+**Calculate Item Average Cost with Voting File** `value.calculateItemAverageCostWithVotingFile` — When on, opening the Price Voting (price-agreement) file also computes each item's current average cost and shows the profit margin against the agreed price. Turn it on when staff setting agreed prices need to see cost/margin alongside the price.
+
+**Show Narration in Stock Receipt, Issue and Transfer Ledgers** `value.showNarrationInStockIssueReceiptTransferLedgers` — When on, the remark/narration from stock issue, receipt and transfer documents is copied onto the lines of the accounting entries they generate. Useful when accountants need the source-document remark on the journal lines for traceability.
+
+**Show Affect Only Cost of Assembled Item** `value.showAffectOnlyCostOfItem` — Changes how assembly cost is reported. When on, the calculation isolates and shows only the assembled item's own cost contribution (prorated by quantity). Turn it on for assembly/manufacturing setups that need the assembled item's own cost impact shown separately.
+
+## Quantity & Cost Tracking
+
+These settings control whether the system tracks quantity and cost at all, and how finely.
+
+**Default Configurations** `value.defaultConfigurations` — The default tracking profile applied to items: whether the system keeps a running quantity balance and/or a cost for stock movements. This underpins everything else — an item that isn't quantity-tracked won't have stock balances, and one that isn't cost-tracked won't carry a value.
+
+**Sector / Branch / Department / Analysis Set Configurations** — For each accounting dimension you can independently turn **Track Quantity** and **Track Cost** on or off. This lets you, for example, keep separate quantity balances per branch while costing at a higher level, or stop the system from splitting cost by a dimension you don't care about. Tracking cost or quantity at a finer dimension makes balances more detailed but heavier to process.
+
+| Option | Field ID |
+|---|---|
+| Sector Configurations | `value.sectorConfigurations` |
+| Branch Configurations | `value.branchConfigurations` |
+| Department Configurations | `value.departmentConfigurations` |
+| Analysis Set Configurations | `value.analysisSetConfigurations` |
+
+::: warning
+Changing what is tracked after stock transactions exist can make historical balances inconsistent. Set these at implementation time. The *Allow Changing Cost and Quantity Tracking After Usage* option (on the Item Properties tab) governs whether the system even lets you change tracking once an item has been used.
+:::
+
+## Uncosted Receipts
+
+An **uncosted receipt** is a stock receipt that arrives without a known price — typically a sales return, a stock-taking surplus, or a receipt with no source invoice. The system has to derive a cost for it, and this group controls how and when.
+
+**When to Recalculate Cost of Uncosted Receipts, Returns and Stock Taking** `value.uncostedReceiptBehavior` — Controls *when* the system may (re)calculate the cost of these special receipts, based on the document's accounting period status:
+
+- *Recalculate if year has at least one normal open period (or the period itself is open)* — the default and most permissive: recalculate if the document's own period is open, or if any normal period in its fiscal year is still open. A fully closed year keeps the existing cost.
+- *Always recalculate* — recalculate regardless of period status; costs can change even in closed periods.
+- *Recalculate only if period is open* — the strictest: recalculate only when the document's own period is open.
+
+Choose a stricter value when you have closed periods and don't want late processing to disturb finalized costs.
+
+**Ignore Current Average for Uncosted Receipt** `value.ignoreCurrentAvgForUnCostedReceipt` *(Average costing)* — Normally an uncosted receipt is first valued at the item's current running average. Turn this on to skip the current average and instead derive the cost from the configured cost sources (see *Receipt Cost Sources*).
+
+**Use Zero for Uncosted FIFO Receipt** `value.useZeroForUnCostedFifoReceipt` *(FIFO costing)* — When on, an uncosted FIFO receipt is costed at **zero** instead of borrowing a cost from earlier receipts. Use it when you deliberately want returns / stock-taking surpluses under FIFO to carry no cost.
+
+**Exclude Returns from "Use Zero for Uncosted FIFO Receipt"** `value.excludeReturnsFromZeroForUnCostedFifoReceipt` — A modifier for the option above: when *Use Zero* is on, this carves out an exception so **sales-return** receipts still recover a real cost through the normal logic, while other uncosted FIFO receipts stay at zero.
+
+**Use FIFO Line Cost if Found (Except Returns)** `value.useFifoLineCostIfFoundExceptReturns` *(default on)* — For a non-return uncosted FIFO receipt, if the line already carries its own non-zero cost, keep it instead of searching previous receipts. Sales returns are excluded. Leave it on so a line that already has a cost is trusted.
+
+**Use FIFO Line Cost Even if Zero** `value.useFifoLineCostEvenIfZero` — A stronger version of the above: accept the receipt line's own cost **even when it is zero**, locking the line at exactly the value it was entered with rather than filling in a borrowed cost.
+
+**Consider Transfers for Return Cost (After Receipts)** `value.considerTransfersForReturnCostAfterReceipts` *(FIFO)* — When searching earlier receipts for a cost, the system normally skips stock-transfer lines. When on, if no normal receipt cost is found it makes a second pass that also pulls cost from the nearest transfer. Enable when transfers are a legitimate cost reference for your returns.
+
+**FIFO Uncosted Receipt Query** `value.fifoUncostedReceiptQuery` — *(Advanced)* A custom database query that returns a unit cost for an uncosted FIFO receipt. When set, it runs first; a positive result is used directly and no further searching happens. For implementation specialists only — requires a correctly written query.
+
+**Do Not Calculate Return Cost from Invoice** `value.doNotCalcReturnCostFromInvoice` *(Average, purchase returns)* — By default a return receipt derives its cost from the original issue lines of the invoice it relates to. When on, that step is skipped and the return is costed using the normal cost sources instead. Enable when the link to the original invoice gives the wrong cost.
+
+**Do Not Recalculate Sales Return / Stock Taking / Uncosted Cost from Overdraft** `value.calculateSalesReturnCostFromOverdraft` — When on, the system does **not** re-calculate the cost of sales returns, stock-taking and uncosted receipts when they are used to cover an overdraft (negative-stock) situation; their cost is left as-is. Enable when overdraft-driven recalculation is causing unwanted cost changes.
+
+## Cost Reprocessing
+
+When a cost changes, the system re-runs cost calculation for affected documents. Because this can cascade, several caps and thresholds exist to keep it under control.
+
+**Maximum Reprocessing when Overdraft Cost Changes** `value.maximumReprocessByOverdraftChangedCost` *(default 5)* — How many times a single line may be reprocessed because the cost covering an overdraft changed, before the system stops (preventing endless loops). Set to 0 to disable overdraft-driven reprocessing.
+
+**Reprocess by Overdraft Margin** `value.reprocessByOverdraftMargin` *(default 0.05)* — Paired with the cap above: only reprocess if the cost difference is at least this margin, so rounding-level changes are ignored. Raise it to reprocess less, lower it for more precision.
+
+**Reprocess Assembly Margin** `value.reprocessAssemblyMargin` *(default 0.0002)* — A small "is this change effectively zero?" threshold for assembly documents and ledger-effect updates. Changes smaller than the margin are treated as zero and skipped. Generally leave at the default.
+
+**Reprocess Production Order Margin** `value.reprocessProductionOrderMargin` *(default -1)* — Controls when a production order's cost is reprocessed after a related issue/receipt cost changes. The default −1 skips the check (reprocess as normal). Set a small positive value to suppress reprocessing for negligible production-order cost changes.
+
+**Maximum Reprocess by Transfer** `value.maximumReprocessByTransfer` *(default 3)* — A cap for stock-transfer cost cascades: how many times a cost dimension may be reprocessed because of transfers before the system stops. Increase if legitimate multi-step transfer chains need more passes to settle.
+
+**Reprocess by Transfer Margin** `value.reprocessByTransferMargin` *(default 0.0002)* — The "don't bother" threshold for transfer-driven reprocessing; sub-margin differences are ignored.
+
+**Do Not Reprocess Receipts if Count Greater Than** `value.doNotReprocessReceiptsIfCountGreaterThan` — Once a document's recorded processing count exceeds this number, the system stops recalculating its receipt cost and keeps the existing value. Requires processing-count tracking to be enabled. Empty means no limit. Use it when certain documents keep getting reprocessed and you want to freeze their receipt cost after N passes.
+
+::: danger Do Not Reprocess Any Cost if Count Greater Than `value.doNotReprocessAnyCostIfCountGreaterThan`
+A hard, document-wide cap: once the processing count is exceeded, the system refuses to process **any** cost for that document and leaves whatever cost it currently has. This can intentionally leave costs incorrect/frozen. It is a last-resort safety valve for documents stuck in runaway reprocessing — keep it disabled in normal operation.
+:::
+
+**Consider Overdraft per Cost Dimension not Quantity Dimension** `value.considerOverdraftPerCostDimensionNotQtyDimension` — Changes the granularity at which negative stock is evaluated and covered. By default overdraft is tracked at the most detailed quantity breakdown; when on, it is evaluated at the broader cost grouping. A fundamental costing-behavior switch — change it deliberately, ideally before transactions exist.
+
+**Use Current Average for Stock Transfer Self Overdraft Coverage** `value.useCurrentAverageForStockTransferSelfOverdraftCoverage` — Handles the case where a transfer covers its own overdraft (the same line is both the out and the later in). When on, that self-coverage portion is valued at the current average cost rather than borrowing from the receipt line. A niche option that works together with the one above.
+
+## Cost Sources
+
+These tables tell the system where to pull a unit cost from in tricky situations. Each line offers up to five fallback sources tried in order (for example: previous out/in cost on the date, last average, line cost, standard cost, a custom query, or zero) — the first non-zero result wins. Lines can be scoped by document type, accounting dimensions and item-specific dimensions.
+
+**Receipt Cost Sources** `value.costSources` — Where to find a cost when a receipt has no cost of its own and the current average is also zero. If no matching line exists, a built-in fallback order is used (out cost on date → in cost on date → last average → line cost → standard cost).
+
+**Overdraft Cost Sources** `value.overdraftCostSources` — Same structure, but for valuing overdrawn (negative-stock) quantities. Built-in fallback: last cost → current average → average cost → last cost → standard cost.
+
+**Cost Schedule** `value.costSchedule` — A list of time windows (start/stop) that restricts when automatic cost processing may run. If the current time falls inside any window, processing runs; an empty table means it can run any time. Use it to confine heavy recalculation to off-peak hours.
+
+## Letter of Credit Cost Dimensions
+
+When import (Letter of Credit) costs are distributed across received lines, these switches decide which item properties form the cost-grouping key. Including a property means LC cost is tracked and distributed separately per value of that property; excluding it merges those lines together for LC costing.
+
+**Use Lot / Box / Color / Measure / Size / Revision / Active Percentage / Inactive Percentage / Sub-Item in LC Cost** — Each adds (or removes) the corresponding property from the LC cost-grouping key. Color, Measure, Size and Revision default to on; the rest default to off.
+
+| Option | Field ID |
+|---|---|
+| Use Lot | `value.useLotInLcCost` |
+| Use Box | `value.useBoxInLcCost` |
+| Use Color | `value.useColorInLcCost` |
+| Use Measure | `value.useMeasureInLcCost` |
+| Use Size | `value.useSizeInLcCost` |
+| Use Revision | `value.useRevisionInLcCost` |
+| Use Active Percentage | `value.useActivePercentInLcCost` |
+| Use Inactive Percentage | `value.useInActivePercentInLcCost` |
+| Use Sub-Item | `value.useSubItemLcCost` |
+
+**Use Net not Price in LC** `value.useNetNotPriceInLC` — Chooses the value basis for distributing import cost: the line's gross price (off) or its net value after line discount (on).

@@ -1,0 +1,37 @@
+# Stock Taking Configuration
+
+This page documents the **Stock Taking** tab — settings that govern how physical counts (stock taking) are entered, validated, ended, and turned into adjustment documents. For the count process itself, see the [Stock Taking guide](../stock-taking.md).
+
+**Make Ended Stock Taking Documents Editable** `value.makeEndedSTakingDocsEditable` — Normally an End Stock Taking that has ended is locked against editing or deletion. When on, ended documents can still be edited/deleted. Generally left off to protect reconciled counts.
+
+**Do Not Recalculate Sales Return / Stock Taking / Uncosted Cost from Overdraft** `value.calculateSalesReturnCostFromOverdraft` — When on, the cost of sales returns, stock-taking receipts, and uncosted receipts is not re-derived from overdraft coverage during cost processing. *(This is the same cost-processing switch described on the [Costing tab](./costing-configuration.md); it appears here because it affects stock-taking receipt cost.)*
+
+**Delete Stock Taking Receipts** `value.deleteStockTakingReceipts` — Controls what happens to the adjustment documents a count previously generated when the End Stock Taking is re-saved: when on, the old generated documents are deleted and rebuilt; when off, they are preserved.
+
+**Consider Dimensions in End Stock Taking Quantities** `value.considerDimensionsInEndStockTaking` — When on, the expected-vs-actual comparison at the end of the count is broken down by item dimensions (color, size, locator…), so the count reconciles per dimension rather than per item total.
+
+**Do Not Check Quantities with Documents Created from Stock Taking** `value.doNotCheckQuantitiesWithStockTaking` — When on, the quantity/overdraft validation that normally runs when creating the count's adjustment receipts and issues is skipped, so they are created even if they would otherwise fail availability checks.
+
+**Allow Stock Taking After Issue or Receipt Date** `value.allowStockTakingAfterIssueOrReceiptDate` — Normally you cannot start a count on a warehouse/locator that already has a movement after the count's start date. When on, that restriction is lifted and the count can start anyway.
+
+**Prevent Saving Before Taking** `value.preventSavingBeforeTaking` *(default on)* — Prevents saving stock receipt/issue documents dated before the end date of an active count for that warehouse/locator, protecting the count window from late back-dated movements. Keep on to stop back-dated movements from corrupting an in-progress or recent count.
+
+**Prevent Saving on Taking Date** `value.preventSavingOnTakingDate` — Extends the option above to also block documents dated on the same day as the count, not only before it.
+
+**Show Delivered and Canceled Quantities in Stock Receipt** `value.showReceivedAndCanceledQty` — Adds delivered (received) and canceled quantity columns to the Stock Receipt document layout. *(A display option — despite its place on this tab it affects the Stock Receipt screen.)*
+
+**Allow Negative Quantities in Stock Taking Details** `value.allowNegativeQtiesTaking` — When off, negative counted quantities entered on stock-taking details are rejected. When on, negative actual quantities are permitted — for special cases only.
+
+**Maximum Lines Per Stock Taking Warehouse Document** `value.maxStockTakingLines` — Caps the number of lines in the documents produced from a count, so very large counts are split across multiple documents.
+
+**Show Stock Taking Lines in List View Instead of Grid** `value.useStockTakingListViewInsteadOfGrid` — Shows the End Stock Taking lines in a lighter list view instead of the full editable grid, which performs better for very large counts.
+
+**Schedule Stock Taking Actions** `value.scheduleStockTakingActions` — When on, the heavy end-of-count actions (status changes, generating adjustments) are queued as background tasks that run within the windows defined below, instead of running inline and tying up the server. Use it for large counts so the end actions don't slow the system for everyone.
+
+**Use Manual Creation Time in Stock Taking** `value.useManualCreationTimeInStockTaking` — When on, the End Stock Taking uses a manually entered creation date/time instead of the moment of processing, which affects where the resulting adjustments fall in time.
+
+**Do Not Make Negative Actual Quantity Zero in Taking** `value.doNotMakeNegativeActualQtyZeroInTaking` — By default a negative counted quantity is floored to zero when ending the count. When on, the negative actual quantity is kept as-is so it flows through to reconciliation.
+
+**Ignore the Difference Between the Number of Database Serials and the Actual Stock Quantity** `value.ignoreDifferenceBetweenNumberOfDBSerialsAndActualStockQuantity` — For serial-tracked items, the count normally checks that the number of recorded serials matches the actual quantity and separates mismatches onto their own lines. When on, this validation is skipped.
+
+**Stock Taking Actions Processing Times** `value.stockTakingActionsTime` *(table)* — Time windows (start/stop) during which the scheduled stock-taking actions are allowed to run. Used with *Schedule Stock Taking Actions* to confine the heavy processing to off-peak hours.

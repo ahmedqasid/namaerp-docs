@@ -43,6 +43,19 @@
 }
 /* rtl:end:ignore */
 
+/*
+ * Fix: on phones the navbar shows the logo AND the "Nama ERP Docs" wordmark
+ * (flex-shrink:0) next to the AI/built-in search buttons and the locale toggle.
+ * Combined they exceed a narrow viewport and push a horizontal scrollbar (worse
+ * in the RTL/Arabic layout). The logo already carries the branding, so hide the
+ * redundant wordmark on phones — measured to remove the overflow on 360px+.
+ */
+@media (max-width: 767px) {
+    .VPNavBarTitle .title span {
+        display: none;
+    }
+}
+
 /* ===== Full-width layout =====
  * The default theme caps the layout at 1440px and the doc column at 688px,
  * wasting a lot of horizontal space. Widen the layout cap to 1800px (keeps

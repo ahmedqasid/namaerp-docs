@@ -68,7 +68,7 @@ function pageUrl(relativePath) {
 }
 
 export default defineConfig({
-    title: 'Nama ERP Docs',
+    title: 'Nama Docs',
     description: 'Nama ERP Documentation',
     locales: {
         root: {
@@ -130,7 +130,7 @@ export default defineConfig({
         pageData.frontmatter.head ??= []
         pageData.frontmatter.head.push(
             ['link', {rel: 'canonical', href: pageUrl(pageData.relativePath)}],
-            ['meta', {property: 'og:title', content: pageData.title || 'Nama ERP Docs'}],
+            ['meta', {property: 'og:title', content: pageData.title || 'Nama Docs'}],
             ['meta', {property: 'og:description', content: pageData.description || 'Nama ERP Documentation'}],
             ['meta', {property: 'og:url', content: pageUrl(pageData.relativePath)}],
             ['meta', {property: 'og:type', content: 'article'}]
