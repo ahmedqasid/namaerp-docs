@@ -77,6 +77,39 @@ When the number of warehouses grows, **warehouse groups** bundle them for report
 
 ![Warehouse definition screen in NaMa ERP](../../ar/modules/supplychain/images/warehouses/warehouse-edit-en.png)
 
+## Warehouse Usage Policy
+
+Linking items to warehouses tells the system which warehouses *suit* an item. Sometimes, though, you need the opposite kind of rule: you want to *stop* a warehouse from being used at all - in certain documents, by certain users, or during a certain period. That's the job of the **Warehouse Usage Policy**.
+
+Picture a few everyday situations:
+- A warehouse is being counted this week, so nobody should issue or receive against it until the stock take is finished.
+- A seasonal showroom warehouse should only be touched by the showroom team, not by central purchasing.
+- An old warehouse is being phased out: you want to block new transactions on it from a certain date forward, without deleting any of its history.
+
+A Warehouse Usage Policy is a master file holding a grid of rules. Each line answers four questions: *which warehouse, in which documents, for whom, and when.*
+
+| Column | What it controls |
+| --- | --- |
+| **For Type** (للنوع) | The document type the rule applies to - e.g. a stock issue, stock receipt, or stock transfer. |
+| **Entity List** (قائمة الأنواع) | A reusable list of several document types, for when one rule should cover more than a single type. |
+| **Applicable For** (مطبق على) | Who the rule targets: a specific user, a user group, a security profile, or a criteria definition. Leave it empty to apply the rule to everyone. |
+| **Warehouse** (المخزن) | The warehouse - or a whole warehouse group - the rule governs. This is required. |
+| **Prevent Usage** (منع الاستعمال) | Tick this to actually block the warehouse. |
+| **From Date / To Date** | The period during which the rule is active. Leave both empty for an open-ended rule. |
+
+### How a rule kicks in
+
+The check happens the moment you save a supply chain document - not buried in a report you read later. The system looks at the document's type, the user entering it, and the document's date, then inspects both the header warehouse and the warehouse on every line. A line is blocked when a policy rule matches all of the following and has **Prevent Usage** ticked:
+
+- its **For Type** (or entity list) includes the document's type,
+- its **Warehouse** is the one being used - or that warehouse belongs to the referenced **warehouse group**,
+- the document date falls inside the **From/To** window (an empty window always matches),
+- and **Applicable For** matches the current user - directly, through their group or security profile, or through a matching criteria definition - or is left empty.
+
+When all of that lines up, the save is rejected with a clear message naming the blocked warehouse, the date, and the user, so it's obvious why the document won't go through. Leaving **Applicable For** empty makes the block apply to everyone; an empty date window makes it permanent.
+
+You'll find Warehouse Usage Policy among the supply chain master files, right next to Warehouses and Warehouse Groups.
+
 ## How It All Fits Together
 
 Imagine a typical distribution center:
