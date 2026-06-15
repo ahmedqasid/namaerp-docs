@@ -142,6 +142,16 @@
     "/modules/supplychain/configuration/stock-taking-configuration.md",
     "/modules/supplychain/configuration/stock-ages-configuration.md",
     "/modules/supplychain/configuration/item-barcode-specifications.md",
+    "/modules/supplychain/document-terms",
+    "/modules/supplychain/document-terms/doc-term-general.md",
+    "/modules/supplychain/document-terms/doc-term-from-document.md",
+    "/modules/supplychain/document-terms/doc-term-sub-item.md",
+    "/modules/supplychain/document-terms/doc-term-quantity-tracking.md",
+    "/modules/supplychain/document-terms/doc-term-reservation-and-delivery.md",
+    "/modules/supplychain/document-terms/doc-term-pricing-taxes-discounts.md",
+    "/modules/supplychain/document-terms/doc-term-accounting-effects.md",
+    "/modules/supplychain/document-terms/doc-term-generation-and-dimensions.md",
+    "/modules/supplychain/document-terms/doc-term-document-specific.md",
     "/modules/freight",
     "/modules/freight/freight-master-files.md",
     "/modules/freight/operation-orders.md",
@@ -322,6 +332,10 @@
     "/modules/supplychain/configuration": {
       "ar": "إعدادات سلسلة التوريد",
       "en": "Configuration"
+    },
+    "/modules/supplychain/document-terms": {
+      "ar": "توجيهات المستندات",
+      "en": "Document Terms"
     },
     "/modules/manufacturing": {
       "ar": "التصنيع",

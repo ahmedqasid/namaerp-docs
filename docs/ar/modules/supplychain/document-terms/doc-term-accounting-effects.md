@@ -1,0 +1,203 @@
+# إعدادات التأثيرات المحاسبية (Accounting Effects)
+
+مستندات سلسلة الإمداد التي تحمل تأثيرات محاسبية تُرحّل إلى دفتر الأستاذ العام عبر **جوانب محاسبية (account sides)** قابلة للتهيئة مدينة ودائنة. كل جانب محاسبي هو كتلة مستقلة صغيرة (إعداد جانب محاسبي / *account-side config*) تحدّد أي حساب من دليل الحسابات يُتأثَّر، بالإضافة إلى مصادر الحافظة (الحساب الفرعي) ومحدِّدات مراكز التكلفة الخاصة به. ويضيف توجيه المستند صفحة أو أكثر من صفحات **التأثير** / **تأثير الفاتوره** (Effect / Invoice Effect)، وتختلف المجموعات المعروضة على هذه الصفحات بحسب نوع المستند — فالفاتورة تعرض جوانب الضرائب والخصومات ومصاريف الخدمة، والتوريد المخزني يعرض فقط زوج مدين/دائن وبعض المفاتيح، وفتح الاعتماد المستندي يعرض جوانب التغطية والرسوم.
+
+::: info مكان الإعداد
+افتح **توجيه المستند** (Document Term)، ثم تبويب **التأثير** / **تأثير الفاتوره** (Effect / Invoice Effect). كل معرّفات الحقول أدناه تحت `DocumentTerm.termConfig.…` — والبادئة القابلة للبحث هي `termConfig.`.
+:::
+
+## تشريح الجانب المحاسبي (Anatomy of an Account Side)
+
+كل جانب مدين أو دائن أو ضريبي أو خصم أو نقدي أو رسوم أو مخزن أو تغطية أو مصاريف خدمة في صفحات التأثير هو **نفس وحدة البناء** — كائن جانب محاسبي واحد. تستخدم معرّفات الحقول أدناه الجانب المدين الرئيسي (`termConfig.config.debit`) كبادئة مثال؛ وكل جانب آخر يعرض نفس الحقول الفرعية تحت بادئته الخاصة (مثل `termConfig.config.credit.subsidiaryAccountType`، `termConfig.cash.accountSource.type`).
+
+**إعداد الجانب المحاسبي (Side Configuration)** `termConfig.config.debit.sideConfig` — يوجّه الجانب إلى تعريف جانب محاسبي مُسمّى قابل لإعادة الاستخدام (ملف رئيسي). استعمله لمشاركة إعداد جانب محاسبي واحد عبر عدة توجيهات مستندات بدلًا من إعادة إدخاله لكل توجيه.
+
+**مصدر الحساب / الحساب (Account source / Account)** `termConfig.config.debit.accountSource.type` + `termConfig.config.debit.accountRef` — كيف يُحلّ حساب دفتر الأستاذ: إما حساب ثابت (`accountRef`) أو مسحوب من مصدر على المستند. وعندما يأتي الحساب من كيان مرجعي، يحدّد `termConfig.config.debit.accountSource.entityType` نوع ذلك الكيان، ويحدّد `termConfig.config.debit.accountSource.fieldID` الحقل عليه الذي يُنتج الحساب. ويحلّ `termConfig.config.debit.accountSource.accFrmBagCrrncy` الحساب باستخدام عملة الحافظة (bag).
+
+**نوع الحافظة (Subsidiary account type)** `termConfig.config.debit.subsidiaryAccountType` — نوع الحافظة/الحساب الفرعي (عميل، مورد، إلخ) المستخدم لاشتقاق الحساب الفرعي. ويحمل `termConfig.config.debit.bagAccountId` معرّف حساب الحافظة.
+
+**البيان (Narration)** `termConfig.config.debit.narrationTemplate` / `termConfig.config.debit.narrationQuery` — البيان (الوصف) الأول لسطر القيد، إما من قالب أو من استعلام SQL. ويُضبط سطر البيان الثاني عبر `termConfig.config.debit.narration2Template` / `termConfig.config.debit.narration2Query`.
+
+**مصادر المحددات (القطاع / الفرع / الإدارة / مجموعة التحليل)** — كل محدِّد مركز تكلفة يمكن أن يكون قيمة ثابتة أو مسحوبًا من حقل على المستند. ويُعرض كل مصدر مركّب فقط عند تفعيل علامة الإعدادات العامة المقابلة له (`AddSectorSourceToTerms`, `AddBranchSourceToTerms`, `AddDeptSourceToTerms`, `AddAnalysisSourceToTerms`).
+
+| المحدِّد | معرّف الحقل |
+|---|---|
+| مصدر القطاع (Sector source) | `termConfig.config.debit.sectorSource` |
+| مصدر الفرع (Branch source) | `termConfig.config.debit.branchSource` |
+| مصدر الإدارة (Department source) | `termConfig.config.debit.departmentSource` |
+| مصدر مجموعة التحليل (Analysis-set source) | `termConfig.config.debit.analysisSetSource` |
+
+**البعد الكياني والمراجع (Entity dimension & reference dimensions)** — بُعد كياني عام وحتى ثلاثة مراجع عامة، كلٌّ منها مركّب (نوع المصدر + نوع الكيان + معرّف الحقل + قيمة ثابتة). ويُعرض كلٌّ منها فقط عند تفعيل علامة إعداداته العامة (`AddEntityDimSourceToTerms`, `AddRef1SourceToTerms` … `AddRef3SourceToTerms`).
+
+| المحدِّد | معرّف الحقل |
+|---|---|
+| مصدر / قيمة البعد الكياني (Entity dimension) | `termConfig.config.debit.entityDimensionSource` / `termConfig.config.debit.entityDimension` |
+| مصدر / قيمة مرجع 1 (Reference 1) | `termConfig.config.debit.ref1Source` / `termConfig.config.debit.ref1` |
+| مصدر / قيمة مرجع 2 (Reference 2) | `termConfig.config.debit.ref2Source` / `termConfig.config.debit.ref2` |
+| مصدر / قيمة مرجع 3 (Reference 3) | `termConfig.config.debit.ref3Source` / `termConfig.config.debit.ref3` |
+
+**تجاهل الحقول غير الموجودة في المراجع والبعد الكياني (Ignore unfound fields in refs and entity dimension)** `termConfig.config.debit.ignoreUnfoundFieldsInRefsAndEntityDimension` — عدم فشل الترحيل عندما يكون حقل مصدر مرجعي مفقودًا. يُعرض عند تفعيل أي مصدر مرجع/بعد كياني.
+
+**حقل مصدر العملة / المعدل (Currency / Rate source field)** `termConfig.config.debit.currencySourceField` / `termConfig.config.debit.rateSourceField` — حقول مصدر عملة ومعدل سطر القيد؛ يُعرضان عند تفعيل `AddCurrencyAndRateSourceToTerms`.
+
+::: tip
+في المجموعات أدناه، تعني "الجانب المحاسبي" دائمًا كتلة كاملة بالحقول الفرعية أعلاه. وملاحظة كل مجموعة تعطي **بادئتها** فقط — أضِف أي معرّف حقل فرعي للوصول إلى إعداد محدّد (مثل `termConfig.cash.subsidiaryAccountType`).
+:::
+
+## المدين والدائن الرئيسي (Main Debit & Credit)
+
+الجانبان الرئيسيان للقيد في المستند. بالنسبة للفاتورة يكون المدين عادةً جانب المدينين/المخزون والدائن جانب الإيراد/المورد؛ ويُحلّ الحساب الفعلي عبر الحقول الفرعية للجانب المحاسبي أعلاه.
+
+**مدين (Debit)** `termConfig.config.debit` — الجانب المحاسبي المدين الرئيسي. ينطبق على كل مستند سلسلة إمداد تقريبًا يُرحّل إلى دفتر الأستاذ (كل الفواتير والأوامر، مردود المبيعات/المشتريات، التوريد/الصرف/التحويل المخزني، تسليم/تنفيذ/إنهاء الأمر، تكلفة الاعتماد، إعادة تقييم التكلفة، تكلفة إضافية للتوريد، إلخ). على فتح الاعتماد المستندي يحمل هذا الجانب عنوان *مدين الدفعة المقدمة*؛ وعلى إعادة تقييم التكلفة يحمل عنوان *جانب التسوية*.
+
+**دائن (Credit)** `termConfig.config.credit` — الجانب المحاسبي الدائن الرئيسي، نظير المدين أعلاه. على فتح الاعتماد المستندي يحمل عنوان *دائن الدفعة المقدمة*؛ وعلى إعادة تقييم التكلفة يحمل عنوان *جانب المخزون*.
+
+::: info مستندات المصروفات / التكاليف
+يستخدم سند مصروفات أمر التشغيل (JOrderExpense) المعرّفات المجرّدة `termConfig.debit` / `termConfig.credit` (وليس تحت `config`)؛ بينما تستخدم التكلفة الإضافية للتوريد (ReceiptAdditionalCost) المعرّفات `termConfig.config.debit` / `termConfig.config.credit`.
+:::
+
+**إختصار القيود (Shorten Ledger)** `termConfig.config.shortenLedger` — دمج/تصفية سطور القيد بحيث يكون القيد المُرحّل ملخّصًا بدلًا من سطر لكل سطر مستند. ينطبق على الفواتير، مردود المبيعات/المشتريات، التوريد/الصرف/التحويل المخزني، وطلب مردود المبيعات.
+
+**حساب تاريخ القيد المحاسبي من الحقل (Calculate Ledger Trans Date From Field)** `termConfig.config.calcLedgerDateFrom` — استخدام قيمة الحقل المُسمّى كتاريخ للقيد المحاسبي بدلًا من تاريخ المستند. التوريد / الصرف / التحويل المخزني فقط.
+
+**ليس له تأثيرات محاسبية (No Accounting Effect)** `termConfig.config.noAccountingEffect` — عند ضبطه لا يُنشئ المستند أي قيد على الإطلاق. التوريد / الصرف / التحويل المخزني فقط.
+
+## القيود الرقابية (Control Journals)
+
+زوج قيد ثانٍ (رقابي/تذكيري) يُرحّل بالتوازي مع القيد الرئيسي، للمحاسبة بالقيود الرقابية.
+
+**مدين 2 (Debit 2)** `termConfig.debit2` — الجانب المحاسبي المدين للقيد الرقابي.
+
+**دائن 2 (Credit 2)** `termConfig.credit2` — الجانب المحاسبي الدائن للقيد الرقابي.
+
+::: warning يُعرض فقط عند تفعيل القيود الرقابية
+يُعرض جانبا مدين 2 / دائن 2 فقط عند تفعيل **استخدام القيود الرقابية (Use Control Journals)** في إعدادات سلسلة الإمداد. وعند إيقافه لا تظهر هاتان المجموعتان. وينطبقان على الفواتير، مردود المبيعات/المشتريات، التوريد المخزني، الصرف المخزني، المناقصة، وطلب مردود المبيعات.
+:::
+
+## التأثيرات الضريبية (Tax Effects)
+
+تُهيّأ الضرائب بطريقتين بحسب المستند. الفواتير تستخدم مجموعات جوانب محاسبية (`cash`، `tax`=ضريبة 1، `tax2`، `htax`=ضريبة 3، `htax2`=ضريبة 4) على صفحة *Other Effects*؛ بينما تستخدم مستندات المصروفات/التكاليف (JOrderExpense, ReceiptAdditionalCost, LcExpense) مجموعة مسطّحة *معلومات الضرائب (Taxes Info)* بحسابات مدين/دائن بسيطة.
+
+**سياسة الضريبة (Tax Plan)** `termConfig.taxPlan` — خطة/سياسة الضريبة المستخدمة لاحتساب ضرائب المستند. تنطبق على كل المستندات حاملة التأثير.
+
+**الجوانب المحاسبية للضرائب (الفواتير)** — على المستندات من نوع الفاتورة يكون الجانب النقدي والجوانب الضريبية الأربعة جوانب محاسبية كاملة. ويحصل كل جانب ضريبي أيضًا على مفتاح `taxesOtherSide.taxNOtherSide` لجانبه المقابل (انظر أدناه).
+
+| الجانب | معرّف الحقل (البادئة) |
+|---|---|
+| النقدي (Cash) | `termConfig.cash` |
+| ضريبة 1 (Tax 1) | `termConfig.tax` |
+| ضريبة 2 (Tax 2) | `termConfig.tax2` |
+| ضريبة 3 (Tax 3) | `termConfig.htax` |
+| ضريبة 4 (Tax 4) | `termConfig.htax2` |
+
+**مدين / دائن الضريبة (مستندات المصروفات والتكاليف)** — على JOrderExpense وReceiptAdditionalCost وLcExpense تكون الضرائب الأربعة حسابات مدين/دائن مسطّحة بدلًا من كتل جوانب محاسبية.
+
+| الضريبة | مدين | دائن |
+|---|---|---|
+| ضريبة 1 | `termConfig.tax1Debit` | `termConfig.tax1Credit` |
+| ضريبة 2 | `termConfig.tax2Debit` | `termConfig.tax2Credit` |
+| ضريبة 3 | `termConfig.tax3Debit` | `termConfig.tax3Credit` |
+| ضريبة 4 | `termConfig.tax4Debit` | `termConfig.tax4Credit` |
+
+**الجانب الآخر للضريبة 1..4 (Tax 1..4 other side)** `termConfig.taxesOtherSide.tax1OtherSide` … `termConfig.taxesOtherSide.tax4OtherSide` — الجانب المقابل في القيد لكل جانب ضريبي على المستندات من نوع الفاتورة.
+
+## تأثيرات الخصومات (Discount Effects)
+
+الفواتير تعرض ثمانية **جوانب محاسبية** للخصم بالإضافة إلى جانب خصم الرأس على صفحة *تأثير الخصومات*، ولكلٍّ منها مفتاح "الجانب الآخر". أما مستندات المصروفات/التكاليف فتعرض بدلًا منها مدين/دائن مسطّحًا واحدًا لـ *خصم 1*.
+
+**الجوانب المحاسبية للخصم (الفواتير)** — الجوانب الثمانية للخصم، كلٌّ منها كتلة جانب محاسبي كاملة.
+
+| الخصم | معرّف الحقل (البادئة) |
+|---|---|
+| خصم السطر (Line discount) | `termConfig.lineDiscount` |
+| تخفيض الفاتورة (Invoice/header discount) | `termConfig.invoiceDiscount` |
+| خصم 1 (Discount 1) | `termConfig.firstDiscountAcc` |
+| خصم 2 (Discount 2) | `termConfig.secondDiscountAcc` |
+| خصم 3 (Discount 3) | `termConfig.thirdDiscountAcc` |
+| خصم 4 (Discount 4) | `termConfig.fourthDiscountAcc` |
+| خصم 5 (Discount 5) | `termConfig.fifthDiscountAcc` |
+| خصم 6 (Discount 6) | `termConfig.sixthDiscountAcc` |
+| خصم 7 (Discount 7) | `termConfig.seventhDiscountAcc` |
+
+**مدين / دائن خصم 1 (مستندات المصروفات والتكاليف)** `termConfig.discount1Debit` / `termConfig.discount1Credit` — حساب الخصم المسطّح لمجموعة الخصم الواحدة على JOrderExpense وReceiptAdditionalCost وLcExpense.
+
+**الجوانب الأخرى للخصم (Discount other sides)** `termConfig.taxesOtherSide.discount1OtherSide` … `termConfig.taxesOtherSide.discount8OtherSide`، و`termConfig.taxesOtherSide.headerDiscountOtherSide` — الجانب المقابل في القيد لكلٍّ من الخصومات الإضافية الثمانية ولخصم الفاتورة (على مستوى الرأس).
+
+## مصاريف الخدمة (Service Fees)
+
+أربعة أزواج من جوانب مدين/دائن محاسبية لرسوم خدمة منفصلة على المستند، بالإضافة إلى علامات الخصم ومفتاح حارس. ينطبق على الفواتير/الأوامر، مردود المبيعات، فاتورة المشتريات، مردود المشتريات، وطلب مردود المبيعات.
+
+**الجوانب المحاسبية لمصاريف الخدمة** — أربعة أزواج مدين/دائن.
+
+| مصاريف الخدمة | مدين | دائن |
+|---|---|---|
+| مصاريف الخدمة 1 | `termConfig.serviceFees1Debit` | `termConfig.serviceFees1Credit` |
+| مصاريف الخدمة 2 | `termConfig.serviceFees2Debit` | `termConfig.serviceFees2Credit` |
+| مصاريف الخدمة 3 | `termConfig.serviceFees3Debit` | `termConfig.serviceFees3Credit` |
+| مصاريف الخدمة 4 | `termConfig.serviceFees4Debit` | `termConfig.serviceFees4Credit` |
+
+**خصم مصاريف خدمة N (Service Fees N Deduction)** `termConfig.serviceFees1Deduction` … `termConfig.serviceFees4Deduction` — عند ضبطه تُعامَل مصاريف الخدمة N كخصم (مطروح) بدلًا من رسم مضاف.
+
+**عدم إضافة التأثير المحاسبي لمصاريف الخدمة بدون الجانب المحاسبي (Do Not Add Service Fees Effect Without Account Side)** `termConfig.doNotAddServiceFeesEffectWithoutAccSide` — تخطّي التأثير المحاسبي لمصاريف الخدمة تمامًا عندما لا يكون لها جانب محاسبي مُعدّ.
+
+**صنف / نسبة / نوع احتساب مصاريف الخدمة (Service charge item / percentage / calc type)** `termConfig.serviceCharge.item` / `termConfig.serviceCharge.percentage` / `termConfig.serviceCharge.serviceItemCalcType` — يحدّد صنف مصاريف الخدمة ونسبته وكيفية احتساب مبلغ صنف الخدمة.
+
+## التكلفة الإضافية وفرق مردود المشتريات (Additional Cost & Purchase-Return Difference)
+
+تضيف المستندات المختلفة التكلفة الإضافية (المحمّلة) وفروق تكلفة مردود المشتريات بطرق مختلفة.
+
+**مدين / دائن التكاليف الإضافية (التوريد المخزني)** `termConfig.config.additionalCostDebit` / `termConfig.config.additionalCostCredit` — تفعيل ترحيل مدين/دائن التكلفة الإضافية على التوريد المخزني.
+
+**جانب التكلفة الإضافية (التحويلات)** `termConfig.additionalCostConfig` — على التحويل المخزني / توريد التحويل المخزني / صرف التحويل المخزني، الجانب المحاسبي المستخدم لترحيل التكلفة الإضافية (المحمّلة) المضافة إلى المخزون المحوّل، ضمن مجموعة *التكاليف الإضافية*.
+
+**مدين / دائن فرق مردود المشتريات (Purchase Return Difference Debit / Credit)** `termConfig.config.purchaseRetDiffDebit` / `termConfig.config.purchaseRetDiffCredit` — الجوانب المحاسبية لمدين ودائن فرق تكلفة مردود المشتريات. الصرف المخزني فقط.
+
+**مدين / دائن للمخزن (Warehouse Debit / Credit)** `termConfig.warehouseDebit` / `termConfig.warehouseCredit` — زوج قيد منفصل لجانب المخزون/المخزن يولّده مستند تسليم الأمر، متمايز عن مدينه/دائنه الرئيسي. تسليم الأمر (Order Delivery) فقط.
+
+## الاعتماد المستندي (Letter of Credit)
+
+يعرض مستند فتح الاعتماد المستندي عدة جوانب إضافية إلى جانب مدينه/دائنه الرئيسي (اللذين يحملان عناوين الدفعة المقدمة).
+
+**مدين / دائن الدفعة المقدمة (Down Payment Debit / Credit)** `termConfig.config.debit` / `termConfig.config.credit` — على فتح الاعتماد، يحمل الجانبان المدين/الدائن الرئيسيان عنواني *مدين الدفعة المقدمة* / *دائن الدفعة المقدمة*.
+
+**مدين / دائن الرسوم (Fees Debit / Credit)** `termConfig.feesDebit` / `termConfig.feesCredit` — الجوانب المحاسبية لترحيل عمولة/رسوم فتح الاعتماد.
+
+**مدين / دائن التغطية (Covered Debit / Credit)** `termConfig.coveredDebit` / `termConfig.coveredCredit` — الجوانب المحاسبية لجزء التغطية النقدية (الهامش/الغطاء) من الاعتماد المستندي، ضمن مجموعة *تأثير التغطية*.
+
+**دفتر / توجيه سند المصروفات (LCExpense Book / Term)** `termConfig.lCExpenseBook` / `termConfig.lCExpenseTerm` — دفتر المستند وتوجيه المستند المستخدمان عند قيام فتح الاعتماد بإنشاء سند المصروفات الخاص به تلقائيًا.
+
+## مفاتيح التأثير على التكلفة (Cost Effect Flags)
+
+مفاتيح على مستندات المصروفات/التكاليف (JOrderExpense, ReceiptAdditionalCost, LcExpense) تتحكّم فيما إذا كان التأثير ينعكس على تكلفة الصنف وبأي صرامة يتحقّق.
+
+**عدم التأثير في التكاليف (Do Not Affect On Cost)** `termConfig.doNotAffectOnCost` (JOrderExpense) / `termConfig.donotAffectOnCost` (ReceiptAdditionalCost, LcExpense) — لا يُدخل مستند المصروفات/التكلفة في تكلفة الصنف. الإملاءان خاصّان بالواجهة؛ وكلاهما بنفس المعنى.
+
+**يمكن تعديل الضريبة (Editable Taxes)** `termConfig.editableTaxes` — السماح بتعديل الضرائب المحتسَبة على المستند. JOrderExpense وReceiptAdditionalCost وLcExpense.
+
+**السماح بترك نوع الحافظة فارغاً (Allow Empty Subsidiary Account Type)** `termConfig.allowEmptySubsidiaryAccountType` — السماح بالترحيل حتى عندما لا يكون نوع الحافظة/الحساب الفرعي مضبوطًا. JOrderExpense وReceiptAdditionalCost وLcExpense.
+
+**السماح بترك سطور التوزيع النظامية فارغة (Allow Empty Sys Distribution Lines)** `termConfig.allowEmptySysDistributionLines` — السماح بالحفظ عندما تكون سطور التوزيع النظامية للتكلفة فارغة. ReceiptAdditionalCost فقط.
+
+**نوع المصروف (Expense Type)** `termConfig.expenseType` — يصنّف مصروف أمر التشغيل، متحكّمًا في كيفية ترحيله/توزيعه. JOrderExpense فقط.
+
+## أي المستندات تعرض أي صفحات تأثير (Which Documents Expose Which Effect Pages)
+
+مجموعات التأثير الموجودة على توجيه المستند تعتمد على نوع المستند:
+
+| المستند | مجموعات التأثير الموجودة |
+|---|---|
+| فواتير وأوامر المبيعات/المشتريات، الفواتير المبدئية، الاستبدال، التسليم، تسعير المنتج النهائي، أمر تشغيل الزجاج | مدين/دائن رئيسي، إختصار القيود، القيود الرقابية، التأثيرات الضريبية (النقدي + ضريبة 1-4 + الجوانب الأخرى)، تأثيرات الخصم (8 + الجوانب الأخرى)، سطور التأثير الخارجي، خصم التقريب، مصاريف الخدمة |
+| فاتورة المشتريات | مدين/دائن، إختصار القيود، القيود الرقابية، التأثيرات الضريبية، تأثيرات الخصم، سطور التأثير الخارجي، مصاريف الخدمة |
+| مردود المبيعات، طلب مردود المبيعات | مدين/دائن، إختصار القيود، القيود الرقابية (مردود المبيعات)، التأثيرات الضريبية، تأثيرات الخصم، سطور التأثير الخارجي، خصم التقريب، مصاريف الخدمة |
+| مردود المشتريات | مدين/دائن، إختصار القيود، التأثيرات الضريبية، تأثيرات الخصم، سطور التأثير الخارجي، مصاريف الخدمة |
+| المناقصة (Tender) | مدين/دائن، القيود الرقابية، التأثيرات الضريبية، تأثيرات الخصم، سطور التأثير الخارجي، خصم التقريب |
+| التوريد المخزني | ليس له تأثير محاسبي، مدين/دائن، التكلفة الإضافية (مدين/دائن)، إختصار القيود، حساب تاريخ القيد، القيود الرقابية |
+| الصرف المخزني | ليس له تأثير محاسبي، مدين/دائن، مدين/دائن فرق مردود المشتريات، إختصار القيود، حساب تاريخ القيد، القيود الرقابية |
+| التحويل المخزني (+ توريد/صرف التحويل) | ليس له تأثير محاسبي، مدين/دائن، إختصار القيود، حساب تاريخ القيد، جانب التكلفة الإضافية |
+| تسليم الأمر (Order Delivery) | مدين/دائن + مدين/دائن للمخزن |
+| تنفيذ الأمر، إنهاء الأمر، توريد التشغيل الخارجي، تكلفة الاعتماد | مدين/دائن فقط |
+| سند مصروفات الاعتماد (LcExpense) | مدين/دائن، معلومات الضرائب (ضريبة 1-4 + سياسة الضريبة)، تأثيرات الخصم (خصم 1)، مفاتيح التأثير على التكلفة |
+| التكلفة الإضافية للتوريد (ReceiptAdditionalCost) | مدين/دائن، معلومات الضرائب، تأثيرات الخصم، مفاتيح التأثير على التكلفة |
+| سند مصروفات أمر التشغيل (JOrderExpense) | مدين/دائن، معلومات الضرائب، تأثيرات الخصم، نوع المصروف، مفاتيح التأثير على التكلفة |
+| فتح الاعتماد المستندي | مدين/دائن (الدفعة المقدمة)، مدين/دائن الرسوم، مدين/دائن التغطية، دفتر/توجيه سند المصروفات |
+| إعادة تقييم التكلفة (Cost Revaluation) | مدين (جانب التسوية) / دائن (جانب المخزون) |
