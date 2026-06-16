@@ -1,0 +1,16 @@
+{
+  "sortedPaths": [
+    "/integration",
+    "/integration/nama-erp-api.md",
+    "/integration/system-integration-scenarios.md",
+    "/integration/invoice-retriever.md",
+    "/integration/attendance-machines-integration.md",
+    "/integration/oracle-jdbc-connection.md"
+  ],
+  "folderTitles": {
+    "/integration": {
+      "ar": "التكاملات الخارجية",
+      "en": "External Integrations"
+    }
+  }
+}

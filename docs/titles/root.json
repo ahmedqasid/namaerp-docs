@@ -1,0 +1,21 @@
+{
+  "sortedPaths": [
+    "/",
+    "/full-search.md",
+    "/getting-started",
+    "/getting-started/system-minimum-requirements.md",
+    "/getting-started/installation-guide.md",
+    "/getting-started/nama-properties.md",
+    "/getting-started/two-factor-authentication.md"
+  ],
+  "folderTitles": {
+    "/": {
+      "ar": "الرئيسية",
+      "en": "Home"
+    },
+    "/getting-started": {
+      "ar": "بدء الاستخدام",
+      "en": "Getting Started"
+    }
+  }
+}

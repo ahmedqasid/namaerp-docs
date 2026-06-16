@@ -1,0 +1,68 @@
+{
+  "sortedPaths": [
+    "/modules/supplychain",
+    "/modules/supplychain/understanding-items.md",
+    "/modules/supplychain/warehouses-and-locators.md",
+    "/modules/supplychain/receiving-stock.md",
+    "/modules/supplychain/issuing-stock.md",
+    "/modules/supplychain/moving-stock.md",
+    "/modules/supplychain/stock-taking.md",
+    "/modules/supplychain/inventory-costing.md",
+    "/modules/supplychain/purchasing-journey.md",
+    "/modules/supplychain/purchase-forecast.md",
+    "/modules/supplychain/sales-journey.md",
+    "/modules/supplychain/pricing-offers-and-coupons.md",
+    "/modules/supplychain/reservation-system-guide.md",
+    "/modules/supplychain/delivery-and-loading.md",
+    "/modules/supplychain/assembly-and-packaging.md",
+    "/modules/supplychain/quality-control.md",
+    "/modules/supplychain/letters-of-credit.md",
+    "/modules/supplychain/weight-scale.md",
+    "/modules/supplychain/specialized-scenarios.md",
+    "/modules/supplychain/ignore-reservation-qty-check-by-date.md",
+    "/modules/supplychain/supply-chain-faq.md",
+    "/modules/supplychain/development-requests",
+    "/modules/supplychain/development-requests/allow-empty-item-dimensions-before-date.md",
+    "/modules/supplychain/configuration",
+    "/modules/supplychain/configuration/costing-configuration.md",
+    "/modules/supplychain/configuration/overdraft-and-quantity-checking.md",
+    "/modules/supplychain/configuration/quantity-suggestion-configuration.md",
+    "/modules/supplychain/configuration/item-properties-configuration.md",
+    "/modules/supplychain/configuration/items-and-master-data-configuration.md",
+    "/modules/supplychain/configuration/purchasing-configuration.md",
+    "/modules/supplychain/configuration/sales-and-offers-configuration.md",
+    "/modules/supplychain/configuration/pricing-and-price-lists.md",
+    "/modules/supplychain/configuration/documents-and-details-configuration.md",
+    "/modules/supplychain/configuration/stock-taking-configuration.md",
+    "/modules/supplychain/configuration/stock-ages-configuration.md",
+    "/modules/supplychain/configuration/item-barcode-specifications.md",
+    "/modules/supplychain/document-terms",
+    "/modules/supplychain/document-terms/doc-term-general.md",
+    "/modules/supplychain/document-terms/doc-term-from-document.md",
+    "/modules/supplychain/document-terms/doc-term-sub-item.md",
+    "/modules/supplychain/document-terms/doc-term-quantity-tracking.md",
+    "/modules/supplychain/document-terms/doc-term-reservation-and-delivery.md",
+    "/modules/supplychain/document-terms/doc-term-pricing-taxes-discounts.md",
+    "/modules/supplychain/document-terms/doc-term-accounting-effects.md",
+    "/modules/supplychain/document-terms/doc-term-generation-and-dimensions.md",
+    "/modules/supplychain/document-terms/doc-term-document-specific.md"
+  ],
+  "folderTitles": {
+    "/modules/supplychain": {
+      "ar": "سلسلة التوريد",
+      "en": "Supply Chain"
+    },
+    "/modules/supplychain/configuration": {
+      "ar": "إعدادات سلسلة التوريد",
+      "en": "Configuration"
+    },
+    "/modules/supplychain/document-terms": {
+      "ar": "توجيهات المستندات",
+      "en": "Document Terms"
+    },
+    "/modules/supplychain/development-requests": {
+      "ar": "ملاحظات طلبات التطوير",
+      "en": "Development Request Notes"
+    }
+  }
+}

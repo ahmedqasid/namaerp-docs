@@ -1,0 +1,94 @@
+{
+  "sortedPaths": [
+    "/platform",
+    "/platform/utils.md",
+    "/platform/shortcuts.md",
+    "/platform/shortcuts-ar.md",
+    "/platform/screen-modifier",
+    "/platform/screen-modifier/screen-modifier.md",
+    "/platform/screen-modifier/screen-modifier-faq.md",
+    "/platform/list-views",
+    "/platform/list-views/quick-filters.md",
+    "/platform/list-views/limit-user-to-year.md",
+    "/platform/fiscal-period-control-guide.md",
+    "/platform/approvals",
+    "/platform/approvals/approvals-system.md",
+    "/platform/approvals/sample-approval-email-templates.md",
+    "/platform/approvals/approvals-faq.md",
+    "/platform/security",
+    "/platform/security/security-overview.md",
+    "/platform/security/security-profiles.md",
+    "/platform/security/field-page-listview-security.md",
+    "/platform/security/record-level-security.md",
+    "/platform/security/users-and-login.md",
+    "/platform/security/security-delegation.md",
+    "/platform/entity-flows",
+    "/platform/entity-flows/introduction-to-entity-flows.md",
+    "/platform/entity-flows/excel-and-sql-import-by-entity-flow.md",
+    "/platform/entity-flows/ea-gen-entity-from-entity.md",
+    "/platform/entity-flows/entity-flow-examples.md",
+    "/platform/entity-flows/entity-flow-faq.md",
+    "/platform/reports",
+    "/platform/reports/reports-guide.md",
+    "/platform/reports/report-wizard-guide.md",
+    "/platform/reports/ReportWizard_User_Documentation.md",
+    "/platform/reports/report-faq.md",
+    "/platform/reports/report-wizard-faq.md",
+    "/platform/bi",
+    "/platform/bi/bi-module-guide.md",
+    "/platform/bi/bi-module-technical-reference.md",
+    "/platform/bi/bi-reference-enhanced-metrics-card.md",
+    "/platform/bi/bi-reference-enhanced-table.md",
+    "/platform/bi/bi-reference-wizard-mode.md",
+    "/platform/notifications",
+    "/platform/notifications/notifications-system.md",
+    "/platform/notifications/sms-and-whatsapp.md",
+    "/platform/notifications/notification-fq.md",
+    "/platform/virtual-entity-guide.md",
+    "/platform/field-filter-with-criteria.md",
+    "/platform/field-filter-faq.md",
+    "/platform/translations.md",
+    "/platform/criteria-based-validation.md",
+    "/platform/text-criteria-guide.md",
+    "/platform/scheduled-tasks.md",
+    "/platform/GenericReferenceOverrider_UserGuide.md"
+  ],
+  "folderTitles": {
+    "/platform": {
+      "ar": "الخصائص العامة للنظام",
+      "en": "Platform Features"
+    },
+    "/platform/screen-modifier": {
+      "ar": "تعديل الشاشات",
+      "en": "Screen Modifier"
+    },
+    "/platform/list-views": {
+      "ar": "قوائم العرض",
+      "en": "List Views"
+    },
+    "/platform/approvals": {
+      "ar": "الموافقات",
+      "en": "Approvals"
+    },
+    "/platform/security": {
+      "ar": "الصلاحيات والأمان",
+      "en": "Security & Permissions"
+    },
+    "/platform/entity-flows": {
+      "ar": "مسارات الكيان",
+      "en": "Entity Flows"
+    },
+    "/platform/reports": {
+      "ar": "التقارير",
+      "en": "Reports"
+    },
+    "/platform/bi": {
+      "ar": "ذكاء الأعمال (BI)",
+      "en": "Business Intelligence"
+    },
+    "/platform/notifications": {
+      "ar": "التنبيهات",
+      "en": "Notifications"
+    }
+  }
+}

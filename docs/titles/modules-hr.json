@@ -1,0 +1,14 @@
+{
+  "sortedPaths": [
+    "/modules/hr",
+    "/modules/hr/attendance-machine-formula.md",
+    "/modules/hr/ignore-overlapping-attendance.md",
+    "/modules/hr/human-resources-faq.md"
+  ],
+  "folderTitles": {
+    "/modules/hr": {
+      "ar": "الموارد البشرية",
+      "en": "Human Resources"
+    }
+  }
+}

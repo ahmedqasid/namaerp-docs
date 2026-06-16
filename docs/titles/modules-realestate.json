@@ -1,0 +1,12 @@
+{
+  "sortedPaths": [
+    "/modules/realestate",
+    "/modules/realestate/real-estate-fq.md"
+  ],
+  "folderTitles": {
+    "/modules/realestate": {
+      "ar": "العقارات",
+      "en": "Real Estate"
+    }
+  }
+}

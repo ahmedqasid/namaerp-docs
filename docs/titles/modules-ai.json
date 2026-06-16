@@ -1,0 +1,15 @@
+{
+  "sortedPaths": [
+    "/modules/ai",
+    "/modules/ai/ai-tool-definitions.md",
+    "/modules/ai/ai-assistant.md",
+    "/modules/ai/ai-configuration.md",
+    "/modules/ai/ai-mcp-server.md"
+  ],
+  "folderTitles": {
+    "/modules/ai": {
+      "ar": "الذكاء الاصطناعي",
+      "en": "Artificial Intelligence"
+    }
+  }
+}

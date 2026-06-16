@@ -1,0 +1,15 @@
+{
+  "sortedPaths": [
+    "/modules/pos",
+    "/modules/pos/nama-pos.md",
+    "/modules/pos/pos-free-items-claim-and-reconciliation.md",
+    "/modules/pos/pos-fingerprint-login.md",
+    "/modules/pos/pos-faq.md"
+  ],
+  "folderTitles": {
+    "/modules/pos": {
+      "ar": "نقاط البيع",
+      "en": "Point of Sale"
+    }
+  }
+}

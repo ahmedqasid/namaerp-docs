@@ -1,0 +1,17 @@
+{
+  "sortedPaths": [
+    "/modules/mobile",
+    "/modules/mobile/mobile-application-guide.md",
+    "/modules/mobile/mobile-hr-self-service.md",
+    "/modules/mobile/mobile-sales-inventory.md",
+    "/modules/mobile/mobile-crm-delivery.md",
+    "/modules/mobile/mobile-qr-integrator.md",
+    "/modules/mobile/mobile-apps-faq.md"
+  ],
+  "folderTitles": {
+    "/modules/mobile": {
+      "ar": "تطبيقات الجوال",
+      "en": "Mobile Applications"
+    }
+  }
+}

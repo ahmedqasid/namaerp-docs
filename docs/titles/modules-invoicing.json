@@ -1,0 +1,29 @@
+{
+  "sortedPaths": [
+    "/modules",
+    "/modules/invoicing",
+    "/modules/invoicing/reward-points.md",
+    "/modules/invoicing/invoice-discounts-and-tax-calculation-guide.md",
+    "/modules/invoicing/pricing-and-offers-guide.md",
+    "/modules/invoicing/payment-schedules-user-guide.md",
+    "/modules/invoicing/payment-entries.md",
+    "/modules/invoicing/online-payments.md",
+    "/modules/invoicing/e-invoices-guide.md",
+    "/modules/invoicing/zatca-guide.md",
+    "/modules/invoicing/electronic-receipt-egypt-tax-eInvoice.md",
+    "/modules/invoicing/uae-orchida-einvoice-guide.md",
+    "/modules/invoicing/standard-terms-feature-documentation.md",
+    "/modules/invoicing/barcode-field-feature.md",
+    "/modules/invoicing/invoices-faq.md"
+  ],
+  "folderTitles": {
+    "/modules": {
+      "ar": "الوحدات",
+      "en": "Modules"
+    },
+    "/modules/invoicing": {
+      "ar": "الفواتير والضرائب والخصومات",
+      "en": "Invoicing, Taxes & Discounts"
+    }
+  }
+}

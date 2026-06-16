@@ -1,0 +1,20 @@
+{
+  "sortedPaths": [
+    "/modules/hms",
+    "/modules/hms/hms-facility.md",
+    "/modules/hms/hms-medical-master-files.md",
+    "/modules/hms/hms-service-catalog.md",
+    "/modules/hms/hms-insurance.md",
+    "/modules/hms/hms-pricing.md",
+    "/modules/hms/hms-patients.md",
+    "/modules/hms/hms-accommodation.md",
+    "/modules/hms/hms-clinical-orders.md",
+    "/modules/hms/hms-invoicing.md"
+  ],
+  "folderTitles": {
+    "/modules/hms": {
+      "ar": "نظام إدارة المستشفيات",
+      "en": "Hospital Management System"
+    }
+  }
+}

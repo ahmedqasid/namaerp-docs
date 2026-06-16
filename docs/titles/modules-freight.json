@@ -1,0 +1,21 @@
+{
+  "sortedPaths": [
+    "/modules/freight",
+    "/modules/freight/freight-master-files.md",
+    "/modules/freight/operation-orders.md",
+    "/modules/freight/bills-of-lading.md",
+    "/modules/freight/freight-pricing.md",
+    "/modules/freight/freight-invoicing.md",
+    "/modules/freight/freight-einvoicing.md",
+    "/modules/freight/ips-postal-intro.md",
+    "/modules/freight/ips-mail-items.md",
+    "/modules/freight/ips-receptacles.md",
+    "/modules/freight/ips-delivery.md"
+  ],
+  "folderTitles": {
+    "/modules/freight": {
+      "ar": "إدارة الشحن",
+      "en": "Freight Management"
+    }
+  }
+}

@@ -95,6 +95,10 @@ Everything that enters your inventory, leaves it, or moves around inside it.
 The Point of Sale (POS) guides have moved to the standalone [Point of Sale module](/modules/pos/). There you'll find the guides for fingerprint login, free items in POS, and technical points of use.
 :::
 
+### Development Request Notes
+
+Some client requests change how a core part of the module behaves in ways worth explaining on their own. The **[Development Request Notes](./development-requests/)** section keeps the story behind those changes — the business problem, what the feature does, and when to enable it.
+
 ## A Note About Document Types
 
 As you read this documentation, you'll encounter many "document" types like PurchaseInvoice, StockReceipt, SalesOrder, and others. Don't let that confuse you!

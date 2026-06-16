@@ -1,0 +1,14 @@
+{
+  "sortedPaths": [
+    "/developer",
+    "/developer/docs-quick-guide.md",
+    "/developer/dev-request-guidelines.md",
+    "/developer/gui-post-actions-faq.md"
+  ],
+  "folderTitles": {
+    "/developer": {
+      "ar": "مرجع المطور",
+      "en": "Developer Reference"
+    }
+  }
+}

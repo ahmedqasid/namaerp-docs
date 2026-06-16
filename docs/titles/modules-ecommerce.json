@@ -1,0 +1,13 @@
+{
+  "sortedPaths": [
+    "/modules/ecommerce",
+    "/modules/ecommerce/magento-integration-guide.md",
+    "/modules/ecommerce/omniful-integration.md"
+  ],
+  "folderTitles": {
+    "/modules/ecommerce": {
+      "ar": "تكامل التجارة الإلكترونية",
+      "en": "e-commerce Integration"
+    }
+  }
+}
