@@ -606,7 +606,7 @@ The [BI Module Technical Reference](./bi-module-technical-reference.md) document
 ::: tip Using AI to Build Dashboards
 Here's a workflow that works well:
 
-1. Give the AI tool the technical reference link: `https://docs.namasoft.com/guide/bi-module-technical-reference.html`
+1. Give the AI tool the technical reference link: `https://docs.namasoft.com/platform/bi/bi-module-technical-reference.html`
 2. Tell it what data model you're working with — you can point it to [dm.namasoft.com](https://dm.namasoft.com) for schema discovery
 3. Describe the dashboard you want in plain language, for example:
 

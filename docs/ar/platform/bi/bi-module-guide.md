@@ -606,7 +606,7 @@ Enhanced Table ترقية اختيارية. الـ `Table` widget الكلاسي
 ::: tip استخدام الذكاء الاصطناعي لبناء لوحات المعلومات
 إليك سير عمل يُجدي جيداً:
 
-1. أعطِ أداة الذكاء الاصطناعي رابط المرجع التقني: `https://docs.namasoft.com/guide/bi-module-technical-reference.html`
+1. أعطِ أداة الذكاء الاصطناعي رابط المرجع التقني: `https://docs.namasoft.com/platform/bi/bi-module-technical-reference.html`
 2. أخبره بنموذج البيانات الذي تعمل معه — يمكنك توجيهه إلى [dm.namasoft.com](https://dm.namasoft.com) لاكتشاف الـ schema
 3. صف لوحة المعلومات التي تريدها بلغة طبيعية، مثلاً:
 
