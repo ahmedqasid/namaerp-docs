@@ -776,10 +776,19 @@ export const SIDEBAR_CONFIG = {
         "link" : "/platform/screen-modifier/",
         "collapsed" : true,
         "items" : [ {
-          text: "Layout Names:",
-          "link" : "/platform/screen-modifier/screen-modifier"
+          text: "Screen Modifier — Overview & Concepts",
+          "link" : "/platform/screen-modifier/screen-modifier-overview"
         }, {
-          text: "Frequently Asked Questions about Screen Modifier",
+          text: "Screen Modifier — Edit-Screen Modifications",
+          "link" : "/platform/screen-modifier/screen-modifier-edit-screen"
+        }, {
+          text: "Screen Modifier — List View & Selector Pop-up",
+          "link" : "/platform/screen-modifier/screen-modifier-list-and-search"
+        }, {
+          text: "Screen Modifier — Visual Layout Editor",
+          "link" : "/platform/screen-modifier/screen-modifier-visual-editor"
+        }, {
+          text: "Screen Modifier — Frequently Asked Questions",
           "link" : "/platform/screen-modifier/screen-modifier-faq"
         } ]
       }, {
@@ -11630,10 +11639,19 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/platform/screen-modifier/",
         "collapsed" : true,
         "items" : [ {
-          text: "أسماء التخطيط (Layout Names):",
-          "link" : "/ar/platform/screen-modifier/screen-modifier"
+          text: "تعديل الشاشات — نظرة عامة والمفاهيم",
+          "link" : "/ar/platform/screen-modifier/screen-modifier-overview"
         }, {
-          text: "أسئلة شائعة حول تعديل الشاشات",
+          text: "تعديل الشاشات — تعديلات شاشة التعديل",
+          "link" : "/ar/platform/screen-modifier/screen-modifier-edit-screen"
+        }, {
+          text: "تعديل الشاشات — قائمة العرض ونافذة الاختيار",
+          "link" : "/ar/platform/screen-modifier/screen-modifier-list-and-search"
+        }, {
+          text: "تعديل الشاشات — المحرر المرئي للتخطيط",
+          "link" : "/ar/platform/screen-modifier/screen-modifier-visual-editor"
+        }, {
+          text: "تعديل الشاشات — أسئلة شائعة",
           "link" : "/ar/platform/screen-modifier/screen-modifier-faq"
         } ]
       }, {
