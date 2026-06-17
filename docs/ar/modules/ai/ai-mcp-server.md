@@ -92,7 +92,7 @@ http[s]://<server-ip-or-domain>/basic-services/mcp/sse
 | المدخل | إلزامي | الوصف |
 |---|---|---|
 | `entityType` | نعم | نوع الكيان، مثل `SalesInvoice` |
-| `criteria` | لا | تعبير معايير بصيغة نما، مثل `code = 'INV-1'` أو `the60 >= '2024-01-01'` |
+| `criteria` | لا | [فلتر معايير نصي](../../platform/text-criteria-guide.md) بصيغة نما — كل شرط على هيئة `fieldId,operator,value,logic;`، مثل `code,Equal,INV-1,AND;` أو `valueDate,GreaterThanOrEqual,01-01-2024,AND;` (التواريخ بصيغة `dd-MM-yyyy`) |
 | `fields` | لا | معرفات حقول إضافية تُعاد في كل صف (مفصولة بفواصل) — يُعاد دائمًا `id` و `code` |
 | `orderBy` | لا | معرف حقل للترتيب |
 | `page` | لا | رقم الصفحة (يبدأ من 1) |

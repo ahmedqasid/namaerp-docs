@@ -50,11 +50,20 @@ The simplest and most common tool type: a SQL query written by the administrator
 
 On the **Query Based** page:
 
-1. Write the query in the **Query** field, using named parameters (such as `:fromDate` and `:toDate`).
+1. Write the query in the **Query** field, referencing each parameter with the `{paramName}` placeholder syntax (such as `{fromDate}` and `{toDate}`).
 2. Define each parameter in the **Query Parameters** grid.
 3. In **Description**, explain when this tool should be used and what it returns.
 
 At execution time the query runs with the parameter values the model sent, and the result is returned to it as JSON (column names and row values).
+
+::: tip Optional and conditional parameters
+Query parameters go through the same engine as field-map SQL, so the full [Advanced SQL Parameter Syntax](../../entity-flows/core/ai-generated-field-maps-documentation.md#Advanced-SQL-Parameter-Syntax) is available — not just the plain `{fromDate}` placeholder. This matters because an AI tool usually exposes many *optional* filters, and these helpers let a single query handle them whether or not the model sends a value:
+
+- `{x>=,valueDate,fromDate}` — a comparison that turns into `1 = 1` (no-op) when the model omits `fromDate`, instead of an `({fromDate} IS NULL OR ...)` wrapper around every filter.
+- `{xBetween,column,fromDate,toDate}` — a range where either bound may be missing.
+- `{xIN,column,codes}` — an IN clause that gracefully tolerates an empty list.
+- `{!paramName}` — direct literal substitution (for dynamic table/column names; never for untrusted input).
+:::
 
 ![The Query Based page and the query parameters grid](./images/ai-tool-definition-query.png)
 

@@ -92,7 +92,7 @@ A paged search over an entity type's records, going through the standard list ga
 | Parameter | Required | Description |
 |---|---|---|
 | `entityType` | Yes | The entity type, such as `SalesInvoice` |
-| `criteria` | No | A Nama criteria expression, such as `code = 'INV-1'` or `the60 >= '2024-01-01'` |
+| `criteria` | No | A Nama [text-criteria filter](../../platform/text-criteria-guide.md) — each condition is `fieldId,operator,value,logic;`, such as `code,Equal,INV-1,AND;` or `valueDate,GreaterThanOrEqual,01-01-2024,AND;` (dates use `dd-MM-yyyy`) |
 | `fields` | No | Extra field ids to return in each row (comma-separated) — `id` and `code` are always returned |
 | `orderBy` | No | A field id to order by |
 | `page` | No | 1-based page number |

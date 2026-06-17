@@ -325,6 +325,10 @@ Using detail SQL fields can significantly impact performance because the SQL sta
 
 When writing SQL queries with parameters, Nama ERP provides several advanced parameter syntaxes for common patterns:
 
+::: tip Also used by AI query tools
+This same parameter syntax powers [AI query-based tools](../../modules/ai/ai-tool-definitions.md): the SQL written on an **AI Tool Definition**'s Query Based page uses these exact placeholders, which makes the conditional helpers below ideal for the many optional filters an AI tool usually exposes.
+:::
+
 ##### Literal Substitution (`{!paramName}`)
 Use `{!paramName}` to substitute a parameter value directly into the SQL statement (not as a prepared statement parameter). This is useful for dynamic table or column names:
 
