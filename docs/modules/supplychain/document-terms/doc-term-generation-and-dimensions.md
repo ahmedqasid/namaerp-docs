@@ -98,6 +98,24 @@ These appear on the New Purchase Forecast document, which generates purchase ord
 
 **Generated Item Request Term** (`termConfig.genItemRequestTerm`) — Term for that generated item request.
 
+### Purchase-Order Receipt for Unsatisfied Quantities
+
+These appear on the **Purchase Order** term. When enabled, the order keeps a stock receipt in sync with whatever quantity it still has outstanding — rebuilding it as downstream invoices satisfy the order and deleting it once nothing remains. See [Stock Receipts for the Unsatisfied Part of a Purchase Order](../development-requests/stock-receipt-for-unsatisfied-order-quantities.md) for the full story.
+
+**Generate Stock Receipt For Unsatisfied Quantities** (`termConfig.genStockReceiptForUnsatisfiedQty`) *(default off)* — When on, the purchase order automatically generates and maintains a stock receipt covering its unsatisfied (outstanding) line quantities.
+
+**Stock Receipt Book** (`termConfig.stockReceiptBook`) — Book used for that generated stock receipt. Required when the switch above is on.
+
+**Stock Receipt Term** (`termConfig.stockReceiptTerm`) — Term used for that generated stock receipt. Required when the switch above is on.
+
+### Purchase-Invoice Receipt Dating & Splitting
+
+These appear on the **Purchase Invoice** term and refine the stock receipts the invoice generates from its lines.
+
+**Use From Document Value Date For Receipt** (`termConfig.useFromDocValueDateForReceipt`) — The generated receipt takes its value date from the order the invoice was built on (the from-document), instead of inheriting the invoice's own value date.
+
+**Generate Receipt Document For Each Lines Origin Document** (`termConfig.genReceiptDocsForLinesOriginDocs`) — Groups generated receipts by each line's origin document (the order the line was copied from) in addition to warehouse, so every originating order gets its own receipt rather than one combined receipt per warehouse.
+
 ## Auto-Generate With Save
 
 This group renders only for **BasicSCDocument** documents. It is asynchronous, "deferred-save" generation driven by an input-field action — distinct from the commit-time generation group above. Instead of generating on every save, it can produce or update a linked document in the background when a specific field's post-action fires.

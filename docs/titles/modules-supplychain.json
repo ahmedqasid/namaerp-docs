@@ -23,6 +23,7 @@
     "/modules/supplychain/supply-chain-faq.md",
     "/modules/supplychain/development-requests",
     "/modules/supplychain/development-requests/allow-empty-item-dimensions-before-date.md",
+    "/modules/supplychain/development-requests/stock-receipt-for-unsatisfied-order-quantities.md",
     "/modules/supplychain/configuration",
     "/modules/supplychain/configuration/costing-configuration.md",
     "/modules/supplychain/configuration/overdraft-and-quantity-checking.md",

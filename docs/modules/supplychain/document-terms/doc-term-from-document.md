@@ -66,6 +66,8 @@ These options restrict which origin lines (and which from-documents) are brought
 
 **Filter On Selected Items Only With From Doc** `termConfig.filterOnSelectedItemsOnlyWithFromDoc` — When copying, only bring origin lines for the items already entered on the current document.
 
+**Show Only Orders With Unsatisfied Quantities In FromDoc** `termConfig.showOnlyOrdersWithUnsatisfiedQtyInFromDoc` — Restricts the from-document / origin-document lookup to orders that still have an unsatisfied (outstanding) quantity, hiding fully-executed orders. When the lookup is triggered from a specific line, results are further narrowed to orders that have an outstanding quantity for that line's item.
+
 The following options each restrict copying to origin lines whose accounting dimension matches the current document's dimension.
 
 | Option | Field ID |

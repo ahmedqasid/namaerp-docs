@@ -3453,6 +3453,9 @@ export const SIDEBAR_CONFIG = {
           "items" : [ {
             text: "Allowing Items With Batch & Expiry to Hold Untagged Quantities",
             "link" : "/modules/supplychain/development-requests/allow-empty-item-dimensions-before-date"
+          }, {
+            text: "Stock Receipts for the Unsatisfied Part of a Purchase Order",
+            "link" : "/modules/supplychain/development-requests/stock-receipt-for-unsatisfied-order-quantities"
           } ]
         }, {
           text: "Configuration",
@@ -14173,6 +14176,9 @@ export const SIDEBAR_CONFIG = {
           "items" : [ {
             text: "السماح للأصناف ذات الدفعات وتواريخ الصلاحية بحمل كميات غير موسومة (Allowing Items With Batch & Expiry to Hold Untagged Quantities)",
             "link" : "/ar/modules/supplychain/development-requests/allow-empty-item-dimensions-before-date"
+          }, {
+            text: "سند توريد مخزني للجزء غير المنفّذ من أمر الشراء (Stock Receipts for the Unsatisfied Part of a Purchase Order)",
+            "link" : "/ar/modules/supplychain/development-requests/stock-receipt-for-unsatisfied-order-quantities"
           } ]
         }, {
           text: "إعدادات سلسلة التوريد",

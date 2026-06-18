@@ -9,3 +9,4 @@ These are not step-by-step tutorials. Think of them as the story behind a featur
 ## Requests Documented Here
 
 - **[Allowing Items With Batch & Expiry to Hold Untagged Quantities](./allow-empty-item-dimensions-before-date.md)** — letting items that normally require a batch number, expiry, or other tracking dimension also carry quantities **without** those dimensions, up to a chosen cut-off date. *(Request SRDRQ06261)*
+- **[Stock Receipts for the Unsatisfied Part of a Purchase Order](./stock-receipt-for-unsatisfied-order-quantities.md)** — a purchase order that keeps a stock receipt in sync with its outstanding quantity, plus options to hide fully-executed orders in the from-document picker and to date and split the receipts a purchase invoice generates. *(Request SRDRQ06178)*
