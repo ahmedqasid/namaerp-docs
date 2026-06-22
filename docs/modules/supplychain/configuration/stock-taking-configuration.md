@@ -14,6 +14,8 @@ This page documents the **Stock Taking** tab — settings that govern how physic
 
 **Allow Stock Taking After Issue or Receipt Date** `value.allowStockTakingAfterIssueOrReceiptDate` — Normally you cannot start a count on a warehouse/locator that already has a movement after the count's start date. When on, that restriction is lifted and the count can start anyway.
 
+**Allow More Than One Stock Taking for the Same Warehouse on the Same Day** `value.allowMultipleStockTakingSameDayForSameWarehouse` — Normally a Start or End Stock Taking is rejected when another count already exists for the same warehouse on the same day, to stop a single day's stock from being counted twice. When on, that same-day duplicate check is skipped, so you can record more than one count for the same warehouse on the same day.
+
 **Prevent Saving Before Taking** `value.preventSavingBeforeTaking` *(default on)* — Prevents saving stock receipt/issue documents dated before the end date of an active count for that warehouse/locator, protecting the count window from late back-dated movements. Keep on to stop back-dated movements from corrupting an in-progress or recent count.
 
 **Prevent Saving on Taking Date** `value.preventSavingOnTakingDate` — Extends the option above to also block documents dated on the same day as the count, not only before it.
