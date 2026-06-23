@@ -386,6 +386,33 @@ Customers and suppliers can have tax exemptions configured in their subsidiary a
 | **Tax 3 Exempt** | `subsidiaryAccounts.tax3Exempt` | When true, Tax3 is zeroed for this entity |
 | **Tax 4 Exempt** | `subsidiaryAccounts.tax4Exempt` | When true, Tax4 is zeroed for this entity |
 
+### Document-Level Extra Discount (Egypt Tax Authority)
+
+When sending invoices to the Egypt Tax Authority (ETA), you sometimes need to grant a cash / "pay-now" discount on the whole invoice **after tax** — it lowers the total the customer pays without changing the VAT already calculated. ETA exposes a dedicated **Extra Discount** field on the invoice header for exactly this, separate from the ordinary line discounts.
+
+A field on the **Tax Payer Configuration** named **Document Level Extra Discount Location** controls it: you pick which line discount slot (Discount 1–8) carries this extra discount. That slot's value is then reported in ETA's Extra Discount field instead of being folded into the normal Total Discount Amount.
+
+For example: an item at 10,000, with Discount 1 = 300 and Discount 2 = 200 applied **before** tax, VAT at 14%, plus an 830 cash discount applied **after** tax and designated as the extra discount:
+
+| ETA field | Value |
+|-----------|-------|
+| Total Sales Amount | 10,000 |
+| Total Discount Amount | 500 (Discount 1 + 2, before tax) |
+| Net Amount | 9,500 |
+| Total Tax (14% of 9,500) | 1,330 |
+| Extra Discount Amount | 830 (after tax) |
+| Total Amount | 10,000 |
+
+The portal reconciles the invoice as `Net + Tax − Extra Discount = 9,500 + 1,330 − 830 = 10,000`, and VAT stays exactly 14% of the net.
+
+::: warning
+The discount slot chosen as the Extra Discount Location must be applied **after all taxes** in the effect order. An extra discount is post-tax by definition — if the chosen slot is calculated before tax, the reported net amount and tax no longer reconcile, so NamaERP stops the submission with a clear error naming the discount. Move the slot to after the taxes to resolve it.
+:::
+
+::: info
+This applies to Egypt Tax Authority e-invoices only (tax invoices, credit/debit notes, and their export variants). ZATCA, JoFotara, UAE, and the Egyptian e-receipt are unaffected.
+:::
+
 ## Common Scenarios and Examples
 
 ### Scenario 1: Standard VAT with Trade Discount
