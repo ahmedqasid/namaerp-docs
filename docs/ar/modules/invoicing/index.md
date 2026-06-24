@@ -1,18 +1,52 @@
-<div class="ignore-in-full-text-search">
+---
+# Handcrafted landing — GenNamaDocsIndex skips this file because of the .custom-index
+# marker in this folder (see hasHandcraftedHomePage in GenNamaDocsIndex.java)
+title: الفواتير والضرائب والخصومات
+---
 
 # الفواتير والضرائب والخصومات
-  - [نقاط مكافآت العملاء (Customer Reward Points / Loyalty Points)](/ar/modules/invoicing/reward-points.md)
-  - [دليل نظام الخصومات وحساب الضرائب على الفواتير - دليل شامل](/ar/modules/invoicing/invoice-discounts-and-tax-calculation-guide.md)
-  - [دليل إدارة الأسعار والعروض (Pricing and Offers Management Guide)](/ar/modules/invoicing/pricing-and-offers-guide.md)
-  - [دليل المستخدم لجداول الدفع (Payment Schedules)](/ar/modules/invoicing/payment-schedules-user-guide.md)
-  - [ربط سندات الدفع بالفواتير](/ar/modules/invoicing/payment-entries.md)
-  - [تكامل المدفوعات الإلكترونية (Online Payments Integration)](/ar/modules/invoicing/online-payments.md)
-  - [Nama ERP e-Invoice guide](/ar/modules/invoicing/e-invoices-guide.md)
-  - [الربط مع هيئة الزكاة والضريبة والجمارك بالسعودية (ZATCA Fatoora)](/ar/modules/invoicing/zatca-guide.md)
-  - [Electronic Receipt (Egypt Tax eInvoice) تفعيل الإيصال الإلكتروني - الفاتورة الإلكترونية - مصر](/ar/modules/invoicing/electronic-receipt-egypt-tax-eInvoice.md)
-  - [الربط مع الفاتورة الإلكترونية في الإمارات عبر Orchida osTax](/ar/modules/invoicing/uae-orchida-einvoice-guide.md)
-  - [توثيق خاصية الشروط والأحكام القياسية (Standard Terms and Conditions Feature Documentation)](/ar/modules/invoicing/standard-terms-feature-documentation.md)
-  - [ميزة حقل الباركود للمسح المتتالي](/ar/modules/invoicing/barcode-field-feature.md)
-  - [أسئلة شائعة حول الفواتير والدفع](/ar/modules/invoicing/invoices-faq.md)
 
-</div>
+عند الفوترة يتحوّل البيع إلى مبلغ مستحق — وإلى مستند ضريبي مطابق يقبله عميلك وتقبله الجهة الضريبية في بلدك. تغطّي هذه الوحدة الآليات اليومية لإصدار الفاتورة بشكل صحيح: كيف تُحسب الخصومات والضرائب، وكيف تُطبَّق الأسعار والعروض، وكيف يدفع العملاء (وكيف تُربط مدفوعاتهم بالفاتورة)، وكيف يُبلَّغ المستند إلكترونيًا للهيئة الضريبية في كل دولة تعمل فيها.
+
+إذا كنت تُصدر فواتير البيع، أو تدير العروض وبرامج الولاء، أو تطابق مدفوعات العملاء، أو كنت مسؤولًا عن الالتزام بالفاتورة الإلكترونية — فهذه وحدتك. الصفحات أدناه مُجمّعة حسب المهمّة التي تريد إنجازها — ابدأ بالخصومات والتسعير إن كنت تُعِدّ كيفية احتساب الفواتير، وانتقل إلى مجموعة الفاتورة الإلكترونية إن كانت مهمّتك ربط نما بمنصّة ضريبية وطنية.
+
+## الخصومات والضرائب والتسعير
+
+كيف تتكوّن أرقام الفاتورة — الخصومات والضرائب وقوائم الأسعار والعروض الترويجية.
+
+<LandingGrid>
+  <LandingCard icon="🧮" title="الخصومات وحساب الضرائب" link="/ar/modules/invoicing/invoice-discounts-and-tax-calculation-guide.md" details="دليل شامل لكيفية اجتماع خصومات الفاتورة وخصومات السطور مع الضريبة لإنتاج الإجماليات النهائية." />
+  <LandingCard icon="🏷️" title="الأسعار والعروض" link="/ar/modules/invoicing/pricing-and-offers-guide.md" details="قوائم الأسعار وعروض البيع والتحديث الآلي للأسعار لإبقاء أسعار البيع دقيقة وتنافسية." />
+</LandingGrid>
+
+## الولاء والمدفوعات
+
+مكافأة العملاء، والمسار الكامل من الفاتورة إلى تحصيل الدفعة.
+
+<LandingGrid>
+  <LandingCard icon="🎁" title="نقاط مكافآت العملاء" link="/ar/modules/invoicing/reward-points.md" details="تشغيل برنامج ولاء يكسب فيه العملاء نقاط مكافآت على مشترياتهم ويستبدلونها." />
+  <LandingCard icon="📅" title="جداول الدفع" link="/ar/modules/invoicing/payment-schedules-user-guide.md" details="تقسيم الفاتورة إلى أقساط مجدولة وتتبّع كل تاريخ استحقاق." />
+  <LandingCard icon="🔗" title="ربط المدفوعات بالفواتير" link="/ar/modules/invoicing/payment-entries.md" details="مطابقة سندات الدفع بالفواتير التي تسدّدها لإبقاء الأرصدة دقيقة." />
+  <LandingCard icon="💳" title="المدفوعات الإلكترونية" link="/ar/modules/invoicing/online-payments.md" details="تحصيل مدفوعات الفواتير عبر بوابات الدفع الإلكتروني المتكاملة." />
+</LandingGrid>
+
+## الفوترة الإلكترونية حسب الدولة
+
+تبليغ فواتيرك للمنصّات الضريبية الوطنية، مع دليل خاص لكل دولة.
+
+<LandingGrid>
+  <LandingCard icon="📨" title="نظرة عامة على الفاتورة الإلكترونية" link="/ar/modules/invoicing/e-invoices-guide.md" details="مفاهيم الفاتورة الإلكترونية العامة في Nama ERP التي تُبنى عليها تكاملات الدول." />
+  <LandingCard icon="🇸🇦" title="ZATCA (السعودية – فاتورة)" link="/ar/modules/invoicing/zatca-guide.md" details="الربط مع منصّة فاتورة لهيئة الزكاة والضريبة والجمارك بالسعودية للفوترة المطابقة ورموز QR." />
+  <LandingCard icon="🇪🇬" title="الإيصال الإلكتروني (مصر)" link="/ar/modules/invoicing/electronic-receipt-egypt-tax-eInvoice.md" details="تفعيل تكامل الإيصال الإلكتروني والفاتورة الإلكترونية مع مصلحة الضرائب المصرية." />
+  <LandingCard icon="🇦🇪" title="الفاتورة الإلكترونية في الإمارات (Orchida osTax)" link="/ar/modules/invoicing/uae-orchida-einvoice-guide.md" details="الربط مع نظام الفاتورة الإلكترونية في الإمارات عبر خدمة Orchida osTax." />
+</LandingGrid>
+
+## أدوات المستندات والمساعدة
+
+أدوات تُسرّع إدخال بيانات الفواتير وتجيب عن الأسئلة الشائعة.
+
+<LandingGrid>
+  <LandingCard icon="📜" title="الشروط والأحكام القياسية" link="/ar/modules/invoicing/standard-terms-feature-documentation.md" details="تعريف شروط قياسية وربطها بمستندات البيع وتتبّع ما إذا كان كل شرط قد استُوفي." />
+  <LandingCard icon="📦" title="حقل الباركود للمسح المتتالي" link="/ar/modules/invoicing/barcode-field-feature.md" details="حقل باركود ذكي يحافظ على التركيز ليمكّنك من مسح أكواد أصناف متتالية دون إعادة النقر." />
+  <LandingCard icon="❓" title="أسئلة شائعة عن الفواتير والدفع" link="/ar/modules/invoicing/invoices-faq.md" details="إجابات عن أكثر الأسئلة تكرارًا حول الفواتير والمدفوعات." />
+</LandingGrid>

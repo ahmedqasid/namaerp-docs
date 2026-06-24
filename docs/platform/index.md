@@ -1,58 +1,62 @@
-<div class="ignore-in-full-text-search">
+---
+# Handcrafted landing — GenNamaDocsIndex skips this file because of the .custom-index
+# marker in this folder (see hasHandcraftedHomePage in GenNamaDocsIndex.java)
+title: Platform Features
+---
 
 # Platform Features
-  - [Utility Links](/platform/utils.md)
-  - [Keyboard Shortcuts](/platform/shortcuts.md)
-  - [Screen Modifier](/platform/screen-modifier/)
-    - [Screen Modifier — Overview & Concepts](/platform/screen-modifier/screen-modifier-overview.md)
-    - [Screen Modifier — Edit-Screen Modifications](/platform/screen-modifier/screen-modifier-edit-screen.md)
-    - [Screen Modifier — List View & Selector Pop-up](/platform/screen-modifier/screen-modifier-list-and-search.md)
-    - [Screen Modifier — Visual Layout Editor](/platform/screen-modifier/screen-modifier-visual-editor.md)
-    - [Screen Modifier — Frequently Asked Questions](/platform/screen-modifier/screen-modifier-faq.md)
-  - [List Views](/platform/list-views/)
-    - [Quick Filters in List Views](/platform/list-views/quick-filters.md)
-    - [Limit User To Year](/platform/list-views/limit-user-to-year.md)
-  - [Fiscal Period Control](/platform/fiscal-period-control-guide.md)
-  - [Approvals](/platform/approvals/)
-    - [Approvals System - Approval Definition Full Guide](/platform/approvals/approvals-system.md)
-    - [Sample Approval Email Templates](/platform/approvals/sample-approval-email-templates.md)
-    - [Approvals FAQ](/platform/approvals/approvals-faq.md)
-  - [Security & Permissions](/platform/security/)
-    - [Security System Overview](/platform/security/security-overview.md)
-    - [Security Profile](/platform/security/security-profiles.md)
-    - [Field, Page, and List View Security](/platform/security/field-page-listview-security.md)
-    - [Record-Level Security (Dimensions and Filters)](/platform/security/record-level-security.md)
-    - [Users and Login](/platform/security/users-and-login.md)
-    - [Temporary Additional Permissions (Delegation)](/platform/security/security-delegation.md)
-  - [Entity Flows](/platform/entity-flows/)
-    - [Introduction to Entity Flows](/platform/entity-flows/introduction-to-entity-flows.md)
-    - [Importing Data from Excel or Queries](/platform/entity-flows/excel-and-sql-import-by-entity-flow.md)
-    - [EAGenerateEntityFromEntityAction](/platform/entity-flows/ea-gen-entity-from-entity.md)
-    - [Entity Flow Examples](/platform/entity-flows/entity-flow-examples.md)
-    - [Entity Flow FAQ](/platform/entity-flows/entity-flow-faq.md)
-  - [Reports](/platform/reports/)
-    - [Jasper Reports Complete Guide for Nama ERP](/platform/reports/reports-guide.md)
-    - [Report Wizard Guide](/platform/reports/report-wizard-guide.md)
-    - [ReportWizard User Documentation (Report Creation Tool)](/platform/reports/ReportWizard_User_Documentation.md)
-    - [Frequently Asked Questions About Report Design](/platform/reports/report-faq.md)
-    - [Frequently Asked Questions About the Report Builder](/platform/reports/report-wizard-faq.md)
-  - [Business Intelligence](/platform/bi/)
-    - [BI Module — Dashboards & Analytics](/platform/bi/bi-module-guide.md)
-    - [Nama ERP BI Module — Technical Reference](/platform/bi/bi-module-technical-reference.md)
-    - [BI Reference — EnhancedMetricsCard (and legacy MetricsCards)](/platform/bi/bi-reference-enhanced-metrics-card.md)
-    - [BI Reference — EnhancedTable](/platform/bi/bi-reference-enhanced-table.md)
-    - [BI Reference — Wizard Mode](/platform/bi/bi-reference-wizard-mode.md)
-  - [Notifications](/platform/notifications/)
-    - [Nama ERP Notification System](/platform/notifications/notifications-system.md)
-    - [WhatsApp Integration](/platform/notifications/sms-and-whatsapp.md)
-    - [Frequently Asked Questions: Notifications and Messages](/platform/notifications/notification-fq.md)
-  - [Virtual Entities — Reusable SQL Building Blocks for Reports & Dashboards](/platform/virtual-entity-guide.md)
-  - [Field Filter with Criteria](/platform/field-filter-with-criteria.md)
-  - [Frequently Asked Questions about Field Filtering](/platform/field-filter-faq.md)
-  - [Modifying Translations in Nama ERP](/platform/translations.md)
-  - [Criteria Based Validation](/platform/criteria-based-validation.md)
-  - [Criteria from Text Parser (Text Criteria Guide)](/platform/text-criteria-guide.md)
-  - [Scheduled Tasks (Task Scheduler)](/platform/scheduled-tasks.md)
-  - [Fields and Entities Settings - Generic Reference Overrider User Guide](/platform/GenericReferenceOverrider_UserGuide.md)
 
-</div>
+Every Nama ERP module — accounting, supply chain, HR — is built on the same platform. These are the system-wide tools that work across all of them: the things you use to reshape a screen, lock down who can see what, automate repetitive work, turn your data into reports and dashboards, and keep everyone notified. Learn them once and they pay off everywhere.
+
+## Tailoring the System
+
+Reshape screens, lists, and even built-in labels to fit how your team actually works — no code required.
+
+<LandingGrid>
+  <LandingCard icon="🎚️" title="Screen Modifier" link="/platform/screen-modifier/" details="Rearrange fields, hide what you don't use, and redesign edit screens, list views, and selectors with the visual layout editor." />
+  <LandingCard icon="📋" title="List Views" link="/platform/list-views/" details="Quick filters for finding records fast, and limiting a user to a single fiscal year." />
+  <LandingCard icon="🔤" title="Modifying Translations" link="/platform/translations.md" details="Change any label or term in the system to match your organisation's wording." />
+  <LandingCard icon="🔧" title="Generic Reference Overrider" link="/platform/GenericReferenceOverrider_UserGuide.md" details="Fine-tune how fields and reference lookups behave across entities." />
+</LandingGrid>
+
+## Security & Governance
+
+Control who can do what, and keep your books and processes under firm control.
+
+<LandingGrid>
+  <LandingCard icon="🔐" title="Security & Permissions" link="/platform/security/" details="Security profiles, field/page/list-view permissions, record-level security, users and login, and temporary delegation." />
+  <LandingCard icon="✅" title="Approvals" link="/platform/approvals/" details="Route documents through approval cycles, with email templates and a full definition guide." />
+  <LandingCard icon="🗓️" title="Fiscal Period Control" link="/platform/fiscal-period-control-guide.md" details="Lock accounting periods so no one can post into a closed month." />
+  <LandingCard icon="🛡️" title="Criteria-Based Validation" link="/platform/criteria-based-validation.md" details="Block or warn on documents that don't meet rules you define." />
+</LandingGrid>
+
+## Automation & Data
+
+Let the system do repetitive work for you, and build reusable rules and data blocks.
+
+<LandingGrid>
+  <LandingCard icon="🔄" title="Entity Flows" link="/platform/entity-flows/" details="Automate actions on records, generate entities from entities, and import data from Excel or SQL queries." />
+  <LandingCard icon="⏰" title="Scheduled Tasks" link="/platform/scheduled-tasks.md" details="Run jobs automatically on a schedule — the task scheduler." />
+  <LandingCard icon="🧱" title="Virtual Entities" link="/platform/virtual-entity-guide.md" details="Reusable SQL building blocks that power reports and dashboards." />
+  <LandingCard icon="🔎" title="Field Filter with Criteria" link="/platform/field-filter-with-criteria.md" details="Restrict what a lookup field can pick using criteria — plus the field-filtering FAQ." />
+  <LandingCard icon="📝" title="Text Criteria Parser" link="/platform/text-criteria-guide.md" details="Write criteria as plain text and have the parser turn them into filters." />
+</LandingGrid>
+
+## Insight & Communication
+
+Turn the data you capture into reports and dashboards, and keep people in the loop.
+
+<LandingGrid>
+  <LandingCard icon="📊" title="Reports" link="/platform/reports/" details="The Jasper reports guide, the Report Wizard for building your own, and report-design FAQs." />
+  <LandingCard icon="📈" title="Business Intelligence" link="/platform/bi/" details="Dashboards and analytics, the BI technical reference, and the EnhancedMetricsCard / EnhancedTable / Wizard-mode references." />
+  <LandingCard icon="🔔" title="Notifications" link="/platform/notifications/" details="The notification system, WhatsApp & SMS integration, and the messaging FAQ." />
+</LandingGrid>
+
+## Everyday Shortcuts
+
+Small helpers that speed up daily work.
+
+<LandingGrid>
+  <LandingCard icon="🔗" title="Utility Links" link="/platform/utils.md" details="Handy direct links into the system for common tasks." />
+  <LandingCard icon="⌨️" title="Keyboard Shortcuts" link="/platform/shortcuts.md" details="Work faster with the keyboard across Nama ERP screens." />
+</LandingGrid>

@@ -1,23 +1,55 @@
-<div class="ignore-in-full-text-search">
+---
+# Handcrafted landing — GenNamaDocsIndex skips this file because of the .custom-index
+# marker in this folder (see hasHandcraftedHomePage in GenNamaDocsIndex.java)
+title: Video Tutorials
+---
 
 # Video Tutorials
-  - [Documentation for the Nama ERP Installation Video and Supporting Software](/videos/installation-video.md)
-  - [Supply Chain Videos](/videos/supply-chain-videos/)
-    - [Inventory Costing Explained - Video 1](/videos/supply-chain-videos/cost-video-1.md)
-    - [Inventory Costing Methods - Video 2](/videos/supply-chain-videos/cost-video-2.md)
-    - [Costing Tutorial Video - 3](/videos/supply-chain-videos/cost-video-3.md)
-  - [Documentation: Explaining Actual and Indirect Costs in the Manufacturing System](/videos/manufacturing-actual-overhead.md)
-  - [Report Wizard Videos](/videos/report-wizard-videos/)
-    - [Video (1): Report Designer Tool Walkthrough](/videos/report-wizard-videos/report-wizard-webinar-1.md)
-    - [Detailed Guide to Grouping, Data Sources, and Report Sorting in Nama ERP](/videos/report-wizard-videos/report-wizard-webinar-2.md)
-    - [1. What Is a Cross Tab Report and How to Create One?](/videos/report-wizard-videos/report-wizard-webinar-3.md)
-    - [report-wizard-webinar-4.md](/videos/report-wizard-videos/report-wizard-webinar-4.md)
-    - [Conclusion](/videos/report-wizard-videos/report-wizard-webinar-5.md)
-    - [Content Summary](/videos/report-wizard-videos/report-wizard-webinar-6.md)
-  - [Human Resources Videos](/videos/hr/)
-    - [Detailed Explanation of the Payroll Management System in Nama ERP - 1](/videos/hr/hr-course-1.md)
-    - [Detailed Explanation of the Payroll Management System in Nama ERP - 2](/videos/hr/hr-course-2.md)
-    - [Detailed Explanation of the Payroll Management System in Nama ERP - 3](/videos/hr/hr-course-3.md)
-    - [Detailed Explanation of the Payroll System in Nama ERP - 4](/videos/hr/hr-course-4.md)
 
-</div>
+Sometimes it's easier to watch than to read. This is the home for Nama ERP video walkthroughs, each backed by a written, timestamped summary so you can jump straight to the part you need. Start with the standalone tutorials, then dive into the themed collections on supply chain costing, the Report Wizard, and HR payroll.
+
+## Featured Walkthroughs
+
+Self-contained videos that stand on their own.
+
+<LandingGrid>
+  <LandingCard icon="💿" title="Installation Video" link="/videos/installation-video.md" details="Set up a new server with multiple Tomcat instances and databases, then install Nama ERP from scratch." />
+  <LandingCard icon="🏭" title="Actual & Indirect Manufacturing Costs" link="/videos/manufacturing-actual-overhead.md" details="How indirect and actual costs are defined and handled inside the manufacturing system." />
+</LandingGrid>
+
+## Supply Chain Videos
+
+A three-part series on how inventory costing works in Nama ERP.
+
+<LandingGrid>
+  <LandingCard icon="📦" title="Supply Chain Videos" link="/videos/supply-chain-videos/" details="The full inventory-costing video series, explained step by step." />
+  <LandingCard icon="1️⃣" title="Inventory Costing Explained — Video 1" link="/videos/supply-chain-videos/cost-video-1.md" details="An introduction to how inventory costing works." />
+  <LandingCard icon="2️⃣" title="Inventory Costing Methods — Video 2" link="/videos/supply-chain-videos/cost-video-2.md" details="A closer look at the available costing methods." />
+  <LandingCard icon="3️⃣" title="Costing Tutorial — Video 3" link="/videos/supply-chain-videos/cost-video-3.md" details="The concluding part of the costing tutorial series." />
+</LandingGrid>
+
+## Report Wizard Videos
+
+A webinar series on building your own reports with the Report Wizard.
+
+<LandingGrid>
+  <LandingCard icon="🧙" title="Report Wizard Videos" link="/videos/report-wizard-videos/" details="The complete Report Wizard webinar collection." />
+  <LandingCard icon="🛠️" title="Report Designer Walkthrough" link="/videos/report-wizard-videos/report-wizard-webinar-1.md" details="A guided tour of the Report Designer tool." />
+  <LandingCard icon="🗂️" title="Grouping, Data Sources & Sorting" link="/videos/report-wizard-videos/report-wizard-webinar-2.md" details="A detailed guide to grouping, data sources, and sorting reports." />
+  <LandingCard icon="🔀" title="Cross Tab Reports" link="/videos/report-wizard-videos/report-wizard-webinar-3.md" details="What a cross tab report is and how to create one." />
+  <LandingCard icon="🧾" title="Sales Invoice Report & Geo Features" link="/videos/report-wizard-videos/report-wizard-webinar-4.md" details="Building a sales invoice report and using the new geo features." />
+  <LandingCard icon="🖨️" title="Filtering Document Print Form" link="/videos/report-wizard-videos/report-wizard-webinar-5.md" details="Creating a print form for a filtering document screen." />
+  <LandingCard icon="📚" title="Reports & Permissions Summary" link="/videos/report-wizard-videos/report-wizard-webinar-6.md" details="A full content summary covering report setup and permissions management." />
+</LandingGrid>
+
+## Human Resources Videos
+
+A four-part course on the payroll management system.
+
+<LandingGrid>
+  <LandingCard icon="👥" title="Human Resources Videos" link="/videos/hr/" details="The complete payroll-management video course." />
+  <LandingCard icon="1️⃣" title="Payroll System — Part 1" link="/videos/hr/hr-course-1.md" details="A detailed explanation of the payroll management system." />
+  <LandingCard icon="2️⃣" title="Payroll System — Part 2" link="/videos/hr/hr-course-2.md" details="The course continues with more payroll detail." />
+  <LandingCard icon="3️⃣" title="Payroll System — Part 3" link="/videos/hr/hr-course-3.md" details="More on configuring and running payroll." />
+  <LandingCard icon="4️⃣" title="Payroll System — Part 4" link="/videos/hr/hr-course-4.md" details="The concluding part of the payroll course." />
+</LandingGrid>

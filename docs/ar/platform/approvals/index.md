@@ -1,8 +1,17 @@
-<div class="ignore-in-full-text-search">
+---
+# Handcrafted landing — GenNamaDocsIndex skips this file because of the .custom-index
+# marker in this folder (see hasHandcraftedHomePage in GenNamaDocsIndex.java)
+title: الموافقات
+---
 
 # الموافقات
-  - [نظام الموافقات - الدليل الشامل لتعريف الموافقة](/ar/platform/approvals/approvals-system.md)
-  - [نماذج بريد إلكتروني جاهزة لطلبات الموافقة (Sample Approval Email Templates)](/ar/platform/approvals/sample-approval-email-templates.md)
-  - [أسئلة شائعة عن الموافقات](/ar/platform/approvals/approvals-faq.md)
 
-</div>
+بعض المستندات لا ينبغي أن تمر دون اعتماد — أمر شراء كبير، أو تحويل مخزني، أو خصم يتجاوز حدًا معينًا. يتيح لك نظام الموافقات في نما تمرير أي سجل عبر خطوة أو أكثر من خطوات الموافقة، وتحديد من يعتمد في كل خطوة، وإخطاره عبر البريد الإلكتروني أو الرسائل القصيرة أو رسالة داخل النظام. ابدأ بالدليل الشامل للتعريف، واستعن بنموذج بريد جاهز، وراجع الأسئلة الشائعة للاطلاع على أمثلة إعداد عملية.
+
+## الموافقات
+
+<LandingGrid>
+  <LandingCard icon="✅" title="نظام الموافقات - الدليل الشامل لتعريف الموافقة" link="/ar/platform/approvals/approvals-system.md" details="الشرح الكامل: تعريفات الموافقة وخطواتها والمسؤولون عنها وشروطها ودورة حياة حالة الموافقة." />
+  <LandingCard icon="✉️" title="نماذج بريد إلكتروني جاهزة لطلبات الموافقة (Sample Approval Email Templates)" link="/ar/platform/approvals/sample-approval-email-templates.md" details="نماذج بريد جاهزة وأنيقة بأزرار قابلة للنقر للاعتماد والرفض والإرجاع يمكنك لصقها في قاعدة الموافقة." />
+  <LandingCard icon="❓" title="أسئلة شائعة عن الموافقات" link="/ar/platform/approvals/approvals-faq.md" details="أمثلة إعداد عملية — مثل توجيه موافقة التحويل المخزني إلى أمين المخزن المستلم." />
+</LandingGrid>

@@ -1,8 +1,21 @@
-<div class="ignore-in-full-text-search">
+---
+# Handcrafted landing — GenNamaDocsIndex skips this file because of the .custom-index
+# marker in this folder (see hasHandcraftedHomePage in GenNamaDocsIndex.java)
+title: الموارد البشرية
+---
 
 # الموارد البشرية
-  - [صيغ الحضور والانصراف](/ar/modules/hr/attendance-machine-formula.md)
-  - [تجاهل سطور الحضور والانصراف المتقاطعة](/ar/modules/hr/ignore-overlapping-attendance.md)
-  - [أسئلة شائعة في موديول الرواتب والموارد البشرية](/ar/modules/hr/human-resources-faq.md)
 
-</div>
+وحدة الموارد البشرية هي المكان الذي يتتبّع فيه Nama ERP موظفيك ويصرف رواتبهم بشكل صحيح — من سجلات البصمة الخام التي تُخرجها ماكينة الحضور والانصراف، وصولًا إلى مسير رواتب مكتمل. تركّز الأدلّة هنا على الجزء الذي يُربك الفرق أكثر من غيره: إدخال بيانات الحضور إلى النظام بشكل نظيف، بحيث يتغذّى التأخير والوقت الإضافي والغياب على الرواتب بالطريقة الصحيحة.
+
+إذا كنت تستورد ملفات الحضور والانصراف، أو تضبط قواعد الحضور والانصراف، أو تُشغّل مسير الرواتب، فهذه الصفحات لك. تشرح كيف يقرأ نما الصيغ المختلفة الكثيرة التي تُنتجها الماكينات، وكيف يتعامل مع سطور البصمة المتقاطعة أو المكرّرة، وتجيب عن أكثر الأسئلة شيوعًا حول الرواتب.
+
+## الحضور والرواتب
+
+تحويل بيانات بصمات الماكينة إلى حضور موثوق، والإجابة عن أسئلة الرواتب الشائعة.
+
+<LandingGrid>
+  <LandingCard icon="🕐" title="صيغ الحضور والانصراف" link="/ar/modules/hr/attendance-machine-formula.md" details="استيراد ملفات الحضور من أي ماكينة وتحويل صيغها المختلفة إلى بيانات الحضور في نما." />
+  <LandingCard icon="🔀" title="تجاهل السطور المتقاطعة" link="/ar/modules/hr/ignore-overlapping-attendance.md" details="معالجة سطور الحضور والانصراف المتقاطعة حتى لا تُشوّه التكرارات سجلّ الحضور." />
+  <LandingCard icon="❓" title="أسئلة شائعة عن الرواتب والموارد البشرية" link="/ar/modules/hr/human-resources-faq.md" details="إجابات عن أكثر الأسئلة تكرارًا حول الرواتب وموديول الموارد البشرية." />
+</LandingGrid>

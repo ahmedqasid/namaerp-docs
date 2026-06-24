@@ -17,6 +17,8 @@ import LinkToNewRecord from './components/LinkToNewRecord.vue'
 import SupplyChainOption from './components/SupplyChainOption.vue'
 import CopyIcon from './components/CopyIcon.vue'
 import EmbeddableSearchBox from './components/EmbeddableSearchBox.vue'
+import LandingGrid from './components/LandingGrid.vue'
+import LandingCard from './components/LandingCard.vue'
 
 export default {
     extends: DefaultTheme,
@@ -41,5 +43,7 @@ export default {
         app.component('SupplyChainOption', SupplyChainOption)
         app.component('CopyIcon', CopyIcon)
         app.component('EmbeddableSearchBox', EmbeddableSearchBox)
+        app.component('LandingGrid', LandingGrid)
+        app.component('LandingCard', LandingCard)
     }
 } satisfies Theme

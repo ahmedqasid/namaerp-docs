@@ -1,59 +1,62 @@
-<div class="ignore-in-full-text-search">
+---
+# Handcrafted landing — GenNamaDocsIndex skips this file because of the .custom-index
+# marker in this folder (see hasHandcraftedHomePage in GenNamaDocsIndex.java)
+title: الخصائص العامة للنظام
+---
 
 # الخصائص العامة للنظام
-  - [روابط الأدوات المساعدة (Utility Links)](/ar/platform/utils.md)
-  - [اختصارات لوحة المفاتيح](/ar/platform/shortcuts.md)
-  - [اختصارات لوحة المفاتيح](/ar/platform/shortcuts-ar.md)
-  - [تعديل الشاشات](/ar/platform/screen-modifier/)
-    - [تعديل الشاشات — نظرة عامة والمفاهيم](/ar/platform/screen-modifier/screen-modifier-overview.md)
-    - [تعديل الشاشات — تعديلات شاشة التعديل](/ar/platform/screen-modifier/screen-modifier-edit-screen.md)
-    - [تعديل الشاشات — قائمة العرض ونافذة الاختيار](/ar/platform/screen-modifier/screen-modifier-list-and-search.md)
-    - [تعديل الشاشات — المحرر المرئي للتخطيط](/ar/platform/screen-modifier/screen-modifier-visual-editor.md)
-    - [تعديل الشاشات — أسئلة شائعة](/ar/platform/screen-modifier/screen-modifier-faq.md)
-  - [قوائم العرض](/ar/platform/list-views/)
-    - [الفلاتر السريعة في قوائم المستندات (Quick Filters in List Views)](/ar/platform/list-views/quick-filters.md)
-    - [قصر المستخدم على سنة مالية (Limit User To Year)](/ar/platform/list-views/limit-user-to-year.md)
-  - [التحكم في إقفال الفترات المحاسبية (Fiscal Period Control)](/ar/platform/fiscal-period-control-guide.md)
-  - [الموافقات](/ar/platform/approvals/)
-    - [نظام الموافقات - الدليل الشامل لتعريف الموافقة](/ar/platform/approvals/approvals-system.md)
-    - [نماذج بريد إلكتروني جاهزة لطلبات الموافقة (Sample Approval Email Templates)](/ar/platform/approvals/sample-approval-email-templates.md)
-    - [أسئلة شائعة عن الموافقات](/ar/platform/approvals/approvals-faq.md)
-  - [الصلاحيات والأمان](/ar/platform/security/)
-    - [نظرة عامة على نظام الصلاحيات](/ar/platform/security/security-overview.md)
-    - [ملف الصلاحيات (Security Profile)](/ar/platform/security/security-profiles.md)
-    - [صلاحيات الحقول والصفحات والقوائم](/ar/platform/security/field-page-listview-security.md)
-    - [الصلاحيات على مستوى السجلات (المحددات والفلاتر)](/ar/platform/security/record-level-security.md)
-    - [المستخدمون وتسجيل الدخول](/ar/platform/security/users-and-login.md)
-    - [الصلاحيات الإضافية المؤقتة (التفويض)](/ar/platform/security/security-delegation.md)
-  - [مسارات الكيان](/ar/platform/entity-flows/)
-    - [مقدمة عن مسارات الكيان](/ar/platform/entity-flows/introduction-to-entity-flows.md)
-    - [استيراد البيانات من Excel أو الاستعلامات](/ar/platform/entity-flows/excel-and-sql-import-by-entity-flow.md)
-    - [EAGenerateEntityFromEntityAction](/ar/platform/entity-flows/ea-gen-entity-from-entity.md)
-    - [أمثلة لمسارات كيان](/ar/platform/entity-flows/entity-flow-examples.md)
-    - [أسئلة شائعة عن مسارات الكيان](/ar/platform/entity-flows/entity-flow-faq.md)
-  - [التقارير](/ar/platform/reports/)
-    - [دليل Jasper Reports الشامل لنظام Nama ERP](/ar/platform/reports/reports-guide.md)
-    - [دليل استخدام أداة إنشاء التقارير ونماذج الطباعة](/ar/platform/reports/report-wizard-guide.md)
-    - [أداة إنشاء التقارير (ReportWizard) - دليل المستخدم](/ar/platform/reports/ReportWizard_User_Documentation.md)
-    - [أسئلة شائعة عن تصميم التقارير](/ar/platform/reports/report-faq.md)
-    - [أسئلة شائعة حول أداة إنشاء التقارير](/ar/platform/reports/report-wizard-faq.md)
-  - [ذكاء الأعمال (BI)](/ar/platform/bi/)
-    - [وحدة BI — لوحات المعلومات والتحليلات (BI Module — Dashboards & Analytics)](/ar/platform/bi/bi-module-guide.md)
-    - [وحدة BI في Nama ERP — المرجع التقني](/ar/platform/bi/bi-module-technical-reference.md)
-    - [مرجع BI — EnhancedMetricsCard (وwidget المقاييس القديم MetricsCards)](/ar/platform/bi/bi-reference-enhanced-metrics-card.md)
-    - [مرجع BI — EnhancedTable](/ar/platform/bi/bi-reference-enhanced-table.md)
-    - [مرجع BI — وضع المعالج (Wizard Mode)](/ar/platform/bi/bi-reference-wizard-mode.md)
-  - [التنبيهات](/ar/platform/notifications/)
-    - [نظام التنبيهات في Nama ERP](/ar/platform/notifications/notifications-system.md)
-    - [تكامل WhatsApp](/ar/platform/notifications/sms-and-whatsapp.md)
-    - [أسئلة شائعة عن التنبيهات والرسائل](/ar/platform/notifications/notification-fq.md)
-  - [الكيانات الافتراضية (Virtual Entities) — وحدات SQL قابلة لإعادة الاستخدام في التقارير ولوحات المعلومات](/ar/platform/virtual-entity-guide.md)
-  - [فلتر الحقل بالمعايير (Field Filter with Criteria)](/ar/platform/field-filter-with-criteria.md)
-  - [أسئلة شائعة حول فلترة الحقول](/ar/platform/field-filter-faq.md)
-  - [تعديل الترجمات في نظام نما](/ar/platform/translations.md)
-  - [التحقق المبني على المعايير (Criteria Based Validation)](/ar/platform/criteria-based-validation.md)
-  - [معايير من المحلل النصي (دليل معايير النص)](/ar/platform/text-criteria-guide.md)
-  - [scheduled-tasks.md](/ar/platform/scheduled-tasks.md)
-  - [أعدادات الحقول و الشاشات (Generic Reference Overrider User Guide)](/ar/platform/GenericReferenceOverrider_UserGuide.md)
 
-</div>
+كل وحدات نظام نما — الحسابات والمخازن والموارد البشرية — مبنية على المنصّة نفسها. وهذه هي الأدوات التي تعمل عبر كل الوحدات: ما تستخدمه لإعادة تصميم الشاشات، وضبط من يرى ماذا، وأتمتة الأعمال المتكررة، وتحويل بياناتك إلى تقارير ولوحات معلومات، وإبقاء الجميع على اطّلاع. تتعلّمها مرة واحدة فتنفعك في كل مكان.
+
+## تطويع النظام
+
+أعد تصميم الشاشات والقوائم، بل وحتى المسمّيات الجاهزة، لتناسب طريقة عمل فريقك فعليًا — دون أي برمجة.
+
+<LandingGrid>
+  <LandingCard icon="🎚️" title="تعديل الشاشات" link="/ar/platform/screen-modifier/" details="أعد ترتيب الحقول، وأخفِ ما لا تستخدمه، وأعد تصميم شاشات التعديل وقوائم العرض ونوافذ الاختيار عبر المحرر المرئي للتخطيط." />
+  <LandingCard icon="📋" title="قوائم العرض" link="/ar/platform/list-views/" details="فلاتر سريعة للعثور على السجلات بسرعة، وقصر المستخدم على سنة مالية واحدة." />
+  <LandingCard icon="🔤" title="تعديل الترجمات" link="/ar/platform/translations.md" details="غيّر أي مسمّى أو مصطلح في النظام ليطابق مصطلحات مؤسستك." />
+  <LandingCard icon="🔧" title="إعدادات الحقول والشاشات" link="/ar/platform/GenericReferenceOverrider_UserGuide.md" details="اضبط سلوك الحقول وحقول المرجع عبر الكيانات." />
+</LandingGrid>
+
+## الأمان والحوكمة
+
+تحكّم فيمن يفعل ماذا، وأبقِ دفاترك وإجراءاتك تحت سيطرة محكمة.
+
+<LandingGrid>
+  <LandingCard icon="🔐" title="الصلاحيات والأمان" link="/ar/platform/security/" details="ملفات الصلاحيات، وصلاحيات الحقول والصفحات وقوائم العرض، والصلاحيات على مستوى السجلات، والمستخدمون وتسجيل الدخول، والتفويض المؤقت." />
+  <LandingCard icon="✅" title="الموافقات" link="/ar/platform/approvals/" details="مرّر المستندات عبر دورات موافقة، مع نماذج بريد إلكتروني ودليل شامل للتعريف." />
+  <LandingCard icon="🗓️" title="التحكم في إقفال الفترات" link="/ar/platform/fiscal-period-control-guide.md" details="أقفل الفترات المحاسبية حتى لا يتمكن أحد من التسجيل في شهر مُقفل." />
+  <LandingCard icon="🛡️" title="التحقق المبني على المعايير" link="/ar/platform/criteria-based-validation.md" details="امنع أو نبّه على المستندات التي لا تستوفي معايير تحددها أنت." />
+</LandingGrid>
+
+## الأتمتة والبيانات
+
+دع النظام يؤدي عنك الأعمال المتكررة، وابنِ قواعد ووحدات بيانات قابلة لإعادة الاستخدام.
+
+<LandingGrid>
+  <LandingCard icon="🔄" title="مسارات الكيان" link="/ar/platform/entity-flows/" details="أتمت الإجراءات على السجلات، وولّد كيانات من كيانات، واستورد البيانات من Excel أو استعلامات SQL." />
+  <LandingCard icon="⏰" title="المهام المجدولة" link="/ar/platform/scheduled-tasks.md" details="شغّل المهام تلقائيًا وفق جدول زمني — مجدول المهام." />
+  <LandingCard icon="🧱" title="الكيانات الافتراضية" link="/ar/platform/virtual-entity-guide.md" details="وحدات SQL قابلة لإعادة الاستخدام تُغذّي التقارير ولوحات المعلومات." />
+  <LandingCard icon="🔎" title="فلتر الحقل بالمعايير" link="/ar/platform/field-filter-with-criteria.md" details="قيّد ما يمكن لحقل المرجع اختياره باستخدام المعايير — مع أسئلة شائعة عن فلترة الحقول." />
+  <LandingCard icon="📝" title="معايير من المحلل النصي" link="/ar/platform/text-criteria-guide.md" details="اكتب المعايير كنص عادي ودع المحلل يحوّلها إلى فلاتر." />
+</LandingGrid>
+
+## الرؤية والتواصل
+
+حوّل البيانات التي تجمعها إلى تقارير ولوحات معلومات، وأبقِ الناس على اطّلاع.
+
+<LandingGrid>
+  <LandingCard icon="📊" title="التقارير" link="/ar/platform/reports/" details="دليل تقارير Jasper، وأداة إنشاء التقارير لبناء تقاريرك، وأسئلة شائعة عن تصميم التقارير." />
+  <LandingCard icon="📈" title="ذكاء الأعمال (BI)" link="/ar/platform/bi/" details="لوحات المعلومات والتحليلات، والمرجع التقني، ومراجع EnhancedMetricsCard وEnhancedTable ووضع المعالج." />
+  <LandingCard icon="🔔" title="التنبيهات" link="/ar/platform/notifications/" details="نظام التنبيهات، وتكامل WhatsApp والرسائل القصيرة، وأسئلة شائعة عن الرسائل." />
+</LandingGrid>
+
+## أدوات يومية
+
+أدوات صغيرة تسرّع العمل اليومي.
+
+<LandingGrid>
+  <LandingCard icon="🔗" title="روابط الأدوات المساعدة" link="/ar/platform/utils.md" details="روابط مباشرة مفيدة داخل النظام للمهام الشائعة." />
+  <LandingCard icon="⌨️" title="اختصارات لوحة المفاتيح" link="/ar/platform/shortcuts.md" details="اعمل أسرع باستخدام لوحة المفاتيح عبر شاشات نظام نما." />
+</LandingGrid>
