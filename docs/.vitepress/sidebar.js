@@ -4901,6 +4901,39 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/",
         "collapsed" : true,
         "items" : [ {
+          text: "Nama POS — Overview",
+          "link" : "/modules/pos/pos-overview"
+        }, {
+          text: "Getting Started at the Register",
+          "link" : "/modules/pos/pos-getting-started"
+        }, {
+          text: "The Sales Invoice",
+          "link" : "/modules/pos/pos-sales-invoice"
+        }, {
+          text: "Payment & Tender",
+          "link" : "/modules/pos/pos-payment-and-tender"
+        }, {
+          text: "Returns & Replacements",
+          "link" : "/modules/pos/pos-returns-and-replacements"
+        }, {
+          text: "Shifts & Cash",
+          "link" : "/modules/pos/pos-shifts-and-cash"
+        }, {
+          text: "Tables, Reservations & Captain Order",
+          "link" : "/modules/pos/pos-tables-and-restaurant"
+        }, {
+          text: "Item Add-ons",
+          "link" : "/modules/pos/pos-item-addons"
+        }, {
+          text: "Inventory Operations at the Register",
+          "link" : "/modules/pos/pos-inventory-operations"
+        }, {
+          text: "Reports & Tools",
+          "link" : "/modules/pos/pos-reports-and-tools"
+        }, {
+          text: "How POS Data Syncs with the Server",
+          "link" : "/modules/pos/pos-data-sync"
+        }, {
           text: "Nama POS — Technical Points of Use Guide",
           "link" : "/modules/pos/nama-pos"
         }, {
@@ -15547,6 +15580,39 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/",
         "collapsed" : true,
         "items" : [ {
+          text: "نقاط البيع (Nama POS) — نظرة عامة",
+          "link" : "/ar/modules/pos/pos-overview"
+        }, {
+          text: "البداية على الماكينة",
+          "link" : "/ar/modules/pos/pos-getting-started"
+        }, {
+          text: "فاتورة المبيعات",
+          "link" : "/ar/modules/pos/pos-sales-invoice"
+        }, {
+          text: "الدفع والتحصيل",
+          "link" : "/ar/modules/pos/pos-payment-and-tender"
+        }, {
+          text: "المرتجعات والإحلال",
+          "link" : "/ar/modules/pos/pos-returns-and-replacements"
+        }, {
+          text: "الورديات والنقدية",
+          "link" : "/ar/modules/pos/pos-shifts-and-cash"
+        }, {
+          text: "الطاولات والحجوزات وكابتن أوردر",
+          "link" : "/ar/modules/pos/pos-tables-and-restaurant"
+        }, {
+          text: "إضافات الأصناف",
+          "link" : "/ar/modules/pos/pos-item-addons"
+        }, {
+          text: "العمليات المخزنية على الماكينة",
+          "link" : "/ar/modules/pos/pos-inventory-operations"
+        }, {
+          text: "التقارير والأدوات",
+          "link" : "/ar/modules/pos/pos-reports-and-tools"
+        }, {
+          text: "كيف تتزامن بيانات نقاط البيع مع الخادم",
+          "link" : "/ar/modules/pos/pos-data-sync"
+        }, {
           text: "دليل استعمال النقاط الفنية في نقاط البيع",
           "link" : "/ar/modules/pos/nama-pos"
         }, {

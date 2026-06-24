@@ -1,6 +1,17 @@
 {
   "sortedPaths": [
     "/modules/pos",
+    "/modules/pos/pos-overview.md",
+    "/modules/pos/pos-getting-started.md",
+    "/modules/pos/pos-sales-invoice.md",
+    "/modules/pos/pos-payment-and-tender.md",
+    "/modules/pos/pos-returns-and-replacements.md",
+    "/modules/pos/pos-shifts-and-cash.md",
+    "/modules/pos/pos-tables-and-restaurant.md",
+    "/modules/pos/pos-item-addons.md",
+    "/modules/pos/pos-inventory-operations.md",
+    "/modules/pos/pos-reports-and-tools.md",
+    "/modules/pos/pos-data-sync.md",
     "/modules/pos/nama-pos.md",
     "/modules/pos/pos-free-items-claim-and-reconciliation.md",
     "/modules/pos/pos-fingerprint-login.md",
