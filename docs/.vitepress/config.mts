@@ -67,6 +67,48 @@ function pageUrl(relativePath) {
     return HOSTNAME + relativePath.replace(/\.md$/, '.html').replace(/(^|\/)index\.html$/, '$1')
 }
 
+// VitePress's dead-link checker only validates markdown-syntax links; links passed as
+// props to the LandingCard component render as raw <a> tags it never inspects. This walks
+// the built output and fails the build on any landing-card link that doesn't resolve.
+function validateLandingCardLinks(outDir, base) {
+    const broken = []
+    let checked = 0
+    const anchorRe = /<a\b[^>]*\bclass="[^"]*\blanding-card\b[^"]*"[^>]*>/g
+    const hrefRe = /\bhref="([^"]+)"/
+
+    function walk(dir) {
+        for (const entry of fs.readdirSync(dir, {withFileTypes: true})) {
+            const full = path.join(dir, entry.name)
+            if (entry.isDirectory()) {
+                walk(full)
+                continue
+            }
+            if (!entry.isFile() || !entry.name.endsWith('.html')) continue
+            const html = fs.readFileSync(full, 'utf8')
+            const sourcePage = '/' + path.relative(outDir, full).split(path.sep).join('/')
+            for (const tag of html.match(anchorRe) || []) {
+                const m = hrefRe.exec(tag)
+                if (!m) continue
+                const href = m[1]
+                if (/^(https?:)?\/\//.test(href) || href.startsWith('mailto:')) continue
+                let target = href.split('#')[0].split('?')[0]
+                if (!target.startsWith('/')) continue
+                if (base !== '/' && target.startsWith(base)) target = '/' + target.slice(base.length)
+                target = target.replace(/^\/+/, '')
+                if (target === '' || target.endsWith('/')) target += 'index.html'
+                checked++
+                if (!fs.existsSync(path.join(outDir, target)))
+                    broken.push(`${sourcePage} -> ${href}`)
+            }
+        }
+    }
+
+    walk(outDir)
+    console.log(`[landing-links] checked ${checked} landing-card link(s)`)
+    if (broken.length)
+        throw new Error(`[landing-links] ${broken.length} broken landing-card link(s):\n  ` + broken.join('\n  '))
+}
+
 export default defineConfig({
     title: 'Nama Docs',
     description: 'Nama ERP Documentation',
@@ -198,5 +240,6 @@ export default defineConfig({
     buildEnd: (siteConfig) => {
         writeRedirectsMap(siteConfig.outDir)
         writeSearchIndexJSON(siteConfig.outDir, SEARCH_INDEX_STABLE_PATH)
+        validateLandingCardLinks(siteConfig.outDir, siteConfig.site.base)
     }
 })
