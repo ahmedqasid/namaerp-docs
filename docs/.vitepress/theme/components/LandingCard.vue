@@ -21,7 +21,15 @@ const props = defineProps<{
 
 const isExternal = (href: string) => /^(https?:)?\/\//.test(href) || href.startsWith('mailto:')
 
-const resolvedLink = computed(() => (isExternal(props.link) ? props.link : withBase(props.link)))
+// VitePress rewrites `.md` -> `.html` for links written in markdown, but a link passed
+// to a Vue component bypasses that transform — so do it here (the site uses default
+// cleanUrls=false). Hash/query are preserved; folder links ending in `/` are untouched.
+const resolvedLink = computed(() => {
+  if (isExternal(props.link)) return props.link
+  const match = /^([^#?]*)(.*)$/.exec(props.link)!
+  const path = match[1].replace(/\.md$/, '.html')
+  return withBase(path + match[2])
+})
 </script>
 
 <style scoped>
