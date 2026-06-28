@@ -4904,6 +4904,9 @@ export const SIDEBAR_CONFIG = {
           text: "Nama POS — Overview",
           "link" : "/modules/pos/pos-overview"
         }, {
+          text: "Installing Nama POS on a New Register and Connecting It to the Server",
+          "link" : "/modules/pos/pos-installation"
+        }, {
           text: "Getting Started at the Register",
           "link" : "/modules/pos/pos-getting-started"
         }, {
@@ -15582,6 +15585,9 @@ export const SIDEBAR_CONFIG = {
         "items" : [ {
           text: "نقاط البيع (Nama POS) — نظرة عامة",
           "link" : "/ar/modules/pos/pos-overview"
+        }, {
+          text: "تنزيل نقاط البيع على ماكينة جديدة وربطها بالخادم الرئيسي",
+          "link" : "/ar/modules/pos/pos-installation"
         }, {
           text: "البداية على الماكينة",
           "link" : "/ar/modules/pos/pos-getting-started"

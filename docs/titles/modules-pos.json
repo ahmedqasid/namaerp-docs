@@ -2,6 +2,7 @@
   "sortedPaths": [
     "/modules/pos",
     "/modules/pos/pos-overview.md",
+    "/modules/pos/pos-installation.md",
     "/modules/pos/pos-getting-started.md",
     "/modules/pos/pos-sales-invoice.md",
     "/modules/pos/pos-payment-and-tender.md",

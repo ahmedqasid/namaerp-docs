@@ -17,6 +17,7 @@ This guide is a tour of the register, roughly in the order you meet each part.
 ### Start here
 
 - **[Nama POS — Overview](./pos-overview.md)** — what the system is, its pieces (register, Captain Order, server, peripherals), and who uses each.
+- **[Installing a New Register](./pos-installation.md)** — first-time setup: SQL Server, the local database, the installer, the settings dialog, and the first sync with the server.
 - **[Getting Started at the Register](./pos-getting-started.md)** — launching, signing in, the slide menu, keyboard shortcuts, locking the screen, supervisor authorization, language & theme.
 
 ### Selling
