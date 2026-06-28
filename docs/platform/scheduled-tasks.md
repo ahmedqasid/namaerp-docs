@@ -1,67 +1,73 @@
 # Scheduled Tasks (Task Scheduler)
 
-Task Scheduler allows you to automate recurring operations in Nama ERP. Whether you need to send daily reports to managers, run system maintenance queries, or trigger notifications when certain conditions are met, the Task Scheduler handles it all—running in the background while you focus on your business.
+Task Scheduler lets you automate recurring operations in Nama ERP. Whether you need to send daily reports to managers, run system maintenance queries, generate recurring documents, or notify users when certain conditions are met, the Task Scheduler handles it all—running quietly in the background while you focus on your business.
+
+A task starts running on its own schedule a few minutes after the server starts (see [Initial Delay](#Initial-Delay)), and you can also trigger any task instantly with the [Run Now](#Running-a-Task-on-Demand) button.
 
 ## Understanding Task Types
 
-When you create a scheduled task, the first decision you'll make is choosing the **Schedule Type**. This determines what kind of action the task will perform when it runs. Let's walk through each type:
+When you create a scheduled task, the first decision you'll make is choosing the **Schedule Type**. This determines what kind of action the task performs when it runs. Let's walk through each type:
 
 ### Report (Email Report)
-The most common use case. The system runs a report and emails it to specified recipients. You'll select a report definition, configure the output format (HTML, PDF, Excel), and specify who should receive it.
+The most common use case. The system runs a report and emails it to the recipients you specify. You select a report definition, choose the output format (HTML, PDF, Excel, …), and decide who receives it.
 
 ### Print Report
-Similar to the Report type, but instead of emailing, the report is sent directly to a printer. You'll need to specify the printer name that's configured on the server.
+Like the Report type, but instead of emailing, the report is sent straight to a printer. You specify the printer name that's configured on the server.
 
 ### Notification
-Sends notifications to users based on query results and templates. You can configure notification templates for:
+Sends notifications to users based on a query and one or more templates. You can target three channels at once:
 - In-app notifications
 - Email messages
 - SMS messages
 
 ### System
-Executes a native SQL query directly against the database. Use this for maintenance operations, data cleanup, or batch updates. The query runs as-is, so use with caution.
+Executes a native SQL statement directly against the database. Use this for maintenance operations, data cleanup, or batch updates. The statement runs as-is, so use it with care.
 
 ### Action
-Runs a Java class that implements `EntityAction`. This is the most flexible option—you specify the fully qualified class name and up to 15 parameters. The system validates parameters before execution and provides descriptions of what each action does.
+Runs a server action class. This is the most flexible option—you enter the fully qualified class name of the action and up to 15 parameters. The system validates the parameters before execution and shows a description of what the action does (and of each parameter it expects) directly on the screen.
 
 ### Parameterized Report (Email)
-A powerful variation of Report type. Instead of running the report once, it executes a SQL query first to get parameter values, then runs the report multiple times—once for each row returned. Each execution can go to different recipients.
+A powerful variation of the Report type. Instead of running the report once, it first collects a set of parameter rows—either from a SQL query or from the **Params** grid—then runs the report once for every row. Each iteration can carry different parameter values and go to different recipients. See [Parameterized Reports](#Parameterized-Reports).
 
 ### Parameterized Report (Print)
-Same as above, but sends each report iteration to a printer instead of email.
+The same as above, but each report iteration is sent to a printer instead of by email.
 
 ### Recurring Document
-Automates the creation of recurring documents. You link the task to a Recurring Document definition, and it generates new documents based on the schedule.
+Automates the creation of recurring documents. You link the task to a Recurring Document definition, and it generates new documents according to the schedule.
 
 ### Read Magento Orders / Read Magento Returns
-For e-commerce integration—pulls orders or returns from a configured Magento site.
+For e-commerce integration—pulls orders or returns from a configured Magento site. In a multi-site (replication) deployment, these run only on the head office or on the sites listed in **Run in Sites**.
 
 ### Purge Expired Reward Points
 A specialized task for loyalty programs that removes expired reward points from the system.
 
 ### Read E-Invoice Notifications
-For e-invoicing integrations—reads notifications from an intermediary e-invoicing server.
+For e-invoicing integrations—reads notifications back from the intermediary e-invoicing server.
 
 ## Scheduling Options
 
-The scheduler offers two approaches: a user-friendly checkbox interface or advanced cron expressions.
+The scheduler offers two ways to express *when* a task runs: a friendly checkbox interface or direct cron-style fields. Whichever you choose, the result is the same underneath—the checkboxes are simply translated into the cron fields when you save.
 
 ### Simple Scheduling (Checkbox Mode)
 
-When **Using Cron** is unchecked, you get an intuitive scheduling interface:
+When **Using Cron** is unchecked, you get an intuitive scheduling interface.
 
-**Run Every X Minutes/Hours/Days/Months**
+**Run Every X Minutes / Hours / Days / Months**
 The simplest approach. Set **Run On** to a number (like 5) and **Run On Type** to "Minute" to run every 5 minutes. Examples:
-- Run On: 10, Run On Type: Minute → Runs every 10 minutes
-- Run On: 2, Run On Type: Hour → Runs every 2 hours
-- Run On: 1, Run On Type: Day → Runs daily
+- Run On: 10, Run On Type: Minute → runs every 10 minutes
+- Run On: 2, Run On Type: Hour → runs every 2 hours
+- Run On: 1, Run On Type: Day → runs once a day
+
+::: tip Run Every X takes precedence
+When you fill in **Run On** + **Run On Type**, that "every X" pattern overrides the time-of-day, weekly, and monthly selections for the matching unit. Use *either* "Run Every X" *or* the weekly/monthly + time-of-day selectors—not both for the same unit.
+:::
 
 **Weekly Schedule**
-Check **Weekly** and then select which days of the week to run. You can select any combination of Saturday through Friday.
+Check **Weekly**, then select which days of the week to run. Tick **Run On All Week Days** to run every day, or choose any combination of Saturday through Friday.
 
 **Monthly Schedule**
 Check **Monthly** and select:
-- Which months to run (January through December)
+- Which months to run (tick **Run On All Months**, or pick January through December)
 - Which days of the month to run (1st through 31st)
 
 **Time of Day**
@@ -69,63 +75,94 @@ For weekly and monthly schedules, you specify exactly when during the day to run
 
 ### Advanced Scheduling (Cron Mode)
 
-When **Using Cron** is checked, you enter a cron expression directly using these five fields:
+When **Using Cron** is checked, you fill in five separate scheduling fields directly. Each field controls one part of the timing:
 
-| Field | Allowed Values |
+| Field | Allowed values |
 |-------|---------------|
-| Minute | 0-59, or `*` for every minute, or `*/5` for every 5 minutes |
-| Hour | 0-23, or `*` for every hour |
-| Day of Month | 1-31, or `*` for every day |
-| Month | 1-12, or `*` for every month |
-| Day of Week | 0-6 (Sunday=0) or SUN,MON,TUE,WED,THU,FRI,SAT |
+| Minute | `0`-`59`, or `*` for every minute |
+| Hour | `0`-`23`, or `*` for every hour |
+| Day of Month | `1`-`31`, or `*` for every day |
+| Month | `1`-`12` (or `JAN`-`DEC`), or `*` for every month |
+| Day of Week | `0`-`7` where both `0` and `7` mean Sunday (or `SUN`,`MON`,`TUE`,`WED`,`THU`,`FRI`,`SAT`) |
 
-**Cron Examples:**
-- `0 8 * * *` → Every day at 8:00 AM
-- `*/30 * * * *` → Every 30 minutes
-- `0 0 1 * *` → First day of every month at midnight
-- `0 9 * * 1-5` → Every weekday at 9:00 AM
+Every field accepts the standard cron forms: a single value (`8`), a list (`1,3,5`), a range (`1-5`), or a step (`*/5`). A field left blank is treated as `*`. Each field must be a single token with **no spaces**.
+
+::: info When exactly does it fire?
+A task fires at the **start (second :00)** of every minute that matches all five fields. So `Minute = 0`, `Hour = 8` means "08:00:00 every day".
+:::
+
+**Common patterns:**
+- Minute `0`, Hour `8` → every day at 8:00 AM
+- Minute `*/30` → every 30 minutes
+- Minute `0`, Hour `0`, Day of Month `1` → first day of every month at midnight
+- Minute `0`, Hour `9`, Day of Week `1-5` → every weekday at 9:00 AM
+
+If you enter an invalid combination, the task won't save—the system validates the schedule and reports the error.
+
+## Running a Task on Demand
+
+You don't have to wait for the next scheduled time. Open the task and click **Run Now** to execute it immediately—handy for testing a new task or re-running one after fixing a problem. A manual run behaves exactly like a scheduled run, including [execution logging](#Execution-Log) and [error notifications](#Error-Notification).
 
 ## Targeting Recipients
 
-You have several options for specifying who receives reports and notifications:
+You have several ways to specify who receives reports and notifications, and they can be combined:
 
 ### Direct Email Addresses
-Enter email addresses directly in **Target Emails** field, separated by commas or on separate lines.
+Enter email addresses directly in the **Target Emails** field, separated by commas or on separate lines.
 
 ### Target Reference
-Select from:
-- **Employee** → specific employee
+Select a single reference that resolves to one or more people:
+- **Employee** → that specific employee
 - **Organization Position** → all employees in that position
 - **Master Group** → all members of the group
-- **Special Responsible** → based on special responsibility assignments
+- **Special Responsible** → based on special-responsibility assignments
 
 ### Target Criteria
-Define dynamic criteria to calculate recipients. This is useful when the recipient depends on the data being processed.
+Define dynamic criteria that calculate the recipients. This is useful when the recipient depends on the data being processed.
 
 ### Target Lines
-Add multiple target references in a grid for complex recipient lists.
+Add multiple target references in a grid for more complex recipient lists.
 
-## Email by Parameterized Reports
+All of these are merged together: emails resolved from references, criteria, and target lines are combined with the direct **Target Emails** into one recipient list.
 
-This powerful feature lets you run a single report with different parameters for different recipients.
+## Parameterized Reports
 
-**How it works:**
-1. Set Schedule Type to **Action**
-2. Set Action name to `com.namasoft.reporting.ParamterizedReporTask`
-3. First Parameter: SQL query that returns parameter values
-4. Second Parameter: comma-separated list of column names
+This feature runs a single report many times with different parameters—ideal for sending each manager, customer, or branch their own tailored copy. Choose **Parameterized Report (Email)** or **Parameterized Report (Print)** as the schedule type.
 
-**Query Result Column Conventions:**
-- `subject` → email subject line
-- `sendto` → email address to send to (plain email)
-- `sendto#type` and `sendto#id` → entity reference for recipient
-- `parameterName#type` and `parameterName#id` → entity reference for report parameter
+There are two ways to supply the parameter rows:
+
+1. **A SQL query** — put the query in the **Query** field and the column-name mapping in **Query Fields**. The report runs once per returned row. (If you leave **Query Fields** blank, the query's own column names are used.)
+2. **The Params grid** — define rows manually instead of writing a query (see [Parameters Collection](#Parameters-Collection)).
+
+::: warning One source only
+You can't use both a **Query** and the **Params** grid on the same task. Choose one.
+:::
+
+**Choosing the channel.** Each iteration respects two switches:
+- **Send As Mail** (on by default) → emails the rendered report.
+- **Send As Notification** → also posts the report to the recipients as an in-app notification.
+
+::: tip Skip the email when an iteration has no data
+If you don't want a message sent for an iteration whose report comes out empty, control this in the **report template (JasperReports)** itself rather than in the task. Set the template's **"When No Data"** behavior to **No Pages** (instead of "Blank Page" or a "No Data" section). A report that produces no pages generates nothing to attach, so that recipient is simply skipped—no empty email goes out. This applies to the plain **Report** type as well.
+:::
+
+### Query result column conventions
+
+When you drive the report from a query, special column names tell the system how to use each value:
+
+| Column | Meaning |
+|--------|---------|
+| `subject` | The email subject line for that row |
+| `sendto` | A plain email address to send that row to |
+| `sendto#type` and `sendto#id` | A reference (employee/position/group) whose members receive that row |
+| `parameterName#type` and `parameterName#id` | A reference value for the report parameter named `parameterName` |
+| `parameterName` | A plain value for the report parameter named `parameterName` |
 
 **Example: Employee Residency Expiration Alerts**
 
-This sends personalized emails to supervisors about employees whose residency permits are expiring:
+This sends a personalized report to each employee's supervisor about residency permits that are expiring.
 
-**First Parameter (SQL Query):**
+**Query:**
 ```sql
 select
   case when DATEDIFF(day, GETDATE(), residencyEnd) < 1
@@ -141,16 +178,16 @@ where DATEDIFF(day, GETDATE(), residencyEnd) < 30
 order by 2
 ```
 
-**Second Parameter:**
+**Query Fields:**
 ```
 subject,sendto#type,sendto#id,employee#type,employee#id
 ```
 
-This runs the specified report for each employee expiring within 30 days, filling in the `employee` parameter, and emailing the result to their supervisor.
+This runs the report for each employee whose residency expires within 30 days, fills in the report's `employee` parameter, and emails the result to that employee's supervisor.
 
-**Alternative: Send to Employee's Own Email**
+**Alternative: send to the employee's own email**
 
-Replace the sendto columns with the employee's contact email:
+Replace the `sendto` reference columns with the employee's contact email:
 ```sql
 select
   case when DATEDIFF(day, GETDATE(), residencyEnd) < 1
@@ -165,30 +202,15 @@ where DATEDIFF(day, GETDATE(), residencyEnd) < 30
 order by 2
 ```
 
-## Notification by SQL Query
+## Query-Based Notifications
 
-Send notifications (in-app, email, or SMS) based on SQL query results.
+Use the **Notification** schedule type to send in-app notifications, emails, or SMS messages built from a SQL query. Fill in:
 
-**Setup:**
-1. Set Schedule Type to **Action**
-2. Set Action name to `com.namasoft.infra.domainbase.utils.notifications.NotificationByQueryTask`
-3. First Parameter: SQL query returning notification data
-4. Second Parameter: comma-separated column names
-5. Third Parameter: notification type (optional)
+1. **Query** — a SQL query that returns the notification data.
+2. **Query Fields** — the comma-separated column names (optional; defaults to the query's own column names).
+3. The **template(s)** for the channel(s) you want—Email, Notification, and/or SMS (see [Notification Templates](#Notification-Templates)). A channel is used only when its template is filled in.
 
-**Third Parameter Options:**
-| Value | Behavior |
-|-------|----------|
-| (empty) | Email only |
-| `mail` | Email only |
-| `notification` | In-app notification only |
-| `mail,notification` | Both email and notification |
-
-**Query Column Conventions:**
-- `subject` → notification/email subject
-- `sendto` → direct email address
-- `sendto#type` and `sendto#id` → entity reference for recipient
-- `parameterName#type` and `parameterName#id` → entity parameters
+The same [column conventions](#Query-result-column-conventions) apply (`subject`, `sendto`, `sendto#type`/`sendto#id`, …) so each notification can be addressed to the right person.
 
 **Example:**
 ```sql
@@ -198,9 +220,7 @@ select
        else N'باقي علي انتهاء الاقامة '
   end + cast(ABS(DATEDIFF(day, GETDATE(), residencyEnd)) as nvarchar(100)) + N' يوم' as subject,
   'Employee' as sendto#type,
-  supervisor_id as sendto#id,
-  'Employee' as employee#type,
-  id as employee#id
+  supervisor_id as sendto#id
 from Employee
 where DATEDIFF(day, GETDATE(), residencyEnd) < 30
 order by 2
@@ -210,23 +230,23 @@ order by 2
 
 When using the Notification schedule type, you can configure templates for three channels:
 
-**Email Template**: HTML content for email body. Use placeholders like `{columnName}` to insert query result values.
+**Email Template** — HTML content for the email body. Use placeholders like `{columnName}` to insert query-result values.
 
-**Notification Template**: Content for in-app notifications.
+**Notification Template** — content for in-app notifications.
 
-**SMS Template**: Short text content for SMS messages.
+**SMS Template** — short text content for SMS messages.
 
-Each template supports the complex renderer syntax with placeholders that get filled from query results.
+Each template supports the complex-renderer syntax, with placeholders filled from the query results.
 
 ## Email Customization
 
 ### Subject and Attachment Name Templates
 You can customize email subjects and attachment filenames using templates with placeholders:
 
-- **Email Subject Template**: Template with placeholders filled from the report or query
-- **Email Subject Query**: SQL query to provide values for subject template
-- **Attachment Name Template**: Template for the attached file name
-- **Attachment Name Query**: SQL query to provide values for attachment name
+- **Email Subject Template** — a template whose placeholders are filled from the report or query.
+- **Email Subject Query** — a SQL query that supplies values for the subject template.
+- **Attachment Name Template** — a template for the attached file's name.
+- **Attachment Name Query** — a SQL query that supplies values for the attachment name.
 
 ### Output Format
 Choose the format for email attachments:
@@ -239,54 +259,62 @@ Choose the format for email attachments:
 ### Preferred Email Sender
 Select a specific configured email sender to use for outgoing emails from this task.
 
-## Error Handling
+## Monitoring & Error Handling
+
+### Execution Log
+Turn on **Enable Execution Log** to keep a history of every run. Each time the task executes—whether on schedule or via [Run Now](#Running-a-Task-on-Demand)—a new line is recorded in the **Task Schedule Execution Log** grid on the task, capturing:
+
+- **Start Time** — when the run began
+- **End Time** — when it finished
+- **Status** — *Running* while in progress, then *Success* or *Failed*
+- **Error Message** — a short reason when the run failed
+
+This gives you an at-a-glance audit trail: you can confirm a task is actually firing on schedule, see how long each run takes, and spot a run that failed. Leave it off for very frequent tasks (e.g. every-minute jobs) if you don't want a long history building up.
 
 ### Error Notification
-Configure **When Errors Notification** to send alerts when a task fails. This notification definition must be:
+Configure **When Errors Notification** to send an alert whenever the task fails. That notification definition must be:
 - Set to "Use Manually"
 - Configured for Task Schedule
 
-If no error notification is configured, the system automatically notifies the admin user with error details.
+If no error notification is configured, the system automatically notifies the **admin** user with the error details.
 
 ### Error Information
-When a task fails, the system captures:
-- **Error Message**: Brief description of what went wrong
-- **Error Description**: Full stack trace for technical debugging
+When a task fails, the latest error is kept on the task itself (and shown in the **Task Schedule Errors** list):
+- **Error Message** — a brief description of what went wrong
+- **Error Description** — the full technical trace, for deeper debugging
 
 ## Advanced Options
 
 ### Allow Simultaneous Runs
-By default, if a task is still running when its next scheduled execution time arrives, the new execution is skipped. Enable **Allow Simultaneous Runs** to let multiple instances run in parallel.
+By default, if a task is still running when its next scheduled time arrives, the new execution is skipped (and a note is logged) so the same task never overlaps itself. Enable **Allow Simultaneous Runs** to let multiple instances run in parallel.
 
 ### Run in Sites (Replication)
-For multi-site deployments with replication enabled, you can specify which sites should run this task. Leave empty to run on all sites, or select specific sites.
+For multi-site deployments with replication enabled, you can specify which sites should run this task. Leave it empty to run on the current site, or select specific sites. (Magento and similar integration tasks additionally restrict themselves to the head office unless sites are listed here.)
 
 ### Inactive
-Check **Inactive** to temporarily disable a task without deleting it. The task remains in the system but won't execute.
+Check **Inactive** to temporarily disable a task without deleting it. The task stays in the system but won't be scheduled or run.
 
 ### Development Mode
-By default, scheduled tasks don't run when the server is in debug mode. To enable task execution during development, add to `nama.properties`:
+By default, scheduled tasks don't run while the server is in debug mode. To enable task execution during development, add this to `nama.properties`:
 ```properties
 run-task-schedules-in-debug-mode=true
 ```
 
 ### Initial Delay
-Tasks don't start immediately when the server starts—there's a 5-minute default delay. Customize this in `nama.properties`:
+Tasks don't start the instant the server starts—there's a 5-minute default delay so the system can settle first. Customize it in `nama.properties`:
 ```properties
 tasks-initial-delay-minutes=10
 ```
 
 ## Implementation Repository Integration
-
 Tasks can be saved to the Implementation Repository for deployment across environments:
-- **Save to Implementation Repository**: Enable to include this task in exports
-- **System Report**: Mark as a system-provided task
+- **Save to Implementation Repository** — include this task in exports.
+- **System Report** — mark it as a system-provided task.
 
 ## Parameters Collection
-
-For Parameterized Report tasks, you can define parameters using the **Params** collection instead of a SQL query. Each parameter line specifies:
-- **Send To**: Recipient for this parameter set
-- **P1 through P15**: Parameter values (can reference entities or use static values)
+For Parameterized Report tasks, you can define the parameter rows in the **Params** grid instead of a SQL query. Each line specifies:
+- **Send To** — the recipient (a reference or email) for this parameter set.
+- **P1 through P15** — the parameter values. Each can be a reference, a date/time, a static value, or a dynamic expression evaluated against the task.
 
 ::: warning
 You cannot use both a Query and the Params collection on the same task. Choose one approach.
@@ -298,16 +326,16 @@ You cannot use both a Query and the Params collection on the same task. Choose o
 - Type: Report
 - Report: Daily Sales Summary
 - Output Format: PDF
-- Weekly: All weekdays selected
+- Weekly: all weekdays selected
 - Time: 08:00
 - Target Emails: management@company.com
 
 ### Monthly Invoice Reminders
-- Type: Parameterized Report
-- Query: Select unpaid invoices older than 30 days
+- Type: Parameterized Report (Email)
+- Query: select unpaid invoices older than 30 days, mapping each customer's email to `sendto`
 - Report: Invoice Reminder Letter
-- Monthly: All months, Day 1
-- Send to: Each customer's contact email
+- Monthly: all months, Day 1
+- Each customer receives their own copy
 
 ### Nightly Database Maintenance
 - Type: System
@@ -319,3 +347,4 @@ You cannot use both a Query and the Params collection on the same task. Choose o
 - Type: Read Magento Orders
 - Run Every: 5 Minutes
 - Magento Site: configured site reference
+- Enable Execution Log to confirm each sync ran
