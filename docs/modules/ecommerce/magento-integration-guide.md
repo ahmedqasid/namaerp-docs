@@ -65,6 +65,7 @@ The integration module supports the following platforms:
 - **BigCommerce**
 - **Zid**
 - **WooCommerce**
+- **Amazon** (SP-API) — see [Amazon Order Notifications](/modules/ecommerce/amazon-order-notifications.md) for automatic Sales Order creation from shipped orders
 
 ### Shipping & Logistics Platforms
 - **OTO** - Logistics platform integration for inventory quantity synchronization
