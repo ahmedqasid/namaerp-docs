@@ -11528,7 +11528,7 @@ export const SIDEBAR_CONFIG = {
         text: "معايير من المحلل النصي (دليل معايير النص)",
         "link" : "/ar/platform/text-criteria-guide"
       }, {
-        text: "scheduled-tasks.md",
+        text: "المهام المجدولة (Task Scheduler)",
         "link" : "/ar/platform/scheduled-tasks"
       }, {
         text: "أعدادات الحقول و الشاشات (Generic Reference Overrider User Guide)",
@@ -19722,6 +19722,9 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "ملاحظات إصدار نما ERP - مايو 2026",
           "link" : "/ar/release-notes/2026/nama-erp-202605-release-notes-arabic"
+        }, {
+          text: "ملاحظات إصدار نما ERP - يونيو 2026",
+          "link" : "/ar/release-notes/2026/nama-erp-202606-release-notes-arabic"
         } ]
       } ]
     }, {
