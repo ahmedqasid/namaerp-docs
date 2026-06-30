@@ -16,6 +16,5 @@ title: تكامل التجارة الإلكترونية
 
 <LandingGrid>
   <LandingCard icon="🛒" title="دليل تكامل التجارة الإلكترونية" link="/ar/modules/ecommerce/magento-integration-guide.md" details="مزامنة المنتجات والأسعار والمخزون والطلبات بين Nama ERP ومتجرك الإلكتروني." />
-  <LandingCard icon="📦" title="إشعارات طلبات أمازون" link="/ar/modules/ecommerce/amazon-order-notifications.md" details="تحويل إشعارات طلبات SP-API من أمازون إلى أوامر بيع تلقائيًا عند شحن الطلب، عبر طابور SQS." />
   <LandingCard icon="🚛" title="التكامل مع Omniful" link="/ar/modules/ecommerce/omniful-integration.md" details="تكامل ثنائي الاتجاه مع منصّة سلاسل الإمداد Omniful لإدارة المستودعات وتنفيذ الطلبات." />
 </LandingGrid>
