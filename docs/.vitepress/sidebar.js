@@ -5519,6 +5519,9 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/ecommerce/",
         "collapsed" : true,
         "items" : [ {
+          text: "Amazon Order Notifications",
+          "link" : "/modules/ecommerce/amazon-order-notifications"
+        }, {
           text: "Nama ERP E-Commerce Integration Guide",
           "link" : "/modules/ecommerce/magento-integration-guide"
         }, {
@@ -16168,6 +16171,9 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/ecommerce/",
         "collapsed" : true,
         "items" : [ {
+          text: "إشعارات طلبات أمازون",
+          "link" : "/ar/modules/ecommerce/amazon-order-notifications"
+        }, {
           text: "دليل تكامل التجارة الإلكترونية مع Nama ERP",
           "link" : "/ar/modules/ecommerce/magento-integration-guide"
         }, {
