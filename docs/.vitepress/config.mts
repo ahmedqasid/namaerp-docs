@@ -153,7 +153,12 @@ export default defineConfig({
         plugins: [devSearchIndexPlugin(SEARCH_INDEX_STABLE_PATH)]
     },
     head: [
-        ['link', {rel: 'shortcut icon', type: 'image/png', href: '/namasoft.png'}]
+        ['link', {rel: 'shortcut icon', type: 'image/png', href: '/namasoft.png'}],
+        ['script', {async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-H68GM8HY15'}],
+        ['script', {}, `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-H68GM8HY15');`]
     ],
     // Strict: the build fails on dead internal links (the site is currently clean)
     ignoreDeadLinks: false,
