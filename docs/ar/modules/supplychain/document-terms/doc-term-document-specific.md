@@ -127,6 +127,8 @@
 
 **حساب متوسط سعر البيع من تكلفة صرف التفكيك (Calc Average Sales Price From Disassembly Issue Cost)** `termConfig.calcAverageSalesPriceFromDisAssemblyIssueCost` — يشتق متوسط سعر البيع من تكلفة صرف التفكيك (تجميع).
 
+**عدم تأثير كمية الاستلام الفعلية على الكمية المسحوبة (Do Not Affect Issued Qty By Actual Receipt Qty)** `termConfig.doNotAffectDetailsQtyByActualReceiptQty` — في الوضع الافتراضي تُعاد كميات الأصناف المسحوبة (كميات التفاصيل) بناءً على كمية المنتج النهائي المستلمة فعليًا. وعند تفعيل هذا الخيار تبقى الكميات المسحوبة محسوبة من كمية التجميع، فلا يؤدي تعديل كمية الاستلام الفعلية إلى تغيير الكميات المسحوبة (تجميع).
+
 **إنشاء مستند للسطور التي لها حالة (Create Document For Lines Which Have Status)** `termConfig.createDocLineWithStatus` — ينشئ مستندات التجميع فقط للسطور عند الحالة المختارة (تجميع متعدد).
 
 **استخدام الكمية المطلوبة للمواد النهائية (Use Required Quantity For Final Materials)** `termConfig.useRequiredQtyForFinalMaterials` — يستخدم الكمية المطلوبة (المخططة) لاستهلاك المواد النهائية (تجميع متعدد).

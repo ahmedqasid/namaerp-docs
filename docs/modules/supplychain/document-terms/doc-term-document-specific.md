@@ -127,6 +127,8 @@ The **Consider … For Cost** family makes the cost layer/valuation distinguish 
 
 **Calc Average Sales Price From Disassembly Issue Cost** `termConfig.calcAverageSalesPriceFromDisAssemblyIssueCost` — Derives the average sales price from the disassembly issue cost (assembly).
 
+**Do Not Affect Issued Qty By Actual Receipt Qty** `termConfig.doNotAffectDetailsQtyByActualReceiptQty` — Normally the issued-material (details) quantities are recalculated from the quantity of finished product actually received. With this option on, they stay driven by the assembly quantity instead, so editing the actual receipt quantity no longer changes the issued quantities (assembly).
+
 **Create Document For Lines Which Have Status** `termConfig.createDocLineWithStatus` — Only generates assembly documents for lines at the chosen status (multi-assembly).
 
 **Use Required Quantity For Final Materials** `termConfig.useRequiredQtyForFinalMaterials` — Uses the required (planned) quantity for final-material consumption (multi-assembly).
