@@ -615,6 +615,9 @@ export const SIDEBAR_CONFIG = {
         text: "Scheduled Tasks (Task Scheduler)",
         "link" : "/platform/scheduled-tasks"
       }, {
+        text: "Recurring Documents",
+        "link" : "/platform/recurring-documents"
+      }, {
         text: "Fields and Entities Settings - Generic Reference Overrider User Guide",
         "link" : "/platform/GenericReferenceOverrider_UserGuide"
       } ]
@@ -5519,14 +5522,14 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/ecommerce/",
         "collapsed" : true,
         "items" : [ {
-          text: "Amazon Order Notifications",
-          "link" : "/modules/ecommerce/amazon-order-notifications"
-        }, {
           text: "Nama ERP E-Commerce Integration Guide",
           "link" : "/modules/ecommerce/magento-integration-guide"
         }, {
           text: "Omniful Integration Guide",
           "link" : "/modules/ecommerce/omniful-integration"
+        }, {
+          text: "Amazon Order Notifications",
+          "link" : "/modules/ecommerce/amazon-order-notifications"
         } ]
       }, {
         text: "Artificial Intelligence",
@@ -11531,6 +11534,9 @@ export const SIDEBAR_CONFIG = {
         text: "المهام المجدولة (Task Scheduler)",
         "link" : "/ar/platform/scheduled-tasks"
       }, {
+        text: "المستندات الدورية",
+        "link" : "/ar/platform/recurring-documents"
+      }, {
         text: "أعدادات الحقول و الشاشات (Generic Reference Overrider User Guide)",
         "link" : "/ar/platform/GenericReferenceOverrider_UserGuide"
       } ]
@@ -16171,14 +16177,14 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/ecommerce/",
         "collapsed" : true,
         "items" : [ {
-          text: "إشعارات طلبات أمازون",
-          "link" : "/ar/modules/ecommerce/amazon-order-notifications"
-        }, {
           text: "دليل تكامل التجارة الإلكترونية مع Nama ERP",
           "link" : "/ar/modules/ecommerce/magento-integration-guide"
         }, {
           text: "دليل التكامل مع Omniful",
           "link" : "/ar/modules/ecommerce/omniful-integration"
+        }, {
+          text: "إشعارات طلبات أمازون",
+          "link" : "/ar/modules/ecommerce/amazon-order-notifications"
         } ]
       }, {
         text: "الذكاء الاصطناعي",

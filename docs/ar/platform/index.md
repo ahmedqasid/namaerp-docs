@@ -37,6 +37,7 @@ title: الخصائص العامة للنظام
 <LandingGrid>
   <LandingCard icon="🔄" title="مسارات الكيان" link="/ar/platform/entity-flows/" details="أتمت الإجراءات على السجلات، وولّد كيانات من كيانات، واستورد البيانات من Excel أو استعلامات SQL." />
   <LandingCard icon="⏰" title="المهام المجدولة" link="/ar/platform/scheduled-tasks.md" details="شغّل المهام تلقائيًا وفق جدول زمني — مجدول المهام." />
+  <LandingCard icon="🔁" title="المستندات الدورية" link="/ar/platform/recurring-documents.md" details="أعد إنتاج مستند نموذجي على إيقاع ثابت — تلقائيًا وفق جدول أو دفعة عند الطلب." />
   <LandingCard icon="🧱" title="الكيانات الافتراضية" link="/ar/platform/virtual-entity-guide.md" details="وحدات SQL قابلة لإعادة الاستخدام تُغذّي التقارير ولوحات المعلومات." />
   <LandingCard icon="🔎" title="فلتر الحقل بالمعايير" link="/ar/platform/field-filter-with-criteria.md" details="قيّد ما يمكن لحقل المرجع اختياره باستخدام المعايير — مع أسئلة شائعة عن فلترة الحقول." />
   <LandingCard icon="📝" title="معايير من المحلل النصي" link="/ar/platform/text-criteria-guide.md" details="اكتب المعايير كنص عادي ودع المحلل يحوّلها إلى فلاتر." />

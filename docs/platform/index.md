@@ -37,6 +37,7 @@ Let the system do repetitive work for you, and build reusable rules and data blo
 <LandingGrid>
   <LandingCard icon="🔄" title="Entity Flows" link="/platform/entity-flows/" details="Automate actions on records, generate entities from entities, and import data from Excel or SQL queries." />
   <LandingCard icon="⏰" title="Scheduled Tasks" link="/platform/scheduled-tasks.md" details="Run jobs automatically on a schedule — the task scheduler." />
+  <LandingCard icon="🔁" title="Recurring Documents" link="/platform/recurring-documents.md" details="Reproduce a template document on a cadence — automatically on a schedule or in an on-demand batch." />
   <LandingCard icon="🧱" title="Virtual Entities" link="/platform/virtual-entity-guide.md" details="Reusable SQL building blocks that power reports and dashboards." />
   <LandingCard icon="🔎" title="Field Filter with Criteria" link="/platform/field-filter-with-criteria.md" details="Restrict what a lookup field can pick using criteria — plus the field-filtering FAQ." />
   <LandingCard icon="📝" title="Text Criteria Parser" link="/platform/text-criteria-guide.md" details="Write criteria as plain text and have the parser turn them into filters." />

@@ -2,7 +2,8 @@
   "sortedPaths": [
     "/modules/ecommerce",
     "/modules/ecommerce/magento-integration-guide.md",
-    "/modules/ecommerce/omniful-integration.md"
+    "/modules/ecommerce/omniful-integration.md",
+    "/modules/ecommerce/amazon-order-notifications.md"
   ],
   "folderTitles": {
     "/modules/ecommerce": {
