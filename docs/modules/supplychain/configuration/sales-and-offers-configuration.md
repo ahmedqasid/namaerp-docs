@@ -54,6 +54,8 @@ This page documents the **Sales & Offers** tab — settings for sales documents,
 
 **Show Updated Discount Values/Percentages in Offers** `value.showUpdatedDiscountsOfItemsInOffers` — A display option: when on, the sales invoice grid shows the updated discount values/percentages produced by offers.
 
+**Prioritized Stop Other Discounts Across Offer Types** `value.prioritizedStopOtherDiscountsAcrossTypes` — Offers and discounts each carry a priority, and an offer can be flagged to *stop other discounts*. Normally that "stop" only affects offers of the same kind. When this is on, the strongest-priority offer that is flagged to stop other discounts becomes a single cut-off applied across **all** offer types at once — item discounts, whole-invoice (header) discounts, free-item offers, and item-count offers. Any offer or discount ranked below that cut-off is dropped, and manual discounts in the discount slots it clears are forced to zero. Use it when one top-priority promotion should override every weaker discount no matter which offer type produced it.
+
 ## Offer Matching Dimensions
 
 When the *Consider Item Total Quantity in Offers* aggregation is used, the quantities of the same item spread across several invoice lines are summed together when checking offer/discount eligibility. The switches below decide which item properties are treated as *separate* when summing — turning one on means that property becomes part of the grouping key, so different values are counted separately rather than combined.

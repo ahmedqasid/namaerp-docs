@@ -82,11 +82,13 @@ This group is added for all inventory document terms. It governs how the documen
 
 ### Return-aware and stock-document tracking
 
-These two options apply only to specific document types.
+These options apply only to specific document types.
 
 **Consider Returned Qty For Track Qty In Related Doc** `termConfig.considerReturnQtyForTrackQtyInRelatedDoc` — Subtracts returned quantities when computing the satisfied quantity against the related document. Available only for Sales Invoice, Service-Center Sales Invoice, Purchase Invoice, and Service-Center Purchase Invoice terms.
 
 **Deducting Track Quantity From Stock Document Quantity** `termConfig.deductTrackQtyFromStockDocQty` — Deducts the tracked quantity from the linked stock document's quantity, avoiding double-counting between the invoice and the stock receipt. Available only for Purchase Invoice and Service-Center Purchase Invoice terms.
+
+**Allow Quantity Tracking for System Generated Documents** `termConfig.allowTrackQtyForSysGeneratedDocs` — When a Stock Issue or Stock Receipt is produced automatically by the system (a fully generated document spawned from another document's workflow), it normally sits outside quantity tracking — the system assumes its origin document already handled the tracking. Turn this on to bring those system-generated documents back into tracking, so they record and validate their satisfied/remaining quantities just like manually entered ones. Available only for Stock Issue and Stock Receipt terms.
 
 ## Serial & Special-Serial Handling
 
