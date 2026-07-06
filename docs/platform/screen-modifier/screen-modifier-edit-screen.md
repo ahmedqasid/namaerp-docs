@@ -16,7 +16,7 @@ Throughout this page, anywhere you are asked for a field, you enter its **field 
 | --- | --- |
 | **Add Pages** | Adds new, empty pages (tabs) to the screen that you can then fill with groups and grids. |
 | **Removed Pages** | Hides existing pages. You pick the page by its id, suggested from the screen's current pages. |
-| **Reorder Pages** | Changes the order in which pages appear across the top of the screen. |
+| **Reorder Pages** | Changes the order pages appear across the top of the screen. Add one line per page you want to move: pick the **page** and give it its **new position number**; pages you don't list keep their existing order. |
 
 ## Groups of header fields
 
@@ -49,11 +49,20 @@ When adding a grid column that points at a reference (for example `lines.account
 
 ## Discussion-block options
 
-Most screens carry a **discussion** block — the area for notes, attachments and reference links at the bottom of the record. Without listing individual fields, you can switch off parts of it directly on the modifier:
+Most screens carry a **discussion** block — the area at the bottom of the record where users add notes, attachments and reference links. Each note can also carry two general-purpose **date** fields and two **time** fields (Date 1 / Date 2, Time 1 / Time 2) for recording things like a follow-up date or a call time alongside the note. Without listing individual fields, you can switch off parts of the block directly on the modifier:
 
 - **Remove Discussion Field** — hides the free-text discussion field.
 - **Remove Attachment 1 … 4** — hides each of the four attachment slots.
 - **Remove Reference 1 … 2** — hides each of the two reference links.
+- **Remove Date 1 / Date 2** — hides each of the two date fields.
+- **Remove Time 1 / Time 2** — hides each of the two time fields.
+
+You can also control how much room the note itself takes up with **Discussion Field Layout**:
+
+- **Normal** — a compact box that shares its row with a neighbouring field.
+- **Spanned** — a full-width box on a single, compact line.
+- **Spanned 2** *(the default)* — a full-width, taller box, giving users more visible room to read and type longer notes.
+- **Alone** — the box sits on its own row with nothing beside it, while keeping the compact width of *Normal*.
 
 See the [FAQ](/platform/screen-modifier/screen-modifier-faq.md) for a step-by-step walk-through of trimming the discussion block on a specific screen.
 

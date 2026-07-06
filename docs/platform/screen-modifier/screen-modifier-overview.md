@@ -57,6 +57,7 @@ The **Modified Layout Id** field lets you state which existing layout your chang
 
 - **Priority** *(required)* — when several modifiers apply to the same screen, they run in priority order. Lower-priority instructions are applied first and higher-priority ones afterwards, so priority is your tool for controlling which change "wins" when two modifiers touch the same part of a screen.
 - **Activate** — only activated modifiers are loaded and applied. Leaving this off is a safe way to keep a modifier on the shelf while you build or test it, without affecting anyone's screens.
+- **Allow System Modifiers** — only relevant when you've redesigned this screen in the [Visual Layout Editor](/platform/screen-modifier/screen-modifier-visual-editor.md). Normally, once you save a hand-built visual design, Nama treats it as the final word and stops adding its own automatic extras to that screen — for example the "related documents" links grid, or module-specific blocks it would otherwise inject. Turn this on to keep those automatic additions layered on top of your design, just as they would appear on a screen you never opened in the editor. It has no effect on a modifier built only from the ordinary collections.
 
 ## Special screen variants
 

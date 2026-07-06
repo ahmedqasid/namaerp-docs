@@ -29,11 +29,13 @@ You will see this choice on display columns, criteria, sorting and the search-fo
 | **Sort Fields** + *Sort Modify Type* | The fields the list is sorted by. |
 | **Default Sort Type** | Whether the default sort is **Ascending** or **Descending**. |
 | **Default Selector Popup Sort Type** | The same Ascending/Descending choice, but for the selector pop-up. |
-| **Quick Filter** | One-click filter chips shown above the list, each backed by a saved criteria definition, so users can narrow the list without building a filter by hand. |
+| **Quick Filter** | One-click filters shown above the list so users can narrow it without building a filter by hand. Each line either generates value buttons automatically from a chosen column's most common values, or links to a separately defined custom criteria; the buttons can render as chips or as a dropdown. |
 | **Template Columns** | **Computed columns** — extra columns whose values are calculated from a template rather than read straight from a single field. |
-| **List View Default Page Size** | How many rows the list loads per page by default. |
+| **List View Default Page Size** | How many rows the list loads per page by default — one of the fixed choices **25, 50, 75, 100 or All**. |
 | **List View** *(width)* | The default width of the list grid. |
 | **List View Default Criteria** | A criteria definition applied automatically whenever the list opens, so users start from a pre-filtered view. |
+| **List View Always Apply Default Criteria** | Re-applies the **List View Default Criteria** every time the list is opened, discarding whatever filter the user last left behind. Only meaningful when a default criteria is set — it stops users from getting stuck on a stale filter from a previous visit. |
+| **List View Prevent Auto Load** | Stops the list from loading automatically when it opens. The grid stays empty — with a reminder to add a filter — until the user types a filter and searches (or presses Refresh). Useful for very large lists where an unfiltered load would be slow. |
 
 ## Selector Pop-up (the searcher)
 
@@ -47,11 +49,12 @@ These mirror the list-view settings, but apply to the pop-up used to pick a refe
 | **Search Criteria Fields** + *Search Criteria Modify Type* | The filter fields available inside the pop-up. |
 | **Search Sort Fields** + *Search Sort Modify Type* | The sort order in the pop-up. |
 | **Criteria Fields (Used For "Search For")** + *Search For Modify Type* | The fields covered by the pop-up's single free-text **Search For** box — i.e. which columns a typed search term is matched against. |
-| **Search Quick Filter** | Quick-filter chips for the selector pop-up. |
+| **Search Quick Filter** | The same quick filters, for the selector pop-up. |
 | **Searcher Template Columns** | Computed columns for the selector pop-up. |
-| **Search Default Page Size** | Rows per page in the pop-up. |
+| **Search Default Page Size** | Rows per page in the pop-up — the same fixed choices **25, 50, 75, 100 or All**. |
 | **Search View** *(width)* | The default width of the selector pop-up. |
 | **Search View Default Criteria** | A criteria definition applied automatically every time the pop-up opens. |
+| **Searcher Prevent Auto Load** | Stops the selector pop-up from listing anything when it first opens; no rows appear until the user types a search term or filter and searches. Handy for reference types with very many records, where an immediate unfiltered load would be slow. |
 
 ::: tip
 You don't have to type every column id by hand. The Screen Modifier toolbar has **Select … Fields** actions (Select Display Columns Fields, Select Search For Fields, Select Criteria Fields, Select Sort Fields, and their search-side equivalents) that open a field picker for the target type and fill the matching collection for you.

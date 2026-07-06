@@ -79,6 +79,10 @@ Select a button to open the **Action** tab, where you can see its **GUI Action I
 
 Pressing **Save Changes** stores your design in the Screen Modifier. As with any modifier, the change does not reach users until the screens are rebuilt — run **Regenerate GUI For Applicable Types Only** (or **Regenerate Screens**) and reopen the screen to confirm. See [Overview & Concepts](/platform/screen-modifier/screen-modifier-overview.md#Making-your-changes-take-effect) for the full rebuild rhythm.
 
+::: warning Automatic additions are suppressed once you design a screen here
+When a screen is built through the visual editor, Nama treats your design as complete and stops layering its own automatic additions on top of it — things like the "related documents" links grid or other module-specific blocks it would normally inject. If a screen loses one of those pieces after you redesign it, turn on **Allow System Modifiers** on the Screen Modifier's main tab (see [Priority and Activation](/platform/screen-modifier/screen-modifier-overview.md#Priority-and-Activation)) to keep them.
+:::
+
 ## See also
 
 - **[Edit-Screen Modifications](/platform/screen-modifier/screen-modifier-edit-screen.md)** — the same building blocks, described as the collections the editor writes to.
