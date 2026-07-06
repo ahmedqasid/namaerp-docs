@@ -77,7 +77,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -255,7 +296,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -447,7 +529,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -661,7 +784,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -856,7 +1020,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -1042,7 +1247,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -1231,7 +1477,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -1429,7 +1716,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -1624,7 +1952,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -1819,7 +2188,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -2014,7 +2424,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -2203,7 +2654,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -2381,7 +2873,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -2600,7 +3133,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -2859,7 +3433,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -3054,7 +3669,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -3292,7 +3948,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -3478,7 +4175,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -3694,7 +4432,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -3901,7 +4680,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -4111,7 +4931,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -4318,7 +5179,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -4531,7 +5433,48 @@ export const SIDEBAR_CONFIG = {
         } ]
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -4720,6 +5663,3050 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Frequently Asked Questions — Payroll and Human Resources Module",
           "link" : "/modules/hr/human-resources-faq"
+        }, {
+          text: "Employee Services (Vehicles, Transport & Meals)",
+          "link" : "/modules/hr/employee-services"
+        }, {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/hr/concepts/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "HR Requests, Documents & Aggregated Documents",
+            "link" : "/modules/hr/concepts/hr-requests-and-documents"
+          }, {
+            text: "How Salary Is Calculated",
+            "link" : "/modules/hr/concepts/hr-salary-engine"
+          } ]
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/hr/setup/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "HR Years, Periods & Salary Issuance",
+            "link" : "/modules/hr/setup/hr-years-and-periods"
+          }, {
+            text: "HR Calendar, Holidays & Weekends",
+            "link" : "/modules/hr/setup/hr-calendar-and-holidays"
+          }, {
+            text: "Employee HR Information",
+            "link" : "/modules/hr/setup/employee-hr-information"
+          } ]
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/hr/payroll/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "Salary Components",
+            "link" : "/modules/hr/payroll/salary-components"
+          }, {
+            text: "Salary Calculation Formulas",
+            "link" : "/modules/hr/payroll/salary-calculation-formulas"
+          }, {
+            text: "Salary Structures",
+            "link" : "/modules/hr/payroll/salary-structures"
+          }, {
+            text: "Salary Documents",
+            "link" : "/modules/hr/payroll/salary-documents"
+          }, {
+            text: "Annual Increases",
+            "link" : "/modules/hr/payroll/hr-annual-increases"
+          }, {
+            text: "Salary Blocking & Partial Payment",
+            "link" : "/modules/hr/payroll/salary-blocking"
+          } ]
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/hr/attendance/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "Attendance Plans & Shifts",
+            "link" : "/modules/hr/attendance/attendance-plans-and-shifts"
+          }, {
+            text: "Time Attendance",
+            "link" : "/modules/hr/attendance/time-attendance"
+          }, {
+            text: "Attendance Machines",
+            "link" : "/modules/hr/attendance/attendance-machines"
+          }, {
+            text: "Leave Permissions & Missions",
+            "link" : "/modules/hr/attendance/leave-permissions-and-missions"
+          } ]
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/hr/vacations/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "Vacation Types & Balances",
+            "link" : "/modules/hr/vacations/vacation-types-and-balances"
+          }, {
+            text: "Vacation Documents",
+            "link" : "/modules/hr/vacations/vacation-documents"
+          }, {
+            text: "Vacation Compensation & Transfer",
+            "link" : "/modules/hr/vacations/vacation-compensation-and-transfer"
+          }, {
+            text: "Change Employee State",
+            "link" : "/modules/hr/vacations/change-employee-state"
+          } ]
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/hr/loans/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "Loan Types",
+            "link" : "/modules/hr/loans/hr-loan-types"
+          }, {
+            text: "Loan Documents & Payments",
+            "link" : "/modules/hr/loans/hr-loan-documents"
+          }, {
+            text: "Loan Adjustments",
+            "link" : "/modules/hr/loans/hr-loan-adjustments"
+          } ]
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/hr/discipline/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "Rewards & Penalties",
+            "link" : "/modules/hr/discipline/rewards-and-penalties"
+          }, {
+            text: "Suspension",
+            "link" : "/modules/hr/discipline/hr-suspension"
+          } ]
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/hr/performance/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "Performance Indicators",
+            "link" : "/modules/hr/performance/performance-indicators"
+          }, {
+            text: "Employee Evaluation",
+            "link" : "/modules/hr/performance/employee-evaluation"
+          } ]
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/hr/recruitment/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "Vacancies & Candidates",
+            "link" : "/modules/hr/recruitment/vacancies-and-candidates"
+          }, {
+            text: "Job Offers & Tests",
+            "link" : "/modules/hr/recruitment/job-offers-and-tests"
+          }, {
+            text: "Work Starting",
+            "link" : "/modules/hr/recruitment/work-starting"
+          }, {
+            text: "Employee Relocation",
+            "link" : "/modules/hr/recruitment/employee-relocation"
+          } ]
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/hr/training/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "Training Courses & Plans",
+            "link" : "/modules/hr/training/training-courses-and-plans"
+          }, {
+            text: "Course Evaluation",
+            "link" : "/modules/hr/training/hr-course-evaluation"
+          } ]
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/hr/end-of-service/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "HR Provisions (End-of-Service & Vacation Accrual)",
+            "link" : "/modules/hr/end-of-service/hr-provisions"
+          }, {
+            text: "Firing & Termination",
+            "link" : "/modules/hr/end-of-service/firing-and-termination"
+          }, {
+            text: "Dues Liquidation",
+            "link" : "/modules/hr/end-of-service/dues-liquidation"
+          }, {
+            text: "Evacuation Approval",
+            "link" : "/modules/hr/end-of-service/evacuation-approval"
+          } ]
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/hr/government-relations/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "Government Relations Overview",
+            "link" : "/modules/hr/government-relations/government-relations-overview"
+          }, {
+            text: "HR Visas",
+            "link" : "/modules/hr/government-relations/hr-visas"
+          }, {
+            text: "Residence Renewal",
+            "link" : "/modules/hr/government-relations/residence-renewal"
+          }, {
+            text: "Visa Pool",
+            "link" : "/modules/hr/government-relations/visa-pool"
+          }, {
+            text: "Social Insurance & Sponsorship",
+            "link" : "/modules/hr/government-relations/social-insurance-and-sponsorship"
+          }, {
+            text: "Government Penalties",
+            "link" : "/modules/hr/government-relations/government-penalties"
+          } ]
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/hr/health-insurance/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "Employee Health Insurance",
+            "link" : "/modules/hr/health-insurance/employee-health-insurance"
+          } ]
         } ]
       }, {
         text: "Point of Sale",
@@ -4898,7 +8885,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/",
@@ -5126,7 +9154,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -5309,7 +9378,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -5507,7 +9617,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -5696,7 +9847,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -5888,7 +10080,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -6083,7 +10316,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -6264,7 +10538,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -6453,7 +10768,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -6666,7 +11022,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -6855,7 +11252,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -7033,7 +11471,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -7495,7 +11974,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -7705,7 +12225,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -7894,7 +12455,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -8083,7 +12685,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -8269,7 +12912,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -8452,7 +13136,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -8635,7 +13360,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -8818,7 +13584,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -9076,7 +13883,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -9280,7 +14128,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -9463,7 +14352,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -9649,7 +14579,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -9841,7 +14812,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -10039,7 +15051,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -10429,7 +15482,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -10613,7 +15707,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -10802,7 +15937,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -11000,7 +16176,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/manufacturing/"
       }, {
         text: "Human Resources",
-        "link" : "/modules/hr/"
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "Point of Sale",
         "link" : "/modules/pos/"
@@ -11193,7 +16410,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -11374,7 +16632,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -11580,7 +16879,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -11764,7 +17104,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -11939,7 +17320,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -12117,7 +17539,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -12304,7 +17767,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -12488,7 +17992,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -12672,7 +18217,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -12856,7 +18442,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -13034,7 +18661,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -13201,7 +18869,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -13409,7 +19118,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -13657,7 +19407,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -13841,7 +19632,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -14068,7 +19900,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -14243,7 +20116,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -14448,7 +20362,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -14644,7 +20599,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -14843,7 +20839,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -15039,7 +21076,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -15241,7 +21319,48 @@ export const SIDEBAR_CONFIG = {
         } ]
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -15419,6 +21538,2907 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "أسئلة شائعة في موديول الرواتب والموارد البشرية",
           "link" : "/ar/modules/hr/human-resources-faq"
+        }, {
+          text: "خدمات الموظفين (السيارات والنقل والوجبات)",
+          "link" : "/ar/modules/hr/employee-services"
+        }, {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/hr/concepts/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "طلبات ومستندات الموارد البشرية والمستندات المجمعة",
+            "link" : "/ar/modules/hr/concepts/hr-requests-and-documents"
+          }, {
+            text: "كيفية حساب الراتب",
+            "link" : "/ar/modules/hr/concepts/hr-salary-engine"
+          } ]
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/hr/setup/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "سنوات وفترات الموارد البشرية وإصدار الرواتب",
+            "link" : "/ar/modules/hr/setup/hr-years-and-periods"
+          }, {
+            text: "تقويم الموارد البشرية والعطلات وأيام الراحة الأسبوعية",
+            "link" : "/ar/modules/hr/setup/hr-calendar-and-holidays"
+          }, {
+            text: "معلومات شئون الموظف",
+            "link" : "/ar/modules/hr/setup/employee-hr-information"
+          } ]
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/hr/payroll/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "مفردات الراتب (Salary Components)",
+            "link" : "/ar/modules/hr/payroll/salary-components"
+          }, {
+            text: "معادلات حساب الراتب (Salary Calculation Formulas)",
+            "link" : "/ar/modules/hr/payroll/salary-calculation-formulas"
+          }, {
+            text: "هياكل الراتب (Salary Structures)",
+            "link" : "/ar/modules/hr/payroll/salary-structures"
+          }, {
+            text: "مستندات الرواتب (Salary Documents)",
+            "link" : "/ar/modules/hr/payroll/salary-documents"
+          }, {
+            text: "الزيادات السنوية (Annual Increases)",
+            "link" : "/ar/modules/hr/payroll/hr-annual-increases"
+          }, {
+            text: "حجب الرواتب والصرف الجزئي (Salary Blocking & Partial Payment)",
+            "link" : "/ar/modules/hr/payroll/salary-blocking"
+          } ]
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/hr/attendance/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "خطط الدوام والورديات (Attendance Plans & Shifts)",
+            "link" : "/ar/modules/hr/attendance/attendance-plans-and-shifts"
+          }, {
+            text: "الحضور والانصراف (Time Attendance)",
+            "link" : "/ar/modules/hr/attendance/time-attendance"
+          }, {
+            text: "أجهزة البصمة (Attendance Machines)",
+            "link" : "/ar/modules/hr/attendance/attendance-machines"
+          }, {
+            text: "الاستئذانات والمأموريات (Leave Permissions & Missions)",
+            "link" : "/ar/modules/hr/attendance/leave-permissions-and-missions"
+          } ]
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/hr/vacations/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "أنواع وأرصدة الأجازات",
+            "link" : "/ar/modules/hr/vacations/vacation-types-and-balances"
+          }, {
+            text: "مستندات الأجازات",
+            "link" : "/ar/modules/hr/vacations/vacation-documents"
+          }, {
+            text: "تعويض ونقل الأجازات",
+            "link" : "/ar/modules/hr/vacations/vacation-compensation-and-transfer"
+          }, {
+            text: "تغيير حالة الموظف",
+            "link" : "/ar/modules/hr/vacations/change-employee-state"
+          } ]
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/hr/loans/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "أنواع السلف",
+            "link" : "/ar/modules/hr/loans/hr-loan-types"
+          }, {
+            text: "مستندات وسداد السلف",
+            "link" : "/ar/modules/hr/loans/hr-loan-documents"
+          }, {
+            text: "تسويات السلف",
+            "link" : "/ar/modules/hr/loans/hr-loan-adjustments"
+          } ]
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/hr/discipline/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "المكافآت والجزاءات",
+            "link" : "/ar/modules/hr/discipline/rewards-and-penalties"
+          }, {
+            text: "إيقاف الموظف عن العمل",
+            "link" : "/ar/modules/hr/discipline/hr-suspension"
+          } ]
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/hr/performance/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "مؤشرات الأداء (Performance Indicators)",
+            "link" : "/ar/modules/hr/performance/performance-indicators"
+          }, {
+            text: "تقييم الموظف (Employee Evaluation)",
+            "link" : "/ar/modules/hr/performance/employee-evaluation"
+          } ]
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/hr/recruitment/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "الوظائف الشاغرة والمرشحون (Vacancies & Candidates)",
+            "link" : "/ar/modules/hr/recruitment/vacancies-and-candidates"
+          }, {
+            text: "عروض العمل والاختبارات (Job Offers & Tests)",
+            "link" : "/ar/modules/hr/recruitment/job-offers-and-tests"
+          }, {
+            text: "بدء العمل",
+            "link" : "/ar/modules/hr/recruitment/work-starting"
+          }, {
+            text: "نقل الموظف",
+            "link" : "/ar/modules/hr/recruitment/employee-relocation"
+          } ]
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/hr/training/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "الدورات وخطط التدريب",
+            "link" : "/ar/modules/hr/training/training-courses-and-plans"
+          }, {
+            text: "تقييم الدورة التدريبية (Course Evaluation)",
+            "link" : "/ar/modules/hr/training/hr-course-evaluation"
+          } ]
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/hr/end-of-service/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "مخصصات الموظفين (نهاية الخدمة ورصيد الأجازات)",
+            "link" : "/ar/modules/hr/end-of-service/hr-provisions"
+          }, {
+            text: "إنهاء الخدمة والتصفية",
+            "link" : "/ar/modules/hr/end-of-service/firing-and-termination"
+          }, {
+            text: "تصفية المستحقات (Dues Liquidation)",
+            "link" : "/ar/modules/hr/end-of-service/dues-liquidation"
+          }, {
+            text: "الموافقة على إخلاء الطرف (Evacuation Approval)",
+            "link" : "/ar/modules/hr/end-of-service/evacuation-approval"
+          } ]
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/hr/government-relations/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "نظرة عامة على العلاقات الحكومية (Government Relations Overview)",
+            "link" : "/ar/modules/hr/government-relations/government-relations-overview"
+          }, {
+            text: "التأشيرات (HR Visas)",
+            "link" : "/ar/modules/hr/government-relations/hr-visas"
+          }, {
+            text: "تجديد الإقامة (Residence Renewal)",
+            "link" : "/ar/modules/hr/government-relations/residence-renewal"
+          }, {
+            text: "مجمع التأشيرات (Visa Pool)",
+            "link" : "/ar/modules/hr/government-relations/visa-pool"
+          }, {
+            text: "التأمينات الاجتماعية والكفالة",
+            "link" : "/ar/modules/hr/government-relations/social-insurance-and-sponsorship"
+          }, {
+            text: "الجزاءات الحكومية",
+            "link" : "/ar/modules/hr/government-relations/government-penalties"
+          } ]
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/hr/health-insurance/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "التأمين الصحي للموظف (Employee Health Insurance)",
+            "link" : "/ar/modules/hr/health-insurance/employee-health-insurance"
+          } ]
         } ]
       }, {
         text: "نقاط البيع",
@@ -15586,7 +24606,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/",
@@ -15803,7 +24864,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -15975,7 +25077,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -16162,7 +25305,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -16340,7 +25524,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -16521,7 +25746,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -16705,7 +25971,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -16875,7 +26182,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -17053,7 +26401,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -17255,7 +26644,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -17433,7 +26863,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -17600,7 +27071,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -17796,7 +27308,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -18001,7 +27554,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -18206,7 +27800,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -18411,7 +28046,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -18616,7 +28292,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -18821,7 +28538,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -19026,7 +28784,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -19231,7 +29030,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -19436,7 +29276,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -19641,7 +29522,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -19828,7 +29750,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -20001,7 +29964,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -20179,7 +30183,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"
@@ -20366,7 +30411,48 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/manufacturing/"
       }, {
         text: "الموارد البشرية",
-        "link" : "/ar/modules/hr/"
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
       }, {
         text: "نقاط البيع",
         "link" : "/ar/modules/pos/"

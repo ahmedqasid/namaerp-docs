@@ -3,12 +3,121 @@
     "/modules/hr",
     "/modules/hr/attendance-machine-formula.md",
     "/modules/hr/ignore-overlapping-attendance.md",
-    "/modules/hr/human-resources-faq.md"
+    "/modules/hr/human-resources-faq.md",
+    "/modules/hr/employee-services.md",
+    "/modules/hr/concepts",
+    "/modules/hr/concepts/hr-requests-and-documents.md",
+    "/modules/hr/concepts/hr-salary-engine.md",
+    "/modules/hr/setup",
+    "/modules/hr/setup/hr-years-and-periods.md",
+    "/modules/hr/setup/hr-calendar-and-holidays.md",
+    "/modules/hr/setup/employee-hr-information.md",
+    "/modules/hr/payroll",
+    "/modules/hr/payroll/salary-components.md",
+    "/modules/hr/payroll/salary-calculation-formulas.md",
+    "/modules/hr/payroll/salary-structures.md",
+    "/modules/hr/payroll/salary-documents.md",
+    "/modules/hr/payroll/hr-annual-increases.md",
+    "/modules/hr/payroll/salary-blocking.md",
+    "/modules/hr/attendance",
+    "/modules/hr/attendance/attendance-plans-and-shifts.md",
+    "/modules/hr/attendance/time-attendance.md",
+    "/modules/hr/attendance/attendance-machines.md",
+    "/modules/hr/attendance/leave-permissions-and-missions.md",
+    "/modules/hr/vacations",
+    "/modules/hr/vacations/vacation-types-and-balances.md",
+    "/modules/hr/vacations/vacation-documents.md",
+    "/modules/hr/vacations/vacation-compensation-and-transfer.md",
+    "/modules/hr/vacations/change-employee-state.md",
+    "/modules/hr/loans",
+    "/modules/hr/loans/hr-loan-types.md",
+    "/modules/hr/loans/hr-loan-documents.md",
+    "/modules/hr/loans/hr-loan-adjustments.md",
+    "/modules/hr/discipline",
+    "/modules/hr/discipline/rewards-and-penalties.md",
+    "/modules/hr/discipline/hr-suspension.md",
+    "/modules/hr/performance",
+    "/modules/hr/performance/performance-indicators.md",
+    "/modules/hr/performance/employee-evaluation.md",
+    "/modules/hr/recruitment",
+    "/modules/hr/recruitment/vacancies-and-candidates.md",
+    "/modules/hr/recruitment/job-offers-and-tests.md",
+    "/modules/hr/recruitment/work-starting.md",
+    "/modules/hr/recruitment/employee-relocation.md",
+    "/modules/hr/training",
+    "/modules/hr/training/training-courses-and-plans.md",
+    "/modules/hr/training/hr-course-evaluation.md",
+    "/modules/hr/end-of-service",
+    "/modules/hr/end-of-service/hr-provisions.md",
+    "/modules/hr/end-of-service/firing-and-termination.md",
+    "/modules/hr/end-of-service/dues-liquidation.md",
+    "/modules/hr/end-of-service/evacuation-approval.md",
+    "/modules/hr/government-relations",
+    "/modules/hr/government-relations/government-relations-overview.md",
+    "/modules/hr/government-relations/hr-visas.md",
+    "/modules/hr/government-relations/residence-renewal.md",
+    "/modules/hr/government-relations/visa-pool.md",
+    "/modules/hr/government-relations/social-insurance-and-sponsorship.md",
+    "/modules/hr/government-relations/government-penalties.md",
+    "/modules/hr/health-insurance",
+    "/modules/hr/health-insurance/employee-health-insurance.md"
   ],
   "folderTitles": {
     "/modules/hr": {
       "ar": "الموارد البشرية",
       "en": "Human Resources"
+    },
+    "/modules/hr/concepts": {
+      "ar": "المفاهيم الأساسية",
+      "en": "Core Concepts"
+    },
+    "/modules/hr/setup": {
+      "ar": "الإعداد الأساسي",
+      "en": "Setup"
+    },
+    "/modules/hr/payroll": {
+      "ar": "الرواتب",
+      "en": "Payroll"
+    },
+    "/modules/hr/attendance": {
+      "ar": "الحضور والإنصراف",
+      "en": "Time & Attendance"
+    },
+    "/modules/hr/vacations": {
+      "ar": "الأجازات",
+      "en": "Vacations & Leaves"
+    },
+    "/modules/hr/loans": {
+      "ar": "السلف والأقساط",
+      "en": "Loans & Installments"
+    },
+    "/modules/hr/discipline": {
+      "ar": "المكافآت والجزاءات",
+      "en": "Rewards & Penalties"
+    },
+    "/modules/hr/performance": {
+      "ar": "تقييم الأداء",
+      "en": "Performance"
+    },
+    "/modules/hr/recruitment": {
+      "ar": "التوظيف",
+      "en": "Recruitment"
+    },
+    "/modules/hr/training": {
+      "ar": "التدريب",
+      "en": "Training"
+    },
+    "/modules/hr/end-of-service": {
+      "ar": "المخصصات وإنهاء الخدمة",
+      "en": "Provisions & End of Service"
+    },
+    "/modules/hr/government-relations": {
+      "ar": "العلاقات الحكومية",
+      "en": "Government Relations"
+    },
+    "/modules/hr/health-insurance": {
+      "ar": "التأمين الصحي",
+      "en": "Health Insurance"
     }
   }
 }
