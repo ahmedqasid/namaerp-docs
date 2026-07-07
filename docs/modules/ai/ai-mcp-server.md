@@ -10,13 +10,15 @@
 
 ## Server Endpoint
 
-The server uses the **SSE (Server-Sent Events)** transport at:
+The server uses the **Streamable HTTP** transport at:
 
 ```
-http[s]://<server-ip-or-domain>/basic-services/mcp/sse
+http[s]://<server-ip-or-domain>/basic-services/mcp
 ```
 
-(The server automatically advertises the correct `/basic-services/mcp/message` message endpoint.)
+::: tip Upgrading from older versions
+Older versions exposed the server over the SSE transport at `/basic-services/mcp/sse`. That endpoint has been replaced — update existing client configurations to the new URL and change the transport type from `sse` to `http`.
+:::
 
 ## Authentication
 
@@ -45,8 +47,8 @@ Add the server to the project's `.mcp.json`:
 {
   "mcpServers": {
     "nama-erp": {
-      "type": "sse",
-      "url": "https://my-server.example.com/basic-services/mcp/sse",
+      "type": "http",
+      "url": "https://my-server.example.com/basic-services/mcp",
       "headers": {
         "X-API-Key": "<client-secret>"
       }
@@ -61,7 +63,7 @@ Add the same definition under `mcpServers` in `claude_desktop_config.json`.
 
 ### MCP Inspector
 
-The protocol's official inspector works straight from the browser (the server allows CORS requests): choose the `SSE` transport, enter the URL, and add the authentication header.
+The protocol's official inspector works straight from the browser (the server allows CORS requests): choose the `Streamable HTTP` transport, enter the URL, and add the authentication header.
 
 After connecting, list the tools from the client — you will find every committed, non-inactive tool from the AI Tool Definition screen, and any change to the definitions is picked up automatically on the next connection.
 

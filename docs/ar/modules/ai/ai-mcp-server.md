@@ -10,13 +10,15 @@
 
 ## عنوان الخادم
 
-يعمل الخادم بنقل **SSE (Server-Sent Events)** على المسار:
+يعمل الخادم بنقل **Streamable HTTP** على المسار:
 
 ```
-http[s]://<server-ip-or-domain>/basic-services/mcp/sse
+http[s]://<server-ip-or-domain>/basic-services/mcp
 ```
 
-(يتكفل الخادم تلقائيًا بالإعلان عن نقطة استقبال الرسائل `/basic-services/mcp/message` الصحيحة.)
+::: tip الترقية من الإصدارات الأقدم
+كانت الإصدارات الأقدم تعرض الخادم بنقل SSE على المسار `/basic-services/mcp/sse`. استُبدلت تلك النقطة — حدّث إعدادات العملاء الحالية إلى العنوان الجديد وغيّر نوع النقل من `sse` إلى `http`.
+:::
 
 ## المصادقة
 
@@ -45,8 +47,8 @@ http[s]://<server-ip-or-domain>/basic-services/mcp/sse
 {
   "mcpServers": {
     "nama-erp": {
-      "type": "sse",
-      "url": "https://my-server.example.com/basic-services/mcp/sse",
+      "type": "http",
+      "url": "https://my-server.example.com/basic-services/mcp",
       "headers": {
         "X-API-Key": "<client-secret>"
       }
@@ -61,7 +63,7 @@ http[s]://<server-ip-or-domain>/basic-services/mcp/sse
 
 ### MCP Inspector
 
-أداة الفحص الرسمية للبروتوكول تعمل من المتصفح مباشرة (الخادم يسمح بطلبات CORS): اختر النقل `SSE`، وأدخل العنوان، وأضف ترويسة المصادقة.
+أداة الفحص الرسمية للبروتوكول تعمل من المتصفح مباشرة (الخادم يسمح بطلبات CORS): اختر النقل `Streamable HTTP`، وأدخل العنوان، وأضف ترويسة المصادقة.
 
 بعد الاتصال، استعرض قائمة الأدوات من العميل — ستجد كل الأدوات المعتمدة وغير المعطلة من شاشة AI Tool Definition، وأي تعديل على التعريفات ينعكس تلقائيًا في الاتصال التالي.
 
