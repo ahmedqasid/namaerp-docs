@@ -11,7 +11,7 @@ A shift is keyed by Code / Group / Arabic Name / English Name like any master fi
 | Shift type | How it works |
 |---|---|
 | Normal (عادية) | A single fixed weekly pattern — the **Main** tab lists Saturday through Friday, each day with a **Work day** (يوم عمل) or **Weekly Rest** (راحة إسبوعية) switch and up to three Start/End time pairs (a split shift with a midday break, for example). |
-| Automatic (تلقائي) | Instead of one fixed pattern, the **Auto Shifts** grid lists several candidate time windows (Start Time, End Time, Checkout From/To Time); Nama picks whichever window best matches the employee's actual punch, and one row can be flagged as the **Default Shift** (دوام إفتراضى) to fall back on. Useful when employees on the same shift code don't all start at exactly the same minute. |
+| Automatic (تلقائي) | Instead of one fixed pattern, the **Auto Shifts** grid lists several candidate windows — each one pointing at an underlying **Shift** and carrying the arrival window (Start Time, End Time, Checkout From/To Time) that routes a punch to it. Nama reads the employee's actual punch and files it under whichever window it matches, and one row can be flagged as the **Default Shift** (دوام إفتراضى) to fall back on. Ideal when the same employees might work either a morning or an evening turn, and you want the system to recognise which one they worked instead of docking them (see the worked example below). |
 | Rotational (دورية) | The **Rotational Shift** tab defines a **Group Details** grid (working hours per rotation group) and a **Rotation Details** grid (when each group's rotation starts and which rotation line it follows) — for shift patterns that cycle employees through different weeks on a schedule, rather than repeating the same week forever. |
 
 Two more switches apply regardless of type:
@@ -24,6 +24,30 @@ Two more switches apply regardless of type:
 ![Attendance Shift, showing the weekly Saturday-to-Friday pattern](../../../ar/modules/hr/images/attendance/attendance-shift-en.png)
 
 Like other payroll master data, a shift can be scoped with the standard **Dimensions** (legal entity, branch, sector, department, analysis set) so different parts of the organization keep their own shift catalogs.
+
+### Automatic shift — letting Nama choose day vs. night
+
+An automatic shift solves the classic "the employee might work either the morning or the evening turn, and I don't want the system to guess wrong and dock them" problem. You don't tell Nama which turn each person is on — you list every possible turn, each with the arrival window that identifies it, and Nama reads the actual punch and files it under whichever turn it falls in. Nothing is wrongly counted as late or absent, and the attendance/fingerprint report shows the punch against the turn it actually matched.
+
+Each line of the **Auto Shifts** grid points at an underlying **Shift** — usually a Normal shift you built earlier — stamped with the arrival window that should route a punch to it:
+
+| Column (English → Arabic) | Purpose |
+|---|---|
+| Shift (الدوام) | The already-built shift this window resolves to (the Morning or Night template, say). Required on every line. |
+| Start Time / End Time (وقت الحضور من / إلى ساعة) | The check-in window that identifies this turn — a punch whose check-in falls inside it is measured against this shift. |
+| Checkout From / To Time (وقت الانصراف من / إلى وقت) | The matching check-out window, for turns that also need the departure time to disambiguate. |
+| Default Shift (دوام إفتراضى) | Flag one line as the fallback used when a punch matches no window. |
+
+**Worked example — a morning and an evening turn.** Say the company runs a morning turn 8 AM–4 PM and an evening turn 4 PM–12 AM, and anyone who shows up within a couple of hours of the start counts as on time:
+
+1. Build two **Normal** shifts first — one "Morning" (8→4) and one "Evening" (4→12), each with its own weekly pattern.
+2. Build a third shift and set its **AttendanceShiftType** to **Automatic**.
+3. In its **Auto Shifts** grid add two lines:
+   - Line 1 → **Shift = Morning**, Start Time `7:00 AM`, End Time `9:00 AM`.
+   - Line 2 → **Shift = Evening**, Start Time `2:00 PM`, End Time `6:00 PM`.
+4. Assign this automatic shift to the employees through an **Attendance Plan**, exactly as you would any other shift.
+
+Now an employee who punches in anywhere between 7 and 9 is measured against the Morning turn; one who punches between 2 and 6 is measured against the Evening turn — with no manual reassignment. Widen or narrow each window to control how much early/late latitude each turn allows.
 
 ## Attendance Plan — assigning a shift to employees
 
