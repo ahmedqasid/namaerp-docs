@@ -285,6 +285,30 @@ n1=maxsql(select {details.price.unitPrice} * {details.n1} / {n3})
 n1=minsql(select {details.price.unitPrice} * {details.n1} / {n3})
 ```
 
+#### Running Totals
+While `totalize`/`totalizesql` collapse the detail lines into a single aggregate, `runningTotal`/`runningTotalSql` produce a **cumulative** value **for each line** — the total of that line plus every line before it. The target is therefore a detail field, and each line receives its own accumulated figure:
+
+```ini
+# Cumulative sum of a detail field, written back per line
+details.n2=runningTotal(details.n1)
+
+# Cumulative sum of a per-line calculation, written back per line
+details.n3=runningTotalSql(select {details.n4} / 2)
+```
+
+For `details.n2=runningTotal(details.n1)`:
+
+| Line | `n1` | `n2` (running total) |
+|------|------|----------------------|
+| 1    | 10   | 10                   |
+| 2    | 25   | 35                   |
+| 3    | 5    | 40                   |
+
+- **Inclusive** — each line's value includes that line, so the first line shows its own amount and the last line equals the grand total (`totalize`).
+- **`runningTotalSql`** runs the query once per line (like `totalizesql`) and accumulates the per-line scalar results. Because it executes per line, prefer `runningTotal` when a plain detail field is enough.
+- **Grouping** — when the flow uses `Group Details By`, the running total restarts at zero for each group.
+- **Line alignment** — values are mapped to the target lines by position (line 1 → line 1, line 2 → line 2, …). The source and target do **not** have to be the same detail table, but they must have the same number of lines for the mapping to line up.
+
 ### Database Queries
 
 #### Simple SQL Queries
