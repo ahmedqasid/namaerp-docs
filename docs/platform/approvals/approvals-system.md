@@ -469,6 +469,36 @@ The system can generate customized summaries for approval requests that provide 
    - **Return**: Send back for modifications
    - **Escalate**: Forward to supervisor
 
+#### Conditional (Optional) Steps
+
+Not every approval step has to run for every record. Sometimes you want a step to appear only under certain circumstances — for example, "only ask the General Manager to approve when the invoice total is above 100,000" while smaller invoices stop at the Finance Manager. That is exactly what conditional steps are for.
+
+Each approval step can carry its own condition through two fields:
+
+- **Step Criteria** (معايير الخطوة): a saved Criteria Definition built with the visual criteria builder.
+- **Step Apply When Query** (استعلام تطبيق الخطوة): an SQL query that returns whether the step applies to the record.
+
+The rule is simple:
+
+- A step whose **Step Criteria and Step Apply When Query are both empty** is a normal **mandatory** step — it always runs.
+- A step that has **either** a criteria **or** a query becomes **optional (conditional)**: it runs only when its condition matches the record. When the condition does not match, the step is skipped and the workflow moves straight to the next step.
+- If a step defines **both** a criteria and a query, **both must match** for the step to apply.
+
+The condition is evaluated at the moment the workflow reaches the step, based on the record's data at that time.
+
+```sql
+-- Example on a step: only require this step when the total is above 100,000
+SELECT case when {totalAmount} > 100000 then 1 else 0 end
+```
+
+::: tip Document is saved when a trailing optional step does not apply
+When the workflow reaches the last remaining step and that step is optional and its condition is not met, there is nothing left to approve — the approval is considered complete and the document is saved, exactly as if all steps had been approved. This lets you add "extra" approval steps that only kick in for higher-risk records, while ordinary records finish as soon as their mandatory steps are done.
+:::
+
+::: warning At least one step must apply
+An approval must always have something to do. If you make **every** step conditional and, for a given record, **none** of the conditions match, the system blocks the save and asks you to fix the definition — either make at least one step match the record, or leave one step's criteria and query empty so it always runs. This prevents a record from silently entering an approval that can never progress.
+:::
+
 #### Global Approval Decision Configuration
 
 The system provides global configuration options to control which approval decisions are available in approval workflows. These settings are configured in the Global Configuration (إعدادات عامة) and affect all approval processes system-wide.
