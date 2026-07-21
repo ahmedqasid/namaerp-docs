@@ -157,6 +157,7 @@
     - [EAEcommerceReadAbandonedCarts](/entity-flows/magento/EAEcommerceReadAbandonedCarts.md)
     - [EAEcommerceReadOrders](/entity-flows/magento/EAEcommerceReadOrders.md)
     - [EAEcommerceReadOrdersFromDate](/entity-flows/magento/EAEcommerceReadOrdersFromDate.md)
+    - [EAEcommerceReadReturns](/entity-flows/magento/EAEcommerceReadReturns.md)
     - [EAEcommerceShippingHandler](/entity-flows/magento/EAEcommerceShippingHandler.md)
     - [EAEcommerceUploadQuantityCSVFileToFTPServer](/entity-flows/magento/EAEcommerceUploadQuantityCSVFileToFTPServer.md)
     - [EASalesRecalculateFreeAndRelatedItems](/entity-flows/magento/EASalesRecalculateFreeAndRelatedItems.md)

@@ -14009,6 +14009,9 @@ export const SIDEBAR_CONFIG = {
           text: "EAEcommerceReadOrdersFromDate",
           "link" : "/entity-flows/magento/EAEcommerceReadOrdersFromDate"
         }, {
+          text: "EAEcommerceReadReturns",
+          "link" : "/entity-flows/magento/EAEcommerceReadReturns"
+        }, {
           text: "EAEcommerceShippingHandler",
           "link" : "/entity-flows/magento/EAEcommerceShippingHandler"
         }, {
