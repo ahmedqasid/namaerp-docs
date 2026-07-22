@@ -14,6 +14,10 @@ module: core
 
 Executes custom Groovy scripts within the entity flow framework. Provides dynamic code execution for complex business logic without requiring Java compilation.
 
+::: tip Writing a Groovy action?
+Follow the **[Groovy Writer skill](https://docs.namasoft.com/skills/groovy-writer.md)** — a step-by-step guide (raw Markdown) for writing Nama `EntityAction` Groovy scripts in the correct Nama style, matching the established sample-script patterns. Intended for Claude Code and support staff drafting scripts.
+:::
+
 ## When This Action Runs
 
 Manual execution or automated through entity flows when custom business logic is needed that standard entity flows cannot meet.
