@@ -1,6 +1,24 @@
 {
   "sortedPaths": [
     "/platform",
+    "/platform/global-config",
+    "/platform/global-config/global-config-general.md",
+    "/platform/global-config/global-config-dimensions.md",
+    "/platform/global-config/global-config-documents.md",
+    "/platform/global-config/global-config-taxes.md",
+    "/platform/global-config/global-config-discounts.md",
+    "/platform/global-config/global-config-accounting.md",
+    "/platform/global-config/global-config-sales.md",
+    "/platform/global-config/global-config-approvals.md",
+    "/platform/global-config/global-config-security.md",
+    "/platform/global-config/global-config-performance.md",
+    "/platform/global-config/global-config-appearance.md",
+    "/platform/global-config/global-config-entity-screens.md",
+    "/platform/global-config/global-config-notifications.md",
+    "/platform/global-config/global-config-reports.md",
+    "/platform/global-config/global-config-attachments.md",
+    "/platform/global-config/global-config-replication.md",
+    "/platform/global-config/global-config-currencies.md",
     "/platform/utils.md",
     "/platform/shortcuts.md",
     "/platform/shortcuts-ar.md",
@@ -93,6 +111,10 @@
     "/platform/notifications": {
       "ar": "التنبيهات",
       "en": "Notifications"
+    },
+    "/platform/global-config": {
+      "ar": "الإعدادات العامة",
+      "en": "Global Configuration"
     }
   }
 }

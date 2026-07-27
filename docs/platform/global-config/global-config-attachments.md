@@ -1,0 +1,49 @@
+# Attachments and Storage
+
+Where attached files live, how their disk space is watched, and the two external tools the system uses to scan paper and convert documents.
+
+![Attachments and Storage tab](../../ar/platform/global-config/images/gc-attachments-en.png)
+
+## Attachment storage
+
+By default an attachment's bytes are stored inside the database. That is simple and keeps backups self-contained, but a few years of scanned invoices will make the database far larger than the business data it holds.
+
+**Externalize Attachments** `value.info.externalizeAttachments` — Stores attachment content on disk instead of in the database. The database keeps only the metadata and a pointer.
+
+::: warning Externalized attachments change your backup story
+Once files live on disk, a database backup no longer contains them. The folder must be backed up too, and restored alongside the database — a database restored without its attachment folder will show every attachment as missing.
+:::
+
+**External Attachments Folder** `value.info.externalAttachmentsFolder` *(default `c:/nama/attachments` on Windows, `/var/nama/attachments` elsewhere)* — The root folder for those files.
+
+**Attachment Share Drive Letter** / **Attachment Share URL** / **Attachment Share User** / **Attachment Share Password** `value.info.attachmentShareDriveLetter`, `value.info.attachmentShareURL`, `value.info.attachmentShareUser`, `value.info.attachmentSharePassword` — When the folder is a network share rather than a local disk, these mount it. Fill in any one of them and the drive letter and URL become required; the system tells you which is missing when you save.
+
+**Allow Download Attachment Without Authentication** `value.info.allowDownloadAttachmentWithoutAuthentication` — Attachment links work without a session. Needed by some external viewers and portals, but it means anyone holding a link can fetch the file — turn it on only when you know that is acceptable.
+
+**Create Attachment Info Table** `value.info.createAttachmentInfoTable` — Maintains a separate table describing attachments, and exposes it in menus and screens, so you can report on what is attached where and how much space it occupies.
+
+**Create Attachment Preview and Thumbnail** `value.info.createAttachmentPreviewAndThumbnail` — Generates a preview and a thumbnail for each uploaded file. Thumbnails make an attachments list far easier to scan, at the cost of some processing on upload and a little extra storage.
+
+## Disk space monitoring
+
+**Folders to Check Space** `value.info.foldersToCheckSpace` — The folders whose free space the system watches. List the attachment folder here, and anywhere else that filling up would stop work.
+
+**Notify When Empty Space Reaches (GB)** `value.info.notifyWhenEmptySpaceReachesGB` *(default 20)* — Below this many free gigabytes, the system raises a critical message. Set it high enough that someone has time to react — a disk that fills completely stops attachments, exports and often the database itself.
+
+## Scanner
+
+**Scanner App** `value.info.scannerApp` — Which scanning integration the attach-from-scanner action uses: **cScanTwain** or **DynamicWebTWAIN**.
+
+**Scanner Profile** `value.info.scannerProfile` — The default scan settings: **Black and White Document**, **Color Document**, **Grayscale**, or **Show Scanner UI** to let the user choose each time. Black and white keeps document scans small; use colour only where the colour carries information, such as a stamped or signed original.
+
+## Documents converter
+
+Nama converts Office files and images to PDF for previewing and printing, using two external tools.
+
+**ImageMagick Path** `value.info.docConverterSettings.imageMagicPath` — The path to the ImageMagick executable on the server, used for image conversion.
+
+**OpenOffice Server Address** / **OpenOffice Server Port** `value.info.docConverterSettings.openOfficeServerAddress`, `...openOfficeServerPort` — The address and port of the LibreOffice or OpenOffice conversion service that turns Word, Excel and similar files into PDF.
+
+::: tip These are server paths, not user paths
+Both settings point at software installed on the application server, not on the user's machine. If document previews stop working after a server move, these are the first two values to check.
+:::

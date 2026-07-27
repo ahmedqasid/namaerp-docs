@@ -13,6 +13,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -232,6 +235,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -465,6 +471,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -684,6 +693,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Utility Links",
         "link" : "/platform/utils"
       }, {
@@ -925,6 +937,281 @@ export const SIDEBAR_CONFIG = {
       } ]
     } ]
   } ],
+  "/platform/global-config/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "General",
+          "link" : "/platform/global-config/global-config-general"
+        }, {
+          text: "Dimensions",
+          "link" : "/platform/global-config/global-config-dimensions"
+        }, {
+          text: "Documents and Books",
+          "link" : "/platform/global-config/global-config-documents"
+        }, {
+          text: "Taxes and e-Invoice",
+          "link" : "/platform/global-config/global-config-taxes"
+        }, {
+          text: "Discounts",
+          "link" : "/platform/global-config/global-config-discounts"
+        }, {
+          text: "Accounting and Finance",
+          "link" : "/platform/global-config/global-config-accounting"
+        }, {
+          text: "Customers and Sales",
+          "link" : "/platform/global-config/global-config-sales"
+        }, {
+          text: "Approvals and Revise",
+          "link" : "/platform/global-config/global-config-approvals"
+        }, {
+          text: "Security and Login",
+          "link" : "/platform/global-config/global-config-security"
+        }, {
+          text: "Performance and Search",
+          "link" : "/platform/global-config/global-config-performance"
+        }, {
+          text: "Appearance",
+          "link" : "/platform/global-config/global-config-appearance"
+        }, {
+          text: "Entities Screens",
+          "link" : "/platform/global-config/global-config-entity-screens"
+        }, {
+          text: "Notifications and Messaging",
+          "link" : "/platform/global-config/global-config-notifications"
+        }, {
+          text: "Reports and Printing",
+          "link" : "/platform/global-config/global-config-reports"
+        }, {
+          text: "Attachments and Storage",
+          "link" : "/platform/global-config/global-config-attachments"
+        }, {
+          text: "Replication",
+          "link" : "/platform/global-config/global-config-replication"
+        }, {
+          text: "Currencies Tafqeet",
+          "link" : "/platform/global-config/global-config-currencies"
+        } ]
+      }, {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/"
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
   "/platform/screen-modifier/" : [ {
     text: "Home",
     "collapsed" : true,
@@ -939,6 +1226,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/",
         "collapsed" : true,
@@ -1175,6 +1465,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -1402,6 +1695,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -1632,6 +1928,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -1871,6 +2170,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -2107,6 +2409,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -2343,6 +2648,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -2579,6 +2887,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -2809,6 +3120,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -3028,6 +3342,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -3288,6 +3605,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -3588,6 +3908,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -3824,6 +4147,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -4103,6 +4429,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -4330,6 +4659,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -4587,6 +4919,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -4835,6 +5170,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -5086,6 +5424,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -5334,6 +5675,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -5588,6 +5932,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -5819,6 +6166,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -6046,6 +6396,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -6276,6 +6629,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -6515,6 +6871,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -6748,6 +7107,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -6981,6 +7343,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -7211,6 +7576,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -7438,6 +7806,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -7665,6 +8036,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -7898,6 +8272,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -8125,6 +8502,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -8358,6 +8738,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -8597,6 +8980,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -8821,6 +9207,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -9090,6 +9479,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -9314,6 +9706,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -9553,6 +9948,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -9783,6 +10181,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -10016,6 +10417,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -10252,6 +10656,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -10474,6 +10881,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -10704,6 +11114,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -10958,6 +11371,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -11188,6 +11604,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -11407,6 +11826,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -11910,6 +12332,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -12161,6 +12586,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -12391,6 +12819,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -12621,6 +13052,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -12848,6 +13282,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -13072,6 +13509,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -13296,6 +13736,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -13520,6 +13963,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -13819,6 +14265,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -14067,6 +14516,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -14291,6 +14743,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -14518,6 +14973,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -14751,6 +15209,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -14990,6 +15451,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -15421,6 +15885,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -15646,6 +16113,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -15876,6 +16346,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -16115,6 +16588,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
         text: "Screen Modifier",
         "link" : "/platform/screen-modifier/"
       }, {
@@ -16349,6 +16825,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -16571,6 +17050,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -16779,6 +17261,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "روابط الأدوات المساعدة (Utility Links)",
         "link" : "/ar/platform/utils"
       }, {
@@ -16841,6 +17326,273 @@ export const SIDEBAR_CONFIG = {
       }, {
         text: "أعدادات الحقول و الشاشات (Generic Reference Overrider User Guide)",
         "link" : "/ar/platform/GenericReferenceOverrider_UserGuide"
+      }, {
+        text: "Setting Up the Purge Archive Database",
+        "link" : "/ar/platform/purge-archive-database-setup"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/"
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/platform/global-config/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "عام",
+          "link" : "/ar/platform/global-config/global-config-general"
+        }, {
+          text: "المحددات",
+          "link" : "/ar/platform/global-config/global-config-dimensions"
+        }, {
+          text: "المستندات والدفاتر",
+          "link" : "/ar/platform/global-config/global-config-documents"
+        }, {
+          text: "الضرائب والفاتورة الإلكترونية",
+          "link" : "/ar/platform/global-config/global-config-taxes"
+        }, {
+          text: "الخصومات",
+          "link" : "/ar/platform/global-config/global-config-discounts"
+        }, {
+          text: "المحاسبة والمالية",
+          "link" : "/ar/platform/global-config/global-config-accounting"
+        }, {
+          text: "العملاء والمبيعات",
+          "link" : "/ar/platform/global-config/global-config-sales"
+        }, {
+          text: "الموافقات والمراجعة",
+          "link" : "/ar/platform/global-config/global-config-approvals"
+        }, {
+          text: "الأمان وتسجيل الدخول",
+          "link" : "/ar/platform/global-config/global-config-security"
+        }, {
+          text: "الأداء والبحث",
+          "link" : "/ar/platform/global-config/global-config-performance"
+        }, {
+          text: "المظهر",
+          "link" : "/ar/platform/global-config/global-config-appearance"
+        }, {
+          text: "شاشات الكيانات",
+          "link" : "/ar/platform/global-config/global-config-entity-screens"
+        }, {
+          text: "الإشعارات والمراسلات",
+          "link" : "/ar/platform/global-config/global-config-notifications"
+        }, {
+          text: "التقارير والطباعة",
+          "link" : "/ar/platform/global-config/global-config-reports"
+        }, {
+          text: "المرفقات والتخزين",
+          "link" : "/ar/platform/global-config/global-config-attachments"
+        }, {
+          text: "التوزيع",
+          "link" : "/ar/platform/global-config/global-config-replication"
+        }, {
+          text: "تفقيط العملات",
+          "link" : "/ar/platform/global-config/global-config-currencies"
+        } ]
+      }, {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
       } ]
     }, {
       text: "الوحدات",
@@ -17026,6 +17778,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/",
         "collapsed" : true,
@@ -17251,6 +18006,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -17467,6 +18225,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -17686,6 +18447,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -17914,6 +18678,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -18139,6 +18906,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -18364,6 +19134,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -18589,6 +19362,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -18808,6 +19584,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -19016,6 +19795,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -19265,6 +20047,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -19554,6 +20339,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -19779,6 +20567,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -20047,6 +20838,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -20263,6 +21057,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -20509,6 +21306,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -20746,6 +21546,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -20986,6 +21789,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -21223,6 +22029,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -21466,6 +22275,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -21686,6 +22498,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -21902,6 +22717,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -22121,6 +22939,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -22349,6 +23170,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -22571,6 +23395,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -22793,6 +23620,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -23012,6 +23842,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -23228,6 +24061,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -23444,6 +24280,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -23666,6 +24505,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -23882,6 +24724,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -24104,6 +24949,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -24332,6 +25180,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -24545,6 +25396,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -24803,6 +25657,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -25016,6 +25873,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -25244,6 +26104,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -25463,6 +26326,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -25685,6 +26551,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -25910,6 +26779,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -26121,6 +26993,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -26340,6 +27215,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -26583,6 +27461,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -26802,6 +27683,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -27010,6 +27894,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -27247,6 +28134,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -27493,6 +28383,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -27739,6 +28632,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -27985,6 +28881,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -28231,6 +29130,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -28477,6 +29379,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -28723,6 +29628,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -28969,6 +29877,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -29215,6 +30126,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -29461,6 +30375,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -29689,6 +30606,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -29903,6 +30823,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -30122,6 +31045,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
@@ -30350,6 +31276,9 @@ export const SIDEBAR_CONFIG = {
       "link" : "/ar/platform/",
       "collapsed" : true,
       "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
         text: "تعديل الشاشات",
         "link" : "/ar/platform/screen-modifier/"
       }, {
