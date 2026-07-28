@@ -252,6 +252,24 @@ end
 ```
 :::
 ## Allow Deleting Accounts
+
+Deleting an account on an old database often fails with this message:
+
+> Could not perform database operation, reason: The query processor ran out of stack space during query optimization. Please simplify the query.
+
+This is a leftover from an old design. Accounts on customers, suppliers, employees and the other
+subsidiary types used to be created as real foreign keys pointing at the `Account` table, and since
+almost every table in the database holds an account, the delete statement SQL Server has to build ends
+up checking hundreds of related tables at once — the query optimizer simply runs out of stack space
+while planning it. The same error used to appear when deleting users, employees and attachments, which
+is why the sections above exist as well.
+
+Newer versions no longer create those database-level constraints for references to tables that are used
+in nearly every entity (accounts, users, employees, attachments), so new databases are unaffected. A
+database created years ago still carries them, and the fix is to drop the leftover foreign keys that
+point at accounts. This is safe: Nama validates these relations in the application itself, not through
+database constraints.
+
 ::: details
 ```sql
 while(exists(select * from INFORMATION_SCHEMA.TABLE_CONSTRAINTS t left join INFORMATION_SCHEMA.KEY_COLUMN_USAGE k on k.CONSTRAINT_NAME = t.CONSTRAINT_NAME
