@@ -127,7 +127,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -349,7 +378,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -585,7 +643,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -843,7 +930,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -1118,7 +1234,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -1357,7 +1502,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -1587,7 +1761,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -1820,7 +2023,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -2062,7 +2294,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -2301,7 +2562,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -2540,7 +2830,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -2779,7 +3098,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -3012,7 +3360,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -3234,7 +3611,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -3497,7 +3903,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -3800,7 +4235,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -4039,7 +4503,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -4321,7 +4814,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -4551,7 +5073,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -4811,7 +5362,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -5062,7 +5642,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -5316,7 +5925,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -5567,7 +6205,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -5824,7 +6491,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -6058,7 +6754,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -6288,7 +7013,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -6521,7 +7275,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -6763,7 +7546,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -6999,7 +7811,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -7235,7 +8076,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -7468,7 +8338,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -7698,7 +8597,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -7928,7 +8856,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -8164,7 +9121,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -8394,7 +9380,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -8630,7 +9645,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -8872,7 +9916,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -9099,7 +10172,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -9371,7 +10473,36 @@ export const SIDEBAR_CONFIG = {
         } ]
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -9596,8 +10727,2432 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/realestate/",
         "collapsed" : true,
         "items" : [ {
+          text: "Real Estate Module Overview",
+          "link" : "/modules/realestate/realestate-overview"
+        }, {
+          text: "Real Estate Module Configuration",
+          "link" : "/modules/realestate/realestate-configuration"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        }, {
           text: "Real Estate Investment FAQ",
           "link" : "/modules/realestate/real-estate-fq"
+        } ]
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/realestate/document-terms/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "How Real Estate Document Terms Work",
+            "link" : "/modules/realestate/document-terms/realestate-terms-basics"
+          }, {
+            text: "Sales Document Terms",
+            "link" : "/modules/realestate/document-terms/realestate-terms-sales"
+          }, {
+            text: "Rent Document Terms",
+            "link" : "/modules/realestate/document-terms/realestate-terms-rent"
+          }, {
+            text: "Collection, Maintenance, Investment and Cost Document Terms",
+            "link" : "/modules/realestate/document-terms/realestate-terms-other"
+          } ]
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/realestate/properties/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "How Properties Are Modelled",
+            "link" : "/modules/realestate/properties/realestate-estate-model"
+          }, {
+            text: "Projects, Squares, Blocks and Land Plots",
+            "link" : "/modules/realestate/properties/realestate-projects-blocks-lands"
+          }, {
+            text: "Buildings, Floors and Rental Units",
+            "link" : "/modules/realestate/properties/realestate-buildings-floors-and-units"
+          }, {
+            text: "Owners, Buyers and Standard Contract Clauses",
+            "link" : "/modules/realestate/properties/realestate-owners-and-contract-clauses"
+          }, {
+            text: "Transferring Ownership Between Owners",
+            "link" : "/modules/realestate/properties/realestate-ownership-transfer"
+          } ]
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/realestate/sales/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "The Property Sales Cycle",
+            "link" : "/modules/realestate/sales/realestate-sales-cycle"
+          }, {
+            text: "Price Lists and Payment Plan Templates",
+            "link" : "/modules/realestate/sales/realestate-price-lists-and-payment-methods"
+          }, {
+            text: "Reservations and Initial Sales Contracts",
+            "link" : "/modules/realestate/sales/realestate-reservations-and-initial-contracts"
+          }, {
+            text: "The Sales Contract",
+            "link" : "/modules/realestate/sales/realestate-sales-contract"
+          }, {
+            text: "Building the Installment Plan",
+            "link" : "/modules/realestate/sales/realestate-installment-plans"
+          }, {
+            text: "Handing the Unit Over",
+            "link" : "/modules/realestate/sales/realestate-handover"
+          }, {
+            text: "Waivers and Cancelling a Sale",
+            "link" : "/modules/realestate/sales/realestate-waiver-and-cancellation"
+          } ]
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/realestate/rent/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "The Leasing Cycle",
+            "link" : "/modules/realestate/rent/realestate-rent-cycle"
+          }, {
+            text: "Rent Offers and Reserving a Unit for Rent",
+            "link" : "/modules/realestate/rent/realestate-rent-offers"
+          }, {
+            text: "The Rent Contract",
+            "link" : "/modules/realestate/rent/realestate-rent-contract"
+          }, {
+            text: "Generating the Rent Schedule",
+            "link" : "/modules/realestate/rent/realestate-rent-schedule"
+          }, {
+            text: "Rent Installment Accrual Ledgers",
+            "link" : "/modules/realestate/rent/realestate-rent-accrual-ledger"
+          }, {
+            text: "Renewing and Ending a Lease",
+            "link" : "/modules/realestate/rent/realestate-rent-renewal-and-termination"
+          } ]
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/realestate/collections/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "How Installment Collection Works",
+            "link" : "/modules/realestate/collections/realestate-collection-basics"
+          }, {
+            text: "Collect Documents and Bulk Collection",
+            "link" : "/modules/realestate/collections/realestate-collect-documents"
+          }, {
+            text: "Paying Collected Money to the Bank or the Owner",
+            "link" : "/modules/realestate/collections/realestate-collection-payouts"
+          }, {
+            text: "Exemptions and Returning Money to the Buyer",
+            "link" : "/modules/realestate/collections/realestate-exemptions-and-returns"
+          }, {
+            text: "Late-Payment Fines",
+            "link" : "/modules/realestate/collections/realestate-fines"
+          } ]
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/realestate/maintenance/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "Maintenance Deposits and Maintenance Funds",
+            "link" : "/modules/realestate/maintenance/realestate-maintenance-deposits-and-funds"
+          }, {
+            text: "Accruing the Annual Maintenance Charge",
+            "link" : "/modules/realestate/maintenance/realestate-maintenance-accrual"
+          }, {
+            text: "Maintenance Requests and Expenses",
+            "link" : "/modules/realestate/maintenance/realestate-maintenance-expenses"
+          } ]
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/realestate/investment/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "Real Estate Investment Funds",
+            "link" : "/modules/realestate/investment/realestate-investment-funds"
+          }, {
+            text: "Estate Values, Additions and Revaluation",
+            "link" : "/modules/realestate/investment/realestate-estate-values-and-revaluation"
+          }, {
+            text: "Agricultural Investment Contracts",
+            "link" : "/modules/realestate/investment/realestate-agricultural-investment"
+          } ]
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/realestate/costs/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "Distributing Project Costs Over Properties",
+            "link" : "/modules/realestate/costs/realestate-cost-distribution"
+          }, {
+            text: "Fee, Commission, Broker and Expense Catalogues",
+            "link" : "/modules/realestate/costs/realestate-fee-commission-and-expense-types"
+          } ]
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/realestate/opening/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "Going Live: Opening Balances in Real Estate",
+            "link" : "/modules/realestate/opening/realestate-opening-balances"
+          }, {
+            text: "Opening Sales Contracts",
+            "link" : "/modules/realestate/opening/realestate-opening-sales"
+          }, {
+            text: "Opening Rent Contracts",
+            "link" : "/modules/realestate/opening/realestate-opening-rent-contracts"
+          } ]
         } ]
       }, {
         text: "Mobile Applications",
@@ -9820,7 +13375,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/",
@@ -10062,7 +13646,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -10295,7 +13908,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -10531,7 +14173,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -10770,7 +14441,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -10995,7 +14695,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -11228,7 +14957,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -11485,7 +15243,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -11718,7 +15505,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -11940,7 +15756,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -12446,7 +16291,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -12700,7 +16574,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -12933,7 +16836,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -13166,7 +17098,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -13396,7 +17357,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -13623,7 +17613,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -13850,7 +17869,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -14077,7 +18125,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -14379,7 +18456,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -14630,7 +18736,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -14857,7 +18992,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -15087,7 +19251,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -15323,7 +19516,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -15565,7 +19787,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -15999,7 +20250,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -16227,7 +20507,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -16460,7 +20769,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -16702,7 +21040,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/modules/pos/"
       }, {
         text: "Real Estate",
-        "link" : "/modules/realestate/"
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
       }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
@@ -16939,7 +21306,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -17164,7 +21560,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -17417,7 +21842,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -17563,7 +22017,7 @@ export const SIDEBAR_CONFIG = {
           text: "المرفقات والتخزين",
           "link" : "/ar/platform/global-config/global-config-attachments"
         }, {
-          text: "التوزيع",
+          text: "Replication",
           "link" : "/ar/platform/global-config/global-config-replication"
         }, {
           text: "تفقيط العملات",
@@ -17681,7 +22135,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -17909,7 +22392,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -18128,7 +22640,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -18350,7 +22891,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -18581,7 +23151,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -18809,7 +23408,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -19037,7 +23665,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -19265,7 +23922,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -19487,7 +24173,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -19698,7 +24413,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -19950,7 +24694,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -20242,7 +25015,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -20470,7 +25272,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -20741,7 +25572,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -20960,7 +25820,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -21209,7 +26098,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -21449,7 +26367,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -21692,7 +26639,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -21932,7 +26908,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -22178,7 +27183,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -22401,7 +27435,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -22620,7 +27683,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -22842,7 +27934,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -23073,7 +28194,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -23298,7 +28448,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -23523,7 +28702,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -23745,7 +28953,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -23964,7 +29201,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -24183,7 +29449,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -24408,7 +29703,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -24627,7 +29951,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -24852,7 +30205,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -25083,7 +30465,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -25299,7 +30710,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -25560,7 +31000,36 @@ export const SIDEBAR_CONFIG = {
         } ]
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -25774,8 +31243,2333 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/realestate/",
         "collapsed" : true,
         "items" : [ {
+          text: "نظرة عامة على وحدة العقارات",
+          "link" : "/ar/modules/realestate/realestate-overview"
+        }, {
+          text: "إعدادات وحدة العقارات",
+          "link" : "/ar/modules/realestate/realestate-configuration"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        }, {
           text: "أسئلة شائعة عن الاستثمار العقاري",
           "link" : "/ar/modules/realestate/real-estate-fq"
+        } ]
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/realestate/document-terms/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "كيف تعمل توجيهات مستندات العقارات",
+            "link" : "/ar/modules/realestate/document-terms/realestate-terms-basics"
+          }, {
+            text: "توجيهات مستندات البيع",
+            "link" : "/ar/modules/realestate/document-terms/realestate-terms-sales"
+          }, {
+            text: "توجيهات مستندات الإيجار",
+            "link" : "/ar/modules/realestate/document-terms/realestate-terms-rent"
+          }, {
+            text: "توجيهات مستندات التحصيل والصيانة والاستثمار والتكاليف",
+            "link" : "/ar/modules/realestate/document-terms/realestate-terms-other"
+          } ]
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/realestate/properties/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "كيف يُمثَّل العقار في النظام",
+            "link" : "/ar/modules/realestate/properties/realestate-estate-model"
+          }, {
+            text: "المشاريع والمربعات والبلوكات وقطع الأراضي",
+            "link" : "/ar/modules/realestate/properties/realestate-projects-blocks-lands"
+          }, {
+            text: "المباني والطوابق والوحدات",
+            "link" : "/ar/modules/realestate/properties/realestate-buildings-floors-and-units"
+          }, {
+            text: "الملاك والمشترون وبنود التعاقد القياسية",
+            "link" : "/ar/modules/realestate/properties/realestate-owners-and-contract-clauses"
+          }, {
+            text: "تحويل الملكية بين الملاك",
+            "link" : "/ar/modules/realestate/properties/realestate-ownership-transfer"
+          } ]
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/realestate/sales/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "دورة بيع العقار",
+            "link" : "/ar/modules/realestate/sales/realestate-sales-cycle"
+          }, {
+            text: "قوائم الأسعار ونماذج الدفع",
+            "link" : "/ar/modules/realestate/sales/realestate-price-lists-and-payment-methods"
+          }, {
+            text: "الحجوزات وعقود البيع المبدئية",
+            "link" : "/ar/modules/realestate/sales/realestate-reservations-and-initial-contracts"
+          }, {
+            text: "عقد البيع",
+            "link" : "/ar/modules/realestate/sales/realestate-sales-contract"
+          }, {
+            text: "إنشاء خطة الأقساط",
+            "link" : "/ar/modules/realestate/sales/realestate-installment-plans"
+          }, {
+            text: "تسليم الوحدة",
+            "link" : "/ar/modules/realestate/sales/realestate-handover"
+          }, {
+            text: "التنازل وفسخ عقد البيع",
+            "link" : "/ar/modules/realestate/sales/realestate-waiver-and-cancellation"
+          } ]
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/realestate/rent/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "دورة التأجير",
+            "link" : "/ar/modules/realestate/rent/realestate-rent-cycle"
+          }, {
+            text: "عروض أسعار الإيجار وحجز الوحدة",
+            "link" : "/ar/modules/realestate/rent/realestate-rent-offers"
+          }, {
+            text: "عقد الإيجار",
+            "link" : "/ar/modules/realestate/rent/realestate-rent-contract"
+          }, {
+            text: "إنشاء جدول الإيجارات",
+            "link" : "/ar/modules/realestate/rent/realestate-rent-schedule"
+          }, {
+            text: "قيود إثبات استحقاق أقساط الإيجار",
+            "link" : "/ar/modules/realestate/rent/realestate-rent-accrual-ledger"
+          }, {
+            text: "تمديد عقد الإيجار وإنهاؤه",
+            "link" : "/ar/modules/realestate/rent/realestate-rent-renewal-and-termination"
+          } ]
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/realestate/collections/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "كيف يتم تحصيل الأقساط",
+            "link" : "/ar/modules/realestate/collections/realestate-collection-basics"
+          }, {
+            text: "سندات التحصيل والتحصيل المجمع",
+            "link" : "/ar/modules/realestate/collections/realestate-collect-documents"
+          }, {
+            text: "توريد المحصل للبنك أو للمالك",
+            "link" : "/ar/modules/realestate/collections/realestate-collection-payouts"
+          }, {
+            text: "الإعفاءات ورد المبالغ للمشتري",
+            "link" : "/ar/modules/realestate/collections/realestate-exemptions-and-returns"
+          }, {
+            text: "غرامات التأخير",
+            "link" : "/ar/modules/realestate/collections/realestate-fines"
+          } ]
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/realestate/maintenance/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "ودائع الصيانة وصناديق الصيانة",
+            "link" : "/ar/modules/realestate/maintenance/realestate-maintenance-deposits-and-funds"
+          }, {
+            text: "إثبات استحقاق الصيانة السنوية",
+            "link" : "/ar/modules/realestate/maintenance/realestate-maintenance-accrual"
+          }, {
+            text: "طلبات ومصروفات الصيانة",
+            "link" : "/ar/modules/realestate/maintenance/realestate-maintenance-expenses"
+          } ]
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/realestate/investment/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "صناديق الاستثمار العقاري",
+            "link" : "/ar/modules/realestate/investment/realestate-investment-funds"
+          }, {
+            text: "قيم العقارات والتعلية وإعادة التقييم",
+            "link" : "/ar/modules/realestate/investment/realestate-estate-values-and-revaluation"
+          }, {
+            text: "عقود الاستثمار الزراعي",
+            "link" : "/ar/modules/realestate/investment/realestate-agricultural-investment"
+          } ]
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/realestate/costs/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "توزيع تكاليف المشروع على العقارات",
+            "link" : "/ar/modules/realestate/costs/realestate-cost-distribution"
+          }, {
+            text: "أنواع الرسوم والعمولات والوسطاء والمصروفات",
+            "link" : "/ar/modules/realestate/costs/realestate-fee-commission-and-expense-types"
+          } ]
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/realestate/opening/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "بدء التشغيل: الأرصدة الافتتاحية في العقارات",
+            "link" : "/ar/modules/realestate/opening/realestate-opening-balances"
+          }, {
+            text: "عقود البيع الافتتاحية",
+            "link" : "/ar/modules/realestate/opening/realestate-opening-sales"
+          }, {
+            text: "عقود الإيجار الافتتاحية",
+            "link" : "/ar/modules/realestate/opening/realestate-opening-rent-contracts"
+          } ]
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -25987,7 +33781,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/",
@@ -26218,7 +34041,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -26440,7 +34292,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -26665,7 +34546,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -26893,7 +34803,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -27107,7 +35046,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -27329,7 +35297,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -27575,7 +35572,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -27797,7 +35823,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -28008,7 +36063,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -28248,7 +36332,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -28497,7 +36610,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -28746,7 +36888,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -28995,7 +37166,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -29244,7 +37444,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -29493,7 +37722,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -29742,7 +38000,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -29991,7 +38278,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -30240,7 +38556,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -30489,7 +38834,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -30720,7 +39094,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -30937,7 +39340,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -31159,7 +39591,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
@@ -31390,7 +39851,36 @@ export const SIDEBAR_CONFIG = {
         "link" : "/ar/modules/pos/"
       }, {
         text: "العقارات",
-        "link" : "/ar/modules/realestate/"
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
       }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"

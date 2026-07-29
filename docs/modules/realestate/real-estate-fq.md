@@ -9,6 +9,8 @@ In the *Real Estate Investment Cost Document* (**RECostDocument**), I need to ex
 There is a utility named **fetchCostEntries** that returns the **REEstateCostEntry** lines belonging to the current document.
 You can then use the entity flow **EAAddAccountingEffects** to add the accounting effect based on the values in that table.
 
+If you need the background first — what the distribution actually is, which rule spreads a cost over which properties, and how the resulting per-estate figures are built — see [Distributing Project Costs Over Properties](/modules/realestate/costs/realestate-cost-distribution.md).
+
 **Example:**
 ```text
 $fetchCostEntries.costValue=CostDR,CostCR

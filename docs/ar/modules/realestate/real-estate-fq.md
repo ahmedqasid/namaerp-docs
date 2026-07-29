@@ -1,5 +1,3 @@
-<rtl>
-
 # أسئلة شائعة عن الاستثمار العقاري
 
 ## كيف أُخرج القيد من توزيع تكاليف الاستثمار العقاري؟
@@ -11,6 +9,8 @@
 يوجد أداة (Utility) باسم **fetchCostEntries** تقوم بإرجاع سطور **REEstateCostEntry** الخاصة بالسند الحالي.  
 بعد ذلك يمكنك استخدام مسار الكيان **EAAddAccountingEffects** لإضافة التأثير المحاسبي اعتمادًا على القيم الموجودة في هذا الجدول.
 
+وإذا احتجت الخلفية أولًا — ما هي التوزيعة أصلًا، وأي قاعدة توزّع التكلفة على أي عقارات، وكيف تُبنى القيم الناتجة لكل عقار — فانظر [توزيع تكاليف المشروع على العقارات](/ar/modules/realestate/costs/realestate-cost-distribution.md).
+
 **مثال:**
 ```text
 $fetchCostEntries.costValue=CostDR,CostCR
@@ -21,7 +21,3 @@ $fetchCostEntries.costValue=CostDR,CostCR
 * `estate`
 * `owner`
 * وبقية الحقول المعرفة في جدول **REEstateCostEntry**
-
-
-
-</rtl>

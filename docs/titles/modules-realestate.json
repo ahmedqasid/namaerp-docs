@@ -1,12 +1,97 @@
 {
   "sortedPaths": [
     "/modules/realestate",
+    "/modules/realestate/realestate-overview.md",
+    "/modules/realestate/realestate-configuration.md",
+    "/modules/realestate/document-terms",
+    "/modules/realestate/document-terms/realestate-terms-basics.md",
+    "/modules/realestate/document-terms/realestate-terms-sales.md",
+    "/modules/realestate/document-terms/realestate-terms-rent.md",
+    "/modules/realestate/document-terms/realestate-terms-other.md",
+    "/modules/realestate/properties",
+    "/modules/realestate/properties/realestate-estate-model.md",
+    "/modules/realestate/properties/realestate-projects-blocks-lands.md",
+    "/modules/realestate/properties/realestate-buildings-floors-and-units.md",
+    "/modules/realestate/properties/realestate-owners-and-contract-clauses.md",
+    "/modules/realestate/properties/realestate-ownership-transfer.md",
+    "/modules/realestate/sales",
+    "/modules/realestate/sales/realestate-sales-cycle.md",
+    "/modules/realestate/sales/realestate-price-lists-and-payment-methods.md",
+    "/modules/realestate/sales/realestate-reservations-and-initial-contracts.md",
+    "/modules/realestate/sales/realestate-sales-contract.md",
+    "/modules/realestate/sales/realestate-installment-plans.md",
+    "/modules/realestate/sales/realestate-handover.md",
+    "/modules/realestate/sales/realestate-waiver-and-cancellation.md",
+    "/modules/realestate/rent",
+    "/modules/realestate/rent/realestate-rent-cycle.md",
+    "/modules/realestate/rent/realestate-rent-offers.md",
+    "/modules/realestate/rent/realestate-rent-contract.md",
+    "/modules/realestate/rent/realestate-rent-schedule.md",
+    "/modules/realestate/rent/realestate-rent-accrual-ledger.md",
+    "/modules/realestate/rent/realestate-rent-renewal-and-termination.md",
+    "/modules/realestate/collections",
+    "/modules/realestate/collections/realestate-collection-basics.md",
+    "/modules/realestate/collections/realestate-collect-documents.md",
+    "/modules/realestate/collections/realestate-collection-payouts.md",
+    "/modules/realestate/collections/realestate-exemptions-and-returns.md",
+    "/modules/realestate/collections/realestate-fines.md",
+    "/modules/realestate/maintenance",
+    "/modules/realestate/maintenance/realestate-maintenance-deposits-and-funds.md",
+    "/modules/realestate/maintenance/realestate-maintenance-accrual.md",
+    "/modules/realestate/maintenance/realestate-maintenance-expenses.md",
+    "/modules/realestate/investment",
+    "/modules/realestate/investment/realestate-investment-funds.md",
+    "/modules/realestate/investment/realestate-estate-values-and-revaluation.md",
+    "/modules/realestate/investment/realestate-agricultural-investment.md",
+    "/modules/realestate/costs",
+    "/modules/realestate/costs/realestate-cost-distribution.md",
+    "/modules/realestate/costs/realestate-fee-commission-and-expense-types.md",
+    "/modules/realestate/opening",
+    "/modules/realestate/opening/realestate-opening-balances.md",
+    "/modules/realestate/opening/realestate-opening-sales.md",
+    "/modules/realestate/opening/realestate-opening-rent-contracts.md",
     "/modules/realestate/real-estate-fq.md"
   ],
   "folderTitles": {
     "/modules/realestate": {
       "ar": "العقارات",
       "en": "Real Estate"
+    },
+    "/modules/realestate/document-terms": {
+      "ar": "توجيهات المستندات",
+      "en": "Document Terms"
+    },
+    "/modules/realestate/properties": {
+      "ar": "العقارات والوحدات",
+      "en": "Properties"
+    },
+    "/modules/realestate/sales": {
+      "ar": "المبيعات",
+      "en": "Sales"
+    },
+    "/modules/realestate/rent": {
+      "ar": "الإيجارات",
+      "en": "Rent"
+    },
+    "/modules/realestate/collections": {
+      "ar": "التحصيل والمدفوعات",
+      "en": "Collections and Payments"
+    },
+    "/modules/realestate/maintenance": {
+      "ar": "الصيانة",
+      "en": "Maintenance"
+    },
+    "/modules/realestate/investment": {
+      "ar": "الاستثمار",
+      "en": "Investment"
+    },
+    "/modules/realestate/costs": {
+      "ar": "التكاليف",
+      "en": "Costs"
+    },
+    "/modules/realestate/opening": {
+      "ar": "الأرصدة الافتتاحية",
+      "en": "Opening Balances"
     }
   }
 }

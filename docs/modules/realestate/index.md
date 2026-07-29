@@ -6,12 +6,60 @@ title: Real Estate
 
 # Real Estate
 
-The Real Estate module helps you manage property investments inside Nama ERP — tracking estates and their owners, distributing the costs that go into a property, and turning those distributions into the right accounting effects. If you handle real-estate investment cost documents and need to see how a distribution becomes a journal entry, the guide below is the place to start.
+Nama Real Estate is the module for companies whose product is property. It covers the whole life of a portfolio: building the estate tree from a project down to an individual flat, selling units on installment plans, leasing them, collecting the money month after month, maintaining the buildings afterwards, and — for companies that pool investors' money — running the whole thing as an investment fund with revaluations and profit distribution.
 
-## Real Estate Investment
+Everything below is organised the way the work happens. If you are new to the module, read the overview first: it explains the estate tree, the four licences and the five ideas that every other page builds on.
 
-Getting accounting right for real-estate investment costs.
+## Start Here
+
+The map of the module and the settings that shape everything else.
 
 <LandingGrid>
-  <LandingCard icon="🏢" title="Real Estate Investment FAQ" link="/modules/realestate/real-estate-fq.md" details="How real-estate investment cost distributions are captured and turned into accounting journal entries." />
+  <LandingCard icon="🗺️" title="Real Estate Module Overview" link="/modules/realestate/realestate-overview.md" details="The estate tree, the four licences, the menu groups, and the end-to-end cycle from a project down to a collected installment." />
+  <LandingCard icon="⚙️" title="Module Configuration" link="/modules/realestate/realestate-configuration.md" details="The single Real Estate settings record — one set per database — and what each option and grid actually changes." />
+  <LandingCard icon="🧾" title="Document Terms" link="/modules/realestate/document-terms/" details="How a term screen is built, the debit/credit pairs behind every document, and the routing grid that sends each installment type to its own accounts." />
+</LandingGrid>
+
+## The Portfolio
+
+The master files that describe what you own before anything is sold or leased.
+
+<LandingGrid>
+  <LandingCard icon="🏗️" title="Properties" link="/modules/realestate/properties/" details="Projects, squares, blocks, land plots, buildings, floors and rental units — how they are modelled, generated, priced and owned." />
+</LandingGrid>
+
+## Selling and Leasing
+
+The two commercial tracks, each with its own licence, documents and money model.
+
+<LandingGrid>
+  <LandingCard icon="🏷️" title="Sales" link="/modules/realestate/sales/" details="Quotation, reservation, sales contract, installment plan, handover and waiver — the full property sales cycle." />
+  <LandingCard icon="🔑" title="Rent" link="/modules/realestate/rent/" details="Rent offers, lease contracts, the generated rent schedule, accrual ledgers, renewal and termination." />
+</LandingGrid>
+
+## The Money
+
+Getting paid, paying out, and everything that adjusts the receivable.
+
+<LandingGrid>
+  <LandingCard icon="💵" title="Collections and Payments" link="/modules/realestate/collections/" details="Collect documents and bulk collection, paying the bank or the landlord, exemptions, rebates and late-payment fines." />
+</LandingGrid>
+
+## Running the Estate
+
+What happens after the contract is signed — the buildings still have to be looked after, financed and costed.
+
+<LandingGrid>
+  <LandingCard icon="🔧" title="Maintenance" link="/modules/realestate/maintenance/" details="Maintenance deposits and funds, the annual service-charge accrual, and maintenance requests and expenses." />
+  <LandingCard icon="📈" title="Investment" link="/modules/realestate/investment/" details="Investment funds and investors, estate purchase values, additions and revaluation, and agricultural investment contracts." />
+  <LandingCard icon="🧮" title="Costs" link="/modules/realestate/costs/" details="Distributing project cost over individual properties, and the fee, commission, broker and expense catalogues." />
+</LandingGrid>
+
+## Going Live and Help
+
+Loading history on day one, and the question that comes up most.
+
+<LandingGrid>
+  <LandingCard icon="📦" title="Opening Balances" link="/modules/realestate/opening/" details="Opening sales contracts, opening rent contracts and historical cost — bringing an existing portfolio into Nama." />
+  <LandingCard icon="❓" title="Real Estate Investment FAQ" link="/modules/realestate/real-estate-fq.md" details="How a cost distribution is turned into a per-estate journal entry with an entity flow." />
 </LandingGrid>
