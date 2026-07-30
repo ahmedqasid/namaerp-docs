@@ -54,6 +54,10 @@ features:
     title: Real Estate
     details: Real-estate investment and property management
     link: /modules/realestate/
+  - icon: 🏭
+    title: Fixed Assets
+    details: The asset register from purchase or import through depreciation, revaluation, transfers and maintenance to disposal — plus custody of items issued to employees
+    link: /modules/fixedassets/
   - icon: 📱
     title: Mobile Applications
     details: Mobile applications and QR integration

@@ -1,0 +1,115 @@
+{
+  "sortedPaths": [
+    "/modules/fixedassets",
+    "/modules/fixedassets/fixedassets-overview.md",
+    "/modules/fixedassets/fixedassets-configuration.md",
+    "/modules/fixedassets/fixedassets-getting-started.md",
+    "/modules/fixedassets/master-files",
+    "/modules/fixedassets/master-files/fixedassets-asset-types.md",
+    "/modules/fixedassets/master-files/fixedassets-asset-master.md",
+    "/modules/fixedassets/master-files/fixedassets-asset-status.md",
+    "/modules/fixedassets/master-files/fixedassets-classifications.md",
+    "/modules/fixedassets/master-files/fixedassets-locations.md",
+    "/modules/fixedassets/master-files/fixedassets-components.md",
+    "/modules/fixedassets/master-files/fixedassets-creation-document.md",
+    "/modules/fixedassets/acquisition",
+    "/modules/fixedassets/acquisition/fixedassets-acquisition-cycle.md",
+    "/modules/fixedassets/acquisition/fixedassets-purchase-request.md",
+    "/modules/fixedassets/acquisition/fixedassets-purchase-offers-and-orders.md",
+    "/modules/fixedassets/acquisition/fixedassets-purchase-document.md",
+    "/modules/fixedassets/acquisition/fixedassets-receipts.md",
+    "/modules/fixedassets/acquisition/fixedassets-opening-balances.md",
+    "/modules/fixedassets/acquisition/fixedassets-delivery-receipt.md",
+    "/modules/fixedassets/letters-of-credit",
+    "/modules/fixedassets/letters-of-credit/fixedassets-lc-overview.md",
+    "/modules/fixedassets/letters-of-credit/fixedassets-letter-of-credit.md",
+    "/modules/fixedassets/letters-of-credit/fixedassets-lc-proforma-invoice.md",
+    "/modules/fixedassets/letters-of-credit/fixedassets-lc-expenses.md",
+    "/modules/fixedassets/letters-of-credit/fixedassets-lc-cost-document.md",
+    "/modules/fixedassets/depreciation",
+    "/modules/fixedassets/depreciation/fixedassets-depreciation-concepts.md",
+    "/modules/fixedassets/depreciation/fixedassets-depreciation-document.md",
+    "/modules/fixedassets/depreciation/fixedassets-aggregated-depreciation.md",
+    "/modules/fixedassets/depreciation/fixedassets-prevent-depreciation.md",
+    "/modules/fixedassets/depreciation/fixedassets-revaluation.md",
+    "/modules/fixedassets/depreciation/fixedassets-additions-and-deductions.md",
+    "/modules/fixedassets/depreciation/fixedassets-properties-document.md",
+    "/modules/fixedassets/movement",
+    "/modules/fixedassets/movement/fixedassets-transfer-document.md",
+    "/modules/fixedassets/movement/fixedassets-transfer-requests.md",
+    "/modules/fixedassets/movement/fixedassets-intercompany-transfers.md",
+    "/modules/fixedassets/movement/fixedassets-movement-in-out.md",
+    "/modules/fixedassets/movement/fixedassets-stocktaking.md",
+    "/modules/fixedassets/disposal",
+    "/modules/fixedassets/disposal/fixedassets-disposal.md",
+    "/modules/fixedassets/disposal/fixedassets-partial-disposal.md",
+    "/modules/fixedassets/disposal/fixedassets-aggregated-disposal.md",
+    "/modules/fixedassets/custody",
+    "/modules/fixedassets/custody/fixedassets-custody-overview.md",
+    "/modules/fixedassets/custody/fixedassets-custody-types.md",
+    "/modules/fixedassets/custody/fixedassets-custody-register.md",
+    "/modules/fixedassets/custody/fixedassets-custody-purchase.md",
+    "/modules/fixedassets/custody/fixedassets-custody-delivery-and-transfer.md",
+    "/modules/fixedassets/custody/fixedassets-custody-disposal.md",
+    "/modules/fixedassets/maintenance",
+    "/modules/fixedassets/maintenance/fixedassets-maintenance-overview.md",
+    "/modules/fixedassets/maintenance/fixedassets-maintenance-types.md",
+    "/modules/fixedassets/maintenance/fixedassets-maintenance-checklists.md",
+    "/modules/fixedassets/maintenance/fixedassets-maintenance-plans.md",
+    "/modules/fixedassets/maintenance/fixedassets-maintenance-records.md",
+    "/modules/fixedassets/document-terms",
+    "/modules/fixedassets/document-terms/fixedassets-terms-basics.md",
+    "/modules/fixedassets/document-terms/fixedassets-terms-acquisition.md",
+    "/modules/fixedassets/document-terms/fixedassets-terms-depreciation-and-disposal.md",
+    "/modules/fixedassets/document-terms/fixedassets-terms-custody-and-lc.md",
+    "/modules/fixedassets/reports",
+    "/modules/fixedassets/reports/fixedassets-reports.md",
+    "/modules/fixedassets/reports/fixedassets-print-forms.md"
+  ],
+  "folderTitles": {
+    "/modules/fixedassets": {
+      "ar": "الأصول الثابتة",
+      "en": "Fixed Assets"
+    },
+    "/modules/fixedassets/master-files": {
+      "ar": "الملفات والإعدادات",
+      "en": "Master Files and Setup"
+    },
+    "/modules/fixedassets/acquisition": {
+      "ar": "اقتناء الأصول",
+      "en": "Acquiring Assets"
+    },
+    "/modules/fixedassets/letters-of-credit": {
+      "ar": "إعتمادات الأصول",
+      "en": "Letters of Credit"
+    },
+    "/modules/fixedassets/depreciation": {
+      "ar": "الإهلاك وتعديل القيمة",
+      "en": "Depreciation and Value Changes"
+    },
+    "/modules/fixedassets/movement": {
+      "ar": "نقل الأصول والجرد",
+      "en": "Transfers and Stocktaking"
+    },
+    "/modules/fixedassets/disposal": {
+      "ar": "التخلص من الأصول",
+      "en": "Disposal"
+    },
+    "/modules/fixedassets/custody": {
+      "ar": "العهد",
+      "en": "Custodies"
+    },
+    "/modules/fixedassets/maintenance": {
+      "ar": "الصيانة",
+      "en": "Maintenance"
+    },
+    "/modules/fixedassets/document-terms": {
+      "ar": "توجيهات المستندات",
+      "en": "Document Terms"
+    },
+    "/modules/fixedassets/reports": {
+      "ar": "التقارير",
+      "en": "Reports"
+    }
+  }
+}
