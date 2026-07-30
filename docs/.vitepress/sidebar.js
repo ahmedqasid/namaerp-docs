@@ -158,6 +158,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -407,6 +433,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -672,6 +724,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -959,6 +1037,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -1265,6 +1369,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -1533,6 +1663,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -1790,6 +1946,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -2052,6 +2234,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -2325,6 +2533,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -2591,6 +2825,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -2861,6 +3121,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -3129,6 +3415,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -3391,6 +3703,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -3640,6 +3978,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -3932,6 +4296,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -4266,6 +4656,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -4532,6 +4948,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -4845,6 +5287,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -5102,6 +5570,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -5393,6 +5887,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -5671,6 +6191,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -5956,6 +6502,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -6234,6 +6806,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -6522,6 +7120,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -6785,6 +7409,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -7042,6 +7692,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -7304,6 +7980,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -7577,6 +8279,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -7840,6 +8568,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -8107,6 +8861,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -8369,6 +9149,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -8628,6 +9434,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -8885,6 +9717,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -9152,6 +10010,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -9409,6 +10293,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -9674,6 +10584,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -9947,6 +10883,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -10201,6 +11163,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -10504,6 +11492,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -10762,6 +11776,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Real Estate Investment FAQ",
           "link" : "/modules/realestate/real-estate-fq"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -11027,6 +12067,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -11295,6 +12361,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -11571,6 +12663,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -11842,6 +12960,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -12110,6 +13254,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -12370,6 +13540,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -12634,6 +13830,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -12891,6 +14113,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -13155,6 +14403,2424 @@ export const SIDEBAR_CONFIG = {
           } ]
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/contracting/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Contracting Overview",
+          "link" : "/modules/contracting/contracting-overview"
+        }, {
+          text: "Contracting Configuration",
+          "link" : "/modules/contracting/contracting-configuration"
+        }, {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        }, {
+          text: "Contracting FAQ",
+          "link" : "/modules/contracting/contracting-faq"
+        } ]
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/contracting/setup/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "Contracting Projects",
+            "link" : "/modules/contracting/setup/contracting-projects"
+          }, {
+            text: "Standard Terms",
+            "link" : "/modules/contracting/setup/contracting-standard-terms"
+          }, {
+            text: "Term Sheets",
+            "link" : "/modules/contracting/setup/contracting-term-sheets"
+          }, {
+            text: "Term Analysis Cards",
+            "link" : "/modules/contracting/setup/contracting-term-analysis-cards"
+          }, {
+            text: "Contract Conditions",
+            "link" : "/modules/contracting/setup/contracting-conditions"
+          }, {
+            text: "Contracting Price Lists",
+            "link" : "/modules/contracting/setup/contracting-price-lists"
+          }, {
+            text: "Phases and Work Areas",
+            "link" : "/modules/contracting/setup/contracting-phases-and-work-areas"
+          }, {
+            text: "Contract Templates",
+            "link" : "/modules/contracting/setup/contracting-contract-templates"
+          }, {
+            text: "Contractors and Consultants",
+            "link" : "/modules/contracting/setup/contracting-contractors-and-consultants"
+          }, {
+            text: "Units, Tasks and Other Lookups",
+            "link" : "/modules/contracting/setup/contracting-lookups"
+          } ]
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/contracting/document-terms/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "Document Terms Basics",
+            "link" : "/modules/contracting/document-terms/contracting-terms-basics"
+          }, {
+            text: "Extract Document Terms",
+            "link" : "/modules/contracting/document-terms/contracting-terms-extracts"
+          }, {
+            text: "Material and Payment Document Terms",
+            "link" : "/modules/contracting/document-terms/contracting-terms-materials"
+          }, {
+            text: "Other Contracting Document Terms",
+            "link" : "/modules/contracting/document-terms/contracting-terms-other"
+          } ]
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/contracting/project-contracting/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "The Project Contracting Cycle",
+            "link" : "/modules/contracting/project-contracting/contracting-owner-cycle"
+          }, {
+            text: "Contracting Offers",
+            "link" : "/modules/contracting/project-contracting/contracting-offers"
+          }, {
+            text: "Contracting Assays",
+            "link" : "/modules/contracting/project-contracting/contracting-assays"
+          }, {
+            text: "Project Contracts",
+            "link" : "/modules/contracting/project-contracting/contracting-project-contract"
+          }, {
+            text: "Project Contract Updates",
+            "link" : "/modules/contracting/project-contracting/contracting-project-contract-updates"
+          }, {
+            text: "Project Execution",
+            "link" : "/modules/contracting/project-contracting/contracting-project-execution"
+          }, {
+            text: "Project Extracts",
+            "link" : "/modules/contracting/project-contracting/contracting-project-extracts"
+          }, {
+            text: "Taxes on Extracts",
+            "link" : "/modules/contracting/project-contracting/contracting-extract-taxes"
+          }, {
+            text: "Project Advance Payments",
+            "link" : "/modules/contracting/project-contracting/contracting-project-advances"
+          }, {
+            text: "Project Fines",
+            "link" : "/modules/contracting/project-contracting/contracting-project-fines"
+          }, {
+            text: "Measurements, Submittals and Handover",
+            "link" : "/modules/contracting/project-contracting/contracting-measurements-and-approvals"
+          } ]
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/contracting/contractor-contracting/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "The Subcontractor Cycle",
+            "link" : "/modules/contracting/contractor-contracting/contracting-contractor-cycle"
+          }, {
+            text: "Subcontractor Offers",
+            "link" : "/modules/contracting/contractor-contracting/contracting-contractor-offers"
+          }, {
+            text: "Subcontracts",
+            "link" : "/modules/contracting/contractor-contracting/contracting-contractor-contract"
+          }, {
+            text: "Subcontract Updates",
+            "link" : "/modules/contracting/contractor-contracting/contracting-contractor-contract-updates"
+          }, {
+            text: "Subcontractor Execution",
+            "link" : "/modules/contracting/contractor-contracting/contracting-contractor-execution"
+          }, {
+            text: "Subcontractor Extracts",
+            "link" : "/modules/contracting/contractor-contracting/contracting-contractor-extracts"
+          }, {
+            text: "Subcontractor Advances and Other Payments",
+            "link" : "/modules/contracting/contractor-contracting/contracting-contractor-advances-and-payments"
+          }, {
+            text: "Subcontractor Fines",
+            "link" : "/modules/contracting/contractor-contracting/contracting-contractor-fines"
+          } ]
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/contracting/budgets/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "Estimated Budgets",
+            "link" : "/modules/contracting/budgets/contracting-estimated-budget"
+          }, {
+            text: "Executive Budgets",
+            "link" : "/modules/contracting/budgets/contracting-executive-budget"
+          }, {
+            text: "Budget Execution",
+            "link" : "/modules/contracting/budgets/contracting-budget-execution"
+          }, {
+            text: "Budget Item Requests",
+            "link" : "/modules/contracting/budgets/contracting-budget-item-requests"
+          } ]
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/contracting/costs/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "How Project Cost Is Built",
+            "link" : "/modules/contracting/costs/contracting-cost-model"
+          }, {
+            text: "Cost Execution",
+            "link" : "/modules/contracting/costs/contracting-cost-execution"
+          }, {
+            text: "Issuing Material to a Project",
+            "link" : "/modules/contracting/costs/contracting-project-materials"
+          }, {
+            text: "Selling Material to a Subcontractor",
+            "link" : "/modules/contracting/costs/contracting-contractor-materials"
+          }, {
+            text: "Contracting Purchase Requests and Orders",
+            "link" : "/modules/contracting/costs/contracting-purchasing"
+          }, {
+            text: "Miscellaneous Contracting Spend",
+            "link" : "/modules/contracting/costs/contracting-misc-spend"
+          }, {
+            text: "Daily Labour and Site Diary",
+            "link" : "/modules/contracting/costs/contracting-daily-labour"
+          }, {
+            text: "Employees, Equipment and Their Costs",
+            "link" : "/modules/contracting/costs/contracting-equipment-and-allocations"
+          }, {
+            text: "Pushing Cost onto Real Estate Units",
+            "link" : "/modules/contracting/costs/contracting-realestate-cost-bridge"
+          } ]
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
+        text: "Mobile Applications",
+        "link" : "/modules/mobile/"
+      }, {
+        text: "e-commerce Integration",
+        "link" : "/modules/ecommerce/"
+      }, {
+        text: "Artificial Intelligence",
+        "link" : "/modules/ai/"
+      } ]
+    }, {
+      text: "External Integrations",
+      "link" : "/integration/"
+    }, {
+      text: "System Administration",
+      "link" : "/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Troubleshooting",
+        "link" : "/admin/troubleshooting/"
+      }, {
+        text: "Reprocessing Transactions",
+        "link" : "/admin/reprocessing/"
+      } ]
+    }, {
+      text: "Developer Reference",
+      "link" : "/developer/"
+    }, {
+      text: "AI Generated Entity Flows Documentation",
+      "link" : "/entity-flows/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Core",
+        "link" : "/entity-flows/core/"
+      }, {
+        text: "Accounting Module",
+        "link" : "/entity-flows/accounting/"
+      }, {
+        text: "AI Module",
+        "link" : "/entity-flows/ai/"
+      }, {
+        text: "Contracting Module",
+        "link" : "/entity-flows/contracting/"
+      }, {
+        text: "CRM Module",
+        "link" : "/entity-flows/crm/"
+      }, {
+        text: "EGTax Reader Module",
+        "link" : "/entity-flows/egtax/"
+      }, {
+        text: "Freight Management System Module",
+        "link" : "/entity-flows/frm/"
+      }, {
+        text: "Hospital Management System Module",
+        "link" : "/entity-flows/hms/"
+      }, {
+        text: "HR Module",
+        "link" : "/entity-flows/hr/"
+      }, {
+        text: "e-commerce Integration Module",
+        "link" : "/entity-flows/magento/"
+      }, {
+        text: "Manufacturing Module",
+        "link" : "/entity-flows/manufacturing/"
+      }, {
+        text: "POS Module",
+        "link" : "/entity-flows/namapos/"
+      }, {
+        text: "Real Estate Module",
+        "link" : "/entity-flows/realestate/"
+      }, {
+        text: "Service Center Module",
+        "link" : "/entity-flows/srvcenter/"
+      }, {
+        text: "Supply Chain Module",
+        "link" : "/entity-flows/supplychain/"
+      } ]
+    }, {
+      text: "Video Tutorials",
+      "link" : "/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Supply Chain Videos",
+        "link" : "/videos/supply-chain-videos/"
+      }, {
+        text: "Report Wizard Videos",
+        "link" : "/videos/report-wizard-videos/"
+      }, {
+        text: "Human Resources Videos",
+        "link" : "/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/modules/contracting/quality/" : [ {
+    text: "Home",
+    "collapsed" : true,
+    "items" : [ {
+      text: "Search",
+      "link" : "/full-search"
+    }, {
+      text: "Getting Started",
+      "link" : "/getting-started/"
+    }, {
+      text: "Platform Features",
+      "link" : "/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Global Configuration",
+        "link" : "/platform/global-config/"
+      }, {
+        text: "Screen Modifier",
+        "link" : "/platform/screen-modifier/"
+      }, {
+        text: "List Views",
+        "link" : "/platform/list-views/"
+      }, {
+        text: "Approvals",
+        "link" : "/platform/approvals/"
+      }, {
+        text: "Security & Permissions",
+        "link" : "/platform/security/"
+      }, {
+        text: "Entity Flows",
+        "link" : "/platform/entity-flows/"
+      }, {
+        text: "Reports",
+        "link" : "/platform/reports/"
+      }, {
+        text: "Business Intelligence",
+        "link" : "/platform/bi/"
+      }, {
+        text: "Notifications",
+        "link" : "/platform/notifications/"
+      } ]
+    }, {
+      text: "Modules",
+      "link" : "/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "Invoicing, Taxes & Discounts",
+        "link" : "/modules/invoicing/"
+      }, {
+        text: "Accounting & Banks",
+        "link" : "/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Technical Reference",
+          "link" : "/modules/accounting/support/"
+        } ]
+      }, {
+        text: "Supply Chain",
+        "link" : "/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Development Request Notes",
+          "link" : "/modules/supplychain/development-requests/"
+        }, {
+          text: "Configuration",
+          "link" : "/modules/supplychain/configuration/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "Freight Management",
+        "link" : "/modules/freight/"
+      }, {
+        text: "Hospital Management System",
+        "link" : "/modules/hms/"
+      }, {
+        text: "Manufacturing",
+        "link" : "/modules/manufacturing/"
+      }, {
+        text: "Human Resources",
+        "link" : "/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Core Concepts",
+          "link" : "/modules/hr/concepts/"
+        }, {
+          text: "Setup",
+          "link" : "/modules/hr/setup/"
+        }, {
+          text: "Payroll",
+          "link" : "/modules/hr/payroll/"
+        }, {
+          text: "Time & Attendance",
+          "link" : "/modules/hr/attendance/"
+        }, {
+          text: "Vacations & Leaves",
+          "link" : "/modules/hr/vacations/"
+        }, {
+          text: "Loans & Installments",
+          "link" : "/modules/hr/loans/"
+        }, {
+          text: "Rewards & Penalties",
+          "link" : "/modules/hr/discipline/"
+        }, {
+          text: "Performance",
+          "link" : "/modules/hr/performance/"
+        }, {
+          text: "Recruitment",
+          "link" : "/modules/hr/recruitment/"
+        }, {
+          text: "Training",
+          "link" : "/modules/hr/training/"
+        }, {
+          text: "Provisions & End of Service",
+          "link" : "/modules/hr/end-of-service/"
+        }, {
+          text: "Government Relations",
+          "link" : "/modules/hr/government-relations/"
+        }, {
+          text: "Health Insurance",
+          "link" : "/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "Point of Sale",
+        "link" : "/modules/pos/"
+      }, {
+        text: "Real Estate",
+        "link" : "/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Document Terms",
+          "link" : "/modules/realestate/document-terms/"
+        }, {
+          text: "Properties",
+          "link" : "/modules/realestate/properties/"
+        }, {
+          text: "Sales",
+          "link" : "/modules/realestate/sales/"
+        }, {
+          text: "Rent",
+          "link" : "/modules/realestate/rent/"
+        }, {
+          text: "Collections and Payments",
+          "link" : "/modules/realestate/collections/"
+        }, {
+          text: "Maintenance",
+          "link" : "/modules/realestate/maintenance/"
+        }, {
+          text: "Investment",
+          "link" : "/modules/realestate/investment/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/realestate/costs/"
+        }, {
+          text: "Opening Balances",
+          "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "Site Quality Control",
+            "link" : "/modules/contracting/quality/contracting-quality-overview"
+          }, {
+            text: "Inspection and Test Plans",
+            "link" : "/modules/contracting/quality/contracting-inspection-plans"
+          }, {
+            text: "Activity Inspection Requests",
+            "link" : "/modules/contracting/quality/contracting-activity-inspections"
+          }, {
+            text: "Material Inspection on Delivery",
+            "link" : "/modules/contracting/quality/contracting-material-inspection"
+          }, {
+            text: "Site Checklists and Test Reports",
+            "link" : "/modules/contracting/quality/contracting-site-checklists"
+          } ]
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -13404,6 +17070,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -13677,6 +17369,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -13937,6 +17655,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -14202,6 +17946,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -14472,6 +18242,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -14724,6 +18520,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -14986,6 +18808,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -15274,6 +19122,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -15536,6 +19410,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -15785,6 +19685,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -16322,6 +20248,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -16605,6 +20557,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -16865,6 +20843,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -17129,6 +21133,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -17388,6 +21418,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -17642,6 +21698,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -17900,6 +21982,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -18154,6 +22262,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -18487,6 +22621,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -18767,6 +22927,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -19021,6 +23207,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -19280,6 +23492,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -19545,6 +23783,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -19816,6 +24080,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -20281,6 +24571,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -20536,6 +24852,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -20798,6 +25140,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "Opening Balances",
           "link" : "/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
         } ]
       }, {
         text: "Mobile Applications",
@@ -21071,6 +25439,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/modules/realestate/opening/"
         } ]
       }, {
+        text: "Contracting",
+        "link" : "/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "Master Files and Setup",
+          "link" : "/modules/contracting/setup/"
+        }, {
+          text: "Document Terms",
+          "link" : "/modules/contracting/document-terms/"
+        }, {
+          text: "Project Contracting",
+          "link" : "/modules/contracting/project-contracting/"
+        }, {
+          text: "Subcontractor Contracting",
+          "link" : "/modules/contracting/contractor-contracting/"
+        }, {
+          text: "Budgets",
+          "link" : "/modules/contracting/budgets/"
+        }, {
+          text: "Costs",
+          "link" : "/modules/contracting/costs/"
+        }, {
+          text: "Quality Control",
+          "link" : "/modules/contracting/quality/"
+        } ]
+      }, {
         text: "Mobile Applications",
         "link" : "/modules/mobile/"
       }, {
@@ -21337,6 +25731,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -21589,6 +26009,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -21871,6 +26317,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -22166,6 +26638,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -22423,6 +26921,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -22669,6 +27193,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -22920,6 +27470,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -23182,6 +27758,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -23437,6 +28039,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -23696,6 +28324,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -23953,6 +28607,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -24204,6 +28884,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -24442,6 +29148,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -24723,6 +29455,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -25046,6 +29804,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -25301,6 +30085,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -25603,6 +30413,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -25849,6 +30685,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -26129,6 +30991,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -26396,6 +31284,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -26670,6 +31584,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -26937,6 +31877,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -27214,6 +32180,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -27466,6 +32458,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -27712,6 +32730,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -27963,6 +33007,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -28225,6 +33295,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -28477,6 +33573,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -28733,6 +33855,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -28984,6 +34132,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -29232,6 +34406,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -29478,6 +34678,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -29734,6 +34960,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -29980,6 +35232,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -30234,6 +35512,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -30496,6 +35800,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -30739,6 +36069,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -31031,6 +36387,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -31278,6 +36660,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "أسئلة شائعة عن الاستثمار العقاري",
           "link" : "/ar/modules/realestate/real-estate-fq"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -31532,6 +36940,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -31789,6 +37223,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -32054,6 +37514,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -32314,6 +37800,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -32571,6 +38083,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -32820,6 +38358,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -33073,6 +38637,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -33319,6 +38909,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -33572,6 +39188,2336 @@ export const SIDEBAR_CONFIG = {
           } ]
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/contracting/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "نظرة عامة على المقاولات",
+          "link" : "/ar/modules/contracting/contracting-overview"
+        }, {
+          text: "إعدادات المقاولات",
+          "link" : "/ar/modules/contracting/contracting-configuration"
+        }, {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        }, {
+          text: "أسئلة متكررة عن المقاولات",
+          "link" : "/ar/modules/contracting/contracting-faq"
+        } ]
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/contracting/setup/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "مشروع المقاولات",
+            "link" : "/ar/modules/contracting/setup/contracting-projects"
+          }, {
+            text: "البنود القياسية",
+            "link" : "/ar/modules/contracting/setup/contracting-standard-terms"
+          }, {
+            text: "كراسة الشروط",
+            "link" : "/ar/modules/contracting/setup/contracting-term-sheets"
+          }, {
+            text: "كارت تحليل البند",
+            "link" : "/ar/modules/contracting/setup/contracting-term-analysis-cards"
+          }, {
+            text: "الشروط التعاقدية",
+            "link" : "/ar/modules/contracting/setup/contracting-conditions"
+          }, {
+            text: "قوائم أسعار المقاولات",
+            "link" : "/ar/modules/contracting/setup/contracting-price-lists"
+          }, {
+            text: "المراحل ومناطق العمل",
+            "link" : "/ar/modules/contracting/setup/contracting-phases-and-work-areas"
+          }, {
+            text: "نماذج العقود",
+            "link" : "/ar/modules/contracting/setup/contracting-contract-templates"
+          }, {
+            text: "المقاولون والاستشاريون",
+            "link" : "/ar/modules/contracting/setup/contracting-contractors-and-consultants"
+          }, {
+            text: "وحدات القياس والمهام والملفات المساعدة",
+            "link" : "/ar/modules/contracting/setup/contracting-lookups"
+          } ]
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/contracting/document-terms/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "أساسيات توجيه المستندات",
+            "link" : "/ar/modules/contracting/document-terms/contracting-terms-basics"
+          }, {
+            text: "توجيه المستخلصات",
+            "link" : "/ar/modules/contracting/document-terms/contracting-terms-extracts"
+          }, {
+            text: "توجيه مستندات الخامات والدفعات",
+            "link" : "/ar/modules/contracting/document-terms/contracting-terms-materials"
+          }, {
+            text: "توجيه مستندات المقاولات الأخرى",
+            "link" : "/ar/modules/contracting/document-terms/contracting-terms-other"
+          } ]
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/contracting/project-contracting/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "دورة مقاولة المشروع",
+            "link" : "/ar/modules/contracting/project-contracting/contracting-owner-cycle"
+          }, {
+            text: "عرض سعر المقاولات",
+            "link" : "/ar/modules/contracting/project-contracting/contracting-offers"
+          }, {
+            text: "مقايسة المقاولات",
+            "link" : "/ar/modules/contracting/project-contracting/contracting-assays"
+          }, {
+            text: "عقد المشروع",
+            "link" : "/ar/modules/contracting/project-contracting/contracting-project-contract"
+          }, {
+            text: "تعديل عقد المشروع",
+            "link" : "/ar/modules/contracting/project-contracting/contracting-project-contract-updates"
+          }, {
+            text: "حصر كميات المشروع",
+            "link" : "/ar/modules/contracting/project-contracting/contracting-project-execution"
+          }, {
+            text: "مستخلص المشروع",
+            "link" : "/ar/modules/contracting/project-contracting/contracting-project-extracts"
+          }, {
+            text: "الضرائب على المستخلصات",
+            "link" : "/ar/modules/contracting/project-contracting/contracting-extract-taxes"
+          }, {
+            text: "الدفعات المقدمة من العميل",
+            "link" : "/ar/modules/contracting/project-contracting/contracting-project-advances"
+          }, {
+            text: "غرامات عقد المشروع",
+            "link" : "/ar/modules/contracting/project-contracting/contracting-project-fines"
+          }, {
+            text: "طلبات الرفع والاعتمادات والتسليم",
+            "link" : "/ar/modules/contracting/project-contracting/contracting-measurements-and-approvals"
+          } ]
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/contracting/contractor-contracting/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "دورة مقاول الباطن",
+            "link" : "/ar/modules/contracting/contractor-contracting/contracting-contractor-cycle"
+          }, {
+            text: "عرض سعر مقاول الباطن",
+            "link" : "/ar/modules/contracting/contractor-contracting/contracting-contractor-offers"
+          }, {
+            text: "عقد مقاول الباطن",
+            "link" : "/ar/modules/contracting/contractor-contracting/contracting-contractor-contract"
+          }, {
+            text: "تعديل عقد مقاول الباطن",
+            "link" : "/ar/modules/contracting/contractor-contracting/contracting-contractor-contract-updates"
+          }, {
+            text: "حصر كميات مقاول الباطن",
+            "link" : "/ar/modules/contracting/contractor-contracting/contracting-contractor-execution"
+          }, {
+            text: "مستخلص مقاول الباطن",
+            "link" : "/ar/modules/contracting/contractor-contracting/contracting-contractor-extracts"
+          }, {
+            text: "دفعات مقاول الباطن",
+            "link" : "/ar/modules/contracting/contractor-contracting/contracting-contractor-advances-and-payments"
+          }, {
+            text: "غرامات مقاول الباطن",
+            "link" : "/ar/modules/contracting/contractor-contracting/contracting-contractor-fines"
+          } ]
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/contracting/budgets/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "الموازنة التقديرية",
+            "link" : "/ar/modules/contracting/budgets/contracting-estimated-budget"
+          }, {
+            text: "الموازنة التنفيذية",
+            "link" : "/ar/modules/contracting/budgets/contracting-executive-budget"
+          }, {
+            text: "حصر كميات الموازنة",
+            "link" : "/ar/modules/contracting/budgets/contracting-budget-execution"
+          }, {
+            text: "طلب شراء خامات من الموازنة التنفيذية",
+            "link" : "/ar/modules/contracting/budgets/contracting-budget-item-requests"
+          } ]
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/contracting/costs/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "كيف تتكوّن تكلفة المشروع",
+            "link" : "/ar/modules/contracting/costs/contracting-cost-model"
+          }, {
+            text: "حصر تكاليف المقاولات",
+            "link" : "/ar/modules/contracting/costs/contracting-cost-execution"
+          }, {
+            text: "صرف الخامات للمشروع",
+            "link" : "/ar/modules/contracting/costs/contracting-project-materials"
+          }, {
+            text: "صرف الخامات لمقاول الباطن",
+            "link" : "/ar/modules/contracting/costs/contracting-contractor-materials"
+          }, {
+            text: "طلبات وأوامر شراء المقاولات",
+            "link" : "/ar/modules/contracting/costs/contracting-purchasing"
+          }, {
+            text: "مصروفات المقاولات المتنوعة",
+            "link" : "/ar/modules/contracting/costs/contracting-misc-spend"
+          }, {
+            text: "مستند السركى والأعمال اليومية",
+            "link" : "/ar/modules/contracting/costs/contracting-daily-labour"
+          }, {
+            text: "تسكين الموظفين والمعدات وتكاليفهم",
+            "link" : "/ar/modules/contracting/costs/contracting-equipment-and-allocations"
+          }, {
+            text: "ترحيل التكلفة إلى الوحدات العقارية",
+            "link" : "/ar/modules/contracting/costs/contracting-realestate-cost-bridge"
+          } ]
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
+        text: "تطبيقات الجوال",
+        "link" : "/ar/modules/mobile/"
+      }, {
+        text: "تكامل التجارة الإلكترونية",
+        "link" : "/ar/modules/ecommerce/"
+      }, {
+        text: "الذكاء الاصطناعي",
+        "link" : "/ar/modules/ai/"
+      } ]
+    }, {
+      text: "التكاملات الخارجية",
+      "link" : "/ar/integration/"
+    }, {
+      text: "إدارة النظام",
+      "link" : "/ar/admin/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "استكشاف الأخطاء وإصلاحها",
+        "link" : "/ar/admin/troubleshooting/"
+      }, {
+        text: "إعادة معالجة الحركات",
+        "link" : "/ar/admin/reprocessing/"
+      } ]
+    }, {
+      text: "مرجع المطور",
+      "link" : "/ar/developer/"
+    }, {
+      text: "ملاحظات الإصدارات",
+      "link" : "/ar/release-notes/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "2016",
+        "link" : "/ar/release-notes/2016/"
+      }, {
+        text: "2017",
+        "link" : "/ar/release-notes/2017/"
+      }, {
+        text: "2018",
+        "link" : "/ar/release-notes/2018/"
+      }, {
+        text: "2019",
+        "link" : "/ar/release-notes/2019/"
+      }, {
+        text: "2020",
+        "link" : "/ar/release-notes/2020/"
+      }, {
+        text: "2021",
+        "link" : "/ar/release-notes/2021/"
+      }, {
+        text: "2022",
+        "link" : "/ar/release-notes/2022/"
+      }, {
+        text: "2023",
+        "link" : "/ar/release-notes/2023/"
+      }, {
+        text: "2024",
+        "link" : "/ar/release-notes/2024/"
+      }, {
+        text: "2025",
+        "link" : "/ar/release-notes/2025/"
+      }, {
+        text: "2026",
+        "link" : "/ar/release-notes/2026/"
+      } ]
+    }, {
+      text: "شروحات الفيديو",
+      "link" : "/ar/videos/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "فيديوهات سلسلة التوريد",
+        "link" : "/ar/videos/supply-chain-videos/"
+      }, {
+        text: "فيديوهات أداة إنشاء التقارير",
+        "link" : "/ar/videos/report-wizard-videos/"
+      }, {
+        text: "فيديوهات الموارد البشرية",
+        "link" : "/ar/videos/hr/"
+      } ]
+    } ]
+  } ],
+  "/ar/modules/contracting/quality/" : [ {
+    text: "الرئيسية",
+    "link" : "/ar/",
+    "collapsed" : true,
+    "items" : [ {
+      text: "البحث",
+      "link" : "/ar/full-search"
+    }, {
+      text: "بدء الاستخدام",
+      "link" : "/ar/getting-started/"
+    }, {
+      text: "الخصائص العامة للنظام",
+      "link" : "/ar/platform/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الإعدادات العامة",
+        "link" : "/ar/platform/global-config/"
+      }, {
+        text: "تعديل الشاشات",
+        "link" : "/ar/platform/screen-modifier/"
+      }, {
+        text: "قوائم العرض",
+        "link" : "/ar/platform/list-views/"
+      }, {
+        text: "الموافقات",
+        "link" : "/ar/platform/approvals/"
+      }, {
+        text: "الصلاحيات والأمان",
+        "link" : "/ar/platform/security/"
+      }, {
+        text: "مسارات الكيان",
+        "link" : "/ar/platform/entity-flows/"
+      }, {
+        text: "التقارير",
+        "link" : "/ar/platform/reports/"
+      }, {
+        text: "ذكاء الأعمال (BI)",
+        "link" : "/ar/platform/bi/"
+      }, {
+        text: "التنبيهات",
+        "link" : "/ar/platform/notifications/"
+      } ]
+    }, {
+      text: "الوحدات",
+      "link" : "/ar/modules/",
+      "collapsed" : true,
+      "items" : [ {
+        text: "الفواتير والضرائب والخصومات",
+        "link" : "/ar/modules/invoicing/"
+      }, {
+        text: "الحسابات والبنوك",
+        "link" : "/ar/modules/accounting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "مرجع الدعم الفني",
+          "link" : "/ar/modules/accounting/support/"
+        } ]
+      }, {
+        text: "سلسلة التوريد",
+        "link" : "/ar/modules/supplychain/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "ملاحظات طلبات التطوير",
+          "link" : "/ar/modules/supplychain/development-requests/"
+        }, {
+          text: "إعدادات سلسلة التوريد",
+          "link" : "/ar/modules/supplychain/configuration/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/supplychain/document-terms/"
+        } ]
+      }, {
+        text: "إدارة الشحن",
+        "link" : "/ar/modules/freight/"
+      }, {
+        text: "نظام إدارة المستشفيات",
+        "link" : "/ar/modules/hms/"
+      }, {
+        text: "التصنيع",
+        "link" : "/ar/modules/manufacturing/"
+      }, {
+        text: "الموارد البشرية",
+        "link" : "/ar/modules/hr/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "المفاهيم الأساسية",
+          "link" : "/ar/modules/hr/concepts/"
+        }, {
+          text: "الإعداد الأساسي",
+          "link" : "/ar/modules/hr/setup/"
+        }, {
+          text: "الرواتب",
+          "link" : "/ar/modules/hr/payroll/"
+        }, {
+          text: "الحضور والإنصراف",
+          "link" : "/ar/modules/hr/attendance/"
+        }, {
+          text: "الأجازات",
+          "link" : "/ar/modules/hr/vacations/"
+        }, {
+          text: "السلف والأقساط",
+          "link" : "/ar/modules/hr/loans/"
+        }, {
+          text: "المكافآت والجزاءات",
+          "link" : "/ar/modules/hr/discipline/"
+        }, {
+          text: "تقييم الأداء",
+          "link" : "/ar/modules/hr/performance/"
+        }, {
+          text: "التوظيف",
+          "link" : "/ar/modules/hr/recruitment/"
+        }, {
+          text: "التدريب",
+          "link" : "/ar/modules/hr/training/"
+        }, {
+          text: "المخصصات وإنهاء الخدمة",
+          "link" : "/ar/modules/hr/end-of-service/"
+        }, {
+          text: "العلاقات الحكومية",
+          "link" : "/ar/modules/hr/government-relations/"
+        }, {
+          text: "التأمين الصحي",
+          "link" : "/ar/modules/hr/health-insurance/"
+        } ]
+      }, {
+        text: "نقاط البيع",
+        "link" : "/ar/modules/pos/"
+      }, {
+        text: "العقارات",
+        "link" : "/ar/modules/realestate/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/realestate/document-terms/"
+        }, {
+          text: "العقارات والوحدات",
+          "link" : "/ar/modules/realestate/properties/"
+        }, {
+          text: "المبيعات",
+          "link" : "/ar/modules/realestate/sales/"
+        }, {
+          text: "الإيجارات",
+          "link" : "/ar/modules/realestate/rent/"
+        }, {
+          text: "التحصيل والمدفوعات",
+          "link" : "/ar/modules/realestate/collections/"
+        }, {
+          text: "الصيانة",
+          "link" : "/ar/modules/realestate/maintenance/"
+        }, {
+          text: "الاستثمار",
+          "link" : "/ar/modules/realestate/investment/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/realestate/costs/"
+        }, {
+          text: "الأرصدة الافتتاحية",
+          "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/",
+          "collapsed" : true,
+          "items" : [ {
+            text: "ضبط الجودة بالموقع",
+            "link" : "/ar/modules/contracting/quality/contracting-quality-overview"
+          }, {
+            text: "خطط الفحص والاختبار",
+            "link" : "/ar/modules/contracting/quality/contracting-inspection-plans"
+          }, {
+            text: "طلب فحص نشاط",
+            "link" : "/ar/modules/contracting/quality/contracting-activity-inspections"
+          }, {
+            text: "فحص الخامات عند التوريد",
+            "link" : "/ar/modules/contracting/quality/contracting-material-inspection"
+          }, {
+            text: "قوائم فحص الموقع وتقارير الاختبار",
+            "link" : "/ar/modules/contracting/quality/contracting-site-checklists"
+          } ]
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -33810,6 +41756,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -34072,6 +42044,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -34321,6 +42319,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -34575,6 +42599,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -34834,6 +42884,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -35075,6 +43151,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -35326,6 +43428,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -35603,6 +43731,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -35854,6 +44008,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -36092,6 +44272,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -36361,6 +44567,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -36641,6 +44873,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -36917,6 +45175,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -37197,6 +45481,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -37473,6 +45783,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -37753,6 +46089,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -38029,6 +46391,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -38309,6 +46697,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -38585,6 +46999,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -38865,6 +47305,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -39125,6 +47591,32 @@ export const SIDEBAR_CONFIG = {
           "link" : "/ar/modules/realestate/opening/"
         } ]
       }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
+        } ]
+      }, {
         text: "تطبيقات الجوال",
         "link" : "/ar/modules/mobile/"
       }, {
@@ -39369,6 +47861,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -39620,6 +48138,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",
@@ -39880,6 +48424,32 @@ export const SIDEBAR_CONFIG = {
         }, {
           text: "الأرصدة الافتتاحية",
           "link" : "/ar/modules/realestate/opening/"
+        } ]
+      }, {
+        text: "المقاولات",
+        "link" : "/ar/modules/contracting/",
+        "collapsed" : true,
+        "items" : [ {
+          text: "الملفات والإعدادات",
+          "link" : "/ar/modules/contracting/setup/"
+        }, {
+          text: "توجيهات المستندات",
+          "link" : "/ar/modules/contracting/document-terms/"
+        }, {
+          text: "مقاولة المشروع",
+          "link" : "/ar/modules/contracting/project-contracting/"
+        }, {
+          text: "مقاولة مقاول الباطن",
+          "link" : "/ar/modules/contracting/contractor-contracting/"
+        }, {
+          text: "الموازنات",
+          "link" : "/ar/modules/contracting/budgets/"
+        }, {
+          text: "التكاليف",
+          "link" : "/ar/modules/contracting/costs/"
+        }, {
+          text: "ضبط الجودة",
+          "link" : "/ar/modules/contracting/quality/"
         } ]
       }, {
         text: "تطبيقات الجوال",

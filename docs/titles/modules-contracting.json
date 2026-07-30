@@ -1,0 +1,100 @@
+{
+  "sortedPaths": [
+    "/modules/contracting",
+    "/modules/contracting/contracting-overview.md",
+    "/modules/contracting/contracting-configuration.md",
+    "/modules/contracting/setup",
+    "/modules/contracting/setup/contracting-projects.md",
+    "/modules/contracting/setup/contracting-standard-terms.md",
+    "/modules/contracting/setup/contracting-term-sheets.md",
+    "/modules/contracting/setup/contracting-term-analysis-cards.md",
+    "/modules/contracting/setup/contracting-conditions.md",
+    "/modules/contracting/setup/contracting-price-lists.md",
+    "/modules/contracting/setup/contracting-phases-and-work-areas.md",
+    "/modules/contracting/setup/contracting-contract-templates.md",
+    "/modules/contracting/setup/contracting-contractors-and-consultants.md",
+    "/modules/contracting/setup/contracting-lookups.md",
+    "/modules/contracting/document-terms",
+    "/modules/contracting/document-terms/contracting-terms-basics.md",
+    "/modules/contracting/document-terms/contracting-terms-extracts.md",
+    "/modules/contracting/document-terms/contracting-terms-materials.md",
+    "/modules/contracting/document-terms/contracting-terms-other.md",
+    "/modules/contracting/project-contracting",
+    "/modules/contracting/project-contracting/contracting-owner-cycle.md",
+    "/modules/contracting/project-contracting/contracting-offers.md",
+    "/modules/contracting/project-contracting/contracting-assays.md",
+    "/modules/contracting/project-contracting/contracting-project-contract.md",
+    "/modules/contracting/project-contracting/contracting-project-contract-updates.md",
+    "/modules/contracting/project-contracting/contracting-project-execution.md",
+    "/modules/contracting/project-contracting/contracting-project-extracts.md",
+    "/modules/contracting/project-contracting/contracting-extract-taxes.md",
+    "/modules/contracting/project-contracting/contracting-project-advances.md",
+    "/modules/contracting/project-contracting/contracting-project-fines.md",
+    "/modules/contracting/project-contracting/contracting-measurements-and-approvals.md",
+    "/modules/contracting/contractor-contracting",
+    "/modules/contracting/contractor-contracting/contracting-contractor-cycle.md",
+    "/modules/contracting/contractor-contracting/contracting-contractor-offers.md",
+    "/modules/contracting/contractor-contracting/contracting-contractor-contract.md",
+    "/modules/contracting/contractor-contracting/contracting-contractor-contract-updates.md",
+    "/modules/contracting/contractor-contracting/contracting-contractor-execution.md",
+    "/modules/contracting/contractor-contracting/contracting-contractor-extracts.md",
+    "/modules/contracting/contractor-contracting/contracting-contractor-advances-and-payments.md",
+    "/modules/contracting/contractor-contracting/contracting-contractor-fines.md",
+    "/modules/contracting/budgets",
+    "/modules/contracting/budgets/contracting-estimated-budget.md",
+    "/modules/contracting/budgets/contracting-executive-budget.md",
+    "/modules/contracting/budgets/contracting-budget-execution.md",
+    "/modules/contracting/budgets/contracting-budget-item-requests.md",
+    "/modules/contracting/costs",
+    "/modules/contracting/costs/contracting-cost-model.md",
+    "/modules/contracting/costs/contracting-cost-execution.md",
+    "/modules/contracting/costs/contracting-project-materials.md",
+    "/modules/contracting/costs/contracting-contractor-materials.md",
+    "/modules/contracting/costs/contracting-purchasing.md",
+    "/modules/contracting/costs/contracting-misc-spend.md",
+    "/modules/contracting/costs/contracting-daily-labour.md",
+    "/modules/contracting/costs/contracting-equipment-and-allocations.md",
+    "/modules/contracting/costs/contracting-realestate-cost-bridge.md",
+    "/modules/contracting/quality",
+    "/modules/contracting/quality/contracting-quality-overview.md",
+    "/modules/contracting/quality/contracting-inspection-plans.md",
+    "/modules/contracting/quality/contracting-activity-inspections.md",
+    "/modules/contracting/quality/contracting-material-inspection.md",
+    "/modules/contracting/quality/contracting-site-checklists.md",
+    "/modules/contracting/contracting-faq.md"
+  ],
+  "folderTitles": {
+    "/modules/contracting": {
+      "ar": "المقاولات",
+      "en": "Contracting"
+    },
+    "/modules/contracting/setup": {
+      "ar": "الملفات والإعدادات",
+      "en": "Master Files and Setup"
+    },
+    "/modules/contracting/document-terms": {
+      "ar": "توجيهات المستندات",
+      "en": "Document Terms"
+    },
+    "/modules/contracting/project-contracting": {
+      "ar": "مقاولة المشروع",
+      "en": "Project Contracting"
+    },
+    "/modules/contracting/contractor-contracting": {
+      "ar": "مقاولة مقاول الباطن",
+      "en": "Subcontractor Contracting"
+    },
+    "/modules/contracting/budgets": {
+      "ar": "الموازنات",
+      "en": "Budgets"
+    },
+    "/modules/contracting/costs": {
+      "ar": "التكاليف",
+      "en": "Costs"
+    },
+    "/modules/contracting/quality": {
+      "ar": "ضبط الجودة",
+      "en": "Quality Control"
+    }
+  }
+}
