@@ -19,14 +19,18 @@ import CopyIcon from './components/CopyIcon.vue'
 import EmbeddableSearchBox from './components/EmbeddableSearchBox.vue'
 import LandingGrid from './components/LandingGrid.vue'
 import LandingCard from './components/LandingCard.vue'
+import SectionSidebar from './components/SectionSidebar.vue'
 
 export default {
     extends: DefaultTheme,
     // Adds the AI/advanced search button next to the built-in (minisearch) navbar search,
-    // and a direct ar/en toggle link (the default translations dropdown is hidden in custom.css)
+    // and a direct ar/en toggle link (the default translations dropdown is hidden in custom.css).
+    // The sidebar tree itself comes from page data rather than themeConfig, so it is rendered here
+    // under the one entry sidebar.js still holds (see SectionSidebar and GenNamaDocsIndex).
     Layout: () => h(DefaultTheme.Layout, null, {
         'nav-bar-content-before': () => h(AiSearchNavButton),
-        'nav-bar-content-after': () => h(LocaleToggleLink)
+        'nav-bar-content-after': () => h(LocaleToggleLink),
+        'sidebar-nav-after': () => h(SectionSidebar)
     }),
     enhanceApp({app}) {
         app.component('RTLBlock', RTLBlock)

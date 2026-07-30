@@ -4,6 +4,7 @@ import {transliterate} from 'transliteration'
 import postcssRTLCSS from 'postcss-rtlcss'
 import {Mode} from 'postcss-rtlcss/options'
 import {SIDEBAR_CONFIG} from './sidebar.js'
+import {SECTION_PAGER, SECTION_SIDEBARS} from './section-trees.js'
 import {collectPageForSearchIndex, devSearchIndexPlugin, writeSearchIndexJSON} from './search-index-builder.mts'
 import fs from 'node:fs'
 import path from 'node:path'
@@ -67,13 +68,22 @@ function pageUrl(relativePath) {
     return HOSTNAME + relativePath.replace(/\.md$/, '.html').replace(/(^|\/)index\.html$/, '$1')
 }
 
-// VitePress's dead-link checker only validates markdown-syntax links; links passed as
-// props to the LandingCard component render as raw <a> tags it never inspects. This walks
-// the built output and fails the build on any landing-card link that doesn't resolve.
-function validateLandingCardLinks(outDir, base) {
+// The keys GenNamaDocsIndex writes into section-trees.js: the folder holding the page, and the page itself
+function folderKey(relativePath) {
+    return '/' + relativePath.replace(/[^/]*\.md$/, '')
+}
+
+function pageKey(relativePath) {
+    return '/' + relativePath.replace(/index\.md$/, '').replace(/\.md$/, '')
+}
+
+// VitePress's dead-link checker only validates markdown-syntax links; links rendered by a Vue
+// component (LandingCard props, the page-data driven sidebar) become raw <a> tags it never inspects.
+// This walks the built output and fails the build on any of them that doesn't resolve.
+function validateComponentLinks(outDir, base) {
     const broken = []
     let checked = 0
-    const anchorRe = /<a\b[^>]*\bclass="[^"]*\blanding-card\b[^"]*"[^>]*>/g
+    const anchorRe = /<a\b[^>]*\bclass="[^"]*\b(?:landing-card|section-link)\b[^"]*"[^>]*>/g
     const hrefRe = /\bhref="([^"]+)"/
 
     function walk(dir) {
@@ -104,9 +114,9 @@ function validateLandingCardLinks(outDir, base) {
     }
 
     walk(outDir)
-    console.log(`[landing-links] checked ${checked} landing-card link(s)`)
+    console.log(`[component-links] checked ${checked} component-rendered link(s)`)
     if (broken.length)
-        throw new Error(`[landing-links] ${broken.length} broken landing-card link(s):\n  ` + broken.join('\n  '))
+        throw new Error(`[component-links] ${broken.length} broken component-rendered link(s):\n  ` + broken.join('\n  '))
 }
 
 export default defineConfig({
@@ -174,6 +184,15 @@ gtag('config', 'G-H68GM8HY15');`]
         }
     },
     transformPageData(pageData) {
+        // The sidebar rides along with each page's own data instead of themeConfig, which VitePress
+        // inlines into every generated page (SectionSidebar renders it). The prev/next footer would
+        // normally be derived from that inlined sidebar, so its links are handed over here as well.
+        pageData.frontmatter.sectionSidebar = SECTION_SIDEBARS[folderKey(pageData.relativePath)] ?? []
+        const pager = SECTION_PAGER[pageKey(pageData.relativePath)]
+        if (pager?.prev)
+            pageData.frontmatter.prev ??= pager.prev
+        if (pager?.next)
+            pageData.frontmatter.next ??= pager.next
         pageData.frontmatter.head ??= []
         pageData.frontmatter.head.push(
             ['link', {rel: 'canonical', href: pageUrl(pageData.relativePath)}],
@@ -245,6 +264,6 @@ gtag('config', 'G-H68GM8HY15');`]
     buildEnd: (siteConfig) => {
         writeRedirectsMap(siteConfig.outDir)
         writeSearchIndexJSON(siteConfig.outDir, SEARCH_INDEX_STABLE_PATH)
-        validateLandingCardLinks(siteConfig.outDir, siteConfig.site.base)
+        validateComponentLinks(siteConfig.outDir, siteConfig.site.base)
     }
 })
