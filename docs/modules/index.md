@@ -50,6 +50,10 @@ features:
     title: Point of Sale
     details: Point-of-sale operations, free items, and fingerprint login
     link: /modules/pos/
+  - icon: 🏗️
+    title: Contracting
+    details: The owner and subcontractor sides in parallel — contracts and their updates, measurements and extracts, advances, retention and fines, budgets, project costs, and quality inspections
+    link: /modules/contracting/
   - icon: 🏢
     title: Real Estate
     details: Real-estate investment and property management
