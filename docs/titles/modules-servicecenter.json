@@ -1,0 +1,144 @@
+{
+  "sortedPaths": [
+    "/modules/servicecenter",
+    "/modules/servicecenter/servicecenter-overview.md",
+    "/modules/servicecenter/servicecenter-getting-started.md",
+    "/modules/servicecenter/servicecenter-configuration.md",
+    "/modules/servicecenter/servicecenter-reports-and-forms.md",
+    "/modules/servicecenter/workshop-setup",
+    "/modules/servicecenter/workshop-setup/servicecenter-work-centers.md",
+    "/modules/servicecenter/workshop-setup/servicecenter-tasks.md",
+    "/modules/servicecenter/workshop-setup/servicecenter-operations.md",
+    "/modules/servicecenter/workshop-setup/servicecenter-product-file.md",
+    "/modules/servicecenter/workshop-setup/servicecenter-brands-and-models.md",
+    "/modules/servicecenter/workshop-setup/servicecenter-classification-files.md",
+    "/modules/servicecenter/job-cycle",
+    "/modules/servicecenter/job-cycle/servicecenter-job-cycle-overview.md",
+    "/modules/servicecenter/job-cycle/servicecenter-service-request.md",
+    "/modules/servicecenter/job-cycle/servicecenter-job-estimation.md",
+    "/modules/servicecenter/job-cycle/servicecenter-job-order.md",
+    "/modules/servicecenter/job-cycle/servicecenter-payer-split.md",
+    "/modules/servicecenter/job-cycle/servicecenter-job-order-closing.md",
+    "/modules/servicecenter/job-cycle/servicecenter-job-order-invoicing.md",
+    "/modules/servicecenter/job-cycle/servicecenter-gate-pass.md",
+    "/modules/servicecenter/job-cycle/servicecenter-odometer-and-service-intervals.md",
+    "/modules/servicecenter/workshop-execution",
+    "/modules/servicecenter/workshop-execution/servicecenter-production-execution.md",
+    "/modules/servicecenter/workshop-execution/servicecenter-pending-and-resume.md",
+    "/modules/servicecenter/workshop-execution/servicecenter-loading-table.md",
+    "/modules/servicecenter/spare-parts",
+    "/modules/servicecenter/spare-parts/servicecenter-spare-parts-overview.md",
+    "/modules/servicecenter/spare-parts/servicecenter-spare-parts-issue.md",
+    "/modules/servicecenter/spare-parts/servicecenter-spare-parts-return.md",
+    "/modules/servicecenter/spare-parts/servicecenter-external-repair.md",
+    "/modules/servicecenter/inspections-and-campaigns",
+    "/modules/servicecenter/inspections-and-campaigns/servicecenter-inspections.md",
+    "/modules/servicecenter/inspections-and-campaigns/servicecenter-trips.md",
+    "/modules/servicecenter/service-queues",
+    "/modules/servicecenter/service-queues/servicecenter-queue-overview.md",
+    "/modules/servicecenter/service-queues/servicecenter-queue-configuration.md",
+    "/modules/servicecenter/service-queues/servicecenter-queue-branches.md",
+    "/modules/servicecenter/rental-assets",
+    "/modules/servicecenter/rental-assets/servicecenter-rental-overview.md",
+    "/modules/servicecenter/rental-assets/servicecenter-rental-asset.md",
+    "/modules/servicecenter/rental-assets/servicecenter-rental-booking.md",
+    "/modules/servicecenter/mobile-delivery",
+    "/modules/servicecenter/mobile-delivery/servicecenter-mobile-delivery-overview.md",
+    "/modules/servicecenter/mobile-delivery/servicecenter-mobile-delivery-documents.md",
+    "/modules/servicecenter/mobile-delivery/servicecenter-invoice-receipt-document.md",
+    "/modules/servicecenter/cars-setup",
+    "/modules/servicecenter/cars-setup/servicecenter-cars-overview.md",
+    "/modules/servicecenter/cars-setup/car-master-file.md",
+    "/modules/servicecenter/cars-setup/car-status-configurations.md",
+    "/modules/servicecenter/car-purchasing",
+    "/modules/servicecenter/car-purchasing/car-purchase-order.md",
+    "/modules/servicecenter/car-purchasing/car-receipt.md",
+    "/modules/servicecenter/car-purchasing/car-purchase-invoice.md",
+    "/modules/servicecenter/car-purchasing/car-landed-cost.md",
+    "/modules/servicecenter/car-purchasing/car-purchase-return.md",
+    "/modules/servicecenter/car-purchasing/car-assembly-document.md",
+    "/modules/servicecenter/car-sales",
+    "/modules/servicecenter/car-sales/car-sales-cycle.md",
+    "/modules/servicecenter/car-sales/car-sales-order.md",
+    "/modules/servicecenter/car-sales/car-allocation.md",
+    "/modules/servicecenter/car-sales/car-sales-invoice.md",
+    "/modules/servicecenter/car-sales/car-final-delivery.md",
+    "/modules/servicecenter/car-sales/car-sales-return.md",
+    "/modules/servicecenter/car-sales/car-cancellation-documents.md",
+    "/modules/servicecenter/car-sales/car-traffic-letters.md",
+    "/modules/servicecenter/car-insurance",
+    "/modules/servicecenter/car-insurance/car-insurance-overview.md",
+    "/modules/servicecenter/car-insurance/car-insurance-policy.md",
+    "/modules/servicecenter/car-insurance/car-insurance-policy-documents.md",
+    "/modules/servicecenter/car-insurance/car-insurance-purchase-invoice.md",
+    "/modules/servicecenter/car-installments",
+    "/modules/servicecenter/car-installments/car-installment-programs.md",
+    "/modules/servicecenter/car-installments/car-installment-quotation.md",
+    "/modules/servicecenter/document-terms",
+    "/modules/servicecenter/document-terms/servicecenter-terms-basics.md",
+    "/modules/servicecenter/document-terms/servicecenter-terms-workshop.md",
+    "/modules/servicecenter/document-terms/servicecenter-terms-cars-and-other.md"
+  ],
+  "folderTitles": {
+    "/modules/servicecenter": {
+      "ar": "مركز الخدمة",
+      "en": "Service Center"
+    },
+    "/modules/servicecenter/workshop-setup": {
+      "ar": "إعداد الورشة",
+      "en": "Workshop Setup"
+    },
+    "/modules/servicecenter/job-cycle": {
+      "ar": "دورة أمر الشغل",
+      "en": "Job Order Cycle"
+    },
+    "/modules/servicecenter/workshop-execution": {
+      "ar": "التنفيذ في الورشة",
+      "en": "Workshop Execution"
+    },
+    "/modules/servicecenter/spare-parts": {
+      "ar": "قطع الغيار",
+      "en": "Spare Parts"
+    },
+    "/modules/servicecenter/inspections-and-campaigns": {
+      "ar": "الفحوصات والرحلات",
+      "en": "Inspections and Trips"
+    },
+    "/modules/servicecenter/service-queues": {
+      "ar": "طوابير الخدمة",
+      "en": "Service Queues"
+    },
+    "/modules/servicecenter/rental-assets": {
+      "ar": "أصول التأجير",
+      "en": "Rental Assets"
+    },
+    "/modules/servicecenter/mobile-delivery": {
+      "ar": "التسليم عبر التطبيق",
+      "en": "Mobile Delivery"
+    },
+    "/modules/servicecenter/cars-setup": {
+      "ar": "إعداد السيارات",
+      "en": "Cars Setup"
+    },
+    "/modules/servicecenter/car-purchasing": {
+      "ar": "مشتريات السيارات",
+      "en": "Car Purchases"
+    },
+    "/modules/servicecenter/car-sales": {
+      "ar": "مبيعات السيارات",
+      "en": "Car Sales"
+    },
+    "/modules/servicecenter/car-insurance": {
+      "ar": "تأمين السيارات",
+      "en": "Car Insurance"
+    },
+    "/modules/servicecenter/car-installments": {
+      "ar": "تقسيط السيارات",
+      "en": "Car Installments"
+    },
+    "/modules/servicecenter/document-terms": {
+      "ar": "توجيهات المستندات",
+      "en": "Document Terms"
+    }
+  }
+}

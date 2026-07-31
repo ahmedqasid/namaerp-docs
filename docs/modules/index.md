@@ -62,6 +62,10 @@ features:
     title: Fixed Assets
     details: The asset register from purchase or import through depreciation, revaluation, transfers and maintenance to disposal — plus custody of items issued to employees
     link: /modules/fixedassets/
+  - icon: 🚗
+    title: Service Center
+    details: The motor trade — the repair workshop from service request to job order, closing and invoicing, alongside the car showroom's purchases, sales, insurance and financing, plus vehicle rental and the reception ticket queue
+    link: /modules/servicecenter/
   - icon: 📱
     title: Mobile Applications
     details: Mobile applications and QR integration
