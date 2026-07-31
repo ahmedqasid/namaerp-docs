@@ -26,6 +26,7 @@ Control who can do what, and keep your books and processes under firm control.
 <LandingGrid>
   <LandingCard icon="🔐" title="Security & Permissions" link="/platform/security/" details="Security profiles, field/page/list-view permissions, record-level security, users and login, and temporary delegation." />
   <LandingCard icon="✅" title="Approvals" link="/platform/approvals/" details="Route documents through approval cycles, with email templates and a full definition guide." />
+  <LandingCard icon="🖊️" title="Revise and Unrevise" link="/platform/revise-and-unrevise.md" details="Sign off committed records level by level, name each step and its owner, and lock what has been checked." />
   <LandingCard icon="🗓️" title="Fiscal Period Control" link="/platform/fiscal-period-control-guide.md" details="Lock accounting periods so no one can post into a closed month." />
   <LandingCard icon="🛡️" title="Criteria-Based Validation" link="/platform/criteria-based-validation.md" details="Block or warn on documents that don't meet rules you define." />
 </LandingGrid>

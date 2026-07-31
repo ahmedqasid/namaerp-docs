@@ -26,6 +26,7 @@ title: الخصائص العامة للنظام
 <LandingGrid>
   <LandingCard icon="🔐" title="الصلاحيات والأمان" link="/ar/platform/security/" details="ملفات الصلاحيات، وصلاحيات الحقول والصفحات وقوائم العرض، والصلاحيات على مستوى السجلات، والمستخدمون وتسجيل الدخول، والتفويض المؤقت." />
   <LandingCard icon="✅" title="الموافقات" link="/ar/platform/approvals/" details="مرّر المستندات عبر دورات موافقة، مع نماذج بريد إلكتروني ودليل شامل للتعريف." />
+  <LandingCard icon="🖊️" title="المراجعة وإلغاء المراجعة" link="/ar/platform/revise-and-unrevise.md" details="اعتمد السجلات المعتمدة مستوىً بعد مستوى، وسمِّ كل خطوة وصاحبها، واقفل ما تمت مراجعته." />
   <LandingCard icon="🗓️" title="التحكم في إقفال الفترات" link="/ar/platform/fiscal-period-control-guide.md" details="أقفل الفترات المحاسبية حتى لا يتمكن أحد من التسجيل في شهر مُقفل." />
   <LandingCard icon="🛡️" title="التحقق المبني على المعايير" link="/ar/platform/criteria-based-validation.md" details="امنع أو نبّه على المستندات التي لا تستوفي معايير تحددها أنت." />
 </LandingGrid>
