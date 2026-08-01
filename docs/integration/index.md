@@ -13,5 +13,6 @@ Nama ERP rarely lives alone. Sooner or later you'll need it to talk to something
   <LandingCard icon="🔗" title="Integration Scenarios" link="/integration/system-integration-scenarios.md" details="Common patterns for connecting Nama with other systems." />
   <LandingCard icon="📧" title="Sending Invoices & Documents" link="/integration/invoice-retriever.md" details="Use the Invoice Retriever to serve on-demand invoice and document links to customers and suppliers." />
   <LandingCard icon="🕒" title="Attendance Machines" link="/integration/attendance-machines-integration.md" details="Pull punch data from attendance devices into Nama." />
+  <LandingCard icon="⏱️" title="The attcron Attendance Agent" link="/integration/attcron-agent.md" details="Install and operate the branch application that collects punches and pushes them to Nama." />
   <LandingCard icon="🗄️" title="Oracle JDBC Connection" link="/integration/oracle-jdbc-connection.md" details="Configure an Oracle JDBC connection in context.xml for integration purposes." />
 </LandingGrid>

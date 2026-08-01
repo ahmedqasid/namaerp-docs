@@ -1,46 +1,177 @@
 # Attendance Machines
 
-Raw punch data can reach Nama in one of two ways. It can be **pulled automatically** on a schedule, straight from the fingerprint machine's own API or database — configured once through an **Attendance Machine Configuration** (إعدادات ماكينة الحضور) — or it can be **imported by hand** from a time-sheet file the machine exports, matched against a named formula that tells Nama how that file's columns and dates are laid out. This page covers the automated path and its configuration entity; the manual file-import formula and the handling of imperfect punch data each have their own dedicated, in-depth page linked below.
+Raw punch data can reach Nama in one of two ways. It can be **pulled automatically** on a schedule, straight from the fingerprint machine's own API or database — configured once through an **Attendance Machine Configuration** (إعدادات ماكينة الحضور) — or it can be **imported by hand** from a time-sheet file the machine exports, matched against a named formula that tells Nama how that file's columns and dates are laid out.
 
-## Attendance Machine Configuration — the automated path
+A given machine normally needs only one of them, whichever fits how it exposes its data. If the machine publishes an API or writes into a database you can reach, take the automated path — it is set up once and then runs unattended. If it only ever produces a file, the manual path is your option, and it has its own dedicated reference linked below.
 
-Found at **Payroll > Time Attendance > Attendance Machine Config**.
+## The automated path: letting Nama collect by itself
+
+Importing a file every morning gets old quickly. If a fingerprint machine exposes an API, or writes its readings into a database you can reach, Nama can collect those readings by itself — every hour, every night, on whatever schedule you choose — and leave your HR staff with nothing to do but review the result.
+
+An **Attendance Machine Configuration** is the record that makes that happen. It is a small master file that answers four questions: *which* machine, *how* to talk to it, *when* to talk to it, and *what to do* with what comes back.
+
+Find it at **Payroll → Time Attendance → Attendance Machine Config**.
 
 ::: tip Requires its own license
-Automated machine integration is gated behind a dedicated add-on (`humanresource-attendance-import-cron`), separate from the base Payroll license — check with your account manager if the **Attendance Machine Config** screen isn't visible.
+Automated machine integration is gated behind a dedicated add-on (`humanresource-attendance-import-cron`), separate from the base Payroll license. If the **Attendance Machine Config** screen isn't in the menu, check with your account manager.
 :::
 
-A configuration record is identified by Code / Group / Arabic Name / English Name, then defines *how* and *when* Nama connects to the machine:
+::: warning The record is only half of the setup
+The configuration lives in Nama, but Nama never dials the machine itself. A small companion application called **attcron**, installed on a computer at the branch that can see the machine, reads this configuration and does the actual collecting. Setting up the record is step one; installing the agent is step two — see [The attcron Attendance Agent](../../../integration/attcron-agent.md).
+
+This split is deliberate. Fingerprint machines usually sit on a branch's local network with no route in from outside, so the traffic has to start from the branch. That means branches need no fixed IP address; they only need to be able to reach the Nama server.
+:::
+
+### The main page
+
+A configuration is identified like any master file — Code, Group, Arabic Name, English Name — and then describes the connection and its schedule:
 
 | Field (English → Arabic) | Purpose |
 |---|---|
-| Machine Connection Type (نوع اتصال الماكينة) | One of **ZkBioTime**, **SQLSERVER**, or **ACCESS** — which kind of machine/vendor system to talk to. Choosing one reveals a matching tab with the connection details below. |
-| Cron Expression (Cron Expression) | The schedule on which Nama automatically connects and pulls new transactions. |
-| Fetching Transaction Start Date (تاريخ بداية سحب الحركات) | The earliest date to collect punches from — transactions before it are never fetched. |
-| Only Work Manually (تشغيل يدوي فقط) | Turns off the automatic cron schedule entirely; the connection is only triggered by hand. |
-| Run Task Schedule After Fetching Transactions (المهمة المجدولة المراد تشغيلها بعد سحب البيانات من الماكينة) | An optional scheduled task to chain immediately after each successful fetch — for example, one that regenerates attendance-driven salary components. |
+| Machine Connection Type (نوع اتصال الماكينة) | **ZkBioTime**, **SQLSERVER** or **ACCESS**. Choosing one tells you which of the three tabs below to fill in. |
+| Cron Expression | How often the agent collects. See the warning below — the syntax has six fields, not five. |
+| Fetching Transaction Start Date (تاريخ بداية سحب الحركات) | The earliest moment worth collecting from, used only on the very first run. |
+| Only Work Manually (تشغيل يدوي فقط) | Turns the schedule off completely; the agent then collects only when someone presses a button in its own screen. |
+| Run Task Schedule After Fetching Transactions (المهمة المجدولة المراد تشغيلها بعد سحب البيانات من الماكينة) | The scheduled task to run after each successful collection — normally the one that turns raw punches into a Time Attendance document. |
+| Current Release Version (الإصدار الحالي) | Read-only. The version of the agent that last sent data, so you can tell at a glance whether a branch is running an old build. |
+| Last Connection Time / Last Log Count (اخر وقت اتصال / اخر عدد حركات) | Read-only. When the agent last delivered data and how many readings were in that delivery. |
 
-The **Create Task Schedule** action turns the configuration into a live, running scheduled task once its connection details are complete.
+::: warning The cron expression has six fields
+Nama uses six-field cron syntax — **seconds** first, then minutes, hours, day-of-month, month, day-of-week. `0 5 * * * *` means "at five minutes past every hour". The familiar five-field syntax from Unix (`5 */1 * * *`) is **not** valid here.
 
-### The three connection types
+Nama checks the expression when you save and refuses an invalid one with *"Invalid cron expression: … "*. If an invalid expression somehow reaches the agent, the agent quietly falls back to running every twelve hours — so a collection that seems mysteriously slow is worth checking here first.
 
-Each connection type has its own tab collecting the details it needs, but they share the same shape: connection settings, a query that pulls the raw transactions, and a mapping grid.
-
-| Connection type | Tab fields | What it connects to |
-|---|---|---|
-| **ZkBioTime** | Machine URL, Username, Password, SQL Query | The vendor's own ZkBioTime platform/API. |
-| **SQLSERVER** | Machine URL, Database Port, Database Name, Username, Password, SQL Query | A SQL Server database the machine (or its vendor software) writes transactions into directly. |
-| **ACCESS** | File Path, Access Query | An older machine that exports its log into a local Microsoft Access database file. |
-
-For each type, an **Add Default Queries** action (إضافة الاستعلامات الافتراضية) — worded per connection type, e.g. "Add Default Queries For ZK" or "Add Default Queries For Zk Bio Time" — pre-fills a working query so the configuration doesn't have to be written from scratch. A separate **Read For Period Query** is used specifically when re-fetching a custom date range on demand, rather than the incremental cron pull. The **Mapping** grid (Response Field / Column Index / Column Alias) then tells Nama which column of the query's result corresponds to which piece of information — employee code, date, time, and so on.
+The check is skipped entirely when **Only Work Manually** is ticked.
+:::
 
 ![Attendance Machine Config, showing the connection-type tabs (ZkBioTime, SQLSERVER, ACCESS)](../../../ar/modules/hr/images/attendance/attendance-machine-config-en.png)
 
-A **Statistics** tab keeps a running **Attendance Machine Cron Log**, alongside the main page's own **Last Connection Time** and **Last Log Count**, so a failed or empty run is easy to spot without digging through server logs.
+### The three connection types
 
-::: tip Not the same thing as the file-import formula
-An Attendance Machine Configuration talks to the machine (or its database) directly and on a schedule. It is a different mechanism from the manual **Time Attendance** document import described below — the two are not interchangeable, and a given machine only needs one of them, whichever fits how it exports data.
+Each type gets its own tab. Fill in the tab that matches your **Machine Connection Type** and ignore the other two.
+
+#### ZkBioTime
+
+For sites running the vendor's own ZkBioTime platform, which publishes its transactions over a web interface. This is the cleanest of the three because there is no database access and no SQL to write.
+
+| Field | Value |
+|---|---|
+| Machine URL (رابط الماكينة) | The address of the ZkBioTime web application, e.g. `http://192.168.1.50:8081`. |
+| Username / Password | A ZkBioTime login with permission to read transactions. |
+
+The agent signs in, then reads transactions page by page until it has caught up. The SQL Query, Read For Period Query and Mapping grid shown on this tab are **not used** by the ZkBioTime connection — its data format is fixed and needs no mapping.
+
+#### SQLSERVER
+
+For any machine whose software stores its readings in a SQL Server database — ZK's older desktop software being the common case.
+
+| Field | Value |
+|---|---|
+| Machine URL | The SQL Server host, usually `localhost` when the agent runs on the same computer as the machine software. |
+| Database Port | Usually `1433`. |
+| Database Name | The machine software's database, e.g. `TATimeAttendance`. |
+| Username / Password | A database login that can read the punch tables. |
+| SQL Query | The query that fetches new readings — see below. |
+| Read For Period Query | The variant used when someone re-reads a specific date range by hand. |
+| Mapping grid | Which column of the result is which piece of information. |
+
+#### ACCESS
+
+For older machines that keep their log in a local Microsoft Access file. The tab is the same shape as SQL Server, with two differences: **Machine URL** is relabelled **File Path** and holds the full path to the `.mdb` or `.accdb` file on the computer where the agent runs, and **SQL Query** is relabelled **Access Query**.
+
+::: warning Fill in the fields Access doesn't really need
+The agent refuses to start unless Machine URL, Username, Password **and** Cron Expression all have values, and the record itself won't save without Database Port and Database Name. An Access setup doesn't use the username, password, port or database name at all — but they still have to contain something. Put placeholder values in them.
 :::
+
+### The two queries
+
+The SQL Server and Access connections need you to supply the query that reads the punches. There are two of them, and they differ in one important way: **how many placeholders they contain.**
+
+- **SQL Query** is the incremental one, run on every scheduled collection. It takes **exactly one `?`**, into which the agent puts the moment it last collected up to. The query should return everything newer than that.
+- **Read For Period Query** is used only when an operator asks the agent for a specific date range. It takes **exactly two `?`** — the start and the end of that range.
+
+You do not have to write either from scratch. The **Add Default Queries** action on each tab fills in a working, matching pair:
+
+| Action | Writes queries for |
+|---|---|
+| Add Default Queries For Zk Bio Time (إضافة الاستعلامات الافتراضية لـ Zk Bio Time) | The ZkBioTime database's transaction table. |
+| Add Default Queries For Zk (إضافة الاستعلامات الافتراضية لـ Zk) | ZK's classic check-in/check-out tables — in T-SQL on the SQL Server tab, in Access syntax on the Access tab. |
+
+Both actions also populate the mapping grid with a standard set of thirteen lines, so a default configuration is complete in one click.
+
+::: warning The default-query buttons also switch on Only Work Manually
+Both actions tick **Only Work Manually** as a side effect, which stops the schedule. Untick it once you are happy with the queries, or the agent will never collect on its own.
+
+The Zk button is also the wrong button for the ZkBioTime type: pressing it while the connection type is ZkBioTime **clears** both query fields rather than filling them.
+:::
+
+### The mapping grid
+
+The mapping grid answers one question per line: *which column of my query's result holds this piece of information?* It maps result columns to what Nama needs — it has nothing to do with matching employees.
+
+| Column | Meaning |
+|---|---|
+| Response Field (Response Field) | The piece of information this result column carries. |
+| Column Index (Column Index) | Its position in the result, counting from 1. Takes priority when filled in. |
+| Column Alias (Column Alias) | Its name in the result, used when Column Index is left empty. |
+
+Give **one** of Column Index or Column Alias for every line; a line with neither is rejected when the record is saved, with both columns reported as required.
+
+The available Response Fields are `EmployeeCode`, `firstName`, `lastName`, `department`, `punchTime`, `punchState`, `punchStateDisplay`, `verifyType`, `verifyTypeDisplay`, `gpsLocation`, `areaAlias`, `terminalSN` and `uploadTime`.
+
+::: tip Only some of them are actually stored
+`EmployeeCode` and `punchTime` are the two that matter — nothing works without them. `punchState`, `punchStateDisplay`, `verifyTypeDisplay`, `terminalSN`, `areaAlias` and `uploadTime` are stored alongside each reading.
+
+`firstName`, `lastName`, `department`, `verifyType` and `gpsLocation` are read from your query but **not** kept. Mapping them does no harm, and the default mapping includes them, but don't expect to find them in Nama afterwards.
+:::
+
+### Where the readings land
+
+Collected readings do **not** go straight into a Time Attendance document. They travel through two stages, and knowing both is what makes this feature diagnosable.
+
+**Stage one — the inbox.** Each delivery from the agent is parked whole, exactly as it arrived. A background process picks inbox entries up roughly every ten seconds and unpacks them. If unpacking fails, the entry stays put, its **Retry Count** goes up, and what went wrong is written into its **Error Log**. After **five** failed attempts an entry is left alone permanently and needs someone to look at it.
+
+**Stage two — the cron log.** Successfully unpacked readings become **Attendance Machine Cron Log** rows: employee, punch time, punch state, terminal, upload time. A reading that already exists — same configuration, same employee, same punch time — is skipped, so re-collecting a period never produces duplicates.
+
+Both are visible on the configuration's **Statistics** (الإحصائيات) tab, which embeds the Attendance Machine Cron Log and the inbox side by side. That tab is the first place to look when a branch says its data hasn't arrived: readings sitting in the inbox with a Retry Count above zero point at a data problem, an empty cron log with a recent **Last Connection Time** points at a query returning nothing, and a stale Last Connection Time points at the agent itself.
+
+A reading is rejected outright, and recorded in the inbox's Error Log, when it has no employee identification at all, when its punch time is missing, or when its punch time isn't a valid date and time.
+
+### From raw readings to a Time Attendance document
+
+The cron log is a warehouse of timestamps; it is not yet attendance. Turning it into a **Time Attendance** document — pairing entries with exits, matching employees, applying shift rules — is the job of the scheduled task named in **Run Task Schedule After Fetching Transactions**, which runs automatically after each batch of readings is unpacked (a few seconds after the agent delivers them, not at the moment of delivery).
+
+You don't have to build that task by hand. The **Create Task Schedule** action on the main page creates it and opens it in a popup, pre-filled with:
+
+- a query that joins the cron log to employees on the **Attendance Machine Code**, padded to eight characters so `007` and `7` match, for the current month;
+- an import formula, `empid#datetime{yyyy-MM-dd HH:mm:ss}#alternatingPunch`, which treats the first reading of each day as the arrival and the last as the departure;
+- a query that decides which document the readings go into — its code, book, fiscal period, value date and legal entity.
+
+::: warning Adjust the pre-filled document query before using it
+The generated document query hard-codes a document book of `TAB` and a legal entity code of `1`. Change both to match your own setup, or the task will fail or file attendance under the wrong company.
+:::
+
+The formula in that task is the same little pattern language used for manual file imports. If the default first-and-last-of-the-day behaviour doesn't suit your shifts, [Attendance and Departure Formulas](../attendance-machine-formula.md) explains every alternative.
+
+### How the agent knows where to resume
+
+You will never be asked to manage this, but understanding it explains a lot of "why did it fetch that?" questions. Each time the agent finishes a collection it remembers how far it got, and starts from there next time. On a completely fresh install, with nothing remembered yet, it works down a short list:
+
+1. the latest punch time already stored in Nama for this configuration — so reinstalling the agent does not re-send months of history;
+2. failing that, the **Fetching Transaction Start Date** on this record;
+3. failing that, two months ago.
+
+**Fetching Transaction Start Date** therefore only ever matters on a first run against an empty configuration. Setting it later has no effect; to re-collect an old period, use the agent's own *Read For Period* button instead.
+
+### Validation messages
+
+| Message | Cause |
+|---|---|
+| A required-field error on Machine URL, Username, Password, Cron Expression or Machine Connection Type | These five are always mandatory, whatever the connection type. |
+| A required-field error on Database Port, Database Name or SQL Query | These become mandatory as soon as the type is SQLSERVER or ACCESS. |
+| Required-field errors on both Column Index and Column Alias of a mapping row | That row gives neither; supply one of them. |
+| *Cron expression is required when automatic scheduling is enabled* | The expression is empty and **Only Work Manually** is not ticked. |
+| *Invalid cron expression: … - Error: …* | The expression could not be understood. Remember it needs six fields. |
 
 ## The manual path: importing an exported file
 
@@ -60,5 +191,7 @@ See **[Ignoring Overlapping Attendance and Departure Lines](../ignore-overlappin
 
 ## Related pages
 
+- **[The attcron Attendance Agent](../../../integration/attcron-agent.md)** — installing and operating the branch application that collects the punches.
+- **[Attendance and Departure Formulas](../attendance-machine-formula.md)** — the pattern language behind both the manual import and the scheduled task above.
 - **[Time Attendance](time-attendance.md)** — the document that actually holds imported and electronic punches, and turns them into salary effects.
 - **[Attendance Plans & Shifts](attendance-plans-and-shifts.md)** — the expected schedule that incoming punches are measured against.

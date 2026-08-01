@@ -11,6 +11,10 @@ The system supports two methods for integrating with attendance machines:
 This application requires a separate license — please contact the sales or technical support team to obtain a license.
 :::
 
+::: tip Full reference
+This section is a summary. For installation, the day-to-day screen, where the agent keeps its settings and log, upgrading, and a full list of its error messages, see **[The attcron Attendance Agent](attcron-agent.md)**. For the Nama-side record that drives it, see **[Attendance Machines](../modules/hr/attendance/attendance-machines.md)**.
+:::
+
 This is a dedicated application installed on devices that have software for importing data from attendance machines.
 Its primary function is to fetch data from the local program's database or through the machine program's API, and send it periodically to the system.
 
@@ -31,8 +35,9 @@ Its primary function is to fetch data from the local program's database or throu
 
 * Set a **CRON Expression** to define when data is read and sent to the system:
 
-  * Example: `5 */1 * * *` will read data every hour at the fifth minute.
-  * You can use the following site for help: [https://crontab.guru](https://crontab.guru)
+  * The syntax has **six** fields — seconds, minutes, hours, day of month, month, day of week.
+  * Example: `0 5 * * * *` will read data every hour at the fifth minute.
+  * Beware of five-field examples from sites such as [https://crontab.guru](https://crontab.guru) — they need a leading seconds field adding before they will work here.
 
 * Set the scheduled task to run after pulling data from the machine:
 

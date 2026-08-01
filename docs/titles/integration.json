@@ -5,6 +5,7 @@
     "/integration/system-integration-scenarios.md",
     "/integration/invoice-retriever.md",
     "/integration/attendance-machines-integration.md",
+    "/integration/attcron-agent.md",
     "/integration/oracle-jdbc-connection.md"
   ],
   "folderTitles": {
