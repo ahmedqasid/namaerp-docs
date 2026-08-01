@@ -99,10 +99,8 @@ You do not have to write either from scratch. The **Add Default Queries** action
 
 Both actions also populate the mapping grid with a standard set of thirteen lines, so a default configuration is complete in one click.
 
-::: warning The default-query buttons also switch on Only Work Manually
-Both actions tick **Only Work Manually** as a side effect, which stops the schedule. Untick it once you are happy with the queries, or the agent will never collect on its own.
-
-The Zk button is also the wrong button for the ZkBioTime type: pressing it while the connection type is ZkBioTime **clears** both query fields rather than filling them.
+::: warning The Zk button is the wrong button for the ZkBioTime type
+Pressing **Add Default Queries For Zk** while the connection type is ZkBioTime **clears** both query fields rather than filling them. For that type, use **Add Default Queries For Zk Bio Time**.
 :::
 
 ### The mapping grid
