@@ -36,6 +36,7 @@ Control who can do what, and keep your books and processes under firm control.
 Let the system do repetitive work for you, and build reusable rules and data blocks.
 
 <LandingGrid>
+  <LandingCard icon="📦" title="Importing & Exporting Records" link="/platform/import-export/" details="Pull records out to Excel or JSON, edit them, and push them back in — plus saved export menus and advanced import mapping." />
   <LandingCard icon="🔄" title="Entity Flows" link="/platform/entity-flows/" details="Automate actions on records, generate entities from entities, and import data from Excel or SQL queries." />
   <LandingCard icon="⏰" title="Scheduled Tasks" link="/platform/scheduled-tasks.md" details="Run jobs automatically on a schedule — the task scheduler." />
   <LandingCard icon="🔁" title="Recurring Documents" link="/platform/recurring-documents.md" details="Reproduce a template document on a cadence — automatically on a schedule or in an on-demand batch." />

@@ -44,6 +44,12 @@
     "/platform/security/record-level-security.md",
     "/platform/security/users-and-login.md",
     "/platform/security/security-delegation.md",
+    "/platform/import-export",
+    "/platform/import-export/exporting-records.md",
+    "/platform/import-export/importing-records.md",
+    "/platform/import-export/export-file-format.md",
+    "/platform/import-export/files-export-import-menu.md",
+    "/platform/import-export/advanced-record-import.md",
     "/platform/entity-flows",
     "/platform/entity-flows/introduction-to-entity-flows.md",
     "/platform/entity-flows/excel-and-sql-import-by-entity-flow.md",
@@ -96,6 +102,10 @@
     "/platform/security": {
       "ar": "الصلاحيات والأمان",
       "en": "Security & Permissions"
+    },
+    "/platform/import-export": {
+      "ar": "استيراد السجلات وتصديرها",
+      "en": "Importing & Exporting Records"
     },
     "/platform/entity-flows": {
       "ar": "مسارات الكيان",

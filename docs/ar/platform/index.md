@@ -36,6 +36,7 @@ title: الخصائص العامة للنظام
 دع النظام يؤدي عنك الأعمال المتكررة، وابنِ قواعد ووحدات بيانات قابلة لإعادة الاستخدام.
 
 <LandingGrid>
+  <LandingCard icon="📦" title="استيراد السجلات وتصديرها" link="/ar/platform/import-export/" details="أخرج السجلات إلى Excel أو JSON، وعدّلها، ثم أعدها — مع قوائم التصدير المحفوظة والربط المتقدم للاستيراد." />
   <LandingCard icon="🔄" title="مسارات الكيان" link="/ar/platform/entity-flows/" details="أتمت الإجراءات على السجلات، وولّد كيانات من كيانات، واستورد البيانات من Excel أو استعلامات SQL." />
   <LandingCard icon="⏰" title="المهام المجدولة" link="/ar/platform/scheduled-tasks.md" details="شغّل المهام تلقائيًا وفق جدول زمني — مجدول المهام." />
   <LandingCard icon="🔁" title="المستندات الدورية" link="/ar/platform/recurring-documents.md" details="أعد إنتاج مستند نموذجي على إيقاع ثابت — تلقائيًا وفق جدول أو دفعة عند الطلب." />
