@@ -28,6 +28,17 @@
     "/platform/screen-modifier/screen-modifier-list-and-search.md",
     "/platform/screen-modifier/screen-modifier-visual-editor.md",
     "/platform/screen-modifier/screen-modifier-faq.md",
+    "/platform/fields-and-entities-settings",
+    "/platform/fields-and-entities-settings/fields-settings-overview.md",
+    "/platform/fields-and-entities-settings/fields-settings-field-appearance.md",
+    "/platform/fields-and-entities-settings/fields-settings-field-icons.md",
+    "/platform/fields-and-entities-settings/fields-settings-input-validation.md",
+    "/platform/fields-and-entities-settings/fields-settings-reference-lookups.md",
+    "/platform/fields-and-entities-settings/fields-settings-calculated-fields.md",
+    "/platform/fields-and-entities-settings/fields-settings-auto-coding.md",
+    "/platform/fields-and-entities-settings/fields-settings-relaxing-restrictions.md",
+    "/platform/fields-and-entities-settings/fields-settings-record-behaviour.md",
+    "/platform/fields-and-entities-settings/fields-settings-integrations.md",
     "/platform/list-views",
     "/platform/list-views/quick-filters.md",
     "/platform/list-views/limit-user-to-year.md",
@@ -79,8 +90,7 @@
     "/platform/criteria-based-validation.md",
     "/platform/text-criteria-guide.md",
     "/platform/scheduled-tasks.md",
-    "/platform/recurring-documents.md",
-    "/platform/GenericReferenceOverrider_UserGuide.md"
+    "/platform/recurring-documents.md"
   ],
   "folderTitles": {
     "/platform": {
@@ -90,6 +100,10 @@
     "/platform/screen-modifier": {
       "ar": "تعديل الشاشات",
       "en": "Screen Modifier"
+    },
+    "/platform/fields-and-entities-settings": {
+      "ar": "أعدادات الحقول و الشاشات",
+      "en": "Fields and Entities Settings"
     },
     "/platform/list-views": {
       "ar": "قوائم العرض",

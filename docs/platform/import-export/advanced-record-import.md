@@ -136,3 +136,5 @@ Because it is a document rather than a configuration, it keeps a record: each ru
 The rule of thumb: if you can produce the file yourself, export a template and use **Import Records**. If the file arrives from someone else in a shape you cannot dictate — and it will arrive again next month — the setup cost of a configuration pays for itself immediately.
 
 There is a third option worth knowing about for feeds that should run without anybody pressing a button at all: an [entity flow can import from an Excel sheet or a SQL query](/platform/entity-flows/excel-and-sql-import-by-entity-flow.md) on a schedule or in reaction to an event.
+
+And a fourth, for when the file should not have to reach your server by hand in the first place: an **import integrator** endpoint, registered in [Fields and Entities Settings](/platform/fields-and-entities-settings/fields-settings-integrations), gives the sending system an address it can push a file to directly. Nobody downloads an attachment, nobody opens a screen — the supplier's system delivers the file and the import runs.

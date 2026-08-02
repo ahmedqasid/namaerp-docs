@@ -530,3 +530,8 @@ not be combined with the other two. An **Error Field** must exist on the target 
 - [Entity Flows](/platform/entity-flows/introduction-to-entity-flows.md) — for when you need to
   *do* something rather than refuse something.
 - [Approvals](/platform/approvals/approvals-system.md) — approval cycles, definitions and steps.
+- [Input validation in Fields and Entities Settings](/platform/fields-and-entities-settings/fields-settings-input-validation) —
+  for rules about a single field's *shape* rather than the document's meaning. The Field Formats
+  grid there enforces "a tax number is fifteen digits" or "a mobile number starts with 05" without
+  a query, and each row can be gated by a criteria record so the format only applies in the
+  situations you choose.

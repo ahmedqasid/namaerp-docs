@@ -14,6 +14,10 @@ An Entity Flow is automatically executed after the user performs a specific acti
 - Revising a record
 - ... etc.
 
+::: tip A flow can also be started from outside the system
+Not every trigger is a person clicking something. An **integrator endpoint**, registered in [Fields and Entities Settings](/platform/fields-and-entities-settings/fields-settings-integrations), gives an external system an address it can call; what arrives there is handed to an Entity Flow, which decides what to do with it. That is how a web shop, a payment gateway or a supplier's system feeds data straight into Nama with nobody sitting at a screen.
+:::
+
 ## How to Create an Entity Flow
 
 1. Open the **Entity Flows** screen.

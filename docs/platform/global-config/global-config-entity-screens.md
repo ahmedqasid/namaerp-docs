@@ -4,6 +4,10 @@ This tab is unusual: nothing on it changes how the system *behaves*. Everything 
 
 That makes it a good place to start when someone asks "why does our supplier screen have a Contacts page and the demo one doesn't?".
 
+::: info The per-field counterpart
+What you set here is a default for a whole record type. The screen that does the same job one **field** at a time is [Fields and Entities Settings](/platform/fields-and-entities-settings/), reached from **Basic → Settings** — display masks and styles, icons and colours, input rules, how a reference lookup searches, calculated fields, and more. Reach for that screen when the answer is "only on this one field".
+:::
+
 ![Entities Screens tab](../../ar/platform/global-config/images/gc-entity-screens-en.png)
 
 ## Screen additions

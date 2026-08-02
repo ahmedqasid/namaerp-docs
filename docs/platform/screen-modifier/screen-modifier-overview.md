@@ -4,6 +4,10 @@ Every screen in Nama ERP — the edit screen of an invoice, the list view of cus
 
 Think of it as a set of instructions layered on top of the system's default screens. You tell Nama "on the Sales Invoice screen, hide these two fields, rename this tab, add a computed column to the list, and move this group to another page." Nama keeps the original design intact and applies your instructions on top of it whenever a screen is built.
 
+::: tip Screen Modifier or Fields and Entities Settings?
+These two screens are easy to confuse. Screen Modifier decides **where** things appear — which page a group sits on, which fields are hidden, what a tab is called, which columns a list shows. It does not change how a field itself behaves. Input masks, allowed values, read-only fields, icons and colours, what a reference lookup offers and how it searches, calculated fields — all of those live in [Fields and Entities Settings](/platform/fields-and-entities-settings/) under **Basic → Settings**. If you came here to change a field's behaviour rather than its position, that is the screen you want.
+:::
+
 You will find Screen Modifier under:
 
 > **Administration → Display Customization → Screen Modifier**

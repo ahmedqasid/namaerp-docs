@@ -336,6 +336,10 @@ NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP}, "ARG000046-report")
   .toNoAuthResultLink()
 ```
 
+::: tip Publishing a printed form for customers to fetch themselves
+A public link only helps if you have somewhere to send it. Nominate the printed form the public link should render in [Fields and Entities Settings](/platform/fields-and-entities-settings/fields-settings-integrations) — that is where you say which layout a public invoice link opens, so a customer following a link from an e-mail or a QR code downloads exactly the form you intended, without an account.
+:::
+
 ### Filtered List View Links
 
 You can create hyperlinks that open a filtered list view for any entity type. This is useful when you want users to click a link in a report and see a pre-filtered list of records.

@@ -65,10 +65,10 @@ The window should be blue, not black
 </ltr>
 
 ## كيف يمكن إضافة شاشة النقاش إلى شاشة بعينها
-يمكن عمل المطلوب من خلال إعدادات الحقول والشاشات
+يمكن عمل المطلوب من خلال [أعدادات الحقول و الشاشات](/ar/platform/fields-and-entities-settings/fields-settings-record-behaviour)
 <NamaOptionURL entityType="GenericReferenceOverrider" new-mode optionCode="addDiscussionTo.addToPage" link-title="addDiscussionTo"/>
 
-1. يمكنك إضافة النقاش إلى أي شاشة في النظام من خلال جدول "إضافة النقاش إلي" الموجود بإعدادات الحقول والشاشات
+1. يمكنك إضافة النقاش إلى أي شاشة في النظام من خلال جدول "إضافة النقاش إلي" الموجود بأعدادات الحقول و الشاشات
 ::: tip يمكنك التحكم في الحقول الظاهرة في النقاشات
 يمكنك التحكم في الحقول الظاهرة في شاشة النقاش من خلال تعديل الشاشة - بلوك "تعديل حقول النقاش"
   - إزالة حقل النقاش
@@ -232,7 +232,7 @@ org.hibernate.query.sqm.PathElementException: Could not resolve attribute 'value
 ### الجدول: `الحقول النصية المحوّلة إلى روابط`
 
 رمز الجدول: `textToLinkFields`
-يوجد داخل ملف إعدادات الحقول والشاشات.
+يوجد داخل [أعدادات الحقول و الشاشات](/ar/platform/fields-and-entities-settings/fields-settings-field-appearance)، وهي أيضًا الشاشة التي يمكن فيها جعل الحقل النصي يتصل برقم هاتف أو يفتح بريدًا إلكترونيًا بدلًا من صفحة ويب.
 
 - طريقة الإعداد:
 

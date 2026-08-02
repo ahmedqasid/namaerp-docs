@@ -29,6 +29,10 @@ For example:
 
 > If your filter requires dynamic logic such as loops or conditions, use **Tempo Language** instead of a criteria definition.
 
+::: tip A shortcut when the filter should always apply
+Steps 2 and 3 above exist so that the same filter can be switched on for one document term or one book and left off elsewhere. When a filter should simply always apply to a field, there is a quicker route: register the criteria straight against the field in the **Extra Filter** grid of [Fields and Entities Settings](/platform/fields-and-entities-settings/fields-settings-reference-lookups). No filter record to name, nothing to assign — the lookup starts obeying the criteria as soon as you save.
+:::
+
 ![Field Filter Screenshot](../ar/platform/images/field-filter.png)
 
 ---

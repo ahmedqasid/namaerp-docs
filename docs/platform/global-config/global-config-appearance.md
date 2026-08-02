@@ -58,6 +58,10 @@ Nama uses colour to carry meaning inside grids. These settings decide what each 
 
 **Legacy UI Extra Styles** `value.info.legacyUIExtraStyles` — Additional styling applied in the legacy interface, for installations that need a specific look there.
 
+::: tip Colour and icons for one record type or one field
+Everything above paints the whole system the same way. When the meaning you want to signal is narrower — an icon on the Sales Invoice menu entry, a colour on the *Customer* field, or a different icon for each value of a status — set it in [Fields and Entities Settings](/platform/fields-and-entities-settings/fields-settings-field-icons), which also lets you give each icon a light-mode and a dark-mode colour so it stays legible in both themes.
+:::
+
 ## Popups and editors
 
 **Hide Select Column in Selector Popup** `value.info.hideSelectColumnInSelectorPopup` — Removes the selection column from the record-picker popup.

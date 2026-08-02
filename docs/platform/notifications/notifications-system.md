@@ -41,6 +41,10 @@ The system identifies who should receive notifications based on:
 - **Role-based targeting**: Send to users with specific roles or positions
 - **Manual targeting**: Explicitly defined recipients
 
+::: tip When the recipient picker won't offer the record type you want
+The pickers that choose a recipient only offer the record types an administrator has allowed as e-mail recipients. If the type you need — a third party, a contact, a driver — is missing from the list, add it in [Fields and Entities Settings](/platform/fields-and-entities-settings/fields-settings-record-behaviour) and it becomes selectable everywhere recipients are chosen.
+:::
+
 ### 4. Message Generation
 Messages are created using dynamic templates that can include:
 - Field values from the changed record

@@ -14,6 +14,10 @@ The legal entity is the only dimension that cannot be switched off — it is the
 
 **Ignore Legal Entity Matching If No Matching Is Specified for Any Other Dimension** `value.info.ignoreDimensionsConsistency` — Skips the storage-dimension consistency check entirely. It only has an effect when all four consistency levels below are set to None; it is an escape hatch for installations that deliberately don't use dimension consistency at all, not a way to silence individual errors.
 
+::: tip Relaxing the rule for one field instead of the whole system
+Both settings above are all-or-nothing. When only a handful of fields are the problem — a document that must legitimately point at a record from another branch — the dimension consistency check can be switched off on that single reference field, and an individual record type can be declared public across dimensions, in [Fields and Entities Settings](/platform/fields-and-entities-settings/fields-settings-relaxing-restrictions). That keeps the strict checking everywhere else.
+:::
+
 **Allow Changing Dimensions of Dimensions** `value.info.allowChangingDimsOfDims` — A dimension record has dimensions of its own — a branch belongs to a sector, for example. Normally, once master files reference a dimension, its own dimensions are frozen, because changing them would silently re-file every record beneath it. Turn this on only for a deliberate restructuring, and expect to review the affected records afterwards.
 
 **Custom Dimensions Description Template (Arabic)** / **(English)** `value.info.customDimensionsDescriptionTemplateAr`, `...En` — The system shows a one-line human description of a record's dimensions in various places. These templates let you control what that line says and in which order, in each language.

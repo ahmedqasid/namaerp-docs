@@ -36,6 +36,10 @@ Once files live on disk, a database backup no longer contains them. The folder m
 
 **Scanner Profile** `value.info.scannerProfile` — The default scan settings: **Black and White Document**, **Color Document**, **Grayscale**, or **Show Scanner UI** to let the user choose each time. Black and white keeps document scans small; use colour only where the colour carries information, such as a stamped or signed original.
 
+::: tip Giving one field a scan button — or a place to sign
+These settings decide *how* scanning works; they do not put a scanner button anywhere. To add one, mark the attachment field as a scanner field in [Fields and Entities Settings](/platform/fields-and-entities-settings/fields-settings-field-appearance) — the field then gets its own button that scans straight into it, rather than going through the general attachments list. The same screen turns an attachment field into a **signature pad**, so a customer signs the delivery note on screen with a finger or a stylus and the drawing is saved as the attachment.
+:::
+
 ## Documents converter
 
 Nama converts Office files and images to PDF for previewing and printing, using two external tools.

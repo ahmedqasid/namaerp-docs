@@ -57,7 +57,7 @@ When a cell says `10011` in a `customer` column, the system tries, in order:
 3. the **alternate code**, for record types that have one;
 4. the **alias**;
 5. for items only, a barcode, when barcode-specification searching is enabled;
-6. the **name**, in Arabic then English — but *only* for record types an administrator has explicitly allowed to be matched by name, in the Generic Reference Overrider. This is switched off by default.
+6. the **name**, in Arabic then English — but *only* for record types an administrator has explicitly allowed to be matched by name, in [Fields and Entities Settings](/platform/fields-and-entities-settings/fields-settings-reference-lookups). This is switched off by default.
 
 Two conveniences are worth knowing. Books, document terms and master groups have the owning entity type prefixed onto the code automatically, so `SalesInvoice$#SINV` in an exported file is exactly what the importer expects to see. And a reference can point at a record **defined further down the same file** — if your sheet creates a parent and a child, the importer will jump ahead, create the parent, and then finish the child. You do not have to order the rows.
 

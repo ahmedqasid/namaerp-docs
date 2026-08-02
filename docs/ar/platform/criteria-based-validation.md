@@ -511,3 +511,7 @@ select case when {customer.taxPlan} is not null then 0 else 1 end
 - [مسارات الكيانات](/ar/platform/entity-flows/introduction-to-entity-flows.md) — حين تحتاج أن
   *تفعل* شيئًا لا أن ترفض شيئًا.
 - [الموافقات](/ar/platform/approvals/approvals-system.md) — دورات الموافقة وتعريفاتها وخطواتها.
+- [التحقق من المدخلات في أعدادات الحقول و الشاشات](/ar/platform/fields-and-entities-settings/fields-settings-input-validation) —
+  للقواعد التي تخص *شكل* حقل واحد لا معنى المستند. فجدول صيغ الحقول هناك يفرض «الرقم الضريبي خمسة
+  عشر رقمًا» أو «رقم الجوال يبدأ بـ 05» دون استعلام، ويمكن ربط كل سطر بسجل معايير فلا تسري الصيغة
+  إلا في الحالات التي تختارها.

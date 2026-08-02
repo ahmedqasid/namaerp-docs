@@ -8,7 +8,7 @@
 details.ref1='MCI0001'
 ```
 
-مع العلم أنني حددت النوع المطلوب في إعدادات الحقول والشاشات، لكن القيمة لا تُحفظ. كما جرّبت تعيين النوع والكود معًا هكذا:
+مع العلم أنني حددت النوع المطلوب في [أعدادات الحقول و الشاشات](/ar/platform/fields-and-entities-settings/fields-settings-reference-lookups)، لكن القيمة لا تُحفظ. كما جرّبت تعيين النوع والكود معًا هكذا:
 
 ```groovy
 details.ref1.entityType='PurchaseElement'

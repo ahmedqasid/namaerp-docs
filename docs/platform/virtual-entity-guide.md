@@ -44,6 +44,10 @@ The header has just a handful of fields:
 
 After filling these in, click **Save**. Then, to map the SELECT columns to entity properties, click the **Edit Mappings** button at the top of the screen. That opens the editor where the real magic happens.
 
+::: tip When you only want the answer, not a whole table
+A Virtual Entity gives the wizards a new *table* to build reports and widgets on. If what you actually want is a single number or piece of text from a query shown on a screen — the customer's outstanding balance beside their name on the invoice, or an extra column in a list view — that is a **calculated field**, defined in [Fields and Entities Settings](/platform/fields-and-entities-settings/fields-settings-calculated-fields). Same idea, much smaller: you write the query once and the answer appears on the record, with no report in between.
+:::
+
 ---
 
 ## The Edit Mappings Dialog

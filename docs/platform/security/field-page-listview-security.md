@@ -72,5 +72,6 @@ A full-access security profile cannot contain list view security rows at all —
 
 - **Minimum characters to start search** (on basic permission rows) prevents reference lookups from listing large master files — see [Security Profiles](/platform/security/security-profiles.md).
 - **Maximum records per list page** exists in the security profile header, user settings, and global settings; the most specific value wins.
+- A field can also be greyed out from the **Disabled Fields** grid in [Fields and Entities Settings](/platform/fields-and-entities-settings/fields-settings-input-validation). That is a data-entry convenience, not a security control — it applies to everyone rather than to a role, and it only stops typing in the browser. When a field genuinely must be protected, use the *Field Settings* page above. The same screen is also where per-field input rules — formats, allowed values, row limits, maximum lengths — are set.
 - To restrict the *rows* visible within an allowed list view, you want Extra Filters — see [Record-Level Security](/platform/security/record-level-security.md).
 - To limit a user to a specific fiscal year or period in documents and reports, see [Limit User to a Fiscal Year](/platform/list-views/limit-user-to-year.md).

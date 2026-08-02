@@ -48,6 +48,10 @@ Each of these caps how long one kind of query may run before it is abandoned. Th
 *Contains* cannot use a database index — the server has to read every row and inspect the text. *Starts With* can, and on a table with millions of records the difference is between an instant answer and a visible wait. If searching has become slow as your data grew, switching code to *Starts With* is usually the single most effective change available on this screen.
 :::
 
+::: info The same choice, one lookup at a time
+The three operators above apply to every search in the system. When only one master file is heavy enough to matter, the search operator can be set on that reference field alone in [Fields and Entities Settings](/platform/fields-and-entities-settings/fields-settings-reference-lookups) — which is also where you add extra columns and extra codes for a lookup to search in, so users can find a customer by phone number or tax number rather than by name.
+:::
+
 **Smart Arabic Search in Contains** `value.info.smartArabicSearchInContains` *(default on)* — Arabic is written inconsistently: أ, إ, آ and ا are typed interchangeably, as are ة and ه, and ى and ي. With this on the system expands those letters to their variants, so a user searching for محمد finds محمد however the name was originally typed. Almost always worth keeping on for Arabic data.
 
 **Search with Connected Names in References** `value.info.searchWithConnectedNamesInRefs` — Reference suggestions also match against related record names, so typing a customer's name can find the contract that belongs to them.

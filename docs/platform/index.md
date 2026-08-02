@@ -16,7 +16,7 @@ Reshape screens, lists, and even built-in labels to fit how your team actually w
   <LandingCard icon="🎚️" title="Screen Modifier" link="/platform/screen-modifier/" details="Rearrange fields, hide what you don't use, and redesign edit screens, list views, and selectors with the visual layout editor." />
   <LandingCard icon="📋" title="List Views" link="/platform/list-views/" details="Quick filters for finding records fast, and limiting a user to a single fiscal year." />
   <LandingCard icon="🔤" title="Modifying Translations" link="/platform/translations.md" details="Change any label or term in the system to match your organisation's wording." />
-  <LandingCard icon="🔧" title="Generic Reference Overrider" link="/platform/GenericReferenceOverrider_UserGuide.md" details="Fine-tune how fields and reference lookups behave across entities." />
+  <LandingCard icon="🔧" title="Fields and Entities Settings" link="/platform/fields-and-entities-settings/" details="Change how fields behave: input rules, lookups, icons, calculated fields, automatic coding, and integrators." />
 </LandingGrid>
 
 ## Security & Governance

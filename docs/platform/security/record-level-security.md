@@ -28,6 +28,10 @@ Users carry the same five dimensions twice, each copy serving a different purpos
 
 When a user creates a document, the system automatically stamps it with the session's login context dimensions. When browsing or searching, records are filtered: a record appears when every one of its dimensions is either PUBLIC or compatible with the user's session dimensions. Master files the system considers "global" are exempt from dimension filtering.
 
+::: info Loosening the dimension rules
+Two related knobs live outside security, in [Fields and Entities Settings](/platform/fields-and-entities-settings/fields-settings-relaxing-restrictions): you can declare an extra record type **public across dimensions**, so it behaves like the built-in global master files above, and you can switch off the dimension consistency check on a single reference field when a document legitimately needs to point at a record from another branch or department.
+:::
+
 ### Login Context and the Alternate Login Context Table
 
 Inside the user screen you will find:

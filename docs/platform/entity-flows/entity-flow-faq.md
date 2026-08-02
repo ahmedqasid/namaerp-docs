@@ -6,7 +6,7 @@
 details.ref1='MCI0001'
 ```
 
-I set the required type in the field and screen settings, but the value is not saved. I also tried setting the type and code together like this:
+I set the required type in [Fields and Entities Settings](/platform/fields-and-entities-settings/fields-settings-reference-lookups), but the value is not saved. I also tried setting the type and code together like this:
 
 ```groovy
 details.ref1.entityType='PurchaseElement'

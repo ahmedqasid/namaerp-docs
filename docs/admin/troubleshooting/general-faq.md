@@ -60,10 +60,10 @@ The window should be blue, not black
 * Then install SQL Server again
 
 ## How Can the Discussion Screen Be Added to a Specific Screen
-This can be done through the Fields and Screens Settings.
+This can be done through [Fields and Entities Settings](/platform/fields-and-entities-settings/fields-settings-record-behaviour).
 <NamaOptionURL entityType="GenericReferenceOverrider" new-mode optionCode="addDiscussionTo.addToPage" link-title="addDiscussionTo"/>
 
-1. You can add the discussion to any screen in the system through the "Add Discussion To" table found in the Fields and Screens Settings.
+1. You can add the discussion to any screen in the system through the "Add Discussion To" table found in Fields and Entities Settings.
 ::: tip You Can Control the Fields Shown in Discussions
 You can control which fields appear in the discussion screen by editing the screen - "Edit Discussion Fields" block:
   - Remove the Discussion field
@@ -223,7 +223,7 @@ To achieve this in Nama ERP, you can use the following table:
 ### Table: `Text Fields Converted to Links`
 
 Table code: `textToLinkFields`
-Located inside the Fields and Screens Settings file.
+Located inside [Fields and Entities Settings](/platform/fields-and-entities-settings/fields-settings-field-appearance), which is also where a text field can be made to dial a phone number or open an e-mail instead of a web page.
 
 - Setup method:
 
