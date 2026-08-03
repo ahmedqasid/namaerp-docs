@@ -115,6 +115,8 @@ This block is added only for **Sales** documents. It governs how sale prices are
 
 **Consider Discount Offers For Employee Discount Percentage Validation** `termConfig.considerDiscountOffersForEmpDiscountPercentageValidation` — Includes discount offers when validating the maximum discount percentage an employee may grant — an alternative to using Force Price List.
 
+**Ignore Max Discount Validation If Discount Exists In From Doc** `termConfig.ignoreMaxDiscValidationIfDiscountExistsInFromDoc` — Skips the employee maximum-discount check for a discount that was already granted on the from-document. A quotation may have been approved with a 20% discount that exceeds what the salesman is normally allowed to give; without this option, converting it into an invoice re-runs the check and blocks the save even though nothing changed. With it on, each discount slot (1–8) on the line is compared with the same slot on the matching from-document line, and the header discount with the from-document's header discount — if the value and percentage are not higher than what was already there, the check is skipped. Raise a discount above the from-document figure and it is validated against the employee's limit as usual. Line matching relies on the line being carried over from the source document, so lines added manually on the new document are always validated.
+
 **Calculate Invoice Discount From Offer With Save** `termConfig.calcDiscountFromOfferWithSave` — Recomputes the invoice discount from active offers every time the document is saved.
 
 **Apply Free Items On Invoice With Save** `termConfig.applyFreeItemsOnInvoiceWithSave` — Applies free-item offers to the invoice value automatically on save.
