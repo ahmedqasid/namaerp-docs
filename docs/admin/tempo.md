@@ -491,12 +491,14 @@ To include action buttons in your email or SMS templates for approval workflows,
 {rejectlink}
 {returnlink}
 {escalatelink}
+{escalatetodirectsupervisorlink}
 ```
 
 ::: tip
 
 * These action links are mainly used in **email or SMS templates** defined within an **approval rule**.
 * It's common to include multiple action links together in a message (e.g., Approve, Reject, Return).
+* `{escalatelink}` escalates to the approver's **Supervisor**, while `{escalatetodirectsupervisorlink}` escalates to their **Direct Supervisor** — include whichever route your approval policy uses, or both.
 :::
 
 #### Optional Attributes

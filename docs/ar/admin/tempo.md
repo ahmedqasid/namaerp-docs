@@ -491,12 +491,14 @@ The lines that are below the default sales price:
 {rejectlink}
 {returnlink}
 {escalatelink}
+{escalatetodirectsupervisorlink}
 ```
 
 ::: tip
 
 * تُستخدم روابط الإجراءات هذه بشكل رئيسي في **قوالب البريد الإلكتروني أو SMS** المحدَّدة ضمن **قاعدة موافقة**.
 * من الشائع تضمين عدة روابط إجراءات معًا في رسالة (مثل: موافقة، رفض، إرجاع).
+* `{escalatelink}` يصعّد إلى **المدير الأعلي** للمعتمِد، بينما `{escalatetodirectsupervisorlink}` يصعّد إلى **المشرف المباشر** له — أدرج المسار الذي تعتمده سياسة الموافقة لديك أو كليهما.
 :::
 
 #### الخصائص الاختيارية

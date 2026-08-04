@@ -467,7 +467,9 @@ The system can generate customized summaries for approval requests that provide 
    - **Approve**: Move to next step
    - **Reject**: Stop process and reject
    - **Return**: Send back for modifications
-   - **Escalate**: Forward to supervisor
+   - **Escalate to Supervisor**: Hand the step to the approver's **Supervisor**
+   - **Escalate to Direct Supervisor**: Hand the step to the approver's **Direct Supervisor**
+   - **Escalate to Specific Employee**: Hand the step to a person the approver chooses
 
 #### Conditional (Optional) Steps
 
@@ -509,9 +511,33 @@ The system provides global configuration options to control which approval decis
 |---------------------|-------------|--------------|-------------|
 | **useRejectDecision** | استعمال قرار الرفض | Use Reject Decision | Controls availability of "Reject" (رفض) decision option |
 | **useReturnDecision** | استعمال قرار الارجاع | Use Return Decision | Controls availability of "Return" (إرجاع) decision option |
-| **useEscalateToSupervisor** | استخدام قرار تصعيد الي المدير المباشر | Use Escalate To Supervisor | Controls availability of "Escalate to Supervisor" (تصعيد الي المدير المباشر) option |
+| **useEscalateToSupervisor** | استخدام قرار تصعيد إلى المدير الأعلي | Use Escalate To Supervisor | Controls availability of "Escalate to Supervisor" (تصعيد إلى المدير الأعلي) option |
+| **useEscalateToDirectSupervisor** | استخدام قرار تصعيد إلى المشرف المباشر | Use Escalate To Direct Supervisor | Controls availability of "Escalate to Direct Supervisor" (تصعيد إلى المشرف المباشر) option |
 | **useEscalateToSpecificEmployee** | استخدام قرار تصعيد الي موظف بعينه | Use Escalate To Specific Employee | Controls availability of "Escalate to Specific Employee" (تصعيد الي موظف بعينه) option |
 | **useReturnToPreviousStep** | استخدام قرار إرجاع إلي الخطوة السابقة | Use Return To Previous Step | Controls availability of "Return to Previous Step" (إرجاع للخطوة السابقة) option |
+
+All of these options are **enabled by default** — a fresh system offers every decision until you switch one off.
+
+##### Two Ways of Escalating Upwards
+
+Escalating hands your step to somebody else instead of deciding it yourself, and the system offers two hierarchical routes because an employee record carries **two** separate managers:
+
+| Decision | Reads the employee field | Typical meaning |
+|---|---|---|
+| **Escalate to Supervisor** (تصعيد إلى المدير الأعلي) | **Supervisor** (المدير الأعلي) | The higher manager in the organizational chain — the person above the approver's own line manager |
+| **Escalate to Direct Supervisor** (تصعيد إلى المشرف المباشر) | **Direct Supervisor** (المشرف المباشر) | The line manager the approver reports to day to day |
+
+Think of a purchase request sitting with a warehouse keeper. If the amount is unusual but routine, the keeper escalates to their **Direct Supervisor** — the warehouse manager who signs off on stock decisions every day. If the request is contentious enough that the warehouse manager shouldn't be the one to decide it, the keeper escalates to their **Supervisor** instead, jumping straight to the operations director recorded in that field.
+
+In both cases the escalation targets the manager of **the approver who made the decision**, not the manager of whoever created the document. The escalated-to employee becomes a candidate on the same step — the workflow does not move forward a step — so once they decide, the case continues from where it paused.
+
+::: warning The target field must be filled in
+The decision fails with a message such as *"Employee X does not have a direct supervisor"* when the approver's employee record has no value in the field that decision reads. Before enabling either decision system-wide, make sure the Supervisor and Direct Supervisor fields are actually maintained on your employee records — an empty field turns the decision into a dead end for that approver.
+:::
+
+::: tip Reasons and comments cover both decisions
+Approval reasons flagged **Used With Escalation** (تستخدم مع التصعيد) are offered for all three escalation decisions, and the step-level settings **Comment Required With Escalation** and **Reason Required With Escalation** apply to escalations to the Supervisor and to the Direct Supervisor alike. You do not maintain a separate reason list per escalation route.
+:::
 
 ##### Configuration Impact
 
@@ -596,7 +622,8 @@ For auto-escalation to work, you must create a **Task Schedule** with the follow
 | **Approve** | Accept the request | Move to next approval step |
 | **Reject** | Deny the request | Stop workflow, notify creator |
 | **Return** | Send back for changes | Allow modifications, restart approval |
-| **Escalate to Supervisor** | Forward to manager | Manager becomes next approver |
+| **Escalate to Supervisor** | Forward to the approver's Supervisor (the higher manager) | That manager becomes a candidate on the same step |
+| **Escalate to Direct Supervisor** | Forward to the approver's Direct Supervisor (the line manager) | That manager becomes a candidate on the same step |
 | **Escalate to Specific Employee** | Forward to chosen person | Specific employee approves |
 
 ## Notification System
@@ -693,7 +720,8 @@ All notification templates have access to the following context objects and vari
 - `{approvelink}` - Link/button to approve
 - `{rejectlink}` - Link/button to reject
 - `{returnlink}` - Link/button to return for modifications
-- `{escalatelink}` - Link/button to escalate
+- `{escalatelink}` - Link/button to escalate to the Supervisor
+- `{escalatetodirectsupervisorlink}` - Link/button to escalate to the Direct Supervisor
 
 :::
 
@@ -940,7 +968,9 @@ When **enabled**, this option creates an Actions History record for **each indiv
   - `Approve` - When a step is approved
   - `Reject` - When a step is rejected
   - `Return` - When returned for modifications
-  - `Escalate` - When escalated to supervisor/specific employee
+  - `Escalate To Supervisor` - When escalated to the approver's Supervisor
+  - `Escalate To Direct Supervisor` - When escalated to the approver's Direct Supervisor
+  - `Escalate To Specific Employee` - When escalated to a chosen employee
 - **Final Completion Record**: Still creates the standard `Approval` record when workflow completes
 - **User Context**: Captures who made each decision and when
 :::
