@@ -63,6 +63,23 @@ $A - 10 / $C
 Cell references are case-insensitive. For example, `a+2` and `$a` are valid.
 :::
 
+---
+
+* Referring to a Fixed Cell
+
+A reference like `A` or `$C` means that column of the row being imported. Add the row number and you get one exact cell instead — `B2`, `AA55` — whichever row is currently being read. This is how you pick up a value that appears once near the top of the sheet, such as the statement date, the currency or a branch name, and stamp it onto every imported record.
+
+**Examples**:
+
+```groovy
+A + " / " + B2
+$D1 * $H
+```
+
+The row number is the physical row as Excel numbers it, so `excel.ignoreLinesFromTop` and `excel.ignoreLinesFromBottom` do not shift it — a value in the heading rows you skipped is still reachable.
+
+The same addresses work outside Groovy: in a field map as `excel.rows.B2`, and inside a query or Tempo expression as `{B2}`. They are a general form of `excel.row1.A` below, which only reaches the first row. A Groovy script can also reach the sheet itself with `sheet.getCell("A9")`, or the shorter `sheet.A9`.
+
 
 ## Import by Entity Flow From Excel Sheets or SQL Statement
 
@@ -89,7 +106,7 @@ Cell references are case-insensitive. For example, `a+2` and `$a` are valid.
 - `details.item.item=excel.rows.A
 `
 - Copies whatever in cell A in every row to the same line in the grid details
-- Cells are: A,B,C, ……, AA,AB,AC,AD, ……, AZ,BA,BC,BD,...,BX,BY,BZ. CA and upper are not implemented, and we do not think this is practical
+- Columns are: A, B, C, …, Z, AA, AB, …, AZ, BA, BB, …, BZ, CA, … and so on through IZ
 
 - `details.text1=sql(select case when {excel.row1.A} = 'item' then 'ABC' when {excel.row1.B} = 'item' then 'BAC' else 'CAB' end)`
 - `exel.row1 ` gives you access to the first row, even if that row was ignored, to facilitate header rows querying

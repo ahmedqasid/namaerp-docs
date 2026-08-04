@@ -81,10 +81,10 @@ Fill in **Cell Titles Row Number** and then map each field to a **Cell Title** r
 | Column | Arabic label | Purpose |
 |---|---|---|
 | **Field ID** | | Required. The field being filled. |
-| **Cell Name** | الخلية | Take the value from this column of the sheet. |
+| **Cell Name** | الخلية | Take the value from this column of the sheet — `B` for the current row's column B, or a full address like `B2` for one fixed cell shared by every record. |
 | **Cell Title** | عنوان الخلية | Or find the column by its heading text instead. |
 | **Constant Value** / **Constant Date Value** / **Constant Reference Value** | القيمة الثابتة / تاريخ / مرجع | Do not read the sheet at all — put this fixed value on every record. This is how you stamp every imported row with the same warehouse or the same document book when the file does not mention it. |
-| **Expression Type** / **Expression** | | Calculate the value instead of reading one, for the columns that need combining, splitting or translating. |
+| **Expression Type** / **Expression** | | Calculate the value instead of reading one, for the columns that need combining, splitting or translating — and for values that live in a fixed cell rather than a column. See [Referring to cells in an expression](#Referring-to-cells-in-an-expression). |
 | **Skip Row If Empty Or Zero** | تجاهل السطر بالكامل إذا كان الحقل فارغا | If this field ends up empty, throw the whole row away. Point it at a key column and the blank filler rows at the bottom of the sheet disappear on their own. |
 | **Skip Field If Empty Or Zero** | تجاهل الحقل إذا كان فارغا | Leave the field untouched when the cell is empty, rather than writing a blank over an existing value. Essential for update runs where the sheet only carries some columns. |
 | **Field Type** | نوع الحقل | Force how the cell should be read, when the automatic reading gets it wrong. |
@@ -96,6 +96,45 @@ Fill in **Cell Titles Row Number** and then map each field to a **Cell Title** r
 
 - **Detail Field** (معرف السطور) — which detail table on the target record these rows fill.
 - **Header Link Field** and **Detail Link Field** — the pair of columns that say which header row each detail row belongs to. This is the equivalent of the `#headerconnector` column in a native export: the value in the detail row's link column must match the value in a header row's link column.
+
+### Referring to cells in an expression
+
+**Cell Name** and **Cell Title** handle the ordinary case, where the value sits in a column and every row carries its own copy of it. **Expression** is for everything else, and **Expression Type** picks how you write it: **Tempo** (a text template), **Groovy** (a short script) or **Query** (a SQL statement whose result becomes the value).
+
+All three read the sheet the same way. A column letter names a cell, and the row is understood to be the row currently being imported. Tempo and Query put the letter in braces — `{A}`, `{AC}` — while Groovy writes it bare:
+
+```groovy
+A + " - " + B          // join two columns
+$H * $I                // quantity × price, read as numbers
+```
+
+Groovy adds two conveniences: prefixing with `$` forces the cell to be read as a number, so an unreadable cell becomes zero instead of an error, and `rowNum` gives you the row's number. Letters are case-insensitive — `a + 2` and `$a` are both fine.
+
+#### Cells that sit outside the row
+
+Foreign spreadsheets like to put sheet-wide values in a cell of their own near the top: the statement's month in `B2`, the exchange rate in `D1`, the branch name buried in the letterhead. Those values belong on every record you are about to create, but they exist exactly once and not in any column, so a column letter cannot reach them. The usual workaround was to copy the value down all nine hundred rows before uploading, and hope nobody forgot.
+
+Write the **full address** — the letter *and* the row number — and you get that one cell, whichever row is being imported:
+
+```groovy
+A + " / " + B2         // this row's column A, plus the fixed cell B2
+$D1 * $H               // the rate parked in D1, applied to this row's amount
+```
+
+Braces work the same way in Tempo and Query expressions: `{B2}`, `{AA55}`.
+
+::: tip The row number is the one you see in Excel
+`B2` is the second physical row of the sheet, numbered exactly as Excel numbers it. **Ignore Lines From Top** and **Ignore Lines From End** do not shift it — so a value sitting in the letterhead rows you deliberately skipped is still reachable, which is usually the whole point.
+:::
+
+A Groovy script can also reach the sheet directly through `sheet`, which reads better when you need several fixed cells at once:
+
+```groovy
+sheet.getCell("A9")
+sheet.A9               // the same cell, written shorter
+```
+
+The **Cell Name** column understands the same two forms, so you do not need an expression at all when a field is simply fed by one fixed cell: put `B2` there instead of `B` and every record takes its value from that one cell.
 
 ### Running one configuration
 
