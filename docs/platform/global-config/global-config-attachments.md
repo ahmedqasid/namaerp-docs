@@ -30,6 +30,24 @@ Once files live on disk, a database backup no longer contains them. The folder m
 
 **Notify When Empty Space Reaches (GB)** `value.info.notifyWhenEmptySpaceReachesGB` *(default 20)* — Below this many free gigabytes, the system raises a critical message. Set it high enough that someone has time to react — a disk that fills completely stops attachments, exports and often the database itself.
 
+## Database backup
+
+A backup nobody checks is a backup that isn't there. A maintenance plan that quietly stopped writing files three weeks ago looks exactly like one that is working — until the day you need to restore. So Nama watches the backup folder on your behalf and raises a critical message when a fresh backup is missing.
+
+**Backup Folder** `value.info.backupFolder` — The folder your database backup job writes into, as seen **from the application server**. Nama scans it, and up to two levels of sub-folders beneath it, so a plan that writes a folder per day or per database still works. It looks for files ending in `.bak` or `.dbak`, and counts one as fresh when the file name carries today's or yesterday's date in `YYYYMMDD` form, or when the file was last modified any time since the start of yesterday.
+
+**Do Not Check For Backup Existence** `value.info.doNotCheckForBackupExistence` — Switches the whole check off. Use it when backups are handled somewhere Nama cannot see — a storage-level snapshot, a cloud database service, or an agent that ships files straight off the machine — so the server stops reporting a missing backup it has no way to find.
+
+::: warning Nama checks the backup, it does not take it
+Filling in the folder does not schedule anything. Your database backup still has to be created by SQL Server's own maintenance plan or whatever tool you use; this setting only tells Nama where to look at the result.
+:::
+
+The check runs when the server starts and repeats every hour, and it can raise one of three messages on the critical errors list: the folder was never filled in, the folder is filled in but the server cannot reach it, or the folder is reachable but holds nothing from today or yesterday. Each message links straight to the **Backup Folder** field, so clicking it opens this screen with the field already in focus. [What to do about each one](/admin/troubleshooting/general-faq#Error-Backup-folder-is-not-configured-does-not-exist-or-holds-no-recent-backup) is covered in the troubleshooting FAQ.
+
+::: tip Point it at a path the server's service account can reach
+The folder is resolved by the application server process, not by your browser. A local path such as `D:/backup` is straightforward; a network share works too, but the Windows account Tomcat runs as must have access to it — a share that opens fine in your own Explorer window is still unreachable if the service runs as a local account.
+:::
+
 ## Scanner
 
 **Scanner App** `value.info.scannerApp` — Which scanning integration the attach-from-scanner action uses: **cScanTwain** or **DynamicWebTWAIN**.
