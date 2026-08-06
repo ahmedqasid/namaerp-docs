@@ -14,6 +14,8 @@ For how notifications are defined and triggered, see the [Notifications system](
 
 **Maximum User Notification Count** `value.info.maxUserNotificationCount` *(default 10000)* — A retention cap per user. Once exceeded, the system raises a critical message. Without a cap, notification history on a busy installation grows without limit.
 
+**Do Not Send Notifications To Delegated Employee** `value.info.doNotSendNotificationsToDelegates` — Normally, when an employee has an active delegation, notifications aimed at them are raised for their stand-in as well, marked with **Delegated From**. Tick this to switch that off everywhere. Prefer the **Do Not Apply Delegation** field on the individual notification definition when only a few sensitive notifications should stay with their original recipient — see [Notifications system](../notifications/notifications-system.md).
+
 **Notifications Sound** / **Approvals Sound** / **Messages Sound** / **Task Ended Sound** `value.info.notificationsSound`, `value.info.approvalsSound`, `value.info.messagesSound`, `value.info.taskEndedSound` — Each can be **None** or one of five sounds. Giving approvals a distinct sound from general notifications is genuinely useful for people who approve all day; giving all four the same sound is just noise.
 
 ## Sending settings

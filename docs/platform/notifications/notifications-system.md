@@ -40,6 +40,7 @@ The system identifies who should receive notifications based on:
 - **Query-based targeting**: Use database queries to find recipients
 - **Role-based targeting**: Send to users with specific roles or positions
 - **Manual targeting**: Explicitly defined recipients
+- **Delegation**: Anyone standing in for a recipient during an active delegation period is added to the list automatically — see *Delegation: reaching the stand-in* below
 
 ::: tip When the recipient picker won't offer the record type you want
 The pickers that choose a recipient only offer the record types an administrator has allowed as e-mail recipients. If the type you need — a third party, a contact, a driver — is missing from the list, add it in [Fields and Entities Settings](/platform/fields-and-entities-settings/fields-settings-record-behaviour) and it becomes selectable everywhere recipients are chosen.
@@ -376,6 +377,27 @@ Special support for approval workflows:
 - Automatic routing to next approver
 - Escalation to supervisors for overdue approvals
 - Notification of approval decisions to stakeholders
+
+### Delegation: Reaching the Stand-In
+
+A notification that lands in the inbox of someone who is on two weeks' leave is a notification nobody acts on. When an employee has an active **Delegation** document — the same document used to hand pending approvals over to a stand-in — the system extends notifications the same way.
+
+While the delegation period is running, every notification aimed at the delegator is raised for the delegate as well. The stand-in's copy carries a **Delegated From** field naming the original recipient, so they can see at a glance that the message concerns someone else's work. Nothing is taken away from the original recipient — they keep their own copy, so nothing is lost if they do check in from holiday.
+
+The delegate joins the recipient list itself, which means they are reached through whatever channels the definition uses — in-app notification, e-mail, SMS or WhatsApp — not the in-app panel alone. That is deliberate for leave coverage, but it is worth knowing before you delegate someone who is on a notification-heavy distribution.
+
+Two switches control the behaviour:
+
+- **Do Not Apply Delegation** on the notification definition turns delegation off for that definition alone. Use it for messages that must never leave the intended person: salary changes, disciplinary matters, anything an employee would not want a colleague reading.
+- **Do Not Send Notifications To Delegated Employee** in [global settings](/platform/global-config/global-config-notifications) turns the behaviour off for the whole installation.
+
+Notifications raised by [scheduled tasks](/platform/scheduled-tasks) follow the same rule. A scheduled task has no per-record switch, so only the global setting applies to it.
+
+::: tip Notifications that were already waiting
+Delegation covers notifications raised *while* the period is active; it does not reach back to the messages that piled up before the delegation was created. For those, open the Delegation document and use **More → Move Notifications To Delegated Employee**. Every unread notification of the delegator whose date falls inside the delegation period is transferred to the stand-in and stamped with **Delegated From**.
+
+Note the difference: this really is a *move* — the notifications leave the delegator's list — whereas ongoing delegation copies them. It is the tool for "the manager is already on leave and their inbox is full", not for routine cover. The document must be saved and committed before the action will run.
+:::
 
 ## Configuration and Administration
 
