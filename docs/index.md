@@ -37,6 +37,10 @@ features:
     title: External Integrations
     details: The Nama ERP API, integration scenarios with other systems, invoice retrieval, and attendance machine integration
     link: /integration/
+  - icon: 🏗️
+    title: Architecture
+    details: How Nama ERP is built, deployed and secured — the application and infrastructure architecture, for IT and security reviewers
+    link: /architecture/
   - icon: 🛠️
     title: System Administration
     details: Troubleshooting common issues, reprocessing quantities, costs and the ledger, and database utilities
@@ -53,8 +57,4 @@ features:
     title: Release Notes
     details: What every Nama ERP release brought — new features, improvements, and fixes, month by month (published in Arabic)
     link: /ar/release-notes/
-  - icon: 🎬
-    title: Video Tutorials
-    details: A training video library covering installation, the report wizard, human resources, and supply chain
-    link: /videos/
 ---

@@ -1,6 +1,7 @@
 {
   "includeFiles": [
     "titles/root.json",
+    "titles/architecture.json",
     "titles/platform.json",
     "titles/modules-invoicing.json",
     "titles/modules-accounting.json",

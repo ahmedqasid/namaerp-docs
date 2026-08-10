@@ -1,0 +1,14 @@
+{
+  "sortedPaths": [
+    "/architecture",
+    "/architecture/application-architecture.md",
+    "/architecture/infrastructure-architecture.md",
+    "/architecture/security-architecture.md"
+  ],
+  "folderTitles": {
+    "/architecture": {
+      "ar": "البنية المعمارية",
+      "en": "Architecture"
+    }
+  }
+}
