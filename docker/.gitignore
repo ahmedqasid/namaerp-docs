@@ -1,0 +1,5 @@
+# Real secrets live here — never commit. Use .env.example as the template.
+.env
+
+# Runtime data volumes.
+meili-data/

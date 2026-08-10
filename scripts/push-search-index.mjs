@@ -8,7 +8,7 @@
  *   node scripts/push-search-index.mjs
  *
  * Env:
- *   MEILI_HOST         default http://127.0.0.1:7701   (see code/tools/docs-search/docker/)
+ *   MEILI_HOST         default http://127.0.0.1:7701   (see ../docker/)
  *   MEILI_MASTER_KEY   required
  *   MEILI_INDEX        default namaerp-docs
  *   SEARCH_INDEX_JSON  default docs/.vitepress/search-index.json
@@ -47,7 +47,7 @@ const DOC_BATCH = 5000
 const DRY_RUN = process.argv.includes('--dry-run')
 
 if (!KEY && !DRY_RUN) {
-    console.error('MEILI_MASTER_KEY is not set. See code/tools/docs-search/docker/.env.example')
+    console.error('MEILI_MASTER_KEY is not set. See docker/.env.example')
     process.exit(1)
 }
 

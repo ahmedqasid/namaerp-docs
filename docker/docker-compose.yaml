@@ -1,0 +1,53 @@
+# Meilisearch instance backing search on docs.namasoft.com.
+#
+# Deliberately SEPARATE from the ask.namasoft.com Meilisearch (see
+# ../../answer-mcp/docker/docker-compose.yaml): that one lives on a different
+# server, and keeping them apart means a rebuild or restart of either stack
+# cannot take the other site's search down.
+#
+# Start / upgrade:
+#   cp .env.example .env      # then fill in MEILI_MASTER_KEY
+#   docker compose up -d
+#
+# Auto-start on boot comes from `restart: unless-stopped` below, which only
+# works if the docker daemon itself is enabled:
+#   systemctl enable --now docker
+# For an explicit, greppable service unit run ./install-service.sh in this folder.
+services:
+  meilisearch:
+    # PINNED on purpose. `:latest` bit the ask stack on 2026-07-23 (a --pull
+    # rebuild kept resolving a stale cached digest and sat two releases behind
+    # with no visible sign). Upgrade by bumping this string and nothing else;
+    # read the Meilisearch release notes first, since a major version can
+    # require a dump/restore rather than an in-place restart.
+    image: getmeili/meilisearch:v1.12
+    container_name: docs-meilisearch
+    restart: unless-stopped
+    environment:
+      MEILI_MASTER_KEY: ${MEILI_MASTER_KEY}
+      # production refuses to boot without a master key and disables the bundled
+      # search-preview web UI. To eyeball relevance by hand, flip this to
+      # `development` temporarily and open http://127.0.0.1:7701 — do not leave
+      # it that way, development mode makes the instance writable without a key.
+      MEILI_ENV: production
+      MEILI_NO_ANALYTICS: "true"
+      # Meilisearch keeps its index memory-mapped; this caps the write batch, not
+      # the index size. 1 GiB is ample for ~19k small documents.
+      MEILI_MAX_INDEXING_MEMORY: 1Gb
+    ports:
+      # Loopback only. The browser never talks to Meilisearch directly — NLM's
+      # /nlm/docs-search servlet proxies queries, so nothing here is public and
+      # no API key ever reaches a client bundle.
+      #
+      # 7701, not 7700, purely so that if this ever lands on the same host as the
+      # ask stack the two cannot fight over the port.
+      - "127.0.0.1:7701:7700"
+    volumes:
+      - ./meili-data:/meili_data
+    healthcheck:
+      # /health is unauthenticated by design, so this needs no key.
+      test: ["CMD", "curl", "--fail", "http://localhost:7700/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 20s
