@@ -227,23 +227,22 @@ async function main() {
         console.log(`  indexed ${Math.min(i + DOC_BATCH, documents.length)}/${documents.length}`)
     }
 
-    // First-ever run: nothing to swap with, so just rename by creating the target.
+    // swap-indexes needs BOTH indexes to already exist, and on a first run the live one
+    // does not. Note the failure mode that makes this easy to get wrong: the endpoint
+    // returns 202 with a taskUid even when an index is missing, so the error never
+    // surfaces on the HTTP call — it lands in the task ("Index `x` not found") and is only
+    // visible once awaited. Creating the live index up front is cheaper than reacting to
+    // that, and keeps one code path instead of two.
     const existing = await meili('GET', '/indexes?limit=1000')
     const liveExists = existing.results.some((idx) => idx.uid === INDEX)
-    if (liveExists) {
-        await awaitTask(await meili('POST', '/swap-indexes', [{indexes: [STAGING, INDEX]}]), 'swap')
-        await awaitTask(await meili('DELETE', `/indexes/${STAGING}`), 'drop old')
-        console.log(`  swapped into "${INDEX}", dropped previous`)
-    } else {
-        await awaitTask(await meili('POST', '/swap-indexes', [{indexes: [STAGING, INDEX]}])
-            .catch(async () => {
-                // No live index to swap with — create it empty, then swap.
-                await awaitTask(await meili('POST', '/indexes', {uid: INDEX, primaryKey: 'id'}), 'create live')
-                return meili('POST', '/swap-indexes', [{indexes: [STAGING, INDEX]}])
-            }), 'first swap')
-        await awaitTask(await meili('DELETE', `/indexes/${STAGING}`), 'drop staging')
-        console.log(`  created "${INDEX}"`)
+    if (!liveExists) {
+        await awaitTask(await meili('POST', '/indexes', {uid: INDEX, primaryKey: 'id'}), 'create live index')
+        console.log(`  created empty "${INDEX}" to swap against`)
     }
+
+    await awaitTask(await meili('POST', '/swap-indexes', [{indexes: [STAGING, INDEX]}]), 'swap')
+    await awaitTask(await meili('DELETE', `/indexes/${STAGING}`), 'drop previous')
+    console.log(`  swapped into "${INDEX}", dropped previous`)
 
     const stats = await meili('GET', `/indexes/${INDEX}/stats`)
     console.log(`Done. ${stats.numberOfDocuments} documents live.`)
