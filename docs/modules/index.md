@@ -66,6 +66,10 @@ features:
     title: Service Center
     details: The motor trade — the repair workshop from service request to job order, closing and invoicing, alongside the car showroom's purchases, sales, insurance and financing, plus vehicle rental and the reception ticket queue
     link: /modules/servicecenter/
+  - icon: 🤝
+    title: Customer Relationship Management
+    details: Leads, campaigns, calls and visits, questionnaires, complaints and trouble tickets, and service contracts — alongside a separate equipment-maintenance operation with its own contracts, work plans, orders and invoicing
+    link: /modules/crm/
   - icon: 📱
     title: Mobile Applications
     details: Mobile applications and QR integration
