@@ -2,6 +2,13 @@
 
 Where attached files live, how their disk space is watched, and the two external tools the system uses to scan paper and convert documents.
 
+::: tip Archiving paper documents
+These settings govern storage for every attachment in the system, including archived documents. If
+you are filing physical paperwork — contracts, licences, deeds — with shelf locations and a
+borrowing history, that is [Document Management](/platform/dms/), and the scanner and converter
+settings below are its way in.
+:::
+
 ![Attachments and Storage tab](../../ar/platform/global-config/images/gc-attachments-en.png)
 
 ## Attachment storage

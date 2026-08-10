@@ -61,6 +61,13 @@
     "/platform/import-export/export-file-format.md",
     "/platform/import-export/files-export-import-menu.md",
     "/platform/import-export/advanced-record-import.md",
+    "/platform/dms",
+    "/platform/dms/dms-overview.md",
+    "/platform/dms/dms-filing-structure.md",
+    "/platform/dms/dms-documents.md",
+    "/platform/dms/dms-movements.md",
+    "/platform/dms/dms-bulk-import.md",
+    "/platform/dms/dms-configuration.md",
     "/platform/entity-flows",
     "/platform/entity-flows/introduction-to-entity-flows.md",
     "/platform/entity-flows/excel-and-sql-import-by-entity-flow.md",
@@ -120,6 +127,10 @@
     "/platform/import-export": {
       "ar": "استيراد السجلات وتصديرها",
       "en": "Importing & Exporting Records"
+    },
+    "/platform/dms": {
+      "ar": "إدارة المستندات",
+      "en": "Document Management"
     },
     "/platform/entity-flows": {
       "ar": "مسارات الكيان",

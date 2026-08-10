@@ -12,7 +12,7 @@ What you set here is a default for a whole record type. The screen that does the
 
 ## Screen additions
 
-**DMS Document Filter Folders by Location** `value.info.dmsDocFilterFoldersByLocation` — Filters the folder selector on a document-management record down to folders belonging to the record's location, so a user in one office doesn't have to scroll past every other office's filing structure.
+**Filter Folders By Location in DMS Documents** `value.info.dmsDocFilterFoldersByLocation` — Filters the folder selector on an archived document down to folders whose default archive matches the one chosen on the document, so a user in one office doesn't have to scroll past every other office's filing structure. See [Settings and Integration](/platform/dms/dms-configuration.md).
 
 **Detailed Work Tasks** `value.info.detailedWorkTasks` — Switches the work-task screens to their detailed layout, which carries more fields per task.
 
@@ -34,7 +34,7 @@ Each of these tables names the entity types that should receive one extra page. 
 
 **Add Contacts Page To** `value.info.addContactsPageTo` — Adds a Contacts page, for the named people at that customer or supplier.
 
-**Add DMS Documents To** `value.info.addDMSDocsTo` — Adds a document-management page, so scanned paperwork lives on the record it belongs to. Same preset list as remarks.
+**Add Related Archive Docs To** `value.info.addDMSDocsTo` — Adds a **DMS Documents** page to each listed entity type, so archived paperwork is visible on the record it belongs to. Preset with the five types that can own an archived document. See [Document Management](/platform/dms/).
 
 **Add Subsidiary Balance To** `value.info.addSubsidiaryBalanceTo` — Adds an account balances block, so you can open a customer and see what they owe without leaving the screen.
 

@@ -74,7 +74,7 @@ Everything above paints the whole system the same way. When the meaning you want
 
 **Use Kendo Rich Editor** `value.info.useKendoRichEditor` — Rich-text fields use the Kendo editor.
 
-**Create DMS Document in Popup Window** `value.info.createDMSDocInPopUpWindow` *(default on)* — The "create DMS document" action opens in a popup instead of navigating away, so the user does not lose the record they were working on.
+**Create DMS Doc In Pop Up Window** `value.info.createDMSDocInPopUpWindow` *(default on)* — The **Create Archive** action opens the new [archived document](/platform/dms/dms-documents.md) in a popup instead of navigating away, so the user does not lose the record they were working on.
 
 ## Tooltips
 

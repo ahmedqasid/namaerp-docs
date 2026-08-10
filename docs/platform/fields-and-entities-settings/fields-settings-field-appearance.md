@@ -167,3 +167,4 @@ The scanner application and its profile are not configured here; they are set in
 - [Screen Modifier — Edit-Screen Modifications](/platform/screen-modifier/screen-modifier-edit-screen) — for moving, hiding or renaming a field rather than restyling it.
 - [Appearance](/platform/global-config/global-config-appearance) — the system-wide fonts, colours and interface behaviour these settings sit on top of.
 - [Attachments and Storage](/platform/global-config/global-config-attachments) — where the scanner application and attachment storage are configured.
+- [Document Management](/platform/dms/) — where scanned paperwork with a physical shelf location and a borrowing history is registered; this is also where per-field allowed extensions matter most.
