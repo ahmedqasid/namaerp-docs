@@ -13,6 +13,7 @@
           @keydown.enter.prevent="openResult(focusIndex)"
       />
       <select v-model="searchMode" class="search-mode-selector" :title="t.searchMode">
+        <option value="meili">{{ t.modeMeili }}</option>
         <option value="semantic">{{ t.modeSemantic }}</option>
         <option value="fuzzy">{{ t.modeFuzzy }}</option>
         <option value="fulltext">{{ t.modeFulltext }}</option>
@@ -76,7 +77,7 @@ const STORAGE_MODE = 'nama-docs-search-mode'
 const STORAGE_INDEX = 'nama-docs-search-index'
 const STORAGE_LOCALE_SCOPE = 'nama-docs-search-locale-scope'
 
-type SearchMode = 'semantic' | 'fuzzy' | 'fulltext'
+type SearchMode = 'meili' | 'semantic' | 'fuzzy' | 'fulltext'
 
 const props = defineProps<{ fullHeight?: boolean }>()
 const emit = defineEmits<{ close: [] }>()
@@ -88,6 +89,7 @@ const isArabic = computed(() => lang.value === 'ar')
 const t = computed(() => isArabic.value ? {
   placeholder: 'ابحث في التوثيق…',
   searchMode: 'طريقة البحث',
+  modeMeili: 'بحث بالكلمات',
   modeSemantic: 'بحث ذكي (AI)',
   modeFuzzy: 'بحث تقريبي',
   modeFulltext: 'مطابقة نص حرفية',
@@ -103,6 +105,7 @@ const t = computed(() => isArabic.value ? {
 } : {
   placeholder: 'Search the documentation…',
   searchMode: 'Search mode',
+  modeMeili: 'Keyword Search',
   modeSemantic: 'AI Search',
   modeFuzzy: 'Fuzzy Search',
   modeFulltext: 'Exact Text Match',
@@ -118,7 +121,9 @@ const t = computed(() => isArabic.value ? {
 })
 
 const query = ref('')
-const searchMode = ref<SearchMode>('semantic')
+// Meilisearch is the default: it replaced the VitePress built-in navbar search, so it
+// is what a reader gets without touching the mode selector.
+const searchMode = ref<SearchMode>('meili')
 const searchIndex = ref('default')
 const localeScope = ref<'current' | 'all'>('current')
 const results = ref<SearchResultItem[]>([])
@@ -129,7 +134,7 @@ const inputRef = ref<HTMLInputElement>()
 const resultsRef = ref<HTMLElement>()
 
 onMounted(() => {
-  searchMode.value = readSetting(STORAGE_MODE, ['semantic', 'fuzzy', 'fulltext'], searchMode.value) as SearchMode
+  searchMode.value = readSetting(STORAGE_MODE, ['meili', 'semantic', 'fuzzy', 'fulltext'], searchMode.value) as SearchMode
   searchIndex.value = readSetting(STORAGE_INDEX, Object.keys(t.value.indexTitles), searchIndex.value)
   localeScope.value = readSetting(STORAGE_LOCALE_SCOPE, ['current', 'all'], localeScope.value) as 'current' | 'all'
   inputRef.value?.focus()
@@ -146,6 +151,8 @@ let searchSequence = 0
 watch([query, searchMode, searchIndex, localeScope], () => {
   if (debounceTimer)
     clearTimeout(debounceTimer)
+  // Only the AI mode pays an embedding round-trip; the rest answer fast enough to
+  // search as you type.
   debounceTimer = setTimeout(runSearch, searchMode.value === 'semantic' ? 350 : 150)
 })
 

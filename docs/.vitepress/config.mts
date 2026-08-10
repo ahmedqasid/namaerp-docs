@@ -212,51 +212,6 @@ gtag('config', 'G-H68GM8HY15');`]
         socialLinks: [
             {icon: 'github', link: 'https://github.com/ahmedqasid/namaerp-docs'}
         ],
-        // Built-in minisearch handles quick keyword search; the AI/advanced search
-        // (semantic / fuzzy / exact substring via the nlm servlet) lives in
-        // EmbeddableSearchBox (navbar button + /full-search.html pages).
-        search: {
-            provider: 'local',
-            options: {
-                detailedView: true,
-                miniSearch: {
-                    options: {
-                        // minisearch's default processTerm only lowercases; add Arabic
-                        // folding so hamza/taa-marbuta variants match. Search-time terms
-                        // go through the same function (minisearch reuses it by default).
-                        // IMPORTANT: VitePress serializes this function and re-evals it in
-                        // the browser, so it must be self-contained — no imports/closures
-                        // (calling normalizeArabic here throws ReferenceError at runtime).
-                        // Keep in sync with theme/arabic-normalization.ts.
-                        processTerm: (term) => term.toLowerCase()
-                            .replace(/[ً-ْٰ]/g, '') // tashkeel diacritics
-                            .replace(/ـ/g, '') // tatweel
-                            .replace(/[أإآء]/g, 'ا')
-                            .replace(/ة/g, 'ه')
-                            .replace(/[ىئ]/g, 'ي')
-                            .replace(/ؤ/g, 'و')
-                    }
-                },
-                locales: {
-                    ar: {
-                        translations: {
-                            button: {buttonText: 'بحث', buttonAriaLabel: 'بحث'},
-                            modal: {
-                                displayDetails: 'عرض التفاصيل',
-                                resetButtonTitle: 'مسح البحث',
-                                backButtonTitle: 'إغلاق',
-                                noResultsText: 'لا توجد نتائج عن',
-                                footer: {
-                                    selectText: 'اختيار',
-                                    navigateText: 'تنقل',
-                                    closeText: 'إغلاق'
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
     },
     transformHtml: (html, id, ctx) => {
         collectPageForSearchIndex(html, ctx.page, ctx.pageData.title)

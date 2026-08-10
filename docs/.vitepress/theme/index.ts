@@ -2,7 +2,7 @@ import {h} from 'vue'
 import DefaultTheme from 'vitepress/theme'
 import type {Theme} from 'vitepress'
 import './custom.css'
-import AiSearchNavButton from './components/AiSearchNavButton.vue'
+import DocsSearchNavButton from './components/DocsSearchNavButton.vue'
 import LocaleToggleLink from './components/LocaleToggleLink.vue'
 
 import RTLBlock from './components/RTLBlock.vue'
@@ -28,7 +28,7 @@ export default {
     // The sidebar tree itself comes from page data rather than themeConfig, so it is rendered here
     // under the one entry sidebar.js still holds (see SectionSidebar and GenNamaDocsIndex).
     Layout: () => h(DefaultTheme.Layout, null, {
-        'nav-bar-content-before': () => h(AiSearchNavButton),
+        'nav-bar-content-before': () => h(DocsSearchNavButton),
         'nav-bar-content-after': () => h(LocaleToggleLink),
         'sidebar-nav-after': () => h(SectionSidebar)
     }),
