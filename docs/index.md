@@ -45,6 +45,14 @@ features:
     title: Developer Reference
     details: Documentation writing guidelines, development request guidelines, and GUI post actions FAQ
     link: /developer/
+  - icon: 🤖
+    title: Entity Flows Reference
+    details: A generated reference for every entity flow in the system, module by module — parameters, behaviour, and usage notes (in English only)
+    link: /entity-flows/
+  - icon: 📋
+    title: Release Notes
+    details: What every Nama ERP release brought — new features, improvements, and fixes, month by month (published in Arabic)
+    link: /ar/release-notes/
   - icon: 🎬
     title: Video Tutorials
     details: A training video library covering installation, the report wizard, human resources, and supply chain
