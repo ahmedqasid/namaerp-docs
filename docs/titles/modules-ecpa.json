@@ -1,0 +1,37 @@
+{
+  "sortedPaths": [
+    "/modules/ecpa",
+    "/modules/ecpa/ecpa-overview.md",
+    "/modules/ecpa/ecpa-configuration.md",
+    "/modules/ecpa/ecpa-costing-and-profitability.md",
+    "/modules/ecpa/ecpa-reports.md",
+    "/modules/ecpa/projects",
+    "/modules/ecpa/projects/ecpa-project-setup.md",
+    "/modules/ecpa/projects/ecpa-milestones-and-matrix.md",
+    "/modules/ecpa/projects/ecpa-managed-project.md",
+    "/modules/ecpa/projects/ecpa-sales-quotation.md",
+    "/modules/ecpa/projects/ecpa-project-templates.md",
+    "/modules/ecpa/projects/ecpa-project-stages.md",
+    "/modules/ecpa/projects/ecpa-stage-extensions.md",
+    "/modules/ecpa/projects/ecpa-procedures.md",
+    "/modules/ecpa/tasks",
+    "/modules/ecpa/tasks/ecpa-tasks.md",
+    "/modules/ecpa/task-execution",
+    "/modules/ecpa/task-execution/ecpa-timesheets.md",
+    "/modules/ecpa/task-execution/ecpa-timesheet-approval.md",
+    "/modules/ecpa/expenses",
+    "/modules/ecpa/expenses/ecpa-project-expenses.md",
+    "/modules/ecpa/invoicing",
+    "/modules/ecpa/invoicing/ecpa-project-invoice.md",
+    "/modules/ecpa/invoicing/ecpa-project-returns.md",
+    "/modules/ecpa/invoicing/ecpa-document-terms.md"
+  ],
+  "folderTitles": {
+    "/modules/ecpa": { "ar": "ادارة المشاريع", "en": "Project Management" },
+    "/modules/ecpa/projects": { "ar": "المشاريع", "en": "Projects" },
+    "/modules/ecpa/tasks": { "ar": "المهام", "en": "Tasks" },
+    "/modules/ecpa/task-execution": { "ar": "تنفيذ المهام والموافقات", "en": "Task Execution" },
+    "/modules/ecpa/expenses": { "ar": "المصاريف", "en": "Expenses" },
+    "/modules/ecpa/invoicing": { "ar": "الفواتير", "en": "Invoicing" }
+  }
+}

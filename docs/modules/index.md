@@ -58,6 +58,10 @@ features:
     title: Real Estate
     details: Real-estate investment and property management
     link: /modules/realestate/
+  - icon: 📐
+    title: Project Management
+    details: For firms that sell professional time — quotations and managed projects, milestone and discipline work packages, tasks and timesheets with approvals, project expenses, and billing that sweeps unbilled hours and costs into invoices
+    link: /modules/ecpa/
   - icon: 🏭
     title: Fixed Assets
     details: The asset register from purchase or import through depreciation, revaluation, transfers and maintenance to disposal — plus custody of items issued to employees
