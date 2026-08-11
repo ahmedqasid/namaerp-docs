@@ -86,3 +86,13 @@
 .VPNavScreenTranslations {
     display: none !important;
 }
+
+/* ===== Search modal scroll lock =====
+ * Set by DocsSearchNavButton while the search dialog is open. Position-fixing the body
+ * (rather than only hiding overflow) is what stops iOS Safari from scrolling the page
+ * behind the dialog; the button restores the saved scroll offset on close. */
+body.docs-search-scroll-locked {
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+}

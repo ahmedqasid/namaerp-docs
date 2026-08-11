@@ -8,6 +8,16 @@ title: Platform Features
 
 Every Nama ERP module — accounting, supply chain, HR — is built on the same platform. These are the system-wide tools that work across all of them: the things you use to reshape a screen, lock down who can see what, automate repetitive work, turn your data into reports and dashboards, and keep everyone notified. Learn them once and they pay off everywhere.
 
+## Working with Records
+
+How every record in the system is numbered, evidenced and tracked — the mechanics that sit under
+documents and master files alike.
+
+<LandingGrid>
+  <LandingCard icon="🔢" title="Document Books" link="/platform/document-books.md" details="The numbering series every document draws its number from — prefixes, serials, yearly resets, and the behaviour a book imposes on its documents." />
+  <LandingCard icon="📎" title="Attachments" link="/platform/attachments.md" details="Storing files on a record: header and detail-line attachment fields, scanning and signatures, and where the bytes are kept." />
+</LandingGrid>
+
 ## Tailoring the System
 
 Reshape screens, lists, and even built-in labels to fit how your team actually works — no code required.
@@ -29,6 +39,7 @@ Control who can do what, and keep your books and processes under firm control.
   <LandingCard icon="🖊️" title="Revise and Unrevise" link="/platform/revise-and-unrevise.md" details="Sign off committed records level by level, name each step and its owner, and lock what has been checked." />
   <LandingCard icon="🗓️" title="Fiscal Period Control" link="/platform/fiscal-period-control-guide.md" details="Lock accounting periods so no one can post into a closed month." />
   <LandingCard icon="🛡️" title="Criteria-Based Validation" link="/platform/criteria-based-validation.md" details="Block or warn on documents that don't meet rules you define." />
+  <LandingCard icon="🕓" title="Audit Trail &amp; Version History" link="/platform/audit-trail.md" details="Who changed a record and what it said before — the version history, field-level auditing, comparing versions, and reverting to an earlier one." />
 </LandingGrid>
 
 ## Automation & Data

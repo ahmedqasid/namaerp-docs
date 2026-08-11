@@ -1,6 +1,9 @@
 {
   "sortedPaths": [
     "/platform",
+    "/platform/document-books.md",
+    "/platform/audit-trail.md",
+    "/platform/attachments.md",
     "/platform/global-config",
     "/platform/global-config/global-config-general.md",
     "/platform/global-config/global-config-dimensions.md",

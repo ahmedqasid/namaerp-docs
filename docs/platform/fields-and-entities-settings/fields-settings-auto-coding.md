@@ -20,7 +20,7 @@ called **Files Auto Coding**.
 This is coding for **master files** only. Documents — sales invoices, stock issues, receipt
 vouchers — do not get their numbers from here. Document numbering belongs to document books, which
 decide the prefix, the serial and the reset period per document type. See
-[Documents and Books](/platform/global-config/global-config-documents) for that side of the system.
+[Document Books](/platform/document-books) for that side of the system.
 
 If you put a document type in **For Type** here, the line is simply never reached.
 
@@ -325,7 +325,7 @@ record is being saved.
 ## Related pages
 
 - [Fields and Entities Settings — Overview](/platform/fields-and-entities-settings/fields-settings-overview) — the scope columns every grid shares, and how the records combine.
-- [Documents and Books](/platform/global-config/global-config-documents) — numbering for documents, which this grid does not cover.
+- [Document Books](/platform/document-books) — numbering for documents, which this grid does not cover.
 - [Tempo Language Manual](/admin/tempo) — the full formula language, its functions and its date and text helpers.
 - [Criteria Based Validation](/platform/criteria-based-validation) — how the queries behind Criteria Definition and Code Validity Query are written and tested.
 - [Criteria from Text Parser](/platform/text-criteria-guide) — writing the criteria expressions themselves.

@@ -1,52 +1,61 @@
 <template>
-  <button class="docs-search-nav-button" :title="label" @click="open = true">
-    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
-         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="11" cy="11" r="8"/>
-      <path d="m21 21-4.3-4.3"/>
-    </svg>
-    <span class="search-label">{{ label }}</span>
-    <kbd v-if="shortcutHint" class="search-shortcut">{{ shortcutHint }}</kbd>
+  <button type="button" class="docs-search-nav-button" :aria-label="label" :title="label" @click="open = true">
+    <span class="button-container">
+      <span aria-hidden="true" class="vpi-search button-search-icon"/>
+      <span class="button-placeholder">{{ label }}</span>
+    </span>
+    <span v-if="shortcutModifier" class="button-keys">
+      <kbd class="button-key">{{ shortcutModifier }}</kbd>
+      <kbd class="button-key">K</kbd>
+    </span>
   </button>
 
   <Teleport to="body">
-    <div v-if="open" class="docs-search-overlay" @click.self="open = false">
-      <div class="docs-search-dialog" role="dialog" aria-modal="true" :aria-label="label">
-        <button class="docs-search-close" :title="closeLabel" @click="open = false">✕</button>
-        <EmbeddableSearchBox @close="open = false"/>
+    <div
+        v-if="open"
+        ref="dialogRoot"
+        class="DocsSearchModal"
+        role="dialog"
+        aria-modal="true"
+        :aria-label="label"
+        @keydown="onDialogKeydown"
+    >
+      <div class="backdrop" @click="open = false"/>
+      <div ref="shellRef" class="shell">
+        <EmbeddableSearchBox modal @close="open = false"/>
       </div>
     </div>
   </Teleport>
 </template>
 
 <script setup lang="ts">
-import {computed, onMounted, onUnmounted, ref, watch} from 'vue'
+import {computed, nextTick, onMounted, onUnmounted, ref, watch} from 'vue'
 import {useData} from 'vitepress'
 import EmbeddableSearchBox from './EmbeddableSearchBox.vue'
 
 const {lang} = useData()
 const open = ref(false)
+const shellRef = ref<HTMLElement>()
 
 // This button IS site search now — the VitePress built-in `local` provider was removed
 // (it shipped an 18.7 MB minisearch index to the browser). The label is deliberately
 // neutral rather than "AI Search": the dialog defaults to keyword search via
 // Meilisearch, with AI as one mode among several.
 const label = computed(() => lang.value === 'ar' ? 'بحث' : 'Search')
-const closeLabel = computed(() => lang.value === 'ar' ? 'إغلاق' : 'Close')
 
 // Rendered only after mount: the platform is unknowable during SSR, and guessing would
 // hydrate a Mac hint onto a Windows browser.
-const shortcutHint = ref('')
+const shortcutModifier = ref('')
 
 onMounted(() => {
-  const isApple = /Mac|iPhone|iPod|iPad/i.test(navigator.platform)
-  shortcutHint.value = isApple ? '⌘K' : 'Ctrl K'
+  shortcutModifier.value = /Mac|iPhone|iPod|iPad/i.test(navigator.platform) ? '⌘' : 'Ctrl'
   window.addEventListener('keydown', onGlobalKeydown)
 })
 
 onUnmounted(() => {
   window.removeEventListener('keydown', onGlobalKeydown)
-  window.removeEventListener('keydown', onDialogKeydown)
+  window.removeEventListener('popstate', onPopState)
+  unlockScroll()
 })
 
 /**
@@ -74,108 +83,222 @@ function isTypingTarget(target: EventTarget | null) {
       || ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName)
 }
 
+/**
+ * Escape closes; Tab cycles inside the dialog. Trapping Tab by hand rather than pulling in
+ * @vueuse/integrations' focus-trap: that package is only present here as a transitive
+ * dependency of VitePress, so importing it would be relying on npm hoisting.
+ */
 function onDialogKeydown(event: KeyboardEvent) {
-  if (event.key === 'Escape')
+  if (event.key === 'Escape') {
     open.value = false
+    return
+  }
+  if (event.key !== 'Tab' || !shellRef.value)
+    return
+  const focusable = [...shellRef.value.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), input, select')]
+      .filter((element) => element.offsetParent !== null)
+  if (!focusable.length)
+    return
+  const edge = event.shiftKey ? focusable[0] : focusable[focusable.length - 1]
+  if (document.activeElement !== edge)
+    return
+  event.preventDefault()
+  const wrapTarget = event.shiftKey ? focusable[focusable.length - 1] : focusable[0]
+  wrapTarget.focus()
+}
+
+/**
+ * The dialog pushes a history entry so that Back closes search instead of leaving the
+ * page the reader was searching from.
+ */
+function onPopState(event: PopStateEvent) {
+  event.preventDefault()
+  open.value = false
+}
+
+let scrollLockedAt = 0
+
+function lockScroll() {
+  scrollLockedAt = window.scrollY
+  document.body.style.top = `-${scrollLockedAt}px`
+  document.body.classList.add('docs-search-scroll-locked')
+}
+
+function unlockScroll() {
+  if (!document.body.classList.contains('docs-search-scroll-locked'))
+    return
+  document.body.classList.remove('docs-search-scroll-locked')
+  document.body.style.top = ''
+  window.scrollTo(0, scrollLockedAt)
 }
 
 watch(open, (isOpen) => {
-  if (isOpen)
-    window.addEventListener('keydown', onDialogKeydown)
-  else
-    window.removeEventListener('keydown', onDialogKeydown)
+  if (isOpen) {
+    lockScroll()
+    window.history.pushState(null, '', null)
+    nextTick(() => window.addEventListener('popstate', onPopState))
+  }
+  else {
+    unlockScroll()
+    window.removeEventListener('popstate', onPopState)
+  }
 })
 </script>
 
 <style scoped>
+/* Metrics copied from VitePress's own DocSearch button so this sits in the navbar exactly
+   where the built-in search button did. */
 .docs-search-nav-button {
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 6px;
-  padding: 4px 12px;
-  margin: 0 8px;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 8px;
-  background: var(--vp-c-bg-alt);
-  color: var(--vp-c-text-2);
-  font-size: 13px;
-  font-weight: 500;
-  transition: border-color 0.25s, color 0.25s;
+  width: 48px;
+  height: 55px;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  transition: border-color 0.25s;
 }
 
-.docs-search-nav-button:hover {
-  border-color: var(--vp-c-brand-1);
-  color: var(--vp-c-text-1);
-}
+@media (min-width: 768px) {
+  .docs-search-nav-button {
+    justify-content: flex-start;
+    width: 100%;
+    height: 40px;
+    padding: 0 10px 0 12px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background-color: var(--vp-c-bg-alt);
+  }
 
-.search-icon {
-  color: var(--vp-c-brand-1);
-}
-
-.search-shortcut {
-  padding: 1px 5px;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 4px;
-  background: var(--vp-c-bg);
-  color: var(--vp-c-text-3);
-  font-family: var(--vp-font-family-base);
-  font-size: 11px;
-  line-height: 1.4;
-}
-
-@media (max-width: 767px) {
-  .search-label,
-  .search-shortcut {
-    display: none;
+  .docs-search-nav-button:hover {
+    border-color: var(--vp-c-brand-1);
   }
 }
 
-.docs-search-overlay {
+.button-container {
+  display: flex;
+  align-items: center;
+}
+
+.button-search-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--vp-c-text-1);
+  transition: color 0.5s;
+}
+
+@media (min-width: 768px) {
+  .button-search-icon {
+    width: 14px;
+    height: 14px;
+    /* rtl:begin:ignore */
+    margin-right: 8px;
+    /* rtl:end:ignore */
+    color: var(--vp-c-text-2);
+  }
+}
+
+.docs-search-nav-button:hover .button-search-icon,
+.docs-search-nav-button:hover .button-placeholder {
+  color: var(--vp-c-text-1);
+}
+
+.button-placeholder {
+  display: none;
+  margin-top: 2px;
+  padding-inline-end: 16px;
+  color: var(--vp-c-text-2);
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.5s;
+}
+
+.button-keys {
+  /* rtl:ignore */
+  direction: ltr;
+  display: none;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .button-placeholder,
+  .button-keys {
+    display: flex;
+  }
+}
+
+.button-key {
+  display: block;
+  height: 22px;
+  margin-top: 2px;
+  border: 1px solid var(--vp-c-divider);
+  /* rtl:begin:ignore */
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+  padding-left: 6px;
+  /* rtl:end:ignore */
+  color: var(--vp-c-text-2);
+  font-family: var(--vp-font-family-base);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 22px;
+  transition: color 0.5s, border-color 0.5s;
+}
+
+.button-key + .button-key {
+  /* rtl:begin:ignore */
+  border-right: 1px solid var(--vp-c-divider);
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  padding-left: 2px;
+  padding-right: 6px;
+  /* rtl:end:ignore */
+}
+
+/* Modal shell — the same geometry as VitePress's VPLocalSearchBox, including the
+   full-screen treatment below 768px. */
+.DocsSearchModal {
   position: fixed;
   inset: 0;
-  z-index: 200;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(2px);
+  z-index: 100;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 64px 16px 16px;
 }
 
-.docs-search-dialog {
-  position: relative;
-  width: min(720px, 100%);
-  max-height: calc(100vh - 96px);
-  overflow-y: auto;
-  background: var(--vp-c-bg);
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 12px;
-  box-shadow: var(--vp-shadow-3);
-  padding: 8px 12px;
-}
-
-/* rtl:begin:ignore */
-.docs-search-close {
+.backdrop {
   position: absolute;
-  top: 10px;
-  inset-inline-end: 12px;
-  z-index: 1;
-  padding: 4px 8px;
+  inset: 0;
+  background: var(--vp-backdrop-bg-color);
+  transition: opacity 0.5s;
+}
+
+.shell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: min(100vw - 60px, 900px);
+  height: min-content;
+  max-height: min(100vh - 128px, 900px);
+  margin: 64px auto;
+  padding: 12px;
   border-radius: 6px;
-  color: var(--vp-c-text-2);
-  font-size: 14px;
+  background: var(--vp-local-search-bg);
 }
 
-/* rtl:end:ignore */
-
-.docs-search-close:hover {
-  color: var(--vp-c-text-1);
-  background: var(--vp-c-bg-soft);
+/* Lets the results list — and only the results list — take the leftover height and
+   scroll, instead of the whole dialog growing past its max-height. */
+.shell > :deep(.embeddable-search-box) {
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
-.docs-search-dialog .embeddable-search-box {
-  border: none;
-  margin: 0;
-  padding: 8px 4px;
+@media (max-width: 767px) {
+  .shell {
+    width: 100vw;
+    height: 100vh;
+    max-height: none;
+    margin: 0;
+    border-radius: 0;
+  }
 }
 </style>

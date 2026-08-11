@@ -70,6 +70,10 @@ features:
     title: Service Center
     details: The motor trade — the repair workshop from service request to job order, closing and invoicing, alongside the car showroom's purchases, sales, insurance and financing, plus vehicle rental and the reception ticket queue
     link: /modules/servicecenter/
+  - icon: ✈️
+    title: Travel
+    details: For tour operators and travel agencies — reusable tour programs and the day-by-day tour file for each arriving group, hotel and restaurant vouchers, and the travel service purchase and sales cycle that turns a trip into cost and revenue
+    link: /modules/travel/
   - icon: 🤝
     title: Customer Relationship Management
     details: Leads, campaigns, calls and visits, questionnaires, complaints and trouble tickets, and service contracts — alongside a separate equipment-maintenance operation with its own contracts, work plans, orders and invoicing

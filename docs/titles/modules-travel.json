@@ -1,0 +1,16 @@
+{
+  "sortedPaths": [
+    "/modules/travel",
+    "/modules/travel/travel-master-files.md",
+    "/modules/travel/travel-document-terms.md",
+    "/modules/travel/tour-programs.md",
+    "/modules/travel/tours.md",
+    "/modules/travel/travel-vouchers.md",
+    "/modules/travel/travel-purchase-cycle.md",
+    "/modules/travel/travel-sales-cycle.md",
+    "/modules/travel/travel-payments-and-terms.md"
+  ],
+  "folderTitles": {
+    "/modules/travel": { "ar": "السفر والرحلات", "en": "Travel" }
+  }
+}
