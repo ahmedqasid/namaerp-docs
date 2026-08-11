@@ -1,0 +1,17 @@
+{
+  "sortedPaths": [
+    "/modules/education",
+    "/modules/education/education-master-files.md",
+    "/modules/education/education-courses.md",
+    "/modules/education/education-course-contracts.md",
+    "/modules/education/education-payment-schedules.md",
+    "/modules/education/education-contract-cancellation.md",
+    "/modules/education/education-document-terms.md",
+    "/modules/education/education-attendance.md",
+    "/modules/education/education-marks.md",
+    "/modules/education/education-transport-and-meals.md"
+  ],
+  "folderTitles": {
+    "/modules/education": { "ar": "التعليم", "en": "Education" }
+  }
+}

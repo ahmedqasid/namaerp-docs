@@ -74,6 +74,10 @@ features:
     title: Travel
     details: For tour operators and travel agencies — reusable tour programs and the day-by-day tour file for each arriving group, hotel and restaurant vouchers, and the travel service purchase and sales cycle that turns a trip into cost and revenue
     link: /modules/travel/
+  - icon: 🎓
+    title: Education
+    details: For schools and training centres — students, guardians and the stage, class and rank structure, attendance, daily monitoring and marks, buses, meals and school trips, and the course contract that turns enrolment into fees, an instalment plan and collection
+    link: /modules/education/
   - icon: 🤝
     title: Customer Relationship Management
     details: Leads, campaigns, calls and visits, questionnaires, complaints and trouble tickets, and service contracts — alongside a separate equipment-maintenance operation with its own contracts, work plans, orders and invoicing
