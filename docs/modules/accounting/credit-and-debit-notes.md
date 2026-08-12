@@ -25,6 +25,18 @@ The **Taxes** block carries the **sales tax** (percentage and value) and a secon
 
 In the **Details** tab you match the note's value against specific **invoices** (each line shows the **invoice value**, **net**, and **remaining**), so the note's effect is deducted directly from the invoice balance. The document also provides an **installments** grid and a **Payments** tab.
 
+## Settling the invoice the note is based on
+
+A note issued **based on** an invoice can do more than move the party's balance: it can also count as a **payment** on that invoice and reduce what is still remaining on it, exactly as a receipt or payment voucher would. You switch that on in the note's **document term**, in the **Invoice Payment Options** group, with **Add Credit/Debit Notes To Invoice Payment Documents**.
+
+The next question is which figure the invoice should be settled with. By default the system uses the note's **Amount** — the value *before* tax. That's the right answer when the tax on the note is handled separately, but not when the note is a full tax document in its own right: a customer who receives a credit note of 1,000 plus 150 sales tax expects 1,150 to come off the invoice, not 1,000.
+
+For that case turn on **Calculate Value Including Tax As Invoice Payment** in the same group. The note then settles the invoice with its **Total After Taxes** instead of its Amount, so both the invoice's remaining balance and the debt-ages entry the note produces against it move by the full tax-inclusive value. The option applies to the invoice the note is **based on** in the header; invoices you match line by line in the **Details** tab keep the values entered on their own lines. Leave the option off and the behavior is unchanged.
+
+::: tip Safe to enable on tax-free notes
+If a note has no total after taxes (no tax was applied), the Amount is used anyway, so the option changes nothing for those notes. And if you later edit a saved note's amount or taxes, the invoice is re-settled with the corrected value — the old value is withdrawn and the new one applied — so there's no need to cancel and re-enter the note.
+:::
+
 ## The accounting effect
 
 The counter-side to the party's account — as well as the two tax sides — comes from the **document term** (see the [Document terms](./support/accounting-document-terms.md) reference). A credit note makes the party credit and the counter-side (revenue/return/discount) debit; a debit note reverses them.
@@ -37,6 +49,7 @@ The counter-side to the party's account — as well as the two tax sides — com
 ## For Support
 
 - **"The note didn't reduce/increase the invoice balance"** — make sure it's matched to the invoice in the **Details** tab, not just entered as an amount in the header.
+- **"The invoice's remaining balance dropped by less than the note's total"** — a note settles the invoice with its **Amount** (before tax) unless **Calculate Value Including Tax As Invoice Payment** is enabled in the term's **Invoice Payment Options**.
 - **"The direction is reversed"** — make sure you're using the right type: **credit** to reduce a customer's receivable, **debit** to increase it.
 - **"The note wasn't submitted to the authority / its status is pending"** — review the Zakat and Tax Authority fields and the approval status; e-invoicing integration is a topic separate from accounting.
 - **"The wrong revenue/return or tax account"** — their source is the **document term**.
