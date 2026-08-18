@@ -4,17 +4,18 @@ The Customer Relationship Management menu — «خدمة العملاء» — is
 
 Before you set any of it up, there is one thing worth understanding, because almost every wrong expectation about this module comes from not knowing it.
 
-## This menu holds four separate products, not one system
+## This menu holds five separate products, not one system
 
 It is natural to look at this menu and imagine a single journey: a lead becomes a customer, the customer buys equipment, the equipment gets a maintenance contract, and when it breaks the customer raises a support ticket that a technician closes. Every one of those screens exists here. **They are not joined up that way.**
 
-What you actually have is four products that share a menu root and very little else:
+What you actually have is five products that share a menu root and very little else:
 
-::: warning The four products
+::: warning The five products
 1. **Support and Marketing** — the CRM proper. Leads, potentials, calls, visits, campaigns, questionnaires, complaints, trouble tickets and service contracts. These are genuinely integrated *with each other*.
 2. **Machine maintenance** — a complete, self-contained maintenance business: equipment records, maintenance contracts, work plans, orders, executions and invoices. It is connected to the CRM half by a single reference field.
 3. **Service maintenance** — the same maintenance code applied to a serviced *site* rather than a machine. A separate licence, a separate menu folder, and a noticeably smaller set of documents.
 4. **Kitchen Net** — five back-office screens belonging to a separate customer-facing mobile application. They are not covered in this guide.
+5. **Technician Appointments** — a small booking system for businesses that send crews to customer addresses: crews, procedures, a weekly calendar and the documents around them. Its own licence, its own menu folder, and no link to the maintenance suites. See [Technician Appointments](/modules/crm/technician-appointments/crm-technician-appointments-overview.md).
 :::
 
 The practical consequences are concrete, and each one surprises somebody eventually:
@@ -37,6 +38,7 @@ None of this makes the module unusable. It means you should choose the part you 
 | Service Documents | سندات خدمات الصيانة | The parallel service-maintenance suite |
 | Management And Organization Documents | الإدارة والتنظيم | The [risk register](/modules/crm/risk-register/crm-risk-register) — unrelated to everything else here |
 | Kitchen Net Configurations | إعدادات تطبيق Kitchen Net | Not covered in this guide |
+| Technician Appointments | مواعيد الفنيين | Crews, procedures, booking settings, appointments, the booking calendar, service distributions and transfers |
 
 Two screens inside this menu do not belong to the CRM module at all: **Contact** and **Social Media Subscriber Configuration** are shared Basic-module files that appear here for convenience, and they need only the `basic` licence.
 
@@ -52,8 +54,9 @@ The CRM branch appears as soon as the module licence is present, and then each s
 | `crm-maintenance` | 38 | Maintenance Files and Maintenance Documents |
 | `crm-maintenance-services` | 10 | Service Documents |
 | `crm-kitchen-net` | 5 | The Kitchen Net back office |
+| `crm-technician-appointments` | 7 | Technician Appointments, plus the booking calendar |
 
-Two further codes exist in the licence manager — one for the maintenance mobile app and one for the visits mobile app — but they unlock no ERP screen. They license the phone applications, not anything in this menu. If a screen you expect is missing, it is one of the four codes above that you need.
+Two further codes exist in the licence manager — one for the maintenance mobile app and one for the visits mobile app — but they unlock no ERP screen. They license the phone applications, not anything in this menu. If a screen you expect is missing, it is one of the five codes above that you need.
 
 ## Nine screens that look like documents but are not
 

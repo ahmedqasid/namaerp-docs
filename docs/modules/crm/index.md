@@ -8,7 +8,7 @@ title: Customer Relationship Management
 
 The CRM menu covers the whole life of a customer relationship on paper: chasing a lead, logging the calls and visits that warm it up, running campaigns and surveys, answering complaints and support tickets, selling service contracts — and, on the other side of the menu, maintaining the equipment you installed, from the contract through the work order to the invoice.
 
-It helps to know one thing before you start. **These are four separate products sharing a menu root, not one system.** The support desk and the maintenance register are separate worlds — you cannot even raise a trouble ticket against a maintained machine — and each half keeps its own warranties, its own fault catalogues and its own customer history. Read the overview first; it explains the split, the four licences, and which nine screens look like documents but are really master files.
+It helps to know one thing before you start. **These are five separate products sharing a menu root, not one system.** The support desk and the maintenance register are separate worlds — you cannot even raise a trouble ticket against a maintained machine — and each half keeps its own warranties, its own fault catalogues and its own customer history. Read the overview first; it explains the split, the five licences, and which nine screens look like documents but are really master files.
 
 The second thing worth knowing early: **this module has no reports, no dashboards and no scheduler.** One printed form ships with it. Everything that looks scheduled — expanding a maintenance contract into visits, turning those into work orders — happens when somebody presses a button. Plan your reporting and your reminders accordingly.
 
@@ -17,7 +17,7 @@ The second thing worth knowing early: **this module has no reports, no dashboard
 The map of the module, the settings, and the order to build a fresh installation in.
 
 <LandingGrid>
-  <LandingCard icon="🗺️" title="CRM Overview" link="/modules/crm/crm-overview.md" details="The four products, the menu tree, the four licences, and the nine screens that look like documents but are not." />
+  <LandingCard icon="🗺️" title="CRM Overview" link="/modules/crm/crm-overview.md" details="The five products, the menu tree, the five licences, and the nine screens that look like documents but are not." />
   <LandingCard icon="🚀" title="Getting Started" link="/modules/crm/crm-getting-started.md" details="A separate setup sequence for each half of the module, and the one status setting that decides whether maintenance records anything at all." />
   <LandingCard icon="⚙️" title="CRM Settings" link="/modules/crm/crm-configuration.md" details="The module settings option by option — including the two that are on the screen and change nothing." />
   <LandingCard icon="📊" title="Reports and Printed Forms" link="/modules/crm/crm-reports-and-forms.md" details="What ships for reporting, which is one print form, and the four routes to everything else." />
@@ -95,6 +95,21 @@ The parallel suite for businesses that service sites rather than machines.
   <LandingCard icon="🏢" title="Service Records" link="/modules/crm/services-suite/crm-service-records.md" details="The serviced-site file — customer, location and the task list that goes with it." />
   <LandingCard icon="📋" title="Service Orders" link="/modules/crm/services-suite/crm-service-orders.md" details="Contracts, work plans, notices, orders and executions on the services side." />
   <LandingCard icon="💵" title="Service Invoicing" link="/modules/crm/services-suite/crm-service-invoicing.md" details="What this branch can bill — spare parts only — and the workaround for charging labour." />
+</LandingGrid>
+
+## Technician Appointments
+
+A self-contained booking system for businesses that send crews to customer addresses: crews, procedures and a weekly calendar.
+
+<LandingGrid>
+  <LandingCard icon="📅" title="Technician Appointments" link="/modules/crm/technician-appointments/crm-technician-appointments-overview.md" details="The eight screens in the order you build them, how they fit together, and the department-section step nothing works without." />
+  <LandingCard icon="🧰" title="Services and Procedures" link="/modules/crm/technician-appointments/crm-technician-services-and-procedures.md" details="The single task and the job it belongs to — and why you book the procedure but report the services." />
+  <LandingCard icon="👷" title="Technician Crews" link="/modules/crm/technician-appointments/crm-technician-crews.md" details="The crew, its supervisor, its colour on the calendar, and the one-crew-per-technician rule." />
+  <LandingCard icon="⏰" title="Appointment Booking Settings" link="/modules/crm/technician-appointments/crm-appointment-booking-settings.md" details="Working hours borrowed from an attendance shift, slot length, and the book each section numbers appointments in." />
+  <LandingCard icon="📌" title="The Technician Appointment" link="/modules/crm/technician-appointments/crm-technician-appointment.md" details="The booking document: its status, its link back to the sale, and the one-crew rule on its rows." />
+  <LandingCard icon="🗓️" title="The Booking Calendar" link="/modules/crm/technician-appointments/crm-technician-appointment-calendar.md" details="Draw the periods, press Create, and get a committed appointment — plus where every limit on the grid comes from." />
+  <LandingCard icon="📝" title="Service Distribution" link="/modules/crm/technician-appointments/crm-technician-service-distribution.md" details="What was actually done, by whom and for how long — and how it moves the appointment to Executed." />
+  <LandingCard icon="🔀" title="Technician Transfers" link="/modules/crm/technician-appointments/crm-technician-transfers.md" details="Moving somebody between crews in one committed document, and what the move deliberately leaves alone." />
 </LandingGrid>
 
 ## Reference

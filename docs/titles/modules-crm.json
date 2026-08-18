@@ -70,7 +70,16 @@
     "/modules/crm/document-terms/crm-terms-basics.md",
     "/modules/crm/document-terms/crm-maintenance-terms.md",
     "/modules/crm/risk-register",
-    "/modules/crm/risk-register/crm-risk-register.md"
+    "/modules/crm/risk-register/crm-risk-register.md",
+    "/modules/crm/technician-appointments",
+    "/modules/crm/technician-appointments/crm-technician-appointments-overview.md",
+    "/modules/crm/technician-appointments/crm-technician-services-and-procedures.md",
+    "/modules/crm/technician-appointments/crm-technician-crews.md",
+    "/modules/crm/technician-appointments/crm-appointment-booking-settings.md",
+    "/modules/crm/technician-appointments/crm-technician-appointment.md",
+    "/modules/crm/technician-appointments/crm-technician-appointment-calendar.md",
+    "/modules/crm/technician-appointments/crm-technician-service-distribution.md",
+    "/modules/crm/technician-appointments/crm-technician-transfers.md"
   ],
   "folderTitles": {
     "/modules/crm": {
@@ -120,6 +129,10 @@
     "/modules/crm/risk-register": {
       "ar": "سجل المخاطر",
       "en": "Risk Register"
+    },
+    "/modules/crm/technician-appointments": {
+      "ar": "مواعيد الفنيين",
+      "en": "Technician Appointments"
     }
   }
 }
