@@ -60,6 +60,8 @@ Cash businesses often round the invoice total to something payable — a total o
 
 **Consider Vouchers Payment with Approximation Discount** `value.info.considerVouchersPaymentWithApproxDisc` — Includes voucher payments in the amount being rounded, rather than rounding only the cash part.
 
+These three decide *whether* and *how far* to round. *Where* the rounded-off amount is booked is a per-document decision: each document term carries its own approximation discount account side, and sales terms add a switch for payments flagged *Do Not Affect Remaining* — see [Accounting Effects Configuration](/modules/supplychain/document-terms/doc-term-accounting-effects#Approximation-Discount).
+
 ## Electronic invoice
 
 **e-Invoice Page Show Type** `value.info.einvoicePageShowType` — Nama supports several national e-invoicing regimes, and each adds its own page of fields to tax-related screens. Choose **Egypt**, **ZATCA** (Saudi Arabia), **JoFotara** (Jordan), **UAE**, or **All Pages**. Pick the one country you operate in and the other regimes' fields disappear — a large reduction in screen clutter. Leaving it empty behaves like Egypt.

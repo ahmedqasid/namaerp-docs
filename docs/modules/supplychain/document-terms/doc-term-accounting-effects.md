@@ -123,6 +123,24 @@ Invoices expose eight discount **account sides** plus a header-discount side on 
 
 **Discount other sides** `termConfig.taxesOtherSide.discount1OtherSide` … `termConfig.taxesOtherSide.discount8OtherSide`, and `termConfig.taxesOtherSide.headerDiscountOtherSide` — The opposite ledger side for each of the eight additional discounts and for the header (invoice-level) discount.
 
+## Approximation Discount
+
+Cash counters rarely settle to the last piastre. An invoice of 199.97 gets 200.00 handed over, and the three piastres have to land somewhere — that somewhere is the **approximation discount** side. Whether rounding happens at all, and how large a leftover still counts as "close enough", is decided globally in [Taxes and e-Invoicing](/platform/global-config/global-config-taxes#Approximation-discount); the document term only supplies the account and one behaviour switch.
+
+**Approximation Discount** `termConfig.approximationDiscount` — The account side that absorbs the leftover. When the outstanding amount on a document falls within the globally configured approximation value, that leftover is posted here instead of staying on the customer's (or supplier's) account, and the invoice closes clean. Leave it empty and no rounding happens on documents using this term, however the global settings are set.
+
+**Consider Payments Not Affecting Remaining With Approximation Discount** `termConfig.considerDoNotAffectRemainingWithApproxDisc` — Sales-side terms only.
+
+A payment line can be marked **Do Not Affect Remaining** (either on the line or on the payment method itself). Such a payment is recorded and posted, but deliberately does not reduce the document's **Remaining** — that is the whole point of the flag, and it is how deferred, third-party-collected and similar payments are handled. The side effect is that the *Remaining* figure no longer reflects what the customer actually still owes.
+
+That matters here, because rounding is decided by comparing the outstanding amount against the approximation value. Take a 200.03 invoice settled with a 200.00 payment on a method flagged *Do Not Affect Remaining*: the customer's account is square apart from three piastres, but *Remaining* still reads 200.03. Against an approximation value of 0.05 that is nowhere near "close enough", so no rounding happens and the three piastres sit on the customer's account forever.
+
+Tick this box and those payments are taken out of the comparison first, leaving the 0.03 that is genuinely outstanding — which does fall within the approximation value, so it posts to the approximation discount account and the invoice closes. Leave it unticked and the term keeps behaving as before.
+
+::: tip Interaction with voucher payments
+The global **Consider Vouchers Payment with Approximation Discount** rounds against the voucher-payment side of the entry. When this term option is on *and* the document actually carries payments that don't affect the remaining, rounding takes the customer/supplier route instead, because that is the side the leftover really sits on. On documents with no such payments nothing changes and the global setting applies as usual.
+:::
+
 ## Service Fees
 
 Four pairs of debit/credit account sides for separate service-fee charges on the document, plus deduction flags and a guard toggle. Applies to invoices/orders, sales return, purchase invoice, purchase return and sales-return request.
