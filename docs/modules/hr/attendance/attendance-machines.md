@@ -28,7 +28,7 @@ A configuration is identified like any master file — Code, Group, Arabic Name,
 
 | Field (English → Arabic) | Purpose |
 |---|---|
-| Machine Connection Type (نوع اتصال الماكينة) | **ZkBioTime**, **SQLSERVER** or **ACCESS**. Choosing one tells you which of the three tabs below to fill in. |
+| Machine Connection Type (نوع اتصال الماكينة) | **ZkBioTime**, **SQLSERVER**, **ACCESS** or **Timetaag**. Choosing one tells you which of the four tabs below to fill in. |
 | Cron Expression | How often the agent collects. See the warning below — the syntax has six fields, not five. |
 | Fetching Transaction Start Date (تاريخ بداية سحب الحركات) | The earliest moment worth collecting from, used only on the very first run. |
 | Only Work Manually (تشغيل يدوي فقط) | Turns the schedule off completely; the agent then collects only when someone presses a button in its own screen. |
@@ -44,15 +44,15 @@ Nama checks the expression when you save and refuses an invalid one with *"Inval
 The check is skipped entirely when **Only Work Manually** is ticked.
 :::
 
-![Attendance Machine Config, showing the connection-type tabs (ZkBioTime, SQLSERVER, ACCESS)](../../../ar/modules/hr/images/attendance/attendance-machine-config-en.png)
+![Attendance Machine Config, showing the connection-type tabs](../../../ar/modules/hr/images/attendance/attendance-machine-config-en.png)
 
-### The three connection types
+### The four connection types
 
-Each type gets its own tab. Fill in the tab that matches your **Machine Connection Type** and ignore the other two.
+Each type gets its own tab. Fill in the tab that matches your **Machine Connection Type** and ignore the other three.
 
 #### ZkBioTime
 
-For sites running the vendor's own ZkBioTime platform, which publishes its transactions over a web interface. This is the cleanest of the three because there is no database access and no SQL to write.
+For sites running the vendor's own ZkBioTime platform, which publishes its transactions over a web interface. Along with Timetaag, this is one of the two types that need no database access and no SQL to write.
 
 | Field | Value |
 |---|---|
@@ -81,6 +81,25 @@ For older machines that keep their log in a local Microsoft Access file. The tab
 
 ::: warning Fill in the fields Access doesn't really need
 The agent refuses to start unless Machine URL, Username, Password **and** Cron Expression all have values, and the record itself won't save without Database Port and Database Name. An Access setup doesn't use the username, password, port or database name at all — but they still have to contain something. Put placeholder values in them.
+:::
+
+#### Timetaag
+
+For sites whose fingerprint devices report to **Timetaag**, a cloud attendance service. This one is different in kind from the other three: there is no machine database and no local machine software to read. The devices upload their readings to Timetaag themselves, and the agent simply asks Timetaag's servers for whatever has accumulated.
+
+| Field | Value |
+|---|---|
+| Timetaag Server URL (رابط خادم Timetaag) | The Timetaag service address, `https://app.timetaag.com`. |
+| Timetaag API Key (مفتاح Timetaag) | The key issued by Timetaag. The tab shows this field twice — see below. |
+
+The key comes from **Timetaag, not from Nama**. Sign in to the Timetaag dashboard as the company administrator and use **Generate API token**.
+
+The tab presents the key field twice, because Timetaag expects two things on every request: an API key identifying your company, and an authorization token. The agent sends the first field as the API key and the second as the token. If Timetaag issued you a single value, put it in both fields; if it issued two, keep them in that order.
+
+As with ZkBioTime, readings arrive in a fixed format, so the SQL Query, Read For Period Query and Mapping grid on this tab are **not used**.
+
+::: tip Timetaag needs the internet, not the local network
+The other three types need the agent to sit on the same network as the machine or its database. Timetaag needs the opposite: the computer running the agent must be able to reach `app.timetaag.com` over the internet. A branch locked down to internal traffic only will fail here even though everything is configured correctly.
 :::
 
 ### The two queries
@@ -160,6 +179,10 @@ You will never be asked to manage this, but understanding it explains a lot of "
 3. failing that, two months ago.
 
 **Fetching Transaction Start Date** therefore only ever matters on a first run against an empty configuration. Setting it later has no effect; to re-collect an old period, use the agent's own *Read For Period* button instead.
+
+A **Timetaag** connection is the exception, because the Timetaag service filters by date rather than by time: whatever start and end moments the agent asks for, it returns every reading whose punch time falls on those calendar dates. Each scheduled collection therefore re-reads the whole of the current day, not only the minutes since the last one. Because Nama discards readings it already holds, this produces no duplicates — though it does mean the agent's own statistics table shows how many readings the day held at the moment of the run, rather than how many were new. Seeing the same number repeat all afternoon is normal, and is not a sign that collection has stalled.
+
+The agent also steps its starting point back by half an hour on every run, and that half hour earns its keep at exactly one moment: just after midnight, when subtracting it puts the start of the window back on the previous date. The previous day is then collected one last time — which is how a punch made just before midnight still reaches Nama when the device uploads it a few minutes into the new day.
 
 ### Validation messages
 

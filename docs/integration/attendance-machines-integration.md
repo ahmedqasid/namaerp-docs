@@ -46,7 +46,7 @@ Its primary function is to fetch data from the local program's database or throu
 
 ### Connection Type
 
-The connection type has three options:
+The connection type has four options:
 
 #### ZkBiotime
 
@@ -88,6 +88,17 @@ The connection type has three options:
 
   * No username, password, or server URL is needed.
   * Instead, specify the **database file path** on the machine where the attcron application will be installed.
+
+#### Timetaag
+
+* Allows transferring data from the Timetaag cloud attendance service, which the fingerprint devices upload to themselves.
+* Requires:
+
+  * **Timetaag Server URL**: `https://app.timetaag.com`
+  * **Timetaag API Key** — the tab shows this field twice; the agent sends the first as the API key and the second as the authorization token
+* The key is issued from the Timetaag dashboard — sign in as the company administrator and use **Generate API token**.
+* No query or mapping is needed; the data arrives in a fixed format.
+* Unlike the other three types, the computer running attcron needs access to the **internet** rather than to the machine's local network.
 
 ### Steps to Install the Attendance Cron Application on a Device
 

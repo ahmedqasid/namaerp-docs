@@ -81,12 +81,13 @@ The list of collections is held in memory only. Restarting Tomcat empties it, an
 
 ## What happens on each collection
 
-The agent asks Nama for its current configuration, then talks to the machine in whichever way that configuration specifies — the ZkBioTime web interface, a SQL Server database, or a Microsoft Access file. It collects everything newer than the point it last reached, sends it to Nama in batches, and remembers its new position.
+The agent asks Nama for its current configuration, then talks to the machine in whichever way that configuration specifies — the ZkBioTime web interface, a SQL Server database, a Microsoft Access file, or the Timetaag cloud service. It collects everything newer than the point it last reached, sends it to Nama in batches, and remembers its new position.
 
 A few numbers worth knowing when you are watching it work:
 
 - Database collections are delivered in batches of **500** readings, and the position is saved after each batch — so a collection interrupted halfway keeps the progress it made.
 - ZkBioTime collections are read a page at a time, **100** readings per page.
+- Timetaag collections are also read a page at a time, **100** readings per page, but the Timetaag service filters by **date**, not by time of day: whatever start and end moments the agent asks for, it returns every reading whose punch time falls on those calendar dates. Each scheduled run therefore re-reads the whole of the current day. Nama discards what it already holds, so this produces no duplicates — but the number in the statistics table is the day's total so far, not a count of new readings.
 - If Nama rejects a delivery, the agent retries up to **three** times a couple of seconds apart before giving up and logging the failure. The next scheduled run tries again from the same position.
 - A *Read For Period* run deliberately does **not** move the saved position.
 
