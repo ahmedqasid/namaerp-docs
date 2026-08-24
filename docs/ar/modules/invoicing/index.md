@@ -38,6 +38,7 @@ title: الفواتير والضرائب والخصومات
   <LandingCard icon="📨" title="نظرة عامة على الفاتورة الإلكترونية" link="/ar/modules/invoicing/e-invoices-guide.md" details="مفاهيم الفاتورة الإلكترونية العامة في Nama ERP التي تُبنى عليها تكاملات الدول." />
   <LandingCard icon="🇸🇦" title="ZATCA (السعودية – فاتورة)" link="/ar/modules/invoicing/zatca-guide.md" details="الربط مع منصّة فاتورة لهيئة الزكاة والضريبة والجمارك بالسعودية للفوترة المطابقة ورموز QR." />
   <LandingCard icon="🇪🇬" title="الإيصال الإلكتروني (مصر)" link="/ar/modules/invoicing/electronic-receipt-egypt-tax-eInvoice.md" details="تفعيل تكامل الإيصال الإلكتروني والفاتورة الإلكترونية مع مصلحة الضرائب المصرية." />
+  <LandingCard icon="🏦" title="البيانات البنكية في الفاتورة الإلكترونية المصرية" link="/ar/modules/invoicing/egypt-einvoice-bank-details.md" details="إرسال بنك المُصدِر ورقم حسابه ورقم الحساب الدولي وشروط الدفع مع كل فاتورة إلكترونية مصرية." />
   <LandingCard icon="🇦🇪" title="الفاتورة الإلكترونية في الإمارات (Orchida osTax)" link="/ar/modules/invoicing/uae-orchida-einvoice-guide.md" details="الربط مع نظام الفاتورة الإلكترونية في الإمارات عبر خدمة Orchida osTax." />
 </LandingGrid>
 
