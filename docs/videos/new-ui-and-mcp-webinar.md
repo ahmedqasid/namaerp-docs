@@ -106,7 +106,7 @@ Dashboard data responds immediately to filters. Selecting a company or branch re
 
 [Watch the demonstration from 33:28](https://www.youtube.com/watch?v=QTjJ3E88kX8&t=2008s)
 
-The presenter demonstrates the creation of a payroll dashboard using an AI coding agent. The agent first receives access to Nama's knowledge repository, which contains documentation for the business-intelligence features and their technical reference, as well as the data model describing system entities, tables, and relationships.
+The presenter demonstrates the creation of a payroll dashboard using an AI coding agent. The agent first receives access to the [Nama ERP Support Knowledge Base repository](https://github.com/ahmedqasid/namaerp-support-kb), which contains documentation for the business-intelligence features and their technical reference, as well as the data model describing system entities, tables, and relationships.
 
 After reading these sources, the agent receives a natural-language request to create a **JSON** dashboard for the current month's payroll. It proposes filters for branch, department, and month; KPIs for net payroll, additions, deductions, and employee count; charts that distribute payroll by branch and department; and a detailed table.
 
