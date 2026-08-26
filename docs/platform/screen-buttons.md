@@ -62,11 +62,11 @@ The standard items are worth knowing by name:
 |---|---|
 | Errors | Re-opens the errors and messages of the current screen after you have dismissed them |
 | Change Capabilities | Sets the view, update and usage security capability on this one record, overriding the entity-wide setting |
-| Prevent Usage | Soft-deactivates the record: it stays in the system and in its old documents, but stops appearing in the pickers when someone creates something new |
-| Prevent Usage As From Doc | The narrower version — the record can still be selected normally, but can no longer be used as the source document another document is generated from |
+| Prevent Usage | Soft-deactivates the record: it stays in the system and in its old documents, but stops appearing in the pickers when someone creates something new — see [Preventing a record from being used](/platform/prevent-usage) |
+| Prevent Usage As From Doc | The narrower version — the record can still be selected normally, but can no longer be used as the source document another document is generated from — see [Preventing a record from being used](/platform/prevent-usage) |
 | Audit Trail / Record Detailed Audit Trail | Who changed this record, when, and what they changed — see [Audit trail](/platform/audit-trail) |
 | Compare Two Versions | Puts two saved versions of the record side by side |
-| Set As Template | Turns the record in front of you into a defaults template, so new records of this type can start pre-filled from it |
+| Set As Template | Turns the record in front of you into a defaults template, so new records of this type can start pre-filled from it — see [Default Values Templates](/platform/default-values-templates) |
 | DMS Documents Archive / Create Archive | The archived documents attached to this record, and a new one |
 | Related Remarks / Create Remark | Free-text notes attached to this record. The same pair repeats for meeting remarks and for detailed remarks |
 | Add To Agenda | Puts the record on your agenda as something to come back to |
