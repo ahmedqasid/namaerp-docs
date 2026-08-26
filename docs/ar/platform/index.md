@@ -71,6 +71,8 @@ title: الخصائص العامة للنظام
 أدوات صغيرة تسرّع العمل اليومي.
 
 <LandingGrid>
+  <LandingCard icon="🖲️" title="الأزرار الموجودة في كل شاشة" link="/ar/platform/screen-buttons.md" details="أشرطة الأدوات الثلاثة التي تشترك فيها كل شاشة — شريطا التحرير والقائمة، وقائمة المزيد، وأزرار الجدول — ولماذا يغيب زر أحياناً." />
+  <LandingCard icon="📝" title="الملحوظات والأجندة ومهام العمل" link="/ar/platform/remarks-and-agenda.md" details="ملحوظات تُرفق بأي سجل، وأجندة الموظف التي يكتب فيها أمر الإضافة إلى الاجندة، ومهام العمل المسنَدة إلى شخص." />
   <LandingCard icon="🔗" title="روابط الأدوات المساعدة" link="/ar/platform/utils.md" details="روابط مباشرة مفيدة داخل النظام للمهام الشائعة." />
   <LandingCard icon="⌨️" title="اختصارات لوحة المفاتيح" link="/ar/platform/shortcuts.md" details="اعمل أسرع باستخدام لوحة المفاتيح عبر شاشات نظام نما." />
 </LandingGrid>

@@ -1,6 +1,8 @@
 {
   "sortedPaths": [
     "/platform",
+    "/platform/screen-buttons.md",
+    "/platform/remarks-and-agenda.md",
     "/platform/document-books.md",
     "/platform/audit-trail.md",
     "/platform/attachments.md",
