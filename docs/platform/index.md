@@ -52,6 +52,7 @@ Let the system do repetitive work for you, and build reusable rules and data blo
   <LandingCard icon="🗄️" title="Document Management" link="/platform/dms/" details="A register for physical paperwork — archives, folders and topics, who borrowed what, and bulk loading an archive from a ZIP file." />
   <LandingCard icon="🔄" title="Entity Flows" link="/platform/entity-flows/" details="Automate actions on records, generate entities from entities, and import data from Excel or SQL queries." />
   <LandingCard icon="⏰" title="Scheduled Tasks" link="/platform/scheduled-tasks.md" details="Run jobs automatically on a schedule — the task scheduler." />
+  <LandingCard icon="⏳" title="Background Processing" link="/platform/background-processing/" details="The queues that carry out a document's effects, send your messages and run your reports — and where to look when one of them quietly fails." />
   <LandingCard icon="🔁" title="Recurring Documents" link="/platform/recurring-documents.md" details="Reproduce a template document on a cadence — automatically on a schedule or in an on-demand batch." />
   <LandingCard icon="🧱" title="Virtual Entities" link="/platform/virtual-entity-guide.md" details="Reusable SQL building blocks that power reports and dashboards." />
   <LandingCard icon="🔎" title="Field Filter with Criteria" link="/platform/field-filter-with-criteria.md" details="Restrict what a lookup field can pick using criteria — plus the field-filtering FAQ." />
