@@ -6,11 +6,14 @@ title: List Views
 
 # List Views
 
-List views are the screens where you browse and search your records. A couple of small touches make them much faster to live with day to day: quick filters that find the records you want in a click, and a setting that keeps a user inside a single fiscal year. These two short guides cover both.
+List views are the screens where you browse and search your records — and where you act on them in
+numbers. These guides cover both halves of that: finding the records you want quickly, and then
+doing something to all of them at once without opening each one.
 
 ## Guides
 
 <LandingGrid>
   <LandingCard icon="🔎" title="Quick Filters in List Views" link="/platform/list-views/quick-filters.md" details="Set up one-click filters so users can find the records they need fast." />
   <LandingCard icon="🗓️" title="Limit User To Year" link="/platform/list-views/limit-user-to-year.md" details="Restrict a user to a single fiscal year across list views." />
+  <LandingCard icon="☑️" title="Acting on Several Records at Once" link="/platform/list-views/mass-operations.md" details="Delete, commit, retire or export a whole selection from the More menu — no setup needed." />
 </LandingGrid>

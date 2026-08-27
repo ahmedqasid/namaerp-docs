@@ -129,6 +129,9 @@ in your head: **Export Selected** takes the ticked rows, **Export Page** takes t
 looking at, and **Export All Records** takes the whole result set. **Create List View Criteria** turns
 the filters you have set up into a saved, reusable filter.
 
+Each of these is covered in full — including what happens when one record in a selection refuses —
+in [Acting on Several Records at Once](/platform/list-views/mass-operations).
+
 ## Buttons on a grid
 
 Inside a document, every detail grid has its own small cluster of buttons at the right of its
