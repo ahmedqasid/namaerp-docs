@@ -99,7 +99,9 @@ Documents in Nama can be *revised* — stamped as reviewed at one of five levels
 
 ## Menu Allow/Block
 
-Also on the main page, the **Menu Allow/Block** table controls which menu items the role sees. Each line targets either a type / type list, **or** a menu item code / group code — not both at once. This is the cleanest way to trim the navigation menu per role without redefining the menus themselves.
+Also on the main page, the **Menu Allow/Block** table controls which menu items the role sees. Each line targets either a type / type list, **or** a menu item code / group code — not both at once. This is the cleanest way to trim the navigation menu per role without redefining the menus themselves — the codes it works off are the ones described in [how the menu is put together](/platform/menus/menu-structure), and [changing the menu](/platform/menus/menu-update) covers the alternative when the shape itself should differ.
+
+What these lines do is decide what **appears** in the menu. They are not permissions: somebody who still has permission to open a screen can reach it by other routes even when its menu entry is hidden. To stop a person using a screen at all, remove the permission itself.
 
 ## Field Settings Page
 

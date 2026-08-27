@@ -36,6 +36,10 @@
     "/platform/screen-modifier/screen-modifier-list-and-search.md",
     "/platform/screen-modifier/screen-modifier-visual-editor.md",
     "/platform/screen-modifier/screen-modifier-faq.md",
+    "/platform/menus",
+    "/platform/menus/menu-structure.md",
+    "/platform/menus/menu-update.md",
+    "/platform/menus/menu-visibility.md",
     "/platform/fields-and-entities-settings",
     "/platform/fields-and-entities-settings/fields-settings-overview.md",
     "/platform/fields-and-entities-settings/fields-settings-field-appearance.md",
@@ -125,6 +129,10 @@
     "/platform/screen-modifier": {
       "ar": "تعديل الشاشات",
       "en": "Screen Modifier"
+    },
+    "/platform/menus": {
+      "ar": "القوائم",
+      "en": "The Menu"
     },
     "/platform/fields-and-entities-settings": {
       "ar": "أعدادات الحقول و الشاشات",

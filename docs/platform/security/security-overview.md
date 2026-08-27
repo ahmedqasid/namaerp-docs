@@ -5,7 +5,7 @@ Every ERP deployment faces the same questions sooner or later: who is allowed to
 Think of it as a chain of doors the user must pass through:
 
 1. **Authentication** — Can the user enter the system at all? (Login, password, LDAP, two-step verification, session limits)
-2. **Menus and Navigation** — Which menu items does the user see in the first place?
+2. **Menus and Navigation** — Which menu items does the user see in the first place? (See [who sees which menu](/platform/menus/menu-visibility).)
 3. **Type-Level Permissions** — For each record or document type (invoices, items, journal entries…) what can the user do? View? Edit? Delete? Print? And how many times?
 4. **Record-Level Visibility** — Among all sales invoices in the database, *which ones* can the user see? This is where Dimensions, "only records they created", and Extra Filters come in.
 5. **Field, Page, and List-View Permissions** — Inside a record the user can open, which fields are hidden or locked? Which tabs are visible? Which list views are allowed?

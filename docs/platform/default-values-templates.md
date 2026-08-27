@@ -163,7 +163,8 @@ or **Alt** — the record will not save otherwise, and it tells you so.
 
 **From a menu entry.** A menu item can have a template pinned to it, so that opening that entry
 always starts from that template. That is how sites offer "New service invoice" and "New goods
-invoice" as two separate menu entries onto the same screen.
+invoice" as two separate menu entries onto the same screen — see
+[how the menu is put together](/platform/menus/menu-structure).
 
 ## Applying a template part-way through typing
 
@@ -210,8 +211,8 @@ them. Naming the seventh field here puts the cursor exactly where typing actuall
 ## Where to find them
 
 Default values templates live under **Basic → Administration → Display Customization → Default Values
-Templates**, alongside the screen modifier, menu definitions and the other tools that change how
-screens look and behave.
+Templates**, alongside the screen modifier, [the menu](/platform/menus/) and the other tools that
+change how screens look and behave.
 
 Because every template names the entity it targets, that one list holds the templates for the whole
 system. Sorting it by target type is the quickest way to see what a given screen already has.

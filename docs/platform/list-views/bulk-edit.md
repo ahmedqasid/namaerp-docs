@@ -197,7 +197,7 @@ record**, for detail lines, or for very large numbers.
 ## Where to find them
 
 Bulk Edit Config and Screen Modifier both live under **Administration → Display Customization**,
-alongside the menu definitions and the other tools that change how screens look and behave.
+alongside [the menu](/platform/menus/) and the other tools that change how screens look and behave.
 
 Because each config names the entity it applies to, that one list holds the configs for the whole
 system.

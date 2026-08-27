@@ -18,6 +18,8 @@ How the system looks and how users move around it: what opens at startup, what t
 
 **Documents Default Menu Item Behavior** `value.info.docDefaultMenuItemBehavior` — The same for document menu items. Data-entry heavy installations often set documents to New Record and master files to List View.
 
+Both of those settings are read while the menu is being built, not while it is being used, so changing one has no effect on the menu that already exists — see [how the menu is put together](/platform/menus/menu-structure).
+
 **Should Redirect Edit View** `value.info.shouldRedirectEditView` — When a record has a custom edit view defined, opening it redirects there instead of showing the standard screen.
 
 **Show Old Barcode Menu** `value.info.showOldBarcodeMenu` — Keeps the legacy barcode menu visible. Only needed where an older barcode workflow is still in use.

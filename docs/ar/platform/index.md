@@ -24,6 +24,7 @@ title: الخصائص العامة للنظام
 
 <LandingGrid>
   <LandingCard icon="🎚️" title="تعديل الشاشات" link="/ar/platform/screen-modifier/" details="أعد ترتيب الحقول، وأخفِ ما لا تستخدمه، وأعد تصميم شاشات التعديل وقوائم العرض ونوافذ الاختيار عبر المحرر المرئي للتخطيط." />
+  <LandingCard icon="🌲" title="القوائم" link="/ar/platform/menus/" details="شجرة التنقل نفسها — مم تتكوّن، وكيف تعدّلها بحيث تصمد تعديلاتك لإعادة البناء، ولماذا يرى مستخدم وصلة لا يراها غيره." />
   <LandingCard icon="📋" title="قوائم العرض" link="/ar/platform/list-views/" details="فلاتر سريعة للعثور على السجلات بسرعة، وقصر المستخدم على سنة مالية واحدة." />
   <LandingCard icon="🔤" title="تعديل الترجمات" link="/ar/platform/translations.md" details="غيّر أي مسمّى أو مصطلح في النظام ليطابق مصطلحات مؤسستك." />
   <LandingCard icon="🔧" title="أعدادات الحقول و الشاشات" link="/ar/platform/fields-and-entities-settings/" details="تحكّم في سلوك الحقول: قواعد الإدخال، والبحث في المراجع، والأيقونات، والحقول المحسوبة، والترقيم التلقائي، والتكامل مع الأنظمة الخارجية." />

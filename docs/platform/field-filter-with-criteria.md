@@ -22,7 +22,7 @@ For example:
         - Document Type
         - Document Book
         - Master Group
-        - Menu Definition Update
+        - a menu entry, on a [Menu Definition or a Menu Update](/platform/menus/menu-structure)
     - Alternatively, select the **Automatic** option to apply it automatically.
 
 4. **Save** your changes.
