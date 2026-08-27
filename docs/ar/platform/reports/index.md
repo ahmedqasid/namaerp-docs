@@ -6,19 +6,27 @@ title: التقارير
 
 # التقارير
 
-التقارير هي وسيلتك لاستخراج بياناتك من نظام نما — مستندات مطبوعة وملخصات وقوائم مصممة على مقاس عملك. يعتمد النظام على Jasper للتحكم الكامل في التصميم، وعلى أداة إنشاء التقارير لبناء التقارير بسرعة باختيار الجدول وتحديد الحقول وإضافة الفلاتر. ابدأ بما يناسب حاجتك، واحتفظ بالأسئلة الشائعة في متناولك لما يطرأ من استفسارات على الطريق.
+التقارير هي وسيلتك لاستخراج بياناتك من نظام نما، ونماذج الطباعة هي وسيلة إخراج المستند الواحد على ورق. وكلاهما يُبنى بالطريقة نفسها — أداة للحالة الشائعة، وتحكّم كامل في تصميم Jasper حين تحتاجه. ابدأ بما يناسب حاجتك.
 
 ## الأدلة
 
 <LandingGrid>
-  <LandingCard icon="📊" title="دليل Jasper Reports الشامل" link="/ar/platform/reports/reports-guide.md" details="الدليل الكامل لتصميم تقارير Jasper والعمل بها في نظام Nama ERP." />
+  <LandingCard icon="📊" title="دليل Jasper Reports الشامل" link="/ar/platform/reports/reports-guide.md" details="كيف تعمل التقارير في نما — أين تعيش، والمدخلات، والتقارير الفرعية، والخطوط، ومدة التشغيل المسموحة." />
+  <LandingCard icon="🧩" title="أداتا إنشاء التقارير ونماذج الطباعة" link="/ar/platform/reports/report-and-form-wizards.md" details="النصف المشترك بين الأداتين: مصادر البيانات والحقول وإعداد الصفحة والتنسيقات. اقرأه مرة يقصُر الدليلان." />
   <LandingCard icon="🧙" title="دليل أداة إنشاء التقارير" link="/ar/platform/reports/report-wizard-guide.md" details="ابنِ التقارير بسرعة: اختر الجدول الرئيسي وحدد الحقول وأضف الفلاتر — مشروحًا بالأمثلة." />
-  <LandingCard icon="📝" title="دليل مستخدم أداة إنشاء التقارير" link="/ar/platform/reports/ReportWizard_User_Documentation.md" details="دليل المستخدم لأداة إنشاء التقارير (ReportWizard)." />
+  <LandingCard icon="🖨️" title="أداة إنشاء نماذج الطباعة" link="/ar/platform/reports/printing-form-wizard-guide.md" details="صمّم فاتورتك أو إذن تسليمك أو سند قبضك حقلًا حقلًا، دون رسم ملف تقرير." />
 </LandingGrid>
 
-## الأسئلة الشائعة
+## الطباعة والمظهر
 
 <LandingGrid>
-  <LandingCard icon="❓" title="أسئلة شائعة عن تصميم التقارير" link="/ar/platform/reports/report-faq.md" details="الأسئلة المتكررة حول تصميم التقارير." />
-  <LandingCard icon="❔" title="أسئلة شائعة عن أداة إنشاء التقارير" link="/ar/platform/reports/report-wizard-faq.md" details="الأسئلة المتكررة حول أداة إنشاء التقارير." />
+  <LandingCard icon="🎯" title="أي نموذج طباعة سيخرج" link="/ar/platform/reports/printed-form-selection.md" details="زر الطباعة لا يسأل. ما الذي يقرّر أي نموذج يُطبع، وما الذي يمنع الطباعة أصلًا." />
+  <LandingCard icon="🎨" title="تنسيقات التقارير" link="/ar/platform/reports/report-styles.md" details="خطوط وألوان وحدود قابلة لإعادة الاستعمال تشير إليها حقول الأداة، بدل تنسيق كل حقل بمفرده." />
+  <LandingCard icon="📋" title="قائمة تقارير مخصصة" link="/ar/platform/reports/custom-report-menu.md" details="ضع تقاريرك في قائمة المزيد في أي شاشة، بمدخلات تُملأ من السجل المعروض." />
+</LandingGrid>
+
+## المراجع
+
+<LandingGrid>
+  <LandingCard icon="🔧" title="مرجع تعبيرات NamaRep" link="/ar/platform/reports/reports-namarep-reference.md" details="كتالوج التعبيرات لكاتبي التقارير: الأسماء والتواريخ والأرقام والتفقيط والأسعار والروابط والحماية ورموز QR." />
 </LandingGrid>

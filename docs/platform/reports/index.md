@@ -6,19 +6,27 @@ title: Reports
 
 # Reports
 
-Reports are how you get your data back out of Nama ERP — printed documents, summaries, and listings tailored to your business. The system uses Jasper for full design control, and the Report Wizard for building reports quickly by picking a table, choosing fields, and adding filters. Start with whichever matches your need, and keep the FAQs handy for the questions that come up along the way.
+Reports are how you get your data back out of Nama ERP, and printed forms are how a single document reaches paper. Both are built the same way — a wizard for the common case, and full Jasper design control when you need it. Start with whichever matches your need.
 
 ## Guides
 
 <LandingGrid>
-  <LandingCard icon="📊" title="Jasper Reports Complete Guide" link="/platform/reports/reports-guide.md" details="The complete guide to designing and working with Jasper reports in Nama ERP." />
+  <LandingCard icon="📊" title="Jasper Reports Complete Guide" link="/platform/reports/reports-guide.md" details="How reports work in Nama — where they live, parameters, subreports, fonts and how long a report may run." />
+  <LandingCard icon="🧩" title="Report and Form Wizards" link="/platform/reports/report-and-form-wizards.md" details="The half both wizards share: data sources, fields, page setup and styles. Read it once and both guides get shorter." />
   <LandingCard icon="🧙" title="Report Wizard Guide" link="/platform/reports/report-wizard-guide.md" details="Build reports fast: pick the main table, choose fields, and add filters — walked through with examples." />
-  <LandingCard icon="📝" title="ReportWizard User Documentation" link="/platform/reports/ReportWizard_User_Documentation.md" details="User documentation for the Report Wizard report-creation tool." />
+  <LandingCard icon="🖨️" title="Printing Form Wizard" link="/platform/reports/printing-form-wizard-guide.md" details="Design your own invoice, delivery note or receipt field by field, without drawing a report file." />
 </LandingGrid>
 
-## FAQs
+## Printing and presentation
 
 <LandingGrid>
-  <LandingCard icon="❓" title="Report Design FAQ" link="/platform/reports/report-faq.md" details="Frequently asked questions about designing reports." />
-  <LandingCard icon="❔" title="Report Builder FAQ" link="/platform/reports/report-wizard-faq.md" details="Frequently asked questions about the Report Builder." />
+  <LandingCard icon="🎯" title="Which Printed Form Comes Out" link="/platform/reports/printed-form-selection.md" details="The Print button never asks. What decides which form prints, and what stops one printing at all." />
+  <LandingCard icon="🎨" title="Report Styles" link="/platform/reports/report-styles.md" details="Reusable fonts, colours and borders that wizard fields point at, instead of formatting every field by hand." />
+  <LandingCard icon="📋" title="Custom Report Menu" link="/platform/reports/custom-report-menu.md" details="Put your own reports on the More menu of any screen, with parameters filled in from the record on screen." />
+</LandingGrid>
+
+## Reference
+
+<LandingGrid>
+  <LandingCard icon="🔧" title="NamaRep Expression Reference" link="/platform/reports/reports-namarep-reference.md" details="The expression catalogue for report authors: names, dates, numbers and tafqeet, prices, links, security and QR codes." />
 </LandingGrid>

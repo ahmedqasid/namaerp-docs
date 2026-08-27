@@ -4,6 +4,12 @@ Nama ERP provides an easy and effective way to create professional reports quick
 
 This tool lets you build reports by selecting the main table, then choosing the required fields and adding filters in a simple, fast manner — as will be explained in detail through the examples below.
 
+::: info Where to find it
+**Administration → Reports → Report Wizard.**
+:::
+
+The Report Wizard shares most of its screen with the [Printing Form Wizard](/platform/reports/printing-form-wizard-guide). Data sources, the field list, page setup, styles and conditional formatting work identically in both — [Report and Form Wizards](/platform/reports/report-and-form-wizards) covers that shared half, and what follows here is what belongs to reports.
+
 ## Creating a Simple Report to Display Sales Invoices
 
 To create a report that shows sales invoice data such as invoice code, customer name, invoice date, and net invoice value, follow these steps:
@@ -31,9 +37,6 @@ To create a report that shows sales invoice data such as invoice code, customer 
   "fields": [
     { "fieldId": "this" },
     { "fieldId": "customer" },
-    { "fieldId": "valueDate" },
-    { "fieldId": "customer" },
-    { "fieldId": "valueDate" },
     { "fieldId": "money.netValue" }
   ],
   "parameters": [
@@ -46,11 +49,11 @@ To create a report that shows sales invoice data such as invoice code, customer 
 ```
 :::
 
-After saving, click the **View Report** button. A screen similar to the following will appear:
+After saving, click the **Run** button. A screen similar to the following will appear:
 
 ![Run the report - select start and end date](../../ar/platform/reports/images/report-wizard-ex-1-run-report.png)
 
-Select an appropriate time period (from date - to date) and click **Run Now**. The report will appear as follows:
+Select an appropriate time period (from date - to date) and click **Run**. The report will appear as follows:
 
 ![Report result - sales invoices](../../ar/platform/reports/images/report-wizard-ex-1-view-result.png)
 
@@ -97,7 +100,7 @@ This field helps you narrow down the selection of the Main Table for the report 
 * **`Virtual Entity`**
   Lets you choose one of the virtual entities defined by the user via a custom SQL query (such as a `UNION` of two tables or joining several tables with calculated expressions). These entities appear in the main table list just like real entities, with the same field-selection mechanism, translations, and automatic entity reference fields (Reference Fields).
 
-  To define a new virtual entity or understand how to set up column mappings and the Bootstrap mechanism, see the [Virtual Entity Guide](../virtual-entity-guide.md).
+  To define a new virtual entity or understand how to set up column mappings and the Bootstrap mechanism, see the [Virtual Entity Guide](/platform/virtual-entity-guide).
 
 ---
 
@@ -145,7 +148,7 @@ When saved, the following are added automatically:
 After adding a `UOMConversion` parameter, you can enable conversion on any quantity field independently.
 
 1. Confirm both conditions are met: the `UOMConversion` parameter exists + a field from `InvItem` is in the report.
-2. On the field row you want to convert (such as `inBasePValue` or a custom expression), enable the **"Use unit of measure factor for quantity conversion"** checkbox.
+2. On the field row you want to convert (such as `inBasePValue` or a custom expression), tick **Use UOM Parameter for Qty Conversion**.
 3. Save the report.
 
 The SELECT expression for the field changes to `(SUM(field)) / UL.rateToBase`, and `UL.rateToBase` is automatically added to `GROUP BY`.
