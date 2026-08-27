@@ -4,6 +4,8 @@ Importing is the mirror image of exporting: you hand the system a workbook, and 
 
 The mechanism is deliberately unglamorous. There is no wizard and no column-matching step, because the file already says which column feeds which field. That is why the strong advice is always the same: **export first, then edit what you exported.** Starting from a file the system produced means the marker rows and headings are already right, and you only have to worry about the values.
 
+If the correction you have in mind is the *same* new value on every record — one salesman for four hundred customers — there is a lighter tool that needs no file at all: see [Bulk Edit](/platform/list-views/bulk-edit). Import is the one to reach for when each record needs a different value, or when detail lines are involved.
+
 ## Starting an Import
 
 Open the list screen for the records you want to load — customers, items, invoices — and choose **Import Records** (استيراد سجلات) from the **More** menu. The same command is available from the **More** menu of an open record, and it behaves identically: the file decides what is imported, not the screen you happened to be on.

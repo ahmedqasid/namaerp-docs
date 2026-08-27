@@ -42,10 +42,12 @@ carries the same **Automatic Coding** block with the same six fields, and it loc
 the type freezes after the first save, and the coding freezes once a committed record uses the
 group. Nearly everything this page says about building a number applies there unchanged.
 
-Groups add one thing books do not have: they form a **tree**. A group with no coding of its own
-inherits its parent's, so you can define the series once at the top and let sub-groups sit under it.
-They also carry a grid of per-criteria coding formulas that can build the code, the alternative code
-and both names.
+Groups add things books do not have. They form a **tree**, which doubles as a navigation panel on
+every master-file list — though the parent is classification only, and passes nothing down to its
+children. And they carry a second coding engine: a formula block, plus a grid of per-criteria
+formulas that can build the code, the alternative code and both names — and that quietly takes
+precedence over the Automatic Coding block beside it.
+[Master Groups](/platform/master-groups) covers all of it.
 
 A third mechanism exists for master files as well — the **Files Auto Coding** grid described in
 [automatic coding of master files](/platform/fields-and-entities-settings/fields-settings-auto-coding),

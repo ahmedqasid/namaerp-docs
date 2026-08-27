@@ -59,7 +59,7 @@ A document term can *supply* values to the document it governs — a term for Ca
 Items, accounts and other master files can be coded by formula rather than by hand. This group defines those formulas; the system checks them when you save the configuration.
 
 ::: info Documents, items, and everything else
-Keep the three apart. A **document's** number comes from its book's auto-coder, not from here. The formulas below cover **items** and their revisions and variants. Any *other* master file — customers, suppliers, cost centres — gets its own coding formula in [Fields and Entities Settings](/platform/fields-and-entities-settings/fields-settings-auto-coding), where you name the record type and give it a formula of the same kind.
+Keep the three apart. A **document's** number comes from its book's auto-coder, not from here. The formulas below cover **items** and their revisions and variants. Any *other* master file — customers, suppliers, cost centres — is coded by its [Master Group](/platform/master-groups) if it has one, and otherwise by a line in [Fields and Entities Settings](/platform/fields-and-entities-settings/fields-settings-auto-coding), where you name the record type and give it a formula of the same kind.
 :::
 
 **Prevent Manual Coding** `value.info.preventManualCoding` — Refuses to save a record whose code was typed by hand when its auto-coder is set to code automatically. The strict counterpart to the document-code option above.

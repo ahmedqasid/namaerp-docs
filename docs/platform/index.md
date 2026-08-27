@@ -15,6 +15,7 @@ documents and master files alike.
 
 <LandingGrid>
   <LandingCard icon="🔢" title="Document Books" link="/platform/document-books.md" details="The numbering series every document draws its number from — prefixes, serials, yearly resets, and the behaviour a book imposes on its documents." />
+  <LandingCard icon="🗂️" title="Master Groups" link="/platform/master-groups.md" details="The master-file twin of a document book — it codes customers, items and the rest, and files them into the tree beside every list." />
   <LandingCard icon="📎" title="Attachments" link="/platform/attachments.md" details="Storing files on a record: header and detail-line attachment fields, scanning and signatures, and where the bytes are kept." />
 </LandingGrid>
 

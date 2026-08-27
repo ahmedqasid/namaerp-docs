@@ -128,6 +128,7 @@ these over a large selection.
 ## See also
 
 - [Preventing a Record From Being Used](/platform/prevent-usage) — what Prevent Usage does
+- [Bulk Edit](/platform/list-views/bulk-edit) — changing the same fields on a whole selection
 - [Importing and Exporting Records](/platform/import-export/) — the export options in full
 - [Quick Filters in List Views](/platform/list-views/quick-filters) — narrowing the list down
   before you select

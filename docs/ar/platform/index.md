@@ -14,6 +14,7 @@ title: الخصائص العامة للنظام
 
 <LandingGrid>
   <LandingCard icon="🔢" title="دفاتر المستندات" link="/ar/platform/document-books.md" details="سلسلة الترقيم التي يأخذ منها كل مستند رقمه — البادئات والمتسلسلات والتصفير السنوي، والسلوك الذي يفرضه الدفتر على مستنداته." />
+  <LandingCard icon="🗂️" title="المجموعات" link="/ar/platform/master-groups.md" details="توأم دفتر المستند في جانب الملفات الرئيسية — تُكوِّد العملاء والأصناف وغيرها، وتصنّفها في الشجرة المجاورة لكل قائمة." />
   <LandingCard icon="📎" title="المرفقات" link="/ar/platform/attachments.md" details="تخزين الملفات على السجل: حقول المرفقات في الرأس وفي سطور التفاصيل، والمسح الضوئي والتوقيع، وأين تُحفظ الملفات." />
 </LandingGrid>
 

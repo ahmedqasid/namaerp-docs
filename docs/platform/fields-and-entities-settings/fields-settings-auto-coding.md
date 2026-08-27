@@ -24,6 +24,11 @@ decide the prefix, the serial and the reset period per document type. See
 
 If you put a document type in **For Type** here, the line is simply never reached.
 
+It is also not the first thing tried for a master file. A record that belongs to a
+[Master Group](/platform/master-groups) is coded by that group — by its per-criteria formula
+grid, then its own formula block — and only a record whose group has neither, or which has no
+group at all, reaches this grid.
+
 ## Choosing the line that runs
 
 A line first says **which records it is for**, then says **how their code is built**. The scope
@@ -326,6 +331,7 @@ record is being saved.
 
 - [Fields and Entities Settings — Overview](/platform/fields-and-entities-settings/fields-settings-overview) — the scope columns every grid shares, and how the records combine.
 - [Document Books](/platform/document-books) — numbering for documents, which this grid does not cover.
+- [Master Groups](/platform/master-groups) — the master-file coder that runs before this grid does.
 - [Tempo Language Manual](/admin/tempo) — the full formula language, its functions and its date and text helpers.
 - [Criteria Based Validation](/platform/criteria-based-validation) — how the queries behind Criteria Definition and Code Validity Query are written and tested.
 - [Criteria from Text Parser](/platform/text-criteria-guide) — writing the criteria expressions themselves.
