@@ -19,7 +19,7 @@ Three deep-dive references sit beside this file. Load them on demand to keep con
 
 ## 1. The chartConfigJSON Structure
 
-Every BI widget stores its configuration in a single `chartConfigJSON` field. In import and export files this appears as a nested JSON object (no escaping). This is the top-level structure:
+Every BI widget stores its configuration in a single `chartConfigJSON` field, held as a JSON string. In the bulk import/export files of Section 10 it appears as a nested JSON object (no escaping). This is the top-level structure:
 
 ```json
 {
@@ -1016,6 +1016,8 @@ For `CrossFilterControl` widgets, no `dataSource`, no `chartConfigJSON`, no `cro
 
 Renders one `BICrossFilter` as a slicer on the dashboard grid. The same cross-filter may be placed in more than one widget; multiple `CrossFilterControl` widgets per dashboard are allowed.
 
+![Four cross-filter control widgets sitting as tiles on the dashboard grid, with the Legal Entity picker open showing its search box and checkbox list](../../ar/platform/bi/images/bi-crossfilter-control-widget-en.png)
+
 ```json
 {
   "code": "branchFilter",
@@ -1146,6 +1148,8 @@ Each entry creates a `DashBoardWidget` entity. Key fields:
 
 ::: info
 Write `chartConfigJSON` as a **nested JSON object** in import/export files — no escaping, no manual stringification. The system serializes it to the stored JSON string on import and parses it back to an object on export. Older files that still carry `chartConfigJSON` as an escaped string keep importing unchanged.
+
+This nested-object convenience belongs to the import/export file format only. Creating a widget through the generic record-import path (a record JSON handed straight to the entity service) does **not** get it: there, `chartConfigJSON` has to be a **stringified** JSON string, and a nested object is read as a reference rather than as configuration.
 :::
 
 ### 11.3 DashBoardWidgetWizard Array (Optional)
@@ -1172,11 +1176,11 @@ Wizards define data sources using field IDs rather than raw SQL. The system gene
 |---|---|---|
 | `code` | Yes | Unique wizard code (referenced by widget's `wizardDataSource`) |
 | `type` | Yes | Always `"EChartDataSource"` |
-| `tableType` | Yes | `"MasterFile"`, `"DocumentHeader"`, or `"DetailLine"` |
+| `tableType` | Yes | `"Entity"`, `"DetailLine"`, `"SystemTable"`, or `"VirtualEntity"` |
 | `mainTable` | Yes | Database table/entity type name |
 | `fields[].fieldId` | Yes | Property path (e.g., `"customer.customerCategory"`, `"price.netValue"`) |
 | `fields[].chartUsageType` | Yes | `"Dimension"` or `"Measure"` |
-| `fields[].sqlAggregationType` | If Measure | `"Sum"`, `"Count"`, `"Average"`, `"Min"`, `"Max"` |
+| `fields[].sqlAggregationType` | If Measure | `"Sum"`, `"Count"`, `"DistinctCount"`, `"Avg"`, `"Min"`, `"Max"` |
 
 ### 11.4 DashBoard Array
 

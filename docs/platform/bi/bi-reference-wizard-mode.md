@@ -12,7 +12,7 @@ When a `DashBoardWidgetWizard` is saved, its `postCommitAction` runs `ReportWiza
 - `chartUsage` — `Dimension` | `Measure`
 - `paramType` — `Reference`, `Decimal`, `Text`, `Date`, `Integer`, `Genericreference`, `Enum`, `Boolean`
 - `referencedEntityType` — reference fields only
-- `aggregation` — `None`, `Sum`, `Count`, `Average`, `Min`, `Max`
+- `aggregation` — `None`, `Count`, `Sum`, `Avg`, `Min`, `Max`, `DistinctCount`
 - `displayAlias` — the SQL alias for the field's primary display column
 - `subColumns` — reference fields only: aliases of auto-expanded id/code/name1/name2/entityType/value sub-columns
 - `sqlLeftHandSide` — fully-qualified LHS used for cross-filter WHERE injection
@@ -42,7 +42,7 @@ Both keys present → `*Column` wins. Tempo / period-comparison columns are not 
 ```json
 "dataMapping": {
   "type": "CategoryLabelValue",
-  "categoryWizardFieldId": "invoice.valueDate",
+  "categoryWizardFieldId": "valueDate",
   "labelWizardFieldId": "customer.customerCategory",
   "valueWizardFieldId": "price.netValue",
   "seriesType": "bar"
@@ -75,11 +75,11 @@ Duplicates skipped. This list drives:
 
 - **SQL rebuild** via `ReportWizardQuery.buildForDrillDown(wizard, primary, otherDims)`. Primary becomes first GROUP BY; others are appended; measures stay.
 - **Click/drill filtering** (§3 above).
-- **Drill-by menu exclusion** — already-active dimensions are hidden from the right-click "Drill Down By" menu.
+- **Drill-by menu exclusion** — already-active dimensions are hidden from the right-click "Drill down by…" menu.
 
 ## 5. Drill-by semantics (Option A)
 
-When user right-clicks → "Drill Down By X":
+When user right-clicks → "Drill down by… X":
 
 1. Category is **replaced** — drilled dimension takes the primary slot.
 2. Other active dimensions (label, x, y) **stay** — chart shape preserved.
@@ -119,14 +119,14 @@ Pre-existing wizard widgets (no `*WizardFieldId` keys, only `*Column`) read as b
   },
   "dataMapping": {
     "type": "CategoryLabelValue",
-    "categoryWizardFieldId": "invoice.valueDate",
+    "categoryWizardFieldId": "valueDate",
     "labelWizardFieldId": "customer.customerCategory",
     "valueWizardFieldId": "price.netValue",
     "seriesType": "bar",
     "stack": "total"
   },
   "clickEmitMapping": [
-    { "crossFilterCode": "dateFromFilter",         "wizardFieldId": "invoice.valueDate" },
+    { "crossFilterCode": "dateFromFilter",         "wizardFieldId": "valueDate" },
     { "crossFilterCode": "customerCategoryFilter", "wizardFieldId": "customer.customerCategory" }
   ],
   "drillDownMapping": [
@@ -152,7 +152,7 @@ Wizard:
   "tableType": "DetailLine",
   "mainTable": "SalesInvoiceLine",
   "fields": [
-    {"fieldId": "invoice.valueDate",         "chartUsageType": "Dimension"},
+    {"fieldId": "valueDate",                 "chartUsageType": "Dimension"},
     {"fieldId": "customer.customerCategory", "chartUsageType": "Dimension"},
     {"fieldId": "price.netValue",            "chartUsageType": "Measure", "sqlAggregationType": "Sum"}
   ]
@@ -162,6 +162,8 @@ Wizard:
 ## 9. Runtime slot selection
 
 Wizard widgets expose a runtime selector (toolbar / echarts toolbox icon) so viewers can swap the category dimension, change measures, or add series — session-only.
+
+![The Runtime Slot Selection panel open on a live wizard chart, its Category dropdown listing the dimensions the wizard exposes](../../ar/platform/bi/images/bi-wizard-runtime-selector-en.png)
 
 | Mapping type | Dimension slots | Measure slots | Multi-measure series |
 |---|---|---|---|

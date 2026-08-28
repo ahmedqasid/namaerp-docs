@@ -16,6 +16,12 @@ A typical BI setup in Nama ERP looks like this:
 - **Drill-Down** — click a data point to open a related chart or dashboard, pre-filtered to that point's context
 - **Links** — click a data point to jump straight to the underlying record (e.g., open the customer's edit screen)
 
+Here is one of them running:
+
+![The Group Overview dashboard: toolbar with Filters button, a row of four slicers (Legal Entity, Branch, From 01-01-2026, To 31-08-2026), the six-card Group KPIs strip, and a Revenue-vs-Cost bar chart beside a Revenue-Share donut, with the monthly combo chart starting below](../../ar/platform/bi/images/bi-dashboard-view-mode-en.png)
+
+Dashboards are rendered on the **Home page** — that is where users meet them day to day. To open a specific one while you are setting it up, open its dashboard record and press **Open Dashboard** in the action bar. Once the dashboard is on screen, its own toolbar carries **Refresh**, **Open Dashboard**, **View Options** (the ⋮ button) and **Filters**.
+
 ---
 
 ## Chart Types
@@ -59,11 +65,19 @@ Matrix visualization with color intensity — useful for time-of-day patterns, r
 
 ## The Chart Designer
 
-The chart designer is the dialog you open when you create or edit a widget's chart configuration. It has two states:
+The chart designer is the dialog you open when you create or edit a widget's chart configuration.
+
+It is **not** reachable from the dashboard itself. To get to it, open the widget's own record — either through **Open Widget** in the chart's toolbox, or by opening the Dashboard Widget screen and finding the widget by its code — and then press the **Edit Chart Config** action on the record's Main tab.
+
+The designer has two states:
 
 ### State A — Template Gallery
 
-When you start with a blank widget, the designer opens in gallery mode. You see a searchable grid of all 41 templates, each rendered as a live mini-chart so you can see exactly what you're picking. You can:
+When you start with a blank widget, the designer opens in gallery mode. You see a searchable grid of all 41 templates, each rendered as a live mini-chart so you can see exactly what you're picking.
+
+![The Template Gallery inside the chart designer: a search box, a row of chart-type category chips, and a grid of preview cards (Bar Chart, Multi-Series Bar, Stacked Bar, 100% Stacked Bar, Horizontal Bar, Horizontal Stacked Bar) each labelled with its slot shape such as 1D + 1M, and a Start Blank button](../../ar/platform/bi/images/bi-template-gallery-en.png)
+
+From the gallery you can:
 
 - **Search** by name (e.g., type "stacked" to filter to stacked variants)
 - **Filter by category** using the chips at the top (Bar, Line, Pie, etc.)
@@ -74,13 +88,19 @@ When you start with a blank widget, the designer opens in gallery mode. You see 
 
 Once you've picked a template (or opened an existing widget), you land in the editor. This is where you connect your data, style the chart, and configure interactions. The editor is split into a **form area** on the left and a **live preview** on the right — every change you make updates the preview in real time.
 
+![The Chart Config Editor: the chart-type icon bar across the top, the tab row (Data Mapping, Style Options, Click & Links, Drill-Down Mapping) with a Change Template button, the mapping form on the left and a live preview of the bar chart on the right](../../ar/platform/bi/images/bi-chart-editor-overview-en.png)
+
 At the top of the editor, a **chart type bar** shows 11 icon buttons (one per chart category). Clicking one switches the chart type while keeping your data mapping intact where possible.
 
-The form area has several tabs:
+The form area has four tabs — **Data Mapping**, **Style Options**, **Click & Links** and **Drill-Down Mapping** — plus a **Change Template** button that takes you back to the gallery. The first tab changes with the widget type: Enhanced Table widgets show **Table Columns** where Data Mapping would be, and metrics-card widgets show **Card Template** and have no preview pane at all.
 
 #### Data Mapping Tab
 
-This is where you tell the chart which data fields to use. The available fields depend on the data mapping type (which is set automatically by your template choice, but can be changed):
+This is where you tell the chart which data fields to use.
+
+![The Data Mapping tab: Mapping Type CategoryValue, Category Column leName2, two series blocks (revenue as Revenue, cost as Cost) each with its series type and format, and collapsed Number Formatting, Advanced Options, Top N With Others and EChart Option sections](../../ar/platform/bi/images/bi-designer-data-mapping-tab-en.png)
+
+The available fields depend on the data mapping type (which is set automatically by your template choice, but can be changed):
 
 - **Category column** — the dimension that goes on the X-axis (e.g., branch name, month)
 - **Series** — one or more value columns, each with a name, chart type (bar/line/scatter), number format, and optional Y-axis assignment
@@ -99,9 +119,13 @@ Wizard-mode charts get several designer-level shortcuts:
 - Cross-filter emission entries only need the target cross-filter and the wizard field ID; the id/code/name/entityType columns are auto-inferred from the field's metadata.
 - The Click & Links tab and the Drill-Down tab show an **Active Dimension** selector when in wizard mode. Each dimension gets its own set of cross-filter and drill-down entries, and a "Copy from Dimension" button clones entries from another dimension to bootstrap new configurations.
 
-#### Style Tab
+#### Style Options Tab
 
-Visual customization without touching JSON:
+Visual customization without touching JSON.
+
+![The Style Options tab with Colors & Palette expanded to show six named swatch rows (Default, Nama, Warm, Cool, Pastel, Mono) and a decal-pattern toggle, and Legend expanded with its show, position and orientation controls](../../ar/platform/bi/images/bi-designer-style-tab-en.png)
+
+The controls sit in collapsible sections:
 
 - **Title & subtitle** — show/hide, text, position
 - **Color palette** — six built-in palettes (default, warm, cool, pastel, monochrome, Nama brand), plus a custom color picker for individual series
@@ -120,9 +144,13 @@ Visual customization without touching JSON:
   - Heatmaps: show/hide cell labels
   - Radar: polygon or circle shape
 
-#### Advanced JSON Editor
+#### The EChart Option JSON Editor
 
-For anything the UI controls don't cover, you can switch to a Monaco code editor and edit the raw ECharts option JSON directly. Changes in the JSON editor sync back to the UI controls, so you can mix visual editing with hand-written JSON.
+There is no separate JSON tab. For anything the UI controls don't cover, expand the **EChart Option** section at the bottom of either the **Data Mapping** or the **Style Options** tab — both of them carry it — and edit the raw ECharts option JSON directly in the code editor that opens.
+
+![The EChart Option section expanded into a syntax-highlighted JSON editor showing the raw ECharts option, including the $DATA.categories data placeholder](../../ar/platform/bi/images/bi-designer-json-editor-en.png)
+
+Changes in the JSON editor sync back to the UI controls, so you can mix visual editing with hand-written JSON.
 
 ::: tip
 You don't need to learn the full ECharts API to use the designer. The templates and UI controls cover the most common scenarios. But if you want fine-grained control — custom gradients, rich-text labels, complex tooltip formatters — the JSON editor is there. See the [Apache ECharts documentation](https://echarts.apache.org/option.html) for the full option reference.
@@ -132,9 +160,13 @@ You don't need to learn the full ECharts API to use the designer. The templates 
 
 Configure what happens when users interact with the chart — covered in detail in the [Cross-Filtering](#Cross-Filtering) and [Links](#Links----Navigate-to-Records) sections below.
 
-#### Drill-Down Tab
+![The Click & Links tab with one cross-filter emission entry expanded, showing the cross-filter code, the id, code and name column bindings, and an entity type of Legal Entity, above an empty Link Mappings section](../../ar/platform/bi/images/bi-designer-click-links-tab-en.png)
+
+#### Drill-Down Mapping Tab
 
 Configure drill-down targets — covered in the [Drill-Down](#Drill-Down) section below.
+
+![The Drill-Down Mapping tab with one target expanded: its key, a Widget/Dashboard toggle set to Widget, the target widget code, Arabic and English title fields, the order in the menu, and a filter column list](../../ar/platform/bi/images/bi-designer-drilldown-tab-en.png)
 
 ---
 
@@ -148,6 +180,10 @@ Every dashboard has a **Kind**:
 - **Tabbed** — a container that holds *other dashboards* as switchable tabs, instead of holding widgets directly. See [Tabbed Dashboards](#Tabbed-Dashboards) below.
 
 ### Editing the Layout
+
+The layout editor is opened from the dashboard record: press **Edit Dashboard Elements** in its action bar. Every widget is then wrapped in a dashed frame carrying its name, with a remove button and drag handles along each edge, and an **Add Widget** button appears above the grid.
+
+![The Layout Editor: an Add Widget button on top, every widget wrapped in a dashed frame carrying its name, a remove button and drag handles on each edge, with OK and Cancel at the bottom](../../ar/platform/bi/images/bi-layout-edit-mode-en.png)
 
 In edit mode, you can:
 
@@ -181,12 +217,16 @@ While ECharts are the star of the show, dashboards support several other widget 
 | **Recent Visits** | Shows recently viewed records                                           |
 | **Card Menu** | Navigation cards                                                        |
 | **Resource View** | Resource scheduler                                                      |
+| **CrossFilterControl** | A slicer — renders one cross-filter as a picker sitting on the dashboard grid, so users set the filter without opening the Filters dialog |
+| **TextBlock** | Static rich text — section headers, subtitles, and instructions placed between the data widgets |
 
 ---
 
 ## Tabbed Dashboards
 
 Sometimes one dashboard isn't enough — top management wants to see warehouse, HR, and sales metrics in one place, but each team already has its own dashboard tuned for their work. Building one giant combined dashboard duplicates everything; switching between three separate dashboards is friction. **Tabbed Dashboards** solve this by letting you compose existing dashboards as tabs under a single parent.
+
+![The executive dashboard's seven-tab strip with Overview selected, sharing its row with the Refresh, Open Dashboard, View Options and Filters buttons, and the slicers and KPI cards beneath](../../ar/platform/bi/images/bi-tabbed-dashboard-tabs-en.png)
 
 ### The Reuse Story
 
@@ -206,6 +246,8 @@ When you edit a dashboard record, you'll see the **Kind** field:
 
 - Leave it as **Single** for a normal dashboard.
 - Change it to **Tabbed** to compose other dashboards as tabs.
+
+![The dashboard record with Kind set to Tabbed, the Edit Dashboard Elements / Open Dashboard / Export Dashboard JSON action bar, and the Sub Dashboards grid listing its seven sub-dashboards with their Arabic and English tab titles](../../ar/platform/bi/images/bi-tabbed-sub-dashboards-grid-en.png)
 
 Switching to Tabbed reveals the **Sub Dashboards** grid. Add one row per tab:
 
@@ -266,6 +308,8 @@ A few invariants are enforced when you save:
 
 Cross-filtering is how charts talk to each other. When you click a bar for "Riyadh Branch" on one chart, every other chart on the dashboard re-fetches its data filtered to Riyadh Branch. Click it again and the filter clears.
 
+Filter values are **global, not per-dashboard**. A filter you set on one dashboard is still set when you navigate to another one — if that dashboard binds the same cross-filter, it opens already filtered. Remove the chip from the filter bar when you want a clean slate.
+
 ### How It Works
 
 There are three pieces to a cross-filter setup:
@@ -276,6 +320,10 @@ There are three pieces to a cross-filter setup:
 
 3. **Click emit mapping on widgets** — each widget can declare which cross-filters it *emits* when a user clicks on it. This is what makes a pie chart click set a filter that other charts react to.
 
+A filter definition itself looks like this:
+
+![A cross-filter record for legal entity: parameter type Reference, multi-selection list shown as a dropdown, the referenced entity type, the Arabic and English titles, the SQL left-hand side and an "Is One Of" operator](../../ar/platform/bi/images/bi-crossfilter-entity-screen-en.png)
+
 ### The Filter Bar
 
 At the top of every dashboard that uses cross-filters, you'll see a **filter bar**. It shows:
@@ -283,6 +331,16 @@ At the top of every dashboard that uses cross-filters, you'll see a **filter bar
 - A **Filters button** with a count of active filters (e.g., "Filters: 3")
 - **Filter chips** — one per active filter, showing the field label and selected value, with an X button to remove it
 - Clicking the Filters button opens a **filter editor dialog** where you can set or change multiple filter values at once
+
+![The dashboard toolbar with the Filters button carrying a count badge of 2, followed by two removable filter chips reading Nile Contracting and Alexandria](../../ar/platform/bi/images/bi-cross-filter-bar-en.png)
+
+And this is the dialog behind that button:
+
+![The Cross Filters dialog with rows for Legal Entity holding a Nile Contracting chip, Branch, and the From and To date fields, with Cancel and Apply](../../ar/platform/bi/images/bi-cross-filter-editor-dialog-en.png)
+
+::: info The dialog can come up empty
+If the dashboard already surfaces its cross-filters as slicer widgets on the grid — the row of pickers you often see under the toolbar — those filters arrive marked as hidden from the dialog, so the dialog renders no rows at all. Nothing is broken: set the values in the slicers instead.
+:::
 
 ### Filter Types
 
@@ -320,6 +378,10 @@ When cross-filters are active, widgets show badges indicating:
 - **"Filtered by: Branch, Date"** — this widget's data is filtered by these cross-filters
 - **"Emitting: Branch"** — this widget is the source of the active Branch filter
 
+The widget that emitted the filter is also framed more heavily than the widgets that merely react to it:
+
+![Two neighbouring chart widgets: the one that emitted the filter has a thick blue frame, two badges and the clicked bar highlighted, while the one merely receiving it has a thin frame and a single badge](../../ar/platform/bi/images/bi-widget-filter-badges-en.png)
+
 Hover over a badge to see the actual filter values.
 
 ---
@@ -340,7 +402,11 @@ Same idea, but the target is an entire dashboard instead of a single widget. The
 
 ### Dimension Drill-By (Same Chart, Deeper Dimension)
 
-If a widget uses a wizard data source with multiple dimension fields, you can drill down *by dimension*. Right-click "Riyadh" → Drill Down By Month → see the same metric broken down by month for Riyadh only. A breadcrumb trail tracks your path (Region → Branch → Month), and you can click any breadcrumb to go back.
+If a widget uses a wizard data source with multiple dimension fields, you can drill down *by dimension*. Right-click "Riyadh" → **Drill down by…** → Month → see the same metric broken down by month for Riyadh only. A breadcrumb trail tracks your path (Region → Branch → Month), and you can click any breadcrumb to go back.
+
+**Drill down by…** appears only for wizard-backed widgets. A widget whose data comes from a raw SQL query never offers it, however many columns that query returns, because the system needs the wizard's field structure to rebuild the query on the fly.
+
+![The same chart after drilling down by Legal Entity, now one bar per company, with the breadcrumb "Cairo → Legal Entity"](../../ar/platform/bi/images/bi-drill-by-breadcrumb-en.png)
 
 **How drill-by works for multi-dimension charts (CategoryLabelValue, stacked bars, etc.):**
 
@@ -362,6 +428,8 @@ When a drill-down opens in popup mode (the default), it shows:
 - The **target chart** rendered with the drill-down filters applied
 - A **maximize button** for full-screen viewing
 - Support for **nested drill-downs** — you can drill from the popup into another popup
+
+![The drill-down popup showing the Net Sales by Month chart filtered to a single branch, with the breadcrumb "Branch: Cairo" above it](../../ar/platform/bi/images/bi-drilldown-dialog-en.png)
 
 ---
 
@@ -387,25 +455,17 @@ Links show up in the right-click context menu under a "Navigate To" section. Lik
 
 ## The Right-Click Context Menu
 
-When you right-click a data point on a chart that has interactions configured, you see a structured menu:
+When you right-click a data point on a chart that has interactions configured, you see a structured menu. It is headed by the point you clicked, and groups underneath it everything you can do with that point.
 
-```
-"Series Name / Category Value"
-─────────────────────────
-Navigate To:
-  ├─ Open Customer "ABC Trading"
-  ├─ Open Website
-─────────────────────────
-Open In:
-  ├─ Sales Details
-  ├─ Regional Dashboard
-─────────────────────────
-Drill Down By:
-  ├─ By Month
-  ├─ By Branch
-```
+![The right-click menu open over the Cairo bar of a chart, headed with the clicked point, then an "Open in…" section listing two drill-down targets and a "Drill down by…" section listing the unused dimensions Legal Entity and Customer](../../ar/platform/bi/images/bi-context-menu-en.png)
 
-Each section only appears if the corresponding mapping is defined. A chart with no links, no drill-down targets, and no wizard dimensions shows no context menu at all.
+The sections are:
+
+- **Navigate To** — the entity and URL links defined on the chart
+- **Open in…** — the drill-down targets (widgets or dashboards) configured on the chart
+- **Drill down by…** — the dimensions you can re-group this same chart by
+
+Each section only appears if the corresponding mapping is defined, and **Drill down by…** additionally requires the widget to be backed by a wizard data source. A chart with no links, no drill-down targets, and no wizard dimensions shows no context menu at all.
 
 ---
 
@@ -435,6 +495,8 @@ Table widgets respect cross-filters just like chart widgets do, so when you clic
 ## Enhanced Table Widget
 
 The classic `Table` widget is quick to set up but shows columns exactly as the SQL returns them — raw numbers, no formatting, no color coding, no fancy cell renderers. The **Enhanced Table** widget (`Table v2 (Enhanced)` in the widget type picker, Arabic: "جدول محسن") is a second-generation table where every column is configured explicitly, so you get per-column formatting, colored badges, progress bars, inline sparklines, and rule-based conditional styling — all without touching any custom code.
+
+![The Profitability by Legal Entity table: refresh, export and expand icons in its header, columns for code, legal entity, revenue, cost, gross profit and a bar-rendered margin percentage, seven data rows and a grand-total row](../../ar/platform/bi/images/bi-enhanced-table-widget-en.png)
 
 ::: tip
 Enhanced Table is an opt-in upgrade. The classic `Table` widget continues to work exactly as before. Pick Enhanced Table when you need one or more of: currency/percent/date formatting, green-for-positive / red-for-negative coloring, status badges, in-row progress bars, sparklines, grouped column headers, or column pinning.
@@ -482,7 +544,11 @@ When logged in as `admin` (or any user with `treatAsAdmin` enabled), the widget 
 
 ### Designer
 
-The chart-config editor for Enhanced Table widgets swaps the ECharts-specific tabs for a **Table Columns** tab that lets you:
+The chart-config editor for Enhanced Table widgets swaps the ECharts Data Mapping tab for a **Table Columns** tab.
+
+![The Table Columns tab: the Use Pivot Layout toggle, the Generate Columns From Result Set and Add Column buttons, six column rows, and one expanded row showing its column id, SQL field, Arabic and English headers, a bar renderer, percent formatting, and the pinned and hidden flags](../../ar/platform/bi/images/bi-enhanced-table-columns-tab-en.png)
+
+From that tab you can:
 
 - List and reorder columns (drag-and-drop arrow buttons)
 - Edit each column's id, field, headers, width, pinning, renderer type, formatting type inline
@@ -525,6 +591,8 @@ You write a standard T-SQL SELECT query. The only requirement is including the `
 ### Wizard Data Source
 
 Instead of writing SQL, you define a data source using Nama ERP field IDs (property paths like `customer.customerCategory` or `price.netValue`). The system generates the SQL automatically. Wizard fields are marked as either **Dimension** (group-by / category) or **Measure** (aggregated value with Sum, Count, Average, Min, or Max).
+
+![The Dashboard Widget Wizard record for the sales data source: the main table SalesInvoiceLine, the generated SQL query, and a Fields grid whose lines show each field id, its Dimension or Measure usage, and the Sum aggregation on the measure](../../ar/platform/bi/images/bi-wizard-data-source-screen-en.png)
 
 Wizard data sources unlock several designer and runtime conveniences that raw-SQL widgets don't get:
 
@@ -569,11 +637,15 @@ Three pieces are needed:
 
 3. **Enable comparison on each widget** — on the widget, check the `Enable Comparison` checkbox. Only widgets with this flag enabled will run the double-query comparison. Other widgets on the same dashboard continue to work normally with a single query.
 
+![The period comparison configuration record: a four-month subtracted period, the injected period column names, the four period labels, and the list of cross filters using it](../../ar/platform/bi/images/bi-period-comparison-config-en.png)
+
 ### Two Modes of Comparison
 
 #### Mode A — Period Label Column (for trend charts)
 
 Best for line charts, area charts, and any chart that uses `CategoryLabelValue` data mapping. The system injects a period column into the result set (using the column names from your config), and the chart's `labelColumn` can reference it to automatically get two series — one per period.
+
+![A bar chart of net sales per branch with two bars per branch, Current Period and Previous Period, in different colours](../../ar/platform/bi/images/bi-period-comparison-chart-en.png)
 
 **Example:** A monthly sales trend line chart with `categoryColumn: "monthLabel"` and `labelColumn: "periodEn"`. When the user selects January–March 2026, the chart shows two lines: "Current Year" and "Previous Year", both plotted against months 01, 02, 03.
 
@@ -588,6 +660,8 @@ Configure it in the widget's **Comparison Data Mapping** grid:
 | Original Column | Previous Period Column |
 |---|---|
 | `netValue` | `prevNetValue` |
+
+![The widget record with Enable Comparison ticked, a merge key, and a Comparison Data Mapping grid pairing the original revenue column with its previous-period counterpart](../../ar/platform/bi/images/bi-comparison-data-mapping-grid-en.png)
 
 Your chart's `CategoryValue` data mapping then has two series: one for `netValue` ("Current Year") and one for `prevNetValue` ("Previous Year"), producing side-by-side bars.
 

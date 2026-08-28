@@ -4,6 +4,8 @@
 
 `EnhancedTable` هو جدول مدفوع بـ JSON — كل عمود معرَّف في `chartConfigJSON` له تنسيقه الخاص، وrenderer، وتنسيق شرطي، وتثبيت، وتجميع، وإجماليات. يعيد استخدام آلية تفاعل BI (`clickEmitMapping`، `drillDownMapping`، `linkMappings`، `clickAction` — المرجع الرئيسي §4–5b) مع حقل `column` اختياري في كل مدخل للتحديد إلى خلية بعينها. يبقى widget الكلاسيكي `Table` متاحاً؛ للانتقال استخدم `"type": "EnhancedTable"`.
 
+![جدول الربحية حسب الشركة: أيقونات التحديث والتصدير والتوسيع في رأسه، وأعمدة للكود والشركة والإيراد والتكلفة ومجمل الربح ونسبة الهامش معروضة كشريط، وسبعة صفوف بيانات وصف إجمالي عام](images/bi-enhanced-table-widget-ar.png)
+
 ## 1. بنية chartConfigJSON
 
 ```json

@@ -4,6 +4,8 @@ Companion to [`bi-module-technical-reference.md`](./bi-module-technical-referenc
 
 `EnhancedTable` is the JSON-driven table widget — every column declared in `chartConfigJSON` with its own formatting, renderer, conditional formatting, pinning, grouping, aggregation. Reuses the BI interaction machinery (`clickEmitMapping`, `drillDownMapping`, `linkMappings`, `clickAction` — main reference §4–5b) with an optional `column` field on each entry to scope to a specific cell. Classic `Table` widget remains; opt in via `"type": "EnhancedTable"`.
 
+![The Profitability by Legal Entity table: refresh, export and expand icons in its header, columns for code, legal entity, revenue, cost, gross profit and a bar-rendered margin percentage, seven data rows and a grand-total row](../../ar/platform/bi/images/bi-enhanced-table-widget-en.png)
+
 ## 1. chartConfigJSON structure
 
 ```json

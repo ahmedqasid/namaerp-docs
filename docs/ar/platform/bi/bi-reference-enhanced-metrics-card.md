@@ -9,6 +9,10 @@
 - **شريط KPI سريع — header / value / subtitle / icon، مع شارة نسبة اختيارية** → `MetricsCards` القديم (لا يتطلب كتابة JSON؛ ولا يدعم sparklines أو خلفية شرطية).
 - **أي شيء أغنى** — sparklines، ألوان بطاقة شرطية، drill-down لكل بطاقة، تجميع قائم على partition عبر صفوف SQL متعددة → `EnhancedMetricsCard`.
 
+وفي الحالتين، ما يظهر على لوحة المعلومات هو شريط بطاقات كهذا:
+
+![widget بطاقات مؤشرات المجموعة: ست بطاقات — الإيراد، التكلفة والمصروفات، مجمل الربح، النقدية والبنوك، الذمم المدينة، الذمم الدائنة — لكل منها قيمة ملوّنة وأيقونة بخلفية خفيفة وعنوان فرعي](images/bi-metrics-card-strip-ar.png)
+
 ## 2. الـ `MetricsCards` القديم (`type: "MetricsCards"`)
 
 يقرأ كائن القيمة `metricsCardConfig` على مستوى **أعلى** من `DashBoardWidget` مباشرة — **وليس** `chartConfigJSON`. بطاقة واحدة لكل صف SQL. تستبدل سلاسل Tempo الصيغة `{columnName}` بقيم الصف.
@@ -299,4 +303,6 @@ ORDER BY sortOrder
 
 ## 10. المصمم (Designer)
 
-افتح مربع حوار chart-config من شاشة تعديل الـ widget. يكتشف مربع الحوار `type: "EnhancedMetricsCard"` ويعرض تبويب **Card Template** إلى جانب **Click & Links** و**Drill-Down**. يحتوي تبويب Card Template على أقسام قابلة للتوسع: Layout، Header، Value Slot، Subtitle، Icon، Badge، Sparkline، بالإضافة إلى محرري JSON خام لـ Card Style وCard Conditional Formatting. يتبدّل محدد الحقول تلقائيًا بين أعمدة SQL (الوضع الخام) وحقول wizard (عند ضبط `wizardDataSource`).
+افتح مربع حوار chart-config من سجل الـ widget نفسه عبر إجراء **Edit Chart Config**. يكتشف مربع الحوار `type: "EnhancedMetricsCard"` ويعرض تبويب **Card Template** إلى جانب **Click & Links** و**Drill-Down Mapping** — ولا يوجد تبويب Data Mapping لهذا النوع من الـ widgets، ولا لوحة معاينة حية. يحتوي تبويب Card Template على أقسام قابلة للتوسع: Card Layout، Header، Value Slot، Subtitle، Icon، Badge، Sparkline، بالإضافة إلى محرري JSON خام لـ Card Style وCard Conditional Formatting. يتبدّل محدد الحقول تلقائيًا بين أعمدة SQL (الوضع الخام) وحقول wizard (عند ضبط `wizardDataSource`).
+
+![مصمم بطاقات المؤشرات على تبويب Card Template، مع فتح أقسام تخطيط البطاقة (الاتجاه، أقل عرض، الفراغ، عدد الأعمدة في الصف، مفاتيح التقسيم) والرأس وفتحة القيمة (الحقل، التجميع، التنسيق، حجم الخط، حقل اللون) وبقية الفتحات مطوية](images/bi-metrics-card-designer-ar.png)

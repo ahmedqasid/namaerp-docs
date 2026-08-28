@@ -9,6 +9,10 @@ Companion to [`bi-module-technical-reference.md`](./bi-module-technical-referenc
 - **Quick KPI strip — header / value / subtitle / icon, optional percent badge** → legacy `MetricsCards` (no JSON authoring; no sparklines or conditional bg either).
 - **Anything richer** — sparklines, conditional card colors, drill-down per card, partition-driven aggregation across multiple SQL rows → `EnhancedMetricsCard`.
 
+Either way, what lands on the dashboard is a strip of cards like this one:
+
+![The Group KPIs card widget: six cards — Revenue, Cost & Expenses, Gross Profit, Cash & Banks, Receivables, Payables — each with a coloured value, a tinted icon and a subtitle](../../ar/platform/bi/images/bi-metrics-card-strip-en.png)
+
 ## 2. Legacy `MetricsCards` (`type: "MetricsCards"`)
 
 Reads a **top-level** `metricsCardConfig` value object on the `DashBoardWidget` itself — **not** `chartConfigJSON`. One card per SQL row. Tempo strings substitute `{columnName}` against the row.
@@ -299,4 +303,6 @@ Each `*field` slot accepts a `wizardFieldId` sibling that resolves to the wizard
 
 ## 10. Designer
 
-Open the chart-config dialog from the widget edit screen. The dialog detects `type: "EnhancedMetricsCard"` and shows a **Card Template** tab alongside **Click & Links** and **Drill-Down**. Card Template tab has expandable sections: Layout, Header, Value Slot, Subtitle, Icon, Badge, Sparkline, plus raw-JSON editors for Card Style and Card Conditional Formatting. Field pickers switch automatically between SQL columns (raw mode) and wizard fields (when `wizardDataSource` is set).
+Open the chart-config dialog from the widget's own record with the **Edit Chart Config** action. The dialog detects `type: "EnhancedMetricsCard"` and shows a **Card Template** tab alongside **Click & Links** and **Drill-Down Mapping** — there is no Data Mapping tab for this widget type, and no live preview pane either. Card Template has expandable sections: Card Layout, Header, Value Slot, Subtitle, Icon, Badge, Sparkline, plus raw-JSON editors for Card Style and Card Conditional Formatting. Field pickers switch automatically between SQL columns (raw mode) and wizard fields (when `wizardDataSource` is set).
+
+![The metrics-card designer on its Card Template tab, with Card Layout (direction, minimum width, gap, columns per row, partition keys), Header, and Value Slot (field, aggregate, formatting, font size, colour field) expanded and the remaining slots collapsed](../../ar/platform/bi/images/bi-metrics-card-designer-en.png)

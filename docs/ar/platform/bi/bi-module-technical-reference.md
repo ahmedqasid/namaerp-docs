@@ -19,7 +19,7 @@
 
 ## 1. بنية chartConfigJSON
 
-يخزّن كل widget في BI إعداداته في حقل واحد هو `chartConfigJSON`. ويظهر هذا الحقل في ملفات الاستيراد والتصدير ككائن JSON متداخل (بلا تهريب). هذا هو الهيكل الرئيسي:
+يخزّن كل widget في BI إعداداته في حقل واحد هو `chartConfigJSON`، ويُحفَظ كسلسلة JSON. ويظهر هذا الحقل في ملفات الاستيراد/التصدير الجماعي الموضّحة في القسم 10 ككائن JSON متداخل (بلا تهريب). هذا هو الهيكل الرئيسي:
 
 ```json
 {
@@ -1001,6 +1001,8 @@ cross-filters كيانات ملف رئيسي تُعرِّف معاملات فل�
 
 يُعرض `BICrossFilter` واحد كـslicer على شبكة لوحة البيانات. يمكن وضع نفس cross-filter في أكثر من widget؛ يُسمح بوجود عدة widgets `CrossFilterControl` لكل لوحة بيانات.
 
+![أربعة widgets للتحكم في الفلاتر المتقاطعة موضوعة كبلاطات على شبكة لوحة المعلومات، ومنتقي الشركة مفتوح يعرض مربع البحث وقائمة مربعات الاختيار](images/bi-crossfilter-control-widget-ar.png)
+
 ```json
 {
   "code": "branchFilter",
@@ -1131,6 +1133,8 @@ widget HTML غني غير بياني. الاستخدام الرئيسي: رؤو�
 
 ::: info
 تُكتب قيمة `chartConfigJSON` ككائن JSON **متداخل** في ملفات الاستيراد/التصدير — بلا تهريب وبلا تسلسل يدوي إلى سلسلة. يتولّى النظام تسلسلها إلى سلسلة JSON المخزَّنة عند الاستيراد، ويعيد تحليلها إلى كائن عند التصدير. وتظل الملفات القديمة التي تحمل `chartConfigJSON` كسلسلة مُهرَّبة تُستورَد دون تغيير.
+
+وهذه التسهيلة الخاصة بالكائن المتداخل تخص صيغة ملفات الاستيراد/التصدير وحدها. أما إنشاء widget عبر مسار استيراد السجلات العام (سجل JSON يُمرَّر مباشرةً إلى خدمة الكيانات) فلا يستفيد منها: هناك يجب تمرير `chartConfigJSON` **كسلسلة نصية** تحتوي على JSON، وأي كائن متداخل يُقرأ كمرجع لا كإعداد.
 :::
 
 ### 11.3 مصفوفة DashBoardWidgetWizard (اختيارية)
@@ -1157,11 +1161,11 @@ widget HTML غني غير بياني. الاستخدام الرئيسي: رؤو�
 |---|---|---|
 | `code` | نعم | كود wizard فريد (مُشار إليه من `wizardDataSource` للـwidget) |
 | `type` | نعم | دائماً `"EChartDataSource"` |
-| `tableType` | نعم | `"MasterFile"` أو `"DocumentHeader"` أو `"DetailLine"` |
+| `tableType` | نعم | `"Entity"` أو `"DetailLine"` أو `"SystemTable"` أو `"VirtualEntity"` |
 | `mainTable` | نعم | اسم جدول/نوع كيان قاعدة البيانات |
 | `fields[].fieldId` | نعم | مسار الخاصية (مثل `"customer.customerCategory"`) |
 | `fields[].chartUsageType` | نعم | `"Dimension"` أو `"Measure"` |
-| `fields[].sqlAggregationType` | إذا Measure | `"Sum"` أو `"Count"` أو `"Average"` أو `"Min"` أو `"Max"` |
+| `fields[].sqlAggregationType` | إذا Measure | `"Sum"` أو `"Count"` أو `"DistinctCount"` أو `"Avg"` أو `"Min"` أو `"Max"` |
 
 ### 11.4 مصفوفة DashBoard
 

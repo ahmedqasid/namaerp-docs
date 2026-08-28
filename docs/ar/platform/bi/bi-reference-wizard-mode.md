@@ -12,7 +12,7 @@
 - `chartUsage` — `Dimension` | `Measure`
 - `paramType` — `Reference`, `Decimal`, `Text`, `Date`, `Integer`, `Genericreference`, `Enum`, `Boolean`
 - `referencedEntityType` — لحقول المرجع فقط
-- `aggregation` — `None`, `Sum`, `Count`, `Average`, `Min`, `Max`
+- `aggregation` — `None`, `Count`, `Sum`, `Avg`, `Min`, `Max`, `DistinctCount`
 - `displayAlias` — الاسم المستعار SQL لعمود العرض الأساسي للحقل
 - `subColumns` — لحقول المرجع فقط: أسماء مستعارة للأعمدة الفرعية الموسّعة تلقائياً id/code/name1/name2/entityType/value
 - `sqlLeftHandSide` — الجانب الأيسر المؤهل بالكامل المستخدم لحقن WHERE في الفلاتر المتقاطعة
@@ -42,7 +42,7 @@
 ```json
 "dataMapping": {
   "type": "CategoryLabelValue",
-  "categoryWizardFieldId": "invoice.valueDate",
+  "categoryWizardFieldId": "valueDate",
   "labelWizardFieldId": "customer.customerCategory",
   "valueWizardFieldId": "price.netValue",
   "seriesType": "bar"
@@ -75,11 +75,11 @@
 
 - **إعادة بناء SQL** عبر `ReportWizardQuery.buildForDrillDown(wizard, primary, otherDims)`. يصبح الأساسي أول GROUP BY؛ تُلحَق الأخرى؛ تبقى القياسات.
 - **فلترة النقر/التفصيل** (§3 أعلاه).
-- **استبعاد قائمة التنقل التفصيلي** — المحددات النشطة بالفعل مخفية من قائمة "Drill Down By" عند النقر بالزر الأيمن.
+- **استبعاد قائمة التنقل التفصيلي** — المحددات النشطة بالفعل مخفية من قائمة "Drill down by…" عند النقر بالزر الأيمن.
 
 ## 5. دلالات التنقل التفصيلي — الخيار أ (Drill-by semantics - Option A)
 
-عندما ينقر المستخدم بالزر الأيمن ← "Drill Down By X":
+عندما ينقر المستخدم بالزر الأيمن ← "Drill down by… X":
 
 1. الفئة **تُستبدل** — يأخذ المحدد المُنقَّل إليه المكان الأساسي.
 2. المحددات النشطة الأخرى (label, x, y) **تبقى** — يُحافَظ على شكل الرسم البياني.
@@ -119,14 +119,14 @@
   },
   "dataMapping": {
     "type": "CategoryLabelValue",
-    "categoryWizardFieldId": "invoice.valueDate",
+    "categoryWizardFieldId": "valueDate",
     "labelWizardFieldId": "customer.customerCategory",
     "valueWizardFieldId": "price.netValue",
     "seriesType": "bar",
     "stack": "total"
   },
   "clickEmitMapping": [
-    { "crossFilterCode": "dateFromFilter",         "wizardFieldId": "invoice.valueDate" },
+    { "crossFilterCode": "dateFromFilter",         "wizardFieldId": "valueDate" },
     { "crossFilterCode": "customerCategoryFilter", "wizardFieldId": "customer.customerCategory" }
   ],
   "drillDownMapping": [
@@ -152,7 +152,7 @@
   "tableType": "DetailLine",
   "mainTable": "SalesInvoiceLine",
   "fields": [
-    {"fieldId": "invoice.valueDate",         "chartUsageType": "Dimension"},
+    {"fieldId": "valueDate",                 "chartUsageType": "Dimension"},
     {"fieldId": "customer.customerCategory", "chartUsageType": "Dimension"},
     {"fieldId": "price.netValue",            "chartUsageType": "Measure", "sqlAggregationType": "Sum"}
   ]
@@ -162,6 +162,8 @@
 ## 9. اختيار الفتحة في وقت التشغيل (Runtime slot selection)
 
 تعرض widgets المعالج أداة اختيار في وقت التشغيل (شريط الأدوات / أيقونة صندوق أدوات echarts) حتى يتمكن المشاهدون من تبديل محدد الفئة، وتغيير القياسات، أو إضافة سلاسل — لجلسة العمل الحالية فقط.
+
+![لوحة اختيار الفتحات في وقت التشغيل مفتوحة على مخطط معالج حي، وقائمة التصنيف المنسدلة تسرد المحددات التي يتيحها المعالج](images/bi-wizard-runtime-selector-ar.png)
 
 | نوع التعيين | فتحات المحددات | فتحات القياسات | سلاسل متعددة القياسات |
 |---|---|---|---|
