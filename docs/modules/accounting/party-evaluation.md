@@ -13,13 +13,13 @@ You build the scorecard from two master files:
 1. **Party Evaluation Element** (`Accounting > Party Evaluations > Party Evaluation Element`) — a single criterion you'll score on: "delivery punctuality", "quality", "responsiveness", "price competitiveness".
 2. **Party Evaluation Elements Group** (`Accounting > Party Evaluations > Party Evaluation Elements Group`) — a bundle of elements that makes up a complete scorecard, with each element given a **maximum weight**. The weights are what make the score meaningful: punctuality might be worth 40 points, price 30, and so on.
 
-![The Party Evaluation Elements Group screen](./images/partyeval/party-eval-group.png)
+![The Party Evaluation Elements Group screen](../../ar/modules/accounting/images/partyeval/party-eval-group-en.png)
 
 ## Scoring a party
 
 The **Party Evaluation** (`Accounting > Party Evaluations > Party Evaluation`) is the actual assessment. Its header names the **evaluated party**, the **evaluator** doing the scoring, and the **elements group** used as the scorecard. The **details** grid then lists each criterion with its **max weight**, the **points** awarded, the resulting **percentage**, a free-text **finding**, and **remarks** — so the evaluation is both a number and a narrative.
 
-![The Party Evaluation screen](./images/partyeval/party-evaluation.png)
+![The Party Evaluation screen](../../ar/modules/accounting/images/partyeval/party-evaluation-en.png)
 
 Because evaluations carry the party and a date, you can keep a history per party and watch how a supplier's or customer's score trends over time.
 

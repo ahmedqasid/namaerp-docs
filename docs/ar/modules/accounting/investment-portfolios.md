@@ -20,7 +20,7 @@
 
 وثمّة كذلك ملفاتُ بناءٍ — **الأسهم** و**الحصص** و**الودائع النقدية** و**الصناديق الاستثمارية** و**أنواع الصناديق** — تصف تركيبة ما هو مملوك.
 
-![الملف الرئيسي للمحفظة الاستثمارية](./images/ipfolio/investment-portfolio.png)
+![الملف الرئيسي للمحفظة الاستثمارية](images/ipfolio/investment-portfolio-ar.png)
 
 ## دورة الحياة
 
@@ -29,7 +29,7 @@
 1. **فرصة استثمارية** (`Banks > Investment Documents > Investment Opportunity`) — مرحلة التخطيط: استثمارٌ مرشَّح يُدرَس قبل أن يتحرّك أيُّ مال.
 2. **فتح استثمار** (`Accounting > Investment Portfolios > Investment Start`) — يضخّ رأس المال. هذا هو المستند الذي **يُرحِّل**: ينقل المحفظة إلى **جاري** ويسجّل الاستثمار. ويجري أثره عبر جانبَي **مدين/دائن** (الأصل الاستثماري مقابل البنك/النقدية المموِّل)، وجانبَي **مصروفات الاستثمار** لأيّ تكاليف اقتناء، وجانبَي **الضريبة**.
 
-   ![شاشة فتح الاستثمار](./images/ipfolio/investment-start.png)
+   ![شاشة فتح الاستثمار](images/ipfolio/investment-start-ar.png)
 
 3. **تحديث الاستثمار** (`Accounting > Investment Portfolios > Investment update`) و**زيادة رأس مال الاستثمار** (`… > Investment Capital Increase`) — إعادة تقييم الاستثمار أو ضخّ رأس مالٍ إضافي أثناء جريانه.
 4. **توزيع أرباح الاستثمار** (`Accounting > Investment Portfolios > Investment Profit Distribution`) — يقيّد الربح الذي يدرّه الاستثمار ويوزّعه.

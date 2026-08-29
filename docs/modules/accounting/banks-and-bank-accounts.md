@@ -14,7 +14,7 @@ The **Bank** file (`Banks > Master Files > Bank`) defines the banking institutio
 
 The **Bank Account** (`Banks > Master Files > Bank Account`) is the actual account opened with the bank. The most important part — the one that makes entries hit the correct ledger account — is its **account mapping** (the "Accounts" block):
 
-![The Bank Account screen](./images/banks/bank-account.png)
+![The Bank Account screen](../../ar/modules/accounting/images/banks/bank-account-en.png)
 
 - The **Bank** it belongs to (mandatory), the **Account Type**, the **Bank Branch Code**, the **bank account number**, and the **IBAN**.
 - In the **Accounts** block: the **Main Account**, **Account 01** through **Account 05**, the **Currency**, and the **Accounts Bag** — this mapping is what translates this bank account's movements into the correct debit/credit side in the accounts.

@@ -10,7 +10,7 @@
 
 سند القيد (`Accounting > Documents > Journal Entry`) هو المستند المتوازن الذي تُدخل فيه أسطر المدين والدائن بنفسك، بشرط أن يتساوى مجموع المدين مع مجموع الدائن قبل أن يقبله النظام.
 
-![شاشة سند القيد](./images/journal/journal-entry.png)
+![شاشة سند القيد](images/journal/journal-entry-ar.png)
 
 ### رأس المستند
 

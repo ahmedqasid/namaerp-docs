@@ -24,7 +24,7 @@ You don't repeat this setup every year; what you repeat annually is just creatin
 
 The ledger is the heart of the setup. You'll find it under **Accounting → Settings → Ledger**, and it gathers the major financial decisions in one place:
 
-![The Ledger screen](./images/setup/ledger.png)
+![The Ledger screen](../../ar/modules/accounting/images/setup/ledger-en.png)
 
 - **Main Currency** — the currency your balances are held in and your financial statements are prepared in. Any transaction in another currency is translated to this currency when recorded.
 - **Reporting Currency** — an optional second currency kept in parallel with the main currency, useful for organizations that need to present their results in another currency (say, USD) alongside the local one.
@@ -52,7 +52,7 @@ The Calendar (`Basic > Master Files > Calendar`) defines how accounting time is 
 
 The fiscal year (`Basic > Master Files > Fiscal Year`) is the time umbrella your transactions belong to over a year, divided internally into **accounting periods** (usually months), which are what actually get opened and closed.
 
-![The Fiscal Year screen and its periods](./images/setup/fiscal-year.png)
+![The Fiscal Year screen and its periods](../../ar/modules/accounting/images/setup/fiscal-year-en.png)
 
 In the fiscal-year header you set the **Calendar**, **Start Date**, and **End Date**, and its periods appear in the periods grid — one row per period with columns for code, name, start and end dates, **period type**, and **period status**.
 

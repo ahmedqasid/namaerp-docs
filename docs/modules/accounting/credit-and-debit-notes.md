@@ -13,7 +13,7 @@ Credit and debit notes are part of the core `accounting` license.
 
 The two screens are identical in structure and differ only in the direction of the effect, so explaining one is enough.
 
-![The Credit Note screen](./images/notes/credit-note.png)
+![The Credit Note screen](../../ar/modules/accounting/images/notes/credit-note-en.png)
 
 ## Anatomy of a note
 

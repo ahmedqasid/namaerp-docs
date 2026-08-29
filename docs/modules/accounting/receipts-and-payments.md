@@ -16,7 +16,7 @@ Not every organization needs the full chain; many start straight from the **vouc
 
 ## Anatomy of a receipt voucher
 
-![The Receipt Voucher screen](./images/receipts/receipt-voucher.png)
+![The Receipt Voucher screen](../../ar/modules/accounting/images/receipts/receipt-voucher-en.png)
 
 In the header you set the **Document Term**, **Creation Date**, and **Value Date** (which determines the **Period**), the **Collector**, the **Receipt Book** and **Receipt** number, and **Based On** if the voucher was generated from a prior document.
 
@@ -37,7 +37,7 @@ A **receipt** voucher makes the cash/bank side **debit** (money came in) and the
 
 When many receipt/payment requests for the same party pile up and you want to execute them at once, the **Consolidated Receipt Request** / **Consolidated Payment Request** (`Accounting > Documents > Consolidate Receipt Voucher Request`) gathers them: it bundles several requests into one document from which a single combined voucher is generated, instead of issuing a voucher per request.
 
-![The Consolidated Receipt Request screen](./images/receipts/consolidated-rv-request.png)
+![The Consolidated Receipt Request screen](../../ar/modules/accounting/images/receipts/consolidated-rv-request-en.png)
 
 ## Reports and forms
 

@@ -18,7 +18,7 @@ The document moves through a **reconciliation step** in three stages:
 2. **Reconciliation** — you match the bank-statement lines against your transaction lines (manually or by matching rules on the reference/narration), within the allowed **value tolerance** and **date-difference tolerance**. The system shows the **system total**, the **subsidiary total**, the **unmatched lines** on both sides, and the **total difference**.
 3. **Finished** — the document is closed once matching is complete.
 
-![The Bank Reconciliation screen](./images/banks/bank-reconciliation.png)
+![The Bank Reconciliation screen](../../ar/modules/accounting/images/banks/bank-reconciliation-en.png)
 
 Each document links to the **previous reconciliation**, so it continues where the last one ended and locks its past — a closed period isn't re-reconciled.
 

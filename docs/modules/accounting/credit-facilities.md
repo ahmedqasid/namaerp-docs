@@ -13,7 +13,7 @@ Credit facilities are part of the `accounting-loans` license — the same licens
 
 On the **Facility Limit** screen (`Banks > Credit Facilities > Facility Limit`) the ceiling granted by a particular **bank** is defined, and its details are configured through the **Facility Limit Config** (`Banks > Credit Facilities > Facility Limit Config`).
 
-![Facility Limit screen](./images/facilities/facility-limit.png)
+![Facility Limit screen](../../ar/modules/accounting/images/facilities/facility-limit-en.png)
 
 As soon as a loan, letter of guarantee or LC is linked to a facility limit, it draws down from it at issue/opening; the system blocks any issue that would push the consumed amount over the ceiling. And because the three instruments share the same ceiling, the **Details of banking facilities** report (SYSR-LON002) gives you a unified picture of what's reserved across all of them.
 
@@ -31,7 +31,7 @@ A credit facility is a revolving-drawdown instrument, and its cycle runs like th
 
 On the **Credit Facility** screen (`Banks > Credit Facilities > Credit Facility`) the terms are defined: the linked **setting**, the **supplier**, **bank** and **bank account**, the **credit facility value**, the **interest percentage** and **expected interest value**, the **fees percentage/value**, and the **start / end date**. The file shows live tracking totals: **total calculated interest value**, **total credit facility payments**, **total interest payments**, and the **credit-facility/interest remaining after payment**.
 
-![Credit Facility screen](./images/facilities/credit-facility.png)
+![Credit Facility screen](../../ar/modules/accounting/images/facilities/credit-facility-en.png)
 
 **Facility statuses:** Not Started → In Progress → Terminated.
 
@@ -39,7 +39,7 @@ On the **Credit Facility** screen (`Banks > Credit Facilities > Credit Facility`
 
 The **Credit Facility Setting** gathers the rules shared by similar facilities: the interest-calculation method (the **days per year for credit-facility interest calculation** option sets the calculation basis, default 365 — see [Accounting configuration](./support/accounting-configuration.md)) and the rule for splitting each payment between principal and interest.
 
-![Credit Facility Setting screen](./images/facilities/credit-facility-setting.png)
+![Credit Facility Setting screen](../../ar/modules/accounting/images/facilities/credit-facility-setting-en.png)
 
 ### Issuance, payment and termination
 

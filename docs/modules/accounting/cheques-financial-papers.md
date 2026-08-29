@@ -10,7 +10,7 @@ Financial papers are part of the banks license `accounting-banks`.
 
 The **Commercial Paper** (`Banks > Master Files > Commercial Paper`) represents the cheque or bill of exchange. Its key fields: the **paper direction** (**Received** from a customer or **Issued** to a supplier), the **paper type** (**Cheque** or **Bill Of Exchange**), the **value**, **due date**, **cheque number**, **bank**, and **beneficiary/issuer**, the **commercial-paper book** it belongs to, and the **status**.
 
-![The Commercial Paper screen](./images/cheques/financial-paper.png)
+![The Commercial Paper screen](../../ar/modules/accounting/images/cheques/financial-paper-en.png)
 
 The paper is rarely created on its own; it's usually generated from a **receipt voucher** (for received papers) or a **payment voucher** (for issued papers), then its status moves via the documents below. The possible statuses:
 
@@ -43,7 +43,7 @@ The **Commercial Paper Book** (`Banks > Settings > Commercial Paper Book`) organ
 - **Financial Paper Transfer** — to move/endorse a paper.
 - **Receipt Request** — to request receiving a paper before recording it.
 
-![The Bank Portfolio screen](./images/cheques/bank-portfolio.png)
+![The Bank Portfolio screen](../../ar/modules/accounting/images/cheques/bank-portfolio-en.png)
 
 ::: tip A simplified lifecycle for a received cheque
 Receive (receipt voucher) → Received → Deposit (bank portfolio) → Portfolioed → Bank notice of collection → Collected. And if it bounces: bank notice of return → Temporary/Finally Bounced.

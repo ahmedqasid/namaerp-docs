@@ -10,7 +10,7 @@ These tools are part of the core `accounting` license.
 
 The **Closing Entry** (`Accounting > Documents > Closing Entry`) is the document that closes the year. Its idea: it reads the balances of the **income-statement** accounts (revenue and expenses) and generates a balancing **journal entry** that moves the net profit or loss into the **Profit-Loss account** you specify, so the result accounts are zeroed and only the balance sheet carries over to the next year.
 
-![The Closing Entry screen](./images/year-end/closing-entry.png)
+![The Closing Entry screen](../../ar/modules/accounting/images/year-end/closing-entry-en.png)
 
 Its key fields:
 
@@ -33,7 +33,7 @@ Opening and closing periods in bulk is done from the **Fiscal Year** screen via 
 
 Sometimes you need a lock **finer** than closing a whole period: blocking transactions on a specific account, on a specific party's subsidiary, or within a date range. That's the role of **Prevent Transactions On Accounts Or Subsidiaries** (`Accounting > Master Files > Prevent Transactions On Accounts Or Subsidiaries`).
 
-![The Prevent Accounting Transactions screen](./images/year-end/prevent-transactions.png)
+![The Prevent Accounting Transactions screen](../../ar/modules/accounting/images/year-end/prevent-transactions-en.png)
 
 In the document's lines you specify, per rule: the **Account**, the **Subsidiary** (optional), and a **From Date** and **To Date**. Any posting attempt falling within these constraints is rejected. An **Inactive** flag lets you disable the rule temporarily without deleting it.
 

@@ -20,7 +20,7 @@ Before recording activity you set up the players and the asset:
 
 There are also building-block files — **shares**, **stakes**, **cash deposits**, **investment funds** and **fund types** — that describe the make-up of what's held.
 
-![The Investment Portfolio master file](./images/ipfolio/investment-portfolio.png)
+![The Investment Portfolio master file](../../ar/modules/accounting/images/ipfolio/investment-portfolio-en.png)
 
 ## The lifecycle
 
@@ -29,7 +29,7 @@ The portfolio's life is driven by a sequence of documents:
 1. **Investment Opportunity** (`Banks > Investment Documents > Investment Opportunity`) — the planning stage: a candidate investment being studied before any money moves.
 2. **Investment Start** (`Accounting > Investment Portfolios > Investment Start`) — deploys the capital. This is the document that **posts**: it moves the portfolio to **Ongoing** and records the investment. Its effect runs through the **Debit / Credit** sides (the investment asset against the funding bank/cash), the **Investment Expense** sides for any acquisition costs, and the **Tax** sides.
 
-   ![The Investment Start screen](./images/ipfolio/investment-start.png)
+   ![The Investment Start screen](../../ar/modules/accounting/images/ipfolio/investment-start-en.png)
 
 3. **Investment Update** (`Accounting > Investment Portfolios > Investment update`) and **Investment Capital Increase** (`… > Investment Capital Increase`) — revalue the investment or inject more capital while it's running.
 4. **Investment Profit Distribution** (`Accounting > Investment Portfolios > Investment Profit Distribution`) — books the profit the investment yields and distributes it.

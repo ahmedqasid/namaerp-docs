@@ -15,7 +15,7 @@ The most important field on the screen is **Type**, with two values that define 
 - **Detail** — an ordinary account holding a single aggregated balance (like a "Rent" or "Electricity" account). You look at it and see one balance.
 - **Subsidiary** — an account whose balance breaks down by **party**: customer, supplier, employee, bank, safe... A "Customers" account of type Subsidiary doesn't give you just one number; it gives a balance per individual customer, plus a grand total. This is what lets you know "how much does customer A owe us" without opening a separate account for every customer.
 
-![The Account screen](./images/accounts/account.png)
+![The Account screen](../../ar/modules/accounting/images/accounts/account-en.png)
 
 ## Linking the account to the chart: Debit chart and Credit chart
 

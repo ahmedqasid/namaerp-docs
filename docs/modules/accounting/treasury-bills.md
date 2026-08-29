@@ -27,7 +27,7 @@ A single bill is closed either by an early sale or by a close at maturity — no
 
 On the **Treasury Bill** screen (`Banks > Treasury Bill > Treasury Bill`) — which the purchase fills in — the bill's data appears: the **bank** and **bank account**, the **nominal value** and **current value**, the **ROI rate** and **ROI value**, the **purchase date**, **due date** and **period**, plus the tracking totals: the **total ROI values** and **total taxes** proven in the proof documents.
 
-![Treasury Bill screen](./images/treasury/treasury-bill.png)
+![Treasury Bill screen](../../ar/modules/accounting/images/treasury/treasury-bill-en.png)
 
 **Bill statuses:** Running → Closed.
 
@@ -35,7 +35,7 @@ On the **Treasury Bill** screen (`Banks > Treasury Bill > Treasury Bill`) — wh
 
 When a **Treasury Bill Purchase Document** (`Banks > Treasury Bill > Treasury Bill Purchase Document`) is recorded, the bill is created and its effect posts via the **current value debit/credit** sides.
 
-![Treasury Bill Purchase screen](./images/treasury/treasury-bill-purchase.png)
+![Treasury Bill Purchase screen](../../ar/modules/accounting/images/treasury/treasury-bill-purchase-en.png)
 
 The due return is then locked in periodically via the **Treasury Bill ROI Proof Document** (computed pro-rata to the elapsed period, with tax), or for several bills at once via the **Aggregate Treasury Bill Proof Document**. (Where the accounts come from is in the [Document terms](./support/accounting-document-terms.md) reference.)
 

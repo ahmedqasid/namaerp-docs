@@ -26,7 +26,7 @@ An account statement shows an account's movements over a period with the **runni
 - **Subsidiary account statement** (`SYSR-ACC003`, `ACC031`) and **by currency** (`ACC032`) — to show a specific party's movements.
 - **Detail account statement** (`SYSR-ACC004`, `ACC033`), **by analysis set** (`ACC021`), **by currency** (`ACC034`).
 
-![General account statement sample](./images/reports/acc002.png)
+![General account statement sample](../../ar/modules/accounting/images/reports/acc002-en.png)
 
 The key parameters in these statements: date/period range, the account or subsidiary, currency, and dimensions (branch/sector/department). The running balance is computed by ordering movements chronologically.
 
@@ -38,7 +38,7 @@ A trial balance summarizes account balances (debit/credit) to verify the books a
 - **Subsidiary trial balance** (`SYSR-ACC006`), by total balance (`ACC027`), by date (`ACC042`).
 - **Trial balance for an account** (`SYSR-ACC007`) for a specific account.
 
-![Trial balance sample](./images/reports/acc005.png)
+![Trial balance sample](../../ar/modules/accounting/images/reports/acc005-en.png)
 
 ## Account analysis
 
@@ -51,7 +51,7 @@ These reports reveal how aged receivables are (they rely on the **Track Debt Age
 
 - **Debt ages** (`SYSR-ACC024`), its document details (`ACC025`), **by invoice** (`ACC045`), and **all manual debt lines** (`ACC041`).
 
-![Debt ages by invoice sample](./images/reports/acc045.png)
+![Debt ages by invoice sample](../../ar/modules/accounting/images/reports/acc045-en.png)
 
 ## Voucher and entry statements
 
@@ -69,7 +69,7 @@ Statements dedicated to receipt/payment and journal documents (also linked from 
 
 The **Ledger Trans Form** (`SYSR-ACC048`) prints the single accounting movement with its details.
 
-![Ledger transaction form sample](./images/reports/acc048.png)
+![Ledger transaction form sample](../../ar/modules/accounting/images/reports/acc048-en.png)
 
 ## On-screen inquiries
 

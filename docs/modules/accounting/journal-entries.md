@@ -10,7 +10,7 @@ The journal entry, currency-difference journal, and inter-company transfer are p
 
 The journal entry (`Accounting > Documents > Journal Entry`) is the balanced document where you enter the debit and credit lines yourself — with the condition that total debit equals total credit before the system will accept it.
 
-![The Journal Entry screen](./images/journal/journal-entry.png)
+![The Journal Entry screen](../../ar/modules/accounting/images/journal/journal-entry-en.png)
 
 ### Document header
 

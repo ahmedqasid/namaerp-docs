@@ -18,7 +18,7 @@ The document moves through a **reconciliation step** in three stages — exactly
 2. **Reconciliation** — you match the subsidiary lines against your system lines, within the allowed **value tolerance** and **date-difference tolerance**, optionally driven by a **narration match sequence** or matching from the subsidiary side. What doesn't match lands in the **unmatched system lines** and **unmatched subsidiary lines** grids, where the real discrepancies become visible.
 3. **Finished** — the document is closed once matching is complete.
 
-![The Subsidiary Reconciliation screen](./images/subsrecon/subsidiary-reconciliation.png)
+![The Subsidiary Reconciliation screen](../../ar/modules/accounting/images/subsrecon/subsidiary-reconciliation-en.png)
 
 Each document links to the **previous reconciliation** for the same party, so it continues where the last one ended and locks the period behind it — a settled period isn't re-reconciled.
 

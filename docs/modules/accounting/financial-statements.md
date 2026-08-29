@@ -25,7 +25,7 @@ The **FS Settings File** is where the statement takes shape. It carries an Arabi
 - per-line **dimension limits** — "limit lines to branch / sector / department / analysis set / subsidiary / reference…" — so a line can be restricted to just one branch or cost center,
 - and flags such as **invisible in reports** (a working line used only in calculations) and **spread out in lines / spread subsidiaries in lines** (explode a group or its subsidiaries into individual rows).
 
-![The FS Settings File screen](./images/fs/fs-settings-file.png)
+![The FS Settings File screen](../../ar/modules/accounting/images/fs/fs-settings-file-en.png)
 
 At the header you also choose how the whole statement behaves:
 
@@ -37,7 +37,7 @@ At the header you also choose how the whole statement behaves:
 
 A settings file is just the design; the numbers come from an **issue**. The **Issuing Financial Statement File** runs a settings file for a chosen period and stores the computed result as a saved issue. That snapshot is what the FS-issue reports print — and because each issue is preserved, you can compare this month's issue against last month's, or this year against last.
 
-![The Issuing Financial Statement File screen](./images/fs/fs-issue-file.png)
+![The Issuing Financial Statement File screen](../../ar/modules/accounting/images/fs/fs-issue-file-en.png)
 
 ## The reports
 
@@ -48,11 +48,11 @@ The printed statements all come out of this engine, under the report menu (`Acc-
 - **Cash-flow statement.**
 - **Issue-driven statements** that print from a saved issue: monthly income statement one/two years (`SYSR-FNS010`/`SYSR-FNS011`), yearly income statement one/two years (`SYSR-FNS012`/`SYSR-FNS013`), yearly balance sheet one/two years (`SYSR-FNS014`/`SYSR-FNS015`), plus an FS trial balance.
 
-![Income statement by accounts (SYSR-FNS001)](./images/reports/SYSR-FNS001.png)
+![Income statement by accounts (SYSR-FNS001)](../../ar/modules/accounting/images/reports/SYSR-FNS001-en.png)
 
-![Monthly balance sheet (SYSR-FNS004)](./images/reports/SYSR-FNS004.png)
+![Monthly balance sheet (SYSR-FNS004)](../../ar/modules/accounting/images/reports/SYSR-FNS004-en.png)
 
-![Issue-driven monthly income statement (SYSR-FNS010)](./images/reports/SYSR-FNS010.png)
+![Issue-driven monthly income statement (SYSR-FNS010)](../../ar/modules/accounting/images/reports/SYSR-FNS010-en.png)
 
 ## For Support
 

@@ -24,7 +24,7 @@ On the **Bank LC** screen (`Banks > Bank LC > Bank LC`) the LC's data is defined
 - **Initial BLC values**: a snapshot of the opening terms — the **LC amount** and **currency**, **from date / to date**, the **covered amount** (covered in cash) and its percentage, the **facilities** (reserved portion) and its percentage, the **issue fees** and **change fees**.
 - **Current values**: the values in force after any amendment, plus the **status**.
 
-![Bank LC screen](./images/lc/bank-lc.png)
+![Bank LC screen](../../ar/modules/accounting/images/lc/bank-lc-en.png)
 
 ### LC statuses
 
@@ -34,7 +34,7 @@ The LC moves through the same statuses as a letter of guarantee: **Initial** →
 
 When a **Bank LC Opening** (`Banks > Bank LC > Bank LC Opening`) is recorded the accounting effect posts and the facility portion is reserved. The opening term covers the sides: **LC amount debit/credit**, **facilities amount debit/credit**, **fees debit/credit** (with **tax fees 1 and 2**), and the **covering** side. (Where the accounts come from is in the [Document terms](./support/accounting-document-terms.md) reference.)
 
-![Bank LC Opening screen](./images/lc/blc-opening.png)
+![Bank LC Opening screen](../../ar/modules/accounting/images/lc/blc-opening-en.png)
 
 ::: warning Facility-limit check
 At opening, the system checks that the total reserved doesn't exceed the **facility limit** linked to the LC, blocking the opening if it does. Details in [Credit Facilities](./credit-facilities.md).

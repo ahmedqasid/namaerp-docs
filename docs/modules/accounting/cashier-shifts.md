@@ -12,7 +12,7 @@ The cashier is part of the `accounting-cashier` license. The **Electronic Receip
 
 In the **Open Shift** document (`Accounting > Cashiers > Open Shift`) the cashier starts the duty: the **cashier user** and the **cashier safe** they'll work on are set, and the lines load the **opening balances** carried over from the previous shift's close (remaining cash, payment methods...).
 
-![The Open Shift screen](./images/cashier/open-shift.png)
+![The Open Shift screen](../../ar/modules/accounting/images/cashier/open-shift-en.png)
 
 ::: warning One open shift per user
 A cashier can't open a new shift while one is already open; the current one must be closed first.
@@ -26,7 +26,7 @@ During the shift the cashier records **Cashier Receipt Vouchers** and **Cashier 
 
 At the end of the duty a **Close Shift** document (`Accounting > Cashiers > Close Shift`) is issued: the system reconciles the **system balance** (the sum of the shift's transactions) against the **counted amount** actually in the drawer, and posts the result through a main safe (**Main Safe Deposit**). The closing's accounting effect covers two cases: the shift **difference** (overage/shortage) via the **Difference Debit/Credit** sides, and the **transferred amount** to the main safe via the **Transferred Debit/Credit** sides.
 
-![The Close Shift screen](./images/cashier/close-shift.png)
+![The Close Shift screen](../../ar/modules/accounting/images/cashier/close-shift-en.png)
 
 ## Electronic Receipt Voucher
 

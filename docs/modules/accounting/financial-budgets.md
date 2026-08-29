@@ -12,7 +12,7 @@ The **Financial Budget** (`BUDGETS > Budgets > Financial Budget`) is the plan do
 
 Every line is scoped by the **dimensions** that matter to you — legal entity, sector, branch, department, analysis set, subsidiary, even a record (entity dimension) — and by a **fiscal year / period** (a from–to period range). So "marketing department, branch Riyadh, this year: 500,000" is a single, precise budget line.
 
-![The Financial Budget screen](./images/budgets/financial-budget.png)
+![The Financial Budget screen](../../ar/modules/accounting/images/budgets/financial-budget-en.png)
 
 You can keep several budgets as **scenarios** (`BUDGETS > Master Files > Budget Scenario`) — an optimistic plan, a conservative one — and tag the budget with the scenario it belongs to.
 

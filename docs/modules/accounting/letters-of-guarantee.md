@@ -27,7 +27,7 @@ On the **Letter Of Guarantee** screen (`Banks > Letters Of Guarantee > Letter Of
 - **Initial LGT values**: a snapshot of the issue terms — the **amount** and **currency**, **who it's delivered to**, **from date / to date**, the **covered amount** (covered in cash), the **facilities** (the reserved portion of the facility limit), and the **fees**.
 - **Letter of guarantee (current values)**: the **LGT type**, the **guarantee type** and the **status**, plus the values in force after any amendment (amount, covered, facilities, change fees).
 
-![Letter of Guarantee screen](./images/lg/letter-of-guarantee.png)
+![Letter of Guarantee screen](../../ar/modules/accounting/images/lg/letter-of-guarantee-en.png)
 
 The **guarantee type** classifies the letter's purpose: **initial guarantee** (tender entry), **final guarantee** (performance), **advance-payment guarantee**, **customs guarantee**, or other types.
 
@@ -46,7 +46,7 @@ The **guarantee type** classifies the letter's purpose: **initial guarantee** (t
 
 When an **LGT Issue** (`Banks > Letters Of Guarantee > LGT Issue`) is recorded the accounting effect posts and the facility portion is reserved. The issue term covers several sides: **LGT amount debit/credit**, **facilities amount debit/credit** (the reserved portion of the facility limit), **fees debit/credit** (with **tax fees 1 and 2**), and the **covering** side. (Where these accounts come from is explained in the [Document terms](./support/accounting-document-terms.md) reference.)
 
-![LGT Issue screen](./images/lg/lgt-issue.png)
+![LGT Issue screen](../../ar/modules/accounting/images/lg/lgt-issue-en.png)
 
 ::: warning Facility-limit check
 At issue, the system checks that the total reserved doesn't exceed the **facility limit** linked to the letter. If it does, issuing is blocked. The details of facility limits are in [Credit Facilities](./credit-facilities.md).

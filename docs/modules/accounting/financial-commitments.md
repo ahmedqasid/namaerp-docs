@@ -23,13 +23,13 @@ All screens are under the **Accounting > Financial Commitment Management** root:
 
 On the **Financial Commitment** (`Accounting > Financial Commitment Management > Financial Commitment`) you enter the obligation's **category**, its **start date**, the **installments count** and **installments value**, and the recurrence **period** (value + unit, e.g. every 1 month). From these the **Installments** grid is built — one line per installment carrying its **installment code**, **value**, **payment date**, and the running **paid amount** / **remaining** and a **paid** flag. The header keeps the rolling **total paid** and **total unpaid** so you can see at a glance where the obligation stands.
 
-![The Financial Commitment screen](./images/commitments/financial-commitment.png)
+![The Financial Commitment screen](../../ar/modules/accounting/images/commitments/financial-commitment-en.png)
 
 ## Paying an installment
 
 The **Financial Commitment Payment Document** (`Accounting > Financial Commitment Management > Financial Commitment Payment Document`) points at a **financial commitment** and records a payment against it. When committed, it updates the matching installment's **paid amount** and **remaining**, and flips the installment to **paid** once fully settled — so the commitment's totals always reflect reality.
 
-![The Financial Commitment Payment Document screen](./images/commitments/financial-commitment-paydoc.png)
+![The Financial Commitment Payment Document screen](../../ar/modules/accounting/images/commitments/financial-commitment-paydoc-en.png)
 
 ## Rescheduling
 

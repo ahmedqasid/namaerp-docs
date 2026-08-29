@@ -30,7 +30,7 @@ On the **Bank Loan** screen (`Banks > Bank Loans > Bank Loan`) the loan terms ar
 - **Installments**: the **installments count**, the **installment value**, **installments start in** (first installment date) and **calculated per** (the recurrence, e.g. every month) — or relying on a ready-made **installments template**.
 - **Interests**: the **annual interest percent**, the **interest type**, **interests start in** and **paid per**. Important options here include: **calculate interest once at the end of the period**, **interest start date is the same as the loan start date**, **calculate interest based on the value not the percent**, and **adjust the last interest value if needed**.
 
-![Bank Loan screen](./images/loans/bank-loan.png)
+![Bank Loan screen](../../ar/modules/accounting/images/loans/bank-loan-en.png)
 
 The available **interest types**:
 
@@ -58,7 +58,7 @@ The loan moves through these statuses, which advance automatically with the move
 
 As long as the loan is in its initial status it's just an agreement on paper. When a **Loan Issue** (`Banks > Bank Loans > Loan Issue`) is recorded the amount actually arrives: the document posts to the ledger so the loan is booked against the bank and deposited into the account, and the loan's status flips to "Released". The issue term covers the sides: **loan value debit/credit**, **fees value debit/credit** (with **fees tax**), and **interest value debit/credit** — i.e. where the accounts for the loan principal, its fees and its interest come from. (The detail of where these accounts come from is in the [Document terms](./support/accounting-document-terms.md) reference.)
 
-![Loan Issue screen](./images/loans/loan-issue.png)
+![Loan Issue screen](../../ar/modules/accounting/images/loans/loan-issue-en.png)
 
 ## Interest accrual and repayment
 
@@ -66,7 +66,7 @@ As the loan periods pass, a **Loan Interests Calculation** is recorded to lock i
 
 Then comes the **Loan Installment Payment** (`Banks > Bank Loans > Loan Installment Payment`) to repay one or more installments. The document shows the loan totals (total installments, interest, paid and remaining), and its lines separate the **installment principal**, the **interest paid** and the **late fine** (computed automatically from the late days and fine percent). The document posts via the sides: **fine debit/credit**, **interest payment value debit/credit**, plus the collected-principal side.
 
-![Loan Installment Payment screen](./images/loans/loan-installment-payment.png)
+![Loan Installment Payment screen](../../ar/modules/accounting/images/loans/loan-installment-payment-en.png)
 
 ::: tip The interest-payment document is shared with deposits
 The **Interest Payment Document** (`Banks > Fixed Deposits > Interest Payment Document`) is used to record interest/profit payments, and it's the same document used in [Fixed Deposits](./fixed-deposits.md).

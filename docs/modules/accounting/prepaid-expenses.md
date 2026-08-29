@@ -14,13 +14,13 @@ The system is built from three screens, all under the **Accounting > Prepaid Exp
 2. **Prepaid Expense Contract** — the document that records an actual prepaid payment: which item, the total amount, and the period it covers. From it the system generates the monthly recognition entries.
 3. **Prepaid Expense Ledger** — the monthly recognition entry. One is generated per month of the contract's period, and each one moves that month's share from the prepaid asset into the expense.
 
-![The Prepaid Expense Contract screen](./images/prepaid/prepaid-expense-contract.png)
+![The Prepaid Expense Contract screen](../../ar/modules/accounting/images/prepaid/prepaid-expense-contract-en.png)
 
 ## Setting up an item
 
 The **Prepaid Expense Item** (`Accounting > Prepaid Expense Contracts > Prepaid Expense Item`) is the reusable template. On it you set the **account** the expense ultimately lands in, the **credit side** (where the offsetting credit comes from — see below), and a **tax plan** if the expense is taxable. Because the item carries these defaults, the contract that uses it only needs the amount and the dates.
 
-![The Prepaid Expense Item screen](./images/prepaid/prepaid-expense-item.png)
+![The Prepaid Expense Item screen](../../ar/modules/accounting/images/prepaid/prepaid-expense-item-en.png)
 
 ## Recording a contract
 

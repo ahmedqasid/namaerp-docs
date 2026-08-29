@@ -15,7 +15,7 @@ Every node in the tree has a **parent** that links it to its ancestor, and that'
 - **Grouping node** — carries the **Accepts Elements** (`يقبل عناصر`) flag, meaning it has branches beneath it. These nodes aren't posted to directly; they aggregate the balances of everything under them.
 - **Leaf node** — does not accept elements beneath it, and is the level the actual accounts attach to and where balances are recorded.
 
-![The Accounts Chart screen](./images/chart/accounts-chart.png)
+![The Accounts Chart screen](../../ar/modules/accounting/images/chart/accounts-chart-en.png)
 
 In the screen header you enter the **Code**, **Name1** (Arabic), and **Name2** (English), and optionally the **English Code**. The next section sets the node's position and nature:
 
@@ -36,7 +36,7 @@ Instead of numbering accounts by hand, the **Code Formula Settings** section on 
 
 The chart of accounts organizes accounts in accounting terms, but the financial statements — especially the **cash-flow statement** and the **income statement** — need an extra classification angle. That's the role of **Account Category** (`Accounting > Master Files > Account Category`): a parallel classification tree that links each account to its role in those statements.
 
-![The Account Category screen](./images/chart/account-category.png)
+![The Account Category screen](../../ar/modules/accounting/images/chart/account-category-en.png)
 
 Its key fields:
 

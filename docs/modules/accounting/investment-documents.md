@@ -19,13 +19,13 @@ In short: bonds for a fixed, coupon-style return; funds for a price-driven holdi
 
 The **Investment Document** master (`Banks > Investment Documents > Investment Document`) describes the bond: its **type** (treasury / company bond), **nominal value**, **coupon** rate and **ROI period**, the **fixed / decreasing** installments type (with a **decreasing start date** and the **remaining nominal of decreasing** tracked), the **issue discount / issue premium**, the **market price**, and the **investment company**. Its **status** follows the familiar **Initial → Ongoing → Closed** path.
 
-![The Investment Document (bond) master file](./images/invdocs/investment-doc.png)
+![The Investment Document (bond) master file](../../ar/modules/accounting/images/invdocs/investment-doc-en.png)
 
 The bond is brought to life by a chain of documents:
 
 1. **Investment Doc Purchase Document** (`Banks > Investment Documents > Investment Doc Purchase Document`) — the purchase, and the document that **posts**. Its effect carries the **nominal value** debit/credit, plus the **issue discount** and **issue premium (raise)** sides — because a bond is rarely bought exactly at par.
 
-   ![The Investment Doc Purchase screen](./images/invdocs/investment-doc-purchase.png)
+   ![The Investment Doc Purchase screen](../../ar/modules/accounting/images/invdocs/investment-doc-purchase-en.png)
 
 2. **ROI Proof** (and **Aggregated ROI Proof** for several at once) — locking in the periodic coupon return.
 3. **Claiming** — collecting the document's value at maturity.
@@ -34,7 +34,7 @@ The bond is brought to life by a chain of documents:
 
 The **Investment Document Fund** master (`Banks > Investment Document > Investment Document Fund`) tracks a unit-based holding, valued as units × unit price.
 
-![The Investment Document Fund master file](./images/invdocs/investment-document-fund.png)
+![The Investment Document Fund master file](../../ar/modules/accounting/images/invdocs/investment-document-fund-en.png)
 
 It has its own three documents: a **Purchase** (buying units), a **Sale** (selling units), and a **Price Update** (revaluing the holding as the unit price moves). Because a fund's worth tracks the market, the price-update document is what keeps its value current between buying and selling.
 

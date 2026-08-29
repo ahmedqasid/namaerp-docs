@@ -19,7 +19,7 @@ Every screen hangs off the **Banks > Fixed Deposits** root:
 
 On the **Fixed Deposit** screen (`Banks > Fixed Deposits > Fixed Deposit`) the terms are defined: the **bank** and **bank account**, the **deposit type**, the **deposit value**, the **from date / to date**, the **calculated per** (the interest-calculation period), the **interest percentage**, **interest type**, **interest calculation method** and **interest payment start date**.
 
-![Fixed Deposit screen](./images/deposits/fixed-deposit.png)
+![Fixed Deposit screen](../../ar/modules/accounting/images/deposits/fixed-deposit-en.png)
 
 **Interest type:** Simple or Compound. The **interest calculation method** sets the calculation frequency: Yearly, Monthly or Daily.
 
@@ -29,7 +29,7 @@ On the **Fixed Deposit** screen (`Banks > Fixed Deposits > Fixed Deposit`) the t
 
 When a **Fixed Deposit Issue** (`Banks > Fixed Deposits > Fixed Deposit Issue`) is recorded, the amount goes out of your account into the deposit with the bank, the accounting effect posts via the **interest value debit/credit** sides alongside the principal, and the deposit's status flips to "Released".
 
-![Fixed Deposit Issue screen](./images/deposits/fixed-deposit-issue.png)
+![Fixed Deposit Issue screen](../../ar/modules/accounting/images/deposits/fixed-deposit-issue-en.png)
 
 The due interest is then locked in periodically via the **Interest Payment Document** (`Banks > Fixed Deposits > Interest Payment Document`) — the document shared with loans. (Where the issue and interest accounts come from is in the [Document terms](./support/accounting-document-terms.md) reference.)
 
