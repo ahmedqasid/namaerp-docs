@@ -8,7 +8,7 @@ Nama has two separate ways of putting a human check between "someone entered thi
 
 **Approval Enabled** `value.approvalEnabled` *(default on)* — The master switch for the whole approval engine. With it off, approval rules are ignored everywhere.
 
-The next five options decide which buttons an approver actually sees. Every one you leave on is another choice the approver has to weigh, so a deliberately short list often produces faster, more consistent decisions.
+The options that follow decide which buttons an approver actually sees. Every one you leave on is another choice the approver has to weigh, so a deliberately short list often produces faster, more consistent decisions.
 
 **Use Reject Decision** `value.info.useRejectDecision` *(default on)* — Shows **Reject**, which ends the approval and refuses the document.
 

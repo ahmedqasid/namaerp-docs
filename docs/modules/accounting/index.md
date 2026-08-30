@@ -21,10 +21,6 @@ There's also a **Budgets** root for financial planning. Each page points you to 
 
 Accounting features are sold as licensed sub-modules, so some screens may not appear unless their license is switched on. The guides below are grouped by these licenses, and every page states which license its features require — useful for users figuring out what they have, and for support diagnosing "why is this screen missing".
 
-::: info Guides are being published progressively
-Pages are being released in waves, starting with the most-used areas (foundations, banks & cheques, reports). Each group's page links will appear here as they're published, and you can always browse what's available from the sidebar.
-:::
-
 ## Guide groups
 
 ### Core Accounting

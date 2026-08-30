@@ -29,7 +29,8 @@ that a school with many stages can group them.
 
 **Educational Stage** is the backbone of the whole module. It is the record you create for *Primary*,
 *Preparatory*, *Secondary* — or, in a training centre, for *Beginner*, *Intermediate* and *Advanced*.
-Besides its code and names it carries a **Stage Type** and free remarks.
+Besides its code and names it carries a **Stage Type**, free remarks, and a **Class Rooms** grid
+listing the class rooms that make the stage up.
 
 Stages nest. A stage can sit under another stage, so a large school can model *Primary → Lower
 Primary / Upper Primary* rather than flattening everything into one list. The nesting is not a field
@@ -48,17 +49,21 @@ entering anything else.
 ### Class Room
 
 A **Class Room** is one division of a stage — grade 4 of Primary, or the *Evening Beginner* group of
-a training centre. Its record is deliberately thin: code, names, the **Educational Stage** it belongs
-to, and remarks. The link points upward, from the class room to its stage, so a stage's class rooms
-are simply all the class rooms that name it.
+a training centre. Its record carries code, names, the **Educational Stage** it belongs to, remarks,
+and a **Ranks** grid listing the sections inside it.
+
+The link is recorded from both ends: the class room names its stage, and the stage lists the class
+room in its own grid. Fill in whichever end you are standing on — they are two views of the same
+structure, and a school usually builds the tree downwards from the stage.
 
 ![The Class Room screen](../../ar/modules/education/images/master-files/class-room-en.png)
 
 ### Rank
 
 A **Rank** is the smallest named grouping — section 4/A, 4/B, 4/C inside grade 4. It names the
-**Class Room** it belongs to, and it carries a **Student Number** figure where you record how many
-pupils that section is meant to hold.
+**Class Room** it belongs to, carries a **Student Number** figure where you record how many pupils
+that section is meant to hold, and holds a **Students** grid — which is where each pupil is actually
+placed in a section.
 
 ![The Rank screen](../../ar/modules/education/images/master-files/rank-en.png)
 
@@ -69,16 +74,19 @@ The number you type there is planning documentation for the people reading the r
 
 ## Where a student sits in the structure
 
-Here is the part that surprises people who expect a full timetable model: **the only academic link a
-student card carries is the Educational Stage.** A student belongs to *Primary*; the class room and
-the rank describe how the school is organised rather than where each individual pupil has been
-placed.
+The structure is built downwards, and each level lists the level below it: the stage lists its class
+rooms, the class room lists its ranks, and the rank lists its students. So *Primary* names grades 1
+to 6, grade 4 names sections 4/A, 4/B and 4/C, and section 4/A names the thirty pupils in it.
 
-That is a deliberately loose fit, and it works well for the way the rest of the module asks its
-questions. Attendance sheets, daily monitoring and mark sheets are all taken **per stage** and then
-list the pupils on them, so the stage on the student card is exactly the classification those screens
-need. If a school wants to record a pupil's section as well, the student card's spare
-description and number fields are the usual place for it.
+**A pupil is placed by adding them to the Students grid on their rank**, not from the student card.
+The student card itself carries only one academic link — the **Educational Stage** — which is the
+pupil's stage, not their section. Both matter, and they answer different questions.
+
+That split follows the way the rest of the module asks its questions. Attendance sheets, daily
+monitoring and mark sheets are all taken **per stage** and then list the pupils on them, so the stage
+on the student card is the classification those screens read. The rank's Students grid is where the
+finer placement lives — which section a pupil sits in, and how full that section is against the
+Student Number you recorded on it.
 
 ## The Student record
 

@@ -48,7 +48,7 @@ contract books revenue, or that a temporary reservation protects a unit. Neither
 
 | Document | Does it take the unit off the market? | Does it create accounting effects? | Licence |
 |---|---|---|---|
-| Sales offer | No | **No** | `realestate-sales` |
+| Sales offer | No | Only if its term is configured — normally left empty, so no | `realestate-sales` |
 | Temporary reservation | No | **No** | `realestate-sales` |
 | Reservation document | Yes — but only once its status is **Confirmed** | Yes — the reservation deposit only, one debit and one credit line | `realestate` |
 | Reservation cancellation | Releases the unit | Yes — a full sales-style entry for what is retained and refunded | `realestate` |
@@ -88,12 +88,14 @@ down payment, the fees, the maintenance deposit, and every one of the sixty inst
 due date. It carries the same price block and the same *Create installments* button as the real
 contract, so the simulation is not an approximation — it is the plan the contract would produce.
 
-What makes it safe to hand out freely is everything it does *not* do:
+What makes it safe to hand out freely is that it does not commit anything:
 
 - It does not reserve villa B-12. Another salesperson can sell it that afternoon.
-- It creates no accounting effects.
-- It does not need a document term at all, which means you can start issuing offers on day one
-  without an accountant configuring anything.
+- It reaches the ledger only if you deliberately configure it to. The offer carries its own
+  document term with the same full set of accounting sides as the contract, and on commit it
+  raises an accounting request exactly as the contract does — but with those sides left empty,
+  as they normally are, nothing is written. Fill them in and the offer will post like any other
+  document, so leave the offer's term unconfigured unless you mean it.
 - The buyer field is not mandatory. An offer is normally addressed instead to a CRM lead or
   opportunity through the *Offer For* field — the only point in the whole sales chain that reaches
   into CRM.

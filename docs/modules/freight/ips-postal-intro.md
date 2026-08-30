@@ -3,7 +3,7 @@
 Alongside freight and logistics, the Freight Management module includes a complete system for running **International Postal System (IPS)** operations. If you're a postal operator or a courier company dealing with an international exchange office, this section manages a mail item's journey from the moment receptacles arrive from abroad until the parcel is delivered to the customer's door.
 
 ::: info Who is this section for?
-The postal system is a specialized part of the freight module. If your business is only ocean freight and clearance, you may not need it. Postal and parcel operators, on the other hand, will find a complete workflow here. Both sections share the same `frm` license and the same **Freight Management System** menu.
+The postal system is a specialized part of the freight module. If your business is only ocean freight and clearance, you may not need it. Postal and parcel operators, on the other hand, will find a complete workflow here. Both sections live in the same **Freight Management System** menu, but they are licensed separately: the freight and clearance documents under `frm`, and everything postal under `frm-ips`.
 :::
 
 ## Core concepts

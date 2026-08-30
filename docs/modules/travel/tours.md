@@ -346,10 +346,13 @@ For the whole setup screen, see [Document Terms](./travel-document-terms).
 
 ### Re-running it
 
-The button is meant to be pressed again. Re-running it **refreshes the set of orders so it matches
-the tour as it now stands**: parties still on the tour keep their order, and the set is brought back
-in line with the current itinerary.
+Pressing the button again does not add to what is already there — it rebuilds the orders from the
+tour as it now stands. Every order the tour raised is revisited: a hotel, supplier, guide or
+restaurant still on the itinerary keeps its order but has its lines written afresh from the current
+bookings, and an order whose party has left the itinerary altogether is **deleted**.
 
-The practical habit that follows: get the operations file right first — the hotels, the flights, the
+That makes the sequence matter. Prices live on the purchase orders, and a rebuild rewrites the very
+lines that carry them. So get the operations file right first — the hotels, the flights, the
 services, the parties — press the button once the itinerary has settled, and price the orders after
-that.
+that. If the itinerary really does change afterwards, expect to check the prices on every order the
+rebuild touched.

@@ -14,7 +14,7 @@ When you need to cancel a shipment and return its goods to storage, the **Loadin
 
 ## Delivery and Proof of Receipt (DeliveryDocument)
 
-The **Delivery Document** records that items were loaded onto the vehicle, delivered to the customer, and signed for, so they left your custody. The document tracks delivery status (pending, delivered, partial, cancelled), the driver and vehicle per line, and may support delivery confirmation with a customer password. It's the **proof of delivery** document - vital if the customer later claims non-receipt. Each delivery is also numbered via the **Delivery Number** (DeliveryNumber) to ease tracking within queue management.
+The **Delivery Document** records that items were loaded onto the vehicle, delivered to the customer, and signed for, so they left your custody. The document tracks delivery status (pending, delivered, partial, cancelled), the driver and vehicle per line, and may support delivery confirmation with a customer password. It's the **proof of delivery** document - vital if the customer later claims non-receipt.
 
 ![Delivery document screen in NaMa ERP](../../ar/modules/supplychain/images/delivery/delivery-document-en.png)
 

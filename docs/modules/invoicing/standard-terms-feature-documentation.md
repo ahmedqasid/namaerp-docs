@@ -1,7 +1,4 @@
 # Standard Terms and Conditions Feature Documentation
-::: tip
-The content of this file was auto-generated using Claude.ai by reviewing the source code, if you find any incorrect information, please contact Nama ERP developemnt team.
-:::
 
 ## Overview
 

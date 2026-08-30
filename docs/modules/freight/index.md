@@ -37,7 +37,7 @@ Unlike systems that require a separate "posting" step, Nama ERP acts immediately
 
 ## Licensing
 
-Every document in this module is gated behind the module license `frm` (NaMa Freight Management). If the module isn't enabled in your license, its menus won't appear.
+The freight and clearance documents are gated behind the module license `frm` (NaMa Freight Management). The postal half has a licence of its own, `frm-ips` — so a licence can carry one without the other. If a licence is missing, its menus simply do not appear.
 
 ## How this guide is organized
 
