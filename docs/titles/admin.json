@@ -9,7 +9,6 @@
     "/admin/reprocessing",
     "/admin/reprocessing/reprocess-qty-and-cost.md",
     "/admin/reprocessing/reprocess-ledger-and-debt-ages.md",
-    "/admin/reprocessing/reprocess-stock-ages.md",
     "/admin/reprocessing/cost-and-qty-problems.md",
     "/admin/reprocessing/inventory-utilities.md",
     "/admin/reprocessing/manufacturing-utilities.md",

@@ -24,6 +24,8 @@ The salary engine itself, and the attendance, leave, loan and discipline data th
 <LandingGrid>
   <LandingCard icon="💰" title="Payroll" link="/modules/hr/payroll/" details="Salary components, calculation formulas, structures, salary documents, annual increases and salary blocking." />
   <LandingCard icon="🕐" title="Time & Attendance" link="/modules/hr/attendance/" details="Attendance plans and shifts, recording punches, attendance machines, and short leave permissions and missions." />
+  <LandingCard icon="🧮" title="Attendance and Departure Formulas" link="/modules/hr/attendance-machine-formula.md" details="Teaching the system to read one particular fingerprint machine's export file — the token line that describes its columns, date and time formats." />
+  <LandingCard icon="🔀" title="Ignoring Overlapping Attendance Lines" link="/modules/hr/ignore-overlapping-attendance.md" details="What to do when a fingerprint file gives an employee readings that overlap or contradict each other, and how to have the system skip them." />
   <LandingCard icon="🏖️" title="Vacations & Leaves" link="/modules/hr/vacations/" details="Vacation types and balances, the request-to-document flow, compensation and transfer, and changing an employee's state." />
   <LandingCard icon="💳" title="Loans & Installments" link="/modules/hr/loans/" details="Loan types, the request-to-disbursement flow with salary-installment recovery, and relief, rescheduling and disabling." />
   <LandingCard icon="🏅" title="Rewards & Penalties" link="/modules/hr/discipline/" details="Ad-hoc bonuses and deductions applied to salary, and employee suspension." />

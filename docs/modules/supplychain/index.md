@@ -91,6 +91,17 @@ Everything that enters your inventory, leaves it, or moves around inside it.
 - **[Weight Scale](./weight-scale.md)** — Weight scale configuration and the preparation documents tied to it.
 - **[Specialized Scenarios](./specialized-scenarios.md)** — Other cases such as glass job orders, automatic document-generation rules, and tenders.
 
+### Setting the Rules
+
+Everything above behaves the way two settings files tell it to. When the system does something you did not expect — a cost calculated differently, a quantity refused, a price picked from the wrong list — the answer is almost always in one of these.
+
+- **[Supply Chain Configuration](./configuration/)** — the single module-wide configuration file, with one reference page per tab: costing, overdraft and quantity checking, pricing and price lists, purchasing, sales and offers, stock taking, item properties, barcode specifications, and more.
+- **[Document Terms](./document-terms/)** — the term attached to each document type, which decides what it copies from its source document, how it tracks and reserves quantity, how it prices, taxes and discounts its lines, what it records in the general ledger, and which documents it generates. One reference page per tab.
+
+### Questions & Answers
+
+- **[Supply Chain FAQ](./supply-chain-faq.md)** — the questions support is asked most about distribution, warehousing, sales and purchasing, each with a worked answer.
+
 ::: info Point of Sale Has Its Own Module Now
 The Point of Sale (POS) guides have moved to the standalone [Point of Sale module](/modules/pos/). There you'll find the guides for fingerprint login, free items in POS, and technical points of use.
 :::
@@ -98,6 +109,8 @@ The Point of Sale (POS) guides have moved to the standalone [Point of Sale modul
 ### Development Request Notes
 
 Some client requests change how a core part of the module behaves in ways worth explaining on their own. The **[Development Request Notes](./development-requests/)** section keeps the story behind those changes — the business problem, what the feature does, and when to enable it.
+
+- **[Ignoring Specific Warehouses or Locators in the Reservation Quantity Check by Date](./ignore-reservation-qty-check-by-date.md)** — how to keep a warehouse or locator out of the available balance the by-date check uses, for reservations only.
 
 ## A Note About Document Types
 

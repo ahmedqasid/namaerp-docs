@@ -23,6 +23,7 @@ title: الخصائص العامة للنظام
 أعد تصميم الشاشات والقوائم، بل وحتى المسمّيات الجاهزة، لتناسب طريقة عمل فريقك فعليًا — دون أي برمجة.
 
 <LandingGrid>
+  <LandingCard icon="⚙️" title="الإعدادات العامة" link="/ar/platform/global-config/" details="ملف الإعدادات الوحيد الذي يخص كل الوحدات — الخانات العشرية، وحساب الضريبة، وقواعد تسجيل الدخول، والمظهر وغيرها، صفحة صفحة." />
   <LandingCard icon="🎚️" title="تعديل الشاشات" link="/ar/platform/screen-modifier/" details="أعد ترتيب الحقول، وأخفِ ما لا تستخدمه، وأعد تصميم شاشات التعديل وقوائم العرض ونوافذ الاختيار عبر المحرر المرئي للتخطيط." />
   <LandingCard icon="🌲" title="القوائم" link="/ar/platform/menus/" details="شجرة التنقل نفسها — مم تتكوّن، وكيف تعدّلها بحيث تصمد تعديلاتك لإعادة البناء، ولماذا يرى مستخدم وصلة لا يراها غيره." />
   <LandingCard icon="📋" title="قوائم العرض" link="/ar/platform/list-views/" details="فلاتر سريعة للعثور على السجلات بسرعة، وقصر المستخدم على سنة مالية واحدة." />
@@ -50,12 +51,13 @@ title: الخصائص العامة للنظام
 <LandingGrid>
   <LandingCard icon="📦" title="استيراد السجلات وتصديرها" link="/ar/platform/import-export/" details="أخرج السجلات إلى Excel أو JSON، وعدّلها، ثم أعدها — مع قوائم التصدير المحفوظة والربط المتقدم للاستيراد." />
   <LandingCard icon="🗄️" title="إدارة المستندات" link="/ar/platform/dms/" details="سجل للأوراق المادية: الأرشيفات والمجلدات والمواضيع، ومن استعار ماذا، وتحميل أرشيف كامل من ملف مضغوط." />
-  <LandingCard icon="🔄" title="مسارات الكيان" link="/ar/platform/entity-flows/" details="أتمت الإجراءات على السجلات، وولّد كيانات من كيانات، واستورد البيانات من Excel أو استعلامات SQL." />
+  <LandingCard icon="🔄" title="مسارات الكيان" link="/ar/platform/entity-flows/" details="أتمت ما يفعله النظام عند حفظ السجل أو تعديله أو مراجعته — المفاهيم والأمثلة العملية والفهرس الكامل للمسارات الجاهزة." />
   <LandingCard icon="⏰" title="المهام المجدولة" link="/ar/platform/scheduled-tasks.md" details="شغّل المهام تلقائيًا وفق جدول زمني — مجدول المهام." />
   <LandingCard icon="⏳" title="المعالجة في الخلفية" link="/ar/platform/background-processing/" details="الطوابير التي تنفّذ آثار المستندات وترسل رسائلك وتشغّل تقاريرك — وأين تنظر حين يتعثّر أحدها في صمت." />
   <LandingCard icon="🔁" title="المستندات الدورية" link="/ar/platform/recurring-documents.md" details="أعد إنتاج مستند نموذجي على إيقاع ثابت — تلقائيًا وفق جدول أو دفعة عند الطلب." />
   <LandingCard icon="🧱" title="الكيانات الافتراضية" link="/ar/platform/virtual-entity-guide.md" details="وحدات SQL قابلة لإعادة الاستخدام تُغذّي التقارير ولوحات المعلومات." />
   <LandingCard icon="🔎" title="فلتر الحقل بالمعايير" link="/ar/platform/field-filter-with-criteria.md" details="قيّد ما يمكن لحقل المرجع اختياره باستخدام المعايير — مع أسئلة شائعة عن فلترة الحقول." />
+  <LandingCard icon="❓" title="أسئلة شائعة حول فلترة الحقول" link="/ar/platform/field-filter-faq.md" details="إجابات عملية عن أكثر أسئلة الفلترة تكرارًا — الدوران على سطور التفاصيل، والفلترة بقيمة موجودة في الشاشة نفسها، والأخطاء التي تجعل الفلتر لا يعيد شيئًا." />
   <LandingCard icon="📝" title="معايير من المحلل النصي" link="/ar/platform/text-criteria-guide.md" details="اكتب المعايير كنص عادي ودع المحلل يحوّلها إلى فلاتر." />
 </LandingGrid>
 

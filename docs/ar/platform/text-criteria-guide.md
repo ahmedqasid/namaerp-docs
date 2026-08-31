@@ -14,7 +14,7 @@
     * `EndsWith`, `NotEndWith`
     * `Contains`, `NotContain`
     * `In`, `NotIn` (انظر [قيم متعددة مع In/NotIn](#qym-mtaadd-maa-InNotIn) أدناه)
-    * `WithinPeriod`, `OutsidePeriod` (لحقول التاريخ / التاريخ والوقت، انظر [معاملات الفترة (WithinPeriod/OutsidePeriod)](#maaamlat-alftr-WithinPeriodOutsidePeriod) أدناه)
+    * `WithinPeriod`, `OutsidePeriod` (لحقول التاريخ / التاريخ والوقت، انظر [معاملات الفترة (WithinPeriod/OutsidePeriod)](#maamlt-lftr-WithinPeriodOutsidePeriod) أدناه)
     * `OpenBracket`, `CloseBracket` (تُستخدم لتجميع التعبيرات، ولا تتطلب Field ID أو قيمة)
 * **Compared Value**: القيمة المراد المقارنة بها.
 * **Logical Relationship**: الرابط المنطقي للشرط التالي (`AND` أو `OR`).

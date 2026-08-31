@@ -10,10 +10,6 @@ These reports are part of the core `accounting` license.
 The formal financial statements (balance sheet, income statement, cash flow, `SYSR-FNS*`) aren't here — they're the output of the **financial-statements engine** and are documented with it. This page is for the ledger statements, trial balances, and analysis that aren't tied to a particular document type.
 :::
 
-::: info About the report samples
-The sample images below are the reports' Arabic-rendered output; they illustrate the report layout and are reused on this English page.
-:::
-
 ## Chart of accounts
 
 The **Accounts Chart** report (`SYSR-ACC001`) prints the full tree with its levels and classifications — a quick reference to your account structure (see [Chart of Accounts](./chart-of-accounts.md)).

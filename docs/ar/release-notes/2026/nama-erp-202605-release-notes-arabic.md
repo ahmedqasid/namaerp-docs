@@ -19,7 +19,7 @@
   - مردودات المشتريات
 - تم إضافة زر جديد بمستند بداية جرد لفتح شاشة وإضافة سند نهاية جرد.
 - تم إضافة خيار جديد في توجيه سندات السابلاي تشين، يقوم بإضافة سطور بناءً على التي لها نفس المخزن الموجود برأس السند" - مع اعتبار المخزن في سندات التحويل بالحقل من مخزن وليس إلى مخزن.
-- تم إضافة خيار إلى المخازن والمواقع باسم "لا يعتبر في التأكد من كميات الحجز على مستوى الشركة". تم أيضاً إضافة خيارين باسم "تفعيل عدم الاعتبار في التأكد من كميات الحجز" للمخازن وآخر للمواقع وذلك لمنع الحفظ في المخزن والموقع إذا قام المستخدم بتعليم هذا الخيار بينما لم يقم بتعليم الخيار المقابل في إعدادات الـ Supply Chain    لمزيد من التوضيح، يمكن الرجوع للمستند [https://docs.namasoft.com/guide/supplychain/ignore-reservation-qty-check-by-date.html](https://docs.namasoft.com/guide/supplychain/ignore-reservation-qty-check-by-date.html)
+- تم إضافة خيار إلى المخازن والمواقع باسم "لا يعتبر في التأكد من كميات الحجز على مستوى الشركة". تم أيضاً إضافة خيارين باسم "تفعيل عدم الاعتبار في التأكد من كميات الحجز" للمخازن وآخر للمواقع وذلك لمنع الحفظ في المخزن والموقع إذا قام المستخدم بتعليم هذا الخيار بينما لم يقم بتعليم الخيار المقابل في إعدادات الـ Supply Chain    لمزيد من التوضيح، يمكن الرجوع للمستند [https://docs.namasoft.com/ar/modules/supplychain/ignore-reservation-qty-check-by-date.html](https://docs.namasoft.com/ar/modules/supplychain/ignore-reservation-qty-check-by-date.html)
 - تم إضافة مسار الكيان EAUpdateItemPricesFromPriceList.  يتم استخدام المسار مع حفظ او تعديل قوائم الأسعار للأصناف المذكورة في القائمة، كما تم أيضاً إضافة مسار كيان "المهام المجدوله EAUpdateItemPricesFromQuery.
 
 ### نظام الاستثمار العقاري
@@ -43,11 +43,11 @@
 ### نظام الموارد البشرية
 
 - تم إضافة خيار يحترم نوع البصمة المستنتج من خطة الدوام عند إقران بصمات الدخول والخروج داخل الوردية الواحدة، بدلاً من الاكتفاء بأخذ أول وآخر بصمة فقط.
-  https://docs.namasoft.com/guide/attendance-machine-formula.html#Respect-Attendance-Plan-Punch-Type
+  https://docs.namasoft.com/ar/modules/hr/attendance-machine-formula.html
 - تم إضافة عدد 15 مرجع لشاشة القسم الوظيفي.
 - تم تحسين استخدام Cron لنقل الحضور والانصراف من ZK إلى نما. فعند إعادة القراءة وفقا للمدة المحددة في الـ AttendanceMachineConfig ، يتم إعادة القراءة ليومين سابقين وفي حالة وجود بيانات سابقة يتم حذفها واضافة بصمات الحضور والانصراف الأحدث.
 - تم إضافة تعديلات جوهرية في سند الحضور والانصراف. لمزيد من التفاصيل، يرجى الاطلاع على المستند التالي:
-   https://docs.namasoft.com/guide/hr/ignore-overlapping-attendance.html
+   https://docs.namasoft.com/ar/modules/hr/ignore-overlapping-attendance.html
 
 ### نقاط البيع
 
@@ -73,9 +73,9 @@
 - تم إخفاء الـ toolbox الخاص بالداشبورد بشكل افتراضي - وإظهاره لمن يريد.
 - تم إضافة امكانية "ضم" أو "تصغير" الرسومات داخل الداشبورد.
 - تم إضافة إمكانية استعمال استعلامات معقدة في أداة إنشاء التقارير والداشبورد بطريقة سهلة كما يحدث مع الجداول النظامية والسجلات. يرجى الرجوع للمستند التالي:
-  [https://docs.namasoft.com/guide/virtual-entity-guide.html](https://docs.namasoft.com/guide/virtual-entity-guide.html)
+  [https://docs.namasoft.com/ar/platform/virtual-entity-guide.html](https://docs.namasoft.com/ar/platform/virtual-entity-guide.html)
 - تم إضافة خاصية **showAsRange** لتمكين اختيار نطاقات تاريخ جاهزة (مثل: اليوم، الشهر الحالي، الأسبوع السابق) أو تحديد نطاق يدوي (**Manual Range**). وعند التفعيل يتم استخدام **تاريخ من / إلى** بدلًا من تاريخ واحد، مع دعم التحقق من صحة الإدخال وإمكانية تحديد النطاقات المسموح بها.
-  https://docs.namasoft.com/guide/reports-guide.html#Date-Range-Parameters
+  https://docs.namasoft.com/ar/platform/reports/reports-guide.html
 - تم التحسين بحيث عند النقر مرتين على حقل التاريخ يتم فتح نافذة اختيار التاريخ.
 - تم التحسين بحيث يحتفظ النظام باختيار المستخدم الخط الزمني أم لا بمجرد الضغط علي زر الخط الزمني.
 - تم اضافة خيار جديد لإظهار قائمة البطاقات كنقاط  في صفحة عنصر لوحة - تاب "قائمة بطاقات" - الخيار"عرض قوائم البطاقات كنقاط".

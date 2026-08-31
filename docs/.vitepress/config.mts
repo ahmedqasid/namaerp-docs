@@ -20,6 +20,15 @@ function rtlLtrContainer(md, type) {
     })
 }
 
+// Entity-flow page filenames are not free-form: GenEntityFlowsDocumentation writes every page as
+// <module>/<ClassSimpleName>.md, so a class that exists in a base module and is subclassed in
+// another produces the same basename twice and cannot be renamed away. List the canonical target
+// here so the legacy basename short-link still resolves instead of being dropped.
+const REDIRECT_CANONICAL_TARGETS = {
+    // magento's class is a thin subclass of the supply chain one; the supply chain page is the real doc
+    'EASalesRecalculateFreeAndRelatedItems': '/entity-flows/supplychain/EASalesRecalculateFreeAndRelatedItems.html'
+}
+
 function writeRedirectsMap(destDir) {
     const map = new Map()
     const collisions = new Map()
@@ -52,6 +61,12 @@ function writeRedirectsMap(destDir) {
     walk(destDir)
 
     for (const [base, paths] of collisions) {
+        const canonical = REDIRECT_CANONICAL_TARGETS[base]
+        if (canonical && paths.includes(canonical)) {
+            map.set(base, canonical)
+            collisions.delete(base)
+            continue
+        }
         map.delete(base)
         console.warn(`[redirects] duplicate basename "${base}" — no redirect generated:\n  ` + paths.join('\n  '))
     }

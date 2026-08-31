@@ -17,3 +17,11 @@ Entity Flows let you automate the system's reaction to everyday actions — savi
   <LandingCard icon="💡" title="Entity Flow Examples" link="/platform/entity-flows/entity-flow-examples.md" details="Worked examples that show entity flows solving real scenarios." />
   <LandingCard icon="❓" title="Entity Flow FAQ" link="/platform/entity-flows/entity-flow-faq.md" details="Frequently asked questions about building and running entity flows." />
 </LandingGrid>
+
+## The Full Catalogue
+
+Everything above teaches you how entity flows work. When you know what you want to build and just need to find the flow that does it, go to the catalogue: every flow the system ships with, grouped by module, with its parameters and what it does to a record.
+
+<LandingGrid>
+  <LandingCard icon="🤖" title="Entity Flows Reference" link="/entity-flows/" details="The complete generated reference — every entity flow in the system, module by module, with its parameters, behaviour and usage notes." />
+</LandingGrid>

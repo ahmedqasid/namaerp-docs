@@ -24,6 +24,8 @@ title: الموارد البشرية
 <LandingGrid>
   <LandingCard icon="💰" title="الرواتب" link="/ar/modules/hr/payroll/" details="عناصر الراتب، ومعادلات الحساب، والهياكل، ومستندات الرواتب، والزيادات السنوية، وحجز الرواتب." />
   <LandingCard icon="🕐" title="الحضور والإنصراف" link="/ar/modules/hr/attendance/" details="خطط الحضور والورديات، تسجيل البصمات، ماكينات الحضور، وأذونات الخروج القصيرة والمأموريات." />
+  <LandingCard icon="🧮" title="معادلات الحضور والانصراف" link="/ar/modules/hr/attendance-machine-formula.md" details="كيف تُعلّم النظام قراءة ملف ماكينة بصمة بعينها — سطر الرموز الذي يصف أعمدة الملف وصيغ التاريخ والوقت فيه." />
+  <LandingCard icon="🔀" title="تجاهل سطور الحضور المتقاطعة" link="/ar/modules/hr/ignore-overlapping-attendance.md" details="ماذا تفعل حين يعطي ملف البصمة للموظف قراءات متداخلة أو متعارضة، وكيف تجعل النظام يتخطاها." />
   <LandingCard icon="🏖️" title="الأجازات" link="/ar/modules/hr/vacations/" details="أنواع الأجازات وأرصدتها، مسار الطلب إلى المستند، التعويض والتحويل، وتغيير حالة الموظف." />
   <LandingCard icon="💳" title="السلف والأقساط" link="/ar/modules/hr/loans/" details="أنواع السلف، مسار الطلب إلى الصرف مع استرداد الأقساط من الراتب، والإعفاء وإعادة الجدولة والتعطيل." />
   <LandingCard icon="🏅" title="المكافآت والجزاءات" link="/ar/modules/hr/discipline/" details="مكافآت وخصومات مباشرة تُطبَّق على الراتب، وإيقاف الموظف عن العمل." />

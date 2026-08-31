@@ -18,7 +18,7 @@
 
   لمزيد من التوضيح، يرجى الاطلاع على المستند التالي:
 
-  [https://docs.namasoft.com/guide/supplychain/ignore-reservation-qty-check-by-date.html](https://docs.namasoft.com/guide/supplychain/ignore-reservation-qty-check-by-date.html)
+  [https://docs.namasoft.com/ar/modules/supplychain/ignore-reservation-qty-check-by-date.html](https://docs.namasoft.com/ar/modules/supplychain/ignore-reservation-qty-check-by-date.html)
 
 - تم إضافة خيار باسم "عدم إرسال الحفظ التالي لنقاط البيع" في ملف الصنف.
 - تم إنشاء ملف جديد في ملفات المبيعات باسم "عروض المبيعات الشهرية".
@@ -44,7 +44,7 @@
 ### نظام الحسابات
 
 - تم  ربط وتشغيل الفاتورة الالكترونية للإمارات. يرجى الاطلاع على المستند التالي:
-  https://docs.namasoft.com/guide/invoices/uae-orchida-einvoice-guide.html
+  https://docs.namasoft.com/ar/modules/invoicing/uae-orchida-einvoice-guide.html
 
 ### نظام الموارد البشرية
 

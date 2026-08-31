@@ -24,6 +24,7 @@ documents and master files alike.
 Reshape screens, lists, and even built-in labels to fit how your team actually works — no code required.
 
 <LandingGrid>
+  <LandingCard icon="⚙️" title="Global Configuration" link="/platform/global-config/" details="The one settings file that belongs to every module — decimal places, tax arithmetic, login rules, appearance and more, one tab at a time." />
   <LandingCard icon="🎚️" title="Screen Modifier" link="/platform/screen-modifier/" details="Rearrange fields, hide what you don't use, and redesign edit screens, list views, and selectors with the visual layout editor." />
   <LandingCard icon="🌲" title="The Menu" link="/platform/menus/" details="The navigation tree itself — how it is built, how to change it so your changes survive a rebuild, and why one person sees an entry another does not." />
   <LandingCard icon="📋" title="List Views" link="/platform/list-views/" details="Quick filters for finding records fast, and limiting a user to a single fiscal year." />
@@ -51,12 +52,13 @@ Let the system do repetitive work for you, and build reusable rules and data blo
 <LandingGrid>
   <LandingCard icon="📦" title="Importing & Exporting Records" link="/platform/import-export/" details="Pull records out to Excel or JSON, edit them, and push them back in — plus saved export menus and advanced import mapping." />
   <LandingCard icon="🗄️" title="Document Management" link="/platform/dms/" details="A register for physical paperwork — archives, folders and topics, who borrowed what, and bulk loading an archive from a ZIP file." />
-  <LandingCard icon="🔄" title="Entity Flows" link="/platform/entity-flows/" details="Automate actions on records, generate entities from entities, and import data from Excel or SQL queries." />
+  <LandingCard icon="🔄" title="Entity Flows" link="/platform/entity-flows/" details="Automate what the system does when a record is saved, edited or revised — the concepts, worked examples, and the full catalogue of ready-made flows." />
   <LandingCard icon="⏰" title="Scheduled Tasks" link="/platform/scheduled-tasks.md" details="Run jobs automatically on a schedule — the task scheduler." />
   <LandingCard icon="⏳" title="Background Processing" link="/platform/background-processing/" details="The queues that carry out a document's effects, send your messages and run your reports — and where to look when one of them quietly fails." />
   <LandingCard icon="🔁" title="Recurring Documents" link="/platform/recurring-documents.md" details="Reproduce a template document on a cadence — automatically on a schedule or in an on-demand batch." />
   <LandingCard icon="🧱" title="Virtual Entities" link="/platform/virtual-entity-guide.md" details="Reusable SQL building blocks that power reports and dashboards." />
   <LandingCard icon="🔎" title="Field Filter with Criteria" link="/platform/field-filter-with-criteria.md" details="Restrict what a lookup field can pick using criteria — plus the field-filtering FAQ." />
+  <LandingCard icon="❓" title="Field Filtering FAQ" link="/platform/field-filter-faq.md" details="Worked answers to the filtering questions that come up most — looping over detail lines, filtering by a value on the same screen, and the mistakes that make a filter return nothing." />
   <LandingCard icon="📝" title="Text Criteria Parser" link="/platform/text-criteria-guide.md" details="Write criteria as plain text and have the parser turn them into filters." />
 </LandingGrid>
 
