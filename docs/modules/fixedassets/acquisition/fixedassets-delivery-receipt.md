@@ -49,6 +49,13 @@ document in one click; you then delete the rows that are staying where they are.
 Two rules block a commit, and no more: the grid may not be empty, and the two employees must be
 different.
 
+## Actions on this screen
+
+The Custodies Delivery Receipt has no buttons of its own — there is nothing to press to build it.
+The grid fills itself the moment you pick the **From Employee**, and everything the document does
+happens when it is committed. If the list comes out wrong, change the employee or delete rows; there
+is no collect button to hunt for.
+
 ## What committing it does
 
 For every line, the document closes the old custody and opens the new one:

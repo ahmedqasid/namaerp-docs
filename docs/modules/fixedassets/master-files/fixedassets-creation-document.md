@@ -116,6 +116,13 @@ Treat the creation document, then, as the document that *identifies* the asset �
 
 **Cancelling** it deletes the generated purchase document and the assets it created. That is the right behaviour for a mistake and a dangerous one for a document that has been in use, so treat cancellation as an undo for something committed by accident, not as a way of correcting a live asset.
 
+## Actions on This Screen
+
+The creation document has no buttons of its own. Choosing the project is what fills the screen, and
+committing it is what creates the asset and writes the project terms across. The one button in this
+story sits elsewhere — **Update Project Terms** (تحديث بنود المشروع) on the asset's *Project Details*
+page, which re-collects those terms later if the contracts change.
+
 ## Two Things It Is Often Confused With
 
 **It is not how a supplier purchase is recorded.** Buying a machine from Gulf Machinery Trading is a [Fixed Asset Purchase Document](/modules/fixedassets/acquisition/fixedassets-purchase-document.md), which does carry a price and does book the supplier. Use the creation document only when the asset came out of a project you built.

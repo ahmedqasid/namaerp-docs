@@ -119,6 +119,15 @@ what it was the day before.
 Three more visits follow the same path, and by the end of the year the plan reads as a completed
 year of service and the asset carries the full history.
 
+## No buttons in this area either
+
+None of the maintenance screens — component type, checklist item, checklist, maintenance type, plan,
+request or record — carries a button of its own. In particular there is **no button that turns
+a plan into records**: a plan line is closed by somebody raising a maintenance record for that visit,
+by hand. What does happen for you is the copying: the checklist you pick on a record brings its
+questions across, the asset you pick narrows the component-type lookup, and the maintenance type
+fills in the next expected date from its repeat interval.
+
 ## Reading the history back
 
 Two places show it, and they answer different questions.

@@ -1,4 +1,4 @@
-# Getting Started
+# CRM Getting Started
 
 Because the CRM menu holds [four separate products](/modules/crm/crm-overview), there is no single setup order that covers all of it. Decide first which part you are implementing, then follow that part's sequence. Setting up a maintenance operation and setting up a sales pipeline share almost nothing.
 

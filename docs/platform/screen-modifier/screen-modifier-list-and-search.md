@@ -20,7 +20,7 @@ You will see this choice on display columns, criteria, sorting and the search-fo
 
 ## List View
 
-![Screen Modifier — List View Modification tab](./images/screen-modifier-list-view-tab.png)
+![Screen Modifier — List View Modification tab](../../ar/platform/screen-modifier/images/screen-modifier-list-view-tab-en.png)
 
 | Setting | What it controls |
 | --- | --- |
@@ -41,7 +41,7 @@ You will see this choice on display columns, criteria, sorting and the search-fo
 
 These mirror the list-view settings, but apply to the pop-up used to pick a reference value:
 
-![Screen Modifier — Search View Modify tab](./images/screen-modifier-search-view-tab.png)
+![Screen Modifier — Search View Modify tab](../../ar/platform/screen-modifier/images/screen-modifier-search-view-tab-en.png)
 
 | Setting | What it controls |
 | --- | --- |

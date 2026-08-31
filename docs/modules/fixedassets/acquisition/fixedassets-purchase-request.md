@@ -60,6 +60,15 @@ of internal correspondence that the system happens to keep tidily.
 Nothing blocks a purchase request from being committed — there are no validations of its own. Save
 it, commit it, and it is an open ask.
 
+## Actions on this screen
+
+The Fixed Asset Purchase Request has no buttons of its own. You type the ask, save it and commit it,
+and that is the whole of your side of the work. The request is consumed from the *other* end: when
+somebody raises an
+[offer or a purchase order](/modules/fixedassets/acquisition/fixedassets-purchase-offers-and-orders.md)
+and points its **From Document** at this request, the lines come across and the satisfied quantities
+here start moving. Nothing on the request screen pushes it forward.
+
 ## How the request knows it has been answered
 
 The two quantity columns are the only moving parts, and they are worth understanding because they

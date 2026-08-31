@@ -1,7 +1,7 @@
 <div class="ignore-in-full-text-search">
 
 # Job Order Cycle
-  - [The Job Order Cycle](/modules/servicecenter/job-cycle/servicecenter-job-cycle-overview.md)
+  - [Job Order Cycle Overview](/modules/servicecenter/job-cycle/servicecenter-job-cycle-overview.md)
   - [Service Requests](/modules/servicecenter/job-cycle/servicecenter-service-request.md)
   - [Job Estimations](/modules/servicecenter/job-cycle/servicecenter-job-estimation.md)
   - [The Job Order](/modules/servicecenter/job-cycle/servicecenter-job-order.md)

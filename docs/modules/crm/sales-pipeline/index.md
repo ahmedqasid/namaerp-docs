@@ -1,7 +1,7 @@
 <div class="ignore-in-full-text-search">
 
 # Sales Pipeline
-  - [The Sales Pipeline](/modules/crm/sales-pipeline/crm-pipeline-overview.md)
+  - [Sales Pipeline Overview](/modules/crm/sales-pipeline/crm-pipeline-overview.md)
   - [Leads](/modules/crm/sales-pipeline/crm-leads.md)
   - [Potentials](/modules/crm/sales-pipeline/crm-potentials.md)
   - [Converting a Lead](/modules/crm/sales-pipeline/crm-lead-conversion.md)

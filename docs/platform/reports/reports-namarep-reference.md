@@ -420,6 +420,8 @@ NamaRep.creator("ReceiptVoucher")
   .toString()
 ```
 
+![The creator link in Jasper Studio: a text field whose expression class is java.lang.Object and whose expression is a NamaRep creator chain](../../ar/platform/images/creator-link-sample.png)
+
 ### Generic reference fields need two parts
 
 Fields such as `ref1` to `ref5`, and any other field that can point at more than one kind of record, need to be told the type as well as the value. Address the two halves separately by suffixing the field id:

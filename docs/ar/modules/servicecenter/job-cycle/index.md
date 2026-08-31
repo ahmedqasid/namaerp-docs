@@ -1,7 +1,7 @@
 <div class="ignore-in-full-text-search">
 
 # دورة أمر الشغل
-  - [دورة أمر الشغل](/ar/modules/servicecenter/job-cycle/servicecenter-job-cycle-overview.md)
+  - [نظرة عامة على دورة أمر الشغل](/ar/modules/servicecenter/job-cycle/servicecenter-job-cycle-overview.md)
   - [طلبات الخدمة](/ar/modules/servicecenter/job-cycle/servicecenter-service-request.md)
   - [المقايسات](/ar/modules/servicecenter/job-cycle/servicecenter-job-estimation.md)
   - [أمر الشغل](/ar/modules/servicecenter/job-cycle/servicecenter-job-order.md)

@@ -148,7 +148,7 @@ Two things deliberately freeze a committed document:
 ### Taking a committed document back
 
 There is no button that turns a committed document back into a draft. What there is instead is a
-**Document Cancel Document** — a small document of its own whose whole job is to name one or more
+**[Document Cancel Document](/platform/document-cancel-document.md)** — a small document of its own whose whole job is to name one or more
 committed documents and cancel them.
 
 Committing it reverses their effects and marks each one **Cancelled**. The cancelled document keeps its

@@ -2,6 +2,6 @@
 
 # الاستبيانات
   - [قوالب الاستبيان والأسئلة (Questionair Template)](/ar/modules/crm/questionnaires/crm-questionnaire-templates.md)
-  - [الاستبيانات (Questionair)](/ar/modules/crm/questionnaires/crm-questionnaires.md)
+  - [استبيانات خدمة العملاء (Questionair)](/ar/modules/crm/questionnaires/crm-questionnaires.md)
 
 </div>

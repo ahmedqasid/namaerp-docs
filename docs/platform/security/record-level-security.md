@@ -64,7 +64,7 @@ One escape hatch: **Allow viewing other users' records in search** makes other u
 
 Extra Filters are per-type row filters, defined on the **Extra Filters** page of the security profile or user (user rows take precedence over profile rows for the same type).
 
-![Extra Filters page](../../ar/platform/security/images/security-profile-extra-filters.png)
+![Extra Filters page](../../ar/platform/security/images/security-profile-extra-filters-en.png)
 
 Each row targets a type or type list, then defines the filter in one of two ways:
 

@@ -1,4 +1,4 @@
-# Technician Appointments
+# Technician Appointments Overview
 
 ::: info Required licence
 `crm-technician-appointments`.

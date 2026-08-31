@@ -1,4 +1,4 @@
-# Service Center
+# Service Center Overview
 
 From the street, a car dealership and its workshop look like one business. A customer buys a car in the showroom, brings it back for its first service, and expects the people behind the counter to know both halves of the story.
 

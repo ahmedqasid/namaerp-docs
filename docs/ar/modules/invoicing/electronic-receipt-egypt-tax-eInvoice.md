@@ -40,6 +40,8 @@ This document is still in progress, not yet finished
   wmic bios get serialnumber
   ```
 
+  ![حقل الرقم التسلسلي في شاشة «إضافة جهاز جديد» على بوابة المصلحة](images/electronic-receipt-pos-serial-number.png)
+
 * بعد إدخال البيانات، اضغط "تسجيل وإضافة جديد"
 
 * بعد الحفظ، تظهر نافذة بها بيانات:

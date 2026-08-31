@@ -1,4 +1,4 @@
-# The Job Order Cycle
+# Job Order Cycle Overview
 
 A car turns into the service centre at Al-Sahra Motors on a March morning. Two days later it drives
 out again, three invoices have been issued against it, a stock issue has taken five litres of oil and

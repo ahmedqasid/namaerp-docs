@@ -70,6 +70,13 @@ Cancelling the record clears all four again. Editing it moves the dates to the n
 
 The result is that the components grid on the asset becomes a live status board: for every part of the machine, when it was last serviced and when it is next due. That, rather than any scheduling engine, is what the maintenance side of Fixed Assets gives you — the next-due date is a note written by the last visit, not a job that will fire on its own. See [How Maintenance Works](/modules/fixedassets/maintenance/fixedassets-maintenance-overview.md).
 
+## Actions on These Screens
+
+The component type catalogue has no buttons of its own, and neither does the components grid on the
+asset — there is no *copy the components from the type* button, which is why the grid has to be filled
+in per asset. The one thing that fills itself is the other direction: a committed maintenance record
+writes the last and next visit dates back onto the component row.
+
 ## Al-Waha's Setup for the CNC Machine
 
 1. Create three component types: `CT-SPINDLE — Spindle`, `CT-CTRL — Control Unit`, `CT-PUMP — Coolant Pump`. On each, list the maintenance types it accepts — Periodic Maintenance for all three, plus Emergency Repair on the spindle and the pump.

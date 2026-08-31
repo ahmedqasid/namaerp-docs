@@ -1,7 +1,7 @@
 <div class="ignore-in-full-text-search">
 
 # دورة الصيانة
-  - [دورة الصيانة](/ar/modules/crm/maintenance-cycle/crm-maintenance-overview.md)
+  - [نظرة عامة على دورة الصيانة](/ar/modules/crm/maintenance-cycle/crm-maintenance-overview.md)
   - [عروض أسعار وأوامر بيع الصيانة](/ar/modules/crm/maintenance-cycle/crm-maintenance-sales.md)
   - [عقود الصيانة](/ar/modules/crm/maintenance-cycle/crm-maintenance-contracts.md)
   - [خطط عمل الصيانة](/ar/modules/crm/maintenance-cycle/crm-maintenance-work-plans.md)

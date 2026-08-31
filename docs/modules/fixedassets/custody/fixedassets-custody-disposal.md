@@ -80,6 +80,13 @@ A pure write-off is the same document with **0** as the dispose value: the holde
 6,000 off the employee, the value half books nothing, and the whole carried value stays on the
 clearing account as the loss.
 
+## Actions on this screen
+
+The custody disposal screen has no buttons of its own — which fits a document this short. You name
+the item, the employee and the disposal value, save and commit; the accounting entry, the closing of
+the holding line and the change of the item's state all follow from the commit, not from anything you
+press. To reverse it, un-commit or delete the document.
+
 ## Returning an item is not a disposal
 
 If somebody hands an item back and it is going out again to the next person, do not dispose of it —

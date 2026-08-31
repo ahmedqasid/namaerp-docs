@@ -69,12 +69,12 @@
       "en": "Contracting"
     },
     "/modules/contracting/setup": {
-      "ar": "الملفات والإعدادات",
-      "en": "Master Files and Setup"
+      "ar": "ملفات وإعدادات المقاولات",
+      "en": "Contracting Master Files and Setup"
     },
     "/modules/contracting/document-terms": {
-      "ar": "توجيهات المستندات",
-      "en": "Document Terms"
+      "ar": "توجيهات مستندات المقاولات",
+      "en": "Contracting Document Terms"
     },
     "/modules/contracting/project-contracting": {
       "ar": "مقاولة المشروع",
@@ -89,12 +89,12 @@
       "en": "Budgets"
     },
     "/modules/contracting/costs": {
-      "ar": "التكاليف",
-      "en": "Costs"
+      "ar": "تكاليف المقاولات",
+      "en": "Contracting Costs"
     },
     "/modules/contracting/quality": {
-      "ar": "ضبط الجودة",
-      "en": "Quality Control"
+      "ar": "ضبط جودة المقاولات",
+      "en": "Contracting Quality Control"
     }
   }
 }

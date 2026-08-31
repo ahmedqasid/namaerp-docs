@@ -105,6 +105,13 @@ One term served both because the disposal term for a full disposal carries a gai
 loss account, and the machine that fetched nothing simply took the loss branch. Had the sale needed
 a taxable term and the scrap a non-taxable one, the two would have had to go in separate batches.
 
+## Actions on this screen
+
+The aggregated disposal screen has no buttons of its own — and specifically, **there is no collect
+button here**. That surprises people who have just come from a depreciation document, where a range
+of assets can be pulled in with one press. On this screen the batch is built by hand or by import:
+you add a row per asset, or paste them in.
+
 ## What blocks a commit
 
 Every line is checked before anything is generated, and a failure on one line stops the whole batch:

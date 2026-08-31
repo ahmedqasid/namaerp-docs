@@ -132,6 +132,12 @@ supplier's model and configuration text, and an **Asset Name From Purchase Order
 description the machine was ordered under, which is rarely the description it will be registered
 under.
 
+## Actions on this screen
+
+The proforma invoice has no buttons of its own. It is the shortest screen in the chain precisely
+because there is nothing to generate: you list the machines and their prices, and the proportions
+that the rest of the chain relies on fall out of those figures.
+
 ## What happens on commit
 
 Very little, and that is by design. The document is validated — one asset or one type per line, no

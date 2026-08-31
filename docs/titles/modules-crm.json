@@ -119,12 +119,12 @@
       "en": "Service Documents"
     },
     "/modules/crm/master-files": {
-      "ar": "الملفات الأساسية",
-      "en": "Master Files"
+      "ar": "الملفات الأساسية لخدمة العملاء",
+      "en": "CRM Master Files"
     },
     "/modules/crm/document-terms": {
-      "ar": "توجيهات المستندات",
-      "en": "Document Terms"
+      "ar": "توجيهات مستندات خدمة العملاء",
+      "en": "CRM Document Terms"
     },
     "/modules/crm/risk-register": {
       "ar": "سجل المخاطر",

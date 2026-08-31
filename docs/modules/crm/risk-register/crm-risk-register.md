@@ -1,4 +1,4 @@
-# Risk Register
+# CRM Risk Register
 
 ::: info Licence
 The three screens on this page are gated on the `crm` licence code.

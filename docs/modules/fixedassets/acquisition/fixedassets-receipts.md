@@ -112,6 +112,19 @@ is designed around handing things from one named employee to another. So after a
 read the history grid — that is where the answer is.
 :::
 
+## Actions on these two screens
+
+The **Fixed Asset Initial Receipt** borrows the purchase order's payments page, and with it the only
+button on either screen: **GeneratePayments** (إنشاء الدفعات). Choose a payment schedule template,
+press it, and answer what it asks — how many payments, how far apart, when the first falls due, any
+grace period, a down payment, named first, second and last amounts, and how to round — and it spreads
+what is still outstanding across the schedule grid. It is a typing convenience for the schedule and
+nothing more: no payment voucher is raised and nothing reaches the ledger.
+
+The **Fixed Asset Receipt Document** has no buttons of its own. Its two conveniences — building the
+lines from the **From Document**, and pulling a custodian and location from an asset you pick — happen
+by themselves as you fill the fields in.
+
 ## Al-Waha signs for the CNC machine
 
 The CNC machine arrives at the Riyadh plant on 8 January 2026, a week after purchase document

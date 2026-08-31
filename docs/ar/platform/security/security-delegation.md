@@ -6,7 +6,7 @@
 
 **المسار**: إدارة النظام > الصلاحيات > صلاحيات إضافية مؤقته (Administration > Security > Security Profile Transfer)
 
-![مستند الصلاحيات الإضافية المؤقتة](./images/security-profile-transfer.png)
+![مستند الصلاحيات الإضافية المؤقتة](./images/security-profile-transfer-ar.png)
 
 ## بنية المستند
 

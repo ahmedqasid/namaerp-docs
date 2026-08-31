@@ -56,6 +56,11 @@ be made priceless (or not) on its own regardless of what its type says. Al-Waha 
 one demonstration laptop as priceless without touching the Laptops type.
 :::
 
+## Actions on this screen
+
+The custody type screen has no buttons of its own — it is two fields and a checkbox, filled in and
+saved.
+
 ## What a custody type does *not* do
 
 It is worth being explicit, because the equivalent master file on the asset side does much more.

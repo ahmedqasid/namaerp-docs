@@ -6,7 +6,7 @@ Basic permissions answer the question "what can the user do with a type?" But yo
 
 Open the **Field Settings** page inside the security profile (or user) screen.
 
-![Field Settings page](../../ar/platform/security/images/security-profile-field-settings.png)
+![Field Settings page](../../ar/platform/security/images/security-profile-field-settings-en.png)
 
 Each row targets a type (or a type list, or nothing — meaning all types) and a single field:
 
@@ -40,7 +40,7 @@ Hiding a field removes it from the edit screen. The data itself may still appear
 
 Type edit screens are organized into pages (tabs). The **Page Security** page lets you remove or freeze entire pages for a role instead of disabling fields one by one.
 
-![Page Security page](../../ar/platform/security/images/security-profile-page-security.png)
+![Page Security page](../../ar/platform/security/images/security-profile-page-security-en.png)
 
 | Column | Meaning |
 |---|---|
@@ -54,7 +54,7 @@ User-level page rows are checked before profile rows, and a full-access profile 
 
 A single type may have several list views — and you can add custom ones. Sometimes a list view exposes columns a role should not browse (cost columns, profit margins...). This page allows or blocks specific list views.
 
-![List View Security page](../../ar/platform/security/images/security-profile-listview-security.png)
+![List View Security page](../../ar/platform/security/images/security-profile-listview-security-en.png)
 
 | Column | Meaning |
 |---|---|

@@ -14,6 +14,7 @@ title: الخصائص العامة للنظام
 
 <LandingGrid>
   <LandingCard icon="🔢" title="دفاتر المستندات" link="/ar/platform/document-books.md" details="سلسلة الترقيم التي يأخذ منها كل مستند رقمه — البادئات والمتسلسلات والتصفير السنوي، والسلوك الذي يفرضه الدفتر على مستنداته." />
+  <LandingCard icon="↩️" title="مستند إلغاء مستند" link="/ar/platform/document-cancel-document.md" details="الطريقة الوحيدة للتراجع عن مستند مُرحَّل — ماذا يعكس، وما الذي يرفض الإلغاء، وكيف تعيد المستند مسودةً." />
   <LandingCard icon="🗂️" title="المجموعات" link="/ar/platform/master-groups.md" details="توأم دفتر المستند في جانب الملفات الرئيسية — تُكوِّد العملاء والأصناف وغيرها، وتصنّفها في الشجرة المجاورة لكل قائمة." />
   <LandingCard icon="📎" title="المرفقات" link="/ar/platform/attachments.md" details="تخزين الملفات على السجل: حقول المرفقات في الرأس وفي سطور التفاصيل، والمسح الضوئي والتوقيع، وأين تُحفظ الملفات." />
 </LandingGrid>
@@ -66,7 +67,7 @@ title: الخصائص العامة للنظام
 حوّل البيانات التي تجمعها إلى تقارير ولوحات معلومات، وأبقِ الناس على اطّلاع.
 
 <LandingGrid>
-  <LandingCard icon="📊" title="التقارير" link="/ar/platform/reports/" details="دليل تقارير Jasper، وأداة إنشاء التقارير لبناء تقاريرك، وأسئلة شائعة عن تصميم التقارير." />
+  <LandingCard icon="📊" title="التقارير والنماذج المطبوعة" link="/ar/platform/reports/" details="دليل تقارير Jasper، وأداة إنشاء التقارير لبناء تقاريرك، وأسئلة شائعة عن تصميم التقارير." />
   <LandingCard icon="📈" title="ذكاء الأعمال (BI)" link="/ar/platform/bi/" details="لوحات المعلومات والتحليلات، والمرجع التقني، ومراجع EnhancedMetricsCard وEnhancedTable ووضع المعالج." />
   <LandingCard icon="🔔" title="التنبيهات" link="/ar/platform/notifications/" details="نظام التنبيهات، وتكامل WhatsApp والرسائل القصيرة، وأسئلة شائعة عن الرسائل." />
 </LandingGrid>

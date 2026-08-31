@@ -92,8 +92,8 @@
       "en": "Loans & Installments"
     },
     "/modules/hr/discipline": {
-      "ar": "المكافآت والجزاءات",
-      "en": "Rewards & Penalties"
+      "ar": "المكافآت والجزاءات والإيقاف",
+      "en": "Rewards, Penalties & Suspension"
     },
     "/modules/hr/performance": {
       "ar": "تقييم الأداء",

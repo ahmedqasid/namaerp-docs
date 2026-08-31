@@ -163,6 +163,22 @@ figure in its header, are advanced by the offer, order or initial receipt raised
 itself**. Route your fulfilment tracking through those documents and the counters stay honest.
 :::
 
+## The buttons along the chain
+
+Most of this chain is typed rather than generated, so it is worth knowing up front where a button
+exists and where one does not:
+
+| Screen | Button of its own | What it does |
+|---|---|---|
+| Fixed Asset Purchase Request | none | the request is consumed from the next document's **From Document** |
+| Purchase Offer, Purchase Order, Initial Receipt | **GeneratePayments** (إنشاء الدفعات) | spreads the outstanding amount across the payment schedule grid |
+| Fixed Asset Purchase Document | **GeneratePayments** (إنشاء الدفعات) | the same, on its *Shipping and billing* page |
+| Fixed Asset Receipt Document | none | — |
+
+Everything else that looks automatic — a request's satisfied quantities moving, an order exploding
+into one line per unit, a receipt pre-filling custodians and locations — happens the moment you pick
+a **From Document**, with nothing to press.
+
 ## Licences and where to click
 
 Everything above lives under **Assets > Documents** (الأصول > المستندات) and needs only the base

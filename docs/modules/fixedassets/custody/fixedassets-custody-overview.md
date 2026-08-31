@@ -91,6 +91,20 @@ Taking** document (جرد الأصول) counts custody items alongside assets an
 surpluses for both — see [Stocktaking Assets and
 Custodies](/modules/fixedassets/movement/fixedassets-stocktaking.md).
 
+## No buttons anywhere in this chain
+
+Worth saying once, here, rather than six times over: **not one of the custody screens carries a
+button of its own.** The type, the register, the purchase, the delivery, the transfer and the disposal
+are all filled in and saved, and everything they do to the register and to the ledger happens when
+they are committed and is undone by un-committing. The one exception is the purchase document, which
+borrows the invoice machinery and with it **GeneratePayments** (إنشاء الدفعات) for typing an
+instalment schedule.
+
+So when somebody asks which button collects everything an employee is holding, the answer is that
+there isn't one. The screen that does that job does it without a button: the
+[Custodies Delivery Receipt](/modules/fixedassets/acquisition/fixedassets-delivery-receipt.md) fills
+its grid by itself the moment you name the employee handing over.
+
 ## The life of one laptop
 
 Here is the whole chain, on the item this section uses everywhere: **`CDY-0033` — Laptop /

@@ -80,6 +80,15 @@ calculated from the *request's* value date; if the record carries a different va
 the maintenance type — or type the date — so that what gets stamped onto the asset is measured from
 the day the work actually happened.
 
+## Actions on these screens
+
+Neither the maintenance request nor the maintenance record carries a button of its own. The two
+pieces of automation that make the record quick to fill are not buttons: choosing the **Fixed Asset**
+narrows the component-type lookup to that asset's own components, and choosing the **Maintenance
+CheckList** — or a plan line — copies its questions onto the record ready to be answered. Picking the
+**Maintenance Type** also fills in the next expected maintenance date from the type's repeat interval.
+Everything the record does to the asset and to the plan happens on commit.
+
 ## Two rules that decide whether a record will commit
 
 Both are about components, and both are worth knowing before your first record rather than after.

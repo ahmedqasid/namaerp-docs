@@ -4,7 +4,7 @@ The **User** record is where identity, authentication, and personal permission o
 
 **Path**: Administration > Security > User
 
-![User — Main Screen](../../ar/platform/security/images/user-main.png)
+![User — Main Screen](../../ar/platform/security/images/user-main-en.png)
 
 ## User Record Components
 
@@ -25,7 +25,7 @@ Like any master file, the user record itself carries the five dimensions (compan
 
 The user screen repeats the permission tables you know from the Security Profile — and user rows always take precedence over profile rows when the scope matches:
 
-![User — User Security Tab](../../ar/platform/security/images/user-security-tab.png)
+![User — User Security Tab](../../ar/platform/security/images/user-security-tab-en.png)
 
 - **User Security tab** — Basic and custom permissions, and the *Treat Users as Creator* table.
 - **Field Settings tab** — Field-level permissions specific to this user.

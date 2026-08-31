@@ -83,6 +83,13 @@ were filled in against. That is the behaviour you want from a service history: t
 was actually asked on the day.
 :::
 
+## Actions on these screens
+
+Neither the checklist item nor the checklist itself carries a button of its own. Both are catalogues:
+you type them, save them, and they are read later by the maintenance type and the maintenance record.
+The copying you may be expecting — the checklist's questions appearing on a record — is not something
+you press for; it happens as the record picks up its maintenance type.
+
 ## Al-Waha's CNC inspection sheet
 
 The four items behind the `MCH-0007` example:

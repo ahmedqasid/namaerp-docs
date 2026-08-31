@@ -53,8 +53,9 @@ A new document starts as *Started*, and that matters — see the comparison sect
 The **الاصول الحالية / Actual FixedAssets** grid is the count itself: one row per thing the team
 physically found. There are three ways to fill it, and a real count usually uses all three.
 
-**1. Press تجميع الأصول الثابته / Collect Fixed assets.** The button pre-fills the grid with assets
-from the register so the team has something to walk with. Above it sit sixteen From/To range fields —
+**1. Press Collect Fixed assets** (تجميع الأصول الثابته). The button pre-fills the grid with assets
+from the register so the team has something to walk with. It rebuilds the grid from scratch each
+time, so press it before you start editing rows, not after. Above it sit sixteen From/To range fields —
 group, asset type, asset code, company, branch, sector, department, analysis set — which narrow what
 the button pulls in. Each range is a code comparison, and a blank field means no bound on that side,
 so *From Fixed Asset* `FA-1000` and *To Fixed Asset* `FA-1999` pulls that block of codes and nothing

@@ -4,7 +4,7 @@ The Security Profile is where most of your permission settings live. You create 
 
 **Path**: Administration > Security > Security Profile
 
-![Security Profile — Main Screen](../../ar/platform/security/images/security-profile-main.png)
+![Security Profile — Main Screen](../../ar/platform/security/images/security-profile-main-en.png)
 
 ## Full Authority
 
@@ -107,25 +107,25 @@ What these lines do is decide what **appears** in the menu. They are not permiss
 
 Hide specific fields or prevent editing them per type. Documented in full detail in [Field, Page, and List-View Security](/platform/security/field-page-listview-security.md).
 
-![Security Profile — Field Settings](../../ar/platform/security/images/security-profile-field-settings.png)
+![Security Profile — Field Settings](../../ar/platform/security/images/security-profile-field-settings-en.png)
 
 ## Page Security Page
 
 Hide entire pages from the type's screen or make them read-only.
 
-![Security Profile — Page Security](../../ar/platform/security/images/security-profile-page-security.png)
+![Security Profile — Page Security](../../ar/platform/security/images/security-profile-page-security-en.png)
 
 ## List View Security Page
 
 Allow or block specific list views.
 
-![Security Profile — List View Security](../../ar/platform/security/images/security-profile-listview-security.png)
+![Security Profile — List View Security](../../ar/platform/security/images/security-profile-listview-security-en.png)
 
 ## Custom Capabilities Page
 
 Some checks in the system are not standard operations (add/edit/delete) — they are named permissions specific to certain features, defined as **Capability Type** records under **Administration > Security > Capability Types**.
 
-![Security Profile — Custom Capabilities](../../ar/platform/security/images/security-profile-custom-lines.png)
+![Security Profile — Custom Capabilities](../../ar/platform/security/images/security-profile-custom-lines-en.png)
 
 How it works:
 
@@ -139,19 +139,19 @@ Custom capability lines also carry optional inputs (two references, two dates, t
 The **View System Reports** flag in the screen header is implemented internally as a built-in capability with code `SYSTEMREPORTS`. Enabling it on the profile or user automatically grants that capability, and reports tagged as *system reports* are visible only to users who hold it.
 :::
 
-![Capability Type Screen](../../ar/platform/security/images/security-capability.png)
+![Capability Type Screen](../../ar/platform/security/images/security-capability-en.png)
 
 ## Extra Filters Page
 
 Row-level filters that restrict *which records* the role sees for each type — by matching a field against something related to the user, or via a free-form criteria expression. Because this is a record-visibility topic it is documented in [Record-Level Security](/platform/security/record-level-security.md).
 
-![Security Profile — Extra Filters](../../ar/platform/security/images/security-profile-extra-filters.png)
+![Security Profile — Extra Filters](../../ar/platform/security/images/security-profile-extra-filters-en.png)
 
 ## Action Security Page
 
 Type screens carry actions beyond the standard operations — generation buttons, recalculation tools, entity flows. Each line here targets a type (or type list, or a wildcard) together with an **Action ID** and a **Control Type** of either *enabled* or *disabled*.
 
-![Security Profile — Action Security](../../ar/platform/security/images/security-profile-action-lines.png)
+![Security Profile — Action Security](../../ar/platform/security/images/security-profile-action-lines-en.png)
 
 The resolution logic here is the inverse of standard security lines:
 

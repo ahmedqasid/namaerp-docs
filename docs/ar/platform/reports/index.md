@@ -1,10 +1,10 @@
 ---
 # Handcrafted landing — GenNamaDocsIndex skips this file because of the .custom-index
 # marker in this folder (see hasHandcraftedHomePage in GenNamaDocsIndex.java)
-title: التقارير
+title: التقارير والنماذج المطبوعة
 ---
 
-# التقارير
+# التقارير والنماذج المطبوعة
 
 التقارير هي وسيلتك لاستخراج بياناتك من نظام نما، ونماذج الطباعة هي وسيلة إخراج المستند الواحد على ورق. وكلاهما يُبنى بالطريقة نفسها — أداة للحالة الشائعة، وتحكّم كامل في تصميم Jasper حين تحتاجه. ابدأ بما يناسب حاجتك.
 

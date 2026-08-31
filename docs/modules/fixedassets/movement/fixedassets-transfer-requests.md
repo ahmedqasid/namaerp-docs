@@ -76,6 +76,13 @@ reference, which is what an auditor asking "who authorised this move?" wants to 
 Because the request is a reference rather than a work item, keep the tidying-up in your own process:
 decide who closes the loop, and file requests once their document exists.
 
+## Actions on this screen
+
+The transfer request has no buttons of its own, and — as the previous section says — there is no
+*create the transfer* button either. The request is a note of intent: fill it in, save it, commit it,
+and the person who is allowed to move the asset opens a transfer document and points its **From
+Document** at the request.
+
 ## Raising many requests at once
 
 The **طلب نقل أصل مجمع / Aggregated Fixed Asset Transfer Request** is the same idea in bulk — one

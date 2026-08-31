@@ -1,6 +1,6 @@
 <div class="ignore-in-full-text-search">
 
-# الملفات الأساسية
+# الملفات الأساسية لخدمة العملاء
   - [الوسطاء والوكلاء](/ar/modules/crm/master-files/crm-mediators-and-agents.md)
   - [ملفات التصنيف](/ar/modules/crm/master-files/crm-lead-classification-files.md)
   - [كتالوجات المشكلات والشكاوى](/ar/modules/crm/master-files/crm-problem-and-complaint-catalogues.md)

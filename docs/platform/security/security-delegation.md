@@ -4,7 +4,7 @@ The purchasing manager is on two weeks' leave, and purchase order approvals must
 
 **Path**: Administration > Security > Security Profile Transfer
 
-![Temporary Additional Permissions document](../../ar/platform/security/images/security-profile-transfer.png)
+![Temporary Additional Permissions document](../../ar/platform/security/images/security-profile-transfer-en.png)
 
 ## Document Structure
 

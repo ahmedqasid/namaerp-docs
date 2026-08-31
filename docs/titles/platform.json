@@ -6,6 +6,7 @@
     "/platform/default-values-templates.md",
     "/platform/prevent-usage.md",
     "/platform/document-books.md",
+    "/platform/document-cancel-document.md",
     "/platform/master-groups.md",
     "/platform/audit-trail.md",
     "/platform/attachments.md",
@@ -163,8 +164,8 @@
       "en": "Entity Flows"
     },
     "/platform/reports": {
-      "ar": "التقارير",
-      "en": "Reports"
+      "ar": "التقارير والنماذج المطبوعة",
+      "en": "Reports and Printed Forms"
     },
     "/platform/bi": {
       "ar": "ذكاء الأعمال (BI)",

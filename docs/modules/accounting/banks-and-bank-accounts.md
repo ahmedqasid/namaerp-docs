@@ -25,6 +25,8 @@ The **Bank Account** (`Banks > Master Files > Bank Account`) is the actual accou
 
 The **Bank Transfer** (`Banks > Master Files > Bank Transfer`) moves value from one bank account/subsidiary to another, and posts to the accounts as a document resembling the payment/receipt voucher (it takes its accounts from its term). It carries detail lines, matching against **invoices**, **payment-method** lines, and **cost allocation**. Use it to transfer between your own bank accounts, or from the bank to a party, while documenting fees.
 
+![The Bank Transfer screen, showing the transferring subsidiary and account, the transfer amount and the fees fields](../../ar/modules/accounting/images/banks/bank-transfer-en.png)
+
 Because it is built on the voucher, the bank transfer also carries the voucher's collecting buttons: **Collect Vouchers** to fill its invoice matching from the party's outstanding documents, **Copy Lines Accounts From Subsidiaries With Term Config** to fill the detail lines' accounts from their parties, and **Create FP Lines From Installments** to turn instalment lines into commercial-paper lines. They behave exactly as they do on a receipt voucher — see [Receipt & payment vouchers](./receipts-and-payments.md).
 
 ## Bank Adjustment

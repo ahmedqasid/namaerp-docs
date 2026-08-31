@@ -63,7 +63,9 @@ The group below carries no heading on screen, and it mixes fields you type with 
 
 There is also a unit-of-measure code for the tax authority beside the tax authority code, used for the same electronic-invoice purpose.
 
-Two buttons sit under this block. **Generate Car** (إنشاء سيارة) creates a vehicle record carrying the asset's code, names and custodian, and links the two together — useful when a van in the asset register also has to exist in the fleet. When the Real Estate module is installed, **Create Real Estate** (تحويل لعقار) turns the asset into a building, land, floor, block or rental unit, taking the market value as the property's cost. The same conversion is available in bulk from the list screen.
+Two buttons sit under this block. **Generate Car** (إنشاء سيارة) creates a vehicle record carrying the asset's code, names and custodian, and links the two together — useful when a van in the asset register also has to exist in the fleet. It only does anything when **Car Asset** is ticked and no car is linked yet; untick the flag and pressing it simply clears the link.
+
+When the Real Estate module is installed, **Create Real Estate** (تحويل لعقار) turns the asset into a property. It asks two questions — the estate type (building, land, floor, block or rental unit, with rental unit offered by default) and the master group the new record should sit in — and then opens the new estate in a popup, pre-filled with the asset's code, names and market value and pointing back at the asset. The asset has to be saved before you press it; the estate itself is not created until you save what the popup opens. The bulk form of the same conversion is **Create Real Estates** (تحويل لعقارات) on the list screen: select the assets, answer the same two questions, and the records are created for you.
 
 ### Purchase Price Information
 

@@ -1,4 +1,4 @@
-# EAGenerateEntityFromEntityAction
+# Creating Records Automatically While Saving
 
 The primary purpose of this element is to create records while saving other records.
 

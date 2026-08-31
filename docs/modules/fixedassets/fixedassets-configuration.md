@@ -116,6 +116,13 @@ One further option controls whether the Disposal document shows and uses its gri
 
 With this on, saving a Fixed Asset Purchase or an Addition and Deduction document copies the supplier's tax registration number and commercial registration number onto the document. That is what e-invoicing needs, and it is why most installations that submit asset purchases to a tax authority switch it on. With it off, those fields are cleared on save.
 
+## Actions on This Screen
+
+The module configuration screen has no buttons of its own. It is one record per database: open it,
+change the switch you came for, and save. What the next section describes — the fact that some
+changes only take effect on records created afterwards — is the only thing standing between saving
+and seeing the result.
+
 ## After You Change Something
 
 The settings are read when a document is processed, not when it was typed, so a change takes effect on the next commit. It does **not** reach back and rewrite entries that already exist: switching a dimension option on today does not stamp the department onto last year's depreciation entries. Where the change matters historically, the way to apply it is to regenerate the accounting effects of the documents concerned — from the document, or in bulk from its list view.

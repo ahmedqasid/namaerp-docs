@@ -1,4 +1,4 @@
-﻿# Comprehensive Documentation: Report Wizard Reports and Permission Management
+# Comprehensive Documentation: Report Wizard Reports and Permission Management
 
 [Watch the video](https://youtu.be/jvAJ5UjiIS8)
 

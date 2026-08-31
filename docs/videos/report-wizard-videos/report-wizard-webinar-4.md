@@ -1,4 +1,4 @@
-﻿# Documentation for the Sales Invoice Report Training Video and New GUI Features
+# Documentation for the Sales Invoice Report Training Video and New GUI Features
 
 [Watch the video](https://youtube.com/watch?v=524hzeG10Ic)
 

@@ -95,6 +95,12 @@ page is where the item's movements show up.
 
 ![The custody statistics page](../../../ar/modules/fixedassets/images/custody/fa-custody-statistics-en.png)
 
+## Actions on this screen
+
+The custody record has no buttons of its own. That is the point of it: it is a register, and the four
+custody documents — purchase, delivery, transfer and disposal — are what write to it. If a custody's
+holder or quantity looks wrong, the fix is on the document that last touched it, never on this screen.
+
 ## Reading what one employee is holding
 
 Three routes, in the order you will actually use them.

@@ -67,6 +67,12 @@ The document must also be **committed** to have any effect. An entered-but-uncom
 invisible to the depreciation run — every check the run performs looks only at committed prevention
 lines.
 
+## Actions on This Screen
+
+The prevent-depreciation document has no buttons of its own. It is a header, an asset, two dates and
+a reason: fill them in, save and commit. There is no collect button to pull in a range of assets, so
+freezing a group of them means one document per asset.
+
 ## What Happens While the Block Is On
 
 Take `MCH-0012`, Al-Waha's forklift, taken out of service for the second quarter of 2026 while the

@@ -66,6 +66,12 @@ When a document creates an asset for you, the classifications on the document li
 
 **As the grouping in an asset schedule.** Because the classification is on the asset and not on the transaction, an asset register printed by classification stays stable over time — moving a machine between departments changes its dimensions, not its classification.
 
+## Actions on These Screens
+
+None of the five classification screens carries a button of its own. They are code-and-name lists:
+type the record, save it, and it becomes available on the asset's classification fields and in report
+filters.
+
 ## A Practical Way to Set Them Up
 
 Decide the levels top-down before you create any record, and keep them shallow:

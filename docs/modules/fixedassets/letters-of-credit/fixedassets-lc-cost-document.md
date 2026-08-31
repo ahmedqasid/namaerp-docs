@@ -149,6 +149,13 @@ this import.
 The entry is created as a business request processed in the background; a failure appears in the
 Business Requests list view and is retried from there.
 
+## Actions on this screen
+
+The cost document has no buttons of its own, and it does not need one: picking the **Letter Of
+Credit** in the header is what builds the lines and brings the distributed cost across. If a figure
+looks wrong, the answer is upstream — on the proforma invoice or on the expense documents — not on a
+button here.
+
 ## What stops it committing
 
 The cost document is the strictest document in the chain, because it is the last chance to catch a

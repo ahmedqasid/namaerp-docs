@@ -1,4 +1,4 @@
-# Document Terms
+# Education Document Terms
 
 Open the Education menu and you find five groups of master files and documents — students and
 guardians, attendance, buses, meals, school trips — and nowhere among them a Settings screen. There

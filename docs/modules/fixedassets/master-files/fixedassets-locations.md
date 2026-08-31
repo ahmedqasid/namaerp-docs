@@ -79,6 +79,12 @@ That third point is the one people find surprising, and it is worth carrying: th
 The location on the asset is the destination of its **latest** row. If you record a transfer dated before a move that is already on file, the history gains the row in its proper place but the asset's current location does not change — correctly, because a later move already decided where the machine is now.
 :::
 
+## Actions on This Screen
+
+The asset location master file has no buttons of its own — it is a code, a name and a parent, saved
+into a tree. Nothing on this screen moves an asset; the documents listed above are what write the
+location, and the asset's own **Location** field cannot be typed.
+
 ## Reading the History
 
 Because every row names its document, the location list on the Statistics page is the fastest audit trail in the module. A machine that turned up in the wrong hall is one click from the transfer that put it there; a machine whose history is empty was never given a location by its purchase document, which is usually the real complaint behind "the location field is blank and I cannot fill it".

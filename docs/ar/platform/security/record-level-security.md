@@ -66,7 +66,7 @@
 
 الفلاتر الإضافية فلاتر صفوف لكل نوع، تُعرّف في صفحة **Extra Filters** على ملف الصلاحيات أو المستخدم (سطور المستخدم تتقدم على سطور الملف لنفس النوع).
 
-![صفحة Extra Filters](./images/security-profile-extra-filters.png)
+![صفحة Extra Filters](./images/security-profile-extra-filters-ar.png)
 
 كل سطر يستهدف نوعاً أو قائمة أنواع، ثم يعرّف الفلتر بإحدى طريقتين:
 

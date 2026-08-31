@@ -1,6 +1,6 @@
 <div class="ignore-in-full-text-search">
 
-# Costs
+# Contracting Costs
   - [How Project Cost Is Built](/modules/contracting/costs/contracting-cost-model.md)
   - [Cost Execution](/modules/contracting/costs/contracting-cost-execution.md)
   - [Issuing Material to a Project](/modules/contracting/costs/contracting-project-materials.md)

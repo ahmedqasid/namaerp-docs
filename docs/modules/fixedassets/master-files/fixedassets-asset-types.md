@@ -111,6 +111,13 @@ The asset account, the depreciation account and the accumulative depreciation ac
 
 **Anything financial.** The type never books, never holds a balance, and is never touched by a document. It is read at the moment an asset is created or saved, and that is all.
 
+## Actions on This Screen
+
+The fixed asset type has no buttons of its own. Everything it does, it does by being *chosen*: the
+moment an asset picks a type, the type's accounts, depreciation defaults and numbering are copied
+down. There is no button that pushes a changed type back onto assets already created from it, which
+is why the section on overriding the type on a single asset matters as much as it does.
+
 ## Setting Up FAT-MCH, Start to Finish
 
 1. **Assets → Master Files → Fixed Asset Type**, new record. Code `FAT-MCH`, Arabic name `آلات ومعدات`, English name `Machinery & Equipment`.

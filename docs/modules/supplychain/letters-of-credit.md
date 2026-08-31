@@ -1,4 +1,4 @@
-# Letters of Credit
+# Import Letters of Credit
 
 When you import goods from a supplier abroad, both parties need a guarantee: the supplier wants assured payment, and you want assured conforming shipment. The **Letter of Credit (LC)** is the banking instrument that reconciles the two, and the system manages its full cycle - from opening to shipments to costs.
 

@@ -28,7 +28,7 @@ The salary engine itself, and the attendance, leave, loan and discipline data th
   <LandingCard icon="🔀" title="Ignoring Overlapping Attendance Lines" link="/modules/hr/ignore-overlapping-attendance.md" details="What to do when a fingerprint file gives an employee readings that overlap or contradict each other, and how to have the system skip them." />
   <LandingCard icon="🏖️" title="Vacations & Leaves" link="/modules/hr/vacations/" details="Vacation types and balances, the request-to-document flow, compensation and transfer, and changing an employee's state." />
   <LandingCard icon="💳" title="Loans & Installments" link="/modules/hr/loans/" details="Loan types, the request-to-disbursement flow with salary-installment recovery, and relief, rescheduling and disabling." />
-  <LandingCard icon="🏅" title="Rewards & Penalties" link="/modules/hr/discipline/" details="Ad-hoc bonuses and deductions applied to salary, and employee suspension." />
+  <LandingCard icon="🏅" title="Rewards, Penalties & Suspension" link="/modules/hr/discipline/" details="Ad-hoc bonuses and deductions applied to salary, and employee suspension." />
 </LandingGrid>
 
 ## People

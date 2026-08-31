@@ -1,4 +1,4 @@
-# The Sales Pipeline
+# Sales Pipeline Overview
 
 Al Nokhba Air Conditioning Systems met Marina Plaza Hotels on a stand at the International Cooling Expo on 8 January 2026. Four days later Hala Samir Abdel Rahman opened a **CRM Lead** and typed in what she knew: a hotel in Alexandria, a plant room being refurbished, two 300-TR chillers and an air-handling unit wanted, and a chief engineer who takes the calls. Five weeks after that, Marina Plaza was a customer in the accounting system.
 

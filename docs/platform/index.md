@@ -15,6 +15,7 @@ documents and master files alike.
 
 <LandingGrid>
   <LandingCard icon="🔢" title="Document Books" link="/platform/document-books.md" details="The numbering series every document draws its number from — prefixes, serials, yearly resets, and the behaviour a book imposes on its documents." />
+  <LandingCard icon="↩️" title="Document Cancel Document" link="/platform/document-cancel-document.md" details="The only way to take a committed document back — what it reverses, what refuses to be cancelled, and how to restore one as a draft." />
   <LandingCard icon="🗂️" title="Master Groups" link="/platform/master-groups.md" details="The master-file twin of a document book — it codes customers, items and the rest, and files them into the tree beside every list." />
   <LandingCard icon="📎" title="Attachments" link="/platform/attachments.md" details="Storing files on a record: header and detail-line attachment fields, scanning and signatures, and where the bytes are kept." />
 </LandingGrid>
@@ -67,7 +68,7 @@ Let the system do repetitive work for you, and build reusable rules and data blo
 Turn the data you capture into reports and dashboards, and keep people in the loop.
 
 <LandingGrid>
-  <LandingCard icon="📊" title="Reports" link="/platform/reports/" details="The Jasper reports guide, the Report Wizard for building your own, and report-design FAQs." />
+  <LandingCard icon="📊" title="Reports and Printed Forms" link="/platform/reports/" details="The Jasper reports guide, the Report Wizard for building your own, and report-design FAQs." />
   <LandingCard icon="📈" title="Business Intelligence" link="/platform/bi/" details="Dashboards and analytics, the BI technical reference, and the EnhancedMetricsCard / EnhancedTable / Wizard-mode references." />
   <LandingCard icon="🔔" title="Notifications" link="/platform/notifications/" details="The notification system, WhatsApp & SMS integration, and the messaging FAQ." />
 </LandingGrid>

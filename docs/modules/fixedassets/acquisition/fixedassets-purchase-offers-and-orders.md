@@ -55,7 +55,8 @@ The **Details** grid is a price list:
 | Description | ملاحظات |
 
 The second page, **Shipping and payment** (الشحن و الدفع), repeats the request's logistics block and
-adds the payment side: a **payment schedule template**, the **Generate Payments** action that expands
+adds the payment side: a **payment schedule template**, the **GeneratePayments** (إنشاء الدفعات)
+action that expands
 it into instalment lines, and the schedule grid itself. The schedule has to reconcile with the
 document's remaining amount before the offer can be committed — a quotation offering four instalments
 that do not add up to the price is rejected.

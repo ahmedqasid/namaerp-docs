@@ -139,6 +139,13 @@ group policy — that is a separate decision made with a
 [properties document](/modules/fixedassets/depreciation/fixedassets-properties-document.md) after the
 transfer, which re-derives the instalment from a new remaining life.
 
+## Actions on this screen
+
+There is no inter-company transfer *screen*, and so no button to press to start one. This is the
+ordinary transfer document, which has no buttons of its own; what switches it into inter-company
+behaviour is simply the company you pick in the **To** group. The two entries, the mediator postings
+and the change of legal entity on the asset then all follow from committing the document.
+
 ## Sequencing an inter-company move
 
 1. **Depreciate the asset up to the month of the move.** The transfer will not commit unless

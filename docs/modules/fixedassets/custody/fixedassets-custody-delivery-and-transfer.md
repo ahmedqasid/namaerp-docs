@@ -167,3 +167,13 @@ holding lines.
 
 As always, the newest document has to be undone first. If the item has been transferred again since,
 or disposed of, deal with that document before coming back to this one.
+
+## Actions on these screens
+
+Neither the delivery document nor the transfer document carries a button of its own. Both are filled
+in and saved, and everything they do — writing the holding lines, stamping the custodian, raising the
+accounting entry — happens on commit and is undone by un-committing. The delivery screen's one piece
+of behaviour worth knowing is not a button either: the two pages lock each other out. Fill in the
+**Custody** field on page 1 and the employee and lines of page 2 grey out; fill in the **Employee**
+on page 2 and the custody and details of page 1 grey out. Clear the field you filled first and the
+other side comes back.

@@ -1,6 +1,6 @@
 <div class="ignore-in-full-text-search">
 
-# التكاليف
+# تكاليف المقاولات
   - [كيف تتكوّن تكلفة المشروع](/ar/modules/contracting/costs/contracting-cost-model.md)
   - [حصر تكاليف المقاولات](/ar/modules/contracting/costs/contracting-cost-execution.md)
   - [صرف الخامات للمشروع](/ar/modules/contracting/costs/contracting-project-materials.md)

@@ -28,7 +28,7 @@ The name is compared character for character, including case and spaces. `ZK1` a
 
 To use a formula, open a **Time Attendance** document, select the machine name in the **Attendance Machine** field, attach the exported file (up to **five** attachments are read and processed as one continuous list), then run the import action.
 
-![Attendance and Departure File](../../ar/modules/hr/images/attendance-formula-time-attendance.png)
+![The Time Attendance document, with the Attendance Machine Name field, the five attachment slots and the Import Attendance Lines button](../../ar/modules/hr/images/attendance-formula-time-attendance-en.png)
 
 ::: warning Old Excel files are rejected
 If the machine exports in the legacy `.xls` format, re-save it as `.xlsx` before attaching it. The attachment validation refuses old-format Excel files when the document is saved.

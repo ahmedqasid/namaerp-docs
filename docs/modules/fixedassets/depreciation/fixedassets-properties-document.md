@@ -145,3 +145,10 @@ van before the other eleven will go through.
 
 Removing a line and re-committing deletes that van's generated document and reverses its effect;
 cancelling the aggregate deletes all twelve.
+
+## Actions on These Screens
+
+Neither the properties document nor its aggregated form carries a button of its own — there is no
+*collect* on either, so the lines of an aggregated re-estimate are typed or imported rather than
+pulled from a range. The recalculation you are after happens on commit: the new life and salvage
+value are written onto the assets, and the next depreciation run picks them up.

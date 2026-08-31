@@ -52,7 +52,9 @@ for you:
 
 Choosing **DMS Transfer** instead enables the **Moving Details** group, where you name the
 destination archive, sub location and detailed location. The two groups are mutually exclusive:
-whichever one does not apply is greyed out, as in the screenshot above.
+whichever one does not apply is greyed out.
+
+![A DMS Transfer movement, with the Moving Details group filled in and the Exit Details group greyed out](../../ar/platform/dms/images/dms-doc-movement-transfer-en.png)
 
 ::: warning Do not use "Lost" — it files the document as present
 Both the Lost movement type and the Lost exit type are broken. A Lost movement puts the document

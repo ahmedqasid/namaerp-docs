@@ -1,4 +1,4 @@
-# The Maintenance Cycle
+# Maintenance Cycle Overview
 
 Al Nokhba Air Conditioning Systems does two things for Marina Plaza Hotels. In February 2026 it sold and installed two 300 TR chillers and an air-handling unit at the hotel's Alexandria tower. From March 2026 onwards it looks after them — a monthly check on all three machines, a quarterly check on the two chillers, whatever the hotel calls in between times, and an invoice when a job is done.
 

@@ -134,6 +134,12 @@ Suppose the desks were registered with no salvage value and had 40 periods still
 The seven remaining desks finish depreciating on exactly the same date the ten would have. Only the
 size of each instalment falls, and it falls by the same 30% the value did.
 
+## Actions on this screen
+
+The partial disposal screen has no buttons of its own. The quantity you type drives everything: the
+proportion of cost and accumulated depreciation to remove, the gain or loss, and — if you asked for
+one — the new asset record for the salvaged part. All of it happens on commit.
+
 ## What blocks a commit
 
 | The rule | Why it is there |

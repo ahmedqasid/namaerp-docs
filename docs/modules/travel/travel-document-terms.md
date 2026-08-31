@@ -1,4 +1,4 @@
-# Document Terms
+# Travel Document Terms
 
 Open the Travel menu and you will find exactly two groups: **Master Files** and **Documents**. There
 is no Settings screen, no configuration entry, nowhere to say "revenue from Nile cruises goes to

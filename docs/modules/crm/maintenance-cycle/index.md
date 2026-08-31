@@ -1,7 +1,7 @@
 <div class="ignore-in-full-text-search">
 
 # Maintenance Cycle
-  - [The Maintenance Cycle](/modules/crm/maintenance-cycle/crm-maintenance-overview.md)
+  - [Maintenance Cycle Overview](/modules/crm/maintenance-cycle/crm-maintenance-overview.md)
   - [Maintenance Sales Quotations and Orders](/modules/crm/maintenance-cycle/crm-maintenance-sales.md)
   - [Maintenance Contracts](/modules/crm/maintenance-cycle/crm-maintenance-contracts.md)
   - [Maintenance Work Plans](/modules/crm/maintenance-cycle/crm-maintenance-work-plans.md)

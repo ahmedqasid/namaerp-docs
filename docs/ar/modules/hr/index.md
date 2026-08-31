@@ -28,7 +28,7 @@ title: الموارد البشرية
   <LandingCard icon="🔀" title="تجاهل سطور الحضور المتقاطعة" link="/ar/modules/hr/ignore-overlapping-attendance.md" details="ماذا تفعل حين يعطي ملف البصمة للموظف قراءات متداخلة أو متعارضة، وكيف تجعل النظام يتخطاها." />
   <LandingCard icon="🏖️" title="الأجازات" link="/ar/modules/hr/vacations/" details="أنواع الأجازات وأرصدتها، مسار الطلب إلى المستند، التعويض والتحويل، وتغيير حالة الموظف." />
   <LandingCard icon="💳" title="السلف والأقساط" link="/ar/modules/hr/loans/" details="أنواع السلف، مسار الطلب إلى الصرف مع استرداد الأقساط من الراتب، والإعفاء وإعادة الجدولة والتعطيل." />
-  <LandingCard icon="🏅" title="المكافآت والجزاءات" link="/ar/modules/hr/discipline/" details="مكافآت وخصومات مباشرة تُطبَّق على الراتب، وإيقاف الموظف عن العمل." />
+  <LandingCard icon="🏅" title="المكافآت والجزاءات والإيقاف" link="/ar/modules/hr/discipline/" details="مكافآت وخصومات مباشرة تُطبَّق على الراتب، وإيقاف الموظف عن العمل." />
 </LandingGrid>
 
 ## الأفراد

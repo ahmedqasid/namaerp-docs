@@ -85,6 +85,10 @@ One more place uses the type: the asset's own component line names a maintenance
 component type. That pairing is what a committed record looks for when it decides which component
 line to stamp with the visit dates.
 
+## Actions on this screen
+
+The maintenance type has no buttons of its own — it is a short master file you fill in and save.
+
 ## Al-Waha's types
 
 Al-Waha Industries keeps its list short — a long list of maintenance types is a sign that something

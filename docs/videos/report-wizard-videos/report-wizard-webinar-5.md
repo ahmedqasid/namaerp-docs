@@ -1,4 +1,4 @@
-﻿# Creating a Print Template for a Filter Document Screen
+# Creating a Print Template for a Filter Document Screen
 
 [Watch the video](https://youtu.be/q16A05lIC5I)
 

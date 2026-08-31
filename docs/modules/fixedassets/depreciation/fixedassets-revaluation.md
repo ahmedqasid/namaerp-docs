@@ -38,7 +38,9 @@ figures: **Total Before Revaluation** (الإجمالي قبل إعادة الت
 
 There is a **Collect Assets** (تجميع الأصول) button, which fills the grid with the revaluation-method
 assets matching your ranges, each already carrying the value the last appraisal left behind. Assets
-still in their initial state and assets that have been disposed of are excluded.
+still in their initial state and assets that have been disposed of are excluded. The button works
+from the **fiscal period**, so fill that in before pressing it, and press it before you start editing
+lines — it rebuilds the grid rather than adding to it.
 
 The grid then holds one line per asset:
 

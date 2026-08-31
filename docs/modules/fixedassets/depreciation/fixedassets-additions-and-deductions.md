@@ -169,6 +169,13 @@ this one does not span periods: every child shares the aggregate's period and va
 The aggregate itself books nothing of substance; all the entries come from its children. Cancelling
 it deletes them all, and removing a line and re-committing deletes just that line's child.
 
+## Actions on This Screen
+
+Neither the single-asset document nor the aggregated one carries a button of its own. There is no
+*collect* here — you name the asset, type the value, and the new instalment is worked out for you as
+the fields are filled. Everything else follows from committing the document, and is undone by
+un-committing it.
+
 ## This Is Not the Document for Maintenance
 
 A repair keeps an asset working; an improvement makes it worth more. Only the second one belongs

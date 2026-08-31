@@ -6,7 +6,7 @@
 
 **المسار**: إدارة النظام > الصلاحيات > ملف الصلاحيات (Administration > Security > Security Profile)
 
-![ملف الصلاحيات — الشاشة الرئيسية](./images/security-profile-main.png)
+![ملف الصلاحيات — الشاشة الرئيسية](./images/security-profile-main-ar.png)
 
 ## صلاحيات كاملة (Full Authority)
 
@@ -109,25 +109,25 @@
 
 إخفاء حقول بعينها أو منع تعديلها لكل نوع. مشروحة بالتفصيل في [صلاحيات الحقول والصفحات والقوائم](/ar/platform/security/field-page-listview-security.md).
 
-![ملف الصلاحيات — إعدادات الحقول](./images/security-profile-field-settings.png)
+![ملف الصلاحيات — إعدادات الحقول](./images/security-profile-field-settings-ar.png)
 
 ## صفحة صلاحيات الصفحات
 
 إخفاء صفحات كاملة من شاشة النوع أو جعلها للقراءة فقط.
 
-![ملف الصلاحيات — صلاحيات الصفحات](./images/security-profile-page-security.png)
+![ملف الصلاحيات — صلاحيات الصفحات](./images/security-profile-page-security-ar.png)
 
 ## صفحة صلاحيات مطالعة القوائم
 
 السماح بشاشات عرض معينة أو منعها.
 
-![ملف الصلاحيات — صلاحيات مطالعة القوائم](./images/security-profile-listview-security.png)
+![ملف الصلاحيات — صلاحيات مطالعة القوائم](./images/security-profile-listview-security-ar.png)
 
 ## صفحة الصلاحيات المخصصة
 
 بعض الفحوصات في النظام ليست عمليات قياسية (إضافة/تعديل/حذف) — بل صلاحيات مسماة خاصة بميزات معينة، تُعرّف كسجلات **نوع الصلاحيات (Capability Types)** من **إدارة النظام > الصلاحيات > نوع الصلاحيات**.
 
-![ملف الصلاحيات — الصلاحيات المخصصة](./images/security-profile-custom-lines.png)
+![ملف الصلاحيات — الصلاحيات المخصصة](./images/security-profile-custom-lines-ar.png)
 
 طريقة العمل:
 
@@ -141,19 +141,19 @@
 علامة **عرض التقارير النظامية (View System Reports)** في رأس الشاشة منفذة داخلياً كصلاحية مدمجة كودها `SYSTEMREPORTS`. تفعيلها على الملف أو المستخدم يمنح هذه الصلاحية تلقائياً، والتقارير الموسومة *كتقارير نظامية* لا تظهر إلا لحامليها.
 :::
 
-![شاشة نوع الصلاحيات](./images/security-capability.png)
+![شاشة نوع الصلاحيات](./images/security-capability-ar.png)
 
 ## صفحة Extra Filters
 
 فلاتر على مستوى الصفوف تقيّد *أي السجلات* يراها الدور لكل نوع — بمطابقة حقل مع الذمة المتعلقة بالمستخدم، أو بتعبير معايير حر. ولأن هذا موضوع رؤية سجلات، فهو موثق في [الصلاحيات على مستوى السجلات](/ar/platform/security/record-level-security.md).
 
-![ملف الصلاحيات — Extra Filters](./images/security-profile-extra-filters.png)
+![ملف الصلاحيات — Extra Filters](./images/security-profile-extra-filters-ar.png)
 
 ## صفحة صلاحيات الإجراءات
 
 شاشات الأنواع تحمل إجراءات تتجاوز العمليات القياسية — أزرار توليد، أدوات إعادة احتساب، مسارات كيانات. كل سطر هنا يستهدف نوعاً (أو قائمة أنواع، أو سطراً عاماً) مع **نوع الإجراء (Action ID)** و**نوع التحكم** بقيمة *enabled* أو *disabled*.
 
-![ملف الصلاحيات — صلاحيات الإجراءات](./images/security-profile-action-lines.png)
+![ملف الصلاحيات — صلاحيات الإجراءات](./images/security-profile-action-lines-ar.png)
 
 منطق الحسم هنا معكوس عن الصلاحيات الأساسية:
 

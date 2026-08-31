@@ -38,6 +38,8 @@ The meaning of each field:
   wmic bios get serialnumber
   ```
 
+  ![The Serial Number field on the Tax Authority's Add New Device form](../../ar/modules/invoicing/images/electronic-receipt-pos-serial-number.png)
+
 * After entering the data, click "Save and Add New"
 
 * After saving, a window appears containing:

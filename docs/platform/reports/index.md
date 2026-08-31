@@ -1,10 +1,10 @@
 ---
 # Handcrafted landing — GenNamaDocsIndex skips this file because of the .custom-index
 # marker in this folder (see hasHandcraftedHomePage in GenNamaDocsIndex.java)
-title: Reports
+title: Reports and Printed Forms
 ---
 
-# Reports
+# Reports and Printed Forms
 
 Reports are how you get your data back out of Nama ERP, and printed forms are how a single document reaches paper. Both are built the same way — a wizard for the common case, and full Jasper design control when you need it. Start with whichever matches your need.
 

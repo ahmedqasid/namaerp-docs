@@ -101,6 +101,12 @@ asset holds. When a rejection makes no sense against today's position, look forw
 Un-committing a document removes its units from the running total and recomputes the counters from
 what is left, so corrections are safe — you are never patching a stored total by hand.
 
+## Actions on these screens
+
+Neither the out document nor the return document carries a button of its own. You name the asset and
+the quantity going out or coming back, save and commit; the counters described above move on commit
+and move back when you un-commit.
+
 ## Reading the counters
 
 The four counters live on the asset's **الإحصائيات / Statistics** page, and the two you will actually

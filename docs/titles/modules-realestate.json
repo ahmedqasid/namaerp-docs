@@ -58,8 +58,8 @@
       "en": "Real Estate"
     },
     "/modules/realestate/document-terms": {
-      "ar": "توجيهات المستندات",
-      "en": "Document Terms"
+      "ar": "توجيهات مستندات العقارات",
+      "en": "Real Estate Document Terms"
     },
     "/modules/realestate/properties": {
       "ar": "العقارات والوحدات",
@@ -78,16 +78,16 @@
       "en": "Collections and Payments"
     },
     "/modules/realestate/maintenance": {
-      "ar": "الصيانة",
-      "en": "Maintenance"
+      "ar": "صيانة العقارات",
+      "en": "Real Estate Maintenance"
     },
     "/modules/realestate/investment": {
       "ar": "الاستثمار",
       "en": "Investment"
     },
     "/modules/realestate/costs": {
-      "ar": "التكاليف",
-      "en": "Costs"
+      "ar": "تكاليف العقارات",
+      "en": "Real Estate Costs"
     },
     "/modules/realestate/opening": {
       "ar": "الأرصدة الافتتاحية",

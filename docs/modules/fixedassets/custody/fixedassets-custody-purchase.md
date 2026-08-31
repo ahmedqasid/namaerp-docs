@@ -43,7 +43,7 @@ which can create the asset it capitalises.
 This is not a stripped-down internal form. The custody purchase document is a proper invoice and
 carries the whole invoice machinery: supplier, currency and rate, line discounts, tax, a header
 discount, cash paid and remaining, external payment vouchers, and an instalment schedule with a
-*Generate Payments* action. If you know the supply-chain purchase invoice, you already know this
+*GeneratePayments* action. If you know the supply-chain purchase invoice, you already know this
 screen.
 
 **The header** (page *Main*) asks for the book and code, the term, issue date and value date, the
@@ -108,8 +108,8 @@ at ten custody records.
 
 Because this is a real invoice, the money side works the way it does everywhere else: enter what was
 paid in cash on the document, or leave the whole amount as remaining and settle it later with
-payment vouchers, or build an instalment schedule and use **Generate Payments** to raise the
-vouchers from it. Vouchers already raised against the invoice appear in the payment documents grid
+payment vouchers, or build an instalment schedule with **GeneratePayments** (إنشاء الدفعات) and
+settle the instalments as they fall due. Vouchers already raised against the invoice appear in the payment documents grid
 on the second page, and the *Remaining* figure moves as they are recorded.
 
 ## Correcting one

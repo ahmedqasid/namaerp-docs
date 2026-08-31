@@ -174,6 +174,16 @@ or set the field by hand on the asset. If your company transfers assets often, a
 about adding the new-custodian field to the transfer screen with a screen modifier.
 :::
 
+## Actions on this screen
+
+The transfer document has no buttons of its own. Everything it does happens when it is committed —
+the location, custodian and dimensions are written onto the asset, and the accounting entry is
+raised. The screen's conveniences are not buttons either. Picking the **asset** fills the *from*
+location, the custodian, the asset's accounts and both sets of dimensions from the asset's own
+record, so an unchanged dimension needs no typing at all. Picking the **destination location** then
+overwrites the *to* dimensions with that location's, which is why you should choose the location
+before correcting a destination dimension by hand.
+
 ## What stops a transfer from committing
 
 The transfer sits in the middle of an asset's timeline, so most of its rules are about not tearing a

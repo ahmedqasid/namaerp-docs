@@ -84,6 +84,13 @@ page lists the plans that asset appears in, and — usually more useful day to d
 grid on the asset's main page carries a **next expected maintenance date** written there by the last
 record. That date is a per-machine reminder that does not require anyone to open a plan at all.
 
+## Actions on this screen
+
+The maintenance plan has no buttons of its own. There is no *generate the year's visits* button and
+no scheduler behind it: you add one row per planned visit, with its asset, component, type and due
+date, and save. The plan lines are then closed off by maintenance records as the visits actually
+happen — which is what the next section describes.
+
 ## How a record closes a line
 
 The link between a plan and the work is made on the **record**, not on the plan. A maintenance

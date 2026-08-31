@@ -100,6 +100,13 @@ contributes nothing to these lists — which is exactly the point of looking at 
 committed cost.
 :::
 
+## Actions on this screen
+
+The letter of credit itself has no buttons of its own — it is the peg the other documents hang from,
+not a document that generates anything. What looks like an action on it is the **Related Documents**
+page described above: those grids are live lists of the expense, proforma and cost documents raised
+against this credit, and opening one from there is how you move around the chain.
+
 ## The state of the credit, and what closes it
 
 A read-only status field on the header tells you where the credit stands. In fixed assets it has

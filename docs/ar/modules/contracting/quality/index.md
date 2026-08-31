@@ -1,6 +1,6 @@
 <div class="ignore-in-full-text-search">
 
-# ضبط الجودة
+# ضبط جودة المقاولات
   - [ضبط الجودة بالموقع](/ar/modules/contracting/quality/contracting-quality-overview.md)
   - [خطط الفحص والاختبار](/ar/modules/contracting/quality/contracting-inspection-plans.md)
   - [طلب فحص نشاط](/ar/modules/contracting/quality/contracting-activity-inspections.md)

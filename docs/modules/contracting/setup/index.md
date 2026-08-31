@@ -1,6 +1,6 @@
 <div class="ignore-in-full-text-search">
 
-# Master Files and Setup
+# Contracting Master Files and Setup
   - [Contracting Projects](/modules/contracting/setup/contracting-projects.md)
   - [Standard Terms](/modules/contracting/setup/contracting-standard-terms.md)
   - [Term Sheets](/modules/contracting/setup/contracting-term-sheets.md)

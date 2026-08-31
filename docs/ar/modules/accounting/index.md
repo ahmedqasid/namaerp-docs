@@ -33,6 +33,7 @@
 - [الإقفال السنوي والتحكم في الفترات](./year-end-and-period-control.md)
 - [سندات القبض والصرف](./receipts-and-payments.md)
 - [إشعارات الدائن والمدين](./credit-and-debit-notes.md)
+- [تسوية أعمار الديون](./aging-allocation.md)
 - [كشوف الحسابات وميزان المراجعة](./reports-account-statements-and-trial-balance.md)
 - [القوائم المالية](./financial-statements.md)
 - [المشتريات المتنوعة وتشغيل المعدات](./misc-purchasing.md)

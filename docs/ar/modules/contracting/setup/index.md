@@ -1,6 +1,6 @@
 <div class="ignore-in-full-text-search">
 
-# الملفات والإعدادات
+# ملفات وإعدادات المقاولات
   - [مشروع المقاولات](/ar/modules/contracting/setup/contracting-projects.md)
   - [البنود القياسية](/ar/modules/contracting/setup/contracting-standard-terms.md)
   - [كراسة الشروط](/ar/modules/contracting/setup/contracting-term-sheets.md)

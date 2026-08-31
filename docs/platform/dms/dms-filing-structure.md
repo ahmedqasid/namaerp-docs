@@ -48,6 +48,8 @@ English interface. Short codes like `A`, `B-01` or `HR-2` travel better than wor
 Folders are a tree, exactly like folders on a computer: each one may have a parent, and the
 hierarchy can go as deep as you need.
 
+![The DMS Folders list, showing the top-level folders and the folders nested under them](../../ar/platform/dms/images/dms-folder-list-en.png)
+
 ![The DMS Folder screen for a leaf folder, showing its parent, the Accepts Elements switch and the four default values pushed down to documents](../../ar/platform/dms/images/dms-folder-en.png)
 
 | Field | Arabic label | What it does |

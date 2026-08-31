@@ -152,6 +152,15 @@ Both posting documents create their entries as **business requests** processed i
 saving is instant and a failed entry is retried from the Business Requests list view rather than by
 re-typing the document.
 
+## The one button in the chain
+
+Three of the four documents have no buttons at all: the credit is a peg, the proforma invoice is a
+price list, and the cost document builds itself the moment you name the credit. The only button in
+the whole chain sits on the **expense document**, on its distribution page: **Collect Fixed assets**
+(تجميع الأصول الثابته), which creates the manual-distribution rows for the expense items you have
+chosen to split by hand. Everything else follows from the credit reference you pick and from
+committing the documents in order.
+
 ## The order things have to happen in
 
 The chain is strict about sequence, and the reasons are worth knowing before you hit them:

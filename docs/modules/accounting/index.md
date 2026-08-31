@@ -33,6 +33,7 @@ Accounting features are sold as licensed sub-modules, so some screens may not ap
 - [Year-End Closing & Period Control](./year-end-and-period-control.md)
 - [Receipt & Payment Vouchers](./receipts-and-payments.md)
 - [Credit & Debit Notes](./credit-and-debit-notes.md)
+- [Aging Allocation](./aging-allocation.md)
 - [Account Statements & Trial Balance](./reports-account-statements-and-trial-balance.md)
 - [Financial Statements](./financial-statements.md)
 - [Misc Purchasing & Machine Rent](./misc-purchasing.md)

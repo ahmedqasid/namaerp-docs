@@ -12,7 +12,7 @@ You will find Screen Modifier under:
 
 > **Administration → Display Customization → Screen Modifier**
 
-![Screen Modifier list view](./images/screen-modifier-list.png)
+![Screen Modifier list view](../../ar/platform/screen-modifier/images/screen-modifier-list-en.png)
 
 ## How a Screen Modifier is structured
 
@@ -24,7 +24,7 @@ A single Screen Modifier record answers three questions:
 
 Everything else on the record — priority, activation, and the documentation attachments — controls *when* and *whether* those instructions run.
 
-![Screen Modifier — main tab](./images/screen-modifier-full.png)
+![Screen Modifier — main tab](../../ar/platform/screen-modifier/images/screen-modifier-full-en.png)
 
 ## Choosing which screens are affected — Applicable For
 

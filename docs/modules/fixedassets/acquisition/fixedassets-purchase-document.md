@@ -117,7 +117,8 @@ percentages.
 
 The second page, **Shipping and billing** (الشحن و الدفع), carries the shipping and billing
 addresses, the **Payment Documents** grid for advances already paid, a **payment schedule template**
-with its **Generate Payments** action and the resulting instalment grid, and a partial money block.
+with its **GeneratePayments** (إنشاء الدفعات) action and the resulting instalment grid, and a
+partial money block.
 The **Installment Payments** action in the More menu opens the payment vouchers raised against those
 instalments.
 

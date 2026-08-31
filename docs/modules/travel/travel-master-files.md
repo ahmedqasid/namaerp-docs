@@ -1,4 +1,4 @@
-# Master Files
+# Travel Master Files
 
 A travel agency does not sell shirts out of a warehouse. It sells five nights in a hotel in Luxor,
 a coach transfer from Cairo airport at 04:30, a licensed guide who speaks German, and lunch for

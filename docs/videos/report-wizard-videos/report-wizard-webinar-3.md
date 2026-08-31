@@ -1,4 +1,4 @@
-﻿# Complete Documentation for Creating Cross Tab Reports, Account Statements, and Inventory Movement Using the Report Builder
+# Complete Documentation for Creating Cross Tab Reports, Account Statements, and Inventory Movement Using the Report Builder
 
 [Watch the video](https://youtu.be/jZGCZt99ouw)
 
