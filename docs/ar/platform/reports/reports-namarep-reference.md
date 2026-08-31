@@ -515,13 +515,51 @@ NamaRep.getVacation3RemainderBalance(empIdOrCode)
 NamaRep.getVacationRemainderBalance(empCodeOrId, vacationTypeIdOrCode)
 NamaRep.getVacationRemainderBalance(empCodeOrId, vacationTypeIdOrCode, atDate)
 
-// المستحق والمستهلك والمتبقي معاً
-NamaRep.getVacationAssignedConsumedRemainder(employeeId, vacationType)
-NamaRep.getVacationAssignedConsumedRemainder(employeeId, vacationType, atDate)
-
 // موزعاً على السنوات
 NamaRep.getRemainderBalancePerYears(employeeId, atDate, yearsCount)
 ```
+
+### المستحق والمستهلك والمتبقي معاً
+
+تُرجع `getVacationBalance` كائناً واحداً يحمل كل أرقام حساب الرصيد، كل رقم باسمه الخاص. تُقرأ الأرقام هكذا: `$V{balance}.assigned` و`$V{balance}.consumed` وهكذا.
+
+```groovy
+// رصيد موظف واحد ونوع إجازة واحد
+NamaRep.getVacationBalance(employeeId, vacationType)
+NamaRep.getVacationBalance(employeeId, vacationType, atDate)
+
+// بتمرير مدخلات التقرير كأول وسيط تُحفظ النتيجة لبقية التشغيل،
+// فيكلف طلب ثلاثة أرقام عملية حساب واحدة
+NamaRep.getVacationBalance($P{REPORT_PARAMETERS_MAP}, employeeId, vacationType, atDate)
+```
+
+| الحقل | ما الذي يحمله |
+|---|---|
+| `assigned` | الأيام المستحقة للموظف عن السنة الحالية |
+| `consumed` | الأيام المستهلكة فعلاً |
+| `remainder` | الأيام المتبقية في التاريخ المطلوب |
+| `yearRemainder` | الأيام المتبقية بعد احتساب استحقاق السنة كاملةً، لا الجزء المستحق حتى التاريخ المطلوب فقط. وهو الرقم نفسه الموجود في `remainder` عند تفعيل خيار «احتساب رصيد الاجازات بناء على تاريخ مباشرة العمل» في إعدادات الموارد البشرية |
+| `balance` | الرصيد المستحق الذي بدأ منه الحساب، قبل تطبيق الأرصدة المضافة والأيام المستهلكة |
+| `assignedTillEndOfYear` | إجمالي الأيام التي ستكون مستحقة للموظف بنهاية السنة — رصيد نهاية السنة مضافاً إليه الأيام المستهلكة |
+| `remainderTillEndOfYear` | الأيام التي ستظل متبقية في نهاية السنة |
+
+والترتيب المعتاد متغيّر واحد للرصيد وحقل نصي لكل رقم:
+
+```groovy
+// متغيّر باسم balance من النوع java.lang.Object
+NamaRep.getVacationBalance($P{REPORT_PARAMETERS_MAP}, $F{EmployeeCode}, $F{VacationTypeCode}, $P{atDate})
+
+// ثم في ثلاثة حقول نصية
+$V{balance}.assigned
+$V{balance}.consumed
+$V{balance}.remainder
+```
+
+وتعتمد هذه الصيغة المختصرة على أن تكون لغة التقرير Groovy، وهو الإعداد المعتاد. أما في تقرير مضبوط على Java فاكتب `$V{balance}.getAssigned()` بدلاً منها.
+
+::: tip
+`getVacationAssignedConsumedRemainder` هي الصورة الأقدم من الاستدعاء نفسه. تُرجع الأرقام ذاتها مضغوطة في أزواج متداخلة — المستحق، ثم زوج من المستهلك والمتبقي، ثم متبقي السنة — ولا بد من فكها بـ `.x` و`.y.x` و`.y.y` و`.z`. وهي ما زالت تعمل فتستمر التقارير المكتوبة بها، لكن استخدم `getVacationBalance` في كل ما هو جديد.
+:::
 
 ## نقاط المكافأة
 

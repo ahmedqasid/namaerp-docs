@@ -515,13 +515,51 @@ NamaRep.getVacation3RemainderBalance(empIdOrCode)
 NamaRep.getVacationRemainderBalance(empCodeOrId, vacationTypeIdOrCode)
 NamaRep.getVacationRemainderBalance(empCodeOrId, vacationTypeIdOrCode, atDate)
 
-// Assigned, consumed and remaining together
-NamaRep.getVacationAssignedConsumedRemainder(employeeId, vacationType)
-NamaRep.getVacationAssignedConsumedRemainder(employeeId, vacationType, atDate)
-
 // Broken down by year
 NamaRep.getRemainderBalancePerYears(employeeId, atDate, yearsCount)
 ```
+
+### Assigned, consumed and remaining together
+
+`getVacationBalance` returns one object carrying every number the balance calculation produced, each under its own name. Read them with `$V{balance}.assigned`, `$V{balance}.consumed`, and so on.
+
+```groovy
+// Balance for one employee and one vacation type
+NamaRep.getVacationBalance(employeeId, vacationType)
+NamaRep.getVacationBalance(employeeId, vacationType, atDate)
+
+// Pass the report parameters map as the first argument and the answer is
+// remembered for the rest of the run, so asking for three numbers costs one calculation
+NamaRep.getVacationBalance($P{REPORT_PARAMETERS_MAP}, employeeId, vacationType, atDate)
+```
+
+| Field | What it holds |
+|---|---|
+| `assigned` | Days the employee is entitled to for the current year |
+| `consumed` | Days already taken |
+| `remainder` | Days still available as at the date asked about |
+| `yearRemainder` | Days still available once the whole year's entitlement is counted, not only the part accrued by the date asked about. It is the same number as `remainder` when *Calculate Vacation Balance Based On Start Date* is switched on in the HR configuration |
+| `balance` | The accrued balance the calculation started from, before any added balance and the consumed days are applied |
+| `assignedTillEndOfYear` | Total days the employee will have been entitled to by the end of the year — the year-end balance with the consumed days added back |
+| `remainderTillEndOfYear` | Days that will still be available at the end of the year |
+
+The usual layout is one variable for the balance and one text field per number:
+
+```groovy
+// Variable "balance", class java.lang.Object
+NamaRep.getVacationBalance($P{REPORT_PARAMETERS_MAP}, $F{EmployeeCode}, $F{VacationTypeCode}, $P{atDate})
+
+// Then, in three text fields
+$V{balance}.assigned
+$V{balance}.consumed
+$V{balance}.remainder
+```
+
+Those short forms rely on the report's language being Groovy, which is the usual setting. In a report set to Java, write `$V{balance}.getAssigned()` instead.
+
+::: tip
+`getVacationAssignedConsumedRemainder` is the older form of the same call. It returns the same numbers packed into a nested pair — `assigned`, then a pair of `consumed` and `remainder`, then `yearRemainder` — which has to be unpacked as `.x`, `.y.x`, `.y.y` and `.z`. It still works, so reports written against it keep running, but use `getVacationBalance` for anything new.
+:::
 
 ## Reward points
 
