@@ -8,7 +8,7 @@ For writing and running reports, see the [Reports guide](../reports/reports-guid
 
 ## Viewing and printing
 
-**Viewing Format** `value.info.viewingFormat` *(default HTML)* — Whether a report opens as **HTML** or **PDF**. HTML renders faster and reflows on screen; PDF is what people want when the report is going to be printed or emailed as-is.
+**Viewing Format** `value.info.viewingFormat` *(default HTML)* — Whether a report opens as **HTML**, **PDF** or **XLSX**. HTML renders faster and reflows on screen; PDF is what people want when the report is going to be printed or emailed as-is; XLSX hands the reader a spreadsheet to work in. A report definition and a user's own settings can each override this.
 
 **Use Ledger Calendar for Year Start and End in Reports** `value.info.useLedgerCalendarForYearStartAndEndInReports` — Points at a ledger whose fiscal calendar defines what "start of year" and "end of year" mean in report parameters. Essential where the financial year doesn't run January to December.
 
