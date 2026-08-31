@@ -76,6 +76,29 @@ The **Interest Payment Document** (`Banks > Fixed Deposits > Interest Payment Do
 
 If repayment circumstances change, a **Bank Loan Scheduling** document redistributes the remaining installments over new periods. A **Bank Loan Changing Document** is used to amend the loan data itself after it's been issued, within the system's controls.
 
+## Actions on this screen
+
+Almost nothing in the loan system is typed line by line — the schedules are generated, and the payment documents fetch what is due.
+
+**On the loan, its request and the scheduling document:**
+
+- **Generate Installments Table** — builds the instalments grid from the loan value, the installments count and value, **installments start in** and **calculated per**. Run it whenever you change any of those figures; it rebuilds the schedule to match.
+- **Generate Interests Table** — the same for the interests grid, from the from/to dates, **interests start in**, the interest recurrence and the annual percent, following the loan's interest type.
+- **Generate Installments And Interests Table** — both grids in one press, which is how a new loan is normally set up.
+
+**On the loan request** there is also:
+
+- **Generate Bank Loan** — creates the loan itself from the approved request, carrying its terms over, so you do not re-key them. The request must be saved first, and the loan opens as a new record for you to check and save.
+
+**On the Loan Installment Payment:**
+
+- **Collect Installments** — set a **from loan** / **to loan** range (or a bank and bank account) and a date range, and it fills the document with every **unpaid** instalment falling in that window, across all matching loans. This is how one payment document settles several instalments — or several loans — at once.
+- **Generate Interests** — the interest counterpart: it brings in the interest lines due in the same range.
+
+**On the Loan Interests Calculation:**
+
+- **Collect Interests** — gathers the interest still unproven for the chosen loan range and date range into the interests grid. **From loan** is required; without it the button tells you so and does nothing.
+
 ## Reports
 
 | Report | Answers |

@@ -55,7 +55,7 @@ This document is still in progress, not yet finished
 ## التفعيل على النظام
 
 1. اذهب إلى إعدادات مصلحة الضرائب في النظام:
-   ![Nama ERP Tax Authority Configuration](images/electronic-receipt-nama-tax-config.png)
+   ![Nama ERP Tax Authority Configuration](images/electronic-receipt-nama-tax-config-ar.png)
 
 2. في إعدادات نقطة البيع الإلكترونية:
 
@@ -79,7 +79,7 @@ This document is still in progress, not yet finished
 * قم بتسجيل نقطة بيع مستقلة لكل جهاز كما في الخطوات أعلاه
 * داخل النظام، في نفس إعدادات مصلحة الضرائب، استخدم الجريد السفلي لتعريف كل جهاز:
 
-![Receipt Serials in Nama ERP](images/electronic-receipt-nama-serials.png)
+![Receipt Serials in Nama ERP](images/electronic-receipt-nama-serials-ar.png)
 
 * اختر الدفتر المستخدم للفواتير والمردودات
 
@@ -104,7 +104,7 @@ This document is still in progress, not yet finished
 في حالة الفواتير ذات القيم الصغيرة (مثلاً 100 ج)، قد لا يكون من المنطقي طلب رقم بطاقة من كل عميل.
 يمكنك ضبط الحد الأدنى لقيمة الإيصال الذي يُلزم وجود رقم بطاقة له عبر الإعداد التالي:
 
-![Minimum Value For Personal Receipts](images/electronic-receipt-nama-min-value-for-personal.png)
+![Minimum Value For Personal Receipts](images/electronic-receipt-nama-min-value-for-personal-ar.png)
 
 ::: tip
  إذا كانت الفاتورة أقل من هذا المبلغ (مثلاً 25000 ج)، يمكن الإرسال بدون رقم بطاقة.

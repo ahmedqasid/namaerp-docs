@@ -45,6 +45,13 @@ The **Credit Facility Setting** gathers the rules shared by similar facilities: 
 
 **Issuance** activates the instrument and posts its effect (a **debit/credit** pair). Then each **payment document** splits its installment between principal and interest per the setting, posting via the sides: **payment of credit-facility value debit/credit**, **payment of interest value debit/credit**, and **payment value debit/credit**. Finally, the **termination document** closes the facility. (Where the accounts come from is in the [Document terms](./support/accounting-document-terms.md) reference.)
 
+## Actions on this screen
+
+The **Credit Facility Payment** is the one screen here you should not fill in by hand — two buttons find the facilities a payment should go against:
+
+- **Collect Credit Facilities** — you enter the **payment value** and, optionally, narrow by **setting**, **supplier**, **bank**, **bank account** and a start-date range; it then fills the payment's details with the outstanding facilities and spreads the payment across them. Tick **collect by oldest then newest facilities only** to have it settle in age order. The payment value must be greater than zero, or the button refuses.
+- **Collect Credit Facilities Without Payment Value** — the same search, but it brings in the matching facilities *without* allocating an amount to each. Use it when you want to see everything outstanding for a supplier or bank and decide the split yourself.
+
 ## Reports
 
 | Report | Answers |

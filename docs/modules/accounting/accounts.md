@@ -57,6 +57,12 @@ If you use financial budgets, the **Budget Exceeded Behavior** and **Prevent Sav
 - **Prevent Saving** — rejects the over-budget transaction.
 - **Request Approval** — halts the transaction pending approval.
 
+## Actions on this screen
+
+One button on the account does real work, and it is the one you reach for after a currency mistake:
+
+- **Update Balances Currency** — re-stamps the account's stored balances with the currency currently set on the account. Use it when an account was created (or imported) with the wrong currency and the balances were already built against the old one; correcting the **Currency** field alone leaves the existing balances behind. The button asks you to tick a confirmation first, because it rewrites balance records. The same button is on the account list view, so you can select several corrected accounts and run it once over all of them.
+
 ## Reports
 
 This account's statements and balances (general/subsidiary/detail account statement, trial balance, debt ages) are all on the [Account statements & trial balance](./reports-account-statements-and-trial-balance.md) page.

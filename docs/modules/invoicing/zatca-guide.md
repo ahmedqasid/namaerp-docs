@@ -109,7 +109,7 @@ Then complete the establishment's **National Address**:
 - Address 1
 - Land Identifier
 
-![ZATCA Legal Entity Info Screenshot](../../ar/modules/invoicing/images/zatca-legal-entity-info.png)
+![ZATCA Legal Entity Info Screenshot](../../ar/modules/invoicing/images/zatca-legal-entity-info-en.png)
 
 ::: warning
 The National Address is mandatory. If an address field (country, city, street, building number…) is missing, the configuration will fail validation and you'll see a message naming the missing field in the selected branch.
@@ -119,7 +119,7 @@ The National Address is mandatory. If an address field (country, city, street, b
 
 Everything above comes together in the **Tax Payer Configuration** record. Create a new record and, on the main page, set the basic data:
 
-![Tax Payer Configuration – Main page](../../ar/modules/invoicing/images/zatca-taxpayer-config.png)
+![Tax Payer Configuration – Main page](../../ar/modules/invoicing/images/zatca-taxpayer-config-en.png)
 
 When configuring, select the appropriate value in the **Tax Payer Type** field according to your integration stage:
 
@@ -135,7 +135,7 @@ The **API URL** field is filled automatically when you pick the tax payer type. 
 
 Next, switch to the **ZATCA Page** tab to complete the integration data:
 
-![Tax Payer Configuration – ZATCA Page](../../ar/modules/invoicing/images/zatca-taxpayer-config-zatca-page.png)
+![Tax Payer Configuration – ZATCA Page](../../ar/modules/invoicing/images/zatca-taxpayer-config-zatca-page-en.png)
 
 | Field | Description |
 |-------|-------------|
@@ -265,7 +265,7 @@ On a standard invoice the buyer must carry **either a VAT number or one of the i
 
 Invoices are collected and submitted to the Authority through the **Tax Authority Submission Document**.
 
-![Tax Authority Submission Document](../../ar/modules/invoicing/images/zatca-submission-doc.png)
+![Tax Authority Submission Document](../../ar/modules/invoicing/images/zatca-submission-doc-en.png)
 
 Steps:
 

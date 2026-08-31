@@ -37,6 +37,12 @@ The due interest is then locked in periodically via the **Interest Payment Docum
 
 A **Fixed Deposit Changing** document is used to amend the deposit data after it's been issued, within the system's controls.
 
+## Actions on this screen
+
+The **Interest Payment Document** does not ask you to list the deposits by hand:
+
+- **Collect Deposits** — set a **from deposit** / **to deposit** range and a date range, and it fills the document with the interest due on every matching deposit in that window, so one document proves a whole period's interest across several deposits. It needs a **value date** if you have not narrowed by a deposit or a from-date, and it skips deposits whose status puts them outside the calculation.
+
 ## Printed forms
 
 | Form | Document |

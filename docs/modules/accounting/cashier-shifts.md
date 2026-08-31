@@ -28,6 +28,12 @@ At the end of the duty a **Close Shift** document (`Accounting > Cashiers > Clos
 
 ![The Close Shift screen](../../ar/modules/accounting/images/cashier/close-shift-en.png)
 
+## Actions on this screen
+
+The **Close Shift** document carries one button that matters when the drawer's figures look wrong:
+
+- **Recalculate Payments Values** — re-reads the open shift and rebuilds the closing document's payment-method figures from the receipts and payments actually recorded during it. Reach for it when vouchers were added, edited or deleted after the close document was started, and its totals no longer agree with the shift — pressing it re-syncs them instead of forcing you to start a new close.
+
 ## Electronic Receipt Voucher
 
 For collection away from the office (a field rep with a phone), the **Electronic Receipt Voucher** (`Accounting > Mobile Apps - Accounting > Electronic Receipt Voucher`) provides a mobile-oriented version: it carries the **device ID**, the collecting **employee**, the **party**, and the **amount**; distinguishes **cash** from a **cheque** (with cheque number and bank name); captures the **client signature** and **employee signature**; and matches against the party's **invoices**. It's a field-collection tool that complements the cashier system.

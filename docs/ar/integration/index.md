@@ -14,5 +14,6 @@ title: التكاملات الخارجية
   <LandingCard icon="📧" title="إرسال الفواتير والمستندات" link="/ar/integration/invoice-retriever.md" details="استخدم خاصية Invoice Retriever لتقديم روابط فواتير ومستندات عند الطلب للعملاء والموردين." />
   <LandingCard icon="🕒" title="ماكينات الحضور والانصراف" link="/ar/integration/attendance-machines-integration.md" details="اسحب بيانات البصمة من أجهزة الحضور إلى نظام نما." />
   <LandingCard icon="⏱️" title="تطبيق attcron لسحب بيانات الحضور" link="/ar/integration/attcron-agent.md" details="تثبيت وتشغيل تطبيق الفرع الذي يسحب البصمات ويرسلها إلى نظام نما." />
+  <LandingCard icon="💊" title="الإبلاغ عن حركات الأدوية للهيئة السعودية للغذاء والدواء" link="/ar/integration/sfda-drug-track-and-trace.md" details="الإبلاغ عن حركات الأدوية إلى منصّة التتبّع والتعقّب للهيئة السعودية للغذاء والدواء." />
   <LandingCard icon="🗄️" title="اتصال Oracle JDBC" link="/ar/integration/oracle-jdbc-connection.md" details="إعداد اتصال Oracle JDBC في ملف context.xml لأغراض التكامل." />
 </LandingGrid>

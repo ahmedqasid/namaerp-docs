@@ -51,6 +51,21 @@ Receive (receipt voucher) → Received → Deposit (bank portfolio) → Portfoli
 
 Each of these documents moves the paper's status and records its appropriate accounting effect (moving the value between a "cheques under collection" account and the bank account, for example), and the source of these accounts is each document's term.
 
+## Driving the cycle from the paper itself
+
+You do not have to leave the **Commercial Paper** and go hunting for the right screen. Standing on a saved paper, the buttons below open the next document already carrying that paper — its value, due date, bank account, concerned party and rate — as a new record for you to complete and save:
+
+- **Create Bank Portfolio** — deposits this paper at the bank for collection. The usual next step for a received cheque.
+- **Create Bank Notice** — records the bank's verdict on it: collected, or returned.
+- **Create Receipt Voucher** / **Create Payment Voucher** — raises the voucher that receives or pays this paper, when the paper was entered first and the voucher has yet to be written.
+- **Create Commercial Paper Cancel** — cancels the paper.
+
+Each of these buttons needs the paper **saved** first; on an unsaved paper there is nothing yet for the new document to point at.
+
+On the **Commercial Paper Book** there is one more:
+
+- **Generate Cheques** — creates the book's papers in bulk instead of one at a time. Fill in the **cheques count** and the auto-coding parameters first, and note that it works only for a book of **issued cheques**: a book of bills of exchange, or a received-papers book, will not generate.
+
 ## Printing on bank forms
 
 Printing the cheque itself uses **bank-specific templates** (Ahli United, Arab African, Audi, CIB, Gulf, NBAD, NBE, QNB...) within the cheque forms `SYSF-BNK-CHQ-*`, so the cheque comes out matching each bank's format.

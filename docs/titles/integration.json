@@ -6,7 +6,8 @@
     "/integration/invoice-retriever.md",
     "/integration/attendance-machines-integration.md",
     "/integration/attcron-agent.md",
-    "/integration/oracle-jdbc-connection.md"
+    "/integration/oracle-jdbc-connection.md",
+    "/integration/sfda-drug-track-and-trace.md"
   ],
   "folderTitles": {
     "/integration": {

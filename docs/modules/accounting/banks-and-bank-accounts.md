@@ -25,6 +25,8 @@ The **Bank Account** (`Banks > Master Files > Bank Account`) is the actual accou
 
 The **Bank Transfer** (`Banks > Master Files > Bank Transfer`) moves value from one bank account/subsidiary to another, and posts to the accounts as a document resembling the payment/receipt voucher (it takes its accounts from its term). It carries detail lines, matching against **invoices**, **payment-method** lines, and **cost allocation**. Use it to transfer between your own bank accounts, or from the bank to a party, while documenting fees.
 
+Because it is built on the voucher, the bank transfer also carries the voucher's collecting buttons: **Collect Vouchers** to fill its invoice matching from the party's outstanding documents, **Copy Lines Accounts From Subsidiaries With Term Config** to fill the detail lines' accounts from their parties, and **Create FP Lines From Installments** to turn instalment lines into commercial-paper lines. They behave exactly as they do on a receipt voucher — see [Receipt & payment vouchers](./receipts-and-payments.md).
+
 ## Bank Adjustment
 
 Sometimes the bank makes a movement on its side with no corresponding document of yours: a service fee, credit interest, a deduction. The **Bank Adjustment** (`Banks > Master Files > Bank Adjustment`) is the direct tool to record these differences: you choose the **bank account**, the **amount**, and the **type** (**Debit** or **Credit**), and the entry is posted directly. Unlike other documents, the **bank adjustment needs no term** — it's a direct entry for the bank side.
@@ -32,6 +34,8 @@ Sometimes the bank makes a movement on its side with no corresponding document o
 ::: tip
 Don't confuse **Bank Adjustment** with **Bank Reconciliation**: the former records an actual difference movement in your accounts, while the latter ([Bank reconciliation page](./bank-reconciliation.md)) is a comparison process that doesn't post by itself — it surfaces the differences, which are then handled via a bank adjustment.
 :::
+
+The **Bank**, **Bank Account** and **Bank Adjustment** screens have no buttons of their own; they are filled in and saved.
 
 ## Reports and forms
 

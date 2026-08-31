@@ -37,6 +37,7 @@ Reporting your invoices to national tax platforms, with a country-specific guide
 <LandingGrid>
   <LandingCard icon="📨" title="e-Invoice Overview" link="/modules/invoicing/e-invoices-guide.md" details="The general Nama ERP electronic-invoice concepts that the country integrations build on." />
   <LandingCard icon="🇸🇦" title="ZATCA (Saudi Arabia – Fatoora)" link="/modules/invoicing/zatca-guide.md" details="Integrate with the Saudi ZATCA Fatoora platform for compliant e-invoicing and QR codes." />
+  <LandingCard icon="🇯🇴" title="JoFotara (Jordan)" link="/modules/invoicing/jofotara-jordan-guide.md" details="Credentials, buyer identity, and what the Jordanian portal returns on each invoice." />
   <LandingCard icon="🇪🇬" title="Electronic Receipt (Egypt)" link="/modules/invoicing/electronic-receipt-egypt-tax-eInvoice.md" details="Activate the Egyptian electronic receipt and e-invoice integration with the tax authority." />
   <LandingCard icon="🏦" title="Bank Details on Egyptian e-Invoices" link="/modules/invoicing/egypt-einvoice-bank-details.md" details="Send the issuer's bank, account number, IBAN and payment terms with every Egyptian e-invoice." />
   <LandingCard icon="🇦🇪" title="UAE e-Invoicing (Orchida osTax)" link="/modules/invoicing/uae-orchida-einvoice-guide.md" details="Connect to the UAE e-invoicing system through the Orchida osTax service." />

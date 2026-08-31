@@ -18,7 +18,7 @@ Its key fields:
 - **Entry Term** and **Entry Book** — the term and book the generated entry is recorded with.
 - **Max Lines Per Generated Document** — splits the generated entry into several documents if it exceeds this limit (useful with many accounts).
 - **Close All Fiscal Year Periods** — automatically closes all the year's periods after closing.
-- The **Validate Data Before Closing** button — checks the data's readiness before executing the close.
+- The **Check Data Before Closing** button — the readiness check you run before executing the close. It asks for an optional **from period**: leave it empty to check the closing entry's own period, or name an earlier period to cover a whole range. That period must not start after the closing entry's period and must belong to the same calendar — give it one that breaks either rule and it says so instead of running. The closing entry must be saved before the button will work.
 
 ::: warning Before closing
 - The period the closing entry falls in must be of type **Adjustment** or **Closing** (see [Concepts & setup](./accounting-concepts-and-setup.md)).
@@ -53,7 +53,7 @@ As years of transactions accumulate, you may need to **purge/archive** the old o
 
 ## For Support
 
-- **"Closing won't complete / refuses to execute"** — use the **Validate Data Before Closing** button; the cause is usually transactions not yet processed, or the entry's period not being Adjustment/Closing type.
+- **"Closing won't complete / refuses to execute"** — use the **Check Data Before Closing** button; the cause is usually transactions not yet processed, or the entry's period not being Adjustment/Closing type.
 - **"A transaction is rejected even though the period is open"** — check for an active **Prevent Accounting Transactions** document covering the account/subsidiary/date.
 - **"I want to suspend a prevention temporarily without deleting it"** — enable the **Inactive** flag on the prevention document.
 - **"Where is the tolerance for closing with incomplete transactions set?"** — in the [Accounting configuration](./support/accounting-configuration.md) catalog.

@@ -55,6 +55,19 @@ Accounts with **Do Not Auto-Include In Exchange Rate Update** enabled (see [Acco
 
 When transferring value between two companies in the same group, the **Inter-Company Transfer** (`Accounting > Documents > Inter Company Transfer`) records both sides in one step: it generates a **journal entry** in the first company and a matching one in the second, so the "inter-company current" accounts stay in sync without double manual entry.
 
+## Actions on this screen
+
+Three buttons carry most of the day-to-day work on these documents.
+
+On the **journal entry**:
+
+- **Reverse Document** — the answer to "this entry was wrong and the period is already closed to editing". It opens a **new, unsaved** entry that copies the original line for line with debit and credit swapped, so saving it cancels the original's effect instead of erasing history. The original must be saved first, and the reversal is an ordinary entry: you choose its own value date, period and book before saving.
+- **Delete Empty Lines** — sweeps out every detail line whose debit and credit are both zero or blank. Handy after pasting or importing lines, where blank rows come along for the ride and the entry then refuses to balance cleanly.
+
+On the **Exchange Rate Update**:
+
+- **Preview Results** — computes the revaluation and fills the document's lines with what *would* be recorded for each balance at the new rate, so you can inspect the differences before committing. Run it after setting the account (or account range), currency, new rate and mediator account; the document must be saved first.
+
 ## Reports and forms
 
 - Entry and daily-movement statements (`SYSR-ACC` journal statements) are covered on the [Account statements & trial balance](./reports-account-statements-and-trial-balance.md) page.

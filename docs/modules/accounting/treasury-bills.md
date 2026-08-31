@@ -43,6 +43,12 @@ The due return is then locked in periodically via the **Treasury Bill ROI Proof 
 
 Eventually the bill is closed by one of two documents: a **Treasury Bill Sales Document** for an early sale before maturity, or a **Treasury Bill Close Document** to collect its nominal value at the due date. In both cases the status becomes "Closed".
 
+## Actions on this screen
+
+One button saves the tedium when you are proving the return on many bills at once:
+
+- **Collect Treasury Bill** — on the **Aggregate Treasury Bill Proof Document**, it fills the details grid with every bill that is not yet **Closed**, bringing each one's bank account, purchase date, due date, current value, ROI rate and ROI value with it. Press it and you have the whole live portfolio on the document, ready to trim down to the bills you actually mean to prove.
+
 ## For Support
 
 - **"I can't find a screen to create a new treasury bill"** — the bill isn't created manually; the **purchase document** creates it automatically.

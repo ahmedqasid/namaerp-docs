@@ -39,6 +39,20 @@ A settings file is just the design; the numbers come from an **issue**. The **Is
 
 ![The Issuing Financial Statement File screen](../../ar/modules/accounting/images/fs/fs-issue-file-en.png)
 
+## Actions on these screens
+
+Designing a statement from an empty settings file is a long job, so the screen offers both a starting point and tools for editing many lines at once.
+
+**On the FS Settings File:**
+
+- **Create Income Statement Settings File And Groups**, **Create Balance Sheet Settings File And Groups** and **Create Cash Flow Flow Settings File And Groups** — each builds a complete, ready-made settings file for that statement, together with the account groups its lines refer to, and opens it as a new record. Each asks one question first: whether to create those groupings as an **FS Account Group** or as an **Account Category**. Start here and adapt, rather than typing the structure from scratch.
+- **Select All Lines**, **Unselect All Lines** and **Reverse Selected Lines** — tick, untick, or invert the selection on the lines grid. They matter because of the header's bulk-change fields — **Change Balance Type**, **Change Debit Credit Type**, **Change Open Type**, **Change Totals Type** and **Change Level Type**: pick a value in one of them and it is applied to every **selected** line at once. Selecting is how you edit fifty lines without touching fifty rows.
+- **Clear Lines Code** — empties the code on every line. Useful when you are re-coding a statement and the old codes are still being picked up by lines that reference them by **source line code**.
+
+**On the Issuing Financial Statement File:**
+
+- **Generate Financial Statement** — the button that turns the design into numbers. Save the issue file first with its settings file and period chosen, then press it; the screen refreshes with the computed result stored as this issue. Press it again whenever the underlying transactions have moved and the snapshot needs refreshing.
+
 ## The reports
 
 The printed statements all come out of this engine, under the report menu (`Acc-FNS`, codes `SYSR-FNS*`):

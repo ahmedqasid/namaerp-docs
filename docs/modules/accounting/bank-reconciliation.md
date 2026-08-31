@@ -34,6 +34,29 @@ You complete the other side of the entry, then save it. That is what actually re
 It needs the document to be on the **Reconciliation** step with a row selected. On the Collect Data or Finished step it will tell you so rather than open anything.
 :::
 
+## The buttons that drive the three steps
+
+Each step of the workflow is a button, and the reason a reconciliation "does nothing" is nearly always that the document is on the wrong step for the button being pressed.
+
+**On the Collect Data step:**
+
+- **Collect Data** — the button behind step 1. With the **bank account**, the ledger **account** and the from/to dates set, it pulls your side into the **system lines** grid, continuing from the previous reconciliation.
+- **Import Bank Lines** — loads the bank's own statement from a file. Attach the file and fill the **bank name** first; without both, it refuses and tells you which is missing. **Import Subsidiary Lines** does the same for the other grid.
+- **Update System lines of previous document** — refreshes the system lines that were carried over from the previous reconciliation, so movements that changed since it was closed show their current figures. It works only on this step.
+
+**On the Reconciliation step:**
+
+- **Automatic Match** — runs the matching engine across both grids on its own, honouring the **value tolerance**, the **date-difference tolerance** and the **narration match sequence**, and matching from whichever side **match from subsidiary lines** points at. This is what clears the bulk of the lines.
+- **Manual Match** — the same engine, but it pairs only what you have set up rather than searching freely. Use it for the lines automatic matching left behind.
+- **Macth** — applies the pairings you typed into the unmatched grids: fill a row's **matched with** (or **reverse of**) column, press it, and those rows are matched and drop out of the unmatched lists. The label reads exactly like that on screen.
+- **Create Journal Entry** — records an unmatched line as an entry; described in full under *Turning an unmatched line into an entry* above.
+
+**Any time:**
+
+- **Calculate Totals** — recomputes the system and subsidiary totals, the unmatched totals on both sides, and the total difference from the grids as they currently stand. Press it after a round of matching to see where you are.
+
+**Automatic Match**, **Manual Match** and **Macth** all require the **Reconciliation** step; on Collect Data or Finished they say so and do nothing.
+
 ## Difference from subsidiary reconciliation
 
 The same reconciliation idea applies to customers and suppliers via **Subsidiary Reconciliation** (`Accounting > Reconciliations > Subsidiary Reconciliation`): it matches the party's balance in your books against their external statement using the same three-step workflow, and chains the documents historically. The only difference is the nature of the party: a bank account here, a customer/supplier there.

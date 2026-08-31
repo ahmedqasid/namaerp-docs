@@ -31,6 +31,15 @@ If neither is on, the budget is informational only — it's tracked and reportab
 
 When it validates, the system needs to know *which* budget line a document maps to. The **Budget Validation Options** include a set of **"consider…"** toggles — consider sector, branch, department, analysis set, subsidiary, record (entity dimension), references 1–3, and fiscal period — that define how precisely actuals are matched to budget lines. Turn on the dimensions you budget by; leave off the ones you don't, so the match isn't too narrow to find its line.
 
+## Actions on this screen
+
+Budget lines are rarely typed one figure at a time — two buttons fill the numbers for you once the lines name their accounts and dimensions:
+
+- **Calculate Values** — fills the planned figures across the budget's year columns from the scenario, the fiscal period range and each line's account and dimensions, applying the line's **change percentages** to grow one year off the previous. This is what turns "these are the accounts I budget by" into an actual multi-year plan.
+- **Calculate Current Year Values** — the narrower version: it computes only the current year's figures, leaving the later years alone. Use it when the out-years were agreed and you are only re-basing this year.
+
+Both act on the **details** grid, so add and scope your lines first, then press.
+
 ## For Support
 
 - **"My budget isn't stopping anything"** — three things must line up: the budget is marked **use for validation**, and at least one of **prevent saving** / **enable approvals** is on in the Budget Validation Options. Otherwise the budget is informational only.

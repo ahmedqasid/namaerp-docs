@@ -38,6 +38,12 @@ The **Investment Document Fund** master (`Banks > Investment Document > Investme
 
 It has its own three documents: a **Purchase** (buying units), a **Sale** (selling units), and a **Price Update** (revaluing the holding as the unit price moves). Because a fund's worth tracks the market, the price-update document is what keeps its value current between buying and selling.
 
+## Actions on this screen
+
+One button here saves real work, and it is on the batch document rather than the bond itself:
+
+- **Collect Investment Documents** — on the **Aggregated ROI Proof**, it fills the proof lines with the bonds whose return is due to be locked in, so you do not add them one by one. It gathers the documents that are **Ongoing** and of type **treasury bond**; company bonds and anything already closed are left out, which is why a bond you expected may not appear.
+
 ## Profit distribution
 
 When investments yield profit to be shared out among partners, the **Profits Distribution Doc** (`Accounting > Documents > Profits Distribution Doc`) records and distributes it. Its printed form is `SYSF-ACC023`.

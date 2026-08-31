@@ -39,6 +39,28 @@ When many receipt/payment requests for the same party pile up and you want to ex
 
 ![The Consolidated Receipt Request screen](../../ar/modules/accounting/images/receipts/consolidated-rv-request-en.png)
 
+## Actions on this screen
+
+The three stages of the chain each carry their own buttons, and knowing them is the difference between typing a voucher line by line and letting the screen fill itself.
+
+**On the voucher (and the order):**
+
+- **Collect Vouchers** — the workhorse. It asks for a **from date**, a **to date**, the **document type** to look for (sales invoice, sales return, purchase invoice, purchase return, credit note, debit note, service-centre invoices and returns, or journal entry) and whether to **ignore the amount in the header**; it then fills the **Invoices** tab with that party's outstanding documents in the range, allocating the voucher's amount across them oldest first. Leave "ignore amount in header" off and it stops once the header amount is used up; tick it and it brings everything it finds.
+- **Copy Lines Accounts From Subsidiaries With Term Config** — fills the **account** on each detail line from that line's subsidiary, using the account bag and account type configured on the voucher's term. Use it after entering a batch of lines where only the parties were typed, instead of picking each account by hand.
+- **Create FP Lines From Installments** — turns the instalment lines you have selected into **Financial Papers** lines, one per instalment, each carrying that instalment's value and due date ready for the cheque details. The bridge from "these are the instalments being settled" to "these are the cheques settling them".
+- **Invoices System Entry Related To Payment/Receipt Documents** — opens the invoices this voucher was matched against. The quickest answer to "which invoice did this receipt actually settle?".
+
+**On the request:**
+
+- **Accept** and **Reject** — set the request's status, which is how a request is authorised or turned down before anyone raises a voucher for it.
+- **Generate Receipt Voucher** / **Generate Payment Voucher** — creates the voucher from the request's header: one voucher for the whole requested amount.
+- **Generate Receipt Voucher For Lines** / **Generate Payment Voucher For Lines** — the same, but the voucher comes out carrying one line per request line, so the detail survives the hand-over.
+
+**On the consolidated request:**
+
+- **Consolidate** — gathers the individual requests into the details grid. You give it a **from date** and **to date** (both required) and may narrow by author range, source party range, target party range and purpose type; matching requests come in as lines.
+- **Generate Payment Voucher** / **Generate Receipt Voucher**, and their **For Lines** variants — produce the single combined voucher from the gathered lines. The **For Lines** variant deliberately allows only one voucher per consolidated request; if a voucher already exists for it, it says so rather than issuing a second.
+
 ## Reports and forms
 
 - Receipt/payment voucher, request, and entry statements (`SYSR-ACC015` to `ACC019` and `ACC046`–`ACC047`) are covered in [Account statements & trial balance](./reports-account-statements-and-trial-balance.md).

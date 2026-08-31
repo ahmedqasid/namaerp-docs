@@ -51,11 +51,11 @@ To create a report that shows sales invoice data such as invoice code, customer 
 
 After saving, click the **Run** button. A screen similar to the following will appear:
 
-![Run the report - select start and end date](../../ar/platform/reports/images/report-wizard-ex-1-run-report.png)
+![Run the report - select start and end date](../../ar/platform/reports/images/report-wizard-ex-1-run-report-en.png)
 
 Select an appropriate time period (from date - to date) and click **Run**. The report will appear as follows:
 
-![Report result - sales invoices](../../ar/platform/reports/images/report-wizard-ex-1-view-result.png)
+![Report result - sales invoices](../../ar/platform/reports/images/report-wizard-ex-1-view-result-en.png)
 
 As you can see, a report with time filters and professionally organized columns was generated, and the company logo, run date and time, and username are displayed automatically.
 

@@ -53,7 +53,7 @@ The POS will then be registered but its status will be **inactive** until it is 
 ## Activation in the System
 
 1. Go to Tax Authority settings in the system:
-   ![Nama ERP Tax Authority Configuration](../../ar/modules/invoicing/images/electronic-receipt-nama-tax-config.png)
+   ![Nama ERP Tax Authority Configuration](../../ar/modules/invoicing/images/electronic-receipt-nama-tax-config-en.png)
 
 2. In the electronic POS settings:
 
@@ -77,7 +77,7 @@ The POS will then be registered but its status will be **inactive** until it is 
 * Register a separate POS for each device as described in the steps above
 * Inside the system, in the same Tax Authority settings, use the lower grid to define each device:
 
-![Receipt Serials in Nama ERP](../../ar/modules/invoicing/images/electronic-receipt-nama-serials.png)
+![Receipt Serials in Nama ERP](../../ar/modules/invoicing/images/electronic-receipt-nama-serials-en.png)
 
 * Select the book used for invoices and returns
 
@@ -102,7 +102,7 @@ The POS will then be registered but its status will be **inactive** until it is 
 For invoices with small amounts (e.g., 100 EGP), it may not be practical to request an ID number from every customer.
 You can set the minimum receipt value that requires an ID number via the following setting:
 
-![Minimum Value For Personal Receipts](../../ar/modules/invoicing/images/electronic-receipt-nama-min-value-for-personal.png)
+![Minimum Value For Personal Receipts](../../ar/modules/invoicing/images/electronic-receipt-nama-min-value-for-personal-en.png)
 
 ::: tip
 If the invoice is below this amount (e.g., 25,000 EGP), sending is allowed without an ID number.

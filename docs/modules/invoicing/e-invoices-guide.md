@@ -109,3 +109,4 @@ Deadlines are the other frequent cause. A document older than **Max Days To Send
 | 🇪🇬 Egypt | [Electronic Receipt and e-Invoice](./electronic-receipt-egypt-tax-eInvoice.md) — registering sending devices, receipts vs. invoices, ID requirements |
 | 🇪🇬 Egypt | [Bank details on Egyptian e-invoices](./egypt-einvoice-bank-details.md) — sending the issuer's bank, account, IBAN and payment terms |
 | 🇦🇪 UAE | [UAE e-Invoicing through Orchida osTax](./uae-orchida-einvoice-guide.md) |
+| 🇯🇴 Jordan | [JoFotara](./jofotara-jordan-guide.md) — credentials, buyer identity, and what the portal returns |

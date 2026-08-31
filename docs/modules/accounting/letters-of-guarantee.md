@@ -56,6 +56,15 @@ At issue, the system checks that the total reserved doesn't exceed the **facilit
 
 The **Receipt** and **Delivery** documents track the circulation of the paper copy of the letter. **Changing** is used to extend the letter's term or change its value or fees — it updates the current values while keeping the initial values as a reference, and records the **change fees**. Finally, **Closing** closes the letter and releases the reserved facility.
 
+## Actions on this screen
+
+The request is where the chain starts, and two buttons on it save re-keying the whole letter twice:
+
+- **Create Letter Of Guarantee** — turns the approved request into the letter's master file, carrying over its type, amount, bank, bank account, dates, covered amount, facilities and fees. The letter opens as a new record for you to review and save.
+- **Create LGTIssue** — goes one step further and opens the **LGT Issue** document for the letter, pre-filled from the request's account, bank and bank account. Reach for it when the bank has actually issued the letter and you want to post the effect straight away.
+
+Both need the request **saved** first — an unsaved request has nothing for the new document to be built from.
+
 ## Reports
 
 | Report | Answers |

@@ -31,6 +31,13 @@ The **Financial Commitment Payment Document** (`Accounting > Financial Commitmen
 
 ![The Financial Commitment Payment Document screen](../../ar/modules/accounting/images/commitments/financial-commitment-paydoc-en.png)
 
+## Actions on this screen
+
+The installment schedule is generated, not typed:
+
+- **Create Installments** — builds the **Installments** grid from the **installments value**, the **installments count**, the **start date** and the recurrence **period**, dividing the value evenly and stepping the payment date forward by one period each time. All four fields are required; leave one blank and the button says which. It also refuses to run if any existing installment is already **paid** or carries a paid amount — regenerating would wipe settled history — so reschedule those with a **Financial Commitment Reschedule** instead.
+- **Create Installments For Selected Documents** — the same generation, but from the **commitments list view** across every commitment you have selected. This is how you lay schedules onto a batch of commitments that were imported or entered without them.
+
 ## Rescheduling
 
 Plans change — an installment is deferred, the amounts are renegotiated. The **Financial Commitment Reschedule** (`Accounting > Financial Commitment Management > Financial Commitment Reschedule`) lets you add, edit or delete installment lines on an existing commitment. It keeps two grids — the **details** (the new schedule) and the **details before edit** (the schedule as it was) — so the change is auditable.

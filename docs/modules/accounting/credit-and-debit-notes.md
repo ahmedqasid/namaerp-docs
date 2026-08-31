@@ -41,6 +41,14 @@ If a note has no total after taxes (no tax was applied), the Amount is used anyw
 
 The counter-side to the party's account — as well as the two tax sides — comes from the **document term** (see the [Document terms](./support/accounting-document-terms.md) reference). A credit note makes the party credit and the counter-side (revenue/return/discount) debit; a debit note reverses them.
 
+## Actions on this screen
+
+Both notes carry the same three buttons — they are identical screens, so what is said of one holds for the other.
+
+- **Collect Vouchers** — fills the **Details** tab with the party's outstanding invoices instead of you hunting for them. It asks for a **from date**, a **to date** and whether to **ignore the amount in the header**, then allocates the note's value across the documents it finds, oldest first. With "ignore amount in header" left off it stops once the note's amount is consumed; tick it to bring in everything in the range and match by hand.
+- **collect Installments By From Doc** — when the note was raised **based on** another document, this pulls that document's instalment into the note's instalments grid for the note's amount, so the settlement lands on the right instalment rather than floating against the document as a whole.
+- **Invoices System Entry Related To Payment/Receipt Documents** — opens the invoices this note was matched against. Use it when someone asks which invoice a credit note actually reduced.
+
 ## Reports and forms
 
 - Party movements resulting from the notes appear in the party's account statement under [Account statements & trial balance](./reports-account-statements-and-trial-balance.md).

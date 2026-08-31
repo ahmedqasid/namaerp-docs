@@ -44,6 +44,15 @@ At opening, the system checks that the total reserved doesn't exceed the **facil
 
 **Changing** is used to raise or lower the LC value or extend its term — it updates the current values while keeping the initial values for comparison, and records the **change fees**. **Closing** closes the LC and releases the reserved facility.
 
+## Actions on this screen
+
+As with letters of guarantee, the request carries the two buttons that build the rest of the chain:
+
+- **Create Bank LC** — turns the approved request into the LC's master file, carrying over its type, amount, bank, bank account, dates, covered amount, facilities and fees, and opening it as a new record for you to review and save.
+- **Create Bank LC Opening Document** — opens the **Bank LC Opening** document directly, pre-filled from the request's account, bank and bank account. Use it at the moment the bank actually opens the LC, so the effect posts and the facility is reserved in one step.
+
+Both need the request **saved** first.
+
 ## Reports
 
 | Report | Answers |
