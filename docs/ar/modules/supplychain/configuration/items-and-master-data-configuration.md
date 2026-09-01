@@ -50,10 +50,10 @@
 
 | الاسم | معرّف الحقل |
 | --- | --- |
-| اسم 1 للون والمقاس | `value.info_itemCodingFormula_szName1Formula` |
-| اسم 2 للون والمقاس | `value.info_itemCodingFormula_szName2Formula` |
-| اسم 1 للإصدارة | `value.info_itemCodingFormula_rvName1Formula` |
-| اسم 2 للإصدارة | `value.info_itemCodingFormula_rvName2Formula` |
+| اسم 1 للون والمقاس | `value.info.itemCodingFormula.szName1Formula` |
+| اسم 2 للون والمقاس | `value.info.itemCodingFormula.szName2Formula` |
+| اسم 1 للإصدارة | `value.info.itemCodingFormula.rvName1Formula` |
+| اسم 2 للإصدارة | `value.info.itemCodingFormula.rvName2Formula` |
 
 ## البحث عن الأصناف والأزرار
 

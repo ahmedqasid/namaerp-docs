@@ -44,7 +44,9 @@ When a document of a given type is opened, the system reads the switch matching 
 
 **Use Color / Size / Revision in Unit Conversions** (`value.useColorInUomConversions`, `value.useSizeInUomConversions`, `value.useRevisionInUomConversions`) — When on, a unit-of-measure conversion rule that specifies a color/size/revision applies only to lines with the same value, letting the same item have variant-specific conversion factors.
 
-**Allow Delete from Item Colors & Sizes / Revisions Grid if Transactions Found** — Allows removing color/size or revision rows from an item even when those combinations already have transactions (normally blocked to protect history). For careful cleanup only.
+**Allow Delete From Item Colors And Sizes Grid If Transactions Found** (`value.allowDeleteFromItemColorsAndSizeAfterTransactions`) — An item's colors-and-sizes grid is normally protected once a combination has been used: the system refuses to delete a row that already has movements behind it, because deleting it would leave that history pointing at nothing. When on, those rows can be deleted anyway. Use it only for a controlled clean-up of variants that were created by mistake, and switch it back off afterwards.
+
+**Allow Delete From Item Revisions Grid If Transactions Found** (`value.allowDeleteFromItemRevisionsAfterTransactions`) — The same relaxation for the item's revisions grid, so a revision that already appears on documents can still be deleted. The same warning applies: leave it off in day-to-day operation.
 
 ## Production & Expiry Dates
 

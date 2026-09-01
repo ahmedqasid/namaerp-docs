@@ -16,9 +16,13 @@ The options that follow decide which buttons an approver actually sees. Every on
 
 **Use Escalate to Supervisor** `value.info.useEscalateToSupervisor` *(default on)* — Shows **Escalate to Supervisor**, passing the decision up the org chart.
 
+**Use Escalate to Direct Supervisor** `value.info.useEscalateToDirectSupervisor` *(default on)* — Shows **Escalate to Direct Supervisor**, which passes the decision to the approver's *direct* supervisor instead. The two escalation decisions read two different fields on the employee record, so where a person's direct supervisor is not the manager approvals escalate to, you can offer both and let the approver pick. If the employee has neither person recorded the decision is refused with a message saying so, which is the usual reason the button looks like it does nothing.
+
 **Use Escalate to Specific Employee** `value.info.useEscalateToSpecificEmployee` *(default on)* — Shows **Escalate to Employee**, letting the approver choose who should decide instead.
 
 **Use Return to Previous Step** `value.info.useReturnToPreviousStep` *(default on)* — Shows **Return to Previous Step**, sending the document back one stage in the approval chain rather than all the way to its author.
+
+**Use Return to Specific Step** `value.info.useReturnToSpecificStep` *(default on)* — Shows **Return to a Specific Step**, which lets the approver choose *which* earlier stage the document goes back to rather than always sending it back exactly one. On a long chain — requester, department head, finance, general manager — that is the difference between bouncing a document back through three people and returning it straight to whoever has to fix it. The decision only appears when the approval actually has earlier steps that can be returned to, so on a one-step approval you never see it however this is set.
 
 **Use Signature in Approval Attachment** `value.info.useSignatureInApprovalAttachment` — Stamps the approver's stored signature image onto the attachment produced by the approval, so the printed record carries a visible signature.
 

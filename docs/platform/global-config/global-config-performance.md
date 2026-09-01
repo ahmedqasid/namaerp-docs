@@ -59,3 +59,9 @@ The three operators above apply to every search in the system. When only one mas
 **Show Search In for Top Panel** `value.info.showSearchInForTopPanel` — Adds the "search in" entity selector to the top search bar, letting the user narrow a global search to one kind of record.
 
 **Must Select Entity in Search In Before Search on Server** `value.info.mustSelectEntityInSearchInBeforeSearchOnServer` — Requires the user to pick an entity there before any server search runs. On a large database this prevents an unfocused search from scanning everything. It depends on the option above — the system refuses to save it without the selector being shown, and says so.
+
+**Ignore Word Order in Search** `value.info.ignoreWordOrderInSearch` — Normally the text a user types has to appear in the record exactly as typed and in that order, so a search for محمد أحمد finds nothing when the customer was entered as أحمد علي محمد. Turn this on and the typed text is split into words: a record matches when it contains all of them, in any order. It applies to reference lookups and to searching the code and name fields in lists. This is worth having wherever names are long and inconsistently ordered — Arabic personal names above all, where the same person is filed differently by different people.
+
+::: warning It does not make searching faster
+Matching words in any order still cannot use a database index; the server reads every row exactly as it does for *Contains*. If searching is slow this is not the fix, *Starts With* above is. And a search operator set on one reference field in [Fields and Entities Settings](/platform/fields-and-entities-settings/fields-settings-reference-lookups) still overrides this.
+:::

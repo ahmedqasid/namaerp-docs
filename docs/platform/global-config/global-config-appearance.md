@@ -8,6 +8,8 @@ How the system looks and how users move around it: what opens at startup, what t
 
 **Start Always by New GUI** `value.info.startAlwaysByNewGui` *(default on)* — Web sessions open the modern interface rather than the legacy one.
 
+**Always Use New GUI (Prevent Use Old GUI)** `value.info.alwaysUseNewGUI` — The option above only decides where a session *starts*; a user who knows the legacy interface's own address can still open it. Turn this on and that door closes: any attempt to load a legacy screen is redirected to the modern one. This is the setting to reach for once an installation has finished migrating — while both interfaces are reachable, a few users keep working in the old one and report problems that were fixed months ago in the new. Leave it off while any workflow still genuinely needs the legacy screens. The server can also block the old interface on its own through the `disable-old-ui` property, so if the old screens stay unreachable with this option off, look there.
+
 **Start in Mobile by New GUI** `value.info.startInMobileByNewGui` *(default on)* — The same decision for mobile browsers.
 
 **Use Detailed Grids in Mobile** `value.info.useDetailedGridsInMobile` *(default on)* — Mobile shows full grids instead of the compact card layout. Detailed grids carry more information; cards are easier to tap. Choose by what your mobile users actually do — reviewing figures wants grids, capturing a few fields wants cards.

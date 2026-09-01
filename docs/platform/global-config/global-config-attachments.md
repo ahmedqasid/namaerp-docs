@@ -31,6 +31,8 @@ Once files live on disk, a database backup no longer contains them. The folder m
 
 **Create Attachment Preview and Thumbnail** `value.info.createAttachmentPreviewAndThumbnail` — Generates a preview and a thumbnail for each uploaded file. Thumbnails make an attachments list far easier to scan, at the cost of some processing on upload and a little extra storage.
 
+**Do Not Use Google Docs to Preview Office Files** `value.info.dontUseGoogleDocsForOfficeFilesPreview` — A browser cannot render Word, Excel or PowerPoint files itself, so by default Nama previews them by embedding Google's public document viewer and pointing it at the file's address. That works, but it hands the address to an outside service, and the file has to be reachable from the public internet — which it usually is not on an internal server, so the preview never loads. Turn this on and the viewer is no longer embedded: the preview window says the file cannot be previewed and asks the user to download it instead. Switch it on wherever the server is not reachable from outside, or wherever handing document addresses to a third party is not acceptable.
+
 ## Disk space monitoring
 
 **Folders to Check Space** `value.info.foldersToCheckSpace` — The folders whose free space the system watches. List the attachment folder here, and anywhere else that filling up would stop work.

@@ -54,6 +54,14 @@ The system refuses to save *Allow Change System Report to Non System* unless the
 
 **Fetch Reviewed and Approved Reports Only When Updating System Reports** `value.info.fetchReviewedAndApprovedReportsOnlyWhenUpdateSystemReports` — Restricts a system-report refresh to definitions that have been reviewed and approved.
 
+## Subsidiary types in report parameters
+
+A report that takes a subsidiary as a parameter asks first *what kind* of subsidiary, and the list it offers is long — Nama defines around eighty subsidiary types, covering every module ever built. Most businesses use five or six of them.
+
+**Show Only These Subsidiary Types in Reports Subsidiary Type Parameter** `value.info.showOnlyTheseSubsidiaryTypesInReports` *(table)* — Each row names one type in its **Subsidiary Type** column `value.info.showOnlyTheseSubsidiaryTypesInReports.subsidiaryType`. Leave the table empty and the parameter offers every type your licence enables, which is the default; add rows and it offers only those. A trading company that only ever reports on customers, suppliers and employees can cut that dropdown from eighty entries to three, which removes a real source of wrong-parameter reruns. Types belonging to a module you do not have stay hidden either way.
+
+This affects the report parameter only. It does not change what any report returns, and it does not restrict the subsidiary fields on documents.
+
 ## Dimension parameters in reports
 
 **Override Selected Legal Entity / Sector / Branch / Department / Analysis Set** `value.info.overrideSelectedLegalEntity`, `...overrideSelectedSector`, `...overrideSelectedBranch`, `...overrideSelectedDepartment`, `...overrideSelectedAnalysisSet` — Each takes **Never**, **Always** or **When Not Public**, and decides whether the dimension the user currently has selected is forced into the report's matching parameter.
@@ -94,12 +102,12 @@ When a report is exported to Excel, the layout that looked right on a printed pa
 
 **Detect Cell Type** `value.info.excelExportConfig.detectCellType` *(default on)* — Writes numbers as numbers and dates as dates rather than as text. This is the one that decides whether the exported sheet can be summed and sorted, so leave it on.
 
-**White Background** *(on)*, **Prevent Row Span** *(on)*, **Ignore Cell Border** *(on)*, **Ignore Cell Background** , **Ignore Graphics** — Strip the visual styling that a spreadsheet doesn't need. Preventing row span in particular is what stops merged cells from breaking filters and sorting.
+**White Background** `value.info.excelExportConfig.whiteBackground` *(on)*, **Prevent Row Span** `value.info.excelExportConfig.preventRowSpan` *(on)*, **Ignore Cell Border** `value.info.excelExportConfig.ignoreCellBorder` *(on)*, **Ignore Cell Background** `value.info.excelExportConfig.igonreCellBackground`, **Ignore Graphics** `value.info.excelExportConfig.ignoreGraphics` — Strip the visual styling that a spreadsheet doesn't need. Preventing row span in particular is what stops merged cells from breaking filters and sorting.
 
 **Remove Empty Space Between Rows** / **Between Columns** `value.info.excelExportConfig.removeEmptySpaceBetweenRows`, `...removeEmptySpaceBetweenColumns` — Remove the spacer rows and columns that a print layout uses for margins.
 
-**Remove Page Header** *(on)* and **Do Not Remove First Page Header** *(on)* — Together these keep the header once at the top and drop its repetition on every subsequent page, which is exactly what a spreadsheet wants.
+**Remove Page Header** `value.info.excelExportConfig.removePageHeader` *(on)* and **Do Not Remove First Page Header** `value.info.excelExportConfig.dontRemoveFirstPageHeader` *(on)* — Together these keep the header once at the top and drop its repetition on every subsequent page, which is exactly what a spreadsheet wants.
 
-**Remove Page Footer** *(on)*, **Remove Column Header** *(on)*, **Remove Column Footer** *(on)*, **Remove Report Title** *(on)* — Drop the remaining print furniture.
+**Remove Page Footer** `value.info.excelExportConfig.removePageFooter` *(on)*, **Remove Column Header** `value.info.excelExportConfig.removeColumnHeader` *(on)*, **Remove Column Footer** `value.info.excelExportConfig.removeColumnFooter` *(on)*, **Remove Report Title** `value.info.excelExportConfig.removeReportTitle` *(on)* — Drop the remaining print furniture.
 
 **Export Draft Version** `value.info.exportDraftVersion` *(default on)* — Exporting a record exports its draft version where one exists.

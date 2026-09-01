@@ -60,7 +60,7 @@ The purchase side mirrors the sales side: when **Use Last Purchase Price** is on
 
 **Number of Days of Expired Price List to Show Critical Errors After Them** (`value.numberOfDaysOfExpiredPriceListToShowCriticalErrorsAfterThem`) — A price list expired longer than this many days is escalated to a critical error in the system's checks. Set a negative number to disable the warning; zero/empty uses a 100-day default.
 
-**Add Item Cost List to Separate Page** (`value.addItemCostListToSeparatePage`) — Controls where the item's cost-summary grid appears on the Item screen: on moves it to its own Statistics page; off keeps it on the Prices page.
+**Add Item Cost List to Separate Page** (`value.addItemCostListToSeparatePage`) *(on in newly created databases)* — Controls where the item's cost-summary grid appears on the Item screen: on moves it to its own Statistics page; off keeps it on the Prices page.
 
 **Add Price After Tax to Sales Price List Lines** (`value.addPriceAfterTaxToSPListLines`) — When on, each sales price list line also stores a tax-inclusive price (computed by applying the relevant taxes to the default price), so users can see/enter prices including tax.
 

@@ -4,13 +4,13 @@ This page documents the **Stock Taking** tab — settings that govern how physic
 
 **Make Ended Stock Taking Documents Editable** `value.makeEndedSTakingDocsEditable` — Normally an End Stock Taking that has ended is locked against editing or deletion. When on, ended documents can still be edited/deleted. Generally left off to protect reconciled counts.
 
-**Do Not Recalculate Sales Return / Stock Taking / Uncosted Cost from Overdraft** `value.calculateSalesReturnCostFromOverdraft` — When on, the cost of sales returns, stock-taking receipts, and uncosted receipts is not re-derived from overdraft coverage during cost processing. *(This is the same cost-processing switch described on the [Costing tab](./costing-configuration.md); it appears here because it affects stock-taking receipt cost.)*
+**Do not Re-Calculate Sales Return and Stock Taking, Uncosted Receipt Cost From Overdraft** `value.calculateSalesReturnCostFromOverdraft` — When on, the cost of sales returns, stock-taking receipts and uncosted receipts is not re-derived from overdraft coverage during cost processing; whatever cost they already carry is left alone. It is a cost-processing option that lives on this tab rather than the [Costing tab](./costing-configuration.md), so this is where to look for it. Enable it when overdraft-driven recalculation keeps changing costs you want left as they were entered.
 
 **Delete Stock Taking Receipts** `value.deleteStockTakingReceipts` — Controls what happens to the adjustment documents a count previously generated when the End Stock Taking is re-saved: when on, the old generated documents are deleted and rebuilt; when off, they are preserved.
 
 **Consider Dimensions in End Stock Taking Quantities** `value.considerDimensionsInEndStockTaking` — When on, the expected-vs-actual comparison at the end of the count is broken down by item dimensions (color, size, locator…), so the count reconciles per dimension rather than per item total.
 
-**Do Not Check Quantities with Documents Created from Stock Taking** `value.doNotCheckQuantitiesWithStockTaking` — When on, the quantity/overdraft validation that normally runs when creating the count's adjustment receipts and issues is skipped, so they are created even if they would otherwise fail availability checks.
+**Do Not Check Quantities with Documents Created from Stock Taking** `value.doNotCheckQuantitiesWithStockTaking` *(on in newly created databases)* — When on, the quantity/overdraft validation that normally runs when creating the count's adjustment receipts and issues is skipped, so they are created even if they would otherwise fail availability checks.
 
 **Allow Stock Taking After Issue or Receipt Date** `value.allowStockTakingAfterIssueOrReceiptDate` — Normally you cannot start a count on a warehouse/locator that already has a movement after the count's start date. When on, that restriction is lifted and the count can start anyway.
 

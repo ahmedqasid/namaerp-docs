@@ -29,7 +29,7 @@ By default a stock document carries one warehouse and one set of accounting dime
 
 **Hide Old Track Quantity Settings from Term Config** (`value.hideTrackQtyFromTermConfig`) *(default on)* — Hides the legacy quantity-tracking settings from the Document Term screen, since the newer mechanism below replaces them. Keep on unless you still rely on the old per-term settings.
 
-**Use System Table to Track Quantities** (`value.useEntriesForTrackQuantities`) — Switches quantity tracking (the running "how much of this line has been delivered/satisfied" balance between linked documents) to a dedicated system table maintained automatically as documents are processed and deleted. This is the modern, recommended way to track delivered/remaining quantities across the document chain.
+**Use System Table to Track Quantities** (`value.useEntriesForTrackQuantities`) *(on in newly created databases)* — Switches quantity tracking (the running "how much of this line has been delivered/satisfied" balance between linked documents) to a dedicated system table maintained automatically as documents are processed and deleted. This is the modern, recommended way to track delivered/remaining quantities across the document chain.
 
 **Allow Non-System Term and Book in Assembly Document Term** (`value.allowNonSystemTermAndBook`) — On the assembly document term, this normally forces issued/received items to use the system-defined book and term. When on, you may assign your own (non-system) book and term for the issue and receipt sides.
 
@@ -55,7 +55,7 @@ By default a stock document carries one warehouse and one set of accounting dime
 
 These tables add optional grids or columns to specific document types. Each one (unless noted) takes a list of document types and turns the feature on for those types.
 
-**Detail Grid Configuration Lines** (`value.scGridConfigLines`) *(table)* — Customizes the columns of the line grid on stock documents — which columns appear, their order, and width. Remaining columns are appended afterward.
+**Fields Order** (`value.scGridConfigLines`) *(table)* — The grid carries the title **Fields Order** on screen. It customizes the columns of the line grid on stock documents — which columns appear, their order, and width. Remaining columns are appended afterward.
 
 **Add Quantity Tracking Fields To** (`value.addQtyTrackingFieldsTo`) **/ Add Quantity Tracking Fields To (2)** (`value.addQtyTrackingFieldsTo2`) *(tables)* — Add quantity-tracking columns (requested, satisfied, unsatisfied) to the listed document types' line grids, so staff see the running balance. The second table adds an independent *second* set of tracking columns for documents that need two tracking measures.
 
@@ -63,7 +63,11 @@ These tables add optional grids or columns to specific document types. Each one 
 
 **Add Gross Weight and Net Weight Fields To** (`value.addGrossWeightAndNetWeightFieldsTo`) *(table)* — Adds gross-weight and tare-weight columns next to the quantity column for the listed document types.
 
-**Dimensions by Suffix** (`value.dimensionsBySuffix`) *(table)* — Encodes item dimensions (color, size, etc.) inside the barcode by position, so scanning resolves not just the item but its specific dimensions.
+**Dimensions by Suffix** (`value.dimensionsBySuffix`) *(table)* — Lets a piece of text glued to the front or the back of an item code stand for a set of accounting dimensions. Each row holds the text, whether it is a **prefix** or a **suffix**, and the dimensions it means: legal entity, sector, branch, department and analysis set. A row must carry at least one dimension, and the same text cannot appear on two rows. When somebody types or scans a code, the system tries the rows in order; the first one that matches has its text stripped off before the item is looked up, and that row's dimensions are written onto the line. Use it when one physical label has to route the same item to different branches or sectors — `B1-` in front of every code meant for Branch 1, say — so staff scan a single label and the dimension follows automatically.
+
+::: warning This is not barcode encoding
+Despite the resemblance, this has nothing to do with reading colors, sizes or lots out of a barcode. That is a separate feature — see [Item Barcode Specifications](./item-barcode-specifications.md). Here the matched text is simply removed from the code and replaced by a set of accounting dimensions.
+:::
 
 **Add Generated Docs To** (`value.addGeneratedDocsTo`) *(table)* — Adds a grid (on the screen's last page) listing the documents generated from this one, for the listed document types, so users can see and open downstream documents.
 

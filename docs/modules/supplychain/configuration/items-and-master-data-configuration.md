@@ -50,10 +50,10 @@ This page documents the **Items & Master Data** tab — settings that affect the
 
 | Name | Field ID |
 | --- | --- |
-| Name 1 for Color & Size | `value.info_itemCodingFormula_szName1Formula` |
-| Name 2 for Color & Size | `value.info_itemCodingFormula_szName2Formula` |
-| Name 1 for Revision | `value.info_itemCodingFormula_rvName1Formula` |
-| Name 2 for Revision | `value.info_itemCodingFormula_rvName2Formula` |
+| Name 1 for Color & Size | `value.info.itemCodingFormula.szName1Formula` |
+| Name 2 for Color & Size | `value.info.itemCodingFormula.szName2Formula` |
+| Name 1 for Revision | `value.info.itemCodingFormula.rvName1Formula` |
+| Name 2 for Revision | `value.info.itemCodingFormula.rvName2Formula` |
 
 ## Item Search & Buttons
 

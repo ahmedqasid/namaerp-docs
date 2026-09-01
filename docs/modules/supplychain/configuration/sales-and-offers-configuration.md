@@ -10,9 +10,9 @@ This page documents the **Sales & Offers** tab — settings for sales documents,
 
 **Use Control Journals** `value.useControlJournals` — When on, stock receipt/issue type setups require a second pair of debit/credit accounts, enabling dual ("control") journal entries for stock movements. Turn on when accounting policy requires control/clearing accounts alongside the main stock entries.
 
-**Do Not Save Sales Documents if Item Not Sellable** `value.doNotSaveSalesDocsIfItemNotSellable` — When on, saving a sales document is blocked if any line uses an item flagged "not sellable".
+**Do Not Save Sales Documents if Item Not Sellable** `value.doNotSaveSalesDocsIfItemNotSellable` *(on in newly created databases)* — When on, saving a sales document is blocked if any line uses an item flagged "not sellable".
 
-**Do Not Save Sales Return Documents if Item Not Returned** `value.doNotSaveSalesReturnDocsIfItemNotReturned` — When on, saving a sales return is blocked if any line uses a non-returnable item.
+**Do Not Save Sales Return Documents if Item Not Returned** `value.doNotSaveSalesReturnDocsIfItemNotReturned` *(on in newly created databases)* — When on, saving a sales return is blocked if any line uses a non-returnable item.
 
 **Insert N1 / N2 / N3 in Sales Invoice Lines** `value.insertN1inSalesInvoiceLines` / `value.insertN2inSalesInvoiceLines` / `value.insertN3inSalesInvoiceLines` — When on, the corresponding note/analysis field (N1, N2, N3) is shown and populated on sales lines from the **sales price list** when an item is chosen.
 

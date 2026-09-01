@@ -13,11 +13,11 @@ This page documents the **Purchasing** tab — settings that affect purchase ord
 | Department | `value.copyTranDepartmentFromItem` |
 | Analysis Set | `value.copyTranAnalysisSetFromItem` |
 
-**Do Not Mark Purchase Request Processed** `value.doNotMarkPurchaseRequestProcessed` — Normally a purchase request is marked "Processed" once a purchase order/issue is created from it, so it no longer appears outstanding. When on, the request is left unmarked so it can feed several downstream documents.
+**Do Not Mark Purchase Request Processed** `value.doNotMarkPurchaseRequestProcessed` *(on in newly created databases)* — A purchase request can be marked "Processed" once a purchase order or issue is created from it, so that it no longer appears outstanding. When this switch is on the request is left unmarked, so one request can feed several downstream documents. Newly created databases are seeded with it **on**, which means requests are *not* marked processed unless you switch it off — check the screen before assuming either behavior.
 
 **Do Not Mark Purchase Return Request Processed** `value.doNotMarkPurchaseReturnRequestProcessed` — The same behavior for purchase return requests, so one return request can be fulfilled by more than one return document.
 
-**Do Not Save Purchase Documents if Item Not Purchasable** `value.doNotSavePurchaseDocsIfItemNotPurchasable` — When on, saving a purchase document is blocked if any line uses an item flagged "not purchasable". Use it to enforce that only approved items appear on purchase documents.
+**Do Not Save Purchase Documents if Item Not Purchasable** `value.doNotSavePurchaseDocsIfItemNotPurchasable` *(on in newly created databases)* — When on, saving a purchase document is blocked if any line uses an item flagged "not purchasable". Use it to enforce that only approved items appear on purchase documents.
 
 **Do Not Save Purchase Return Documents if Item Not Returned** `value.doNotSavePurchaseReturnDocsIfItemNotReturned` — When on, saving a purchase return is blocked if any line uses a non-returnable item.
 
