@@ -4,7 +4,6 @@
 - **Release Date**: March 2022
 - **Release Number**: Nama-ERP-202203
 - **File Size**: 178.9KB
-- **File Type**: Monthly Release Notes
 :::
 
 ## Additions

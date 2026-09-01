@@ -3,7 +3,6 @@
 ::: info Release Information
 - **Release Date**: June 2024
 - **Release Number**: Nama-ERP-202406
-- **File Type**: Monthly Release Notes
 :::
 
 ## Additions

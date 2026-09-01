@@ -3,7 +3,6 @@
 ::: info Release Information
 - **Release Date**: October 2024
 - **Release Number**: Nama-ERP-202410
-- **File Type**: Monthly Release Notes
 :::
 
 ## Additions

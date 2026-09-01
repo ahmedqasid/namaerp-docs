@@ -3,7 +3,6 @@
 ::: info Release Information
 - **Release Date**: June 2025
 - **Release Number**: Nama-ERP-202506
-- **File Type**: Monthly Release Notes
 :::
 
 ## Additions

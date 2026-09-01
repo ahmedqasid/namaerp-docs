@@ -3,7 +3,6 @@
 ::: info Release Information
 - **Release Date**: October 2025
 - **Release Number**: Nama-ERP-202510
-- **File Type**: Monthly Release Notes
 :::
 
 ## Additions

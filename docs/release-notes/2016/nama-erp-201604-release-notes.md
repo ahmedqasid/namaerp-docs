@@ -3,7 +3,6 @@
 ::: info Release Information
 - **Release Date**: April 2016
 - **Release Number**: Nama-ERP-201604
-- **File Type**: Monthly Release Notes
 :::
 
 ## Additions

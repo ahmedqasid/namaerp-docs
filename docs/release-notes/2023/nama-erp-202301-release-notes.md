@@ -3,7 +3,6 @@
 ::: info Release Information
 - **Release Date**: January 2023
 - **Release Number**: Nama-ERP-202301
-- **File Type**: Monthly Release Notes
 :::
 
 ## Additions

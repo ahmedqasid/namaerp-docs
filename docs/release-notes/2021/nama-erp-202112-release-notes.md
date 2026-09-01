@@ -4,7 +4,6 @@
 - **Release Date**: December 2021
 - **Release Number**: Nama-ERP-202112
 - **File Size**: 190.6KB
-- **File Type**: Monthly Release Notes
 :::
 
 ## Additions

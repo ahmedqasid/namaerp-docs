@@ -3,7 +3,6 @@
 ::: info Release Information
 - **Release Date**: April 2022
 - **Release Number**: Nama-ERP-202204
-- **File Type**: Monthly Release Notes
 :::
 
 ## Additions
