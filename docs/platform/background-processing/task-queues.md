@@ -164,10 +164,9 @@ which lanes it needs and keeps that set up to date:
 - A queue gets a worker of its own when a deferred entity flow names it, **or** when it still has
   unprocessed entries left over from before. A queue nothing points at gets no worker, and costs
   nothing.
-- Saving a Task Queue or an Entity Flow makes the system re-read the picture and re-register the
-  entity-flow lanes, so a new queue starts carrying deferred flows straight away.
-- The **scheduler** side is read when the server starts. Moving a task schedule onto a different
-  queue is saved immediately, but it takes its new lane at the next server restart.
+- Saving a Task Queue, an Entity Flow or a Task Schedule makes the system re-read the picture and
+  re-register the lanes. A brand new queue gets its own lane as soon as a task schedule points at
+  it, so you do not need to restart the server to add a queue.
 
 One consequence worth knowing: emptying a queue of its flows does not orphan the work already in
 it. The queue keeps its worker until the last unprocessed entry is gone.
