@@ -176,6 +176,12 @@ Configure drill-down targets — covered in the [Drill-Down](#Drill-Down) sectio
 
 A dashboard is a grid that holds multiple widgets. You configure the grid size (e.g., 3 columns × 4 rows), then place each widget by specifying its row, column, width (in columns), and height (in rows).
 
+The part that surprises people is what those rows and columns actually are. They are **proportions, not fixed cells**. A dashboard set to 12 rows takes the height it has on screen and divides it into twelve; a widget four rows tall gets a third of the screen. Set the same dashboard to 24 rows and that same widget is now a sixth of the screen — nothing was added, everything shrank. So when a table looks too short, the fix is to make *that widget* taller, never to raise the dashboard's row count.
+
+Scrolling follows from the same arithmetic. The dashboard is one screen tall per "row count" worth of rows, so it only scrolls once the lowest widget reaches past the row count. Put another way: if your bottom widget ends on the last row, the dashboard is promising to fit on one screen, and it will keep that promise by squeezing everything — tables first — until it does. To get a scrolling report, give the widgets the heights they deserve and let them run off the bottom.
+
+The [Technical Reference](./bi-module-technical-reference.md#Sizing-and-scrolling) works this through with formulas, a worked comparison, and the list of widget types that size themselves to their content and ignore the height you give them.
+
 Every dashboard has a **Kind**:
 
 - **Single** — the classic dashboard you've always known. A grid of widgets, optionally with cross-filter bindings. This is the default for new dashboards.
@@ -194,6 +200,10 @@ In edit mode, you can:
 - **Save or cancel** your layout changes
 
 The layout designer is for Single dashboards only. Trying to open it on a Tabbed dashboard shows an error — Tabbed dashboards have no widget grid to lay out, just a list of sub-dashboards.
+
+The row and column counts themselves are not edited in the designer — they are the **Rows Count** and **Columns Count** fields on the dashboard record. Change one and everything on the dashboard resizes at once, because you have changed the scale the widget heights are measured against, not the size of a cell. Two neighbouring fields on the same screen are easy to misread: **Total Dashboard Rows Count** is a leftover the layout editor keeps for itself and has no effect on how the dashboard displays, and **Mobile Max Rows Count** applies only on phones, where the grid is abandoned entirely and widgets simply stack full-width — that field decides how many of them fit on one narrow screen.
+
+Each tab of a Tabbed dashboard divides its own height by its own row count, so tabs are tuned one at a time and a change to one never affects another.
 
 ### Auto-Refresh
 

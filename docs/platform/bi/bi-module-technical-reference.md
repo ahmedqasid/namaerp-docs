@@ -1260,11 +1260,145 @@ Each entry creates a `DashBoard` entity. There are two kinds: **`Single`** (a gr
   "colsCount": 3,
   "charts": [
     { "element": "bi-sales-by-item",   "rowNumber": 1, "columnNumber": 1, "heightInRows": 1, "widthInColumns": 2 },
-    { "element": "bi-monthly-trend",   "rowNumber": 2, "columnNumber": 1, "heightInRows": 1, "widthInColumns": 3 }
+    { "element": "bi-monthly-trend",   "rowNumber": 2, "columnNumber": 1, "heightInRows": 2, "widthInColumns": 3 }
   ],
   "crossFilterBindings": []
 }
 ```
+
+The furthest widget here ends on row 3 of 3, so this dashboard fits exactly one screen and never
+scrolls — the trend chart gets two thirds of the height and the top widget one third. That is the
+right shape for a summary board and the wrong shape for anything with a table on it; the next
+section explains why.
+
+#### Sizing and scrolling
+
+`rowsCount` is **not** a count of fixed-height cells. It is a **divisor**. The dashboard takes
+whatever height it has on screen and divides it by `rowsCount`, so one row is
+`available height ÷ rowsCount` and a widget is `heightInRows ÷ rowsCount` of the screen. There is
+no pixel value for "a row" anywhere in the system. A row number only means something relative to
+the `rowsCount` of the same dashboard: `heightInRows: 6` is half the screen when `rowsCount` is
+`12`, and one eighth of it when `rowsCount` is `48`.
+
+The consequence authors keep getting wrong: **raising `rowsCount` makes everything smaller, not
+bigger.** To make a widget taller you raise that widget's own `heightInRows`. `rowsCount` is only
+the scale you measure it against.
+
+"Available height" is the dashboard's scrolling area — the browser window minus the application
+toolbar and minus the filter/tab bar above the widgets. Each widget also carries a few pixels of
+padding inside its slot, so the widget itself is marginally shorter than its share.
+
+##### When a dashboard scrolls
+
+The dashboard renders as many rows as the furthest widget needs, even when that is more than
+`rowsCount`:
+
+```
+extent      = max over widgets of (rowNumber + heightInRows - 1)
+rows drawn  = max(rowsCount, extent)
+```
+
+Rows are then handed out one screenful at a time: each group of `rowsCount` rows gets exactly one
+screen of height. So:
+
+- `extent <= rowsCount` → everything is compressed into a single screen and **the dashboard never
+  scrolls**, however many widgets it holds.
+- `extent > rowsCount` → the dashboard is `extent ÷ rowsCount` screens tall and scrolls vertically.
+
+::: warning The equal-extent trap
+Sizing a dashboard so the last widget ends exactly on the last row — `extent == rowsCount` —
+guarantees it will never scroll. Everything is then squeezed into one screen, and tall content
+suffers first: a table given a small share of a single screen renders as a header strip with no
+visible data rows. If you find yourself raising `rowsCount` to make a table bigger, you are making
+it smaller. Raise the table's `heightInRows` instead and let the extent grow past `rowsCount`.
+:::
+
+##### One screen vs. scrolling — same widgets, same heights
+
+| Intent | `rowsCount` | Furthest widget ends at | Result |
+|---|---|---|---|
+| Fit one screen | 12 | 12 | No scroll. A table at `heightInRows: 5` gets 5/12 of the screen. |
+| Scrolling report | 12 | 28 | Scrolls to about 2.3 screens. The same table still gets 5/12 of a screen — but now that is 5/12 of a screen inside a page the reader scrolls to. |
+
+A practical starting point for a report-style dashboard: pick `rowsCount` as "how much of this do I
+want visible at once, in units I am happy to think in" — `12` is a comfortable number — then place
+widgets with whatever `heightInRows` each one really needs and let the extent run past `rowsCount`.
+A KPI strip is typically `heightInRows: 2`, a chart `4`–`6`, a table the reader actually reads
+`8`–`12`.
+
+::: tip Tables scroll inside their own slot
+A table does not need a slot tall enough for all its rows. Both table widgets fill the height they
+are given and scroll internally, so `heightInRows` decides how many rows are *visible at a time*,
+not how many the table can hold. A 70-row result set and a 700-row one want the same slot. What you
+are choosing is how much of the screen the reader looks at while scrolling — a third of a screen
+shows roughly ten rows, which is about the minimum worth having; anything less and the reader is
+scrolling a peephole.
+
+So for the classic "KPI strip on top, long table underneath" dashboard: `rowsCount: 12`, the KPI
+strip at `heightInRows: 2` on row 1 (self-sizing anyway, so it will take the height its cards need),
+and the table at `heightInRows: 10` on row 3. The extent is 12, equal to `rowsCount`, so the page
+itself does not scroll — the whole screen below the KPIs is table, and the reader scrolls inside it.
+Give the table `heightInRows: 14` instead if you would rather the page scroll and the table be
+taller than one screen.
+:::
+
+##### Rows do not always share equally
+
+Rows are equal only when every row holds ordinary widgets. Three things take their height off the
+top before the rest is divided:
+
+- **Rows of self-sizing widgets.** A row whose visible widgets are *all* of the self-sizing types
+  below takes its content height instead of a share. Note this is decided per *row*, not per
+  widget — put a chart beside a metrics card on the same row and the row goes back to being an
+  ordinary row, and the card is stretched to it.
+- **Collapsed widgets.** A row whose widgets the viewer has collapsed shrinks to a fixed title
+  strip.
+- **The remainder** is then split equally among the ordinary rows of that screenful, rounded to
+  whole pixels. That rounding is why two dashboards that "should" match — 10 rows of a 500-row
+  dashboard against 1 row of a 50-row one — come out very slightly different.
+
+Because self-sizing rows are subtracted from their screenful's budget rather than pushing the rest
+down, a very tall self-sizing widget leaves less for the ordinary rows sharing its screen. If it
+leaves nothing at all, the whole size calculation is discarded and every row falls back to its
+content height.
+
+Self-sizing widget types — these ignore `heightInRows` for their own height (it still decides which
+rows they occupy):
+
+**Metrics Cards**, **Metrics Cards v2 (Enhanced)**, **Card Menu**, **Text Block**,
+**Cross-Filter Control**, **Recent Visits**.
+
+Every other type — all charts, **Table**, **Table v2 (Enhanced)**, **HTML**, **Calendar**,
+**Resource View**, **Report**, **Timeline** — fills its slot exactly.
+
+::: tip Empty rows are not free
+A row with no widget on it is still an ordinary row and still takes an equal share. A gap in your
+row numbering is real whitespace, which is useful when you want it and wasted screen when you
+don't.
+:::
+
+##### Columns work the same way, but never scroll
+
+`colsCount` is the horizontal divisor: a widget's width is `widthInColumns ÷ colsCount` of the
+available width. The difference is that there is no horizontal equivalent of the row extent —
+columns are not added to fit. Keep every widget within `columnNumber + widthInColumns - 1 <=
+colsCount`.
+
+##### Sub-dashboards size independently
+
+Each tab of a Tabbed dashboard is a Single dashboard that divides **its own** height by **its own**
+`rowsCount`. Sibling tabs have nothing to do with each other: one tab can be a tight one-screen
+summary at `rowsCount: 6` and the next a long scrolling report at `rowsCount: 12` with an extent of
+`30`. Tune each tab on its own.
+
+##### On phones and narrow screens
+
+Below the small-screen breakpoint the grid stops being a grid. Widgets stack in one full-width
+column, in row-then-column order, and `rowsCount`, `colsCount`, `heightInRows` and `widthInColumns`
+are all ignored. `mobileMaxRowsCount` takes over as "how many widgets fit on one phone screen" —
+each ordinary widget gets `1 ÷ mobileMaxRowsCount` of the visible height, and the list scrolls
+past that. Leaving it empty (or `0`) means one widget per screen. Self-sizing widgets still take
+their content height.
 
 #### Tabbed dashboard (composes Single sub-dashboards)
 
@@ -1294,12 +1428,12 @@ A Tabbed parent has no `charts` of its own — it lists `subDashboards` (each a 
 | `code` | Yes | Unique dashboard code |
 | `name1` / `name2` | Yes | Arabic / English name |
 | `kind` | Yes | `"Single"` or `"Tabbed"` |
-| `rowsCount` / `colsCount` | Yes | Grid dimensions (1-based widget placement). Tabbed parent: set both to `1`. |
+| `rowsCount` / `colsCount` | Yes | **Divisors, not cell counts.** One row is `available height ÷ rowsCount`, one column is `available width ÷ colsCount`; widget placement is 1-based against them. Raising `rowsCount` shrinks every widget. Read [Sizing and scrolling](#Sizing-and-scrolling) before choosing values. Tabbed parent: set both to `1`. |
 | `charts` | Single only | Array of widget placements (`element`, `rowNumber`, `columnNumber`, `heightInRows`, `widthInColumns`). |
 | `subDashboards` | Tabbed only | Array of `{subDashboard, arTitle, enTitle}`. `subDashboard` is the `code` of another `DashBoard` (must be `kind: "Single"`). |
 | `crossFilterBindings` | No | Dashboard-level **overrides** — each entry needs `element` (target widget code) plus `crossFilter`, with optional `operator`/`sqlLeftHandSide`/`customWhereClause`/`localScope`. Usually `[]`. See §6 for shape. |
-| `totalDashboardRowsCount` | No | Pre-computed total row count cache. The system fills this; authors leave it out. |
-| `mobileMaxRowsCount` | No | Cap on rows shown in compact/mobile rendering. |
+| `totalDashboardRowsCount` | No | Design-time only — the layout editor's canvas height. **Nothing reads it when the dashboard is rendered**, so it affects neither sizing nor scrolling, and leaving it out or at `0` changes nothing. Opening the layout editor and pressing OK stamps a value into it if it was empty. Ignore it when authoring by import; do not try to keep it in step with `rowsCount` or the widget extent. |
+| `mobileMaxRowsCount` | No | Phone layout only: how many widgets fit on one narrow screen. On phones the grid is abandoned — widgets stack full-width in row-then-column order and `rowsCount`/`colsCount`/`heightInRows`/`widthInColumns` are ignored — and each ordinary widget gets `1 ÷ mobileMaxRowsCount` of the visible height. Empty or `0` means one widget per screen. |
 | `refreshDashboardPer` | No | `TimePeriod` value-object (e.g. `{magnitude: 5, unit: "Minutes"}`) — auto-refresh interval. |
 
 ---
@@ -1416,12 +1550,12 @@ Here is a complete, working import JSON that creates a sales analysis dashboard 
       "code": "ex-sales-dashboard",
       "name1": "لوحة المبيعات",
       "name2": "Sales Dashboard",
-      "rowsCount": 2,
+      "rowsCount": 6,
       "colsCount": 3,
       "charts": [
-        {"element": "ex-sales-by-category", "heightInRows": 1, "widthInColumns": 1, "rowNumber": 1, "columnNumber": 1},
-        {"element": "ex-top-items", "heightInRows": 1, "widthInColumns": 2, "rowNumber": 1, "columnNumber": 2},
-        {"element": "ex-invoice-details", "heightInRows": 1, "widthInColumns": 3, "rowNumber": 2, "columnNumber": 1}
+        {"element": "ex-sales-by-category", "heightInRows": 2, "widthInColumns": 1, "rowNumber": 1, "columnNumber": 1},
+        {"element": "ex-top-items", "heightInRows": 2, "widthInColumns": 2, "rowNumber": 1, "columnNumber": 2},
+        {"element": "ex-invoice-details", "heightInRows": 5, "widthInColumns": 3, "rowNumber": 3, "columnNumber": 1}
       ],
       "crossFilterBindings": []
     }
@@ -1435,7 +1569,7 @@ Here is a complete, working import JSON that creates a sales analysis dashboard 
 - **Pie chart** (`ex-sales-by-category`): Shows sales distribution by customer category. Clicking a slice sets the `custCategoryFilter`, which filters the other two widgets.
 - **Horizontal bar chart** (`ex-top-items`): Top 10 items by net value. Responds to the category filter and date filters.
 - **Table** (`ex-invoice-details`): Invoice line details. Responds to all three filters.
-- **Dashboard** (`ex-sales-dashboard`): 2-row, 3-column grid. Pie on top-left, bar chart spanning top-right, table spanning the full bottom row.
+- **Dashboard** (`ex-sales-dashboard`): 3 columns wide, with `rowsCount: 6` as the vertical scale. Pie on the top-left and bar chart spanning the top-right, both two rows tall — a third of a screen each. The table below them is five rows tall and starts on row 3, so the furthest widget ends on row 7. Seven is more than six, so **this dashboard scrolls** — about 1.2 screens — and the table gets five sixths of a screen to itself instead of being squashed into whatever is left of one. See [Sizing and scrolling](#Sizing-and-scrolling) for why that inequality is the whole game.
 
 ### How to Import
 
