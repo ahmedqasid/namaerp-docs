@@ -17,6 +17,7 @@ retrying.
   <LandingCard icon="📤" title="Pending Tasks" link="/platform/background-processing/pending-tasks.md" details="The outbox for email, SMS, WhatsApp and push notifications — why a message is stuck, and how to revive one the system has given up on." />
   <LandingCard icon="⚙️" title="System Actions" link="/platform/background-processing/system-actions.md" details="Deferred internal work such as payroll rebuilds and outgoing calls, plus the journal of automatic stock-cost repairs." />
   <LandingCard icon="📊" title="Report Monitoring" link="/platform/background-processing/report-monitoring.md" details="What the server is running right now, how to end a report that will not finish, and the log of who ran what." />
+  <LandingCard icon="🚦" title="Task Queues" link="/platform/background-processing/task-queues.md" details="Split background work into parallel lanes so a slow scheduled task or entity flow stops holding up everything behind it." />
 </LandingGrid>
 
 ## Which queue am I looking for?
@@ -29,6 +30,9 @@ retrying.
 | "The customer got no SMS." | Pending Tasks |
 | "The salary sheet did not rebuild." | System Actions |
 | "The system is slow and I do not know what it is doing." | Report Monitoring |
+| "One slow job is holding up all the others." | Task Queues |
 
 The one queue **not** covered here is the task scheduler, which runs jobs on a timer and keeps its
-own execution log — see [Scheduled Tasks](/platform/scheduled-tasks).
+own execution log — see [Scheduled Tasks](/platform/scheduled-tasks). How its work, and deferred
+entity flows, can be split into parallel lanes is covered in
+[Task Queues](/platform/background-processing/task-queues).

@@ -39,7 +39,26 @@ In the details table of each Entity Flow, you will find:
 
 The system supports up to 15 parameters per element, allowing great flexibility in customizing the desired behavior.
 
+## Running a Flow in the Background
 
+Normally a flow runs *inside* the save: you press Save, the flow runs, the save finishes. Whatever the flow does — however slow, however likely to fail — the user is sitting there waiting for it, and a failure in the flow fails the save.
+
+That is the right behaviour for a flow that validates something or fills in a field. It is the wrong behaviour for a flow that calls an outside system, rebuilds a costing, or generates a pile of related documents. For those, tick **Run After Committing Document And Affect On DataBase**.
+
+A flow marked that way is *deferred*. The document is saved and committed, its accounting and inventory effects are raised, the user gets the screen back — and only afterwards is the flow picked up, separately, and run. Nothing it does can slow the save down, and nothing it does can fail the save.
+
+Deferring a flow raises the questions that come with any unattended work, and the fields beside the tick box answer them:
+
+| Field | What it does |
+|---|---|
+| **Task Queue** | Which lane the deferred flow is processed in. Flows on different queues are processed at the same time; flows sharing a queue are processed one at a time, in the order they were raised. Left empty, the flow joins the default lane with every other unassigned flow. See [Task Queues](/platform/background-processing/task-queues). |
+| **Max Retry Count** | How many times a failed run is attempted again before the system gives up. Left empty, the first failure is final. |
+| **Retry Every Seconds** | How long to wait between attempts — the setting that makes a flow survive an outside system being briefly unavailable. |
+| **Wait For Quantity Processing** | Holds the flow back while inventory work is still outstanding, so it does not read stock quantities or costs that are about to change. |
+
+::: tip Where deferred flows are visible
+A deferred flow that has been raised but not yet run is a real row you can look at, on the **Queued Entity Flows** grid of its Task Queue — with its status, how many times it has been tried, and any error. That is where to look when someone says the flow "did not happen".
+:::
 
 # Understanding the Record Lifecycle in Entity Flows
 

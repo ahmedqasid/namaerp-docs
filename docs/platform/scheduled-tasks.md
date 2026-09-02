@@ -285,6 +285,33 @@ When a task fails, the latest error is kept on the task itself (and shown in the
 
 ## Advanced Options
 
+### Task Queue
+
+By default every scheduled task in the system shares a single lane and runs in single file: a task that overruns delays whatever was due next, however unrelated the two are. A forty-minute nightly report and a five-minute order sync end up waiting on each other for no better reason than that they were both scheduled.
+
+Set the **Task Queue** field to move this task into a lane of its own. The rule is:
+
+> Tasks on **different** queues run at the same time. Tasks on the **same** queue never do — each waits for the one before it to finish.
+
+Leave the field empty and the task stays in the built-in default lane along with every other task that has no queue — exactly as it behaved before queues existed. Nothing you already have changes until you start assigning queues.
+
+Queues are created at **Basic → Settings → Task Queue**, and each queue's screen lists the schedules assigned to it with their next run time. There is a full guide — including how the same queues carry deferred entity flows, and how many queues are worth creating — in [Task Queues](/platform/background-processing/task-queues).
+
+::: warning Two tasks that touch the same data belong on the same queue
+Splitting is not free. Before queues, two scheduled tasks could never overlap, so tasks writing to the same records were safe by accident. Put them on different queues and they really will run simultaneously. When two tasks must not collide, give them the **same** queue.
+:::
+
+### Seeing what is scheduled and what is running
+
+Two read-only pieces of information are available for every scheduled task:
+
+- **Expected Next Run** — when the scheduler will fire this task next.
+- **Currently Running** — whether it is executing at this moment.
+
+They are read live from the running scheduler rather than stored on the task, so they appear only where the system can ask the scheduler for them: on the **Pending Task Schedules** list (**Basic → Administration → Settings**), and on the **Queued Task Schedules** grid of each Task Queue.
+
+The Pending Task Schedules list is the fastest answer to "why has this task not run?" — a task that is scheduled appears there with its next run time; a task that does not appear is not scheduled at all, and the reason will be on the task itself (inactive, never committed, or restricted to other sites).
+
 ### Allow Simultaneous Runs
 By default, if a task is still running when its next scheduled time arrives, the new execution is skipped (and a note is logged) so the same task never overlaps itself. Enable **Allow Simultaneous Runs** to let multiple instances run in parallel.
 

@@ -120,6 +120,7 @@
     "/platform/background-processing/pending-tasks.md",
     "/platform/background-processing/system-actions.md",
     "/platform/background-processing/report-monitoring.md",
+    "/platform/background-processing/task-queues.md",
     "/platform/recurring-documents.md"
   ],
   "folderTitles": {
