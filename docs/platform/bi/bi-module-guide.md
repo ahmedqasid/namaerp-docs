@@ -37,11 +37,11 @@ Single line, multi-series, step line (values stay constant between points), dual
 ### Area Charts (4 templates)
 Basic area, stacked area, gradient-fill area, and range/band area.
 
-### Pie & Donut Charts (6 templates)
-Standard pie, donut, donut with center label, rose/sunburst pie (wedge size by area, not angle), half-circle pie, and nested multi-level pie.
+### Pie & Donut Charts (7 templates)
+Standard pie, donut, donut with center label, rose/sunburst pie (wedge size by area, not angle), half-circle pie, nested two-level pie, and a nested two-level pie with rich labels.
 
-### Gauge Charts (3 templates)
-Standard speedometer gauge, ring gauge, and multi-ring gauge (multiple concentric indicators).
+### Gauge Charts (4 templates)
+Standard speedometer gauge, progress gauge, ring gauge, and multi-ring gauge (multiple concentric indicators).
 
 ### Combination Charts (2 templates)
 Mixed bar + line, and mixed bar + area — useful when you want to show totals as bars and a trend line on the same chart.
@@ -93,6 +93,8 @@ Once you've picked a template (or opened an existing widget), you land in the ed
 At the top of the editor, a **chart type bar** shows 11 icon buttons (one per chart category). Clicking one switches the chart type while keeping your data mapping intact where possible.
 
 The form area has four tabs — **Data Mapping**, **Style Options**, **Click & Links** and **Drill-Down Mapping** — plus a **Change Template** button that takes you back to the gallery. The first tab changes with the widget type: Enhanced Table widgets show **Table Columns** where Data Mapping would be, and metrics-card widgets show **Card Template** and have no preview pane at all.
+
+A **Text Block** widget skips all of that. Its designer is a single content pane: a rich-text editor with an **Arabic Text** / **English Text** tab pair above it, a collapsible Raw HTML box for pasting markup straight in, and a frame-style grid underneath (background and text colour, padding, border colour/width/radius, default font size, alignment). Write the block in one language and leave the other empty and the same text serves both; fill both in and each language reads its own.
 
 #### Data Mapping Tab
 
@@ -210,6 +212,7 @@ While ECharts are the star of the show, dashboards support several other widget 
 | **Table** | A data table — the SQL column names become column headers automatically |
 | **Table v2 (Enhanced)** | A richer data table — columns are defined explicitly in JSON with formatting, cell renderers, and conditional styling. See the [Enhanced Table](#Enhanced-Table-Widget) section. |
 | **Metrics Cards** | KPI summary cards (value + label + trend)                               |
+| **Metrics Cards v2 (Enhanced)** | A richer KPI card strip — cards, slots and sparklines defined in JSON. See the [Enhanced Metrics Card reference](./bi-reference-enhanced-metrics-card.md) |
 | **Timeline** | Chronological event stream                                              |
 | **Calendar** | Event calendar                                                          |
 | **Report** | Embedded JasperReport                                                   |
@@ -218,7 +221,7 @@ While ECharts are the star of the show, dashboards support several other widget 
 | **Card Menu** | Navigation cards                                                        |
 | **Resource View** | Resource scheduler                                                      |
 | **CrossFilterControl** | A slicer — renders one cross-filter as a picker sitting on the dashboard grid, so users set the filter without opening the Filters dialog |
-| **TextBlock** | Static rich text — section headers, subtitles, and instructions placed between the data widgets |
+| **TextBlock** | Static rich text — section headers, subtitles, and instructions placed between the data widgets. Its content is written once per language |
 
 ---
 
@@ -355,6 +358,29 @@ Cross-filters support all the data types you'd expect:
 | Enum | Invoice status | Dropdown |
 | Boolean | Active only | Checkbox |
 | List | Multiple branches | Multi-select |
+| Date range | A whole period in one control | Range picker with ready-made periods — see Date-Range Filters below |
+
+### Date-Range Filters
+
+Bounding a dashboard to "the first of the month through today" with two separate date filters means two records to maintain, two chips in the bar, and two chances for the pair to drift apart. Ticking **Show as Date Range** on a cross-filter collapses that pair into a single control that carries both ends of the period.
+
+You set it up on the cross-filter record: tick **Show as Date Range** — it sits beside Parameter Type and List Display Type — and point **SQL Left Hand Side** at the date column you want bounded. There is no second record to create; both ends come from this one.
+
+On the dashboard the filter renders as a button showing the chosen period. Open it and you can pick either:
+
+- **A ready-made period**, offered in three groups — *current* (Today, This Week, This Month, This Quarter, This Year), *previous* (Yesterday, Previous Week, Previous Month, Previous Quarter, Previous Year) and *rolling* (Last 7, Last 30, Last 90, Last 365 days).
+- **A custom range** — click the two ends on the calendar, or type them into the From and To boxes. Enter them the wrong way round and they are swapped for you.
+
+Either way, every widget bound to that cross-filter receives **two** conditions instead of one: the column is compared `>=` the start of the period and `<=` its end. One filter, one control, two SQL conditions.
+
+::: tip A ready-made period keeps moving
+Picking a ready-made period stores the period itself, not the two dates it happened to resolve to today. "This Month" stays *this* month — open the same dashboard next month and the widgets cover the new one. A custom range is the opposite: it pins the literal dates you chose.
+:::
+
+Two things worth knowing while configuring one:
+
+- The cross-filter's own **Operator** is not used — the `>=` / `<=` pair is fixed.
+- A **Custom WHERE Clause**, on the cross-filter or on a widget's binding, still wins: it replaces the generated pair with your own SQL, exactly as it does for an ordinary filter.
 
 ### Operators
 
@@ -370,6 +396,20 @@ Each cross-filter can use a different comparison operator:
 | NotEqual | `<>` | Exclusion |
 | Contains | `LIKE '%...%'` | Text search |
 | StartsWith | `LIKE '...%'` | Prefix match |
+
+### Widget-Local Filters
+
+Sometimes one chart needs a slicer of its own that the rest of the dashboard must not feel — "show *this* KPI for the northern region" while every neighbouring widget stays on the group total. That is what the **Widget-Local Scope** tick on a cross-filter binding is for.
+
+Tick it on the binding row — in the widget's cross-filter bindings grid, or on a dashboard-level override row — and the filter moves out of the dashboard filter bar and into the widget itself. A filter button appears in the widget's top-right corner, carrying a badge with the count of its active local filters; clicking it opens a small dialog with one input per local binding, an **Apply** button and a **Clear All**.
+
+Local filters are deliberately sealed off from the dashboard conversation:
+
+- A value clicked on a neighbouring chart, or typed into the dashboard filter bar, never reaches a local binding — only the widget's own popup drives it.
+- If every binding of a given cross-filter across the whole dashboard is local, that filter disappears from the dashboard filter bar altogether.
+- Drill-down is the exception, because it is an explicit user action: a drill-down that targets a locally-bound filter still passes its value through.
+
+Local values travel in the dashboard URL alongside the global ones, so a link you copy reopens with the same per-widget state.
 
 ### Visual Feedback
 
@@ -469,6 +509,24 @@ Each section only appears if the corresponding mapping is defined, and **Drill d
 
 ---
 
+## The Chart Toolbox
+
+Every chart can carry a small row of icons in its top-right corner, but they are **hidden by default**. Turn them on from the dashboard toolbar: **View Options** (the ⋮ button) → **Show Toolbox**. The choice is remembered in your browser and applies to every dashboard you open.
+
+With the toolbox on, a chart offers:
+
+- **Collapse** — folds the widget down to a title bar; click the bar to bring it back. Collapsed widgets are remembered per dashboard, so a dashboard reopens the way you left it.
+- **Save as Image** — downloads the chart as a PNG file.
+- **Data View** — shows the rows behind the chart as a read-only table, which is the quickest way to read exact numbers off a picture.
+- **Line / Bar / Stack** — on charts drawn against an X and Y axis, switches the rendering on the spot, with **Restore** to put it back. Stack appears only when the chart has more than one series.
+- **Runtime Slot Selection** — on wizard-backed widgets, opens the picker that lets a reader swap the dimension or measure the chart is drawn from, for this session only. See the [Wizard Mode reference](./bi-reference-wizard-mode.md).
+
+Administrators see three more: **Open Widget**, which opens the widget's own record, plus **Copy EChart Option** and **Copy Server Response**, which put the chart's option JSON and the server's raw answer on the clipboard — the two things worth having in hand when a chart renders differently than you expected.
+
+Non-chart widgets — tables and cards — get a collapse button in the same corner while the toolbox is on. Slicer widgets don't collapse.
+
+---
+
 ## Chart Interactions Summary
 
 | Action | What Happens |
@@ -479,8 +537,9 @@ Each section only appears if the corresponding mapping is defined, and **Drill d
 | **Hover** data point | Shows tooltip (axis mode shows all series, item mode shows single point) |
 | **Scroll wheel** | Zooms in/out if data zoom is enabled |
 | **Drag zoom slider** | Adjusts visible data range |
-| **Toolbar: Save as Image** | Downloads the chart as a PNG file |
-| **Toolbar: Export Config** | Copies the chart configuration JSON to clipboard |
+| **Toolbox: Save as Image** | Downloads the chart as a PNG file |
+| **Toolbox: Data View** | Opens the chart's rows as a read-only table |
+| **Toolbox: Copy EChart Option** | Copies the chart's option JSON to the clipboard (administrators) |
 
 ---
 
@@ -633,7 +692,7 @@ Three pieces are needed:
    - Column names for the injected period columns (e.g., `periodAr` / `periodEn`)
    - Display labels for each period (e.g., "Current Year" / "Previous Year" in both Arabic and English)
 
-2. **Link it to your date cross-filters** — on each date cross-filter (e.g., Date From, Date To), set the `Period Comparison Config` field to the config you created. Both date filters should point to the same config so both ends of the range shift together.
+2. **Link it to your date cross-filters** — on each date cross-filter (e.g., Date From, Date To), set the `Period Comparison Config` field to the config you created. Both date filters should point to the same config so both ends of the range shift together. If you use a single date-range filter instead of a From/To pair, set the config on that one record — both ends of its period shift together.
 
 3. **Enable comparison on each widget** — on the widget, check the `Enable Comparison` checkbox. Only widgets with this flag enabled will run the double-query comparison. Other widgets on the same dashboard continue to work normally with a single query.
 

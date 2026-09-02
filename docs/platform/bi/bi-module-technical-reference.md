@@ -45,6 +45,8 @@ Every BI widget stores its configuration in a single `chartConfigJSON` field, he
 | `disableRuntimeDimensionSelection` | No (wizard-mode only) | When `true`, hides the dimension pickers in the widget's runtime slot selector. Defaults to `false`. See Section 13.9. |
 | `disableRuntimeMeasureSelection` | No (wizard-mode only) | When `true`, hides the measure pickers in the widget's runtime slot selector. Defaults to `false`. See Section 13.9. |
 
+Non-chart widget types keep their own shape in the same field: `EnhancedTable` carries `columns` and `tableOptions` (Section 14), `EnhancedMetricsCard` carries its card definitions (Section 15), and `TextBlock` carries `html` / `htmlEn` plus frame styles (Section 9b). None of them use `echartOption` or `dataMapping`.
+
 ### 1.1 Wizard Mode vs SQL Mode
 
 A widget operates in one of two modes depending on whether it has a `wizardDataSource` set:
@@ -980,7 +982,7 @@ Cross-filters are master-file entities that define reusable filter parameters. T
 | `criteriaExpression` | No | Server-side criteria for the filter's reference picker (`Reference` filters). |
 | `suggestionQuery` | No | Custom SQL that returns suggestion rows for autocomplete pickers. |
 | `comparisonConfig` | No | Period-comparison config (offset, baseline label) — see `BIPeriodComparisonExecutor`. |
-| `showAsDateRange` | No | Date filters only: render as a single from/to range picker that sets two paired filters at once. |
+| `showAsDateRange` | No | Render the filter as a single from/to range picker that expands to two bound parameters — see Section 8a. |
 | `autoCreateWidget` | No | When true, saving the cross-filter also creates a paired `CrossFilterControl` widget with the same `code`/`name1`/`name2` and `crossFilterRef` set. |
 | `hideFilterTitle` | No | Suppress the title label across all renderings (popup, bar dialog, `CrossFilterControl` legend). |
 
@@ -993,6 +995,60 @@ Cross-filters are master-file entities that define reusable filter parameters. T
 
 ---
 
+### 8a. Date-Range Cross-Filters (`showAsDateRange`)
+
+`showAsDateRange: true` turns one cross-filter record into a from/to pair. There is still exactly one `BICrossFilter`; the server derives two bound parameters from it.
+
+```json
+{
+  "code": "docDate",
+  "name1": "تاريخ المستند",
+  "name2": "Document Date",
+  "paramType": "Date",
+  "showAsDateRange": true,
+  "arTitle": "الفترة",
+  "enTitle": "Period",
+  "sqlLeftHandSide": "h.value_date"
+}
+```
+
+**Derived parameter names** — the filter's `code` with its first letter upper-cased, prefixed `From` and `To`:
+
+| `code` | From parameter | To parameter |
+|---|---|---|
+| `docDate` | `FromDocDate` | `ToDocDate` |
+
+The filter's own `code` is never bound as a parameter for a date-range filter — only the derived pair is.
+
+**Generated WHERE fragments** — for every widget bound to the filter:
+
+```sql
+h.value_date >= :FromDocDate
+h.value_date <= :ToDocDate
+```
+
+Each fragment is emitted only when its end of the range has a value, so a half-open range yields a single condition. The `operator` on the filter and on the binding is **ignored** — the pair is fixed to `>=` / `<=`. A `customWhereClause` (on the filter or on the binding) still wins: it replaces the whole pair with your SQL.
+
+**Stored value format** — the picker stores one string, in one of two forms:
+
+| Form | Example | Meaning |
+|---|---|---|
+| Preset key | `ThisMonth` | Re-resolved against *today* on every fetch |
+| Explicit range | `2026-01-01@2026-03-31` | Literal `yyyy-MM-dd` dates joined by `@` |
+
+Preset keys: `Today`, `Yesterday`, `ThisWeek`, `PreviousWeek`, `ThisMonth`, `PreviousMonth`, `ThisQuarter`, `PreviousQuarter`, `ThisYear`, `PreviousYear`, `Last7`, `Last30`, `Last90`, `Last365`. Weeks run Sunday→Saturday; `Last7` is today plus the six days before it. `defaultValue` accepts either form.
+
+Because a preset stores the period rather than the dates, a dashboard saved with `ThisMonth` follows the calendar instead of freezing on the month it was authored in.
+
+**Binding notes:**
+
+- `listParam` / `listDisplayType` do not apply — a range is a single value, never a multi-select.
+- `paramType` is `Date`, but the value that travels between the UI and the server is the range string above, not a date.
+- A `localScope` binding behaves as it does for any other filter: the pair moves into the widget's own filter popup.
+- `comparisonConfig` is set on the single record: for a previous-period run both derived parameters are shifted by the config's subtracted period.
+
+---
+
 ## 9. Widget Types
 
 | Type | Rendering | chartConfigJSON needed? |
@@ -1002,6 +1058,8 @@ Cross-filters are master-file entities that define reusable filter parameters. T
 | `EnhancedTable` | AG Grid table driven entirely by `chartConfigJSON.columns` — per-column formatting, renderers, conditional formatting, column groups, pinning, aggregation. See Section 14. | Yes |
 | `CrossFilterControl` | Slicer-style filter widget — renders one `BICrossFilter` as an editor on the dashboard grid. Requires only `crossFilterRef`. See Section 9a. | No |
 | `TextBlock` | Non-data rich-HTML widget. Main usage: section headers and titles between data widgets. Also: subtitles, descriptions, instructions. See Section 9b. | Yes |
+| `EnhancedMetricsCard` | JSON-driven KPI card strip — cards, slots, sparklines, conditional colouring. See Section 15. | Yes |
+| `MetricsCards` | Legacy KPI cards driven by `metricsCardConfig` fields on the widget record, not by `chartConfigJSON`. | No |
 | `PieChart`, `ColumnWithRotatedLabels`, etc. | Legacy Highcharts types (auto-translated to ECharts server-side) | No |
 
 For `Table` widgets, the SQL column names become the grid column headers. No `chartConfigJSON` is needed — just provide the `dataSource` SQL and `crossFilterBindings`.
@@ -1047,7 +1105,8 @@ No `dataSource`, no `crossFilterBindings`, no `wizardDataSource`. The widget is 
   "name2": "Sales Header",
   "type": "TextBlock",
   "chartConfigJSON": {
-    "html": "<h2>Sales Performance</h2>",
+    "html": "<h2>أداء المبيعات</h2>",
+    "htmlEn": "<h2>Sales Performance</h2>",
     "bgColor": "#f5f5f5",
     "padding": "8px",
     "textAlign": "center"
@@ -1055,17 +1114,20 @@ No `dataSource`, no `crossFilterBindings`, no `wizardDataSource`. The widget is 
 }
 ```
 
-`chartConfigJSON` keys (all optional except `html`):
+`chartConfigJSON` keys (all optional, but at least one of `html` / `htmlEn` is needed for the widget to show anything):
 
 | Key | Effect |
 |---|---|
-| `html` | Rendered via `v-html`. Authored through the q-editor or the raw-HTML textarea. |
+| `html` | Arabic content. Rendered as HTML. Authored in the designer's **Arabic Text** tab (rich-text editor or raw-HTML box). |
+| `htmlEn` | English content. Same authoring, **English Text** tab. |
 | `bgColor` | Wrapper `background-color`. |
 | `color` | Wrapper `color` (default text color). |
 | `padding` | CSS shorthand (e.g. `8px` or `8px 12px`). |
 | `fontSize` | Wrapper `font-size`. |
 | `borderColor`, `borderWidth`, `borderRadius` | Wrapper border. |
 | `textAlign` | `left` / `center` / `right` / `justify`. |
+
+The two content keys are independent of the frame styles, which apply to both languages. Each language falls back to the other when its own key is empty or missing: an Arabic UI renders `html`, or `htmlEn` if `html` is empty; an English UI renders `htmlEn`, or `html` if `htmlEn` is empty. A widget authored before `htmlEn` existed therefore keeps rendering its single `html` block in both languages.
 
 ---
 

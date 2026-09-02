@@ -45,6 +45,8 @@
 | `disableRuntimeDimensionSelection` | لا (wizard mode فقط) | عندما يكون `true`، يُخفي منتقيات الأبعاد في محدد الفتحات في وقت التشغيل. القيمة الافتراضية `false`. انظر القسم 13.9. |
 | `disableRuntimeMeasureSelection` | لا (wizard mode فقط) | عندما يكون `true`، يُخفي منتقيات المقاييس في محدد الفتحات في وقت التشغيل. القيمة الافتراضية `false`. انظر القسم 13.9. |
 
+وتحتفظ أنواع الـwidget غير البيانية بشكلها الخاص في الحقل نفسه: `EnhancedTable` يحمل `columns` و`tableOptions` (القسم 14)، و`EnhancedMetricsCard` يحمل تعريفات بطاقاته (القسم 15)، و`TextBlock` يحمل `html` / `htmlEn` وأنماط الإطار (القسم 9b). ولا يستخدم أيٌّ منها `echartOption` ولا `dataMapping`.
+
 ### 1.1 Wizard Mode مقابل SQL Mode
 
 يعمل الـwidget في أحد وضعَين بحسب وجود `wizardDataSource` أم لا:
@@ -965,7 +967,7 @@ cross-filters كيانات ملف رئيسي تُعرِّف معاملات فل�
 | `criteriaExpression` | لا | معايير من جانب الخادم لمنتقي مرجع الفلتر. |
 | `suggestionQuery` | لا | SQL مخصص يُعيد صفوف اقتراحات للمنتقيات التلقائية. |
 | `comparisonConfig` | لا | إعداد مقارنة الفترة (الإزاحة، التسمية الأساسية). |
-| `showAsDateRange` | لا | فلاتر التواريخ فقط: عرض منتقي نطاق واحد من/إلى يُعيّن فلترَين مقترنَين دفعةً واحدة. |
+| `showAsDateRange` | لا | عرض الفلتر كمنتقي نطاق واحد من/إلى يتوسّع إلى مُدخلَين مربوطَين — انظر القسم 8a. |
 | `autoCreateWidget` | لا | عند true، يُنشئ حفظ cross-filter أيضاً widget `CrossFilterControl` مقترناً. |
 | `hideFilterTitle` | لا | إخفاء تسمية العنوان عبر جميع طرق العرض. |
 
@@ -978,6 +980,60 @@ cross-filters كيانات ملف رئيسي تُعرِّف معاملات فل�
 
 ---
 
+### 8a. الفلاتر المتقاطعة من نوع نطاق التاريخ (`showAsDateRange`)
+
+`showAsDateRange: true` يحوّل سجل فلتر متقاطع واحد إلى زوج من/إلى. يبقى السجل واحداً (`BICrossFilter` واحد)، ويشتق منه الخادم مُدخلَين مربوطَين.
+
+```json
+{
+  "code": "docDate",
+  "name1": "تاريخ المستند",
+  "name2": "Document Date",
+  "paramType": "Date",
+  "showAsDateRange": true,
+  "arTitle": "الفترة",
+  "enTitle": "Period",
+  "sqlLeftHandSide": "h.value_date"
+}
+```
+
+**أسماء المُدخلات المشتقة** — كود الفلتر بحرف أول كبير، مسبوقاً بـ `From` و`To`:
+
+| `code` | مُدخل «من» | مُدخل «إلى» |
+|---|---|---|
+| `docDate` | `FromDocDate` | `ToDocDate` |
+
+أما كود الفلتر نفسه فلا يُربط أبداً كمُدخل في حالة نطاق التاريخ — الزوج المشتق وحده هو المربوط.
+
+**شروط WHERE المولَّدة** — لكل widget مرتبط بالفلتر:
+
+```sql
+h.value_date >= :FromDocDate
+h.value_date <= :ToDocDate
+```
+
+ولا يُصدَر أي شرط إلا إذا كان طرفه ذا قيمة، فالنطاق المفتوح من جهة يعطي شرطاً واحداً. و`operator` — على الفلتر وعلى الربط — **يُتجاهل**، إذ إن الزوج ثابت على `>=` / `<=`. أما `customWhereClause` (على الفلتر أو على الربط) فيظل الأسبق: يستبدل الزوج كله بـ SQL الذي كتبته.
+
+**صيغة القيمة المخزَّنة** — يخزّن المنتقي نصاً واحداً بإحدى صيغتين:
+
+| الصيغة | مثال | المعنى |
+|---|---|---|
+| مفتاح مدة جاهزة | `ThisMonth` | يُعاد حسابه بالنسبة لـ*اليوم* عند كل جلب |
+| نطاق صريح | `2026-01-01@2026-03-31` | تاريخان حرفيان بصيغة `yyyy-MM-dd` يفصلهما `@` |
+
+مفاتيح المدد الجاهزة: `Today` و`Yesterday` و`ThisWeek` و`PreviousWeek` و`ThisMonth` و`PreviousMonth` و`ThisQuarter` و`PreviousQuarter` و`ThisYear` و`PreviousYear` و`Last7` و`Last30` و`Last90` و`Last365`. والأسبوع يبدأ الأحد وينتهي السبت، و`Last7` تعني اليوم والستة أيام التي قبله. و`defaultValue` يقبل الصيغتين.
+
+ولأن المدة الجاهزة تخزّن المدة لا التاريخين، فاللوحة المحفوظة بـ`ThisMonth` تسير مع التقويم بدل أن تتجمد على الشهر الذي أُعدّت فيه.
+
+**ملاحظات على الربط:**
+
+- `listParam` و`listDisplayType` لا ينطبقان — النطاق قيمة واحدة لا اختيار متعدد.
+- `paramType` هو `Date`، لكن القيمة المنتقلة بين الواجهة والخادم هي نص النطاق أعلاه لا تاريخ.
+- ربط `localScope` يتصرف كما مع أي فلتر آخر: ينتقل الزوج إلى حوار الفلاتر الخاص بالـwidget.
+- `comparisonConfig` يوضع على السجل الواحد: وفي تشغيل الفترة السابقة يُزاح المُدخلان المشتقان معاً بمقدار المدة المطروحة في الـconfig.
+
+---
+
 ## 9. أنواع الـWidget
 
 | النوع | طريقة العرض | هل chartConfigJSON مطلوب؟ |
@@ -987,6 +1043,8 @@ cross-filters كيانات ملف رئيسي تُعرِّف معاملات فل�
 | `EnhancedTable` | جدول AG Grid مُشغَّل بالكامل بواسطة `chartConfigJSON.columns`. انظر القسم 14. | نعم |
 | `CrossFilterControl` | widget فلتر slicer — يُعرض `BICrossFilter` واحد كمحرر على شبكة لوحة البيانات. يتطلب فقط `crossFilterRef`. انظر القسم 9a. | لا |
 | `TextBlock` | widget HTML غني غير بياني. الاستخدام الرئيسي: رؤوس أقسام وعناوين. انظر القسم 9b. | نعم |
+| `EnhancedMetricsCard` | شريط بطاقات مؤشرات مقاد بالـJSON — بطاقات وخانات وخطوط اتجاه مصغّرة وتلوين شرطي. انظر القسم 15. | نعم |
+| `MetricsCards` | بطاقات مؤشرات قديمة تُقاد بحقول `metricsCardConfig` على سجل الـwidget لا بـ`chartConfigJSON`. | لا |
 | `PieChart` و`ColumnWithRotatedLabels` إلخ | أنواع Highcharts القديمة (تُترجم تلقائياً إلى ECharts من جانب الخادم) | لا |
 
 بالنسبة لـwidgets `Table`، تصبح أسماء أعمدة SQL رؤوس أعمدة الشبكة. لا يلزم `chartConfigJSON` — فقط أدرج `dataSource` بـSQL و`crossFilterBindings`.
@@ -1032,7 +1090,8 @@ widget HTML غني غير بياني. الاستخدام الرئيسي: رؤو�
   "name2": "Sales Header",
   "type": "TextBlock",
   "chartConfigJSON": {
-    "html": "<h2>Sales Performance</h2>",
+    "html": "<h2>أداء المبيعات</h2>",
+    "htmlEn": "<h2>Sales Performance</h2>",
     "bgColor": "#f5f5f5",
     "padding": "8px",
     "textAlign": "center"
@@ -1040,17 +1099,20 @@ widget HTML غني غير بياني. الاستخدام الرئيسي: رؤو�
 }
 ```
 
-مفاتيح `chartConfigJSON` (جميعها اختيارية عدا `html`):
+مفاتيح `chartConfigJSON` (جميعها اختيارية، لكن يلزم واحد على الأقل من `html` / `htmlEn` كي يعرض الـwidget شيئاً):
 
 | المفتاح | التأثير |
 |---|---|
-| `html` | مُصيَّر عبر `v-html`. مُؤلَّف من خلال q-editor أو textarea HTML الخام. |
+| `html` | المحتوى العربي، يُصيَّر كـHTML. يُؤلَّف في تبويب **نص عربي** بالمصمم (المحرر الغني أو صندوق HTML الخام). |
+| `htmlEn` | المحتوى الإنجليزي. التأليف نفسه، في تبويب **نص إنجليزي**. |
 | `bgColor` | `background-color` للغلاف. |
 | `color` | `color` للغلاف (لون النص الافتراضي). |
 | `padding` | اختصار CSS (مثل `8px` أو `8px 12px`). |
 | `fontSize` | `font-size` للغلاف. |
 | `borderColor` و`borderWidth` و`borderRadius` | حدود الغلاف. |
 | `textAlign` | `left` / `center` / `right` / `justify`. |
+
+ومفتاحا المحتوى مستقلان عن أنماط الإطار التي تنطبق على اللغتين معاً. وكل لغة ترتد إلى الأخرى عند خلوّ مفتاحها: الواجهة العربية تعرض `html`، أو `htmlEn` إن كان `html` فارغاً؛ والواجهة الإنجليزية تعرض `htmlEn`، أو `html` إن كان `htmlEn` فارغاً. لذا يظل أي widget أُنشئ قبل وجود `htmlEn` يعرض كتلة `html` الوحيدة في اللغتين.
 
 ---
 

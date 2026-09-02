@@ -58,6 +58,8 @@ No `dataMapping` / `echartOption` — EnhancedTable does not use ECharts.
 | `pagination` | `false` | Off by default — load-all-and-scroll. When on, AG Grid paginates the in-memory data (no server-side paging). |
 | `grandTotalRow` | `null` | `"top"` / `"bottom"` / `null`. Computed client-side from visible rows. **Only columns with `aggFunc` set show a value in the grand-total row** — others render blank. |
 | `enableRowGroup` / `enablePivot` | `true` / `false` | AG Grid row-grouping / pivot modes. Columns need `rowGroup: true` / `pivot: true` to be grouped/pivoted by default. |
+| `groupDefaultExpanded` | `-1` in pivot mode | How many grouping levels are open on load; `-1` expands every level. The server fills in `-1` for pivot widgets that don't set it, because collapsed groups make a fresh cross-tab look empty. Set it yourself to override. |
+| `groupIncludeFooter` | `true` when pivot row subtotals are on | Adds a subtotal footer row under each group. Set it explicitly to force it on or off. |
 
 ## 3. Column definition
 
