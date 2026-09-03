@@ -42,6 +42,14 @@ Quality control isn't isolated, but a step within larger paths:
 - **With production and assembly**: quality checks are embedded within [assembly](./assembly-and-packaging.md) stages and production orders, so output isn't approved before passing its check.
 - **Re-testing**: for items with a re-test period (chemicals and medicines), the system reminds you to re-inspect periodically.
 
+## Actions on these screens
+
+**On the Quality Assurance Request:** **Create quality assurance doc** — the request must be saved; it creates the quality assurance document from it, carrying the quality engineer and the operation sequence over, and opens it.
+
+**On the Quality Control Request:** **Create QC Document** — the same step for quality control, building the inspection document from the request's lines.
+
+**On both the Quality Control Document and the Quality Assurance Document:** **Stock Transfer request For Accepted** and **Stock Transfer request For Rejected** — these are what move the goods once the verdict is in. The first raises a stock transfer request for the quantities you accepted, normally out of the quarantine warehouse and into the usable one; the second does the same for what you rejected, sending it wherever your rejected stock lives. The rejected one needs the document saved first.
+
 ## Best Practices
 
 ::: tip Practical Tips

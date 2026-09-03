@@ -63,6 +63,20 @@ Natural loss - such as meat losing weight, some materials drying, or evaporation
 
 Specific incidental damage (a particular event), on the other hand, is recorded through a [stock issue](./issuing-stock.md) directed to a loss account, not through stock taking.
 
+## Actions on these screens
+
+**On the Start Stock Taking:** **Create End Stock Taking** — the start document must be saved; it creates the matching end document already pointing back at this start, so the pair is never mismatched.
+
+**On the Stock Taking Details:**
+
+- **Collect Stock Items** — fills the count lines from the item-collection criteria you entered. It refuses if those criteria lines are empty.
+- **Collect Items** and **Collect Items In Period** — fill the lines from what the warehouse and locator actually hold. The second one asks three things first: the date to collect on, whether to include negative quantities, and whether to limit the result to items already in the details.
+- **Create StockTaking Details Lines** — builds the count lines from the electronic-count lines on the document. It refuses when there are none, and tells you to enter the electronic stock-taking documents first.
+
+**On the Stock Taking Electronic:** **Convert To StockTaking Details** — creates a Stock Taking Details document from the electronic count and opens it.
+
+**On the End Stock Taking:** **Preview Stock Items On Date** — the document must be saved; it shows what the system believes the stock was on the value date, so you can compare before committing. It needs a **start stock taking** to be chosen, and it only works when the quantity calculation method is the one that works on the value date; otherwise it says so and does nothing.
+
 ## Best Practices for Stock Taking
 
 ::: tip Practical Tips

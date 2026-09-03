@@ -101,6 +101,10 @@ What if you issued too much? Too little? The wrong item?
 
 Choose based on your organization's controls, the time elapsed, and whether downstream operations (like production costing) have already used the issue data.
 
+## Actions on this screen
+
+The Stock Issue carries one screen action of its own: **Collect Lots**. It fills the batch on every detail line from what the header warehouse and locator actually hold, following the document's term, instead of picking a batch line by line. It asks first whether to clear the batches already entered — answer no and it only fills the blanks.
+
 ## Tips for Accurate Issuing
 
 ::: tip Best Practices

@@ -28,6 +28,13 @@ Imagine receiving a truck of grain:
 
 This eliminates manual weight-entry errors and speeds up receiving and issuing at high-traffic locations.
 
+## Actions on this screen
+
+**On the Weight Scale Preparation Generator:**
+
+- **Documents To Prepare** — reads the document you are on and fills its grid with the documents that are waiting to be prepared on the scale, so you pick from a real list rather than searching for them.
+- **Generate Weight Scale Preparation Documents** — the generator must be saved; it then creates the preparation documents for what the grid holds.
+
 ## Next Steps
 
 - [Receiving Stock](./receiving-stock.md) - receiving weighed bulk materials

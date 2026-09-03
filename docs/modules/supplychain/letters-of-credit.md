@@ -42,6 +42,24 @@ The cost of imported goods isn't just their price; it includes insurance, freigh
 
 Throughout the LC's life, administrative events arise: amendments, notifications, claims, and releases. The **LC Action** document records them with their types, attachments, and shipment links, forming a complete audit trail of the LC lifecycle.
 
+## Actions on these screens
+
+The letter-of-credit documents are mostly created from one another, and the buttons are how that chain is walked.
+
+**On the Letter of Credit Request:** **Create Letter Of Credit** — builds the letter of credit itself from the request, carrying the arriving port, the bank account and the rest of the request's terms over, and opens it as a new record.
+
+**On the LC Opening Request:** **Accept** and **Reject** set the request's status. Neither works on a request that has already been processed — the screen says so and nothing changes.
+
+**On the Letter of Credit:**
+
+- **Create LC Opeining Doc** — creates the opening document, pre-filled with the credit's supplier and bank account.
+- **Create LC Cost Doc** — creates the costing document for the credit, carrying its code and names.
+- **Apply Costing** — spreads the costs gathered so far onto the goods, which is what turns the credit's expenses into item cost. The **LC Shipment** carries the same button for a single shipment.
+
+**On the LC Cost Document:** **Collect Item Expenses** — reads the letter of credit, or the single shipment, named on the header and fills the grid with the expenses recorded against it, so you cost from what was actually spent rather than re-typing it.
+
+**On the LC Expense Document:** **Collect Items** fills the expense lines from the credit and shipment on the header, and **GeneratePayments** splits the value into an instalment schedule. **GeneratePayments** is also on the LC Proforma Invoice and the LC Shipment Proforma Invoice.
+
 ## The Full Picture
 
 1. You agree with a foreign supplier, so you create the **LC Request** then the **Opening Request**.

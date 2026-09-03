@@ -35,6 +35,10 @@ The system is completed by three configuration files:
 - **Delivery Driver Config** (DeliveryDriverConfig): the driver's capabilities, authorized vehicle types, geographic zones, and certifications (such as refrigerated transport).
 - **Delivery Organization** (DeliveryOrganization): the organizational structure for delivery operations, linking zones to branches/warehouses.
 
+## Actions on this screen
+
+**On the Delivery Document:** **Add Reservation Doc** — asks you to pick a reservation document and pulls its lines into the delivery, so what was reserved is what gets delivered without re-keying it. If the document's term has *Consider Satisfied Quantities In From Doc* switched on, the already-satisfied quantities are taken into account rather than delivered twice; and an empty first line with no item on it is dropped rather than left behind.
+
 ## The Full Picture
 
 Imagine a sales order ready for fulfillment:

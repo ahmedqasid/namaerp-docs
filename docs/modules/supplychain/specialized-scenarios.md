@@ -37,6 +37,21 @@ Some specialized paths (such as job orders) rely on shared master files:
 - **Activity** (Activity): a flexible file for tracking various activities and milestones within job orders.
 - **Material Classification** (MaterialClassification): classifies materials by type, grade, or source for reporting and analysis.
 
+## Actions on these screens
+
+**On the Glass Job Order and its request:**
+
+- **Collect Orders** — fills the bill-of-materials lines from the customer's open orders instead of entering them again.
+- **Apply** — reads the order type, the order status and the down-payment percentage on the header and applies them to the order, which is how a glass order moves from entered to actionable.
+
+**On the Order Execution:**
+
+- **Add Order** — asks for an order and a customer and appends that order's work to the execution lines, against the operation named on the header.
+- **Collect Data** — the bulk version: it fills the lines from the ranges on the header (from/to item, from/to job order and the rest) rather than one order at a time.
+- **Clear Job Orders** and **Clear Details Lines** — empty the job-orders grid and the details grid respectively, which is how you start the collection over after setting different ranges.
+
+**On the Glass Order List:** **Collect Orders** fills the list, **View** opens what a line points at, and **Export** sends the list out as a file.
+
 ## Scenarios That Belong to Other Modules
 
 Some specialized scenarios have their own standalone modules even though they intersect with supply chain:

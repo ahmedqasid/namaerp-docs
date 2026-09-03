@@ -82,6 +82,41 @@ The **Sales Forecast** (SalesForecast) helps you plan future sales based on hist
 Fast cash selling at the register now has its own module. See the [Point of Sale module](/modules/pos/).
 :::
 
+## Actions on this screen
+
+The sales documents carry more buttons than any other family in Supply Chain, and nearly all of them exist to save re-keying: either they pull lines in from something that already exists, or they push the document forward into the next one.
+
+**On the Sales Invoice:**
+
+- **Collect** — asks for a **from date** and a **to date**, then fills the invoice's stock-documents grid with the stock issues already made to this customer, from the same warehouse, contact and subsidiary, that have not been invoiced yet. This is how a month of deliveries becomes one invoice.
+- **Apply Receipts** — reads the issues sitting in that grid and turns them into priced invoice lines, applying the invoice's price classifiers, salesman, tax settings, classification and term. **Collect** fills the grid; **Apply Receipts** turns it into the invoice. When the term has *Instantly Apply On Stock Issues Selection* switched on, picking an issue in the grid fires this for you.
+- **Create Inventory Doc.** — the opposite direction: for an invoice typed by hand, it generates the Stock Issue and opens it.
+- **Collect Lots** and **Collect Locators** — fill the batch and the locator on every detail line from what is actually available in the header warehouse, instead of picking them line by line. Both ask first whether to clear what you already entered.
+- **GeneratePayments** — splits the remaining value into an instalment schedule. It asks for the number of payments, the period between them and its unit, the date the payments start, a grace period, an optional day of the week to land on, down / first / second / last payment values, and a rounding mode. It refuses if the net value is zero.
+- **Generate Receipt Voucher** — creates a receipt voucher for the invoice's whole remaining value against the customer. **Generate Receipt Voucher For Selected Payments** does the same for only the instalment lines you ticked, and refuses if you selected none or if the ones you selected have nothing remaining. **Collect Receipt Vouchers** works the other way, bringing existing vouchers onto the invoice.
+- **Request Redeem Customer Amount** — spends the customer's loyalty balance against this invoice. It shows the invoice net value, the points owner and the reward balance still available, and asks how much to redeem and against which reward code.
+- **Pay Invoice**, **Pay Part Of Invoice** and **Fetch Last Terminal Payment Transaction** — the card-terminal buttons, which need the payment-gateway sub-module. **Pay Part Of Invoice** asks for an amount and rejects anything larger than the remaining value, or any amount at all once the invoice is fully paid. **Fetch Last Terminal Payment Transaction** recovers a payment that went through on the terminal but whose confirmation never made it back to the invoice.
+
+**On the quotation request, the quotation, the order and the proforma:**
+
+- **Generate Invoice** — builds the Sales Invoice from the document and opens it.
+- **GeneratePayments** — the same scheduling dialog as on the invoice, available on the Sales Quotation Request, Sales Quotation, Sales Order, Coupons Sales Order, Proforma Sales Invoice and Coupons Sales Order Return.
+- The **Sales Quotation** also carries **Request Redeem Customer Amount** on its billing page.
+
+**On the Sales Return and the Sales Return Request:**
+
+- **Collect** and **Apply Receipts** — the same pair as on the invoice, but pointed at stock receipts, since a return brings goods back in.
+- **collect Installments By From Doc** — rebuilds the return's instalment grid from the unpaid instalments of the invoice it was built on, consuming the return value from the earliest instalment onward until it runs out.
+- **Distribute Return Value On All Unpaid installments** — fills the same grid, but spreads the return value evenly across the unpaid instalments rather than settling them in order. Both need a **based on** document; neither does anything without one.
+
+**On the Sales Replacement:** **Sales Collect Lots** and **GeneratePayments**. The **Sales Replacement Request** adds **Generate Receipt Voucher** and **Collect Receipt Vouchers**.
+
+**On the Order Delivery:** **Generate Invoice** — the delivery must be saved first; it builds the sales invoice for the delivery and opens it.
+
+**On the Salesman Update Document:** **Collect Customers** — you give ranges (from/to customer, salesman, responsible for customer, branch, sector, department, analysis set) and it fills the grid with every customer that matches, ready to be moved to another salesman in one document. At least one range must be filled in.
+
+**On the Sales Forecast:** **Calculate Cost**, **Calculate Values** and **Calculate Current Year Values** work the detail lines; the aggregated page carries its own **Calculate Cost**, **Calculate Aggregate Values** and **Calculate Aggregate Current Year Values**.
+
 ## Tips for Effective Sales Management
 
 ::: tip Best Practices

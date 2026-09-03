@@ -29,6 +29,20 @@ The **Purchase Forecast Configuration** gathers the calculation criteria in one 
 The forecast alone tells you "how much" you'll need, but the item's **lead time** (defined on the [item card](./understanding-items.md#Purchase-Configuration)) tells you "when" to order. Combine the two to order at the timing that ensures goods arrive just before you run out.
 :::
 
+## Actions on these screens
+
+**On the Purchase Forecast document:**
+
+- **Calculate Data** — the document must be saved; it runs the forecast and fills the detail lines from the quantity sources you chose.
+- **Collect Items** — fills the lines from the item-collection criteria instead of item by item, honouring the header's switches for spreading revisions and spreading sizes and colours. It refuses when the collection lines are empty.
+- **Spread Selected Line Data** — takes the line you are standing on and expands it across the item's revisions, sizes and colours, again following those switches.
+- **Select All Lines** and **Unselect All Lines** — tick or untick every detail line at once, which is what the two actions below and the document generation work from.
+- **Delete Suggested Order Based On Adjusted Coverage Values From Details For Selected Lines** — clears the adjusted-coverage suggestion on the ticked lines, so you can redo it.
+- **Copy Values Of Suggested Order Based On Coverage To Suggested Order Based On Adjusted Coverage If Empty For Selected Lines** — fills the adjusted-coverage suggestion from the plain coverage suggestion on the ticked lines, but only where it is still empty, so anything you adjusted by hand survives.
+- **Generate Purchase Document For Selected Items** — the document must be saved; it asks whether to produce a **Purchase Order** or an **Item Request** (order is the default) and creates it from the ticked lines.
+
+**On the older Purchase Forecast and the Sales Forecast**, the detail page carries **Calculate Cost**, **Calculate Values** and **Calculate Current Year Values**, and the aggregated page its own **Calculate Cost**, **Calculate Aggregate Values** and **Calculate Aggregate Current Year Values**.
+
 ## From Forecast to Purchase Order
 
 The forecast isn't an end in itself, but a prelude to purchasing. After generating and reviewing the forecast, its suggestions become [purchase requests or orders](./purchasing-journey.md), closing the loop from anticipating the need to fulfilling it. This makes purchasing data-driven rather than guesswork.

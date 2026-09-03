@@ -42,6 +42,24 @@ The **Processing Document** records intermediate processing operations: it manag
 
 The **Packaging Method File** defines the standard packaging units for the finished product and its packaging components (the quantity per package), used in costing and delivery consolidation. This links the product's form as sold (pack, carton, pallet) to its actual components in inventory.
 
+## Actions on these screens
+
+**On the Assembly Document and the Assembly Request:** **Calculate Values From Expense Items** — works out each expense line's value from the assembly quantity and the assembled item, and writes it back onto the lines, so the overhead carried into the assembled item is not typed by hand.
+
+**On the Aggregated Assembly Document:**
+
+- **Calc Materials** — the document must be saved; it works out the materials the whole aggregation needs and fills the materials grid.
+- **Calculate Main Materials Dependent Data** — also needs the document saved, and fills in everything that follows from the main materials once they are known.
+- **Collect Material Lots** and **Collect Material Boxs** — fill the batch and the box on each material line from what is available in the header warehouse. Both ask first whether to clear what is already entered.
+
+**On the Multi Assembly Document:**
+
+- **Spread Main Items** — expands the main-items grid into the detail lines, so one row per finished product becomes the full set of lines.
+- **Change Details Status To Create Assembly Documents By Level** — flips the line statuses so the assembly documents are generated level by level, which is what a multi-level build needs.
+- **Delete Generated Assembly Documents** — removes the assembly documents this one produced. It asks for confirmation first and does nothing until you give it.
+
+**On the Processing Document**, the direct-labour grid carries **Start** and **End**: standing on a labour line, they stamp its start and its end date and time, so the time spent is recorded as the work happens rather than estimated afterwards.
+
 ## Assembly and Cost
 
 Assembling a product means rolling up its cost. **Finished Product Pricing** captures this roll-up from the BOM or the assembly document to arrive at the final cost - you'll find the details in [Inventory Costing & Revaluation](./inventory-costing.md).

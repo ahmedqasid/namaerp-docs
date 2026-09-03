@@ -49,6 +49,12 @@ When you close an accounting period (month-end, for example), you don't want inv
 Alongside freezing cost, the system lets you **prevent using a batch** during a period (for example a batch under recall or quarantine), so that batch can't be issued until the prevention is lifted - a quality-control tool that intersects with cost by preventing movement of stock that shouldn't be sold.
 :::
 
+## Actions on these screens
+
+**On the Receipt Additional Cost:** **Collect Items** fills the cost lines from the receipt, letter of credit or shipment named on the header, so the cost is spread over what actually arrived; **GeneratePayments** splits the document's value into an instalment schedule, asking for the number of payments, the period and its unit, the start date, a grace period, down / first / second / last payment values and a rounding mode.
+
+**On the Finished Product Pricing:** **Collect Materials** fills the materials grid from the products being priced and the document's term; **Recalculate Materials Qty** re-derives those material quantities after the product quantities change; and **Collect CoProducts**, on the details page, fills the co-products grid from the products.
+
 ## Best Practices
 
 ::: tip Practical Tips

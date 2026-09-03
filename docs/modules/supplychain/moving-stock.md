@@ -65,6 +65,15 @@ When transfer requests recur from several branches or for several items, the **A
 
 ![Stock transfer screen in NaMa ERP](../../ar/modules/supplychain/images/moving/stock-transfer-edit-en.png)
 
+## Actions on these screens
+
+**On the Stock Transfer, and on both halves of the two-step transfer (the issue side and the receipt side):** **Collect Lots** — fills the batch on every detail line from what the header warehouse and locator hold, following the document's term. It asks first whether to clear the batches already entered.
+
+**On the Stock Transfer Request:**
+
+- **Add Stock Transfer Req** — asks you to pick another transfer request and appends its **unsatisfied** lines to this one, skipping anything already fulfilled. It needs the from-warehouse, the to-warehouse and the term to be filled in first, and it does nothing if any of them is missing.
+- **Collect Requests** — the bulk version of the same idea, gathering the open requests rather than adding them one at a time.
+
 ## Tips for Accurate Transfer Tracking
 
 ::: tip Best Practices

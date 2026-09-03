@@ -49,6 +49,37 @@ At the point of sale, the coupon is applied via the **Coupons Sales Order** (Cou
 
 In organizations that require approval of price changes, the **Price Voting Document** provides a workflow: new prices are proposed and presented to approvers for a vote before taking effect, with their record kept in the **Price Voting File** (PriceVotingFile) as an audit trail of pricing decisions.
 
+## Actions on these screens
+
+Pricing screens are built around two moves: fill the lines from somewhere, then push a header value or a calculation down onto them.
+
+**On the Sales Price List:**
+
+- **Collect Items** — fills the lines from the item-collection criteria on the header instead of item by item.
+- **Update Details** — stamps header values onto every line, asking one Yes/No at a time which to push: from date, to date, analysis set, legal entity, branch, department, sector, customer, invoice classification, and price classifiers 1 to 5.
+- **Update Prices** — recalculates through the price-updater rules on the header: a source field, up to four destination fields, and up to five updaters, applied to all lines or only the selected ones. It refuses when the list has no lines, or when no updater is filled in.
+- **calculate Price from Average Cost** — fills the destination price field from each item's average cost rather than from another price field.
+- **Add additional source lines** — appends the lines of the price list named as the **additional source**, optionally carrying invoice discounts across and skipping items the list already holds.
+- **Spread Selected Line Data** — expands the line you are standing on across the item's units, revisions, sizes and colours, following the spread switches on the header.
+
+The **Purchase Price List** and the **Vendor Discount** carry the same **Update Details**, which asks about the supplier rather than the customer.
+
+**On the Sales Offers screen** each grid has its own update button, because each grid has its own validity window:
+
+- **Update Details** — pushes the header's dates, dimensions, customer, invoice classification and price classifiers onto the item-discount lines, again as a list of Yes/No questions.
+- **Update Details From Time To Time** — a narrower one: it copies only the header's **from time** and **to time** onto every discount line, which is what an offer tied to certain hours of the day needs.
+- **update Free Items**, **Update Invoice Discounts** and **Update Invoice Offers** — the same stamping, aimed at the free-items grid, the invoice-discount grid and the invoice-offers grid respectively.
+- **Update Coupons** and **Update Lines** — for the coupons grid and the offers-on-item-count grid; these ask about three things only: from date, to date and priority.
+- **Update Discounts Values - Percentages** — the price-updater engine again, this time writing discount values and percentages onto the item-discount lines.
+
+**On the Periodic Monthly Sales Offer Calculation:** **Calculate Data** works out each candidate customer's figures, and **Generate Offers** then creates the offers themselves. Both need the document saved.
+
+**On the Price Voting File:** **calculate Suggested Prices** collects what the voters suggested (the file must be saved first), and **Update Agreed Price** fills the agreed price on every line from the **agreed price source** chosen on the header — the highest suggested price, the lowest, the average, and so on.
+
+**On the Item Voting File:** **Collect Doc Lines** pulls in the voting documents and their lines. **update Items** — on both the file and the individual Item Voting Doc — writes the voting result back onto the items themselves, and needs the record saved.
+
+**On the Discounts Re-Calculation Document and the Discount Update:** **Collect** gathers the invoices to work on — by supplier and date range on the first, by collected invoice type and sector/branch ranges on the second — and **Apply** then writes the recalculated discounts back to those invoices. **Apply** needs the document saved.
+
 ## How the Layers Stack
 
 When pricing an invoice line, the system applies the layers in order: the base price from the **price list** (or **automatic pricing**), then a **quantity range** adjustment, then eligible **offers**, then a **coupon** if present, while respecting the **minimum price** defined on the item. Understanding this order explains the final price the customer sees.

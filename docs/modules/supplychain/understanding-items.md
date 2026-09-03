@@ -281,6 +281,21 @@ Each item can also carry several attachments: product images, technical specs, s
 
 In engineering and manufacturing, items can have **revisions**. Each revision has a version number, an effective date, a statement of what changed, and who approved it. This is critical when you improve a product design but need to support both the old and new versions during a transition period.
 
+## Actions on these screens
+
+**On the Item screen itself:**
+
+- **Add Item To Sales Price List**, **Add Item To Purchase Price List**, **Add Item To Item Voting File** and **Add Item To Price Voting File** — each asks which list or file to add to, then puts this item on it. They save the round trip of opening the price list and hunting for the item.
+- **Reverse Delete Case** — on the keywords grid, flips the delete flag on every keyword line, so a whole set can be marked for removal or spared in one press.
+
+**On the Item Update document:** **Copy To Item** — writes the changes the document carries onto the items it targets. Nothing moves onto the items until this is run.
+
+**On the Multi Item Creator:** **Generate Items** — creates the actual items from the combinations defined on the document.
+
+**On the Item Size Color Collection:** **Generate Item Color Size** — builds the matrix from the colour lines and the size lines, giving every colour-and-size combination rather than typing them out.
+
+**On the Item Assortment:** **Create Assortment From Lines Data** — the label spells out what it does: it creates the assortment from every combination of the data entered in the lines.
+
 ## Putting It All Together
 
 Setting up items seems like a lot of work - and it is! But here's the thing: you do it once per item, and from that point on, hundreds of transactions flow through the system using that configuration.
