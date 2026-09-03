@@ -57,6 +57,14 @@ From the user list screen, the **Change Multi Users Password** action helps admi
 - The **Password Must Be Changed** flag forces a new password on next login; the system tracks **Last Password Change Date** for auditing and policy enforcement.
 - The **changePassword** action on the user screen is the administrative reset path; users change their own passwords from the session menu.
 
+## Actions on this screen
+
+- **Allow Login After Failed Logins** — this is the unlock. When a user has been shut out by the failed-attempt limit described above, nothing expires the block on its own; an administrator opens the user, saves it, and presses this. The user can then sign in again with the same password.
+- **Change Password** — sets a new password for the user without knowing the old one. It asks for the **new password** and a **confirm** of it, and then, optionally, an email address and its password to send from, a **password must be changed** switch that forces the user to set their own at the next sign-in, and whether to notify them **by email** or **by SMS**. The user record must be saved first.
+- **Add Types Related To Current Types** — on the permissions grid. Standing on a permission line, it looks at the entity that line covers, works out every entity it points at through its reference and generic-reference fields, and adds a line for each one that is not already in the grid. It is how you grant the supporting read access an entity needs without hunting for the related types by hand. The same button is on the Security Profile screen, over the same grid.
+
+**On the User Add Request:** **Add User** — the request must be saved; it then creates the actual user from the request, which is what turns an approved request into a login.
+
 ## LDAP / Active Directory
 
 When **Use LDAP for users login** is enabled in General Settings, the system authenticates users through the directory instead of a local password. Two exceptions exist for accounts that must remain local:

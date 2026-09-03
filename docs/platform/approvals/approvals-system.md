@@ -515,6 +515,7 @@ The system provides global configuration options to control which approval decis
 | **useEscalateToDirectSupervisor** | استخدام قرار تصعيد إلى المشرف المباشر | Use Escalate To Direct Supervisor | Controls availability of "Escalate to Direct Supervisor" (تصعيد إلى المشرف المباشر) option |
 | **useEscalateToSpecificEmployee** | استخدام قرار تصعيد الي موظف بعينه | Use Escalate To Specific Employee | Controls availability of "Escalate to Specific Employee" (تصعيد الي موظف بعينه) option |
 | **useReturnToPreviousStep** | استخدام قرار إرجاع إلي الخطوة السابقة | Use Return To Previous Step | Controls availability of "Return to Previous Step" (إرجاع للخطوة السابقة) option |
+| **useReturnToSpecificStep** | استخدام قرار الإرجاع لخطوة محددة | Use Return To Specific Step | Controls availability of "Return To A Specific Step" (إرجاع لخطوة محددة) option |
 
 All of these options are **enabled by default** — a fresh system offers every decision until you switch one off.
 
@@ -625,6 +626,16 @@ For auto-escalation to work, you must create a **Task Schedule** with the follow
 | **Escalate to Supervisor** | Forward to the approver's Supervisor (the higher manager) | That manager becomes a candidate on the same step |
 | **Escalate to Direct Supervisor** | Forward to the approver's Direct Supervisor (the line manager) | That manager becomes a candidate on the same step |
 | **Escalate to Specific Employee** | Forward to chosen person | Specific employee approves |
+| **Return To Previous Step** | Send the case back one step | The previous step's approver decides again |
+| **Return To A Specific Step** | Send the case back to a step you name | That step's approver decides again |
+
+## Actions on these screens
+
+The decisions above are what an approver chooses. These are the buttons that get them there, and they sit on the ordinary record screens rather than on the Approval Definition itself.
+
+- **Approve Selected Lines** — the bulk decision, offered on the list view of any entity under approval. Tick the pending rows and press it, and one dialog settles them all: **Decision**, **Escalate To** (an employee, a security profile or an employee group), **OTP** where the step requires one, **Description** for the reasoning, and an **Approval Reason**. It refuses if you ticked nothing, and again if you leave the decision empty. Its decision list carries six of the eight: Approve, Reject, Return, Escalate To Supervisor, Return To Previous Step and Escalate To Specific Employee — **Return To A Specific Step and Escalate To Direct Supervisor are only available one record at a time**, because both need you to look at the case's own step list first.
+- **Revoke Approval Request** — cancels the pending approval request and takes the record back out of the workflow. It works on the record you are in, or on every row you ticked in a list.
+- **Move Approvals To Delegated Employee** — on the **Delegation** screen. Save the delegation, tick the rows, and the pending approval cases belonging to the delegating employee move across to the delegate. This is the button that makes a delegation retroactive; without it a new delegation only catches cases raised after it.
 
 ## Notification System
 
