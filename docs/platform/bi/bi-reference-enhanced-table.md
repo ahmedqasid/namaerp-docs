@@ -229,7 +229,7 @@ Operators: `>`, `>=`, `<`, `<=`, `=`, `!=`.
 
 | Key | CSS |
 |---|---|
-| `bg` | `background-color` |
+| `bg` | `background-color` — kept as authored while it contrasts with the theme's text, otherwise drawn as a tint (§5.1) |
 | `color` | `color` |
 | `bold` | `font-weight: 700` |
 | `italic` | `font-style: italic` |
@@ -237,7 +237,36 @@ Operators: `>`, `>=`, `<`, `<=`, `=`, `!=`.
 | `border` | `border` (shorthand, trusted string) |
 | `align` | `text-align` (`start`/`center`/`end`) |
 
-### 5.1 `rowConditionalFormatting`
+### 5.1 Backgrounds and dark mode
+
+The dashboard follows the user's light/dark theme, but a colour written into a rule is fixed. A pale
+fill chosen while looking at the light theme (`#fff8e1`, `#e8f5e9`, …) becomes light-on-light — and
+unreadable — the moment the dashboard is opened in dark mode; a dark fill has the same problem in
+light mode. The widget resolves that per theme:
+
+- **`bg` on its own** is painted exactly as written *as long as the theme's text colour still
+  contrasts with it*. Light-mode pastels pass that test, so existing dashboards look unchanged in
+  light mode. When the contrast is too low — a pastel in dark mode, a dark fill in light mode — the
+  same colour is painted as a **tint** instead, composited over the grid at 22% opacity. A pale
+  cream row therefore becomes a dark amber band in dark mode, keeping its hue while the theme's own
+  text colour stays readable. Nothing to configure per theme.
+- **`bg` together with `color`** is applied verbatim, both keys, with no adjustment: you have taken
+  control of the pair and are responsible for checking it in both themes. Use this for solid chip
+  styling such as `{ "bg": "#2e7d32", "color": "#ffffff" }`, which reads correctly either way
+  because it carries its own text colour.
+- **A colour that already carries transparency** — `rgba(...)` with an alpha argument, or 4-/8-digit
+  hex — passes through untouched: you have already chosen the strength of the tint yourself. So does
+  anything with no fixed colour to reason about, such as `var(...)` or `color-mix(...)`.
+
+Any CSS colour notation works for `bg` and `color` — hex, `rgb()`, `rgba()`, `hsl()`, or a colour
+name like `lightyellow`.
+
+So: give `bg` alone and let the widget cover both themes (the safe default), or give `bg` and
+`color` together and check both themes yourself.
+
+The `badge` renderer is unaffected — its pills always supply their own text colour (§4).
+
+### 5.2 `rowConditionalFormatting`
 
 Same vocabulary, applied per row. **Each rule must name the test column via `when.column`** — there is no implicit "this cell". Winning style applied to whole row via AG Grid's `getRowStyle`.
 
