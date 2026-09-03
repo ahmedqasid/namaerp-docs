@@ -8,7 +8,7 @@
 تتطلب هذه الشاشة تركيب وحدة الذكاء الاصطناعي (AI Module) وترخيصها ضمن رخصة النظام.
 :::
 
-![شاشة AI Tool Definition — الصفحة الرئيسية وجدول الصلاحيات](./images/ai-tool-definition-main.png)
+![شاشة AI Tool Definition — الصفحة الرئيسية وجدول الصلاحيات](./images/ai-tool-definition-main-ar.png)
 
 ## البيانات الأساسية
 
@@ -65,7 +65,7 @@
 - `{!paramName}` — استبدال نصي مباشر (لأسماء الجداول أو الأعمدة الديناميكية؛ ولا يُستخدم أبدًا مع مدخلات غير موثوقة).
 :::
 
-![صفحة Query Based وجدول مدخلات الاستعلام](./images/ai-tool-definition-query.png)
+![صفحة Query Based وجدول مدخلات الاستعلام](./images/ai-tool-definition-query-ar.png)
 
 ### جدول المدخلات
 
@@ -99,7 +99,7 @@
 
 عند التنفيذ يُشغَّل التقرير بالمدخلات المجمعة، ويُعاد ناتجه **نصًّا** إلى النموذج ليقرأه ويبني عليه إجابته.
 
-![صفحة Report Based وجدول مدخلات التقرير](./images/ai-tool-definition-report.png)
+![صفحة Report Based وجدول مدخلات التقرير](./images/ai-tool-definition-report-ar.png)
 
 ## النوع الثالث: أداة مبنية على مسار كيان (Entity Flow Based)
 
@@ -123,13 +123,13 @@
 
 عندما تتطلب الاستراتيجية سجلًا، يضيف النظام تلقائيًا للنموذج مدخلين: نوع الكيان المستهدف (إن لم يكن محددًا في التعريف) وكود السجل أو معرفه. عند التنفيذ يُحضَر السجل، وتوضع قيم المدخلات في خريطة السجل، ثم يُشغَّل المسار — وأي فشل في المسار يُعاد للنموذج كرسالة خطأ.
 
-![صفحة Entity Flow Based وجدول مدخلات المسار](./images/ai-tool-definition-entity-flow.png)
+![صفحة Entity Flow Based وجدول مدخلات المسار](./images/ai-tool-definition-entity-flow-ar.png)
 
 ## النوع الرابع: أدوات النظام (System Tool)
 
 أدوات جاهزة مبنية داخل نما، يضيفها مدير النظام بسطر في جدول **System Tools Configuration**: كل سطر يحمل **Tool Class Name** (اسم صنف الأداة) ومعه حتى خمسة مدخلات نصية (Parameter 1–5) تكوّن سلوك الأداة إن كانت تحتاج تهيئة، وحقول وصف وعناوين تُملأ تلقائيًا.
 
-![صفحة System Tool وجدول System Tools Configuration](./images/ai-tool-definition-system-tools.png)
+![صفحة System Tool وجدول System Tools Configuration](./images/ai-tool-definition-system-tools-ar.png)
 
 حقل **Tool Class Name** مزوّد بقائمة اقتراحات تعرض **كل أدوات النظام المتاحة في النظام** — تختار منها بالاسم. وقد يولّد السطر الواحد أكثر من أداة (أداة العدّ مثلًا تولّد أداتين).
 

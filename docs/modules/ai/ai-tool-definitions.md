@@ -8,7 +8,7 @@ The **AI Tool Definition** screen in the AI module is where these tools are defi
 This screen requires the AI module to be installed and licensed.
 :::
 
-![The AI Tool Definition screen — main page and access-control grid](./images/ai-tool-definition-main.png)
+![The AI Tool Definition screen — main page and access-control grid](../../ar/modules/ai/images/ai-tool-definition-main-en.png)
 
 ## Basic Data
 
@@ -65,7 +65,7 @@ Query parameters go through the same engine as field-map SQL, so the full [Advan
 - `{!paramName}` — direct literal substitution (for dynamic table/column names; never for untrusted input).
 :::
 
-![The Query Based page and the query parameters grid](./images/ai-tool-definition-query.png)
+![The Query Based page and the query parameters grid](../../ar/modules/ai/images/ai-tool-definition-query-en.png)
 
 ### The Parameters Grid
 
@@ -99,7 +99,7 @@ On the **Report Based** page:
 
 At execution time the report runs with the collected parameters, and its output is returned to the model **as text** for it to read and build its answer on.
 
-![The Report Based page and the report parameters grid](./images/ai-tool-definition-report.png)
+![The Report Based page and the report parameters grid](../../ar/modules/ai/images/ai-tool-definition-report-en.png)
 
 ## Type 3: Entity Flow Based
 
@@ -123,13 +123,13 @@ On the **Entity Flow Based** page:
 
 When the strategy requires a record, the system automatically adds two parameters for the model: the target entity type (unless fixed in the definition) and the record code or id. At execution time the record is fetched, the parameter values are placed into the record's map, and the flow runs — any flow failure is returned to the model as an error message.
 
-![The Entity Flow Based page and the flow parameters grid](./images/ai-tool-definition-entity-flow.png)
+![The Entity Flow Based page and the flow parameters grid](../../ar/modules/ai/images/ai-tool-definition-entity-flow-en.png)
 
 ## Type 4: System Tools
 
 Ready-made tools built into Nama, added by the administrator as lines in the **System Tools Configuration** grid: each line holds a **Tool Class Name** plus up to five text parameters (Parameter 1–5) that configure the tool when needed, and description/title fields that are filled automatically.
 
-![The System Tool page and the System Tools Configuration grid](./images/ai-tool-definition-system-tools.png)
+![The System Tool page and the System Tools Configuration grid](../../ar/modules/ai/images/ai-tool-definition-system-tools-en.png)
 
 The **Tool Class Name** field has a suggestion list showing **every system tool available in the system** — you pick one by name. A single line may generate more than one tool (the count tool, for example, generates two).
 
