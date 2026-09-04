@@ -731,7 +731,7 @@ Combines several fields into a single value, for a report group that has to brea
 
 ## Built-in system parameters
 
-Every report is handed the parameters below without declaring them. Reference one with `$P{name}` — for example `$P{loginLegalEntityName1}` for the company name in the page header, or `$P{loginLegalEntityId}` to price a row against the company the user is logged into.
+The system fills the parameters below at run time — no query and no configuration needed — but the report still has to declare each one it uses. Add it as a parameter with the name spelled exactly as listed and the right type — `java.lang.Object` is safe for every one of them, and the shipped reports also use `java.lang.String` for the text ones — then reference it with `$P{name}`: `$P{loginLegalEntityName1}` for the company name in the page header, or `$P{loginLegalEntityId}` to price a row against the company the user is logged into. Nama recognises these names and never prompts the user for them, so a declared system parameter costs nothing on screen — but a report that references a parameter it has not declared fails to compile.
 
 ::: details The full list of system parameters
 ### User and login

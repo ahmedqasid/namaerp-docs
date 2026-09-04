@@ -27,6 +27,95 @@ If a user tells you a report is "missing", this is where to look first: the repo
 If you are not going to hand-draw the layout, start at the [Report Wizard Guide](/platform/reports/report-wizard-guide) — it walks through building a report from the screen, field by field. Come back here for the parts the wizard does not cover: parameters written by hand, subreports, page sizes, fonts and security constraints.
 :::
 
+## How a form knows which record to print
+
+A report launched from a menu asks the user for everything it needs — a date range, a branch, a
+customer. A printed form asks for nothing at all: the user already has the record open and has
+pressed **Print**. Yet the query behind that form has no idea which sales invoice it is drawing, and
+nothing in the layout tells it. The record's identity arrives from outside, in a single parameter,
+and wiring that parameter is the one thing a hand-drawn form cannot get away without.
+
+### A form printed from one record
+
+Declare a parameter named `id`, and filter the main table on it:
+
+```xml
+<parameter name="id" class="java.lang.Object">
+    <property name="entityType" value="SalesInvoice"/>
+</parameter>
+```
+
+```sql
+select inv.code, inv.valueDate, cust.name1
+from SalesInvoice inv
+    left join Customer cust on cust.id = inv.customer_id
+where inv.id = $P{id}
+```
+
+That is the whole contract, and it is what every form shipped with the product does. The
+`entityType` property names the kind of record the value refers to, exactly as it does on a
+reference prompt.
+
+::: warning A form receives exactly one value, and it is matched by position
+A printed form never puts a prompt on screen — the user pressed Print on a record and that is the
+end of the conversation. The single value it receives is the record's id, and Nama writes it into
+the **first** parameter the design offers as a question. The name is not what decides: several forms
+shipped with the product call this parameter `Id` or `ID` rather than `id` and print perfectly well.
+
+So the id parameter should be the only open question in the design. Anything else the layout needs —
+a value it computes, a flag it switches on — has to be closed off, or it will take the record id
+instead and the form will draw the wrong record with nothing on screen to say why. Three things
+close a parameter off, and any one of them is enough: `isForPrompting="false"` on the parameter, a
+`<property name="ignore" value="true"/>` inside it, or a `src` property naming the parameter it
+takes its value from. The
+[built-in system parameters](/platform/reports/reports-namarep-reference#Built-in-system-parameters)
+— `loginUserName1`, `loginLegalEntityLogo` and the rest — are recognised by their names and skipped
+as well, so they can sit anywhere.
+:::
+
+### A form printed from a list screen
+
+Set the definition's **Report Type** to **List** and the form is offered from the list screen
+instead, where the user ticks several rows before pressing Print — see
+[Printing a list instead of a record](/platform/reports/printed-form-selection#Printing-a-list-instead-of-a-record).
+
+The form is now handed every selected record rather than one, so the same parameter arrives as a
+**list of ids**. Both its declaration and the query that reads it have to change:
+
+```xml
+<parameter name="id" class="java.util.List">
+    <property name="entityType" value="SalesInvoice"/>
+</parameter>
+```
+
+```sql
+where $X{IN, inv.id, id}
+```
+
+`$X{IN, column, parameter}` is Jasper's clause function for exactly this: it writes the
+`in (?, ?, ?)` for you, with as many placeholders as the user happened to tick. You cannot write
+that list by hand, because how many rows a user will select is not knowable when the design is
+drawn.
+
+The two routes also bind differently, which is worth knowing before you copy a working form: a list
+print matches the parameter by **name**, wherever it sits in the design, and the name has to be
+exactly `id`. The `Id` and `ID` spellings a single-record form happily tolerates receive nothing
+here.
+
+::: danger `= $P{id}` against a list fails
+This is the commonest reason a form that prints perfectly from a record fails from the list screen.
+`$P{}` binds a single value; a list of five ids has no single value to bind, so the query dies at the
+database with a type error that says nothing about lists. Change the class to `java.util.List` **and**
+the comparison to `$X{IN, …}` together — either change alone still breaks.
+:::
+
+::: tip The wizard flips both for you
+**Print As List** on the [Printing Form Wizard](/platform/reports/printing-form-wizard-guide) is this
+same switch. Left off, the generated form filters a single id; ticked, it generates a list parameter
+and an `IN`. What it writes for the single-record case is `$X{EQUAL, column, parameter}` — the clause
+function spelling of `column = $P{parameter}`. Either spelling is fine in a design you draw yourself.
+:::
+
 ## Putting the company logo on a report
 
 The logo is the first thing anyone asks for, and it needs no query and no configuration — the system hands it to every report that asks for it.
