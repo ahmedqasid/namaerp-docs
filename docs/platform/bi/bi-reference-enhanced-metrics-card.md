@@ -265,6 +265,29 @@ In partition mode, substitution reads from the representative row. Common patter
 
 Set `"cascade": true` to merge multiple matching rules; otherwise first match wins.
 
+### Colours and dark mode
+
+The dashboard follows the user's light/dark theme, but a colour written into a card is fixed —
+usually picked while looking at the light theme. The widget keeps each authored colour as written
+whenever it still reads against the active theme, and adapts it only when it does not:
+
+- **A card `bg`** is always painted as a **wash** — 30% of the colour you wrote, composited over the
+  theme's own card surface — so it tints the card in either theme instead of trapping the card's
+  text on a light fill. This is long-standing behaviour; what changed is that every CSS colour
+  notation now resolves, not just 6-digit hex.
+- **A text colour** — the card's `color`, the value slot's `color`, a badge or icon colour given on
+  its own — is kept as written while it still reads on the card behind it, and otherwise walked
+  towards the theme (lighter on a dark card, darker on a light one) in steps that keep its hue. A
+  teal `#0e7490` value stays exactly that in light mode and becomes a legible lighter teal in dark
+  mode.
+- **A background and a text colour set together** — a badge or an icon chip with both `bg` and
+  `color` — is applied verbatim: the pair carries its own contrast, so it is left alone in both
+  themes.
+- **A colour that already carries transparency**, or one with no fixed value to reason about such as
+  `var(...)` or `color-mix(...)`, passes through untouched.
+
+Any CSS colour notation works — hex, `rgb()`, `rgba()`, `hsl()`, or a colour name.
+
 ### Chip strip recipe (enum-on-discriminator-column)
 
 Best for "filter status" or "header chip" rows — one card per chip, each tinted differently based on a discriminator column.

@@ -254,6 +254,10 @@ light mode. The widget resolves that per theme:
   control of the pair and are responsible for checking it in both themes. Use this for solid chip
   styling such as `{ "bg": "#2e7d32", "color": "#ffffff" }`, which reads correctly either way
   because it carries its own text colour.
+- **`color` on its own**, with no `bg`, is treated the same way from the other side: kept as written
+  while it still reads on the grid's own background, and otherwise walked towards the theme — lighter
+  in dark mode, darker in light mode — in steps that keep its hue. A dark green `#1b5e20` stays
+  exactly that in light mode and becomes a legible sage green in dark mode.
 - **A colour that already carries transparency** — `rgba(...)` with an alpha argument, or 4-/8-digit
   hex — passes through untouched: you have already chosen the strength of the tint yourself. So does
   anything with no fixed colour to reason about, such as `var(...)` or `color-mix(...)`.
