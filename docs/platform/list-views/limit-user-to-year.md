@@ -72,8 +72,10 @@ When running a report, the system:
 - **Fiscal Year fields**: Automatically selects the first allowed year if the selected value is not permitted
 - **Fiscal Period fields**: Automatically selects the first allowed period
 
-::: warning
-Date fields representing a "To Date" are not affected by this restriction — only "From Date" fields are.
+::: warning "To Date" is recognised by name, not by meaning
+A to-date prompt has to be left alone or the range would collapse, and Nama decides which prompts those are from the parameter's **name**: a prompt is exempt when its name contains `to` and does not contain `from` (case ignored), or when the name is exactly `tdate`. So `toDate`, `dateTo` and `ToDocDate` are exempt, and `fromDate` is correctly raised.
+
+A to-date named anything else — `endDate`, `until`, `dueDate` — matches none of that. It is raised like a from-date, the range turns inside out, and the restricted user gets an empty report while everyone else gets the right one. Two escapes exist: a date prompt declared as a multi-selection list is never touched, and the report author can add `ignoreMinDates` = `true` to the parameter to opt that one prompt out. See [When Nama changes the answer the user gave](/platform/reports/reports-guide#When-Nama-changes-the-answer-the-user-gave).
 :::
 
 ## Practical Examples

@@ -288,6 +288,30 @@ WHERE invItem_id = {fItem}
 - **`entityType`** — what the user picks from
 - **`property`** — which field of the chosen record reaches the query: `code`, `name1`, `name2`, `startDate`
 
+Ordinarily `entityType` names one fixed type — `Employee`, `Customer` — and the prompt is a picker over that type. But plenty of columns hold a **generic reference**: a subsidiary that may be a customer, a supplier or an employee; an owner that may be a branch or a department. A report filtering on such a column has to ask the user two questions, and the answer to the first decides what the second is allowed to offer.
+
+Point `entityType` at another parameter, with a `$` in front of its name, and the picker takes its type from whatever that parameter currently holds:
+
+```xml
+<parameter name="subsidiaryType" class="java.lang.String">
+    <property name="enumType" value="EntityTypeDF"/>
+    <property name="allowedValues" value="Customer,Supplier,Employee"/>
+    <property name="arabic" value="نوع الذمة"/>
+    <property name="english" value="Subsidiary Type"/>
+</parameter>
+
+<parameter name="subsidiary" class="java.lang.Object">
+    <property name="entityType" value="$subsidiaryType"/>
+    <property name="property" value="id"/>
+    <property name="arabic" value="الذمة"/>
+    <property name="english" value="Subsidiary"/>
+</parameter>
+```
+
+The user picks **Supplier** in the first prompt and the second becomes a supplier picker; switch the first to **Customer** and the same prompt starts offering customers instead. Until the type prompt is answered the picker has nothing to search in, so declare the type parameter **before** the one that depends on it — prompts appear in declaration order — and consider marking it `required`.
+
+The Report Wizard writes this pair for you whenever you filter on a generic reference field. It adds a type prompt named after the field with `EntityTypeSelector` on the end — `subsidiaryEntityTypeSelector` for a `subsidiary` field — and limits its drop-down to the types that column actually accepts. Where the column accepts only one type there is nothing to ask, so the wizard skips the extra prompt and writes that single type straight into `entityType`.
+
 #### Drop-down lists
 
 - **`enumType`** — the option set to offer
@@ -325,6 +349,31 @@ documentType,Equal,ReceiptVoucher
 forType,Equal,${subsidiaryType}
 ```
 
+Nama narrows a record picker on its own as well, and it is worth knowing before you go hunting for a filter that does not exist. Whatever the user selected as their legal entity, branch, sector, department or analysis set when logging in also limits what any picker will find: a user logged into the Cairo branch who searches for a warehouse is offered Cairo's warehouses. That is normally exactly right, and occasionally exactly wrong — a consolidated report built to compare branches needs a branch prompt that can reach every branch, not just the one the user happens to be sitting in.
+
+Five properties relax that, one dimension each:
+
+- **`ignoreLoginLegalEntity`**
+- **`ignoreLoginBranch`**
+- **`ignoreLoginSector`**
+- **`ignoreLoginDepartment`**
+- **`ignoreLoginAnalysisSet`**
+
+Set one to `true` and the prompt stops filtering by the user's own value for that dimension and uses the public one instead, which makes records belonging to any value of it findable.
+
+```xml
+<parameter name="branch" class="java.lang.Object">
+    <property name="entityType" value="Branch"/>
+    <property name="ignoreLoginBranch" value="true"/>
+    <property name="arabic" value="الفرع"/>
+    <property name="english" value="Branch"/>
+</parameter>
+```
+
+::: warning This widens the prompt, not the report
+These properties only change what the prompt lets the user find. They grant no permission and touch no query. A user who is now able to pick a branch they may not read still gets back whatever the report's own `WHERE` clause and its [security constraints](#Limiting-what-each-user-sees) allow — which may be nothing at all, leaving them with an empty report and no explanation. If a picker is meant to reach everything, the query behind it usually has to be reviewed at the same time.
+:::
+
 #### Default values
 
 - **`defaultValue`** — a string, read according to the type of the parameter: a date as `dd-MM-yyyy`, a time as `yyyy-MM-dd'T'HH:mm:ss.SSS`, a reference as `id:entityType:code`.
@@ -356,6 +405,33 @@ For a multi-value default, separate the values with `@A=@X`:
 id:entityType:code@A=@Xid:entityType:code@A=@X...
 ```
 
+#### What an empty answer becomes
+
+A prompt the user leaves blank reaches the query as `null`, and `null` in an ordinary SQL comparison matches nothing — so the report a user expected to cover *all* branches comes back completely empty instead. The `type` property fixes that at the source, by substituting an extreme value for the blank before the query ever sees it:
+
+- **`type` = `>`** — an empty answer becomes the **smallest** value of its type: the empty string, the smallest number, 1 January 1900.
+- **`type` = `<`** — an empty answer becomes the **largest**: the largest number, 1 January 2999, and for text a run of Arabic ي characters that sorts after ordinary text.
+
+Read the property as *the comparison this parameter sits on*. A from-date used as `sales.date >= $P{fromDate}` takes `>`, so an empty from-date becomes 1900 and the condition stops excluding anything. Its to-date partner takes `<` for the same reason at the other end. In XML, `<` has to be written `&lt;`:
+
+```xml
+<parameter name="fromDate" class="java.util.Date">
+    <property name="type" value="&gt;"/>
+    <property name="arabic" value="من تاريخ"/>
+    <property name="english" value="From Date"/>
+</parameter>
+
+<parameter name="toDate" class="java.util.Date">
+    <property name="type" value="&lt;"/>
+    <property name="arabic" value="إلى تاريخ"/>
+    <property name="english" value="To Date"/>
+</parameter>
+```
+
+Leave `type` out altogether and a blank answer stays `null`, which is the right choice whenever the query already copes with null itself — `$X{}` clause functions do, and so does the `($P{p} is null or …)` shape the Report Wizard generates.
+
+Two things about this catch people out. A numeric parameter answered with **zero** is treated as blank and substituted the same way an unanswered one is. And the substitution happens whether or not the value makes sense in context: a wizard-built text filter using *contains* carries `type` = `>`, so an empty answer becomes the empty string and `like '%%'` quietly matches every row — which is the intended behaviour there, but explains a lot of "why did this filter do nothing?" questions.
+
 #### Showing, hiding and validating
 
 - **`NamaRep.canDisplay($P{param})`** — use it in a `printWhenExpression` so an element disappears for users who are not allowed to see that parameter's subject
@@ -378,7 +454,80 @@ id:entityType:code@A=@Xid:entityType:code@A=@X...
 - **`resource`** — a translation key, when the label should come from the translation files instead
 - **`src`** — reuse a property already defined on another parameter
 - **`ignore`** — keep the parameter out of the prompt entirely
-- **`type`** — special null handling, or the comparison type to use for date comparisons with `>` and `<`
+- **`type`** — what a blank answer turns into; see [What an empty answer becomes](#What-an-empty-answer-becomes)
+- **`ignoreMinDates`** — exempts a date prompt from the minimum-date rewriting described in [When Nama changes the answer the user gave](#When-Nama-changes-the-answer-the-user-gave)
+
+### When Nama changes the answer the user gave
+
+Not every value that reaches the query is the one the user typed. Just before a report runs, Nama looks over the answered prompts and quietly rewrites some of them. Nothing on screen says so — which is why the same report, with the same answers, can hand two users different numbers and look from the outside like a broken query.
+
+Three rewrites exist, and all three are worth knowing by heart.
+
+**Dates are raised to the user's minimum date.** [Limit User To Year](/platform/list-views/limit-user-to-year) lets an administrator give a user, a group or a security profile a floor: a fixed minimum date, or a rolling one so many days back from today. Every date prompt in every report is then raised to that floor — an answer earlier than the floor becomes the floor, and a blank answer becomes the floor as well. A user restricted to the last 90 days who asks for the year to date gets the last 90 days, and is not told.
+
+To-date prompts have to be left alone or the range would collapse to nothing. **Nama works out which prompts those are from their names, not from their meaning**: a prompt counts as a to-date when its parameter name contains `to` and does not contain `from` (case ignored), or when the name is exactly `tdate`. So `toDate`, `dateTo` and `ToDocDate` are safe, and `fromDate` is correctly raised. But a to-date named `endDate`, `until` or `dueDate` matches none of that, is raised like a from-date, and turns the user's range inside out into an empty report. When a restricted user gets nothing back from a report that works fine for everyone else, the names of its date parameters are the first place to look.
+
+Two things escape the rewrite. A date prompt declared as a `list` is never touched. And `ignoreMinDates` = `true` opts a single prompt out — the escape hatch for a date that is not a period boundary at all, or for one whose name the rule reads the wrong way round.
+
+```xml
+<parameter name="dueDate" class="java.util.Date">
+    <property name="ignoreMinDates" value="true"/>
+    <property name="arabic" value="تاريخ الاستحقاق"/>
+    <property name="english" value="Due Date"/>
+</parameter>
+```
+
+**Fiscal years and periods are moved forward.** A prompt that picks a Fiscal Year or a Fiscal Period is checked against the years and periods that user is limited to. If the one chosen starts earlier than the earliest they are allowed, it is replaced by that earliest allowed year or period. The same `to`/`from` naming rule exempts to-prompts here too.
+
+**Dimension prompts are forced to the login dimension.** A prompt that picks a Legal Entity, Sector, Branch, Department or Analysis Set can be overwritten with whatever the user selected when logging in. Whether it is depends on **Override Selected Legal Entity** and its four siblings, set on the report definition's Main page or — when the report leaves them empty — in [global configuration](/platform/global-config/global-config-reports):
+
+- **Never** — leave the user's answer alone.
+- **Always** — replace it with the login dimension every time, so the prompt becomes decoration.
+- **When Not Public** — replace it *unless* the user is logged into a composite dimension and answered with that dimension itself or one of the dimensions beneath it. A user logged into the public dimension is never overridden. This is the setting for letting the manager of a composite branch report across the branches underneath it, and no further.
+
+## Publishing several variants of one report
+
+Sooner or later the same design is wanted several times over with one answer already decided: the sales report locked to Cairo, the same report locked to Alexandria, the aged-debt report that always runs in the current fiscal year. Uploading three near-identical layout files is the wrong answer — the day a column changes, three files have to change with it, and one of them will be missed.
+
+A report definition can instead be **based on another report**. On the Main page set **Report Type** to *Based On Another Report* and leave **Definition** empty — the layout file belongs to the base report, and Nama refuses to save a variant carrying one of its own. Then, on the **Advanced** page, point **Based On Report** at the report that holds the real design.
+
+The variant inherits everything that makes the report: the layout, its subreports, its resources and its whole set of prompts. What it brings of its own is its code, its name, its report group and its security — so it appears on the menu as a separate report and can be handed to a different set of users.
+
+### Deciding an answer in advance
+
+The **Parameters Override** grid, also on the Advanced page, is where the inherited prompts get their fixed answers — one line per parameter:
+
+| Column | What it does |
+|---|---|
+| **Parameter Id** | The parameter name, spelled exactly as the design declares it |
+| **Param Value** | The value to use, written the same way as a `defaultValue` — including the dynamic functions such as `$yearStart()` and `$currentEmployee()` |
+| **Usage** | *Default Value* or *Replace Value* — see below |
+| **Allowed Values** | A comma-separated list that narrows this prompt's drop-down to a subset of what the design offers |
+| **Entity Type** | For a record prompt, the type the user picks from — a way to re-aim a picker without touching the design |
+| **Param Type** | Only needed when the parameter is not one of the design's prompts; see below |
+
+**Usage** is the column that decides how firm the variant is:
+
+- **Default Value** — the prompt is filled in for the user and still shown. They can change it. The right choice for "this report is nearly always run for the current year".
+- **Replace Value** — the prompt is filled in and **hidden**. The user never sees it and cannot change it. This is how a report is genuinely pinned to one branch.
+
+::: tip Replace Value is convenience, not permission
+A hidden prompt is only hidden on this variant. It does not stop the same user opening the base report, or another variant, and answering the question themselves. If a user must never see another branch's figures, it is the report group, the report's own security lines and its [security constraints](#Limiting-what-each-user-sees) that enforce that. Parameter overrides save everyone the typing; they do not build a wall.
+:::
+
+An override line may also name a parameter that is **not** one of the design's prompts — one the layout declared with `isForPrompting="false"` or `ignore`, and that the user is therefore never asked about. Fill in **Param Type** so Nama knows what kind of value it is holding, and the variant feeds the value in silently.
+
+### Choosing the base at run time
+
+**Based On Lines Filtered By Current User** goes one step further. Instead of a single fixed base, the variant lists several and picks the first line that matches whoever is running the report. A line can match on the login dimensions — legal entity, branch, sector, department, analysis set — and on the employee behind the login, matched directly, through their master group, or through a criteria definition. Anything left empty on a line matches everybody, and if no line matches at all, the plain **Based On Report** is used as the fallback.
+
+One report code on the menu can therefore print a different layout per branch, which is the usual reason for reaching for it: the same invoice, on each subsidiary's own letterhead.
+
+::: tip Replacing the design later
+Saving a base report re-saves every report based on it, so the overrides re-apply to the new layout by themselves. There is no list of variants to go round and refresh by hand — uploading a corrected jrxml onto the base report is the whole job.
+
+**Fetch Resources From** is the smaller cousin of the same idea. It leaves a report's own design alone and borrows only another report's images, fonts and subreports, so a house style can live in one place instead of being uploaded onto every report that uses it.
+:::
 
 ## Limiting what each user sees
 
