@@ -1,3 +1,7 @@
+---
+entities: [MnSrvContract, MnSrvOrder, MnSrvWorkPlan, MnSrvOrderExecution, MnSrvNotice]
+---
+
 # أوامر الخدمة وسندات تنفيذها
 
 تتابع هذه الصفحة عقدًا واحدًا من يوم توقيعه إلى يوم يؤشّر فيه الفني على آخر بند في قائمة المهام. وهي النصف العملي من مجلد سندات خدمات الصيانة؛ أما المال ففي صفحة [فوترة خدمات الصيانة](/ar/modules/crm/services-suite/crm-service-invoicing).

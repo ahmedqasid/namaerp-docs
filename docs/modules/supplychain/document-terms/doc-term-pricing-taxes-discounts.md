@@ -1,3 +1,7 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
 # Pricing, Taxes & Discounts Configuration
 
 This tab controls how unit prices, discounts, and taxes are calculated on documents created under the term — whether they are forced from price lists, recalculated on save, locked after a from-document, or excluded from item cost. The options apply to both sales and purchase documents; many are restricted to one side or to a single document type, as noted on each option.

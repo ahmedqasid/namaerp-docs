@@ -1,3 +1,7 @@
+---
+entities: [SICustomerInsurancePolicy]
+menu: cars → Car Insurance → Car Insurance Policy
+---
 # The Insurance Policy Record
 
 ::: info Required licence

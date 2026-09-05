@@ -1,3 +1,7 @@
+---
+entities: [REOpeningSales]
+menu: Real Estate and Property → Sales → Opening sales doc
+---
 # Opening Sales Contracts
 
 A villa was sold in 2023. The buyer paid 20% down and has been paying 96,000 a year since; four

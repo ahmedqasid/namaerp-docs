@@ -1,3 +1,7 @@
+---
+entities: [ProductionOrder]
+---
+
 <rtl>
 
 # أسئلة شائعة حول موديول التصنيع في نظام Nama ERP

@@ -1,3 +1,6 @@
+---
+entities: [HMSSalesPriceList, HMSCostList, HMSDiscount, HMSOverheadItem, HMSOverheadList, HMSActualOverheadCalculation, HMSChangePatientPricePlan]
+---
 # Pricing, Costing & Discounts
 
 Every hospital service has a selling price and a cost. As a hospital grows, pricing each service individually becomes impractical, so **lists** gather prices, costs and discounts in one place. These lists all share a single structure, so learning it once is enough.

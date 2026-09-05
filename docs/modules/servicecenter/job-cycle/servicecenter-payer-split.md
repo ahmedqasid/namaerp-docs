@@ -1,3 +1,6 @@
+---
+entities: [SrvCJobOrder]
+---
 # Who Pays for What
 
 In an ordinary workshop the bill goes to whoever brought the car in. In a franchised dealership it

@@ -1,3 +1,7 @@
+---
+entities: [FilesExportMenu]
+menu: Basic → Settings → Files Export / Import Menu
+---
 # Files Export / Import Menu
 
 The export dialog is fine for a one-off. But some exports are not one-offs — the same set of records, with the same columns, gets pulled every month for the same accountant. Re-choosing nine options and re-typing a field list every time is exactly the kind of thing that goes wrong.

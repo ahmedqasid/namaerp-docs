@@ -1,3 +1,8 @@
+---
+entities: [ConfigEntry]
+menu: Administration → Settings → System Settings
+---
+
 # Taxes and e-Invoice
 
 Nama carries four independent taxes on every document line. They are deliberately generic: tax 1 is usually VAT, but tax 2 might be a withholding deduction, tax 3 a municipality fee and tax 4 a stamp duty. What each one *is* comes entirely from how you configure it here.

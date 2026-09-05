@@ -1,3 +1,7 @@
+---
+entities: [ProjContrExtract]
+menu: Contracting → Project Contracting → Project Contract Extract
+---
 # Project Extracts
 
 Signing a contract in Nama books nothing. Recording execution books nothing. **The extract** (مستخلص مشروع) is the document where a contracting business finally earns money: it states, term by term, how much work is being billed this time, prices it at the contract's rates, adds VAT, then subtracts everything the contract says must be withheld or recovered — retention, the advance the owner already paid, any penalties — and arrives at a **net payable**.

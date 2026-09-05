@@ -1,3 +1,6 @@
+---
+entities: [MeasurementsRequest, CustomerSubmittal, ProjectDeliverLetter]
+---
 # Measurements, Submittals and Handover
 
 Three documents sit around the edges of the billing chain: one before the contract is even priced, one that governs what materials may be bought, and one that records the day the keys change hands. None of them books anything, and — importantly — none of them blocks the [execution](/modules/contracting/project-contracting/contracting-project-execution.md) or the [extract](/modules/contracting/project-contracting/contracting-project-extracts.md). They are records of approvals that happen in the real world, kept in the system so they can be found, reported on, and pointed at when somebody asks who agreed to what.

@@ -1,3 +1,7 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
 # Reservation & Delivery System
 
 These settings control how a document **reserves** stock for its lines and how it participates in the **delivery system** — the system table that tracks an order through reservation, loading, and final delivery. Reservation holds stock against future fulfilment; the delivery system drives the order-to-driver pipeline.

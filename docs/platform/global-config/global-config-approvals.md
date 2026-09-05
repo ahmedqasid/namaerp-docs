@@ -1,3 +1,8 @@
+---
+entities: [ConfigEntry]
+menu: Administration → Settings → System Settings
+---
+
 # Approvals and Revise
 
 Nama has two separate ways of putting a human check between "someone entered this" and "the system acted on it". **Approvals** route a document to the people who must agree to it. **Revise** requires a number of people to mark a record as reviewed. This tab configures both, plus record version history.

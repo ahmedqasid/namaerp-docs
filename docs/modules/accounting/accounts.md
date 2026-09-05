@@ -1,3 +1,8 @@
+---
+entities: [Account]
+menu: Accounting → Master Files → Account
+---
+
 # Accounts
 
 If the chart of accounts is the structure, the **Account** is the unit balances are actually recorded on. Every accounting entry — whatever its source — ends up posting a debit or credit amount to an account. And because most posting errors and reversed "subsidiary" balances trace back to the account's own setup, this is one of the most important screens for support staff to understand well.

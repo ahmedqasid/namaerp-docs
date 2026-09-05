@@ -1,3 +1,8 @@
+---
+entities: [CRMWorkPlan]
+menu: خدمة العملاء ← الدعم ← خطة عمل
+---
+
 # خطط العمل (CRM Work Plan)
 
 ::: info الترخيص المطلوب

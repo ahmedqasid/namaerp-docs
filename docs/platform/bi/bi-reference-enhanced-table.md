@@ -1,3 +1,7 @@
+---
+entities: [DashBoardWidget]
+menu: Administration → DashBoards → DashBoard Widget
+---
 # BI Reference — EnhancedTable
 
 Companion to [`bi-module-technical-reference.md`](./bi-module-technical-reference.md). Load this when authoring a widget with `type: "EnhancedTable"` (or its pivot/cross-tab mode).

@@ -1,3 +1,7 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
 # Stock Receipts for the Unsatisfied Part of a Purchase Order
 
 *Development Request: **SRDRQ06178***

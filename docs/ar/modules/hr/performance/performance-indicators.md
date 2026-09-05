@@ -1,3 +1,7 @@
+---
+entities: [PerformanceIndicator, PerformanceMeasure, ManualMeasures, SysIndicatorApproval]
+---
+
 # مؤشرات الأداء (Performance Indicators)
 
 بعض عناصر راتب الموظف ليست أرقاماً ثابتة — بل تعتمد على شيء يجب **قياسه** أولاً: كم ساعة عمل إضافية، كم مرة تأخير، كم عملية بيع أُنجزت، أو كيف كانت نتيجة آخر تقييم للموظف. **مؤشر الأداء** (Performance Indicator) هو طريقة Nama لتسمية هذا الشيء المقاس حتى تستطيع **[معادلة حساب الراتب](../payroll/salary-calculation-formulas.md)** قراءته. تغطي هذه الصفحة كيفية تعريف المؤشر، والطرق الثلاث لإدخال قيمته أو اعتمادها، وكيف يصل أثره في النهاية إلى الراتب.

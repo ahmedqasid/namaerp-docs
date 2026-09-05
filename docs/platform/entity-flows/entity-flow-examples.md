@@ -1,3 +1,7 @@
+---
+entities: [EntityFlow]
+menu: Administration → Display Customization → Entity Flow
+---
 
 # Entity Flow Examples
 

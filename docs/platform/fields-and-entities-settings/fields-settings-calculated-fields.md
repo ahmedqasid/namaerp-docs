@@ -1,3 +1,8 @@
+---
+entities: [GenericReferenceOverrider]
+menu: Basic → Settings → Fields and Entities Settings
+---
+
 # Calculated Fields and Row Colouring
 
 Sometimes the information a user needs is not stored on the record in front of them. A salesman writing an invoice wants to know what that customer still owes; a storekeeper picking an item wants to know how many are left in the warehouse; a collections clerk wants to know when this customer last bought anything. None of that lives on the document being edited — it lives somewhere else in the database, and today the user has to leave the screen, open a report, and come back.

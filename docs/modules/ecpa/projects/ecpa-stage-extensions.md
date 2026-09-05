@@ -1,3 +1,7 @@
+---
+entities: [CPAProjectStageExtension, CPAStageExtensionReason, CPAStageExtensionReasonType]
+menu: ECPA → Projects → Project Stage Extension
+---
 # Stage Extensions
 
 A [Project Stage](/modules/ecpa/projects/ecpa-project-stages) holds the promise: each phase, its

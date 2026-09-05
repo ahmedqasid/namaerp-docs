@@ -1,3 +1,7 @@
+---
+entities: [REOwnerShipTransfer]
+menu: Real Estate and Property → Documents → OwnerShip Transfer Document
+---
 # Transferring Ownership Between Owners
 
 Not every change of owner is a sale. A plot passes from a father to his sons. Two companies in the

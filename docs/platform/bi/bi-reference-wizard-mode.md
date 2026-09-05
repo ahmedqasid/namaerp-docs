@@ -1,3 +1,6 @@
+---
+entities: [DashBoardWidgetWizard, DashBoardWidget]
+---
 # BI Reference — Wizard Mode
 
 Companion to [`bi-module-technical-reference.md`](./bi-module-technical-reference.md). Load this only when authoring a widget whose `wizardDataSource` is set.

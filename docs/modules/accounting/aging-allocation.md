@@ -1,3 +1,8 @@
+---
+entities: [AgingAllocation]
+menu: Banks → Master Files → Aging Allocation
+---
+
 # Aging Allocation
 
 A debt-age report answers one question: how old is this balance? To answer it the system has to know

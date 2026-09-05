@@ -1,3 +1,8 @@
+---
+entities: [NamaPOSSalesInvoice]
+menu: Point of sale → Documents → POS Sales Invoice
+---
+
 # The Sales Invoice
 
 The sales screen is where a cashier spends almost the whole day. It is built to do one thing very fast: turn a basket of goods into a paid receipt. This page is a tour of that screen and the everyday flow of ringing up a sale.

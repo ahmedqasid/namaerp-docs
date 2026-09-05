@@ -1,3 +1,7 @@
+---
+entities: [CRMFAQ]
+menu: Customer Relationship Management → Support → CRM FAQ
+---
 # FAQ
 
 **CRM FAQ / سؤال شائع** — `Customer Relationship Management > Support > CRM FAQ`.

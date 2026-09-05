@@ -1,3 +1,7 @@
+---
+entities: [CRMWorkPlan]
+menu: Customer Relationship Management → Support → Work Plan
+---
 # Work Plans
 
 ::: info Required licence

@@ -1,3 +1,7 @@
+---
+entities: [TRTourProgram]
+menu: Travel → Master Files → Tour Program
+---
 # Tour Programs
 
 A tour operator does not invent a new trip for every group that lands at the airport. The same

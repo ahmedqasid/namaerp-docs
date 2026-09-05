@@ -1,3 +1,8 @@
+---
+entities: [CRMVisitRequest]
+menu: خدمة العملاء ← الدعم ← طلب زيارة
+---
+
 # طلبات الزيارة (CRM Visit Request)
 
 ::: info الترخيص المطلوب

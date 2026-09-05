@@ -1,6 +1,7 @@
 {
   "sortedPaths": [
     "/modules/ai",
+    "/modules/ai/ai-assisted-support.md",
     "/modules/ai/ai-tool-definitions.md",
     "/modules/ai/ai-assistant.md",
     "/modules/ai/ai-configuration.md",

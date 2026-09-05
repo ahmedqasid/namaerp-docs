@@ -1,3 +1,6 @@
+---
+entities: [SalarySheet, SalaryDocument, SalaryGenerationRange]
+---
 # Salary Documents
 
 Everything on the [salary components](salary-components.md), [formulas](salary-calculation-formulas.md) and [structures](salary-structures.md) pages is *setup* — the machinery that decides how much each employee should be paid. This page is where that machinery finally runs. Two documents do the work: a **Salary Sheet**, which is the batch run for a whole payroll period, and a **Salary Document**, which is the individual payslip it produces for each employee — and the source of the accounting entry.

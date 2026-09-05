@@ -1,3 +1,6 @@
+---
+entities: [PerformanceIndicator, PerformanceMeasure, ManualMeasures, SysIndicatorApproval]
+---
 # Performance Indicators
 
 Some pieces of an employee's pay aren't fixed numbers — they depend on something that has to be **measured** first: how many overtime hours were worked, how many late arrivals happened, how many sales were closed, or how the employee's last appraisal scored. A **Performance Indicator** (مؤشر الأداء) is Nama's way of naming that measured thing so a [salary formula](../payroll/salary-calculation-formulas.md) can read it. This page covers how an indicator is defined, the three ways its value can be entered or approved, and how it ultimately reaches the salary.

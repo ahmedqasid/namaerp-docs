@@ -1,3 +1,7 @@
+---
+entities: [CriteriaBasedValidator]
+menu: Basic → Settings → Criteria Based Validator
+---
 # Criteria Based Validation
 
 Every business has rules that the standard screens know nothing about. "Don't let anyone save a

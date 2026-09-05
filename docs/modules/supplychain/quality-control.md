@@ -1,3 +1,6 @@
+---
+entities: [QualityControlDoc, QualityControlReq, QualityAssuranceDoc, QualityAssuranceReq, QualityCheckList, QuestionClassification]
+---
 # Quality Control
 
 Not everything that arrives meets your standards, and not everything you produce is ready for the customer. **Quality control** is the gate that ensures only what passes inspection enters available stock or reaches the customer. The system integrates with receiving and production, preventing items from moving into available stock until their checks are complete.

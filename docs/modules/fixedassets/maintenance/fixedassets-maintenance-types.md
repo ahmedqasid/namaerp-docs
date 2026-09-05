@@ -1,3 +1,7 @@
+---
+entities: [FAMaintenanceType]
+menu: Assets → Fixed Asset Maintenance → Maintenance Type
+---
 # Maintenance Types
 
 A workshop does not do "maintenance". It does a 90-day routine service, an annual overhaul, and the

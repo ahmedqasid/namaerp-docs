@@ -1,3 +1,7 @@
+---
+entities: [HMSLabTestRequest, HMSLabTestResult, HMSRadiologyReq, HMSRadiologyResult, HMSSurgeryReq, HMSSurgeryReservation, HMSSurgeryApproval, HMSBloodBank, HMSBloodBankReturn]
+---
+
 # الطلبات والنتائج الإكلينيكية
 
 أثناء إقامة المريض (أو في زيارته الخارجية) يطلب له الطبيب فحوصًا وإجراءات: تحاليل، أشعة، عمليات. يتبع النظام في ذلك نمطًا واضحًا — **طلب** يفتحه الطبيب، ثم **نتيجة** تُدخلها المعامل أو الأقسام، ويرتبط الاثنان معًا. كل سطر مُسعَّر مقسوم بين المريض والتأمين كالعادة.

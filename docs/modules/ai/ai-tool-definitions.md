@@ -1,3 +1,8 @@
+---
+entities: [AIToolDefinition]
+menu: ai → Master Files → AI Tool Definition
+---
+
 # AI Tool Definitions
 
 When an AI assistant talks to Nama ERP — whether it is the assistant built into the system or an external client connected through the [MCP server](./ai-mcp-server.md) — it can do nothing on its own. Every capability the assistant has is a **tool** that a system administrator defined beforehand: a query that answers a specific question, a report run with parameters, an entity flow executed on a document, or one of Nama's ready-made system tools.
@@ -158,6 +163,8 @@ The **Add Export Tools** button adds only the six tools above, but the system sh
 | `AITAddDiscussionToRecord` | `<prefix>AddDiscussionToRecord` | Add a discussion (comment) to any record |
 | `AITListDiscussionsOfARecord` | `<prefix>ListDiscussionsForARecord` | List the discussions of a given record |
 | `AINamaERPDocsTool` | `<prefix>erpDocs` | Search the Nama ERP documentation and return the passages closest to the question |
+| `AITReadOnlySQLQuery` | `<prefix>runReadOnlySqlQuery` | Run a single read-only SQL `SELECT` against the database and return the rows — see the warning below |
+| `AITTermAndConfigTools` | `<prefix>ListTermAndConfigTargets`, `<prefix>GetTermOrConfigSchema`, `<prefix>ReadTermOrConfig` and `<prefix>UpdateTermOrConfig` | List, describe, read and update the settings of a document term or a configuration entry |
 
 ::: info Module-specific system tools
 Some modules add their own system tools that appear in the same list. For example, the HR module provides tools for an employee's vacation balance (for the current employee or any employee). The available set grows with the modules you have installed and licensed.
@@ -165,6 +172,10 @@ Some modules add their own system tools that appear in the same list. For exampl
 
 ::: warning The ERP docs tool and semantic search
 `AINamaERPDocsTool` relies on a semantic index of the documentation; it does not work until the vector store is configured in [AI Module Configuration](./ai-configuration.md#Semantic-Search-and-Embedding-Setup).
+:::
+
+::: danger The read-only SQL tool ignores record permissions
+Everything else on this screen runs through the standard gates, so a tool never shows a user more than the screens would. `AITReadOnlySQLQuery` is the exception: it reads the database directly and therefore sees every legal entity, branch, salary and price regardless of what its user may open. Only a single `SELECT` is accepted and the statement runs in a transaction that is always rolled back, so it can never change anything — but restrict it to administrators through the **Security (Access Control)** grid. Its first parameter column sets the default maximum rows per call (200 by default, 5000 at most). See [Getting Better Support with an AI Coding Agent](./ai-assisted-support.md) for how support teams use it.
 :::
 
 ## Where Are These Tools Used?

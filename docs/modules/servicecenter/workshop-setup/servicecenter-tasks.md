@@ -1,3 +1,7 @@
+---
+entities: [SrvCTask]
+menu: Service Center → Master Files → Service Center Task
+---
 # Service Tasks
 
 A workshop sells time. Before it can put a price on a repair it has to agree what the repair *is* — "change the engine oil and the oil filter", "replace the front brake pads" — how long that takes on a normal car, what parts it swallows, and what an hour of it costs. The **service task** is that agreement written down.

@@ -1,3 +1,7 @@
+---
+entities: [SrvcPendingOperation, SrvcResumeOperation, SrvCWorkStopReason]
+---
+
 # إيقاف واستكمال الخدمة
 
 يتوقف العمل لأسباب لا علاقة للفني بها. الكمبروسر غير متوفر وطُلب من المورد. العميل لم يوافق بعد على

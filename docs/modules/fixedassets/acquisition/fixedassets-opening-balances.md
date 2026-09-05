@@ -1,3 +1,7 @@
+---
+entities: [FAOpeningDocument, FAOpeningDocumentUpdate]
+menu: Assets → Documents → Fixed Asset Opening Document
+---
 # Opening Balances for Assets You Already Own
 
 Almost nobody starts using Fixed Assets on the day they buy their first machine. They start with four

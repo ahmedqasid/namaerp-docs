@@ -1,3 +1,7 @@
+---
+entities: [CRMLead]
+menu: Customer Relationship Management → Marketing → CRM Lead
+---
 # Leads
 
 A lead is the record you open the moment a prospect becomes real enough to remember. Somebody walked onto the stand, somebody rang the hotline, a broker sent a name — and now it needs an owner, a next step and a place to keep the phone numbers.

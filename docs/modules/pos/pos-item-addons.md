@@ -1,3 +1,8 @@
+---
+entities: [NamaPosItemAdditionalItems]
+menu: Point of sale → Settings → POS Item Additional Items
+---
+
 # Item Add-ons
 
 Some items are not sold plain. A coffee comes with choices of milk and sugar; a shirt comes in sizes and colours; a meal comes with extras. **Add-ons** let the cashier capture those choices when the item is added, so the order — and the kitchen ticket — is exactly what the customer asked for.

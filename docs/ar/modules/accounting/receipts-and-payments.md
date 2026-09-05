@@ -1,3 +1,8 @@
+---
+entities: [ReceiptVoucher, PaymentVoucher, ReceiptOrder, PaymentOrder, RVRequest, PVRequest, ConsolidatedRVRequest, ConsolidatedPVRequest]
+menu: الحسابات ← المستندات ← سند قبض
+---
+
 # سندات القبض والصرف
 
 كل نقود تدخل خزينتك أو بنكك أو تخرج منهما تمرّ عبر هذه العائلة من المستندات. وهي مصمّمة على هيئة **سلسلة من ثلاث مراحل** تفصل بين «من يطلب الصرف» و«من يأذن به» و«من ينفّذه فعلًا» — وهي بنية رقابية مهمّة في المنشآت التي تفصل الصلاحيات.

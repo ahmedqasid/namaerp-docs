@@ -1,3 +1,7 @@
+---
+entities: [REFineDoc, REFineDocType]
+menu: Real Estate and Property → Fines → Real state fine Doc
+---
 # Late-Payment Fines
 
 A customer who is three months late on a 50,000 installment still owes 50,000. What he *also* owes — if the contract says so — is a penalty, and that penalty is not part of the installment. It is a new charge, raised on its own document, billed on its own invoice and collected with its own receipt voucher.

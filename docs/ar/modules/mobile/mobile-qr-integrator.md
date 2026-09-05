@@ -1,3 +1,8 @@
+---
+entities: [MobileQRIntegrator]
+menu: الأساسيات ← إعدادات التطبيقات ← Mobile QR Integrator
+---
+
 # دليل Mobile QR Integrator
 
 ## نظرة عامة

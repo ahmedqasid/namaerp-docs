@@ -1,3 +1,7 @@
+---
+entities: [VacationDocument, VacationRequest, VacationPlanDocument, MultiEmpVacation, AggregatedVacationDocument]
+---
+
 # مستندات الأجازات
 
 تغطي هذه الصفحة الشاشات التي تضع الموظف فعلياً في أجازة: زوج **طلب أجازة** (Vacation Request) و**سند أجازة** (Vacation Document)، و**مستند خطة أجازة** (Vacation Plan Document) المستخدم لتخطيط الأجازة مسبقاً، وشاشتي التجميع اللتين تُجمّعان الأجازات عبر عدة موظفين أو عدة مقاطع — **سند أجازة مجمع لأكثر من موظف** (Multi Employee Vacation) و**سند أجازه مجمع** (Aggregated Vacation Document). كل هذه الشاشات تقرأ قواعدها من [نوع الأجازة](vacation-types-and-balances.md) الذي تنتمي إليه الأجازة.

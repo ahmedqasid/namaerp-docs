@@ -1,3 +1,7 @@
+---
+entities: [ContractTemplate]
+menu: Contracting → Master Files → Contract Template
+---
 # Contract Templates
 
 Contractors repeat themselves. A developer who builds the same villa type forty times, a fit-out

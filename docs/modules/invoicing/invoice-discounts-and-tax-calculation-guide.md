@@ -1,3 +1,7 @@
+---
+entities: [TaxPlan, TaxDiscountEffectsConfig]
+menu: Basic → Master Files → Tax Plan
+---
 # Invoice Discounts and Tax Calculation System - Comprehensive Guide
 ## Overview
 

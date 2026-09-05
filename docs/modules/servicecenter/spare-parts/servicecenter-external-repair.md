@@ -1,3 +1,7 @@
+---
+entities: [SrvCExternalRepair]
+menu: Service Center → Documents → External Repair
+---
 # External Repair
 
 Some jobs leave the building. The A/C compressor on Fahad Al-Otaibi's Saif has to be bench-tested,

@@ -1,3 +1,8 @@
+---
+entities: [MRPDocument, Scenario, MRPAvailableQtySource]
+menu: التصنيع ← تخطيط موارد ← سند تخطيط
+---
+
 # تخطيط متطلبات المواد (Material Requirements Planning - MRP) - دليل المستخدم
 
 ## مقدمة عن MRP

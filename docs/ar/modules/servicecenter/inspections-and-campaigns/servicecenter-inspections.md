@@ -1,3 +1,8 @@
+---
+entities: [SrvCInspectionDoc, SrvCInspectionTemplate, SrvCInspectionPoint]
+menu: مركز خدمة ← المستندات ← سند فحص و استلام
+---
+
 # سندات الفحص والاستلام
 
 حين يسلّم فهد العتيبي مفاتيحه في الثامنة وعشرين دقيقة صباح ٣ مارس، لا بد أن يدور معه أحد حول سيارته

@@ -1,3 +1,7 @@
+---
+entities: [FAAdditionDeduction, AggrAdditionDeduction]
+menu: Assets → Documents → Asset addition deduction
+---
 # Additions and Deductions
 
 In January 2027 Al-Waha's CNC machine gets a new control unit. It is not a repair — the machine is

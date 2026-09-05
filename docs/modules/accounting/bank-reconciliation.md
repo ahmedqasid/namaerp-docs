@@ -1,3 +1,8 @@
+---
+entities: [BankReconciliation]
+menu: Banks → Cheques → Bank Reconciliation
+---
+
 # Bank Reconciliation
 
 Your bank balance in your books rarely matches the bank statement moment for moment: a cheque you deposited isn't yet collected, a fee the bank deducted you haven't recorded yet, a transfer in transit. **Bank Reconciliation** (`Banks > Cheques > Bank Reconciliation`) is the systematic process that places the bank statement next to your transactions, matches what matches, and surfaces the differences so they can be handled.

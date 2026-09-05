@@ -1,3 +1,8 @@
+---
+entities: [FiscalYear, FiscalYearStatusUpdate]
+menu: Basic → Master Files → Fiscal Year
+---
+
 # Fiscal Periods, Period Locking & Multi-Currency
 
 Two questions sit underneath a lot of support tickets: "why won't this document save into this date?" and "why did a foreign-currency balance suddenly change?" Both come down to the same two machineries — how time is divided into **fiscal periods** that can be opened and locked, and how the system handles **more than one currency**. This page is the reference the per-page "For Support" sections point to.

@@ -1,3 +1,7 @@
+---
+entities: [DashBoardWidget, DashBoard, BICrossFilter, DashBoardWidgetWizard, BIPeriodComparisonConfig]
+---
+
 # وحدة BI — لوحات المعلومات والتحليلات (BI Module — Dashboards & Analytics)
 
 تتيح لك وحدة BI في Nama ERP بناء لوحات معلومات تفاعلية تحوّل بياناتك المباشرة إلى مخططات وعدادات وجداول وغير ذلك. المخططات تتواصل مع بعضها عبر الفلاتر المتقاطعة (cross-filters) ونوافذ التفاصيل (drill-down) والروابط المباشرة — لذلك لوحاتك ليست صوراً ثابتة، بل أدوات استكشاف يمكن لفريقك النقر خلالها للوصول إلى الإجابات.

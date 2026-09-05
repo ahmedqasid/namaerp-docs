@@ -1,3 +1,8 @@
+---
+entities: [PrepaidExpenseContract, PrepaidExpenseItem, PrepaidExpenseLedger]
+menu: Accounting → Prepaid Expense Contracts → Prepaid Expense Contract
+---
+
 # Prepaid Expenses
 
 Some expenses are paid once but belong to many months: an annual rent paid up front, a yearly insurance premium, a maintenance contract. Booking the whole amount as an expense in the month you paid it would distort that month's results and leave the following months looking artificially cheap. The **prepaid-expenses** system solves this: it records the full payment as an asset, then recognizes it as expense **month by month** over the period it covers — automatically.

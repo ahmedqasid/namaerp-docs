@@ -1,3 +1,7 @@
+---
+entities: [MnMaintenanceService]
+menu: Customer Relationship Management → Maintenance Files → Machine Maintenance Service
+---
 # The Service Catalogue
 
 A maintenance business does not only sell parts. It sells **visits, inspections, charges and call-outs** — the labour half of the invoice. The machine suite keeps those in a priced catalogue so that a periodic chiller visit costs the same 1,500.00 on every quotation, every contract and every invoice unless somebody deliberately agrees otherwise.

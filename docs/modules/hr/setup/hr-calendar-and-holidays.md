@@ -1,3 +1,6 @@
+---
+entities: [HRCalendar, HRHolidays]
+---
 # HR Calendar, Holidays & Weekends
 
 Every attendance rollup, every vacation-day count, and every payroll figure in Nama ultimately answers one question: was this a working day, a weekly rest day, or an official holiday? Three settings answer it — the HR Calendar, HR Holidays, and, perhaps surprisingly, the Attendance Plan.

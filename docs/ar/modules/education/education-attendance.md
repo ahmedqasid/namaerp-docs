@@ -1,3 +1,7 @@
+---
+entities: [EDAttendance, EDDailyMonitoring, EDLeavePermission, EDLeaveReason]
+---
+
 # الحضور والمتابعة اليومية وأذون الانصراف
 
 ثلاث شاشات تحمل الحياة اليومية للمدرسة: من حضر الصفّ هذا الصباح، وماذا قال المدرسون وأولياء الأمور

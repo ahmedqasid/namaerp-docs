@@ -1,3 +1,6 @@
+---
+entities: [IPSReceptaclesReceipt, IPSManifestForCustody, IPSTransferReceptacles]
+---
 # Receptacles
 
 A receptacle is the transport container that gathers several mail items for movement between offices — a sealed bag or box. Before you deal with individual items, you deal with receptacles: you receive them, clear them through customs, and dispatch them on route schedules. The documents for this stage are found under **Freight Management System → Documents**.

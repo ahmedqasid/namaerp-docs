@@ -1,3 +1,8 @@
+---
+entities: [TechnicianServiceDistribution]
+menu: خدمة العملاء ← مواعيد الفنيين ← سند توزيع الخدمات
+---
+
 # سند توزيع الخدمات
 
 ::: info الترخيص المطلوب

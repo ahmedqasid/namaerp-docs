@@ -1,3 +1,6 @@
+---
+entities: [SISalesOrderCancel, SIAllocationCancel, SIFinalDeliveryCancel, SIReceiptCancel, SITrafficLetterCancel, SITrafficLetterReqCancel]
+---
 # Cancellation Documents
 
 Most systems cancel a document by flipping a status on it. Nama's cars area does something else:

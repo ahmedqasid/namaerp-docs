@@ -1,3 +1,7 @@
+---
+entities: [DuesLiquidationDoc, DuesLiquidationComponent, AggrDuesLiquidationDoc]
+menu: Payroll → Dues Liquidation and Firing → Dues Liquidation Document
+---
 # Dues Liquidation
 
 When someone leaves the company, a single document has to draw a line under everything the two

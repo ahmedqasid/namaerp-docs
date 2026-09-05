@@ -1,3 +1,7 @@
+---
+entities: [CRMOffers]
+menu: Customer Relationship Management → Marketing → Offer
+---
 # Offers
 
 The screen called **Offer** (CRM عرض) is the most commonly misread thing in the CRM menu, and it is worth clearing up in the first paragraph: **it is not a price offer.** There is no quantity on it, no unit price, no discount, no tax, no total, no validity date, no currency, no price list and no terms and conditions. Nothing anywhere on the screen holds money.

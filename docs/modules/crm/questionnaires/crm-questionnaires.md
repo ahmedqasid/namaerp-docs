@@ -1,3 +1,7 @@
+---
+entities: [CRMQuestionair]
+menu: Customer Relationship Management → Questionairs → Questionair
+---
 # CRM Questionnaires
 
 The template is the survey; the **questionnaire** (استبيان) is one filled-in copy of it. One

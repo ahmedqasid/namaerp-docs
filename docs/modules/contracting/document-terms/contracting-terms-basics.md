@@ -1,3 +1,7 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
 # Document Terms Basics
 
 A **document term** (توجيه المستند) is the small configuration record that tells one document type how to behave — and, above everything else in Contracting, **which accounts it posts to**. The accounts are not on the document and not on the contract: they live on the term. So when a project extract debits the owner's receivable and credits contract revenue, it is because someone once set those two accounts on the extract's term.

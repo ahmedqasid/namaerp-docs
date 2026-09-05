@@ -1,3 +1,7 @@
+---
+entities: [FACustodyPurchaseDocument]
+menu: Assets → Custodys → Custody purchase document
+---
 # Buying Custody Items
 
 Al-Waha Industries buys a laptop for 6,000 from Riyadh IT Supplies. The obvious accounting treatment

@@ -1,3 +1,7 @@
+---
+entities: [FRMBillOfLading]
+menu: Freight Management System → Documents → Bill of Lading
+---
 # Bills of Lading
 
 The bill of lading is the official shipping document that proves the carrier's receipt of the goods and the terms of their carriage and delivery. In Nama ERP it's usually created from the [operation order](./operation-orders.md) with the **Create Bill of Lading** button, inheriting its data — and it can also be created directly from **Freight Management System → Documents → Bill of Lading**.

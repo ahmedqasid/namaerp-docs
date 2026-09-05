@@ -1,3 +1,8 @@
+---
+entities: [SISalesReturn]
+menu: سيارات ← مبيعات السيارات ← مردود مبيعات سيارة
+---
+
 # مردود مبيعات السيارة
 
 [فاتورة المبيعات](/ar/modules/servicecenter/car-sales/car-sales-invoice.md) هي نقطة اللاعودة، ومعنى

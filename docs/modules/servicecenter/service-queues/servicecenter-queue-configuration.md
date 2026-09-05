@@ -1,3 +1,7 @@
+---
+entities: [QueueServiceConfig]
+menu: Service Center → Queue Service → Queue Service Configurations
+---
 # Queue Service Configurations
 
 ::: info Required licence

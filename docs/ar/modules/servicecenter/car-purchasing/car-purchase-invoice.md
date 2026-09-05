@@ -1,3 +1,8 @@
+---
+entities: [SIPurchaseInvoice]
+menu: سيارات ← مشتريات السيارات ← فاتورة شراء سيارة
+---
+
 # فاتورة شراء السيارة
 
 **فاتورة شراء سيارة / Car Purchase Invoice** —

@@ -1,3 +1,7 @@
+---
+entities: [REReservationDoc, REReservationDocCancel, REInitialSalesContract]
+---
+
 # الحجوزات وعقود البيع المبدئية
 
 بين «العميل مهتم» و«العميل اشترى» فترة يجب أن تُرفع فيها الوحدة من المعروض دون أن يُعترف بأي إيراد.

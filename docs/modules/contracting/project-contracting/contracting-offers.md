@@ -1,3 +1,7 @@
+---
+entities: [ContractingOffer]
+menu: Contracting → Project Contracting → Contracting Offer
+---
 # Contracting Offers
 
 Every contract in this module starts as a number somebody had to justify. The contracting offer is where that number is built: the document in which each item of work is broken into the materials, labour, subcontractors and expenses that will deliver it, the four buckets are added up, a margin is put on top, and the result is the price you put in front of the client.

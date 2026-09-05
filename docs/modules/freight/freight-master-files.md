@@ -1,3 +1,6 @@
+---
+entities: [FRMServiceItem, FRMContainer, FRMContainerType, FRMContainerSize, FRMOceanVessel, ShippingPort, FRMSailingSchedule, FRMCommodity, FRMBillOfLadingType, FRMUOM, FRMCountry, FRMLocation]
+---
 # Freight Master Files
 
 Before you create your first operation order, you need to define the building blocks every shipment is made of: which services you offer, in which containers, on which vessels, and to and from which ports. You'll find all of these master files under **Freight Management System → Master Files**, defined once and then reused across every document.

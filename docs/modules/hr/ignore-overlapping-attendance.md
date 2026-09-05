@@ -1,3 +1,7 @@
+---
+entities: [TimeAttendance]
+menu: Payroll → Time Attendance → Time Attendance
+---
 # Ignoring Overlapping Attendance and Departure Lines
 
 ## Why Do We Need This Feature?

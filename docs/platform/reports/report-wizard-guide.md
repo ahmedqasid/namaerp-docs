@@ -1,3 +1,7 @@
+---
+entities: [ReportWizard]
+menu: Administration → Reports → Report Wizard
+---
 # Report Wizard Guide
 
 Nama ERP provides an easy and effective way to create professional reports quickly using the Report Wizard tool.

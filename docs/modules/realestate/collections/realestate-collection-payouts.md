@@ -1,3 +1,6 @@
+---
+entities: [REBankPay, REOwnerPay]
+---
 # Paying Collected Money to the Bank or the Owner
 
 Collecting rent is only half of a property agency's day. The other half is getting that money out again: into the bank at the end of the week, and into the landlord's account at the end of the month. Two documents handle those two journeys, and they are deliberately similar — a range, a button that sweeps up collect documents, and a single accounting entry on the total.

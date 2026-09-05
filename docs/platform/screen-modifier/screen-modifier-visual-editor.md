@@ -1,3 +1,7 @@
+---
+entities: [ScreenModifier]
+menu: Administration → Display Customization → Screen Modifier
+---
 # Screen Modifier — Visual Layout Editor
 
 Filling in dozens of collections by hand is precise, but slow. The **Visual Layout Editor** gives you the same power on a drag-and-drop canvas: you see the screen exactly as users will, rearrange it directly, and save the result straight back into a Screen Modifier record.

@@ -1,3 +1,6 @@
+---
+entities: [RERentContract, REMultiRentContract]
+---
 # Generating the Rent Schedule
 
 A lease is signed once, but it is paid many times. You agree an annual rent with a tenant, and out of

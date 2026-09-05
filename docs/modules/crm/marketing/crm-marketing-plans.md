@@ -1,3 +1,7 @@
+---
+entities: [CRMMarketingPlan]
+menu: Customer Relationship Management → Marketing → MarketingPlan document
+---
 # Marketing Plans
 
 Every December the sales director sits down and writes the year out on one sheet: central AC units

@@ -1,3 +1,6 @@
+---
+entities: [REInvestmentFund, REFundFinanceAddition, REInvestorExit]
+---
 # Real Estate Investment Funds
 
 A fund is a simple idea. Several people put money into a pot, the pot buys property, the property

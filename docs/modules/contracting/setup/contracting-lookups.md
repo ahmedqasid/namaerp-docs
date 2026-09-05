@@ -1,3 +1,6 @@
+---
+entities: [ContractingUOM, ContractingTask, ContrTermCategory, ContrTermCategory2, ContractingFineReason, ContractingDirectCost, ContractingTaxExtractTerm]
+---
 # Units, Tasks and Other Lookups
 
 Six small master files sit under **Contracting > Master Files** and do not deserve a page each. They

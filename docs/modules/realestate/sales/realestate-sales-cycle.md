@@ -1,3 +1,6 @@
+---
+entities: [RESalesOffer, RETempReservation]
+---
 # The Property Sales Cycle
 
 Selling a property is rarely one signature. A customer walks into the sales office on Tuesday and

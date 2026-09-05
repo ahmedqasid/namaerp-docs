@@ -1,3 +1,6 @@
+---
+entities: [EDCourseContract]
+---
 # Payment Schedules and Collection
 
 Very few families pay a year of tuition in one go, and very few companies pay for a training

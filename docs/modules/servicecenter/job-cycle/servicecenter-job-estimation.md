@@ -1,3 +1,7 @@
+---
+entities: [SrvCJobEstimation, SrvCJobEstimationUpdate]
+menu: Service Center → Documents → Job Estimation
+---
 # Job Estimations
 
 The job estimation (مقايسة) is the quote. Before anyone touches the car, someone has to be able to

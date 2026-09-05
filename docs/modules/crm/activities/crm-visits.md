@@ -1,3 +1,7 @@
+---
+entities: [CRMVisit]
+menu: Customer Relationship Management → Support → Visit
+---
 # Visits
 
 ::: info Required licence

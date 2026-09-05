@@ -1,3 +1,7 @@
+---
+entities: [EntityFlow]
+menu: Administration → Display Customization → Entity Flow
+---
 # Entity Flow FAQ
 
 ## How can I set a value in a generic reference field when saving inside an entity flow? I tried:

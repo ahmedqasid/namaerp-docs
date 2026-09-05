@@ -1,3 +1,8 @@
+---
+entities: [CSHOpenShift, CSHCloseShift, CSHReceiptVoucher, CSHPaymentVoucher, ElectronicReceiptVoucher]
+menu: Accounting → Cashiers → Open Shift
+---
+
 # Cashier Shifts (Cash Drawer)
 
 The general receipt and payment vouchers ([see their page](./receipts-and-payments.md)) are flexible but more detailed than a cashier needs when handling dozens of quick payments a day. So Nama provides a simplified **cashier system** built on the idea of a **shift**: the cashier opens a shift at the start of the duty, records simple single-amount receipts and payments during it, then closes the shift — at which point the cash is reconciled and the difference is posted.

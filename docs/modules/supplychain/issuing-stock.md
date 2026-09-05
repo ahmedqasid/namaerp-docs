@@ -1,3 +1,7 @@
+---
+entities: [StockIssue, StockIssueReq, ItemCuttingDoc]
+menu: Inventory → Receipt Documents → Stock Issue
+---
 # Issuing Stock
 
 What goes in must come out! While [receiving stock](./receiving-stock.md) is about bringing items into your warehouse, issuing is about releasing them for use. Let's explore when, why, and how items leave your inventory.

@@ -1,3 +1,7 @@
+---
+entities: [CPAProjectType, CPAProjectSubType, CPAProjectClass, CPADiscipline]
+---
+
 # أنواع وتصنيفات وتخصصات المشاريع
 
 ::: info الترخيص المطلوب

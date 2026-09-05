@@ -1,3 +1,6 @@
+---
+entities: [CRMMediator, CRMAgent]
+---
 # Mediators and Agents
 
 **mediator / وسيط** — `Customer Relationship Management > Support > mediator`.

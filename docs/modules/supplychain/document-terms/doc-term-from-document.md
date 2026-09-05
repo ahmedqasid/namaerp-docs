@@ -1,3 +1,7 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
 # From-Document Configuration
 
 The **from document** (بناءً على) is the source document a new document is created from — for example a Sales Order that a Sales Invoice is built on. This tab of the Document Term controls how the origin's lines, quantities, and prices are copied and linked into the new document, how copied lines are collected and filtered, and which linked lines are locked from editing.

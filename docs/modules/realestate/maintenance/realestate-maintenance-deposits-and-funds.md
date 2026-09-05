@@ -1,3 +1,6 @@
+---
+entities: [REMaintenanceFund, REMaintenanceDepositProfit, RESalesDoc]
+---
 # Maintenance Deposits and Maintenance Funds
 
 Before anything else, one correction that saves a lot of confusion: the Real Estate module runs

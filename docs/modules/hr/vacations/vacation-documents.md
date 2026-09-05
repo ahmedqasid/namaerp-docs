@@ -1,3 +1,6 @@
+---
+entities: [VacationDocument, VacationRequest, VacationPlanDocument, MultiEmpVacation, AggregatedVacationDocument]
+---
 # Vacation Documents
 
 This page covers the screens that actually put an employee on leave: the **Vacation Request** (طلب أجازة) and **Vacation Document** (سند أجازة) pair, the **Vacation Plan Document** (مستند خطة أجازة) used to schedule leave ahead of time, and the two batch screens that aggregate vacations across many employees or many segments — **Multi Employee Vacation** (سند أجازة مجمع لأكثر من موظف) and **Aggregated Vacation Document** (سند أجازه مجمع). All of them read their rules from the [Vacation Type](vacation-types-and-balances.md) the leave belongs to.

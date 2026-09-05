@@ -1,3 +1,6 @@
+---
+entities: [MnBuilding, MnFloor, MnRoom]
+---
 # Buildings, Floors and Rooms
 
 Marina Plaza's chillers are not just "at Marina Plaza". They are in the chiller plant room, on the roof level, of the main tower — and when a technician is dispatched at seven in the morning, that is the difference between finding the machine and phoning the site engineer.

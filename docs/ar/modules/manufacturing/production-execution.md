@@ -1,3 +1,8 @@
+---
+entities: [ProductionExecution]
+menu: التصنيع ← المستندات ← تنفيذ إنتاج
+---
+
 # تنفيذ الإنتاج (Production Execution): تسجيل ما يحدث فعلاً
 
 ## لحظة الحقيقة

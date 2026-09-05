@@ -1,3 +1,7 @@
+---
+entities: [TechnicianServiceDistribution]
+menu: Customer Relationship Management → Technician Appointments → Technician Service Distribution
+---
 # Service Distribution
 
 ::: info Required licence

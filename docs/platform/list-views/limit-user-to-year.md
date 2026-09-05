@@ -1,3 +1,7 @@
+---
+entities: [LimitUserToYear]
+menu: Administration → Security → Limit User To Year
+---
 
 # Limit User To Year
 

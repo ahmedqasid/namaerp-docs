@@ -1,3 +1,7 @@
+---
+entities: [SrvCJobOrder, SrvcAddTaskToJobOrder]
+menu: Service Center → Documents → Service Center Job Order
+---
 # The Job Order
 
 The job order (أمر شغل) is the centre of the module. Everything before it is preparation and

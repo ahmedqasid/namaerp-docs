@@ -1,3 +1,6 @@
+---
+entities: [WhatsAppMessageConfiguration]
+---
 # SMS and WhatsApp Configuration in Nama ERP
 
 Nama ERP supports sending messages via SMS and WhatsApp to users, customers, suppliers, and other entities.

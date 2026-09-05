@@ -1,3 +1,7 @@
+---
+entities: [RentalAsset, RentalAssetClassification]
+menu: Service Center → Rental Assets → Rental Asset
+---
 # The Rental Asset File
 
 ::: info Required licence

@@ -1,3 +1,8 @@
+---
+entities: [SubsidiaryReconciliation]
+menu: Accounting → Reconciliations → Subsidiary Reconciliation
+---
+
 # Subsidiary Reconciliation
 
 A customer or supplier almost always keeps their own account of your dealings — and it rarely lines up with yours to the penny: an invoice they haven't booked, a payment in transit, a credit note one side recorded and the other didn't. **Subsidiary Reconciliation** is the systematic way to lay your books for a party next to their external statement, match what matches, and surface the differences. It's the customer/supplier twin of [bank reconciliation](./bank-reconciliation.md), using the very same workflow.

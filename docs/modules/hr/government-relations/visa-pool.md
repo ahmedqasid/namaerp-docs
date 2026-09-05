@@ -1,3 +1,6 @@
+---
+entities: [HRIssuedVisas, HRVisasDelegation, HRVisaHandling]
+---
 # Visa Pool
 
 Before a single overseas hire can travel, the company needs a work visa allocated to them — and in

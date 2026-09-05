@@ -1,3 +1,7 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
 # Terms for Acquiring Assets
 
 Everything in this group answers one question: **when an asset arrives, who gets credited?** The asset

@@ -1,3 +1,8 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
+
 # Document Terms (per-type processing rules)
 
 One question recurs throughout this module's guides: "where do the debit and credit accounts for this document come from?" The answer is always the **document term**. This page explains the idea of a term and its shared vocabulary, so we don't have to repeat it on every page.

@@ -1,3 +1,7 @@
+---
+entities: [MasterGroup]
+menu: Basic → Settings → Group
+---
 # Master Groups
 
 Document books number documents. **Groups** do the same job for the other half of the system — the

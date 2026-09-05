@@ -1,3 +1,6 @@
+---
+entities: [SIPurchaseInvoice, ReceiptAdditionalCost]
+---
 # Freight, Customs and Landed Cost
 
 A car leaving the importer's yard at 74,000 does not arrive in Riyadh costing 74,000. There is sea

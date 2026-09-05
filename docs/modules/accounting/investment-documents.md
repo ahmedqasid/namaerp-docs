@@ -1,3 +1,8 @@
+---
+entities: [InvestmentDoc, InvestmentDocumentFund, InvestmentDocPurchase, InvestmentDocROIProof, AggregatedInvestmentDocROIProof, InvestmentDocClaiming, InvestmentDocumentPurchase, InvestmentDocumentSale, InvestmentDocumentPriceUpdate, ProfitDistributationDoc]
+menu: Banks → Investment Documents → Investment Document
+---
+
 # Investment Documents & Fund Certificates
 
 Beyond the portfolio system that tracks investment *assets*, Nama has a second investment world for the **paper instruments** a company buys and holds: bonds and fund certificates. These behave very differently from an equity stake, so they get their own documents. This page covers both — and they themselves split into two kinds, which is the first thing to get straight.

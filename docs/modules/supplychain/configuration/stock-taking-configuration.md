@@ -1,3 +1,7 @@
+---
+entities: [ConfigEntry]
+menu: Inventory → Settings → Supply Chain Configurations
+---
 # Stock Taking Configuration
 
 This page documents the **Stock Taking** tab — settings that govern how physical counts (stock taking) are entered, validated, ended, and turned into adjustment documents. For the count process itself, see the [Stock Taking guide](../stock-taking.md).

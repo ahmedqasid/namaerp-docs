@@ -1,3 +1,7 @@
+---
+entities: [HMSClosingInvoice, HMSSurgeryInvoice, HMSSurgeryPackageInvoice, HMSAccommodationInvoice, HMSPatientCheckInvoice, HMSLabTestInvoice, HMSRadiologyInvoice, HMSPhysicalTherapyInvoice, HMSSupervisionInvoice, HMSServicesInvoice, HMSAttendantInvoice, HMSPharmacyInvoice, HMSPharmacyReturn, HMSSuppliesInvoice, HMSSupplyReturn, HMSServiceSupplyInvoice, HMSBloodBankInvoice]
+---
+
 # الفواتير والمحاسبة
 
 الفوترة هي العمود الفقري المالي للمستشفى. القاعدة بسيطة: **لكل نوع خدمة فاتورته**. تتشابه هذه الفواتير في بنيتها تشابهًا كبيرًا، ثم تختلف في سطورها بحسب نوع الخدمة. وكلها مستندات تُنتج **أثرًا محاسبيًا**.

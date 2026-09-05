@@ -1,3 +1,7 @@
+---
+entities: [FRMSalesInvoice, FRMPurchaseInvoice, FRMSalesOrder, FRMSalesReturn, FRMPurchaseReturn]
+---
+
 # الفواتير والمرتجعات
 
 هنا يتحوّل العمل التشغيلي إلى أثر مالي: تبيع الخدمات للعميل، وتشتريها من الموردين، وتتابع الفرق بينهما. كل مستندات هذا القسم تجدها تحت **نظام إدارة الشحن ← المستندات**، وكلها مرتبطة عادةً بـ[أمر تشغيل](./operation-orders.md).

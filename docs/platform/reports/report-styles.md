@@ -1,3 +1,7 @@
+---
+entities: [ReportStyle]
+menu: Administration → Reports → Report Style
+---
 # Report Styles
 
 Building a report or a printed form with a wizard means placing dozens of fields, and every one of

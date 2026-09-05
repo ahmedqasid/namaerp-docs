@@ -1,3 +1,7 @@
+---
+entities: [SrvCTrip, SrvCTripRoute, SrvCStation]
+menu: Service Center → Master Files → Service Center Trip
+---
 # Trips, Routes and Stations
 
 Al-Sahra Motors runs a panel van between the Riyadh site and the Dammam branch twice a week, carrying

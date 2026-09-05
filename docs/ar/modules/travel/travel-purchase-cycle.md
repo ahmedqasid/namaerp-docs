@@ -1,3 +1,7 @@
+---
+entities: [TRPurchaseInvoice, TRPurchaseOrder, TRPurchaseReturn]
+---
+
 # الشراء من الموردين
 
 الرحلة السياحية تكلّف نقوداً قبل أن تدرّ أي إيراد. مجموعة من 40 فرداً تصل إلى القاهرة لخمس ليالٍ

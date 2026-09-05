@@ -1,3 +1,7 @@
+---
+entities: [EmployeeEvaluation, EmployeeEvaluationReq, EvaluationElement, EvaluationElementsGroup]
+menu: Human Resources → Recruitment → Employee Evaluation
+---
 # Employee Evaluation
 
 Where [Performance Indicators](performance-indicators.md) measure things that can be counted automatically — hours, occurrences, sales — an **Employee Evaluation** (تقييم موظف) is for the parts of performance that need a **human judgment**: how well someone communicates, how reliable their work is, how they handle a difficult client. This page covers how a periodic appraisal is built from a catalog of scored criteria, and how that appraisal can, in turn, become a Performance Indicator of its own.

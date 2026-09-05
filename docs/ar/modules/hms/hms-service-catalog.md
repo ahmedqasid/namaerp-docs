@@ -1,3 +1,7 @@
+---
+entities: [HMSLabTestType, HMSRadiologyType, HMSSurgeryType, HMSPhysicalTherapyType, HMSSurgeryPackage, HMSPackageItem, HMSLabTestCategory, HMSRadiologyCategory, HMSPhyTherapyCategory, HMSSurgeryClassification, HMSTest, HMSTestTube, HMSTestTubeColor]
+---
+
 # كتالوج الخدمات الطبية
 
 إلى جانب الخدمات الطبية العامة، يحتفظ المستشفى بكتالوجات متخصّصة لكل نوع من الأنشطة الإكلينيكية: **التحاليل**، **الأشعة**، **العلاج الطبيعي**، و**العمليات الجراحية**. هذه الكتالوجات هي ما يطلبه الطبيب وما تُسعَّر به الفواتير لاحقًا.

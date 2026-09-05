@@ -1,3 +1,7 @@
+---
+entities: [MnSrvInvoice, MnSrvInvoiceReturn]
+menu: Customer Relationship Management → Service Documents → Maintenance Service Invoice
+---
 # Service Invoicing
 
 This is the page that decides whether the Service Documents branch can run your business. Read the danger box before you read anything else.

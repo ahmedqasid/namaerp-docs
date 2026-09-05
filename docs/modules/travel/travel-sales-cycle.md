@@ -1,3 +1,6 @@
+---
+entities: [TRSalesInvoice, TRSalesOrder, TRSalesReturn]
+---
 # Selling to the Client
 
 A travel agency sells nights, seats, transfers, entrance tickets and guiding hours. None of that

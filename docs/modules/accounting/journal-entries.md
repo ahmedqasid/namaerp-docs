@@ -1,3 +1,8 @@
+---
+entities: [JournalEntry, CurrencyDiffJournal, ExchangeRateUpdate, InterCompanyTransfer]
+menu: Accounting → Documents → Journal Entry
+---
+
 # Journal Entries & Adjustments
 
 Most entries in Nama are generated automatically from other documents (an invoice, a stock issue, a payroll run...), but there's always a need to record **manual** entries: an adjustment, a petty expense, an opening balance, clearing a suspense account. That's the job of the **Journal Entry**. Alongside it are specialized entry documents that handle particular cases: the **Currency Diff Journal**, the **Exchange Rate Update**, and the **Inter-Company Transfer**.

@@ -1,3 +1,7 @@
+---
+entities: [EmployeeProvisionsRecalc, EmployeeProvisionsOpening, AggrEmpProvisionsRecalc]
+---
+
 # مخصصات الموظفين (نهاية الخدمة ورصيد الأجازات)
 
 عندما يترك الموظف العمل في النهاية، تكون الشركة مدينة له بأموال ظلّت تتراكم على مدى سنوات: **مكافأة

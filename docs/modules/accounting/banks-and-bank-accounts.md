@@ -1,3 +1,8 @@
+---
+entities: [Bank, BankAccount, BankTransfer, BankAdjustment]
+menu: Banks → Master Files → Bank
+---
+
 # Banks, Bank Accounts & Transfers
 
 Managing the banking side starts by defining the **banks** you deal with, then the **bank accounts** opened with them. After the setup comes the daily movement: **bank transfers** between accounts, and **bank adjustments** to handle the differences the bank makes on its side (fees, interest, deductions).

@@ -1,3 +1,7 @@
+---
+entities: [RESalesDoc]
+menu: Real Estate and Property → Sales → Sales Contract
+---
 # The Sales Contract
 
 Everything before this point in the [sales cycle](/modules/realestate/sales/realestate-sales-cycle.md) is about intent. A sales offer is a price on paper. A temporary reservation is a promise to hold a unit for a few days. Even a confirmed reservation only books the deposit the customer handed over, and a preliminary contract — however detailed — posts nothing at all.

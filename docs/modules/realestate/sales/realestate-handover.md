@@ -1,3 +1,6 @@
+---
+entities: [REEStateHandover, REInspectionDoc, PostHandoverCost]
+---
 # Handing the Unit Over
 
 Handover is the moment the property stops being a promise on a contract and becomes a set of keys in somebody's hand. For the customer it is delivery day. For the accountant it may be the day the sale finally becomes revenue. For the developer it is the line after which construction cost can no longer be capitalised into the unit.

@@ -1,3 +1,7 @@
+---
+entities: [SalaryStructure]
+menu: Payroll → Salary Configurations → Salary Structure
+---
 # Salary Structures
 
 Setting up every allowance and deduction on every employee one by one doesn't scale once a company has more than a handful of staff. A **Salary Structure** is a reusable template — "the standard package for a sales representative", say — that lists a set of [component types](salary-components.md) with their values or formulas already filled in, ready to be applied to any employee who needs that package.

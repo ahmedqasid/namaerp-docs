@@ -1,3 +1,7 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
 # Rent Document Terms
 
 A lease is a promise stretched over time. A three-year shop lease at 120,000 a year signed in

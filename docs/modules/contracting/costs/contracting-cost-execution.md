@@ -1,3 +1,7 @@
+---
+entities: [ContractingCostExecution]
+menu: Contracting → Costs → Contracting Cost Execution
+---
 # Cost Execution
 
 The contract's term lines will tell you that blockwork has cost 34,800 so far. What they will not tell

@@ -1,3 +1,7 @@
+---
+entities: [ProjectContract]
+menu: Contracting → Project Contracting → Project Contract
+---
 # Project Contracts
 
 The project contract is the centre of gravity of the whole contracting module. It is the priced bill of quantities that extracts bill against, the set of commercial clauses that decide what is withheld from every payment, the place subcontracts are carved out of, the yardstick budgets are built from, and the record that accumulates — line by line, as the months pass — how much of the job has been executed, billed and actually cost.

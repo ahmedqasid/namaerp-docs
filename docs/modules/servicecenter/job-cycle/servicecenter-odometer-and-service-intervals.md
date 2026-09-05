@@ -1,3 +1,7 @@
+---
+entities: [SrvCKiloMetrage, SrvCProductTaskOpeningDoc]
+menu: Service Center → Documents → Kilo Metrage
+---
 # Odometer Readings and Service Intervals
 
 Everything in a workshop that repeats — the oil change, the belt, the major service — repeats by

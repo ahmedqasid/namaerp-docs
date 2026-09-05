@@ -1,3 +1,7 @@
+---
+entities: [ProductionExecution]
+menu: Manufacturing → Documents → Production Execution
+---
 # Production Execution: Recording What Actually Happens
 
 ## The Moment of Truth

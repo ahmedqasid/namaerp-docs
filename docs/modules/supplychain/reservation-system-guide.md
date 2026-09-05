@@ -1,3 +1,7 @@
+---
+entities: [ReservationDocument]
+menu: Inventory → Reservation Documents → Reservation Document
+---
 # Comprehensive Reservation System Guide
 
 This guide provides comprehensive documentation for the Reservation System in Nama ERP, intended for technical support staff and system administrators.

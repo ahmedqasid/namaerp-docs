@@ -1,3 +1,7 @@
+---
+entities: [SecurityProfileTransfer]
+menu: Administration → Security → Security Profile Transfer
+---
 # Temporary Additional Permissions (Delegation)
 
 The purchasing manager is on two weeks' leave, and purchase order approvals must keep flowing. The wrong solution — sharing the manager's password or permanently upgrading the stand-in's security profile and forgetting to revert it — is common enough to deserve a better alternative. The right answer in Nama is the **Temporary Additional Permissions (Security Profile Transfer)** document: a tracked, time-bounded delegation that is added on top of the stand-in's existing permissions and then expires on its own.

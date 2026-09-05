@@ -1,3 +1,6 @@
+---
+entities: [Remark, DetailedRemark, MeetingRemark, WorkTask, EmployeeAgenda, RemarkType]
+---
 # Remarks, Agenda and Work Tasks
 
 Sooner or later somebody needs to write something down against a record. A customer called about

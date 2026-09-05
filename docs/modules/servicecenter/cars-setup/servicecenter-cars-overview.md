@@ -1,3 +1,6 @@
+---
+entities: [SubItem, SubItemStatusConfigurations, ExternalAgency]
+---
 # The Car Dealership in Nama
 
 Al-Sahra Motors runs two businesses on one plot of land. On one side is the service centre, which

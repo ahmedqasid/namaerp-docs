@@ -1,3 +1,6 @@
+---
+entities: [RewardAndPenaltieDocument, RewardAndPenalty]
+---
 # Rewards & Penalties
 
 Not every adjustment to an employee's pay comes from the [salary structure](../payroll/salary-structures.md) or [attendance](../attendance/time-attendance.md) — some of it is ad hoc: a one-off bonus for good work, or a deduction for a specific incident. That is what a **Reward / Penalty** (نوع مكافأة / جزاء) type and its **(Reward / Penalty) Document** (سند مكافأة/جزاء) exist for: a small, reusable catalog of named bonuses and deductions, and a document that applies one of them to a specific employee on a specific day.

@@ -1,3 +1,8 @@
+---
+entities: [TaxPayerConfiguration, TaxAuthoritySubmissionDoc]
+menu: الأساسيات ← إعدادات مصلحة الضرائب ← إعدادات مصلحة الضرائب
+---
+
 # الربط مع هيئة الزكاة والضريبة والجمارك بالسعودية (ZATCA Fatoora)
 
 ## نظرة عامة

@@ -1,3 +1,7 @@
+---
+entities: [EDMarksBalance]
+menu: Education → Master Files → Marks Balance
+---
 # Recording Marks
 
 At the end of the term somebody has to write down what each student scored in each subject. In Nama

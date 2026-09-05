@@ -1,3 +1,6 @@
+---
+entities: [TRSalesInvoice, TRSalesOrder, TRSalesReturn, TRPurchaseInvoice, TRPurchaseOrder, TRPurchaseReturn, TRTour]
+---
 # Travel Document Terms
 
 Open the Travel menu and you will find exactly two groups: **Master Files** and **Documents**. There

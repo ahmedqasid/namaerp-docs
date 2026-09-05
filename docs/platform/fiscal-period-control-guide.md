@@ -1,3 +1,6 @@
+---
+entities: [FiscalYearStatusUpdate, FiscalYear]
+---
 
 # Fiscal Period Control
 

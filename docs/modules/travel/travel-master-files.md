@@ -1,3 +1,6 @@
+---
+entities: [TRHotel, TRRestaurant, TRTourService, TRTourGuide, TRCity, TRCountry, TRHotelClass, TRRestaurantClass, TRTourServiceClass]
+---
 # Travel Master Files
 
 A travel agency does not sell shirts out of a warehouse. It sells five nights in a hotel in Luxor,

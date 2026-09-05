@@ -1,3 +1,6 @@
+---
+entities: [REOwner, REStandardTermsConditions]
+---
 # Owners, Buyers and Standard Contract Clauses
 
 Every document in the Real Estate module names people: the landlord who owns the building, the

@@ -1,3 +1,6 @@
+---
+entities: [Warehouse, Locator, ConfigEntry]
+---
 # Ignoring Specific Warehouses/Locators in Reservation Quantity Check by Date
 
 ## Description

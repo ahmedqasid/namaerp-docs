@@ -1,3 +1,7 @@
+---
+entities: [UserFingerprint]
+---
+
 <rtl>
 
 # تسجيل الدخول بالبصمة في نقاط البيع

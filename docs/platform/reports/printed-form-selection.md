@@ -1,3 +1,7 @@
+---
+entities: [ReportDefinition]
+menu: Reports → Reports Monitoring → Report Definition
+---
 # Which Printed Form Comes Out
 
 Press **Print** on a sales invoice and nothing is asked of you. No list of layouts appears, no

@@ -1,3 +1,7 @@
+---
+entities: [HRLoanType]
+menu: Payroll → Loans / Installments → Loan Type
+---
 # Loan Types
 
 Every loan or salary advance in Nama starts from a **Loan Type** (نوع السلفة) — a master file that defines what an employee can borrow: the default and allowed range for the amount, the default and allowed range for the number of installments, who is eligible, and — most importantly — **which salary component recovers it from pay**. Nama does not model "interest-free advance" and "installment plan" as two different entities; the difference is purely how a loan type is configured. A type whose default installment count is 1 behaves like a one-off advance handed out and settled in a single payroll cycle; a type with many installments behaves like a proper installment plan recovered gradually.

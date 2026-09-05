@@ -1,3 +1,7 @@
+---
+entities: [EDBus, EDBusAction, EDMealType, EDMealsDetails, EDMealDeliveryPlan, EDSchoolTrip]
+---
+
 # الحافلات والوجبات والرحلات المدرسية
 
 المدرسة ليست حصصاً ورسوماً فحسب. هي تمتلك سيارات لها رخص تُجدَّد وأعطال تُصلَّح، وتُطعم أبناءها في

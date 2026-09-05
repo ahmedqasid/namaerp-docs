@@ -1,3 +1,7 @@
+---
+entities: [FALCProformaInvoice]
+menu: Assets → Fixed Asset Letter of Credits → Fixed Asset ProformaInvoice
+---
 # The Proforma Invoice
 
 The **Fixed Asset ProformaInvoice** is the shortest document in the chain and the most

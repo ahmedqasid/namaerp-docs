@@ -1,3 +1,7 @@
+---
+entities: [MobileQRIntegrator]
+menu: Basic → Mobile Apps → Mobile QR Integrator
+---
 # Mobile QR Integrator Guide
 
 ## Overview

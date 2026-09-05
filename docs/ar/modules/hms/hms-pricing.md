@@ -1,3 +1,7 @@
+---
+entities: [HMSSalesPriceList, HMSCostList, HMSDiscount, HMSOverheadItem, HMSOverheadList, HMSActualOverheadCalculation, HMSChangePatientPricePlan]
+---
+
 # الأسعار والتكاليف والخصومات
 
 كل خدمة في المستشفى لها سعر بيع وتكلفة. وكلما كبر المستشفى صار من غير العملي تسعير كل خدمة على حدة، فجاءت **قوائم** تجمع الأسعار والتكاليف والخصومات في مكان واحد. وتتقاسم هذه القوائم جميعها بنيةً واحدة تجعل تعلّمها مرة واحدة كافيًا.

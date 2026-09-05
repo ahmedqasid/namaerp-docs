@@ -1,3 +1,6 @@
+---
+entities: [EDStudent, EDGuardian, EDEducationalStage, EDStageType, EDClassRoom, EDRank, EDLecturer, EDContractor, EDStudentInfoUpdater, EDExpense, EDMainLevel, EDSubLevel]
+---
 # Students, Guardians and the Academic Structure
 
 A school cannot record a single day of attendance, print a single mark sheet or sign a single

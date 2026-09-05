@@ -1,3 +1,8 @@
+---
+entities: [GenericReferenceOverrider]
+menu: Basic → Settings → Fields and Entities Settings
+---
+
 # Record Behaviour and Screen Blocks
 
 Most of the **Fields and Entities Settings** screen is about a single field — how it is drawn, what may be typed into it, where its list of choices comes from. The five grids on this page step back and treat the record as a whole. They decide what survives when a record is duplicated, what is tracked in detail when it is edited, which extra panels appear on its screen, and who may be picked as a recipient when it is sent by e-mail.

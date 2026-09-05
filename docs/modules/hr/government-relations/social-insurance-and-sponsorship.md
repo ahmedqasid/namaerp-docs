@@ -1,3 +1,6 @@
+---
+entities: [HOEmpSocialInsuranceAdd, HOEmpSocialInsuranceRemove, HOSponsorshipTransferDoc, AggrHOSponsorshipTransferDoc]
+---
 # Social Insurance & Sponsorship
 
 Two of the most sensitive government touch-points for an expatriate workforce are the **GOSI social

@@ -1,3 +1,7 @@
+---
+entities: [NamaPOSStockReceipt, NamaPOSStockTransferReq, NamaPOSStockTakingDetails, NamaPOSScrapDoc, NamaPOSShortfallsDoc]
+---
+
 # Inventory Operations at the Register
 
 A point of sale is not only a till — it is also the front line of the store's stock. From the **inventory screen** (`Ctrl+F2`) a shop user can receive goods, move them to another branch, count them, and write off what is damaged or missing, all without leaving the register. Each of these is a document that syncs up to the central system like everything else.

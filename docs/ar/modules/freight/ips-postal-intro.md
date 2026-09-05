@@ -1,3 +1,7 @@
+---
+entities: [IPSMailClass, IPSMailCategory, IPSMailSubclass, IPSMailCondition, IPSParcelStatus, IPSDeliveryAndReceiptArea, IPSMailRetentionReason, IPSNonDeliveryReason, IPSNonDeliveryMeasure, IPSEvent]
+---
+
 # نظام البريد الدولي (IPS) — نظرة عامة
 
 إلى جانب الشحن واللوجستيات، تضمّ وحدة إدارة الشحن نظامًا متكاملًا لتشغيل **خدمات البريد الدولي (International Postal System – IPS)**. إن كنت مشغّلًا بريديًا أو شركة بريد سريع تتعامل مع مكتب تبادل دولي، فهذا القسم يدير رحلة المادة البريدية من لحظة وصول الأكياس من الخارج حتى تسليم الطرد إلى باب العميل.

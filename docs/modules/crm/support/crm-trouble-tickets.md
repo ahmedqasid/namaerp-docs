@@ -1,3 +1,7 @@
+---
+entities: [CRMTroubleTicket]
+menu: Customer Relationship Management → Support → Trouble Ticket
+---
 # Trouble Tickets
 
 ::: info Required licence

@@ -1,3 +1,8 @@
+---
+entities: [CPAProjectInvoice]
+menu: ECPA ← الفاتورة ← فاتورة المشروع
+---
+
 # فاتورة المشروع
 
 ::: info الترخيص المطلوب

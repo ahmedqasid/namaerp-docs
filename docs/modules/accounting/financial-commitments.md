@@ -1,3 +1,8 @@
+---
+entities: [FinancialCommitment, FinancialCommitmentPayDoc, FinancialCommitmentReschedule, FinancialCommitmentCategory]
+menu: Accounting → Financial Commitment Management → Financial Commitment
+---
+
 # Financial Commitments
 
 A company carries many recurring obligations that aren't invoices yet but are very real: a yearly rent paid in quarterly installments, an insurance policy, a financing agreement with a fixed repayment schedule. The **financial-commitments** system is where you register these obligations, lay out their installment schedule, and track what's been paid against what's still due — a regulation-and-tracking layer that sits beside your ordinary vouchers.

@@ -1,3 +1,7 @@
+---
+entities: [CRTNMaterialPlanning, CRTNPlanningConfiguration]
+menu: Manufacturing → Cartoon → CRTN Material Planning
+---
 # Carton Material Planning: The Optimization Engine
 
 ## The Heart of Material Efficiency

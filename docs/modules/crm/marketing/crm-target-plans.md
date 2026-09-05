@@ -1,3 +1,7 @@
+---
+entities: [CRMTargetPlan]
+menu: Customer Relationship Management → Marketing → Operation goal
+---
 # Target Plans
 
 Hala is expected to make forty calls in January, eight site visits, and to open six new leads.

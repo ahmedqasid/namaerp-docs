@@ -1,3 +1,7 @@
+---
+entities: [ContractorContractExecution]
+menu: Contracting → Contractor Contracting → Contractor Contract Execution
+---
 # Subcontractor Execution
 
 A subcontractor's invoice is only as trustworthy as the measurement behind it. Before you certify

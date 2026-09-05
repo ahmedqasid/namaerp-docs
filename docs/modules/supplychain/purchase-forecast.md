@@ -1,3 +1,7 @@
+---
+entities: [NewPurchaseForecast, PurchaseForecastConfig, PFSalesSourceConfig, PFQuantitySource]
+menu: Purchases → New Purchase Forecast → New Purchase Forecast
+---
 # Purchase Forecast
 
 The best purchase is the one made before you run out, not after. **Purchase forecasting** turns the purchasing department from reactive ("out of stock! order now!") to proactive ("it'll run out in three weeks, so let's order now with standard delivery and better prices").

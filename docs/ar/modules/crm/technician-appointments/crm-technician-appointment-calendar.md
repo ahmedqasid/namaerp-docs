@@ -1,3 +1,7 @@
+---
+entities: [TechnicianAppointment]
+---
+
 # تقويم الحجز
 
 ::: info الترخيص المطلوب

@@ -1,3 +1,6 @@
+---
+entities: [EDBus, EDBusAction, EDMealType, EDMealsDetails, EDMealDeliveryPlan, EDSchoolTrip]
+---
 # Buses, Meals and School Trips
 
 A school runs on more than lessons and fees. It owns vehicles that need licences and repairs, it

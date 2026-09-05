@@ -1,3 +1,7 @@
+---
+entities: [FixedAsset]
+menu: Assets → Master Files → Fixed Asset
+---
 # Asset Statuses
 
 The Status field on a fixed asset is one word, it cannot be typed, and it decides more about what you are allowed to do than any other field on the record. Half the "the system will not let me" questions in this module are answered by looking at it.

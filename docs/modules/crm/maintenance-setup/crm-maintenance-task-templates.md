@@ -1,3 +1,7 @@
+---
+entities: [MnTaskTemplate, MnMaintenanceGroup]
+menu: Customer Relationship Management → Maintenance Files → Maintenance Task Template
+---
 # Task Templates
 
 A monthly chiller service is three things: replace the air filter, check the oil level, record the running hours. Every month, on both Marina Plaza chillers, for the whole year of the contract. Nobody wants to retype that on forty-four execution sheets, and nobody wants a technician deciding from memory what "the monthly service" includes.

@@ -1,3 +1,7 @@
+---
+entities: [MiscContractingInvoice, MiscContractingOrder, MiscContractingRequest]
+menu: Contracting → Costs → Misc Contracting Invoice
+---
 # Miscellaneous Contracting Spend
 
 Most of what a site costs is not an item in a warehouse. The hoarding around the plot, the water and

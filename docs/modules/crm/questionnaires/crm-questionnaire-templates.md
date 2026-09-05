@@ -1,3 +1,6 @@
+---
+entities: [CRMQuestionairTemplate, CRMQuestion]
+---
 # Questionnaire Templates and Questions
 
 Two weeks after Al Nokhba services a customer's chillers, somebody rings the customer and asks four

@@ -1,3 +1,7 @@
+---
+entities: [ContractingJobOrder]
+menu: Contracting → Project Contracting → Contracting Job Order
+---
 # The Project Contracting Cycle
 
 A contracting business runs two mirrored chains at the same time. On one side it bills the project owner for work delivered; on the other it pays subcontractors for work they delivered to it. This page walks the first chain — the owner side, the revenue side — from the day a bid is priced to the day the client's money arrives.

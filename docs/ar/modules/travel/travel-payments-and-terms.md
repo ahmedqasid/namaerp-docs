@@ -1,3 +1,7 @@
+---
+entities: [TRSalesInvoice, TRSalesOrder, TRSalesReturn, TRPurchaseInvoice, TRPurchaseOrder, TRPurchaseReturn]
+---
+
 # الدفعات والأقساط وشروط التعاقد
 
 نادراً ما تتحصّل شركة السياحة أموالها بالطريقة التي يتحصّل بها متجر التجزئة. وكيل سياحي يحجز برنامج

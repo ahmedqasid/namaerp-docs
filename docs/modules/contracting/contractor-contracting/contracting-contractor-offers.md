@@ -1,3 +1,7 @@
+---
+entities: [ContractorContractOffer]
+menu: Contracting → Contractor Contracting → Contractor Contract Offer
+---
 # Subcontractor Offers
 
 Before you award a package you ask two or three firms what they want for it. Each answer is a priced bill of quantities in its own right — his rates, his retention, the advance he wants before the gang arrives — and the subcontractor offer is where you record it, one record per firm.

@@ -1,3 +1,7 @@
+---
+entities: [ProjContractExecution]
+menu: Contracting → Project Contracting → Project Contract Execution
+---
 # Project Execution
 
 A month of work has happened on site. Somebody walked the plot with a tape and a drawing set and established that 400 of the 1,000 cubic metres of excavation are finished, that 20 of the 60 cubic metres of reinforced concrete have been poured, and that 500 of the 2,000 square metres of blockwork are up. **Project Execution** (حصر كميات مشروع) is where that walk gets written down.

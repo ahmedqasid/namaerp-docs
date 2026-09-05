@@ -1,5 +1,6 @@
 ---
 title: إشعارات طلبات أمازون
+entities: [MAGMagentoSite]
 ---
 
 # إشعارات طلبات أمازون

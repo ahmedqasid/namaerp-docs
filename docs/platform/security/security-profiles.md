@@ -1,3 +1,7 @@
+---
+entities: [SecurityProfile]
+menu: Administration → Security → Security Profile
+---
 # Security Profile
 
 The Security Profile is where most of your permission settings live. You create one profile per job role, fill in its tables once, and then assign it to every user who performs that role. This page walks through the Security Profile screen tab by tab.

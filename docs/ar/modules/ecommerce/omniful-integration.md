@@ -1,3 +1,8 @@
+---
+entities: [OmnifulConfig]
+menu: ims ← الملفات ← Omniful Configuration
+---
+
 # دليل التكامل مع Omniful
 
 ## نظرة عامة (Overview)

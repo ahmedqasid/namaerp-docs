@@ -1,3 +1,6 @@
+---
+entities: [SIPurchaseOrder, SIProformaPurchaseInvoice]
+---
 # Ordering Cars
 
 Two documents open the buying chain, and neither of them is a financial event in the ordinary sense.

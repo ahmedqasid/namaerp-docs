@@ -1,3 +1,7 @@
+---
+entities: [ContractingEstimatedBudget]
+menu: Contracting → Master Files → Contracting Estimated Budget
+---
 # Estimated Budgets
 
 Winning a job at 230,000 tells you what the client will pay. It says nothing about whether you will make money on it. The estimated budget is where the estimating team writes down its own answer to the second question: for every item of work in the contract, what do we actually expect it to cost us?

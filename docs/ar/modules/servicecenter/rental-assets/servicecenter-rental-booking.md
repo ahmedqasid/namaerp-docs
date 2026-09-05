@@ -1,3 +1,7 @@
+---
+entities: [RARentalRequest, RARentalInvoice, RAReservationCancel]
+---
+
 # الحجز والفوترة والإلغاء
 
 ::: info الترخيص المطلوب

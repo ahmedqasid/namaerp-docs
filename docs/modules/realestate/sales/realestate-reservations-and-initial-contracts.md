@@ -1,3 +1,6 @@
+---
+entities: [REReservationDoc, REReservationDocCancel, REInitialSalesContract]
+---
 # Reservations and Initial Sales Contracts
 
 Between "the customer is interested" and "the customer has bought" there is a stretch of time where

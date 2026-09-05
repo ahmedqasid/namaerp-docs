@@ -1,3 +1,6 @@
+---
+entities: [HMSDoctor, HMSMedicalService, HMSMedicalSpecialty, HMSMedServiceCategory, HMSDisease, HMSAntibiotic, HMSMedicalDevice, HMSFeedingType, HMSPatientClass, HMSDocumentCategory, HMSProcedureType]
+---
 # Medical Master Files
 
 Having mapped the building, we now define the staff and medical concepts that the documents work with every day: doctors, specialties, diseases, medical services, analyzers, feeding, and patient classes. Most live under **Hospital Management System → Master Files** (some under specialized menus such as Laboratory Tests and Feeding, as noted).

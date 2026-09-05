@@ -1,3 +1,7 @@
+---
+entities: [EDCourseContract]
+menu: Education → Master Files → Course Contract
+---
 # Course Contracts
 
 Most of the Education module records information rather than money: who is enrolled, who turned up,

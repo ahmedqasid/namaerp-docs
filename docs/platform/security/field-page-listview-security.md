@@ -1,3 +1,6 @@
+---
+entities: [SecurityProfile, NaMaUser]
+---
 # Field, Page, and List View Security
 
 Basic permissions answer the question "what can the user do with a type?" But you often need finer control: hide the *Cost* column from sales reps, lock the *System Entries* page for data-entry operators, or prevent a role from opening a sensitive list view. That is exactly what these three pages do — and each one lives in **two places**: on the security profile and on the user record, with user-level rows taking precedence over profile rows when their scope overlaps.

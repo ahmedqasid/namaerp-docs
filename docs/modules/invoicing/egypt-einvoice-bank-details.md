@@ -1,3 +1,7 @@
+---
+entities: [TaxPayerConfiguration, Bank, BankAccount]
+menu: Basic → Electronic Tax Authority Configuration → Electronic Tax Authority Configuration
+---
 # Bank Details on Egyptian e-Invoices
 
 An Egyptian e-invoice can optionally tell the buyer where to send the money — the bank, the account number, the IBAN and your payment terms. The Tax Authority treats the whole section as optional: fill in nothing and your invoices go out exactly as they always have. Fill it in, and customers who pay by transfer stop having to ask.

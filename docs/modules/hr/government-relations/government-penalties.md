@@ -1,3 +1,6 @@
+---
+entities: [HOViolationItem, HOViolationList, HOPenaltyDocument, HOPenaltyRequest]
+---
 # Government Penalties
 
 Alongside the visa and fee work, the government-relations desk maintains the company's **disciplinary

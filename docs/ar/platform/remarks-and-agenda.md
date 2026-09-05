@@ -1,3 +1,7 @@
+---
+entities: [Remark, DetailedRemark, MeetingRemark, WorkTask, EmployeeAgenda, RemarkType]
+---
+
 # الملحوظات والأجندة ومهام العمل
 
 عاجلاً أو آجلاً يحتاج أحدهم أن يدوّن شيئاً على سجل. عميل اتصل بخصوص الفاتورة SIV-3417 ويطلب تأجيل

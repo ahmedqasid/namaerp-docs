@@ -1,3 +1,6 @@
+---
+entities: [REFeeType, RECommissionType, REBroker, REExpenseType, REExpenseItem]
+---
 # Fee, Commission, Broker and Expense Catalogues
 
 Five small master files under **Real Estate and Property > Master Files** never appear on a screen

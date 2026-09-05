@@ -1,3 +1,7 @@
+---
+entities: [HRIssuedVisas, HRVisasDelegation, HRVisaHandling]
+---
+
 # مجمع التأشيرات (Visa Pool)
 
 قبل أن يستطيع أيّ مُستقدَم من الخارج السفر، تحتاج الشركة إلى تأشيرة عمل مخصّصة له — وفي التوظيف

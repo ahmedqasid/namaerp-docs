@@ -1,3 +1,6 @@
+---
+entities: [HOExitReEntryVisaReq, AggrHOExitReEntryVisaReq, HOExtendingVisaReq, HOFinalExitVisaReq, HOFamilyVisitVisaRequest, HOPassportDeliveringReq]
+---
 # HR Visas
 
 An expatriate employee in the Gulf cannot simply leave the country and come back, or bring family

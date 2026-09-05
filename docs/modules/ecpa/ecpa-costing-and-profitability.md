@@ -1,3 +1,6 @@
+---
+entities: [CPAProject, CPAProjectStage]
+---
 # Where Project Cost and Revenue Come From
 
 ::: info Required licence

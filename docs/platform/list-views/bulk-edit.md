@@ -1,3 +1,7 @@
+---
+entities: [BulkEditConfig, ScreenModifier]
+menu: Administration → Display Customization → Bulk Edit Config
+---
 # Bulk Edit
 
 Someone has to move four hundred customers onto a new salesman. Or set the payment method on every

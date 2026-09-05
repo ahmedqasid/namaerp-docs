@@ -1,3 +1,7 @@
+---
+entities: [FALcExpenseDocument, AdditionalCost]
+menu: Assets → Fixed Asset Letter of Credits → Fixed Asset Expense Document
+---
 # Expenses and Distribution
 
 This is where the import stops being paperwork and starts being money. Every invoice that lands on

@@ -1,3 +1,8 @@
+---
+entities: [BankLoan, BankLoanRequest, LoanIssue, LoanInstallmentPayment, LoanInterestsCalculation, BankLoanScheduling, BankLoanChangingDoc, BankLoanType]
+menu: Banks → Bank Loans → Bank Loan
+---
+
 # Bank Loans
 
 A bank loan isn't just an amount that lands in your account and then gets repaid; it's a commitment that stretches over months or years, with a principal, interest, fees and an installment schedule — and it may draw down an agreed **facility limit** with the bank. So Nama doesn't record loans as a single manual journal, but as a **connected system**: a master document holding the loan terms, then movement documents that issue it, repay its installments and accrue its interest across its whole life.

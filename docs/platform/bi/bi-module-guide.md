@@ -1,3 +1,6 @@
+---
+entities: [DashBoardWidget, DashBoard, BICrossFilter, DashBoardWidgetWizard, BIPeriodComparisonConfig]
+---
 # BI Module — Dashboards & Analytics
 
 Nama ERP's BI module lets you build interactive dashboards that turn your live ERP data into charts, gauges, tables, and more. Charts talk to each other through cross-filters, drill-down popups, and direct links — so your dashboards aren't just static pictures, they're exploration tools your team can click through to find answers.

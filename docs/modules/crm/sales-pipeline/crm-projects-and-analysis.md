@@ -1,3 +1,6 @@
+---
+entities: [CRMProject, CRMAnalysis, CRMDevelopmentRequest]
+---
 # Projects, Analysis and Development Requests
 
 Three more screens sit in the CRM menu alongside the pipeline, and all three describe **delivery** rather than selling: what was analysed, what has to be built or taught, and what was sent back to be fixed. They look like the natural continuation of Lead → Potential → Customer. They are not.

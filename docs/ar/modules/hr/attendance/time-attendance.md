@@ -1,3 +1,7 @@
+---
+entities: [TimeAttendance, ElectronicAttendance, ElectronicAttendanceZone]
+---
+
 # الحضور والانصراف (Time Attendance)
 
 **[خطة الدوام والملف](attendance-plans-and-shifts.md)** تخبر النظام بما *يفترض* أن يكون عليه يوم الموظف. أما هذه الصفحة فتتناول ما حدث *فعلاً*: بصمات الحضور والانصراف الخام، أياً كانت طريقة تسجيلها، وكيف تتحول هذه البصمات إلى قيم على قسيمة الراتب.

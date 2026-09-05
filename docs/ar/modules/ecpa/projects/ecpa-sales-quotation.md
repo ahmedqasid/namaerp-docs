@@ -1,3 +1,8 @@
+---
+entities: [CPASalesQuotation]
+menu: ECPA ← مشاريع ← عرض أسعار مشروع
+---
+
 # عرض أسعار المشروع
 
 ::: info الترخيص المطلوب

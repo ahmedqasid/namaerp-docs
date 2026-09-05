@@ -1,3 +1,7 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
 # Collection, Maintenance, Investment and Cost Document Terms
 
 Once the two contract families are configured, everything else in Real Estate is a short term. Money

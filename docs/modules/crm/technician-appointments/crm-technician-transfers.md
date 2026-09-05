@@ -1,3 +1,7 @@
+---
+entities: [TechnicianTransfer]
+menu: Customer Relationship Management → Technician Appointments → Technician Transfer
+---
 # Technician Transfers
 
 ::: info Required licence

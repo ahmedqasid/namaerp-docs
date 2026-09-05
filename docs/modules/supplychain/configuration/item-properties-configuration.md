@@ -1,3 +1,7 @@
+---
+entities: [ConfigEntry]
+menu: Inventory → Settings → Supply Chain Configurations
+---
 # Item Properties Configuration
 
 This page documents the **Item Properties** tab. It controls the tracking properties carried on each stock line — **lot** (shipment), **serial number**, **revision**, **size & color**, and **measures** — plus the active/inactive percentages and sub-item. These settings decide where each property is entered, how it is suggested and validated, and how strictly it is checked when documents are edited or matched to invoices.

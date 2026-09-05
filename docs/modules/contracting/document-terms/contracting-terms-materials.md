@@ -1,3 +1,7 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
 # Material and Payment Document Terms
 
 The terms on this page cover two families that look unrelated and turn out to be closely connected: the documents that move **material** onto a site, and the documents that move **money** in advance of an extract. They belong together because in Contracting, material issued to a subcontractor *becomes* a deduction on his next extract, exactly as an advance payment does. Two different documents, one mechanism.

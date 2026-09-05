@@ -1,3 +1,7 @@
+---
+entities: [Contractor, ContractingAdvisory, ContractorClassification]
+---
+
 # المقاولون والاستشاريون
 
 يقف طرفان إلى جانب صاحب المشروع في كل عمل إنشائي، وللوحدة ملف رئيسي لكل منهما.

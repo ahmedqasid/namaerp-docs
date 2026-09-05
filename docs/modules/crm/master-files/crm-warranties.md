@@ -1,3 +1,7 @@
+---
+entities: [CRMWarranty]
+menu: Customer Relationship Management → Support → CRM Warranty
+---
 # Warranties
 
 **CRM Warranty / ضمان** — `Customer Relationship Management > Support > CRM Warranty`.

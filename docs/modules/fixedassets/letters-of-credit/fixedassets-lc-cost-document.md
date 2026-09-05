@@ -1,3 +1,7 @@
+---
+entities: [FALCCostDoc]
+menu: Assets → Fixed Asset Letter of Credits → Fixed Asset Letter of Credit cost
+---
 # The Cost Document
 
 Up to this point the import has cost 615,000 and nobody owns a press. The money is sitting in a

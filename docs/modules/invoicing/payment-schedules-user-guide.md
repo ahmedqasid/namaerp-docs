@@ -1,3 +1,7 @@
+---
+entities: [PaymentScheduleTemplate, ReceiptVoucher, PaymentVoucher]
+menu: Purchases → Master Files → Payment Schedule Template
+---
 # Payment Schedules User Guide
 
 ## Overview

@@ -1,3 +1,6 @@
+---
+entities: [ActionsHistory, EntityVersion, FieldDetailedAudit]
+---
 # Audit Trail and Version History
 
 Sooner or later somebody asks the question every ERP has to answer: *who changed this, and what did

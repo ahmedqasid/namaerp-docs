@@ -1,3 +1,7 @@
+---
+entities: [AttendanceMachineConfig]
+menu: Payroll → Time Attendance → Attendance Machine Config
+---
 # Attendance Machines
 
 Raw punch data can reach Nama in one of two ways. It can be **pulled automatically** on a schedule, straight from the fingerprint machine's own API or database — configured once through an **Attendance Machine Configuration** (إعدادات ماكينة الحضور) — or it can be **imported by hand** from a time-sheet file the machine exports, matched against a named formula that tells Nama how that file's columns and dates are laid out.

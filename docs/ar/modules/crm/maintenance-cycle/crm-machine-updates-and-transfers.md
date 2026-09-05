@@ -1,3 +1,7 @@
+---
+entities: [MnMachineUpdate, MnMachineOwnerTransferDoc, MnPreInstallationPreview]
+---
+
 # تحديث بيانات الآلات ونقل الملكية والمعاينات
 
 [ملف الآلة](/ar/modules/crm/maintenance-setup/crm-machines.md) ملف أساسي، وتستطيع تعديله مباشرة.

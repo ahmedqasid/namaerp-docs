@@ -1,3 +1,7 @@
+---
+entities: [ContractingBudgetExecution]
+menu: Contracting → Costs → Contracting Budget Execution Document
+---
 # Budget Execution
 
 The English name on the menu invites you to expect a variance report — budget against actual, in one screen. It is not that. **Budget Execution is a quantity survey**, the same measuring document a quantity surveyor fills in at the end of every period, except that it is measured against a *budget* instead of against a contract.

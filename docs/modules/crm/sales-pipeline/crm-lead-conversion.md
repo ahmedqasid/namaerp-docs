@@ -1,3 +1,6 @@
+---
+entities: [CRMLead, CRMPotential]
+---
 # Converting a Lead
 
 There are four conversion buttons on the Lead and Potential screens, and they all work the same way: **each one opens a new, unsaved screen with some fields already filled in, and then gets out of your way.** Nothing is created until you complete that screen and save it. Nothing is queued, nothing is processed in the background, and nothing happens if you close the tab.

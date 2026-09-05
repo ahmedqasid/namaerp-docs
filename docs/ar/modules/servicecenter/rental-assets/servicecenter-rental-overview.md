@@ -1,3 +1,7 @@
+---
+entities: [RentalAsset, RARentalRequest, RARentalInvoice]
+---
+
 # تأجير الأصول
 
 ::: info الترخيص المطلوب

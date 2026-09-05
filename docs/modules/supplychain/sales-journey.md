@@ -1,3 +1,6 @@
+---
+entities: [SalesInvoice, SalesOrder, SalesQuotation, SalesQuotationRequest, ProformaSalesInvoice, SalesReturn, SalesReturnRequest, SalesReplacement, SalesForecast]
+---
 # The Sales Journey
 
 The sales journey is the mirror image of purchasing - instead of bringing items in, you're selling and delivering them to customers. But the principles are similar: Quote → Order → Fulfill → Invoice → Collect. Let's walk through this journey and understand when to use each document.

@@ -1,3 +1,7 @@
+---
+entities: [CRTNMaterialIssue]
+menu: Manufacturing → Cartoon → Carton Material Issue
+---
 # Carton Material Issues: From Warehouse to Shop Floor
 
 ## Connecting Planning to Execution

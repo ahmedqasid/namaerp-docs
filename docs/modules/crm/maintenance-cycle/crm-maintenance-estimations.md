@@ -1,3 +1,7 @@
+---
+entities: [MnEstimation]
+menu: Customer Relationship Management → Maintenance Documents → Maintenance Estimation
+---
 # Maintenance Estimations
 
 The Maintenance Estimation (مقايسة صيانة) is the most misunderstood screen in the maintenance suite. Its name promises a quotation — price the repair, show it to the customer, and turn it into a work order when they agree. That is not what it is, and reading it that way is how installations end up with stock leaving the warehouse for work nobody has approved.

@@ -1,3 +1,8 @@
+---
+entities: [GenericReferenceOverrider]
+menu: Basic → Settings → Fields and Entities Settings
+---
+
 # Input Rules and Limits
 
 Every organisation ends up with rules about what may go into a field. Customer codes have a house

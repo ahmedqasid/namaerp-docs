@@ -1,3 +1,7 @@
+---
+entities: [CPATimeSheet, CPATimeSheetRequest]
+menu: ECPA → Task Execution / Approvals → Tasks Executing
+---
 # Recording Worked Hours
 
 Everything a professional-services firm sells passes through this screen. **Tasks Executing** is where an employee writes down what he actually did — this task, from nine to one, then that task, from two to half past five — and it is the point where hours stop being a plan and become a number the business can cost, approve and bill.

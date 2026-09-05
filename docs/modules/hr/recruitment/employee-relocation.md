@@ -1,3 +1,6 @@
+---
+entities: [EmployeeRelocate, EmployeeRelocateRequest, UpdateEmployeeInfo, AggrUpdateEmpInfo, WorkPlaceUpdate]
+---
 # Employee Relocation
 
 People and their records change after they're hired: a branch gets restructured and someone's whole department moves, an employee needs a raise or a new job title, a passport gets renewed, or a project needs a handful of people working somewhere else for a few weeks. Nama splits these into distinct tools rather than one giant "edit employee" screen, because each of them has a different footprint — one of them even reallocates historical accounting balances, and none of the others do.

@@ -1,3 +1,7 @@
+---
+entities: [FAPropertiesDocument, AggrFAPropertiesDocument]
+menu: Assets → Documents → Fixed Asset Properties
+---
 # Re-estimating an Asset's Life and Salvage Value
 
 Useful life and salvage value are estimates, and estimates get revised. An engineering review says

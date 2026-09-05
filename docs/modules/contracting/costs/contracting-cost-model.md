@@ -1,3 +1,6 @@
+---
+entities: [ContractingDirectCost]
+---
 # How Project Cost Is Built
 
 Knowing what a project is *worth* is easy: the contract says 230,000, term by term, and nobody argues

@@ -1,3 +1,7 @@
+---
+entities: [HMSPatient, HMSPatientAdmission, HMSOutpatientReservation, HMSOutpatientSchedule, HMSPatientDiagnosis, HMSPatientHealthStatus, HMSQuestionnaireTemplate, HMSQuestion]
+---
+
 # المرضى والدخول
 
 هنا تبدأ رحلة المريض الفعلية. في هذه الصفحة نتناول ملف المريض نفسه، وكيف يُحجز للمريض الخارجي موعد، وكيف يُنوَّم المريض الداخلي عبر إستمارة الدخول، إضافةً إلى توثيق التشخيص والحالة الصحية.

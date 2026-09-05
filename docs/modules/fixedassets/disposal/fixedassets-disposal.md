@@ -1,3 +1,7 @@
+---
+entities: [FADisposalDocument]
+menu: Assets → Documents → Fixed assets disposal document
+---
 # Disposing of an Asset
 
 Sooner or later every machine leaves. It is sold to somebody who still has a use for it, or it is

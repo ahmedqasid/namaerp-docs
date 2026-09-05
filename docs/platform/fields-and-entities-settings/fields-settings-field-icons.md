@@ -1,3 +1,8 @@
+---
+entities: [GenericReferenceOverrider]
+menu: Basic → Settings → Fields and Entities Settings
+---
+
 # Icons and Colours
 
 Nama already ships an icon and a colour for most entity types and for the status values people meet

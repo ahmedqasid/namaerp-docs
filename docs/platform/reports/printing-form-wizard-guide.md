@@ -1,3 +1,7 @@
+---
+entities: [PrintingFormWizard]
+menu: Administration → Reports → Printing Form Wizard
+---
 # Printing Form Wizard
 
 Every business eventually needs its own invoice. Not the one the system ships with — one with the

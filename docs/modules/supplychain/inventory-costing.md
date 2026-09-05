@@ -1,3 +1,6 @@
+---
+entities: [ReceiptAdditionalCost, CostRevaluation, FinishedProductPricing, FrozenCostAccounts]
+---
 # Inventory Costing & Revaluation
 
 Inventory quantity is only half the truth; the other half is its **value**. This guide gathers the documents that adjust your inventory's cost: distributing additional charges across receipts, revaluing cost, and freezing cost at period close.

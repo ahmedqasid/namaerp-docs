@@ -1,3 +1,7 @@
+---
+entities: [ContractingPriceList]
+menu: Contracting → Master Files → Contracting Price list
+---
 # Contracting Price Lists
 
 Typing a unit rate onto every line of every bill of quantities is how estimating mistakes happen. A

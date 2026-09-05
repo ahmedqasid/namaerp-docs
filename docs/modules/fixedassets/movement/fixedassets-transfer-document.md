@@ -1,3 +1,7 @@
+---
+entities: [FATransferDocument, AggrFATransferDoc]
+menu: Assets → Custody Of Assets → Transfer document
+---
 # Moving an Asset: The Transfer Document
 
 Al-Waha Industries wheels the CNC cutting machine `MCH-0007` from Hall 2 to Hall 3 of the Riyadh

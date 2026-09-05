@@ -1,3 +1,6 @@
+---
+entities: [REEstateOpeningCost]
+---
 # Going Live: Opening Balances in Real Estate
 
 The day a developer switches to Nama, nothing about his portfolio is new. The compound was built

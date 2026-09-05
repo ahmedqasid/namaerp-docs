@@ -1,3 +1,7 @@
+---
+entities: [NotificationDefinition]
+menu: Administration → Display Customization → Notification Definition
+---
 # Frequently Asked Questions: Notifications and Messages
 
 ## How do I send a notification to each customer when posting a receipt that contains multiple lines for multiple customers?

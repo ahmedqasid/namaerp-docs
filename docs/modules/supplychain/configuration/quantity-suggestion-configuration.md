@@ -1,3 +1,7 @@
+---
+entities: [ConfigEntry]
+menu: Inventory → Settings → Supply Chain Configurations
+---
 # Quantity Suggestion Configuration
 
 This page documents the **Quantity Suggestion** tab. It controls two related behaviors:

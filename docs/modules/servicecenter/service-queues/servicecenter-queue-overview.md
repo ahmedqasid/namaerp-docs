@@ -1,3 +1,6 @@
+---
+entities: [QueueServiceConfig, QueueServiceBranch]
+---
 # How Service Queues Work
 
 ::: info Required licence

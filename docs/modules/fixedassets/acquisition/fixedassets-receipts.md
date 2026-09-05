@@ -1,3 +1,6 @@
+---
+entities: [FAInitialReceipt, FAReceiptDoc]
+---
 # Taking Delivery: Initial Receipt and Receipt Document
 
 Two documents in this module have "receipt" in their name, they sit in different menu folders, they

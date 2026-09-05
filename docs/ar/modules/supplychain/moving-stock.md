@@ -1,3 +1,8 @@
+---
+entities: [StockTransfer, IssueStockTransfer, ReceiptStockTransfer, StockTransferReq, AggrStockTransferReq]
+menu: المخازن ← سندات التحويل المخزني ← سند تحويل مخزني
+---
+
 # تحريك المخزون بين المخازن (Moving Stock)
 
 في بعض الأحيان لا تدخل الأصناف ولا تخرج - بل تنتقل فقط من مكان إلى آخر. يركّز هذا الدليل على **التحويلات المخزنية**: نقل المخزون بين المخازن والمواقع مع بقاء ملكيته داخل المنشأة.

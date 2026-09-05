@@ -1,3 +1,7 @@
+---
+entities: [SrvCServiceRequest]
+menu: Service Center → Documents → Service Request
+---
 # Service Requests
 
 The service request (طلب خدمة) is the appointment book. A customer telephones, you agree a day and a

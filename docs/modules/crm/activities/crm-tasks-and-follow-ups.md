@@ -1,3 +1,7 @@
+---
+entities: [CRMTask, CRMFollowUp]
+menu: Customer Relationship Management → Support → CRM Task
+---
 # Tasks and Follow-Ups
 
 ::: info Required licence

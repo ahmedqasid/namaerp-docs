@@ -1,3 +1,6 @@
+---
+entities: [SIInsuranceProgram, InsuranceCompany, ExternalAgency]
+---
 # Selling Insurance with a Car
 
 ::: info Required licence

@@ -1,3 +1,8 @@
+---
+entities: [FinancialPaper, FPBook, BankPortfolio, BankNotice, OpenningFinancialPaper, FinancialPaperAgio, FinancialPaperCancel, FPTransfer]
+menu: Banks → Master Files → Commercial Paper
+---
+
 # Cheques & Financial Papers (Lifecycle)
 
 A cheque isn't just an amount; it's a paper with a journey: it's received, deposited at the bank, collected or returned, and may be endorsed to another party or discounted before its due date. Tracking all that by hand is a nightmare, so Nama treats every cheque or bill as a **financial paper** with a **status** that moves through a clear lifecycle, driven by a set of specialized documents.

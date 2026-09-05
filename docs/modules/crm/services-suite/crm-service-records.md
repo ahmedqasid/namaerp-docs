@@ -1,3 +1,7 @@
+---
+entities: [MnService]
+menu: Customer Relationship Management → Service Documents → Maintenance Service
+---
 # Service Records
 
 Every document in the Service Documents folder points at something being serviced. In the machine maintenance folder that something is a machine — a compressor with a serial number, a warranty and an owner. Here it is a **Maintenance Service** (خدمة صيانة): a named piece of recurring work at a place.

@@ -1,3 +1,7 @@
+---
+entities: [POSShiftOpening, POSShiftClosing, POSReceiptFromRegister, POSPaymentToRegister]
+---
+
 # Shifts & Cash
 
 A **shift** is one work session on a register: it opens when a cashier starts, and closes when they count down the drawer and hand over. Getting the open and close right is what keeps the cash accountable. Reach the shift screen with `F2`.

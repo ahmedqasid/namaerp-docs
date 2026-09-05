@@ -1,3 +1,7 @@
+---
+entities: [SubItem, SubItemStatusConfigurations, ExternalAgency]
+---
+
 # إدارة معارض السيارات في Nama
 
 تدير شركة الصحراء للسيارات نشاطين على أرض واحدة. في جانب منها مركز الخدمة الذي يصلح سيارات الناس

@@ -1,3 +1,7 @@
+---
+entities: [ResidenceRenewReq, AggrResidenceRenewReq]
+menu: Human Resources → ADMINISTRATIVE TRANSACTIONS → Residence Renew Request
+---
 # Residence Renewal
 
 Of every deadline the PRO desk tracks, the Iqama (residency permit) is the one that cannot slip —

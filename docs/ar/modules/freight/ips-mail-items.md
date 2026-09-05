@@ -1,3 +1,7 @@
+---
+entities: [IPSMailItemManifest, IPSPostalParcelsSort, IPSMailItemTransfer, IPSMailItemAdjustment, IPSMailItemStockTaking, IPSMailRetentionDocument]
+---
+
 # المواد البريدية
 
 بعد فتح الأكياس الواردة، تصبح **المادة البريدية** هي محور العمل: تُسجَّل، وتُحوَّل بين المكاتب، وتُسوَّى، وتُجرَد، وتُفرَز للتوصيل. هذه الصفحة تغطّي المستندات التي تدير دورة حياة المادة البريدية، وكلها تحت **نظام إدارة الشحن ← المستندات**.

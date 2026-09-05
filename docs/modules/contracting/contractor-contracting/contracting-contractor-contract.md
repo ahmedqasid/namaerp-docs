@@ -1,3 +1,7 @@
+---
+entities: [ContractorContract]
+menu: Contracting → Contractor Contracting → Contractor Contract
+---
 # Subcontracts
 
 The subcontract is the centre of gravity of the cost side, exactly as [the project contract](/modules/contracting/project-contracting/contracting-project-contract.md) is of the revenue side: the rates you have agreed to pay one firm for one package, the clauses that will reduce every certificate you issue him, his instalment plan, his site team — and the record that then accumulates, line by line, how much of the package has been measured, certified and paid.

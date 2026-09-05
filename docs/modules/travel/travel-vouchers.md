@@ -1,3 +1,6 @@
+---
+entities: [TRHotelVoucher, TRRestaurantVoucher]
+---
 # Hotel & Restaurant Vouchers
 
 Long before anyone had an ERP, a travel agency confirmed a booking by writing a **voucher**: a

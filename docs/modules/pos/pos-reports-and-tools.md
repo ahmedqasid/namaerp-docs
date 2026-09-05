@@ -1,3 +1,7 @@
+---
+entities: [NamaPOSInternalMessage]
+---
+
 # Reports & Tools
 
 Beyond selling, the register carries a handful of everyday tools: running reports, messaging other staff, checking a price without making a sale, and — for supervisors — running maintenance utilities.

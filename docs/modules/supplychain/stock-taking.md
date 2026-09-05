@@ -1,3 +1,6 @@
+---
+entities: [StartStockTaking, EndStockTaking, StockTakingDetails, StockTakingElectronic, ItemVotingDoc, ItemVotingFile]
+---
 # Stock Taking
 
 No matter how accurate your system is, one fundamental question remains: does what's in the books actually match what's on the shelves? **Stock taking** is the process by which you verify that and reconcile the differences. It's the heartbeat of confidence in your inventory numbers.

@@ -1,3 +1,6 @@
+---
+entities: [HRLoanDocument, HRLoanRequest, HRLoanPaymentDocument]
+---
 # Loan Documents & Payments
 
 This page covers the three screens that turn a loan from a request into money in an employee's pocket, and eventually back out again: the **Loan Request** (طلب سلفة) and **Loan Document** (سند سلفة) pair, and the **Loan Payment Document** (سند سداد سلفة) used to record a manual repayment. All three read their limits and their recovery rules from the [Loan Type](hr-loan-types.md) the loan belongs to.

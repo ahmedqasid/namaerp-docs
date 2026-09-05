@@ -1,3 +1,7 @@
+---
+entities: [TermSheet]
+menu: Contracting → Project Contracting → Term Sheet
+---
 # Term Sheets
 
 A term sheet is a **bill of quantities saved as a document**. Not a contract, not an offer — a

@@ -1,3 +1,7 @@
+---
+entities: [SalesStandardTerm, StandardTermFulfillment, StandardTermExtension]
+menu: Basic → Master Files → Sales Standard Term
+---
 # Standard Terms and Conditions Feature Documentation
 
 ## Overview

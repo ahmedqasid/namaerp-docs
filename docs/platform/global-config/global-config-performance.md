@@ -1,3 +1,8 @@
+---
+entities: [ConfigEntry]
+menu: Administration → Settings → System Settings
+---
+
 # Performance and Search
 
 Two related concerns live on this tab. The first is protecting the server from work that will never finish: query time limits and per-user caps. The second is how searching behaves, which is both a usability question and — because of how databases use indexes — a performance one.

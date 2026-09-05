@@ -1,3 +1,7 @@
+---
+entities: [SIAllocation, SIAllocationCancel]
+menu: cars → Car Sales → Car Allocation
+---
 # Allocating a Chassis
 
 A [sales order](/modules/servicecenter/car-sales/car-sales-order.md) says "Layla is buying a Rimal

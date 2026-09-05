@@ -1,3 +1,7 @@
+---
+entities: [CRTNSpecification]
+menu: Manufacturing → Cartoon → CRTN Specification
+---
 # Carton Specifications: Defining Your Products
 
 ## What a Carton Specification Really Is

@@ -1,3 +1,7 @@
+---
+entities: [TechnicianCrew]
+menu: Customer Relationship Management → Technician Appointments → Technician Crew
+---
 # Technician Crews
 
 ::: info Required licence

@@ -1,3 +1,8 @@
+---
+entities: [CreditFacility, FacilityLimit, FacilityLimitConfig, CreditFacilitySetting, CreditFacilityIssuance, CreditFacilityPayment, CreditFacilityTermination]
+menu: البنوك ← تسهيلات ائتمانبة ← تسهيل ائتمانى
+---
+
 # التسهيلات الائتمانية وحدود التسهيلات
 
 تتقاطع في هذه الصفحة فكرتان مرتبطتان لكنهما متمايزتان:

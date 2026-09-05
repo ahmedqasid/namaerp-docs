@@ -1,3 +1,7 @@
+---
+entities: [ContractingUOM, ContractingTask, ContrTermCategory, ContrTermCategory2, ContractingFineReason, ContractingDirectCost, ContractingTaxExtractTerm]
+---
+
 # وحدات القياس والمهام والملفات المساعدة
 
 ستة ملفات رئيسية صغيرة تقع تحت **المقاولات > الملفات** ولا يستحق كل منها صفحة. وهي المفردات التي تُبنى منها

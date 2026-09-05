@@ -1,3 +1,7 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
 # How Fixed Asset Document Terms Work
 
 A fixed asset document knows *what* happened. When Al-Waha Industries buys the CNC cutting machine

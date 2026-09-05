@@ -1,3 +1,8 @@
+---
+entities: [ConfigEntry]
+menu: Administration → Settings → System Settings
+---
+
 # Appearance
 
 How the system looks and how users move around it: what opens at startup, what the login page shows, which fonts and colours are used, and how popups and tooltips behave.

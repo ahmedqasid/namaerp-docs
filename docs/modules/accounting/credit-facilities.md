@@ -1,3 +1,8 @@
+---
+entities: [CreditFacility, FacilityLimit, FacilityLimitConfig, CreditFacilitySetting, CreditFacilityIssuance, CreditFacilityPayment, CreditFacilityTermination]
+menu: Banks → Credit Facilities → Credit Facility
+---
+
 # Credit Facilities & Facility Limits
 
 Two related but distinct ideas meet on this page:

@@ -1,3 +1,6 @@
+---
+entities: [EDCourse, EDCourseDefinition, EDMainLevel, EDSubLevel]
+---
 # Course Definitions and Courses
 
 A training centre's brochure lists **Advanced Excel for Accountants** once: thirty hours, taught in

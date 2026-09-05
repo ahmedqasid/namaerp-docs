@@ -1,3 +1,7 @@
+---
+entities: [DocumentBook]
+menu: Basic → Settings → Document Book
+---
 # Document Books
 
 Every document in Nama — every sales invoice, stock issue, receipt voucher, journal entry — has to

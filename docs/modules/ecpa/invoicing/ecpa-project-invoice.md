@@ -1,3 +1,7 @@
+---
+entities: [CPAProjectInvoice]
+menu: ECPA → Invoice → Project Invoice
+---
 # Project Invoice
 
 ::: info Required licence

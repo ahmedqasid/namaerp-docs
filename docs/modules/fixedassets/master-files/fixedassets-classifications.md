@@ -1,3 +1,6 @@
+---
+entities: [FAClassification1, FAClassification2, FAClassification3, FAClassification4, FAClassification5]
+---
 # Classifications
 
 Al-Waha Industries has three hundred assets and one asset type for all of its machinery. That is fine for the accounting — every machine posts to the same three accounts — but it is useless the moment the plant manager asks what the company has invested in cutting equipment specifically, or the insurer asks for a schedule of production equipment by sub-family.

@@ -1,3 +1,7 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
 # Document-Specific Options
 
 Most term-config options are shared across document types and are covered on the other pages (General, From-Document, Quantity Tracking, Reservation & Delivery, Pricing/Taxes/Discounts, Sub-Item). This page collects the options that surface **only for specific document types** — they appear on the term screen depending on the **Document Type** the term targets.

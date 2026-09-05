@@ -1,3 +1,7 @@
+---
+entities: [HOEmpSocialInsuranceAdd, HOEmpSocialInsuranceRemove, HOSponsorshipTransferDoc, AggrHOSponsorshipTransferDoc]
+---
+
 # التأمينات الاجتماعية والكفالة
 
 من أكثر التعاملات الحكومية حساسية بالنسبة للعمالة الوافدة تسجيل الموظفين في **التأمينات الاجتماعية

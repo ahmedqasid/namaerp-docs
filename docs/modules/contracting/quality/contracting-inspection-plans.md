@@ -1,3 +1,6 @@
+---
+entities: [CQCITP, CQCITPRegister]
+---
 # Inspection and Test Plans
 
 An **ITP** — an Inspection and Test Plan — is the document a contractor submits at the start of a job to answer one question in advance: for every activity on this project, what will be inspected, against which specification, and who has to witness it. It is a contractual deliverable in its own right. The consultant reads it, comments on it, sends it back, and the contractor re-issues it until it is accepted. Only then does work start being inspected against it.

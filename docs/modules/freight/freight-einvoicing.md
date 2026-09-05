@@ -1,3 +1,6 @@
+---
+entities: [FRMSalesInvoice, FRMServiceItem]
+---
 # E-Invoicing in the Freight Module
 
 The freight module's invoices plug into Nama ERP's e-invoicing framework exactly like ordinary sales invoices — they are Tax Authority Documents sent to the relevant authority (ZATCA in Saudi Arabia, the Egyptian Tax Authority, the UAE system…). But the nature of freight work imposes special handling, chiefly the **agent model**, where part of the invoice value is a pass-through cost and part is your commission. This page explains what is specific to the freight module; for the general setup of the framework, see the **[E-Invoices Guide](../invoicing/e-invoices-guide.md)** and the **[ZATCA Guide](../invoicing/zatca-guide.md)**.

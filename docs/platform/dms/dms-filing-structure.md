@@ -1,3 +1,6 @@
+---
+entities: [DMSLocation, DMSFolder, DMSTopic]
+---
 # Archives, Folders and Topics
 
 Three master files describe where paperwork lives and what it is about. You build them once

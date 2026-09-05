@@ -1,3 +1,6 @@
+---
+entities: [HRYear, HRPeriod, HRSalaryIssuance]
+---
 # HR Years, Periods & Salary Issuance
 
 Before any salary can be calculated, Nama needs to know two things: **which time slice** the run belongs to, and **which pay stream** it belongs to. The first question is answered by the payroll calendar — HR Year and HR Period. The second is answered by a small but easily misunderstood setting called Salary Issuance.

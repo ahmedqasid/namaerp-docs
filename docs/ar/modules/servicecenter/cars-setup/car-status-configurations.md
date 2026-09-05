@@ -1,3 +1,8 @@
+---
+entities: [SubItemStatusConfigurations]
+menu: سيارات ← ملفات السيارات ← إعدادت حالة حاله السياره
+---
+
 # إعدادات حالة السيارة
 
 **إعدادت حالة حاله السياره / Car Status Configurations** —

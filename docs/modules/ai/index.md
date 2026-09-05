@@ -8,6 +8,7 @@ These capabilities reach beyond the system too: Nama ships with a **built-in MCP
 
 ## Guides
 
+- [Getting Better Support with an AI Coding Agent](./ai-assisted-support.md) - the complete setup for answering support questions with a coding agent: the documentation knowledge base, connecting to a live system, and the tools worth defining.
 - [AI Tool Definitions](./ai-tool-definitions.md) — how to build tools for the assistant from the AI Tool Definition screen: query, report, entity-flow, and ready-made system tools, with control over who may use each tool.
 - [The In-System AI Assistant](./ai-assistant.md) — the built-in chat window: how to open it, choose the model, review chat history, and use Expert Mode to diagnose answers.
 - [AI Module Configuration](./ai-configuration.md) — setting up the language models and their providers, authentication keys, the vector store, and semantic search and record indexing.

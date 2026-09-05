@@ -1,3 +1,7 @@
+---
+entities: [REFeeType, RECommissionType, REBroker, REExpenseType, REExpenseItem]
+---
+
 # أنواع الرسوم والعمولات والوسطاء والمصروفات
 
 خمسة ملفات رئيسية صغيرة تحت **العقارات و الممتلكات > الملفات** لا تظهر في العمل اليومي كشاشات

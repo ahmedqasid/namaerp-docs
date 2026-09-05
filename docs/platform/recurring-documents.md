@@ -1,3 +1,7 @@
+---
+entities: [RecuringDocument]
+menu: Basic → Documents → Recuring Document
+---
 # Recurring Documents
 
 Some documents come back on a rhythm. The rent invoice you raise on the first of every month. The quarterly maintenance charge. The monthly depreciation journal entry. The subscription sales invoice that goes out to the same customers every 30 days. Re-typing these by hand—or hunting down last month's copy to duplicate it—is tedious and easy to forget.

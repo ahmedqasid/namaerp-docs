@@ -1,3 +1,8 @@
+---
+entities: [ProductionOrder, AggregatedProductionOrder]
+menu: التصنيع ← المستندات ← أمر إنتاج
+---
+
 # أوامر الإنتاج (Production Orders): التخطيط لما سيتم تصنيعه
 
 ## ما هو أمر الإنتاج (Production Order)؟

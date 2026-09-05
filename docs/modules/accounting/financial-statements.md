@@ -1,3 +1,8 @@
+---
+entities: [FSSettingsFile, FSIssueFile, FSAccountGroup, FSEquation]
+menu: Accounting → Financial Statement → FS Settings File
+---
+
 # Financial Statements
 
 Every company needs an income statement and a balance sheet, but no two companies want them laid out exactly the same way — different line groupings, different subtotals, different comparison columns. Rather than hard-code a fixed report, Nama gives you a **configurable financial-statements engine**: you describe the shape of the statement once, then *issue* it for any period to get the numbers. The income statement, balance sheet and cash-flow reports you print are all output of this one engine.

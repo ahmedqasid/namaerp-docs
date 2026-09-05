@@ -1,3 +1,7 @@
+---
+entities: [FALocation]
+menu: Assets → Master Files → Asset Location
+---
 # Asset Locations
 
 An asset register that cannot tell you where the machine is standing is only half a register. The **Asset Location** master file (موقع أصول) is the vocabulary the module uses to answer that question — a tree of physical places, from the site down to the room.

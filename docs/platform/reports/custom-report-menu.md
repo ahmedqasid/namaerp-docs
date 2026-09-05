@@ -1,3 +1,7 @@
+---
+entities: [CustomReportMenu]
+menu: Administration → Reports → Custom Report Menu
+---
 # Custom Report Menu
 
 A user is looking at a sales invoice on screen. They want the statement of account for that customer,

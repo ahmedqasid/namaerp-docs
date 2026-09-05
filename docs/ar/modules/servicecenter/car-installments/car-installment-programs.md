@@ -1,3 +1,7 @@
+---
+entities: [SIInstallmentProgram, FinanceCompany, SISalesOrder]
+---
+
 # شركات التقسيط وبرامج التقسيط
 
 ::: info الترخيص المطلوب

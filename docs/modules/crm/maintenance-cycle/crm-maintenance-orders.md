@@ -1,3 +1,7 @@
+---
+entities: [MnOrder]
+menu: Customer Relationship Management → Maintenance Documents → Maintenance Order
+---
 # Maintenance Orders
 
 On 1 April 2026 Nahed El Gindy opens maintenance work plan `WP-0087` and presses **Generate

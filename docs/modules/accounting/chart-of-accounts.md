@@ -1,3 +1,8 @@
+---
+entities: [AccountsChart, AccountCategory, AccountTaxCategory]
+menu: Accounting → Master Files → Accounts Chart
+---
+
 # Chart of Accounts
 
 The chart of accounts is the backbone of your accounting system: a hierarchical structure that classifies everything you own, owe, earn, and spend into logical, branching groups. At the top of the tree are large groups (assets, liabilities, equity, revenue, expenses); beneath them finer groups; down to the **leaf accounts** where balances are actually recorded.

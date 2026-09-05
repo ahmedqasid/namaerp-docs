@@ -1,3 +1,7 @@
+---
+entities: [FALetterOfCredit]
+menu: Assets → Fixed Asset Letter of Credits → Fixed asset Letter of Credit
+---
 # The Letter of Credit
 
 Everything about one import deal has to hang off a single peg: the proforma invoice, half a dozen

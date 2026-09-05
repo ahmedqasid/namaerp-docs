@@ -1,3 +1,7 @@
+---
+entities: [FADepreciation]
+menu: Assets → Documents → Depreciation Document
+---
 # The Depreciation Document
 
 The depreciation document is the period-end run: one document per fiscal period, holding one line

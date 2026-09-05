@@ -1,3 +1,8 @@
+---
+entities: [TreasuryBill, TreasuryBillPurchaseDoc, TrasureyBillROIProofDoc, AggTreasuryBillProofDoc, TreasuryBillSalesDoc, TreasuryBillCloseDoc]
+menu: Banks → Treasury Bill → Treasury Bill
+---
+
 # Treasury Bills
 
 A treasury bill is a short-term investment instrument the state issues: you buy it for less than its nominal value, and at maturity you collect its full value, so the difference is your return. Unlike the other bank documents that start with a master file you create yourself, a **treasury bill is created automatically when it's bought**: the purchase document is the starting point, then ROI-proof documents follow it until an early sale or a close at maturity.

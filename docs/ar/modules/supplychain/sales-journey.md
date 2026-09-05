@@ -1,3 +1,7 @@
+---
+entities: [SalesInvoice, SalesOrder, SalesQuotation, SalesQuotationRequest, ProformaSalesInvoice, SalesReturn, SalesReturnRequest, SalesReplacement, SalesForecast]
+---
+
 # رحلة المبيعات (The Sales Journey)
 
 رحلة المبيعات هي الصورة المعاكسة للمشتريات — بدلًا من إدخال الأصناف، أنت تبيعها وتسلّمها للعملاء. لكن المبادئ متشابهة: عرض أسعار ← أمر بيع ← تنفيذ ← فاتورة ← تحصيل. لنستعرض هذه الرحلة ونفهم متى يُستخدم كل مستند.

@@ -1,3 +1,7 @@
+---
+entities: [AgrInvestmentContract, AgrInvestContrProfitClaim, AgrInvestmentContractCategory]
+---
+
 # عقود الاستثمار الزراعي
 
 لنبدأ بما **ليس** هذا، لأن القائمة تضلل فعلًا.

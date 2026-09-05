@@ -1,3 +1,7 @@
+---
+entities: [TaxPayerConfiguration, TaxAuthoritySubmissionDoc]
+menu: Basic → Electronic Tax Authority Configuration → Electronic Tax Authority Configuration
+---
 # Electronic Invoicing in Nama ERP
 
 Most tax authorities no longer accept a printed invoice as the record of a sale. The invoice has to reach them electronically, in their format, within their deadline — and in some countries the invoice is not even legally valid until the authority has stamped and returned it. Saudi Arabia, Egypt, Jordan and the UAE each run their own platform, with their own rules about who may send, what an item code looks like, and how long you have to correct a mistake.

@@ -1,3 +1,6 @@
+---
+entities: [SrvProductModel, SrvcBrand, SrvProductModelCategory]
+---
 # Brands, Models and Model Categories
 
 Al-Sahra Motors services NAWA cars, and a NAWA Saif 1.6 is not a NAWA Rimal 2.4. The oil change takes longer on the SUV, the service intervals differ, and the ten-thousand-kilometre package sells for a different figure. Somewhere the workshop has to be able to say *this vehicle is that kind of vehicle* — and that is what the three-level classification does.

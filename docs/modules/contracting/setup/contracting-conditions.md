@@ -1,3 +1,7 @@
+---
+entities: [ContractingCondition, ContractingConditionsGroup]
+menu: Contracting → Master Files → Contracting Condition
+---
 # Contract Conditions
 
 Every construction contract carries clauses that move money without being work: *retain 5% of each

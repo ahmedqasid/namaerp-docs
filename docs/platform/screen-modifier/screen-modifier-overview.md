@@ -1,3 +1,7 @@
+---
+entities: [ScreenModifier]
+menu: Administration → Display Customization → Screen Modifier
+---
 # Screen Modifier — Overview & Concepts
 
 Every screen in Nama ERP — the edit screen of an invoice, the list view of customers, the pop-up you use to pick an item — ships with a default design. The **Screen Modifier** is how you change that design for your own installation without touching code or waiting for a new build.

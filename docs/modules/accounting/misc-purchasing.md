@@ -1,3 +1,8 @@
+---
+entities: [MiscPurchaseInvoice, MiscPurchaseReq, MiscPurchaseOrder, PurchaseElement, MachineRentInvoice]
+menu: Accounting → Documents → Miscellaneous Invoice
+---
+
 # Misc Purchasing & Machine Rent
 
 Not every purchase flows through the inventory module. Buying a service, paying for a one-off expense, renting equipment — these don't add stock, so handling them as stock purchases would be overkill. The **miscellaneous purchasing** documents live inside accounting and let you run a lightweight purchase cycle for non-stock items, ending in an invoice that posts straight to an expense account.

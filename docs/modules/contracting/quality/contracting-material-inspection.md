@@ -1,3 +1,6 @@
+---
+entities: [CQCMaterialReceipt, CQCMRRRegister]
+---
 # Material Inspection on Delivery
 
 A lorry arrives at the site gate. Somebody has to walk round it, count what is on it, read the mill certificate, look for damage, and sign that what turned up is what was ordered. In construction that signature has a name — the **Material Receiving Report**, or **MRR** — and the consultant will ask for it before he approves the material for use.

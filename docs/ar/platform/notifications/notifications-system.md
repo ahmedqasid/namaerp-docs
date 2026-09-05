@@ -1,3 +1,8 @@
+---
+entities: [NotificationDefinition]
+menu: إدارة النظام ← تخصيص شكل النظام ← تعريف تنبيهات
+---
+
 # نظام التنبيهات في Nama ERP
 
 ## نظرة عامة

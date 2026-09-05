@@ -1,3 +1,7 @@
+---
+entities: [MenuModifier, MenuDefinition]
+menu: Administration → Display Customization → Menu Update
+---
 # Changing the Menu
 
 Sooner or later somebody asks for the menu to be rearranged. Drop the modules the company does not

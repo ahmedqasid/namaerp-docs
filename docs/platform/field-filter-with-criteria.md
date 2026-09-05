@@ -1,3 +1,7 @@
+---
+entities: [UserFieldFilter]
+menu: Administration → Display Customization → Field Filter With Criteria
+---
 # Field Filter with Criteria
 
 You can use the **Field Filter with Criteria** screen to apply custom filters when searching within specific fields on any Nama ERP screen.

@@ -1,3 +1,7 @@
+---
+entities: [FAMaintenanceRecord, FAMaintenanceRecordRequest]
+menu: Assets → Fixed Asset Maintenance → Maintenance Record
+---
 # Maintenance Records and Requests
 
 Everything else in this area is preparation. The **Maintenance Record** is the thing itself: the

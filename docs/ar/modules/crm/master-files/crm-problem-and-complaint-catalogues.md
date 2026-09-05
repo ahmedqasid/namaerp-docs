@@ -1,3 +1,7 @@
+---
+entities: [CRMComplaintType, CRMComplaintSource, CRMProblem, CRMProblemClassification]
+---
+
 # كتالوجات المشكلات والشكاوى
 
 ::: info الترخيص المطلوب

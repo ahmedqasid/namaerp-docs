@@ -1,3 +1,7 @@
+---
+entities: [MnPlan, MnItinerary]
+menu: Customer Relationship Management → Maintenance Documents → CRM Maintenance Plan
+---
 # Daily Dispatch
 
 A call-centre takes fault reports all day. Somebody then has to decide who goes where tomorrow, and

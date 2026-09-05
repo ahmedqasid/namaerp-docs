@@ -1,3 +1,7 @@
+---
+entities: [FAFixedAssetsTaking]
+menu: Assets → Custody Of Assets → FixedAssets Taking Document
+---
 # Stocktaking Fixed Assets
 
 Once a year somebody walks the plant with a scanner and finds out what is actually there. The

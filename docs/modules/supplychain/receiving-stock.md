@@ -1,3 +1,7 @@
+---
+entities: [StockReceipt, StockReceiptReq, InitialReceipt, PurgeStockReceipt, ReceiptInspection, StockReceiptCancellation, OpeningStockDocument]
+menu: Inventory → Receipt Documents → Stock Receipt
+---
 # Receiving Stock
 
 Inventory doesn't magically appear in your warehouse - it arrives through various means and for various reasons. Let's explore all the ways items come into the system within the Inventory sub-module, and how to record each scenario properly.

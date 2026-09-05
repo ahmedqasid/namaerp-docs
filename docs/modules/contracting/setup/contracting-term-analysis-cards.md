@@ -1,3 +1,7 @@
+---
+entities: [TermAnalysisCard]
+menu: Contracting → Project Contracting → Term Analysis Card
+---
 # Term Analysis Cards
 
 A term line says *"plain concrete, 300 m³, 420 each"*. The analysis card answers the question that

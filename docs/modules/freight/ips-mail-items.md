@@ -1,3 +1,6 @@
+---
+entities: [IPSMailItemManifest, IPSPostalParcelsSort, IPSMailItemTransfer, IPSMailItemAdjustment, IPSMailItemStockTaking, IPSMailRetentionDocument]
+---
 # Mail Items
 
 After the inbound receptacles are opened, the **mail item** becomes the focus of the work: it's recorded, transferred between offices, adjusted, stock-taken, and sorted for delivery. This page covers the documents that manage the mail-item lifecycle, all under **Freight Management System → Documents**.

@@ -1,3 +1,6 @@
+---
+entities: [SrvcPendingOperation, SrvcResumeOperation, SrvCWorkStopReason]
+---
 # Suspending and Resuming Work
 
 Work stops for reasons that have nothing to do with the technician. The compressor is on back order.

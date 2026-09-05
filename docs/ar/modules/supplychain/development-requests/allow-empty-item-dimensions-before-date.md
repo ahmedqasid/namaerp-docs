@@ -1,3 +1,8 @@
+---
+entities: [ItemConfigurations]
+menu: المخازن ← الإعدادات ← إعدادات صنف
+---
+
 # السماح للأصناف ذات الدفعات وتواريخ الصلاحية بحمل كميات غير موسومة (Allowing Items With Batch & Expiry to Hold Untagged Quantities)
 
 *طلب تطوير: **SRDRQ06261** (شركة دار الإمارة التجارية)*

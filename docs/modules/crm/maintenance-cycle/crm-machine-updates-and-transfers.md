@@ -1,3 +1,6 @@
+---
+entities: [MnMachineUpdate, MnMachineOwnerTransferDoc, MnPreInstallationPreview]
+---
 # Machine Updates, Transfers and Site Previews
 
 The [machine file](/modules/crm/maintenance-setup/crm-machines.md) is a master file, and you can

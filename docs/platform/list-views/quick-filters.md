@@ -1,3 +1,6 @@
+---
+entities: [ScreenModifier, QuickFilterCriteria]
+---
 # Quick Filters in List Views
 
 ::: tip New Feature

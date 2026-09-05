@@ -1,3 +1,7 @@
+---
+entities: [ReceiptAdditionalCost, CostRevaluation, FinishedProductPricing, FrozenCostAccounts]
+---
+
 # تكلفة المخزون وإعادة التقييم (Inventory Costing & Revaluation)
 
 كمية المخزون نصف الحقيقة فقط؛ النصف الآخر هو **قيمته**. هذا الدليل يجمع المستندات التي تضبط تكلفة مخزونك: توزيع المصاريف الإضافية على التوريدات، وإعادة تقييم التكلفة، وتجميد التكلفة عند الإقفال.

@@ -1,3 +1,7 @@
+---
+entities: [FADeliveryReceiptDoc]
+menu: Assets → Custody Of Assets → Custodies Delivery Receipt Document
+---
 # Custodies Delivery Receipt Document
 
 People leave. They change department, go on long leave, hand a plant over to a successor. And when

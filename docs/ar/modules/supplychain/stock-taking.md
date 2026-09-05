@@ -1,3 +1,7 @@
+---
+entities: [StartStockTaking, EndStockTaking, StockTakingDetails, StockTakingElectronic, ItemVotingDoc, ItemVotingFile]
+---
+
 # الجرد المخزني (Stock Taking)
 
 مهما كان نظامك دقيقًا، يبقى السؤال الجوهري: هل ما في الدفاتر يطابق ما على الرفوف فعلًا؟ **الجرد المخزني** هو العملية التي تتحقق بها من ذلك وتسوّي الفروق. إنه نبض الثقة في أرقام مخزونك.

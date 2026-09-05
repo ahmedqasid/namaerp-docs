@@ -1,3 +1,7 @@
+---
+entities: [FAMaintenancePlan]
+menu: Assets → Fixed Asset Maintenance → Maintenance plan
+---
 # Maintenance Plans
 
 A maintenance plan is the year's service calendar written down: *this machine, this kind of

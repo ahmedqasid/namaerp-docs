@@ -1,3 +1,6 @@
+---
+entities: [FinishingWorksCheckList, DiggingBackFilingCheckList, CQCPreConcreteInspection, CQCPostConcreteInspection, CQCUndergroundPipingChecks, CQCCleaningAndFlushing, CQCHydroStaticFireSysTest, TestReport]
+---
 # Site Checklists and Test Reports
 
 Eight of the thirteen screens in the [Quality](/modules/contracting/quality/contracting-quality-overview.md) group are specific site forms — the sheet you fill before a pour, the sheet you fill after it, the one for a buried pipe run, the one for a pressure test. Opened side by side they look like eight different features. They are not. They are **one document with eight different sets of questions printed on it**.

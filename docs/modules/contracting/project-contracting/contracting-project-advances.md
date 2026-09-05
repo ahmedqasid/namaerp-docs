@@ -1,3 +1,7 @@
+---
+entities: [ProjectAdvancePayment]
+menu: Contracting → Project Contracting → Project Advance Payment
+---
 # Project Advance Payments
 
 Nobody mobilises a tower crane out of goodwill. On most construction contracts the owner pays a slice of the value — 10%, 20% — before a shovel goes in the ground, so that the contractor can buy the first materials, put up the site offices and hire the plant. That money is not revenue. It is a loan against future certificates, and every certificate has to give a piece of it back.

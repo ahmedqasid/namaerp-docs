@@ -1,3 +1,7 @@
+---
+entities: [FACreationDoc]
+menu: Assets → Master Files → Fixed Asset Creation Document
+---
 # The Fixed Asset Creation Document
 
 A contracting company spends a year building a warehouse. Costs pile up against the project — materials, subcontractors, supervision — and then the company decides not to hand the building over to a customer but to keep it and use it. At that moment the warehouse has to stop being a project and start being a fixed asset on the company's own books, with a code, a life and a depreciation start date.

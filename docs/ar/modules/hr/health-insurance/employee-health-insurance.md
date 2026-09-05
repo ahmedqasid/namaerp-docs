@@ -1,3 +1,7 @@
+---
+entities: [EmployeeHealthInsurance, HealthInsuranceOffer, HealthInsuranceClaimDoc, HealthInsuranceUpgrade, HealthInsuranceCredence, EmpHealthInsurDelete]
+---
+
 # التأمين الصحي للموظف (Employee Health Insurance)
 
 في دول الخليج، التأمين الصحي الخاص ليس مجرد إجراء ورقي اختياري — بل التزام تفرضه الجهات الحكومية،

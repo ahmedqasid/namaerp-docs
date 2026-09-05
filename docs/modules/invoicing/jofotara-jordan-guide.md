@@ -1,3 +1,7 @@
+---
+entities: [TaxPayerConfiguration, TaxAuthoritySubmissionDoc]
+menu: Basic → Electronic Tax Authority Configuration → Electronic Tax Authority Configuration
+---
 # Integration with JoFotara (Jordan)
 
 Jordan's Income and Sales Tax Department runs the national e-invoicing portal **JoFotara**. Every sales invoice and every return has to reach it, and the portal answers by handing you back a signed copy of your own invoice together with the QR code that belongs on the printed version. That last detail is what makes Jordan comfortable to live with: you never sign anything yourself, and there is no accredited service provider standing between you and the authority — Nama ERP posts straight to the portal.

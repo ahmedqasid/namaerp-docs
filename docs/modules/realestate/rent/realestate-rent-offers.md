@@ -1,3 +1,7 @@
+---
+entities: [RERentOffer, RERentOfferCancel]
+menu: Real Estate and Property → Rents → Rent offer
+---
 # Rent Offers and Reserving a Unit for Rent
 
 Before anybody signs anything, a prospective tenant wants a number: what would Shop G-07 cost for three years, and what is the deposit? The **rent offer** exists to answer that question on paper. It is a priced, dated quotation for one estate — and because it is built on exactly the same screen shape as the lease, the figures you quote are literally the figures the contract will carry when the tenant says yes.

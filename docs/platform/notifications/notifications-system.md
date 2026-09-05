@@ -1,3 +1,7 @@
+---
+entities: [NotificationDefinition]
+menu: Administration → Display Customization → Notification Definition
+---
 # Nama ERP Notification System
 
 ## Overview

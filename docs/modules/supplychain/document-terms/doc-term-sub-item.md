@@ -1,3 +1,7 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
 # Sub-Item Configuration
 
 A **sub-item** (الصنف الفرعي) is a serialized/tracked sub-unit of an item that carries its own warehouse, locator, taxes, status and back-links to the documents that created or touched it. The options on this tab control what header/line data a document writes into the sub-item record, how taxes are copied to and from it, and how sub-items are spread and filtered.

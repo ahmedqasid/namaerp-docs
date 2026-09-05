@@ -1,3 +1,8 @@
+---
+entities: [AccDistribution]
+menu: Accounting → Settings → Account Distribution
+---
+
 # Dimensions, Cost Centers & Distribution
 
 An account answers "what" — cash, sales, salaries. **Dimensions** answer everything else: *which* branch, *which* department, *which* cost center, *which* project. They're the extra coordinates carried on every ledger line, and they're what turn a flat trial balance into reports you can slice by branch, by sector, by cost center. This page explains the dimension set, how accounts can restrict which dimensions they accept, and how **account distribution** spreads a value across them automatically.

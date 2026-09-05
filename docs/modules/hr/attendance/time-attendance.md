@@ -1,3 +1,6 @@
+---
+entities: [TimeAttendance, ElectronicAttendance, ElectronicAttendanceZone]
+---
 # Time Attendance
 
 An [Attendance Plan and Shift](attendance-plans-and-shifts.md) tells Nama what an employee's day is *supposed* to look like. This page is about what actually happened: the raw check-in and check-out punches, however they were captured, and how those punches turn into money on the payslip.

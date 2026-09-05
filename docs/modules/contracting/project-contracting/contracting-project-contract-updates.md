@@ -1,3 +1,7 @@
+---
+entities: [ProjectContractUpdate]
+menu: Contracting → Project Contracting → Project Contract Update
+---
 # Project Contract Updates
 
 Clients change their minds. A quantity turns out to have been under-measured, a rate is renegotiated, an item nobody thought of has to be added, the completion date slips by a month. On a small job you would simply open the contract and edit it — and early in a contract's life that is exactly what you do. But [the project contract](/modules/contracting/project-contracting/contracting-project-contract.md) freezes its prices, quantities and conditions as soon as the first extract has been issued against it, and from that point on the only sanctioned way to change it is this document.

@@ -1,3 +1,8 @@
+---
+entities: [ConfigEntry]
+menu: Administration → Settings → System Settings
+---
+
 # Replication
 
 Replication keeps several Nama sites in step — a head office and its branches, or servers in different countries. Records created at one site are packaged as messages and delivered to the others. This tab decides which records travel where, and what happens when delivery fails.

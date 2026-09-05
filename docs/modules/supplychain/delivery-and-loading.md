@@ -1,3 +1,6 @@
+---
+entities: [DeliveryDocument, LoadingDocument, DeliveryQueue, PickRules, DeliveryCancellationDoc, LoadingCancellationDoc, DeliveryQueueConfiguration, DeliveryDriverConfig, DeliveryOrganization]
+---
 # Delivery & Loading
 
 Between confirming the sales order and issuing the invoice lies the physical stage: preparing the goods, loading them, getting them to the customer, and obtaining proof of receipt. This guide gathers the documents and configuration that manage this final journey - from the warehouse shelf to the customer's door.

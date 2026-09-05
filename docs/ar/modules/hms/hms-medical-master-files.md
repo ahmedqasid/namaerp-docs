@@ -1,3 +1,7 @@
+---
+entities: [HMSDoctor, HMSMedicalService, HMSMedicalSpecialty, HMSMedServiceCategory, HMSDisease, HMSAntibiotic, HMSMedicalDevice, HMSFeedingType, HMSPatientClass, HMSDocumentCategory, HMSProcedureType]
+---
+
 # الملفات الطبية الأساسية
 
 بعد رسم هيكل المبنى، نُعرّف الكوادر والمفاهيم الطبية التي تتعامل معها المستندات يوميًا: الأطباء، التخصصات، الأمراض، الخدمات الطبية، أجهزة التحاليل، التغذية، وفئات المرضى. معظمها تحت **نظام إدارة المستشفيات ← الملفات** (وبعضها تحت قوائم متخصّصة كالتحاليل والتغذية كما سنشير).

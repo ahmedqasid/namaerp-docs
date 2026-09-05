@@ -1,3 +1,7 @@
+---
+entities: [MnContract]
+menu: Customer Relationship Management → Maintenance Documents → Maintenance Contract
+---
 # Maintenance Contracts
 
 The maintenance contract is the centre of gravity of the whole suite. It answers four questions at once: **which machines** are covered, **how often** each one is visited, **what has been pre-paid** and **how the customer pays**. Every preventive work plan, every drawn-down spare part and every contract-priced invoice line comes back to it.

@@ -1,3 +1,6 @@
+---
+entities: [CRMLeadClassification, CRMActivityType, CRMRejectionReason, CRMMainCategory, CRMIndustry, CRMCampaignType]
+---
 # Classification Files
 
 ::: info Required licence

@@ -1,3 +1,6 @@
+---
+entities: [AssemblyDocument, AssemblyBOM, ProcessingDoc, PackagingMethodFile, AssemblyRequest, AggrAssemblyDocument, MultiAssemblyDoc, PartialAssemblyBOM, AssemblyAltMaterial, AssemblyComponent, AssemblyProcessFile, AssemblyMachine]
+---
 # Assembly & Packaging
 
 Not everything you sell is bought as-is; some items are assembled from components, or transformed and packaged before sale. **Assembly** is the "light manufacturing" within the supply chain: you issue components and receive an assembled product, without the complexity of full production orders in the Manufacturing module.

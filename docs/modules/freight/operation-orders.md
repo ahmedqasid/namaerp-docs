@@ -1,3 +1,7 @@
+---
+entities: [FRMOperationOrder, FRMOOStatus, FRMOODelivery, FRMOOReceipt, FRMOOTransfer]
+menu: Freight Management System → Documents → FRM Operation Order
+---
 # Operation Orders
 
 The operation order is the heart of the Freight Management module. Think of it as the **complete shipment file**: everything about a single shipment — the parties, the vessel and voyage, the ports, the container, and the services with their costs and selling prices — lives here. And from the operation order, the bill of lading and the sales and purchase invoices branch off.

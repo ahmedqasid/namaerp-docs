@@ -1,3 +1,6 @@
+---
+entities: [TechnicianService, TechnicianProcedure]
+---
 # Services and Procedures
 
 ::: info Required licence

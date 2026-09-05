@@ -1,3 +1,7 @@
+---
+entities: [DMSCompressedFileToDocs]
+menu: Basic → Document Management System → Compressed File To DMS Document
+---
 # Loading an Archive from a ZIP File
 
 Registering documents one at a time is fine for the trickle of new paperwork. It is hopeless for

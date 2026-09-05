@@ -1,3 +1,7 @@
+---
+entities: [ExecutiveBudgetItemRequest]
+menu: Contracting → Project Contracting → Executive Budget Item Request
+---
 # Budget Item Requests
 
 An approved [executive budget](/modules/contracting/budgets/contracting-executive-budget.md) says which materials the job needs, how much of each, and at what price the client approved them. The **Executive Budget Item Request** is how the site asks for that spend to happen: a purchase request, raised against the budget, whose lines are tied back to the approvals the client signed.

@@ -1,3 +1,7 @@
+---
+entities: [OmnifulConfig]
+menu: ims → Master Files → Omniful Configuration
+---
 # Omniful Integration Guide
 
 ## Overview

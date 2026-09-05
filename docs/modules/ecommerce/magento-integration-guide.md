@@ -1,3 +1,6 @@
+---
+entities: [MAGMagentoSite, MagentoItemLinker, MagentoPriceUpdaterDoc, EcommerceProductConfig, EcommerceCategoryConfig]
+---
 # Nama ERP E-Commerce Integration Guide
 
 ## Table of Contents

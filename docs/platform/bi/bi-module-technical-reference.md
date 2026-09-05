@@ -1,3 +1,6 @@
+---
+entities: [DashBoardWidget, BICrossFilter, DashBoard, DashBoardWidgetWizard]
+---
 # Nama ERP BI Module — Technical Reference
 
 This document is the authoritative technical reference for the Nama ERP BI (Business Intelligence) module's JSON structures. It is written primarily for AI assistants and developers who need to create SQL queries, chart configurations, cross-filter bindings, drill-down mappings, and bulk import files that work out-of-the-box when pasted into Nama ERP.

@@ -1,3 +1,7 @@
+---
+entities: [TRSalesInvoice, TRSalesOrder, TRSalesReturn, TRPurchaseInvoice, TRPurchaseOrder, TRPurchaseReturn, TRTour]
+---
+
 # توجيهات مستندات السفر والرحلات
 
 افتح قائمة السفر والرحلات تجد فيها مجموعتين لا ثالث لهما: **الملفات** و**المستندات**. لا توجد شاشة

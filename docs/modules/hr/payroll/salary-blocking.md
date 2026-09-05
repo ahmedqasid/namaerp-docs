@@ -1,3 +1,6 @@
+---
+entities: [SalaryBlockRule, SalaryBlockDocument, SalaryUnBlockDocument, PartialSalaryPayment]
+---
 # Salary Blocking & Partial Payment
 
 Sometimes a salary shouldn't be paid out — at least not yet, and not in full. An employee is under investigation, hasn't returned company property, or has an unresolved clearance; the pay is earned and calculated, but it needs to be *held* until the situation resolves. Nama handles this with a small family of documents: a **rule** that decides automatically when to hold pay, a **block document** that does the holding, an **unblock document** that releases it, and a **partial payment** template for paying out only part of a held (or ordinary) salary.

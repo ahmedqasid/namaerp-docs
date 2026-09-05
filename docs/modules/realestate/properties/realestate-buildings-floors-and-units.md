@@ -1,3 +1,6 @@
+---
+entities: [REBuilding, REFloor, RERentalUnit, REUnitGroup, REUnitModel]
+---
 # Buildings, Floors and Rental Units
 
 The other half of the estate tree goes upwards instead of sideways. Where a land developer cuts

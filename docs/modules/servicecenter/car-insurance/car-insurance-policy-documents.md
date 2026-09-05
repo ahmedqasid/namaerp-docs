@@ -1,3 +1,6 @@
+---
+entities: [SIInsurancePolicyOrder, SIInsurancePolicyReceipt, SIInsurancePolicyDelivery, SIInsurancePolicyRenewal, SIInsurancePolicyValueAdjustment, SIInsurancePolicyPeriodAdjustment, SIInsurancePolicyCancellation]
+---
 # Moving a Policy Through Its Cycle
 
 ::: info Required licence

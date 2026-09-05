@@ -1,3 +1,7 @@
+---
+entities: [Project]
+menu: Contracting → Master Files → Contracting Project
+---
 # Contracting Projects
 
 Ask a site manager what he is working on and he will not answer "contract PC-2026-001". He will say

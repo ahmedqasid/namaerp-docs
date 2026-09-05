@@ -1,3 +1,7 @@
+---
+entities: [HOExitReEntryVisaReq, AggrHOExitReEntryVisaReq, HOExtendingVisaReq, HOFinalExitVisaReq, HOFamilyVisitVisaRequest, HOPassportDeliveringReq]
+---
+
 # التأشيرات (HR Visas)
 
 لا يستطيع الموظف الوافد في الخليج أن يغادر البلاد ويعود، أو أن يستقدم أسرته للزيارة، دون تأشيرة حكومية

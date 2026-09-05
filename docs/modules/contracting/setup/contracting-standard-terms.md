@@ -1,3 +1,7 @@
+---
+entities: [ContractingStandardTerm]
+menu: Contracting → Master Files → Standard Term
+---
 # Standard Terms
 
 A contracting company does not sell things. It sells *work*: so many cubic metres of excavation, so

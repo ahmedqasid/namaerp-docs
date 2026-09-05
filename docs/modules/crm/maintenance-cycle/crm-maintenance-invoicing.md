@@ -1,3 +1,7 @@
+---
+entities: [MnInvoice, MnInvoiceReturn]
+menu: Customer Relationship Management → Maintenance Documents → Maintenance Invoice
+---
 # Maintenance Invoicing
 
 The maintenance invoice is the document that makes everything real. Up to this point the

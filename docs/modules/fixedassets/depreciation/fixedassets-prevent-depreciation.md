@@ -1,3 +1,7 @@
+---
+entities: [FAPreventAssetsDeprec]
+menu: Assets → Documents → Prevent Assets Depreciation Document
+---
 # Freezing an Asset's Depreciation
 
 Sometimes an asset should not be depreciated for a while. A production line is mothballed for six

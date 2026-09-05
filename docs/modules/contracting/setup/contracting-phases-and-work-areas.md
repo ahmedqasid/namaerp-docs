@@ -1,3 +1,6 @@
+---
+entities: [ContractingPhase, ContractingPhasesGroup, ContrWorkArea]
+---
 # Phases and Work Areas
 
 A bill of quantities answers *what* work is being done. Two other questions get asked on site every

@@ -1,3 +1,7 @@
+---
+entities: [NamaPOSSalesReturn, NamaPOSSalesReplacement, NamaPOSCreditNote]
+---
+
 # Returns & Replacements
 
 Goods come back. A customer changes their mind, an item is faulty, a size is wrong. Nama POS handles all of it — straight refunds, exchanges, store credit, and even a deduction for wear — and keeps each one tied to who did it and why.

@@ -1,3 +1,6 @@
+---
+entities: [VacationCompensation, VacationTransferDocument, VacationChangingDocument, HolidaysRestBalanceDoc]
+---
 # Vacation Compensation & Transfer
 
 Not every leave document is about an employee actually being away. This page covers four screens that instead **cash out** unused balance (**Vacation Compensation** / سند صرف بدل أجازة), **carry a balance forward into a new HR year** (**Vacation Transfer Document** / سند ترحيل أجازات), **manually correct a balance** (**Vacation Changing Document** / سند تعديل رصيد أجازة), or **convert days actually worked on a holiday/rest day into balance** (**Holidays And Rest Days Balance Compensation Document** / بدل أرصده راحات أسبوعية و عطلات رسمية). All four read and write the same balances defined in [Vacation Types & Balances](vacation-types-and-balances.md).

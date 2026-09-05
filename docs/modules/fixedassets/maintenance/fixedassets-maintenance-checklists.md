@@ -1,3 +1,6 @@
+---
+entities: [FAMaintenanceCheckList, FACheckListItem]
+---
 # Checklists and Checklist Items
 
 Ask a technician to "service the CNC machine" and you will get a different job every quarter,

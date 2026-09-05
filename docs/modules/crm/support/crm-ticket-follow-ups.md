@@ -1,3 +1,7 @@
+---
+entities: [CRMTroubleTicketFollowUp]
+menu: Customer Relationship Management → Support → Ticket Follow Up
+---
 # Ticket Follow-Ups
 
 ::: info Required licence

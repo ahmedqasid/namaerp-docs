@@ -1,3 +1,8 @@
+---
+entities: [DuesLiquidationDoc, DuesLiquidationComponent, AggrDuesLiquidationDoc]
+menu: الرواتب ← التصفية وانهاء الخدمات ← مستند تصفية مستحقات
+---
+
 # تصفية المستحقات (Dues Liquidation)
 
 عندما يترك الموظف الشركة، لا بد من مستند واحد يضع خطًا نهائيًا تحت كل ما تبقى بين الطرفين من

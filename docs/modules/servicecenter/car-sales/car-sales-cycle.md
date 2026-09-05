@@ -1,3 +1,6 @@
+---
+entities: [SISalesQuotationReq, SISalesQuotation]
+---
 # The Car Sales Cycle
 
 Selling a car is not like selling a bag of cement. Nobody cares *which* bag of cement leaves the

@@ -1,3 +1,8 @@
+---
+entities: [CRMTroubleTicketFollowUp]
+menu: خدمة العملاء ← الدعم ← متابعة طلب دعم
+---
+
 # متابعات طلب الدعم
 
 ::: info الترخيص المطلوب

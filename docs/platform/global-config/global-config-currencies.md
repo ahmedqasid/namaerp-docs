@@ -1,3 +1,8 @@
+---
+entities: [ConfigEntry]
+menu: Administration → Settings → System Settings
+---
+
 # Currencies Tafqeet
 
 *Tafqeet* is writing an amount in words — the line on a cheque or an invoice that reads "One thousand two hundred Egyptian Pounds and fifty Piasters only". This tab holds the vocabulary the system needs to produce that sentence correctly.

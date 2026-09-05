@@ -1,3 +1,8 @@
+---
+entities: [DashBoardWidget]
+menu: إدارة النظام ← لوحات ← عنصر اللوحة
+---
+
 # مرجع BI — EnhancedTable
 
 مرجع مكمّل لـ [`bi-module-technical-reference.md`](./bi-module-technical-reference.md). استخدمه عند تأليف widget من نوع `type: "EnhancedTable"` (أو وضع الـ pivot/cross-tab).

@@ -1,3 +1,7 @@
+---
+entities: [SuspensionDocument]
+menu: Payroll → Reward / Penalty → Suspension Document
+---
 # Suspension
 
 A **Suspension Document** (إيقاف عن العمل) records that an employee was suspended from work for a stretch of days — and, depending on why, whether that stretch is paid or not. It sits in the same disciplinary group as [Rewards & Penalties](rewards-and-penalties.md), but it isn't about a single pay figure; it's about a date range the employee didn't work.

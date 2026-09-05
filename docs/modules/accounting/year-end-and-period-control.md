@@ -1,3 +1,8 @@
+---
+entities: [ClosingEntry, PreventAccTransactions, LedgerReviseDoc, PurgeJournal]
+menu: Accounting → Documents → Closing Entry
+---
+
 # Year-End Closing & Period Control
 
 At the end of each fiscal year comes the moment of closing: carrying the year's profit/loss into equity, and closing the result accounts in preparation for a new year. And throughout the year you need tools to control who posts, where, and when. This page gathers those tools: the **Closing Entry**, **year and period status control**, **Prevent Accounting Transactions**, the **Ledger Revise Document**, and **purging transactions**.

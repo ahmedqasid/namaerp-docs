@@ -1,3 +1,7 @@
+---
+entities: [TechnicianBookingSettings]
+menu: Customer Relationship Management → Technician Appointments → Appointment Booking Settings
+---
 # Appointment Booking Settings
 
 ::: info Required licence

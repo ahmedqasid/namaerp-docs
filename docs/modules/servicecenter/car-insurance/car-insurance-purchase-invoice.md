@@ -1,3 +1,7 @@
+---
+entities: [SIInsurancePurchaseInvoice]
+menu: cars → Car Insurance → Car Insurance Policy Purchase Invoice
+---
 # Settling with the Insurer
 
 ::: info Required licence

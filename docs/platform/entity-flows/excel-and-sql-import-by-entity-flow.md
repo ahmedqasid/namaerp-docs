@@ -1,3 +1,6 @@
+---
+entities: [EntityFlow]
+---
 # Importing Data from Excel or Queries
 
 ## Importing Data from Excel into Nama ERP

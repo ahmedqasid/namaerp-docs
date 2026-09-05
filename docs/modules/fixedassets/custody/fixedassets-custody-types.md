@@ -1,3 +1,7 @@
+---
+entities: [CustodyType]
+menu: Assets → Custodys → Custody Type
+---
 # Custody Types
 
 Before Al-Waha Industries can register its first laptop, somebody has to answer a question the

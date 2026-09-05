@@ -1,3 +1,7 @@
+---
+entities: [NaMaUser]
+menu: Administration → Security → User
+---
 # Users and Login
 
 The **User** record is where identity, authentication, and personal permission overrides converge. This page covers creating users, user-level permission overrides, and everything related to login: passwords, LDAP, two-factor authentication, and session control.

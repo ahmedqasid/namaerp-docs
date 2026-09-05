@@ -1,3 +1,6 @@
+---
+entities: [MnMachineType, MnMachineCategory]
+---
 # Machine Types and Categories
 
 Al Nokhba maintains a few hundred units for its customers, but they are not a few hundred different things. They are chillers, air handling units and split units — three or four models of each. **Machine Type** is where you describe the model once, and **Machine Category** is the broad family the model belongs to.

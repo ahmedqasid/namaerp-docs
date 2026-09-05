@@ -1,3 +1,6 @@
+---
+entities: [SMFProblemDeclarationDoc, SMFSolutionSuggestionDoc, SMFInitialOperationDoc]
+---
 # CRM Risk Register
 
 ::: info Licence

@@ -1,3 +1,7 @@
+---
+entities: [CRMTicketExecution]
+menu: Customer Relationship Management → Support → Ticket Execution
+---
 # Ticket Executions
 
 ::: info Required licence

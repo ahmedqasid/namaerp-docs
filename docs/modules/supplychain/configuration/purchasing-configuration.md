@@ -1,3 +1,7 @@
+---
+entities: [ConfigEntry]
+menu: Inventory → Settings → Supply Chain Configurations
+---
 # Purchasing Configuration
 
 This page documents the **Purchasing** tab — settings that affect purchase orders, purchase invoices, purchase returns, and the letter-of-credit / proforma workflow.

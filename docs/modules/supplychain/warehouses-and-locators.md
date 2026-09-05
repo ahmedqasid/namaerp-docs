@@ -1,3 +1,7 @@
+---
+entities: [Warehouse, Locator, WarehouseUsagePolicy, WarehouseGroup, WareLocationClass, ItemWarehouseRelation]
+menu: Inventory → Master Files → Warehouse
+---
 # Warehouses & Locators
 
 You've defined your items - great. But where will you actually put them? This is where **Warehouses** and **Locators** come in. They're the spatial map of your inventory: where each item lives, how it moves, and who's responsible for it.

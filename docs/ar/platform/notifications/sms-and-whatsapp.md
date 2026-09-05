@@ -1,3 +1,7 @@
+---
+entities: [WhatsAppMessageConfiguration]
+---
+
 # إعداد الرسائل القصيرة (SMS) و WhatsApp في نظام نما ERP
 
 يدعم نظام نما ERP إرسال الرسائل عبر SMS و WhatsApp إلى المستخدمين والعملاء والموردين وغيرهم.

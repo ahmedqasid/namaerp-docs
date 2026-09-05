@@ -1,3 +1,8 @@
+---
+entities: [SalesStandardTerm, StandardTermFulfillment, StandardTermExtension]
+menu: الأساسيات ← الملفات ← بند بيع قياسي
+---
+
 # توثيق خاصية الشروط والأحكام القياسية (Standard Terms and Conditions Feature Documentation)
 
 ## نظرة عامة (Overview)

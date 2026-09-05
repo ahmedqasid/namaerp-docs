@@ -1,3 +1,8 @@
+---
+entities: [PartyEvaluation, PartyEvaluationElement, PartyEvalElementGroup]
+menu: Accounting → Party Evaluations → Party Evaluation
+---
+
 # Party Evaluation
 
 Numbers tell you what a supplier charged or what a customer paid, but not whether they're *good* to work with: Did the supplier deliver on time? Is the bank responsive? Is the customer reliable? **Party evaluation** is a structured way to score the parties you deal with — customers, suppliers, banks — against criteria you define, and keep that judgment on record alongside the financial picture.

@@ -1,3 +1,6 @@
+---
+entities: [RESalesPriceList, RESalesPaymentMethod]
+---
 # Price Lists and Payment Plan Templates
 
 There are two numbers a salesperson should never type from memory: what the unit costs, and how the

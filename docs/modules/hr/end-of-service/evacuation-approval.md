@@ -1,3 +1,6 @@
+---
+entities: [EvacuationPartyDocument, EvacuationApprovalSettings, EvacuationApprovalDocument]
+---
 # Evacuation Approval
 
 Before a departing employee can be paid off — or before a long leave is signed off — most companies

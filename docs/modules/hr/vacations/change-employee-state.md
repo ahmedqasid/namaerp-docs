@@ -1,3 +1,7 @@
+---
+entities: [ChangeEmployeeState]
+menu: Payroll → Vacations → ChangeEmployeeState
+---
 # Change Employee State
 
 Every employee carries one working state at a time — Working, In Vacation, Suspended, Resigned, Dismissed, Pension, and a set of open-ended "Other" states a company can repurpose for its own needs. **Change Employee State** (تغير حالة موظف) is the one screen that records a change to that state directly, with the date it takes effect, independent of any other document.

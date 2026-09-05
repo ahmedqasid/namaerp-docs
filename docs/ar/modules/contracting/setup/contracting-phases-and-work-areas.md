@@ -1,3 +1,7 @@
+---
+entities: [ContractingPhase, ContractingPhasesGroup, ContrWorkArea]
+---
+
 # المراحل ومناطق العمل
 
 قائمة الكميات تجيب عن سؤال **ماذا** يُنفَّذ من عمل. وهناك سؤالان آخران يُطرحان في الموقع كل يوم ولا تجيب

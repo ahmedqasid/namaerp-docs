@@ -1,3 +1,7 @@
+---
+entities: [CPAProjExpenseReq, CPAProjExpenseDoc, CPAProjectExpenseItem]
+---
+
 # مصاريف المشروع
 
 ::: info الترخيص

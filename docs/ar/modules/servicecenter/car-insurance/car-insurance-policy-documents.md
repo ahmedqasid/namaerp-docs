@@ -1,3 +1,7 @@
+---
+entities: [SIInsurancePolicyOrder, SIInsurancePolicyReceipt, SIInsurancePolicyDelivery, SIInsurancePolicyRenewal, SIInsurancePolicyValueAdjustment, SIInsurancePolicyPeriodAdjustment, SIInsurancePolicyCancellation]
+---
+
 # دورة حياة وثيقة التأمين
 
 ::: info الترخيص المطلوب

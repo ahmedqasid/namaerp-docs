@@ -1,3 +1,7 @@
+---
+entities: [CRMMediator, CRMAgent]
+---
+
 # الوسطاء والوكلاء
 
 **وسيط / mediator** — `خدمة العملاء > الدعم > وسيط`.

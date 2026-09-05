@@ -1,3 +1,7 @@
+---
+entities: [SrvCGatePass]
+menu: Service Center → Documents → Service Center Gate Pass
+---
 # Gate Pass
 
 The gate pass (تصريح عبور البوابة) answers one question, and only one:

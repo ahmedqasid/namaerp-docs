@@ -1,3 +1,8 @@
+---
+entities: [DocumentTerm]
+menu: الأساسيات ← الإعدادات ← توجيه مستند
+---
+
 # سند توريد مخزني للجزء غير المنفّذ من أمر الشراء (Stock Receipts for the Unsatisfied Part of a Purchase Order)
 
 *طلب تطوير: **SRDRQ06178***

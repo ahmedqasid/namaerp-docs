@@ -1,3 +1,6 @@
+---
+entities: [MobDeliveryDoc, MultiMobDeliveryDoc]
+---
 # Delivering with the Driver App
 
 ::: info Required licence

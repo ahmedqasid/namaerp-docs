@@ -1,3 +1,8 @@
+---
+entities: [ConfigEntry]
+menu: Administration → Settings → System Settings
+---
+
 # General
 
 The General tab holds the settings that don't belong to any one business area but shape how numbers, dates and text look everywhere: what the second interface language is, how many decimal places a rate carries, how a Hijri date is written, and what the three item measure fields mean.

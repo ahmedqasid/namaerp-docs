@@ -1,3 +1,7 @@
+---
+entities: [MnOrderExecution]
+menu: Customer Relationship Management → Maintenance Documents → Maintenance Order Execution
+---
 # Order Executions
 
 The execution sheet is the technician's document. One is produced for each machine on the

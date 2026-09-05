@@ -1,3 +1,7 @@
+---
+entities: [ContractingPurchaseRequest, ContractingPurchaseOrder]
+---
+
 # طلبات وأوامر شراء المقاولات
 
 في نما طلب شراء وأمر شراء في وحدة سلاسل الإمداد يعملان بكفاءة تامة. فلماذا تشحن المقاولات نسختها

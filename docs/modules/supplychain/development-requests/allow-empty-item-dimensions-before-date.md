@@ -1,3 +1,7 @@
+---
+entities: [ItemConfigurations]
+menu: Inventory → Settings → Item Configurations
+---
 # Allowing Items With Batch & Expiry to Hold Untagged Quantities
 
 *Development Request: **SRDRQ06261** (Dar Al-Emirate Trading Company)*

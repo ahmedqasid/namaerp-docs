@@ -1,3 +1,6 @@
+---
+entities: [FiringDocument, FiringRequest, TerminationReason, AggFiringDocument, AggFiringRequest]
+---
 # Firing & Termination
 
 Ending someone's employment is never just a status change. The moment a departure is confirmed,

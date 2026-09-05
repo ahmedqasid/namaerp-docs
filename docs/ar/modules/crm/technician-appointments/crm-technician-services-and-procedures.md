@@ -1,3 +1,7 @@
+---
+entities: [TechnicianService, TechnicianProcedure]
+---
+
 # الخدمات والإجراءات الفنية
 
 ::: info الترخيص المطلوب

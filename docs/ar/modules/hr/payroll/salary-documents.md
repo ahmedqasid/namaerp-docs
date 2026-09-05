@@ -1,3 +1,7 @@
+---
+entities: [SalarySheet, SalaryDocument, SalaryGenerationRange]
+---
+
 # مستندات الرواتب (Salary Documents)
 
 كل ما في صفحات **[مفردات الراتب](salary-components.md)** و**[المعادلات](salary-calculation-formulas.md)** و**[الهياكل](salary-structures.md)** هو *إعداد* — الآلية التي تقرر كم يجب أن يتقاضى كل موظف. وهذه الصفحة هي حيث تعمل تلك الآلية أخيراً. مستندان يقومان بالمهمة: **سجل الرواتب** (Salary Sheet)، وهو التشغيل المجمّع لفترة رواتب كاملة، و**سند الراتب** (Salary Document)، وهو كشف المرتب الفردي الذي يُنتَج لكل موظف — ومصدر القيد المحاسبي.

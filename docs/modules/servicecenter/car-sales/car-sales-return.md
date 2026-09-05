@@ -1,3 +1,7 @@
+---
+entities: [SISalesReturn]
+menu: cars → Car Sales → Car Sales Return
+---
 # Taking a Car Back
 
 The [sales invoice](/modules/servicecenter/car-sales/car-sales-invoice.md) is the point of no

@@ -1,3 +1,7 @@
+---
+entities: [MeasurementsRequest, CustomerSubmittal, ProjectDeliverLetter]
+---
+
 # طلبات الرفع والاعتمادات والتسليم
 
 ثلاثة مستندات تقف على أطراف سلسلة المحاسبة: أحدها قبل أن يُسعَّر العقد أصلاً، وثانٍ يحكم ما يجوز شراؤه من خامات، وثالث يسجل يوم تسليم المفاتيح. ولا يسجل أي منها شيئاً في الدفاتر، والأهم: لا يعطّل أي منها [حصر الكميات](/ar/modules/contracting/project-contracting/contracting-project-execution.md) ولا [المستخلص](/ar/modules/contracting/project-contracting/contracting-project-extracts.md). فهي سجلات لاعتمادات تجري في الواقع، تُحفظ في النظام ليُعثر عليها ويُقرَّر عنها ويُشار إليها حين يسأل أحد: من وافق على ماذا؟

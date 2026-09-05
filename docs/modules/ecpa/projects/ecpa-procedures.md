@@ -1,3 +1,7 @@
+---
+entities: [CPAProcedure]
+menu: ECPA → Projects → Procedure
+---
 # Procedures
 
 The name invites a misunderstanding, so start here: a **Procedure** in Project Management (ECPA) is not a workflow definition, not a checklist template and not a stored routine. It is a **follow-up record** — the next thing that has to happen on a job, written down so it is not forgotten.

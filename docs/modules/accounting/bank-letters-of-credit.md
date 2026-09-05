@@ -1,3 +1,8 @@
+---
+entities: [BankLC, BLCOpeningDoc, BLCChanging, BLCClosingDoc, BLCReq]
+menu: Banks → Bank LC → Bank LC
+---
+
 # Bank Letters of Credit
 
 A letter of credit (LC) is a tool an importer uses to reassure the supplier: the bank undertakes to pay the supplier the shipment's value once they present shipping documents matching the terms. Like a letter of guarantee, an LC **reserves part of your facility limit** and charges you **fees**, and it's tracked as a master file with a succession of opening, amendment and closing documents, keeping the two snapshots of **initial values** and **current values**. Its structure is very close to that of [Letters of Guarantee](./letters-of-guarantee.md).

@@ -1,3 +1,6 @@
+---
+entities: [RECostDocument]
+---
 # Real Estate Investment FAQ
 
 ## How do I extract the journal entry from a real estate investment cost distribution?

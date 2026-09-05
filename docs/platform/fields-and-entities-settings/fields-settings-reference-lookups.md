@@ -1,3 +1,8 @@
+---
+entities: [GenericReferenceOverrider]
+menu: Basic → Settings → Fields and Entities Settings
+---
+
 # Reference Fields and Lookups
 
 A reference field is any field that points at another record: the customer on a Sales Invoice, the item on an invoice line, the warehouse on a Stock Issue. Users spend more of their day inside those little lookup boxes than anywhere else in the system, and a lookup that behaves badly is felt on every single document.

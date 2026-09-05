@@ -1,3 +1,7 @@
+---
+entities: [SrvCInspectionDoc, SrvCInspectionTemplate, SrvCInspectionPoint]
+menu: Service Center → Documents → Product Inspection Document
+---
 # Reception Inspection Sheets
 
 When Fahad Al-Otaibi hands his keys over at 08:20 on 3 March, somebody has to walk round the Saif 1.6

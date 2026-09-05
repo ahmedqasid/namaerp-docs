@@ -1,3 +1,7 @@
+---
+entities: [MobDeliveryDoc, MultiMobDeliveryDoc]
+---
+
 # مستندات الحركة
 
 ::: info الترخيص المطلوب

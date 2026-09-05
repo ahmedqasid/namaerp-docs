@@ -1,3 +1,7 @@
+---
+entities: [AssemblyDocument, AssemblyBOM, ProcessingDoc, PackagingMethodFile, AssemblyRequest, AggrAssemblyDocument, MultiAssemblyDoc, PartialAssemblyBOM, AssemblyAltMaterial, AssemblyComponent, AssemblyProcessFile, AssemblyMachine]
+---
+
 # التجميع والتعبئة (Assembly & Packaging)
 
 ليس كل ما تبيعه تشتريه كما هو؛ فبعض الأصناف تُجمَّع من مكونات، أو تُحوَّل وتُعبَّأ قبل البيع. **التجميع (Assembly)** هو "التصنيع الخفيف" داخل سلسلة التوريد: تصرف مكونات وتستلم منتجًا مجمَّعًا، دون تعقيد أوامر الإنتاج الكاملة في وحدة التصنيع.

@@ -1,3 +1,8 @@
+---
+entities: [RentalAsset, RentalAssetClassification]
+menu: مركز خدمة ← أصول تأجيرىة ← أصل تأجيرى
+---
+
 # ملف الأصل التأجيري
 
 ::: info الترخيص المطلوب

@@ -1,3 +1,6 @@
+---
+entities: [HMSLabTestType, HMSRadiologyType, HMSSurgeryType, HMSPhysicalTherapyType, HMSSurgeryPackage, HMSPackageItem, HMSLabTestCategory, HMSRadiologyCategory, HMSPhyTherapyCategory, HMSSurgeryClassification, HMSTest, HMSTestTube, HMSTestTubeColor]
+---
 # Medical Service Catalog
 
 Alongside general medical services, the hospital keeps specialized catalogs for each kind of clinical activity: **lab tests**, **radiology**, **physiotherapy**, and **surgeries**. These catalogs are what a doctor orders and what invoices are later priced from.

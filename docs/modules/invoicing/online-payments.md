@@ -1,3 +1,7 @@
+---
+entities: [OnlinePaymentConfig, PaymentLinksCreationDoc]
+menu: Basic → Documents → Online Payment Configuration
+---
 # Online Payments Integration
 
 Nama ERP's online payment module lets you accept payments directly from your customers through secure payment gateways. Whether you're sending a single invoice payment link or generating hundreds of payment links for outstanding balances, this module handles the entire flow from link generation to payment confirmation and automatic receipt creation.

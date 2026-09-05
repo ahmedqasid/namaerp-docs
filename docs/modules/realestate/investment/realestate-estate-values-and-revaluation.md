@@ -1,3 +1,6 @@
+---
+entities: [RERevaluationDoc, REPurchaseContract, REEstateAddition]
+---
 # Estate Values, Additions and Revaluation
 
 Every property held by an investment fund carries a **carrying value** — what the books say it is

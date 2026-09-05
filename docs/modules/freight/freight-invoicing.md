@@ -1,3 +1,6 @@
+---
+entities: [FRMSalesInvoice, FRMPurchaseInvoice, FRMSalesOrder, FRMSalesReturn, FRMPurchaseReturn]
+---
 # Invoices & Returns
 
 This is where operational work turns into financial effect: you sell services to the customer, buy them from suppliers, and track the difference between the two. Every document in this section is found under **Freight Management System → Documents**, and all are usually linked to an [operation order](./operation-orders.md).

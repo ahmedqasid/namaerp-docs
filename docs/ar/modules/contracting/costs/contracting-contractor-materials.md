@@ -1,3 +1,8 @@
+---
+entities: [ContractorMaterialIssue, ContractorMaterialReturn, ContractorMaterialIssueRequest]
+menu: المقاولات ← التكاليف ← صرف خامات مقاول باطن
+---
+
 # صرف الخامات لمقاول الباطن
 
 المقاولون يورّدون لمقاولي الباطن عندهم باستمرار. أنت تشتري الأسمنت بالنقلة وهو يشتريه بالشيكارة، فتعطيه

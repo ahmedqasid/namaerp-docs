@@ -1,3 +1,7 @@
+---
+entities: [DeliveryDocument, LoadingDocument, DeliveryQueue, PickRules, DeliveryCancellationDoc, LoadingCancellationDoc, DeliveryQueueConfiguration, DeliveryDriverConfig, DeliveryOrganization]
+---
+
 # التسليم والتحميل (Delivery & Loading)
 
 بين تأكيد أمر البيع وإصدار الفاتورة تقع المرحلة المادية: تحضير البضاعة، وتحميلها، وإيصالها للعميل، والحصول على إثبات الاستلام. يجمع هذا الدليل المستندات والإعدادات التي تدير هذه الرحلة الأخيرة - من رف المخزن إلى باب العميل.

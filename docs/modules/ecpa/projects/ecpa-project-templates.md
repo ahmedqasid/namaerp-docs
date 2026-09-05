@@ -1,3 +1,7 @@
+---
+entities: [CPATemplateProject]
+menu: ECPA → Projects → Template Project
+---
 # Project Templates
 
 Most firms do the same handful of jobs over and over. An interior fit-out always needs a survey, a concept, detailed drawings, a tender package and site supervision; it always runs about six months; it always ends up on the same accounts. A **Template Project** in Project Management (ECPA) captures that repetition so it does not have to be retyped for every new client.

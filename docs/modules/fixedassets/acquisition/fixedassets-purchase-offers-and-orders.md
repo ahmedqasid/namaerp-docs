@@ -1,3 +1,6 @@
+---
+entities: [FAPurchaseOffer, FAPurchaseOrder]
+---
 # Offers and Purchase Orders
 
 Between "we need a CNC machine" and "here is the supplier's invoice" sit the two documents where

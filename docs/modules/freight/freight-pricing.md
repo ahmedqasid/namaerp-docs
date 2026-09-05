@@ -1,3 +1,6 @@
+---
+entities: [FRMSalesPriceList, FRMPurchasePriceList, FRMEditPurchasePriceList]
+---
 # Price Lists & Markups
 
 A freight company profits from the difference between what it pays suppliers for a service and what it sells it to the customer for. Price lists in the freight module make that difference managed and calculated automatically, instead of pricing each shipment by hand.

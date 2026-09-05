@@ -1,3 +1,6 @@
+---
+entities: [SalesPriceList, SalesOffers, DiscountCoupon, PostSalesOffer, PostSalesOfferConfig, PostSalesOfferClaim, PriceVotingDoc, PricingRange, AutoSalesPricing, SalesPriceInPoints, FreeItemGroup, PeriodicMonthlySalesOffer, DiscountCouponType, DiscountCouponBook, SalesCouponsCodingMethod, CouponsSalesOrder, CouponsSalesOrderReturn, PriceVotingFile, AutoSalesPricingSetting]
+---
 # Pricing, Offers & Coupons
 
 The price a customer pays isn't a single number, but the result of several layers: a price list, a quantity discount, a promotional offer, and maybe a coupon. This guide gathers the supply-chain pricing tools and explains how they stack.

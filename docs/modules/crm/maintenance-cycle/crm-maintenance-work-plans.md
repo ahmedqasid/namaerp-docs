@@ -1,3 +1,7 @@
+---
+entities: [MnWorkPlan]
+menu: Customer Relationship Management → Maintenance Documents → Maintenance Work Plan
+---
 # Maintenance Work Plans
 
 A maintenance contract says "chiller 1 gets a monthly visit and a quarterly visit for twelve months". A work plan is that sentence turned into dated rows — 44 of them, in our example — and then those rows turned into real maintenance orders. It is the only scheduling document in the module that produces anything, and it sits exactly halfway between the two button presses that make preventive maintenance happen.

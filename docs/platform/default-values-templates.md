@@ -1,3 +1,7 @@
+---
+entities: [DefaultValuesTemplate]
+menu: Administration → Display Customization → Default Values Template
+---
 # Default Values Templates
 
 Most data entry is repetition. The same branch, the same warehouse, the same payment method, the

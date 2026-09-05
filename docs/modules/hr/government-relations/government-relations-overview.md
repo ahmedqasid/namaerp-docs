@@ -1,3 +1,6 @@
+---
+entities: [HOTransactionType, HODefinitionLetter, HOPaymentRequest]
+---
 # Government Relations Overview
 
 Every company that employs expatriate staff in the Gulf runs a small back office that never stops:

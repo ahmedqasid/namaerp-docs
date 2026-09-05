@@ -1,3 +1,7 @@
+---
+entities: [SIPurchaseReturn]
+menu: cars → Car Purchases → Car Purchase Return
+---
 # Returning Cars to the Supplier
 
 **مردود مشتريات سيارة / Car Purchase Return** —

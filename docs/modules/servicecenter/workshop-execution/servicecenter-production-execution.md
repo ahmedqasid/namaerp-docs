@@ -1,3 +1,7 @@
+---
+entities: [SrvCProductionExecution, SrvCAttendance]
+menu: Service Center → Documents → Production Review
+---
 # Job Order Execution
 
 A [job order](/modules/servicecenter/job-cycle/servicecenter-job-order.md) says what the workshop

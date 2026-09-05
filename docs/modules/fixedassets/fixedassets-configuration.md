@@ -1,3 +1,6 @@
+---
+menu: Assets → Settings
+---
 # Module Configuration
 
 Most of what the Fixed Assets module does is decided document by document, on the document's term (توجيه). A small set of decisions, though, has to be the same everywhere: whether a ledger entry inherits the branch from the asset or from the document that moved it, whether a closing entry may be created while assets are still undepreciated, whether asset purchase documents may create asset records on the fly. Those live on the module's own settings record.

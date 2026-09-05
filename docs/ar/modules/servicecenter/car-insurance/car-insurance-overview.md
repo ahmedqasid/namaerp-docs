@@ -1,3 +1,7 @@
+---
+entities: [SIInsuranceProgram, InsuranceCompany, ExternalAgency]
+---
+
 # تأمين السيارات مع البيع
 
 ::: info الترخيص المطلوب

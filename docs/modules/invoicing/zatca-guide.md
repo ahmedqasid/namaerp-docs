@@ -1,3 +1,7 @@
+---
+entities: [TaxPayerConfiguration, TaxAuthoritySubmissionDoc]
+menu: Basic → Electronic Tax Authority Configuration → Electronic Tax Authority Configuration
+---
 # Integration with ZATCA (Saudi Arabia – Fatoora)
 
 ## Overview

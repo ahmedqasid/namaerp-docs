@@ -1,3 +1,6 @@
+---
+entities: [CRMComplaintType, CRMComplaintSource, CRMProblem, CRMProblemClassification]
+---
 # Problem and Complaint Catalogues
 
 ::: info Required licence

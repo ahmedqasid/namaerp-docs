@@ -1,3 +1,7 @@
+---
+entities: [CRMPotential]
+menu: Customer Relationship Management → Marketing → CRM Potential
+---
 # Potentials
 
 On 2 February 2026, three weeks after the first call and a fortnight after the site visit, Hala pressed **Convert To Potential** on `LD-00417` and saved `PT-00203`. Marina Plaza had stopped being a name on a stand and had become a deal somebody expected to win.

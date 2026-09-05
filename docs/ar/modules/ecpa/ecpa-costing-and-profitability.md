@@ -1,3 +1,7 @@
+---
+entities: [CPAProject, CPAProjectStage]
+---
+
 # مصادر تكلفة وإيراد المشروع
 
 ::: info الترخيص المطلوب

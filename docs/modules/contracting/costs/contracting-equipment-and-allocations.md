@@ -1,3 +1,6 @@
+---
+entities: [ContrEmployeeEquipmentAlloc, ContrEmployeeEquipmentCost, ContrEmployeeEquipInvoice, EquipmentStatementDoc, FACreationDoc]
+---
 # Employees, Equipment and Their Costs
 
 The site engineer who spends March on Tower A is on the company payroll. The tower crane that stands

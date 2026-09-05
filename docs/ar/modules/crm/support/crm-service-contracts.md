@@ -1,3 +1,8 @@
+---
+entities: [CRMServiceContract, CRMUpdateContractStatus]
+menu: خدمة العملاء ← الدعم ← عقد خدمة
+---
+
 # عقود الخدمة
 
 ::: info الترخيص المطلوب

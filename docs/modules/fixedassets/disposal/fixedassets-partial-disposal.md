@@ -1,3 +1,7 @@
+---
+entities: [FAPartialDisposalDoc]
+menu: Assets → Documents → Fixed Asset Partial Disposal Document
+---
 # Partial Disposal
 
 Not every asset record is one thing. When Al-Waha Industries bought ten identical office desks in a

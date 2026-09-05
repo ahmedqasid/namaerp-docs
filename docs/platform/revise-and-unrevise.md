@@ -1,3 +1,6 @@
+---
+entities: [RevisionDoc, DetailedRevisionConfig, RevisionCase]
+---
 # Revise and Unrevise
 
 Every business has records that someone other than the person who entered them is supposed to look at. The storekeeper writes the issue voucher, the stores supervisor checks it. The accountant posts the payment, the financial manager glances over it before month-end. Nama gives that "someone checked this" moment a formal place: **revising** a record.

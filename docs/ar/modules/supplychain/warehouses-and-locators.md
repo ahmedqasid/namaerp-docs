@@ -1,3 +1,8 @@
+---
+entities: [Warehouse, Locator, WarehouseUsagePolicy, WarehouseGroup, WareLocationClass, ItemWarehouseRelation]
+menu: المخازن ← الملفات ← مخزن
+---
+
 # المخازن والمواقع التخزينية (Warehouses & Locators)
 
 عرّفت أصنافك - رائع. لكن أين ستضعها فعليًا؟ هنا يأتي دور **المخازن (Warehouses)** و**المواقع التخزينية (Locators)**. إنها الخريطة المكانية لمخزونك: المكان الذي يعيش فيه كل صنف، وكيف يتنقل، ومن المسؤول عنه.

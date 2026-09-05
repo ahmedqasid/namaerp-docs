@@ -1,3 +1,7 @@
+---
+entities: [RewardPointsConfig]
+menu: Basic → Documents → Reward Points Configuration
+---
 # Customer Reward Points (Loyalty Points)
 
 ## Send a notification to the customer with each invoice with rewarded points, redeemed, and total points

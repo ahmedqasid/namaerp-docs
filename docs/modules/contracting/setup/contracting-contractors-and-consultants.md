@@ -1,3 +1,6 @@
+---
+entities: [Contractor, ContractingAdvisory, ContractorClassification]
+---
 # Contractors and Consultants
 
 Two parties stand beside the project owner on every construction job, and the module keeps a master

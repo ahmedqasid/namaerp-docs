@@ -1,3 +1,6 @@
+---
+entities: [EDCourseContract, EDCourseContractCancel]
+---
 # Education Document Terms
 
 Open the Education menu and you find five groups of master files and documents — students and

@@ -1,3 +1,7 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
 # Terms for Custody and Letters of Credit
 
 Two chains in this module keep their own accounting, and both are configured differently enough from

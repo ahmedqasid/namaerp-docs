@@ -1,3 +1,8 @@
+---
+entities: [GenericReferenceOverrider]
+menu: Basic → Settings → Fields and Entities Settings
+---
+
 # Automatic Coding of Master Files
 
 Master files need codes. Customers, items, suppliers, warehouses, employees — every one of them

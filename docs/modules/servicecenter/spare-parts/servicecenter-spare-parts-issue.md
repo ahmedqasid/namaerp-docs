@@ -1,3 +1,7 @@
+---
+entities: [SrvCRawMaterialIssue]
+menu: Service Center → Documents → Spare Parts Issue
+---
 # Issuing Spare Parts
 
 The **Spare Parts Issue** (صرف قطع غيار) is the document the storekeeper raises when parts leave the

@@ -1,3 +1,6 @@
+---
+entities: [NaMaUser, SecurityProfile]
+---
 # Record-Level Security (Dimensions and Filters)
 
 Granting a user *list view* access to sales invoices answers the question "can they browse invoices?" This page answers the follow-up: **which invoices specifically?** Nama narrows record visibility through four independent mechanisms that sit on top of permission checks:

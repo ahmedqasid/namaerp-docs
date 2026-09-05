@@ -1,3 +1,7 @@
+---
+entities: [HOTransactionType, HODefinitionLetter, HOPaymentRequest]
+---
+
 # نظرة عامة على العلاقات الحكومية (Government Relations Overview)
 
 كل شركة توظّف عمالة وافدة في الخليج تدير مكتبًا خلفيًا صغيرًا لا يتوقّف: الإقامات تنتهي، ورخص العمل

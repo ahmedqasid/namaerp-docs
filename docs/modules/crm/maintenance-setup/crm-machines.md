@@ -1,3 +1,7 @@
+---
+entities: [MnMachine, WarrantyPeriodType]
+menu: Customer Relationship Management → Maintenance Files → Machine
+---
 # The Machine File
 
 Al Nokhba Air Conditioning Systems sold Marina Plaza Hotels two 300-ton chillers and an air handling unit for their Alexandria tower, and then signed a maintenance contract to look after them. From that moment on, almost every screen the maintenance department touches names one of three records: `MCH-00311` and `MCH-00312` (the chillers, in the plant room on the roof) and `MCH-00318` (the air handling unit, in the basement equipment room).

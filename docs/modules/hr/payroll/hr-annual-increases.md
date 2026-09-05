@@ -1,3 +1,7 @@
+---
+entities: [AnnualIncreasesDoc]
+menu: Payroll → Main → Annual Increases Document
+---
 # Annual Increases
 
 Salaries don't stay still. Once a year — or whenever a company decides on a raise round — every employee's pay needs to move: a percentage on the basic salary, a fixed bump to an allowance, a new insurable base. Doing that one employee at a time is exactly the kind of repetitive work that invites mistakes. The **Annual Increases Document** turns a raise campaign into a single, reviewable document: you describe *who* gets raised and *how*, collect the matching employees, and let the document generate the individual salary changes.

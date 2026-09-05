@@ -1,3 +1,6 @@
+---
+entities: [HMSPatient, HMSPatientAdmission, HMSOutpatientReservation, HMSOutpatientSchedule, HMSPatientDiagnosis, HMSPatientHealthStatus, HMSQuestionnaireTemplate, HMSQuestion]
+---
 # Patients & Admission
 
 This is where the patient's journey really begins. On this page we cover the patient file itself, how an outpatient is booked, how an inpatient is admitted via the admission form, plus recording diagnosis and health status.

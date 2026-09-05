@@ -1,3 +1,7 @@
+---
+entities: [REMaintenanceFund, REMaintenanceDepositProfit, RESalesDoc]
+---
+
 # ودائع الصيانة وصناديق الصيانة
 
 قبل أي شيء آخر، هناك تصحيح واحد يوفّر كثيرًا من اللبس: وحدة العقارات تدير **مسارين منفصلين لأموال

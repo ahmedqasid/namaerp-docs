@@ -1,3 +1,8 @@
+---
+entities: [CRTNMaterialPlanning, CRTNPlanningConfiguration]
+menu: التصنيع ← Cartoon ← تخطيط خامات الكرتون
+---
+
 # تخطيط خامات الكرتون (Carton Material Planning): محرك التحسين
 
 ## قلب كفاءة المواد

@@ -1,3 +1,6 @@
+---
+entities: [TRSalesInvoice, TRSalesOrder, TRSalesReturn, TRPurchaseInvoice, TRPurchaseOrder, TRPurchaseReturn]
+---
 # Payments, Instalments & Contract Terms
 
 A travel agency almost never gets paid the way a shop does. A corporate agent books a 40-pax

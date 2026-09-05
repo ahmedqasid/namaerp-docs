@@ -1,3 +1,7 @@
+---
+entities: [FACustodyDisposal]
+menu: Assets → Custodys → Custody Disposal
+---
 # Disposing of a Custody Item
 
 Eventually the laptop stops being worth keeping. It is scrapped, or sold for whatever it will fetch,

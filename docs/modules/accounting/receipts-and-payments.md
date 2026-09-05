@@ -1,3 +1,8 @@
+---
+entities: [ReceiptVoucher, PaymentVoucher, ReceiptOrder, PaymentOrder, RVRequest, PVRequest, ConsolidatedRVRequest, ConsolidatedPVRequest]
+menu: Accounting → Documents → Receipt Voucher
+---
+
 # Receipt & Payment Vouchers
 
 Every bit of money that enters or leaves your safe or bank passes through this family of documents. They're designed as a **three-stage chain** that separates "who requests the payment", "who authorizes it", and "who actually executes it" — an important control structure in organizations that segregate duties.

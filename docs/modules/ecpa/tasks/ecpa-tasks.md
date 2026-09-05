@@ -1,3 +1,7 @@
+---
+entities: [CPATask, CPATaskType]
+menu: ECPA → Tasks → Task
+---
 # Project Tasks
 
 A project in Project Management (ECPA) is a container: a customer, a set of milestones, a set of disciplines. It holds no work. The **task** is where the work lives — "M2 structural drawings", "site survey", "tender documents" — and, more importantly, it is where the *people* live. A task names the employees who will do it, how many hours each of them is budgeted, and what an hour of each of them costs. That single grid is the module's labour budget, and it is also the running actual: as hours are recorded and approved, they accumulate on the very same rows, next to the planned figures, so a project manager can see per-person over-run at a glance without opening a report.

@@ -1,3 +1,6 @@
+---
+entities: [PurchaseOrder, PurchaseInvoice, ItemRequest, PurchaseQuotation, PurchaseQuotationRequest, PurchasePriceComparing, ConsolidatedPurchaseReq, PurchaseReturn, PurchaseReturnReq, ProformaPurchaseInvoice, PurchaseDocumentUpdate]
+---
 # The Purchasing Journey
 
 Let's follow the complete story of how items get purchased - from "we need something" to "it's in our warehouse and we've paid for it." This journey involves many people, documents, and decisions. Understanding the flow helps you know which document to use when.

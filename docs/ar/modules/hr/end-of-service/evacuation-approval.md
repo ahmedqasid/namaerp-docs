@@ -1,3 +1,7 @@
+---
+entities: [EvacuationPartyDocument, EvacuationApprovalSettings, EvacuationApprovalDocument]
+---
+
 # الموافقة على إخلاء الطرف (Evacuation Approval)
 
 قبل أن يُصرَف للموظف المغادر مستحقاته — أو قبل اعتماد أجازة طويلة — تُجري معظم الشركات **إخلاء طرف**:

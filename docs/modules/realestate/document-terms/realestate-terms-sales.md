@@ -1,3 +1,7 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
 # Sales Document Terms
 
 Selling a property is not one accounting event. The price is revenue, but not all of it belongs to

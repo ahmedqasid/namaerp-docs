@@ -1,3 +1,7 @@
+---
+entities: [GlassJobOrder, GlassJobOrderReq, GlassOperationMap, OrderExecution, GlassJobOrderStatusUpdate, OrderDelivery, OrderFinished, OutsourceRequest, OutsourceIssue, OutsourceReceipt, OrderDamage, JOrderExpense, Tender, TenderCondition, SCDocRuleSet, SCExtraDocCreationRule, SCCopierExtraFields, OrderStatusQtyTrackConfig, DeliveryConfiguration, Resource, Activity, MaterialClassification]
+---
+
 # سيناريوهات متخصصة (Specialized Scenarios)
 
 تغطّي الصفحات السابقة المسارات الأساسية لسلسلة التوريد. لكن تبقى حالات متخصصة لا تتّسع لها صفحة بعينها: أوامر عمل خاصة بقطاع، وأدوات أتمتة لتوليد المستندات، والمناقصات. يجمعها هذا الدليل، ويشير إلى مواطنها حين تتبع وحدات أخرى.

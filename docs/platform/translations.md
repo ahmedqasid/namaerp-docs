@@ -1,3 +1,7 @@
+---
+entities: [TranslationOverRider]
+menu: Basic → Settings → Translation OverRider
+---
 # Modifying Translations in Nama ERP
 
 * Translations can be modified using the **Translation Change File**.

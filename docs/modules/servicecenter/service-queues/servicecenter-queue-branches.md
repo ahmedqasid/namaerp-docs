@@ -1,3 +1,7 @@
+---
+entities: [QueueServiceBranch, SrvCJobOrder]
+menu: Service Center → Queue Service → Queue Service Branch
+---
 # Queue Branches and the Counter Console
 
 ::: info Required licence

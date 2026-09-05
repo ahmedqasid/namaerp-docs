@@ -1,3 +1,7 @@
+---
+entities: [CRMCompetitor, CRMCompetitorItem]
+---
+
 # الشركات المنافسة
 
 **شركة منافسة / Competitor Company** — `خدمة العملاء > التسويق > شركة منافسة`.

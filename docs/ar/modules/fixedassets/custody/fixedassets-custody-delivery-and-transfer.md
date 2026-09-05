@@ -1,3 +1,7 @@
+---
+entities: [FACustodyDeliveryDoc, FACustodyTransferDocument]
+---
+
 # تسليم العهد ونقلها
 
 العهدة التي لا يحوزها أحد ليست إلا مخزوناً. وغاية السجل هي اللحظة التي تخرج فيها من المخزن فتصير

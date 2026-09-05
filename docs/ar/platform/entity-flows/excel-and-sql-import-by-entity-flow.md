@@ -1,3 +1,7 @@
+---
+entities: [EntityFlow]
+---
+
 # استيراد البيانات من Excel أو الاستعلامات
 
 ## استيراد البيانات من Excel إلى Nama ERP

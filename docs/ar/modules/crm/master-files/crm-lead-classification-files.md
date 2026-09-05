@@ -1,3 +1,7 @@
+---
+entities: [CRMLeadClassification, CRMActivityType, CRMRejectionReason, CRMMainCategory, CRMIndustry, CRMCampaignType]
+---
+
 # ملفات التصنيف
 
 ::: info الترخيص المطلوب

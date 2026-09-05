@@ -1,3 +1,8 @@
+---
+entities: [LetterOfCredit, LCShipment, LCOpeningDoc, LcExpenseDocument, LetterOfCreditRequest, LCOpeningRequest, LCCostDoc, LCAction, LCProformaInvoice, LCShipmentProformaInvoice]
+menu: الإعتمادات ← الملفات ← الإعتماد المستندي
+---
+
 # الاعتمادات المستندية للاستيراد (Letters of Credit)
 
 عندما تستورد بضاعة من مورّد في الخارج، يحتاج الطرفان إلى ضمان: المورّد يريد ضمان الدفع، وأنت تريد ضمان الشحن المطابق. **الاعتماد المستندي (Letter of Credit)** هو الأداة المصرفية التي توفّق بينهما، ويدير النظام دورته كاملةً - من الفتح إلى الشحنات إلى التكاليف.

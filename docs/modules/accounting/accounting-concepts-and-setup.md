@@ -1,3 +1,8 @@
+---
+entities: [Ledger, AccountChartType, AccountingCalendar, FiscalYear]
+menu: Accounting → Settings → Ledger
+---
+
 # Accounting Concepts & First-Time Setup
 
 Before you can record your first entry, the accounting system needs to "know" a few fixed facts about your organization: What is your main currency? Which chart of accounts do you work on? What is your fiscal year, and when does it start and end? These answers are entered once, when the system is first set up, in a small number of master files — and everything afterwards builds on them. Every invoice, every voucher, every entry refers back to these files to know where and how to record its accounting effect.

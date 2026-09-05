@@ -1,3 +1,6 @@
+---
+entities: [MnSrvContract, MnSrvOrder, MnSrvWorkPlan, MnSrvOrderExecution, MnSrvNotice]
+---
 # Service Orders and Executions
 
 This page follows one contract from the day it is signed to the day a technician ticks the last box on a checklist. It is the working half of the Service Documents folder; the money is on the [Service Invoicing](/modules/crm/services-suite/crm-service-invoicing) page.

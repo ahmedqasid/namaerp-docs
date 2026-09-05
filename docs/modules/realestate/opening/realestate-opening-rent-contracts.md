@@ -1,3 +1,7 @@
+---
+entities: [REOpeningRentContract]
+menu: Real Estate and Property → Rents → Opening rent contract
+---
 # Opening Rent Contracts
 
 A shop in Al-Nakheel Tower has been leased since early 2024: three years at 120,000 a year, paid

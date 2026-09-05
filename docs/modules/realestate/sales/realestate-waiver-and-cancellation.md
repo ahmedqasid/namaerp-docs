@@ -1,3 +1,7 @@
+---
+entities: [REWaiverDoc, RECancelContractReq]
+menu: Real Estate and Property → Documents → Waiver Document
+---
 # Waivers and Cancelling a Sale
 
 Most readers arrive at this page with one of two questions. Either a buyer wants out of a contract and you need to know how to undo it — or somebody has told you there is a "cancel contract" document and you are looking for it.

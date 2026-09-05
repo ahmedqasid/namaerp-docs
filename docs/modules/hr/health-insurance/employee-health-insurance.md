@@ -1,3 +1,6 @@
+---
+entities: [EmployeeHealthInsurance, HealthInsuranceOffer, HealthInsuranceClaimDoc, HealthInsuranceUpgrade, HealthInsuranceCredence, EmpHealthInsurDelete]
+---
 # Employee Health Insurance
 
 In the Gulf, private health insurance is not optional paperwork — it is a government-mandated

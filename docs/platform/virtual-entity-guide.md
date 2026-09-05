@@ -1,3 +1,7 @@
+---
+entities: [VirtualEntity]
+menu: Administration → Reports → Virtual Entity
+---
 # Virtual Entities — Reusable SQL Building Blocks for Reports & Dashboards
 
 You've probably been here before: the same complex SQL query keeps showing up in five different report-wizard records and three dashboard widgets. Every time you tweak it, you have to remember every place that copy lives. And the wizard's table picker only ever lists *real* entities like `SalesInvoice` or `CostInTransLine` — so anything that needs a `UNION`, a hand-rolled join, or a per-row sign flip has to keep being re-written by hand inside each widget's SQL editor.

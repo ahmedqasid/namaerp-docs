@@ -1,3 +1,7 @@
+---
+entities: [ConfigEntry]
+menu: Inventory → Settings → Supply Chain Configurations
+---
 # Pricing & Price Lists Configuration
 
 This page documents the **Pricing & Price Lists** tab — how the system falls back to the last price an item was traded at, how price lists behave, and the default units for new items.

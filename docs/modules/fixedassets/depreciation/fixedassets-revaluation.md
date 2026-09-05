@@ -1,3 +1,7 @@
+---
+entities: [FARevaluation]
+menu: Assets → Documents → Fixed Asset Revaluation
+---
 # Revaluation
 
 Some assets do not lose value on a formula. Land, buildings and a few other categories are carried

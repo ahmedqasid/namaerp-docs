@@ -1,3 +1,6 @@
+---
+entities: [JobOffer, CandidateJobOffer, AggregatedJobOffer, HRTest, HRTestResult]
+---
 # Job Offers & Tests
 
 A [candidate](vacancies-and-candidates.md) who clears interviews and testing doesn't just get hired on a handshake — Nama puts the proposed terms of employment into their own document first, so the job title, salary package, and start date discussed with the candidate are on record before anyone signs anything.

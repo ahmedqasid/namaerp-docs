@@ -1,3 +1,6 @@
+---
+entities: [MnSalesQuotation, MnSalesOrder]
+---
 # Maintenance Sales Quotations and Orders
 
 Before Al Nokhba can maintain anything at Marina Plaza, it has to sell the hotel the plant and the maintenance deal. That conversation runs on two documents: a **Maintenance Sales Quotation** on 3 February 2026 (`MSQ-0033`) offering two 300 TR chillers, one air-handling unit and a one-year maintenance contract, and a **Maintenance Sales Order** a week later (`MSO-0029`) once the hotel says yes.

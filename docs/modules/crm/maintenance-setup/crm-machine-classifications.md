@@ -1,3 +1,6 @@
+---
+entities: [MnClassification1, MnClassification2, MnClassification3, MnClassification4, MnClassification5]
+---
 # Machine Classifications
 
 Every maintenance business slices its equipment in a way nobody else does. Al Nokhba cares which units are **critical** — the ones that must never be down, because a hotel without chillers empties in an afternoon — and which are installed **outdoors**, because those need a different inspection in the summer. A lift company would care about rope type and travel height. A generator company would care about fuel and duty rating.

@@ -1,3 +1,6 @@
+---
+entities: [HRVacancy, HRVacancyType, HRCandidate, HRTest, HRTestResult]
+---
 # Vacancies & Candidates
 
 Hiring in Nama starts before anyone applies. You first decide **what** you're hiring for — a vacancy — and only then does a pipeline of **applicants** get matched against it. Keeping the two separate is what lets HR track "how many people have we interviewed for this one opening" instead of drowning every CV in one undifferentiated pile.

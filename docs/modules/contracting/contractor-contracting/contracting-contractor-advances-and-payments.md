@@ -1,3 +1,7 @@
+---
+entities: [ContractorAdvancePayment, ContractorOtherPayment]
+menu: Contracting → Contractor Contracting → Contractor Advance Payment
+---
 # Subcontractor Advances and Other Payments
 
 A blockwork subcontractor cannot start without buying scaffolding, hiring a gang and putting a

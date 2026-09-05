@@ -1,3 +1,6 @@
+---
+entities: [SrvCJobOrder]
+---
 # Invoicing a Job Order
 
 One repair, up to three invoices. That is the shape of billing in this module, and it follows

@@ -1,3 +1,8 @@
+---
+entities: [InvestmentDoc, InvestmentDocumentFund, InvestmentDocPurchase, InvestmentDocROIProof, AggregatedInvestmentDocROIProof, InvestmentDocClaiming, InvestmentDocumentPurchase, InvestmentDocumentSale, InvestmentDocumentPriceUpdate, ProfitDistributationDoc]
+menu: البنوك ← سندات الاستثمار ← سند استثمار
+---
+
 # مستندات الاستثمار وشهادات الصناديق
 
 إلى جانب منظومة المحافظ التي تتبع *الأصول* الاستثمارية، لدى نما عالمٌ استثماريٌّ ثانٍ للأدوات **الورقية** التي تشتريها الشركة وتحتفظ بها: السندات وشهادات الصناديق. وهذه تتصرّف تصرّفًا مختلفًا تمامًا عن الحصّة في رأس المال، فلها مستنداتها الخاصّة. تغطّي هذه الصفحة كليهما — وهما نفساهما ينقسمان إلى نوعين، وهذا أوّل ما ينبغي ضبطه.

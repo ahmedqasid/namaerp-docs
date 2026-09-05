@@ -1,3 +1,6 @@
+---
+entities: [ConfigEntry]
+---
 # Project Management Settings
 
 ::: info Required licence

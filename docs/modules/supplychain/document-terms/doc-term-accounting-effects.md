@@ -1,3 +1,7 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
 # Accounting Effects Configuration
 
 Supply Chain documents that carry accounting effects post to the general ledger through configurable debit and credit **account sides**. Each account side is a small self-contained block (an *account-side config*) that defines which GL account to hit plus where the account's subsidiary (portfolio) and cost-center dimensions are sourced from. A document term adds one or more **Effect** / **Invoice Effect** pages, and the groups shown on those pages differ by document type — an invoice exposes tax, discount and service-fee sides; a stock receipt exposes only a debit/credit pair and a few toggles; a Letter-of-Credit opening exposes coverage and fees sides.

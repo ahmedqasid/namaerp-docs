@@ -1,3 +1,7 @@
+---
+entities: [DashBoardWidget, BICrossFilter, DashBoard, DashBoardWidgetWizard]
+---
+
 # وحدة BI في Nama ERP — المرجع التقني
 
 هذا المستند هو المرجع التقني الموثوق لبنى JSON في وحدة BI (ذكاء الأعمال) في Nama ERP. يُكتب أساساً للمساعدين الذكيين والمطورين الذين يحتاجون إلى إنشاء استعلامات SQL وإعدادات المخططات وروابط cross-filter وتعيينات drill-down وملفات الاستيراد الجماعي التي تعمل مباشرةً عند لصقها في Nama ERP.

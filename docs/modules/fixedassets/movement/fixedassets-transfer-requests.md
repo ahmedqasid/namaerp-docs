@@ -1,3 +1,7 @@
+---
+entities: [FATransferRequest, AggFATransferRequest]
+menu: Assets → Custody Of Assets → Fixed Asset Transfer Request
+---
 # Asking for a Move: The Transfer Request
 
 In most plants the person who decides that a machine should move is not the person who is allowed to

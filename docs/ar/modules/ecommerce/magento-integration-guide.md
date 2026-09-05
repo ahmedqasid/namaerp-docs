@@ -1,3 +1,7 @@
+---
+entities: [MAGMagentoSite, MagentoItemLinker, MagentoPriceUpdaterDoc, EcommerceProductConfig, EcommerceCategoryConfig]
+---
+
 # دليل تكامل التجارة الإلكترونية مع Nama ERP
 
 ## جدول المحتويات

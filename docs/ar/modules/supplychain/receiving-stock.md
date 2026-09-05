@@ -1,3 +1,8 @@
+---
+entities: [StockReceipt, StockReceiptReq, InitialReceipt, PurgeStockReceipt, ReceiptInspection, StockReceiptCancellation, OpeningStockDocument]
+menu: المخازن ← سندات الاستلام ← توريد مخزني
+---
+
 # استلام المخزون في المستودع (Receiving Stock)
 
 المخزون لا يصل إلى مستودعك بصورة آلية - بل يصل عبر طرق متعددة ولأسباب مختلفة. لنستعرض جميع الطرق التي تدخل بها الأصناف إلى النظام داخل وحدة المخزون، وكيفية تسجيل كل سيناريو بالطريقة الصحيحة.

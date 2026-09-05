@@ -1,3 +1,7 @@
+---
+entities: [FRMServiceItem, FRMContainer, FRMContainerType, FRMContainerSize, FRMOceanVessel, ShippingPort, FRMSailingSchedule, FRMCommodity, FRMBillOfLadingType, FRMUOM, FRMCountry, FRMLocation]
+---
+
 # الملفات الأساسية لإدارة الشحن
 
 قبل أن تنشئ أول أمر تشغيل، تحتاج إلى تعريف اللبنات التي تتكوّن منها كل شحنة: ما الخدمات التي تقدّمها، وفي أي حاويات، وعلى أي بواخر، ومن وإلى أي موانئ. هذه الملفات الأساسية (Master Files) تجدها جميعًا تحت **نظام إدارة الشحن ← الملفات**، وتُعرَّف مرة واحدة ثم تُستخدم في كل المستندات.

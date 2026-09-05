@@ -1,3 +1,8 @@
+---
+entities: [GenericReferenceOverrider]
+menu: Basic → Settings → Fields and Entities Settings
+---
+
 # Field Appearance and Input Widgets
 
 A number is a number and a piece of text is a piece of text — but `1250000` and `1,250,000` are very different things to read at a glance, and a mobile number you can tap to dial saves a user from copying digits by hand. The seven grids on this page all deal with that difference. None of them changes what is **stored** in the database; they change how a field is **drawn** on screen and what tool the user gets to fill it in.

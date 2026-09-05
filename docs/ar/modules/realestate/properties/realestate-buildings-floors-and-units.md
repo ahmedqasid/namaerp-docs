@@ -1,3 +1,7 @@
+---
+entities: [REBuilding, REFloor, RERentalUnit, REUnitGroup, REUnitModel]
+---
+
 # المباني والطوابق والوحدات
 
 النصف الآخر من شجرة العقارات يمتد إلى أعلى لا إلى الجانبين. فبينما يقسّم مطوّر الأراضي الأرض إلى

@@ -1,3 +1,6 @@
+---
+entities: [MnDysfunction, MnTroubleLevel, MnTroubleDescription, MnNoticeCategory]
+---
 # Fault Catalogues
 
 When the Marina Plaza crew opens a chiller and finds high discharge pressure, three people need to understand what happened: the technician writing it up, the supervisor deciding how urgent it is, and whoever answers the phone the next time the same fault appears. The maintenance suite gives them four small files to say it in the same words every time.

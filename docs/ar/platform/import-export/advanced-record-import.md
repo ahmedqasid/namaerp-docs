@@ -1,3 +1,7 @@
+---
+entities: [RecordImportConfig, RecordImportList, RecordImportDoc]
+---
+
 # الاستيراد المتقدم للسجلات
 
 لأمر [استيراد السجلات](/ar/platform/import-export/importing-records.md) المعتاد شرط واحد يستبعد بهدوء نصف حالات تحميل البيانات الواقعية: أن يكون الملف بتخطيط Nama نفسه. وهذا سهل حين تكون أنت من صدّره. وهو مستحيل حين يأتي الملف من مكان آخر.

@@ -1,3 +1,7 @@
+---
+entities: [ConfigEntry]
+menu: Inventory → Settings → Supply Chain Configurations
+---
 # Documents & Details Configuration
 
 This page documents the **Documents & Details** tab — how stock document lines are laid out, which dimensions can be entered per line, the extra columns and grids you can add to documents, delivery handling, and warehouse/locator filtering.

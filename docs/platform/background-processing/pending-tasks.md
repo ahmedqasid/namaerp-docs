@@ -1,3 +1,7 @@
+---
+entities: [PendingTask]
+menu: Administration → Settings → Pending Tasks
+---
 # Pending Tasks
 
 Despite the general-sounding name, this screen is one specific thing: **the outbox**. Every message

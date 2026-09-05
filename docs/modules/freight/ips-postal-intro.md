@@ -1,3 +1,6 @@
+---
+entities: [IPSMailClass, IPSMailCategory, IPSMailSubclass, IPSMailCondition, IPSParcelStatus, IPSDeliveryAndReceiptArea, IPSMailRetentionReason, IPSNonDeliveryReason, IPSNonDeliveryMeasure, IPSEvent]
+---
 # International Postal System (IPS) — Overview
 
 Alongside freight and logistics, the Freight Management module includes a complete system for running **International Postal System (IPS)** operations. If you're a postal operator or a courier company dealing with an international exchange office, this section manages a mail item's journey from the moment receptacles arrive from abroad until the parcel is delivered to the customer's door.

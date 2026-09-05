@@ -1,3 +1,6 @@
+---
+entities: [ProjContrExtract, ContractingTaxExtractTerm]
+---
 # Taxes on Extracts
 
 A tax authority will not accept a bill of quantities. It wants a small, stable list of products or services with official codes, quantities and prices — and a contracting business's [extract](/modules/contracting/project-contracting/contracting-project-extracts.md) is the opposite of that: forty free-text lines describing excavation in three zones, blockwork in two thicknesses and a lump sum for temporary works.

@@ -1,3 +1,8 @@
+---
+entities: [ConfigEntry]
+menu: Administration → Settings → System Settings
+---
+
 # Customers and Sales
 
 A short tab with three unrelated jobs: deciding who counts as the salesman on a document, how customer codes are formed, and how this installation talks to Nama CRM.

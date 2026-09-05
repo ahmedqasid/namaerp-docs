@@ -1,3 +1,7 @@
+---
+entities: [DocumentCancelDocument]
+menu: Basic → Documents → Document Cancel Document
+---
 # Document Cancel Document
 
 Sooner or later somebody commits a document they should not have. An invoice goes out on the wrong

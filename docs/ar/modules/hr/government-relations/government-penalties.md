@@ -1,3 +1,7 @@
+---
+entities: [HOViolationItem, HOViolationList, HOPenaltyDocument, HOPenaltyRequest]
+---
+
 # الجزاءات الحكومية
 
 إلى جانب أعمال التأشيرات والرسوم، يتولى مكتب العلاقات الحكومية **اللائحة الإدارية** للشركة — قائمة

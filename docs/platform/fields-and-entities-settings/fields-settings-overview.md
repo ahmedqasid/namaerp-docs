@@ -1,3 +1,8 @@
+---
+entities: [GenericReferenceOverrider]
+menu: Basic → Settings → Fields and Entities Settings
+---
+
 # Fields and Entities Settings — How It Works
 
 A company goes live and asks for three things in the first week. Customer codes must always start with `CU-`. The phone number on the Customer screen should be clickable, so a salesman can dial from the record instead of copying digits into his phone. And the item lookup on a Sales Invoice should stop offering raw materials — only sellable items.

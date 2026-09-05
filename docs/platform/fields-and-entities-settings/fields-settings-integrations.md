@@ -1,3 +1,8 @@
+---
+entities: [GenericReferenceOverrider]
+menu: Basic → Settings → Fields and Entities Settings
+---
+
 # Integrators and Public Links
 
 Almost everything on this screen changes how Nama behaves for people who are already signed in. Three grids do something different: they open a door to the outside world.

@@ -1,3 +1,8 @@
+---
+entities: [CreditNote, DebitNote]
+menu: Accounting → Documents → CreditNote
+---
+
 # Credit & Debit Notes
 
 Sometimes you need to adjust a customer's or supplier's balance without any cash receipt or payment: a settlement discount for a customer, a sales return, or an extra charge on a supplier. That's the role of the **Credit Note** and the **Debit Note** — two opposite documents that move the party's balance in opposite directions.

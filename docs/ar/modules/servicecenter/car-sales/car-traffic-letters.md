@@ -1,3 +1,7 @@
+---
+entities: [SITrafficLetter, SITrafficLetterReq, SITrafficLetterCancel, SITrafficLetterReqCancel]
+---
+
 # خطابات المرور
 
 السيارة المباعة لا يمكن قيادتها بعد. فقبل أن يضعها العميل على الطريق، على المعرض أن يصدر **خطاباً

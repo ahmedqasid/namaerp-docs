@@ -1,3 +1,7 @@
+---
+entities: [QualityControlDoc, QualityControlReq, QualityAssuranceDoc, QualityAssuranceReq, QualityCheckList, QuestionClassification]
+---
+
 # ضبط الجودة (Quality Control)
 
 ليس كل ما يصل يستوفي معاييرك، وليس كل ما تنتجه جاهزًا للعميل. **ضبط الجودة** هو البوابة التي تضمن ألا يدخل المخزون المتاح أو يصل العميل إلا ما اجتاز الفحص. يتكامل النظام مع الاستلام والإنتاج فيمنع انتقال الأصناف إلى المخزون المتاح حتى تكتمل فحوصاتها.

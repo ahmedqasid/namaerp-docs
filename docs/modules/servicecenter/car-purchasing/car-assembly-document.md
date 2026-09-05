@@ -1,3 +1,7 @@
+---
+entities: [SubItemAssemblyDocument]
+menu: cars → Car Purchases → Sub Item Assembly Document
+---
 # Assembling a Vehicle from a Chassis and an Engine
 
 Not every dealer buys finished cars. Some buy a chassis from one supplier and an engine from another

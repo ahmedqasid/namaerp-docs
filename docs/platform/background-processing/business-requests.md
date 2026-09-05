@@ -1,3 +1,7 @@
+---
+entities: [BusinessRequestStatus, SavedBusinessRequest]
+menu: Administration → Settings → Business Requests
+---
 # Business Requests
 
 When you save an invoice, the accounting entry behind it is not written while you wait. Nama takes

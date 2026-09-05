@@ -1,3 +1,7 @@
+---
+entities: [ScreenModifier]
+menu: Administration → Display Customization → Screen Modifier
+---
 # Screen Modifier — Frequently Asked Questions
 
 ## I changed a Screen Modifier and saved it, but the screen looks the same. Why?

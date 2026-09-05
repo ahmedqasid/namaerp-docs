@@ -1,3 +1,7 @@
+---
+entities: [ConfigEntry]
+menu: Inventory → Settings → Supply Chain Configurations
+---
 # Item Barcode Specifications
 
 This page documents the **Barcode Specifications** tab — the rules that tell the system how to read a composite/structured barcode and turn it into an item plus its properties and quantity.

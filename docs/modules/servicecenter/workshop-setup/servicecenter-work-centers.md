@@ -1,3 +1,7 @@
+---
+entities: [SrvCWorkCenter]
+menu: Service Center → Master Files → Service Center Work Center
+---
 # Work Centers
 
 Al-Sahra Motors runs two halls behind the showroom: a mechanical hall where oil changes, brakes and air-conditioning work happen, and a body-and-paint hall. They are different rooms, with different people, different equipment and different hourly rates, and a customer's car goes to one or the other. The **work center** is the file that says so.

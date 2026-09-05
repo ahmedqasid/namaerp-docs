@@ -1,3 +1,8 @@
+---
+entities: [TaxPayerConfiguration, TaxAuthoritySubmissionDoc]
+menu: الأساسيات ← إعدادات مصلحة الضرائب ← إعدادات مصلحة الضرائب
+---
+
 ::: warning In Progress
 هذا المستند لا يزال قيد الإعداد ولم يكتمل بعد
 :::

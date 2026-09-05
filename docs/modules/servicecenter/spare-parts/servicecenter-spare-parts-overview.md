@@ -1,3 +1,6 @@
+---
+entities: [SrvCRawMaterialIssue, SrvcRawMaterialReturn, SrvCRawMaterialIssueRequest]
+---
 # Parts on a Job Order
 
 Half of a workshop's invoice is usually metal, not labour. On Al-Sahra's job order

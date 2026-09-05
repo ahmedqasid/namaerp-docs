@@ -1,3 +1,7 @@
+---
+entities: [NamaPosPoleDisplaySpecs]
+---
+
 # دليل استعمال النقاط الفنية في نقاط البيع
 
 Nama ERP is a web-based system, but its **Nama POS** module includes a dedicated **desktop application** for Points of Sale (POS), offering both online and offline capabilities:

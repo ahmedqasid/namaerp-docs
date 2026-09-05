@@ -1,3 +1,7 @@
+---
+entities: [CRMServiceContract, CRMUpdateContractStatus]
+menu: Customer Relationship Management → Support → CRM Service Contract
+---
 # Service Contracts
 
 ::: info Required licence

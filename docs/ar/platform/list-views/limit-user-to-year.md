@@ -1,3 +1,8 @@
+---
+entities: [LimitUserToYear]
+menu: إدارة النظام ← الصلاحيات ← قصر المستخدم على سنة مالية
+---
+
 <rtl>
 
 # قصر المستخدم على سنة مالية (Limit User To Year)

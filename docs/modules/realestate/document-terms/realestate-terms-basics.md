@@ -1,3 +1,7 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
 # How Real Estate Document Terms Work
 
 A sales contract knows everything about the business event it records. It knows that villa B-12 in

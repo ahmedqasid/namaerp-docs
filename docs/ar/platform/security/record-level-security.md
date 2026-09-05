@@ -1,3 +1,7 @@
+---
+entities: [NaMaUser, SecurityProfile]
+---
+
 <rtl>
 
 # الصلاحيات على مستوى السجلات (المحددات والفلاتر)

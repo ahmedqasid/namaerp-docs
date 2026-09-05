@@ -1,3 +1,7 @@
+---
+entities: [RECancelContract, RERentContract]
+menu: Real Estate and Property → Rents → Cancel Contract
+---
 # Renewing and Ending a Lease
 
 Every lease ends. Most of them end by being renewed, some of them end early because the tenant

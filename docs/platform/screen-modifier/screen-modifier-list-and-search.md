@@ -1,3 +1,7 @@
+---
+entities: [ScreenModifier]
+menu: Administration → Display Customization → Screen Modifier
+---
 # Screen Modifier — List View & Selector Pop-up
 
 Besides edit screens, a Screen Modifier can reshape the two places where records are *listed*:

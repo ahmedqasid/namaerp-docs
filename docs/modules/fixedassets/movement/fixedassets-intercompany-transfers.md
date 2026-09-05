@@ -1,3 +1,7 @@
+---
+entities: [FATransferDocument]
+menu: Assets → Custody Of Assets → Transfer document
+---
 # Transfers Between Companies
 
 Moving a machine between two branches of one company is bookkeeping housekeeping: the same balances

@@ -1,3 +1,7 @@
+---
+entities: [AggrFADisposalDoc]
+menu: Assets → Documents → Aggregated Fixed Asset Disposal Document
+---
 # Disposing of Many Assets at Once
 
 Year-end tidying tends to arrive in batches. A plant closes and eleven machines go for scrap on the

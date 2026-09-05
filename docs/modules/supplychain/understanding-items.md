@@ -1,3 +1,7 @@
+---
+entities: [InvItem]
+menu: Inventory → Master Files → Item
+---
 # Understanding Inventory Items
 
 Let's talk about **Items** - the building blocks of the entire supply chain system.

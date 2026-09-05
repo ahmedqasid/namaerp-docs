@@ -1,3 +1,6 @@
+---
+entities: [TrainingCourse, TrainingPlan, CourseEnrollment, EndTrainingCourse]
+---
 # Training Courses & Plans
 
 Before anyone can be trained, there has to be something to train them *in*. A **Training Course** (دورة تدريبية) is that catalog entry — a reusable definition of a course, independent of who ends up taking it or when. A **Training Plan** (خطة تدريب) is what turns the catalog into a schedule: which employees need which skills, and which courses will get them there. **Course Enrollment** (تسجيل المتدربين بدورة) then records the actual delivery — who showed up, with which instructor, on which dates — and **End Training Course** (إنهاء دورة تدريبية) closes out one employee's participation, recording the skill level they actually reached. This page walks through all four, in the order a course's life normally follows.

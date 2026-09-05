@@ -1,3 +1,7 @@
+---
+entities: [SrvCLoadingTable]
+menu: Service Center → Settings → Loading Table
+---
 # Publishing Daily Capacity
 
 A workshop only has so many hours in a day, and they are not all available to the person answering

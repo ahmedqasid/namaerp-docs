@@ -1,3 +1,7 @@
+---
+entities: [EDStudent, EDGuardian, EDEducationalStage, EDStageType, EDClassRoom, EDRank, EDLecturer, EDContractor, EDStudentInfoUpdater, EDExpense, EDMainLevel, EDSubLevel]
+---
+
 # الطلاب وأولياء الأمور والهيكل الدراسي
 
 لا تستطيع المدرسة أن تسجل يوم حضور واحداً، ولا أن تطبع كشف درجات، ولا أن توقّع عقد دورة تدريبية،

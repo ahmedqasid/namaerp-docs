@@ -1,3 +1,7 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
 # Quantity Tracking Configuration
 
 These settings control **quantity tracking** — the engine that links documents and records how much of a source document has been satisfied by the documents created from it (for example, how much of a Sales Order has been invoiced or delivered). The system keeps a tracking table of satisfied vs. remaining quantities and validates each new document against the policy you set here.

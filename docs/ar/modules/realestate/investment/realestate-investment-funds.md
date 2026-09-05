@@ -1,3 +1,7 @@
+---
+entities: [REInvestmentFund, REFundFinanceAddition, REInvestorExit]
+---
+
 # صناديق الاستثمار العقاري
 
 فكرة الصندوق بسيطة: يضع عدة أشخاص أموالهم في وعاء واحد، فيشتري الوعاء عقارًا، ويرتفع العقار قيمةً،

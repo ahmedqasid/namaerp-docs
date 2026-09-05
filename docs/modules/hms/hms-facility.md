@@ -1,3 +1,6 @@
+---
+entities: [HMSRoom, HMSRoomClassification, HMSBed, HMSSection, HMSBuilding, HMSFloor, HMSClinic, HMSRoomDegree]
+---
 # Hospital Structure & Rooms
 
 Before you admit your first patient, you need to map your building inside the system: which buildings you have, their floors and sections, which rooms and beds they hold, and which clinics operate. You'll find all of this under **Hospital Management System → Hospital Structure**, built once and then reused across every admission and accommodation document.

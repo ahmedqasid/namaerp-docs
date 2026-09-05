@@ -1,3 +1,6 @@
+---
+entities: [SIInstallmentProgram, FinanceCompany, SISalesOrder]
+---
 # Finance Companies and Instalment Programmes
 
 ::: info Required licence

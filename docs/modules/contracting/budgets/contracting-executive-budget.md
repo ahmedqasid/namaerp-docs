@@ -1,3 +1,7 @@
+---
+entities: [ContractingExecutiveBudget]
+menu: Contracting → Master Files → Contracting Executive Budget
+---
 # Executive Budgets
 
 The [estimated budget](/modules/contracting/budgets/contracting-estimated-budget.md) is what the estimating team thinks the job will cost. The executive budget is the number the business has agreed to spend. Same shape, different authority — and one real functional difference, which is that the executive budget is the only record in the module that can generate **customer submittals**: the per-item approvals a client or consultant signs before you are allowed to buy.

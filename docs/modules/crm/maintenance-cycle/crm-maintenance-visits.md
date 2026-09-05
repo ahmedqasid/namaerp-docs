@@ -1,3 +1,7 @@
+---
+entities: [MnVisit]
+menu: Customer Relationship Management → Maintenance Documents → Maintenance Visit
+---
 # Maintenance Visits
 
 A Maintenance Visit is a log entry. Somebody went to the site, the visit happened, and afterwards a

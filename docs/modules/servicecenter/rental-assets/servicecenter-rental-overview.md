@@ -1,3 +1,6 @@
+---
+entities: [RentalAsset, RARentalRequest, RARentalInvoice]
+---
 # Renting Out Assets
 
 ::: info Required licence

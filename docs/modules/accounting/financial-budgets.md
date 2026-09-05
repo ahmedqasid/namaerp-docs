@@ -1,3 +1,8 @@
+---
+entities: [FinancialBudget, BudgetScenario]
+menu: BUDGETS → Budgets → Financial Budget
+---
+
 # Financial Budgets
 
 A budget is a plan with teeth: you decide up front how much each account may spend (or should earn) over a period, and then — if you want — the system holds your documents to that plan, warning or even blocking spending that would blow past it. Nama's **financial budgets** let you set those targets per account, per period, and per dimension, and then validate actual activity against them.

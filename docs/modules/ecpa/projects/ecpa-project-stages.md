@@ -1,3 +1,7 @@
+---
+entities: [CPAProjectStage]
+menu: ECPA → Projects → Project Stage
+---
 # Project Stages
 
 Most of Project Management (ECPA) is built around people and hours. The **Project Stage** is the one

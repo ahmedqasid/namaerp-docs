@@ -1,3 +1,6 @@
+---
+entities: [CarAction, CarProblem, CarActionRequest, CarInfoUpdater, CarInsurancePolicy, CarInsuranceOfferDoc, CarInsuranceAddingDoc, CarInsuranceRemovingDoc, CarInsuranceInstallmentProofDoc, PickupPlan, MealType, MealsDetails, MealDeliveryPlan]
+---
 # Employee Services (Vehicles, Transport & Meals)
 
 Beyond salary, most companies run a handful of side benefits for their staff — a car to do the job

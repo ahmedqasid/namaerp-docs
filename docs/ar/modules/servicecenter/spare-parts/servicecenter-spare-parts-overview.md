@@ -1,3 +1,7 @@
+---
+entities: [SrvCRawMaterialIssue, SrvcRawMaterialReturn, SrvCRawMaterialIssueRequest]
+---
+
 # قطع الغيار في أمر الشغل
 
 نصف فاتورة الورشة عادةً حديد لا عمالة. ففي أمر الشغل `SCJO-2026-0417` في شركة الصحراء تبلغ المهام

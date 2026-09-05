@@ -1,3 +1,7 @@
+---
+entities: [FAComponentType]
+menu: Assets → Master Files → Fixed Asset Component Type
+---
 # Components and Component Types
 
 The CNC machine `MCH-0007` is one asset, one cost, one depreciation schedule. But it is not one *thing* to the maintenance engineer: the spindle is serviced every quarter, the control unit is inspected annually, and the coolant pump is replaced when it fails. Recording all of that against "the machine" loses the only information the engineer cares about — which part was serviced, and when the next visit for that part is due.

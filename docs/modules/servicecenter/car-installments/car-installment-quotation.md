@@ -1,3 +1,7 @@
+---
+entities: [SIInstallmentQuotation]
+menu: cars → Car Installment → Car Installment Quotation
+---
 # Quoting a Monthly Instalment
 
 ::: info Required licence

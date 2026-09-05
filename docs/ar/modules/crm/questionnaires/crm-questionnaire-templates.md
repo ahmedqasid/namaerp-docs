@@ -1,3 +1,7 @@
+---
+entities: [CRMQuestionairTemplate, CRMQuestion]
+---
+
 # قوالب الاستبيان والأسئلة (Questionair Template)
 
 بعد أسبوعين من صيانة النخبة لوحدات تبريد أحد العملاء، يتصل أحدهم بالعميل ويسأله أربعة أسئلة: هل جاء

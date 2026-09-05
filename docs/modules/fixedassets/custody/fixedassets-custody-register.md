@@ -1,3 +1,7 @@
+---
+entities: [FACustody]
+menu: Assets → Custodys → Custody
+---
 # The Custody Record
 
 The custody record is the register itself — one record for one physical item that Al-Waha Industries

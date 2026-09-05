@@ -1,3 +1,7 @@
+---
+entities: [QueueServiceConfig, QueueServiceBranch]
+---
+
 # كيف تعمل خدمة الطوابير
 
 ::: info الترخيص المطلوب

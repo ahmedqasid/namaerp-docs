@@ -1,3 +1,7 @@
+---
+entities: [SISalesOrderCancel, SIAllocationCancel, SIFinalDeliveryCancel, SIReceiptCancel, SITrafficLetterCancel, SITrafficLetterReqCancel]
+---
+
 # مستندات الإلغاء
 
 تلغي معظم الأنظمة المستندَ بتبديل حالته. أما منطقة السيارات هنا فتفعل شيئاً آخر: لكل مستند

@@ -1,3 +1,8 @@
+---
+entities: [QueueServiceBranch, SrvCJobOrder]
+menu: مركز خدمة ← خدمة الطوابير ← فرع خدمة طوابير
+---
+
 # فروع الطوابير وشاشة التشغيل
 
 ::: info الترخيص المطلوب

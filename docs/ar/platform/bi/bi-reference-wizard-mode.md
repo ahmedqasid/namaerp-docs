@@ -1,3 +1,7 @@
+---
+entities: [DashBoardWidgetWizard, DashBoardWidget]
+---
+
 # مرجع BI — وضع المعالج (Wizard Mode)
 
 مرفق بـ [`bi-module-technical-reference.md`](./bi-module-technical-reference.md). يُحمَّل هذا الملف فقط عند تأليف widget تم فيها تعيين `wizardDataSource`.

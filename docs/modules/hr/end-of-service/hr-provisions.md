@@ -1,3 +1,6 @@
+---
+entities: [EmployeeProvisionsRecalc, EmployeeProvisionsOpening, AggrEmpProvisionsRecalc]
+---
 # HR Provisions (End-of-Service & Vacation Accrual)
 
 When an employee eventually leaves, the company owes them money it has been quietly building

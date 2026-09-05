@@ -1,3 +1,7 @@
+---
+entities: [InvoiceReceiptDoc]
+menu: Service Center → Mobile Apps - Service Center → Invoice Receipt Document
+---
 # Invoice Receipt Document
 
 ::: info Required licence

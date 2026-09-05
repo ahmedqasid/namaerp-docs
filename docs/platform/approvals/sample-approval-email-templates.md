@@ -1,3 +1,7 @@
+---
+entities: [ApprovalDefinition]
+menu: Basic → Settings → Approval Definition
+---
 # Sample Approval Email Templates
 
 When a document enters an approval workflow, NAMA can send the responsible person an email asking them to **approve**, **reject**, or **return** it. The body of that email is just a [Tempo](../../admin/tempo.md) template defined on the approval rule — which means you can make it as plain or as beautiful as you like.

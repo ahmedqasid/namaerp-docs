@@ -1,3 +1,7 @@
+---
+entities: [FAPurchaseDocument]
+menu: Assets → Documents → Fixed Asset Purchase Document
+---
 # The Fixed Asset Purchase Document
 
 Everything before this document is paperwork. The Fixed Asset Purchase Document

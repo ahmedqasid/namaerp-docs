@@ -1,3 +1,6 @@
+---
+entities: [ReceiptVoucher, PaymentVoucher]
+---
 # Linking Payment Vouchers to Invoices
 
 **Nama ERP** supports linking invoices to payment vouchers flexibly across multiple scenarios.

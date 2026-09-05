@@ -1,3 +1,7 @@
+---
+entities: [FAPurchaseRequest]
+menu: Assets → Documents → Fixed Asset Purchase Request
+---
 # Fixed Asset Purchase Request
 
 The purchase request is the internal ask: *the paint shop needs a compressor*, *production needs a

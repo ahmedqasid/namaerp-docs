@@ -1,3 +1,7 @@
+---
+entities: [SIFinalDelivery, SIFinalDeliveryCancel]
+menu: cars → Car Inventory → Car Final Delivery
+---
 # Handing the Car Over
 
 The invoice is the sale; the **Car Final Delivery** is the moment the keys change hands. It is the

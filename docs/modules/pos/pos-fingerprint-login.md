@@ -1,3 +1,7 @@
+---
+entities: [UserFingerprint]
+---
+
 # Fingerprint Login in Point of Sale
 
 Imagine you have several employees taking turns at the same POS terminal throughout the day. Instead of typing a username and password every time, the employee simply places a finger on the fingerprint reader and the system recognizes them automatically and logs them in. This feature makes switching between users faster and more secure.

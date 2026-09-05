@@ -1,3 +1,6 @@
+---
+entities: [TimeAttendance]
+---
 # Attendance and Departure Formulas
 
 Most employees record attendance and departure with a fingerprint on a dedicated time attendance machine. The trouble is that no two machines export their readings the same way. One writes times in 24-hour format, another in 12-hour AM/PM. One produces an Excel sheet, another a text file separated by commas, semicolons, tabs or runs of spaces. One writes the day as `1`, the next as `01`. Some write a single reading per row and leave you to work out which is an entry and which is an exit; others write the entry and the exit side by side on the same row.

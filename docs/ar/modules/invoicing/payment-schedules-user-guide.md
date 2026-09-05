@@ -1,3 +1,8 @@
+---
+entities: [PaymentScheduleTemplate, ReceiptVoucher, PaymentVoucher]
+menu: المشتريات ← الملفات ← نموذج جدولة الدفعات
+---
+
 # دليل المستخدم لجداول الدفع (Payment Schedules)
 
 ## نظرة عامة

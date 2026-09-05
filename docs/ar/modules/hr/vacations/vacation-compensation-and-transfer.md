@@ -1,3 +1,7 @@
+---
+entities: [VacationCompensation, VacationTransferDocument, VacationChangingDocument, HolidaysRestBalanceDoc]
+---
+
 # تعويض ونقل الأجازات
 
 ليست كل مستندات الأجازات تتعلق بغياب الموظف فعلياً عن العمل. تغطي هذه الصفحة أربع شاشات تقوم بدلاً من ذلك بـ**صرف قيمة نقدية** بدل الرصيد غير المستهلك (**سند صرف بدل أجازة** / Vacation Compensation)، أو **ترحيل الرصيد إلى سنة موارد بشرية جديدة** (**سند ترحيل أجازات** / Vacation Transfer Document)، أو **تعديل رصيد يدوياً** (**سند تعديل رصيد أجازة** / Vacation Changing Document)، أو **تحويل أيام العمل الفعلي في عطلة رسمية أو راحة أسبوعية إلى رصيد** (**بدل أرصده راحات أسبوعية و عطلات رسمية** / Holidays And Rest Days Balance Compensation Document). كل هذه الشاشات الأربع تقرأ وتكتب على نفس الأرصدة المُعرَّفة في [أنواع وأرصدة الأجازات](vacation-types-and-balances.md).

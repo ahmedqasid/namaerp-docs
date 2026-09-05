@@ -1,3 +1,7 @@
+---
+entities: [ContractorContractFine]
+menu: Contracting → Contractor Contracting → Contractor Contract Fine
+---
 # Subcontractor Fines
 
 A blockwork gang builds forty square metres of wall out of plumb and has to knock it down and build

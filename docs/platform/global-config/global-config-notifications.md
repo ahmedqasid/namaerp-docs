@@ -1,3 +1,8 @@
+---
+entities: [ConfigEntry]
+menu: Administration → Settings → System Settings
+---
+
 # Notifications and Messaging
 
 Everything the system needs in order to tell someone something: in-app notifications and their sounds, and the email and SMS accounts it sends through.

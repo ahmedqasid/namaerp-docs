@@ -1,3 +1,7 @@
+---
+entities: [ContractorContrExtract]
+menu: Contracting → Contractor Contracting → Contractor Contract Extract
+---
 # Subcontractor Extracts
 
 Everything else on the subcontractor side is preparation. The subcontract records what you agreed,

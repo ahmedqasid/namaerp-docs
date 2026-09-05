@@ -1,3 +1,7 @@
+---
+entities: [ContractingAssay]
+menu: Contracting → Project Contracting → Contracting Assay
+---
 # Contracting Assays
 
 The document this page describes is **مقايسة مقاولات** — a *priced bill of quantities*, the classic Arabic construction term for a measured schedule of works with quantities and rates. Its English name in Nama is *Contracting Assay*, and that name is a poor transliteration rather than a translation: nothing is being assayed, nothing is tested in a laboratory. If you read the English screens, read *assay* as *priced bill of quantities* and the document will make immediate sense.

@@ -1,3 +1,8 @@
+---
+entities: [IPInvestmentPortfolio, IPInvestmentStart, IPInvestmentEnd, IPInvestmentUpdate, IPInvestmentProfitDistribution, IPInvestmentIncreaseCapital, IPInvestmentOpportunity, Investor, InvestmentProject]
+menu: الحسابات ← محافظ استثمارية ← محفظة استثمارية
+---
+
 # المحافظ الاستثمارية
 
 حين تضخّ الشركةُ مالًا في مشاريع — حصّةً في عملٍ آخر، أو مشروعًا، أو صندوقًا مُدارًا — تحتاج إلى تتبّع كلّ استثمارٍ كأصلٍ قائمٍ بذاته: كم من رأس المال دخل، وكم يساوي الآن، وكم درّ من ربح، ومتى صُفِّي. ومنظومة **المحافظ الاستثمارية** مبنيّةٌ لهذا تحديدًا: تتبع الأصل الاستثماري من فرصةٍ أولى، مرورًا بضخّ رأس المال، وصولًا إلى توزيع الأرباح ثم إقفاله.

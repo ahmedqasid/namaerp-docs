@@ -1,3 +1,7 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
 # Generation & Dimensions Configuration
 
 This page covers two related areas of the supply-chain **Document Term**: how a document automatically **generates** downstream documents (on commit, or auto/async on save), and how the document's **accounting dimensions** (محددات: branch, sector, department, analysis set) relate to its warehouse.

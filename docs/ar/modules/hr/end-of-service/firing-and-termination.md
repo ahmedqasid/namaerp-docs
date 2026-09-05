@@ -1,3 +1,7 @@
+---
+entities: [FiringDocument, FiringRequest, TerminationReason, AggFiringDocument, AggFiringRequest]
+---
+
 # إنهاء الخدمة والتصفية
 
 إنهاء خدمة موظف ليس مجرد تغيير في حالته أبداً. فبمجرد تأكيد المغادرة تستحقّ سلسلة من الالتزامات:

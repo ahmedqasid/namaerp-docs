@@ -1,3 +1,7 @@
+---
+entities: [REMaintenanceExpense, REMaintenanceExpenseRequest]
+menu: Real Estate and Property → Documents → Maintenance Expense
+---
 # Maintenance Requests and Expenses
 
 Accruing the annual charge tells you what the community owes. This page is about the other half —

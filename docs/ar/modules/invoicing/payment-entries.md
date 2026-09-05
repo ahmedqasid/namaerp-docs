@@ -1,3 +1,7 @@
+---
+entities: [ReceiptVoucher, PaymentVoucher]
+---
+
 <rtl>
 
 # ربط سندات الدفع بالفواتير

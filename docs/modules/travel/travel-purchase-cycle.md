@@ -1,3 +1,6 @@
+---
+entities: [TRPurchaseInvoice, TRPurchaseOrder, TRPurchaseReturn]
+---
 # Buying from Suppliers
 
 A tour costs money long before it earns any. A 40-pax group arriving in Cairo for five nights needs

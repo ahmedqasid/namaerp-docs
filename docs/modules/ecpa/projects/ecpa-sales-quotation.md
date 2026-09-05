@@ -1,3 +1,7 @@
+---
+entities: [CPASalesQuotation]
+menu: ECPA → Projects → CPA Projects Sales Quotation
+---
 # Project Sales Quotation
 
 ::: info Required licence

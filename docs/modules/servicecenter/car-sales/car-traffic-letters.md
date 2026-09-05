@@ -1,3 +1,6 @@
+---
+entities: [SITrafficLetter, SITrafficLetterReq, SITrafficLetterCancel, SITrafficLetterReqCancel]
+---
 # Traffic Letters
 
 A car that has been sold still cannot be driven. Before the customer can put it on the road, the

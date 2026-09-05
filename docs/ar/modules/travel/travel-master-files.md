@@ -1,3 +1,7 @@
+---
+entities: [TRHotel, TRRestaurant, TRTourService, TRTourGuide, TRCity, TRCountry, TRHotelClass, TRRestaurantClass, TRTourServiceClass]
+---
+
 # الملفات الرئيسية للسفر والرحلات
 
 شركة السياحة لا تبيع بضاعة من مخزن. هي تبيع خمس ليالٍ في فندق بالأقصر، وانتقالاً بالأتوبيس من مطار

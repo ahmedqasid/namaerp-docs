@@ -1,3 +1,7 @@
+---
+entities: [ConfigEntry]
+menu: Inventory → Settings → Supply Chain Configurations
+---
 # Sales & Offers Configuration
 
 This page documents the **Sales & Offers** tab — settings for sales documents, offers and coupons, discounts, free items, and the price classifiers used in pricing.

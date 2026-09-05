@@ -1,3 +1,7 @@
+---
+entities: [SIReceipt, SIReceiptCancel]
+menu: cars → Car Inventory → Car Receipt
+---
 # Receiving Cars into the Showroom
 
 **توريد سيارة / Car Receipt** — `سيارات > مخازن السيارات > توريد سيارة` (cars > Car Inventory).

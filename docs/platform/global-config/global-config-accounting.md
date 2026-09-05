@@ -1,3 +1,8 @@
+---
+entities: [ConfigEntry]
+menu: Administration → Settings → System Settings
+---
+
 # Accounting and Finance
 
 This tab collects the settings that decide when a difference is small enough to ignore, how many account slots a customer or supplier carries, how credit limits and debt ages are tracked, and how payments, budgets and cost behave.

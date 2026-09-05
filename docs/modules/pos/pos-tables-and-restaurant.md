@@ -1,3 +1,7 @@
+---
+entities: [NamaPOSHall, NamaPOSTable, NamaPOSOrderReservation, NamaPOSCancelReservation]
+---
+
 # Tables, Reservations & Captain Order
 
 Restaurants and cafés sell differently from a shop counter: orders belong to **tables**, waiters take them away from the till, and some are booked in advance. This page covers table service, reservations, the suspended-order and call-center flow, and the **Captain Order** mobile app.

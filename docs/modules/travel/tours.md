@@ -1,3 +1,7 @@
+---
+entities: [TRTour]
+menu: Travel → Documents → Tour
+---
 # Tours
 
 A [tour program](./tour-programs) is the recipe. A **Tour** is the meal actually being cooked, for

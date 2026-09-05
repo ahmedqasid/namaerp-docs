@@ -1,3 +1,6 @@
+---
+entities: [REProject, RESquare, REBlock, RELand]
+---
 # Projects, Squares, Blocks and Land Plots
 
 A land-subdivision business does not enter its portfolio plot by plot. It buys or develops a piece

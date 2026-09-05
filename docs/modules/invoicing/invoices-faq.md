@@ -1,3 +1,7 @@
+---
+entities: [PaymentScheduleTemplate]
+menu: Purchases → Master Files → Payment Schedule Template
+---
 # Frequently Asked Questions about Invoices and Payments
 
 ## I have a customer who wants to pay an invoice in 12 installments: 10 monthly installments at 5% each, plus two additional installments in months 5 and 10 at 25% each — how can this be set up in a payment schedule template?

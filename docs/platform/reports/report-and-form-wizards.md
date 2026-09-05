@@ -1,3 +1,6 @@
+---
+entities: [ReportWizard, PrintingFormWizard]
+---
 # Report and Form Wizards
 
 Nama has two wizards. One builds reports, the other builds printed forms, and they look like separate

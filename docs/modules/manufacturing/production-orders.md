@@ -1,3 +1,7 @@
+---
+entities: [ProductionOrder, AggregatedProductionOrder]
+menu: Manufacturing → Documents → Production Order
+---
 # Production Orders: Planning What to Make
 
 ## What is a Production Order?

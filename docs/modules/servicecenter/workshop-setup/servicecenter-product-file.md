@@ -1,3 +1,7 @@
+---
+entities: [SrvCProduct]
+menu: Service Center → Master Files → Product
+---
 # The Serviced Product
 
 When Fahad Al-Otaibi brings his NAWA Saif 1.6 in for its service, the workshop needs somewhere to keep the things that are true about *that car* rather than about this visit: its chassis number, its plate, who owns it, who insures it, what the odometer read last time, and what has been done to it before. That file is the **product** — the workshop's record of one physical vehicle.

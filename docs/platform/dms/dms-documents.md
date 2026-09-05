@@ -1,3 +1,7 @@
+---
+entities: [DMSDocument]
+menu: Basic → Document Management System → DMS Document
+---
 # Archived Documents
 
 The DMS Document is the record everything else in this section exists to support. One record

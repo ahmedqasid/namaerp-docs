@@ -1,3 +1,8 @@
+---
+entities: [SecurityProfile]
+menu: إدارة النظام ← الصلاحيات ← ملف الصلاحيات
+---
+
 <rtl>
 
 # ملف الصلاحيات (Security Profile)

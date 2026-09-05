@@ -1,3 +1,8 @@
+---
+entities: [ConfigEntry]
+menu: Administration → Settings → System Settings
+---
+
 # Entities Screens
 
 This tab is unusual: nothing on it changes how the system *behaves*. Everything on it changes what other entities' **screens look like** — which extra pages appear on a customer, whether an item's picture shows in search results, which records get colour coding.

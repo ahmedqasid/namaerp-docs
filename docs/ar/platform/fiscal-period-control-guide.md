@@ -1,3 +1,7 @@
+---
+entities: [FiscalYearStatusUpdate, FiscalYear]
+---
+
 <rtl>
 
 # التحكم في إقفال الفترات المحاسبية (Fiscal Period Control)

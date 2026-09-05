@@ -1,3 +1,7 @@
+---
+entities: [DashBoardWidget]
+menu: Administration → DashBoards → DashBoard Widget
+---
 # BI Reference — EnhancedMetricsCard (and legacy MetricsCards)
 
 Companion to [`bi-module-technical-reference.md`](./bi-module-technical-reference.md). Load this for `type: "EnhancedMetricsCard"` (modern, JSON-driven) or `type: "MetricsCards"` (legacy, value-object driven).

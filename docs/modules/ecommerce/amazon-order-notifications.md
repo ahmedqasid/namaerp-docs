@@ -1,4 +1,5 @@
 ---
+entities: [MAGMagentoSite]
 title: Amazon Order Notifications
 ---
 

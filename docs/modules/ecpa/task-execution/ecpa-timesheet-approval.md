@@ -1,3 +1,7 @@
+---
+entities: [CPATimeSheetApproval]
+menu: ECPA → Task Execution / Approvals → TimeSheet Approval
+---
 # Approving Worked Hours
 
 Hours recorded on a [Tasks Executing](/modules/ecpa/task-execution/ecpa-timesheets) document are a claim, not a fact. They sit in the task's **Registered Time** column, they cost the project nothing, and they move no completion percentage. **TimeSheet Approval** is the document that turns them into fact: a project manager opens one, pulls in everything his teams have submitted, decides line by line what he accepts and how much of it, and commits. That commit is the moment registered hours become **actual** hours, the task's actual cost moves, and the project's totals catch up.

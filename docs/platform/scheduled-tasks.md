@@ -1,3 +1,7 @@
+---
+entities: [TaskSchedule]
+menu: Basic → Settings → Task Schedule
+---
 # Scheduled Tasks (Task Scheduler)
 
 Task Scheduler lets you automate recurring operations in Nama ERP. Whether you need to send daily reports to managers, run system maintenance queries, generate recurring documents, or notify users when certain conditions are met, the Task Scheduler handles it all—running quietly in the background while you focus on your business.

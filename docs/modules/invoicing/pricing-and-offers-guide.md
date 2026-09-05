@@ -1,3 +1,7 @@
+---
+entities: [SalesPriceList, SalesOffers]
+menu: Sales → Prices And Offers → Price List
+---
 # Pricing and Offers Management Guide
 
 This comprehensive guide covers the pricing system in Nama ERP, including price lists, sales offers, and automated pricing mechanisms that help maintain accurate and competitive pricing throughout your sales processes.

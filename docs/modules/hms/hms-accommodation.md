@@ -1,3 +1,6 @@
+---
+entities: [HMSAccommodation, HMSAccommodationTransfer, HMSAccommodationExit, HMSFeedingIssue]
+---
 # Accommodation & Feeding
 
 Once admitted, a patient needs a **bed** and **meals**. Accommodation is what books the patient a bed, starts the daily accommodation and medical-supervision charges, and tracks their moves until discharge. Every accommodation document posts a **bed-occupancy** entry and may auto-generate an **accommodation invoice** depending on the term config.

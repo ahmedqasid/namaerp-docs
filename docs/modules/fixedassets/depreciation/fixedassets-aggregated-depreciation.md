@@ -1,3 +1,7 @@
+---
+entities: [AggrFADepreciation]
+menu: Assets → Documents → Aggregated Depreciation Document
+---
 # The Aggregated Depreciation Document
 
 Al-Waha Industries goes live on Nama in November, backdated to the start of the year. Ten months of

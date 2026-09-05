@@ -1,3 +1,7 @@
+---
+entities: [DMSDocMovement, DMSFolderMovement]
+menu: Basic → Document Management System → Document Movement
+---
 # Checking Documents In and Out
 
 Paper leaves the archive. Somebody borrows the original contract for a court hearing, the auditor

@@ -1,3 +1,8 @@
+---
+entities: [ConfigEntry]
+menu: Administration → Settings → System Settings
+---
+
 # Attachments and Storage
 
 Where attached files live, how their disk space is watched, and the two external tools the system uses to scan paper and convert documents.

@@ -1,3 +1,7 @@
+---
+entities: [EmployeeHRInfo, EmployementInformation]
+menu: Payroll → Main → Employee HR Information
+---
 # Employee HR Information
 
 Once someone joins the company, their record splits naturally into two layers. Their **personal and job details** — name, contact information, passport and residency, department, job position, bank account — live on their own employee master record. Everything the **salary engine** needs on top of that — which calendar they follow, which allowances apply to them, and their own personal salary component lines — lives on a companion record: **Employee HR Information**.

@@ -1,3 +1,8 @@
+---
+entities: [IPInvestmentPortfolio, IPInvestmentStart, IPInvestmentEnd, IPInvestmentUpdate, IPInvestmentProfitDistribution, IPInvestmentIncreaseCapital, IPInvestmentOpportunity, Investor, InvestmentProject]
+menu: Accounting → Investment Portfolios → Investment Portfolio
+---
+
 # Investment Portfolios
 
 When a company puts money into ventures — a stake in another business, a project, a managed fund — it needs to track each investment as an asset in its own right: how much capital went in, what it's worth now, what profit it threw off, and when it was wound down. The **investment-portfolios** sub-system is built for exactly this: it follows an investment asset from a first opportunity, through deploying the capital, to distributing profits and finally closing it out.

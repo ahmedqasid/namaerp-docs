@@ -1,3 +1,6 @@
+---
+entities: [RARentalRequest, RARentalInvoice, RAReservationCancel]
+---
 # Booking, Invoicing and Cancelling
 
 ::: info Required licence

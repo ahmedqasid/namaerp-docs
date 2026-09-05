@@ -1,3 +1,7 @@
+---
+entities: [CRMCall]
+menu: Customer Relationship Management → Support → CRM Call
+---
 # Calls
 
 ::: info Required licence

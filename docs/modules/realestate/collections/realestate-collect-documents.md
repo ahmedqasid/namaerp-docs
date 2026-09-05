@@ -1,3 +1,6 @@
+---
+entities: [RECollectDoc, RECollectReq, AggrRECollectDoc]
+---
 # Collect Documents and Bulk Collection
 
 The collect document (سند تحصيل) is where the money side of the Real Estate module actually happens. Everything else in this folder is a variation on it: the request is a collect document with its effects switched off, the exemption is a collect document that collects no cash, and the aggregated document is a machine that produces collect documents by the dozen.

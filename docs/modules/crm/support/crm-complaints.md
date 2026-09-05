@@ -1,3 +1,7 @@
+---
+entities: [CRMComplaint]
+menu: Customer Relationship Management → Support → Complaint - Suggestion
+---
 # Complaints
 
 ::: info Required licence

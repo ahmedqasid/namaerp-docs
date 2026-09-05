@@ -1,3 +1,6 @@
+---
+entities: [HMSLabTestRequest, HMSLabTestResult, HMSRadiologyReq, HMSRadiologyResult, HMSSurgeryReq, HMSSurgeryReservation, HMSSurgeryApproval, HMSBloodBank, HMSBloodBankReturn]
+---
 # Clinical Orders & Results
 
 During a patient's stay (or an outpatient visit), the doctor orders investigations and procedures: lab tests, radiology, surgeries. The system follows a clear pattern — a **request** opened by the doctor, then a **result** entered by the labs or departments, with the two linked together. Every priced line is split between patient and insurer as usual.

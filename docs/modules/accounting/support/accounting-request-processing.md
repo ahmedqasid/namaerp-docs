@@ -1,3 +1,7 @@
+---
+entities: [LedgerTransReq, InvTransReq]
+---
+
 # How Documents Are Processed Into Accounting Effects (and reprocessing a stuck request)
 
 This is the most important page for the support team in the accounting module. It explains what happens **after** you save a document: how it turns into an effect in the general ledger, why it might get stuck, and how to reprocess it yourself without technical intervention.

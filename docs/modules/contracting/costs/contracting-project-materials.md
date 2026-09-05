@@ -1,3 +1,7 @@
+---
+entities: [ContractingMaterialIssue, ContractingMaterialReturn, ContractingMaterialIssueReq]
+menu: Contracting → Costs → Contracting Material Issue
+---
 # Issuing Material to a Project
 
 Two menu items sitting next to each other under **Contracting > Costs** look almost identical and

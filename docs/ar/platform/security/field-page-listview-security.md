@@ -1,3 +1,7 @@
+---
+entities: [SecurityProfile, NaMaUser]
+---
+
 <rtl>
 
 # صلاحيات الحقول والصفحات والقوائم

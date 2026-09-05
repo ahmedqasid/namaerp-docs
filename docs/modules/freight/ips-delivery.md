@@ -1,3 +1,6 @@
+---
+entities: [IPSDeliveryRequest, IPSDeliveryInvoice, IPSDeliveryServiceItem, IPSDeliveryServicePrice]
+---
 # Delivery Service
 
 The final stage in a mail item's journey: delivering it to the customer and collecting the service value and any customs fees. The two documents of this stage — the **Delivery Request** and the **Delivery Invoice** — combine the operational side (who receives, where, and when) with the financial side (how much is collected), and both are sent electronically to the tax authority.

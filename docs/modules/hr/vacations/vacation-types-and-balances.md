@@ -1,3 +1,6 @@
+---
+entities: [VacationType, VacationBalanceRange, OpeningVacationBalanceDoc]
+---
 # Vacation Types & Balances
 
 Before anyone can take a day of leave, Nama needs to know what *kind* of leave it is and how many days the employee is entitled to. That is the job of three master-data screens: the **Vacation Type** (نوع الأجازة) that defines each kind of leave and its rules, an optional **Vacation Balance Range File** (ملف أرصدة الأجازات بناءا على الخبرات) that scales the entitlement with seniority, and the **Opening Vacation Balance Document** (سند إدخال رصيد أجازة إفتتاحية) that seeds a starting balance for an employee. Everything else in the vacations area — requests, documents, plans — reads its rules from here.

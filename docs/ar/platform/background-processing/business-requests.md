@@ -1,3 +1,8 @@
+---
+entities: [BusinessRequestStatus, SavedBusinessRequest]
+menu: إدارة النظام ← الإعدادات ← طلبات الأعمال
+---
+
 # طلبات الأعمال (Business Requests)
 
 حين تحفظ فاتورة، لا يُكتب القيد المحاسبي الخاص بها وأنت تنتظر. يأخذ نما عملية الحفظ، ويعيد إليك

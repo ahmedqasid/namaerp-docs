@@ -1,3 +1,7 @@
+---
+entities: [FinishingWorksCheckList, DiggingBackFilingCheckList, CQCPreConcreteInspection, CQCPostConcreteInspection, CQCUndergroundPipingChecks, CQCCleaningAndFlushing, CQCHydroStaticFireSysTest, TestReport]
+---
+
 # قوائم فحص الموقع وتقارير الاختبار
 
 ثمانٍ من الشاشات الثلاث عشرة في مجموعة [الجودة](/ar/modules/contracting/quality/contracting-quality-overview.md) نماذج موقع بعينها — الورقة التي تُعبَّأ قبل الصب، والتي تُعبَّأ بعده، وواحدة لخط مواسير مدفون، وأخرى لاختبار ضغط. وإذا فُتحت جنباً إلى جنب بدت ثماني خصائص مختلفة. وليست كذلك. إنها **مستند واحد مطبوع عليه ثمانية أطقم مختلفة من الأسئلة**.

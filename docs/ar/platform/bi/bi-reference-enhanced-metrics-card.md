@@ -1,3 +1,8 @@
+---
+entities: [DashBoardWidget]
+menu: إدارة النظام ← لوحات ← عنصر اللوحة
+---
+
 # مرجع BI — EnhancedMetricsCard (وwidget المقاييس القديم MetricsCards)
 
 مرافق لـ [`bi-module-technical-reference.md`](./bi-module-technical-reference.md). استخدم هذا الملف مع `type: "EnhancedMetricsCard"` (الحديث، يعتمد على JSON) أو `type: "MetricsCards"` (القديم، يعتمد على value-object).

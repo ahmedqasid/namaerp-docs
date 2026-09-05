@@ -1,3 +1,7 @@
+---
+entities: [TaxPayerConfiguration]
+menu: Basic → Electronic Tax Authority Configuration → Electronic Tax Authority Configuration
+---
 ::: warning In Progress
 This document is still in progress, not yet finished
 :::

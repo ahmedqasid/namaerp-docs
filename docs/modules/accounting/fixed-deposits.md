@@ -1,3 +1,8 @@
+---
+entities: [FixedDeposit, FixedDepositIssue, InterestPaymentDocument, FixedDepositChangingDoc]
+menu: Banks → Fixed Deposits → Fixed Deposit
+---
+
 # Fixed Deposits
 
 A fixed deposit is the mirror image of a loan: instead of borrowing from the bank, you place an amount with it for a set term in return for interest. Nama tracks it with the same logic it uses for [Bank Loans](./bank-loans.md): a master file holding the deposit terms, then an issue document that posts it, then periodic interest-payment documents that lock in the interest.

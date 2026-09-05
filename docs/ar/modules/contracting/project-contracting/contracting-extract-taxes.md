@@ -1,3 +1,7 @@
+---
+entities: [ProjContrExtract, ContractingTaxExtractTerm]
+---
+
 # الضرائب على المستخلصات
 
 مصلحة الضرائب لا تقبل جدول كميات. فهي تريد قائمة صغيرة ثابتة من أصناف أو خدمات لها أكواد رسمية وكميات وأسعار — و[مستخلص](/ar/modules/contracting/project-contracting/contracting-project-extracts.md) شركة المقاولات نقيض ذلك: أربعون سطراً حرّ النص تصف حفراً في ثلاث مناطق، ومباني بسمكين، ومبلغاً مقطوعاً للأعمال المؤقتة.

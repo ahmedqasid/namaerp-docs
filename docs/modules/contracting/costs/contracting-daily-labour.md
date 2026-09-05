@@ -1,3 +1,7 @@
+---
+entities: [DailyLaborBook, DailyEngineeringDoings]
+menu: Contracting → Contractor Contracting → Daily Labor Book
+---
 # Daily Labour and Site Diary
 
 Two documents in this part of the module are written by the people who are actually on site, at the end

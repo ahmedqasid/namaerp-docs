@@ -1,3 +1,7 @@
+---
+entities: [CRTNOrder]
+menu: Manufacturing → Cartoon → Carton Order
+---
 # Carton Orders: From Customer Request to Production Plan
 
 ## What a Carton Order Is

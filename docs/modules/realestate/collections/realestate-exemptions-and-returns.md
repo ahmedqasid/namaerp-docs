@@ -1,3 +1,6 @@
+---
+entities: [REExemptionDoc, REReturnPaymentDoc]
+---
 # Exemptions and Returning Money to the Buyer
 
 Not every installment is closed by cash. Sometimes the company decides not to charge it at all — three rent-free months while a shop is being fitted out, a goodwill concession after a bad year. Sometimes the money flows the other way, and the company owes the buyer a rebate on fees it already charged.

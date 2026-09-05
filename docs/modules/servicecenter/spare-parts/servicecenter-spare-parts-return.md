@@ -1,3 +1,7 @@
+---
+entities: [SrvcRawMaterialReturn]
+menu: Service Center → Documents → Spare Parts Return
+---
 # Returning Spare Parts
 
 Not everything the store issues gets used. The storekeeper sends six litres of oil out with the

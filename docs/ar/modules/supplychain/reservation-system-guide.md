@@ -1,3 +1,8 @@
+---
+entities: [ReservationDocument]
+menu: المخازن ← سندات الحجوزات ← سند حجز
+---
+
 # دليل نظام الحجوزات الشامل (Comprehensive Reservation System Guide)
 
 يوفر هذا الدليل توثيقاً شاملاً لنظام الحجوزات في Nama ERP، وهو موجّه لفريق الدعم الفني ومسؤولي النظام.

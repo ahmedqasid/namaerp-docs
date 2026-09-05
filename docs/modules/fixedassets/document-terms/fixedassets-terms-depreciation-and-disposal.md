@@ -1,3 +1,7 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
 # Terms for Depreciation, Value Changes and Disposal
 
 These are the terms that decide what the ledger sees while an asset is in service, and what it sees on

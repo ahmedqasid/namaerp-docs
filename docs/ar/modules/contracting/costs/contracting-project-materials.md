@@ -1,3 +1,8 @@
+---
+entities: [ContractingMaterialIssue, ContractingMaterialReturn, ContractingMaterialIssueReq]
+menu: المقاولات ← التكاليف ← صرف خامات مقاولات
+---
+
 # صرف الخامات للمشروع
 
 يوجد في قائمة **المقاولات > التكاليف** بندان متجاوران يبدوان متطابقين تقريباً ولا يتصرفان بأي تشابه.

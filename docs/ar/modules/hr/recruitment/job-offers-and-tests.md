@@ -1,3 +1,7 @@
+---
+entities: [JobOffer, CandidateJobOffer, AggregatedJobOffer, HRTest, HRTestResult]
+---
+
 # عروض العمل والاختبارات (Job Offers & Tests)
 
 **[المتقدم](vacancies-and-candidates.md)** الذي يجتاز المقابلات والاختبارات لا يُوظَّف بمصافحة فقط — تضع Nama شروط التوظيف المقترحة في مستند خاص بها أولاً، فيكون المسمى الوظيفي وباقة الراتب وتاريخ البداية التي نُوقشت مع المتقدم موثقة قبل أن يوقّع أحد على أي شيء.

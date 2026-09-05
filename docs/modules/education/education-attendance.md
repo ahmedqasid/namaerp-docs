@@ -1,3 +1,6 @@
+---
+entities: [EDAttendance, EDDailyMonitoring, EDLeavePermission, EDLeaveReason]
+---
 # Attendance, Daily Monitoring and Leave
 
 Three screens carry the day-to-day life of a school: who was in class this morning, what the

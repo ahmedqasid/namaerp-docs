@@ -1,3 +1,6 @@
+---
+entities: [RECostDocument, REAdditionalCost]
+---
 # Distributing Project Costs Over Properties
 
 A developer never buys a lift for flat 12. He signs one contract for the lifts of Building B3, pays

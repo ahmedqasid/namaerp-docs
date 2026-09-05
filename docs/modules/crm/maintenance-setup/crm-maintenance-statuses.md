@@ -1,3 +1,6 @@
+---
+entities: [MnMaintenanceOrderStatus, MnVisitStatus]
+---
 # Order and Visit Statuses
 
 Everything about how a maintenance order behaves — whether the system understands it as open, running, held or done — comes down to one small field on one small master file. Get it right in the first hour of setting the module up and the lifecycle works. Miss it, and you get a workflow that looks perfectly normal on screen and records nothing at all.

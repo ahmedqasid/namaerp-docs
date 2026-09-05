@@ -1,3 +1,7 @@
+---
+entities: [RERentInstallmentLedger]
+menu: Real Estate and Property → Rents → Rent Installment Ledger
+---
 # Rent Installment Accrual Ledgers
 
 A rent contract is one document with one date. A three-year lease signed on 1 March 2026 is dated

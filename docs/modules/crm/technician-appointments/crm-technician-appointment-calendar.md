@@ -1,3 +1,6 @@
+---
+entities: [TechnicianAppointment]
+---
 # The Booking Calendar
 
 ::: info Required licence

@@ -1,3 +1,7 @@
+---
+entities: [TechnicianAppointment]
+menu: Customer Relationship Management → Technician Appointments → Technician Appointment
+---
 # The Technician Appointment
 
 ::: info Required licence

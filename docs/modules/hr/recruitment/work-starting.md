@@ -1,3 +1,7 @@
+---
+entities: [WorkStartingDocument, WorkStartingRequest, AggregatedVacationStartingDoc]
+menu: Payroll → Recruitment → Work Starting Document
+---
 # Work Starting
 
 An offer being accepted, a suspension ending, a long vacation running its course — none of these, on their own, put a person back on the payroll. Nama always records the actual first day back at work as its own event: a **Work Starting Document**. What makes this document interesting is that it doesn't care where the person is coming from — a job offer, a return from vacation, and a plain work-starting request all feed into the same document, because putting someone back to work is always the same act regardless of how they got there.

@@ -1,3 +1,7 @@
+---
+entities: [FixedAsset]
+menu: Assets → Master Files → Fixed Asset
+---
 # The Fixed Asset Record
 
 There is one rule that explains the whole of this screen, and reading it first will save you an hour of hunting for a field that does not exist:

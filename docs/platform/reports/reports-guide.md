@@ -1,3 +1,7 @@
+---
+entities: [ReportDefinition]
+menu: Reports → Reports Monitoring → Report Definition
+---
 # Jasper Reports Complete Guide for Nama ERP
 
 Every report and every printed form that Nama ERP produces is a JasperReports design: a layout file with a SQL query behind it and a set of prompts in front of it. This page is for the people who build and maintain those designs — the implementer who has to make a printed invoice match a customer's letterhead, and the support person who has to work out why the one on screen does not.

@@ -1,3 +1,7 @@
+---
+entities: [ConfigEntry]
+menu: Inventory → Settings → Supply Chain Configurations
+---
 # Stock Ages Configuration
 
 This page documents the **Stock Ages** tab. "Stock ages" is the inventory-aging feature: it tracks how long stock has been held so you can report on aging buckets. The aging records are built by a background processor, and these settings decide whether aging is tracked at all and how finely the held stock is broken down.

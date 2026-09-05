@@ -1,3 +1,8 @@
+---
+entities: [SrvCProductionExecution, SrvCAttendance]
+menu: مركز خدمة ← المستندات ← تنفيذ أمر الشغل
+---
+
 # تنفيذ أمر الشغل
 
 [أمر الشغل](/ar/modules/servicecenter/job-cycle/servicecenter-job-order.md) يقول ما الذي وعدت الورشة

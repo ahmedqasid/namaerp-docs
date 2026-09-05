@@ -1,3 +1,7 @@
+---
+entities: [CPAProjectMileStone, CPAPhasesDisciplineGroup, CPAProject]
+---
+
 # المراحل ومصفوفة المراحل والتخصصات
 
 ::: info الترخيص المطلوب

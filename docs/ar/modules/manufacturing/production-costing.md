@@ -1,3 +1,7 @@
+---
+entities: [OrderCloseVoucher, OverheadType, ActualOverheadCalculator]
+---
+
 # تكاليف الإنتاج: تتبع الأموال
 
 ## التكلفة الحقيقية للتصنيع

@@ -1,3 +1,7 @@
+---
+entities: [MRPDocument, Scenario, MRPAvailableQtySource]
+menu: Manufacturing → Material Resource Planning → planning raw materials Document
+---
 # Material Requirements Planning (MRP) - User Guide
 
 ## Introduction to MRP

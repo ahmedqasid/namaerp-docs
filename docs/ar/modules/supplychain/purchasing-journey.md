@@ -1,3 +1,7 @@
+---
+entities: [PurchaseOrder, PurchaseInvoice, ItemRequest, PurchaseQuotation, PurchaseQuotationRequest, PurchasePriceComparing, ConsolidatedPurchaseReq, PurchaseReturn, PurchaseReturnReq, ProformaPurchaseInvoice, PurchaseDocumentUpdate]
+---
+
 # رحلة الشراء (The Purchasing Journey)
 
 لنتابع القصة الكاملة لكيفية شراء الأصناف - من "نحتاج شيئًا" إلى "وصل إلى مخزننا ودفعنا ثمنه." تشمل هذه الرحلة أشخاصًا كثيرين ووثائق متعددة وقرارات مهمة. فهم هذا المسار يساعدك على معرفة أي مستند تستخدمه في كل موقف.

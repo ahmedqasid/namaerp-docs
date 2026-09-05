@@ -1,3 +1,8 @@
+---
+entities: [TaxPayerConfiguration]
+menu: الأساسيات ← إعدادات مصلحة الضرائب ← إعدادات مصلحة الضرائب
+---
+
 <rtl>
 
 ::: warning In Progress

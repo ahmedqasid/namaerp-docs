@@ -1,3 +1,6 @@
+---
+entities: [AgrInvestmentContract, AgrInvestContrProfitClaim, AgrInvestmentContractCategory]
+---
 # Agricultural Investment Contracts
 
 Start with what this is **not**, because the menu actively misleads.

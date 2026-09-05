@@ -1,3 +1,7 @@
+---
+entities: [CQCActivityInspectionReq]
+menu: Contracting → Quality → Activity Inspection Request
+---
 # Activity Inspection Requests
 
 Reinforcement gets covered by concrete. Pipework gets covered by screed. Ducts disappear behind ceilings. There is a window — sometimes a few hours long — in which a piece of work can still be looked at, and once it closes, opening it again costs money. So the site engineer who has finished such a piece of work sends a request: *come and inspect this now, before we cover it.*

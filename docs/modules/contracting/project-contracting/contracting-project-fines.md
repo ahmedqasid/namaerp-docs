@@ -1,3 +1,7 @@
+---
+entities: [ProjectContractFine]
+menu: Contracting → Project Contracting → Project Contract Fine
+---
 # Project Fines
 
 Contracts have teeth. Miss the milestone and there is a daily penalty; pour concrete that fails its cube test and the consultant instructs a deduction; leave the site unfenced and the owner charges you for doing it himself. **Project Contract Fine** (سند غرامة عقد مشروع) is where those charges are recorded against the owner contract.

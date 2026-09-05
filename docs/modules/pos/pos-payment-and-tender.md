@@ -1,3 +1,7 @@
+---
+entities: [NamaPOSSalesInvoice]
+---
+
 # Payment & Tender
 
 Pressing `F5` on a finished invoice opens the **tender screen** — the moment of truth where money changes hands. This page covers how that screen works and every way a customer can pay.

@@ -1,3 +1,6 @@
+---
+entities: [ContractingPurchaseRequest, ContractingPurchaseOrder]
+---
 # Contracting Purchase Requests and Orders
 
 Nama already has a perfectly serviceable purchase request and purchase order in the supply chain

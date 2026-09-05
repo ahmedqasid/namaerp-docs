@@ -1,3 +1,6 @@
+---
+entities: [MnNotice, MnRequest]
+---
 # Notices and Requests
 
 Not all maintenance is planned. On 20 May 2026 Marina Plaza rings Al Nokhba: chiller 2 is losing cooling capacity and there is a smell of refrigerant in the plant room. Nobody has a work plan for that. What the call centre types is a **Maintenance Notice** — `MNOT-0140` — and from there the reactive path runs to a maintenance order in exactly the same way the preventive path does.

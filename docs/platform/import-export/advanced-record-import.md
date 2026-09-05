@@ -1,3 +1,6 @@
+---
+entities: [RecordImportConfig, RecordImportList, RecordImportDoc]
+---
 # Advanced Record Import
 
 The ordinary [Import Records](/platform/import-export/importing-records.md) command has one requirement that quietly rules out half of real-world data loading: the file must be in Nama's own layout. That is easy when you exported it yourself. It is impossible when the file comes from somewhere else.

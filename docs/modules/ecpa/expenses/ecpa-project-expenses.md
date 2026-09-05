@@ -1,3 +1,6 @@
+---
+entities: [CPAProjExpenseReq, CPAProjExpenseDoc, CPAProjectExpenseItem]
+---
 # Project Expenses
 
 ::: info Licence

@@ -1,3 +1,6 @@
+---
+entities: [CPAProjectMileStone, CPAPhasesDisciplineGroup, CPAProject]
+---
 # Milestones and the Phase–Discipline Matrix
 
 ::: info Required licence

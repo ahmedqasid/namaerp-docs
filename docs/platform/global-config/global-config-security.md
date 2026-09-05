@@ -1,3 +1,8 @@
+---
+entities: [ConfigEntry]
+menu: Administration → Settings → System Settings
+---
+
 # Security and Login
 
 Everything about getting into the system and what you can see once you are in: login attempts and sessions, password rules, two-factor authentication, LDAP, record-level visibility, and the public user-registration page.

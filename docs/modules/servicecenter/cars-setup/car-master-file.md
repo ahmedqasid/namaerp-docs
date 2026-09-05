@@ -1,3 +1,7 @@
+---
+entities: [SubItem]
+menu: cars → Car Files → Customer Car
+---
 # The Car File
 
 **السياره / Customer Car** — `سيارات > ملفات السيارات > السياره` — is one physical vehicle. It is a

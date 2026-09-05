@@ -1,3 +1,7 @@
+---
+entities: [EDCourseContractCancel]
+menu: Education → Master Files → Course Contract Cancel
+---
 # Cancelling a Course Contract
 
 A contract is signed for a full training programme, the trainee attends three months and then

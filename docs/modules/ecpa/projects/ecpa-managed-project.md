@@ -1,3 +1,7 @@
+---
+entities: [CPAProject]
+menu: ECPA → Projects → Managed Project
+---
 # The Managed Project
 
 Everything in Project Management (ECPA) hangs off one record: the **Managed Project**. It is the engagement itself — one record per job the firm has taken on for one customer. It says who runs the job, what was contracted for and in which currency, when it is meant to start and finish, and how the work is broken down. Tasks, timesheets, expenses and invoices all point back at it, and the numbers they produce are reported here.

@@ -1,3 +1,7 @@
+---
+entities: [ContrEmployeeEquipmentAlloc, ContrEmployeeEquipmentCost, ContrEmployeeEquipInvoice, EquipmentStatementDoc, FACreationDoc]
+---
+
 # تسكين الموظفين والمعدات وتكاليفهم
 
 مهندس الموقع الذي يقضي مارس كله في برج A على كشوف رواتب الشركة. والونش البرجي الواقف هناك طول الشهر أصل

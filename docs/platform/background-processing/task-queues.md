@@ -1,3 +1,7 @@
+---
+entities: [TaskQueue, EntityFlow, TaskSchedule]
+menu: Basic → Settings → Task Queue
+---
 # Task Queues
 
 Nama has always done its slow work behind you rather than while you wait. A scheduled report goes

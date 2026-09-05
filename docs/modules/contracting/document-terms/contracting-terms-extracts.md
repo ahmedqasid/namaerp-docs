@@ -1,3 +1,7 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
 # Extract Document Terms
 
 The extract is the only document in a contracting chain that reaches the ledger, which makes its term the most consequential piece of configuration in the module. Everything an extract posts — the certified work value, the taxes, the discounts, the planned cost, the actual cost, the variances — is a pair of accounts on this one screen. Get it right once per contract type and nobody ever thinks about it again; leave a pair blank and that part of the journal simply never appears.

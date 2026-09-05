@@ -1,3 +1,6 @@
+---
+entities: [RESalesDoc]
+---
 # Building the Installment Plan
 
 Property is sold on time. A customer signing for a 1,200,000 villa hands over a fraction of it on the day and pays the rest over years, in pieces that have to be dated, coded, collected, discounted, fined and reported on individually. That schedule — the price block that produces the number, the construction block that decides its shape, and the installment grid that results — is the money model of the whole Real Estate module.

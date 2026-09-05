@@ -1,3 +1,8 @@
+---
+entities: [GenericReferenceOverrider]
+menu: Basic → Settings → Fields and Entities Settings
+---
+
 # Lifting Built-in Restrictions
 
 Almost everything on the Fields and Entities Settings screen *adds* a rule: a mask that formats a number, a validation that refuses bad input, a formula that fills a field in for you. The three grids on this page do the opposite. Each one reaches into a guard rail that Nama normally enforces on every screen, and switches it off for the field, the entity or the record type you name.

@@ -1,3 +1,6 @@
+---
+entities: [OrderCloseVoucher, OverheadType, ActualOverheadCalculator]
+---
 # Production Costing: Following the Money
 
 ## The Real Cost of Making Things

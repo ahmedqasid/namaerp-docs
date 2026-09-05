@@ -1,3 +1,7 @@
+---
+entities: [SISalesInvoice, SIProformaSalesInvoice]
+menu: cars → Car Sales → Car Sales Invoice
+---
 # Car Sales Invoices
 
 There are two documents in the menu with "invoice" in the name, they look almost identical on

@@ -1,3 +1,7 @@
+---
+entities: [ComponentCalcFormula, DailySalary]
+menu: Payroll → Salary Configurations → Component Calculation Formula
+---
 # Salary Calculation Formulas
 
 A [Salary Component](salary-components.md) set to **Variable Value** doesn't carry a number of its own — it carries a **Component Calculation Formula**, which is the recipe that turns that month's inputs into a figure. This page covers how formulas are built, and covers the separate **Daily Salary** document used for employees who are paid by the day rather than by the month.

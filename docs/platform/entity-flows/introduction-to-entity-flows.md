@@ -1,3 +1,7 @@
+---
+entities: [EntityFlow]
+menu: Administration → Display Customization → Entity Flow
+---
 # Introduction to Entity Flows
 
 Entity Flows are one of the most powerful features in Nama ERP. They provide high flexibility for executing custom actions based on user interactions with the system, without requiring programming experience.

@@ -1,3 +1,7 @@
+---
+entities: [CourseEvaluation, EvaluationElement]
+menu: Human Resources → Training → Course Evaluation
+---
 # Course Evaluation
 
 [Employee Evaluation](../performance/employee-evaluation.md) rates ongoing staff performance against a catalog of scored criteria. A **Course Evaluation** (تقييم دورة تدريبية) applies that exact same scoring mechanism to training, right after a course wraps up — except here the subject being rated can be the **course** itself, the **student** who took it, or the **instructor** who delivered it. It draws on the same **Evaluation Element** (عنصر تقييم) catalog described on the Employee Evaluation page, with a set of training-specific weight overrides layered on top.

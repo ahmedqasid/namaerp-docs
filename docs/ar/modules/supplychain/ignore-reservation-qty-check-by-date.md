@@ -1,3 +1,7 @@
+---
+entities: [Warehouse, Locator, ConfigEntry]
+---
+
 <rtl>
 
 # تجاهل مخازن/مواقع معينة في التحقق من كمية الحجز بالتاريخ

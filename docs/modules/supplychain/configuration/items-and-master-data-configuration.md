@@ -1,3 +1,7 @@
+---
+entities: [ConfigEntry]
+menu: Inventory → Settings → Supply Chain Configurations
+---
 # Items & Master Data Configuration
 
 This page documents the **Items & Master Data** tab — settings that affect the item master, item codes and coding, item search (including button/level browsers), the item–warehouse–locator relationships, and item links to customers and suppliers.

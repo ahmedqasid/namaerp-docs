@@ -1,3 +1,7 @@
+---
+entities: [ConfigEntry]
+menu: Inventory → Settings → Supply Chain Configurations
+---
 # Overdraft & Quantity Checking Configuration
 
 This page documents the **Overdraft & Quantity Checking** tab. "Overdraft" means letting stock go negative — issuing or selling more than is on hand. These settings decide whether that is allowed, where, and how strictly the system enforces it.

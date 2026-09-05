@@ -1,3 +1,6 @@
+---
+entities: [GlassJobOrder, GlassJobOrderReq, GlassOperationMap, OrderExecution, GlassJobOrderStatusUpdate, OrderDelivery, OrderFinished, OutsourceRequest, OutsourceIssue, OutsourceReceipt, OrderDamage, JOrderExpense, Tender, TenderCondition, SCDocRuleSet, SCExtraDocCreationRule, SCCopierExtraFields, OrderStatusQtyTrackConfig, DeliveryConfiguration, Resource, Activity, MaterialClassification]
+---
 # Specialized Scenarios
 
 The previous pages cover the core supply chain paths. But some specialized cases don't fit a page of their own: sector-specific job orders, document-automation tools, and tenders. This guide gathers them, and points to their homes when they belong to other modules.

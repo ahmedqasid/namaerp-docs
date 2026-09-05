@@ -1,3 +1,6 @@
+---
+entities: [AccessoriesKit, SrvCVisitType, SrvCOperationClassification]
+---
 # Tags and Classification Files
 
 Three small master files sit in the Service Center menu that a reader will reasonably expect to *do* something — and none of them does. They classify. They travel from the vehicle onto the job order, they appear as columns in list views and they group things for a human being reading a screen, and there their contribution ends.

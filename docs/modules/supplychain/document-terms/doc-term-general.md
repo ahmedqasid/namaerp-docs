@@ -1,3 +1,7 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
 # General Configuration
 
 A **Document Term** (توجيه المستند) is the main mechanism for customizing how a document type behaves in Nama — one document type can have several terms, each shaping its validation, generation, pricing, accounting and more. This **General** tab holds the term's identity (code, names, the document type it targets, active state, template flag and field filters) plus a few cross-cutting toggles that don't belong to any single feature area.

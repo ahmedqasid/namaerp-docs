@@ -1,3 +1,8 @@
+---
+entities: [ConfigEntry]
+menu: Administration → Settings → System Settings
+---
+
 # Dimensions
 
 Dimensions are how Nama answers "which part of the business does this record belong to?". There are five of them — legal entity, sector, branch, department and analysis set — and almost every record in the system carries all five. They drive security (who may see a record), reporting (how figures are grouped), and account structure.

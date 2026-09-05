@@ -1,3 +1,7 @@
+---
+entities: [SrvCOperation]
+menu: Service Center → Master Files → Service Center Operation
+---
 # Services and Operation Groups
 
 A customer does not ask for "an oil change, a filter change, a brake inspection and a fluid top-up". They ask for the 10,000-kilometre service, and they want one price for it. The **service** — `خدمة` in the Arabic menu, *Operation* in the English one — is how the workshop sells a bundle like that.

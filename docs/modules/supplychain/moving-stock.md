@@ -1,3 +1,7 @@
+---
+entities: [StockTransfer, IssueStockTransfer, ReceiptStockTransfer, StockTransferReq, AggrStockTransferReq]
+menu: Inventory → Stock transfer Docs → Stock Transfer
+---
 # Moving Stock Between Warehouses
 
 Sometimes items don't come in or go out - they just move from one place to another. This guide focuses on **stock transfers**: moving inventory between warehouses and locations while its ownership stays within the organization.

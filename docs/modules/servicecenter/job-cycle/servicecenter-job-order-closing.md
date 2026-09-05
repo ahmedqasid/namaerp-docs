@@ -1,3 +1,7 @@
+---
+entities: [SrvCJobOrderClosing]
+menu: Service Center → Documents → Job Order Closing
+---
 # Closing a Job Order
 
 The car is finished, the parts have been fitted, the technicians have booked their time. The job

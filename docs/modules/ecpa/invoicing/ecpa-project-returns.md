@@ -1,3 +1,7 @@
+---
+entities: [CPAProjectReturn]
+menu: ECPA → Invoice → Project Return
+---
 # Project Return
 
 ::: info Licence

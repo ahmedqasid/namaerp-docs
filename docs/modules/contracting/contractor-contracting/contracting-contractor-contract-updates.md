@@ -1,3 +1,7 @@
+---
+entities: [ContractorContractUpdate]
+menu: Contracting → Contractor Contracting → Contractor Contract Update
+---
 # Subcontract Updates
 
 Scope moves. The client adds 300 m² of wall, a rate is renegotiated after the first month, an item nobody priced has to be added, the programme slips. Early in a subcontract's life you simply open it and edit it — but [the subcontract](/modules/contracting/contractor-contracting/contracting-contractor-contract.md) freezes its prices, quantities and conditions as soon as the first extract has been certified against it, and from that point the sanctioned way to change it is this document.

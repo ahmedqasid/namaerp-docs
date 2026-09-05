@@ -1,3 +1,8 @@
+---
+entities: [CPAProjectStageExtension, CPAStageExtensionReason, CPAStageExtensionReasonType]
+menu: ECPA ← مشاريع ← تمديد مرحلة مشروع
+---
+
 # تمديد مراحل المشروع
 
 [مستند مرحلة المشروع](/ar/modules/ecpa/projects/ecpa-project-stages) يحمل الوعد: كل مرحلة، وعددها

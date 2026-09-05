@@ -1,3 +1,7 @@
+---
+entities: [MobDeliveryDoc, MultiMobDeliveryDoc]
+---
+
 # التسليم عبر تطبيق المندوب
 
 ::: info الترخيص المطلوب

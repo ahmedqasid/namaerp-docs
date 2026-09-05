@@ -1,3 +1,7 @@
+---
+entities: [SalesPriceList, SalesOffers, DiscountCoupon, PostSalesOffer, PostSalesOfferConfig, PostSalesOfferClaim, PriceVotingDoc, PricingRange, AutoSalesPricing, SalesPriceInPoints, FreeItemGroup, PeriodicMonthlySalesOffer, DiscountCouponType, DiscountCouponBook, SalesCouponsCodingMethod, CouponsSalesOrder, CouponsSalesOrderReturn, PriceVotingFile, AutoSalesPricingSetting]
+---
+
 # التسعير والعروض والكوبونات (Pricing, Offers & Coupons)
 
 السعر الذي يدفعه العميل ليس رقمًا واحدًا، بل نتيجة طبقات متعددة: قائمة أسعار، وخصم كمية، وعرض ترويجي، وربما كوبون. يجمع هذا الدليل أدوات التسعير الخاصة بسلسلة التوريد ويشرح كيف تتراكم.

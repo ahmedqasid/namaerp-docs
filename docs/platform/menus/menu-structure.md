@@ -1,3 +1,7 @@
+---
+entities: [MenuDefinition]
+menu: Administration → Display Customization → Menu Definition
+---
 # How the Menu Is Put Together
 
 The menu down the side of the screen looks like a tree, so people expect to edit it like one —

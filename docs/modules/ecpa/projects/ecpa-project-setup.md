@@ -1,3 +1,6 @@
+---
+entities: [CPAProjectType, CPAProjectSubType, CPAProjectClass, CPADiscipline]
+---
 # Project Types, Classes and Disciplines
 
 ::: info Required licence

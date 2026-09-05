@@ -1,3 +1,8 @@
+---
+entities: [LetterOfGuarantee, LGTIssue, LGTReceipt, LGTDelivery, LGTChanging, LGTClosing, LGTReq]
+menu: Banks → Letters Of Guarantee → Letter Of Guarantee
+---
+
 # Letters of Guarantee
 
 A letter of guarantee is an undertaking the bank issues on your behalf in favor of a third party (a government body, a project owner…) guaranteeing that you'll meet some obligation — like a tender-entry guarantee or a contract performance guarantee. No actual cash leaves you when it's issued, but it **freezes part of your facility limit** with the bank and charges you **fees**. So Nama tracks the letter of guarantee as a master file with a succession of movement documents that issue it, receive and deliver it, amend it and close it — always keeping two snapshots: the **initial values** at issue and the **current values** after amendments.

@@ -1,3 +1,8 @@
+---
+entities: [ConfigEntry]
+menu: المخازن ← الإعدادات ← إعدادات Supply Chain
+---
+
 # إعدادات اقتراح الكميات (Quantity Suggestion Configuration)
 
 تشرح هذه الصفحة تبويب **اقتراح الكميات**. وهو يتحكم في سلوكين مرتبطين:

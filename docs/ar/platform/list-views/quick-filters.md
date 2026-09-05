@@ -1,3 +1,7 @@
+---
+entities: [ScreenModifier, QuickFilterCriteria]
+---
+
 # الفلاتر السريعة في قوائم المستندات (Quick Filters in List Views)
 
 ::: tip ميزة جديدة

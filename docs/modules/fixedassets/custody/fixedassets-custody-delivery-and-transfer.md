@@ -1,3 +1,6 @@
+---
+entities: [FACustodyDeliveryDoc, FACustodyTransferDocument]
+---
 # Delivering and Transferring Custody
 
 A custody item that nobody is holding is just stock. The point of the register is the moment it

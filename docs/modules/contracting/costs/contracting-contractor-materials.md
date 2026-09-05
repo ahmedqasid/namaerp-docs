@@ -1,3 +1,7 @@
+---
+entities: [ContractorMaterialIssue, ContractorMaterialReturn, ContractorMaterialIssueRequest]
+menu: Contracting → Costs → Contractor Material Issue
+---
 # Selling Material to a Subcontractor
 
 Contractors supply their subcontractors constantly. You buy cement by the lorry and he buys it by the

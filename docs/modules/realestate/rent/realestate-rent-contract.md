@@ -1,3 +1,7 @@
+---
+entities: [RERentContract]
+menu: Real Estate and Property → Rents → Rent Contract
+---
 # The Rent Contract
 
 The rent contract is the document the whole leasing area revolves around. It is the lease: who is renting what, for how long, for how much, and on what payment rhythm. Everything downstream is derived from it — the installment schedule, the periodic revenue accruals, the collections, the fines, the renewal and the final settlement all read their numbers from this one record.

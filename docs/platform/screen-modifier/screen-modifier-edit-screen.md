@@ -1,3 +1,7 @@
+---
+entities: [ScreenModifier]
+menu: Administration → Display Customization → Screen Modifier
+---
 # Screen Modifier — Edit-Screen Modifications
 
 This page covers everything you can change about an **edit screen** — the screen a user opens to view or enter a single record. If you are working on list views or selector pop-ups instead, see [List View & Selector Pop-up](/platform/screen-modifier/screen-modifier-list-and-search.md).

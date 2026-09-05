@@ -1,3 +1,6 @@
+---
+entities: [MenuDefinition]
+---
 # Who Sees Which Menu
 
 Two people sign in to the same system and see different menus. That is normal and intended, but it

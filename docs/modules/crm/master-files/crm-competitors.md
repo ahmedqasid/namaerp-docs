@@ -1,3 +1,6 @@
+---
+entities: [CRMCompetitor, CRMCompetitorItem]
+---
 # Competitors
 
 **Competitor Company / شركة منافسة** —

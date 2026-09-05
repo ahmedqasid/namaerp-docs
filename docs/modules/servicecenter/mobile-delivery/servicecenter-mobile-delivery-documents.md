@@ -1,3 +1,6 @@
+---
+entities: [MobDeliveryDoc, MultiMobDeliveryDoc]
+---
 # Delivery Documents
 
 ::: info Required licence

@@ -1,3 +1,8 @@
+---
+entities: [ConfigEntry]
+menu: Administration → Settings → System Settings
+---
+
 # Reports and Printing
 
 Everything about producing output: the format a report opens in, what appears on the printed page, how dimension parameters are filled, what is logged, how values are formatted, and how Excel exports are built.

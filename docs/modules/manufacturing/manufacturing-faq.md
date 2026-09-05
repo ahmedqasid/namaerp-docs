@@ -1,3 +1,6 @@
+---
+entities: [ProductionOrder]
+---
 # Frequently Asked Questions — Manufacturing Module in Nama ERP
 
 ## I want the production order status to change to "In Progress" immediately upon saving, so I can execute the production order right after saving

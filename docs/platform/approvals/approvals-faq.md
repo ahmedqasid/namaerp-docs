@@ -1,3 +1,7 @@
+---
+entities: [ApprovalDefinition]
+menu: Basic → Settings → Approval Definition
+---
 # Approvals FAQ
 
 ## Setting Up Approval for a Stock Transfer Based on the Receiving Warehouse

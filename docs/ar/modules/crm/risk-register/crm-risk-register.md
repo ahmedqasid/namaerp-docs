@@ -1,3 +1,7 @@
+---
+entities: [SMFProblemDeclarationDoc, SMFSolutionSuggestionDoc, SMFInitialOperationDoc]
+---
+
 # سجل مخاطر خدمة العملاء
 
 ::: info الترخيص

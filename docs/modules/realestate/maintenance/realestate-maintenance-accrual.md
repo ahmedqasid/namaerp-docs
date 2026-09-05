@@ -1,3 +1,7 @@
+---
+entities: [REMaintenanceAccrual]
+menu: Real Estate and Property → Documents → Maintenance Accrual
+---
 # Accruing the Annual Maintenance Charge
 
 A compound has to be run. Lifts need servicing contracts, the gardens need water, the guards need

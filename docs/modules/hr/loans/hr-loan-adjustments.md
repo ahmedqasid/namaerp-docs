@@ -1,3 +1,6 @@
+---
+entities: [HRLoanReliefDocument, HRLoanInstallReschedule, HRLoanDisableDocument]
+---
 # Loan Adjustments
 
 Once a [Loan Document](hr-loan-documents.md) is running, three separate screens change it without touching the original disbursement: writing part of the balance off, moving installments around in time, and pausing (or resuming) the whole loan. All three point back at the Loan Document they adjust and share its installment schedule.

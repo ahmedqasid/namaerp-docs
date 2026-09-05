@@ -1,3 +1,7 @@
+---
+entities: [WeightScaleConfig, WeightScalePreparationDoc, WeightScalePrepGenerator]
+menu: Inventory → Weight Scale → Weight Scale Configuration
+---
 # Weight Scale
 
 In facilities that handle bulk materials sold or received by weight - grains, concrete, aggregates, metals - the scale becomes part of the workflow. NaMa ERP connects electronic weight scales to receiving and loading stations, capturing weights directly and turning them into inventory movements without manual entry.

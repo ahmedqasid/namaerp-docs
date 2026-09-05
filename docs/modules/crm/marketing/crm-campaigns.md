@@ -1,3 +1,7 @@
+---
+entities: [CRMCampaign]
+menu: Customer Relationship Management → Marketing → CRM Campaign
+---
 # Campaigns
 
 In January 2026, Al Nokhba Air Conditioning Systems took a stand at the International Cooling Expo.

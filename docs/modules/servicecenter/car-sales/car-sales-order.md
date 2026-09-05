@@ -1,3 +1,7 @@
+---
+entities: [SISalesOrder, SISalesApproval]
+menu: cars → Car Sales → Car Sales Order
+---
 # Car Sales Orders and Approvals
 
 The sales order is where a conversation becomes a commitment. Up to this point the showroom has only

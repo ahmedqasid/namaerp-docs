@@ -1,3 +1,7 @@
+---
+entities: [ConfigEntry]
+menu: Inventory → Settings → Supply Chain Configurations
+---
 # Costing Configuration
 
 This page documents the **Costing** tab of the Supply Chain configuration. These settings decide how the system values your inventory — how cost is taken out on every issue/sale, how it handles receipts that arrive without a cost, and how often it is allowed to re-run cost calculations.

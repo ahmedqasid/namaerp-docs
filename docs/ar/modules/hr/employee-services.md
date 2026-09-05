@@ -1,3 +1,7 @@
+---
+entities: [CarAction, CarProblem, CarActionRequest, CarInfoUpdater, CarInsurancePolicy, CarInsuranceOfferDoc, CarInsuranceAddingDoc, CarInsuranceRemovingDoc, CarInsuranceInstallmentProofDoc, PickupPlan, MealType, MealsDetails, MealDeliveryPlan]
+---
+
 # خدمات الموظفين (السيارات والنقل والوجبات)
 
 بجانب الراتب، تدير معظم الشركات مجموعة صغيرة من المزايا الجانبية لموظفيها — سيارة لأداء العمل، وباص

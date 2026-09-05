@@ -1,3 +1,6 @@
+---
+entities: [PendingSystemAction, AutoSystemAction]
+---
 # System Actions
 
 Two screens sit next to each other in the menu with almost the same name, and they have nothing to

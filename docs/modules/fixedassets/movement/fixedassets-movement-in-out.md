@@ -1,3 +1,6 @@
+---
+entities: [FAMovementOutDoc, FAMovementInDoc]
+---
 # Sending Assets Out and Bringing Them Back
 
 Al-Waha Industries is exhibiting at a trade fair in Dammam. Three of the ten office desks held as

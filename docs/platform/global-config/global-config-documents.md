@@ -1,3 +1,8 @@
+---
+entities: [ConfigEntry]
+menu: Administration → Settings → System Settings
+---
+
 # Documents and Books
 
 Every document in Nama gets its number from a **book** and its behaviour from a **document term**. This tab governs that machinery: how books and terms are picked, what a term is allowed to control, how drafts are numbered, how master files are coded automatically, how installments are generated, and who may post into a closed fiscal period.

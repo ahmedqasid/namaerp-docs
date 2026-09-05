@@ -1,3 +1,7 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
 # Other Contracting Document Terms
 
 Once the extracts, the material streams and the payment documents are configured, what remains is a long tail of terms that are mostly very small: one debit, one credit, and a guard or two. This page takes them in the order a reader is likely to meet them — cost capture first, then purchasing, then the two estimating documents.

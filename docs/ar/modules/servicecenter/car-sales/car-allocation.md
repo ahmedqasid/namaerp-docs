@@ -1,3 +1,8 @@
+---
+entities: [SIAllocation, SIAllocationCancel]
+menu: سيارات ← مبيعات السيارات ← تخصيص سيارة
+---
+
 # تخصيص السيارة
 
 [أمر البيع](/ar/modules/servicecenter/car-sales/car-sales-order.md) يقول إن «ليلى تشتري ناوا رمال

@@ -1,3 +1,8 @@
+---
+entities: [ConfigEntry]
+menu: Administration → Settings → System Settings
+---
+
 # Discounts
 
 A document line in Nama can carry up to eight separate discounts plus one discount at the document header. Eight sounds excessive until you meet a distributor whose price is list price, minus the trade discount, minus the volume discount, minus the seasonal promotion, minus the settlement discount — each negotiated separately, each needing to appear on the invoice in its own right.
