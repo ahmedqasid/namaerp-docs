@@ -1,5 +1,5 @@
 ---
-entities: [GlassJobOrder, GlassJobOrderReq, GlassOperationMap, OrderExecution, GlassJobOrderStatusUpdate, OrderDelivery, OrderFinished, OutsourceRequest, OutsourceIssue, OutsourceReceipt, OrderDamage, JOrderExpense, Tender, TenderCondition, SCDocRuleSet, SCExtraDocCreationRule, SCCopierExtraFields, OrderStatusQtyTrackConfig, DeliveryConfiguration, Resource, Activity, MaterialClassification]
+entities: [GlassJobOrder, GlassJobOrderReq, GlassOperationMap, ServiceItemBOM, OrderExecution, GlassJobOrderStatusUpdate, OrderDelivery, OrderFinished, OutsourceRequest, OutsourceIssue, OutsourceReceipt, OrderDamage, JOrderExpense, Tender, TenderCondition, SCDocRuleSet, SCExtraDocCreationRule, SCCopierExtraFields, OrderStatusQtyTrackConfig, DeliveryConfiguration, Resource, Activity, MaterialClassification]
 ---
 # Specialized Scenarios
 
@@ -15,6 +15,34 @@ The path starts with the **Job Order Request** (GlassJobOrderReq) for cost study
 
 ::: info A Specialized Sector
 Glass job orders are a sector-specific sub-module; if your business isn't in this field, you won't need them. They rely on the same concepts as [assembly](./assembly-and-packaging.md) and [resources](#Resources-and-Activities) but with a dedicated order path.
+:::
+
+## Bills of Materials for Services (Service Item BOM)
+
+A glass job order does not only cut a sheet of glass. It tempers it, drills it, polishes its edges. Each of those operations is an item in its own right — an item whose type is **Service** rather than **Stock**. But a service still consumes things: adhesive, abrasive discs, an hour on a machine, two operators standing at it.
+
+The **Service Item BOM** (*Job Orders → Master Files → Service Item BOM*) is where that is written down, once per service. It is the reason an order execution can work out what to issue from the warehouse and what the work cost without anybody typing either figure.
+
+The header names the service and the scale everything below is measured against:
+
+- **Service Item** — the picker offers only items of type Service. Choosing one copies its code and name onto the record and sets **Quantity** to 1 in the item's base unit.
+- **Quantity** and **Service UOM** — how much service the rest of the screen describes. Everything underneath is a ratio against this figure, so a BOM written for 10 m² is scaled on its own when an execution covers 3 m².
+- **Calculation Type** — **Lot** or **Item**: whether the cost is incurred once for the whole run or rises with the quantity produced. It is also the default that new lines in the Routes grid inherit.
+
+Underneath sit the two grids that make up the BOM proper.
+
+**Spare Parts** is the materials list. Each line names an **Item** (stock items only), the **Material Qty** consumed, and the **Service Prod.** quantity that consumption corresponds to — "1.5 litres of adhesive per 10 m² tempered". Recording it as a pair rather than as a single per-unit figure is what lets you write the ratio in the units the shop floor actually works in.
+
+**Routes** is the resources list — the machines and the people. Each line names a **Resource**, the **Time** it is occupied for (the time unit defaults from the resource's own rate type), and the **Resources Count**, meaning how many of them at once. The line's **Cost** is worked out for you from the resource's rate, the time and the count; it is not something you type.
+
+::: tip Two ways to cost a service, and one switch that chooses
+Leave **Direct Cost** off and the cost is built up from the Routes grid, resource by resource — the fixed-cost field beside it stays greyed out. Turn it on and the opposite happens: the Routes grid is emptied and disabled, and you type a single figure into **DirectCost** instead. Use it for services bought in at a flat price, or for anything whose cost you simply know and would rather not model.
+:::
+
+**Auto Issue** deals with the base item rather than the spare parts. With it on, recording an execution automatically adds the executed line's own item to the materials issued, alongside everything the Spare Parts grid contributes. Each piece is only issued once, so recording a second execution against the same piece does not issue it twice, and lines marked as free items are left out.
+
+::: info One BOM per service, and the order will not save without it
+Two rules work together here. Saving a second Service Item BOM for a service that already has one is refused outright. And a glass job order checks, for every service applied to a stock item on it, that a BOM exists — when one is missing the order cannot be saved, and the message names both the service and the item it was applied to. So service BOMs are something you set up before the first order, not alongside it.
 :::
 
 ## Document Automation Tools

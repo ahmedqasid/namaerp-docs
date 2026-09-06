@@ -61,7 +61,9 @@ Before you buy, sell, or store anything, you need to define **what** you deal in
 - **[Understanding Inventory Items](./understanding-items.md)** — Items are the cornerstone: how you define them, classify them (by brand, category, color, size), track them by batch and serial number, and handle multiple units of measure.
 - **[Creating and Maintaining Items](./item-maintenance.md)** — The screens around the item card: opening requests, creating many items at once, the configuration profile that decides how an item is tracked, updating stocking policy, linking items to customers and suppliers, item relations, and storage allocation.
 - **[Item Classification Files](./item-classification-files.md)** — The master files behind the classification slots: item classes 1–10, sections and brands, colours and sizes, revisions, the size/colour matrix, and assortments.
+- **[Units of Measure](./units-of-measure.md)** — Units, unit groups, conversions and standard measures: choosing a base unit, and setting up an item you buy by the carton and sell by the piece.
 - **[Warehouses & Locators](./warehouses-and-locators.md)** — Where your stock physically lives: warehouses and their groups, locators within each warehouse, and linking items to their preferred warehouses.
+- **[The Anatomy of a Supply Chain Document](./the-document-screen.md)** — The parts every document screen shares — header, lines grid, dimensions, the term behind it, pricing and totals, sub-items, and the Collect/Apply pair — worked through the sales invoice.
 
 ### Stock Movement
 
@@ -76,12 +78,15 @@ Everything that enters your inventory, leaves it, or moves around inside it.
 ### Purchases
 
 - **[The Purchasing Journey](./purchasing-journey.md)** — The full purchase cycle: item request, quotation request, quotation, purchase order, receipt, purchase invoice, returns, and purchase price lists and comparisons.
+- **[How a Purchase Price Is Decided](./purchase-pricing.md)** — How a purchase price is arrived at: purchase price lists, vendor discounts and their eight slots, and invoice classification.
 - **[Purchase Forecast](./purchase-forecast.md)** — Estimating future needs based on sales history or other quantity sources.
 
 ### Sales
 
 - **[The Sales Journey](./sales-journey.md)** — From quotation to sales order to delivery to invoice, then returns and replacement.
+- **[Sales and Purchase Operations Documents](./sales-operations-documents.md)** — The small documents around the sales cycle: shortages, replacement requests, reservation cancellation, salesman and status changes, sales limits and discount updates.
 - **[Pricing, Offers & Coupons](./pricing-offers-and-coupons.md)** — Sales price lists, offers and free items, post-sales offers, coupons, and automatic pricing.
+- **[Offer Apply Rules](./offer-apply-rules.md)** — The reusable line filter that decides which lines of a document an offer or coupon is measured against, and what happens when it matches nothing.
 - **[Comprehensive Reservation System Guide](./reservation-system-guide.md)** — How the system reserves items for specific customers and tracks reserved quantities.
 - **[Delivery & Loading](./delivery-and-loading.md)** — Delivery and loading documents, delivery queues, driver setup, and pick rules.
 

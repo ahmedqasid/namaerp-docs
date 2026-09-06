@@ -1,5 +1,5 @@
 ---
-entities: [SalesPriceList, SalesOffers, DiscountCoupon, PostSalesOffer, PostSalesOfferConfig, PostSalesOfferClaim, PriceVotingDoc, PricingRange, AutoSalesPricing, SalesPriceInPoints, FreeItemGroup, PeriodicMonthlySalesOffer, DiscountCouponType, DiscountCouponBook, SalesCouponsCodingMethod, CouponsSalesOrder, CouponsSalesOrderReturn, PriceVotingFile, AutoSalesPricingSetting]
+entities: [SalesPriceList, SalesOffers, DiscountCoupon, PostSalesOffer, PostSalesOfferConfig, PostSalesOfferClaim, PriceVotingDoc, PricingRange, AutoSalesPricing, SalesPriceInPoints, FreeItemGroup, PeriodicMonthlySalesOffer, DiscountCouponType, DiscountCouponBook, SalesCouponsCodingMethod, CouponsSalesOrder, CouponsSalesOrderReturn, PriceVotingFile, AutoSalesPricingSetting, Season, UpdateSeasonsDoc]
 ---
 # Pricing, Offers & Coupons
 
@@ -34,6 +34,34 @@ For loyalty programs, the **Sales Price in Points** lets you price items in poin
 ![Sales offers screen in NaMa ERP](../../ar/modules/supplychain/images/pricing/sales-offers-en.png)
 
 And the **Free Item Group** (FreeItemGroup) lets you offer several free items as a single bundle within the offer, with repeat rules and policies configured.
+
+## Trading Seasons (Season)
+
+Both of the screens above want a **From Date** and a **To Date**, and in a business that runs on seasons you end up typing the same pair of dates into dozens of records: every price list for the summer collection, every offer that runs alongside it, every points price. Get one of them wrong by a day and that one record quietly behaves differently from all the others.
+
+The **Season** (*Sales → Prices And Offers → Season*) is there to stop that. It is a small master file — a code, a name, a **From Date** and a **To Date** — that gives a trading period a name you can point at. "Summer 2026" gets defined once.
+
+What it then does is deliberately narrow, and worth stating precisely: **choosing a season fills the record's own dates from it.** On a **Sales Price List**, a **Sales Offer** or a **Sales Price in Points**, picking the season copies its From and To dates into that record's From Date and To Date the moment you choose it — and again every time the record is saved. Push the season's end date out by a week and every record pointing at it follows on its next save.
+
+::: warning The season wins over dates you type
+Because the copy happens on every save and not only when you pick the season, you cannot keep a season on a record and override its dates by hand — your dates are simply replaced. If one price list genuinely needs a different window from the rest of the season, leave its **Season** empty and type the dates instead.
+:::
+
+Seasons also turn up as an ordinary grouping field on the **Sales Forecast** and the **Purchase Forecast**, where they label figures by trading period without driving any behaviour.
+
+### Putting Items in a Season: the Update Seasons Document (UpdateSeasonsDoc)
+
+A season on a price list dates the list. It says nothing about *which products belong to the season* — and for a clothing retailer, "what is in the summer collection" is a real question that outlives any one price list.
+
+The **Update Seasons Document** (*Sales → Prices And Offers → Update Seasons Document*) records the answer. It is a document rather than a master file: it has a book and a code, a **Term**, an **Issue Date**, a **Value Date** and a **Fiscal Period**, so a season assignment is numbered, dated and attributable in a way an edited master file is not.
+
+Its body is a **Seasons** grid with one line per assignment — the **Item**, the **Season**, and a **From Date** and **To Date** for the assignment itself. Above the grid sit four header fields carrying those same four names, and they behave in a way that catches people out.
+
+::: warning The header overwrites the grid, it does not merely default it
+An **Item**, **Season**, **From Date** or **To Date** filled in on the header is written onto *every* line of the grid on each save, replacing whatever the line held. That makes the header the fast way to do the common job — put four hundred items into one season by naming the season once and listing the items — but it also means a document that mixes seasons has to leave the header **Season** empty, or every line will come out carrying the header's season.
+:::
+
+Processing the document produces no stock movement and no accounting entry; what it produces is the record of the assignments. The place you read them back is the item itself: the item card's prices page carries a **Related Seasons** list showing every season that item has been put into, with the dates and the document each assignment came from. Correcting an assignment therefore means raising another document, and the item's list keeps the trail.
 
 ## Post-Sales Offers (PostSalesOffer)
 

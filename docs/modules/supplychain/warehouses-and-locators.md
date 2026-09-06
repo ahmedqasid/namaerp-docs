@@ -1,5 +1,5 @@
 ---
-entities: [Warehouse, Locator, WarehouseUsagePolicy, WarehouseGroup, WareLocationClass, ItemWarehouseRelation]
+entities: [Warehouse, Locator, WarehouseUsagePolicy, PreventUsingBatch, WarehouseGroup, WareLocationClass, ItemWarehouseRelation]
 menu: Inventory → Master Files → Warehouse
 ---
 # Warehouses & Locators
@@ -113,6 +113,48 @@ The check happens the moment you save a supply chain document - not buried in a 
 When all of that lines up, the save is rejected with a clear message naming the blocked warehouse, the date, and the user, so it's obvious why the document won't go through. Leaving **Applicable For** empty makes the block apply to everyone; an empty date window makes it permanent.
 
 You'll find Warehouse Usage Policy among the supply chain master files, right next to Warehouses and Warehouse Groups.
+
+## Taking a Batch Out of Circulation: Prevent Using Batch
+
+A warehouse can be perfectly usable while one batch inside it is not. A lot of yoghurt reaches its expiry date. A delivery is held back until the laboratory result comes in. A supplier recalls a production run. A batch has been promised to one customer and must not be sold to anybody else. In every one of those cases the goods are still physically on the shelf and still on the books - what has to stop is people *using* them.
+
+**Prevent Using Batch** (*Inventory → Master Files → Prevent Using Batch*) is the master file that stops them. Like the Warehouse Usage Policy above, it is a list of rules rather than a switch on the batch itself, which is what lets you quarantine a batch in one warehouse and leave the same batch usable in another.
+
+Each line of the **Details** grid answers four questions: *which batch of which item, in which place, for how long, and who is exempt.*
+
+| Column | What it controls |
+| --- | --- |
+| **Item** (الصنف) | The item whose batch is being blocked. The picker offers only items with **Has Lot** ticked, since nothing else has batches to block. |
+| **Lot ID** (كود الشحنة) | The batch itself. The field suggests the lot numbers already recorded against the item you chose. |
+| **Warehouse** (المخزن) | Restricts the block to one warehouse. Leave it empty and the batch is blocked wherever it sits. |
+| **Locator** (الموقع) | Narrows it further to a single locator, which has to belong to the warehouse named on the same line. |
+| **From Date / To Date** | The period during which this line blocks. Leave both empty and the block is permanent. |
+| **Capability Types** (نوع الصلاحيات) | The one way past the block - see below. |
+
+The **From Date** and **To Date** in the header are a convenience rather than a rule: each time you add a line they are copied into that line's own dates, and you are free to change them line by line afterwards. The dates that decide anything are the ones in the grid. (The header pair does get one check of its own - a **To Date** earlier than the **From Date** is refused.)
+
+### When the block bites
+
+The check runs the moment a supply chain document is saved, in the same pass as the warehouse policy described above. Every line of the document is examined, and the document's **Value Date** - not its issue date - is what the rule's date window is compared against.
+
+A document line is refused when all of these are true at once:
+
+- the rule names the **Item** on that line,
+- the rule's **Lot ID** is the batch on that line,
+- the document's value date falls inside the rule's **From/To** window (an empty window always matches),
+- and the rule's **Warehouse** and **Locator** are either empty or exactly the ones on that line.
+
+Two things about that deserve to be said plainly. First, this is a **hard block, not a warning**: the save is rejected and the Lot ID column of the offending line is flagged, so the document never comes into existence. Second, it blocks the batch **in both directions**. It is natural to assume a rule like this only stops stock going out, but the check never asks whether the line is an issue or a receipt - a stock receipt, a purchase invoice or a transfer *into* a warehouse naming that batch is refused exactly as a sale of it would be. For a recalled or expired lot that is usually what you want; it is occasionally a surprise to whoever tries to bring quarantined goods back in on a correcting document.
+
+::: warning A rule line needs both an Item and a Lot ID
+It is tempting to name the item, leave **Lot ID** empty and expect every batch of that item to be blocked. That is not what happens - a blank Lot ID matches only document lines that carry no batch at all. To stop several batches of one item, give each batch its own line.
+:::
+
+::: tip Letting one person through
+**Capability Types** on a line is an exemption, not a target. Point it at a capability type and any user whose security profile grants that capability *on the document type being saved* may use the batch anyway - the quality manager entitled to move held stock, for instance, while everybody else is stopped. Leave it empty and nobody is exempt. Capability types themselves live under *Administration → Security → Capability Types*; see [Security Profile](/platform/security/security-profiles.md).
+:::
+
+Rules take effect immediately. Saving or changing a Prevent Using Batch record applies to the very next document saved, with no restart and no waiting.
 
 ## How It All Fits Together
 
