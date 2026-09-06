@@ -59,6 +59,8 @@ The Supply Chain module is large, so we've split it into related groups that fol
 Before you buy, sell, or store anything, you need to define **what** you deal in and **where** you keep it.
 
 - **[Understanding Inventory Items](./understanding-items.md)** — Items are the cornerstone: how you define them, classify them (by brand, category, color, size), track them by batch and serial number, and handle multiple units of measure.
+- **[Creating and Maintaining Items](./item-maintenance.md)** — The screens around the item card: opening requests, creating many items at once, the configuration profile that decides how an item is tracked, updating stocking policy, linking items to customers and suppliers, item relations, and storage allocation.
+- **[Item Classification Files](./item-classification-files.md)** — The master files behind the classification slots: item classes 1–10, sections and brands, colours and sizes, revisions, the size/colour matrix, and assortments.
 - **[Warehouses & Locators](./warehouses-and-locators.md)** — Where your stock physically lives: warehouses and their groups, locators within each warehouse, and linking items to their preferred warehouses.
 
 ### Stock Movement

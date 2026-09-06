@@ -2,6 +2,8 @@
   "sortedPaths": [
     "/modules/supplychain",
     "/modules/supplychain/understanding-items.md",
+    "/modules/supplychain/item-maintenance.md",
+    "/modules/supplychain/item-classification-files.md",
     "/modules/supplychain/warehouses-and-locators.md",
     "/modules/supplychain/receiving-stock.md",
     "/modules/supplychain/issuing-stock.md",
