@@ -99,7 +99,7 @@ These options restrict which items may be sold to a customer or bought from a su
 
 **Link Items to Customers / Suppliers in Documents** `value.linkItemsToCustomers`, `value.linkItemsToSuppliers` — Activates a link between an item and a single customer (sales/issue documents) or supplier (purchase documents); the item list is filtered to the items linked to that party.
 
-**Link Items to Multiple Customers / Suppliers** `value.linkItemsToMultipleCustomers`, `value.linkItemsToMultipleSuppliers` — Extends the link so an item can be linked to several customers or suppliers (a grid on the item) rather than just one.
+**Link Items to Multiple Customers / Suppliers** `value.linkItemsToMultipleCustomers`, `value.linkItemsToMultipleSuppliers` — Extends the link so an item can be linked to several customers or suppliers rather than just one. The links are recorded on the [Item Customer Link and Item Supplier Link screens](../item-maintenance.md), not on the item itself, and a link to a customer's group or customer class counts as a match for every customer in it.
 
 **Link Items to Multiple Customers / Suppliers Without Nulls** `value.linkItemsToMultipleCustomersWithoutNulls`, `value.linkItemsToMultipleSuppliersWithoutNulls` — Refines the "multiple" options: items with **no** linked customers/suppliers are excluded from the filtered list (treated as "available to none" rather than "available to all"). Effective only with the matching "multiple" option on.
 
