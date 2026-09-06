@@ -25,6 +25,8 @@ Each purchase price list line carries a **Stop Discounts | Invoice** tick. When 
 
 ## The Purchase Price List
 
+![Purchase Price List screen in Nama ERP](../../ar/modules/supplychain/images/pricing/purchase-price-list-en.png)
+
 **Purchase Price List** (*Purchases → Master Files → Purchase Price List*) is the supplier-side twin of the sales price list: a dated, prioritised set of agreed buying prices. In practice one list is one agreement — the catalogue a supplier sent you for this season, the tender you won, the rates a haulier quoted for the year.
 
 The header says who and when the list is for:
@@ -83,6 +85,8 @@ Within one list the same combination may not be repeated either, and a line whos
 
 ### Filling the Lines Without Typing Them
 
+![Collect Items tab on a purchase price list in Nama ERP](../../ar/modules/supplychain/images/pricing/purchase-price-list-collect-items-en.png)
+
 Four tools sit on the screen, and between them they cover most of the ways a list actually gets built.
 
 **Source** is the quickest. Point the header's **Source** at another purchase or sales price list, at a purchase order or invoice, or at a price voting file, and the grid is filled from it at once: one row per item, carrying the price that document or list held. Use it when a supplier sends this year's catalogue as a variation on last year's.
@@ -102,6 +106,8 @@ The button under the calculator block and the entry in the **More** menu carry t
 Do not delete a price list that has been used — tick **Deactivate** instead. Saving a deactivated list withdraws all of its live pricing rows in one step, so it stops matching immediately, while the record itself stays for anyone who later asks what you were paying in March.
 
 ## Vendor Discount
+
+![Vendor Discount screen in Nama ERP](../../ar/modules/supplychain/images/pricing/vendor-discount-en.png)
 
 **Vendor Discount** (*Purchases → Master Files → Vendor Discount*) records the other half of a supplier agreement: not the price, but what comes off it. One record is one supplier's discount arrangement, and the **Supplier** and **Order** fields on it are both required.
 

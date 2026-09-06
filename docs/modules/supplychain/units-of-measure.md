@@ -22,6 +22,8 @@ A fifth screen, **Calculation Formula** (*Inventory → Settings → Calculation
 
 ## Defining a Unit
 
+![Unit of measure definition screen in Nama ERP](../../ar/modules/supplychain/images/uom/uom-edit-en.png)
+
 The **UOM** screen is deliberately small. A unit is a code, an Arabic and an English name, and a handful of settings that decide how the system treats numbers expressed in it.
 
 **Fraction Decimal Places** is the one that matters most, and it is not cosmetic. Every conversion the system performs is rounded to the decimal places of the unit it converts *into*. A new unit starts at 2. If you set a piece to 0 decimal places and someone enters 1.3 cartons of 24, the 31.2 pieces they meant become 31. Give the base unit enough decimals to represent whatever fractions of it can legitimately occur.
@@ -58,6 +60,8 @@ Now, when *Sheet* is chosen as the **second unit** on a document line, the syste
 
 ## Unit Groups: Defining the Rates Once for a Whole Family
 
+![Unit group screen in Nama ERP](../../ar/modules/supplychain/images/uom/uom-group-en.png)
+
 For a wholesaler with three thousand items, defining "1 carton = 24 pieces" three thousand times is not a plan. The **UOM Unit Group** screen is the answer: a named family of units, the conversion rates between them, and a set of sensible defaults, all of which any item can adopt in a single field.
 
 The screen has three parts, and they must be filled in that order:
@@ -87,6 +91,8 @@ On the **UOM** screen create **Piece** and **Carton**. Give Piece 0 decimal plac
 The base unit is the bottle. This is a decision about how you want the warehouse counted, not about how you buy or sell, and the test is simple: **the base unit should be the smallest unit you will ever need to move a whole number of**. If you will ever issue a single bottle, the base has to be the bottle. Everything coarser can still be entered on documents — the system converts it.
 
 ### Step 3 — Fill the Units tab on the item card
+
+![Units tab on the item card in Nama ERP](../../ar/modules/supplychain/images/uom/item-units-tab-en.png)
 
 Open the item and go to its **Units** tab. The **Primary UOM** block is the one to fill:
 
@@ -171,6 +177,8 @@ If **Use Color / Size / Revision in Unit Conversions** is switched on in supply 
 :::
 
 ## The Unit Conversions Screen
+
+![Unit conversions screen in Nama ERP](../../ar/modules/supplychain/images/uom/uom-conversions-en.png)
 
 At this point the **Unit Conversions** screen (*Inventory → Settings → Unit Conversions*) makes sense. It is the single list into which every rate defined anywhere else is collected — one record per unit, per group, per item's primary units, per item's secondary units — each stamped **Conversion Type** *Standard*, *Group*, *Item Primary* or *Item Secondary*, carrying a **Remarks** of *Created By System*, and named after the code of whatever created it.
 

@@ -52,7 +52,7 @@ The purchase side mirrors the sales side: when **Use Last Purchase Price** is on
 
 **Do Not Auto-Fill Min and Max Prices in Price Lists with Save** (`value.doNotAutoFillMinAndMaxInPriceLists`) — By default, saving a sales price list line with a base price but empty minimum/maximum fills them from the base price. When on, that auto-fill is disabled and min/max stay exactly as typed.
 
-**Do Not Update Lines from Price List Header** (`value.doNotUpdateLinesFromPriceListHeader`) — By default, saving a price list copies the header's general values (dates, dimensions) down into lines that left them empty. When on, that copy is stopped and each line keeps only what was entered on it.
+**Do not Update Lines From Price List Header** (`value.doNotUpdateLinesFromPriceListHeader`) — By default, every save of a price list pushes the header down onto its lines: wherever the header carries a value it is written over whatever the line already held — the from and to dates, the dimensions, the supplier, the invoice classification and price classifiers 1 to 5. When on, that wholesale copy stops, but it does not stop completely: the supplier, the invoice classification and the price classifiers are still forced onto every line, the two dates are only filled in where the line left them empty, and the dimensions are left untouched.
 
 **Use Fast Commit When Adding Sales Price List to Items** (`value.useFastCommitWhenAddingSalesPriceListToItems`) *(default on)* — A sales price list can push its lines onto each item's own price-line list. With fast commit on, those item price lines are written in place without a full edit/save cycle per item — much faster when one price list touches many items. Turn off only if each item must run its full save logic.
 
@@ -72,6 +72,6 @@ The purchase side mirrors the sales side: when **Use Last Purchase Price** is on
 
 ## Default Units
 
-**Default Unit Group / Base Unit** (`value.unitConfig.uomGroup` / `value.unitConfig.baseUnit`) — Defines the default unit-of-measure group and base unit for new items. When an item is created without its own units, the system applies this base unit and group to the item's primary unit and seeds its purchase, sales, and reporting units from it. Set it when most items share the same base unit (e.g. "Piece") so new items come pre-filled.
+**Unit Group / Base Unit(Smallest)** (`value.unitConfig.uomGroup` / `value.unitConfig.baseUnit`) — Defines the default unit-of-measure group and base unit for new items. When an item is created without its own units, the system applies this base unit and group to the item's primary unit and seeds its purchase, sales, and reporting units from it. Set it when most items share the same base unit (e.g. "Piece") so new items come pre-filled.
 
 **Calculate Purchase Return Prices** (`value.calculatePurchaseReturnPrices`) *(default on)* — When on, saving a purchase return auto-fills each line's price from the last purchase price for that item and supplier (falling back to the item's average cost), so returns are valued consistently with what was paid. Turn off only if returns must always be priced by hand.

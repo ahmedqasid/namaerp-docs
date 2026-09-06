@@ -9,6 +9,8 @@ That is why item classification is not one field. It is a set of small master fi
 
 ## Item Class 1 to 10: the Ten Slots
 
+![Item Class 1 screen in Nama ERP](../../ar/modules/supplychain/images/item-classification/item-class1-en.png)
+
 **Item Class 1** through **Item Class 10** (*Inventory → Master Files → Item class 1* … *Item class 10*) are the main classification mechanism. Ten independent, empty slots, and you decide what each one means.
 
 A pharmaceutical distributor might use Class 1 for therapeutic category, Class 2 for the manufacturer, Class 3 for storage requirement (cold chain or ambient) and leave the rest empty. A clothing retailer might use Class 1 for department, Class 2 for the fabric, Class 3 for the age group. Nothing in the system assumes what any of them mean.
@@ -28,6 +30,8 @@ The item classes have superseded it. New implementations should classify with **
 :::
 
 ## Section and Brand
+
+![Item Brands list in Nama ERP](../../ar/modules/supplychain/images/item-classification/item-brand-list-en.png)
 
 Two more classification files stand outside the numbered slots because they have a fixed meaning.
 
@@ -67,6 +71,8 @@ Four colours and five sizes become twenty rows without anyone typing twenty rows
 The finished collection is attached to items through the **Size Color Revision Collection** field, which appears on the item card and on both the Item Opening Request and the Multiple Item Creator. So the matrix is defined once and reused across every item that shares it.
 
 ## Selling a Mix as One Thing: Item Assortment
+
+![Item Assortment screen in Nama ERP](../../ar/modules/supplychain/images/item-classification/item-assortment-en.png)
 
 An assortment is a pre-packed mix sold as a single unit. A carton of shirts holding two smalls, three mediums and one large is one thing to the customer and to the price list, but six garments to the warehouse.
 

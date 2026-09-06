@@ -12,6 +12,8 @@ The catalogue of promotions the system can run — price lists, item discounts, 
 
 ## What a rule carries, and what it deliberately does not
 
+![Offer Apply Rules screen in Nama ERP](../../ar/modules/supplychain/images/pricing/offer-apply-rule-en.png)
+
 A rule is thin on purpose. It has a **Code**, a **Group**, an Arabic and an English name, an **Apply Type**, and a **Details** grid. That is the entire screen.
 
 What is missing matters just as much. There are no dates, no customer, no discount percentage and — this is the one that surprises people — **no priority**. All of that stays on the offer or the coupon that uses the rule. A rule is a description of a set of lines, not a promotion. The same rule can be attached to a summer offer and to a winter one, and it behaves identically in both.
@@ -43,6 +45,8 @@ A grid line where every single column is empty is dropped silently when the reco
 :::
 
 ## Apply Type: three ways to read the same grid
+
+![The three Apply Type options on an offer apply rule in Nama ERP](../../ar/modules/supplychain/images/pricing/offer-apply-type-options-en.png)
 
 The **Apply Type** field decides how the grid is interpreted, and it changes the meaning of the rule completely.
 

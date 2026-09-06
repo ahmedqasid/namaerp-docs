@@ -29,7 +29,7 @@ For loyalty programs, the **Sales Price in Points** lets you price items in poin
 
 ## Offers and Free Items (SalesOffers)
 
-**Sales Offers** are the promotion engine: a percentage or amount discount, free items, or incentives based on invoice value or a minimum cart. You can target them with filters (invoice classification, customer, sector) and link them to a season so they activate automatically in its period.
+**Sales Offers** are the promotion engine: a percentage or amount discount, free items, or incentives based on invoice value or a minimum cart. You can target them with filters (invoice classification, customer, sector) and link them to a season, which stamps the season's own **From Date** and **To Date** onto the offer — see *Trading Seasons* below.
 
 ![Sales offers screen in NaMa ERP](../../ar/modules/supplychain/images/pricing/sales-offers-en.png)
 
@@ -87,13 +87,13 @@ Pricing screens are built around two moves: fill the lines from somewhere, then 
 **On the Sales Price List:**
 
 - **Collect Items** — fills the lines from the item-collection criteria on the header instead of item by item.
-- **Update Details** — stamps header values onto every line, asking one Yes/No at a time which to push: from date, to date, analysis set, legal entity, branch, department, sector, customer, invoice classification, and price classifiers 1 to 5.
+- **Update Details** — stamps header values onto every line, asking one Yes/No at a time which to push: from date, to date, analysis set, legal entity, branch, department, sector, customer, invoice classification, and price classifiers 1 to 5. The button is only on the screen when **Do not Update Lines From Price List Header** is switched on in supply chain configuration; with that setting off the header values come down on their own and there is nothing to press.
 - **Update Prices** — recalculates through the price-updater rules on the header: a source field, up to four destination fields, and up to five updaters, applied to all lines or only the selected ones. It refuses when the list has no lines, or when no updater is filled in.
 - **calculate Price from Average Cost** — fills the destination price field from each item's average cost rather than from another price field.
 - **Add additional source lines** — appends the lines of the price list named as the **additional source**, optionally carrying invoice discounts across and skipping items the list already holds.
 - **Spread Selected Line Data** — expands the line you are standing on across the item's units, revisions, sizes and colours, following the spread switches on the header.
 
-The **Purchase Price List** and the **Vendor Discount** carry the same **Update Details**, which asks about the supplier rather than the customer.
+The **Purchase Price List** and the **Vendor Discount** carry the same **Update Details**. Its question there is still labelled *Update Customer*, but answering Yes writes the header's supplier onto the lines.
 
 **On the Sales Offers screen** each grid has its own update button, because each grid has its own validity window:
 

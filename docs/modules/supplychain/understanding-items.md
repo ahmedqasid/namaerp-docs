@@ -83,7 +83,7 @@ Start simple! Don't try to define all ten classifications from day one. Set up t
 
 Here's where things get interesting. Imagine you sell juice:
 - You **buy** it by the carton (24 bottles per carton)
-- You **store** it in your warehouse by the carton
+- You **store** it as bottles, however it arrives
 - You **sell** it by the bottle
 - You **report** on it by the liter for analysis
 
@@ -96,6 +96,10 @@ Every item has a **base unit** - the fundamental unit for tracking inventory. In
 Then you define **conversion factors**:
 - 1 carton = 24 bottles
 - 1 bottle = 0.5 liters
+
+::: warning Every unit must reach the base unit directly
+Conversion rates are never chained. A pallet holding 50 cartons still needs its own row saying `1 pallet = 1,200 bottles` — defining it as `1 pallet = 50 cartons` and trusting the system to multiply through the carton row does not work, and the item refuses to save with *Could not find conversion between base unit and unit*. [Units of Measure](./units-of-measure.md) covers unit groups, shared conversions and the rest of the subject in full.
+:::
 
 Now you can:
 - Create a purchase order in cartons

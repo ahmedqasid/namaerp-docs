@@ -33,7 +33,7 @@ This page documents the **Purchasing** tab — settings that affect purchase ord
 
 **Calculate Purchase Return Prices** `value.calculatePurchaseReturnPrices` *(default on)* — When on, the system auto-fills unit prices on purchase return lines (from the last purchase price) where they aren't entered manually. Turn off only if you always enter return prices by hand.
 
-**Must Match Line Unit with Purchase Price List Unit** `value.mustMatchLineUomWithPurchasePriceListUom` — When on, a purchase price-list price is used only if the line's unit of measure exactly matches the price-list line's unit, avoiding picking a price meant for another unit.
+**Must Match Line Uom With Sales Price List Uom In Purchase While Searching For Price** `value.mustMatchLineUomWithPurchasePriceListUom` — When on, a purchase price-list price is used only if the line's unit of measure exactly matches the price-list line's unit, avoiding picking a price meant for another unit. The label says *Sales Price List*, but this is the purchasing setting and it reads the purchase price list.
 
 **Calculate Total Quantity in Purchases from Purchase Unit** `value.totalQtyIsInPurchaseUnitForPurchases` — When on, the document's total-quantity figure on purchase documents is expressed in the supplier's purchase unit (e.g. cartons) instead of the item's base unit (e.g. pieces).
 

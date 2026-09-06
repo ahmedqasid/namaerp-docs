@@ -14,9 +14,9 @@ This page documents the **Items & Master Data** tab — settings that affect the
 
 **Show Item Classes Relations** `value.showItemClassesRelations` — Reveals the "relations" grid on item classes, letting you define links between class levels (e.g. to filter one class by another).
 
-**Allow Update Base Unit if Item has Transactions** `value.allowUpdateItemUOMInTrans` — Allows changing an item's base unit of measure even after it has stock transactions (normally locked because it affects costing and historical quantities). Use only for careful corrections.
+**Allow Update Base UOM if Item has transactions** `value.allowUpdateItemUOMInTrans` — Allows changing an item's base unit of measure even after it has stock transactions (normally locked because it affects costing and historical quantities). Use only for careful corrections.
 
-**Allow Update Rate to Base if Item has Transactions** `value.allowUpdateRateToBaseInTrans` — Allows changing a unit's conversion rate to the base unit after the item has transactions. Affects how past quantities convert — use with caution.
+**Allow Update Rate To Base if Item has transactions** `value.allowUpdateRateToBaseInTrans` — Allows changing a unit's conversion rate to the base unit after the item has transactions. Affects how past quantities convert — use with caution.
 
 **Allow Duplicate Details in Item** `value.allowDuplicateItemDetails` — Permits duplicate rows in the item's detail grids, which the system normally rejects.
 

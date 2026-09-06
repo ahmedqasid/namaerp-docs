@@ -119,7 +119,7 @@ The purchase documents follow the same two habits as the sales side: a **Collect
 
 **On the Purchase Invoice:**
 
-- **Collect** — asks for a **from date** and a **to date** and fills the stock-documents grid with the receipts already taken from this supplier, in the same warehouse, contact and subsidiary, that have not been invoiced yet.
+- **Collect** — asks for a **from date** and a **to date** and fills the stock-documents grid with the receipts already taken from this supplier, in the same warehouse, that have been committed at least once, are not flagged *Do Not Auto Collect In Invoices*, and have not been invoiced yet. Contact and subsidiary narrow the search too, but only when the term has *Consider Contact In Collecting Stock Documents Inside Invoices* / *Consider Subsidiary In Collecting Stock Documents Inside Invoices* switched on.
 - **Apply Receipts** — turns those receipts into priced invoice lines, using the invoice's price classifiers, tax settings, classification and term.
 - **Create Inventory Doc.** — for an invoice typed by hand, generates the Stock Receipt and opens it.
 - **Generate payment voucher** — the invoice must be saved; creates a payment voucher for the whole remaining value against the supplier and opens it as a new record. **Generate Payment Voucher For Selected Payments** does the same for only the instalment lines you ticked that still have something remaining. **Collect Payment Vouchers** brings existing vouchers onto the invoice instead.
@@ -151,11 +151,9 @@ The purchase documents follow the same two habits as the sales side: a **Collect
 **On the Purchase Price List:**
 
 - **Collect Items** — fills the lines from the item-collection criteria you entered rather than item by item.
-- **Update Details** — stamps header values down onto every detail line. It asks, one Yes/No at a time, which of them to push: from date, to date, analysis set, legal entity, branch, department, sector, supplier, invoice classification, and price classifiers 1 to 5.
-- **Update Prices** — recalculates prices through the price-updater rules on the header: a source field, up to four destination fields, and up to five updaters, applied to all lines or only the selected ones. It refuses if the list has no lines or if no updater is filled in.
-- **calculate Price from Average Cost** — fills the chosen destination price field from each item's average cost instead of from another price field.
-- **Add additional source lines** — appends the lines of another price list named as the additional source, optionally carrying the invoice discounts across and skipping items the list already has.
-- **Spread Selected Line Data** — takes the line you are standing on and expands it across the item's units, revisions, sizes and colours, according to the spread switches on the header.
+- **Update Details** — stamps header values down onto every detail line. It asks, one Yes/No at a time, which of them to push: from date, to date, analysis set, legal entity, branch, department, sector, *Update Customer*, invoice classification, and price classifiers 1 to 5. The supplier question keeps its sales wording — it is labelled *Update Customer* on the purchase list too — and answering Yes simply writes the header's supplier onto every line.
+- **Update Prices** — recalculates prices through the price-updater rules on the header: a source field and up to five updaters, applied to all lines or only the selected ones. A purchase list offers no destination fields to choose from — every updater writes the single **Price** column. It refuses if the list has no lines or if no updater is filled in.
+- **calculate Price from Average Cost** — fills the **Price** column from each item's average cost instead of from another price field. As with Update Prices, a purchase list gives you no destination field to choose.
 
 ## Tips for Effective Purchasing
 

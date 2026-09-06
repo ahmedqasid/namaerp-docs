@@ -9,6 +9,8 @@ There is a reason these live on separate screens rather than on the item itself.
 
 ## Asking for a New Item: the Item Opening Request
 
+![Item Opening Request screen in Nama ERP](../../ar/modules/supplychain/images/item-maintenance/item-opening-request-en.png)
+
 In a small company anyone who needs a new item just creates one. In a larger one that quickly turns into chaos: three people create three near-identical items, nobody agrees on the coding convention, and the accounting team discovers the mess a month later.
 
 The **Item Opening Request** screen (*Inventory → Master Files → Item Opening Request*) is the answer. The person who wants the item — a salesman who has been asked for a product you do not stock, a purchasing officer who found a new supplier — fills in a request describing the item they want. It looks almost exactly like the item card, because it is meant to: the same tabs for units, revisions and sizes, custom codes, configurations and keywords, so the requester can supply as much detail as they know.
@@ -25,6 +27,8 @@ Because the request is an ordinary master file, the usual approval machinery app
 
 ## Opening Many Items at Once: the Multiple Item Creator
 
+![Multiple Item Creator screen in Nama ERP](../../ar/modules/supplychain/images/item-maintenance/multi-item-creator-en.png)
+
 Some items do not arrive one at a time. A clothing importer opening a new season needs the same shirt in four classes of fabric and three of cut. A distributor taking on a supplier's catalogue needs sixty items that differ only in one attribute.
 
 The **Multiple Item Creator** (*Inventory → Master Files → Multiple Item Creator*) is built for exactly that shape of work. You fill in one screen that describes the item you want *as a template* — and it really is the full item definition, spread over the Main, Units, Revisions and Sizes, and Configurations tabs. Everything is there: the tracking switches (**Has Lot**, **Has Serial**, **Has Expiry**, **Has Colors**, **Has Size**, **Has Revisions**, **Has Packages**, **Has Measures**), the trading switches (**Purchasable**, **Sellable**, **Manufacturable**, **Returnable**, **Replaceable**), **Over Draft Policy** and **Track Stock Ages**, the planning figures under **MRP Info** (**Purchase Lead Time**, **Manufacture Lead Time**, **Safety Stock**, **Minimum Order Quantity**), the **Auto Sales Pricing Info** profit bands, and both the primary and secondary unit setups.
@@ -36,6 +40,8 @@ The generation grid offers **Class 1–10** and nothing else. Item categories ex
 :::
 
 ## Deciding How an Item Is Tracked: Item Configurations
+
+![Item Configurations screen in Nama ERP](../../ar/modules/supplychain/images/item-maintenance/item-configurations-en.png)
 
 Of all the screens on this page, **Item Configurations** (*Inventory → Settings → Item Configurations*) has the widest reach. It is a named, reusable profile that answers a question you would otherwise have to answer separately for every item: **which details must be captured when this stock moves, and what is tracked against them?**
 
@@ -67,6 +73,8 @@ Three more groups sit below the dimension blocks:
 The profile reaches items in two ways. New items take it from the **Configurations** field on the item card, and for items that already exist there is **Copy Item Configuration To Item** in the **More** menu, which pushes the profile's settings onto items that are already in use.
 
 ## Changing Stocking Policy Later: Item Update
+
+![Item Update document screen in Nama ERP](../../ar/modules/supplychain/images/item-maintenance/item-update-en.png)
 
 **Item Update** (*Inventory → Master Files → Item Update*) exists because minimum and maximum stock levels are not set once and forgotten. They change with the season, with a supplier's lead time, with a warehouse being reorganised.
 
@@ -130,6 +138,8 @@ Each line in the **Items Relations' Details** grid names the **Item** it applies
 Lines carry their own **From Date** and **To Date**, and the record as a whole has a date range too, plus a **Priority** that settles which relation applies when more than one matches. A **stop other discounts** switch prevents other discounts stacking on top of the relation.
 
 ## Telling the Warehouse Where an Item Belongs: Item Storage Allocation
+
+![Item Storage Allocation screen in Nama ERP](../../ar/modules/supplychain/images/item-maintenance/item-storage-allocation-en.png)
 
 The last screen answers a question nobody asks until a warehouse gets big: when this item arrives, where should it be put?
 

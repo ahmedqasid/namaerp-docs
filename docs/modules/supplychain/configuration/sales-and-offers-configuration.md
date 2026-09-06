@@ -34,7 +34,7 @@ This page documents the **Sales & Offers** tab — settings for sales documents,
 
 **Automatic Coupons in Supply Chain** `value.automcaticCouponsInSC` — When on, the sales invoice searches for and applies applicable coupons automatically, without manual entry.
 
-**Allow Repeating Offer and Price List Priority** `value.allowRepeatingOfferPriority` — By default each offer / price list needs a unique priority and duplicates are rejected. When on, two or more may share the same priority number.
+**Allow Repeating Offer and Price Lists Priority** `value.allowRepeatingOfferPriority` — By default each offer / price list needs a unique priority and duplicates are rejected. When on, two or more may share the same priority number.
 
 **Prevent Non-Offered Discounts** `value.preventNonOfferedDiscounts` — When on, manual discounts are blocked so that only discounts coming from defined offers are allowed — stopping users from giving ad-hoc discounts outside approved promotions. (Enforced in the POS pricing path.)
 

@@ -146,7 +146,7 @@ This option forces the system to ignore the current average cost when a custom c
 
 If you need a wholesale invoice to use a price different from the default price on the item card (such as "minimum price"), you can do this through:
 
-Using the **`Default Price in Price List`** field found in the **Invoice Classification** settings.
+Using the **`Price List Default Price`** field found in the **Invoice Classification** settings.
 
 This field determines where the system sources the price used in invoice lines, even if you are not using a price list.
 
@@ -167,14 +167,14 @@ This field determines where the system sources the price used in invoice lines, 
 If you want wholesale invoices to be priced based on "minimum price", all you need to do is:
 
 1. Open the invoice classification used for wholesale.
-2. Set the **`Default Price in Price List`** field to the value **"MinPrice"**.
+2. Set the **`Price List Default Price`** field to the value **"MinPrice"**.
 3. Save the changes.
 
 After that, any new invoice following this classification will automatically use the lowest available price for the item in Point of Sale.
 
-## How does the system determine the price used in the invoice based on the **`Default Price in Price List`** field?
+## How does the system determine the price used in the invoice based on the **`Price List Default Price`** field?
 
-You can control the price used inside sales invoices through the **`Default Price in Price List`** field, which is available in several locations within the system.
+You can control the price used inside sales invoices through the **`Price List Default Price`** field, which is available in several locations within the system.
 
 ### Where the field appears:
 
@@ -200,7 +200,7 @@ If not defined, the system automatically moves to the next record in the order (
 
 ### Illustrative Example:
 
-If you have set the "Default Price in Price List" field in the **Invoice Classification** to "MinPrice", but you also have a different setting inside the **Customer**, the system will take the value from the customer and ignore what is in the Invoice Classification, because the **Customer has higher priority** in the order.
+If you have set the "Price List Default Price" field in the **Invoice Classification** to "MinPrice", but you also have a different setting inside the **Customer**, the system will take the value from the customer and ignore what is in the Invoice Classification, because the **Customer has higher priority** in the order.
 
 ---
 

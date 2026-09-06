@@ -25,6 +25,8 @@ These three all attach to a sales document that already exists. They are the "an
 
 ### The Customers Requests Shortage Document
 
+![Customers Requests Shortage Document screen in Nama ERP](../../ar/modules/supplychain/images/sales-ops/customers-requests-shortage-en.png)
+
 A salesman is on the phone. The customer wants twelve of an item and there are four. The four get invoiced; the eight that do not exist are the interesting part — that is real, named, dated demand, and in most companies it evaporates the moment the call ends.
 
 The shortage document is where it goes instead. You do not normally create one from the menu. On the **Sales Invoice**, the **More** menu carries **Add Current Line To Shortage Document** (several Service Center sales screens carry it too). You select the line that could not be filled, press it, and the line — item, quantity, customer, prices, and a **Created From Document** pointer back to the invoice — is appended to a shortage document.
@@ -82,6 +84,8 @@ The next two documents exist because somebody needs to change a field on records
 
 ### The Sales Man Update Document
 
+![Sales Man Update Document screen in Nama ERP](../../ar/modules/supplychain/images/sales-ops/salesman-update-document-en.png)
+
 A salesman resigns. A territory is split between two people. A growing account is handed to a key-account manager. In every case the same two fields on the Customer file have to change — **Salesman** and **Customer representative** — across anything from three customers to three hundred.
 
 The header carries the **Salesman** you are moving customers *to*, an optional single **Customer**, a **From Date** and a **To Date**, and five attachment slots for the memo that authorised the move. Underneath is a **Collect Customers** group of from/to ranges — customer, salesman, customer representative, branch, sector, department and analysis set — and the **Collect Customers** button fills the grid with every customer that falls inside them (compared by code). At least one range must be filled or the button refuses.
@@ -115,6 +119,8 @@ The last three change what the system *calculates*, rather than changing a docum
 
 ### Limit Sales Qty
 
+![Limit Sales Qty screen in Nama ERP](../../ar/modules/supplychain/images/sales-ops/limit-sales-qty-en.png)
+
 Some things cannot be sold freely: a subsidised product with a monthly quota per customer, a controlled item, a promotional line where one customer must not take the whole allocation. **Limit Sales Qty** is the master file that expresses those caps, and the system enforces them for you when a sales invoice is saved.
 
 It is a master file, not a document — code, group, Arabic and English names — and its header is mostly a convenience. Anything you fill in the header (**Customer**, **Customer Category**, **Customers' Class**, **Priority**, **Inactive**, **Period In Days**, **Class 1**–**Class 10**, **Item Category1**–**Item Category5**) is pushed down onto every grid line that left that column empty. The rules themselves live in the **Details** grid.
@@ -141,6 +147,8 @@ The second grid, **Multiplied By Quantities**, is the seasonal escape hatch. Eac
 To retire a set of rules, tick **Inactive** on the file rather than deleting it — inactive lines are skipped entirely when the rules are loaded.
 
 ### The Discount Update
+
+![Discount Update document screen in Nama ERP](../../ar/modules/supplychain/images/sales-ops/discount-update-en.png)
 
 The quarter is closed, the purchase invoices are booked, and the supplier now grants 3% back on one brand across everything you bought from them since January. Editing those invoices by hand is not really an option: purchase discounts feed item cost, and cost feeds everything downstream.
 

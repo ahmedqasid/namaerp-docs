@@ -9,11 +9,15 @@ The journeys tell you *which* document to raise and in what order — [The Sales
 
 ## Why Every Screen Looks the Same
 
+![Sales Invoice screen in Nama ERP](../../ar/modules/supplychain/images/document-screen/sales-invoice-screen-en.png)
+
 Nama does not build each document type from scratch. Underneath, a supply chain document is always the same shape: a **header** that says who, when, in what currency and under what rules; a **lines grid** that says what and how much; a set of **dimensions** that say which part of the organisation this belongs to; and a **totals block** that adds it all up. What changes between a sales invoice and a stock transfer is which of those parts are switched on and what the fields are called.
 
 That is why a support engineer who understands one document screen can read all of them. It is also why the same three or four questions come up again and again — "why did the price change when I picked the customer?", "why is the locator greyed out?", "what is the difference between Collect and Apply?" — regardless of which screen the caller is on.
 
 ## The Header: Who, When, Under What Rules
+
+![Sales Invoice header block in Nama ERP](../../ar/modules/supplychain/images/document-screen/sales-invoice-header-en.png)
 
 The header is the top block of the **Main** tab. It is small, and almost every field in it changes something further down the screen.
 
@@ -85,6 +89,8 @@ Its placement understates its importance. The legal entity is what the fiscal pe
 The **Locator** field stays disabled until a warehouse is chosen — on the header and on each line — and once a warehouse is chosen the locator picker only offers locators belonging to it. A caller who says "the locator field is dead" has simply not filled in the warehouse yet. Warehouses, locators and location classes are covered in [Warehouses and Locators](./warehouses-and-locators.md).
 
 ## The Lines Grid
+
+![Sales Invoice lines grid in Nama ERP](../../ar/modules/supplychain/images/document-screen/sales-invoice-lines-grid-en.png)
 
 The **Details** grid is where the document says what it is actually about. It is wide — wider than a screen — and the columns fall into four groups.
 
@@ -193,6 +199,8 @@ The price lists, offers, coupons and margin rules that the engine consults are d
 
 ### The Totals Block
 
+![Sales Invoice totals block in Nama ERP](../../ar/modules/supplychain/images/document-screen/sales-invoice-totals-en.png)
+
 Below the grid sits the money. It reads downward as a calculation, not as a list:
 
 **Total** → **Net after Discount 1** … **Net after Discount 8** → **Discount** (a header-level percentage and value) → **Tax 3** and **Tax 4** (each a percentage and a total) → **After Tax Value** → **Net value** → **Paid**, **Total paid** and **Remaining**.
@@ -218,6 +226,8 @@ There is no sub-item *grid* on the Sales Invoice or Purchase Invoice. The sub-it
 What the document does with a sub-item once it is on a line is controlled by the term: whether a line of quantity three is split into three lines of one so each unit gets its own record, whether a sub-item record is created automatically from the line's data, whether the line's warehouse and locator are written onto it, and which document references are stamped into it. That is all on [Sub-Item Configuration](./document-terms/doc-term-sub-item.md). The sub-item master file itself is documented as [The Car File](/modules/servicecenter/cars-setup/car-master-file).
 
 ## Collect and Apply: the Two Halves of One Job
+
+![Stock Documents grid with the Collect and Apply Receipts buttons in Nama ERP](../../ar/modules/supplychain/images/document-screen/sales-invoice-stock-documents-en.png)
 
 This is the most support-relevant pair of buttons on the whole screen, and the single most common misunderstanding is that they are two ways of doing the same thing. They are not. They are two consecutive steps, and pressing only one of them leaves the job half done.
 
@@ -294,6 +304,8 @@ Saving the invoice stamps the invoice's reference onto each stock document in th
 :::
 
 ## Where the Purchase Invoice Differs
+
+![Purchase Invoice screen in Nama ERP](../../ar/modules/supplychain/images/document-screen/purchase-invoice-screen-en.png)
 
 Everything above holds for the Purchase Invoice. What follows is the short list of what is not the same.
 

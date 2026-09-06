@@ -48,7 +48,7 @@ These options live in the purchase **prices** group and govern how prices, disco
 
 These sub-fields of the price strategy (ids `termConfig.priceStrategy.<x>`) govern how purchase prices and vendor discounts are sourced and re-applied. They appear in the purchase **prices** group.
 
-**Force Price List** `termConfig.priceStrategy.forcePriceList` — Forces purchase prices to come from the price list, preventing free-typed prices that deviate from the configured list.
+**Force Price List** `termConfig.priceStrategy.forcePriceList` — On a purchase invoice, checks every line's price against the purchase price list when the document is saved and refuses the save where the two differ, so hand-typed prices cannot deviate from the list. Two limits are worth knowing: the check runs **only while *Reapply Price List on Save* is off** — with that option on, prices are simply re-fetched from the list and nothing is validated — and it applies to purchase invoices only, not to the other purchase documents.
 
 **Do Not Check Items Without Price List** `termConfig.priceStrategy.doNotCheckItemsWithoutPriceList` — When Force Price List is on, allows saving even if some items have no price-list entry (skips the "item has no price" block).
 
@@ -56,7 +56,7 @@ These sub-fields of the price strategy (ids `termConfig.priceStrategy.<x>`) gove
 
 **Reapply Price List on Save** `termConfig.priceStrategy.usePriceList` — Re-applies the price list to the document on each save, re-fetching prices from the list. On by default.
 
-Each flag below suppresses one vendor discount slot (1–8) so that specific discount tier is not applied during purchase pricing:
+Each flag below suppresses the matching vendor discount slot so that discount tier is not applied during purchase pricing:
 
 | Option | Field ID |
 |---|---|
