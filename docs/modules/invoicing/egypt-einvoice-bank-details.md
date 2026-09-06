@@ -21,14 +21,14 @@ The account and the issuer belong together. An invoice that says "issued by the 
 ## Setting it up
 
 1. On the **Bank** record, fill in the **Swift Code**. The bank's address is taken from the **Contact Information** section of the same record, so fill that in too.
-2. On the **Bank Account** record, check the **IBAN** — and its **code** (see the warning below).
+2. On the **Bank Account** record, fill in **Account Number Sent To Tax Authority** with the number customers should transfer to, and check the **IBAN**.
 3. Open the record that **Branch Id From** names — **Legal Entity**, **Branch**, **Sector**, **Department** or **Analysis Set** — and select that account in its **Bank Account** field.
 4. Optionally, fill **E-Invoice Payment Terms** on the **Electronic Tax Authority Configuration**. It's a single line of text sent with every Egyptian e-invoice, so keep it to terms that always apply — something like "Payment due within 30 days of the invoice date".
 
-::: warning The account's code is sent as the account number
-Nama sends the bank account's **code** as the account number, so the code isn't just an internal label — it's a value your customers read on their invoice. Code your bank accounts with the real account number.
+::: warning If you leave the account number empty, the code is sent instead
+When **Account Number Sent To Tax Authority** is empty, Nama falls back to the bank account's **code** — which makes an internal label into something your customers read on their invoice.
 
-Codes accept only letters, digits and the symbols `_`, `.` and `@`, so enter the number without dashes or spaces.
+Fill the field in. It accepts the number exactly as the bank writes it, dashes and spaces included, which codes don't allow.
 :::
 
 ## What gets sent
@@ -38,7 +38,7 @@ Codes accept only letters, digits and the symbols `_`, `.` and `@`, so enter the
 | Bank name | The **Bank** record's name |
 | Bank address | **Contact Information** on the **Bank** record |
 | Swift code | **Swift Code** on the **Bank** record |
-| Account number | The **Bank Account**'s code |
+| Account number | **Account Number Sent To Tax Authority** on the **Bank Account**, falling back to its code |
 | IBAN | **IBAN** on the **Bank Account** |
 | Payment terms | **E-Invoice Payment Terms** on the configuration |
 
