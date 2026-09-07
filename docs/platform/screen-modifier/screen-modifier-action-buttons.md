@@ -30,7 +30,7 @@ A line is defined by *which* of the action columns you fill in. Fill in one — 
 | Fill in this column | And the button will |
 | --- | --- |
 | **Report Definition** | Run a report, with its parameters fed from fields on the record. **Launch Type** decides how it opens. |
-| **URL Template** | Open a link that Nama builds from the current record — including a link that **opens a new, pre-filled record**. This is the one covered in detail below. |
+| **URL Template** | Open **any** link, built from the current record — an external address with the record's values in it, a link to another record, or one that **opens a new, pre-filled record**. Covered in detail below. |
 | **Entity Flow** | Run an entity flow against the record. The flow must have at least one *manual* action line, or the modifier will not save. |
 | **Notification Definition** | Send a notification about the record — the manual counterpart to a notification that normally fires on its own. |
 | **GUI Post Actions** | Run a custom screen behaviour your implementer has written. It has to be defined as manual. |
@@ -77,37 +77,83 @@ The rest of the line is presentation and control:
   means a button on the invoice list can operate on each row's customer. It cannot be combined with
   **System Action ID**.
 
-## Opening a link: the URL Template column
+## The URL Template column: any link at all
 
 **URL Template** is where the table stops being a list of things to run and becomes something much
-more open-ended. Whatever you write in it is treated as a [Tempo](/admin/tempo.md) template,
-evaluated on the server against the record the user is looking at, and the result is opened as a
-link.
+more open-ended. There is no fixed list of what you may put there. Whatever you write is treated as
+a [Tempo](/admin/tempo.md) template, evaluated on the server against the record the user is looking
+at, and **whatever that template renders is opened as a link** — an address on the public internet,
+a page in one of your own systems, another record inside Nama, or a brand-new pre-filled document.
+The column does not know or care which; it just opens the result.
 
-That "evaluated against the record" is the important half. You are not typing a fixed address — you
-are typing a template that can read any field of the open record, including fields reached through
-references:
+So there are three quite different things people build with it.
+
+### 1. An address you write yourself
+
+The simplest and most direct use, and it needs no special syntax at all. Type the address, and put
+any field of the record in curly brackets where you want its value:
 
 ```tempo
+https://www.google.com/search?q={name2}
+```
+
+Press that on a customer and the browser opens a search for the customer's English name. The same
+shape covers most of what people actually want from this column — look this customer up on the tax
+authority's portal, open this shipment on the courier's tracking page, drop this address into a map,
+hand this record's code to a web app your company runs alongside Nama:
+
+```tempo
+https://tracking.example.com/shipment/{shipmentNo}?ref={code}
 https://portal.example.com/customers/{code}?class={customerClass.code}
 ```
 
-Because the template is rendered in record mode, dotted paths like `customerClass.code` work.
-A link that starts with `http://` or `https://` is opened as an external site in a new browser tab;
-anything else is understood as a location **inside Nama**. Add `{openinnewwindow}` at the very front
-to force a new tab either way.
+Because the template is evaluated in record mode, dotted paths such as `customerClass.code` work,
+so you can reach through a reference to a field on the record it points at.
+
+A link starting with `http://` or `https://` is treated as an external site and opens in a **new
+browser tab** on its own — you do not need to ask for that. Anything else is understood as a
+location **inside Nama** and replaces the current page; put `{openinnewwindow}` at the very front of
+the template to open an internal link in a new tab instead.
+
+### 2. A link to another record or list inside Nama
+
+Tempo has nodes that build links into the system for you — `{link(...)}` to an existing record,
+`{reportlink(...)}` to a report, `{flow(...)}` to an entity flow. They work here, with one catch
+that is worth reading twice.
+
+::: danger These nodes need `plainlink=true`, and the quotes matter
+By default a link node renders a complete HTML anchor — `<a href='…'>Retail Chains</a>` — because it
+was designed for the body of a notification email. In this column the whole rendered text becomes
+the address, so an anchor tag produces a mangled URL and a **404**. Add `plainlink=true` to get the
+bare address:
+
+```tempo
+{link(customerClass,plainlink=true)}
+```
+
+Write it **without quotes**. `plainlink="true"` is silently ignored by `{link}`, `{titledlink}` and
+`{flow}`, and you get the 404 with no clue as to why. If you prefer, `{plainlinks}` at the start of
+the template does the same thing for every link node in it.
+
+`{creator(...)}` is the exception — it needs none of this and works as written.
+:::
+
+### 3. A new, pre-filled record
+
+The creator, covered in the next section. It is the most common use of this column by a wide margin,
+but it is one option among the three, not the purpose of the column.
 
 ::: warning The record has to be saved
-The button hands the server the record's identity, so it only works on a record that exists. Press
-it on a screen with unsaved changes and Nama answers **"Record Must Be Saved"** and does nothing
-else. Save first.
+Whichever of the three you build, the button hands the server the record's identity, so it only
+works on a record that exists. Press it on a screen with unsaved changes and Nama answers
+**"Record Must Be Saved"** and does nothing else. Save first.
 :::
 
 ## Creating a pre-filled record from a button
 
-This is what most URL Template lines in the field are actually doing, and it is the answer to the
-question that brings people to this page: *how do I put a button on the customer screen that opens a
-new sales invoice with the customer already filled in?*
+This is the third of the three uses above, and the answer to the question that brings most people to
+this page: *how do I put a button on the customer screen that opens a new sales invoice with the
+customer already filled in?*
 
 The tool is Tempo's **creator**. It builds a link to the new-record screen of any entity type, with
 whichever fields you name already populated. It **saves nothing** — the user lands on a normal,

@@ -63,8 +63,9 @@ separate question, and there are more places than notifications and reports:
 - **Reports**, through the `NamaRep` helpers described in the
   [NamaRep reference](/platform/reports/reports-namarep-reference.md).
 - **Screen Modifier → Notifications → URL Template** — the column that turns a template into a
-  **button on a screen**. Whatever the template renders is opened as a link, which makes this the
-  way to give a screen a button that opens a pre-filled new record. See
+  **button on a screen**. Whatever the template renders is opened as a link, so it can be an
+  ordinary address with record values substituted into it (`https://www.google.com/search?q={name2}`),
+  a link to another record, or a creator that opens a pre-filled new document. See
   [Adding Buttons to a Screen](/platform/screen-modifier/screen-modifier-action-buttons.md).
 
 ---

@@ -63,8 +63,9 @@ Employee {employee.name1} cannot take more than five days of vacation.
 - **التقارير**، عبر دوال `NamaRep` الموصوفة في
   [مرجع NamaRep](/ar/platform/reports/reports-namarep-reference.md).
 - **تعديل الشاشات ← تنويهات و اجرائات ← قالب الوصلة** — العمود الذي يحوّل القالب إلى **زر على
-  الشاشة**. فما يُخرجه القالب يُفتح بوصفه وصلة، وهذه هي الطريقة التي تمنح بها الشاشة زرًّا يفتح سجلًّا
-  جديدًا مملوءًا مسبقًا. راجع
+  الشاشة**. فما يُخرجه القالب يُفتح بوصفه وصلة، فقد يكون عنوانًا عاديًّا تُستبدل فيه قيم السجل
+  (`https://www.google.com/search?q={name2}`)، أو وصلة إلى سجل آخر، أو مُنشئًا يفتح مستندًا جديدًا
+  مملوءًا مسبقًا. راجع
   [إضافة أزرار إلى الشاشة](/ar/platform/screen-modifier/screen-modifier-action-buttons.md).
 
 ---
