@@ -44,6 +44,8 @@ In the **Details** (التفاصيل) grid, add lines for each carton the custom
 
 **Carton Specs** (مواصفات الكرتونة): Select the carton specification. Here's the smart part - Nama filters the list to show only specifications for this customer. You won't accidentally see specs for other customers.
 
+That filter is backed by a validation, not merely a convenience. The customer on the specification must equal the customer on the order, and a line that breaks the rule is refused at save with a message naming both customers. The picker keeps you out of trouble when you type an order by hand; the validation is what catches it when a document is copied, imported or generated.
+
 When you select a specification, Nama automatically:
 - Fills in the **Item** field (if the spec is linked to an inventory item)
 - Sets up pricing (if a price is defined in the spec)

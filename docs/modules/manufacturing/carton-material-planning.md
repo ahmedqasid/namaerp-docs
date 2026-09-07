@@ -6,509 +6,238 @@ menu: Manufacturing → Cartoon → CRTN Material Planning
 
 ## The Heart of Material Efficiency
 
-This is where Nama ERP earns its keep in carton manufacturing. You have orders to fulfill, rolls of paper in inventory, and a simple goal: cut those rolls to produce the ordered cartons with minimum waste.
+This is where Nama ERP earns its keep in carton manufacturing. You have orders to fulfil, reels of paper in the store, and a simple goal: cut those reels to produce the ordered cartons with minimum waste.
 
-Sounds simple. It's not.
+Sounds simple. It isn't.
 
-You have multiple orders of different sizes. Multiple layers per carton, each potentially from different grades of paper. Multiple roll widths in stock. Constraints on minimum trim, minimum cuts per roll, maximum production complexity. And thousands of possible ways to cut everything.
+You have several orders of different sizes. Several layers per carton, each from a different grade of paper. Several reel widths in stock. Constraints on minimum trim, minimum cuts per reel, maximum production complexity. And an enormous number of ways to cut everything.
 
-**Carton Material Planning** takes all of that complexity and finds the optimal cutting plan using industrial-strength constraint-programming algorithms. You tell it what you need to make and what materials you have. It tells you exactly how to cut every roll to minimize waste while fulfilling your orders.
+**Carton Material Planning** takes that complexity and searches for the cutting plan with the least waste. You tell it what has to be made and what material is available; it tells you how to cut each reel.
 
-You'll find material planning under **Manufacturing → Cartoon → CRTN Material Planning**.
+You'll find it under **Manufacturing → Cartoon → CRTN Material Planning**.
 
-## The Big Picture: What Material Planning Does
+![A carton material planning document with two orders batched together](../../ar/modules/manufacturing/images/carton/material-planning-en.png)
 
-Think of material planning as a three-stage process:
+The list view is the planning register — every run, with the status and the solution it reached.
 
-**Stage 1: Collect Requirements**
-- Start with one or more carton orders
-- Optionally find companion orders to batch together
-- System extracts manufacturing details (what actually needs to be produced)
-- You review and adjust the list of items to plan
+![The carton material planning list view](../../ar/modules/manufacturing/images/carton/material-planning-list-en.png)
 
-**Stage 2: Optimize Cutting**
-- Click "Collect Materials"
-- Optimizer searches inventory for suitable rolls
-- Runs constraint-programming solver to find best cutting plan
-- Generates detailed material requirements showing exactly how to cut each roll
+## How the Screen Is Laid Out
 
-**Stage 3: Execute Production**
-- Review the cutting plan
-- Generate production orders
-- Issue materials from specific lots/rolls
-- Send cutting plan to shop floor
+The document has two tabs, and the **Main** tab is a stack of four grids rather than one long form. What makes it readable is that **each grid has its own action button sitting directly above it**, and that button is what fills the grid below:
 
-Let's walk through each stage in detail.
+| Action | What it does |
+| --- | --- |
+| **Generate Production Orders** | Consumes the finished plan and creates the production orders |
+| **Collect Materials** | Fills **Materails** — the cutting plan |
+| **Review Available Quantities** | Fills **Available Materials** — stock against requirement |
+| **Find Companion Orders** / **Accept Selected Order** | Fill **Companion Orders**, on its own tab |
 
-## Stage 1: Setting Up the Planning Document
+So the screen reads top to bottom as the order you work in: describe what you need, find material, check it is really there, and only then generate production orders.
 
-### Creating the Document
+The **Companion Orders** tab is a separate page with its own copy of the basic header and its own two buttons. It is a search workspace rather than part of the plan itself, which is why it sits apart.
 
-Start a new material planning document. Fill in the header:
+## Setting Up the Planning Document
 
-**Planning Configuration**: **Required**. Select the configuration that defines your optimization parameters (minimum trim, maximum search time, etc.). You must select this before you can do anything else.
+### The Header
 
-**Book** and **Term**: Control numbering and document generation settings
+**Document Code** carries the **Book** and the document number, and **Term** the settings that govern the document. **Issue Date**, **Value Date** and **Fiscal Period** date it as on any other document.
 
-**Planning Status**: System-managed field showing where you are in the process:
-- **Initial**: Just created, collecting requirements
-- **Planning**: Ready to run optimizer
-- **Planned**: Optimization complete, results available
+**Planning Configuration** is **required** — the field is marked with a red asterisk, and nothing else on the screen works without it. It names the parameter set the solver obeys: minimum trim, search time, thread count and the rest. Those parameters are described further down.
 
-**Value Date**: When this planning should be dated (for accounting purposes)
+**Planning Status** has exactly two values:
 
-### Adding Orders to Plan
+- **Initial** — you are still collecting requirements.
+- **Planning** — the document is ready for the optimizer.
 
-You have several ways to populate the planning document with orders:
+There is no third, "planned" status. A finished plan is still shown as **Planning**; what tells you it has been solved is the **Solution Type** field, not the status.
 
-#### Method 1: From an Order (Quick Start)
+**Plan Single Stage** limits the run to one production stage instead of all of them. Leave it empty to plan every stage together, which is what almost every run wants.
 
-If you're already viewing a carton order, click **Generate CRTN Material Planning** on the order. Nama creates a planning document with that order already added.
+**Solution Type** and **Solution Wall Time** are greyed out on the screen because they are outputs. The solver writes them; you never type them.
 
-#### Method 2: Manual Selection
+**Planned Revision** narrows the plan to a specific item revision, where the specification is revision-controlled.
 
-Create a blank planning document. In the **Documents** tab, add lines:
+### Adding Orders
 
-Each line references a **CRTN Order**. When you select an order, Nama shows the customer and totals.
+The **documents** grid is where the plan starts. Each row references a **Carton Order** and shows the **Customer**, **Net value** and **Total** taken from it.
 
-When you save, Nama automatically populates the **Items** tab based on the manufacturing details from all selected orders.
+You can populate it two ways. From an order, use **Generate CRTN Material Planning** and Nama creates the planning document with that order already listed. Or create the document and add the order rows yourself.
 
-#### Method 3: Direct Item Entry (Advanced)
+Rows can also be added straight to Items without going through an order at all, which is how you plan for stock rather than for a customer. It is the exception rather than the rule, and it costs you the link back to the order, so use it only where there genuinely is no order to link to.
 
-You can manually add lines to the **Items** tab without going through orders. This is for special scenarios like:
-- Planning for internal use (not customer orders)
-- Replanning after production changes
-- Test runs to evaluate material availability
+### What Saving Does to the Items Grid
 
-When adding items manually:
-- Select the **CRTN Order** (or leave blank for non-order planning)
-- Select the **Carton Specs**
-- Enter **Quantity**
-- Fill in sheet dimensions (length, width)
+This is the part worth knowing, because it saves a great deal of typing.
 
-Most users stick with Methods 1 or 2 - planning from orders.
+**When you save a planning document that has rows in `documents`, Nama fills the Items grid for you** from the manufacturing details of those orders. One row appears per carton specification, already carrying:
 
-### Understanding the Items Tab
+- **Carton Order** and **Carton Specs**
+- **Sheet Length** and **Sheet Width**, taken from the specification
+- **Measures | Length**, **Width**, **Height** and **Flap Value**
+- **Unit Price** and **Total**
 
-Once you save, the **Items** tab shows what you're planning to produce. Each line represents one carton specification from one order.
+What it does **not** fill is **Quantity** and **Total Requested Quantity**. Those stay empty and you type them.
 
-**Key fields**:
+That is deliberate rather than an oversight: the quantity you plan is not always the quantity ordered — you may be planning part of an order now and the rest later, or adding a margin for expected waste — so Nama declines to guess.
 
-**Carton Specs**: The specification being produced
-**CRTN Order**: Which order this is for
-**Item**: The inventory item (if spec is linked to an item)
-**Total Requested Qty**: How many cartons total
-**Sheet Length/Width**: Dimensions of the flat sheet (from the spec)
-**Flap Value**: Flap allowance
+::: warning Check the quantity columns before you optimize
+A row with no quantity contributes nothing to the plan. The optimizer will run happily, report a solution, and simply have planned less than you meant to make.
+:::
 
-**Planning results (filled after optimization)**:
+### Reading the Rest of the Items Grid
 
-**Roll Width**: Which roll width was selected for this carton
-**Number of Pieces**: How many pieces fit across the roll width (strikes)
-**Number of Strikes**: How many times to strike/cut along the roll
-**Number of Operations**: How many separate cutting operations
-**Metric Length**: Total linear meters of roll needed
-**Total Planned Qty**: Actual quantity planned (might be slightly more than requested due to cutting multiples)
-**Trim**: Waste/trim per cut
-**Operating Width**: Total width consumed across all pieces
+The Items grid is wide, and its right-hand half is entirely results. Before the optimizer runs, every one of those columns reads zero.
 
-**Force roll widths (optional)**:
+![The result columns of the Items grid, still zero before the optimizer runs](../../ar/modules/manufacturing/images/carton/material-planning-items-en.png)
 
-If you need to use a specific roll width for a layer, you can force it:
-- **Force Layers Roll Width**: Forces all layers to use this width
-- **Force Layer 1/2/3... Roll Width**: Forces a specific layer to use this width
+After a run they carry the answer for each carton. **Roll Width** is the reel width the solver chose, and **Number Of Pieces** how many sheets fit across it. **Operating Width** is the width those pieces actually consume, and **Trim** what is left over — the waste on that pattern. **Number Of Operations** counts the separate cutting operations the plan needs, and **Metric Length** the linear metres of reel required. **Total Planned Quantity** is what will really be produced, usually a little above **Total Requested Quantity** because cutting works in whole strikes.
 
-The optimizer respects these constraints when searching for solutions.
+The **Force All Layers Roll Width** and **Force Layer 1** to **Force Layer 7 Roll Width** columns work the other way round: they are inputs, and they constrain the solver. Fill one and it will only consider reels of that width for that layer. Use them for a real requirement — finishing a part-used reel, a customer demand about appearance, a machine that runs only certain widths — and leave them empty otherwise, because every forced width is a choice taken away from the optimizer.
 
-## Stage 2: Running the Optimizer
+## What the Optimizer Matches Reels On
 
-### Understanding Planning Status
+None of this works unless the material side is set up to be found, and that setup is not obvious from the planning screen.
 
-Before you can optimize, change the **Planning Status** to "Planning". This unlocks the optimization functions.
+A paper reel is an **ordinary stock item**. Three things make it a reel.
 
-While in "Initial" status, you're still collecting requirements. Move to "Planning" when you're ready to find materials.
+**Class 1 and Class 2 carry the grade and the grammage.** On the item, Class 1 is the paper grade — Kraft Liner, Test Liner, Fluting Medium — and Class 2 is the weight in grams per square metre.
 
-### Finding Companion Orders (The Secret Weapon)
+![A paper reel item: the grade in Class 1, the grammage in Class 2](../../ar/modules/manufacturing/images/carton/paper-reel-item-en.png)
 
-Here's where Nama gets really smart. You have one order to plan - let's say 2000 units of a 450mm wide carton. But you know there are other pending orders out there for similar cartons. Could you batch them together to reduce waste?
+The same two classes appear on every layer of the [carton specification](./carton-specifications.md). That is the whole matching rule: **the solver looks for stock whose Class 1 and Class 2 equal the layer's Class 1 and Class 2**. Get either wrong, on the item or on the layer, and that layer finds no material at all — however much paper is physically in the store.
 
-Click **Find Companion Orders**.
+**The reel width lives in the Box dimension.** There is no "roll width" field on the item. Width is recorded as the item's **Box** dimension value on each receipt, so one item code holds stock at several widths side by side — 1200, 1350, 1450 and 1650 all under the same reel item, each with its own balance. This is why the planning grids show a column called **Box** where you would expect a width.
 
-Nama searches:
-1. All committed carton orders that aren't fully planned yet
-2. Filters to orders with carton specs that have identical layer structures (same number of layers, same item classes, same corrugating factors, same layer types)
-3. For each candidate order, runs a quick optimization: "If I batch the current order with this candidate, what's the total waste?"
-4. Sorts candidates by total waste - best matches first
+**The item's configuration has to track lot and packaging.** Dimensional tracking is switched on by the **Item Configurations** record the item points at, not on the item itself. If that configuration does not have packaging tracking enabled, the Box value is refused when stock is received, and no amount of editing the item will help. Reel items need a configuration that tracks both lot and packaging.
 
-The **Companion Orders** tab populates with results:
+One consequence is worth stating plainly: reels are normally stocked and issued **by weight**, so quantities on these screens are kilogrammes. **Metric Length** is the separate figure that gives the linear metres, and it is what the shop floor actually cuts.
 
-Each line shows:
-- The candidate order
-- The carton specification
-- Quantities
-- **Total Waste**: How much total waste (in square meters) if you batch this order with yours
+## Running the Optimizer
 
-The list is sorted by waste - least waste at the top.
+### Finding Companion Orders
 
-**Why this matters**: Maybe your 450mm carton alone would use a 2000mm roll with 200mm trim (10% waste). But there's an order for a 540mm carton. Cut both from the same 2000mm roll (450 + 540 = 990mm, fit 2 pairs = 1980mm used) and waste drops to 20mm (1% waste). Huge savings.
+Here is where the module gets clever. You have one order to plan. There may be other pending orders for cartons of a similar build — could they be cut from the same reels, with less waste?
 
-**To accept a companion order**:
-1. Review the list
-2. Consider not just waste, but also customer priorities (maybe the top waste-saver is for a customer whose delivery can wait, but the second-best match is for a rush customer)
-3. Click **Accept Selected Order** on the line you want
+![The Companion Orders tab, with its search and accept actions](../../ar/modules/manufacturing/images/carton/material-planning-companion-en.png)
 
-Nama adds that order to your Documents tab and updates the Items tab with the new carton specs. Now you're planning for both orders together.
+Open the **Companion Orders** tab and use **Find Companion Orders**. Nama looks through committed carton orders that are not yet fully planned, keeps those whose specifications have a compatible layer structure, and for each candidate runs a quick trial: if this order were batched with yours, what would total waste be? Results come back sorted by waste, best first, with **Total Waste** on each row.
 
-**You can repeat this**: Find companions again, accept another, keep batching until you've hit a good balance of efficiency vs. production complexity.
+**Why this matters**: a 450 mm sheet alone on a 1650 mm reel fits three across and leaves 300 mm of trim. Add an order for a 390 mm sheet and the pair can be arranged to leave far less. The saving is real, and it is the single biggest lever on this screen.
 
-### Before Running Optimization
+To take a candidate, select its row and use **Accept Selected Order**. The order joins the `documents` grid and its specifications join Items, and you can search again to add another.
 
-Make sure:
-- Planning Status is "Planning"
-- Items tab has all the carton specs you want to produce
-- You're happy with any forced roll widths (or they're all blank for full flexibility)
-- Your planning configuration has reasonable parameters (more on this below)
+Waste is not the only thing to weigh. The lowest-waste candidate may be for a customer whose delivery can wait, while the second-best is urgent. The list ranks by material; you rank by material *and* by promise.
 
-### Running "Collect Materials"
+**Maximum Time In Seconds For Companion Order Search** caps how long each candidate is trialled. It is a per-candidate budget, so a generous value multiplied by many candidates is a long wait.
 
-Click **Collect Materials**.
+### Collect Materials
 
-Nama goes to work:
+With the Items grid complete and the status set to **Planning**, use **Collect Materials**.
 
-**Step 1: Query Inventory**
+Nama searches stock for reels matching each layer's Class 1 and Class 2 that are wide enough for the sheet plus minimum trim and long enough to clear the minimum reel length, works out how many pieces and strikes each candidate reel could yield, builds a constraint model over those possibilities, and solves it for least waste.
 
-For each layer of each carton spec, Nama searches for rolls that:
-- Match the required item classes (Section, Class1, Class2, etc.) defined in the spec
-- Are wide enough to fit the sheet width plus minimum trim
-- Are long enough to meet minimum roll length requirements
-- Have available quantity in inventory (based on lot tracking)
+When it finishes it writes the cutting plan into **Materails**, the aggregate into **Materials Totals**, the per-carton answers into the result columns of **Items**, and its own verdict into **Solution Type** and **Solution Wall Time**.
 
-This might find dozens or hundreds of candidate rolls.
+**Solution Type** is the honest part of the output:
 
-**Step 2: Calculate Possibilities**
+- **Optimal** — the solver proved no better plan exists.
+- **Feasible** — it found a workable plan but ran out of time before it could prove that.
 
-For each candidate roll and each carton:
-- How many pieces fit across the width (considering trim)?
-- How many strikes along the length?
-- What's the total quantity this roll could produce?
-- What's the waste?
+In practice most runs are quick. A single straightforward order is typically solved as **Optimal** in a fraction of a second, and a two-order batch in a few seconds. But difficulty does not scale gently: a hard combination will run to the very end of its budget and come back **Feasible**. That is the signal to give it a longer **Maximum Search Time In Minutes** and try again — a few extra minutes of search that saves two per cent of the paper pays for itself immediately.
 
-**Step 3: Set Up the Optimization Problem**
+### When the Optimizer Finds Nothing
 
-Nama creates a constraint-programming model with:
-- Variables for which rolls to use, how many strikes, how many operations
-- Constraints: Must produce requested quantities (or close to it), must respect minimum trim, can't exceed roll availability, etc.
-- Objective: Minimize total waste + number of rolls used
+The usual causes, in the order worth checking:
 
-**Step 4: Solve with CP-SAT**
+**No matching material.** The commonest cause by far is not a shortage but a mismatch — a layer whose Class 1 or Class 2 corresponds to no reel item. Check the specification's layers against the reel items before concluding you need to buy paper.
 
-The Google OR-Tools CP-SAT solver takes over. It's searching through a massive solution space - millions of possible cutting plans - applying constraints to prune invalid solutions, and using sophisticated search heuristics to find the optimal plan.
+**Genuinely insufficient stock.** No reel wide enough, long enough, or in the right grade. **Review Available Quantities** shows this directly.
 
-You can configure in the Planning Configuration:
-- **Max Time in Minutes**: Default 10 minutes. The solver stops after this time.
-- **Workers Count**: How many CPU threads to use. More threads = faster (if your server has multiple cores).
+**Constraints too tight.** A high minimum trim, or a minimum reel cuts figure that rules out the stock you actually hold.
 
-The solver runs until it finds an optimal solution or hits the time limit.
+**Too little time.** A complex batch against a short search budget.
 
-**Step 5: Return Results**
+## Reading the Results
 
-The solver finishes and Nama populates three grids:
+### Materails: the Cutting Plan
 
-**Materials Tab**: The detailed cutting plan. Each line shows:
-- Which lot/roll to use (Lot ID, Box - roll width)
-- How many pieces to cut
-- How many strikes
-- Metric length consumed
-- Specific dimensions assigned
+Despite the spelling on the tab, this is the actionable output — one row per layer of each carton, saying which material to cut and how.
 
-**Materials Totals Tab**: Summary by item class and roll width showing total quantities needed
+Each row carries the **Carton Order**, **Finished Item** and **Carton Specs** it belongs to, then the instruction: **Number Of Pieces** across, **Number Of Strikes** along, and **Metric Length** consumed. **Class 1** and **Class 2** identify the paper and **Box** the reel width, and **Lot ID** identifies the specific reel where the plan pins one down.
 
-**Items Tab Updates**: Each item line now shows:
-- Roll width selected
-- Number of pieces and strikes
-- Total planned quantity
-- Trim/waste
+A three-layer carton produces three rows; a five-layer double-wall carton produces five. They may sit on different widths, because each layer is chosen on its own merits.
 
-**Planning Status Changes**: If a solution was found, status changes to indicate success:
+### Materials Totals: What to Pull From the Store
 
-**Solution Type**:
-- **Optimal**: The solver proved this is the best possible solution
-- **Feasible**: A good solution was found, but the solver ran out of time before proving it's optimal
+A short grid that aggregates the plan by **Class 1**, **Class 2** and **Box**, with the total **Quantity** for each combination. This is the picking list — "for this whole plan, this much 150 gsm Kraft Liner at 1350 mm" — and the quickest way to see whether the store can serve the run at all.
 
-**Solution Wall Time**: How many seconds the solver took
+### Available Materials: Stock Against Requirement
 
-### If the Optimizer Fails
+**Review Available Quantities** fills this grid, and it answers a question the cutting plan does not: is the paper there?
 
-Sometimes the optimizer can't find a solution. Common reasons:
+Each row is a reel width, with the **Item** and its **Class 1** and **Class 2**, then **Required Quantity In Layer 1** through **Layer 7**, the **Total Required Quantities**, the **Available Quantity** in stock, and the **Unavailable Quantity** — the shortfall.
 
-**Insufficient Materials**: You don't have rolls wide enough, long enough, or in the right grades. Check the error message - it'll tell you which items/layers couldn't find suitable rolls.
+The layer-by-layer breakdown is the useful part. A width can be comfortably supplied for one layer and short for another, and a single combined figure would hide which. Any non-zero **Unavailable Quantity** means the plan as it stands cannot be executed from current stock.
 
-**Fix**: Purchase materials, or adjust order quantities to what's available.
+Run this before accepting companion orders, not after. Committing to a combined plan you cannot source is worse than planning the orders separately, because the failure arrives later and at a worse moment.
 
-**Constraints Too Tight**: Maybe your minimum trim requirement is too high, or minimum roll cuts is preventing use of available inventory.
+## The Planning Configuration
 
-**Fix**: Relax constraints in the Planning Configuration, or accept that you need to purchase more materials.
+The configuration is a small master file under **Manufacturing → Cartoon → CRTN Planning Configuration**, and it holds every parameter the solver obeys.
 
-**Orders Incompatible**: The companion orders you batched together can't actually be cut from the same rolls efficiently.
+![The planning configuration and its solver parameters](../../ar/modules/manufacturing/images/carton/planning-configuration-en.png)
 
-**Fix**: Remove some orders from the planning document and plan them separately.
+**Minimum Roll Cuts** — a reel must yield at least this many cuts to be worth using, which keeps the plan from setting up a reel for a handful of pieces.
 
-**Time Limit Too Short**: The problem is complex and the solver needs more time.
+**Minimum Roll Length** — ignore reels shorter than this. It stops the optimizer consuming short remnants that cost more in setup than they save in paper.
 
-**Fix**: Increase "Max Time in Minutes" in the Planning Configuration and try again.
+**Minimum Trim** — the smallest trim the plan will accept. This one reads backwards until you have seen it on a machine: why reject a *low*-waste pattern? Because a sliver of trim jams equipment, cannot be recycled cleanly, and usually means a width has been forced to fit. A slightly wider offcut that comes off the machine intact is worth more than a narrow one that stops the line.
 
-## Interpreting the Results
+**Max Different Lengths Per Sheet** — caps how many different sheet lengths may be cut from one sheet. It is a limit on shop-floor complexity rather than on mathematics.
 
-### Materials Tab: Your Cutting Plan
+**Max Roll Group Split Count** — how many separate cutting patterns may be used across reels of the same group.
 
-This is the actionable output - exactly what to cut.
+**Trim Co-product Item** — the stock item that trim is booked to. Set it and the waste becomes a co-product on the generated production orders rather than vanishing, which is what lets you value recovered offcuts instead of writing them off.
 
-Each line represents material for one layer of one carton spec from one specific lot/roll.
+**Maximum Search Time In Minutes** — the solver's budget. When runs keep coming back **Feasible**, this is the number to raise.
 
-**Example line**:
-```
-Item Class 1: Kraft Liner
-Item Class 2: 125 GSM
-Box (Roll Width): 2000mm
-Lot ID: A2024-5001
-Number of Pieces: 4
-Number of Strikes: 250
-Metric Length: 110 meters
-Source Line ID: (links back to the item being produced)
-```
+**Maximum Time In Seconds For Companion Order Search** — the per-candidate budget for companion trials.
 
-**What this means**: Take roll lot A2024-5001 (which is 2000mm wide). Cut 4 pieces across the width, make 250 strikes along the length. You'll consume 110 meters of this roll.
+**CPU Thread Workers Count** — how many threads the search may use. Don't set it above the number of cores the server actually has.
 
-**Why multiple lines for one carton?**: A carton has multiple layers (facing, fluting, liner). Each layer might come from different rolls, different lots, even different widths. You'll see one material line per layer.
+Most sites run a single configuration. A second one is worth creating when a class of work genuinely needs different rules — a long overnight run that can afford a much larger search budget, for instance.
 
-**Grouping and filtering**: Use the grid filters to group by carton spec, by lot, by layer - whatever view helps you understand the plan.
+## Moving to Production
 
-### Materials Totals: Roll Requirements Summary
+Before committing, look at three things. Are the planned quantities acceptable — if you asked for 4,000 and the plan makes 4,020 because the cutting works out that way, is the overrun fine? Is the trim level sensible — a few per cent is normal, fifteen suggests waiting for different material or batching differently? And does **Available Materials** show any shortfall?
 
-This grid aggregates materials by item class and roll width:
+When the plan is right, use **Generate Production Orders**. Nama creates one production order per carton specification in Items, each carrying the planned quantity, the components from the cutting plan, the operations from the specification's routing, and the trim co-product if one is configured. Each order references the planning document and the original carton order, so the chain from customer order to shop floor stays intact. The **Production Order** column in Items fills in with the order created for that row.
 
-```
-Item Class 1: Kraft Liner
-Item Class 2: 125 GSM
-Box (Roll Width): 2000mm
-Quantity: 2500 linear meters
-```
+Materials are then issued with a [Carton Material Issue](./carton-material-issue.md), which reads its lines from this plan.
 
-This tells you: "In total, across all cartons in this plan, you need 2500 meters of 125gsm Kraft liner in 2000mm width."
+## A Worked Example
 
-Use this for:
-- Quick availability check (do we have enough?)
-- Purchase requisitions (if you're short)
-- Warehouse pull lists (which rolls to stage for production)
+Two orders are open. Spinneys wants 4,000 tomato boxes, 400×300×150 mm. Metro Markets wants 3,000 produce boxes, 350×250×140 mm. Both are regular slotted containers on the same three-layer build: 150 gsm Kraft Liner outside, 112 gsm fluting medium, 125 gsm test liner inside.
 
-### Available Materials: Inventory vs. Requirements
+Their blanks are 1,440 × 450 mm and 1,240 × 390 mm.
 
-Before running optimization, you can click **Review Available Quantities** to see what's in inventory.
+Create a planning document, choose the planning configuration, and add both orders to `documents`. Save. The Items grid fills with the two specifications and their sheet dimensions; type 4,000 and 3,000 into Quantity, because those are the columns Nama leaves to you.
 
-This action asks: "Include Item in Result?" (usually say No for a summary by width/class, Yes for detail by specific item).
+Now look at the widths. The store holds reels at 1200, 1350, 1450 and 1650 mm. A 450 mm sheet fits exactly three times across 1350 mm with nothing left over, which is as good as cutting gets. A 390 mm sheet fits three times across 1350 mm with 180 mm of trim, and three times across 1200 mm with only 30 mm — better, but the 1200 mm stock is thinner on the ground.
 
-It populates the **Available Materials** tab showing:
+That trade-off is precisely what the optimizer exists to resolve, and it will weigh it against how much of each width is actually held. Set the status to **Planning**, use **Collect Materials**, and read the answer off the Items grid: which width each carton was put on, how many pieces across, and how much trim the plan accepted.
 
-- Roll width
-- Item classes
-- Available quantity in inventory
-- Required quantity for each layer (Layer 1-7)
-- Total required quantity
-- Unavailable quantity (shortfall, if any)
-
-**Use case**: Before committing to a planning document or before accepting a companion order, review available materials to make sure you can actually fulfill the plan. If "Unavailable Qty" shows values, you don't have enough material - either reduce order quantities or purchase more material.
-
-## Advanced: Controlling the Optimization
-
-### Planning Configuration Parameters
-
-The Planning Configuration (master file) controls how the optimizer behaves. Understanding these parameters lets you tune the solver for your specific needs.
-
-**Minimum Roll Length**: Don't use rolls shorter than this. Prevents using up small remnant rolls that aren't efficient to set up.
-
-*Example*: Set to 50 meters. The optimizer ignores any rolls in inventory under 50 meters length.
-
-**Minimum Roll Cuts**: A roll must yield at least this many cuts to be used. Prevents inefficient use where you set up a roll for just a few pieces.
-
-*Example*: Set to 10. The optimizer won't use a roll unless it can get at least 10 cuts from it.
-
-**Minimum Trim**: The smallest acceptable trim/waste per cut. If you cut pieces that leave less than this as waste, the optimizer rejects that cutting plan.
-
-*Example*: Set to 20mm. Any cutting pattern that leaves less than 20mm trim is rejected. This prevents using up roll width inefficiently.
-
-**Why have minimum trim?**: Seems counterintuitive - why reject low-waste solutions? Because very narrow trim can jam machines, can't be reused, and might indicate you're forcing an inefficient width match. Sometimes it's better to have a bit more waste that can be recycled than a tiny sliver that causes production problems.
-
-**Maximum Time in Minutes**: How long the CP-SAT solver can search for a solution. Longer time = better chance of finding optimal solution, but you wait longer.
-
-*Typical values*: 5-10 minutes for simple plans (few orders, lots of material options), 15-30 minutes for complex plans (many orders, tight constraints).
-
-**Companion Order Search Max Time in Seconds**: When searching for companion orders, how long to test each candidate order. Shorter time = faster search but might miss good matches.
-
-*Typical values*: 5-10 seconds per candidate.
-
-**CPU Thread Workers Count**: How many parallel search threads to use. Modern multi-core CPUs can run multiple threads simultaneously, speeding up the search.
-
-*Typical values*: 4-12 threads depending on your server. Don't exceed the number of CPU cores you have.
-
-**Max Different Lengths Per Sheet**: Limits complexity. If you're cutting multiple cartons from one roll, this limits how many different lengths can be cut from that sheet.
-
-*Example*: Set to 2. If you're batching three orders with different lengths, the optimizer might split them across different sheets to stay within this limit.
-
-**Max Roll Group Split Count**: When grouping compatible rolls (same width, same grade), how many separate cutting patterns can be used per group.
-
-*Example*: Set to 2. The optimizer can use up to 2 different cutting patterns on rolls from the same group, but not more.
-
-**Trim Co-Product**: If trim waste should be tracked as inventory (maybe you recycle it or sell it as scrap), select the inventory item here. When production orders are generated, trim is added as a co-product.
-
-### Forcing Roll Widths
-
-Sometimes you need to override the optimizer's selection:
-
-**Scenario 1: Finish off inventory**: You have a partial roll of 2100mm width you want to use up before it sits forever. Force that layer to use 2100mm, and the optimizer plans around it.
-
-**Scenario 2: Customer requirements**: Customer specified that the facing layer must be from a certain width for appearance consistency. Force it.
-
-**Scenario 3: Machine limitations**: Your corrugator handles only certain widths efficiently. Force those widths.
-
-In the **Items** tab, fill in:
-- **Force Layers Roll Width**: Forces all layers of this carton to use this width
-- **Force Layer X Roll Width**: Forces a specific layer (1-7) to use this width
-
-The optimizer treats these as hard constraints - it will only consider rolls of the forced width for those layers.
-
-**Trade-off**: Less flexibility for the optimizer usually means less optimal solutions (more waste or fewer batching opportunities). Only force widths when there's a real requirement.
-
-### Planning Single Layer (Advanced)
-
-The **Plan Single Layer** field lets you run optimization for just one layer at a time.
-
-**Why?**: Sometimes you have materials for most layers but one layer is problematic. Plan that layer separately to see what's needed.
-
-*Example*: Set "Plan Single Layer" to 2. Run optimization. Nama plans only Layer 2 (fluting), ignoring layers 1, 3, etc.
-
-Review the results, see if fluting materials are adequate. Then set to 1, run again for facing. And so on.
-
-Most users leave this blank and plan all layers together.
-
-## Stage 3: Moving to Production
-
-### Reviewing the Plan
-
-Before committing to production, review:
-
-**Materials tab**: Do the lot selections make sense? Maybe you prefer using certain lots first (older inventory, lower quality for non-critical orders, etc.). Note which lots are assigned.
-
-**Items tab**: Are planned quantities reasonable? If you requested 5000 and planned 5040 (because cutting multiples work out that way), is the 40-unit overrun acceptable?
-
-**Totals**: Do you have enough of everything? Check available materials vs. requirements.
-
-**Waste/Trim**: Is the waste level acceptable? Maybe 5% trim is fine, but 15% suggests you should wait for different materials or batch with different orders.
-
-### Generating Production Orders
-
-Once you're happy with the plan, click **Generate Production Orders**.
-
-Nama creates one production order for each carton specification in the Items tab.
-
-**Each production order includes**:
-
-**Header**: Quantity to produce (from Total Planned Qty), item (if spec has an item), dates copied from the planning document
-
-**Components (BOM)**: Exact materials from the Materials tab - which item classes, which specific lots, which quantities. If you planned Layer 1 to use Lot A2024-001 with 110 meters, the BOM shows "Lot A2024-001, 110 meters."
-
-**Routings**: Operations copied from the carton specification's routing lines
-
-**Co-Products**: If trim co-product is configured, trim quantity is added as a co-product
-
-**Link to Planning**: The production order references the planning document as its "From Doc", so you can trace back.
-
-**Link to Order**: The production order references the original carton order, maintaining the chain from customer order → planning → production.
-
-The production orders are committed automatically. They're ready for execution.
-
-**In the Items tab**, each line now shows the **Production Order** field filled in, linking to the generated order.
-
-### Material Issues
-
-With production orders created, the next step is issuing materials from inventory.
-
-You can create **Carton Material Issues** referencing this planning document.
-
-When you select the planning document in a material issue, it can auto-populate with the exact materials, lots, and quantities from the Materials tab.
-
-See [Carton Material Issues](./carton-material-issue.md) for details.
-
-## Real-World Workflow Example
-
-Let's walk through a complete planning session from start to finish.
-
-**Monday morning**: Production planner Sarah reviews pending carton orders. She sees:
-- Order #6501: Customer A, 3000 units, "Tomato Box 250"
-- Order #6502: Customer B, 2000 units, "Electronics Box 300"
-- Order #6503: Customer C, 1500 units, "Produce Tray 280"
-
-**Step 1**: Sarah creates a new Material Planning document, selects the default Planning Configuration.
-
-**Step 2**: In Documents tab, she adds Order #6501 (the Tomato Box). Saves. Items tab populates with one line: 3000 units of Tomato Box 250.
-
-**Step 3**: Changes Planning Status to "Planning".
-
-**Step 4**: Clicks "Find Companion Orders". System searches, finds Orders #6502 and #6503 plus a few others.
-
-Reviews the list sorted by waste:
-- Order #6503 (Produce Tray) shows lowest total waste if batched
-- Order #6502 (Electronics Box) shows slightly higher waste
-
-Sarah checks delivery dates. Produce Tray is due same week as Tomato Box. Electronics Box is two weeks out. She decides to batch Tomato Box + Produce Tray for now.
-
-Selects Order #6503, clicks "Accept Selected Order".
-
-**Step 5**: Items tab now shows:
-- 3000 units, Tomato Box 250, 520mm sheet width
-- 1500 units, Produce Tray 280, 480mm sheet width
-
-Sarah notices these widths: 520 + 480 = 1000mm. Two pairs fit nicely on a 2000mm roll with minimal waste. Good match.
-
-**Step 6**: Clicks "Collect Materials".
-
-The solver runs for 2 minutes. Status changes to "Planned", Solution Type shows "Optimal".
-
-**Step 7**: Reviews Materials tab. Sees:
-
-For Tomato Box:
-- Layer 1 (Facing): Lot K2024-015, 2000mm width, 4 pieces, 187 strikes, 97 meters
-- Layer 2 (Fluting): Lot F2024-022, 2000mm width, 4 pieces, 187 strikes, 82 meters (shorter because fluting has corrugating factor)
-- Layer 3 (Liner): Lot L2024-008, 2000mm width, 4 pieces, 187 strikes, 97 meters
-
-For Produce Tray (similar pattern with different lots).
-
-Checks Materials Totals: 195 meters of 125gsm Kraft, 164 meters of C-Flute, 195 meters of Test Liner. All available in inventory.
-
-**Step 8**: Clicks "Review Available Quantities" to double-check. Available Materials shows adequate inventory for all layers. No shortfalls.
-
-**Step 9**: Happy with the plan. Clicks "Generate Production Orders".
-
-Two production orders created:
-- PO-8801: 3000 Tomato Box 250
-- PO-8802: 1500 Produce Tray 280
-
-Both have full BOMs with specific lots assigned, routing steps, everything ready.
-
-**Step 10**: Saves and commits the planning document. Orders #6501 and #6503 are now marked "Fully Planned". They won't appear in future companion order searches.
-
-**Tuesday**: Shop floor pulls the specific lots identified in the plan, issues them to production, and starts cutting according to the plan (4 pieces across, 187 strikes). The plan was followed precisely, waste came in at 2.3% - well below the usual 8%.
-
-Sarah saved the company roughly 5% in material costs by batching these orders. Over a year, that adds up to significant savings.
+Then check **Available Materials** before generating anything. If the 1200 mm fluting shows a shortfall, the plan that looked best on paper is not the plan you can run this week.
 
 ## Working With Planning in Practice
 
-Batching is where the money is. Planning orders one at a time leaves the optimizer nothing to work with; batching compatible orders through companion orders routinely saves 5-10% of material, and that is the single biggest lever on this screen. But there is a ceiling — too many orders of too many different sizes in one plan makes the problem harder rather than richer, and three to five orders is a practical sweet spot.
+Batching is where the money is. Planning orders one at a time leaves the optimizer nothing to work with; batching compatible orders through companion orders is the single biggest lever on this screen. But there is a ceiling — too many orders of too many different sizes makes the problem harder rather than richer, and three to five orders is a practical sweet spot.
 
 Plan regularly rather than saving up a week's worth. Smaller, more frequent batches keep the flexibility to slot in a rush order, which a single weekly mega-plan does not.
 
-Before accepting companion orders, use **Review Available Quantities**. Committing to a combined plan you cannot actually source is worse than planning the orders separately, because it fails later and at a worse moment.
+Force widths sparingly. The optimizer is better at this than intuition is, and forced widths should be reserved for real constraints — a customer requirement, finishing off part-used reels, a machine limitation — not for a hunch.
 
-Force widths sparingly. The optimizer is better at this than intuition is, and forcing widths should be reserved for real constraints — a customer requirement, finishing off partial rolls, a machine limitation — not for a hunch.
+Watch the solution type. A run that keeps returning **Feasible** rather than **Optimal** is telling you it ran out of time, and the fix is a longer search budget rather than acceptance of the result.
 
-Watch the solution type. A run that keeps returning **Feasible** rather than **Optimal** is telling you it ran out of time, and an extra five minutes of search that saves two percent of material is almost always worth waiting for. When optimisation fails outright, save the document as a draft and read the error rather than immediately retrying: it names the items that could not be sourced and the constraints that could not be met, and re-running without fixing those just fails again.
-
+And when a run finds nothing at all, look at the classes before you look at the stock. A layer pointing at a grade or grammage that no reel item carries fails in exactly the same way as an empty warehouse, and it is far commoner.

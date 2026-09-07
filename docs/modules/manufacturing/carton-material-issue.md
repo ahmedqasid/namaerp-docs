@@ -2,301 +2,92 @@
 entities: [CRTNMaterialIssue]
 menu: Manufacturing → Cartoon → Carton Material Issue
 ---
-# Carton Material Issues: From Warehouse to Shop Floor
+# Carton Material Issues: From Store to Shop Floor
 
 ## Connecting Planning to Execution
 
-You've created a material planning document. The optimizer figured out exactly which rolls to use, from which lots, in what quantities. Production orders are generated and ready to execute.
+You have a material planning document. The optimizer worked out which reels to use, at which widths, in what quantities. Production orders are generated and ready.
 
-Now you need to actually pull those materials from the warehouse and allocate them to production. That's where **Carton Material Issues** (صرف خامات كرتون) come in.
+Now the paper has to physically leave the store and reach the corrugator. That is what a **Carton Material Issue** does.
 
-A material issue is a specialized inventory document that withdraws materials from stock and allocates them to production. It's linked to the material planning document, so you're issuing exactly what the optimizer specified - the right lots, the right quantities, no guesswork.
+You'll find it under **Manufacturing → Cartoon → Carton Material Issue**.
 
-You'll find material issues under **Manufacturing → Cartoon → Carton Material Issue** (التصنيع ← Cartoon ← صرف خامات كرتون).
+![The carton material issue screen](../../ar/modules/manufacturing/images/carton/material-issue-en.png)
 
-## Why Carton Material Issues Are Special
+## The Two Rules That Govern This Screen
 
-Nama ERP has general-purpose material issue documents for manufacturing. So why a special one just for cartons?
+Before anything else, two hard rules. Both are enforced, both will stop you, and knowing them saves a puzzling half-hour.
 
-**Two reasons**:
+**A carton material issue must name a planning document.** **Carton Material Planing** is marked required on the screen — the red asterisk on the field is not decorative. There is no such thing as an ad-hoc carton material issue that stands on its own. If you want to move paper without a plan behind it, that is an ordinary [stock issue](/modules/supplychain/issuing-stock), not this document.
 
-**1. Direct Link to Planning**: Carton material issues reference the planning document directly. When you select a planning document, the system can auto-populate issue lines with exactly what the optimizer specified - specific lot numbers, specific quantities, specific dimensional attributes. No manual entry, no mistakes.
+**That planning document must already have materials.** The issue is checked against the plan's cutting output, so a plan that has not been through **Collect Materials** has nothing to check against. Try to save against one and Nama says so plainly: *Could not find any materials in planning document*.
 
-**2. Lot/Dimensional Tracking**: Carton manufacturing is heavy on lot tracking (paper rolls come in lots with varying quality) and dimensional attributes (roll width is a dimension). Carton material issues are designed to handle this complexity naturally.
+::: warning The order of work is not optional
+Order → planning document → **Collect Materials** → **Generate Production Orders** → material issue. Each step is a precondition for the next, and skipping straight to the issue fails at save rather than at commit — which is at least fast feedback.
+:::
 
-## Creating a Material Issue
+## What the Document Generates
 
-### Step 1: Header Information
+A carton material issue is not the end of the chain. **Committing one generates a [Raw Materials Issue](./raw-material-issue.md)** — the standard manufacturing document that actually charges the material onto the production order. The carton issue is the carton-aware front end; the raw material issue is what the costing engine sees.
 
-Start a new carton material issue and fill in the basics:
+That generated document appears on the **Related Documents** tab, under **Raw Materials Issue**.
 
-**CRTN Material Planning** (تخطيط خامات الكرتون): **Required**. Select the material planning document you're issuing materials for.
+This has a setup consequence that catches people out. **The carton material issue term must name the book and term to use for the document it generates** — the two settings are **Generated Raw Material Issue Book** and **Generated Raw Material Issue Term**, in the term's **Generation** group. Leave either empty and every attempt to commit fails with a message naming the missing setting. It is a one-time configuration, but nothing works until it is done.
 
-This is the key link. Everything else flows from this selection.
+## Filling In the Document
 
-**Book** and **Term**: Control numbering, accounting settings, warehouse defaults
+The screen is deliberately small. There is one header block, one grid, and the dimensions.
 
-**Value Date**: When this issue should be dated
+### The Header
 
-**Issue Date**: When the actual withdrawal happens (or happened)
+**Document Code** carries the **Book** and number, and **Term** the settings — including the generation settings above. **Issue Date**, **Value Date** and **Fiscal Period** date the movement.
 
-### Step 2: Populate Details from Planning
+**Warehouse** is where the paper is pulled from. Note that it sits in the **header**, not on the lines: one carton material issue draws from one store. Materials coming out of two different stores need two documents.
 
-You have two approaches:
+**Carton Material Planing** is the required link to the plan, as described above.
 
-#### Automatic Population (Recommended)
+**Description** is free text.
 
-Once you save the document after selecting the planning document, Nama can auto-populate the **Details** (التفاصيل) grid based on the materials tab from the planning document.
+### The Details Grid
 
-**How it works**: The system reads all materials from the planning document and creates one issue line per material. Each line includes:
-- Item classes (grade, weight, etc.)
-- Specific lot number
-- Roll width (Box dimension)
-- Quantity to issue
-- Warehouse and location (from term defaults)
+Each row is one material being issued, and the grid is short by design:
 
-You get a complete issue list matching exactly what the optimizer planned.
+**Code** and **Item** identify the reel item.
 
-#### Manual Entry
+**Class 1** and **Class 2** are the paper grade and the grammage — the same two classifications the optimizer matched on, carried through so the issue is self-describing.
 
-Alternatively, you can manually add detail lines:
+**Box** is the reel width. This is the column that matters most on this screen, and it is easy to skim past because "Box" does not sound like a width. On a paper reel item the Box dimension *is* the width, so the row saying `1350` is saying "a 1350 mm reel".
 
-Each line specifies:
-- **Item**: The inventory item (or leave blank and use item classes)
-- **Item Class 1/2**: Paper grade, weight, etc.
-- **Specific Dimensions - Box**: Roll width
-- **Specific Dimensions - Lot ID**: Which lot to issue from
-- **Warehouse** and **Locator**: Where to pull from
-- **Quantity**: How much to issue
+**Lot ID** is the specific reel. Where the plan pinned a lot down, match it.
 
-Manual entry makes sense if:
-- You're issuing materials that differ from the plan (maybe substituting a different lot)
-- The planning document doesn't exist (you're issuing for ad-hoc production)
-- You want to issue partial quantities (issue some materials now, rest later)
+**Item Quantity | Value** and **UOM** are how much. Reels are normally stocked by weight, so this is usually kilogrammes rather than metres — the metres are the plan's **Metric Length**, which is what the shop floor cuts, not what the store issues.
 
-### Step 3: Review and Adjust
+## What Committing Does
 
-Review the details grid. Each line should show:
+Committing the issue reduces the stock of each item, at that lot and that Box width, in the header warehouse, and generates the raw material issue that charges the material onto the production order.
 
-**Item information**: What you're issuing (item classes, dimensions)
-**Quantity**: How much (in base UOM - usually meters for rolls)
-**Available quantity at insert** (الكمية عند الإدخال): How much is currently in stock of this exact item/lot/dimension combination
-
-**Important**: If "Available quantity at insert" shows less than the quantity you're trying to issue, you have a problem. Either:
-- The lot doesn't have enough material
-- The warehouse doesn't have enough inventory
-- Inventory records are wrong
-
-Adjust quantities or lot selections to match what's actually available.
-
-**Specific Dimensions Fields**:
-
-- **Box** (العرض): Roll width. Critical for carton planning - make sure this matches what the planning specified.
-- **Lot ID** (رقم التشغيلة): The specific lot/batch. This should match exactly what the planning document specified for optimal results.
-- **Warehouse** (المستودع): Where you're pulling from
-- **Locator** (الموقع): Specific location within the warehouse (optional but helpful for large warehouses)
-
-Other dimension fields (Color, Size, Serial Number, etc.) might not apply to paper rolls but are available if needed.
-
-### Step 4: Commit the Issue
-
-Once everything looks good, commit the document.
-
-Nama:
-1. **Decreases inventory**: Reduces available quantity of each item/lot/dimension in the specified warehouse
-2. **Creates accounting entries**: Debits work-in-process or production cost accounts (if configured in the term)
-3. **Links to planning**: The material issue is permanently linked to the planning document, creating an audit trail
-
-The materials are now "on the floor" - allocated to production, no longer in warehouse inventory.
-
-## Common Scenarios
-
-### Scenario 1: Standard Planning-Based Issue
-
-You completed Material Planning #MP-501 which planned:
-- Lot K2024-015, 2000mm width, 97 meters (Kraft facing)
-- Lot F2024-022, 2000mm width, 82 meters (Fluting)
-- Lot L2024-008, 2000mm width, 97 meters (Liner)
-
-Create a carton material issue:
-- Select "CRTN Material Planning" = MP-501
-- Save
-- System auto-populates three detail lines with exact lot numbers, widths, and quantities
-- Verify all "available quantity at insert" values show sufficient stock
-- Commit
-
-Boom. Materials issued exactly as planned.
-
-### Scenario 2: Partial Issue
-
-Planning #MP-502 planned materials for a large job. Shop floor wants to start production but doesn't have space to stage all materials at once. Issue in batches.
-
-**Issue #1** (Monday):
-- Select Planning #MP-502
-- Auto-populate details
-- Manually reduce quantities to 50% of planned
-- Commit
-
-**Issue #2** (Wednesday):
-- Select Planning #MP-502 again
-- Auto-populate details
-- System shows full planned quantities
-- Reduce to the remaining 50%
-- Commit
-
-Both issues link to the same planning document. Total issued equals planned amount.
-
-### Scenario 3: Lot Substitution
-
-Planning specified Lot K2024-015, but that lot has quality issues discovered after planning. You need to use Lot K2024-017 instead (same grade, same width, just different lot).
-
-Create material issue:
-- Select the planning document
-- Auto-populate
-- Find the line that specifies Lot K2024-015
-- Change "Lot ID" to K2024-017
-- Verify "Available quantity" shows adequate stock of the new lot
-- Commit
-
-Production uses the substitute lot. The issue document shows you made a substitution (for quality/audit records).
-
-### Scenario 4: Multiple Planning Documents, One Issue
-
-Sometimes shop floor setups make it efficient to issue materials for multiple jobs at once.
-
-Create a material issue:
-- DON'T select a planning document in the header (leave it blank)
-- Manually add detail lines, one per material from each planning document
-- Use remarks to note which lines are for which planning documents
-- Commit
-
-This works but loses the automatic link. You can't auto-populate. Use this only when batching issues makes operational sense and the overhead of manual entry is worth it.
-
-## Understanding Inventory Impact
-
-When you commit a material issue, inventory quantities change:
-
-**Before**:
-```
-Item: Kraft Liner 125gsm
-Lot: K2024-015
-Box (Width): 2000mm
-Warehouse: Main Warehouse
-Locator: Roll Storage Zone A
-Available Quantity: 500 meters
-```
-
-**Issue 97 meters**
-
-**After**:
-```
-Item: Kraft Liner 125gsm
-Lot: K2024-015
-Box (Width): 2000mm
-Warehouse: Main Warehouse
-Locator: Roll Storage Zone A
-Available Quantity: 403 meters
-```
-
-The 97 meters are no longer available for other purposes - they're allocated to this production job.
-
-**Multi-dimensional tracking**: Nama tracks quantities by item + lot + dimensions + warehouse + locator. If you have:
-- Lot K2024-015, 2000mm width: 500 meters
-- Lot K2024-015, 1800mm width: 300 meters
-
-These are tracked separately. Issuing from 2000mm doesn't affect the 1800mm quantity.
-
-This level of detail is critical for carton manufacturing where roll width drives everything.
+The multi-dimensional part is worth being explicit about, because it is the whole reason carton stock behaves the way it does. Nama tracks a balance per item **per lot per Box width per warehouse**. A reel item holding 8,000 kg at 1350 mm and 5,200 kg at 1450 mm has two independent balances, and issuing from the 1350 leaves the 1450 untouched. Get the Box value wrong on a line and you will draw down a width you did not mean to, while the width you actually cut stays on the books.
 
 ## Working With Material Issues in Practice
 
-Issue from the planning document whenever you can. Auto-population is not just faster than typing lines — it is what guarantees that the lots leaving the store are the lots the optimizer actually planned around, and hand-entered lines lose that guarantee silently.
+Issue against the plan the optimizer produced, and match its widths. Substituting an 1450 mm reel where 1350 mm was planned is not a like-for-like swap: the cutting pattern was calculated for a specific width, and on a different one the pieces may simply not fit the way the plan says they will. If you have to substitute, expect the trim to differ from the plan and say why in the description — that note costs seconds now and answers a question that would otherwise take an hour to reconstruct.
 
-Issue promptly, too. A plan built on last week's stock picture may no longer be executable: someone else may have drawn from the same lot, or an adjustment may have moved the figures. Checking available quantity at the point of insert is the cheap way to catch that before committing rather than after.
+Issue promptly, too. A plan built on last week's stock picture may no longer be executable, because someone else may have drawn from the same lot in the meantime. The gap between planning and issuing is where plans quietly go stale.
 
-Roll widths deserve particular care. The optimizer planned a cutting pattern around specific widths, so substituting an 1800 mm roll where 2000 mm was planned is not a like-for-like swap — the pattern may simply not fit. Where you do have to substitute a lot or a width, say why in the remarks. That note costs seconds now and answers a question that would otherwise take an hour to reconstruct later.
+Keep one plan to one issue where you can. Partial issues are supported and there are good operational reasons for them — staging space on the floor is a real constraint — but each extra document makes the trail from plan to consumption a little harder to follow.
 
-The cleanest audit trail is one planning document to one issue. Partial issues and multi-planning issues are both supported, and there are good reasons to use them, but they make the trail harder to follow — so treat them as the exception.
+And give the shop floor the lot and the width, not just the item. A lot number correct on paper achieves nothing if the operator pulls the wrong physical reel off the rack, and on a paper store the wrong reel usually looks exactly like the right one.
 
-Finally, the shop floor has to know which lots are being issued. A lot number correct on paper achieves nothing if the operator pulls the wrong physical roll, and in a large warehouse specifying locators is what turns "somewhere in the store" into a rack and a position.
+## Where This Sits in the Chain
 
-## Validation and Business Rules
+The material issue is the handover from planning's ideal world to production's real one:
 
-Nama enforces several validations:
+**[Carton Material Planning](./carton-material-planning.md)** decides what to cut and from which reels.
 
-**Must have a planning document** (unless manually creating lines): The planning document link is what enables auto-population and audit trails.
+**Carton Material Issue** takes that paper out of the store and generates the raw material issue that charges it to the job.
 
-**Quantities can't exceed availability**: The system checks current stock before committing. If you try to issue more than what's available in that lot/dimension/warehouse combination, the commit fails.
+**[Production Execution](./production-execution.md)** records what was actually made.
 
-**Dimensions must be complete**: If lot tracking is enabled for the item, you must specify a lot. If dimensional tracking includes Box (width), you must specify it.
+**[Order Close](./production-costing.md)** compares what was issued against what the plan said should have been issued, and settles the cost.
 
-**Warehouse must be specified**: You must indicate which warehouse you're pulling from. No warehouse = no idea where materials are coming from.
-
-## Integration with Production
-
-Material issues are the handoff point from planning to execution:
-
-**Material Planning** (Planning Phase):
-- Creates the "what to cut" plan
-- Specifies lots and quantities
-
-**Material Issues** (Staging Phase):
-- Physically withdraws materials from warehouse
-- Allocates them to production
-- Reduces inventory
-
-**Production Execution** (Execution Phase):
-- Uses the issued materials on the shop floor
-- Records actual consumption
-- Compares actual to planned
-
-**Production Costing** (Closing Phase):
-- Allocates material costs to finished goods based on what was actually issued and consumed
-
-The material issue is the bridge between planning's "ideal world" and production's "reality."
-
-## Common Questions
-
-**Q: Can I edit a material issue after committing?**
-A: Like most inventory documents, committed material issues typically shouldn't be edited (it creates accounting and audit issues). If you issued wrong quantities or wrong lots, the standard approach is to create a return/reversal issue or adjust inventory, then issue correctly.
-
-**Q: What if the planning document didn't specify lot numbers (just item classes)?**
-A: Rare for optimized planning, but if it happens, you select lots manually when creating the material issue. Use the freshest/highest quality lots available.
-
-**Q: Can I issue more than planned?**
-A: Yes, if you expect higher consumption (waste/scrap higher than planned). But this means you're deviating from the optimized plan. Better to stick to planned quantities and issue more later if actually needed.
-
-**Q: What if I issue materials and then production is cancelled?**
-A: Create a return/reversal material issue to put materials back in inventory. Or leave them as "issued but unused" and adjust when production eventually happens.
-
-**Q: Does the material issue update the production order BOM automatically?**
-A: No. The production order BOM comes from material planning. The material issue is a separate inventory transaction. However, if you configured the production order term to auto-generate material issues, those issues would match the BOM. If creating material issues manually, you control what's issued.
-
----
-
-::: tip Stick to the Plan
-The material planning optimizer worked hard to find the best cutting plan with specific lots and widths. Issue exactly what it specified to get the planned material efficiency. Substitutions might seem minor but can throw off the whole cutting pattern.
-:::
-
-::: warning Check Availability First
-Before committing a material issue, verify that all lots have adequate available quantities. The last thing you want is to commit a production schedule and then realize you don't have the materials you thought you had.
-:::
-
-::: info Traceability
-The chain from Customer Order → Material Planning → Material Issue → Production Order creates complete traceability. You can trace any finished carton back to the exact roll lot it came from. This is critical for quality investigations.
-:::
-
----
-
-## You're Ready to Manufacture Cartons
-
-You now have the complete carton manufacturing workflow:
-
-1. **[Specifications](./carton-specifications.md)** define your products
-2. **[Orders](./carton-orders.md)** capture customer requirements
-3. **[Material Planning](./carton-material-planning.md)** optimizes cutting plans
-4. **Material Issues** (this document) stage materials for production
-5. Standard Nama **Production Execution** records actual work
-6. **Production Costing** finalizes costs and inventory values
-
-The carton manufacturing module brings industrial optimization to a traditionally manual process. Use it well, and you'll see material waste drop, production efficiency rise, and margins improve.
+That last comparison is the point of doing any of this precisely. The variance between planned and issued material is the number that tells you whether the optimizer's plan survived contact with the shop floor — and it is only as honest as the widths and lots you typed on this screen.

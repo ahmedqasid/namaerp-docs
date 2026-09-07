@@ -365,7 +365,7 @@
 - [Carton Specifications: Defining Your Products](https://docs.namasoft.com/modules/manufacturing/carton-specifications.html): Think of a carton specification as the complete blueprint for a carton product. - entities: CRTNSpecification - menu: Manufacturing → Cartoon → CRTN Specification
 - [Carton Orders: From Customer Request to Production Plan](https://docs.namasoft.com/modules/manufacturing/carton-orders.html): A carton order is your sales document - it's how customers purchase cartons from you. - entities: CRTNOrder - menu: Manufacturing → Cartoon → Carton Order
 - [Carton Material Planning: The Optimization Engine](https://docs.namasoft.com/modules/manufacturing/carton-material-planning.html): This is where Nama ERP earns its keep in carton manufacturing. - entities: CRTNMaterialPlanning, CRTNPlanningConfiguration - menu: Manufacturing → Cartoon → CRTN Material Planning
-- [Carton Material Issues: From Warehouse to Shop Floor](https://docs.namasoft.com/modules/manufacturing/carton-material-issue.html): You've created a material planning document. - entities: CRTNMaterialIssue - menu: Manufacturing → Cartoon → Carton Material Issue
+- [Carton Material Issues: From Store to Shop Floor](https://docs.namasoft.com/modules/manufacturing/carton-material-issue.html): You have a material planning document. - entities: CRTNMaterialIssue - menu: Manufacturing → Cartoon → Carton Material Issue
 - [Frequently Asked Questions — Manufacturing Module in Nama ERP](https://docs.namasoft.com/modules/manufacturing/manufacturing-faq.html): You can achieve this through an Entity Flow (مسار كيان) that executes during the production order save operation. - entities: ProductionOrder
 
 ### Human Resources

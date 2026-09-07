@@ -121,6 +121,10 @@ Now define what the carton is made of:
 
 **Fluting** (نوع التموج): Choose the fluting profile - E-flute, C-flute, B-flute, etc. This determines the thickness and strength of the corrugated medium.
 
+**Fluting**, **Corrugating Type** and **Corrugating Factor** are three different things and are easy to confuse. **Fluting** here on the header is a descriptive profile for the board as a whole. **Corrugating Type**, chosen per layer, is the record that ties a flute to a carton type and carries the **Corrugating Factor** — the numeric take-up ratio the calculations actually use. The header tells a person what the board is; the layer tells the system how much paper it eats.
+
+![A corrugating type, tying a flute profile to a carton type and a factor](../../ar/modules/manufacturing/images/carton/corrugating-type-en.png)
+
 **Join Type** (نوع التلصيق): How the carton is joined - glued, stitched, taped, etc.
 
 **Slotting Type** (نوع التخريم): The slotting pattern - standard, special, etc.
@@ -139,36 +143,17 @@ This is where you define what materials actually go into manufacturing the carto
 
 #### First Production Stage: The Layers
 
-Click "Add" in the First Production Stage grid. Each line represents one layer of material.
+Each row in the **First Production Stage** grid is one layer of material, outside to inside.
 
-For a typical 3-layer corrugated board:
+![The three layers of a single-wall carton, with the fluting layer's corrugating type and factor](../../ar/modules/manufacturing/images/carton/carton-spec-layers-en.png)
 
-**Layer 1 - Facing**:
-- **Layer Type**: Select "Facing" (الوجه الخارجي)
-- **Section**: Select the item section for paper rolls (e.g., "Raw Materials")
-- **Item Class 1**: Select the paper type (e.g., "Kraft Liner")
-- **Item Class 2**: Select the grade or weight (e.g., "125 GSM")
-- Additional classes (3-10): Use for further filtering if needed (color, finish, etc.)
-- **Corrugating Factor** and **Corrugating Type**: Usually left blank for facing (no corrugation)
+**Layer Type** says what the layer is, and it has four values: **Front** (the outer liner), **Stuffing** (the corrugated medium), **Back** (the inner liner) and **Other** — anything else, such as the middle liner of a double-wall board.
 
-**Layer 2 - Fluting**:
-- **Layer Type**: Select "Fluting" (التموج)
-- **Section**: Raw Materials
-- **Item Class 1**: "Fluting Medium"
-- **Item Class 2**: "C-Flute" (or whichever fluting type)
-- **Corrugating Factor**: Select the corrugating factor (e.g., "1.5" if the fluting expands by 50%)
-- **Corrugating Type**: Select the corresponding corrugating type (must match the factor)
+**Class 1** and **Class 2** are the two columns that matter most, because they are how material is found. Class 1 is the paper grade and Class 2 is the grammage, and the [material planner](./carton-material-planning.md) searches stock for reel items carrying exactly that pair. **Item Section** and **Class 3** to **Class 5** narrow the search further where a grade alone is not specific enough. **Item** pins the layer to one specific stock item instead, which is worth doing only when there is genuinely one material and no choice to make.
 
-**Layer 3 - Liner**:
-- **Layer Type**: Select "Liner" (البطانة الداخلية)
-- **Section**: Raw Materials
-- **Item Class 1**: "Test Liner"
-- **Item Class 2**: "150 GSM"
-- **Corrugating Factor** and **Corrugating Type**: Blank (liner isn't corrugated)
+**Corrugating Type** and **Corrugating Factor** apply to the corrugated layer and stay blank on flat liners. The factor is the take-up ratio: the medium is fluted, so it consumes more paper per square metre of board than a flat sheet does. A B flute at 1.34 uses 34% more, a C flute at 1.44 uses 44% more. Nama uses this both to calculate the carton weight and to work out how much medium the plan has to find.
 
-The system uses these item classes to search inventory when planning materials. It finds all inventory items that match these classifications.
-
-**Material Quantity and Finished Quantity**: These are typically auto-calculated. Material quantity is how much raw material is needed (considering corrugating factor for fluting). Finished quantity is the output.
+A single-wall carton is three rows — Front, Stuffing, Back. A double-wall carton is five — Front, Stuffing, Other, Stuffing, Back — two fluted layers, usually on different flute profiles, separated by a middle liner.
 
 #### Second Production Stage (Optional)
 
@@ -255,26 +240,22 @@ Now when someone orders "DISPLAY-FULL", Nama's manufacturing details will show i
 
 ### Using Formulas for Sheet Calculations
 
-Manual sheet dimension entry gets tedious and error-prone. Set up patterns or crease molds with formulas instead.
+Typing sheet dimensions by hand gets tedious and error-prone. A **Pattern** does it for you.
 
-In the **Pattern** or **Crease Mold** master file, define formulas using Groovy expressions:
+The pattern master file, under **Manufacturing → Cartoon → CRTN Pattern**, holds exactly two formulas: **Length Formula** and **Width Formula**. They are written in terms of the carton's own measurements — `l` for length, `w` for width, `h` for height — plus whatever constants the blank needs.
 
-**Regular Slotted Carton (RSC) pattern might have**:
-- Length formula: `(h + w) + f`
-- Width formula: `(2 * (l + w)) + f`
+![A carton pattern and its two sheet formulas](../../ar/modules/manufacturing/images/carton/pattern-en.png)
 
-The formulas can be complex:
-```groovy
-// Example: account for material thickness
-(2 * l) + (2 * w) + (4 * 0.5) + f  // 0.5mm material thickness
-```
+For a regular slotted container the geometry is fixed, and the formulas fall straight out of it. The blank wraps all four walls plus a glue flap, so its length is `(l+w)*2` plus that flap. Across the corrugation it carries the box height plus two flaps of half the width each, so its width is `w+h`:
 
-Or reference mold dimensions:
-```groovy
-ml + mw + 10  // mold length + mold width + 10mm clearance
-```
+- Length Formula: `(l+w)*2+40`
+- Width Formula: `w+h`
 
-When you select that pattern in a specification and enter physical dimensions, sheet dimensions calculate automatically.
+Check it against a real box. A 400×300×150 mm carton gives `(400+300)*2+40 = 1440` and `300+150 = 450` — exactly the sheet that carton needs.
+
+A flat separator needs nothing more elaborate than `l` and `w`, since the pad is simply the size of the space it divides.
+
+Select the pattern on a specification, enter the physical dimensions, and the sheet dimensions follow.
 
 ### Weight Calculations
 
@@ -325,6 +306,8 @@ Nama enforces several validations when you save a specification:
 **Corrugating factors must match types**: If you select a corrugating type in a layer, its corrugating factor must match the factor specified in the corrugating type master data.
 
 **Starch levels must match types**: If your carton type has a starch level defined, the specification's starch level should match.
+
+**The specification's customer must be the order's customer**: A carton order accepts only specifications belonging to the customer on its header. Put a Spinneys specification on a Metro Markets order and the save is refused with a message naming both customers. This is deliberate — carton specifications are customer-specific tooling and artwork rather than a shared catalogue — but it does mean the same product for a second customer needs its own specification.
 
 **Assembled cartons require children**: If manufacturing type is "Assembled Carton" or "Assembled Separator", you must add child carton lines. Conversely, normal cartons can't have children.
 
