@@ -22,6 +22,28 @@ title: التصنيع
   <LandingCard icon="📊" title="تخطيط متطلبات المواد (MRP)" link="/ar/modules/manufacturing/material-requirements-planning.md" details="تحديد ما تحتاجه من مواد ومتى لتلبية خطة الإنتاج." />
 </LandingGrid>
 
+## الملفات الرئيسية
+
+اضبطها مرة واحدة، فيقرأ منها كل أمر إنتاج تنشئه.
+
+<LandingGrid>
+  <LandingCard icon="🧩" title="مكونات المنتج (BOM)" link="/ar/modules/manufacturing/manufacturing-bom.md" details="الوصفة: ما المكونات التي تدخل في وحدة واحدة من المنتج التام." />
+  <LandingCard icon="🛤️" title="مسارات التشغيل" link="/ar/modules/manufacturing/manufacturing-routing.md" details="الطريقة: تسلسل العمليات التي يمر بها المنتج." />
+  <LandingCard icon="🏗️" title="صالات الإنتاج والعمليات القياسية" link="/ar/modules/manufacturing/manufacturing-work-centers.md" details="أين يقع العمل، وما تستهلكه كل خطوة من ماكينات وبشر." />
+  <LandingCard icon="🔧" title="قوالب التصنيع" link="/ar/modules/manufacturing/manufacturing-molds.md" details="عُدَد تبلى: التوريد والاستهلاك والتخريد والقيمة." />
+</LandingGrid>
+
+## مستندات صالة الإنتاج
+
+المستندات اليومية التي تحرّك المواد والزمن والمخلفات على العمل.
+
+<LandingGrid>
+  <LandingCard icon="📥" title="طلبات أوامر الإنتاج" link="/ar/modules/manufacturing/production-order-request.md" details="اطلب تصنيع شيء، ودع التخطيط يقرر أيصير عملًا أم لا." />
+  <LandingCard icon="📤" title="صرف المواد الخام وإرتجاعها" link="/ar/modules/manufacturing/raw-material-issue.md" details="سحب المكونات من المخزن إلى العمل، وإعادة ما يعود منها." />
+  <LandingCard icon="⏱️" title="سندات الموارد" link="/ar/modules/manufacturing/manufacturing-resource-voucher.md" details="تحميل زمن الماكينات والعمالة على أمر الإنتاج." />
+  <LandingCard icon="♻️" title="إستلام التالف" link="/ar/modules/manufacturing/scrap-receipt.md" details="إدخال القصاصات والمخلفات إلى المخزون بوصفها شيئًا تملكه." />
+</LandingGrid>
+
 ## تصنيع الكرتون والورق المموّج
 
 أدوات متخصّصة لمصنّعي الكرتون، من مواصفات المنتج إلى مُخطّط مواد يُحسّن الاستخدام.

@@ -12,6 +12,8 @@ You've created a production order - that's your plan. Now comes the real work: a
 
 You'll find it under **Manufacturing > Documents > Production Execution** (التصنيع > المستندات > تنفيذ إنتاج).
 
+![The production execution screen](../../ar/modules/manufacturing/images/production-execution/production-execution-en.png)
+
 Think of production execution as the shop floor's voice in the system. It says "here's what we actually accomplished today" - not what the plan said should happen, but what really did happen.
 
 ## Understanding Operation Steps: The Four States
@@ -432,32 +434,22 @@ Module-wide settings like:
 Settings on the production order itself affect execution:
 - **Cost Per Batch**: If enabled, costs are tracked separately for each lot/batch. Execution must specify lot numbers.
 
-## Tips for Effective Execution
+## Getting Good Results From Execution
 
-**Record executions frequently**. Don't wait until the end of the shift or end of the day. Record work as it happens (or at least by operation). This gives managers real-time visibility and makes troubleshooting easier if issues arise.
+The single most useful habit is recording work **as it happens**, or at least operation by operation, rather than saving it all for the end of a shift. Real-time execution data is what lets a manager see where an order is without walking the floor, and it is what makes a problem traceable to the step and the hour it occurred.
 
-**Use Auto Delivery for final operations**. Why do a manual product delivery when the system can do it automatically? Less work, fewer errors, faster availability of finished goods.
+Where a final operation delivers finished goods, let **Automatic Product Delivery** do it. A manual delivery document for something the system can raise by itself is data entry with no informational content, and every hand-keyed document is a chance to key it wrong.
 
-**Don't skip quality steps**. If an operation has a quality checklist, actually fill it out. The quality data is valuable, and skipping inspections leads to downstream problems.
+Quality steps deserve the same seriousness. If an operation carries a checklist, filling it in is the point — skipped inspections do not make problems go away, they move them downstream to where they cost more. And the rejection data those checks produce is worth reading: an operation that consistently rejects 15% is telling you something specific about tooling, training or incoming material quality, and the execution record is what points at which.
 
-**Track actual times when possible**. Time data feeds scheduling improvements. You can't make routing time estimates better if you don't know how long operations actually take.
+Actual times are worth capturing for the same reason. Routing estimates only improve if somebody knows how long operations really take.
 
-**Investigate high scrap or rework rates**. The system is tracking this data for a reason. If Operation 30 consistently has 15% rejection rates, something's wrong - maybe training, maybe tooling, maybe material quality. The execution data points you to the problem.
+Finally, execution is only as good as the people entering it. The four states — ToMove, Rejected, Scrap and Sample — are the concepts that matter most, and a shop floor that is fuzzy about which one applies produces data nobody can trust.
 
-**Leverage resource-based execution for work centers**. If your factory is organized around work centers that process multiple orders, use that execution mode. It matches your workflow.
-
-**Train shop floor staff properly**. Production execution is only as good as the data entered. Make sure workers understand the concepts (ToMove, Rejected, Scrap, Sample) and when to use each status.
-
----
-
-::: tip Real-Time Visibility
-Production execution updates work-in-process tracking in real-time. Managers can see operation status without walking the factory floor.
+::: warning Quality gates can block execution
+Where the document term requires quality approval and the operation carries a checklist, execution may be held until the quality documents are approved. Plan the approval step into the flow rather than discovering it mid-shift.
 :::
 
-::: warning Quality Gates
-If quality approval is required in the document term and an operation has quality checklists, execution may be blocked until quality documents are approved. Plan accordingly.
-:::
-
-::: info Next Step: Closing
-Once production is complete and all executions are recorded, you'll close the production order to finalize costs. See [Production Costing and Order Closing](./production-costing.md).
+::: tip Next step: closing
+Once production is complete and executions are recorded, closing the order finalises its costs. See [Production Costing and Order Closing](/modules/manufacturing/production-costing).
 :::

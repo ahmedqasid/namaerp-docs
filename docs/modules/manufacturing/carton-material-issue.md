@@ -12,7 +12,7 @@ Now you need to actually pull those materials from the warehouse and allocate th
 
 A material issue is a specialized inventory document that withdraws materials from stock and allocates them to production. It's linked to the material planning document, so you're issuing exactly what the optimizer specified - the right lots, the right quantities, no guesswork.
 
-You'll find material issues under **Manufacturing > Documents > Carton Material Issue** (التصنيع > المستندات > صرف خامات كرتون).
+You'll find material issues under **Manufacturing → Cartoon → Carton Material Issue** (التصنيع ← Cartoon ← صرف خامات كرتون).
 
 ## Why Carton Material Issues Are Special
 
@@ -208,23 +208,17 @@ These are tracked separately. Issuing from 2000mm doesn't affect the 1800mm quan
 
 This level of detail is critical for carton manufacturing where roll width drives everything.
 
-## Tips for Effective Material Issues
+## Working With Material Issues in Practice
 
-**Issue from planning whenever possible**: Auto-population eliminates manual errors. Use the link to the planning document.
+Issue from the planning document whenever you can. Auto-population is not just faster than typing lines — it is what guarantees that the lots leaving the store are the lots the optimizer actually planned around, and hand-entered lines lose that guarantee silently.
 
-**Issue promptly after planning**: Don't plan materials and then wait weeks to issue them. Inventory availability might change. Issue soon after planning (and before production starts).
+Issue promptly, too. A plan built on last week's stock picture may no longer be executable: someone else may have drawn from the same lot, or an adjustment may have moved the figures. Checking available quantity at the point of insert is the cheap way to catch that before committing rather than after.
 
-**Verify lot availability before committing**: Check "available quantity at insert". If it's lower than needed, investigate why (did someone else issue from that lot? was there a stock adjustment?).
+Roll widths deserve particular care. The optimizer planned a cutting pattern around specific widths, so substituting an 1800 mm roll where 2000 mm was planned is not a like-for-like swap — the pattern may simply not fit. Where you do have to substitute a lot or a width, say why in the remarks. That note costs seconds now and answers a question that would otherwise take an hour to reconstruct later.
 
-**Match roll widths exactly**: The optimizer planned for specific widths. Don't substitute a 1800mm roll where 2000mm was planned without understanding the impact - it might not fit the cutting pattern.
+The cleanest audit trail is one planning document to one issue. Partial issues and multi-planning issues are both supported, and there are good reasons to use them, but they make the trail harder to follow — so treat them as the exception.
 
-**Document substitutions**: If you must substitute lots or widths, use the remarks field to note why. Future audits will thank you.
-
-**One issue per planning is cleanest**: While you can create multiple issues from one planning (partial issues) or one issue for multiple plannings, the simplest audit trail is one planning → one issue. Stick to that when possible.
-
-**Coordinate with shop floor**: Make sure the shop floor knows which lots are being issued. They need to pull the right rolls - a lot number on paper doesn't help if they grab the wrong physical roll.
-
-**Use locators if you have them**: In large warehouses, specifying locators (rack/zone/position) speeds up physical picking. The warehouse team knows exactly where to go.
+Finally, the shop floor has to know which lots are being issued. A lot number correct on paper achieves nothing if the operator pulls the wrong physical roll, and in a large warehouse specifying locators is what turns "somewhere in the store" into a rack and a position.
 
 ## Validation and Business Rules
 

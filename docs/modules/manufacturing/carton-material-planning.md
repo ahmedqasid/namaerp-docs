@@ -14,7 +14,7 @@ You have multiple orders of different sizes. Multiple layers per carton, each po
 
 **Carton Material Planning** takes all of that complexity and finds the optimal cutting plan using industrial-strength constraint-programming algorithms. You tell it what you need to make and what materials you have. It tells you exactly how to cut every roll to minimize waste while fulfilling your orders.
 
-You'll find material planning under **Manufacturing > Documents > CRTN Material Planning**.
+You'll find material planning under **Manufacturing → Cartoon → CRTN Material Planning**.
 
 ## The Big Picture: What Material Planning Does
 
@@ -500,34 +500,15 @@ Both have full BOMs with specific lots assigned, routing steps, everything ready
 
 Sarah saved the company roughly 5% in material costs by batching these orders. Over a year, that adds up to significant savings.
 
-## Tips for Effective Planning
+## Working With Planning in Practice
 
-**Plan in batches**: Don't plan every order individually. Use companion orders to batch compatible orders together. The more orders you batch (up to a point), the better the optimizer can pack material usage.
+Batching is where the money is. Planning orders one at a time leaves the optimizer nothing to work with; batching compatible orders through companion orders routinely saves 5-10% of material, and that is the single biggest lever on this screen. But there is a ceiling — too many orders of too many different sizes in one plan makes the problem harder rather than richer, and three to five orders is a practical sweet spot.
 
-**But don't over-batch**: Too many orders in one plan (especially with different sizes) increases complexity. The optimizer might struggle. Aim for 3-5 orders per plan as a sweet spot.
+Plan regularly rather than saving up a week's worth. Smaller, more frequent batches keep the flexibility to slot in a rush order, which a single weekly mega-plan does not.
 
-**Plan regularly**: Don't wait until you have a week's worth of orders. Plan daily or every few days. Smaller, more frequent batches give you flexibility to prioritize rush orders.
+Before accepting companion orders, use **Review Available Quantities**. Committing to a combined plan you cannot actually source is worse than planning the orders separately, because it fails later and at a worse moment.
 
-**Review available materials early**: Before accepting companion orders, click "Review Available Quantities" to make sure you can actually fulfill the combined plan. Don't commit to planning you can't execute.
+Force widths sparingly. The optimizer is better at this than intuition is, and forcing widths should be reserved for real constraints — a customer requirement, finishing off partial rolls, a machine limitation — not for a hunch.
 
-**Use forced widths sparingly**: Let the optimizer do its job. Only force widths when there's a real reason (customer requirement, finishing off partial rolls, machine constraints).
+Watch the solution type. A run that keeps returning **Feasible** rather than **Optimal** is telling you it ran out of time, and an extra five minutes of search that saves two percent of material is almost always worth waiting for. When optimisation fails outright, save the document as a draft and read the error rather than immediately retrying: it names the items that could not be sourced and the constraints that could not be met, and re-running without fixing those just fails again.
 
-**Monitor solution type**: If you keep getting "Feasible" instead of "Optimal" solutions, consider increasing max search time. An extra 5 minutes of search might save 2% in materials - worth the wait.
-
-**Save failed planning attempts**: If optimization fails, save the document as draft and review the error. It tells you what's wrong (which items couldn't find materials, which constraints failed). Fix the underlying issue before trying again.
-
-**Communicate the plan**: Make sure the shop floor gets the full materials list with lot numbers. Cutting the wrong lot defeats the whole optimization effort.
-
----
-
-::: tip Batching is Gold
-The difference between planning orders individually vs. batching compatible orders can easily be 5-10% in material savings. Always search for companion orders before finalizing a plan.
-:::
-
-::: warning Time Limits Matter
-If the optimizer hits the time limit before finding an optimal solution, you get a "Feasible" result. It's usually good enough, but increasing search time might find better solutions. Experiment with your typical order mix to find the right time limit.
-:::
-
-::: info Next Step
-With materials planned, you're ready to issue them to production. See [Carton Material Issues](./carton-material-issue.md).
-:::

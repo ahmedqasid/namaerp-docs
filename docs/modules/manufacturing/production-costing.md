@@ -1,5 +1,6 @@
 ---
 entities: [OrderCloseVoucher, OverheadType, ActualOverheadCalculator]
+menu: Manufacturing → Documents → Order Close
 ---
 # Production Costing: Following the Money
 
@@ -14,6 +15,8 @@ And even more important: Did production go according to plan? Did you spend what
 This is what production costing is all about. It's the financial truth-telling part of manufacturing - tracking every dollar (or riyal, or whatever currency you use) that went into making your products, and figuring out if you're making money or losing it.
 
 You'll find the main document under **Manufacturing > Documents > Order Close** (التصنيع > المستندات > إغلاق أمر إنتاج).
+
+![The order close voucher screen](../../ar/modules/manufacturing/images/order-close/order-close-en.png)
 
 ## Understanding Manufacturing Costs: The Three Buckets
 
@@ -480,34 +483,20 @@ Several settings control how costing works:
 
 **Accounting Accounts**: Where to debit and credit for each overhead element.
 
-## Tips for Effective Costing
+## Getting Good Results From Costing
 
-**Close orders regularly**: Don't let them pile up. Close orders a week or two after production completes. Fresh data, fresh memories if questions arise.
+Close orders on a regular rhythm rather than letting them accumulate. A week or two after production finishes, the data is fresh and so are the memories of anyone who has to answer a question about it. Months later, both have faded.
 
-**Review variances**: If you're using standard costing, actually look at the variances. They're telling you something. Big variances are red flags.
+Then actually read the variances. This is the step most often skipped, and skipping it wastes the entire exercise — the variance is the output, not the paperwork around it. A large one is a signal about something real, and the useful response is to work out which of the plausible explanations it is: supplier quality, process waste, or a [BOM](/modules/manufacturing/manufacturing-bom) that no longer describes what the product is made of. A 15% unfavourable material variance is data; knowing which of those three caused it is information.
 
-**Update standards periodically**: If you consistently have 20% favorable variances, your standards are probably outdated. Update them to reflect current reality.
+Consistently *favourable* variances deserve the same suspicion. Twenty percent favourable, month after month, does not mean the factory is beating expectations — it almost always means the standards are out of date and should be reset to current reality.
 
-**Choose overhead methods that match your business**: Don't just copy what another company does. If your overhead really is driven by production hours, use rate per hour. If it's driven by material handling, use percentage of material cost.
+Choose overhead methods that match how your costs actually behave rather than copying another company's approach. If overhead is genuinely driven by production hours, a rate per hour is honest; if it is driven by material handling, a percentage of material cost is. And whichever predetermined method you use for day-to-day speed, run an actual overhead calculation at period end to true the figures up.
 
-**Use actual overhead for period-end accuracy**: Predetermined rates are fine for quick costing, but run an actual overhead calculation at period-end to true up your costs.
-
-**Track cost trends over time**: Is the cost per unit going up or down? Are variances getting better or worse? Trends tell you if you're improving or declining.
-
-**Investigate, don't just record**: A 15% unfavorable material variance is data. Understanding why (supplier quality issues, process waste, BOM inaccuracy) is information. Information drives improvement.
-
-**Consider cost-per-batch for compliance**: If you're in a regulated industry (pharma, food, medical devices), batch-level costing might not be optional - it might be required for traceability and compliance.
-
----
-
-::: tip The Big Picture
-Production costing connects manufacturing reality to financial results. It's the bridge between "we made 100 units" and "it cost us $X to make them, and here's why."
+::: warning Closing locks the costs
+Once an order is closed its costs are locked, and reopening it is not straightforward. Make sure production is genuinely complete first.
 :::
 
-::: warning Lock It Down
-Once an order is closed, costs are locked. Make sure all production is truly complete before closing. You can't easily reopen a closed order if you realize you forgot something.
-:::
-
-::: info Variance Analysis is Gold
-If you're using standard costing, the variance analysis isn't just accounting busywork - it's your early warning system for process problems and cost overruns. Pay attention to it.
+::: tip Regulated industries may not have a choice
+In pharmaceuticals, food or medical devices, batch-level costing is often a traceability and compliance requirement rather than a management preference. Check what your regulator expects before deciding it is optional.
 :::

@@ -10,6 +10,12 @@ A Production Order (أمر إنتاج) is your formal instruction to the factory
 
 You'll find production orders under **Manufacturing > Documents > Production Order** (التصنيع > المستندات > أمر إنتاج).
 
+![The production order screen](../../ar/modules/manufacturing/images/production-order/production-order-en.png)
+
+The list view is where you see the whole picture — every order, its status and its quantities in one place.
+
+![The production order list view](../../ar/modules/manufacturing/images/production-order/production-order-list-en.png)
+
 Think of a production order as a work packet that contains everything needed for manufacturing:
 - What product to make
 - How many units
@@ -429,28 +435,20 @@ Understanding the constraints helps avoid frustration:
 
 This lifecycle ensures data integrity. Once you've started production and are consuming materials and recording labor, you can't go back and change what the order was supposed to be. What you see is what actually happened.
 
-## Tips for Success
+## Getting Good Results From Production Orders
 
-A few practical suggestions from experience:
+A production order is only ever as good as the master data underneath it. Time spent making [BOMs](/modules/manufacturing/manufacturing-bom) accurate — right quantities, honest scrap factors, realistic yields — and [routings](/modules/manufacturing/manufacturing-routing) realistic pays back on every order that uses them. The alternative is a shop that manually adjusts every order it creates, which is both slower and less reliable than fixing the master file once.
 
-**Start with good BOMs and routings**. The production order is only as good as the master data it's based on. Invest time in getting BOMs accurate (correct quantities, scrap factors, yields) and routings realistic (accurate operation times, correct work centers). Bad master data leads to constant manual adjustments.
+The same argument applies to overriding component quantities on the order itself. The calculated figures already account for yield, scrap and order-quantity scaling. Overriding them is sometimes right, but it should be a decision with a reason behind it rather than a habit, because a manual figure stops responding to changes in the recipe and quietly becomes wrong.
 
-**Use standard operations**. If you do the same operation on many products, create a standard operation template. It ensures consistency and saves data entry time.
+Timing matters too. **In Progress** is meant for orders that are actually being worked on, so starting an order months ahead of production leaves you with a list of open orders that tells you nothing about what the factory is really doing. Closing promptly has the same logic in reverse: a week or two after production finishes, close it. The record stays available, but it stops cluttering the picture of live work.
 
-**Let the system do the calculations**. Don't override component quantities unless you have a good reason. The system's calculations account for yields, scrap, and order quantity scaling. Manual overrides often lead to shortages or excess.
+And where you find yourself creating dozens of similar orders by hand, stop and use the tools built for it — [production order requests](/modules/manufacturing/production-order-request) for the request-to-order route, or aggregated orders for batch planning.
 
-**Start orders when you're ready to produce, not months in advance**. The "In Progress" status is meant for active production. If you start orders too early and then priorities change, you end up with lots of open orders that aren't actually being worked on.
-
-**Close orders promptly when production is done**. Open orders consume system resources and clutter reports. A few weeks after production completes, close the order. You can still reference it later, but it's clearly marked as finished.
-
-**Use production requests or aggregated orders for batch planning**. If you're creating dozens of similar orders, these tools make life much easier than creating them one by one.
-
----
-
-::: tip Next Step: Execution
-Creating a production order is planning. The next step is actually doing the work. Check out the [Production Execution](./production-execution.md) guide to learn how shop floor activities are recorded.
+::: warning Locked after starting
+Once you start a production order, its BOM and routing structure is locked. Check both before starting rather than after.
 :::
 
-::: warning Locked After Starting
-Once you start a production order, the BOM and routing structure is locked. Double-check everything before starting.
+::: tip Next step: execution
+Creating the order is planning. [Production Execution](/modules/manufacturing/production-execution) is where the work gets recorded.
 :::

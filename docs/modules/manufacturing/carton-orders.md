@@ -12,7 +12,9 @@ On the surface, it looks like any sales document: customer, quantities, prices, 
 
 When a customer orders assembled cartons, Nama automatically figures out all the component cartons that need to be manufactured. When they order 5000 units, Nama tracks which of those units have been planned for production, which are still pending, and prevents you from accidentally planning the same order twice.
 
-You'll find carton orders under **Manufacturing > Documents > CRTN Order** (التصنيع > المستندات > طلبية كرتون).
+You'll find carton orders under **Manufacturing → Cartoon → Carton Order** (التصنيع ← Cartoon ← طلبية كرتون).
+
+![A carton order with two specification lines](../../ar/modules/manufacturing/images/carton/carton-order-en.png)
 
 ## Creating a Basic Carton Order
 
@@ -245,19 +247,17 @@ Carton orders are full invoicing documents. They implement the standard Nama inv
 
 The **Money** section calculates exactly like a sales invoice. Discounts reduce prices, taxes apply to after-discount amounts, and the total matches what you'd invoice the customer.
 
-## Tips for Effective Order Entry
+## Working With Orders in Practice
 
-**Confirm specs with customer**: Before creating an order, make sure you and the customer agree on which specification to use. If they ordered "250mm tomato box" but you have three different 250mm specs with different fluting or printing, clarify which one.
+Agree the specification with the customer before the order exists. "250 mm tomato box" is not a specification if you hold three of them differing in fluting or printing, and the time to resolve that is at order entry, not at cutting.
 
-**Check inventory before committing large orders**: If the order is large and has tight delivery timing, do a quick material availability check before committing. Create a draft planning document to see if you have materials in stock.
+Specifications are tagged with a customer, so a spec tagged to the wrong one simply will not appear when you create that customer's order. If a specification you expect is missing from the list, that tag is the first thing to check.
 
-**Use consistent customers on specs**: Make sure the specification is tagged with the right customer. If it's not, you won't be able to select it when creating orders for that customer.
+For a large order on tight timing, check material availability before committing to a date. A draft planning document answers the question in a couple of minutes and costs nothing if you discard it. And before promising any delivery date, check whether the order has actually been planned — an unplanned order has neither confirmed material nor a place in the production schedule, however firm the date sounds.
 
-**Batch similar orders**: If you have multiple small orders for the same customer, consider whether they can be combined into one order with multiple lines. This makes material planning more efficient (the optimizer sees all requirements together).
+Where a customer has several small orders, consider whether they belong on one order with several lines. Material planning sees all the requirements together that way, which is exactly the condition under which the optimizer does its best work.
 
-**Monitor planning status**: Before promising delivery dates, check if the order has been planned. An unplanned order doesn't have confirmed material availability or production scheduling.
-
-**Document special requirements**: Use the remarks and description fields for anything unusual - special printing, rush delivery, customer-specific packaging instructions. This information travels with the order through production.
+Anything unusual — special printing, a rush, customer-specific packaging — belongs in the remarks and description. That text travels with the order all the way through production, which is where it is needed.
 
 ## Common Questions
 

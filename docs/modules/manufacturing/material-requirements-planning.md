@@ -2,125 +2,53 @@
 entities: [MRPDocument, Scenario, MRPAvailableQtySource]
 menu: Manufacturing → Material Resource Planning → planning raw materials Document
 ---
-# Material Requirements Planning (MRP) - User Guide
+# Material Requirements Planning: Working Out What to Buy and When
 
-## Introduction to MRP
+## The Question MRP Answers
 
-**Material Requirements Planning (MRP)** is a production planning, scheduling, and inventory control system designed to manage manufacturing processes. It helps organizations ensure they have the right materials, in the right quantities, at the right time to meet production demands.
+A customer orders 50 desks for delivery in six weeks. You know what a desk is made of, because the [BOM](/modules/manufacturing/manufacturing-bom) says so: a laminated top panel and a powder-coated steel frame. You also know the panel is made of chipboard and laminate sheet, and the frame of steel tube and powder coat. And you know that steel tube takes three weeks to arrive from your supplier.
 
-### Why MRP is Important
+So: do you need to order steel tube today, or not? And how much, given that you already have some in the store, some on order, and a safety stock level you would rather not dip below?
 
-MRP systems help businesses:
-- **Reduce inventory costs** by ordering materials only when needed
-- **Improve customer service** by ensuring timely delivery
-- **Optimize production scheduling** by planning material availability
-- **Minimize stockouts** through proactive planning
-- **Coordinate purchasing and production** activities
+That question is easy to get wrong and tedious to get right, and it multiplies. Fifty desks is four component types and one purchase decision. A month's order book across a real product range is thousands of them, each with its own lead time, its own stock position, and its own dependency on something else being made first. **Material Requirements Planning** is the machinery for answering all of them at once.
 
-### Core MRP Objectives
+You'll find the MRP document under **Manufacturing → Material Resource Planning → planning raw materials Document** (التصنيع ← تخطيط موارد ← سند تخطيط).
 
-1. **Ensure materials are available** for production and products are available for delivery to customers
-2. **Maintain the lowest possible material and product levels** in inventory
-3. **Plan manufacturing activities, delivery schedules, and purchasing activities**
+![The MRP document screen](../../ar/modules/manufacturing/images/mrp/mrp-document-en.png)
 
----
+## How the Calculation Thinks
 
-## MRP Concepts
+Underneath all the fields, MRP does one thing repeatedly, and it is worth understanding before you use the screen — because when a result surprises you, it is almost always one of these steps that explains it.
 
-Understanding these fundamental concepts is essential for effective MRP usage:
+**It starts with demand, and demand comes in two flavours.** *Independent* demand is what the outside world asks for: sales orders, forecasts, manually entered requirements. *Dependent* demand is what the first kind implies — you did not order 200 table legs, but 50 desks means 200 legs, and that is a requirement just as real as the customer's.
 
-### 1. Demand
+**It explodes.** Starting from finished-product demand, it works down the BOM tree level by level, turning each product requirement into component requirements, until it reaches things that are bought rather than made. Fifty desks becomes fifty top panels and fifty frames; fifty frames becomes so many metres of steel tube.
 
-**Demand** represents the need for finished products or materials. There are two types:
+**It nets off what you already have.** A gross requirement for 200 legs is not a purchase order for 200 legs. Subtract what is in stock, subtract what is already on order and due in time, add back whatever safety stock you have decided to protect, and the remainder is the *net* requirement — the amount that genuinely has to be created.
 
-- **Independent Demand**: Demand from customers (e.g., sales orders, forecasts)
-- **Dependent Demand**: Demand derived from the production of other items (e.g., components needed to manufacture a product)
+**It works backwards from the date.** This is the part that makes MRP more than a shopping list. If the desks ship in six weeks, the frames must be finished before that, so the steel tube must arrive before *that*, so the purchase order must be raised three weeks earlier still. Lead times turn a quantity into a date, and the date is usually the more actionable half of the answer.
 
-### 2. Bill of Materials (BOM)
+**It rounds to how you actually buy and make.** Net requirements rarely match the sizes the world deals in. Lot sizing applies the real constraints — a fixed batch size, a supplier minimum, or lot-for-lot where you simply take exactly what you need.
 
-A **Bill of Materials** is a comprehensive list of:
-- Raw materials
-- Sub-assemblies
-- Components
-- Parts
-- Quantities of each
+::: tip When a result looks wrong, walk the five steps
+Nearly every "MRP is telling me nonsense" turns out to be one of these: demand that was not collected, a BOM level that does not explode because a sub-assembly has no BOM, stock netted from a warehouse you did not mean to include, a lead time nobody has maintained, or a lot size rounding a requirement up. Checking them in that order is faster than staring at the result.
+:::
 
-...required to manufacture a finished product.
+## The Pieces in Nama
 
-**Example BOM Structure:**
-```
-Product: Chair
-├── Seat (1 unit)
-├── Backrest (1 unit)
-├── Legs (4 units)
-├── Screws (16 units)
-└── Wood Glue (50 ml)
-```
+The **MRP Document** (سند تخطيط) is where all of this happens — one document per planning run, holding the demand it collected, the analysis it performed, and the orders it proposes.
 
-### 3. Routing
+It draws on files you will already recognise, plus a few that exist only for planning:
 
-A **Routing** defines the sequence of operations and resources required to manufacture a product:
-- Operation steps
-- Work centers/machines
-- Time requirements
-- Resource allocation
+| Screen | Arabic | What it contributes |
+|---|---|---|
+| BOM | مكونات منتج | The component structure that gets exploded |
+| Routing | عملية تشغيل | The operations, and the manufacturing time they imply |
+| Sales Order | أمر بيع | Real customer demand |
+| Sales Forecast Document | سند توقعات | Predicted demand, for planning beyond the order book |
+| Manual Demand Document | سند طلب يدوي | Requirements entered by hand that no other document carries |
 
-### 4. Lead Time
-
-**Lead Time** is the time between initiating and completing a process:
-- **Manufacturing Lead Time**: Time to produce an item
-- **Purchase Lead Time**: Time from ordering to receiving materials
-
-### 5. Safety Stock
-
-**Safety Stock** is extra inventory held to guard against:
-- Demand variability
-- Supply delays
-- Quality issues
-- Forecast inaccuracy
-
-### 6. Lot Sizing / Batch Size
-
-**Lot Sizing** determines how much to order or produce:
-- Fixed batch size
-- Economic Order Quantity (EOQ)
-- Lot-for-lot (produce exactly what's needed)
-- Minimum order quantities
-
-### 7. MRP Explosion
-
-**MRP Explosion** is the process of:
-1. Starting with demand for finished products
-2. Breaking down (exploding) into component requirements
-3. Calculating net requirements at each level
-4. Scheduling production and purchases
-
----
-
-## MRP in Nama ERP
-
-Nama ERP implements a comprehensive MRP system that integrates seamlessly with other modules. Here's how MRP concepts map to Nama ERP entities and processes:
-
-### Main Entity: MRP Document (سند تخطيط)
-
-**Navigation Path:** Manufacturing > Material Resource Planning > planning raw materials Document
-
-**Arabic Name:** سند تخطيط
-**English Name:** Planning Raw Materials Document
-
-The MRP Document is the central entity that coordinates all material requirements planning activities.
-
-### Related Entities
-
-| Entity | Arabic Name | English Name | Purpose |
-|--------|-------------|--------------|---------|
-| **BOM** | مكونات منتج | Bill of Materials | Defines product components and quantities |
-| **Routing** | عملية تشغيل | Operation Routing | Defines production operations and resources |
-| **MRPSalesForecasting** | سند توقعات | Sales Forecast Document | Captures predicted future demand |
-| **ManualDemand** | سند طلب يدوي | Manual Demand Document | Captures manually entered demand |
-| **SalesOrder** | أمر بيع | Sales Order | Represents actual customer orders |
-
----
+The forecast and manual demand documents deserve a note. Planning only from confirmed sales orders means never ordering anything with a lead time longer than your order visibility — which for most manufacturers means never ordering anything useful in time. Forecasts are how you plan past the edge of what customers have actually committed to, and manual demand is the escape hatch for requirements that are real but have no document of their own.
 
 ## Prerequisites
 
@@ -827,32 +755,16 @@ For ongoing production schedules:
 - Suitable for internal consumption patterns
 
 ---
-## Summary
+## What Makes MRP Work, and What Makes It Fail
 
-Material Requirements Planning in Nama ERP provides a comprehensive solution for:
-- ✅ Planning material requirements based on demand
-- ✅ Exploding BOMs to determine component needs
-- ✅ Calculating net requirements considering availability
-- ✅ Generating purchase and production orders automatically
-- ✅ Supporting rolling plans and scenarios
-- ✅ Handling complex manufacturing environments
+MRP has a reputation for being either indispensable or useless depending on the factory, and the difference is not the software. It comes down to a handful of things.
 
-### MRP Workflow Summary
+**Master data accuracy is the whole game.** MRP is an amplifier: it takes your BOMs, routings and lead times and multiplies them across every order in the plan. A BOM missing a component does not produce a small error — it produces a confident purchase plan that omits that component every single run, and nobody notices until the line stops. Lead times are the most commonly neglected of the three, because they are entered once at implementation and then never revisited even as suppliers change.
 
-```
-1. Create MRP Document → Configure date range and parameters
-2. Collect Demand → Gather from sales orders, forecasts, manual demands
-3. Review Requirements → Check required lines are complete
-4. Analyze → Run MRP explosion and calculations
-5. Review Analysis → Verify net requirements and planned orders
-6. Generate Documents → Create purchase and production orders
-7. Execute → Review and commit generated documents
-```
+**Demand has to be honest, including the part you cannot confirm.** A plan built only on committed sales orders will always be too late for anything with a long lead time. That is what forecasts are for, and a rough forecast used consistently beats a precise order book used too late.
 
-### Key Success Factors
+**Frequency matters more than perfection.** A plan run weekly and reviewed for ten minutes is worth far more than a quarterly plan that somebody agonises over. Rolling planning exists precisely so each run can correct the last one, and the corrections are small when the runs are frequent.
 
-1. **Accurate Master Data**: BOMs, routings, lead times
-2. **Reliable Demand**: Sales forecasts and orders
-3. **Regular Planning**: Run MRP at appropriate frequency
-4. **Review Results**: Don't auto-generate without review
-5. **Continuous Improvement**: Refine based on actual performance
+**Review before you generate.** The system proposes orders; it does not know that a supplier is in dispute, that a customer is about to cancel, or that the line is down for maintenance next week. Generating without reading is where MRP earns its bad reputation, and it is entirely avoidable — the analysis lines are there to be read.
+
+Get those right and the eventual test is simple: are you running out of things, and are you sitting on stock you do not need? Both answers should be trending in the right direction. If neither is, the fault will be upstream in the master data, not in the calculation.

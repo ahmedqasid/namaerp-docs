@@ -22,6 +22,28 @@ Plan it, make it, cost it — the backbone of the manufacturing module.
   <LandingCard icon="📊" title="Material Requirements Planning (MRP)" link="/modules/manufacturing/material-requirements-planning.md" details="Work out what materials you need, and when, to meet your production plan." />
 </LandingGrid>
 
+## Master Files
+
+Set these up once and every production order you create reads from them.
+
+<LandingGrid>
+  <LandingCard icon="🧩" title="Bill of Materials (BOM)" link="/modules/manufacturing/manufacturing-bom.md" details="The recipe: what components go into one unit of a finished product." />
+  <LandingCard icon="🛤️" title="Routings" link="/modules/manufacturing/manufacturing-routing.md" details="The method: the sequence of operations a product travels through." />
+  <LandingCard icon="🏗️" title="Work Centers & Standard Operations" link="/modules/manufacturing/manufacturing-work-centers.md" details="Where work happens, and what each step consumes in machines and people." />
+  <LandingCard icon="🔧" title="Manufacturing Molds" link="/modules/manufacturing/manufacturing-molds.md" details="Tooling that wears out: receipts, consumption, disposal and value." />
+</LandingGrid>
+
+## Shop Floor Documents
+
+The everyday documents that move material, time and waste against a job.
+
+<LandingGrid>
+  <LandingCard icon="📥" title="Production Order Requests" link="/modules/manufacturing/production-order-request.md" details="Ask for something to be made, and let planning decide whether it becomes a job." />
+  <LandingCard icon="📤" title="Raw Material Issues & Returns" link="/modules/manufacturing/raw-material-issue.md" details="Draw components from the store to a job, and put back what comes home." />
+  <LandingCard icon="⏱️" title="Resource Vouchers" link="/modules/manufacturing/manufacturing-resource-voucher.md" details="Charge machine and labour time to a production order." />
+  <LandingCard icon="♻️" title="Scrap Receipts" link="/modules/manufacturing/scrap-receipt.md" details="Book offcuts and waste back into stock as something you own." />
+</LandingGrid>
+
 ## Carton & Corrugated Manufacturing
 
 A specialised toolkit for carton makers, from product specs to an optimizing material planner.

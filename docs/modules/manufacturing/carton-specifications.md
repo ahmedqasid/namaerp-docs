@@ -12,6 +12,12 @@ You create these once for each carton design you sell. When customers order "Tom
 
 You'll find specifications under **Manufacturing > Cartoon > CRTN Specification** (التصنيع > Cartoon > مواصفات الكرتونة).
 
+![A carton specification: the Tomato Box 400x300x150](../../ar/modules/manufacturing/images/carton/carton-specification-en.png)
+
+The list view is your product catalogue — every carton design you can quote and make.
+
+![The carton specification list view](../../ar/modules/manufacturing/images/carton/carton-specification-list-en.png)
+
 ## The Four Types of Specifications
 
 Nama supports four manufacturing approaches for cartons:
@@ -294,23 +300,19 @@ Most cartons only use First Production Stage. But if you have multi-stage proces
 
 Each stage can have different material requirements. The material planning optimizer handles multi-stage specs by finding appropriate materials for each stage independently.
 
-## Tips for Effective Specifications
+## Working With Specifications in Practice
 
-**Use consistent naming**: Develop a naming convention. Maybe "CUST-SIZE-TYPE" like "ACME-300-RSC" (Acme customer, 300mm carton, regular slotted carton). Makes searching and filtering easier.
+Adopt a naming convention before you create the first hundred specifications rather than after. Something like `ACME-300-RSC` — customer, size, style — makes searching and filtering work; free-form names do not, and renaming later is nobody's favourite afternoon.
 
-**Link to items**: If you stock cartons, link specs to inventory items. This enables automatic inventory tracking when cartons are produced.
+Set up your common patterns and molds, with their formulas, before creating specifications in bulk. Specifications built on top of ready patterns are faster to create and more consistent than ones where each author improvises.
 
-**Set up patterns and molds first**: Before creating hundreds of specs, set up your common patterns and molds with formulas. Then spec creation becomes faster and more accurate.
+Do not over-specify layers. Define as separate layers only what you actually stock separately — if two layers always arrive pre-laminated, they are one layer as far as the system needs to know, and splitting them adds maintenance without adding information.
 
-**Document thoroughly**: Use the description and remarks fields. Future you (or your colleagues) will thank you when trying to figure out why this spec has unusual dimensions.
+Resist the temptation to share a specification across customers whose dimensions differ even slightly. Separate specifications avoid a whole category of mistake and keep filtering clean.
 
-**Validate before using**: Create a test order with a small quantity, run material planning, make sure the system finds appropriate materials and calculates reasonable quantities. Better to find issues now than when you have a production commitment.
+Validate a new specification before it carries a real commitment: create a small test order, run material planning, and confirm the system finds appropriate materials and calculates sensible quantities. Check the calculated weight against a physical sample too — a figure well off the real one usually means a GSM value or a corrugating factor is wrong, and that is far cheaper to find now than during a production run.
 
-**Don't over-specify layers**: Only define the layers you actually stock as separate materials. If two layers always come pre-laminated, define them as one layer in the system.
-
-**Customer-specific specs**: Don't try to share specifications across customers if dimensions are even slightly different. Create separate specs. It avoids mistakes and makes filtering much cleaner.
-
-**Review weight calculations**: After defining layers, check the calculated weight against physical samples. If it's way off, check your GSM values and corrugating factors.
+Where a specification has unusual dimensions, say why in the description. The colleague who inherits it will not otherwise be able to tell a deliberate choice from a typo.
 
 ## Validation and Business Rules
 
