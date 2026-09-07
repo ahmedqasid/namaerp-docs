@@ -403,6 +403,15 @@ Build the conditions visually on the **Criteria Definition** screen, then use **
 
 A report can carry a button that opens a new, pre-filled record — a receipt voucher against the invoice on the row, a purchase order built from the shortage list being printed. The link does not save anything; it opens the new-record screen with the fields already populated, and the user commits it.
 
+::: tip You do not need a report to do this
+`NamaRep.creator(...)` is the report-side spelling of a **Tempo creator**, and the creator itself is
+not a report feature. The same thing written as a Tempo template — `{creator("ReceiptVoucher")}…
+{endcreator}` — goes straight into the **URL Template** column of a Screen Modifier and becomes a
+button on a screen, with no report in the picture at all. If what you want is a button on an edit
+screen rather than a link on a printout, start from
+[Adding Buttons to a Screen](/platform/screen-modifier/screen-modifier-action-buttons.md).
+:::
+
 ```groovy
 NamaRep.newWithFields("ReceiptVoucher")
   .f("term").value("POTermCode")

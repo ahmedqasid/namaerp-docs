@@ -56,6 +56,17 @@ Tempo can be used in two major contexts:
 Only in record mode can you access nested fields (e.g., `customer.group.code`). In query result mode, such navigation won't work as expected.
 :::
 
+Those two modes describe how a template gets its *values*. Where you actually **write** one is a
+separate question, and there are more places than notifications and reports:
+
+- **Notification and approval templates**, and validation messages — the classic home of Tempo.
+- **Reports**, through the `NamaRep` helpers described in the
+  [NamaRep reference](/platform/reports/reports-namarep-reference.md).
+- **Screen Modifier → Notifications → URL Template** — the column that turns a template into a
+  **button on a screen**. Whatever the template renders is opened as a link, which makes this the
+  way to give a screen a button that opens a pre-filled new record. See
+  [Adding Buttons to a Screen](/platform/screen-modifier/screen-modifier-action-buttons.md).
+
 ---
 
 ## Tempo Syntax Overview
@@ -1719,6 +1730,13 @@ Both examples demonstrate sending a request per row in `details`, with the flexi
 ## Creators in Tempo
 
 In Tempo, a **creator** is used to generate and populate a new entity record (like a sales invoice, customer, etc.) directly from templates.
+
+::: tip Creators are not just for reports
+A creator is a Tempo node, not a report feature. The same `{creator(...)}` block works anywhere a
+Tempo template is rendered — including the **URL Template** column of a Screen Modifier, which is how
+you put a "create a pre-filled record" button directly on a screen without going near a report. See
+[Adding Buttons to a Screen](/platform/screen-modifier/screen-modifier-action-buttons.md).
+:::
 
 ---
 

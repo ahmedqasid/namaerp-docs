@@ -23,6 +23,10 @@ features:
     title: Edit-Screen Modifications
     details: Pages, groups and grids; hide fields and actions; discussion-block options; formulas (composite fields); embedded record editors; and in-screen reports and dashboards.
     link: /platform/screen-modifier/screen-modifier-edit-screen.md
+  - icon: 🔘
+    title: Adding Buttons to a Screen
+    details: The Notifications (Action Authorities) table — the one that adds buttons. Run a report, an entity flow or a bulk edit, or open a link built from the record, including a button that opens a new, pre-filled document.
+    link: /platform/screen-modifier/screen-modifier-action-buttons.md
   - icon: 📋
     title: List View & Selector Pop-up
     details: Display columns, criteria, sorting, quick filters, computed columns, default page size and width — for both the list view and the search/selector pop-up.

@@ -72,7 +72,9 @@ See the [FAQ](/platform/screen-modifier/screen-modifier-faq.md) for a step-by-st
 
 ## Action Authorities — adding buttons
 
-The **Action Authorities** collection lets you add buttons to a screen beyond hiding existing ones. A line here can run a **report** (with its parameters fed from fields on the record) or a **custom action**, placed on the page you choose. The parameter slots map a report/action input to a source field on the screen, so the button opens already filled in with the current record's data.
+The **Action Authorities** collection — the tab is labelled **Notifications** on screen — lets you add buttons to a screen beyond hiding existing ones. Each line is one button, and what it does depends on which column you fill in: run a **report** (with its parameters fed from fields on the record), run an **entity flow** or a **notification**, open a **bulk edit** from a list, or — the most open-ended of them — open a **link built from the current record**, including a link that opens a **new, pre-filled record** on another screen.
+
+That collection is large enough to have its own page: **[Adding Buttons to a Screen](/platform/screen-modifier/screen-modifier-action-buttons.md)** covers every column, where the button can be placed, and a worked example of a button on the customer file that opens a sales invoice with the customer already filled in.
 
 ## Formulas — composite header fields
 
