@@ -1,3 +1,7 @@
+---
+entities: [NamaPOSSalesInvoice]
+---
+
 # Free Items in POS: Claim at Scan and Reconciliation at Payment
 
 When you have a promotion of the "buy one item and get another for free" type, the default behavior in the POS is to add the free item to the invoice **immediately** upon adding the qualifying item. This behavior suits many businesses, but not all.

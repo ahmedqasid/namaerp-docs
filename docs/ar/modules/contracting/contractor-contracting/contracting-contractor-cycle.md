@@ -1,3 +1,7 @@
+---
+entities: [ContractorContract, ContractorContrExtract, ContractorContractOffer, ContractorContractExecution, ContractorContractUpdate, Contractor]
+---
+
 # دورة مقاول الباطن
 
 منشأة المقاولات تدير سلسلتين متقابلتين في وقت واحد. في جانب المالك تطالب العميل بقيمة العمل الذي سلّمته، وفي هذا الجانب **تشتري** العمل — من عمالة المباني، ومن مقاول الكهرباء، ومن متخصص الخوازيق — ثم تدفع ثمنه. المفردات نفسها، والشاشات نفسها، وأكواد البنود نفسها. واتجاه المال معاكس.

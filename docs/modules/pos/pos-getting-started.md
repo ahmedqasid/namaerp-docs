@@ -1,3 +1,7 @@
+---
+entities: [POSSecurityProfile, NamaPOSShortcuts]
+---
+
 # Getting Started at the Register
 
 This page walks through the everyday basics: starting the application, signing in, finding your way around the menu, locking the screen when you step away, and switching language or theme.

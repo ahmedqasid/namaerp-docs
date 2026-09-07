@@ -1,3 +1,7 @@
+---
+entities: [ConfigEntry]
+---
+
 # CRM Settings
 
 The CRM module has its own settings screen, reached from the configuration area rather than from the CRM menu itself. It is refreshingly short — eight options and one grid — and unlike some module settings screens, most of what is on it genuinely does something.

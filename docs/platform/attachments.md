@@ -1,6 +1,3 @@
----
-entities: [AttachmentInfo]
----
 # Attachments
 
 Paperwork follows business documents around. A purchase invoice arrives as a PDF in somebody's

@@ -1,3 +1,8 @@
+---
+entities: [ConfigEntry]
+menu: Administration → Settings → System Settings
+---
+
 # Two-Factor Authentication (2FA) Guide
 
 ## Overview

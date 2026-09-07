@@ -1,3 +1,8 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
+
 # How CRM Document Terms Work
 
 ::: info Licence

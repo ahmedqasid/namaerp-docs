@@ -1,3 +1,8 @@
+---
+entities: [ConfigEntry]
+menu: Real Estate and Property → Settings → Real estate Configurations
+---
+
 # Real Estate Module Configuration
 
 Most of what the Real Estate module does is decided per document book, on the document's term. But a handful of decisions are too broad for that — whether a paid installment survives being carried from one contract to another, whether tax counts as part of what an installment owes, how much rounding difference a contract is allowed to have. Those live in one settings record for the whole module.

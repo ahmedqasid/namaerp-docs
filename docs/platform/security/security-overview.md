@@ -1,3 +1,7 @@
+---
+entities: [SecurityProfile, User]
+---
+
 # Security System Overview
 
 Every ERP deployment faces the same questions sooner or later: who is allowed to view customer balances? Can the warehouse keeper delete a saved stock issue? And why does a Jeddah branch sales rep see Riyadh branch invoices? Nama answers all of these through a multi-layered security model, and this guide walks you through those layers one by one.

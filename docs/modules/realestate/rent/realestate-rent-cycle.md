@@ -1,3 +1,7 @@
+---
+entities: [RERentContract, RERentOffer, RERentOfferCancel, REMultiRentContract, REOpeningRentContract, RERentInstallmentLedger, RECancelContract]
+---
+
 # The Leasing Cycle
 
 A company owns Shop G-07 on the ground floor of Al-Nakheel Tower. A prospective tenant walks in and asks what three years would cost him. From that question to the day he hands the keys back, Nama walks that one shop through a fixed chain of documents — a quotation, a lease, a monthly revenue accrual, a stream of collections, and finally either a renewal or a settlement. Each link in the chain has its own screen and its own page in this section; this page is the map that shows how they fit together, and it settles two things that confuse almost every new user before they get anywhere near the contract screen.

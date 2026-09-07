@@ -1,3 +1,7 @@
+---
+entities: [APICredentials]
+---
+
 # Nama ERP REST API
 
 Nama ERP provides a comprehensive REST API for performing CRUD operations on all system entities, with full OpenAPI 3.0 specification support for seamless integration with third-party systems.

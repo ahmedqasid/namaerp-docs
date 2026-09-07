@@ -1,7 +1,3 @@
----
-entities: [ActionsHistory, EntityVersion, FieldDetailedAudit]
----
-
 # سجل التعديل وتاريخ النسخ (Audit Trail and Version History)
 
 عاجلًا أو آجلًا يسأل أحدهم السؤال الذي يجب على كل نظام تخطيط موارد أن يجيب عنه: *من غيّر هذا، وماذا

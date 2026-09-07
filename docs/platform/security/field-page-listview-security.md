@@ -1,5 +1,5 @@
 ---
-entities: [SecurityProfile, NaMaUser]
+entities: [SecurityProfile, User]
 ---
 # Field, Page, and List View Security
 

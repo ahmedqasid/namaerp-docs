@@ -1,5 +1,4 @@
 ---
-entities: [BusinessRequestStatus, SavedBusinessRequest]
 menu: إدارة النظام ← الإعدادات ← طلبات الأعمال
 ---
 

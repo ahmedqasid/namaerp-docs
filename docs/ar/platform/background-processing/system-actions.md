@@ -1,7 +1,3 @@
----
-entities: [PendingSystemAction, AutoSystemAction]
----
-
 # إجراءات النظام (System Actions)
 
 شاشتان متجاورتان في القائمة باسمين يكادان يتطابقان، ولا علاقة لإحداهما بالأخرى. **إجراءات النظام

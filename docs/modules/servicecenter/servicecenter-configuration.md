@@ -1,3 +1,8 @@
+---
+entities: [ConfigEntry]
+menu: Service Center → Settings
+---
+
 # Service Center Settings
 
 Almost everything that changes how this module behaves is configured **per document book**, on the document term. What is left over — the handful of decisions that have to be the same everywhere — lives on one settings screen with **24 options** on it.

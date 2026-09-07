@@ -1,3 +1,7 @@
+---
+entities: [AttendanceMachineConfig]
+---
+
 # The attcron Attendance Agent
 
 Fingerprint machines are almost always the most awkward device on a company's network. They sit inside a branch office, behind whatever router that branch happens to have, and they expect to be talked to from the same local network. Nama, meanwhile, lives on a server somewhere else entirely — often in a data centre, often behind a firewall that lets nothing in.

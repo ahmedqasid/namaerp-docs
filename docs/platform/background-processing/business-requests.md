@@ -1,5 +1,4 @@
 ---
-entities: [BusinessRequestStatus, SavedBusinessRequest]
 menu: Administration → Settings → Business Requests
 ---
 # Business Requests

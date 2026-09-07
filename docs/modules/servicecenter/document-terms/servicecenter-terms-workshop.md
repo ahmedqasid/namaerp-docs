@@ -1,3 +1,8 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
+
 # Workshop Document Terms
 
 The workshop half of Service Center has nine term families between it, and they divide the work

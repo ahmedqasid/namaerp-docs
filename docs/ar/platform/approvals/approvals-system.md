@@ -1,5 +1,5 @@
 ---
-entities: [ApprovalDefinition, ApprovalCase]
+entities: [ApprovalDefinition]
 menu: الأساسيات ← الإعدادات ← تعريف موافقه
 ---
 

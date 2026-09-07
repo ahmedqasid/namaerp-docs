@@ -1,3 +1,7 @@
+---
+entities: [REProject, RESquare, REBlock, RELand, REBuilding, REFloor, RERentalUnit, REUnitGroup]
+---
+
 # كيف يُمثَّل العقار في النظام
 
 كل ما تفعله وحدة العقارات — بيع، تأجير، تحصيل، صيانة، إعادة تقييم — يبدأ من سؤال واحد: *ما هو

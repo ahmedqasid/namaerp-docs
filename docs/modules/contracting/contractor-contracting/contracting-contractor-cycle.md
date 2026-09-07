@@ -1,3 +1,7 @@
+---
+entities: [ContractorContract, ContractorContrExtract, ContractorContractOffer, ContractorContractExecution, ContractorContractUpdate, Contractor]
+---
+
 # The Subcontractor Cycle
 
 A contracting business runs two mirrored chains at once. On the owner side it bills the client for work delivered; on this side it *buys* work — from the blockwork gang, the electrical subcontractor, the piling specialist — and pays for it. Same vocabulary, same screens, same term codes. Opposite direction of money.

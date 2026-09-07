@@ -1,3 +1,7 @@
+---
+entities: [ConfigEntry, AIRecordEmbeddingConfig]
+---
+
 # AI Module Configuration
 
 Before the [AI assistant](./ai-assistant.md) answers a question, or an [MCP client](./ai-mcp-server.md) connects to the system, the module needs basic setup: **which language model do you use? with which key? and where is the semantic index stored?** All of that is configured in the **AI Module settings**, which are system-wide.

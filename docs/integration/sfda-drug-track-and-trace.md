@@ -1,3 +1,8 @@
+---
+entities: [SFDARSDConfig]
+menu: Inventory → Settings → SFDA RSD Configuration
+---
+
 # Reporting Medicine Movements to the SFDA
 
 The Saudi Food and Drug Authority runs a national drug track-and-trace system. Every registered medicine carries a global trade item number, a batch number and — for most products — a unique serial number on each pack, and every time one of those packs changes hands the movement has to be reported to the Authority. A wholesaler dispatching to a pharmacy reports the dispatch; the pharmacy reports the acceptance; the pharmacy reports again when it sells the pack to a patient. The Authority reconciles both halves, which is why an unreported movement does not simply go unnoticed — it leaves the other party's report unmatched.

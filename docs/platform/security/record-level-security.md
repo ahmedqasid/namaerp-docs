@@ -1,5 +1,5 @@
 ---
-entities: [NaMaUser, SecurityProfile]
+entities: [User, SecurityProfile]
 ---
 # Record-Level Security (Dimensions and Filters)
 

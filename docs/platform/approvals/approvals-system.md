@@ -1,5 +1,5 @@
 ---
-entities: [ApprovalDefinition, ApprovalCase]
+entities: [ApprovalDefinition]
 menu: Basic → Settings → Approval Definition
 ---
 # Approvals System - Approval Definition Full Guide

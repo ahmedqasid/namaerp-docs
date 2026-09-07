@@ -1,3 +1,8 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
+
 # Maintenance Document Terms
 
 ::: info Licence

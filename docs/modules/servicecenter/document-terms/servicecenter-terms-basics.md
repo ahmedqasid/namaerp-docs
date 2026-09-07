@@ -1,3 +1,8 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
+
 # Document Terms in Service Center
 
 Two workshops running the same Nama installation can behave completely differently. One closes a job

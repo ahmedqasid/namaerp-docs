@@ -1,6 +1,3 @@
----
-entities: [ReportLog]
----
 # Report Monitoring
 
 A report that takes thirty seconds and a report that has hung look identical from the outside — a

@@ -1,3 +1,7 @@
+---
+entities: [AttendanceMachineConfig, TimeAttendance]
+---
+
 # Integration with Attendance Machines
 
 The system supports two methods for integrating with attendance machines:

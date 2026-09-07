@@ -1,3 +1,7 @@
+---
+entities: [REProject, RESquare, REBlock, RELand, REBuilding, REFloor, RERentalUnit, REUnitGroup]
+---
+
 # How Properties Are Modelled
 
 Everything the Real Estate module does — selling, leasing, collecting, maintaining, revaluing —

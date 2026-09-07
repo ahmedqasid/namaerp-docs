@@ -1,5 +1,4 @@
 ---
-entities: [PendingTask]
 menu: Administration → Settings → Pending Tasks
 ---
 # Pending Tasks

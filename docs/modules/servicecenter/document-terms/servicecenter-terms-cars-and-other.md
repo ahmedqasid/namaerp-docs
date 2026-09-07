@@ -1,3 +1,8 @@
+---
+entities: [DocumentTerm]
+menu: Basic → Settings → Document Term
+---
+
 # Car, Insurance and Rental Document Terms
 
 Nothing about a car's behaviour in Nama is built in. A chassis becomes a tracked record, moves

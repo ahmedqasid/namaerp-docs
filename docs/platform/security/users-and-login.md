@@ -1,5 +1,5 @@
 ---
-entities: [NaMaUser]
+entities: [User]
 menu: Administration → Security → User
 ---
 # Users and Login

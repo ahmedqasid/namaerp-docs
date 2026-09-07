@@ -1,3 +1,8 @@
+---
+entities: [ConfigEntry]
+menu: Administration → Settings → System Settings
+---
+
 # Settings and Integration
 
 Document Management has only three settings of its own. Everything else that shapes how it

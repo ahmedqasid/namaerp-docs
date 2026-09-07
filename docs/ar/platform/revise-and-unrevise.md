@@ -1,5 +1,5 @@
 ---
-entities: [RevisionDoc, DetailedRevisionConfig, RevisionCase]
+entities: [RevisionDoc, DetailedRevisionConfig]
 ---
 
 # المراجعة وإلغاء المراجعة

@@ -1,3 +1,8 @@
+---
+entities: [GenericReferenceOverrider]
+menu: Basic → Settings → Fields and Entities Settings
+---
+
 # Sending Invoices and Documents to Customers
 
 The **Invoice Retriever** feature in Nama ERP allows sending links to customers (or suppliers) that generate and serve reports (e.g., invoices, receipts) on demand.

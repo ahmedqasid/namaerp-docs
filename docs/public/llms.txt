@@ -13,7 +13,7 @@
 - [System Minimum Requirements](https://docs.namasoft.com/getting-started/system-minimum-requirements.html): Nama ERP is a web-based application, It can be hosted on-premise or on-cloud
 - [Nama ERP Installation Guide](https://docs.namasoft.com/getting-started/installation-guide.html): Nama ERP is a Java-based web application that runs on Apache Tomcat and uses Microsoft SQL Server as its default database engine.
 - [Nama Properties](https://docs.namasoft.com/getting-started/nama-properties.html): serverid=AnyIDYouWant
-- [Two-Factor Authentication (2FA) Guide](https://docs.namasoft.com/getting-started/two-factor-authentication.html): Two-Factor Authentication (2FA) adds an extra layer of security to the Nama ERP login process by requiring users to provide a second form of verification beyond their username and password.
+- [Two-Factor Authentication (2FA) Guide](https://docs.namasoft.com/getting-started/two-factor-authentication.html): Two-Factor Authentication (2FA) adds an extra layer of security to the Nama ERP login process by requiring users to provide a second form of verification beyond their username and password. - entities: ConfigEntry - menu: Administration → Settings → System Settings
 
 ## Architecture
 
@@ -32,8 +32,8 @@
 - [Document Books](https://docs.namasoft.com/platform/document-books.html): Every document in Nama — every sales invoice, stock issue, receipt voucher, journal entry — has to belong to a document book. - entities: DocumentBook - menu: Basic → Settings → Document Book
 - [Document Cancel Document](https://docs.namasoft.com/platform/document-cancel-document.html): Sooner or later somebody commits a document they should not have. - entities: DocumentCancelDocument - menu: Basic → Documents → Document Cancel Document
 - [Master Groups](https://docs.namasoft.com/platform/master-groups.html): Document books number documents. - entities: MasterGroup - menu: Basic → Settings → Group
-- [Audit Trail and Version History](https://docs.namasoft.com/platform/audit-trail.html): Sooner or later somebody asks the question every ERP has to answer: who changed this, and what did it say before? A customer's credit limit is suddenly double what it was. - entities: ActionsHistory, EntityVersion, FieldDetailedAudit
-- [Attachments](https://docs.namasoft.com/platform/attachments.html): Paperwork follows business documents around. - entities: AttachmentInfo
+- [Audit Trail and Version History](https://docs.namasoft.com/platform/audit-trail.html): Sooner or later somebody asks the question every ERP has to answer: who changed this, and what did it say before? A customer's credit limit is suddenly double what it was.
+- [Attachments](https://docs.namasoft.com/platform/attachments.html): Paperwork follows business documents around.
 
 ### Global Configuration
 
@@ -100,19 +100,19 @@
 ### Approvals
 
 - [Approvals](https://docs.namasoft.com/platform/approvals/): Some documents shouldn't go through without a sign-off — a large purchase order, a stock transfer, a discount above a threshold.
-- [Approvals System - Approval Definition Full Guide](https://docs.namasoft.com/platform/approvals/approvals-system.html): The Nama ERP Approvals System provides a comprehensive workflow management solution that allows organizations to define approval processes for various business operations. - entities: ApprovalDefinition, ApprovalCase - menu: Basic → Settings → Approval Definition
+- [Approvals System - Approval Definition Full Guide](https://docs.namasoft.com/platform/approvals/approvals-system.html): The Nama ERP Approvals System provides a comprehensive workflow management solution that allows organizations to define approval processes for various business operations. - entities: ApprovalDefinition - menu: Basic → Settings → Approval Definition
 - [Sample Approval Email Templates](https://docs.namasoft.com/platform/approvals/sample-approval-email-templates.html): When a document enters an approval workflow, NAMA can send the responsible person an email asking them to approve, reject, or return it. - entities: ApprovalDefinition - menu: Basic → Settings → Approval Definition
 - [Approvals FAQ](https://docs.namasoft.com/platform/approvals/approvals-faq.html): If you have multiple warehouses, each with a different warehouse keeper and direct supervisor, and you want the approval of a stock transfer to be the responsibility of the warehouse that will receive... - entities: ApprovalDefinition - menu: Basic → Settings → Approval Definition
-- [Revise and Unrevise](https://docs.namasoft.com/platform/revise-and-unrevise.html): Every business has records that someone other than the person who entered them is supposed to look at. - entities: RevisionDoc, DetailedRevisionConfig, RevisionCase
+- [Revise and Unrevise](https://docs.namasoft.com/platform/revise-and-unrevise.html): Every business has records that someone other than the person who entered them is supposed to look at. - entities: RevisionDoc, DetailedRevisionConfig
 
 ### Security & Permissions
 
 - [Security & Permissions](https://docs.namasoft.com/platform/security/): Every ERP deployment runs into the same questions sooner or later: who can log in, who can see customer balances, and why does a Jeddah rep see Riyadh invoices? Nama answers all of these with a...
-- [Security System Overview](https://docs.namasoft.com/platform/security/security-overview.html): Every ERP deployment faces the same questions sooner or later: who is allowed to view customer balances? Can the warehouse keeper delete a saved stock issue? And why does a Jeddah branch sales rep see...
+- [Security System Overview](https://docs.namasoft.com/platform/security/security-overview.html): Every ERP deployment faces the same questions sooner or later: who is allowed to view customer balances? Can the warehouse keeper delete a saved stock issue? And why does a Jeddah branch sales rep see... - entities: SecurityProfile, User
 - [Security Profile](https://docs.namasoft.com/platform/security/security-profiles.html): The Security Profile is where most of your permission settings live. - entities: SecurityProfile - menu: Administration → Security → Security Profile
-- [Field, Page, and List View Security](https://docs.namasoft.com/platform/security/field-page-listview-security.html): Basic permissions answer the question "what can the user do with a type?" But you often need finer control: hide the Cost column from sales reps, lock the System Entries page for data-entry operators,... - entities: SecurityProfile, NaMaUser
-- [Record-Level Security (Dimensions and Filters)](https://docs.namasoft.com/platform/security/record-level-security.html): Granting a user list view access to sales invoices answers the question "can they browse invoices?" This page answers the follow-up: which invoices specifically? Nama narrows record visibility through... - entities: NaMaUser, SecurityProfile
-- [Users and Login](https://docs.namasoft.com/platform/security/users-and-login.html): The User record is where identity, authentication, and personal permission overrides converge. - entities: NaMaUser - menu: Administration → Security → User
+- [Field, Page, and List View Security](https://docs.namasoft.com/platform/security/field-page-listview-security.html): Basic permissions answer the question "what can the user do with a type?" But you often need finer control: hide the Cost column from sales reps, lock the System Entries page for data-entry operators,... - entities: SecurityProfile, User
+- [Record-Level Security (Dimensions and Filters)](https://docs.namasoft.com/platform/security/record-level-security.html): Granting a user list view access to sales invoices answers the question "can they browse invoices?" This page answers the follow-up: which invoices specifically? Nama narrows record visibility through... - entities: User, SecurityProfile
+- [Users and Login](https://docs.namasoft.com/platform/security/users-and-login.html): The User record is where identity, authentication, and personal permission overrides converge. - entities: User - menu: Administration → Security → User
 - [Temporary Additional Permissions (Delegation)](https://docs.namasoft.com/platform/security/security-delegation.html): The purchasing manager is on two weeks' leave, and purchase order approvals must keep flowing. - entities: SecurityProfileTransfer - menu: Administration → Security → Security Profile Transfer
 
 ### Importing & Exporting Records
@@ -132,7 +132,7 @@
 - [Archived Documents](https://docs.namasoft.com/platform/dms/dms-documents.html): The DMS Document is the record everything else in this section exists to support. - entities: DMSDocument - menu: Basic → Document Management System → DMS Document
 - [Checking Documents In and Out](https://docs.namasoft.com/platform/dms/dms-movements.html): Paper leaves the archive. - entities: DMSDocMovement, DMSFolderMovement - menu: Basic → Document Management System → Document Movement
 - [Loading an Archive from a ZIP File](https://docs.namasoft.com/platform/dms/dms-bulk-import.html): Registering documents one at a time is fine for the trickle of new paperwork. - entities: DMSCompressedFileToDocs - menu: Basic → Document Management System → Compressed File To DMS Document
-- [Settings and Integration](https://docs.namasoft.com/platform/dms/dms-configuration.html): Document Management has only three settings of its own.
+- [Settings and Integration](https://docs.namasoft.com/platform/dms/dms-configuration.html): Document Management has only three settings of its own. - entities: ConfigEntry - menu: Administration → Settings → System Settings
 
 ### Entity Flows
 
@@ -181,10 +181,10 @@
 ### Background Processing
 
 - [Background Processing](https://docs.namasoft.com/platform/background-processing/): Nama does a great deal of work behind you.
-- [Business Requests](https://docs.namasoft.com/platform/background-processing/business-requests.html): When you save an invoice, the accounting entry behind it is not written while you wait. - entities: BusinessRequestStatus, SavedBusinessRequest - menu: Administration → Settings → Business Requests
-- [Pending Tasks](https://docs.namasoft.com/platform/background-processing/pending-tasks.html): Despite the general-sounding name, this screen is one specific thing: the outbox. - entities: PendingTask - menu: Administration → Settings → Pending Tasks
-- [System Actions](https://docs.namasoft.com/platform/background-processing/system-actions.html): Two screens sit next to each other in the menu with almost the same name, and they have nothing to do with one another. - entities: PendingSystemAction, AutoSystemAction
-- [Report Monitoring](https://docs.namasoft.com/platform/background-processing/report-monitoring.html): A report that takes thirty seconds and a report that has hung look identical from the outside — a spinner, and a user asking whether to keep waiting. - entities: ReportLog
+- [Business Requests](https://docs.namasoft.com/platform/background-processing/business-requests.html): When you save an invoice, the accounting entry behind it is not written while you wait. - menu: Administration → Settings → Business Requests
+- [Pending Tasks](https://docs.namasoft.com/platform/background-processing/pending-tasks.html): Despite the general-sounding name, this screen is one specific thing: the outbox. - menu: Administration → Settings → Pending Tasks
+- [System Actions](https://docs.namasoft.com/platform/background-processing/system-actions.html): Two screens sit next to each other in the menu with almost the same name, and they have nothing to do with one another.
+- [Report Monitoring](https://docs.namasoft.com/platform/background-processing/report-monitoring.html): A report that takes thirty seconds and a report that has hung look identical from the outside — a spinner, and a user asking whether to keep waiting.
 - [Task Queues](https://docs.namasoft.com/platform/background-processing/task-queues.html): Nama has always done its slow work behind you rather than while you wait. - entities: TaskQueue, EntityFlow, TaskSchedule - menu: Basic → Settings → Task Queue
 - [Recurring Documents](https://docs.namasoft.com/platform/recurring-documents.html): Some documents come back on a rhythm. - entities: RecuringDocument - menu: Basic → Documents → Recuring Document
 
@@ -246,7 +246,7 @@
 #### Technical Reference
 
 - [Technical Reference](https://docs.namasoft.com/modules/accounting/support/)
-- [How Documents Are Processed Into Accounting Effects (and reprocessing a stuck request)](https://docs.namasoft.com/modules/accounting/support/accounting-request-processing.html): This is the most important page for the support team in the accounting module. - entities: LedgerTransReq, InvTransReq
+- [How Documents Are Processed Into Accounting Effects (and reprocessing a stuck request)](https://docs.namasoft.com/modules/accounting/support/accounting-request-processing.html): This is the most important page for the support team in the accounting module.
 - [Accounting Configuration (module option catalog)](https://docs.namasoft.com/modules/accounting/support/accounting-configuration.html): Many of the accounting module's behaviors aren't coded — they're configured from the accounting module's configuration screen (Module Configurations → Account Configurations). - menu: Module Configurations → Account Configurations
 - [Document Terms (per-type processing rules)](https://docs.namasoft.com/modules/accounting/support/accounting-document-terms.html): One question recurs throughout this module's guides: "where do the debit and credit accounts for this document come from?" The answer is always the document term. - entities: DocumentTerm - menu: Basic → Settings → Document Term
 - [Dimensions, Cost Centers & Distribution](https://docs.namasoft.com/modules/accounting/support/accounting-dimensions-and-distribution.html): An account answers "what" — cash, sales, salaries. - entities: AccDistribution - menu: Accounting → Settings → Account Distribution
@@ -468,7 +468,7 @@
 - [Point of Sale](https://docs.namasoft.com/modules/pos/): Most of Nama ERP runs in a web browser.
 - [Nama POS — Overview](https://docs.namasoft.com/modules/pos/pos-overview.html): Most of Nama ERP runs in a web browser.
 - [Installing Nama POS on a New Register and Connecting It to the Server](https://docs.namasoft.com/modules/pos/pos-installation.html): Nama POS is a desktop application that runs right on the cash register and keeps its own local database, so it can keep selling even when the connection to the central server drops.
-- [Getting Started at the Register](https://docs.namasoft.com/modules/pos/pos-getting-started.html): This page walks through the everyday basics: starting the application, signing in, finding your way around the menu, locking the screen when you step away, and switching language or theme.
+- [Getting Started at the Register](https://docs.namasoft.com/modules/pos/pos-getting-started.html): This page walks through the everyday basics: starting the application, signing in, finding your way around the menu, locking the screen when you step away, and switching language or theme. - entities: POSSecurityProfile, NamaPOSShortcuts
 - [The Sales Invoice](https://docs.namasoft.com/modules/pos/pos-sales-invoice.html): The sales screen is where a cashier spends almost the whole day. - entities: NamaPOSSalesInvoice - menu: Point of sale → Documents → POS Sales Invoice
 - [Payment & Tender](https://docs.namasoft.com/modules/pos/pos-payment-and-tender.html): Pressing F5 on a finished invoice opens the tender screen — the moment of truth where money changes hands. - entities: NamaPOSSalesInvoice
 - [Returns & Replacements](https://docs.namasoft.com/modules/pos/pos-returns-and-replacements.html): Goods come back. - entities: NamaPOSSalesReturn, NamaPOSSalesReplacement, NamaPOSCreditNote
@@ -479,7 +479,7 @@
 - [Reports & Tools](https://docs.namasoft.com/modules/pos/pos-reports-and-tools.html): Beyond selling, the register carries a handful of everyday tools: running reports, messaging other staff, checking a price without making a sale, and — for supervisors — running maintenance utilities. - entities: NamaPOSInternalMessage
 - [How POS Data Syncs with the Server](https://docs.namasoft.com/modules/pos/pos-data-sync.html): This is the idea that makes Nama POS what it is, so it is worth understanding even if you never touch the technical side.
 - [Nama POS — Technical Points of Use Guide](https://docs.namasoft.com/modules/pos/nama-pos.html): Nama ERP is a web-based system, but its Nama POS module includes a dedicated desktop application for Points of Sale (POS), offering both online and offline capabilities: - entities: NamaPosPoleDisplaySpecs
-- [Free Items in POS: Claim at Scan and Reconciliation at Payment](https://docs.namasoft.com/modules/pos/pos-free-items-claim-and-reconciliation.html): When you have a promotion of the "buy one item and get another for free" type, the default behavior in the POS is to add the free item to the invoice immediately upon adding the qualifying item.
+- [Free Items in POS: Claim at Scan and Reconciliation at Payment](https://docs.namasoft.com/modules/pos/pos-free-items-claim-and-reconciliation.html): When you have a promotion of the "buy one item and get another for free" type, the default behavior in the POS is to add the free item to the invoice immediately upon adding the qualifying item. - entities: NamaPOSSalesInvoice
 - [Fingerprint Login in Point of Sale](https://docs.namasoft.com/modules/pos/pos-fingerprint-login.html): Imagine you have several employees taking turns at the same POS terminal throughout the day. - entities: UserFingerprint
 - [Point of Sale FAQ](https://docs.namasoft.com/modules/pos/pos-faq.html): When the option "Hide the system's default deferred payment method" is enabled in the POS settings, the deferred payment method is expected to be hidden from the payment screen.
 
@@ -487,7 +487,7 @@
 
 - [Real Estate](https://docs.namasoft.com/modules/realestate/): Nama Real Estate is the module for companies whose product is property.
 - [Real Estate Module Overview](https://docs.namasoft.com/modules/realestate/realestate-overview.html): A property company has a problem that ordinary trading companies do not: its stock is a tree.
-- [Real Estate Module Configuration](https://docs.namasoft.com/modules/realestate/realestate-configuration.html): Most of what the Real Estate module does is decided per document book, on the document's term.
+- [Real Estate Module Configuration](https://docs.namasoft.com/modules/realestate/realestate-configuration.html): Most of what the Real Estate module does is decided per document book, on the document's term. - entities: ConfigEntry - menu: Real Estate and Property → Settings → Real estate Configurations
 
 #### Real Estate Document Terms
 
@@ -500,7 +500,7 @@
 #### Properties
 
 - [Properties](https://docs.namasoft.com/modules/realestate/properties/)
-- [How Properties Are Modelled](https://docs.namasoft.com/modules/realestate/properties/realestate-estate-model.html): Everything the Real Estate module does — selling, leasing, collecting, maintaining, revaluing — starts from one question: what exactly is being sold? Nama answers that question with a single idea...
+- [How Properties Are Modelled](https://docs.namasoft.com/modules/realestate/properties/realestate-estate-model.html): Everything the Real Estate module does — selling, leasing, collecting, maintaining, revaluing — starts from one question: what exactly is being sold? Nama answers that question with a single idea... - entities: REProject, RESquare, REBlock, RELand, REBuilding, REFloor, RERentalUnit, REUnitGroup
 - [Projects, Squares, Blocks and Land Plots](https://docs.namasoft.com/modules/realestate/properties/realestate-projects-blocks-lands.html): A land-subdivision business does not enter its portfolio plot by plot. - entities: REProject, RESquare, REBlock, RELand
 - [Buildings, Floors and Rental Units](https://docs.namasoft.com/modules/realestate/properties/realestate-buildings-floors-and-units.html): The other half of the estate tree goes upwards instead of sideways. - entities: REBuilding, REFloor, RERentalUnit, REUnitGroup, REUnitModel
 - [Owners, Buyers and Standard Contract Clauses](https://docs.namasoft.com/modules/realestate/properties/realestate-owners-and-contract-clauses.html): Every document in the Real Estate module names people: the landlord who owns the building, the customer who buys the flat, the tenant who leases the shop, the investor who put money into the fund. - entities: REOwner, REStandardTermsConditions
@@ -520,7 +520,7 @@
 #### Rent
 
 - [Rent](https://docs.namasoft.com/modules/realestate/rent/)
-- [The Leasing Cycle](https://docs.namasoft.com/modules/realestate/rent/realestate-rent-cycle.html): A company owns Shop G-07 on the ground floor of Al-Nakheel Tower.
+- [The Leasing Cycle](https://docs.namasoft.com/modules/realestate/rent/realestate-rent-cycle.html): A company owns Shop G-07 on the ground floor of Al-Nakheel Tower. - entities: RERentContract, RERentOffer, RERentOfferCancel, REMultiRentContract, REOpeningRentContract, RERentInstallmentLedger, RECancelContract
 - [Rent Offers and Reserving a Unit for Rent](https://docs.namasoft.com/modules/realestate/rent/realestate-rent-offers.html): Before anybody signs anything, a prospective tenant wants a number: what would Shop G-07 cost for three years, and what is the deposit? The rent offer exists to answer that question on paper. - entities: RERentOffer, RERentOfferCancel - menu: Real Estate and Property → Rents → Rent offer
 - [The Rent Contract](https://docs.namasoft.com/modules/realestate/rent/realestate-rent-contract.html): The rent contract is the document the whole leasing area revolves around. - entities: RERentContract - menu: Real Estate and Property → Rents → Rent Contract
 - [Generating the Rent Schedule](https://docs.namasoft.com/modules/realestate/rent/realestate-rent-schedule.html): A lease is signed once, but it is paid many times. - entities: RERentContract, REMultiRentContract
@@ -568,7 +568,7 @@
 
 - [Contracting](https://docs.namasoft.com/modules/contracting/): Nama Contracting is the module for companies that build.
 - [Contracting Overview](https://docs.namasoft.com/modules/contracting/contracting-overview.html): A contracting company lives on two mirrored promises.
-- [Contracting Configuration](https://docs.namasoft.com/modules/contracting/contracting-configuration.html): The Contracting module keeps its settings in a single record, and that record shapes the behaviour of every contract, extract and cost document in the database.
+- [Contracting Configuration](https://docs.namasoft.com/modules/contracting/contracting-configuration.html): The Contracting module keeps its settings in a single record, and that record shapes the behaviour of every contract, extract and cost document in the database. - entities: ConfigEntry
 
 #### Contracting Master Files and Setup
 
@@ -610,7 +610,7 @@
 #### Subcontractor Contracting
 
 - [Subcontractor Contracting](https://docs.namasoft.com/modules/contracting/contractor-contracting/)
-- [The Subcontractor Cycle](https://docs.namasoft.com/modules/contracting/contractor-contracting/contracting-contractor-cycle.html): A contracting business runs two mirrored chains at once.
+- [The Subcontractor Cycle](https://docs.namasoft.com/modules/contracting/contractor-contracting/contracting-contractor-cycle.html): A contracting business runs two mirrored chains at once. - entities: ContractorContract, ContractorContrExtract, ContractorContractOffer, ContractorContractExecution, ContractorContractUpdate, Contractor
 - [Subcontractor Offers](https://docs.namasoft.com/modules/contracting/contractor-contracting/contracting-contractor-offers.html): Before you award a package you ask two or three firms what they want for it. - entities: ContractorContractOffer - menu: Contracting → Contractor Contracting → Contractor Contract Offer
 - [Subcontracts](https://docs.namasoft.com/modules/contracting/contractor-contracting/contracting-contractor-contract.html): The subcontract is the centre of gravity of the cost side, exactly as the project contract is of the revenue side: the rates you have agreed to pay one firm for one package, the clauses that will... - entities: ContractorContract - menu: Contracting → Contractor Contracting → Contractor Contract
 - [Subcontract Updates](https://docs.namasoft.com/modules/contracting/contractor-contracting/contracting-contractor-contract-updates.html): Scope moves. - entities: ContractorContractUpdate - menu: Contracting → Contractor Contracting → Contractor Contract Update
@@ -796,7 +796,7 @@
 - [Service Center](https://docs.namasoft.com/modules/servicecenter/): Nama Service Center is built for the motor trade.
 - [Service Center Overview](https://docs.namasoft.com/modules/servicecenter/servicecenter-overview.html): From the street, a car dealership and its workshop look like one business.
 - [Setting Up a Service Center](https://docs.namasoft.com/modules/servicecenter/servicecenter-getting-started.html): Standing this module up in a fresh database is less about the number of screens and more about the order you touch them in, and about three or four decisions that are cheap to make now and painful to...
-- [Service Center Settings](https://docs.namasoft.com/modules/servicecenter/servicecenter-configuration.html): Almost everything that changes how this module behaves is configured per document book, on the document term.
+- [Service Center Settings](https://docs.namasoft.com/modules/servicecenter/servicecenter-configuration.html): Almost everything that changes how this module behaves is configured per document book, on the document term. - entities: ConfigEntry - menu: Service Center → Settings
 - [Reports and Print Forms](https://docs.namasoft.com/modules/servicecenter/servicecenter-reports-and-forms.html): Set your expectations before you go looking: this module ships almost no reporting at all.
 
 #### Workshop Setup
@@ -910,16 +910,16 @@
 #### Service Center Document Terms
 
 - [Service Center Document Terms](https://docs.namasoft.com/modules/servicecenter/document-terms/)
-- [Document Terms in Service Center](https://docs.namasoft.com/modules/servicecenter/document-terms/servicecenter-terms-basics.html): Two workshops running the same Nama installation can behave completely differently.
-- [Workshop Document Terms](https://docs.namasoft.com/modules/servicecenter/document-terms/servicecenter-terms-workshop.html): The workshop half of Service Center has nine term families between it, and they divide the work neatly: one shared term covers the small documents that only ever move a vehicle's status, and then the...
-- [Car, Insurance and Rental Document Terms](https://docs.namasoft.com/modules/servicecenter/document-terms/servicecenter-terms-cars-and-other.html): Nothing about a car's behaviour in Nama is built in.
+- [Document Terms in Service Center](https://docs.namasoft.com/modules/servicecenter/document-terms/servicecenter-terms-basics.html): Two workshops running the same Nama installation can behave completely differently. - entities: DocumentTerm - menu: Basic → Settings → Document Term
+- [Workshop Document Terms](https://docs.namasoft.com/modules/servicecenter/document-terms/servicecenter-terms-workshop.html): The workshop half of Service Center has nine term families between it, and they divide the work neatly: one shared term covers the small documents that only ever move a vehicle's status, and then the... - entities: DocumentTerm - menu: Basic → Settings → Document Term
+- [Car, Insurance and Rental Document Terms](https://docs.namasoft.com/modules/servicecenter/document-terms/servicecenter-terms-cars-and-other.html): Nothing about a car's behaviour in Nama is built in. - entities: DocumentTerm - menu: Basic → Settings → Document Term
 
 ### Customer Relationship Management
 
 - [Customer Relationship Management](https://docs.namasoft.com/modules/crm/): The CRM menu covers the whole life of a customer relationship on paper: chasing a lead, logging the calls and visits that warm it up, running campaigns and surveys, answering complaints and support...
 - [CRM Overview](https://docs.namasoft.com/modules/crm/crm-overview.html): The Customer Relationship Management menu — «خدمة العملاء» — is one of the widest branches in Nama ERP.
 - [CRM Getting Started](https://docs.namasoft.com/modules/crm/crm-getting-started.html): Because the CRM menu holds four separate products, there is no single setup order that covers all of it.
-- [CRM Settings](https://docs.namasoft.com/modules/crm/crm-configuration.html): The CRM module has its own settings screen, reached from the configuration area rather than from the CRM menu itself.
+- [CRM Settings](https://docs.namasoft.com/modules/crm/crm-configuration.html): The CRM module has its own settings screen, reached from the configuration area rather than from the CRM menu itself. - entities: ConfigEntry
 - [CRM Reports and Printed Forms](https://docs.namasoft.com/modules/crm/crm-reports-and-forms.html): This is a short page, and the shortness is the point.
 
 #### Sales Pipeline
@@ -1013,8 +1013,8 @@
 #### CRM Document Terms
 
 - [CRM Document Terms](https://docs.namasoft.com/modules/crm/document-terms/)
-- [How CRM Document Terms Work](https://docs.namasoft.com/modules/crm/document-terms/crm-terms-basics.html): ::: info Licence The document terms on this page belong to screens gated on crm.
-- [Maintenance Document Terms](https://docs.namasoft.com/modules/crm/document-terms/crm-maintenance-terms.html): ::: info Licence The machine-maintenance terms need the crm-maintenance licence code; the service-maintenance terms need crm-maintenance-services.
+- [How CRM Document Terms Work](https://docs.namasoft.com/modules/crm/document-terms/crm-terms-basics.html): ::: info Licence The document terms on this page belong to screens gated on crm. - entities: DocumentTerm - menu: Basic → Settings → Document Term
+- [Maintenance Document Terms](https://docs.namasoft.com/modules/crm/document-terms/crm-maintenance-terms.html): ::: info Licence The machine-maintenance terms need the crm-maintenance licence code; the service-maintenance terms need crm-maintenance-services. - entities: DocumentTerm - menu: Basic → Settings → Document Term
 
 #### Risk Register
 
@@ -1081,19 +1081,19 @@
 - [Getting Better Support with an AI Assistant](https://docs.namasoft.com/modules/ai/ai-assisted-support.html): Most support questions are already answered somewhere on this site — the trouble is finding the paragraph. - entities: AIToolDefinition
 - [AI Tool Definitions](https://docs.namasoft.com/modules/ai/ai-tool-definitions.html): When an AI assistant talks to Nama ERP — whether it is the assistant built into the system or an external client connected through the MCP server — it can do nothing on its own. - entities: AIToolDefinition - menu: ai → Master Files → AI Tool Definition
 - [The In-System AI Assistant](https://docs.namasoft.com/modules/ai/ai-assistant.html): Besides connecting external clients through the MCP server, Nama ERP ships with a built-in AI assistant that works right inside the interface: a chat window the user opens to ask questions in natural...
-- [AI Module Configuration](https://docs.namasoft.com/modules/ai/ai-configuration.html): Before the AI assistant answers a question, or an MCP client connects to the system, the module needs basic setup: which language model do you use? with which key? and where is the semantic index...
-- [Nama ERP MCP Server](https://docs.namasoft.com/modules/ai/ai-mcp-server.html): MCP (Model Context Protocol) is the open standard AI assistants — such as Claude Desktop, Claude Code, and others — use to connect to external systems, read their data, and act on them.
+- [AI Module Configuration](https://docs.namasoft.com/modules/ai/ai-configuration.html): Before the AI assistant answers a question, or an MCP client connects to the system, the module needs basic setup: which language model do you use? with which key? and where is the semantic index... - entities: ConfigEntry, AIRecordEmbeddingConfig
+- [Nama ERP MCP Server](https://docs.namasoft.com/modules/ai/ai-mcp-server.html): MCP (Model Context Protocol) is the open standard AI assistants — such as Claude Desktop, Claude Code, and others — use to connect to external systems, read their data, and act on them. - entities: AIToolDefinition, APICredentials
 
 ## External Integrations
 
 - [External Integrations](https://docs.namasoft.com/integration/): Nama ERP rarely lives alone.
-- [Nama ERP REST API](https://docs.namasoft.com/integration/nama-erp-api.html): Nama ERP provides a comprehensive REST API for performing CRUD operations on all system entities, with full OpenAPI 3.0 specification support for seamless integration with third-party systems.
+- [Nama ERP REST API](https://docs.namasoft.com/integration/nama-erp-api.html): Nama ERP provides a comprehensive REST API for performing CRUD operations on all system entities, with full OpenAPI 3.0 specification support for seamless integration with third-party systems. - entities: APICredentials
 - [Integration Scenarios Between Nama and Other Systems](https://docs.namasoft.com/integration/system-integration-scenarios.html): We receive — on an almost daily basis — a question from customers and colleagues in sales, implementation, and technical support teams that goes something like:
-- [Sending Invoices and Documents to Customers](https://docs.namasoft.com/integration/invoice-retriever.html): The Invoice Retriever feature in Nama ERP allows sending links to customers (or suppliers) that generate and serve reports (e.g., invoices, receipts) on demand.
-- [Integration with Attendance Machines](https://docs.namasoft.com/integration/attendance-machines-integration.html): The system supports two methods for integrating with attendance machines:
-- [The attcron Attendance Agent](https://docs.namasoft.com/integration/attcron-agent.html): Fingerprint machines are almost always the most awkward device on a company's network.
+- [Sending Invoices and Documents to Customers](https://docs.namasoft.com/integration/invoice-retriever.html): The Invoice Retriever feature in Nama ERP allows sending links to customers (or suppliers) that generate and serve reports (e.g., invoices, receipts) on demand. - entities: GenericReferenceOverrider - menu: Basic → Settings → Fields and Entities Settings
+- [Integration with Attendance Machines](https://docs.namasoft.com/integration/attendance-machines-integration.html): The system supports two methods for integrating with attendance machines: - entities: AttendanceMachineConfig, TimeAttendance
+- [The attcron Attendance Agent](https://docs.namasoft.com/integration/attcron-agent.html): Fingerprint machines are almost always the most awkward device on a company's network. - entities: AttendanceMachineConfig
 - [ORACLE JDBC Integration Connection in context.xml for integration purposes](https://docs.namasoft.com/integration/oracle-jdbc-connection.html)
-- [Reporting Medicine Movements to the SFDA](https://docs.namasoft.com/integration/sfda-drug-track-and-trace.html): The Saudi Food and Drug Authority runs a national drug track-and-trace system.
+- [Reporting Medicine Movements to the SFDA](https://docs.namasoft.com/integration/sfda-drug-track-and-trace.html): The Saudi Food and Drug Authority runs a national drug track-and-trace system. - entities: SFDARSDConfig - menu: Inventory → Settings → SFDA RSD Configuration
 
 ## System Administration
 

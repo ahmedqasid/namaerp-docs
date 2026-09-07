@@ -1,3 +1,7 @@
+---
+entities: [ConfigEntry]
+---
+
 # Contracting Configuration
 
 The Contracting module keeps its settings in a single record, and that record shapes the behaviour of every contract, extract and cost document in the database. A handful of the switches on it change arithmetic rather than appearance — whether an extract prices this month's quantity or the cumulative quantity, whether term codes are typed or generated, which cost figure a subcontract inherits — so it is worth one careful read before the first live contract rather than a puzzled read afterwards.

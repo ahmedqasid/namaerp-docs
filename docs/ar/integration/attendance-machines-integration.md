@@ -1,3 +1,7 @@
+---
+entities: [AttendanceMachineConfig, TimeAttendance]
+---
+
 <rtl>
 
 # الربط مع ماكينات الحضور والانصراف

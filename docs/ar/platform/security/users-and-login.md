@@ -1,5 +1,5 @@
 ---
-entities: [NaMaUser]
+entities: [User]
 menu: إدارة النظام ← الصلاحيات ← مستخدم
 ---
 

@@ -1,3 +1,7 @@
+---
+entities: [SecurityProfile, User]
+---
+
 <rtl>
 
 # نظرة عامة على نظام الصلاحيات
