@@ -139,6 +139,10 @@ Let's walk through a realistic scenario to see how this all works together.
 - Layer 2: C-flute
 - Layer 3: Test liner 150gsm
 
+::: tip These figures are in millimetres; Nama's screens are not
+Reel widths and sheet sizes are quoted in millimetres throughout this overview, because that is how the trade talks about them. Nama's own carton screens work in **centimetres** — a 2,000 mm reel is recorded as `200`, and a 520 × 440 mm blank as `52` × `44`. Getting that wrong is the commonest reason a plan finds no solution; [Carton Material Planning](./carton-material-planning.md) explains why.
+:::
+
 **The traditional approach**: You'd manually calculate: 2000mm roll ÷ 520mm = 3.84, so cut 3 pieces across (1560mm used, 440mm trim - 22% waste). Then figure out how many cuts along the length to hit 5000 pieces total.
 
 **The Nama approach**: Create a carton specification for "Tomato Box 250" defining all those parameters. Create a carton order for 5000 units. Create a material planning document, add the order, hit "Collect Materials."

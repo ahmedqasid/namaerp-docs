@@ -16,7 +16,7 @@ You have several orders of different sizes. Several layers per carton, each from
 
 You'll find it under **Manufacturing → Cartoon → CRTN Material Planning**.
 
-![A carton material planning document with two orders batched together](../../ar/modules/manufacturing/images/carton/material-planning-en.png)
+![A solved carton material planning document](../../ar/modules/manufacturing/images/carton/material-planning-en.png)
 
 The list view is the planning register — every run, with the status and the solution it reached.
 
@@ -89,7 +89,7 @@ A row with no quantity contributes nothing to the plan. The optimizer will run h
 
 The Items grid is wide, and its right-hand half is entirely results. Before the optimizer runs, every one of those columns reads zero.
 
-![The result columns of the Items grid, still zero before the optimizer runs](../../ar/modules/manufacturing/images/carton/material-planning-items-en.png)
+![The result columns of the Items grid after a successful run](../../ar/modules/manufacturing/images/carton/material-planning-items-en.png)
 
 After a run they carry the answer for each carton. **Roll Width** is the reel width the solver chose, and **Number Of Pieces** how many sheets fit across it. **Operating Width** is the width those pieces actually consume, and **Trim** what is left over — the waste on that pattern. **Number Of Operations** counts the separate cutting operations the plan needs, and **Metric Length** the linear metres of reel required. **Total Planned Quantity** is what will really be produced, usually a little above **Total Requested Quantity** because cutting works in whole strikes.
 
@@ -99,7 +99,7 @@ The **Force All Layers Roll Width** and **Force Layer 1** to **Force Layer 7 Rol
 
 None of this works unless the material side is set up to be found, and that setup is not obvious from the planning screen.
 
-A paper reel is an **ordinary stock item**. Three things make it a reel.
+A paper reel is an **ordinary stock item**. Four things make it one.
 
 **Class 1 and Class 2 carry the grade and the grammage.** On the item, Class 1 is the paper grade — Kraft Liner, Test Liner, Fluting Medium — and Class 2 is the weight in grams per square metre.
 
@@ -107,11 +107,27 @@ A paper reel is an **ordinary stock item**. Three things make it a reel.
 
 The same two classes appear on every layer of the [carton specification](./carton-specifications.md). That is the whole matching rule: **the solver looks for stock whose Class 1 and Class 2 equal the layer's Class 1 and Class 2**. Get either wrong, on the item or on the layer, and that layer finds no material at all — however much paper is physically in the store.
 
-**The reel width lives in the Box dimension.** There is no "roll width" field on the item. Width is recorded as the item's **Box** dimension value on each receipt, so one item code holds stock at several widths side by side — 1200, 1350, 1450 and 1650 all under the same reel item, each with its own balance. This is why the planning grids show a column called **Box** where you would expect a width.
+**The reel width lives in the Box dimension.** There is no "roll width" field on the item. Width is recorded as the item's **Box** dimension value on each receipt, so one item code holds stock at several widths side by side — 120, 135, 145 and 165 all under the same reel item, each with its own balance. This is why the planning grids show a column called **Box** where you would expect a width.
 
 **The item's configuration has to track lot and packaging.** Dimensional tracking is switched on by the **Item Configurations** record the item points at, not on the item itself. If that configuration does not have packaging tracking enabled, the Box value is refused when stock is received, and no amount of editing the item will help. Reel items need a configuration that tracks both lot and packaging.
 
+**The grammage has to be recorded as a number, not just as a classification.** Matching on Class 2 tells the solver *which* reels are 150 gsm; it does not tell it what 150 gsm weighs, and the solver needs that to turn a reel's weight into a length. It reads the figure from the item's **Item Weight**, and where that is empty, from the **Weight Per Square Meter** of any of the item's classes. Setting it once on the Class 2 record — the grammage classification itself — covers every reel that carries the class. Leave it unset everywhere and **Collect Materials** stops with *Could not determine weight per SQM for item*, naming the reel it gave up on.
+
 One consequence is worth stating plainly: reels are normally stocked and issued **by weight**, so quantities on these screens are kilogrammes. **Metric Length** is the separate figure that gives the linear metres, and it is what the shop floor actually cuts.
+
+### The Units Are Centimetres
+
+Nothing on the screen says so, and this is the most expensive thing on the page to get wrong.
+
+Before the solver can plan anything it converts each reel's weight into a length: so many kilogrammes of paper, at so many grams per square metre, spread across a reel of a given width, comes to so many metres of reel. That conversion is written for **centimetres**. So the **Box** value on stock, and **Sheet Length** and **Sheet Width** on the specification, must all be in centimetres — a 135 cm reel is recorded as `135`, and a 1,440 × 450 mm blank as `144` × `45`.
+
+Record them in millimetres instead and the geometry still looks right, because three 450s really do fit across 1350. But the arithmetic then goes wrong in two directions at once: the reel is worked out ten times shorter than it is, and every sheet ten times longer, so the solver believes a reel yields a hundredth of the strikes it really does. A reel good for 27,000 strikes is offered to it as 274. The run fails as **Could not find a feasible solution**, which reads like a stock shortage and is nothing of the kind.
+
+::: tip How to tell which one you are looking at
+Compare **Roll Width** against **Sheet Width** on any row. In centimetres they are small numbers in a believable ratio — 135 and 45, three across. If you are looking at 1350 against 450, the data is in millimetres and no realistic quantity will ever solve.
+:::
+
+**Metric Length** is the exception: it is reported in **metres**, because metres are what the shop floor measures reel consumption in.
 
 ## Running the Optimizer
 
@@ -123,7 +139,7 @@ Here is where the module gets clever. You have one order to plan. There may be o
 
 Open the **Companion Orders** tab and use **Find Companion Orders**. Nama looks through committed carton orders that are not yet fully planned, keeps those whose specifications have a compatible layer structure, and for each candidate runs a quick trial: if this order were batched with yours, what would total waste be? Results come back sorted by waste, best first, with **Total Waste** on each row.
 
-**Why this matters**: a 450 mm sheet alone on a 1650 mm reel fits three across and leaves 300 mm of trim. Add an order for a 390 mm sheet and the pair can be arranged to leave far less. The saving is real, and it is the single biggest lever on this screen.
+**Why this matters**: a 45 cm sheet alone on a 165 cm reel fits three across and leaves 30 cm of trim. Add an order for a 39 cm sheet and the pair can be arranged to leave far less. The saving is real, and it is the single biggest lever on this screen.
 
 To take a candidate, select its row and use **Accept Selected Order**. The order joins the `documents` grid and its specifications join Items, and you can search again to add another.
 
@@ -150,6 +166,8 @@ In practice most runs are quick. A single straightforward order is typically sol
 
 The usual causes, in the order worth checking:
 
+**The dimensions are in the wrong unit.** Sheet dimensions or reel widths captured in millimetres rather than centimetres, as described above. Check this first on a new installation: it is invisible from the screen, and it fails in a way that looks like something else entirely.
+
 **No matching material.** The commonest cause by far is not a shortage but a mismatch — a layer whose Class 1 or Class 2 corresponds to no reel item. Check the specification's layers against the reel items before concluding you need to buy paper.
 
 **Genuinely insufficient stock.** No reel wide enough, long enough, or in the right grade. **Review Available Quantities** shows this directly.
@@ -164,17 +182,23 @@ The usual causes, in the order worth checking:
 
 Despite the spelling on the tab, this is the actionable output — one row per layer of each carton, saying which material to cut and how.
 
+![Materials Totals above, and the Materails cutting plan below it](../../ar/modules/manufacturing/images/carton/material-planning-materials-en.png)
+
 Each row carries the **Carton Order**, **Finished Item** and **Carton Specs** it belongs to, then the instruction: **Number Of Pieces** across, **Number Of Strikes** along, and **Metric Length** consumed. **Class 1** and **Class 2** identify the paper and **Box** the reel width, and **Lot ID** identifies the specific reel where the plan pins one down.
 
 A three-layer carton produces three rows; a five-layer double-wall carton produces five. They may sit on different widths, because each layer is chosen on its own merits.
 
 ### Materials Totals: What to Pull From the Store
 
-A short grid that aggregates the plan by **Class 1**, **Class 2** and **Box**, with the total **Quantity** for each combination. This is the picking list — "for this whole plan, this much 150 gsm Kraft Liner at 1350 mm" — and the quickest way to see whether the store can serve the run at all.
+A short grid that aggregates the plan by **Class 1**, **Class 2** and **Box**, with the total **Quantity** for each combination. This is the picking list — "for this whole plan, this much 150 gsm Kraft Liner at 135 cm" — and the quickest way to see whether the store can serve the run at all.
 
 ### Available Materials: Stock Against Requirement
 
 **Review Available Quantities** fills this grid, and it answers a question the cutting plan does not: is the paper there?
+
+The button asks one question before it runs — **Include Item In Result**, which defaults to No. Answer Yes and every row also names the reel item it refers to, which is what you want whenever more than one item code carries the same grade and grammage.
+
+![Available Materials, with the requirement broken down layer by layer](../../ar/modules/manufacturing/images/carton/material-planning-available-en.png)
 
 Each row is a reel width, with the **Item** and its **Class 1** and **Class 2**, then **Required Quantity In Layer 1** through **Layer 7**, the **Total Required Quantities**, the **Available Quantity** in stock, and the **Unavailable Quantity** — the shortfall.
 
@@ -194,6 +218,8 @@ The configuration is a small master file under **Manufacturing → Cartoon → C
 
 **Minimum Trim** — the smallest trim the plan will accept. This one reads backwards until you have seen it on a machine: why reject a *low*-waste pattern? Because a sliver of trim jams equipment, cannot be recycled cleanly, and usually means a width has been forced to fit. A slightly wider offcut that comes off the machine intact is worth more than a narrow one that stops the line.
 
+It cuts both ways, though, because it is enforced as a hard limit on every reel the solver considers. Set it to 3 cm and the pattern that fits three 45 cm sheets across a 135 cm reel exactly — the arrangement with the least waste there is — becomes illegal, and the solver settles for two across. Where your reel widths are near-multiples of your sheet widths, a non-zero minimum trim throws away the best answer.
+
 **Max Different Lengths Per Sheet** — caps how many different sheet lengths may be cut from one sheet. It is a limit on shop-floor complexity rather than on mathematics.
 
 **Max Roll Group Split Count** — how many separate cutting patterns may be used across reels of the same group.
@@ -212,23 +238,33 @@ Most sites run a single configuration. A second one is worth creating when a cla
 
 Before committing, look at three things. Are the planned quantities acceptable — if you asked for 4,000 and the plan makes 4,020 because the cutting works out that way, is the overrun fine? Is the trim level sensible — a few per cent is normal, fifteen suggests waiting for different material or batching differently? And does **Available Materials** show any shortfall?
 
-When the plan is right, use **Generate Production Orders**. Nama creates one production order per carton specification in Items, each carrying the planned quantity, the components from the cutting plan, the operations from the specification's routing, and the trim co-product if one is configured. Each order references the planning document and the original carton order, so the chain from customer order to shop floor stays intact. The **Production Order** column in Items fills in with the order created for that row.
+When the plan is right, use **Generate Production Orders**. Three pieces of setup have to be in place first, and each one fails with its own message:
+
+- **The planning term must name the book and term to generate into.** They are **Generated Production Book** and **Generated Production Term** on the CRTN Material Planning term. Leave either empty and you are told which.
+- **Each carton specification must name an Item and carry at least one routing operation.** The generated order takes its finished product from the specification's **Item** field, and every component is placed on the first routing operation — so a specification with an empty routing fails with *This operation is not in routing*.
+- **The production order's term must allow component lines without an item.** Carton components are identified by Class 1, Class 2 and reel width rather than by an item code, so the generated component lines carry no Item at all. Switch on **Allow Empty Item In Component Lines** on the Production Order term, or generation stops with *Field Item is required*.
+
+With those in place, Nama creates one production order per carton specification in Items, each carrying the planned quantity, the components from the cutting plan, the operations from the specification's routing, and the trim co-product if one is configured. Each order references the planning document and the original carton order, so the chain from customer order to shop floor stays intact. The **Production Order** column in Items fills in with the order created for that row.
+
+![A production order generated from the planning document](../../ar/modules/manufacturing/images/carton/generated-production-order-en.png)
 
 Materials are then issued with a [Carton Material Issue](./carton-material-issue.md), which reads its lines from this plan.
 
 ## A Worked Example
 
-Two orders are open. Spinneys wants 4,000 tomato boxes, 400×300×150 mm. Metro Markets wants 3,000 produce boxes, 350×250×140 mm. Both are regular slotted containers on the same three-layer build: 150 gsm Kraft Liner outside, 112 gsm fluting medium, 125 gsm test liner inside.
+Spinneys wants 4,000 tomato boxes, 40 × 30 × 15 cm — a regular slotted container on a three-layer build: 150 gsm Kraft Liner outside, 112 gsm fluting medium, 125 gsm test liner inside. Its pattern turns those dimensions into a blank of 144 × 45 cm.
 
-Their blanks are 1,440 × 450 mm and 1,240 × 390 mm.
+Create a planning document, choose the planning configuration, and add the order to `documents`. Save. The Items grid fills with the specification and its sheet dimensions; type 4,000 into Quantity, because that is the column Nama leaves to you.
 
-Create a planning document, choose the planning configuration, and add both orders to `documents`. Save. The Items grid fills with the two specifications and their sheet dimensions; type 4,000 and 3,000 into Quantity, because those are the columns Nama leaves to you.
+Now look at the widths. The store holds reels at 120, 135, 145 and 165 cm. A 45 cm sheet fits exactly three times across 135 cm with nothing left over, which is as good as cutting gets; across 165 cm it also fits three times, but leaves 30 cm of trim.
 
-Now look at the widths. The store holds reels at 1200, 1350, 1450 and 1650 mm. A 450 mm sheet fits exactly three times across 1350 mm with nothing left over, which is as good as cutting gets. A 390 mm sheet fits three times across 1350 mm with 180 mm of trim, and three times across 1200 mm with only 30 mm — better, but the 1200 mm stock is thinner on the ground.
+Set the status to **Planning** and use **Collect Materials**. It comes back **Optimal** in a fraction of a second and puts the carton on the 135 cm reel: **Number Of Pieces** 3, **Operating Width** 135, **Trim** zero. **Total Planned Quantity** reads 4,002 rather than 4,000, because 1,334 strikes at three across is 4,002 cartons and cutting works in whole strikes — comfortably inside the specification's 5% permitted excess.
 
-That trade-off is precisely what the optimizer exists to resolve, and it will weigh it against how much of each width is actually held. Set the status to **Planning**, use **Collect Materials**, and read the answer off the Items grid: which width each carton was put on, how many pieces across, and how much trim the plan accepted.
+**Materails** shows three rows, one per layer, each consuming 1,920.96 metres of 135 cm reel. **Materials Totals** turns that into the picking list: 389.0 kg of 150 gsm Kraft Liner, 389.2 kg of 112 gsm fluting medium, 324.2 kg of 125 gsm test liner.
 
-Then check **Available Materials** before generating anything. If the 1200 mm fluting shows a shortfall, the plan that looked best on paper is not the plan you can run this week.
+That middle figure is worth a second look. The fluting is the lightest paper of the three, yet it weighs the most, because its corrugating factor of 1.34 means 34% more of it goes into the same board — the flutes are longer than the sheet they sit in. If you have ever wondered why the medium runs out before the liners do, that is why.
+
+Then check **Available Materials** before generating anything. If the 135 cm fluting shows a shortfall, the plan that looked best on paper is not the plan you can run this week.
 
 ## Working With Planning in Practice
 

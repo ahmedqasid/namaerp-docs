@@ -12,7 +12,7 @@ You create these once for each carton design you sell. When customers order "Tom
 
 You'll find specifications under **Manufacturing > Cartoon > CRTN Specification** (التصنيع > Cartoon > مواصفات الكرتونة).
 
-![A carton specification: the Tomato Box 400x300x150](../../ar/modules/manufacturing/images/carton/carton-specification-en.png)
+![A carton specification: the Tomato Box 40x30x15](../../ar/modules/manufacturing/images/carton/carton-specification-en.png)
 
 The list view is your product catalogue — every carton design you can quote and make.
 
@@ -67,13 +67,13 @@ Let's walk through creating a spec for a common produce box.
 
 Start a new specification and fill in the essentials:
 
-**Code and Name**: Something descriptive like "TOMATO-250" and "Tomato Box 250mm"
+**Code and Name**: Something descriptive like "CS-TOM400" and "Tomato Box 40x30x15"
 
 **Customer**: Select the customer this spec is designed for. Nama will filter specifications by customer when creating orders, so you only see specs relevant to each customer.
 
 **Manufacturing Type**: Select "Normal Carton" (or whichever type applies)
 
-**Item**: If this specification produces a specific inventory item (maybe you stock these cartons), select the item. This links the specification to inventory management.
+**Item**: The finished carton as a stock item. Fill this in. It is not marked required on the screen, but [Generate Production Orders](./carton-material-planning.md) takes the production order's finished product from this field, so a specification without an Item cannot be taken through to production.
 
 ### Step 2: Physical Dimensions
 
@@ -83,7 +83,11 @@ These are the dimensions of the finished, folded carton:
 **Width** (w): The shorter horizontal dimension
 **Height** (h): The vertical dimension
 
-For example, a box that's 250mm × 200mm × 150mm when assembled.
+For example, a box that is 40 × 30 × 15 when assembled.
+
+::: warning Enter dimensions in centimetres
+Nothing on the screen states the unit, but the material planner's arithmetic assumes **centimetres** throughout — these dimensions, the sheet dimensions below, and the reel widths held in stock. A 400 × 300 × 150 mm box is entered as `40`, `30`, `15`. Enter it in millimetres and the specification still saves and still looks right, but every plan built on it fails with *Could not find a feasible solution*. See [The Units Are Centimetres](./carton-material-planning.md) for why.
+:::
 
 ### Step 3: Sheet Dimensions
 
@@ -92,7 +96,7 @@ This is where it gets manufacturing-specific. The flat corrugated sheet, before 
 **Sheet Length**: How long the flat sheet needs to be
 **Sheet Width**: How wide the flat sheet needs to be
 
-**Flap Value** (اللسان): The extra material for flaps that fold over. Default is typically 5mm or so.
+**Flap Value** (اللسان): The extra material for flaps that fold over — a few centimetres.
 
 **Here's the clever part**: You don't always calculate these manually. You can use formulas.
 
@@ -185,6 +189,8 @@ Each routing line specifies:
 
 When you generate production orders from this specification, these routing lines become the production order routing.
 
+**Give every specification at least one routing line.** The components worked out by material planning are all attached to the first operation in the routing, so a specification with an empty Routings tab fails production order generation outright with *This operation is not in routing*.
+
 ### Step 8: Packaging and Quantities
 
 **Quantity**: Default order quantity (optional)
@@ -248,10 +254,10 @@ The pattern master file, under **Manufacturing → Cartoon → CRTN Pattern**, h
 
 For a regular slotted container the geometry is fixed, and the formulas fall straight out of it. The blank wraps all four walls plus a glue flap, so its length is `(l+w)*2` plus that flap. Across the corrugation it carries the box height plus two flaps of half the width each, so its width is `w+h`:
 
-- Length Formula: `(l+w)*2+40`
+- Length Formula: `(l+w)*2+4`
 - Width Formula: `w+h`
 
-Check it against a real box. A 400×300×150 mm carton gives `(400+300)*2+40 = 1440` and `300+150 = 450` — exactly the sheet that carton needs.
+Check it against a real box. A 40 × 30 × 15 cm carton gives `(40+30)*2+4 = 144` and `30+15 = 45` — exactly the 144 × 45 cm sheet that carton needs. The `4` is the glue flap, in centimetres like everything else here; a shop that works to a 3 cm flap writes `(l+w)*2+3`.
 
 A flat separator needs nothing more elaborate than `l` and `w`, since the pad is simply the size of the space it divides.
 
@@ -267,7 +273,9 @@ Nama automatically calculates the carton weight based on:
 
 Formula: `weight = ((sum of layer weights × corrugating factors) + starch level) × sheet area / 10000`
 
-Result is in appropriate units (usually grams or kilograms).
+The result is in grams. That division by 10,000 is the giveaway that the sheet dimensions are in centimetres: it is what turns square centimetres into square metres so the grammages can be applied.
+
+Work the tomato box through it. The layers give `150 + (112 × 1.34) + 125 = 425.08` grams per square metre, plus a starch level of 18 makes 443.08. The sheet is 144 × 45 cm, so 6,480 cm² or 0.648 m². That comes to **287.1 grams**, which is what Nama stores and what the box actually weighs. If the weight Nama calculates is wildly off a physical sample, one of the grammages, the corrugating factor, or the unit of the dimensions is wrong.
 
 This helps with freight calculations and material costing.
 
