@@ -29,6 +29,7 @@ Accounting features are sold as licensed sub-modules, so some screens may not ap
 - [Concepts & first-time setup](./accounting-concepts-and-setup.md)
 - [Chart of Accounts](./chart-of-accounts.md)
 - [Accounts](./accounts.md)
+- [System Accounts & Transaction Exceptions](./system-accounts-and-exceptions.md)
 - [Journal Entries & Adjustments](./journal-entries.md)
 - [Year-End Closing & Period Control](./year-end-and-period-control.md)
 - [Receipt & Payment Vouchers](./receipts-and-payments.md)

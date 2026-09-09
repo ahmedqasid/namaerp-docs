@@ -29,6 +29,8 @@ Many of the accounting module's behaviors aren't coded — they're **configured*
 |---|---|
 | Allow using a system account in receipt / payment / bank transfer / journal entry | Permit manually picking a "system" account in each type individually. |
 
+Each of these switches the check off for a whole document type — every user, every account, every date — so it is the bluntest of the three ways to open a system account. Prefer a dated exception record instead; both routes, and the account flags behind them, are on [System Accounts & Transaction Exceptions](../system-accounts-and-exceptions.md).
+
 ## Prevent change of account balance nature
 
 | Option | Effect |

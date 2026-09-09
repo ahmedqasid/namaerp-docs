@@ -29,6 +29,7 @@
 - [المفاهيم الأساسية والإعداد المبدئي](./accounting-concepts-and-setup.md)
 - [شجرة الحسابات](./chart-of-accounts.md)
 - [الحسابات](./accounts.md)
+- [الحسابات النظامية واستثناءات الحركة عليها](./system-accounts-and-exceptions.md)
 - [سندات القيد والتسويات](./journal-entries.md)
 - [الإقفال السنوي والتحكم في الفترات](./year-end-and-period-control.md)
 - [سندات القبض والصرف](./receipts-and-payments.md)

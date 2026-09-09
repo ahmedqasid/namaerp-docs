@@ -46,7 +46,8 @@ The **Allow Transactions Without Subsidiary** option lets you, when needed, reco
 
 The part that makes this screen pivotal for support is the set of flags (checkboxes) that govern the account's behavior during posting:
 
-- **System Account** — marks an account that documents generate automatically (not usually used manually). Whether documents may use it is governed by the module's option catalog.
+- **System Account** — marks an account whose balance the system builds by itself, and locks it against manual entry: a journal entry, receipt/payment voucher, bank transfer or inter-company transfer naming it is refused with *"The Account … Can Be Used Only By The System"*. Documents generated automatically are unaffected. Three things can reopen it — a module option per document type, the flag below, or a dated exception record; all three are on [System Accounts & Transaction Exceptions](./system-accounts-and-exceptions.md).
+- **Allow System Account In Opening** — a companion to the flag above: it lets the account be used manually in any period that is **not** a Normal one (opening, adjustment, closing), so opening balances and year-end adjustments can be recorded on it while it stays locked during the year.
 - **Prevent Changing Account Balance Nature** — blocks a transaction that would flip the account's balance to its unnatural side (e.g., making a cash balance credit). A safeguard against errors.
 - **Track Debt Ages** — enables debt-age tracking for this account, a prerequisite for the account appearing in debt-age reports.
 - **Do Not Auto-Include In Exchange Rate Update** — excludes the account from periodic foreign-currency revaluation.
