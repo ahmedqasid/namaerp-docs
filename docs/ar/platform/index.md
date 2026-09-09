@@ -42,6 +42,7 @@ title: الخصائص العامة للنظام
   <LandingCard icon="🖊️" title="المراجعة وإلغاء المراجعة" link="/ar/platform/revise-and-unrevise.md" details="اعتمد السجلات المعتمدة مستوىً بعد مستوى، وسمِّ كل خطوة وصاحبها، واقفل ما تمت مراجعته." />
   <LandingCard icon="🗓️" title="التحكم في إقفال الفترات" link="/ar/platform/fiscal-period-control-guide.md" details="أقفل الفترات المحاسبية حتى لا يتمكن أحد من التسجيل في شهر مُقفل." />
   <LandingCard icon="🛡️" title="التحقق المبني على المعايير" link="/ar/platform/criteria-based-validation.md" details="امنع أو نبّه على المستندات التي لا تستوفي معايير تحددها أنت." />
+  <LandingCard icon="❗" title="الحقول المطلوبة" link="/ar/platform/required-fields.md" details="اجعل أي حقل في أي شاشة إلزامياً — دائماً أو عند تحقق شرط — واستثنِ من شئت من الفروع والمستخدمين." />
   <LandingCard icon="🕓" title="سجل التعديل وتاريخ النسخ" link="/ar/platform/audit-trail.md" details="من غيّر السجل وماذا كان يقول قبل التغيير — تاريخ النسخ، والتدقيق التفصيلي للحقول، ومقارنة النسخ، والعودة إلى نسخة سابقة." />
 </LandingGrid>
 

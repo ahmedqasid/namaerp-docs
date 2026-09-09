@@ -43,6 +43,7 @@ Control who can do what, and keep your books and processes under firm control.
   <LandingCard icon="🖊️" title="Revise and Unrevise" link="/platform/revise-and-unrevise.md" details="Sign off committed records level by level, name each step and its owner, and lock what has been checked." />
   <LandingCard icon="🗓️" title="Fiscal Period Control" link="/platform/fiscal-period-control-guide.md" details="Lock accounting periods so no one can post into a closed month." />
   <LandingCard icon="🛡️" title="Criteria-Based Validation" link="/platform/criteria-based-validation.md" details="Block or warn on documents that don't meet rules you define." />
+  <LandingCard icon="❗" title="Required Fields" link="/platform/required-fields.md" details="Make a field mandatory on any screen — always, or only when a condition holds — and exempt the branches or people who should be spared." />
   <LandingCard icon="🕓" title="Audit Trail &amp; Version History" link="/platform/audit-trail.md" details="Who changed a record and what it said before — the version history, field-level auditing, comparing versions, and reverting to an earlier one." />
 </LandingGrid>
 
