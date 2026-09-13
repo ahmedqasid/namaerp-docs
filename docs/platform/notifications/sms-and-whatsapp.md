@@ -169,6 +169,50 @@ WaPilot can also be used as an SMS provider through the SMS settings screen, whe
 
 ---
 
+## WhatsApp Integration Using WasenderAPI
+
+To send WhatsApp messages from Nama ERP using [wasenderapi.com](https://wasenderapi.com), follow these steps:
+
+---
+
+### Setup Steps
+
+1. **Create a Session and Link WhatsApp**
+
+   * Create an account on [wasenderapi.com](https://wasenderapi.com) and open the **Sessions** tab of the dashboard
+   * Create a new **Session** and link it to your WhatsApp number by scanning the QR code
+
+2. **Copy the Session API Key**
+
+   * Every session has its own **API Key**, shown on the session page once the number is linked
+   * The key belongs to that session only; deleting the session invalidates the key
+
+---
+
+### Nama ERP Settings
+
+In the WhatsApp message settings screen:
+
+* **Provider**: `WasenderAPI`
+* **Password (Secret)**: the session API Key
+* **Username (Public ID)**: leave empty. WasenderAPI has no instance identifier, so the field is disabled for this provider
+
+To send from several numbers, create one session per number and add a row per sender in the **Public IDs by Sender** table with the session's API Key in the **Secret** column. Leave the **Public ID** column empty; it is only required for providers that work with instance identifiers.
+
+::: tip Media messages
+Set the **Media Type** of the WhatsApp message to File, Image, Video, or Audio so the attachment reaches the recipient in the matching form: an invoice PDF as a document, a picture as an inline image. As with the other providers, the **Media URL** must be reachable from the internet.
+:::
+
+::: warning Sending limits
+WasenderAPI paid plans accept roughly one message every 5 seconds per session; trial accounts are limited to one message per minute and 50 per day. Messages sent faster than that are rejected by the provider and appear as failed tasks carrying the provider's "retry after" hint.
+:::
+
+::: tip
+WasenderAPI can also be used as an SMS provider through the SMS settings screen (Provider `WasenderAPI`, Password = session API Key), where messages are sent via WhatsApp instead of traditional SMS.
+:::
+
+---
+
 ## Sending WhatsApp from Employee Phones (Dynamic Sender)
 
 This feature allows sending WhatsApp messages from employees' phones instead of a single fixed number. For example, when the system sends a message to a customer, the message can appear from the phone number of the sales representative responsible for that customer, allowing the representative to follow up on the conversation directly from their personal phone.
@@ -186,7 +230,7 @@ In the **WhatsApp Message Settings** screen, there is a **Public IDs by Sender**
 | Field | Description | Required |
 |-------|-------------|----------|
 | **Sender ID** | Sender identifier (such as phone number or employee code) | Yes |
-| **Public ID** | The Instance identifier for this number | Yes |
+| **Public ID** | The Instance identifier for this number | Yes, except for Morasalaty and WasenderAPI, which do not use it |
 | **Secret** | The secret key — can be left empty to be read from the main field | No |
 
 ::: tip
