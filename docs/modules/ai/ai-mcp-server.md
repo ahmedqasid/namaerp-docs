@@ -136,6 +136,8 @@ Describes how to build a record for an entity type: every field with its type an
 | `mode` | No | `visible` (default): on-screen fields — what a user would normally fill — or `all`: every importable field |
 | `collections` | No | Limit the returned detail collections (comma-separated names, such as `invoiceLines`) — header fields are always included |
 
+The response also carries an `example`: a skeleton record with placeholder values in exactly the shape `ImportRecord` expects. Amounts and quantities keep their real nesting rather than dotted keys — a journal-entry debit, for instance, is `"debit": { "value": { "amount": 1500, "currency": "EGP" }, "rate": 1, "localAmount": 1500 }`. Date fields carry a `format` hint: a date is written day-first as `dd-MM-yyyy` or ISO as `yyyy-MM-dd`, and a date-and-time as `yyyy-MM-dd'T'HH:mm` (a date alone is taken as midnight).
+
 ### import_ImportRecord — import records
 
 Imports one or more records in Nama's JSON format: an object keyed by entity type, each key holding an array of records.
@@ -143,7 +145,11 @@ Imports one or more records in Nama's JSON format: an object keyed by entity typ
 | Parameter | Required | Description |
 |---|---|---|
 | `recordsJson` | Yes | The records to import |
+| `importMode` | Yes | `CreateOnly`: only add records — a code that already exists is an error; `UpdateOnly`: only change existing records — an unknown code is an error; `CreateOrUpdate`: allow both. Records are matched by code, so `CreateOnly` is the safe choice whenever the intent is to add |
 | `saveAsDraft` | No | `true`: save as an uncommitted draft — `false` (default): save and commit |
+| `appendDetailLines` | No | Only matters when an existing record is updated: `true` keeps its current detail lines and adds the sent ones after them — `false` (default) replaces them, so any line not sent is lost |
+
+**Codes.** A document whose book numbers automatically (or a master file whose group does) needs no `code`: leave it out and the real number is assigned on commit. A placeholder that starts with the book prefix and ends in `@draft` — `JE1000@draft`, say — is accepted too and replaced the same way. The `@draft` suffix only marks the code as a placeholder; whether the record is committed is decided by `saveAsDraft` alone. A committed record can still come back as *pending approval* when an approval definition matches it — that is the approval feature, not the import.
 
 The general shape:
 
