@@ -1,6 +1,6 @@
 ---
 entities: [ReportDefinition]
-menu: Reports → Reports Monitoring → Report Definition
+menu: Administration → Reports → Report Definition
 ---
 # Which Printed Form Comes Out
 

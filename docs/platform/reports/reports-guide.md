@@ -1,6 +1,6 @@
 ---
 entities: [ReportDefinition]
-menu: Reports → Reports Monitoring → Report Definition
+menu: Administration → Reports → Report Definition
 ---
 # Jasper Reports Complete Guide for Nama ERP
 
@@ -158,6 +158,25 @@ What the system places in that parameter is an already-compiled report, not the 
 :::
 
 Extra resources — an image the layout uses, a file the design needs — work the same way: register the resource on the report definition, declare a parameter with the same name and the class `java.lang.Object`, and reference it where the design needs it.
+
+## Editing a design in place
+
+Most changes to a hand-drawn design arrive the way the design was built: fix the layout in Jaspersoft Studio, export it, and upload the new file into **Report File**. But the definition also keeps a text copy of that file, and for a small correction — a mistyped column name, a label, a width — editing the text is quicker than a round trip through the studio.
+
+Open the **Advanced** page. At its bottom sit two fields:
+
+| Field | What it holds |
+|---|---|
+| **Report File Content** | The text of the uploaded layout file. It is refilled from the file every time the definition is saved, so what you read here is always what the report runs from. |
+| **Copy Content To Report** | An instruction to the next save: write the text back into the file. |
+
+Edit the text and save, and the system takes it from there. The file is rewritten from the text, the report is recompiled from the file, and the text is read back from the file, so the two are identical again. **Copy Content To Report** ticks itself when the save finds that the text differs from what was stored, so you do not normally touch it, and you will find it cleared again afterwards: it describes a one-off action, not a setting.
+
+The same holds when the change arrives through an import or an integration rather than the screen. A saved definition whose content differs from the stored copy is treated exactly as if you had typed the change. The one case that needs the box ticked by hand is a brand-new definition created from pasted text with no file uploaded yet: there is no stored copy to differ from, so tick **Copy Content To Report** yourself and the file is created from the text on save.
+
+::: tip What actually runs
+A report never runs from the text field. Every save rebuilds a compiled version from **Report File**, and that compiled version is what users run. The text field is a way into the file, not a second source, which is why the two always match after a save.
+:::
 
 ## Asking the user for input: report parameters
 
