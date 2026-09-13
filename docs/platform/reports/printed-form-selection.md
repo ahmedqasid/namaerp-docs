@@ -41,10 +41,19 @@ fields decide membership:
 
 - **Form Entity** — the type of record the form prints. A form registered against Sales Invoice is
   never a candidate for a Sales Order, no matter what its layout draws.
-- **Form Page** — an optional restriction to one tab of the edit screen. Leave it empty and the form
-  is offered from every tab. Fill it in and it is only offered from the matching tab. The match is
-  generous: it accepts the tab's translation key, its Arabic caption, its English caption, or its
-  position on the screen counted from 1. That is why both `2` and the tab's visible title work.
+- **Form Page** — an optional restriction to the tabs of the edit screen the form is offered from.
+  Leave it empty and the form is offered from every tab. Click into the field and it lists the tabs
+  of the **Form Entity**'s screen by name; pick one and the form is only offered from that tab. The
+  match on each entry is generous: it accepts the tab's translation key, its Arabic caption, its
+  English caption, or its position on the screen counted from 1. That is why both `2` and the tab's
+  visible title work.
+
+::: tip One form on several tabs — separate the tabs with commas
+**Form Page** takes more than one tab. List them separated by commas — `Main,Attachments`, or
+`1,3` by position — and the form is a candidate from any tab in the list. The field helps here too:
+after you type a comma it suggests the tabs not yet listed, and picking one appends it rather than
+replacing what is already there. Use the plain comma `,`; the Arabic comma `،` is not a separator.
+:::
 
 The list is also filtered by the user's own dimensions, exactly as any other master file list is.
 A form belonging to a legal entity the user cannot see is not a candidate for that user, which is
@@ -249,7 +258,7 @@ are candidates for it.
 | A form was just created and is not offered | The session's remembered "is there a form?" answer. Log out and back in. |
 | The wrong layout printed | Ordering. A non-system form always beats a system one; below that it is **Report Order**, lowest first. Give the specific form a lower number, or a book/criteria restriction so the general one is eliminated. |
 | Right layout, wrong company's letterhead | The legal entity on the form, and the global option that passes the record's legal entity to the form. |
-| Correct from one tab, missing from another | **Form Page** on the form. |
+| Correct from one tab, missing from another | **Form Page** on the form — is the missing tab in its comma-separated list? |
 | *"Can not print draft records"* | **Allow Printing Drafts** globally, on the book, and on the term — plus the user's profile. |
 | A draft printed and should not have | The same three places. The book or the term overrides the global setting on its own. |
 | Printed once, refuses now | **Can Print** is *One*, and the print count is above zero. |

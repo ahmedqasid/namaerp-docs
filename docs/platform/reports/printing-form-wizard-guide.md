@@ -188,7 +188,7 @@ Three fields in the **Form Details** group take part in that decision:
 | Field | What it does |
 |---|---|
 | **Form Order** | Orders this form against the others for the same document. |
-| **Form Page** | Ties the form to a particular screen tab, for documents whose screens have more than one. |
+| **Form Page** | Ties the form to particular screen tabs, for documents whose screens have more than one. Click into it to pick from the tabs of the **Main Table** screen; to cover several tabs, separate them with commas — `Main,Attachments`. |
 | **Print As List** | Makes the form print a list of selected records instead of one document. |
 
 Everything else about *which* form a given user gets — restricting it to one document book, one
