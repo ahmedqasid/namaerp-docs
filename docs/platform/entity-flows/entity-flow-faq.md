@@ -282,3 +282,17 @@ If you want to fetch the last purchase price on a date before the current docume
 ```ini
 details.n2=sql(select top 1 cast(l.unitPrice as decimal(20,2)) lastPrice from PurchaseInvoiceLine l where l.item_id = {details.item.item.id} and l.valueDate <= {valueDate} order by l.valueDate desc)
 ```
+
+## My flow saves another record with `runCommand="save"`, but that record has an approval definition and it never goes to approval. Why?
+
+`runCommand="save"` saves the record the way a background business action does: it commits directly and never consults approval definitions. That is what you want for most automation, but it also means a customer or document that would normally wait for a manager's approval when saved from the screen is saved as final by the flow.
+
+Use `runCommand="saveConsideringApprovals"` instead. It runs the same save path as the edit screen: approval definitions are checked, and when one applies the record goes to approval instead of being saved as final. The "this record will go to approval" confirmation the screen normally asks for is answered automatically, and the flow step itself still finishes successfully.
+
+```ini
+customer.runCommand="edit"
+customer.description1="Updated from the invoice"
+customer.runCommand="saveConsideringApprovals"
+```
+
+If the flow saves the record it is running on, and you trigger it manually, you do not need `runCommand` at all: check **Requires Commit On Manual** in the flow header, and add **Consider Approvals On Commit On Manual** to get the same approval-aware behaviour. See [Saving the record after a manual run](./introduction-to-entity-flows#Saving-the-record-after-a-manual-run).

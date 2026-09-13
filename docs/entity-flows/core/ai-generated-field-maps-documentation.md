@@ -790,7 +790,8 @@ $line.isLast=true
 ### Entity Commands
 ```ini
 runCommand="edit"                          # Start editing mode
-runCommand="save"                          # Save the entity
+runCommand="save"                          # Save the entity directly (approval definitions are NOT checked)
+runCommand="saveConsideringApprovals"      # Save the entity the way the screen does: approval definitions are checked first
 runCommand="recommit"                      # Re-save/recommit the entity
 runCommand="forcestable"                   # Force update without validation
 runCommand="unforcestable"                 # Cancel force update mode
@@ -805,6 +806,18 @@ runCommand="runManualEntityFlow(EF005)"    # Run specific entity flow by code
 runCommand="encryptPassword"               # Encrypt password field (NaMaUser only)
 runCommand="doNotCheckQty"                 # Skip quantity checks (InvoiceWithStockEffect only)
 runCommand="collectStockDocsIfEmpty"       # Collect stock documents (InvoiceWithStockEffect only)
+```
+
+#### `save` vs `saveConsideringApprovals`
+`runCommand="save"` commits the record straight away, exactly like a background business action: no approval definition is consulted, so a record that would normally go to approval when a user saves it from the screen is saved as final instead.
+
+`runCommand="saveConsideringApprovals"` runs the same save path the edit screen uses. If an approval definition applies to the record, the record goes to approval instead of being saved as final, and the flow's own step finishes successfully. The "this record will go to approval" confirmation the screen normally asks for is answered automatically, so no user interaction is needed.
+
+```ini
+# Update the customer from within an invoice, respecting approvals on the customer
+customer.runCommand="edit"
+customer.description1="Updated from invoice"
+customer.runCommand="saveConsideringApprovals"
 ```
 
 #### Common Command Combinations

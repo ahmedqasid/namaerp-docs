@@ -36,7 +36,7 @@ Manual execution or automated through entity flows for field value assignments, 
 - **Static Values:** `status="ACTIVE"` or `category="STANDARD"`
 - **SQL Calculations:** `totalAmount=sql(SELECT SUM(amount) FROM Table WHERE id = {id})`
 - **Reference Fields:** `customerName=customer.name` or `supplierCode=supplier.code`
-- **Entity Commands:** `customer.runCommand="edit"` or `runCommand="save"`
+- **Entity Commands:** `customer.runCommand="edit"`, `runCommand="save"` (saves directly, ignoring approval definitions) or `runCommand="saveConsideringApprovals"` (saves the way the screen does, sending the record to approval when an approval definition applies)
 
 ## Database Tables Affected
 

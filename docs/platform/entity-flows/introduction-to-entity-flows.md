@@ -280,6 +280,19 @@ This action is used to trigger an Entity Flow manually by the user, through:
 - Entity Flows using this action must be added to the target screen.
 - This is done via "Edit Screen" → the "Actions and Notifications" table.
 :::
+
+### Saving the record after a manual run
+
+On its own, a manual run only executes the flow's lines. If those lines change fields on the record, the changes stay on the open screen and it is up to the user to press Save. Two options in the Entity Flow header change that:
+
+- **Requires Commit On Manual** — the flow puts the record in edit mode, runs its manual lines, then saves the record itself. A record that has never been saved before is saved as a draft instead. Integrations that run flows without a screen, such as the mobile QR integrator, need this option.
+- **Consider Approvals On Commit On Manual** — makes that automatic save behave like a save from the screen. Approval definitions are checked first, and when one applies the record goes to approval instead of being saved as final. Without this option the flow saves the record straight away and no approval definition is consulted.
+
+::: warning Consider Approvals needs Requires Commit
+"Consider Approvals On Commit On Manual" has no meaning by itself. If you check it while "Requires Commit On Manual" is unchecked, the Entity Flow refuses to save and points you to the option.
+
+The "this record will go to approval" confirmation that the screen normally asks for is answered automatically, so the save needs no user interaction.
+:::
 ---
 
 ## `Automatic` — Automatic
