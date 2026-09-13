@@ -174,6 +174,8 @@ Edit the text and save, and the system takes it from there. The file is rewritte
 
 The same holds when the change arrives through an import or an integration rather than the screen. A saved definition whose content differs from the stored copy is treated exactly as if you had typed the change. The one case that needs the box ticked by hand is a brand-new definition created from pasted text with no file uploaded yet: there is no stored copy to differ from, so tick **Copy Content To Report** yourself and the file is created from the text on save.
 
+The subreport and resource rows carry the same pair of fields, even though the grids on screen show only the id and the file. For an import tool, the MCP tools or the API, each **Subreports** row and each **Resources** row exposes `reportContent` and `reportFileName` alongside its file: a subreport row holds the plain text of its layout, a resource row holds the file's bytes encoded as Base64. When **Copy Content To Report** is ticked, one save writes the header content and every row's content into their files together. The automatic tick, though, watches only the header's content, so an import that changes a subreport or resource row alone must set `copyContentToReport` explicitly or the rows' files stay as they were.
+
 ::: tip What actually runs
 A report never runs from the text field. Every save rebuilds a compiled version from **Report File**, and that compiled version is what users run. The text field is a way into the file, not a second source, which is why the two always match after a save.
 :::
