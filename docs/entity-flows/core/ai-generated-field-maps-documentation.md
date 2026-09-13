@@ -94,6 +94,45 @@ details=[addLines(lines)]          # Add same number as source lines
 details1=[addLines(details2)]      # Add lines based on another collection
 ```
 
+### Removing Lines by SQL
+Sometimes you do not want to clear the whole table, only the lines that meet (or fail) a condition. Put the detail table on the left and one of the two removal functions on the right. The SQL is evaluated **once per line** and must return `1` (keep the match) or `0`, exactly like the queries used in criteria and `Apply When Query`:
+
+```ini
+# Drop every line whose n1 is below 5
+details=removeLinesMatchingSql(select case when {details.n1} < 5 then 1 else 0 end)
+
+# Keep only the lines whose n1 is above 5 (everything else is removed)
+details=removeLinesNotMatchingSql(select case when {details.n1} > 5 then 1 else 0 end)
+
+# Remove lines whose item is a service
+details=removeLinesMatchingSql(select case when {details.item.item.itemType} = 'Service' then 1 else 0 end)
+```
+
+For longer queries use the multi-line form, closed with the matching `end…` keyword on its own line:
+
+```ini
+details=mlRemoveLinesMatchingSql(
+  select case
+    when {details.n1} > 5 then 1
+    else 0
+  end
+)endmlRemoveLinesMatchingSql
+
+details=mlRemoveLinesNotMatchingSql(
+  select case when {details.quantity.quantity.primeQty.value} > 0 then 1 else 0 end
+)endmlRemoveLinesNotMatchingSql
+```
+
+How it behaves:
+- The query runs against the entity whose lines are being removed (the target). In a GUI post action or a fields-values calculator that is simply the record on screen; in a *generate entity from entity* flow it is the generated document, so put the removal **after** the lines have been copied into it.
+- A line matches when the query returns a non-zero / true first column. Lines whose query returns nothing are treated as not matching.
+- If the query does not reference any field of the table (a header-only condition), the same answer applies to every line: `removeLinesMatchingSql` then empties the table when the condition holds, and `removeLinesNotMatchingSql` empties it when the condition fails.
+- The remaining lines keep their order. Any later mapping line that copies by position (`details.n1=lines.n1`) sees the shortened table.
+
+::: tip Related
+`[clear]` removes every line unconditionally, and `filterLinesBy` only hides lines from a copy without deleting them. Use the removal functions when the lines must actually disappear from the record. The standalone entity flow action **EADetailsRemover** does the same job from its own parameters, without a field map.
+:::
+
 ### Copying Field Values to All Lines
 ```ini
 details.warehouse=warehouse        # Copy header warehouse to all detail lines
