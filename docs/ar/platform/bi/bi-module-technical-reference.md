@@ -51,6 +51,18 @@ entities: [DashBoardWidget, BICrossFilter, DashBoard, DashBoardWidgetWizard]
 
 وتحتفظ أنواع الـwidget غير البيانية بشكلها الخاص في الحقل نفسه: `EnhancedTable` يحمل `columns` و`tableOptions` (القسم 14)، و`EnhancedMetricsCard` يحمل تعريفات بطاقاته (القسم 15)، و`TextBlock` يحمل `html` / `htmlEn` وأنماط الإطار (القسم 9b). ولا يستخدم أيٌّ منها `echartOption` ولا `dataMapping`.
 
+### سطح ECharts المدعوم
+
+يحزم العميل نسخة مختصرة من ECharts لا المكتبة الكاملة، لذا لا يمكن لـ`echartOption` أن يستخدم إلا أنواع السلاسل والمكوّنات المسجَّلة فيها. وأي شيء آخر — نوع سلسلة أو مكوّن غير موجود في القائمة أدناه — يُتجاهل بصمت: يُرسَم المخطط من دونه ولا يظهر أي خطأ.
+
+**أنواع السلاسل (14):** `bar`، `line`، `pie`، `gauge`، `heatmap`، `scatter`، `funnel`، `treemap`، `radar`، `sankey`، `sunburst`، `custom`، `boxplot`، `pictorialBar`.
+
+**المكوّنات (17):** `grid`، `tooltip`، `legend`، `title`، `toolbox`، `dataZoom`، `visualMap`، `aria`، `radar` (نظام الإحداثيات)، `markLine`، `markPoint`، `markArea`، `graphic`، `dataset`، `dataset.transform`، `polar`، `calendar`.
+
+**غير مسجَّل:** `map` / `geo`، `graph`، `tree`، `lines`، `themeRiver`، `parallel`، `effectScatter`، `brush`، `timeline`.
+
+المُصيِّر (renderer) هو Canvas فقط، ولا يوجد مُصيِّر SVG. و`dataset` و`dataset.transform` (الفلترة / الفرز) مسجَّلان، لكن ينبغي عادةً إجراء تشكيل البيانات في SQL أو في `dataMapping`، لأن ذلك يُبقي بيانات نقاط الحفر (drill-down) والفلاتر المتقاطعة متوافقة مع ما يُرسَم.
+
 ### 1.1 Wizard Mode مقابل SQL Mode
 
 يعمل الـwidget في أحد وضعَين بحسب وجود `wizardDataSource` أم لا:
@@ -160,7 +172,7 @@ ORDER BY netValue DESC
 
 | الـPlaceholder | النوع | الوصف |
 |---|---|---|
-| `$DATA.categories` | `string[]` | قيم `categoryColumn`، واحدة لكل صف |
+| `$DATA.categories` | `string[]` | القيم المتميزة من `categoryColumn` بترتيب أول ظهور — انظر التنبيه أدناه |
 | `$DATA.series` | `object[]` | مصفوفة من كائنات `{name, type, data}` |
 | `$DATA.series[0].name` | `string` | اسم السلسلة الأولى |
 | `$DATA.series[0].data` | `number[]` | القيم العددية للسلسلة الأولى |
@@ -168,6 +180,10 @@ ORDER BY netValue DESC
 | `$DATA.series[N].data` | `number[]` | القيم العددية للسلسلة رقم N |
 | `$DATA.min` | `number` | الحد الأدنى عبر كل السلاسل |
 | `$DATA.max` | `number` | الحد الأقصى عبر كل السلاسل |
+
+::: warning الصفوف التي تشترك في تسمية الفئة تُدمَج
+تُجمَّع الصفوف بحسب القيمة المتميزة لـ`categoryColumn` بترتيب أول ظهور لكل قيمة. وعندما تحمل عدة صفوف التسمية نفسها **تُجمَع** قيمها العددية في فئة واحدة، وتُؤخذ بيانات نقطة drill-down / cross-filter لتلك الفئة من **أول** صف يحمل تلك التسمية. وإذا كان يجب أن يبقى كل صف شريطاً مستقلاً، فاجعل التسمية فريدة في SQL — مثلاً بإلحاق الكود أو التاريخ بالاسم.
+:::
 
 **مثال:**
 
@@ -222,8 +238,8 @@ ORDER BY netValue DESC
 
 | الـPlaceholder | النوع | الوصف |
 |---|---|---|
-| `$DATA.categories` | `string[]` | القيم الفريدة من `categoryColumn` (يحافظ على ترتيب الصفوف) |
-| `$DATA.series` | `object[]` | سلسلة واحدة لكل تسمية فريدة. كل منها لها `name` و`type` و`data`. |
+| `$DATA.categories` | `string[]` | القيم المتميزة من `categoryColumn` بترتيب أول ظهور |
+| `$DATA.series` | `object[]` | سلسلة واحدة لكل تسمية فريدة. كل منها لها `name` و`type` و`data`. والصفوف التي تشترك في الفئة والتسمية معاً **تُجمَع** في نقطة واحدة، وتأتي بيانات drill-down / cross-filter لها من **أول** صف منها — وهي قاعدة الدمج نفسها في القسم 3.1. |
 
 **مثال SQL:**
 
@@ -258,7 +274,7 @@ ORDER BY salesYear
 
 ### 3.3 LabelValue
 
-للمخططات الدائرية والقمعية وما شابهها: عمود للتسميات وعمود للقيم. يصبح كل صف نقطة بيانات بالشكل `{name, value}`.
+للمخططات الدائرية والقمعية وما شابهها: عمود للتسميات وعمود للقيم. تصبح كل تسمية **متميزة** نقطة بيانات بالشكل `{name, value}` — فالصفوف التي تشترك في التسمية **تُجمَع** في شريحة واحدة، وتأتي بيانات drill-down / cross-filter لها من **أول** صف منها (قاعدة الدمج في القسم 3.1). وإذا كان يجب أن يبقى كل صف شريحة مستقلة، فاجعل التسمية فريدة في SQL.
 
 **الحقول المطلوبة:**
 - `type`: `"LabelValue"`
@@ -273,7 +289,7 @@ ORDER BY salesYear
 
 | الـPlaceholder | النوع | الوصف |
 |---|---|---|
-| `$DATA.values` | `{name, value}[]` | مصفوفة من الكائنات. `name` من `labelColumn`، `value` (عددي) من `valueColumn`. |
+| `$DATA.values` | `{name, value}[]` | كائن واحد لكل قيمة متميزة من `labelColumn` بترتيب أول ظهور. و`value` هو مجموع `valueColumn` عبر الصفوف التي تشترك في تلك التسمية. |
 | `$DATA.centerText` | `string` | فقط إذا كان `centerText` محدداً في dataMapping. |
 
 **مثال:**
@@ -716,6 +732,16 @@ drill-down للوحة البيانات مفيد بشكل خاص للتحليل �
 }
 ```
 
+### أي أجزاء المخطط تستجيب للنقر
+
+ليس كل بكسل في المخطط نقطة بيانات. فمعالجة النقر الموضحة أعلاه لا تعمل إلا حيث يُبلِغ المخطط عن إصابة عنصر فعلي، ولذلك تبدو بعض المناطق قابلة للنقر وهي ليست كذلك:
+
+- مسار `showBackground` خلف الشريط (الشريط الباهت بكامل الارتفاع) غير قابل للنقر — الشريط نفسه فقط هو القابل للنقر.
+- العناصر المرسومة بـ`opacity: 0` لا تخضع لاختبار الإصابة؛ فالعنصر الشفاف تماماً لا يمكن النقر عليه.
+- المقياس (gauge) لا يستجيب إلا على قوس التقدم والمؤشر، لا على مسار المحور خلفهما.
+- في المخطط المدمج، تقع تعبئة `areaStyle` على سلسلة خطية فوق الأشرطة. والنقر على المساحة المظللة يُحلّ بأقرب فئة على محور X، فيصل النقر إلى الشريط الواقع تحت التعبئة. وإذا أردت أن يكون الخط شفافاً تماماً للنقرات، فاضبط `"silent": true` على تلك السلسلة (انظر الملاحظة تحت [مخطط خطي مع تعبئة المساحة](#mkhTT-khTy-maa-taaby-lmsH)).
+- في treemap، تُحدَّد العقدة المنقورة باسمها لا بموضعها.
+
 ---
 
 ## 5b. linkMappings — التنقل بالروابط
@@ -957,7 +983,7 @@ cross-filters كيانات ملف رئيسي تُعرِّف معاملات فل�
 | `name1` / `name2` | نعم | الاسم العربي / الإنجليزي |
 | `paramType` | نعم | النوع العددي الأساسي. القيم المسموح بها: `"Text"` و`"Integer"` و`"Long"` و`"Decimal"` و`"Boolean"` و`"Date"` و`"Time"` و`"Reference"` و`"Genericreference"` و`"BigText"` و`"Enum"` و`"ID"` و`"EntityType"` و`"Password"` و`"LatLng"`. (لا توجد قيمة `"ListParam"` — وضع متعدد القيم هو علامة `listParam` الأعمدية المنفصلة.) |
 | `listParam` | لا | عندما `true`، يقبل الفلتر قيماً متعددة. **مطلوب** عند `operator` هو `"In"` أو `"NotIn"`. |
-| `listDisplayType` | لا | واجهة العرض لفلاتر `listParam: true`: `"Default"` أو `"Dropdown"` أو `"Chips"`. |
+| `listDisplayType` | لا | واجهة العرض لفلاتر `listParam: true`: `"Default"` أو `"Dropdown"` أو `"Chips"` (شريط الرقائق هو الأكثر شيوعاً). ويُظهر `Chips` مربع بحث وزر «عرض المزيد» عندما تتجاوز القائمة صفحة واحدة من الخيارات (حجم الصفحة 25)، فتبقى القوائم الطويلة قابلة للاختيار؛ ويظل `Dropdown` الخيار الأكثر اختصاراً للقوائم الطويلة جداً. |
 | `referencedEntityType` | إذا `paramType=Reference` | نوع الكيان (مثل `"Branch"` أو `"Customer"` أو `"InvItem"`) |
 | `arTitle` / `enTitle` | لا | التسميات المُترجَمة المعروضة في شريط الفلتر. |
 | `sqlLeftHandSide` | نعم | تعبير SQL على يسار شرط WHERE (مثل `"l.branch_id"`). لفلاتر `Reference`، أشر إلى **عمود ID** — ليس عمود اسم أو كود. |
@@ -1028,6 +1054,8 @@ h.value_date <= :ToDocDate
 مفاتيح المدد الجاهزة: `Today` و`Yesterday` و`ThisWeek` و`PreviousWeek` و`ThisMonth` و`PreviousMonth` و`ThisQuarter` و`PreviousQuarter` و`ThisYear` و`PreviousYear` و`Last7` و`Last30` و`Last90` و`Last365`. والأسبوع يبدأ الأحد وينتهي السبت، و`Last7` تعني اليوم والستة أيام التي قبله. و`defaultValue` يقبل الصيغتين.
 
 ولأن المدة الجاهزة تخزّن المدة لا التاريخين، فاللوحة المحفوظة بـ`ThisMonth` تسير مع التقويم بدل أن تتجمد على الشهر الذي أُعدّت فيه.
+
+**كيف تُعرض القيمة** — تعرض رقائق الفلاتر (chips) والشارات (badges) ونافذة drill-down النطاق الصريح بصيغة «من – إلى» (التاريخان معاً)، ويعرض النطاق المفتوح من جهة الطرفَ المحدد وحده.
 
 **ملاحظات على الربط:**
 
@@ -1609,6 +1637,8 @@ widget واحداً لكل شاشة. أما الـ widgets ذاتية الارت
   "dataMapping": {"type": "CategoryValue", "categoryColumn": "month", "series": [{"column": "total", "name": "Total", "type": "line"}]}
 }
 ```
+
+في المخطط المدمج تغطي تعبئة المساحة الأشرطة؛ والنقر على التعبئة يُحلّ بأقرب فئة على محور X فتبقى الأشرطة تحتها مستجيبة. ولجعل الخط يتجاهل النقرات كلياً أضف `"silent": true` إلى السلسلة الخطية — انظر [أي أجزاء المخطط تستجيب للنقر](#y-jz-lmkhTT-tstjyb-llnqr).
 
 ### مخطط دائري (LabelValue)
 ```json

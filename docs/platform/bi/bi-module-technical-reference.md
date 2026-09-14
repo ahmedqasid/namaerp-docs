@@ -50,6 +50,18 @@ Every BI widget stores its configuration in a single `chartConfigJSON` field, he
 
 Non-chart widget types keep their own shape in the same field: `EnhancedTable` carries `columns` and `tableOptions` (Section 14), `EnhancedMetricsCard` carries its card definitions (Section 15), and `TextBlock` carries `html` / `htmlEn` plus frame styles (Section 9b). None of them use `echartOption` or `dataMapping`.
 
+### Supported ECharts surface
+
+The client bundles a reduced ECharts build rather than the full library, so `echartOption` can only use the series types and components that are registered in it. Anything else — a series type or a component that is not in the list below — is silently ignored: the chart renders without it and no error is shown.
+
+**Series types (14):** `bar`, `line`, `pie`, `gauge`, `heatmap`, `scatter`, `funnel`, `treemap`, `radar`, `sankey`, `sunburst`, `custom`, `boxplot`, `pictorialBar`.
+
+**Components (17):** `grid`, `tooltip`, `legend`, `title`, `toolbox`, `dataZoom`, `visualMap`, `aria`, `radar` (coordinate), `markLine`, `markPoint`, `markArea`, `graphic`, `dataset`, `dataset.transform`, `polar`, `calendar`.
+
+**Not registered:** `map` / `geo`, `graph`, `tree`, `lines`, `themeRiver`, `parallel`, `effectScatter`, `brush`, `timeline`.
+
+The renderer is Canvas only; there is no SVG renderer. `dataset` and `dataset.transform` (filter / sort) are registered, but data shaping should normally be done in the SQL or in `dataMapping`, which also keeps drill-down and cross-filter point data aligned with what is drawn.
+
 ### 1.1 Wizard Mode vs SQL Mode
 
 A widget operates in one of two modes depending on whether it has a `wizardDataSource` set:
@@ -159,7 +171,7 @@ The most common type. One column provides category labels (X-axis), and one or m
 
 | Placeholder | Type | Description |
 |---|---|---|
-| `$DATA.categories` | `string[]` | Values from `categoryColumn`, one per row |
+| `$DATA.categories` | `string[]` | Distinct values from `categoryColumn`, in first-seen order — see the warning below |
 | `$DATA.series` | `object[]` | Array of `{name, type, data}` objects (plus `stack` / `yAxisIndex` / `areaStyle` if set on the series config) |
 | `$DATA.series[0].name` | `string` | Name of first series |
 | `$DATA.series[0].data` | `number[]` | Numeric values of first series |
@@ -167,6 +179,10 @@ The most common type. One column provides category labels (X-axis), and one or m
 | `$DATA.series[N].data` | `number[]` | Numeric values of Nth series |
 | `$DATA.min` | `number` | Minimum value across all series (useful for visualMap / `bar-ranked`-style charts) |
 | `$DATA.max` | `number` | Maximum value across all series |
+
+::: warning Rows that share a category label are merged
+Rows are grouped by the distinct value of `categoryColumn`, in the order each value is first seen. When several rows carry the same label, their numeric values are **summed** into a single category, and the drill-down / cross-filter point data for that category is taken from the **first** row carrying that label. If each row must stay a separate bar, make the label unique in the SQL — for example, append the code or the date to the name.
+:::
 
 **Example:**
 
@@ -221,8 +237,8 @@ Pivot-table style: one column for categories (X-axis), one column whose distinct
 
 | Placeholder | Type | Description |
 |---|---|---|
-| `$DATA.categories` | `string[]` | Unique values from `categoryColumn` (preserves row order) |
-| `$DATA.series` | `object[]` | One series per unique label. Each has `name`, `type`, `data` — plus `stack` / `areaStyle` when the corresponding top-level dataMapping fields are set. Data arrays are aligned to categories (missing values are `0`). When `percentMode` is `true`, values are normalized per category so each category's series sum to 100. |
+| `$DATA.categories` | `string[]` | Distinct values from `categoryColumn`, in first-seen order |
+| `$DATA.series` | `object[]` | One series per unique label. Each has `name`, `type`, `data` — plus `stack` / `areaStyle` when the corresponding top-level dataMapping fields are set. Data arrays are aligned to categories (missing values are `0`). Rows that share the same category and label are **summed** into one point, and its drill-down / cross-filter data comes from the **first** such row — the same merge rule as Section 3.1. When `percentMode` is `true`, values are normalized per category so each category's series sum to 100. |
 
 **Example SQL:**
 
@@ -257,7 +273,7 @@ ORDER BY salesYear
 
 ### 3.3 LabelValue
 
-For pie charts, funnels, and similar: one column for labels, one for values. Each row becomes a data point with `{name, value}`.
+For pie charts, funnels, and similar: one column for labels, one for values. Each **distinct** label becomes a data point with `{name, value}` — rows that share a label are **summed** into one slice, and its drill-down / cross-filter data comes from the **first** such row (the merge rule of Section 3.1). If each row must stay a separate slice, make the label unique in the SQL.
 
 **Required fields:**
 - `type`: `"LabelValue"`
@@ -272,7 +288,7 @@ For pie charts, funnels, and similar: one column for labels, one for values. Eac
 
 | Placeholder | Type | Description |
 |---|---|---|
-| `$DATA.values` | `{name, value}[]` | Array of objects. `name` from `labelColumn`, `value` (numeric) from `valueColumn`. |
+| `$DATA.values` | `{name, value}[]` | One object per distinct `labelColumn` value, in first-seen order. `value` is the sum of `valueColumn` across the rows sharing that label. |
 | `$DATA.centerText` | `string` | Only if `centerText` is set in dataMapping. |
 
 **Example:**
@@ -724,6 +740,16 @@ If neither `onCellClick` nor `clickAction` is set, the widget falls back to cros
 
 In this configuration, left-clicking a data point immediately opens the "Invoice Details" drill-down popup. The right-click context menu still shows all drill-down targets as usual.
 
+### Which parts of a chart respond to a click
+
+Not every pixel of a chart is a data point. The click handling above fires only where the chart reports a hit on an actual item, so a few regions look clickable but are not:
+
+- A bar's `showBackground` track (the faint full-height band behind the bar) is not clickable — only the bar itself is.
+- Items drawn with `opacity: 0` are not hit-tested; a fully transparent item cannot be clicked.
+- A gauge responds only on its progress arc and pointer, not on the axis track behind them.
+- In a combo chart, an `areaStyle` fill on a line series sits on top of the bars. A click on the shaded fill is resolved by the nearest category on the x-axis, so the bar under the fill still receives the click. If you want the line to be fully transparent to clicks instead, set `"silent": true` on that series (see the note under [Line Chart with Area Fill](#Line-Chart-with-Area-Fill)).
+- On a treemap, the clicked node is resolved by its name, not by its position.
+
 ---
 
 ## 5b. linkMappings — Link Navigation
@@ -971,7 +997,7 @@ Cross-filters are master-file entities that define reusable filter parameters. T
 | `name1` / `name2` | Yes | Arabic / English name |
 | `paramType` | Yes | Base scalar type. Allowed values: `"Text"`, `"Integer"`, `"Long"`, `"Decimal"`, `"Boolean"`, `"Date"`, `"Time"`, `"Reference"`, `"Genericreference"`, `"BigText"`, `"Enum"`, `"ID"`, `"EntityType"`, `"Password"`, `"LatLng"`. (There is no `"ListParam"` value — multi-value mode is the orthogonal `listParam` flag below.) |
 | `listParam` | No | When `true`, the filter accepts multiple values. **Required** when `operator` is `"In"` or `"NotIn"`. Pair with `listDisplayType` to control the UI affordance. |
-| `listDisplayType` | No | UI affordance for `listParam: true` filters: `"Default"`, `"Dropdown"`, or `"Chips"` (the chip strip is the most common). |
+| `listDisplayType` | No | UI affordance for `listParam: true` filters: `"Default"`, `"Dropdown"`, or `"Chips"` (the chip strip is the most common). `Chips` shows a search box and a "show more" control whenever the list has more than one page of options (page size 25), so long lists remain pickable; `Dropdown` remains the compact choice for very long lists. |
 | `referencedEntityType` | If `paramType=Reference` | Entity type (e.g., `"Branch"`, `"Customer"`, `"InvItem"`) |
 | `arTitle` / `enTitle` | No | Localized labels shown in the filter bar. |
 | `sqlLeftHandSide` | Yes | SQL expression on the left of the WHERE condition (e.g., `"l.branch_id"`). For `Reference` filters, point at the **ID column** — never a name/code column; binary(16) encoding is handled automatically. |
@@ -1042,6 +1068,8 @@ Each fragment is emitted only when its end of the range has a value, so a half-o
 Preset keys: `Today`, `Yesterday`, `ThisWeek`, `PreviousWeek`, `ThisMonth`, `PreviousMonth`, `ThisQuarter`, `PreviousQuarter`, `ThisYear`, `PreviousYear`, `Last7`, `Last30`, `Last90`, `Last365`. Weeks run Sunday→Saturday; `Last7` is today plus the six days before it. `defaultValue` accepts either form.
 
 Because a preset stores the period rather than the dates, a dashboard saved with `ThisMonth` follows the calendar instead of freezing on the month it was authored in.
+
+**How the value is displayed** — filter chips, filter badges and the drill-down popup show an explicit range as "from – to" (both dates), and a half-open range shows only the bound that is set.
 
 **Binding notes:**
 
@@ -1638,6 +1666,8 @@ Here is a complete, working import JSON that creates a sales analysis dashboard 
   "dataMapping": {"type": "CategoryValue", "categoryColumn": "month", "series": [{"column": "total", "name": "Total", "type": "line"}]}
 }
 ```
+
+In a combo chart the area fill overlays the bars; a click on the fill is resolved to the nearest x-axis category, so the bars beneath still respond. To make the line ignore clicks entirely, add `"silent": true` to the line series — see [Which parts of a chart respond to a click](#Which-parts-of-a-chart-respond-to-a-click).
 
 ### Pie Chart (LabelValue)
 ```json

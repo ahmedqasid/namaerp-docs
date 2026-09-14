@@ -178,6 +178,10 @@ Some modules add their own system tools that appear in the same list. For exampl
 Everything else on this screen runs through the standard gates, so a tool never shows a user more than the screens would. `AITReadOnlySQLQuery` is the exception: it reads the database directly and therefore sees every legal entity, branch, salary and price regardless of what its user may open. Only a single `SELECT` is accepted and the statement runs in a transaction that is always rolled back, so it can never change anything — but restrict it to administrators through the **Security (Access Control)** grid. Its first parameter column sets the default maximum rows per call (200 by default, 5000 at most). See [Getting Better Support with an AI Coding Agent](./ai-assisted-support.md) for how support teams use it.
 :::
 
+::: info The statement is checked by JSqlParser 5.0 first
+Before it runs, the statement is validated with **JSqlParser 5.0**, which is stricter than SQL Server itself: anything JSqlParser cannot parse is rejected even if the server would run it. As an example, JSqlParser rejects `FOR XML PATH(''), TYPE).value(...)` and `ORDER BY` inside a `FOR XML PATH` subquery, so use `STRING_AGG(expr, ', ') WITHIN GROUP (ORDER BY …)` for string aggregation. Braces `{…}` inside string literals are passed through to the database unchanged.
+:::
+
 ## Where Are These Tools Used?
 
 - **[The in-app AI assistant](./ai-assistant.md)** calls the tools while chatting with the user to answer questions and carry out requests.
