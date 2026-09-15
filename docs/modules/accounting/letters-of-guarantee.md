@@ -61,6 +61,20 @@ At issue, the system checks that the total reserved doesn't exceed the **facilit
 
 The **Receipt** and **Delivery** documents track the circulation of the paper copy of the letter. **Changing** is used to extend the letter's term or change its value or fees — it updates the current values while keeping the initial values as a reference, and records the **change fees**. Finally, **Closing** closes the letter and releases the reserved facility.
 
+::: warning Only Issue and Changing decide the letter's money
+Receipt, Delivery and Closing show the letter's value, covered amount and fees, but they do not
+own those figures — each one inherits them from the document that comes before it in the letter's
+chain. **Issue** sets the opening figures, **Changing** moves them afterwards, and everything else
+simply carries forward whatever the chain says at that point.
+
+So if a delivery is showing 200,000 and you need it to read 250,000, typing over the amount on the
+delivery will not do it. The document still saves, but the figure snaps back to what the chain says
+and you get a warning telling you the edit was dropped. Enter an **LGT Changing** dated before the
+delivery instead, and the delivery picks the new figure up on its own.
+Editing the amount on the **Letter Of Guarantee** master file has no effect on the documents
+either, for the same reason: the chain, not the master file, is what they read.
+:::
+
 ## Actions on this screen
 
 The request is where the chain starts, and two buttons on it save re-keying the whole letter twice:
