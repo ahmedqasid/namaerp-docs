@@ -305,6 +305,36 @@ To force all links to use a certain server address, use the `{appurl()}` tag at 
 
 This ensures that all subsequent links are based on the provided URL.
 
+---
+
+### 6. Link to Book a Technician Appointment
+
+`createappointment` produces a link that opens the **Technician Appointment Creator** (the technician booking calendar) with its Department Section, Technician Procedure and From Document already filled in from the current record. It saves the booking team from searching for the document the visit was sold on.
+
+```
+{createappointment(technicianProcedure="01",departmentSection="01",fromDocType="SalesInvoice",fromDocCodeOrId=$id)}
+```
+
+| Parameter | What it fills in |
+|---|---|
+| `departmentSection` | Department Section, by its code |
+| `technicianProcedure` | Technician Procedure, by its code |
+| `fromDocType` | The type of the From Document — used together with `fromDocCodeOrId` |
+| `fromDocCodeOrId` | The code or the id of the From Document |
+
+* Every parameter is optional, and their names are not case-sensitive.
+* Each value can be a constant (`"01"`) or a field of the record (`$id`, `code`, `ref1.code`).
+* A parameter whose value comes out empty is left out of the link. On the calendar, a value that cannot be found leaves its field empty.
+
+The result is a **plain URL**, not a clickable link, so you can put it in an SMS as it is, or wrap it in an HTML link in an email or notification:
+
+```
+Invoice {code} for {customer.name1} needs an installation visit.
+<a href="{createappointment(technicianProcedure="01",departmentSection="01",fromDocType="SalesInvoice",fromDocCodeOrId=$id)}">Book it now</a>
+```
+
+For what happens when the calendar opens, see [The Booking Calendar](/modules/crm/technician-appointments/crm-technician-appointment-calendar.md#Opening-the-calendar-from-a-link).
+
 ## Using Loops in Tempo
 
 ### Looping Through Repeated Data (e.g. Document Details)

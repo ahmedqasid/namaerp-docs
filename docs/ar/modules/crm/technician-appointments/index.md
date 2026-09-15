@@ -15,7 +15,7 @@ title: مواعيد الفنيين
 كتالوج العمل، والفرق التي تؤديه، والساعات التي يمكن حجزها فيها. ابنِ هذه بالترتيب؛ فكل واحدة تضيّق منتقيات التي تليها.
 
 <LandingGrid>
-  <LandingCard icon="📅" title="كيف تترابط القطع" link="/ar/modules/crm/technician-appointments/crm-technician-appointments-overview.md" details="الشاشات الثماني، والسلسلة التي تجمعها، وخطوة تجهيز القسم الوظيفي التي بدونها لا يعمل شيء." />
+  <LandingCard icon="📅" title="كيف تترابط القطع" link="/ar/modules/crm/technician-appointments/crm-technician-appointments-overview.md" details="الشاشات التسع، والسلسلة التي تجمعها، وخطوة تجهيز القسم الوظيفي التي بدونها لا يعمل شيء." />
   <LandingCard icon="🧰" title="الخدمات والإجراءات الفنية" link="/ar/modules/crm/technician-appointments/crm-technician-services-and-procedures.md" details="المهمة الواحدة والعمل الذي تنتمي إليه، ولماذا يُحجز الإجراء ويُبلَّغ عن الخدمات." />
   <LandingCard icon="👷" title="فرق الفنيين" link="/ar/modules/crm/technician-appointments/crm-technician-crews.md" details="الفريق ومشرفه ولونه على التقويم، وقاعدة انتماء الفني إلى فريق واحد." />
   <LandingCard icon="⏰" title="إعدادات حجز المواعيد" link="/ar/modules/crm/technician-appointments/crm-appointment-booking-settings.md" details="ساعات العمل المستعارة من ملف الدوام، ومدة الفترة، ودفتر ترقيم المواعيد لكل قسم." />
@@ -23,11 +23,12 @@ title: مواعيد الفنيين
 
 ## حجز العمل
 
-حيث يُخطَّط اليوم فعلاً — التقويم الذي ترسم عليه، والمستند الذي يخرج منه.
+حيث يُخطَّط اليوم فعلاً — التقويم الذي ترسم عليه الزيارات وتعيد ترتيبها، والمستند الذي يخرج منه، والجدول الذي يراه الفنيون.
 
 <LandingGrid>
-  <LandingCard icon="🗓️" title="تقويم الحجز" link="/ar/modules/crm/technician-appointments/crm-technician-appointment-calendar.md" details="ارسم الفترات واضغط «إنشاء» فتحصل على موعد مرحَّل — ومن أين يأتي كل حد من حدود الشبكة." />
-  <LandingCard icon="📌" title="الموعد الفني" link="/ar/modules/crm/technician-appointments/crm-technician-appointment.md" details="مستند الحجز: حالته، وربطه بالمستند التجاري، وقاعدة الفريق الواحد في سطوره." />
+  <LandingCard icon="🗓️" title="تقويم الحجز" link="/ar/modules/crm/technician-appointments/crm-technician-appointment-calendar.md" details="ارسم الفترات واحفظ، واسحب الزيارات المحجوزة إلى وقت جديد، وغيّر حالتها — أو افتحه مملوءاً من رابط." />
+  <LandingCard icon="📌" title="الموعد الفني" link="/ar/modules/crm/technician-appointments/crm-technician-appointment.md" details="مستند الحجز: حالته، ومواده، وسجل تغييراته، وقاعدة الفريق الواحد في سطوره." />
+  <LandingCard icon="👤" title="مواعيدي" link="/ar/modules/crm/technician-appointments/crm-my-appointments.md" details="أسبوع الفني نفسه ملوّناً بالحالة، مع الفريق الذي يخرج معه." />
 </LandingGrid>
 
 ## بعد الزيارة

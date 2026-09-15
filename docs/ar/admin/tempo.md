@@ -305,6 +305,36 @@ Employee code {code}, Name {name1}
 
 يضمن هذا أن جميع الروابط اللاحقة تستند إلى العنوان المقدَّم.
 
+---
+
+### 6. رابط لحجز موعد فني
+
+تُنتج `createappointment` رابطاً يفتح شاشة **إنشاء موعد فني** (تقويم حجز مواعيد الفنيين) وفيها القسم الوظيفي والإجراء الفني ومستند «بناءا على» مملوءة سلفاً من السجل الحالي. فتوفّر على فريق الحجز البحث عن المستند الذي بيعت عليه الزيارة.
+
+```
+{createappointment(technicianProcedure="01",departmentSection="01",fromDocType="SalesInvoice",fromDocCodeOrId=$id)}
+```
+
+| المُدخل | ما يملؤه |
+|---|---|
+| `departmentSection` | القسم الوظيفي، بكوده |
+| `technicianProcedure` | الإجراء الفني، بكوده |
+| `fromDocType` | نوع مستند «بناءا على» — ويُستخدم مع `fromDocCodeOrId` |
+| `fromDocCodeOrId` | كود مستند «بناءا على» أو معرّفه |
+
+* كل المدخلات اختيارية، ولا يُفرَّق في أسمائها بين الحروف الكبيرة والصغيرة.
+* يمكن أن تكون كل قيمة ثابتاً (`"01"`) أو حقلاً من السجل (`$id` أو `code` أو `ref1.code`).
+* المُدخل الذي تخرج قيمته فارغة لا يُضاف إلى الرابط. وفي التقويم، القيمة التي لا يُعثر عليها تترك حقلها فارغاً.
+
+والناتج **عنوان URL مجرد** لا رابط قابل للنقر، فتضعه كما هو في رسالة SMS، أو تحيطه بوسم رابط HTML في البريد الإلكتروني أو الإشعار:
+
+```
+الفاتورة {code} للعميل {customer.name1} تحتاج زيارة تركيب.
+<a href="{createappointment(technicianProcedure="01",departmentSection="01",fromDocType="SalesInvoice",fromDocCodeOrId=$id)}">احجزها الآن</a>
+```
+
+ولما يحدث حين يُفتح التقويم، انظر [تقويم الحجز](/ar/modules/crm/technician-appointments/crm-technician-appointment-calendar.md).
+
 ## استخدام الحلقات (Loops) في Tempo
 
 ### التكرار على بيانات متكررة (مثل تفاصيل المستند)

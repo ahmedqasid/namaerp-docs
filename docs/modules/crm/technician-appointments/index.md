@@ -15,7 +15,7 @@ It is a self-contained booking system with its own licence, `crm-technician-appo
 The catalogue of work, the teams that do it, and the hours they are bookable in. Build these in order; each one narrows the pickers on the next.
 
 <LandingGrid>
-  <LandingCard icon="📅" title="How It All Fits Together" link="/modules/crm/technician-appointments/crm-technician-appointments-overview.md" details="The eight screens, the chain that joins them, and the department-section step nothing works without." />
+  <LandingCard icon="📅" title="How It All Fits Together" link="/modules/crm/technician-appointments/crm-technician-appointments-overview.md" details="The nine screens, the chain that joins them, and the department-section step nothing works without." />
   <LandingCard icon="🧰" title="Services and Procedures" link="/modules/crm/technician-appointments/crm-technician-services-and-procedures.md" details="The single task and the job it belongs to — and why you book the procedure but report the services." />
   <LandingCard icon="👷" title="Technician Crews" link="/modules/crm/technician-appointments/crm-technician-crews.md" details="The crew, its supervisor, its colour on the calendar, and the one-crew-per-technician rule." />
   <LandingCard icon="⏰" title="Appointment Booking Settings" link="/modules/crm/technician-appointments/crm-appointment-booking-settings.md" details="Working hours borrowed from an attendance shift, slot length, and the book each section numbers appointments in." />
@@ -23,11 +23,12 @@ The catalogue of work, the teams that do it, and the hours they are bookable in.
 
 ## Booking the Work
 
-Where the day is actually planned — the calendar you draw on, and the document that comes out of it.
+Where the day is actually planned — the calendar you draw and rearrange visits on, the document that comes out of it, and the schedule technicians see.
 
 <LandingGrid>
-  <LandingCard icon="🗓️" title="The Booking Calendar" link="/modules/crm/technician-appointments/crm-technician-appointment-calendar.md" details="Draw the periods, press Create, and get a committed appointment — plus where every limit on the grid comes from." />
-  <LandingCard icon="📌" title="The Technician Appointment" link="/modules/crm/technician-appointments/crm-technician-appointment.md" details="The booking document: its status, its link back to the sale, and the one-crew rule on its rows." />
+  <LandingCard icon="🗓️" title="The Booking Calendar" link="/modules/crm/technician-appointments/crm-technician-appointment-calendar.md" details="Draw periods and save, drag booked visits to a new time, change their status — or open it pre-filled from a link." />
+  <LandingCard icon="📌" title="The Technician Appointment" link="/modules/crm/technician-appointments/crm-technician-appointment.md" details="The booking document: its status, its materials, its change history, and the one-crew rule on its rows." />
+  <LandingCard icon="👤" title="My Appointments" link="/modules/crm/technician-appointments/crm-my-appointments.md" details="A technician's own week, coloured by status, with the crew they are going out with." />
 </LandingGrid>
 
 ## After the Visit
