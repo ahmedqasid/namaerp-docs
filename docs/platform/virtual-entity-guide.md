@@ -37,16 +37,24 @@ You can drop them into a report, group by `item`, sum the cost and quantity, and
 
 ## Where to Find It
 
-The Virtual Entity screen lives in the **Basic** module's menu. Open it like you would any other master file: click **New**, fill in the header, and you're in business.
+The Virtual Entity screen lives under **Administration → Reports**, next to Report Wizard and Data Source. Open it like you would any other master file: click **New**, fill in the header, and you're in business.
 
 The header has just a handful of fields:
 
-- **Code** — short identifier, letters/digits/underscore only, must start with a letter. The system uses this to name the underlying view (`vw_<code>`) and as the entity's type name. Once you save, the code can't be changed (renaming would mean dropping and re-creating the view, which Phase 1 doesn't do — see [What's Coming Later](#Whats-Coming-Later)).
+- **Code** — short identifier, letters/digits/underscore only, must start with a letter. The system uses this to name the underlying view (`vw_<code>`) and as the entity's type name. Treat it as permanent: nothing stops you from editing it after the first save, but nothing renames anything either — you get a second view under the new name while the old view, and every report pointing at it, stays behind. If you need a different code, create a new Virtual Entity (see [What's Coming Later](#Whats-Coming-Later)).
 - **Arabic Name** / **English Name** — what users will see in the wizard's table picker, in field labels, and in screen titles.
 - **SQL Query** — the SELECT statement that defines the entity. Multi-line; use `UNION`, `JOIN`, expressions, aggregates — whatever you need.
-- **Materialization** — for now, only `View` is allowed. The `Table` option is reserved for a future phase that will materialize the data into a refreshable physical table.
+- **Materialization** — for now, only `View` works. `Table` is still listed in the dropdown and you can pick it, but the save is rejected with a message telling you to use `View`; it is reserved for a future phase that will materialize the data into a refreshable physical table.
 
 After filling these in, click **Save**. Then, to map the SELECT columns to entity properties, click the **Edit Mappings** button at the top of the screen. That opens the editor where the real magic happens.
+
+::: warning Edit Mappings needs the new UI
+The mappings editor is part of the new user interface. Open the Virtual Entity screen there and the
+button opens the dialog described below. Press it from the old interface and you get an error saying
+the editor is available in the new UI only — the old interface has no way to show it. If you cannot
+move to the new UI, fill the **Column Mapping** field by hand instead; its exact format is
+[documented below](#The-Column-Mapping-field).
+:::
 
 ::: tip When you only want the answer, not a whole table
 A Virtual Entity gives the wizards a new *table* to build reports and widgets on. If what you actually want is a single number or piece of text from a query shown on a screen — the customer's outstanding balance beside their name on the invoice, or an extra column in a list view — that is a **calculated field**, defined in [Fields and Entities Settings](/platform/fields-and-entities-settings/fields-settings-calculated-fields). Same idea, much smaller: you write the query once and the answer appears on the record, with no report in between.
@@ -95,6 +103,45 @@ If you edit your SQL after mapping properties, and a property's `Column Name` no
 
 The re-parse runs ~2.5 seconds after you stop typing, so the badge updates as you work.
 
+### The Column Mapping field
+
+Everything the dialog builds ends up in one place: the **Column Mapping** field on the entity screen,
+which holds the property list as JSON. Normally you never look at it — clicking **OK** in the dialog
+writes it for you. It matters in two situations: you are on the old interface and cannot open the
+dialog at all, or you are creating virtual entities from an import file.
+
+The value is a JSON **object** with a single `properties` list, one entry per column:
+
+```json
+{
+  "properties": [
+    {"columnName": "item_id", "fullName": "item", "fieldType": "Reference",
+     "referenceTo": "InvItem", "arabicName": "الصنف", "englishName": "Item"},
+    {"columnName": "valueDate", "fullName": "valueDate", "fieldType": "Date",
+     "referenceTo": null, "arabicName": "التاريخ", "englishName": "Value Date"},
+    {"columnName": "totalCost", "fullName": "totalCost", "fieldType": "Decimal",
+     "referenceTo": null, "arabicName": "التكلفة", "englishName": "Total Cost"}
+  ]
+}
+```
+
+- **`columnName`** must match the column's name (or alias) in the SELECT list exactly — this is what
+  links the property to the view's column.
+- **`fullName`** is the logical field name the wizard shows and builds field IDs from.
+- **`fieldType`** is one of the standard field types, spelled exactly: `Text`, `Integer`, `Long`,
+  `Decimal`, `Boolean`, `Date`, `Time`, `DateAndTime`, `Reference`, `BigText`, `Enum`.
+- **`referenceTo`** names the target entity and only applies when the type is `Reference`; leave it
+  `null` otherwise.
+- **`arabicName` / `englishName`** are the labels users see in the field picker and as report column
+  headers.
+
+::: warning The wrapper is not optional
+A bare array — `[{"columnName": …}, …]` without the surrounding `{"properties": …}` — is the
+mistake people make most often. The save is now rejected with a message telling you so, but on
+releases before that check landed it was accepted silently and produced a virtual entity with no
+usable columns at all.
+:::
+
 ---
 
 ## How Bootstrap Resolves Each Column
@@ -141,6 +188,14 @@ Saving runs three things:
 3. **View DDL** — The system runs `DROP VIEW IF EXISTS dbo.vw_<code>` followed by `CREATE VIEW dbo.vw_<code> AS <your SELECT>` inside the same database transaction as the entity save. If the view DDL fails — bad syntax, missing column, illegal `ORDER BY` without `TOP`, permission issue — the whole transaction rolls back and you see the SQL Server error inline. Nothing partial gets persisted.
 
 After the save commits, the data-model cache is rebuilt so the next call to the Report Wizard or the Dashboard Widget Wizard sees the new entity in their main-table picker. No restart, no manual cache clear.
+
+::: tip Installations running on more than one application server
+That cache refresh reaches the server that handled the save. If the installation runs several
+application servers behind a load balancer, the others keep serving the model they already had, so a
+brand-new virtual entity can be missing from the table picker for whoever lands on another server.
+Restarting those servers clears it. If a virtual entity you just saved is nowhere to be found even
+though its view exists in the database, this is the first thing to check.
+:::
 
 ---
 
@@ -231,8 +286,9 @@ Add `valueDate` as a parameter with filter type `Between`. Save and run. You get
 | You build a virtual entity that references another virtual entity | Allowed. The DB enforces non-cyclic dependencies — if you accidentally create a cycle (A → B → A), the second `CREATE VIEW` fails. |
 | Two users save the same Virtual Entity at the same time | Standard optimistic-locking conflict; one save wins, the other sees a version mismatch error. |
 | You save with zero properties mapped | Allowed. The view is created but the entity has no usable fields in the wizard. Add columns later. |
-| Your SQL contains a `:placeholder` parameter | Rejected at validation. Virtual Entity SQL must be self-contained. |
-| You change the **Code** after first save | Rejected at validation. Create a new Virtual Entity with the new code if you need to rename. |
+| Your SQL contains a `:placeholder` parameter | Nothing stops the save at validation, but SQL Server will not accept a placeholder inside a view, so the view DDL fails and the save fails with its error. Virtual Entity SQL has to be self-contained — put the prompting on the consuming report's parameters instead. |
+| You change the **Code** after first save | Accepted, and almost never what you want: a second view is created under the new name, the old view stays in the database, and reports built on the old code keep pointing at it. Create a new Virtual Entity instead. |
+| Your **Column Mapping** JSON is malformed or is a bare array | Rejected at save with a message naming the problem. Older releases accepted it silently and left the entity with no columns. |
 
 ---
 
@@ -256,4 +312,4 @@ Phase 1 ships Virtual Entities as **views only**. The JSON config already carrie
 - **Code rename** — drop the old view and create a new one in a single transaction.
 - **Dependency tracking** — see which reports, dashboards, and other virtual entities depend on a given virtual entity before you change or delete it.
 
-For now, treat materialization as a roadmap signal: the dropdown shows `Table` disabled with a "Coming later" tooltip.
+For now, treat materialization as a roadmap signal: `Table` is listed in the dropdown but saving with it is rejected.
