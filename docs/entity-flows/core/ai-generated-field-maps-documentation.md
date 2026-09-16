@@ -357,6 +357,21 @@ lastInvoiceDate=sql(select max(valueDate) from SalesInvoice where customer_id = 
 n1=sql(select sum(netValue) from SalesInvoice where customer_id = {customer.id})
 ```
 
+::: warning An empty field becomes a NULL parameter, not a zero
+Placeholders are bound as parameters, with the field's own type — a number goes in as a number. But a
+field the user has left **empty** goes in as `NULL`, and SQL Server treats an untyped `NULL`
+parameter as text: `select {details.n1} * {details.n2}` then fails with `Operand data type nvarchar
+is invalid for multiply operator` as soon as one of the two cells is blank. That is the usual reason a
+calculation that worked while testing fails on a half-filled document.
+
+Guard any placeholder that may be empty:
+
+```ini
+details.n3=sql(select isnull(try_cast({details.n1} as decimal(20,6)), 0)
+                    * isnull(try_cast({details.n2} as decimal(20,6)), 0))
+```
+:::
+
 #### Multi-line SQL
 For complex queries that span multiple lines:
 ```ini
@@ -812,6 +827,11 @@ details=addedLinesOnly(details.price=defaultPrice)
 ```
 
 ### Line Selection
+
+Some field maps work on **one** line at a time rather than on the whole grid. `selectLine` picks that
+line, and from then on `$line` (or `currentLine`) is a shorthand for it — on the left of the `=` to
+write into it, and inside `{...}` in a query to read from it.
+
 ```ini
 selectLine="details(0)"     # Select first line (0-based index)
 $line.quantity=10          # Set quantity of selected line
@@ -825,6 +845,45 @@ $line.price=sql(select {$line.quantity} * {$line.unitPrice})  # Calculate price
 selectLine="details(last)"  # Select last line
 $line.isLast=true
 ```
+
+::: warning `$line` means nothing until a line is current
+`$line` is not a name for the grid — it is whichever **single** line is current at that point. The
+lines of a field map are applied in order, so `$line` only carries a value once something has made a
+line current:
+
+| Where the field map runs | Is there a current line? |
+|---|---|
+| After `selectLine="details(0)"` earlier in the same field map | Yes — the line it selected |
+| An entity flow with **Run Per Line** filled in | Yes — the line being processed |
+| A calculated-field or row-colour query that has a **Detail Field** | Yes — the row being read |
+| A GUI post action on a **grid** field | Yes — the row the user is editing |
+| A GUI post action on a **header** field, or a field map with no `selectLine` | **No** |
+
+With no current line the two halves fail differently, and neither error says "there is no line":
+
+- as a **target**, `$line.n3=...` fails with `Could not find getter method for $line.n3 from JournalEntry:JE10104260900008`;
+- as a **source**, `{$line.n1}` is sent to the database as a plain `NULL`. SQL Server types such a parameter as text, so an arithmetic expression fails with `Operand data type nvarchar is invalid for multiply operator` — a message about data types that is really about a missing line.
+
+When in doubt, write the grid's own field id instead of `$line` (see below): it needs nothing to be
+current and works in every context.
+:::
+
+#### Working on grid lines without selecting one
+
+A query placeholder that names a grid — `{details.n1}` — makes the query run **once per line**, with
+that line's own values substituted in. When the target is a field of the same grid, each result is
+written back to the line it came from, so one line of field map fills a whole column:
+
+```ini
+# n3 = n1 x n2 on every line of the grid
+details.n3=sql(select {details.n1} * {details.n2})
+
+# The same thing on a journal entry, whose grid is called lines
+lines.n3=sql(select {lines.n1} * {lines.n2})
+```
+
+This is the form to reach for in a **GUI post action**, where the user is editing one row and there is
+no `selectLine` step to write.
 
 ### Entity Commands
 ```ini

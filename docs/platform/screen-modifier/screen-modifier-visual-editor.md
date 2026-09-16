@@ -81,7 +81,17 @@ Select a button to open the **Action** tab, where you can see its **GUI Action I
 
 ## Saving and applying
 
-Pressing **Save Changes** stores your design in the Screen Modifier. As with any modifier, the change does not reach users until the screens are rebuilt — run **Regenerate GUI For Applicable Types Only** (or **Regenerate Screens**) and reopen the screen to confirm. See [Overview & Concepts](/platform/screen-modifier/screen-modifier-overview.md#Making-your-changes-take-effect) for the full rebuild rhythm.
+Pressing **Save Changes** stores your design in the Screen Modifier.
+
+::: warning The editor saves one XML field, not the grids
+This is worth knowing before it surprises you. Filling the modifier in by hand spreads the change across its collections — Removed Fields, Modified Grids, Added Groups and the rest. The editor does not touch any of them: it writes the **whole redesigned screen** as a single block of XML into the **Wizard Edit Screen XML** field on the modifier's main tab.
+
+So a Screen Modifier built in the editor opens with every one of its grids empty, and that is normal — the modification really is live, and the design is in that one field. Read it as "this record was designed in the editor", not as "this record is empty".
+
+It also works the other way round: while that field holds a value, the record refuses manual changes to the collections. Saving one is rejected with a message telling you to clear **Wizard Edit Screen XML** first — which discards the whole design made in the editor. Decide early which way you want to maintain a given modifier, by hand or in the editor, because moving from the editor back to hand-editing means starting that record again.
+:::
+
+As with any modifier, the change does not reach users until the screens are rebuilt — run **Regenerate GUI For Applicable Types Only** (or **Regenerate Screens**) and reopen the screen to confirm. See [Overview & Concepts](/platform/screen-modifier/screen-modifier-overview.md#Making-your-changes-take-effect) for the full rebuild rhythm.
 
 ::: warning Automatic additions are suppressed once you design a screen here
 When a screen is built through the visual editor, Nama treats your design as complete and stops layering its own automatic additions on top of it — things like the "related documents" links grid or other module-specific blocks it would normally inject. If a screen loses one of those pieces after you redesign it, turn on **Allow System Modifiers** on the Screen Modifier's main tab (see [Priority and Activation](/platform/screen-modifier/screen-modifier-overview.md#Priority-and-Activation)) to keep them.
@@ -89,5 +99,5 @@ When a screen is built through the visual editor, Nama treats your design as com
 
 ## See also
 
-- **[Edit-Screen Modifications](/platform/screen-modifier/screen-modifier-edit-screen.md)** — the same building blocks, described as the collections the editor writes to.
+- **[Edit-Screen Modifications](/platform/screen-modifier/screen-modifier-edit-screen.md)** — the same building blocks, described as the collections you fill in when you build a modifier by hand instead.
 - **[Overview & Concepts](/platform/screen-modifier/screen-modifier-overview.md)** — applicability, Modify vs. Copy, and regenerating screens.

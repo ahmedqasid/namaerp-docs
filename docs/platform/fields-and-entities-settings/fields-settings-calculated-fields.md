@@ -40,6 +40,20 @@ Give the field a sensible title while you are there. `sqlField3` is a meaningful
 
 Sixteen of the slots hold ordinary short text. Slots 17 and 18 hold long text, so use one of those when the answer is a paragraph rather than a number. Slots 19 and 20 hold a **colour code** rather than text — handy when you want a query to drive the colour of one particular cell.
 
+::: warning Every slot is text, so format numbers in the query
+There is no numeric slot. A number the query returns is turned into text exactly as the database renders it, and the user sees `1009280.000000000` — nine decimal places and no thousands separator — where they expected `1,009,280.00`. The field is not going to round it for you, and it does not sort as a number either.
+
+Format inside the query instead:
+
+```sql
+select format(isnull(sum(s.netValue), 0), 'N2', 'en-US')
+from SalesInvoice s
+where s.customer_id = {customer.id}
+```
+
+`N2` gives two decimals with thousands separators; `N0` gives none. The culture argument decides which characters those separators are, so pass it explicitly rather than leaving the answer to the database server's own locale. For a currency figure, `format(..., 'N2', 'en-US') + ' EGP'` reads better than `'C'`, whose symbol comes from the culture rather than from the document.
+:::
+
 ::: info Empty on a brand-new record
 The query only runs against a record that has already been saved. On a document the user has just started, the calculated fields stay blank until the first save. This is normal and not a configuration mistake.
 :::
