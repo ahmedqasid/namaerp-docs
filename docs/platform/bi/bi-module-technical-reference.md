@@ -1008,7 +1008,7 @@ Cross-filters are master-file entities that define reusable filter parameters. T
 | `allowedValues` | No | Long-text whitelist of accepted literal values (validation only). |
 | `hidden` | No | Hide from the filter bar (still appliable via URL or click-emit). |
 | `requiredGroup` | No | Multi-filter "at least one of" group code — any filter in the group satisfies the requirement. |
-| `criteriaExpression` | No | Server-side criteria for the filter's reference picker (`Reference` filters). |
+| `criteriaExpression` | No | Server-side criteria for the filter's reference picker (`Reference` filters). Same syntax as a report parameter's `filter`, `${otherFilterCode}` substitution included — see [Narrowing what the user may choose](/platform/reports/reports-guide#Narrowing-what-the-user-may-choose). |
 | `suggestionQuery` | No | Custom SQL that returns suggestion rows for autocomplete pickers. |
 | `comparisonConfig` | No | Period-comparison config (offset, baseline label) — see `BIPeriodComparisonExecutor`. |
 | `showAsDateRange` | No | Render the filter as a single from/to range picker that expands to two bound parameters — see Section 8a. |

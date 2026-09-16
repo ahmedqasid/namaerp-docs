@@ -354,25 +354,77 @@ The Report Wizard writes this pair for you whenever you filter on a generic refe
 
 #### Narrowing what the user may choose
 
-- **`filter`** — `field,operator,value[,relation]`. Several filters are separated by semicolons, the default relation is `AND`, and `${parameterId}` refers to another parameter, so one prompt can narrow another.
+A record picker offers every record of its type, which is rarely what a report wants: a warehouse prompt on a transfer report should offer the warehouses of the branch already chosen, an account prompt should offer detail accounts and not headings. The `filter` property narrows the picker.
+
+- **`filter`** — one or more expressions of the form `field,operator,value[,relation]`.
+
+`field` is a field of the record being picked — not a parameter, and not a column of the report. `operator` is one of the names below, spelled exactly as written. `value` is what to compare against. `relation` joins the expression to the rest and is `AND` unless you write `OR`; left off, `AND` is assumed. Several expressions are separated by semicolons or by newlines, and a trailing semicolon is harmless. Do not put spaces around the commas — a space becomes part of the operator name or of the value.
+
+```
+forType,Equal,Department,AND;isLeaf,Equal,true
+documentType,Equal,SalesInvoice,OR;documentType,Equal,SalesReturn
+type,Equal,Detail
+```
 
 Operators:
 
 ```
-Equal, EqualOrEmpty, NotEqual, NotEqualOrEmpty,
-GreaterThan, GreaterThanOrEmpty, GreaterThanOrEqual, GreaterThanOrEqualOrEmpty,
-LessThan, LessThanOrEmpty, LessThanOrEqual, LessThanOrEqualOrEmpty,
-StartsWith, StartsWithOrEmpty, NotStartsWith, NotStartsWithOrEmpty,
-EndsWith, EndsWithOrEmpty, NotEndWith, NotEndWithOrEmpty,
-Contains, ContainsOrEmpty, NotContain, NotContainOrEmpty,
-OpenBracket, CloseBracket, In
+Equal, NotEqual,
+GreaterThan, GreaterThanOrEqual, LessThan, LessThanOrEqual,
+StartsWith, NotStartsWith, EndsWith, NotEndWith,
+Contains, NotContain, ContainsWithAnyOrder,
+In, NotIn, WithinPeriod, OutsidePeriod,
+OpenBracket, CloseBracket
 ```
 
+Any of them may be written with **`OrEmpty`** on the end — `EqualOrEmpty`, `ContainsOrEmpty`, `InOrEmpty` — which becomes important the moment the value comes from another prompt rather than being typed into the report.
+
+##### Filtering by what the user answered in another prompt
+
+Write **`${parameterId}`** anywhere in the value and it is replaced by the answer the user has given in that parameter, so one prompt narrows another:
+
+```xml
+<parameter name="FromWarehouse" class="java.lang.Object">
+    <property name="entityType" value="Warehouse"/>
+    <property name="arabic" value="من مخزن"/>
+    <property name="english" value="From Warehouse"/>
+</parameter>
+
+<parameter name="OverdraftPolicy" class="java.lang.Object">
+    <property name="entityType" value="OverDraftPolicy"/>
+    <property name="filter" value="warehouse,Equal,${FromWarehouse}"/>
+    <property name="arabic" value="سياسة السالب"/>
+    <property name="english" value="Overdraft Policy"/>
+</parameter>
 ```
-forType,Equal,Department,AND;isLeaf,Equal,true
-documentType,Equal,ReceiptVoucher
-forType,Equal,${subsidiaryType}
+
+The user picks a warehouse in the first prompt, and the second then offers only the overdraft policies that belong to it. Nothing needs to be declared about the link beyond the `${…}` itself, and the same parameter may be read by any number of filters.
+
+This is the value-level twin of the generic-reference pair described above, where `entityType` = `$subsidiaryType` takes a picker's *type* from another prompt. Mind the two spellings, because they are not interchangeable: a **type** is read with `$name` and no braces, a **value** with `${name}` and braces.
+
+Points worth knowing before you lean on it:
+
+- The text inside the braces is the parameter's **name** as declared in the report, matched exactly and case-sensitively — `${FromWarehouse}` and `${fromwarehouse}` are two different things, and only one of them exists. Only `${…}` is substituted; `$(FromWarehouse)` with round brackets is left in place as literal text, and the filter then compares against that text and finds nothing.
+- A name matching no parameter is replaced by **nothing at all** — and so is a parameter the user simply has not answered yet. No error is shown and nothing is written to the log. The picker behaves as though the filter read `warehouse,Equal,`, which asks for records whose warehouse is empty and normally finds none. A picker that comes back stubbornly empty is nearly always this.
+- Which is exactly what the `OrEmpty` operators are for. `warehouse,EqualOrEmpty,${FromWarehouse}` drops that expression entirely while the warehouse prompt is blank and applies it as soon as the prompt is answered — the difference between an optional narrowing and a prompt nobody can use. The rest of the filter keeps working meanwhile; a system report pairs an optional dependency with a fixed condition in one line: `subsidiaryType,EqualOrEmpty,${SubsidiaryType},AND;trackDebtAges,Equal,true`.
+- Answers are substituted as text, in the shape the answer carries internally: a date as `dd-MM-yyyy`, a date and time as `yyyy-MM-ddTHH:mm:ss.SSS`, a yes/no as `true` or `false`, a drop-down value or an entity type as the value itself, and **a chosen record as `id:entityType:code:actualCode:name1:name2`**, with any empty parts left out.
+- That compound record form is understood when it is compared against a field that itself holds a record — the ordinary case, `warehouse,Equal,${FromWarehouse}`. Compare it against a text or code field and the comparison fails, because the whole string is then taken literally. The `property` property does not rescue this: `property` decides what the report's *query* receives, not what `${…}` substitutes.
+- A multi-value prompt (`list` = `true`) substitutes **all** of its values at once, separated by `@A=@X`, which is precisely what `In` reads: `warehouse,In,${Warehouses}` narrows by every warehouse the user ticked.
+- Declare the prompt being read **before** the prompt that reads it. Prompts appear in declaration order, and a user who meets the dependent picker first meets it filtered by a blank. Marking the driving prompt `required` makes the order explicit rather than merely conventional.
+
+::: warning Keep a live dependency on a single-value prompt
+The substitution is worked out again every time the dependent picker searches, so typing into a single-value prompt always reflects the answer currently showing on the form — change the warehouse and the next keystroke in the policy prompt searches against the new one. A **multi-value** prompt (`list` = `true`) is not re-evaluated that way: its filter is settled once, when the parameters form is built, and it will not pick up an answer the user gives afterwards. Where the narrowing has to follow the user, put it on an ordinary single-value prompt.
+:::
+
+##### A different filter for each type
+
+A prompt whose `entityType` points at another parameter offers a different kind of record depending on how that parameter was answered, and the field worth filtering on rarely carries the same name in all of them. Prefix each expression with the type it belongs to, in the form `#Type{expression}`:
+
 ```
+#Customer{allowCredit,Equal,true}#Employee{salesMan,Equal,true}
+```
+
+The branch matching the type currently in force is used and the others are ignored. A filter written the ordinary way, with no `#`, applies to every type — so use the plain form for a condition that holds everywhere and the `#` form only where the types genuinely differ. The two cannot be mixed: once the value begins with `#`, only the `#` branches are read, and a type with no branch of its own ends up with no filter at all.
 
 Nama narrows a record picker on its own as well, and it is worth knowing before you go hunting for a filter that does not exist. Whatever the user selected as their legal entity, branch, sector, department or analysis set when logging in also limits what any picker will find: a user logged into the Cairo branch who searches for a warehouse is offered Cairo's warehouses. That is normally exactly right, and occasionally exactly wrong — a consolidated report built to compare branches needs a branch prompt that can reach every branch, not just the one the user happens to be sitting in.
 
