@@ -110,6 +110,76 @@ A Mission Document records an employee being away from their normal workplace **
 The key distinction from a Leave Permission is intent: a mission employee is still working, just not at their desk. That is why full-day missions don't need to be flagged as absent, and why a mission commonly carries an **Allowance Value** rather than a deduction — it is compensating the employee for being out, not excusing an absence.
 :::
 
+## When a mission overlaps something else
+
+Because a mission is time worked, it does not sit quietly beside the attendance record — it takes part in it. The day gains a stretch of hours that no fingerprint produced, and that stretch has to coexist with whatever else the day already holds: the real punches, a leave permission, a partial vacation. Two questions come out of that, and between them they account for most of the support traffic around missions.
+
+### The same hours claimed twice — overlap and priority
+
+Picture an employee who scans in at 09:06 and out at 17:05, and who also has a mission covering 09:00 to 17:00 on that same day. Eight hours were worked, but the day is carrying two records of them. Unless something reconciles the two, those eight hours are counted twice.
+
+The reconciliation is a payroll setting, in **Payroll Settings** under the **Attendance Settings** group:
+
+<HRConfigOption option-code="value.handleOverlapBetweenAttendanceAndMissions" link-title="Handle Overlap Between Attendance, Missions, and Leave Permissions" />
+
+With it enabled, the day's records are laid out on a single timeline and compared in pairs. Wherever two of them cover the same minutes, the stronger record keeps those minutes and the weaker one is trimmed back to the part that does not overlap — or dropped entirely when the stronger record covers it end to end. Strength is a number you set, and the **lowest number wins**:
+
+| Setting (English → Arabic) | Default |
+|---|---|
+| Mission Document Priority With Overlap (اولوية المأموريات عند التداخل) | 1 |
+| Time Attendance Priority With Overlap (اولوية الحضور و الانصراف عند التداخل) | 2 |
+| Leave Permission Priority With Overlap (اولوية الأذون عند التداخل) | 3 |
+| Partial Vacation Priority With Overlap (اولوية الاجازات الجزئية عند التداخل) | 4 |
+
+So out of the box a mission outranks everything else: in the example above the mission keeps 09:00–17:00 and the punch line is dropped, because the mission covers it from end to end. Swapping the first two numbers makes the fingerprint the authority instead, leaving the mission only the hours the machine did not already account for.
+
+::: warning An older settings record may not have it enabled
+A payroll settings record created today has overlap handling ticked from the start, but a record that predates the option keeps it unset — and unset means off, with both records counted in full. When a day shows double hours, read that checkbox before investigating anything else rather than assuming the default.
+:::
+
+### The mission's hours become the day's check-in and check-out
+
+Because the mission joins the day as a genuine stretch of time, the day's first-in and last-out readings can be taken from the mission's own **From Hour / To Hour**. This is why mission days read as exact round times — 09:00:00 to 17:00:00 — sitting in the same list as ordinary fingerprint days reading 09:06:35 and 16:58:12. Nothing is wrong with the data: you are looking at the mission's own hours, not at a punch.
+
+If you would rather the mission stay out of those two readings, the same settings group has a pair of switches for it (with the matching pair for leave permissions beside them):
+
+<HRConfigOption option-code="value.missionDoesNotAffectInFirstInTime" link-title="Mission Does Not Affect In First In Time" />
+
+<HRConfigOption option-code="value.missionDoesNotAffectInLastOutTime" link-title="Mission Does Not Affect In Last Out Time" />
+
+## A mission on the weekly rest day
+
+This case earns its own heading: it is the most frequently misread behaviour in mission handling, and the figures it produces look exactly like a bug.
+
+Start with the ordinary case. On a working day a mission's hours are measured against what the shift expected, as long as the setting that lets missions count toward overtime at all is on:
+
+<HRConfigOption option-code="value.missionsAddsOvertime" link-title="Consider Missions in Overtime Calculation" />
+
+With it enabled, an eight-hour mission against an eight-hour shift produces **zero** overtime. The mission accounted for the day and nothing is left over, which is what everyone expects to see.
+
+A weekly rest day has no shift behind it, so it has no expected hours — there is nothing to measure the mission against and nothing to subtract. A different rule applies there: **the whole mission counts as overtime**. The same eight hours therefore appear twice on the same day, in two different columns:
+
+| The day | Net Mission Time (إجمالي وقت المأموريات) | Net Overtime (إجمالي الوقت الإضافي) |
+|---|---|---|
+| Working day — eight-hour mission on an eight-hour shift | 8 | 0 |
+| Weekly rest day — eight-hour mission | 8 | 8 |
+
+Read as a description of the day, that is not a duplicate at all. The employee gave up their day off, so every hour of it is overtime, and the mission column is simply recording *why* they were there. The trouble starts only when the salary formula pays both columns — then the same eight hours are paid twice and a day off quietly costs double.
+
+Which column should pay is a decision for whoever built the salary components, and the system will honour either one. There are two ways to settle it:
+
+**Stop the mission from becoming overtime.** Clearing *Consider Missions in Overtime Calculation* leaves the rest day's overtime at zero and pays the mission through mission time alone. It is the blunter of the two, because the same switch also governs working days, where it is what lets a mission's hours count toward overtime alongside the hours actually punched.
+
+**Leave the figure alone and stop the indicator from reading it.** On the [Performance Indicator](../performance/performance-indicators.md) that feeds the overtime component, tick **Not Included In Week Ends** (لا يتم احتسابه في أيام العطلات الأسبوعية). The indicator then returns zero for every weekly rest day, so the overtime column stays accurate on the attendance record but never reaches the salary. Its siblings cover official holidays, vacation days and ordinary working days, which lets an indicator be aimed at exactly the kind of day it is meant to pay for.
+
+::: info Holidays and vacation days can be told to behave like working days
+The all-overtime rule is not peculiar to the weekly rest day — an official holiday and a vacation day are treated the same way by default. Unlike the rest day, though, those two can be switched back, so that the day measures the mission against expected hours the way a working day does:
+
+<HRConfigOption option-code="value.calculateNormalWorkHoursForHolidays" link-title="Calculate Normal Work Hours For Holidays (Overtime will not be all day)" />
+
+<HRConfigOption option-code="value.calculateNormalWorkHoursForVacations" link-title="Calculate Normal Work Hours For Vacations (Overtime will not be all day)" />
+:::
+
 ## Workflow
 
 1. **Short authorized absence**: raise a **Leave Permission** with the right Permission Type, date/hour range, and a **Leave Reason** scoped to Leave — or let a forgotten Electronic Attendance punch convert into one automatically.
