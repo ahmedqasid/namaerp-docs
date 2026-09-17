@@ -92,6 +92,20 @@ Four cases surprise people regularly. None of them is a mistake on your part.
 Every cost line carries a **Term Code** — the code of a line in the project contract's Terms grid.
 That code is the hook, and it is the single most important field on any cost document.
 
+::: warning A term code is unique inside its own contract only
+The Terms grid of a project contract refuses a repeated code, so a term code is unique **within that
+contract** — and nowhere else. Codes like `V.O.1`, `4.1` or `م.ع` are reused by every project as a matter
+of course, and the code itself says nothing about which project it belongs to. What identifies the project
+is the **contract** — every cost document and every cost line carries one, and a project contract names its
+project; only some cost documents (the Daily Labour Book and the Equipment Statement Document) also carry a
+Project field of their own.
+
+So any report, query or export that groups or joins on the term code **must carry the contract — or the
+project behind it — in the key as well**. Grouping by the code alone quietly adds up the cost of every project that
+happens to use that code, and the total looks perfectly plausible: a term whose real cost is 9,375 can show
+as 30,990 with nothing on the screen to hint that two unrelated projects were merged.
+:::
+
 - **A cost line with no project term code is skipped silently.** The document still saves, still
   produces its journal entry, and still looks perfectly correct; its cost simply never reaches the
   project. If someone reports that "the cost has disappeared", this is nearly always why. The
