@@ -17,6 +17,14 @@ This entity flow adds extra accounting effects (journal entries) to documents th
 - **Target Documents**: Works on any Document File (invoices, receipts, etc.) that has accounting effects
 - **Timing**: Executes just before the accounting request is sent to create journal entries
 
+::: info The "With Action" field does not apply to this flow
+Whatever you put in **With Action** (مع الإجراء) - on the entity flow header or on the action
+line itself - is replaced with **Automatic** the moment the entity flow is saved, and an
+Automatic line is considered on every event. Leaving the field empty and setting it to
+*Post Commit* therefore behave exactly the same here, and neither is ever the reason an effect
+fails to appear. Real installations run this flow with both, and both work.
+:::
+
 ## Parameters (Simple Explanation)
 
 ### 1. Effects Configuration
@@ -46,6 +54,21 @@ This means: "Only apply this accounting effect if the reference field (ref1) in 
 **Purpose:** When set to `true`, combines similar accounting entries to reduce the number of journal entry lines
 **Recommendation:** Usually set to `true` to keep ledger clean and organized
 
+Two lines count as "similar" only when they agree on all of: the account, the subsidiary, the
+entity dimension, the currency, the rate, both narrations and the three reference fields. Lines
+that agree on all of that are merged by **netting** them - the totals of the two sides are
+subtracted from each other and the difference is written to whichever side it belongs on.
+
+::: warning A pair of exactly opposite lines disappears completely
+Netting means a 401,700 debit and a 401,700 credit on the same account and subsidiary cancel to
+zero - and a zero line is removed, so **both lines vanish from the entry** instead of showing as
+an offsetting pair. The entry then reads as though the effect never ran at all.
+
+This is normally exactly what you want from shortening, but it is the most misleading thing to
+meet while diagnosing an entry. When you are testing a new effect, set this to `false` first,
+confirm every line you expect is really there, then switch it back on.
+:::
+
 ### 4. Currency Field (Optional)
 **Purpose:** Specify which field contains the currency for multi-currency transactions
 **Format:** Field ID (like `currencyId` or `lines.currency`)
@@ -60,6 +83,33 @@ This means: "Only apply this accounting effect if the reference field (ref1) in 
 **Options:** `true` or `false`
 **Purpose:** Forces the system to save all pending changes to database before running this flow
 **When to use:** Set to `true` if this flow depends on data from other flows that might not be saved yet
+
+## The Sign of the Amount Decides the Direction
+
+The amount is read out of the field exactly as it is stored - the system never takes its
+absolute value. So the two side codes you write are not fixed as "the debit account" and "the
+credit account"; they are the sides a **positive** amount goes to.
+
+With `details.tax1.value=03,02` and a tax value of 401,700, side 03 is debited and side 02 is
+credited, as you would expect.
+
+When the amount is **negative**, the system rewrites the line before it reaches the entry: it
+takes the amount off the side you named and writes the same amount, as a positive figure, on the
+**opposite** side. A debit of -401,700 is stored as a credit of 401,700, and a credit of -401,700
+is stored as a debit of 401,700. Both sides of the pair flip together, so with a negative amount
+the two codes effectively swap roles - and the finished entry never shows a negative figure.
+
+::: tip Taxes marked as a deduction
+A tax whose plan line is ticked as a **deduction** stores its value as a negative number, so
+`details.tax2.value` on a contract whose price is 40,170,000 and whose deduction tax is 1% holds
+-401,700, not 401,700. Feeding that field into an effect therefore produces the mirror image of
+what the two side codes read like.
+
+Decide which you want and write the codes accordingly: leave them in their natural order and let
+the flip happen, or write them the other way round so the flip cancels out and the entry comes out
+in the direction the codes suggest. Either is fine - what you must not do is assume the amount is
+positive because the screen shows a tax percentage.
+:::
 
 ## Important Warnings and Limitations
 
