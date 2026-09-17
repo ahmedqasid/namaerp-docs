@@ -150,9 +150,22 @@ The **Tool Class Name** field has a suggestion list showing **every system tool 
 What you pick in **Tool Class Name** is a *class*, and most classes generate several tools: pick `AITReadRecordTools` and the model ends up with two tools, `<prefix>FindRecords` and `<prefix>GetRecord`. The suggestion list also offers the class under its full name — `com.namasoft.modules.ai.services.tools.AITReadRecordTools` — so when you are looking for a particular tool, search the **Generated tool(s)** column of the tables below and add the class in its row; typing the tool's own name into the field finds nothing.
 :::
 
-### Record Export/Import Tools (Add Export Tools)
+### The buttons above the grid
 
-The most-used group with external MCP clients is the **record export/import tools**, which let a client read system data and import new records as JSON. They are three classes generating nine tools between them, and the **Add Export Tools** button above the grid adds all three in one click — it adds the missing lines and fills each tool's description automatically:
+Picking classes one by one from the suggestion list is slow, and a tool group is rarely useful half-added — so the page carries a row of buttons, each adding a whole group in one press:
+
+| Button | What it adds | Who it is for |
+|---|---|---|
+| **Add Export Tools** | 3 classes, 9 tools — understand an entity, search and read records, import records | anyone connecting an external MCP client to read and write data |
+| **Add Report Tools** | 2 classes, 4 tools — read a report's SQL, run it, correct it | administrators and support staff chasing wrong figures in a report |
+| **Add Term and Config Tools** | 2 classes, 4 tools — read and change document terms and configuration entries | administrators who configure documents |
+| **Add Discussion Tools** | 2 classes, 2 tools — add a discussion to a record, list a record's discussions | an in-app assistant that comments on records |
+
+A button adds only the lines that are not on the definition yet and fills each line's description automatically, so pressing two buttons adds up and pressing the same one twice changes nothing. Delete any line you do not want afterwards — that is how a definition is kept read-only.
+
+#### Record export/import tools (Add Export Tools)
+
+The most-used group with external MCP clients: three classes generating nine tools between them, which let a client read system data and import new records as JSON.
 
 | Tool Class Name | Generated tool(s) | Purpose |
 |---|---|---|
@@ -162,22 +175,53 @@ The most-used group with external MCP clients is the **record export/import tool
 
 The details of these tools — their parameters and usage examples — are documented on the [Nama ERP MCP Server](./ai-mcp-server.md) page.
 
-### Other System Tools
+#### Report tools (Add Report Tools)
 
-The **Add Export Tools** button adds only the three classes above, but the system ships other ready-made tools you add manually by picking their class name from the **Tool Class Name** suggestion list:
+Almost every question about a report — why is this total wrong, why is this row missing, which parameter drives that filter — is a question about its query and its parameters, and that is a few hundred bytes out of a report file of 70–120 KB. These two classes let the assistant read exactly that much, run the report to see the effect, and correct the query when the query is what is wrong.
+
+| Tool Class Name | Generated tool(s) | Purpose |
+|---|---|---|
+| `AITReportReadTools` | `<prefix>GetReportQuery` and `<prefix>RunReport` | Return a report's parameters and the SQL of its own query, of each of its sub-datasets and of each of its subreports; and run the report with given parameters and return its output |
+| `AITUpdateReportTools` | `<prefix>UpdateReportQuery` and `<prefix>UpdateReportContent` | Replace the SQL of one dataset without touching the rest of the report file, or replace a whole report file |
+
+A report runs with the permissions of the user the tool acts for, and an unknown parameter id is refused rather than ignored. Dates in these parameters are day-first (`31-01-2026`), unlike the record tools.
+
+::: tip Read the numbers, don't look at a picture
+`RunReport` returns **TXT** by default, the format whose figures can be checked line by line against the read-only SQL tool. **HTML** returns the rendered table. Both come back inside the answer itself, cut off at the length the call asks for. The binary formats — PDF, XLSX, DOCX, RTF, ODT, ODS, PPTX, XLS — are stored on the server instead and answered with a **single-use link that expires after thirty minutes**, for a person to open: the link serves the file once and deletes it. Set `ai-file-download-base-url` in `nama.properties` if those links should carry the server's public address rather than a path.
+:::
+
+::: warning A report is never saved unless it still compiles
+`UpdateReportQuery` and `UpdateReportContent` compile the report before sending it, and refuse to save anything that does not compile — the answer comes back with the compiler's own complaint and the stored report untouched, so a bad query costs a failed call rather than a broken report. The file is rewritten by JasperReports itself: the design survives exactly, but XML comments (the Jaspersoft Studio banner among them) and the original indentation do not.
+:::
+
+#### Term and configuration tools (Add Term and Config Tools)
+
+Document terms and configuration entries are settings rather than records, so the record tools above cannot reach them at all — these two classes are the only way an assistant reads or changes them.
+
+| Tool Class Name | Generated tool(s) | Purpose |
+|---|---|---|
+| `AITTermAndConfigReadTools` | `<prefix>ListTermAndConfigTargets`, `<prefix>GetTermOrConfigSchema` and `<prefix>ReadTermOrConfig` | List the document terms and configuration entries that can be configured, describe one target's settings the way its screen groups them, and read the values it currently holds |
+| `AITTermAndConfigWriteTools` | `<prefix>UpdateTermOrConfig` | Change the settings of one document term or configuration entry |
+
+#### Discussion tools (Add Discussion Tools)
+
+| Tool Class Name | Generated tool(s) | Purpose |
+|---|---|---|
+| `AITAddDiscussionToRecord` | `<prefix>AddDiscussionToRecord` | Add a discussion (comment) to any record |
+| `AITListDiscussionsOfARecord` | `<prefix>ListDiscussionsForARecord` | List the discussions of a given record |
+
+### Other system tools
+
+The remaining ready-made tools are single classes with no group of their own; add them by picking the class name from the **Tool Class Name** suggestion list:
 
 | Tool Class Name | Generated tool(s) | Purpose |
 |---|---|---|
 | `AITCountRecordsTools` | `<prefix>countEntities` and `<prefix>countEntitiesCreatedWithinDateRange` | Count records of an entity type — in total, or between two dates |
-| `AITAddDiscussionToRecord` | `<prefix>AddDiscussionToRecord` | Add a discussion (comment) to any record |
-| `AITListDiscussionsOfARecord` | `<prefix>ListDiscussionsForARecord` | List the discussions of a given record |
 | `AINamaERPDocsTool` | `<prefix>erpDocs` | Search the Nama ERP documentation and return the passages closest to the question |
 | `AITReadOnlySQLQuery` | `<prefix>runReadOnlySqlQuery` | Run a single read-only SQL `SELECT` against the database and return the rows — see the warning below |
-| `AITTermAndConfigReadTools` | `<prefix>ListTermAndConfigTargets`, `<prefix>GetTermOrConfigSchema` and `<prefix>ReadTermOrConfig` | List the document terms and configuration entries that can be configured, describe one target's settings the way its screen groups them, and read the values it currently holds — settings the record tools above cannot reach |
-| `AITTermAndConfigWriteTools` | `<prefix>UpdateTermOrConfig` | Change the settings of one document term or configuration entry |
 
 ::: tip Building a read-only assistant
-Reading and writing are deliberately kept in separate classes so you can leave the writing ones out: `AITTermAndConfigReadTools` without `AITTermAndConfigWriteTools` lets the assistant explain how a document term is configured while having no way to change it, and the same holds for `AITEntityMetadataTools` and `AITReadRecordTools` without `AITImportTools`. Note that the **Add Export Tools** button adds `AITImportTools` along with the other two, so on a read-only definition delete that line after pressing it.
+Reading and writing are deliberately kept in separate classes so you can leave the writing ones out: `AITTermAndConfigReadTools` without `AITTermAndConfigWriteTools` lets the assistant explain how a document term is configured while having no way to change it, and the same holds for `AITReportReadTools` without `AITUpdateReportTools`, and for `AITEntityMetadataTools` and `AITReadRecordTools` without `AITImportTools`. Each group button adds both halves, so on a read-only definition press the button and then delete the writing line.
 :::
 
 ::: info Module-specific system tools
