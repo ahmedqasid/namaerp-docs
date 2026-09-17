@@ -38,6 +38,8 @@ which is only produced when both of its sides are configured.
 | Total Discounts - Debit / Credit | The total of the discounts on the installment lines |
 | Header Discount Debit / Credit | The discount applied to the whole price at header level |
 | Pre-Handover debit / Pre-Handover credit | The construction cost already accrued on the estate before it was handed over |
+| Tax1 Debit / Tax1 Credit | Tax 1 on the installment lines |
+| Tax2 Debit / Tax2 Credit | Tax 2 on the installment lines |
 
 Two more amounts on a sales contract are **not** configured here at all: each line of the Other Fees
 grid is booked from its own fee type's accounts, and each commission line is booked from its own
@@ -60,6 +62,38 @@ move them — they are released as they are collected and accrued.
 
 An installment whose period straddles the year end can be split pro-rata by day count if the term
 says so, so that only the part earned this year lands in income.
+
+### The two tax pairs
+
+The installment grid has carried Tax 1 and Tax 2 amounts all along: the rates come from the Legal
+Entity Taxes grid, the amounts sit on every installment line, and the contract totals them. What
+decides where those amounts land in the journal entry is the **Taxes** (الضرائب) group further down
+the same Effect page, holding *Tax1 Debit* / *Tax1 Credit* and *Tax2 Debit* / *Tax2 Credit*.
+
+Three things about this group catch people out.
+
+**Each tax is booked line by line, not as one document total.** A sixty-installment contract produces
+sixty tax pairs, each carrying its own installment's reference data, so an analysis set that follows
+the line reaches the tax entry as well. *Shorten Ledger Effect* collapses them into one pair per
+account, exactly as it does the rest of the entry.
+
+**A sales term does not fall back to the expense type or the unit.** This is the one place where the
+sales family behaves differently from collections. A collect term is the *last* stop in a chain that
+starts at the expense type and passes through the unit and the unit model; a sales term is the
+*only* place looked at. Accounts sitting on the unit or on the expense type are not consulted here,
+so if the pair is empty on the term, the tax is not booked at all.
+
+**A tax marked as a deduction stays negative.** Withheld tax is held as a negative amount on the
+installment line, and the pair books it exactly as it stands — as a negative debit against a negative
+credit, not as a swapped pair. The entry still balances; it simply reads with minus signs.
+
+And the universal rule bites here as everywhere else: a pair with only one side filled books nothing
+and warns about nothing.
+
+The group is on the five terms whose documents actually produce an entry — the sales contract, the
+opening sales contract, the waiver, the purchase contract and the handover. The preliminary contract,
+the reservation and the reservation cancellation have no account blocks of any kind, so there is
+nothing to tax there either.
 
 ## The behavioural switches
 
@@ -131,8 +165,9 @@ See [Estate Values, Additions and Revaluation](/modules/realestate/investment/re
 ### Opening sales contract
 
 Same two pages, Effect and Settings, and the same blocks for the price, the owner and buyer fees, the
-maintenance deposit, the penalties, the discounts, the recognised income and the header discount —
-because an opening contract is an ordinary contract that happens to be dated before go-live. One
+maintenance deposit, the penalties, the discounts, the recognised income, the header discount and the
+two taxes — because an opening contract is an ordinary contract that happens to be dated before
+go-live. One
 option is specific to it:
 
 | Option | What it does |
@@ -169,8 +204,8 @@ and what is refunded is booked through the routing grid rather than through name
 
 ### Waiver document
 
-Page 0 **Effect** carries the price, owner fees, buyer fees, maintenance deposit and header discount
-blocks, plus a dedicated pair for the **waiver price** — the commission the company charges for
+Page 0 **Effect** carries the price, owner fees, buyer fees, maintenance deposit, header discount and
+tax blocks, plus a dedicated pair for the **waiver price** — the commission the company charges for
 transferring the contract to a new buyer. Page 1 is **Settings**. The option that matters is:
 
 | Option | What it does |

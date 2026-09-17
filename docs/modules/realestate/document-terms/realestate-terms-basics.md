@@ -216,9 +216,11 @@ Two exceptions are worth knowing before you start hunting for a missing account 
   a sales contract is booked from the commission type's accounts, not from anything on the contract
   term; the same is true of the Other Fees grid and its fee types. See
   [Fee, Commission, Broker and Expense Catalogues](/modules/realestate/costs/realestate-fee-commission-and-expense-types).
-- **Tax accounts are resolved through a fallback chain** that ends at the term. On a collect
-  document the system looks at the expense type, then the unit, then the unit model, and only then at
-  the term's tax sides. The term is the last resort, not the first.
+- **Tax accounts come from different places on a collection than on a contract.** On a collect
+  document they are resolved through a fallback chain that ends at the term: the system looks at the
+  expense type, then the unit, then the unit model, and only then at the term's tax sides — the term
+  is the last resort, not the first. A sales or rent term is the opposite: its own tax sides are the
+  only ones read, and nothing on the unit or the expense type is consulted.
 
 Finally, two documents in the module have **no term at all**: the inspection record and the
 maintenance expense request. Both are documentary — they record what happened and authorise the next

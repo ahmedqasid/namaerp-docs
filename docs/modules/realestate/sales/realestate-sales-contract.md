@@ -118,6 +118,7 @@ The entry is assembled from a series of independent blocks, each drawing its acc
 | Total discounts | *Total Discounts Debit* / *Total Discounts Credit* |
 | Total penalties | *Total Penalties Debit* / *Total Penalties Credit* |
 | The header discount on the price | the *Header Discount* pair |
+| Tax 1 and tax 2 on each installment line | the *Tax1 Debit* / *Tax1 Credit* and *Tax2 Debit* / *Tax2 Credit* pairs |
 | Other-fees lines | **the fee type's** own Fee Debit / Fee Credit |
 | Commission lines | **the commission type's** own Debit / Credit |
 
@@ -126,6 +127,14 @@ The entry is assembled from a series of independent blocks, each drawing its acc
 The split between the two income pairs is done **per installment line, by its due date**, against the fiscal year of the document. Villa B-12 is signed in March 2026 with monthly installments starting in April: the down-payment line and the nine installments falling in April to December are recognised as income of 2026 — 240,000 + (9 × 16,000) = **384,000** — while the remaining fifty-one installments, **816,000**, land in advance income and are recognised as those years arrive.
 
 A term option can go one step finer and split a *single* installment that straddles two fiscal years pro-rata by days. Water-cost, insurance, maintenance-cost and commission lines are never split that way.
+
+### The tax on the installments
+
+The installment grid computes tax 1 and tax 2 for every line from the tax policy — the rates come from the term's own Legal Entity Taxes grid, or from the [module configuration](/modules/realestate/realestate-configuration.md) when the term's grid is empty. Those amounts reach the journal entry through the **Taxes** group on the term, and they are booked **per installment line**: each line's tax produces its own debit and credit, carrying that installment's reference data, rather than one lump sum for the contract.
+
+Worth knowing when an expected tax line is missing: a sales term is the **only** place the accounts are looked for. This is different from a collection voucher, where the system tries the expense type, then the unit, then the unit model before falling back to the term. Accounts configured on villa B-12 itself, or on its unit model, are simply not consulted by the contract — if the pair on the term is half-filled or empty, the tax quietly does not appear.
+
+Tax marked as a deduction is held as a negative amount on the line and is booked as it stands, so those lines read with minus signs on both sides rather than as a swapped debit and credit.
 
 ### Two switches that change everything
 
