@@ -47,6 +47,13 @@ These reports reveal how aged receivables are (they rely on the **Track Debt Age
 
 - **Debt ages** (`SYSR-ACC024`), its document details (`ACC025`), **by invoice** (`ACC045`), and **all manual debt lines** (`ACC041`).
 
+::: warning Copying one of these into a custom report?
+The outstanding amount at the report's date is rebuilt from the dated matches every time — it is never
+read from the item's stored remaining figure, which carries no date and describes today only. Keep that
+part of the query when you adapt one of these reports, or the aging will be wrong at any date but
+today: see [writing your own aging report](/modules/accounting/aging-allocation#Writing-your-own-aging-report-read-the-matches-not-the-remaining-figures).
+:::
+
 ![Debt ages by invoice sample](../../ar/modules/accounting/images/reports/acc045-en.png)
 
 ## Voucher and entry statements

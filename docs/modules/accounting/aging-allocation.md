@@ -131,6 +131,40 @@ paid amount is converted using the voucher's own exchange rate before it is reco
 typed is in the debt's currency; the figure that lands on the voucher is in the voucher's.
 :::
 
+## Writing your own aging report: read the matches, not the remaining figures
+
+Every pairing this screen makes is stored as a match of its own, and each match carries **both** value
+dates — the debit document's and the credit document's. Alongside the matches, each open item also
+keeps a **remaining** figure: what is still outstanding on it.
+
+That remaining figure is a running total. It is reduced the moment a pairing is made, and it is never
+dated. It tells you where the account stands *now*, and only now. A receipt dated in September reduces
+the remaining amount on an August invoice, and nothing in the stored figure records that the reduction
+belongs to September.
+
+So a report asked for an earlier date cannot use it. Filtering the open items by value date and then
+reading their remaining amounts mixes two different dates: the items are as of the date you asked for,
+the remaining figures are as of today. What makes this worth a warning is that it fails quietly — the
+report still prints, the totals still look like money, and nothing about the numbers says they are
+wrong.
+
+A report with an "up to date" parameter has to rebuild the outstanding amount for itself: take each
+item's original debit or credit, and subtract only those matches whose **two** value dates both fall on
+or before the report date. The system debt-age reports all do exactly this, so the shortest route to a
+correct custom report is to copy the pattern from one of them.
+
+::: danger The stored remaining amounts are undated
+For anyone writing SQL behind a custom report: `DebtLine.remainingDebit` and `DebtLine.remainingCredit`
+are a current-state snapshot and must not be used for an as-of-date report. Derive the figure from
+`DebtLineMatcher` instead, filtered on `debitValueDate <= @date AND creditValueDate <= @date`.
+`SYSR-ACC024-DebitAge`, `SYSR-ACC025-DebtAgeDocumentsDetails` and `SYSR-ACC045-DebitAgeByInvoice` each
+show the pattern.
+
+Watch out for one trap on the way: `SYSR-ACC025` *names* two of its computed columns `remainingDebit`
+and `remainingCredit`, but it calculates them from the dated matches rather than reading the stored
+columns. Borrowing the names without the calculation behind them is the easiest way to get this wrong.
+:::
+
 ## Where this fits with everything else
 
 - The **Track Debt Ages** flag on the account is the precondition for any of this. An account without
