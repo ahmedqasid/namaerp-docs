@@ -105,7 +105,7 @@ all, this is the option to turn on.
 
 ## Ending a Block Early, or Extending It
 
-There is no "release" document. To change a block you un-commit or delete the prevention document
+There is no "release" document. To change a block you cancel or delete the prevention document
 and enter it again with the range you want — subject to the same rule as everything else in this
 folder: the asset's timeline comes apart newest-first, so if depreciation has already been run after
 the block ended, those runs have to be undone first.

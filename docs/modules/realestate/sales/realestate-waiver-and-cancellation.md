@@ -13,7 +13,7 @@ The second question has the shorter answer, so let us deal with it first.
 Nothing in the module cancels a sales contract. When a sale has to be undone, there are exactly two routes:
 
 - **A waiver of type *For Company*** — the proper instrument. The unit comes back to the company, the settlement with the buyer is recorded and accounted for, and the original contract stays on file stamped as waivered. This is what you use once anything at all has happened against the contract.
-- **Un-committing the sales contract** — the honest route only when the contract should never have existed: entered on the wrong unit, for the wrong buyer, in the wrong month, with nothing collected against it. Un-committing reverses what the commit did — the property goes back to available, the reservation flips back to *Confirmed*, the journal entry is withdrawn.
+- **Cancelling or deleting the sales contract** — done with the platform's own [Document Cancel Document](../../../platform/document-cancel-document.md), or by deleting the contract outright. The honest route only when the contract should never have existed: entered on the wrong unit, for the wrong buyer, in the wrong month, with nothing collected against it. Cancelling or deleting it reverses what the commit did — the property goes back to available, the reservation flips back to *Confirmed*, the journal entry is withdrawn.
 
 There *is* a document called **Cancel Contract Request** (طلب فسخ تعاقد) at *Real Estate and Property > Documents > Cancel Contract Request*. It is a paper trail, and it is worth being clear about what that means: it records the unit, the contract to be cancelled, all the parties and a grid of the commissions that will have to be settled or clawed back — and it does nothing else. It has no document term, no accounting effect and no automation behind it. Approving one changes nothing; somebody still has to issue the waiver.
 
@@ -98,7 +98,7 @@ The waiver term also carries *Validate Installments Total*, *Force Price List* a
 
 | Situation | What to do |
 |---|---|
-| The contract was entered by mistake and nothing has happened against it | Un-commit it |
+| The contract was entered by mistake and nothing has happened against it | Cancel or delete it |
 | The buyer transfers to somebody else, paid or unpaid installments either way | Waiver, **For Another Buyer** |
 | The buyer walks away and the unit returns to stock | Waiver, **For Company** |
 | The buyer has *asked* to cancel and you need it recorded and approved first | Cancel Contract Request, then the waiver |

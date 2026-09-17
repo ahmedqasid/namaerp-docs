@@ -160,7 +160,7 @@ hand.
 
 Once an invoice has taken a source row, that row will not be collected again. The stamp is applied
 when the invoice is **committed**, not when you press the button, and it is reversed if you
-un-commit the document.
+cancel or delete the document.
 
 - **Collect Times / Expenses / Times And Expenses** mark the approved-time and expense-request lines
   they consumed as processed. Those lines disappear from every future sweep.

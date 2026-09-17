@@ -15,7 +15,7 @@ When that happens, the system writes a payment entry of its own — one per coll
 So the paid and remaining figures you see on a contract are not stored facts. They are a recomputed summary of the collection documents that exist right now. That single design decision explains a lot of behaviour:
 
 - Cancel a collect document and the contract's figures fall back on their own — the entries are deleted and the summary is rebuilt without them.
-- Un-commit and re-commit a collect document and nothing drifts; the numbers are derived, not incremented.
+- Cancel one and enter it again and nothing drifts; the numbers are derived, not incremented.
 - Two people collecting against the same contract at the same time cannot corrupt each other's totals.
 - And there is no meaningful way to "fix" a wrong figure by editing the contract. The fix is always to correct the collection document that produced it.
 

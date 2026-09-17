@@ -178,7 +178,7 @@ it deletes them all, and removing a line and re-committing deletes just that lin
 Neither the single-asset document nor the aggregated one carries a button of its own. There is no
 *collect* here — you name the asset, type the value, and the new instalment is worked out for you as
 the fields are filled. Everything else follows from committing the document, and is undone by
-un-committing it.
+cancelling or deleting it.
 
 ## This Is Not the Document for Maintenance
 

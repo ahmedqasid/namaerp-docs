@@ -204,7 +204,7 @@ hole in that timeline. All failures are reported together, so you see the full l
    status blocks.
 3. **Nothing may exist after this date.** A later transfer, or a later document that changed the
    asset's value — depreciation, an addition or deduction, a revaluation, a properties change — will
-   block the commit, naming the document that is in the way. Un-commit that later document, insert
+   block the commit, naming the document that is in the way. Cancel or delete that later document, insert
    the transfer, re-commit.
 4. **Depreciation must be current.** The asset has to be depreciable in the transfer's period, unless
    it is already fully depreciated and the last depreciation is genuinely behind the transfer date.
@@ -230,14 +230,14 @@ you can keep a normal transfer book alongside a "no accounting" one and choose p
 Because a term is optional on this document, a transfer entered without one behaves as though the box
 were unticked: it books.
 
-## Un-committing and reversing
+## Cancelling or deleting
 
-Un-committing a transfer removes its ledger requests, restores the asset's location, dimensions and
+Cancelling or deleting a transfer removes its ledger requests, restores the asset's location, dimensions and
 accounts from the *previous* movement, and deletes the history row. The asset ends up exactly where
 it was before, which is what you want when a move was recorded in error.
 
 The one refusal you may meet is *"asset location changed by …"*. That means a **newer** movement
-already exists, and rolling this one back would leave the newer one dangling. Un-commit the newer
+already exists, and rolling this one back would leave the newer one dangling. Cancel or delete the newer
 document first.
 
 There is also a **Regenerate Accounting Effects** action on the More menu for when a term or an

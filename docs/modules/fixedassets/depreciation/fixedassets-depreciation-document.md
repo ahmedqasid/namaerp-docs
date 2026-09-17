@@ -129,7 +129,7 @@ same term and are covered with the rest of the module's accounting wiring in
 
 ## Correcting a Run
 
-There is no reversing document and no credit note. A wrong run is un-committed or deleted, and
+There is no reversing document and no credit note. A wrong run is cancelled or deleted, and
 re-entered.
 
 Three rules govern that:
@@ -140,13 +140,13 @@ Three rules govern that:
   is in the way.
 - **The fiscal period cannot be changed on an existing document.** The system says so plainly and
   asks you to delete and re-insert instead. Do that rather than looking for a way round it.
-- **Un-committing puts everything back.** The dated entry is removed, the asset's previous values are
+- **Cancelling or deleting puts everything back.** The dated entry is removed, the asset's previous values are
   restored, remaining life goes back up, the instalment is recomputed, an asset that had flipped to
   *Depreciated* returns to *Running*, and the accounting entry is withdrawn through a business
   request of its own.
 
 ::: warning Deleting a run is a real reversal
-Un-committing or deleting a depreciation document does not just remove a piece of paper — it removes
+Cancelling or deleting a depreciation document does not just remove a piece of paper — it removes
 that period's charge from every asset on it and rewinds each asset's remaining life. On a document
 covering four hundred assets that is four hundred rewinds. Make sure you mean it, and re-run the
 period afterwards.

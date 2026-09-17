@@ -37,7 +37,7 @@ Everything below is an elaboration of that sentence.
 5. The cancellation document writes its **own status line** on the car, exactly like any other car
    document.
 
-Un-committing or deleting the cancellation document clears the two fields again, and re-pointing its
+Cancelling or deleting the cancellation document clears the two fields again, and re-pointing its
 *From Document* at a different original un-cancels the previous one. Committing a second cancellation
 against an already-cancelled document is refused, with a message naming the document that cancelled
 it first.
@@ -96,7 +96,7 @@ fields of whatever car is on its lines. Silent, partial, with nothing on screen 
 
 | To undo | Do this |
 |---|---|
-| A stock movement made by a Car Receipt or a Car Final Delivery | **Un-commit or delete the original document.** That is what removes its generated stock document — the cancellation document will not. |
+| A stock movement made by a Car Receipt or a Car Final Delivery | **Cancel or delete the original document.** That is what removes its generated stock document — the cancellation document will not. |
 | A committed [sales invoice](/modules/servicecenter/car-sales/car-sales-invoice.md) | Raise a [Car Sales Return](/modules/servicecenter/car-sales/car-sales-return.md). There is no cancellation document for an invoice, and money that reached the ledger should come back through a return. |
 | An allocation | A [Car Allocation Cancel](/modules/servicecenter/car-sales/car-allocation.md), which does genuinely clear the five allocation fields. |
 | A sales order's booking-deposit entry | The ordinary accounting route. The cancellation does not touch it. |

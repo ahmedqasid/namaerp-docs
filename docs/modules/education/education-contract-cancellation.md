@@ -127,7 +127,7 @@ Requests** list view: filter the failed rows, select them, and use the More menu
 
 ## Undoing a cancellation
 
-A cancellation is reversible in the ordinary way. Uncommitting or deleting it removes its ledger
+A cancellation is reversible in the ordinary way. Cancelling or deleting it removes its ledger
 entry and removes every settlement entry it wrote, which restores the original contract's instalments
 to the state they were in before — the **System paid** figures drop back and the **Remaining**
 figures return. Nothing has to be repaired by hand on the contract.

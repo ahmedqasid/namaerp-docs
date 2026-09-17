@@ -151,8 +151,8 @@ batch. Having depreciated the disposal's own period is fine, and does not block 
 Because step 2 reuses existing documents, **editing a committed batch is safe**: change a value,
 re-commit, and the same disposal documents are updated rather than duplicated.
 
-Un-committing does the reverse — every generated disposal document is deleted, which unwinds its
-ledger entry and restores its asset exactly as un-committing that document by hand would, and the
+Cancelling or deleting does the reverse — every generated disposal document is deleted, which unwinds its
+ledger entry and restores its asset exactly as cancelling that document by hand would, and the
 links on the lines are cleared. And if you take a **duplicate** of an aggregated document to reuse its
 layout, the links are dropped from the copy, so the new batch starts clean instead of pointing at the
 original's documents.

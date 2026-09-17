@@ -139,7 +139,7 @@ is now moving to a revaluation policy — but it is not something to leave switc
 
 ## Cancelling
 
-Un-committing or deleting a revaluation removes its entry from the asset's value timeline, restores
+Cancelling or deleting a revaluation removes its entry from the asset's value timeline, restores
 the asset to what the previous entry left, reverts a converted depreciation method, and withdraws
 the accounting entry through a business request of its own. As everywhere else in this folder, the
 timeline comes apart newest-first: a revaluation with later documents behind it will not cancel

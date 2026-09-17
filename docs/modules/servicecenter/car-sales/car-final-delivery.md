@@ -136,8 +136,8 @@ the car can be moved back — if the configuration has a movement line for that 
 If the final delivery generated a stock issue, **the cancel document does not delete it.** The car
 stays out of stock and the cost stays relieved.
 
-To unwind the stock movement you must **cancel or delete the final delivery itself** — un-committing
-the original is what removes its generated stock issue. The cancel document is a paperwork marker
+To unwind the stock movement you must **cancel or delete the final delivery itself** — cancelling or
+deleting the original is what removes its generated stock issue. The cancel document is a paperwork marker
 plus a status move, nothing more.
 
 And as with every cancellation document here: a final delivery cancel saved with *From Document*

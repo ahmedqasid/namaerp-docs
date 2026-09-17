@@ -94,7 +94,7 @@ If the sale is later given up, the [waiver document](/modules/realestate/sales/r
 Saving the contract is instant; the effects are produced as a **business request** processed in the background. In order, a commit:
 
 1. **Marks the property sold.** The estate's status becomes *Sold*, its sold flag is set, the contract's buyer is written onto it as buyer and owner, and the estate is pointed back at this contract. Selling a block or a building cascades the status down to everything beneath it.
-2. **Closes off the reservation.** A linked reservation flips to *Sold*; a linked preliminary contract is stamped sold and pointed at this contract. Un-committing puts the reservation back to *Confirmed*.
+2. **Closes off the reservation.** A linked reservation flips to *Sold*; a linked preliminary contract is stamped sold and pointed at this contract. Cancelling or deleting the contract puts the reservation back to *Confirmed*.
 3. **Writes the real-estate system entries** that drive the sold/reserved state of the estate tree and the sales-transaction list views. An extension skips this step — see below.
 4. **Creates commercial papers** for any installment lines that carry commercial-paper creation data. Which document types may do this at all is a module-wide setting; see [module configuration](/modules/realestate/realestate-configuration.md).
 5. **Recalculates the standard-clause end dates** if the contract has been extended.

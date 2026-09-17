@@ -110,8 +110,8 @@ Three things behave differently from the ordinary cost document:
   account. Leave either side empty and no journal entry is produced at all; the cost rows are still
   written and Assigned Cost still updates.
 
-Un-committing the document removes its rows and lowers Assigned Cost again, which makes a
-mis-keyed migration batch straightforward to undo.
+Cancelling or deleting the document removes its rows and lowers Assigned Cost again, which makes
+a mis-keyed migration batch straightforward to undo.
 
 ## The migration, end to end
 

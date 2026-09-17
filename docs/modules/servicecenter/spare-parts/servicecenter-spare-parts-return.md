@@ -74,7 +74,7 @@ correctly.
 :::
 
 ::: warning Cancelling a return leaves the job order stale
-Cancelling or un-committing a return recalculates the parts ledger correctly, but — unlike the issue —
+Cancelling or deleting a return recalculates the parts ledger correctly, but — unlike the issue —
 it does **not** refresh the job order's materials grid. With the job order term set to accept
 materials from other documents, the grid keeps showing the **reduced**, post-return quantity even
 though the return has been cancelled, so the customer is **under**-billed.

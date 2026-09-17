@@ -162,8 +162,8 @@ documents. That total is the estate's **Assigned Cost / التكلفة المخ�
 
 Assigned Cost is read-only — you never type it — and it is available as a column on the housing-unit
 list screen next to Purchase Value and Current Value, which makes it the fastest way to see the cost
-basis of a whole floor or building at a glance. Un-commit the document and the rows disappear and
-Assigned Cost drops back down again.
+basis of a whole floor or building at a glance. Cancel or delete the document and the rows
+disappear and Assigned Cost drops back down again.
 
 You can read more about the other values an estate carries on
 [How Properties Are Modelled](/modules/realestate/properties/realestate-estate-model).

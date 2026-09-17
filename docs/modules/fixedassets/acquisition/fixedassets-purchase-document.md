@@ -225,7 +225,7 @@ option (منع إضافة ضريبة) — there is one per tax, both in the modu
 document term, and either one is enough.
 :::
 
-## Un-committing
+## Cancelling or deleting
 
 Cancelling a committed purchase document unwinds all of it: the acquisition value, the depreciation
 start date, the instalment, the purchase date, the location entry and the link to the document are

@@ -101,14 +101,14 @@ of something that happens *later*. Insert an out document dated 5 March for the 
 and the check fails at 10 March, where the return of three would push the running total past what the
 asset holds. When a rejection makes no sense against today's position, look forward as well as back.
 
-Un-committing a document removes its units from the running total and recomputes the counters from
+Cancelling or deleting a document removes its units from the running total and recomputes the counters from
 what is left, so corrections are safe — you are never patching a stored total by hand.
 
 ## Actions on these screens
 
 Neither the out document nor the return document carries a button of its own. You name the asset and
 the quantity going out or coming back, save and commit; the counters described above move on commit
-and move back when you un-commit.
+and move back when you cancel or delete the document.
 
 ## Reading the counters
 

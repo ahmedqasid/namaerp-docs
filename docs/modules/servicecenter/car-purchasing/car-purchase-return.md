@@ -91,7 +91,7 @@ that is the whole of its effect — see
 [Receiving Cars into the Showroom](/modules/servicecenter/car-purchasing/car-receipt.md).
 
 So a user who raises one and expects the receipt to be undone will be wrong, and has to reverse the
-stock movement themselves: either un-commit or delete the **original Car Receipt**, or — when the
+stock movement themselves: either cancel or delete the **original Car Receipt**, or — when the
 cars really are going back to the supplier — raise this purchase return.
 :::
 

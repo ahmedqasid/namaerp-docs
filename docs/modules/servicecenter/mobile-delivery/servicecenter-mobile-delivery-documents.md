@@ -70,7 +70,7 @@ If the courier has no locator of their own, the document refuses to commit with 
 ::: danger Two setup rules you cannot work around
 **One courier per delivery document.** When a document carries lines for two different couriers, the packages of *both* end up transferred to the **second** courier's locator. The first courier's van shows empty and the second's shows double. There is no warning. Keep one courier per document — which is also what the batch document produces when you configure it correctly.
 
-**Cancelling the document does not remove the stock transfers it generated.** They are left standing, so stock stays booked onto a courier who no longer has it. After cancelling or un-committing a Mobile Delivery Document, go and find the generated transfers and deal with them by hand. (Re-saving a live document *does* clear away transfers that are no longer needed — the gap is specific to cancellation.)
+**Cancelling the document does not remove the stock transfers it generated.** They are left standing, so stock stays booked onto a courier who no longer has it. After cancelling or deleting a Mobile Delivery Document, go and find the generated transfers and deal with them by hand. (Re-saving a live document *does* clear away transfers that are no longer needed — the gap is specific to cancellation.)
 :::
 
 ### What the phone app does with it

@@ -96,7 +96,7 @@ Custodies](/modules/fixedassets/movement/fixedassets-stocktaking.md).
 Worth saying once, here, rather than six times over: **not one of the custody screens carries a
 button of its own.** The type, the register, the purchase, the delivery, the transfer and the disposal
 are all filled in and saved, and everything they do to the register and to the ledger happens when
-they are committed and is undone by un-committing. The one exception is the purchase document, which
+they are committed and is undone by cancelling or deleting them. The one exception is the purchase document, which
 borrows the invoice machinery and with it **GeneratePayments** (إنشاء الدفعات) for typing an
 instalment schedule.
 
@@ -156,12 +156,12 @@ each new record.
 ## Undo happens in reverse order
 
 Each custody remembers the last document that touched it. That single marker is what keeps the chain
-honest: if you try to un-commit the delivery of `CDY-0033` after a transfer has already moved it on,
+honest: if you try to cancel or delete the delivery of `CDY-0033` after a transfer has already moved it on,
 the system refuses, because the delivery is no longer the last word on that item. It tells you a
 later document exists.
 
 So the rule for correcting a custody chain is simply: **undo the newest document first, then work
-backwards**. Un-commit the transfer, and the holding lines it built are rebuilt from whatever
-document came before it; un-commit the delivery after that, and the item drops back to *Purchased*
+backwards**. Cancel or delete the transfer, and the holding lines it built are rebuilt from whatever
+document came before it; cancel or delete the delivery after that, and the item drops back to *Purchased*
 with its holding lines cleared. The same marker also refuses to let you swap the custody on a
 document that has already been committed — cancel it, or raise a new document.

@@ -57,7 +57,7 @@ same rule from the other side: a contract built on a reservation that is still *
 :::
 
 Cancelling reverses the lock in exactly the same way: moving a confirmed reservation to *Cancelled*
-releases the unit again. Un-committing the document releases it too.
+releases the unit again. Cancelling or deleting the reservation document itself releases it too.
 
 ### What it books
 
@@ -88,8 +88,9 @@ sales contract pre-filled with the estate, the buyer, the owner, the mediator, t
 the unit, the square, the price — and, importantly, the 20,000 in the *paid with reservation* field,
 so the contract's plan starts from the right balance.
 
-On commit, the contract stamps the reservation as **Sold** and stores a link to itself. Un-commit the
-contract and the reservation returns to **Confirmed** with the link cleared, ready to be used again.
+On commit, the contract stamps the reservation as **Sold** and stores a link to itself. Cancel or
+delete the contract and the reservation returns to **Confirmed** with the link cleared, ready to be
+used again.
 
 Two validations catch the common mistakes:
 
@@ -148,7 +149,7 @@ Two things make it different, and both matter.
 **It can lock the unit.** Tick **Reserve Estate** and committing the document reserves the unit
 exactly as a confirmed reservation would. If you want that to be the rule rather than a choice, tick
 *Reserve Estate* on the document term instead and every initial contract issued on that term forces
-the flag on. Un-committing releases the unit again.
+the flag on. Cancelling or deleting the document releases the unit again.
 
 **It creates no accounting effects whatsoever.** Not a deferred entry, not a memo entry — nothing.
 Its document term has a settings page and no accounts at all, because there is no posting for

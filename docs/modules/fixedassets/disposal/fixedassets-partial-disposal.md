@@ -182,10 +182,10 @@ term must name the purchase book and term that document will use.
 
 ## Undoing a partial disposal
 
-Un-commit or delete the document and everything reverses: the entry it created is removed from the
+Cancel or delete the document and everything reverses: the entry it created is removed from the
 ledger by a delete request, its entry in the asset's history is deleted, the carrying amount and the
 instalment are recomputed without it, the disposed count comes back down and the current count goes
-back up. As with the full disposal, the un-commit is refused if anything has been recorded against
+back up. As with the full disposal, the cancellation is refused if anything has been recorded against
 the asset since — sort that document out first.
 
 ::: tip Retiring the last of the units

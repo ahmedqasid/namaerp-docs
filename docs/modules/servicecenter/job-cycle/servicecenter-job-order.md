@@ -272,8 +272,8 @@ The rule to follow is therefore all-or-nothing:
 
 In practice this means: decide before you open the job order. Either type all the work on the order
 and never touch this document, or open the order with no operations and add everything through
-add-task documents. Line statuses are preserved for tasks that already existed, and un-committing an
-add-task document rebuilds the grid again from the ones that remain.
+add-task documents. Line statuses are preserved for tasks that already existed, and cancelling or
+deleting an add-task document rebuilds the grid again from the ones that remain.
 
 The canonical example never uses this document.
 :::

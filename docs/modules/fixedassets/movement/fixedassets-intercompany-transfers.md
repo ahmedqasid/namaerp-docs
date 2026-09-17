@@ -166,7 +166,7 @@ and the change of legal entity on the asset then all follow from committing the 
 6. **Check both sides.** The source company's asset cost account should be clear of the machine, and
    the two mediator balances should be equal and opposite.
 
-Un-committing reverses the lot: both entries are removed and the asset goes back to the company,
+Cancelling or deleting the transfer reverses the lot: both entries are removed and the asset goes back to the company,
 location, dimensions and accounts it had before. If the move later stops being inter-company —
 somebody corrects the destination to a branch of the same company — the second entry is removed and a
 single intra-company entry replaces the first.

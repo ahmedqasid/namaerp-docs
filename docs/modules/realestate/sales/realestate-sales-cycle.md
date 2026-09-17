@@ -71,7 +71,7 @@ for accounts to do. Revenue appears when the sales contract is committed, not be
 
 **The cancellation request cancels nothing.** *Cancel Contract Request* is a form for recording that
 a customer asked to get out of a sale, together with the commissions that will have to be settled.
-Approving it triggers no reversal. The reversal is a waiver *For Company*, or un-committing the
+Approving it triggers no reversal. The reversal is a waiver *For Company*, or cancelling or deleting the
 contract — see [Waivers and Cancelling a Sale](/modules/realestate/sales/realestate-waiver-and-cancellation.md).
 
 ::: tip How effects are created

@@ -34,7 +34,7 @@ There are five values.
 
 Two of these moves run backwards as well:
 
-- **Cancelling the document that put the asset into service returns it to Initial.** Un-committing the purchase or opening document empties the asset again.
+- **Cancelling or deleting the document that put the asset into service returns it to Initial.** Reversing the purchase or opening document empties the asset again.
 - **A depreciated asset can come back to life.** Capitalise an upgrade with an addition, or extend the remaining life with a properties document, and the asset has value and life again — so its status returns to **Running Depreciation** and the next depreciation run collects it.
 
 ## What Each Status Blocks

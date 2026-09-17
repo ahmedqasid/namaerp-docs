@@ -89,7 +89,7 @@ clearing account as the loss.
 The custody disposal screen has no buttons of its own — which fits a document this short. You name
 the item, the employee and the disposal value, save and commit; the accounting entry, the closing of
 the holding line and the change of the item's state all follow from the commit, not from anything you
-press. To reverse it, un-commit or delete the document.
+press. To reverse it, cancel or delete the document.
 
 ## Returning an item is not a disposal
 
@@ -98,7 +98,7 @@ raise a [transfer](/modules/fixedassets/custody/fixedassets-custody-delivery-and
 new holder. The transfer takes the value off the old holder in exactly the same way, and the item
 keeps its history and its status of *Delivered* so it can be issued again. Disposal is for items
 that are leaving the company altogether: sold, scrapped, lost, or written off. Once an item is in
-the *Disposed* status, nothing brings it back into circulation except un-committing the disposal.
+the *Disposed* status, nothing brings it back into circulation except cancelling or deleting the disposal.
 
 There is also the [Delivery/Receipt of Custodies
 document](/modules/fixedassets/acquisition/fixedassets-delivery-receipt.md), which records
@@ -107,7 +107,7 @@ when the movement being recorded is a physical hand-over rather than a change of
 
 ## Undoing a disposal
 
-If a disposal was raised in error, un-committing it cancels the accounting entry and works the
+If a disposal was raised in error, cancelling or deleting it reverses the accounting entry and works the
 item's status out again from its own history: if it has ever been delivered or transferred it goes
 back to *Delivered*, otherwise back to *Purchased* if it was bought, otherwise back to *Initial*.
 You do not have to remember where the item was in its life — the document reconstructs it.

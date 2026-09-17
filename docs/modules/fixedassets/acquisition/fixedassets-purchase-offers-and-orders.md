@@ -88,8 +88,8 @@ The rule that governs the quantity counters is simple and worth stating precisel
 a request move when a document is built directly from that request.** An offer, an order or an
 [initial receipt](/modules/fixedassets/acquisition/fixedassets-receipts.md) whose **From Document**
 points at a purchase request will, on commit, raise that request's Satisfied Qty, lower its
-Unsatisfied Quantity, refresh its Total Unsatisfied Qty and stamp Processed By. Un-committing puts it
-all back.
+Unsatisfied Quantity, refresh its Total Unsatisfied Qty and stamp Processed By. Cancelling or
+deleting it puts it all back.
 
 An order built from an *offer* copies the offer's lines and prices happily, but it does not tick
 anything off — the offer was never a demand to be satisfied in the first place.

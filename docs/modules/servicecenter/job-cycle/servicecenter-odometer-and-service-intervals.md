@@ -136,8 +136,8 @@ and task:
 | Recur Every KM | تكرر كل / كم | Read-only — filled in from the task's recurrence rules for this vehicle |
 
 Committing it writes those rows into the last-service register exactly as if job orders had done it,
-and pushes each vehicle's odometer forward to the reading on the line. Un-committing removes them
-again.
+and pushes each vehicle's odometer forward to the reading on the line. Cancelling or deleting the
+document removes them again.
 
 For Fahad's car, one line — engine oil and filter change, 36,000 km, with its date — is all it takes
 for kilometre-based maintenance to work from day one.

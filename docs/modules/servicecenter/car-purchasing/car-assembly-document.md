@@ -102,7 +102,7 @@ you can open it from here.
 ::: danger Cancelling this document permanently deletes the car records it created
 This is the one behaviour in the module that destroys master data rather than reversing an effect.
 
-Un-committing a Sub Item Assembly Document does not detach its vehicles, does not mark them
+Cancelling a Sub Item Assembly Document does not detach its vehicles, does not mark them
 cancelled, and does not move their status. It **hard-deletes** each line's car record, and with it
 the stock quantity and cost rows held against that car. It also deletes the generated assembly
 document.
@@ -112,7 +112,7 @@ been received, allocated, invoiced or delivered, the documents that referenced i
 at a record that no longer exists.
 
 **Before cancelling, check whether any of the assembled vehicles has been used downstream.** If one
-has, correct the situation with a return or an adjustment rather than by un-committing the assembly.
+has, correct the situation with a return or an adjustment rather than by cancelling the assembly.
 :::
 
 ## How it fits the rest of the chain

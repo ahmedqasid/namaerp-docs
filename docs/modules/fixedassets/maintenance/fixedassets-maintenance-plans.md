@@ -112,7 +112,7 @@ on the chosen plan that are neither executed nor cancelled — that is, the visi
 so picking from it guarantees you are closing a real line. A code typed by hand that matches no line
 on the plan is accepted quietly, and simply closes nothing.
 
-Un-commit the record and the plan line goes back to **Planned** with its Maintenance record column
+Cancel or delete the record and the plan line goes back to **Planned** with its Maintenance record column
 cleared. Point a committed record at a different plan line and the old line is released back to
 Planned before the new one is marked Executed, so the plan never ends up with two lines claiming the
 same record.

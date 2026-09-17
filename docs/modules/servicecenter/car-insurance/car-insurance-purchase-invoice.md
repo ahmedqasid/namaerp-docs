@@ -78,7 +78,7 @@ The practical consequence: out of the box you can configure the insurance-value 
 
 ## What it does to the policy
 
-Beyond the ledger, the invoice touches every policy it names. On commit it stamps each one with a reference back to itself and sets its **Payment Status** to **Paid To Supplier** (*مدفوعة للمورد*). Uncommitting clears the reference and puts the payment status back to *Fully or Partially Paid*.
+Beyond the ledger, the invoice touches every policy it names. On commit it stamps each one with a reference back to itself and sets its **Payment Status** to **Paid To Supplier** (*مدفوعة للمورد*). Cancelling or deleting the invoice clears the reference and puts the payment status back to *Fully or Partially Paid*.
 
 If you re-edit and re-commit the invoice after changing which policies it covers, the policies dropped from the grid have their stamps cleared first, so the marks stay in step with the current lines.
 

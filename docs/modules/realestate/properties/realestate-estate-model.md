@@ -146,7 +146,7 @@ Palm Compound → Square A → Block 3, a leaf block holding 40 land plots of 40
   sold or reserved individually until the reservation is released.
 :::
 
-Un-committing or cancelling the contract runs exactly the same machinery in reverse, so a mistaken
+Cancelling or deleting the contract runs exactly the same machinery in reverse, so a mistaken
 sale is undone at every level it touched, not just at the top.
 
 ## What Blocks a Sale, a Lease or a Reservation

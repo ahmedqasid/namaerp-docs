@@ -105,8 +105,8 @@ closing's document term. If either is missing, nothing is generated and nothing 
 on every closing term you create.
 :::
 
-The stock issue is committed automatically, regenerated whenever the closing is re-saved, and deleted
-if the closing is un-committed. The Details page carries a read-only list of the issues this closing
+The stock issue is committed automatically, regenerated whenever the closing is re-saved, and removed
+if the closing is cancelled or deleted. The Details page carries a read-only list of the issues this closing
 has produced, so you can always see whether one exists.
 
 ## The next visit
@@ -137,7 +137,7 @@ whatever the job order already said. Full mechanics on
 
 ## Undoing a closing
 
-A closing is an ordinary document: un-commit or delete it and its effects unwind. The status entry
+A closing is an ordinary document: cancel or delete it and its effects unwind. The status entry
 disappears, so the job order's status is re-derived from what remains and stops being Closed; the
 generated stock issue is deleted; the product status entry is removed; and a delete request is sent
 for the journal entry.

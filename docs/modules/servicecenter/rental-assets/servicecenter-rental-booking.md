@@ -100,7 +100,7 @@ Both the request and the invoice post through the standard sales-invoice financi
 
 Point *From Document* at the request or the invoice being cancelled and the asset, the customer and both date/time pairs fill themselves in — on the screen and again on every save. Typing over them is pointless; they are overwritten.
 
-On commit the document does three things: it marks the source request or invoice as cancelled, records itself as that document's cancel document, and **deletes the source's reservation entry** — which frees the slot immediately. Deleting or un-committing the cancel document reverses all three, and before it lets you do that it re-runs the overlap check on the source, so a slot someone else has since taken cannot be silently re-occupied.
+On commit the document does three things: it marks the source request or invoice as cancelled, records itself as that document's cancel document, and **deletes the source's reservation entry** — which frees the slot immediately. Deleting or cancelling the cancel document reverses all three, and before it lets you do that it re-runs the overlap check on the source, so a slot someone else has since taken cannot be silently re-occupied.
 
 It refuses two things: a *From Document* that is not a rental request or rental invoice, and a source that some **other** cancel document has already cancelled.
 

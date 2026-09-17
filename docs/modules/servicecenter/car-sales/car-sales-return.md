@@ -47,7 +47,7 @@ everything the sale left behind.
   [Car Allocation Cancel](/modules/servicecenter/car-sales/car-allocation.md) clears them.
 - **The reference stamps on the car's Statistics tab.** The returned car still shows the old sales
   invoice, the old sales order and the old delivery date. Those stamps are cleared only when the
-  *original* document is un-committed, never by a return.
+  *original* document is cancelled or deleted, never by a return.
 - **The final delivery's stock issue**, if the delivery generated one. The return books its own
   stock receipt instead, which balances the quantity but leaves two unrelated documents in the car's
   history.
@@ -60,7 +60,7 @@ data, and raise an allocation cancel if the car was allocated.
 :::
 
 There is also **no cancellation document for a sales return**. If a return itself is wrong, delete
-or un-commit it — un-committing is what removes its generated stock receipt and its ledger entry.
+or cancel it — that is what removes its generated stock receipt and its ledger entry.
 
 ## Two things about the screen
 

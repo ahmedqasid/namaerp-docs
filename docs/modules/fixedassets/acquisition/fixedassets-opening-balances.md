@@ -218,7 +218,7 @@ document's value date like every other entry.
 
 ## Cancelling an opening document
 
-Un-committing reverses everything: the acquisition value, the accumulated depreciation, the
+Cancelling or deleting the document reverses everything: the acquisition value, the accumulated depreciation, the
 depreciation start date, the instalment, the purchase date and the link to the document are cleared,
 each asset goes back to **Initial**, and the journal entry is reversed. It is the clean way out of a
 badly typed go-live batch — as long as nothing has depreciated yet.

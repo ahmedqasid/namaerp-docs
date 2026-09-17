@@ -39,7 +39,7 @@ Two validations stand between you and a commit: the From Document must be a sale
 3. **The suppressed journal entry is released**, if the contract's term was holding it back — see below.
 4. **A second entry is created**, if the handover term asks for one — again, see below.
 
-Un-committing reverses all of it: the contract and the property are un-marked and any entry the handover created is removed. Changing the From Document on a committed handover un-marks the old contract and property before marking the new ones.
+Cancelling or deleting the handover reverses all of it: the contract and the property are un-marked and any entry the handover created is removed. Changing the From Document on a committed handover un-marks the old contract and property before marking the new ones.
 
 ### The two flags that must be decided together
 

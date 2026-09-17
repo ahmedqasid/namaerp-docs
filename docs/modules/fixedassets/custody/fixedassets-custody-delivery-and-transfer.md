@@ -111,7 +111,7 @@ document still records the hand-over, it simply has no money to move.
 
 ### Undoing a delivery
 
-Un-commit it and — provided nothing has touched the item since — the status drops back to
+Cancel or delete it and — provided nothing has touched the item since — the status drops back to
 *Purchased*, the holding lines it created are cleared, and the accounting entry is cancelled. If a
 transfer has happened in the meantime, the delivery cannot be deleted at all: the message tells you
 a later movement exists on the item. Undo that transfer first, then come back to the delivery.
@@ -162,7 +162,7 @@ Khaled's balance is clean again; Nouf now carries the laptop. Had the laptop gon
 
 ### Undoing a transfer
 
-Un-committing a transfer does something slightly cleverer than the delivery: it looks back for the
+Cancelling or deleting a transfer does something slightly cleverer than the delivery: it looks back for the
 document that held the item before this one — the previous transfer, or failing that the delivery —
 and rebuilds the holding lines from *that* document. The laptop goes back to Khaled at 100 %, and
 the accounting entry is cancelled. If nothing came before it at all, the item is simply left with no
@@ -175,7 +175,7 @@ or disposed of, deal with that document before coming back to this one.
 
 Neither the delivery document nor the transfer document carries a button of its own. Both are filled
 in and saved, and everything they do — writing the holding lines, stamping the custodian, raising the
-accounting entry — happens on commit and is undone by un-committing. The delivery screen's one piece
+accounting entry — happens on commit and is undone by cancelling or deleting the document. The delivery screen's one piece
 of behaviour worth knowing is not a button either: the two pages lock each other out. Fill in the
 **Custody** field on page 1 and the employee and lines of page 2 grey out; fill in the **Employee**
 on page 2 and the custody and details of page 1 grey out. Clear the field you filled first and the

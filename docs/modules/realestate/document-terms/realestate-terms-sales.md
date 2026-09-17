@@ -123,7 +123,7 @@ This is the most-asked configuration in the module, and it takes **two** terms, 
 2. On the **handover** term, decide its own *Create Accounting Effects*. Leave it off if the handover
    is purely a trigger; turn it on if the handover document should also produce an entry of its own.
 3. When the handover document is committed in September, the contract's suppressed entry is generated
-   at that moment. Un-committing the handover reverses it again.
+   at that moment. Cancelling or deleting the handover reverses it again.
 
 Configuring only step 1 gives you a contract that never posts. Configuring only step 2 gives you a
 contract that posts at signature and a handover that posts a second time. They belong together.

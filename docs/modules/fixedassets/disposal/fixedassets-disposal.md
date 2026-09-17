@@ -269,11 +269,11 @@ here is settled the ordinary way, through receipts against the third party.
 The disposal document has no buttons of its own. Everything you have read above happens because of
 what you type and what the commit does: the book value is worked out as the fields fill, the gain or
 loss falls out of the arithmetic, and the asset's status changes on commit. To reverse it you
-un-commit or delete the document — there is no reverse button, and none is needed.
+cancel or delete the document — there is no reverse button, and none is needed.
 
 ## Undoing a disposal
 
-There is no "reverse" button, and there does not need to be one: **un-commit the document, or delete
+There is no "reverse" button, and there does not need to be one: **cancel the document, or delete
 it**, and everything it did is unwound.
 
 1. The asset's status goes back to whatever it was immediately before the disposal — the document
@@ -289,15 +289,15 @@ Two situations stop it, and both are protecting you from a worse mess:
 
 - **Something happened to the asset after the disposal.** If any later entry exists on the asset —
   because you disposed of it, un-did nothing, and then somehow recorded another document against it —
-  the un-commit is refused and the message names the blocking document. Deal with that document
+  the cancellation is refused and the message names the blocking document. Deal with that document
   first.
 - **The generated acquisition document is still tied up elsewhere.** If the assets created out of the
   disposal have gone on to be used by other documents, the disposal cannot be deleted until those
   links are gone.
 
-You do not always have to un-commit. A committed disposal can simply be **edited** — including
-changing the asset it points at. Doing so restores the previous asset completely, exactly as an
-un-commit would, before applying everything to the new one. That is the clean fix for the classic
+You do not always have to cancel. A committed disposal can simply be **edited** — including
+changing the asset it points at. Doing so restores the previous asset completely, exactly as a
+cancellation would, before applying everything to the new one. That is the clean fix for the classic
 mistake of disposing of the wrong asset out of a pair of near-identical machines.
 
 ## Where to go next

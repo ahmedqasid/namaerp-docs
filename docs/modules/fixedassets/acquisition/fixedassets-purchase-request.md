@@ -88,7 +88,7 @@ document is committed:
 - the header's **Total Unsatisfied Qty** is refreshed as the sum of the line figures,
 - and **Processed By** on the request is stamped with the document that consumed it.
 
-Un-commit that downstream document and every one of those figures is put back. Because the counters
+Cancel or delete that downstream document and every one of those figures is put back. Because the counters
 are driven by the link between lines, they only work when the downstream document was genuinely
 *built from* the request — typing the same asset name onto an unrelated order proves nothing and
 counts for nothing.

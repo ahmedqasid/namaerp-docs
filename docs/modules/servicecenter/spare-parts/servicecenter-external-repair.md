@@ -112,7 +112,7 @@ picks up work that was never actually done.
 :::
 
 ::: danger Cancelling destroys the line attachments
-Un-committing an external repair sets every detail line's **attachment to empty, permanently**. The
+Cancelling or deleting an external repair sets every detail line's **attachment to empty, permanently**. The
 outside workshop's quotation, its report, the photographs of the stripped part — all gone, and they
 are not restored when the document is committed again.
 

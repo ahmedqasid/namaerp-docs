@@ -118,11 +118,11 @@ on the second page, and the *Remaining* figure moves as they are recorded.
 
 ## Correcting one
 
-Un-committing a custody purchase reverses its accounting entry and clears the price the document
+Cancelling or deleting a custody purchase reverses its accounting entry and clears the price the document
 stamped on the item. If several items were on the document and you remove one line and re-commit,
 that item's price is cleared too while the others keep theirs.
 
 Because each custody remembers the last document that touched it, the usual ordering rule applies:
-if the item has since been delivered or transferred, un-commit those documents first and work
+if the item has since been delivered or transferred, cancel or delete those documents first and work
 backwards. See [Custody — Items Handed to
 Staff](/modules/fixedassets/custody/fixedassets-custody-overview.md) for the full ordering rule.

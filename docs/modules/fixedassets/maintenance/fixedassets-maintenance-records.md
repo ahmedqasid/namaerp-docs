@@ -126,7 +126,7 @@ Three things, none of them financial.
 3. **Nothing else.** No journal entry, no business request, no change to the asset's cost,
    accumulated depreciation, book value, remaining life or depreciation instalment.
 
-Un-commit the record and all of it is undone: the plan line goes back to **Planned** with its record
+Cancel or delete the record and all of it is undone: the plan line goes back to **Planned** with its record
 cleared, and the component line's three dates and record link are wiped. Edit a committed record and
 point it at a different plan line and the old line is released back to Planned before the new one is
 marked Executed.

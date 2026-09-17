@@ -111,16 +111,16 @@ flagged as billed.
 There are two supported ways back, and it is worth choosing between them *before* you raise the
 return:
 
-1. **Un-commit the original invoice.** Cancelling an invoice reverses its accounting effect and
-   un-stamps every source line it consumed, putting that work back in the pool. Correct the invoice,
-   commit it again, and no return is needed at all. This is the right move when the invoice is
+1. **Cancel the original invoice.** Cancelling an invoice reverses its accounting effect and
+   un-stamps every source line it consumed, putting that work back in the pool. Correct it and issue
+   it again, and no return is needed at all. This is the right move when the invoice is
    simply wrong and the period is still open.
 2. **Issue the return, and type the re-bill by hand.** Once the return exists you can raise a new
    invoice with a hand-typed line for the corrected amount. You lose the link to the underlying
    timesheet and expense rows, so the new invoice is a bare amount rather than a collected one — but
    the closed period stays closed.
 
-In short: use a return when the money must genuinely go back to the client, and un-commit the
+In short: use a return when the money must genuinely go back to the client, and cancel the
 invoice when the billing was simply mis-assembled.
 
 ## The accounts a return uses
@@ -196,7 +196,7 @@ to credit them.
    | VAT payable | Tax receivable | 270.00 |
 
 5. Sara's 12 hours stay flagged as billed. They are out of the billing pool for good unless someone
-   un-commits the original invoice — which, with the return now committed, nobody should.
+   cancels or deletes the original invoice — which, with the return now committed, nobody should.
 
 That last step is the one to walk a new user through. The return has done its job for the client and
 for the ledger; it has not, and will not, put the work back on the shelf.

@@ -59,7 +59,7 @@ The first document in the chain, and the one that reaches accounting. The header
 
 ![The Insurance Policy Issuance Order screen](../../../ar/modules/servicecenter/images/car-insurance/sc-car-insurance-policy-order-en.png)
 
-On commit it stamps each policy with **Processed By** pointing at itself and — only if the policy has not already been received — sets *Physical Status* to **Requested From Supplier**, *Payment Status* to **Fully or Partially Paid** and *Policy Status* to **First Time**. Uncommitting clears all four, dropping the physical status back to *Initial* and the payment status to *Unpaid*.
+On commit it stamps each policy with **Processed By** pointing at itself and — only if the policy has not already been received — sets *Physical Status* to **Requested From Supplier**, *Payment Status* to **Fully or Partially Paid** and *Policy Status* to **First Time**. Cancelling or deleting the document clears all four, dropping the physical status back to *Initial* and the payment status to *Unpaid*.
 
 Its policy picker offers only policies with no *Processed By* — that is, policies not yet ordered.
 
@@ -77,7 +77,7 @@ Pick the policies through the grid's own picker instead, and set the header comp
 
 Records the paper arriving from the insurer. The header carries a **Received Date** (*تاريخ الاستلام*), which is copied down onto every grid row on save, and a second grid for **external payment documents** — the payment instruments Al-Sahra handed the insurer, each with a value and a date.
 
-On commit it sets each policy's *Physical Status* to **Received From Supplier** (only if it had not already been received) and writes the received date onto the policy. Uncommitting clears the received date and puts the status back to *Requested From Supplier*.
+On commit it sets each policy's *Physical Status* to **Received From Supplier** (only if it had not already been received) and writes the received date onto the policy. Cancelling or deleting the document clears the received date and puts the status back to *Requested From Supplier*.
 
 Its picker offers only policies with no received date, narrowed to the header's insurance company when one is set.
 
@@ -95,7 +95,7 @@ If you need that control, it has to be an organisational rule or a customer-spec
 
 The hand-over. The header carries a **Delivered Date** (*تاريخ التسليم*), copied down to every row, plus five attachment slots for a signed receipt.
 
-The one thing it validates is that the delivery date is not earlier than the policy's received date. On commit it sets *Physical Status* to **Delivered To Customer** and writes the delivered date onto the policy; uncommitting clears both.
+The one thing it validates is that the delivery date is not earlier than the policy's received date. On commit it sets *Physical Status* to **Delivered To Customer** and writes the delivered date onto the policy; cancelling or deleting the document clears both.
 
 **Accounting:** none.
 
@@ -111,19 +111,19 @@ On commit it writes the new dates onto each policy — its effective date and it
 
 **Accounting:** yes, using the same account pair and the same term family as the order, for the *Insurance Price* column on its rows. Note that it posts in the company's own currency rather than a currency chosen on the document.
 
-::: danger Uncommitting a renewal does not undo it
-Uncommitting a renewal reverses **only its journal entry**. The policy keeps the renewed effective date, the renewed expiry date and the *Renewal* status; nothing is put back.
+::: danger Cancelling a renewal does not undo it
+Cancelling or deleting a renewal reverses **only its journal entry**. The policy keeps the renewed effective date, the renewed expiry date and the *Renewal* status; nothing is put back.
 
 There is a second trap behind it. The renewal never touches the policy's **Policy Duration**, so on an installation where that field has been made visible and filled, the *next ordinary save of the policy* recalculates the expiry date from the old duration and silently replaces the renewed one.
 
-If you need to undo a renewal, uncommit it to reverse the accounting, then correct the policy's dates deliberately — and re-check them after saving.
+If you need to undo a renewal, cancel or delete it to reverse the accounting, then correct the policy's dates deliberately — and re-check them after saving.
 :::
 
 ### Car Insurance Policy Cancellation — إلغاء وثيقة تأمين سيارة
 
 Records that cover has ended. The header carries a **Cancellation Date** (*تاريخ الإلغاء*) and a free-text **Cancellation Reason** (*سبب الإلغاء*), plus an attachment slot.
 
-On commit it writes the cancellation date onto each policy, sets *Policy Status* to **Cancelled** and records itself as the cancelling document. Uncommitting clears all three — but only for policies this particular document cancelled, so a second cancellation cannot undo the first one's work. Committing a cancellation against a policy another document has already cancelled is refused with a message naming that document.
+On commit it writes the cancellation date onto each policy, sets *Policy Status* to **Cancelled** and records itself as the cancelling document. Cancelling or deleting the cancellation document clears all three — but only for policies this particular document cancelled, so a second cancellation cannot undo the first one's work. Committing a cancellation against a policy another document has already cancelled is refused with a message naming that document.
 
 **Accounting:** none. **A cancellation posts nothing and refunds nothing.** If money comes back from the insurer, that is a separate accounting document.
 
@@ -138,9 +138,9 @@ On commit it writes the cancellation date onto each policy, sets *Policy Status*
 
 - **Nothing is recalculated.** No premium is recomputed, no policy duration is updated, no pro-rata figure is worked out for the shortened or extended period, and no difference of any kind is derived.
 - **Neither posts anything.** Extending a policy by six months or halving its value produces no journal entry, no credit note and no adjustment to what the insurer is owed. The money side has to be handled entirely by hand, as a separate accounting document.
-- **The period adjustment has no reversal behaviour whatsoever.** Uncommitting it — or deleting it — leaves the new expiry date and the *Period Adjustment* status on the policy permanently. There is no way to walk it back through the document; you must open the policy and correct the date yourself, and even then the status stays.
+- **The period adjustment has no reversal behaviour whatsoever.** Cancelling it — or deleting it — leaves the new expiry date and the *Period Adjustment* status on the policy permanently. There is no way to walk it back through the document; you must open the policy and correct the date yourself, and even then the status stays.
 
-The value adjustment does restore the previous value when it is uncommitted, with one qualification: it restores the value stored on its own grid row, not a separately preserved "old value". If somebody edited that row's policy-value column after the document was committed, uncommitting restores the edited figure rather than the original.
+The value adjustment does restore the previous value when it is cancelled or deleted, with one qualification: it restores the value stored on its own grid row, not a separately preserved "old value". If somebody edited that row's policy-value column after the document was committed, the reversal restores the edited figure rather than the original.
 
 **The working rule for both:** treat a committed adjustment as final, and record the money consequence separately.
 :::

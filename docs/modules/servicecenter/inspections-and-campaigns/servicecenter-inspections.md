@@ -188,7 +188,7 @@ Its screen carries three options, and only these three:
 | Notify On Status Change | تشغيل التنبيه عند تغير الحالة | Fires a notification for a vehicle whose status actually changed |
 
 The status is rebuilt by replaying all of a vehicle's status entries in date order, so a back-dated
-sheet slots into the history rather than overwriting the present. Un-committing the inspection
+sheet slots into the history rather than overwriting the present. Cancelling or deleting the inspection
 removes its entry again and the status is recomputed without it.
 
 The inspection sheet has no accounting effect, no inventory effect, and generates no documents.

@@ -37,7 +37,7 @@ The policy screen mixes two kinds of field, and telling them apart is the whole 
 
 | Field | Arabic | Written by |
 |---|---|---|
-| Processed By | — | The policy order (cleared when it is uncommitted) |
+| Processed By | — | The policy order (cleared when the order is cancelled or deleted) |
 | Physical Status | — | Order, receipt and delivery |
 | Payment Status | — | The order, and the insurance purchase invoice |
 | Policy Status | — | Order, renewal, the two adjustments, cancellation |
@@ -67,7 +67,7 @@ The policy carries three independent status axes, all system-written, and it hel
 
 | Value | Arabic | Set by |
 |---|---|---|
-| Initial | — | The starting state; restored when the order is uncommitted |
+| Initial | — | The starting state; restored when the order is cancelled or deleted |
 | Requested From Supplier | مطلوبة من المورد | The policy order |
 | Received From Supplier | تم استلامها من المورد | The policy receipt |
 | Delivered To Customer | تم تسليمها للعميل | The policy delivery |
