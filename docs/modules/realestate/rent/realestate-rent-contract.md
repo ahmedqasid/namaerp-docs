@@ -37,7 +37,7 @@ The values block is the input side of the whole document. The schedule generator
 | Field | Arabic label | What it is |
 |---|---|---|
 | Rent Value Per Year | اساس العقد السنوي | **Required — the annual base.** Every other figure on the contract is calculated from it, and the schedule pro-rates it per period. |
-| Rent Value per period | قيمة الإيجار بالفترة الواحدة | A convenience input. Type the quarterly rent here and Nama multiplies it by the number of periods in a year to fill the annual base. Change the Rent type and it recalculates. |
+| Rent Value per period | قيمة الإيجار بالفترة الواحدة | A convenience input, and only an input. Type the quarterly rent here and Nama multiplies it by the number of periods in a year to fill the annual base; change the Rent type and it recalculates. Nothing ever writes it back, so it keeps whatever you typed — or stays empty — when the annual base is later filled from a price list or by an import. It is not the installment either: what the tenant is billed is the *Total After Taxes* column of the Rents grid. |
 | Commission % / value | السعي % / قيمة السعي | The agency or brokerage fee, emitted once as its own line on the first date of the schedule. |
 | Insurance % / value | التأمين % / التأمين | The refundable security deposit — also emitted once, on the first date. |
 | Maintenance % / value | مصاريف الصيانة % | The maintenance charge carried by the lease. |

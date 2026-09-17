@@ -149,6 +149,21 @@ to the same grid in the
 on the estate or the tenant — and the whole **Rents** grid is replaced with what the generator
 produced.
 
+Each finished line therefore carries three figures that are easy to confuse. **Amount** (المبلغ) is
+the rent the walk worked out, **Net value** (الصافي) is that amount plus any penalty and less any
+discount, and **Total After Taxes** (الصافي بعد الضريبة) — the last column of the grid — is what
+the tenant is actually billed. Collection, accrual and the contract's own tax totals are all measured
+against the last of the three, so that is the column to read and the one to report on.
+
+::: warning The rent base is not the installment
+Neither **Rent Value Per Year** (اساس العقد السنوي) nor **Rent Value per period**
+(قيمة الإيجار بالفترة الواحدة) is an amount anybody pays. Both are the pre-tax base this page
+starts from — before the escalation of step 3 and before the taxes of step 7. On our shop lease the
+base says 30,000 a quarter while a third-year line is billed at 33,075 plus tax. A report or a query
+that reads either field as *the installment* is wrong by the tax and by every increase the lease has
+seen; read **Total After Taxes** from the Rents grid instead.
+:::
+
 Our shop lease ends up with 29 lines: 12 quarterly rent lines, 12 maintenance lines, 3 annual water
 lines, one commission and one insurance.
 
