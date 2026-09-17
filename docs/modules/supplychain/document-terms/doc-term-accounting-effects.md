@@ -14,7 +14,11 @@ Open the document's **Document Term** (توجيه), then the **Effect** / **Invo
 
 Every debit, credit, tax, discount, cash, fees, warehouse, coverage and service-fee "side" on the effect pages is the **same building block** — one account-side object. The field ids below use the main debit side (`termConfig.config.debit`) as the example prefix; every other side exposes the same sub-fields under its own prefix (e.g. `termConfig.config.credit.subsidiaryAccountType`, `termConfig.cash.accountSource.type`).
 
-**Side Configuration** `termConfig.config.debit.sideConfig` — Points the side at a reusable, named account-side definition (a master file). Use it to share one account-side setup across many document terms instead of re-entering it per term.
+**Side Configuration** `termConfig.config.debit.sideConfig` — Points the side at an [Accounting Side Config](/platform/accounting-side-config) record: the same block of settings saved once as a master file and shared by as many terms as need it.
+
+::: warning A Side Configuration replaces the block, it does not merge with it
+Once this field is filled in, every other field in the same block is ignored — the account, the subsidiary type, the narrations, the dimension sources, all of it. The fields stay on screen showing whatever was typed there before, so a side can read as though it posts to one account while actually posting somewhere else entirely. Clear the Side Configuration to go back to the values typed in the block.
+:::
 
 **Account source / Account** `termConfig.config.debit.accountSource.type` + `termConfig.config.debit.accountRef` — How the GL account is resolved: either a fixed account (`accountRef`) or pulled from a source on the document. When the account comes from a referenced entity, `termConfig.config.debit.accountSource.entityType` names that entity type and `termConfig.config.debit.accountSource.fieldID` names the field on it that yields the account. `termConfig.config.debit.accountSource.accFrmBagCrrncy` resolves the account using the bag (portfolio) currency.
 
@@ -60,7 +64,11 @@ The two primary ledger sides of the document. For an invoice the debit is typica
 JOrderExpense uses the bare `termConfig.debit` / `termConfig.credit` ids (not under `config`); ReceiptAdditionalCost uses `termConfig.config.debit` / `termConfig.config.credit`.
 :::
 
-**Shorten Ledger** `termConfig.config.shortenLedger` — Collapse/net the ledger lines so the posted entry is summarized instead of one line per document line. Applies to invoices, sales/purchase return, stock receipt/issue/transfer and sales-return request.
+**Shorten Ledger** `termConfig.config.shortenLedger` — Summarize the entry instead of posting one line per document line. Lines that are alike are merged into a single line, and where a debit and a credit meet in the same group only the difference survives. A ten-line invoice that debits the same customer ten times posts one customer line for the total.
+
+Two lines are "alike" only when everything about them matches: the account, the subsidiary, the entity dimension, the four cost-centre dimensions, the three generic references, both narration lines, the currency and the rate. Anything that varies per line keeps the lines apart — a narration template that prints the item name is the usual reason an entry that was expected to collapse comes out at full length.
+
+Applies to invoices, sales/purchase return, stock receipt/issue/transfer and sales-return request.
 
 **Calculate Ledger Trans Date From Field** `termConfig.config.calcLedgerDateFrom` — Use the value of the named field as the ledger transaction date instead of the document date. Stock receipt / issue / transfer only.
 
@@ -103,7 +111,32 @@ Taxes are configured two ways depending on the document. Invoices use account-si
 | Tax 3 | `termConfig.tax3Debit` | `termConfig.tax3Credit` |
 | Tax 4 | `termConfig.tax4Debit` | `termConfig.tax4Credit` |
 
-**Tax 1..4 other side** `termConfig.taxesOtherSide.tax1OtherSide` … `termConfig.taxesOtherSide.tax4OtherSide` — The opposite ledger side for each tax leg on invoice-style documents.
+### The tax "other side"
+
+**Tax 1..4 other side** `termConfig.taxesOtherSide.tax1OtherSide` … `termConfig.taxesOtherSide.tax4OtherSide` — Each of these fields holds an [Accounting Side Config](/platform/accounting-side-config) record. It is a reference to a saved account side, not a tick box and not a block you fill in here, so redirecting a tax counter-entry always starts by creating that master record.
+
+The field answers one question — when the tax leg posts, what does it post against? — and two rules decide the answer.
+
+**A counter-entry exists only for a tax that is added on top of the total.** Whether a tax is included in the total is decided by the tax configuration behind the document's tax plan, not here. When the tax is included in the price, the customer's own line already carries it and no counter-entry is generated at all — whatever is in this field is then simply never used. When the tax is added on top, the counter-entry appears and this field says where it goes.
+
+**Left empty, the counter-entry lands on the document's own main side.** On a sales invoice the tax is credited to the tax account and the counter-entry is debited to the main debit side — the customer. On a purchase invoice the directions are mirrored. So an empty field is not "no effect"; it is "put it on the customer / supplier".
+
+Take a sales invoice with one line of 1,000 and 15% VAT that is **not** included in the total, on a term whose main debit is the customer, main credit is revenue, and Tax 1 side is the VAT-payable account:
+
+| Ledger line | Account | Debit | Credit |
+|---|---|---|---|
+| Main debit | Customer | 1,000 | |
+| Main credit | Revenue | | 1,000 |
+| Tax 1 | VAT payable | | 150 |
+| Tax 1 other side (empty → main debit) | Customer | 150 | |
+
+With **Shorten Ledger** on, the two customer lines merge and the entry reads customer 1,150 debit, revenue 1,000 credit, VAT payable 150 credit — the ordinary three-line invoice entry everyone expects.
+
+::: tip The same three lines arrive by two different routes
+Had the tax been *included* in the total, the customer's own line would already have been 1,150 and no counter-entry would have been generated — the same three-line entry, reached without this field being involved at all. That is why a term can look misconfigured and still post correctly, and why a change to the tax configuration can change an entry that nobody touched.
+:::
+
+Point the field at a record for, say, a tax-clearing account, and only that last line moves: the customer is debited 1,000 and the clearing account carries the 150.
 
 ## Discount Effects
 
@@ -125,7 +158,11 @@ Invoices expose eight discount **account sides** plus a header-discount side on 
 
 **Discount 1 debit / credit (expense & cost documents)** `termConfig.discount1Debit` / `termConfig.discount1Credit` — The flat discount account for the single discount group on JOrderExpense, ReceiptAdditionalCost and LcExpense.
 
-**Discount other sides** `termConfig.taxesOtherSide.discount1OtherSide` … `termConfig.taxesOtherSide.discount8OtherSide`, and `termConfig.taxesOtherSide.headerDiscountOtherSide` — The opposite ledger side for each of the eight additional discounts and for the header (invoice-level) discount.
+**Discount other sides** `termConfig.taxesOtherSide.discount1OtherSide` … `termConfig.taxesOtherSide.discount8OtherSide`, and `termConfig.taxesOtherSide.headerDiscountOtherSide` — Like the tax other sides, each of these holds an [Accounting Side Config](/platform/accounting-side-config) record. What it does with it is different: it does not redirect a line, it adds two.
+
+A discount normally posts on one side only. On a sales invoice with a line of 1,000 and a discount of 50, revenue is credited 1,000, the discount account is debited 50, and the customer — whose line is already net of the discount — is debited 950. (If no account side is configured for the discount itself, that 50 debit falls back to the document's main credit side, which is to say the discount is netted straight off revenue.)
+
+Fill in the discount's other side and two more lines join the entry: the named record is credited 50, and the document's own main side is debited 50. The customer now carries the full 1,000 and the discount is funded by the named account instead of quietly reducing what the customer owes.
 
 ## Approximation Discount
 

@@ -32,6 +32,7 @@
 - [Document Books](https://docs.namasoft.com/platform/document-books.html): Every document in Nama — every sales invoice, stock issue, receipt voucher, journal entry — has to belong to a document book. - entities: DocumentBook - menu: Basic → Settings → Document Book
 - [Document Cancel Document](https://docs.namasoft.com/platform/document-cancel-document.html): Sooner or later somebody commits a document they should not have. - entities: DocumentCancelDocument - menu: Basic → Documents → Document Cancel Document
 - [Master Groups](https://docs.namasoft.com/platform/master-groups.html): Document books number documents. - entities: MasterGroup - menu: Basic → Settings → Group
+- [Accounting Side Config](https://docs.namasoft.com/platform/accounting-side-config.html): Every document that reaches the general ledger describes its lines the same way: which account to hit, whose subsidiary (portfolio) account to use, which cost-centre dimensions to carry, and what... - entities: AccountingSideConfig - menu: Basic → Settings → Accounting Side Config
 - [Audit Trail and Version History](https://docs.namasoft.com/platform/audit-trail.html): Sooner or later somebody asks the question every ERP has to answer: who changed this, and what did it say before? A customer's credit limit is suddenly double what it was.
 - [Attachments](https://docs.namasoft.com/platform/attachments.html): Paperwork follows business documents around.
 
