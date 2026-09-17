@@ -352,6 +352,12 @@ The Report Wizard writes this pair for you whenever you filter on a generic refe
 </parameter>
 ```
 
+::: warning Labels you write here never go through translation
+The two label properties are not a translation key — they are the finished text. Write them and the prompt shows exactly those words for good, whatever the Translation OverRider says about the same value elsewhere in the system. So a value renamed system-wide keeps its old label in this one report, and nothing flags the difference; the report's author has to come back and edit the `.jrxml`.
+
+Left out, the labels are looked up live instead: `enumType` on its own, or `allowedValues` on its own, offers each value under the name the system currently gives it, which follows a later rename on its own. Prefer that, and keep `allowedValuesAr`/`allowedValuesEn` for the cases it cannot serve — a value with no name of its own in the system, or a wording that has to read differently in this report than everywhere else.
+:::
+
 #### Narrowing what the user may choose
 
 A record picker offers every record of its type, which is rarely what a report wants: a warehouse prompt on a transfer report should offer the warehouses of the branch already chosen, an account prompt should offer detail accounts and not headings. The `filter` property narrows the picker.

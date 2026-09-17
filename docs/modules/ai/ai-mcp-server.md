@@ -72,12 +72,12 @@ The protocol's official inspector works straight from the browser (the server al
 After connecting, list the tools from the client — you will find every committed, non-inactive tool from the AI Tool Definition screen, and any change to the definitions is picked up automatically on the next connection.
 
 ::: info Not just the export tools
-The server exposes **every** committed tool the linked user is allowed to use — query, report, entity-flow, and system tools — not only the six export tools. This page details the export tools because of their importance with external clients; the other types are documented in [AI Tool Definitions](./ai-tool-definitions.md).
+The server exposes **every** committed tool the linked user is allowed to use — query, report, entity-flow, and system tools — not only the export tools. This page details the export tools because of their importance with external clients; the other types are documented in [AI Tool Definitions](./ai-tool-definitions.md).
 :::
 
 ## The Record Export/Import Tools
 
-The most useful group for external MCP clients is the six export/import system tools, added in one click with the **Add Export Tools** button on the System Tool page of the tool definition screen (see [AI Tool Definitions](./ai-tool-definitions.md)).
+The most useful group for external MCP clients is the export/import system tools — nine of them, from three tool classes, all added in one click with the **Add Export Tools** button on the System Tool page of the tool definition screen (see [AI Tool Definitions](./ai-tool-definitions.md)).
 
 The tools are named with a prefix taken from the tool definition (the Tool Name, Alt Code, or code field). The examples below assume the prefix is `import`.
 
@@ -87,9 +87,33 @@ The starting point for any client that does not know Nama's internal entity name
 
 | Parameter | Required | Description |
 |---|---|---|
-| `query` | Yes | The term to search for, such as `فاتورة مبيعات` or `sales invoice` |
+| `query` | No | The term to search for, such as `فاتورة مبيعات` or `sales invoice`. Leave it out, or send `*`, to browse the whole list instead |
+| `page` | No | 1-based page number, for browse mode |
+| `pageSize` | No | Page size for browse mode — default 50, maximum 200 |
 
-Returns up to 25 matches, each carrying `entityType` (the internal name such as `SalesInvoice`) plus the Arabic and English names.
+Returns up to 25 matches, each carrying `entityType` (the internal name such as `SalesInvoice`) plus the Arabic and English names. In browse mode it returns `totalEntityTypes` and the requested page of them. The `entityType` value it gives back is the canonical one and can be passed verbatim — it is case-sensitive — to every other tool.
+
+### import_DescribeFields — the fields you may filter on
+
+Lists the fields of an entity that can be used as `FindRecords` criteria, each with its type, whether it is required, the allowed values of an enum, the target entity of a reference, and the collection it belongs to.
+
+| Parameter | Required | Description |
+|---|---|---|
+| `entityType` | Yes | The entity type to describe, such as `SalesInvoice` |
+| `collections` | No | Detail collections to include as well (comma-separated names, such as `invoiceLines`) — header fields are always included |
+
+This is not the same list as `GetImportSchema`: it also carries system fields such as `creationDate`, which can be searched on but never imported, and it flags calculated fields, which may not be filterable at all.
+
+### import_SearchByTranslation — find an entity, a field or an option by its name
+
+The widest of the discovery tools: one Arabic or English term in, and everything it could mean out — entity types, fields of any entity, and enum constants, each with both its names.
+
+| Parameter | Required | Description |
+|---|---|---|
+| `query` | Yes | The Arabic or English term to look for |
+| `limit` | No | Maximum matches to return — default 25, maximum 100 |
+
+Every match carries a `kind`: `entity` (with its `entityType`), `field` (with the `entityType` and `fieldId`) or `enum` (with the `enumType` and `value`). Use it when you know what the user called something but not which of the three it is.
 
 ### import_FindRecords — search records
 
@@ -122,9 +146,19 @@ Reads a single record as JSON through the standard read gate. The output has the
 | Parameter | Required | Description |
 |---|---|---|
 | `entityType` | Yes | The entity type owning the field |
-| `fieldId` | Yes | The field id, such as `invoiceLines.discountType` |
+| `fieldId` | No | The field id, such as `invoiceLines.discountType`. Accepts several, comma-separated; leave it out to get every enum field of the entity |
 
 Returns the value list with each value's Arabic and English titles — useful before importing, to send the correct constants.
+
+### import_GetEntitySchema — the tables and columns behind an entity
+
+Where the other tools speak in field ids, this one answers in SQL: the entity's table name, its columns with their types and — for a reference column — the entity it points at, its foreign-key columns, and the same for every detail collection, including the child table and the column that joins it to the header.
+
+| Parameter | Required | Description |
+|---|---|---|
+| `entityType` | Yes | The entity type, such as `SalesInvoice` |
+
+You need it when you are writing something that queries the database directly rather than going through the entity gates — a read-only SQL tool, or a report.
 
 ### import_GetImportSchema — the import schema
 

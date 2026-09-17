@@ -108,7 +108,7 @@ An MCP connection on its own exposes nothing. The assistant can only call the to
 
 ### The record tools — for everyone, bounded by permissions
 
-The six export/import tools, added in one click with the **Add Export Tools** button, let the assistant resolve an Arabic or English term to an entity type, search records, read a record as JSON, list the allowed values of a field, learn an entity's import schema, and import new records.
+The nine export/import tools, added in one click with the **Add Export Tools** button, let the assistant resolve an Arabic or English term to an entity type, list the fields it can search on and the tables behind them, search records, read a record as JSON, list the allowed values of a field, learn an entity's import schema, and import new records.
 
 The important property is that **every one of them goes through the same gates the screens use**. If the linked user cannot see a company's documents, neither can the assistant. If the user may not create purchase invoices, the import call is refused. These tools are bounded by exactly the permissions you already trust that user with, which is what makes them reasonable to hand to support staff generally.
 
@@ -128,7 +128,7 @@ What it cannot do is change anything. Only a single `SELECT` is accepted: `INSER
 
 ### The term and configuration tools — the everyday administrator's superpower
 
-Add `AITTermAndConfigTools` and the assistant gains four tools covering the settings screens: one that lists what can be configured, one that describes the settings of a document type's term (توجيه) or of a configuration entry — grouped exactly the way the screen groups them, with the Arabic and English label of each setting — one that reads the current values, and one that updates them.
+Add `AITTermAndConfigReadTools` and the assistant gains three tools covering the settings screens: one that lists what can be configured, one that describes the settings of a document type's term (توجيه) or of a configuration entry — grouped exactly the way the screen groups them, with the Arabic and English label of each setting — and one that reads the current values. `AITTermAndConfigWriteTools`, a separate class, adds the fourth: the one that changes them. Leave it out and the assistant can explain any setting in the system without being able to touch it.
 
 For a system administrator this is the difference between knowing a setting exists and finding it. The global configuration holds thousands of settings across seventeen tabs, and a single document term holds hundreds. Asking "how is the sales invoice term configured for the cost centre, and which setting controls it" now gets you the setting, its labels, its tab, and its current value in one answer instead of a tour of the screens. The update tool merges a patch onto the stored settings rather than replacing them, reports the old and the new value of everything it changed, and can create a term that does not exist yet.
 

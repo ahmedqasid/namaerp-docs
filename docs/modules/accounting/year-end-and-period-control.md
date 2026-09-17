@@ -30,6 +30,44 @@ Its key fields:
 - The system blocks closing if there are transactions whose processing hasn't completed (a behavior governed by a module option); process the stuck transactions first, as in [How documents are processed into accounting effects](./support/accounting-request-processing.md).
 :::
 
+### Correcting a closing entry, or closing again
+
+A close is not a one-way door, and the way back is never to hunt down the journal entries it produced: the closing entry owns them, so whatever you need to do, you do it to the closing entry itself.
+
+- **Save it again.** This is the correction for the closing entry's own fields. Saving a committed closing entry redoes the entire close from the balances as they stand at that moment: the pre-close checks run again, the journal entries of the previous run are deleted, and a fresh set is generated in their place. Wrong **Profit-Loss Account**, wrong **Entry Book**, wrong **Max Lines Per Generated Document** — change the field, save, and the entries are rebuilt. What it will not do is pick up adjustments, because you cannot enter those while the closing entry stands; see below.
+- **Delete it** and the entries it generated go with it — the year-end entries and the profit-posting entries both — and the closing entry itself is gone from the database. This is what you do when the close has to be undone: either because it should never have existed, or because the year has to be reopened for corrections.
+- **Cancel it** with a [Document Cancel Document](../../platform/document-cancel-document.md) and the generated entries are deleted exactly as on a delete, but the closing entry stays in the system with the status **Cancelled**, keeping its number and its place in the list. It lifts the date lock just as a delete does, and it leaves an audit trail of the close having happened — at the cost of a cancelled document that can no longer be deleted.
+
+::: tip Deleting is refused while it is still generating
+A large close runs as background batches, and the document refuses to be deleted until they finish: *"Closing entry generation is still in progress, please wait until it completes before deleting this document."* Wait for the generation to finish, then delete.
+:::
+
+#### Adjustments that arrive after the close
+
+A committed closing entry does not only close its own period — it draws a line across the whole legal entity at its **value date**. From then on, **any** document dated on or before that date is refused when you try to save it, in every module, not only in accounting:
+
+> You can not edit the document *X* at date *Y* because there is a closing entry on *Z*
+
+Moving a document's value date across the line is refused for the same reason: you cannot take a document dated before the closing entry and push it after it.
+
+So "post the adjustment and then re-run the close" is not a sequence the system will allow. The order has to be:
+
+1. **Delete the closing entry** (or cancel it), which lifts the line.
+2. **Enter the adjustments** now that their dates are free again.
+3. **Create the closing entry again** and commit it, which closes the year on the corrected figures.
+
+::: danger Do not reach for the option that lifts the lock
+There is a global-config switch — **Do Not Prevent Modifying Documents Before Last Closing Entry** ([Documents tab](../../platform/global-config/global-config-documents.md)) — that turns this check off, and there is a fiscal-year flag, **Allow Cost, Quantity, and Ledger Processing For Documents Before Closing Entry**, that lets business requests dated before the close carry on processing. Both exist for recovery situations and neither belongs in normal year-end work: with them on, a document can change a period that has already been closed, audited and reported, and the closing entry's own figures are left describing balances that no longer exist. Delete the close, make the corrections in the open year, close again.
+:::
+
+::: info The same message with no closing entry in sight
+The line is drawn by the latest **committed** closing entry *or* the latest committed **Freeze Processing Document** for that legal entity, whichever is later. If the message names a date nobody can account for, look for a freeze document as well as for a closing entry.
+:::
+
+::: warning Deleting the closing entry does not re-open the periods
+If **Close All Fiscal Year Periods** was ticked, the close set every other period of the year to **Closed**, and deleting the closing entry does not undo that. So step 2 above can still be refused — this time because the period itself is closed, a different message from the closing-entry one. Re-open the period you need from the **Fiscal Year** screen's **Open Periods** button before entering the adjustments, and close it again afterwards if you want it locked.
+:::
+
 ## Year and period status control
 
 Opening and closing periods in bulk is done from the **Fiscal Year** screen via the **Open Periods**, **Close Periods**, and **Create Next Fiscal Year** buttons (covered in [Concepts & setup](./accounting-concepts-and-setup.md)). A **closed** period rejects any new transaction dated within it, and is the first line of defense in periodic-close control: you close the month after its figures are approved, freezing its past.
@@ -59,6 +97,10 @@ As years of transactions accumulate, you may need to **purge/archive** the old o
 ## For Support
 
 - **"Closing won't complete / refuses to execute"** — use the **Check Data Before Closing** button; the cause is usually transactions not yet processed, or the entry's period not being Adjustment/Closing type.
+- **"The closing entry was created wrong — do we delete it and start over?"** — no. Fix the wrong fields and save it again; the previous entries are deleted and regenerated. Delete or cancel it only when the close should not exist at all. See [Correcting a closing entry, or closing again](#Correcting-a-closing-entry-or-closing-again).
+- **"Adjustments came in after the year was closed"** — you cannot enter them while the closing entry stands; every document dated on or before its value date is refused. Delete the closing entry, re-open the period if **Close All Fiscal Year Periods** closed it, enter the adjustments, then create the closing entry again. Do not switch on **Do Not Prevent Modifying Documents Before Last Closing Entry** to get around it.
+- **"You can not edit the document X at date Y because there is a closing entry on Z"** — exactly that lock, and it applies to every module, not only accounting. If no closing entry explains the date, look for a committed **Freeze Processing Document**; it sets the same line.
+- **"The closing entry cannot be deleted"** — either it is still generating (a large close runs in batches — wait for it to finish), or it has already been cancelled, and a cancelled document cannot be deleted.
 - **"A transaction is rejected even though the period is open"** — check for an active **Prevent Accounting Transactions** document covering the account/subsidiary/date.
 - **"I want to suspend a prevention temporarily without deleting it"** — enable the **Inactive** flag on the prevention document.
 - **"Where is the tolerance for closing with incomplete transactions set?"** — in the [Accounting configuration](./support/accounting-configuration.md) catalog.

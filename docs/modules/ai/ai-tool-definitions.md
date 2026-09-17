@@ -34,7 +34,7 @@ A tool is only offered to the language model when it is **committed** and not in
 ### Tool Naming
 
 - **Query, report, and entity-flow tools** are advertised under their **Alt Code** as-is.
-- **System Tools**: each line in the tools grid may generate one or more tools, and each tool name is composed of a prefix plus the internal tool name. The prefix is the first non-empty value of **Tool Name**, then **Alt Code**, then the record **code**, followed by an underscore. For example, a record whose code is `import` containing the `AITFindRecords` tool generates a tool named `import_FindRecords`.
+- **System Tools**: each line in the tools grid may generate one or more tools, and each tool name is composed of a prefix plus the internal tool name. The prefix is the first non-empty value of **Tool Name**, then **Alt Code**, then the record **code**, followed by an underscore. For example, a record whose code is `import` containing the `AITReadRecordTools` tool generates two tools, `import_FindRecords` and `import_GetRecord`.
 
 ## Security (Access Control)
 
@@ -106,6 +106,14 @@ At execution time the report runs with the collected parameters, and its output 
 
 ![The Report Based page and the report parameters grid](../../ar/modules/ai/images/ai-tool-definition-report-en.png)
 
+::: warning Picking the report fills the grid once — and freezes the drop-down labels
+Choosing a report in **Report Definition** rebuilds the **Report Parameters** grid from the report's own design: one line per parameter, each with its type, whether it is required, and — for a parameter that offers a drop-down — its values in **Allowed Values** together with their Arabic and English labels in **Arabic Allowed Values** and **English Allowed Values**.
+
+Those labels are copied as they read at that moment and are never looked up again. They are what the model is told the parameter accepts, so if someone later renames a value through the Translation OverRider, the report's own prompt shows the new label while the tool keeps offering the model the old one, with nothing to warn you. The same applies to a report whose parameters change after the tool was built: the grid does not follow.
+
+The cure for both is to pick the report in **Report Definition** again, which rebuilds the grid from scratch. Because it rebuilds *every* line, anything you typed into the grid yourself — **Fill Manually** values, parameter descriptions — is lost and has to be entered again, so note those down before you re-pick.
+:::
+
 ## Type 3: Entity Flow Based
 
 Lets the model **perform an action** in the system through a predefined entity flow — here the AI does not just read, it makes changes.
@@ -136,35 +144,41 @@ Ready-made tools built into Nama, added by the administrator as lines in the **S
 
 ![The System Tool page and the System Tools Configuration grid](../../ar/modules/ai/images/ai-tool-definition-system-tools-en.png)
 
-The **Tool Class Name** field has a suggestion list showing **every system tool available in the system** — you pick one by name. A single line may generate more than one tool (the count tool, for example, generates two).
+The **Tool Class Name** field has a suggestion list showing **every system tool available in the system** — you pick one by name.
+
+::: warning A class is not a tool
+What you pick in **Tool Class Name** is a *class*, and most classes generate several tools: pick `AITReadRecordTools` and the model ends up with two tools, `<prefix>FindRecords` and `<prefix>GetRecord`. The suggestion list also offers the class under its full name — `com.namasoft.modules.ai.services.tools.AITReadRecordTools` — so when you are looking for a particular tool, search the **Generated tool(s)** column of the tables below and add the class in its row; typing the tool's own name into the field finds nothing.
+:::
 
 ### Record Export/Import Tools (Add Export Tools)
 
-The most-used group with external MCP clients is the six **record export/import tools**, which let a client read system data and import new records as JSON. To add them all in one click, use the **Add Export Tools** button above the grid — it adds the missing lines and fills each tool's description automatically:
+The most-used group with external MCP clients is the **record export/import tools**, which let a client read system data and import new records as JSON. They are three classes generating nine tools between them, and the **Add Export Tools** button above the grid adds all three in one click — it adds the missing lines and fills each tool's description automatically:
 
-| Tool | Purpose |
-|---|---|
-| `AITResolveEntityType` | Resolve an Arabic or English term to an entity type |
-| `AITFindRecords` | Search records by entity type and criteria |
-| `AITGetRecord` | Read a single record as JSON |
-| `AITGetEnumValues` | List the allowed values of an enum field |
-| `AITGetImportSchema` | Get the JSON import schema of an entity type |
-| `AITImportRecord` | Import one or more records into the system |
+| Tool Class Name | Generated tool(s) | Purpose |
+|---|---|---|
+| `AITEntityMetadataTools` | `<prefix>ResolveEntityType`, `<prefix>DescribeFields`, `<prefix>GetEnumValues`, `<prefix>GetEntitySchema` and `<prefix>SearchByTranslation` | Everything a client needs to understand an entity before it queries it: resolve an Arabic or English term to an entity type, list the field ids that can be used as search criteria, list the allowed values of enum fields, return the physical table and column names behind the entity, and resolve a term to entity types, fields and enum values at once |
+| `AITReadRecordTools` | `<prefix>FindRecords` and `<prefix>GetRecord` | Search records by entity type and criteria, and read a single record as JSON |
+| `AITImportTools` | `<prefix>GetImportSchema` and `<prefix>ImportRecord` | Get the JSON import schema of an entity type, and import one or more records into the system |
 
-The details of these six tools — their parameters and usage examples — are documented on the [Nama ERP MCP Server](./ai-mcp-server.md) page.
+The details of these tools — their parameters and usage examples — are documented on the [Nama ERP MCP Server](./ai-mcp-server.md) page.
 
 ### Other System Tools
 
-The **Add Export Tools** button adds only the six tools above, but the system ships other ready-made tools you add manually by picking their class name from the **Tool Class Name** suggestion list:
+The **Add Export Tools** button adds only the three classes above, but the system ships other ready-made tools you add manually by picking their class name from the **Tool Class Name** suggestion list:
 
-| Tool | Generated tool(s) | Purpose |
+| Tool Class Name | Generated tool(s) | Purpose |
 |---|---|---|
 | `AITCountRecordsTools` | `<prefix>countEntities` and `<prefix>countEntitiesCreatedWithinDateRange` | Count records of an entity type — in total, or between two dates |
 | `AITAddDiscussionToRecord` | `<prefix>AddDiscussionToRecord` | Add a discussion (comment) to any record |
 | `AITListDiscussionsOfARecord` | `<prefix>ListDiscussionsForARecord` | List the discussions of a given record |
 | `AINamaERPDocsTool` | `<prefix>erpDocs` | Search the Nama ERP documentation and return the passages closest to the question |
 | `AITReadOnlySQLQuery` | `<prefix>runReadOnlySqlQuery` | Run a single read-only SQL `SELECT` against the database and return the rows — see the warning below |
-| `AITTermAndConfigTools` | `<prefix>ListTermAndConfigTargets`, `<prefix>GetTermOrConfigSchema`, `<prefix>ReadTermOrConfig` and `<prefix>UpdateTermOrConfig` | List, describe, read and update the settings of a document term or a configuration entry |
+| `AITTermAndConfigReadTools` | `<prefix>ListTermAndConfigTargets`, `<prefix>GetTermOrConfigSchema` and `<prefix>ReadTermOrConfig` | List the document terms and configuration entries that can be configured, describe one target's settings the way its screen groups them, and read the values it currently holds — settings the record tools above cannot reach |
+| `AITTermAndConfigWriteTools` | `<prefix>UpdateTermOrConfig` | Change the settings of one document term or configuration entry |
+
+::: tip Building a read-only assistant
+Reading and writing are deliberately kept in separate classes so you can leave the writing ones out: `AITTermAndConfigReadTools` without `AITTermAndConfigWriteTools` lets the assistant explain how a document term is configured while having no way to change it, and the same holds for `AITEntityMetadataTools` and `AITReadRecordTools` without `AITImportTools`. Note that the **Add Export Tools** button adds `AITImportTools` along with the other two, so on a read-only definition delete that line after pressing it.
+:::
 
 ::: info Module-specific system tools
 Some modules add their own system tools that appear in the same list. For example, the HR module provides tools for an employee's vacation balance (for the current employee or any employee). The available set grows with the modules you have installed and licensed.
