@@ -309,31 +309,33 @@ This ensures that all subsequent links are based on the provided URL.
 
 ### 6. Link to Book a Technician Appointment
 
-`createappointment` produces a link that opens the **Technician Appointment Creator** (the technician booking calendar) with its Department Section, Technician Procedure and From Document already filled in from the current record. It saves the booking team from searching for the document the visit was sold on.
+`createappointment` produces a link that opens the **Technician Appointment Creator** (the technician booking calendar) with its Department Section, Technician Procedure and From Document already filled in. It fills in only what you pass, so to book against the current record pass its `entityType` and `id`, as below. It saves the booking team from searching for the document the visit was sold on.
 
 ```
-{createappointment(technicianProcedure="01",departmentSection="01",fromDocType="SalesInvoice",fromDocCodeOrId=$id)}
+{createappointment(technicianProcedure="01",departmentSection="01",fromDocType=entityType,fromDocCodeOrId=id)}
 ```
 
 | Parameter | What it fills in |
 |---|---|
-| `departmentSection` | Department Section, by its code |
-| `technicianProcedure` | Technician Procedure, by its code |
-| `fromDocType` | The type of the From Document — used together with `fromDocCodeOrId` |
+| `departmentSection` | Department Section, by its code or id |
+| `technicianProcedure` | Technician Procedure, by its code or id |
+| `fromDocType` | The type of the From Document, such as `entityType` for the current record or a constant like `"SalesInvoice"`. Used only together with `fromDocCodeOrId` |
 | `fromDocCodeOrId` | The code or the id of the From Document |
 
 * Every parameter is optional, and their names are not case-sensitive.
-* Each value can be a constant (`"01"`) or a field of the record (`$id`, `code`, `ref1.code`).
+* Each value can be a constant (`"01"`) or a field of the record (`id`, `code`, `ref1.code`).
 * A parameter whose value comes out empty is left out of the link. On the calendar, a value that cannot be found leaves its field empty.
 
 The result is a **plain URL**, not a clickable link, so you can put it in an SMS as it is, or wrap it in an HTML link in an email or notification:
 
 ```
 Invoice {code} for {customer.name1} needs an installation visit.
-<a href="{createappointment(technicianProcedure="01",departmentSection="01",fromDocType="SalesInvoice",fromDocCodeOrId=$id)}">Book it now</a>
+<a href="{createappointment(technicianProcedure="01",departmentSection="01",fromDocType=entityType,fromDocCodeOrId=id)}">Book it now</a>
 ```
 
-For what happens when the calendar opens, see [The Booking Calendar](/modules/crm/technician-appointments/crm-technician-appointment-calendar.md#Opening-the-calendar-from-a-link).
+The same call also works as a button on a document: put `{OpenInNewWindow}` followed by the call in the **URL Template** of a Screen Modifier's Action Authorities row. See [A button on the document](/modules/crm/technician-appointments/crm-technician-appointment-calendar#A-button-on-the-document).
+
+For what happens when the calendar opens, see [The Booking Calendar](/modules/crm/technician-appointments/crm-technician-appointment-calendar#Opening-the-calendar-from-a-link-or-a-button).
 
 ## Using Loops in Tempo
 

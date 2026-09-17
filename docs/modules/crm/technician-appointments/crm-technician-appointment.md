@@ -14,29 +14,31 @@ The **Technician Appointment** (*موعد فني*) is the booking itself — one
 
 ## The header
 
-Alongside the usual document frame — **Document Code** and book, **Term** (*توجيه المستند*), **Value Date**, **Fiscal Period**, **Description**, **Manual Ref1** — the appointment carries fields of its own.
+Alongside the usual document frame — **Document Code** and book, **Term** (*توجيه المستند*), **Issue Date**, **Value Date**, **Fiscal Period**, **Description** — the appointment carries fields of its own.
 
-**From Document** (*بناءا على*) — the commercial document this visit was promised by: a sales invoice, a sales order, a contract, a maintenance document. It is a general reference, so it accepts any document, and it is the thread that ties the visit back to what was sold. `APP000001` was raised from sales invoice `SIV1-20260800001`.
+**From Document** (*بناءا على*) — the commercial document this visit was promised by: a sales invoice, a sales order, a contract, a maintenance document. It is a general reference, so it accepts any document, and it is the thread that ties the visit back to what was sold. `PTA101PUBLIC202600009` was raised from car sales invoice `SISI10101202600001`.
 
-**Based On Document** (*المستند الأعلى لبناءاّ علي*) — filled in by the system and not editable: it is the document that *your* From Document came from. When the visit is booked from a sales invoice that was itself raised from a sales order, this field shows the sales order. It saves the follow-the-chain click when somebody asks which order this installation belongs to. On `APP000001` it reads `SO1-20260800001`.
+**Based On Document** (*المستند الأعلى لبناءاّ علي*) — filled in by the system and not editable: it is the document that *your* From Document came from. When the visit is booked from a sales invoice that was itself raised from a sales order, this field shows the sales order. It saves the follow-the-chain click when somebody asks which order this installation belongs to. On `PTA101PUBLIC202600009` it reads car sales order `SISO10101202600001`.
 
-**Customer** (*العميل*) — filled in by the system: the customer named on the Based On Document, or on the From Document when the Based On Document has none. The customer's shipping address is copied onto the **Customer Address** (*عنوان العميل*) page, so the crew has the address of the visit on the booking itself.
+**Customer** (*العميل*) — filled in by the system on every save. It is the customer named on the Based On Document, or on the From Document when the Based On Document has none. The customer is read from maintenance documents, invoice-type documents (sales invoices, orders and the like) and CRM complaints. For any other kind of document, the field stays empty.
+
+The **Customer Address** (*عنوان العميل*) page holds a read-only copy of that customer's shipping address, refreshed on every save, so the crew has the address of the visit on the booking itself: Region, Country Code, Country, City, State, Area, Street, Building Number, Postal Code, District, Land Plot Number, Address 1 and Map Location.
 
 **Status** (*الحالة*) — where the booking stands. A new appointment starts at *Booked* (*محجوز*). Two events move it on their own:
 
 - Committing a [service distribution](/modules/crm/technician-appointments/crm-technician-service-distribution.md) against it moves it to *Executed* (*تم التنفيذ*); cancelling that distribution moves it back to *Booked*.
 - Saving the appointment after one of its periods was moved or removed sets it to *Rescheduled* (*معاد جدولته*).
 
-The remaining values — *Cancelled* (*ملغي*) and *No Show* (*لم يحضر*) — are how the day's reality gets recorded: the customer called off, nobody was home. Set them here, or from the calendar's right-click menu.
+The remaining values, *Cancelled* (*ملغي*) and *No Show* (*لم يحضر*), record what actually happened on the day: the customer called off, or nobody was home. Set them here, or from the calendar's right-click menu. *Executed* can also be set by hand, with the calendar's **Mark as executed** or directly in this field.
 
 **Department Section** (*القسم الوظيفي*) — required, and the field that decides almost everything else. Only sections with **Show In Appointments Screen** ticked are offered. The section brings the working hours the calendar enforces and, through [booking settings](/modules/crm/technician-appointments/crm-appointment-booking-settings.md), the book and term the appointment is numbered in.
 
 **Technician Procedure** (*إجراء فني*) — required. The job being booked. It also governs which services can later be reported against the visit, because a service distribution only accepts services listed on this procedure.
 
 ::: tip The book fills itself in
-Save an appointment with no book and the system looks up the department section's booking settings, finds the row for that section in **Appointment Books And Terms Per Section**, and applies its book and term — then numbers the document and copies the book's dimensions across. That is why an appointment created by the calendar, which never asks for a book, still comes out as a properly numbered `APP…` document.
+Save an appointment that is missing its book or its term, and the system looks up the department section's booking settings. It takes the first row for that section in **Appointment Books And Terms Per Section** and applies **both** its book and its term, then numbers the document and copies the book's dimensions. That is why an appointment created by the calendar, which never asks for a book, still comes out as a properly numbered `APP…` document.
 
-If a book is already set, nothing is overwritten.
+The lookup is skipped only when the book **and** the term are both set. If you pick a book by hand but leave the term empty, both are replaced from the section's row. To use a different book, set the book and the term together.
 :::
 
 ## The Details grid — the reserved times
@@ -50,18 +52,20 @@ Everything about *when* lives in the **Details** (*التفاصيل*) grid. One 
 | From-Time (*من وقت*) | Start time |
 | To-Time (*إلى وقت*) | End time |
 
-`APP000001` reserves the Giza installation crew twice on 13 August 2026: 08:00–09:00 and 10:00–11:00. Two rows rather than one long block, because the crew has another job in between.
+On screen, the two time columns sit under a shared **Time** heading and are headed **From** and **To**.
+
+`PTA101PUBLIC202600008` reserves the El Minya crew twice on 23 September 2026: 11:00–12:00 and 13:00–14:00. Two rows rather than one long block, because the crew has another job in between.
 
 At least one row is required, and two rules govern the grid:
 
 ::: warning Every row must name the same crew
-An appointment books **one** crew. Put two different crews on two rows and the commit is rejected with *"All Lines must have same Crew"* against the offending row.
+An appointment books **one** crew. If you put two different crews on two rows, the commit is rejected with *"All Lines must have same Crew"* on the row that differs.
 
 If the work genuinely needs two crews, raise two appointments. That keeps each crew's calendar honest, and it keeps the service distribution — which reports against one crew's members — able to do its job.
 :::
 
 ::: warning No period may start in the past
-A row you add, or a row whose day or times you change, must start after the current moment; otherwise the save is refused with *"Cannot book a period that starts before the current time"* on that row. Rows you leave untouched are never checked, so an appointment whose earlier visits are already behind it can still be edited.
+A row you add, or a row whose day or times you change, must start after the current moment. Otherwise the save is refused with *"Cannot book a period that starts before the current time"* on that row's From-Time. This includes changing only the end time of a visit that has already started. Rows you leave untouched are never checked, so you can still edit an appointment whose earlier visits are already in the past.
 :::
 
 ## The Items And Services grid — what the visit uses
@@ -82,7 +86,9 @@ Below the periods sits **Items And Services** (*الأصناف والخدمات*
 
 The grid is optional; a purely scheduling appointment can leave it empty.
 
-**Most of it fills itself in.** When you pick the From Document on an appointment whose grid is still empty, the grid is filled from that document's lines — the item, quantity and unit of each line. This works for supply-chain documents (sales invoices and orders, quotations, purchases, stock issues and receipts) and for maintenance documents, whose spare parts are copied. The two service columns are always left empty, because only a person knows which material belongs to which service. Picking a different From Document later never overwrites rows that already have an item or a service.
+![The Items And Services grid of a technician appointment](../../../ar/modules/crm/images/technician-appointments/technician-appointment-items-en.png)
+
+**Most of it fills itself in.** When you pick the From Document on an appointment, the grid is filled from that document's lines: the item, quantity and unit of each line. This works for supply-chain documents (sales invoices and orders, quotations, purchases, stock issues and receipts) and for maintenance documents, whose spare parts are copied. The three service columns are left empty, because only a person knows which material belongs to which service (Service Unit is then filled in on save, see below). The copy runs only while no row has an item or a service yet, so picking a different From Document later never overwrites rows you have filled in.
 
 **Adding a row by hand** is also guided: the Item picker offers the items on the From Document, and choosing one fills in its quantity and unit from that document.
 
@@ -96,7 +102,7 @@ Appointments created on the booking calendar are not filled in either way — th
 
 ## Change History
 
-The **Change History** (*سجل التغييرات*) page answers the question every dispatcher gets asked eventually: *when was this visit moved, and who moved it?* Every time a saved appointment is saved again with its periods changed, one row is written for each period that changed:
+The **Change History** (*سجل التغييرات*) page answers the question every dispatcher gets asked eventually: *when was this visit moved, and who moved it?* The rows are written when an appointment that is already **committed** is committed again with its periods changed. Each period that changed gets one row:
 
 | Column | Meaning |
 |---|---|
@@ -105,9 +111,11 @@ The **Change History** (*سجل التغييرات*) page answers the question e
 | Change Type (*نوع التغيير*) | *Add* for a new period, *Edit* for a period moved or resized, *Delete* for a period removed |
 | Old Day, Old From-Time, Old To-Time | Where the period was — empty for a new period |
 | New Day, New From-Time, New To-Time | Where it is now — empty for a removed period |
-| Remark (*ملحوظة*) | The reason typed on the booking calendar when the period was moved |
+| Remark (*ملحوظة*) | The latest reason recorded for that period on the booking calendar (see [The reason for a change](/modules/crm/technician-appointments/crm-technician-appointment-calendar#The-reason-for-a-change)). Rows for periods changed on this screen have none, unless the period already carried a reason |
 
-The newest change is at the top. You can filter by Change Date, User, Change Type, Old Day and New Day, which is the quick way to find "everything Ahmed moved last week". Nobody can edit the rows.
+The list on this page opens folded; click its **Change History** heading to show the rows. The newest change is at the top. You can filter by Change Date, User, Change Type, Old Day and New Day, which is the quick way to find "everything Ahmed moved last week". Nobody can edit the rows. Cancelling the appointment document itself, or deleting it, removes its history. Setting its Status to *Cancelled* does not.
+
+![The Change History page of a technician appointment](../../../ar/modules/crm/images/technician-appointments/technician-appointment-change-history-en.png)
 
 ::: info What the history does not record
 The rows are about **periods**. Creating the appointment, changing only its status, changing only the crew on a row, or editing the Items And Services grid writes nothing here. So an appointment that has been booked and executed without ever moving has an empty Change History — which is exactly what you would expect.
@@ -122,4 +130,4 @@ Two habits worth adopting:
 - **To move a visit**, change the Day and times on the existing rows — on this screen or by dragging on the calendar — rather than raising a new appointment. The appointment turns *Rescheduled* by itself, and the Change History keeps the old and the new times side by side.
 - **To change the crew**, change it on every row — the same-crew rule is checked on save, so a half-finished change will simply be refused.
 
-The list view shows Status, Department Section, Technician Procedure and Technician Crew as columns, which makes "what installations are still only *Booked* this week" a straightforward filter.
+The list view shows Status, Department Section and Technician Procedure as columns, which makes "what installations are still only *Booked* this week" a straightforward filter.

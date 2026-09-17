@@ -38,7 +38,7 @@ None of this makes the module unusable. It means you should choose the part you 
 | Service Documents | سندات خدمات الصيانة | The parallel service-maintenance suite |
 | Management And Organization Documents | الإدارة والتنظيم | The [risk register](/modules/crm/risk-register/crm-risk-register) — unrelated to everything else here |
 | Kitchen Net Configurations | إعدادات تطبيق Kitchen Net | Not covered in this guide |
-| Technician Appointments | مواعيد الفنيين | Crews, procedures, booking settings, appointments, the booking calendar, service distributions and transfers |
+| Technician Appointments | مواعيد الفنيين | Crews, procedures, booking settings, appointments, the booking calendar, My Appointments, service distributions and transfers |
 
 Two screens inside this menu do not belong to the CRM module at all: **Contact** and **Social Media Subscriber Configuration** are shared Basic-module files that appear here for convenience, and they need only the `basic` licence.
 
@@ -54,7 +54,7 @@ The CRM branch appears as soon as the module licence is present, and then each s
 | `crm-maintenance` | 38 | Maintenance Files and Maintenance Documents |
 | `crm-maintenance-services` | 10 | Service Documents |
 | `crm-kitchen-net` | 5 | The Kitchen Net back office |
-| `crm-technician-appointments` | 7 | Technician Appointments, plus the booking calendar |
+| `crm-technician-appointments` | 7 | Technician Appointments, plus the booking calendar and My Appointments |
 
 Two further codes exist in the licence manager — one for the maintenance mobile app and one for the visits mobile app — but they unlock no ERP screen. They license the phone applications, not anything in this menu. If a screen you expect is missing, it is one of the five codes above that you need.
 

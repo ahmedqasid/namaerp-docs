@@ -28,7 +28,7 @@ Where the day is actually planned — the calendar you draw and rearrange visits
 <LandingGrid>
   <LandingCard icon="🗓️" title="The Booking Calendar" link="/modules/crm/technician-appointments/crm-technician-appointment-calendar.md" details="Draw periods and save, drag booked visits to a new time, change their status — or open it pre-filled from a link." />
   <LandingCard icon="📌" title="The Technician Appointment" link="/modules/crm/technician-appointments/crm-technician-appointment.md" details="The booking document: its status, its materials, its change history, and the one-crew rule on its rows." />
-  <LandingCard icon="👤" title="My Appointments" link="/modules/crm/technician-appointments/crm-my-appointments.md" details="A technician's own week, coloured by status, with the crew they are going out with." />
+  <LandingCard icon="👤" title="My Appointments" link="/modules/crm/technician-appointments/crm-my-appointments.md" details="The field schedule for technicians, section supervisors and administrators, with filters." />
 </LandingGrid>
 
 ## After the Visit

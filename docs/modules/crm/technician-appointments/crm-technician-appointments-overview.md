@@ -12,7 +12,7 @@ Some businesses sell a product and then have to turn up at the customer's addres
 
 ## The nine screens, and the order to meet them in
 
-Everything lives under one menu group, **Technician Appointments** (*مواعيد الفنيين*), inside the CRM module. The menu lists the screens in roughly the order you will build them:
+Everything lives under one menu group, **Technician Appointments** (*مواعيد الفنيين*), inside the CRM module. The menu lists the screens in roughly the order you will build them. For the documents and master files it shows the list names, which are the plural forms (for example *Technician Crews*):
 
 | Screen | What it is | Read |
 |---|---|---|
@@ -22,7 +22,7 @@ Everything lives under one menu group, **Technician Appointments** (*مواعي�
 | Appointment Booking Settings (*إعدادات حجز المواعيد*) | Working hours, slot length, and the books to number appointments with | [Booking Settings](/modules/crm/technician-appointments/crm-appointment-booking-settings.md) |
 | Technician Appointment (*موعد فني*) | The booking itself, with its materials and its change history | [The Appointment](/modules/crm/technician-appointments/crm-technician-appointment.md) |
 | Technician Appointment Creator (*إنشاء موعد فني*) | The weekly calendar you book and rearrange visits on | [The Booking Calendar](/modules/crm/technician-appointments/crm-technician-appointment-calendar.md) |
-| My Appointments (*مواعيدي*) | A technician's own week, read-only | [My Appointments](/modules/crm/technician-appointments/crm-my-appointments.md) |
+| My Appointments (*مواعيدي*) | The field schedule: a technician's crews, a supervisor's sections, or every crew for an administrator. Read-only, with filters | [My Appointments](/modules/crm/technician-appointments/crm-my-appointments.md) |
 | Technician Service Distribution (*سند توزيع الخدمات*) | What was actually done, by whom, for how long | [Service Distribution](/modules/crm/technician-appointments/crm-technician-service-distribution.md) |
 | Technician Transfer (*سند نقل فني*) | Moving a technician from one crew to another | [Transfers](/modules/crm/technician-appointments/crm-technician-transfers.md) |
 
@@ -41,12 +41,13 @@ The department section (*القسم الوظيفي*) runs through the whole thin
 
 There is one preparatory step outside this menu group, and skipping it makes the whole feature look broken: **the department section must be marked as bookable**.
 
-Open **Department Section** (under the organisation files) and set:
+Open the section under **Payroll → Main → Department Sections** (*الرواتب ← الأساسيات ← الأقسام الوظيفية*) and set:
 
 - **Show In Appointments Screen** (*يظهر في شاشة المواعيد*) — tick it. Only ticked sections are offered in the Department Section picker on an appointment and in the booking calendar. An unticked section is invisible to this feature.
 - **Appointment Booking Settings** (*إعدادات حجز المواعيد*) — point it at the settings record that describes when this section works. This is how the calendar knows the working hours, the slot length and the bookable date range, and how a saved appointment finds its document book.
+- **Supervisors** (*المشرفون*) — the employees who supervise this section's crews. On [My Appointments](/modules/crm/technician-appointments/crm-my-appointments) they see the schedule of every crew in the section.
 
-Do this for every section that takes bookings, then work through the pages in the table above in order. For technicians to see their own schedule on **My Appointments**, each one's user also has to be linked to their employee record.
+Do this for every section that takes bookings, then work through the pages in the table above in order. For technicians and supervisors to see their schedule on **My Appointments**, each one's user also has to be linked to their employee record.
 
 ## What this feature records, and what it does not
 
@@ -54,6 +55,6 @@ Worth being clear about early, because it decides where the rest of your process
 
 **An appointment is a scheduling document.** It reserves people and time. It carries the usual document frame — book, term, value date, fiscal period, dimensions and an approval cycle — but it does not price the work, does not move stock and does not post to the ledger. Neither does the service distribution: it is a record of effort, not an invoice.
 
-**Materials are listed, not moved.** The appointment's Items And Services grid records which materials the visit uses and which service each is for, copied from the document the visit was booked from. It is a list for the crew and for analysis; issuing the stock and billing it still happen on the supply-chain and sales documents. The link back to those is the **From Document** (*بناءا على*) field: an appointment is normally raised from the sales invoice, sales order or contract that promised the visit, so anyone looking at the booking can jump straight to what was sold.
+**Materials are listed, not moved.** The appointment's Items And Services grid records which materials the visit uses and which service each is for. The materials are copied from the document the visit was booked from when you pick it on the appointment screen, and the grid also records the actual and remaining quantities. It is a list for the crew and for analysis; issuing the stock and billing it still happen on the supply-chain and sales documents. The link back to those is the **From Document** (*بناءا على*) field: an appointment is normally raised from the sales invoice, sales order or contract that promised the visit, so anyone looking at the booking can jump straight to what was sold.
 
-**Status is mostly automatic.** A new appointment is *Booked*. Moving or removing one of its periods makes it *Rescheduled*; committing a service distribution against it makes it *Executed*, and cancelling that distribution moves it back to *Booked*. *Cancelled* and *No Show* are yours to set as the day unfolds — from the booking calendar's right-click menu or on the appointment itself. Every moved, added or removed period is kept in the appointment's Change History, with who did it and why.
+**Status is mostly automatic.** A new appointment is *Booked*. Moving or removing one of its periods makes it *Rescheduled*; committing a service distribution against it makes it *Executed*, and cancelling that distribution moves it back to *Booked*. *Cancelled* and *No Show* are yours to set as the day goes on, from the booking calendar's right-click menu or on the appointment itself. *Executed* can also be set by hand in the same places. Once an appointment is committed, every period that is moved, added or removed is kept in its Change History, with who did it and the reason typed on the booking calendar.
