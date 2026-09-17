@@ -99,8 +99,8 @@ A Mission Document records an employee being away from their normal workplace **
 | From Date / To Date, From Hour / To Hour | The span of the mission. |
 | Mission Period — Value / Unit (مدة المأمورية) | The computed length of the mission. |
 | Allowance Value (قيمة البدلات) | A monetary allowance associated with the mission (e.g. transport or per-diem), which a salary formula can pick up. |
-| Not Include Week Ends (لا تشمل العطله الأسبوعية) | Excludes weekly rest days from the mission's counted period. |
-| Full Day Mission (مهمه يوم كامل) | Marks the mission as covering the entire working day rather than part of it. |
+| Not Include Week Ends (لا تشمل العطله الأسبوعية) | On a mission whose hours span several days — a two-week posting to Alexandria — leaves the weekly rest days inside that span out of the counted period. A mission that fits inside one day always counts, rest day or not: it happened. Cannot be combined with Full Day Mission. |
+| Full Day Mission (مهمه يوم كامل) | The mission runs around the clock rather than for set hours — a three-day delivery run to Aswan — so every day between From Date and To Date counts as worked, weekly rest days among them. |
 | Reason (السبب) | A Leave Reason scoped to **Mission**. |
 | Attachment 1–5 | Supporting documents (a travel order, a client visit report, and so on). |
 
@@ -166,11 +166,21 @@ A weekly rest day has no shift behind it, so it has no expected hours — there 
 
 Read as a description of the day, that is not a duplicate at all. The employee gave up their day off, so every hour of it is overtime, and the mission column is simply recording *why* they were there. The trouble starts only when the salary formula pays both columns — then the same eight hours are paid twice and a day off quietly costs double.
 
-Which column should pay is a decision for whoever built the salary components, and the system will honour either one. There are two ways to settle it:
+Neither figure needs correcting, then — what decides the pay is which of them the salary components read, and the [Performance Indicator](../performance/performance-indicators.md) types are already split by day type for exactly this purpose:
 
-**Stop the mission from becoming overtime.** Clearing *Consider Missions in Overtime Calculation* leaves the rest day's overtime at zero and pays the mission through mission time alone. It is the blunter of the two, because the same switch also governs working days, where it is what lets a mission's hours count toward overtime alongside the hours actually punched.
+| Indicator type | What it reads |
+|---|---|
+| OverTime (Hours) — وقت إضافي (بالساعة) | Net overtime on every day, rest days included. |
+| OverTime Normal Day (Hours) — وقت إضافي يوم عادي (بالساعة) | Net overtime on working days only — zero on rest days, official holidays and vacation days. |
+| OverTime In Week Ends (Hours) — وقت إضافي عطلة أسبوعية (بالساعة) | Net overtime on weekly rest days only. |
+| Hours Missions — مأمورية بالساعات | The day's net mission time. |
+| Total Mission Hours From Mission Doc — إجمالي عدد ساعات المأموريات من السندات | The mission documents' own periods, taken without regard to overlap. |
 
-**Leave the figure alone and stop the indicator from reading it.** On the [Performance Indicator](../performance/performance-indicators.md) that feeds the overtime component, tick **Not Included In Week Ends** (لا يتم احتسابه في أيام العطلات الأسبوعية). The indicator then returns zero for every weekly rest day, so the overtime column stays accurate on the attendance record but never reaches the salary. Its siblings cover official holidays, vacation days and ordinary working days, which lets an indicator be aimed at exactly the kind of day it is meant to pay for.
+An overtime component built on **OverTime Normal Day** alongside a mission component on **Hours Missions** pays the rest-day mission once, as mission hours, and still pays ordinary weekday overtime. A component on **OverTime** with no mission component beside it pays it once, as overtime. The combination that pays twice is **OverTime** together with a mission-hours component — and where the components are already built that way, clearing *Consider Missions in Overtime Calculation* takes mission hours out of overtime on every day, rest days included.
+
+::: warning Not Included In Week Ends is not a mission switch
+The Performance Indicator's **Not Included In Week Ends** (لا يتم احتسابه في أيام العطلات الأسبوعية) flag looks like the surgical answer to this, and it is not: it zeroes the whole indicator on every weekly rest day, so an employee who merely punched overtime on a Friday with no mission in sight loses it too. Choose the indicator type that matches the day you mean to pay for instead.
+:::
 
 ::: info Holidays and vacation days can be told to behave like working days
 The all-overtime rule is not peculiar to the weekly rest day — an official holiday and a vacation day are treated the same way by default. Unlike the rest day, though, those two can be switched back, so that the day measures the mission against expected hours the way a working day does:
