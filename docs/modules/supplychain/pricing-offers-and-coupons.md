@@ -113,7 +113,29 @@ The **Purchase Price List** and the **Vendor Discount** carry the same **Update 
 
 ## How the Layers Stack
 
-When pricing an invoice line, the system applies the layers in order: the base price from the **price list** (or **automatic pricing**), then a **quantity range** adjustment, then eligible **offers**, then a **coupon** if present, while respecting the **minimum price** defined on the item. Understanding this order explains the final price the customer sees.
+When pricing an invoice line, the system first decides on a **base price**, then adjusts it: a
+**quantity range**, then eligible **offers**, then a **coupon** if present, while respecting the
+**minimum price** defined on the item. Understanding this order explains the final price the customer
+sees.
+
+The base price is where most "why did it price at that?" tickets actually end, and it is looked for
+in three places, in this order:
+
+1. **A matching price list line.** Whenever one matches the item, the customer and the document, it
+   wins — nothing on the item file is consulted at all. Which *column* of that line becomes the unit
+   price (default, minimum, maximum, or one of the custom tiers) is its own chain, described under
+   [Price Lists](/modules/supplychain/configuration/pricing-and-price-lists).
+2. **The last price sold**, if no price list matched and *Use Last Sales Price* is on: the price this
+   customer last paid for this item. The purchase side has the mirror setting, *Use Last Purchase
+   Price*.
+3. **The item file's own prices**, if neither produced anything. The system looks at the item's unit
+   lines for the unit on the document line and takes its default price; failing that, and where the
+   item carries them, the price on the matching **revision**, then the price on the matching
+   **size/colour** line; and failing all of those, the first unit line that has any price at all,
+   converted to the document's unit by the unit factor.
+
+So the item file is a fallback, not a competitor: a price list line beats it every time, and an item
+price that "is being ignored" almost always means a price list line matched that nobody expected.
 
 ## Next Steps
 

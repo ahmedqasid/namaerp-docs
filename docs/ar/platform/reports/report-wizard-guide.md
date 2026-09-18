@@ -217,9 +217,12 @@ Expression)** الاسم البديل لأحد سطور جدول **الحقول*
 | `$todayPlusWeeks(2)` و `$todayMinusWeeks(2)` | المثل بالأسابيع |
 | `$todayPlusMonths(3)` و `$todayMinusMonths(3)` | المثل بالشهور |
 | `$todayPlusYears(1)` و `$todayMinusYears(1)` | المثل بالسنوات |
+| `$currentUser()` و`$currentUserEmployee()` و`$currentUserRelatedSubsidiary()` و`$currentFiscalPeriod()` | مدخلات المراجع: المستخدم الذي يشغّل التقرير، وملفه كموظف، وذمته، والفترة المالية المفتوحة |
 
 وأكثر ما يفضّله القرّاء هو الجمع بين `$monthStart()` في **القيمة الافتراضية** و`$today()` في **القيمة
 الافتراضية (تعمل مع Between)**، فيفتح التقرير على الشهر حتى تاريخه في كل مرة يُشغَّل فيها.
+
+والصف الأخير وحده يملأ **مرجعاً** لا تاريخاً، ورمز الموظف فيه هو `$currentUserEmployee()` — ولا وجود لـ `$currentEmployee()`. والقائمة كاملة، بما فيها الصيغ التي لا يستعملها إلا تعريف XML، في [دليل تعريف التقارير](/ar/platform/reports/reports-guide).
 
 ### إلزام القارئ بالإجابة
 

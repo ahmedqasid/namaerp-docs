@@ -132,12 +132,14 @@ The address is your server, then `/r/`, then an identifier that stands for one s
 https://<your server>/erp/r/{retrieverFileId}
 ```
 
-Adding an extension makes browsers treat the download more sensibly, and adding the document's own code makes the downloaded file recognisable to the customer:
+Adding an extension makes browsers treat the download more sensibly, and the document's own code can ride along after a dot when you want it visible in the address itself — everything from the first dot onwards is ignored when the link is resolved:
 
 ```
 https://<your server>/erp/r/{retrieverFileId}.pdf
-https://<your server>/erp/r/{retrieverFileId}/{code}.pdf
+https://<your server>/erp/r/{retrieverFileId}.{code}.pdf
 ```
+
+The code must come **after a dot, not after a slash**: the last path segment is what the server reads as the identifier, so `…/{retrieverFileId}/{code}.pdf` makes it read the document's code instead and the link never resolves. The saved file is named after the document's code in either case.
 
 And if the line has a **URL Prefix** — say `invoices` — that word goes in front of the identifier:
 
@@ -154,6 +156,29 @@ So if you use one, put it **last**. An unprefixed line sitting above your `invoi
 :::
 
 The forms these lines run are ordinary printed forms, designed and maintained in the usual place — see the [Jasper Reports Complete Guide](/platform/reports/reports-guide) — and the server-wide printing and output settings that affect them live under [Reports and Printing](/platform/global-config/global-config-reports).
+
+## Error Message Logging Configurations
+
+When a record arrives from another site — a replication message, an incoming bus message — and
+processing it fails, the failure is visible for as long as the message sits in its queue and then it
+is gone. This grid is what keeps it: for the entity types you list, a failed message is copied into a
+permanent **Error Message** record carrying the message text, the description, the record it was
+about and the user it ran as.
+
+Each line says which failures to keep, with two columns and an entity list:
+
+| Column | What it does |
+|---|---|
+| **For Type** | One entity type. Leave it empty and the line covers every entity type on the queue named beside it. |
+| **Entity Type List** | A named list of types instead of a single one — the whole list is expanded, one entry each. |
+| **Target Queue ID** | The queue whose failures are kept. Leave it empty and the line covers **every** queue for the entity type beside it. |
+
+So a line with a type and no queue keeps that type's failures everywhere; a line with a queue and no
+type keeps everything that fails on that queue; a line with both is the narrow case. An **Inactive**
+line is ignored.
+
+The grid is read from a cache that is dropped whenever the settings record is saved, so a new line
+takes effect on the next failure — there is no restart in this one.
 
 ## Security note
 

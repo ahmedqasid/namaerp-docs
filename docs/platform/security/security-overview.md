@@ -62,7 +62,7 @@ Within each set of lines (user or profile) there is also a priority order for ma
 This lets you write profiles like: "a permissive wildcard line for all types, a stricter line for financial documents (via a type list), and a very specific line for journal entries alone."
 
 ::: tip Type Lists (EntityType List)
-EntityType List records (**Administration > System Customization > EntityType List**) are simple named groups of entity types. They are used across all permission screens, so a single list like "All Sales Documents" can be reused in standard security lines, field settings, page security, and extra filters all at once.
+EntityType List records (**Administration → Display Customization → EntityType List**) are simple named groups of entity types. They are used across all permission screens, so a single list like "All Sales Documents" can be reused in standard security lines, field settings, page security, and extra filters all at once.
 :::
 
 ### Delegation Also Plays a Role

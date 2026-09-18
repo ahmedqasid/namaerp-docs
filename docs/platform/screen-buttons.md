@@ -26,6 +26,10 @@ Open any record and the toolbar sits directly above the tabs.
 | Multi Printing | Opens the export dialog described below | |
 | Approval | Opens the approval case of a record that is waiting on someone's decision | |
 | Revised | Marks the record as revised — checked and sealed | |
+| Unrevise | Takes the last revision stamp back off. Appears beside Revised, on record types where revision is switched on | |
+| Tree View | Opens the records of this type as a hierarchy. Appears only on types that have a parent-child structure | Ctrl + T |
+| Tooltips | Lists the tooltips defined for this screen. Appears only where someone has defined them | |
+| Ask AI | Opens the AI assistant on this record. Appears only when the AI module is licensed and the user is allowed to use it | |
 | List | Leaves the record and goes to the list of records of this type | Ctrl + L |
 | Help | Turns the on-screen help messages on and off | |
 | Delete | Deletes the record, after a confirmation | Alt + Delete |
@@ -33,9 +37,10 @@ Open any record and the toolbar sits directly above the tabs.
 | Remove Filter | Clears the filter that narrowed down what First, Previous, Next and Last walk through | |
 | More | Opens the More menu | Ctrl + M |
 
-A greyed-out button is not a fault. Draft is greyed on a record that is already committed, Approval
-is greyed when nothing is waiting for a decision, and Delete disappears entirely for a user whose
-permissions do not allow deleting. The toolbar always shows the same buttons in the same order — it
+A greyed-out button is not a fault. Draft is greyed on a **document** that has been committed before
+— a document leaves draft behind for good, while a master file such as a customer or an item keeps
+its Draft button after committing — Approval is greyed when nothing is waiting for a decision, and
+Delete disappears entirely for a user whose permissions do not allow deleting. The toolbar always shows the same buttons in the same order — it
 just dims the ones that do not apply right now.
 
 ::: tip The labels are optional
@@ -126,8 +131,11 @@ Behind More on a list screen is a different set again, built around acting on a 
 Delete Selected Records, Prevent Usage and Allow Usage all apply to the ticked rows. *Save selected
 records if draft* commits a batch of drafts in one pass. The three export items are worth separating
 in your head: **Export Selected** takes the ticked rows, **Export Page** takes the page you are
-looking at, and **Export All Records** takes the whole result set. **Create List View Criteria** turns
-the filters you have set up into a saved, reusable filter.
+looking at, and **Export All Records** takes the whole result set. **Create List View Criteria** takes the filter
+you have just built on the list and opens a new **Criteria Definition** in a pop-up, already carrying
+that filter, already set to this entity type and already ticked as usable in list views — so the
+search you assembled by hand becomes a named filter everyone can pick. With no filter set it answers
+*"Please Specify Criteria"* and does nothing.
 
 Each of these is covered in full — including what happens when one record in a selection refuses —
 in [Acting on Several Records at Once](/platform/list-views/mass-operations).

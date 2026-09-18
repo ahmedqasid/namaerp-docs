@@ -7,6 +7,20 @@ entities: [WhatsAppMessageConfiguration]
 يدعم نظام نما ERP إرسال الرسائل عبر SMS و WhatsApp إلى المستخدمين والعملاء والموردين وغيرهم.
 لتفعيل هذه الميزة، قم بتهيئة الإعدادات المناسبة من شاشة **الإعدادات العامة** (Global Configuration).
 
+## قائمتا المزودين
+
+تخرج الرسائل من نما عبر واحد من جدولين في الإعدادات العامة: جدول **إعدادات SMS** وقائمة **مزود الخدمة** فيه تضم كل بوابات الإرسال التي تشحن مع هذه النسخة، وجدول **إعدادات رسائل WhatsApp** وقائمته تضم خدمات الواتساب. وتظهر عدة خدمات في القائمتين معاً — فاختيار بوابة واتساب من جدول SMS يرسل الرسالة عبر الواتساب بدلاً من رسالة قصيرة.
+
+قائمة **مزود الخدمة** في إعدادات SMS تقرأ:
+
+`mobilyws` · `maktoobicom` · `androidsmsgateway` · `sms.com.eg` · `SMS Misr` · `taqnyat.sa` · `Vodafone Egypt` · `jawalbsms.ws` · `Unifonic` · `URL Generic` · `waboxapp` · `UltraMsg.com WhatsApp Integration` · `Waapi.app WhatsApp Integration` · `WaPilot.net` · `WasenderAPI`
+
+وقائمة **مزود الخدمة** في إعدادات رسائل WhatsApp تقرأ:
+
+`Unifonic` · `Rasayel` · `Wati` · `Morasalaty` · `WaApi` · `UltraMsg` · `WaPilot.net` · `respond.io` · `WasenderAPI`
+
+وبعض المداخل تظهر معرّفاً صغير الأحرف كما هو (`mobilyws` و`maktoobicom` و`androidsmsgateway` و`waboxapp`) — وهكذا تُقرأ على الشاشة. فاختر المدخل بنصّه لا باسم المزود التجاري، فالشركة الواحدة تحمل اسماً على موقعها واسماً آخر في القائمة.
+
 ## مزود SMS: SMS Misr ([smsmisr.com](https://smsmisr.com/))
 
 * **مزود الخدمة**: `SMS Misr`
@@ -19,7 +33,7 @@ entities: [WhatsAppMessageConfiguration]
 
 ## مزود SMS: Taqnyat ([taqnyat.sa](https://portal.taqnyat.sa))
 
-* **مزود الخدمة**: `Taqneyat`
+* **مزود الخدمة**: `taqnyat.sa`
 * **Sender**:
   ادخل إلى [portal.taqnyat.sa](https://portal.taqnyat.sa)، انتقل إلى **Send SMS**، وانسخ اسم المرسل من القائمة المنسدلة.
 ::: tip
@@ -90,7 +104,7 @@ entities: [WhatsAppMessageConfiguration]
 
 في شاشة إعدادات الرسائل:
 
-* **مزود الخدمة**: `waapi.app WhatsApp Integration`
+* **مزود الخدمة**: `Waapi.app WhatsApp Integration`
 * **اسم المستخدم** أو **Other Settings**: معرّف الـ Instance (Instance ID)
 * **كلمة المرور**: رمز الـ Token
 
@@ -160,7 +174,7 @@ entities: [WhatsAppMessageConfiguration]
 
 في شاشة إعدادات رسائل الواتساب:
 
-* **مزود الخدمة**: `WaPilot`
+* **مزود الخدمة**: `WaPilot.net`
 * **اسم المستخدم (Public ID)**: معرّف الـ Instance (Instance ID)
 * **كلمة المرور (Secret)**: رمز الـ API Token
 
@@ -304,7 +318,7 @@ entities: [WhatsAppMessageConfiguration]
 7. **إعداد Nama ERP**
 
   * افتح شاشة إعدادات الرسائل القصيرة
-  * أضف سطرًا جديدًا واختر المزود: `WaboxApp WhatsApp Integration`
+  * أضف سطرًا جديدًا واختر المزود: `waboxapp`
   * أدخل:
 
     * **رقم الهاتف بصيغة دولية** في حقل *المرسل* أو *اسم المستخدم*

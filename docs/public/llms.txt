@@ -93,7 +93,7 @@
 ### List Views
 
 - [List Views](https://docs.namasoft.com/platform/list-views/): List views are the screens where you browse and search your records — and where you act on them in numbers.
-- [Quick Filters in List Views](https://docs.namasoft.com/platform/list-views/quick-filters.html): ::: tip New Feature Quick Filters have been developed to enhance user experience in filtering data quickly and intuitively across all list views in Nama ERP system. - entities: ScreenModifier, QuickFilterCriteria
+- [Quick Filters in List Views](https://docs.namasoft.com/platform/list-views/quick-filters.html): Quick Filters are interactive tools that appear at the top of list views, allowing users to filter data quickly based on the most common or important values in fields. - entities: ScreenModifier, QuickFilterCriteria
 - [Limit User To Year](https://docs.namasoft.com/platform/list-views/limit-user-to-year.html): This feature lets you restrict users' access to specific fiscal years and accounting periods, preventing them from viewing or creating documents in fiscal years they are not authorized to work with. - entities: LimitUserToYear - menu: Administration → Security → Limit User To Year
 - [Acting on Several Records at Once](https://docs.namasoft.com/platform/list-views/mass-operations.html): A list screen does more than show you records.
 - [Bulk Edit](https://docs.namasoft.com/platform/list-views/bulk-edit.html): Someone has to move four hundred customers onto a new salesman. - entities: BulkEditConfig, ScreenModifier - menu: Administration → Display Customization → Bulk Edit Config
@@ -250,7 +250,7 @@
 #### Technical Reference
 
 - [Technical Reference](https://docs.namasoft.com/modules/accounting/support/)
-- [How Documents Are Processed Into Accounting Effects (and reprocessing a stuck request)](https://docs.namasoft.com/modules/accounting/support/accounting-request-processing.html): This is the most important page for the support team in the accounting module.
+- [When a Document Has No Accounting Effect](https://docs.namasoft.com/modules/accounting/support/accounting-request-processing.html): Saving an accounting document does not write its journal entry there and then. - entities: LedgerTransReq - menu: Administration → Settings → Business Requests
 - [Accounting Configuration (module option catalog)](https://docs.namasoft.com/modules/accounting/support/accounting-configuration.html): Many of the accounting module's behaviors aren't coded — they're configured from the accounting module's configuration screen (Module Configurations → Account Configurations). - menu: Module Configurations → Account Configurations
 - [Document Terms (per-type processing rules)](https://docs.namasoft.com/modules/accounting/support/accounting-document-terms.html): One question recurs throughout this module's guides: "where do the debit and credit accounts for this document come from?" The answer is always the document term. - entities: DocumentTerm - menu: Basic → Settings → Document Term
 - [Dimensions, Cost Centers & Distribution](https://docs.namasoft.com/modules/accounting/support/accounting-dimensions-and-distribution.html): An account answers "what" — cash, sales, salaries. - entities: AccDistribution - menu: Accounting → Settings → Account Distribution
@@ -1123,7 +1123,7 @@
 ### Reprocessing Transactions
 
 - [Reprocessing Transactions](https://docs.namasoft.com/admin/reprocessing/)
-- [Reprocessing Quantity, Cost, and Stock Ages](https://docs.namasoft.com/admin/reprocessing/reprocess-qty-and-cost.html): ::: details
+- [Reprocessing Quantity, Cost, and Stock Ages](https://docs.namasoft.com/admin/reprocessing/reprocess-qty-and-cost.html): ::: danger Read this before you run anything on this page The scripts below delete and rebuild the database's whole transaction history.
 - [Accounting Utilities - Ledger and Debt Ages Reprocessing](https://docs.namasoft.com/admin/reprocessing/reprocess-ledger-and-debt-ages.html): ::: details
 - [Queries to Check for (and Fix) Cost And Qty Problems](https://docs.namasoft.com/admin/reprocessing/cost-and-qty-problems.html): ::: details
 - [Inventory Related Utility Queries](https://docs.namasoft.com/admin/reprocessing/inventory-utilities.html): ::: details

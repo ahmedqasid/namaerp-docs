@@ -52,6 +52,13 @@ A backup nobody checks is a backup that isn't there. A maintenance plan that qui
 
 **Do Not Check For Backup Existence** `value.info.doNotCheckForBackupExistence` — Switches the whole check off. Use it when backups are handled somewhere Nama cannot see — a storage-level snapshot, a cloud database service, or an agent that ships files straight off the machine — so the server stops reporting a missing backup it has no way to find.
 
+Switching it **on** is not an ordinary edit. The option sits at a protected security level, and a save
+that turns it on from a normal session is refused with *"You are not authorized to change the field
+value.info.doNotCheckForBackupExistence because it belongs to the security level L2Dangerous, please
+contact technical support team"*. Only a Namasoft support session can enable it — which is the point:
+silencing the backup alarm is a decision somebody has to stand behind. Turning it back off is not
+gated.
+
 ::: warning Nama checks the backup, it does not take it
 Filling in the folder does not schedule anything. Your database backup still has to be created by SQL Server's own maintenance plan or whatever tool you use; this setting only tells Nama where to look at the result.
 :::

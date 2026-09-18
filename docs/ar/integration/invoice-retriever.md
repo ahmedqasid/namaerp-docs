@@ -59,11 +59,7 @@ https://my.swsg.co/erp/r/{retrieverFileId}.pdf
 https://my.swsg.co/erp/r/{retrieverFileId}.{code}.pdf
 ```
 
-### أسلوب URL أنظف:
-
-```
-https://my.swsg.co/erp/r/{retrieverFileId}/{code}.pdf
-```
+ولا بد أن يلي الكودُ **نقطةً** لا شرطة مائلة، فالخادم يقرأ آخر مقطع في المسار على أنه المعرّف ويُهمل كل ما يلي أول نقطة؛ ولذلك فالرابط المكتوب بصورة `…/{retrieverFileId}/{code}.pdf` يصل إليه بكود المستند فلا يُفتح أبداً.
 
 ### مع URL Prefix (مثل invoices):
 

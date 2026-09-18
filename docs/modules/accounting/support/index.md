@@ -1,7 +1,7 @@
 <div class="ignore-in-full-text-search">
 
 # Technical Reference
-  - [How Documents Are Processed Into Accounting Effects (and reprocessing a stuck request)](/modules/accounting/support/accounting-request-processing.md)
+  - [When a Document Has No Accounting Effect](/modules/accounting/support/accounting-request-processing.md)
   - [Accounting Configuration (module option catalog)](/modules/accounting/support/accounting-configuration.md)
   - [Document Terms (per-type processing rules)](/modules/accounting/support/accounting-document-terms.md)
   - [Dimensions, Cost Centers & Distribution](/modules/accounting/support/accounting-dimensions-and-distribution.md)

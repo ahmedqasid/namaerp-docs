@@ -18,7 +18,7 @@ For example:
 2. **Create a Field Filter Record**
     - Open the **Field Filter with Criteria** screen and create a new record.
     - Specify the **Document Type** (e.g., Sales Invoice).
-    - Define the **Field** to apply the filter on (e.g., `details.item.item`).
+    - Define the **Field** to apply the filter on (e.g., `details.item.item`). It has to be the lookup field itself — the one the user picks in — not the code or name that mirrors it (`details.item.itemCode` and its siblings are filled *from* the lookup, so a filter there never reaches the picker).
     - Assign the previously defined **Criteria** to this field.
 
 3. **Assign the Field Filter**
@@ -48,7 +48,7 @@ To show only non-service items when selecting an item in the **Sales Invoice** s
 1. In the *Criteria Definition* file, define a condition for non-service items.
 2. Create a new record in **Field Filter with Criteria**:
     - Document Type: Sales Invoice
-    - Field: `details.item.itemCode`
+    - Field: `details.item.item`
     - Criteria: Your non-service items criteria
 3. Save the filter with a name like `NonService`.
 4. In your **Sales Invoice document term**, set **Field Filter = NonService**.

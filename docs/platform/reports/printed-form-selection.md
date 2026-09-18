@@ -27,10 +27,11 @@ resolved; save and press Print again.
 
 Second, the browser asks the server a much simpler question than "which form?" — it asks *"is there
 any form at all for this record and this tab?"*. If the answer is no, the user sees
-*"Could not find form to print record"* and the print stops there. That answer is remembered for
-the rest of the login session, keyed on the record type, the tab and the view. So when you add a
-form for a user who has just been told there is nothing to print, that user must log out and back
-in before the new form is noticed. This catches people out mid-implementation: the form is correct,
+*"Could not find form to print record"* and the print stops there. That answer is remembered in
+the browser tab for as long as the page stays open, keyed on the record type, the tab and the view.
+So when you add a form for a user who has just been told there is nothing to print, that user has
+to **reload the page** before the new form is noticed — a plain refresh is enough, there is no need
+to log out. This catches people out mid-implementation: the form is correct,
 the configuration is correct, and the user's browser is still repeating an answer it was given an
 hour ago.
 
@@ -254,8 +255,8 @@ are candidates for it.
 |---|---|
 | *"Cannot print record before saving changes"* | Unsaved edits on screen. Save first. |
 | *"Could not find form to print record"* — and a form exists | The hard filter: does the form name a book, term, category or dimension the record does not match? Then the first-match tests: criteria, **For User**, dimensions. |
-| Nothing to print, but it worked for a colleague | The user's own dimensions (the form may be invisible to them), **For User**, or a stale session — have them log out and back in. |
-| A form was just created and is not offered | The session's remembered "is there a form?" answer. Log out and back in. |
+| Nothing to print, but it worked for a colleague | The user's own dimensions (the form may be invisible to them), **For User**, or the remembered answer below — have them reload the page. |
+| A form was just created and is not offered | The page's remembered "is there a form?" answer. Reload the page. |
 | The wrong layout printed | Ordering. A non-system form always beats a system one; below that it is **Report Order**, lowest first. Give the specific form a lower number, or a book/criteria restriction so the general one is eliminated. |
 | Right layout, wrong company's letterhead | The legal entity on the form, and the global option that passes the record's legal entity to the form. |
 | Correct from one tab, missing from another | **Form Page** on the form — is the missing tab in its comma-separated list? |

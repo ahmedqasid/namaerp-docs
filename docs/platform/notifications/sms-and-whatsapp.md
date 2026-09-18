@@ -6,6 +6,20 @@ entities: [WhatsAppMessageConfiguration]
 Nama ERP supports sending messages via SMS and WhatsApp to users, customers, suppliers, and other entities.
 To enable this feature, configure the appropriate settings from the **Global Configuration** screen.
 
+## The two provider lists
+
+Messages leave Nama through one of two grids in Global Configuration: the **SMS settings** grid, whose **Provider** list holds every gateway this build ships, and the **WhatsApp message settings** grid, whose **Provider** list holds the WhatsApp services. Several services sit in both — a WhatsApp gateway chosen from the SMS grid sends the message over WhatsApp rather than as an SMS.
+
+The **SMS settings** Provider list reads:
+
+`mobilyws` · `maktoobicom` · `androidsmsgateway` · `sms.com.eg` · `SMS Misr` · `taqnyat.sa` · `Vodafone Egypt` · `jawalbsms.ws` · `Unifonic` · `URL Generic` · `waboxapp` · `UltraMsg.com WhatsApp Integration` · `Waapi.app WhatsApp Integration` · `WaPilot.net` · `WasenderAPI`
+
+The **WhatsApp message settings** Provider list reads:
+
+`Unifonic` · `Rasayel` · `Wati` · `Morasalaty` · `WaApi` · `UltraMsg` · `WaPilot.net` · `respond.io` · `WasenderAPI`
+
+A few entries read as bare lower-case identifiers (`mobilyws`, `maktoobicom`, `androidsmsgateway`, `waboxapp`) — that is how they appear on screen. Pick the entry by its text, not by the provider's marketing name: the same company is called one thing on its own site and another in the list.
+
 ## SMS Provider: SMS Misr ([smsmisr.com](https://smsmisr.com/))
 
 * **SMS Provider**: `SMS Misr`
@@ -18,7 +32,7 @@ To enable this feature, configure the appropriate settings from the **Global Con
 
 ## SMS Provider: Taqnyat ([taqnyat.sa](https://portal.taqnyat.sa))
 
-* **SMS Provider**: `Taqneyat`
+* **SMS Provider**: `taqnyat.sa`
 * **Sender**:
   Visit [portal.taqnyat.sa](https://portal.taqnyat.sa), go to **Send SMS**, and copy the sender name from the dropdown list.
 ::: tip
@@ -89,7 +103,7 @@ To enable sending messages via WhatsApp using the [waapi.app](https://waapi.app)
 
 In the SMS settings screen:
 
-* **Provider**: `waapi.app WhatsApp Integration`
+* **Provider**: `Waapi.app WhatsApp Integration`
 * **Username** or **Other Settings**: Instance ID
 * **Password**: Token
 
@@ -159,7 +173,7 @@ To enable sending WhatsApp messages from Nama ERP using [wapilot.net](https://wa
 
 In the WhatsApp message settings screen:
 
-* **Provider**: `WaPilot`
+* **Provider**: `WaPilot.net`
 * **Username (Public ID)**: Instance ID
 * **Password (Secret)**: API Token
 
@@ -303,7 +317,7 @@ To enable sending WhatsApp messages from Nama ERP using WaboxApp, follow these s
 7. **Configure Nama ERP**
 
   * Open the SMS settings screen
-  * Add a new row and select the provider: `WaboxApp WhatsApp Integration`
+  * Add a new row and select the provider: `waboxapp`
   * Enter:
 
     * **Phone number in international format** in the *Sender* or *Username* field

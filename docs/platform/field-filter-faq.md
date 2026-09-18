@@ -107,7 +107,7 @@ Since an item may not always have data directly in `quantities` if there is no b
   "lines": [
     {
       "fieldId": "details.item.item",
-      "dynamicFilter": "quantities.data.net,LessThanOrEqual,0,AND;"
+      "dynamicFilter": "n5,LessThanOrEqual,0,AND;"
     }
   ]
 }
@@ -115,8 +115,8 @@ Since an item may not always have data directly in `quantities` if there is no b
 :::
 
 ::: tip Note
-- You can also replace `quantities.data.net` with `n5` directly if you want to bind the filter to the calculated field, but using `quantities.data.net` is more accurate since n5 depends on the task being run.
-- Choose the scheduled task's run interval carefully so that it maintains the accuracy of the n5 field while not putting excessive load on the server and database resources.
+- Filter on `n5`, not on `quantities.data.net`. An item that has never moved in a warehouse has **no quantity row at all**, so a condition written against `quantities.data.net` matches nothing — and those are exactly the items this filter is meant to find. The `n5` field carries a zero for them because the query above writes `coalesce(qty.net,0)` for every item.
+- The price of that is freshness: `n5` is only as current as the last run. Choose the scheduled task's interval so the field stays accurate without putting excessive load on the server and the database.
 :::
 
 ### Improving Automatic `n5` Field Updates Using an Entity Flow

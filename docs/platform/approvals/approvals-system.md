@@ -904,58 +904,6 @@ IF (Amount > 50,000 OR Customer = "High Risk" OR Payment Terms > 60 days)
 THEN Require: Credit Manager + Finance Director approval
 ```
 
-### Performance Tips
-
-- **Optimize Queries**: Ensure Apply When Query performs efficiently
-- **Batch Processing**: Group similar approvals for efficiency
-- **Archive Old Cases**: Maintain system performance with data retention policies
-- **Monitor Bottlenecks**: Identify and resolve approval delays
-
-## Troubleshooting
-
-### Common Issues
-
-| Problem | Cause | Solution |
-|---------|-------|----------|
-| **Approval not triggered** | Criteria not met | Review Apply When Query and conditions |
-| **Wrong approver assigned** | Incorrect responsible party setup | Check step responsibilities configuration |
-| **Notifications not sent** | Template or contact info issues | Verify email templates and employee contacts |
-| **Approval stuck** | Missing approver or system error | Check approval case status and escalation rules |
-| **Budget approval not working** | Configuration missing | Verify budget settings, account configuration, and global config |
-
-### System Administration
-
-#### Monitoring Approvals
-- Regular review of pending approval cases
-- Performance monitoring of approval queries
-- Audit trail analysis for compliance
-- Budget vs actual spending analysis
-
-#### Maintenance Tasks
-- Archive completed approval cases
-- Update employee responsibilities
-- Refresh approval definition cache
-- Review and optimize notification templates
-- Update budget allocations periodically
-
-## Integration Points
-
-### External Systems
-The approval system can integrate with:
-- **Email Servers**: SMTP configuration for notifications
-- **SMS Gateways**: Third-party SMS providers
-- **Mobile Apps**: Push notification services
-- **BI Systems**: Approval metrics and reporting
-- **Budget Systems**: Real-time budget consumption tracking
-
-### API Access
-Programmatic access for:
-- Creating approval cases
-- Querying approval status
-- Submitting approval decisions
-- Generating approval reports
-- Budget validation checks
-
 ## Actions History and Audit Trail
 
 The system automatically creates detailed audit trails for all approval activities through the Actions History system. This provides comprehensive tracking of approval decisions and workflow progression.
@@ -973,7 +921,7 @@ By default, the system creates **one Actions History record** when the entire ap
 
 For organizations requiring detailed audit trails, the system supports granular tracking of every approval step through the global configuration option:
 
-**Configuration Setting**: `addApprovalStepsToActionHistory` (Add Approval Steps to Action History)
+**Global Configuration option**: **Add Approval Steps To Action History**
 
 When **enabled**, this option creates an Actions History record for **each individual approval step**:
 
@@ -983,42 +931,11 @@ When **enabled**, this option creates an Actions History record for **each indiv
   - `Approve` - When a step is approved
   - `Reject` - When a step is rejected
   - `Return` - When returned for modifications
+  - `Return To Previous Step` - When handed back one step
+  - `Return To A Specific Step` - When handed back to a named step
   - `Escalate To Supervisor` - When escalated to the approver's Supervisor
   - `Escalate To Direct Supervisor` - When escalated to the approver's Direct Supervisor
   - `Escalate To Specific Employee` - When escalated to a chosen employee
 - **Final Completion Record**: Still creates the standard `Approval` record when workflow completes
 - **User Context**: Captures who made each decision and when
 :::
-
-## Security Considerations
-
-### Access Control
-- **Role-based Permissions**: Control who can create/modify approval definitions
-- **Approver Validation**: Verify approver authorization for each step
-- **Audit Logging**: Track all approval activities through Actions History
-- **Data Segregation**: Respect organizational boundaries
-- **Budget Access**: Control budget information visibility
-
-### Compliance Features
-- **Digital Signatures**: Support for electronic signature integration
-- **Retention Policies**: Maintain approval records per regulatory requirements
-- **Audit Reports**: Generate compliance documentation
-- **Version Control**: Track changes to approval definitions
-- **Segregation of Duties**: Ensure proper separation of financial controls
-
-## Conclusion
-
-The Nama ERP Approvals System provides a robust foundation for implementing organizational approval workflows, including sophisticated budget control mechanisms. By following this guide, you can create effective approval processes that improve control, compliance, and operational efficiency while maintaining flexibility to adapt to changing business needs.
-
-The integration with budget management ensures financial discipline while providing the flexibility to handle exceptional circumstances through the approval process.
-
-::: tip Next Steps
-1. Start with simple approval definitions for high-impact transactions
-2. Configure budget approvals for critical expense accounts
-3. Train key users on both standard and budget approval processes
-4. Monitor system performance and user feedback
-5. Gradually expand to cover additional business processes
-6. Regular review and optimization of approval workflows and budget allocations
-:::
-
-For additional support or advanced configuration questions, consult your system administrator or contact Nama ERP support.

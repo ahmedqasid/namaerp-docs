@@ -60,6 +60,14 @@ Deferring a flow raises the questions that come with any unattended work, and th
 | **Retry Every Seconds** | How long to wait between attempts — the setting that makes a flow survive an outside system being briefly unavailable. |
 | **Wait For Quantity Processing** | Holds the flow back while inventory work is still outstanding, so it does not read stock quantities or costs that are about to change. |
 
+::: warning Only five events can be deferred
+The tick box is refused unless **every** element in the flow targets one of five actions: **Add Draft**, **Revise**, **UnRevise**, **Post Commit** or **Post Delete**. Anything that runs as part of building the record — Validate On Save, Update Calculated Fields, Pre Apply Effects and the rest — cannot be deferred, because by then the save is over and there is nothing left to influence. Saving the flow with any other element returns:
+
+> Option ( Run After Committing Document And Affect On DataBase ) does not work with target action {0}
+
+So a slow flow on Update Calculated Fields is not made background by ticking the box; it has to be rewritten to run at Post Commit first.
+:::
+
 ::: tip Where deferred flows are visible
 A deferred flow that has been raised but not yet run is a real row you can look at, on the **Queued Entity Flows** grid of its Task Queue — with its status, how many times it has been tried, and any error. That is where to look when someone says the flow "did not happen".
 :::

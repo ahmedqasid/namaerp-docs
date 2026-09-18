@@ -34,6 +34,7 @@ This is the single most important idea on the screen, and it is the same in almo
 |---|---|
 | **For Type** | One entity type this line applies to — Sales Invoice, Customer, Stock Issue. |
 | **Entity List** | A reusable named list of entity types. Define the list once, then one line covers every type in it. |
+| **For Type List** | The same thing as Entity List, in the grids that label the column with this name. |
 | **On Field** / **Field** | The field ID the line targets — `customer`, `details.item`, `remarks`. |
 | **Applicable For** | A broad category instead of naming types: *All Screens*, *Documents* or *Master Files*. |
 | **Inactive** | Switches this single line off without deleting it. |
@@ -149,6 +150,7 @@ Every grid on the four tabs is covered on one of the sibling pages below.
 | Integrator Config | Connects a screen to an external system | [Integrations](/platform/fields-and-entities-settings/fields-settings-integrations) |
 | Import Integrators | Configures how records are pulled in from outside | [Integrations](/platform/fields-and-entities-settings/fields-settings-integrations) |
 | Invoice Retriever Lines | Publishes an invoice print-out for retrieval by a link | [Integrations](/platform/fields-and-entities-settings/fields-settings-integrations) |
+| Error Message Logging Configurations | Decides which failed incoming replication messages are kept as Error Message records | [Integrations](/platform/fields-and-entities-settings/fields-settings-integrations) |
 
 ::: info Two grids are not on Main
 *Public Entities* has a tab to itself, **Entities Allowed To Be Public**, so do not look for it in the Main stack. The three icon grids are on **Icons**. Everything else in the table above is on **Main**.

@@ -5,7 +5,7 @@ Almost every other configuration file in Nama belongs to one module — supply c
 That reach is what makes it worth reading carefully. A single checkbox here can change arithmetic on every invoice in the database, or hide a field from every screen in the system.
 
 ::: info Where to find it
-Open **System Configurations** and choose the **Global Configurations** file (its code is `global`). Settings are grouped into tabs by theme, and each tab has its own reference page below.
+Open **Administration → Settings → System Settings** and choose the **Global Configurations** file (its code is `global`). Settings are grouped into tabs by theme, and each tab has its own reference page below.
 :::
 
 ## One record for the whole database
@@ -37,7 +37,7 @@ The values are **cached** for speed. When you save, the system refreshes the cac
 </LandingGrid>
 
 ::: warning A few options deserve a second look
-Some settings are marked as dangerous and ask for confirmation before they can be enabled — most notably the two options that allow reprocessing business requests dated before a closing entry. Others are effectively implementation-time decisions: the **Issue Cost Policy** lives in supply chain settings, but the **rounding tolerances** and the **tax calculation model** on these tabs are just as consequential, because changing them alters the arithmetic on documents that already exist. Read the notes on each option before changing it on a live database.
+Three settings sit at a protected security level and **cannot be switched on from an ordinary session at all**: the two that allow reprocessing business requests dated before a closing entry, and *Do Not Check For Backup Existence*. Saving with one of them newly ticked is refused — *"You are not authorized to change the field … because it belongs to the security level L2Dangerous, please contact technical support team"* — and only a Namasoft support session can complete it. Switching them back off is not gated. Others are effectively implementation-time decisions: the **Issue Cost Policy** lives in supply chain settings, but the **rounding tolerances** and the **tax calculation model** on these tabs are just as consequential, because changing them alters the arithmetic on documents that already exist. Read the notes on each option before changing it on a live database.
 :::
 
 ::: tip Options you may not see

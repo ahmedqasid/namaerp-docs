@@ -474,9 +474,11 @@ $nextMonthStart()       $nextMonthEnd()
 $previousYearStart()    $previousYearEnd()
 $nextYearStart()        $nextYearEnd()
 $currentFiscalPeriod()  $currentUser()
-$currentEmployee()
-$todayPlusDays(n)       $todayPlusWeeks(n)
-$todayPlusMonths(n)     $todayPlusYears(n)
+$currentUserEmployee()  $currentUserRelatedSubsidiary()
+$todayPlusDays(n)       $todayMinusDays(n)
+$todayPlusWeeks(n)      $todayMinusWeeks(n)
+$todayPlusMonths(n)     $todayMinusMonths(n)
+$todayPlusYears(n)      $todayMinusYears(n)
 ```
 :::
 
@@ -583,7 +585,7 @@ The **Parameters Override** grid, also on the Advanced page, is where the inheri
 | Column | What it does |
 |---|---|
 | **Parameter Id** | The parameter name, spelled exactly as the design declares it |
-| **Param Value** | The value to use, written the same way as a `defaultValue` — including the dynamic functions such as `$yearStart()` and `$currentEmployee()` |
+| **Param Value** | The value to use, written the same way as a `defaultValue` — including the dynamic functions such as `$yearStart()` and `$currentUserEmployee()` |
 | **Usage** | *Default Value* or *Replace Value* — see below |
 | **Allowed Values** | A comma-separated list that narrows this prompt's drop-down to a subset of what the design offers |
 | **Entity Type** | For a record prompt, the type the user picks from — a way to re-aim a picker without touching the design |

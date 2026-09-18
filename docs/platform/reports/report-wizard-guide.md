@@ -224,9 +224,14 @@ period in December.
 | `$todayPlusWeeks(2)`, `$todayMinusWeeks(2)` | The same in weeks |
 | `$todayPlusMonths(3)`, `$todayMinusMonths(3)` | The same in months |
 | `$todayPlusYears(1)`, `$todayMinusYears(1)` | The same in years |
+| `$currentUser()`, `$currentUserEmployee()`, `$currentUserRelatedSubsidiary()`, `$currentFiscalPeriod()` | The lookup parameters: the user running the report, their employee file, their subsidiary, the open fiscal period |
 
 The pairing readers like most is `$monthStart()` in **Default Value** and `$today()` in **Default
 Value (works with Between)**: the report opens on month-to-date every time it is run.
+
+The last row is the only one that fills a **lookup** rather than a date, and the employee token is
+`$currentUserEmployee()` — there is no `$currentEmployee()`. The whole list, including the forms that
+only the XML definition uses, is on the [Report Definition guide](/platform/reports/reports-guide).
 
 ### Making the reader answer
 

@@ -470,9 +470,11 @@ $nextMonthStart()       $nextMonthEnd()
 $previousYearStart()    $previousYearEnd()
 $nextYearStart()        $nextYearEnd()
 $currentFiscalPeriod()  $currentUser()
-$currentEmployee()
-$todayPlusDays(n)       $todayPlusWeeks(n)
-$todayPlusMonths(n)     $todayPlusYears(n)
+$currentUserEmployee()  $currentUserRelatedSubsidiary()
+$todayPlusDays(n)       $todayMinusDays(n)
+$todayPlusWeeks(n)      $todayMinusWeeks(n)
+$todayPlusMonths(n)     $todayMinusMonths(n)
+$todayPlusYears(n)      $todayMinusYears(n)
 ```
 :::
 
@@ -579,7 +581,7 @@ id:entityType:code@A=@Xid:entityType:code@A=@X...
 | العمود | ما يفعله |
 |---|---|
 | **المعرف** (Parameter Id) | اسم المدخل كما عرّفه التصميم بالحرف |
-| **القيمة** (Param Value) | القيمة المستعملة، تُكتب كما تُكتب `defaultValue` — بما في ذلك الدوال الديناميكية مثل `$yearStart()` و`$currentEmployee()` |
+| **القيمة** (Param Value) | القيمة المستعملة، تُكتب كما تُكتب `defaultValue` — بما في ذلك الدوال الديناميكية مثل `$yearStart()` و`$currentUserEmployee()` |
 | **طريقة الاستعمال** (Usage) | *Default Value* أو *Replace Value* — انظر أدناه |
 | **القيم المسموحة** (Allowed Values) | قائمة مفصولة بفواصل تحصر منسدلة هذه المطالبة في جزء مما يعرضه التصميم |
 | **نوع الكيان** (Entity Type) | لمطالبة السجل، النوع الذي يختار المستخدم منه — وهي وسيلة لإعادة توجيه منتقٍ دون لمس التصميم |

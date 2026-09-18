@@ -84,8 +84,12 @@ Documents in Nama can be *revised* — stamped as reviewed at one of five levels
 | Column | Meaning |
 |---|---|
 | **Can Revise** | The user can stamp documents as revised. |
-| **Revise Levels** | The levels the user is allowed to stamp, e.g. `1,2` or `1-3`. |
+| **Revise Levels** | The levels the user is allowed to stamp, written as a comma-separated list — `1,2`. Leave it empty to allow every level. |
 | **Can UnRevise / UnRevise Levels** | The same pair for removing a revision stamp. |
+
+::: warning A dash is a separator, not a range
+`1-3` does **not** mean levels 1 through 3 — it is read as the two levels **1 and 3**, and a sign-off at level 2 is refused. Write out every level you want to allow: `1,2,3`. [Revise and Unrevise](/platform/revise-and-unrevise) covers the levels themselves.
+:::
 
 ### Data Transfer and Miscellaneous
 

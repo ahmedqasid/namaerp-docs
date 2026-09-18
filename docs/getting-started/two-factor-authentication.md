@@ -28,10 +28,25 @@ Custom authentication provider integration for organizations using the Estidamah
 ### 3. None
 Disables 2FA (not recommended for production environments)
 
+::: warning A fourth value in the list
+The method list also offers **Authenticator App**. Nothing is wired behind it: with that value
+selected the login asks for no second factor at all, exactly as if the method were None. Use
+Message OTP or Estidamah API.
+:::
+
+## Who is never asked for a code
+
+Even with 2FA on, three cases go straight through, and every "why was I not asked?" question ends in one of them:
+
+- the **admin** user;
+- a user whose own record has **Exclude From Two-Factor Authentication** ticked;
+- a session that already validated its code — the validated code is remembered, so the calls that follow the login do not re-ask.
+
 ## Configuration Settings
 
 ### Access Login Settings
-Navigate to: **Global Configuration** → **Login Settings**
+Open **Administration → Settings → System Settings**, choose the **Global Configurations** file,
+then the **Security And Login** tab — the settings are in its **Two-Factor Authentication** group.
 
 ### Configuration Validation Rules
 
@@ -42,32 +57,30 @@ The system enforces the following validation rules when configuring 2FA:
    - Error message if not configured: *"Cannot select the option Message OTP without filling Notification For Two-Factor Authentication OTP"*
 
 2. **Estidamah API Method Requirements**:
-   - **All three Estidamah fields are mandatory**:
-     - Environment URL
-     - Encryption Key  
-     - Encryption IV
+   - The method needs **four** settings — **Estidamah Environment Url**, **Estidamah Api Key**, **Estidamah Encryption Key** and **Estidamah Encryption IV**. Three of them are checked when you save; the **Api Key** is not, so a configuration missing it saves cleanly and then fails at the gateway on the first login attempt. Fill all four.
    - **Custom Password Validator**: Must be enabled in `nama.properties`
-   - Error if not enabled: *"You cannot enable Estidamah login method without enabling custom password validator in nama.properties first"*
+   - Error if not enabled: *"You can not enable estidamah login method without enabling custom password validator in nama.properties first, use-custom-password-validator=true"*
 
 ### Available Configuration Fields in Global Config
 
 | Field | Description | Default | Options | Validation Rules |
 |-------|-------------|---------|---------|-----------------|
-| **login2FAMethod** | Select the 2FA authentication method | None | • None<br>• Message OTP<br>• Estidamah API | - |
-| **notificationFor2FAOtp** | Notification template for sending OTP | - | Select from available notification definitions | **Required** when using Message OTP method |
-| **otpFormat** | Format of the generated OTP | Numeric | • Numeric (e.g., 123456)<br>• Alphabetic (e.g., ABCDEF)<br>• AlphaNumeric (e.g., A1B2C3) |
-| **otpLength** | Number of characters in the OTP | 6 | 4-10 characters |
-| **otpExpiryTime** | Time in seconds before OTP expires | 300 | 60-1200 seconds (1-20 minutes) |
-| **otpResendDelay** | Delay in seconds before allowing OTP resend | 60 | 30-300 seconds |
+| **Login Two-Factor Authentication Method** | Which second factor the login asks for | None | None · Message OTP · Estidamah API · Authenticator App (does nothing) | - |
+| **Notification For Two-Factor Authentication OTP** | The notification definition that carries the code | - | Any manual notification definition | **Required** when the method is Message OTP |
+| **OTP Format** | Shape of the generated code | Numeric | Numeric (123456) · Alphabetic (ABCDEF) · AlphaNumeric (A1B2C3) | - |
+| **OTP Length** | How many characters the code has | 6 when the field is empty or zero | Any number | - |
+| **OTP Expiry Time** | Seconds before the code stops being accepted | 3 minutes when the field is empty | Whole minutes — the value is divided by 60, so 90 seconds behaves as 1 minute | - |
+| **OTP Resend Delay** | Seconds before the user may ask for the code again | 60 when the field is empty or zero | Any number | - |
 
 ### Estidamah-Specific Settings
 Only required when using Estidamah API method:
 
 | Field | Description |
 |-------|-------------|
-| **estidamahEnvironmentUrl** | Estidamah gateway URL (Required) |
-| **estidamahEncryptionKey** | Encryption key for securing credentials (Required) |
-| **estidamahEncryptionIV** | Initialization vector for encryption (Required) |
+| **Estidamah Environment Url** | The gateway address (checked on save) |
+| **Estidamah Api Key** | The account key sent with every call (not checked on save, still required by the gateway) |
+| **Estidamah Encryption Key** | Encryption key for securing credentials (checked on save) |
+| **Estidamah Encryption IV** | Initialization vector for encryption (checked on save) |
 
 ::: warning Important Configuration Requirement
 To use Estidamah API authentication method, you must enable custom password validator in `nama.properties`:
@@ -100,11 +113,13 @@ This setting prevents password hashing and allows the system to send encrypted c
    - Resend is available after configured delay period
    - Same OTP is resent if still valid, new one generated if expired
 
-### Error Handling
+### Messages you may see
 
-- **Invalid OTP**: User receives error message and can retry
-- **Expired OTP**: User must request new OTP
-- **Maximum Attempts**: After multiple failed attempts, account may be temporarily locked (configured separately)
+| Message | What it means |
+|---|---|
+| *"You must provide OTP"* | The password was right; this is the login asking for the code, not a refusal. It carries the code's length and the resend delay, which is what the OTP screen displays. |
+| *"Invalid OTP"* | The code does not match the one issued, or it has expired and a newer one was sent. Ask for a fresh code. |
+| *"Error with Message OTP"* | The code could not be sent at all — almost always the notification definition: missing, not manual, or the user has no mobile/e-mail on file. |
 
 ## User Settings
 
@@ -112,9 +127,9 @@ This setting prevents password hashing and allows the system to send encrypted c
 
 Individual users can be excluded from 2FA requirements:
 
-1. Navigate to **User Management** → **User Settings**
+1. Open **Administration → Security → User**
 2. Find the user account
-3. Enable **"Exclude from 2FA"** option
+3. Tick **Exclude From Two-Factor Authentication** in the user's settings
 4. Save changes
 
 This is useful for:
@@ -135,7 +150,7 @@ This is useful for:
 
 ### Creating 2FA Notification Template
 
-1. Navigate to **System Configuration** → **Notification Definitions**
+1. Open **Administration → Display Customization → Notification Definition**
 2. Create new manual notification with:
    - **Name**: "2FA OTP Notification"
    - **For Type**: User
@@ -181,13 +196,3 @@ Your verification code is: *{otpCode}*
 
 If you didn't request this, contact IT immediately.
 ```
-
-
-## Compliance and Regulations
-
-The 2FA implementation helps organizations meet various security compliance requirements:
-
-- **ISO 27001**: Information security management
-- **PCI DSS**: Payment card industry standards
-- **GDPR**: Data protection regulations
-- **Local regulations**: Saudi Arabia's NCA ECC requirements

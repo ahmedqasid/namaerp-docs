@@ -96,11 +96,13 @@ Sometimes sensitivity lives in a *specific record*, not the whole type: one part
 
 Global settings provide switches to skip record capability checks in list views where the overhead is undesirable.
 
-## Records Blocked from Use
+## Records Prevented from Use
 
-Master files can be flagged as *blocked from use* (discontinued item, banned customer, etc.). Permissions control how each role experiences those records:
+A master file can be marked **Prevent Usage** — a discontinued item, a customer nobody may sell to
+again — and the security profile decides who still sees it. The column is **Display Prevent Usage
+Records** on the Standard Authorities grid, one value per entity type: *Display*, *Hide* or *Same As
+Config*. That is what lets a purchasing manager still open a blocked supplier's history while the
+data-entry operator cannot put the same supplier on a new purchase order.
 
-- On the basic permission row: **Display Blocked Records** — *Display*, *Hide*, or *Same As Config*.
-- In the security profile / user header: allow using blocked records in **entry** and/or **editing**, show them in **search**, and show or hide them in **list views**.
-
-This separation lets a purchasing manager still view a blocked supplier's history while data-entry operators cannot put that supplier on a new purchase order.
+[Prevent Usage](/platform/prevent-usage) is the page that covers the mark itself, everything it
+stops, and every place the setting is read.

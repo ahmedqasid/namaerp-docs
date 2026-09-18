@@ -1,5 +1,23 @@
 # Reprocessing Quantity, Cost, and Stock Ages
 
+::: danger Read this before you run anything on this page
+The scripts below **delete and rebuild the database's whole transaction history**. The first block
+alone drops the account balances, the ledger transaction lines and the dimension balances, empties
+the ledger transactions, the debt lines and their matches, and resets every ledger and inventory
+request so the server builds them all again from the documents. There is no undo, and a script run
+against the wrong database cannot be talked back.
+
+Before any of it:
+
+1. **Take a full database backup and verify you can restore it.** Not yesterday's scheduled backup — one taken now.
+2. **Check which database the window is connected to.** Every mistake anyone has made here is this one.
+3. **Stop the application server** where the section says so. A running server keeps writing into the tables the script is emptying.
+4. **Make sure you know why you are doing it.** These are recovery tools for a database whose balances are already wrong — not maintenance, not a routine, and never a first response to a single document that looks odd. One wrong document is fixed by reprocessing that document's business request from the [Business Requests](/platform/background-processing/business-requests) screen.
+
+Reprocessing a whole database takes DAYS on a large one and the system is unusable while it runs.
+Agree the window with the customer before you start.
+:::
+
 <ServerBaseURL/>
 
 ## Reprocess All Quantity Transactions (Tomcat must be shutdown)

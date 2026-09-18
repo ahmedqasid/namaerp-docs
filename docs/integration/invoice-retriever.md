@@ -59,11 +59,7 @@ https://my.swsg.co/erp/r/{retrieverFileId}.pdf
 https://my.swsg.co/erp/r/{retrieverFileId}.{code}.pdf
 ```
 
-### Cleaner URL Style:
-
-```
-https://my.swsg.co/erp/r/{retrieverFileId}/{code}.pdf
-```
+The code has to follow a **dot**, not a slash. The server reads the last path segment as the identifier and ignores everything from the first dot onwards, so a link written as `…/{retrieverFileId}/{code}.pdf` sends it the document's code and never resolves.
 
 ### With URL Prefix (e.g., invoices):
 

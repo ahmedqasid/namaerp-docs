@@ -3,30 +3,20 @@ entities: [ScreenModifier, QuickFilterCriteria]
 ---
 # Quick Filters in List Views
 
-::: tip New Feature
-Quick Filters have been developed to enhance user experience in filtering data quickly and intuitively across all list views in Nama ERP system.
-:::
-
 ## Overview
 
 Quick Filters are interactive tools that appear at the top of list views, allowing users to filter data quickly based on the most common or important values in fields. This feature is designed to provide a fast and visual way to access the required data.
 
-## Key Features
+There are two kinds, and they are configured in different places.
 
-### 1. Value-Based Quick Filtering
-- **Dynamic Buttons**: Display buttons containing the most frequently occurring values in specified fields
-- **Smart Icons**: Show appropriate icons for each data type (enums, references, dates, etc.)
-- **Real-time Statistics**: Display record counts for each value and their percentages
+A **value filter** is built from a column: the system reads the column's most frequent values and
+turns each one into a button, with the number of records behind it. Nobody writes the values —
+they come from the data, so a status that stops being used stops appearing. This kind is set up in
+the **Quick Filter** grid of a Screen Modifier.
 
-### 2. Pre-defined Custom Filters
-- **Custom Criteria**: Ability to create complex filters using SQL or specific criteria
-- **Translatable Titles**: Support for Arabic and English filter titles
-- **Flexible Configuration**: Link filters to specific entities or screens
-
-### 3. Enhanced User Interface
-- **Smart Grouping**: Group related filters into logical groups
-- **Visual Indicators**: Display percentages as colored progress circles
-- **Interactive Response**: Instant result updates when applying filters
+A **criteria filter** is a button somebody wrote: a saved condition with an Arabic and an English
+title — "overdue", "this month's", "mine". This kind is a Quick Filter Criteria record, linked into
+the same grid.
 
 ## How to Use
 
@@ -68,7 +58,7 @@ Custom filters provide specialized filtering criteria that are pre-configured by
 Quick Filters are configured through the Screen Modifier system, which allows customization per entity and user.
 
 ##### Accessing Screen Modifier Configuration
-1. Navigate to **Basic Module** → **Screen Modifier**
+1. Navigate to **Administration** → **Display Customization** → **Screen Modifier**
 2. Search for or create a record for your target entity (e.g., "Invoice")
 3. Go to the **Quick Filter** grid
 
@@ -96,19 +86,9 @@ For example, if you have a quick filter on the "status" field, you could add a d
 
 This is useful when you want the quick filter buttons to reflect only values that are relevant to the current context or time period, rather than showing all values that ever existed in the database.
 
-##### Example Configuration for Invoice Status Filter
-```
-Arabic Title: Invoice Status (Arabic)
-English Title: Invoice Status
-Column Names: status
-Show Count: ✓ (checked)
-Max Button Count: 8
-Quick Filter Values Dynamic Criteria: (optional - leave empty to show all values)
-```
-
 ##### Setting Up Custom Criteria Filters
 1. **Create Quick Filter Criteria**:
-   - Navigate to **Basic Module** → **Quick Filter Criteria**
+   - Navigate to **Administration** → **Display Customization** → **Quick Filter Criteria**
    - Create new record for your entity type
 
 2. **Add Criteria Lines**:

@@ -32,7 +32,7 @@ This template sends only one message using the data from the first line only.
 الشركة المتحدة فارم صيدلية د/ {lines.subsidiary.$toReal.name1} نحيط علمكم بأنة
 تم اضافة استلام نقدية لحسابكم رقم الايصال {lines.rpaper} قيمة الأيصال {lines.amount.value.amount} جنية  بتاريخ {valueDate}
 {closemsg}
-{enloop}
+{endloop}
 ```
 
 ### Template Explanation Line by Line:
@@ -51,7 +51,7 @@ This template sends only one message using the data from the first line only.
 5. `{closemsg}`
    Ends the message.
 
-6. `{enloop}`
+6. `{endloop}`
    Ends the loop.
 
 This way, a separate message will be sent to each customer present in each line of the receipt, so that every customer is informed only of information relevant to them.

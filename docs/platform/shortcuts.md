@@ -13,17 +13,21 @@ These are global shortcuts (handled anywhere in the app) intended for support st
 - **F9** (with a field focused): Show the tooltip / help for the focused field
 
 ## Grid Shortcuts
-Available while editing detail grids on an edit screen.
+Available while editing detail grids on an edit screen. **Insert on its own does nothing** — every
+row key is Insert with a modifier.
 
-- **Insert**: Insert a new row after the current row
-- **Ctrl + Insert**: Copy the current row into a new row
-- **Shift + Insert**: Copy the current row into a new row
+- **Ctrl + Insert**: Add a new empty row after the current one. Refused while an empty row is already open: *"Could not insert new line while you have an empty line"*
+- **Shift + Insert**: Copy the current row into a new row. Refused on an empty row: *"Could not duplicate empty line"*
 - **Ctrl + Alt + Insert**: Copy the current row **multiple times** (opens a count dialog)
 - **Ctrl + Delete**: Delete the current row
 - **Arrow Down** (while editing a cell): Move to the next row; if you are on the last row, a new row is created automatically
 - **Arrow Up** (while editing a cell): Move to the previous row
 - **F9**: Show the tooltip / help for the focused grid cell's field
 - **Alt + F**: Toggle the find (search) bar for the grid
+
+::: tip Adding a row while the grid is filtered
+If a column filter is active, adding a row asks first — *"The grid currently has filters, the line you want to add may not be displayed even though it will added. Are you sure?"* The row is added either way; it is the filter that hides it.
+:::
 
 ## Find Bar Shortcuts
 Available when the grid find bar is open.
@@ -74,7 +78,7 @@ These shortcuts trigger business functions (the standard actions on edit and lis
 ### Record Actions
 - **Ctrl + S**: Save
 - **Alt + S**: Save and continue (save then start a new record)
-- **Ctrl + R**: Accept (confirm / post the document)
+- **Ctrl + R**: Save Draft — stores the record without committing it
 - **Alt + R**: Reverse document
 - **Alt + N**: New record
 - **Ctrl + D**: Duplicate the current record
@@ -96,11 +100,23 @@ These shortcuts trigger business functions (the standard actions on edit and lis
 
 ### Grid Rows
 - **Alt + Ctrl + N**: Append a row
-- **Shift + Insert**: Insert a row
+- **Shift + Insert**: Insert a row — in the edit-screen grids this copies the current row, as described above
 - **Shift + Delete**: Delete the current row
 - **Ctrl + Arrow Up**: Move the current row up
 - **Ctrl + Arrow Down**: Move the current row down
 - **Alt + Arrow Up** / **Alt + Arrow Down**: Toggle the sort direction
+
+### Global Shortcuts
+
+Two keys work anywhere in the application, whatever screen is open:
+
+- **Ctrl + K**: Jump to the search box in the top bar (search everything)
+- **Ctrl + U**: Open the side menu and put the cursor in its search box
+
+These live in a separate grid on the same Shortcuts Definition, and that grid takes more than search:
+a line can bind a key to **open an entity's list**, **start a new record of a type**, **open one
+specific record**, or **open a link** — internal or external. That is how an implementation gives the
+storekeeper one key for "new stock issue".
 
 ::: tip Customizable
 These mappings come from the `default` Shortcuts Definition. An administrator can change any of them, so the keys shown above are the out-of-the-box defaults — your system may differ.
