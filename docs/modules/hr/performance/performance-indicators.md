@@ -26,7 +26,137 @@ A Performance Indicator is a small master record. Its most important setting is 
 | SQL Statement | SQL من جملة | Computed by a SQL query written for this indicator. |
 | Groovy Script | Groovy Script | Computed by a Groovy script written for this indicator. |
 
-When Indicator Type is **System**, the indicator doesn't read attendance directly — it piggybacks on one of five existing HR catalogs, chosen in its **Types** grid: Leave Reasons, Vacation Types, Reward/Penalty Types, Suspension Reasons, or [Evaluation Element](employee-evaluation.md). For example, a "Late Arrival Count" indicator can be tied to a specific Leave Reason so that every time that reason is recorded against an employee, the indicator's count goes up automatically — no manual typing needed.
+When Indicator Type is **System**, a second field decides everything: **System Indicator** (المؤشر النظامى) names *which* reading the system takes — one of 73 built-in measurements of attendance, overtime, vacations, rewards, appraisals and the rest. It becomes required the moment the type is System, and the whole list is [further down this page](#The-73-system-indicators).
+
+The **Types** grid on the same screen is not where the value comes from — it is a **filter**, and only some indicators accept one. An indicator that counts vacations can be narrowed to particular **Vacation Types** or **Leave Reasons**; one that counts rewards or penalties to particular **Reward/Penalty Types**; a suspension count to particular **Suspension Reasons**; an appraisal reading to a particular [Evaluation Element](employee-evaluation.md). The indicators that read attendance take no filter at all — they read the attendance record itself — and the screen refuses to save one that has rows in the grid, answering *"You can not link reason types grid with the system indicator type …"*.
+
+::: tip Two more rules the type brings with it
+**Daily Indicator From SQL** is the one system indicator whose reading you write yourself: its **SQL Statement** is required, and it is evaluated per day. And **Indicator Values Consider** must be left at **None** unless the indicator is a System one — on every other type, *Yearly*, *Aggregated Period* and *Salary Period* are refused on save.
+:::
+
+## The 73 system indicators
+
+These are the values the **System Indicator** field offers, exactly as they read on screen. Most are self-explanatory once you know the family they belong to; what is worth checking before you build a formula on one is the third column, which says whether that indicator accepts a **Types** grid row as a filter. Anything marked — reads the attendance record directly and is rejected on save if the grid has rows.
+
+Where an indicator's name ends in *Shift 1*, *Shift 2* or *Shift 3*, it measures one part of a split working day; the unnumbered version of the same name measures the whole day.
+
+#### Attendance, absence and working days
+
+| System Indicator | Arabic | Types grid |
+|---|---|---|
+| Attend Hours (Hours) | ساعات الحضور (بالساعة) | — |
+| Attend Hours Shift 1 (Hours) | ساعات الحضور دوام 1 (بالساعة) | — |
+| Attend Hours Shift 2 (Hours) | ساعات الحضور دوام 2 (بالساعة) | — |
+| Attend Hours Shift 3 (Hours) | ساعات الحضور دوام 3 (بالساعة) | — |
+| Actual Work Days  | ايام العمل الفعلية | — |
+| Working Days | أيام العمل | accepted |
+| None Working Days | أيام عدم العمل | accepted |
+| Week End Days | ايام العطلات الأسبوعية | — |
+| Holiday Days | ايام العطلات الرسمية | — |
+| Absense Days | أيام الغياب | — |
+| Shift 1 Absence | غياب دوام 1 | — |
+| Shift 2 Absence | غياب دوام 2 | — |
+| Shift 3 Absence | غياب دوام 3 | — |
+| Total Working Months | شهور العمل الكلية | accepted |
+| Experience Day (Use With End Of Service Component) | يوم خبرة (يستخدم مع مخصص نهاية الخدمة) | — |
+| Days difference between work starting date and return date | فرق الأيام بين تاريخ المباشرة وتاريخ العودة | accepted |
+
+#### Overtime
+
+| System Indicator | Arabic | Types grid |
+|---|---|---|
+| OverTime (Hours) | وقت إضافي (بالساعة) | — |
+| OverTime Normal Day (Hours) | وقت إضافي يوم عادي (بالساعة) | — |
+| OverTime Other Than Normal Day (Hours) | وقت إضافي اى اجازة (بالساعة) | — |
+| OverTime In Week Ends (Hours) | وقت إضافي عطلة أسبوعية (بالساعة) | — |
+| OverTime In Holidays (Hours) | وقت إضافي يوم عطلة (بالساعة) | — |
+| OverTime In Vacations (Hours) | وقت إضافي في اجازة (بالساعة)  | — |
+| OverTime Shift1 (Hours) | وقت إضافي دوام 1 (بالساعة) | — |
+| OverTime Shift2 (Hours) | وقت إضافي دوام 2 (بالساعة) | — |
+| OverTime Shift3 (Hours) | وقت إضافي دوام 3 (بالساعة) | — |
+
+#### Lateness, early arrival and short time
+
+| System Indicator | Arabic | Types grid |
+|---|---|---|
+| Late Hours (Hours) | ساعات التأخير (بالساعة) | — |
+| Late Arrival Shift1 (Hours) | حضور متأخر دوام 1 (بالساعة) | — |
+| Late Arrival Shift2 (Hours) | حضور متأخر دوام 2 (بالساعة) | — |
+| Late Arrival Shift3 (Hours) | حضور متأخر دوام 3 (بالساعة) | — |
+| Early Hours (Hours) | ساعات الحضور المبكر (بالساعة) | — |
+| Early Arrival Shift1 (Hours) | حضور مبكر دوام 1 (بالساعة) | — |
+| Early Arrival Shift2 (Hours) | حضور مبكر دوام 2 (بالساعة) | — |
+| Early Arrival Shift3 (Hours) | حضور مبكر دوام 3 (بالساعة) | — |
+| Early Leave (Hours) | إنصراف مبكر (بالساعة) | — |
+| Early Leave Shift1 (Hours) | إنصراف مبكر دوام 1 (بالساعة) | — |
+| Early Leave Shift2 (Hours) | إنصراف مبكر دوام 2 (بالساعة) | — |
+| Early Leave Shift3 (Hours) | إنصراف مبكر دوام 3 (بالساعة) | — |
+| Out Time during shift 1 | ساعات الخروج أثناء الدوام 1 | — |
+| Out Time during shift 2 | ساعات الخروج أثناء الدوام 2 | — |
+| Out Time during shift 3 | ساعات الخروج أثناء الدوام 3 | — |
+| Under Time (Hours) | إجمالي الوقت المتبقي لتحقق الدوام (بالساعة) | — |
+| Under Time 1 (Hours) | الوقت المتبقي لتحقق الدوام 1 (بالساعة) | — |
+| Under Time 2 (Hours) | الوقت المتبقي لتحقق الدوام 2 (بالساعة) | — |
+| Under Time 3 (Hours) | الوقت المتبقي لتحقق الدوام 3 (بالساعة) | — |
+
+#### Missing punches
+
+| System Indicator | Arabic | Types grid |
+|---|---|---|
+| No Check In | عدم تسجيل بصمة دخول | — |
+| No Check Out | عدم تسجيل بصمة خروج | — |
+| Shift 1 No Check In | عدم تسجيل بصمة دخول دوام 1 | — |
+| Shift 1 No Check Out | عدم تسجيل بصمة خروج دوام 1 | — |
+| Shift 2 No Check In | عدم تسجيل بصمة دخول دوام 2 | — |
+| Shift 2 No Check Out | عدم تسجيل بصمة خروج دوام 2 | — |
+| Shift 3 No Check In | عدم تسجيل بصمة دخول دوام 3 | — |
+| Shift 3 No Check Out | عدم تسجيل بصمة خروج دوام 3 | — |
+
+#### Vacations, permissions and suspensions
+
+| System Indicator | Arabic | Types grid |
+|---|---|---|
+| Vacation Days Value  | أيام الأجازات | accepted |
+| Vacation Type Value Daily | أيام الأجازات يومي (يطبق عليه تكرارات) | — |
+| Vacation Types Count | عدد أجازات | accepted |
+| Permissions Hours (Hours) | ساعات الأذون | — |
+| Permissions Hours of Specific Type (Hours) | ساعات الأذون من نوع معين | accepted |
+| Permission Types Count | عدد أذون إنصراف | accepted |
+| Suspension Type | نوع ايقاف | accepted |
+
+#### Missions
+
+| System Indicator | Arabic | Types grid |
+|---|---|---|
+| Days Missions | مأمورية بالأيام | — |
+| Hours Missions | مأمورية بالساعات | — |
+| Total Mission Hours From Mission Doc (Does not consider intersections) | إجمالي عدد ساعات المأموريات من السندات (لا تأخذ التقاطع في الحسبان) | accepted |
+| Mission Allownce | بدل مأمورية | accepted |
+
+#### Rewards and penalties
+
+| System Indicator | Arabic | Types grid |
+|---|---|---|
+| Reward Types Count | عدد مكافأت | accepted |
+| Penalty Types Count | عدد الجزاءات | accepted |
+| Reward Penalty Daily | مكافأه - جزاء يومي (يطبق عليه تكرارات) | — |
+| Penalties Postponed To Next Month | الجزاءات المرحلة إلى الشهر القادم | accepted |
+| Penalties Postponed From Previous Month | الجزاءات المرحلة من الشهر السابق | accepted |
+
+#### Appraisal
+
+| System Indicator | Arabic | Types grid |
+|---|---|---|
+| Evaluation Points | نقاط التقييم | accepted |
+| Inverse Evaluation Points | مقلوب نقاط التقييم | accepted |
+| Evaluation Percent | نسبة التقييم | accepted |
+| Inverse Evaluation Percent | مقلوب نسبة التقييم | accepted |
+
+#### Written by you
+
+| System Indicator | Arabic | Types grid |
+|---|---|---|
+| Daily Indicator From SQL | مؤشر يدوي يومي من جملة SQL | — |
 
 A handful of other settings shape how an indicator behaves once it starts collecting values:
 

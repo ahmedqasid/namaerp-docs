@@ -1,89 +1,144 @@
-# Nama Properties
-```xml
-dbtype: sqlserve
+# nama.properties
+
+`nama.properties` is the one file that tells an installation what it is: which database to open, what to call itself, where its files live, and which of the system's safety valves are open. It sits beside the application on the server — normally in Tomcat's `lib` folder — and it is read once at startup, so **a change to it takes effect when the server is restarted**.
+
+The format is one `key=value` per line:
+
+```properties
+dbtype=SQLSERVER
+dbname=namademo
+dbuser=nama
+customer=Nile Group
+serverid=production-1
 ```
-#### Or mysql
 
-### server: the server address (eg: http://192.168.1.5:8080/) **THIS IS IMPORTANT FOR BOTH REPLICATION AND BRACODE**
+This page covers the settings support staff actually set on a customer's server. The system reads many more, but they are internal flags that exist for a developer chasing one specific problem — if a setting is not here and nobody told you to add it, it should not be in the file.
 
-***
+::: danger An unrecognised value is not an error
+Most of these settings are read without validation. `dbtype=sqlserve` — one letter short — does not stop the server or log a complaint: the value fails to match, and the installation quietly starts up as **MySQL**. The same silence applies to a misspelled key, which is simply never read. When a setting seems to have no effect, check the spelling first.
+:::
 
-# REPLICATION AND BRACODE
-#### `guiserver` : used for links in reports (eg: http://192.168.1.5:8080/erp/)
+## The database, and what this installation calls itself
 
-#### `logsql` : true or false
+| Setting | What it does |
+|---|---|
+| `dbuser` / `dbpassword` | The database login. The password is stored encrypted, not in clear text. |
+| `customer` | The customer's name, as it appears in the licence and in messages the server sends home. |
+| `serverid` | This server's identity. It is what decides whether **this** machine is allowed to send e-mails and SMS — see below — so a test copy must never keep production's value. |
+| `timezone` | The server's timezone. |
+| `defaultlang` | The language a user gets before choosing one. |
 
-#### `logsqltiming` : true or false to log sql statements with the execution time
+## Addresses the system hands out
 
-#### `SqlTimingWarnThresholdMsec`  : default 200 ms
+Nama writes links into e-mails, reports and mobile responses, and it cannot guess the address a user reaches it by:
 
-####  `SqlTimingErrorThresholdEnabled` : default: 2000 ms
+| Setting | What it does |
+|---|---|
+| `server` | The server's own address, e.g. `http://192.168.1.5:8080/`. Needed by replication and by anything that builds a link. |
+| `guiserver` | The address of the user interface, e.g. `http://192.168.1.5:8080/erp/` — this is what a link in a printed report or an e-mail points at. |
+| `approvalsServer` | The address used for approval links, when approvals are answered from outside. |
+| `background-server-url` | The server that runs background processing, when it is a separate machine. |
 
-####  `normallog` : use log4j.properties instead of logsql and logsqltiming
+A link that lands the user on `localhost` is almost always one of these left unset.
 
-####  `trackmemenabled`  :count alive NamaContextInstances
+## Mail, SMS and WhatsApp — especially on a copy
 
-####  `trackmemlog`  : threshold in ms, nama will log contexts that have been alive more than this threshold
+The most expensive accident in ERP support is a test copy of a live database that starts e-mailing and texting the customer's customers. Three settings exist precisely to prevent it:
 
-####  `trackmemrelog`  : when to log again alive contexts
+| Setting | What it does |
+|---|---|
+| `sendmailsandsms` | The master switch. Off, and nothing leaves the server at all. |
+| `send-emails-only-to` | Every e-mail the system produces goes to this address instead of its real recipients. |
+| `send-sms-only-to` | The same for SMS: every message goes to this number. |
+| `send-whatsapp-only-to` | The same for WhatsApp. |
+| `log-sms-data` | Records the body and the provider URL of each SMS so you can see what was actually sent. Diagnostic — turn it off afterwards. |
 
-####  `valuedate`  : the date that should be used by default in valuedate in new documents: dd-mm-yyyy
+::: warning Restoring a production backup onto a test server
+Change `serverid`, then set `send-emails-only-to` and `send-sms-only-to` to your own address and number, **before** the first startup. The sending rule is `serverid` matched against the **Send Mails And SMS Only From Servers** list in [global settings](/platform/global-config/global-config-notifications), and that list travels inside the database you just restored — so a clone that keeps production's server id is, as far as the software is concerned, production.
+:::
 
-####  `issuedate`  : the date that should be used by default in issuedate new documents: dd-mm-yyyy
+## Keeping people out
 
-####  `enablecostschedule`  : set to true if you want to activate scheduling of task processing (defined in supply chain config)
+| Setting | What it does |
+|---|---|
+| `prevent-login-of-login-ids` | A comma-separated list of login ids that cannot sign in. |
+| `prevent-login-of-login-ids-msg` | The message they see. `{0}` is replaced with the login id. |
+| `prevent-login-of-ips` | A comma-separated list of blocked addresses, matched by prefix — `192.168` blocks the whole range. |
+| `prevent-login-of-ips-msg` | The message they see, with `{0}` for the address. |
+| `use-ldap-for-authentication` | Hand password checking to the customer's LDAP directory. |
 
-####  `doNotProcessCostLedgerTransactions` : true or false
-
-```xml
-customer=Customer Name
-tomcatservice=TomCat Service Name
-tasks-initial-delay-minutes=10
-```
-### Delays task scheduler tasks at startup (https://namasoft.com/reqs/SRDRQ02722)
-`serverid=AnyIDYouWant`
-### Used for enabling SMS and email sending from nama, must match or be contained in the server id field in global config
-### send-emails-only-to=abc@example.com
-Send emails only to this number, and ignore any other emails (https://namasoft.com/reqs/KKDRQ00860)
-`send-sms-only-to=01xxxxxxx`
-### Send SMS only to this number, and ignores any other numbers  (https://namasoft.com/reqs/KKDRQ00860)
-`send-ecommerce-data=true`
-### Must be true in order for (Magento/BigCommerce/Shopify/WooCommerce/Zid) to send data to the ecommerce website (updating prices, quantities, and so on)
-`log-sms-data=true`
-### If you want the sms body and url to be saved so that you can test the urls
-`logforms=true`
-### If you want to log the form id used in printing documents, you can find the id in namasoft.log
-#### `checkswitcheditem=true` Prevents save if details.item.itemCode != details.item.item.code
-#### `allowposedit=true`           	Allow Editing/Saving POS Invoices Manually
-#### `allowposdelete=true`		Allow Deleting POS Invoices Manually
-#### `usecache=false`
-`local-external-attachments-folder=E:/Attachments
-use-new-fifo-processor=false`
-https://namasoft.com/reqs/KKDRQ01451 
-
-
-```xml
+```properties
 prevent-login-of-login-ids=user1,user2
-prevent-login-of-login-ids-msg=The user {0} is prevented from login by properties file by administrator
-```
-
-```xml
-
+prevent-login-of-login-ids-msg=The user {0} is prevented from login by the administrator
 prevent-login-of-ips=192.168,214.165.10.13
-prevent-login-of-ips-msg=You can not login from IP {0}, because IP prefix {0} is prevented
+prevent-login-of-ips-msg=You cannot login from IP {0}
 ```
 
+These are a blunt instrument for an emergency — a leaked account, an office that must be locked out today. Ordinary access control belongs in security profiles, not in this file.
 
-## replication.properties settings file (in tomcat/lib)
-### siteid: the current site code
-### enable: whether replication is enabled or not
-### headofficeip : head office bus ip
-### headofficeport: head office bus port
-### headofficeurl:
-#### Example:
-```xml
+## Files and attachments
+
+| Setting | What it does |
+|---|---|
+| `tempFolder` | Where temporary files are written. Defaults to `c:/nama/temp` on Windows and `/var/nama/temp` elsewhere. |
+| `storage-path` | Where the system keeps its stored files. |
+| `local-external-attachments-folder` | Keeps attachments on disk in this folder instead of inside the database — the setting that stops an attachment-heavy database growing out of hand. |
+| `max-single-attachment-size-kb` | Rejects a single attachment larger than this. |
+| `max-total-attachment-size-gb` | Caps the total size of attachments. |
+
+## Background work
+
+| Setting | What it does |
+|---|---|
+| `tasks-initial-delay-minutes` | Holds scheduled tasks back for this many minutes after startup, so a restarting server is not immediately busy. |
+| `processors-initial-delay-minutes` | The same for the background processors. |
+| `no-background-processors` | Stops the background processors entirely. A server with this set saves documents but never processes them — which is right for a reporting replica and disastrous anywhere else. |
+| `disable-critical-errors` | Turns off the critical-errors checks: isolation level, missing server id, disk space, failed business requests. Only for a server where those checks are known to be noise. |
+| `enable-purge` | Enables the purge job that archives and removes old data. |
+
+## Reports that will not end
+
+| Setting | What it does |
+|---|---|
+| `kill-reports-running-more-than-seconds` | Stops a report that has run longer than this. The usual answer to one user's runaway report freezing a server. |
+| `error-for-running-reports-more-than-seconds` | Logs an error — without killing anything — for reports that run longer than this, so you can find them before users complain. |
+
+## Defaults on new documents
+
+`valuedate` and `issuedate` set the date a new document opens with, written as `dd-mm-yyyy`. They are for a data-entry catch-up — a batch of last month's paperwork — and should be removed when the catch-up is over, or every document created afterwards carries a stale date.
+
+## POS documents on the server
+
+POS documents are written by the point-of-sale application, and the server refuses to let anyone edit or delete them by hand. `allowposedit=true` and `allowposdelete=true` lift those refusals. They are a correction tool, not a setting: turn on, fix the document, turn off.
+
+## Diagnostics you may be asked to switch on
+
+Each of these makes the log louder for one area. Turn them on while reproducing a problem and off again immediately — on a busy installation they fill a disk quickly.
+
+| Setting | What it logs |
+|---|---|
+| `detailederror` | Full error detail instead of the short user-facing message. |
+| `logws` | Web-service calls in and out. |
+| `log-failed-login-details` | Why each failed sign-in failed. |
+| `logreplication` / `debugreplication` | Replication messages, and the verbose version. |
+| `debugATTENDANCE` | The HR attendance calculation, step by step. |
+| `log-to-files-in-debug` | Writes logs to files even when the server runs from an IDE. |
+
+## replication.properties
+
+A site that takes part in replication carries a second file beside the first, `replication.properties`:
+
+| Setting | What it does |
+|---|---|
+| `enable` | Whether replication runs on this site at all. |
+| `siteid` | This site's code. Without it, replication refuses to start. |
+| `sitesequence` | This site's sequence number, used when generating codes so two sites never mint the same one. It is required. |
+| `headofficeurl` | The head office address this site talks to. |
+| `headofficeip` | The head office address, when given as a plain address rather than a URL. |
+
+```properties
 enable=true
 siteid=001
-headofficeurl=http://headofficeip:8080/
 sitesequence=1
+headofficeurl=http://192.168.1.5:8080/
 ```

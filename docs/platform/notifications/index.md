@@ -11,7 +11,7 @@ When something important happens in the system — a new invoice, an approval re
 ## Notifications
 
 <LandingGrid>
-  <LandingCard icon="🔔" title="Nama ERP Notification System" link="/platform/notifications/notifications-system.md" details="How notifications work end to end — event detection, rule matching, templates, and the available delivery channels." />
+  <LandingCard icon="🔔" title="Notification Definitions" link="/platform/notifications/notifications-system.md" details="The definition screen field by field — what fires a notification, who receives it, what they read, and when it is sent." />
   <LandingCard icon="💬" title="WhatsApp Integration" link="/platform/notifications/sms-and-whatsapp.md" details="Configure SMS and WhatsApp providers from Global Configuration so the system can message users and customers." />
   <LandingCard icon="❓" title="Frequently Asked Questions: Notifications and Messages" link="/platform/notifications/notification-fq.md" details="Common gotchas and fixes — like using a loop so each line in a multi-customer receipt gets its own message." />
 </LandingGrid>

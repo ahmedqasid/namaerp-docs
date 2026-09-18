@@ -12,7 +12,7 @@
 - [Glossary of Nama ERP Terms](https://docs.namasoft.com/getting-started/nama-erp-glossary.html): Nama ERP is used in Arabic and in English, often by the same team on the same call.
 - [System Minimum Requirements](https://docs.namasoft.com/getting-started/system-minimum-requirements.html): Nama ERP is a web-based application, It can be hosted on-premise or on-cloud
 - [Nama ERP Installation Guide](https://docs.namasoft.com/getting-started/installation-guide.html): Nama ERP is a Java-based web application that runs on Apache Tomcat and uses Microsoft SQL Server as its default database engine.
-- [Nama Properties](https://docs.namasoft.com/getting-started/nama-properties.html): serverid=AnyIDYouWant
+- [nama.properties](https://docs.namasoft.com/getting-started/nama-properties.html): nama.properties is the one file that tells an installation what it is: what to call itself, where its files live, which addresses it hands out, and which of the system's safety valves are open.
 - [Two-Factor Authentication (2FA) Guide](https://docs.namasoft.com/getting-started/two-factor-authentication.html): Two-Factor Authentication (2FA) adds an extra layer of security to the Nama ERP login process by requiring users to provide a second form of verification beyond their username and password. - entities: ConfigEntry - menu: Administration → Settings → System Settings
 
 ## Architecture
@@ -169,7 +169,7 @@
 ### Notifications
 
 - [Notifications](https://docs.namasoft.com/platform/notifications/): When something important happens in the system — a new invoice, an approval request, a processing error — the right person should hear about it without anyone remembering to tell them.
-- [Nama ERP Notification System](https://docs.namasoft.com/platform/notifications/notifications-system.html): The Nama ERP notification system is a comprehensive communication platform that automatically sends notifications to users when specific business events occur. - entities: NotificationDefinition - menu: Administration → Display Customization → Notification Definition
+- [Notification Definitions](https://docs.namasoft.com/platform/notifications/notifications-system.html): A Notification Definition is one record that answers four questions about one message: what happens, on which records, who hears about it, and what they read. - entities: NotificationDefinition - menu: Administration → Display Customization → Notification Definition
 - [SMS and WhatsApp Configuration in Nama ERP](https://docs.namasoft.com/platform/notifications/sms-and-whatsapp.html): Nama ERP supports sending messages via SMS and WhatsApp to users, customers, suppliers, and other entities. - entities: WhatsAppMessageConfiguration
 - [Frequently Asked Questions: Notifications and Messages](https://docs.namasoft.com/platform/notifications/notification-fq.html): When posting a receipt that contains multiple lines for multiple customers, you may notice that the notification is sent only to the first customer and not to the remaining customers in the other... - entities: NotificationDefinition - menu: Administration → Display Customization → Notification Definition
 - [Virtual Entities — Reusable SQL Building Blocks for Reports & Dashboards](https://docs.namasoft.com/platform/virtual-entity-guide.html): You've probably been here before: the same complex SQL query keeps showing up in five different report-wizard records and three dashboard widgets. - entities: VirtualEntity - menu: Administration → Reports → Virtual Entity
@@ -1122,7 +1122,7 @@
 
 ### Reprocessing Transactions
 
-- [Reprocessing Transactions](https://docs.namasoft.com/admin/reprocessing/)
+- [Reprocessing Transactions](https://docs.namasoft.com/admin/reprocessing/): This folder holds the recovery tools: the scripts and utilities that rebuild quantities, costs, ledger balances and debt ages for a database whose numbers are already wrong.
 - [Reprocessing Quantity, Cost, and Stock Ages](https://docs.namasoft.com/admin/reprocessing/reprocess-qty-and-cost.html): ::: danger Read this before you run anything on this page The scripts below delete and rebuild the database's whole transaction history.
 - [Accounting Utilities - Ledger and Debt Ages Reprocessing](https://docs.namasoft.com/admin/reprocessing/reprocess-ledger-and-debt-ages.html): ::: details
 - [Queries to Check for (and Fix) Cost And Qty Problems](https://docs.namasoft.com/admin/reprocessing/cost-and-qty-problems.html): ::: details

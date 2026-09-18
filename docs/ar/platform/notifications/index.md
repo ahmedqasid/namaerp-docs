@@ -11,7 +11,7 @@ title: التنبيهات
 ## التنبيهات
 
 <LandingGrid>
-  <LandingCard icon="🔔" title="نظام التنبيهات في Nama ERP" link="/ar/platform/notifications/notifications-system.md" details="كيف تعمل التنبيهات من البداية للنهاية — رصد الأحداث، ومطابقة القواعد، والنماذج، وقنوات الإرسال المتاحة." />
+  <LandingCard icon="🔔" title="تعريفات التنبيهات" link="/ar/platform/notifications/notifications-system.md" details="شاشة التعريف حقلاً حقلاً — ما يُطلق التنبيه، ومن يستقبله، وماذا يقرأ، ومتى يُرسَل." />
   <LandingCard icon="💬" title="تكامل WhatsApp" link="/ar/platform/notifications/sms-and-whatsapp.md" details="اضبط مزودي SMS وWhatsApp من شاشة الإعدادات العامة ليتمكن النظام من مراسلة المستخدمين والعملاء." />
   <LandingCard icon="❓" title="أسئلة شائعة عن التنبيهات والرسائل" link="/ar/platform/notifications/notification-fq.md" details="مشكلات شائعة وحلولها — مثل استخدام loop ليحصل كل سطر في إيصال متعدد العملاء على رسالته الخاصة." />
 </LandingGrid>

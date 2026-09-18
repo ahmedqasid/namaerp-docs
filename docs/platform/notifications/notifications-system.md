@@ -2,387 +2,98 @@
 entities: [NotificationDefinition]
 menu: Administration → Display Customization → Notification Definition
 ---
-# Nama ERP Notification System
+# Notification Definitions
 
-## Overview
+A **Notification Definition** is one record that answers four questions about one message: *what happens*, *on which records*, *who hears about it*, and *what they read*. Save it once and the same definition feeds every channel it has a template for — the in-app bell, e-mail, SMS, WhatsApp and the mobile apps. There is no separate "e-mail rule" and "SMS rule"; there is one definition with one template per channel.
 
-The Nama ERP notification system is a comprehensive communication platform that automatically sends notifications to users when specific business events occur. This system can send messages through multiple channels including in-app notifications, emails, SMS, and WhatsApp messages.
+Everything below is the definition screen, in the order the screen presents it. The provider side of SMS and WhatsApp — accounts, tokens, senders — is in [SMS and WhatsApp Configuration](/platform/notifications/sms-and-whatsapp), and template recipes for awkward cases are in the [notifications FAQ](/platform/notifications/notification-fq).
 
-## What is the Notification System?
+## What fires it
 
-The notification system monitors business activities within Nama ERP and automatically triggers communication to relevant users based on predefined rules. It acts as a bridge between business processes and user communication, ensuring that stakeholders are informed about important changes or actions that require their attention.
+**Notification Entity** names the record type being watched — the sales invoice, the customer, the employee. Alternatively, **Applicable For** casts a wider net without naming a type at all:
 
-### Key Components
+| Applicable For | Arabic | Covers |
+|---|---|---|
+| All Screens | كل الشاشات | Every record type in the system |
+| Master Files | الملفات | Every master file (customers, items, employees…) |
+| Documents | المستندات | Every document (invoices, receipts, orders…) |
 
-1. **Notification Engine** - The core system that monitors events and triggers notifications
-2. **Message Renderer** - Converts templates into personalized messages
-3. **Delivery Channels** - Various ways to send notifications (email, SMS, etc.)
-4. **Notification Definitions** - Rules that determine when and to whom notifications are sent
+**Apply Also To** extends one definition to a list of extra record types, so a single rule can cover the sales invoice and the sales return without being written twice.
 
-## How Notifications Work
+Then tick the events. A definition fires on the events you tick and on nothing else:
 
-### 1. Event Detection
-The system automatically detects when business events occur, such as:
-- Creating a new record (customer, invoice, employee, etc.)
-- Updating existing records
-- Deleting records
-- Approval workflows (approve, reject, return)
-- Status changes (draft, cancel, revise)
-- Print operations
-- System failures or processing errors
+| Event | Arabic | Event | Arabic |
+|---|---|---|---|
+| Use With Insert | مع الإدخال | Use With Update | مع التعديل |
+| Use With Delete | مع الحذف | Use With Draft | مع المسودة |
+| Use With Approval Request | مع طلب الموافقة | Use With Reject | مع الرفض |
+| Use With Return | مع الارجاع | Use With Revise | مع المراجعة |
+| Use With Unrevise | مع إلغاء المراجعة | Use With Cancel | مع الإلغاء |
+| Use With Uncancel | مع إلغاء الإلغاء | Use With Print | مع الطباعة |
+| Use With Discussion | مع المناقشة | Use With Replication Failure | مع فشل التكرار |
+| Use With Processing Failure | مع فشل المعالجه | Manually | يدوياً |
 
-### 2. Rule Matching
-When an event occurs, the system checks for notification rules that match:
-- **Entity Type**: What kind of record was changed (e.g., SalesInvoice, Customer)
-- **Change Type**: What happened (insert, update, delete, approval, etc.)
-- **Conditions**: Additional criteria that must be met
-- **Priority**: Rules are processed in priority order
+::: warning Two rules the screen enforces on save
+A definition with **no event ticked at all** is rejected — the system answers *"You must select with insert, update, or delete,… etc"*. And a definition that names neither a **Notification Entity** nor an **Apply Also To** nor an **Applicable For** is rejected too: it has nothing to watch.
+:::
 
-### 3. Target Identification
-The system identifies who should receive notifications based on:
-- **Field-based targeting**: Send to users referenced in specific fields (e.g., salesperson, manager)
-- **Query-based targeting**: Use database queries to find recipients
-- **Role-based targeting**: Send to users with specific roles or positions
-- **Manual targeting**: Explicitly defined recipients
-- **Delegation**: Anyone standing in for a recipient during an active delegation period is added to the list automatically — see *Delegation: reaching the stand-in* below
+Two of those events are how administrators hear about trouble rather than about business. **Use With Processing Failure** fires when a document's [business request](/platform/background-processing/business-requests) fails, and **Use With Replication Failure** fires when a record fails to reach another site. Point them at the systems administrator and the first person to know about a stuck ledger is the person who can fix it.
+
+## Narrowing it down
+
+Ticking *Update* on the sales invoice means every edit of every invoice sends a message, which is how a notification definition becomes noise nobody reads. Four filters narrow it, and they are ANDed — the definition fires only if all the ones you filled in agree:
+
+- **Criteria** (المعايير) — the ordinary criteria editor: field conditions on the record.
+- **Apply When Query** (تطبيق عند التوافق مع الاستعلام) — a query that must return the record.
+- **Script** (سيناريو) — a scenario script that decides.
+- **Critical Fields** (عندما تتغير الحقول الاتية) — a grid of fields that applies to *updates only*: the notification fires only when one of the listed fields actually changed. Leave the grid empty and every update qualifies.
+
+**Skip notification when only critical fields changed** (عدم إرسال التنبيه في حالة تغيير الحقول الحرجة فقط) inverts that last one: the message is sent only when something *other* than the listed fields changed. It is the switch for "tell me about any edit except the remark".
+
+Five dimension switches — **Sector**, **Legal Entity**, **Branch**, **Department** and **Analysis Set Must Match Record** — restrict the definition to records whose dimension matches the definition's own, which is how one database serving several companies keeps each company's messages to itself.
+
+Finally, **Do Not Send With Recommit** stops the definition firing when the system re-commits a record by itself, sparing users a second copy of a message they already have.
+
+::: danger Priority does not mean "order"; it means "instead of"
+Every definition carries a **Priority** (الأولوية), and the engine walks the matching definitions in priority order. What surprises people is what happens next: once it has collected the definitions at the first priority level that matched, it **stops** — definitions at every later priority never run, whether or not they would have matched.
+
+So priority is not a sequence number for ordering messages. It is a precedence ladder: several definitions sharing a priority all fire together, and a lower-priority definition only ever fires when nothing above it matched. If two unrelated notifications must both go out on the same event, give them the **same** priority.
+:::
+
+## Who receives it
+
+The **Targets** grid (المستهدفين) takes one of two things per row:
+
+- **Field** — a field on the watched record that points at a person: the salesman on the invoice, the employee on the leave request. The field is read at send time, so the message follows whoever is on the record.
+- **Target** — an explicit recipient. The picker accepts an **Employee**, a **User**, an **Organization Position**, a **Job Position**, an **Employee Department**, an **Employee Group**, a **Master Group**, a **Security Profile** or a **Responsibility** — so "everyone with the Credit Controller responsibility" is one row, not a list that goes stale.
+
+**Targets Query** (استعلام المستهدفين) covers the rest: recipients that have to be looked up rather than named.
+
+::: warning The query's contract
+The query must return `entityType` and `id`, in that order. Any further columns are ignored. For example, notifying every subsidiary of the company that just paid:
+
+```sql
+select entityType, id from Customer where parent_id = {relatedSubsidiary.id}
+```
+:::
 
 ::: tip When the recipient picker won't offer the record type you want
 The pickers that choose a recipient only offer the record types an administrator has allowed as e-mail recipients. If the type you need — a third party, a contact, a driver — is missing from the list, add it in [Fields and Entities Settings](/platform/fields-and-entities-settings/fields-settings-record-behaviour) and it becomes selectable everywhere recipients are chosen.
 :::
 
-### 4. Message Generation
-Messages are created using dynamic templates that can include:
-- Field values from the changed record
-- Related record information
-- User-specific content
-- Links to relevant records
-- Formatted tables and data
+**Do Not Notify Author** (عدم تنبيه محرر السجل) drops the person who caused the event from the recipient list — most people do not need to be told what they just did.
 
-### 5. Multi-Channel Delivery
-The system can deliver the same notification through multiple channels:
-- **In-App Notifications**: Displayed within the ERP interface
-- **Email**: Rich HTML emails with attachments and links
-- **SMS**: Text messages to mobile phones
-- **WhatsApp**: Messages through WhatsApp Business API
-- **FCM Notifications**: Push notifications to mobile devices
+### Recipients the system removes on its own
 
-## Notification Types by Business Event
+This is the answer to most "why didn't they get it?" questions. Before sending, the engine silently drops:
 
-### Document Lifecycle Notifications
-- **Creation**: "New sales invoice SI-2024-001 was created by John Smith"
-- **Updates**: "Customer ABC Corp contact information has been updated"
-- **Approval**: "Purchase order PO-2024-123 requires your approval"
-- **Status Changes**: "Invoice SI-2024-001 has been cancelled"
+- any **user prevented from login**;
+- any **employee whose state is Resigned, Dismissed, Pension or Suspended**, and any employee all of whose users are prevented from login;
+- a **user** who is in the list while their **employee** is in it too, so nobody is messaged twice.
 
-### Workflow Notifications
-- **Approval Requests**: Notify approvers when documents need approval
-- **Approval Decisions**: Inform stakeholders about approval outcomes
-- **Escalations**: Alert when approvals are overdue
-- **Returns**: Notify when documents are returned for revision
+The employee-state part can be switched off with **Ignore Employee State When Sending Notifications** in [global settings](/platform/global-config/global-config-notifications), which leaves only the prevented-from-login rule. Nothing is written on the document when a recipient is dropped this way; the message simply goes to one person fewer.
 
-### System Notifications
-- **Process Failures**: Alert administrators about system errors
-- **Replication Issues**: Notify about data synchronization problems
-- **Scheduled Tasks**: Results of automated processes
-
-### Custom Business Rules
-- **Threshold Alerts**: Notify when values exceed limits
-- **Deadline Reminders**: Alert about approaching due dates
-- **Compliance Notifications**: Ensure regulatory requirements are met
-
-## Message Templates and Dynamic Content
-
-### Template Language (Tempo)
-Notification messages use the Tempo templating language to create dynamic, personalized content. This allows messages to include:
-
-```
-Dear {customer.name1},
-
-Your invoice {code} dated {valueDate} with amount {money.total} 
-has been {translate(status)}.
-
-You can view the invoice details here: {link($this)}
-
-Best regards,
-{$user.name1}
-```
-
-### Dynamic Field Access
-Templates can access any field from the record or related records:
-- `{code}` - The record's code
-- `{customer.name1}` - Customer's Arabic name
-- `{employee.contactInfo.email}` - Employee's email address
-- `{details.item.item.name2}` - Item name from document lines
-
-### Conditional Content
-Show different content based on conditions:
-```
-{if(money.remaining)}
-Outstanding amount: {money.remaining}
-{else}
-This invoice is fully paid
-{endif}
-```
-
-### Loops and Tables
-Display repeated information like document lines:
-```
-{opentable}
-{row}{cell}Item{cell}Quantity{cell}Price{endrow}
-{loop(details)}
-{row}{cell}{details.item.item.name2}{cell}{details.quantity}{cell}{details.price.unitPrice}{endrow}
-{endloop}
-{closetable}
-```
-
-### Change History (Audit Trail)
-Include detailed change information in notifications (for update notifications):
-```
-{changesAsHtmlAr}  {comment}Changes in HTML format (Arabic){endcomment}
-{changesAsHtmlEn}  {comment}Changes in HTML format (English){endcomment}
-{changesAsTextAr}  {comment}Changes in plain text (Arabic){endcomment}
-{changesAsTextEn}  {comment}Changes in plain text (English){endcomment}
-```
-
-See the [Tempo documentation](../../admin/tempo.md#Audit-Trail-Change-History) for detailed examples and usage.
-
-## Notification Channels in Detail
-
-### In-App Notifications
-- Appear in the user's notification panel within Nama ERP
-- Include read/unread status tracking
-- Can contain rich formatting and links
-- Support action buttons (approve, reject, etc.)
-- Automatically mark as read when related records are accessed
-
-### Email Notifications
-- Support HTML formatting with embedded images
-- Can include file attachments from the record
-- Automatic email signatures and branding
-- Reply-to addresses for two-way communication
-- Delivery confirmation and bounce handling
-
-### SMS Notifications
-- Plain text messages up to 160 characters
-- Support for Unicode (Arabic) text
-- Delivery status tracking
-- Cost management and quotas
-- Integration with multiple SMS providers
-
-### WhatsApp Business Messages
-- Rich media support (images, documents)
-- Template-based messaging for compliance
-- Delivery and read receipts
-- Integration with WhatsApp Business API
-- Support for interactive buttons and quick replies
-
-## Advanced Features
-
-### Change History in Notifications
-
-One of the most powerful features of the notification system is the ability to automatically include detailed change history in notifications. This is particularly useful for:
-- **Update notifications**: Show what changed when a record is modified
-- **Approval workflows**: Display changes that need approval
-- **Audit trails**: Track modifications for compliance
-- **User awareness**: Keep teams informed about changes
-
-#### Using Change History Fields
-
-Every entity in Nama ERP provides four built-in fields for displaying change history:
-
-| Field | Format | Language | Use Case |
-|-------|--------|----------|----------|
-| `{$changesAsHtmlAr}` | HTML | Arabic | Rich email notifications in Arabic |
-| `{$changesAsHtmlEn}` | HTML | English | Rich email notifications in English |
-| `{$changesAsTextAr}` | Plain Text | Arabic | SMS messages, simple notifications in Arabic |
-| `{$changesAsTextEn}` | Plain Text | English | SMS messages, simple notifications in English |
-
-#### Example: Update Notification with Changes
-
-**Notification Template for Document Updates:**
-```
-{subject}Update: {entityType.$arabic} number {code}{endsubject}
-
-<div style="font-family: Arial, sans-serif;">
-  <h2>Document {entityType.$arabic} number {code} has been modified</h2>
-
-  <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px;">
-    <h3>Changes made:</h3>
-    {$changesAsHtmlAr}
-  </div>
-
-  <p><strong>Modified by:</strong> {$user.name1}</p>
-  <p><strong>Date and time of modification:</strong> {$now}</p>
-
-  <a href="{link($this)}" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
-    View Document
-  </a>
-</div>
-```
-
-#### Example: Approval Request with Change Summary
-
-**Template for Approval Notifications:**
-```
-{subject}Approval request for {entityType.$arabic}: {code}{endsubject}
-
-<h2>Dear {currentApprovalCase.lastStep.actualResponsible.name1}</h2>
-
-<p>Please review and approve the following {entityType.$arabic}:</p>
-
-<div style="border: 1px solid #ddd; padding: 10px; margin: 10px 0;">
-  <strong>Document number:</strong> {code}<br/>
-  <strong>Date:</strong> {valueDate}<br/>
-  <strong>Value:</strong> {money.total}
-</div>
-
-<div style="background-color: #fff3cd; padding: 15px; border-left: 4px solid #ffc107;">
-  <h3>Changes requiring approval:</h3>
-  {$changesAsHtmlAr}
-</div>
-
-<div style="margin-top: 20px;">
-  {approvelink} | {rejectlink} | {returnlink}
-</div>
-```
-
-#### Example: Multi-Language Change Notification
-
-**Template Supporting Both Arabic and English:**
-```
-{subject}Document Update / تحديث المستند: {code}{endsubject}
-
-<div style="direction: rtl; text-align: right; margin-bottom: 30px;">
-  <h2>تحديث المستند رقم {code}</h2>
-  <h3>التغييرات:</h3>
-  {$changesAsHtmlAr}
-</div>
-
-<hr style="margin: 30px 0;"/>
-
-<div style="direction: ltr; text-align: left;">
-  <h2>Document {code} Updated</h2>
-  <h3>Changes:</h3>
-  {$changesAsHtmlEn}
-</div>
-
-<p style="text-align: center; margin-top: 30px;">
-  <a href="{link($this)}">View Document / عرض المستند</a>
-</p>
-```
-
-#### Example: SMS Notification with Text Changes
-
-**Template for SMS Notifications:**
-```
-Update: {code}
-{$changesAsTextAr}
-View: {link($this, plainLink=true)}
-```
-
-#### What Information is Displayed
-
-The change history automatically includes:
-
-1. **Header Field Changes**
-   - Field name (translated to selected language)
-   - Previous value
-   - New value
-
-2. **Detail Line Changes**
-   - Added lines with all field values
-   - Removed lines with all field values
-   - Modified lines showing only changed fields
-
-3. **Change Metadata**
-   - User who made the change
-   - Date and time of modification
-
-#### Best Practices
-
-::: tip Choosing the Right Format
-- **Use HTML format** for email notifications where you want formatted tables and styling
-- **Use text format** for SMS messages, plain text emails, or when you need simple output
-- **Choose language** based on your notification target's preferred language
-- Consider providing **both languages** for international teams
-:::
-
-::: warning Performance Considerations
-Change history is calculated dynamically when the notification is sent. For notifications with many recipients, this is optimized to calculate once and reuse the result.
-:::
-
-::: tip Conditional Display
-You can check if there are changes before displaying them:
-```
-{if($changesAsTextAr)}
-  <div class="changes-section">
-    <h3>Changes</h3>
-    {$changesAsHtmlAr}
-  </div>
-{else}
-  <p>No recorded changes</p>
-{endif}
-```
-:::
-
-### Multi-Message Support
-A single notification template can generate multiple messages:
-```
-{openmsg}
-{sendto}{customer.email}{endsendto}
-{subject}Invoice {code} - Customer Copy{endsubject}
-Dear Customer, your invoice is ready...
-{closemsg}
-
-{openmsg}
-{sendto}{salesperson.email}{endsendto}
-{subject}Invoice {code} - Sales Copy{endsubject}
-Dear Sales Team, invoice {code} was sent to customer...
-{closemsg}
-```
-
-### Targets Query Examples
-
-The targets query feature allows you to dynamically identify notification recipients using database queries. This is powerful for scenarios where the recipients aren't directly referenced in the triggering record.
-
-::: warning Query Format Requirements
-The query must return `entityType` and `id` columns, in that exact order. Any additional columns will be ignored.
-:::
-
-#### Example: Notifying Subsidiaries When Parent Company Makes Payment
-
-When a parent company (customer) makes a payment, you may want to notify all their subsidiary companies. Use this targets query:
-
-```sql
-select entityType, id from Customer where parent_id = {relatedSubsidiary.id}
-```
-
-This query:
-- Finds all Customer records where `parent_id` matches the subsidiary of the current record
-- Returns both the entity type and ID for each matching customer
-- The notification system then sends notifications to contacts associated with each found customer
-
-### Conditional Sending
-Control when notifications are sent based on:
-- Field values and conditions
-- User roles and permissions
-- Time-based rules
-- Business logic criteria
-
-### Priority and Escalation
-- High-priority notifications for urgent matters
-- Automatic escalation if no response within timeframe
-- Fallback recipients when primary recipients are unavailable
-- Different notification methods based on urgency
-
-### Approval Integration
-Special support for approval workflows:
-- Approval request notifications with action buttons
-- Automatic routing to next approver
-- Escalation to supervisors for overdue approvals
-- Notification of approval decisions to stakeholders
-
-### Delegation: Reaching the Stand-In
+### Delegation: reaching the stand-in
 
 A notification that lands in the inbox of someone who is on two weeks' leave is a notification nobody acts on. When an employee has an active **Delegation** document — the same document used to hand pending approvals over to a stand-in — the system extends notifications the same way.
 
@@ -392,7 +103,7 @@ The delegate joins the recipient list itself, which means they are reached throu
 
 Two switches control the behaviour:
 
-- **Do Not Apply Delegation** on the notification definition turns delegation off for that definition alone. Use it for messages that must never leave the intended person: salary changes, disciplinary matters, anything an employee would not want a colleague reading.
+- **Do Not Apply Delegation** (عدم تطبيق التفويض) on the notification definition turns delegation off for that definition alone. Use it for messages that must never leave the intended person: salary changes, disciplinary matters, anything an employee would not want a colleague reading.
 - **Do Not Send Notifications To Delegated Employee** in [global settings](/platform/global-config/global-config-notifications) turns the behaviour off for the whole installation.
 
 Notifications raised by [scheduled tasks](/platform/scheduled-tasks) follow the same rule. A scheduled task has no per-record switch, so only the global setting applies to it.
@@ -403,66 +114,80 @@ Delegation covers notifications raised *while* the period is active; it does not
 Note the difference: this really is a *move* — the notifications leave the delegator's list — whereas ongoing delegation copies them. It is the tool for "the manager is already on leave and their inbox is full", not for routine cover. The document must be saved and committed before the action will run.
 :::
 
-## Configuration and Administration
+## What they read
 
-### Notification Definitions
-Administrators can create and manage notification rules through the ERP interface:
-- Define trigger conditions
-- Specify target recipients
-- Create message templates
-- Configure delivery channels
-- Set priority and timing rules
+The **Templates** group holds one template per channel, each written in [Tempo](/admin/tempo):
 
-### Template Management
-- Visual template editor with syntax highlighting
-- Template testing and preview capabilities
-- Version control and change tracking
-- Template libraries for common patterns
-- Validation and error checking
+| Field | Arabic | Feeds |
+|---|---|---|
+| Notification Template | قالب التنبيهات | The in-app message |
+| Email Template | قالب الإيميل | The e-mail body, HTML included |
+| SMS Template | قالب الرسائل النصية | The text message |
+| WhatsApp Message | رسالة واتساب | The WhatsApp message |
+| Notification Title Template / Notification Body Template | قالب عنوان التنبيه / قالب محتوى التنبيه | The push notification on the mobile apps |
 
-### Delivery Settings
-- Configure email servers and authentication
-- Set up SMS provider connections
-- WhatsApp Business API integration
-- Delivery retry policies and failure handling
-- Performance monitoring and logging
+The message's **title** is the definition's own name — so name definitions the way you want them to read in a user's notification list, not `NOTIF-017`.
 
-### User Preferences
-Individual users can control their notification preferences:
-- Choose preferred delivery channels
-- Set quiet hours and vacation modes
-- Filter notification types
-- Group similar notifications
-- Mobile app push notification settings
+Writing the same text three times is avoidable: **Copy Notification From**, **Copy Email From** and **Copy SMS From** each take one of *Email*, *SMS* or *Notification* and reuse that channel's template instead.
 
-## Best Practices
+A few more fields shape what arrives:
 
-### Template Design
-- Keep messages concise and actionable
-- Use clear, professional language
-- Include relevant context and links
-- Test templates with sample data
-- Consider mobile device formatting
+- **Notification Report / Email Report / SMS Report** attach a report rendered for the record, with **Attached File Format** (تنسيق الملف المرفق) choosing the output and **Attachment Name Template** (قالب اسم المرفق) naming the file — itself a Tempo template, so the customer receives `Invoice-SI-2024-001.pdf` rather than `report.pdf`.
+- **Preferred Email Sender** and **Preferred SMS Sender** pick which configured sender the message goes out from; **WhatsApp Preferred Sender** does the same for WhatsApp and can resolve per employee — see [Sending WhatsApp from Employee Phones](/platform/notifications/sms-and-whatsapp#Sending-WhatsApp-from-Employee-Phones-Dynamic-Sender).
+- **Allow Multiple SMSs with the same Body and Phone Number from this Notification Definition** is off by default, which suppresses a duplicate text to the same number. Tick it when the repetition is the point, such as a daily reminder with identical wording.
+- **Do Not Send Notifications To Mobile Apps** (لا ترسل تنبيهات لتطبيقات الجوال) keeps a definition off the phones.
+- **Notification Reference1 / Reference2 Source** stamp the resulting notification with a reference taken from a field on the record, which is what lets a notification list be filtered by, say, the customer it concerned.
 
-### Performance Optimization
-- Use efficient database queries for targeting
-- Avoid sending duplicate notifications
-- Implement proper retry mechanisms
-- Monitor delivery success rates
-- Archive old notifications regularly
+### Templates that read the record
 
-### Security Considerations
-- Validate all template inputs
-- Sanitize dynamic content
-- Protect sensitive information
-- Use secure delivery channels
-- Audit notification access
+Tempo templates reach any field of the record and of the records it points at:
 
-### User Experience
-- Provide clear notification summaries
-- Group related notifications
-- Offer easy unsubscribe options
-- Include help and contact information
-- Maintain consistent branding
+```
+Dear {customer.name1},
 
-The Nama ERP notification system is a powerful tool that enhances business communication, improves process efficiency, and ensures that important information reaches the right people at the right time. By leveraging dynamic templates, multiple delivery channels, and intelligent targeting, organizations can create a responsive and effective communication infrastructure that supports their business operations.
+Your invoice {code} dated {valueDate} with amount {money.total}
+has been {translate(status)}.
+
+You can view the invoice details here: {link($this)}
+```
+
+Four built-in fields put the audit trail of an update straight into the message — `{$changesAsHtmlAr}`, `{$changesAsHtmlEn}`, `{$changesAsTextAr}` and `{$changesAsTextEn}`. Use the HTML pair in e-mail and the text pair in SMS; each lists the header fields that changed with their old and new values, plus added, removed and modified detail lines. [Tempo](/admin/tempo#Audit-Trail-Change-History) has the full syntax, including loops over detail lines and the `{openmsg}…{closemsg}` blocks that let one definition send a different message to each recipient.
+
+## When it is sent
+
+In-app notifications appear as soon as the event is committed. E-mail, SMS, WhatsApp and mobile push do not go out inline — each becomes a pending task that a background processor picks up, which is why a slow mail server never slows down saving a document.
+
+The **Allow Sending E-Mail and SMSs in these times** grid is where a definition says *when* those queued messages may leave:
+
+| Column | Arabic | Meaning |
+|---|---|---|
+| From-Time / To-Time | من وقت / إلى وقت | The window in which sending is allowed |
+| Day 1 … Day 7 | أيام الأسبوع | Optionally restrict the window to certain weekdays; leave them empty and the window applies every day |
+
+A message raised outside every window is not dropped — it waits and goes out at the nearest allowed time. Leave the grid empty and messages are sent whenever they arise. Note that this belongs to the **definition**, not to the recipient: there is no per-user quiet-hours setting in Nama.
+
+Two more timing-related fields:
+
+- **Flush Before Notification** writes pending changes to the database before the templates are rendered. If the definition uses a **Query**, you want this on — otherwise the query may not see the very record that triggered the message. The screen warns you about exactly that when you save a definition that has a query with the switch off.
+- **Notify In Sites** (التنبيه في) restricts the definition to named replication sites, so a head-office rule does not fire again at every branch.
+
+::: tip Nothing is being sent at all
+Before digging into a single definition, check the server side: e-mails and SMS only leave a server whose **Server Id** matches the **Send Mails And SMS Only From Servers** list in [global settings](/platform/global-config/global-config-notifications). A test server cloned from production and left carrying production's server id is the classic cause of "the customer received two copies".
+:::
+
+## Firing one by hand
+
+Tick **Manually** and the definition stops reacting to events; it waits to be run against a record on demand. There are two ways to run it:
+
+- An [entity action](/platform/entity-flows/introduction-to-entity-flows) — *Run Manual Notification* — takes the definition's **code** as its parameter, so a button or a flow step can send it for the record at hand.
+- A **Bulk Message** runs a manual definition over every record a query returns, which is the tool for "send this to every customer with an overdue balance".
+
+Because a manual definition never fires on its own, it is also the safe way to build and test a template on a live system.
+
+## Housekeeping on the screen
+
+The definition screen carries four actions for the notifications it has already produced: **Delete All Notifications**, **Delete Current User Read Notifications**, **Delete All Users Read Notifications** and **Delete Notifications Until Date**. They clear the in-app notification lists, which on a busy installation grow faster than anyone reads them.
+
+::: warning Changing a definition takes effect immediately
+Definitions are cached, but the cache is dropped the moment any definition is saved — no restart, no waiting. If a changed definition seems not to have taken effect, the cause is in the definition's own filters, in its priority level, or in a recipient the engine dropped — not in a stale cache.
+:::
