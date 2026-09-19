@@ -59,8 +59,9 @@ the field itself rather than looking for a marking.
 This is worth being precise about, because "prevented" sounds broader than it is.
 
 The block is on **being referenced by something else**. When a document is saved, every record it
-names is checked, and if one of them is retired the save is refused with a message naming the record
-and saying its usage is prevented. That is the whole mechanism.
+names is checked, and if one of them is retired the save is refused with
+*Can not use record {0}-{1}, usage is prevented*, where `{0}-{1}` is the retired record's type and
+code. That is the whole mechanism.
 
 Three things follow from that, and all three surprise people:
 
@@ -173,3 +174,11 @@ document cannot be used as a source even on a document that is only being saved 
 
 Retirement is recorded like any other change to a record, so who retired something and when is
 visible in the [audit trail](/platform/audit-trail).
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Can not use record {0}-{1}, usage is prevented* — «لا يمكن استعمال السجلات التي تم منع استعمالها {0}-{1}» | The record you are saving names a retired record; the message names its type and code. | Allow its usage again, or use one of the three exceptions above — the two user settings, or the per-field grid. |
+| *Can not use item {0}, it is prevented from using* — «لا يمكن استخدام الصنف {0} ، حيث أنه ممنوع من الإستخدام» | The same block on an item, raised by the item's own check so the message names the item. | As above. On a returns document, the per-field exception is usually the right answer. |
+| *The document {0} is prevented from usage as from doc* — «المستند {0} ممنوع من الإستخدام في بناء على» | The source document you are generating from was closed off with **Prevent Usage As From Doc**. It is not retired — only its use as a source is blocked. | Run **Allow Usage As From Doc** on that document, or generate from a different source. |

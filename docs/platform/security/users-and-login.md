@@ -77,7 +77,7 @@ The intended workflow: keep roles in Security Profiles, and use user-level table
 
 | Setting | Purpose |
 |---|---|
-| **Prevent Login** | Disable the account. The adjacent **Prevent Login Message for User** field lets you tell the user why. |
+| **Prevent Login** | Disable the account. The refusal reads *You are prevented from login*, unless **Prevent Login Message for User** is filled — that text replaces the standard message entirely. |
 | **Max Login Sessions** | Maximum concurrent sessions (defaults to 1 for new users). With **Auto Logout on Exceeding Max Sessions** enabled, a new login logs out the oldest session instead of being rejected. |
 | **Auto Logout Time (minutes)** | Minutes of inactivity before the session ends. |
 | **Allow Login From Apps** | Permits login from mobile applications. Mobile users count against the *mobile users* limit in the license. |
@@ -86,7 +86,9 @@ The intended workflow: keep roles in Security Profiles, and use user-level table
 | **Prevent Public Login** | Force the user to choose a specific company at login instead of the general context. |
 | **POS User** + **POS Security Profile** | Marks the user for the POS application and assigns a dedicated POS security profile; POS users must be linked to an employee. |
 
-From the user list screen, the **Change Multi Users Password** action helps administrators reset passwords for several accounts at once, while the **allowLoginAfterFailedLogins** action on the user screen unlocks an account that was locked due to repeated failed login attempts.
+From the user list screen, the **Change Multi Users Password** action helps administrators reset passwords for several accounts at once, while the **Allow Login After Failed Logins** action on the user screen unlocks an account that was locked by repeated failed login attempts.
+
+Two settings in Global Configuration drive that lock: **Max Failed Login Attempts** is how many wrong passwords are tolerated, and **Minutes To Remember Failed Logins** is how long the block lasts. The block is held in the server's memory, not on the user record, which has three consequences worth knowing: it **clears itself** once that many minutes have passed since the last failed attempt, it is lost when the server restarts, and every further attempt while blocked re-starts the clock — so a user who keeps retrying never gets in. The administrator's unlock is the fast route, not the only one.
 
 ## Passwords
 
@@ -96,7 +98,7 @@ From the user list screen, the **Change Multi Users Password** action helps admi
 
 ## Actions on this screen
 
-- **Allow Login After Failed Logins** — this is the unlock. When a user has been shut out by the failed-attempt limit described above, nothing expires the block on its own; an administrator opens the user, saves it, and presses this. The user can then sign in again with the same password.
+- **Allow Login After Failed Logins** — this is the unlock. It clears the failed-attempt block immediately, and it answers with something support can use: *The user was unblocked, here are the IPs that caused the block: {0}* — the addresses the wrong passwords came from — or *The user was not blocked* if there was nothing to clear. The user record must be saved first. Neither reply has an Arabic translation, so both appear in English.
 - **Change Password** — sets a new password for the user without knowing the old one. It asks for the **new password** and a **confirm** of it, and then, optionally, an email address and its password to send from, a **password must be changed** switch that forces the user to set their own at the next sign-in, and whether to notify them **by email** or **by SMS**. The user record must be saved first.
 - **Add Types Related To Current Types** — on the permissions grid. Standing on a permission line, it looks at the entity that line covers, works out every entity it points at through its reference and generic-reference fields, and adds a line for each one that is not already in the grid. It is how you grant the supporting read access an entity needs without hunting for the related types by hand. The same button is on the Security Profile screen, over the same grid.
 
@@ -140,3 +142,15 @@ The **Treat As Admin** flag in user settings does *not* grant data permissions �
 ### User Level
 
 Licenses can define named user levels with different counts. The **User Level** field places the user in one of the levels available in your license; the system verifies the level exists and enforces the licensed counts (integrated with **Users Counter** records that can also be linked at the Security Profile level).
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *You are prevented from login* — «تم منع دخولك الي النظام» | **Prevent Login** is ticked on the user. If the account shows a different message instead, it came from **Prevent Login Message for User**. | Untick Prevent Login on the user record. |
+| *You have exhausted your max failed login attempts, please try again after {0} minutes or contact your system administrator - user name: {1}* — «لقد استنفذت أقصى عدد من محاولات الدخول الخطأ. يرجي المحاولة مرة أخرى بعد {0} دقيقة أو التواصل مع مدير النظام. اسم المستخدم: {1}» | More wrong passwords than **Max Failed Login Attempts** allows. | Wait out **Minutes To Remember Failed Logins** without trying again, or have an administrator press **Allow Login After Failed Logins**. |
+| *The user was unblocked, here are the IPs that caused the block: {0}* | The unlock worked, and the message names the addresses the failed attempts came from. | Nothing — but the IP list is worth reading before you assume the user simply mistyped. |
+| *The user was not blocked* | The unlock was pressed on a user who is not blocked. | Look elsewhere: **Prevent Login**, the licence limits, or the user's level. |
+| *User login id {0} is already existing* | A committed user already holds that login id. Login ids are unique system-wide; drafts do not count. | Choose another login id, or find the existing user. |
+
+The two unlock replies have no Arabic translation and appear in English on Arabic screens.

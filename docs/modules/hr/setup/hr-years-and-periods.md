@@ -27,7 +27,7 @@ Two ordinary periods can share the same **Aggregated Period Code**, which lets r
 
 Three actions sit on the HR Year screen:
 
-- **Close Periods** (غلق الفترات) — locks the selected periods (their status becomes Closed), which blocks further salary generation against them. This is the safety switch once a month's payroll is finalized.
+- **Close Periods** (غلق الفترات) — locks the selected periods (their status becomes Closed), which blocks further salary generation against them. This is the safety switch once a month's payroll is finalized. Every payroll document that names a closed period is refused with *Hr period {0} is closed* — «فترة الرواتب {0} حالتها مغلقة» — salary sheets, payslips, loans and increases alike, so this one message on a payroll screen almost always means "someone closed the month".
 - **Open Periods** (فتح الفترات) — reverses that, for the rare case a closed period needs a correction.
 - **Create Next HR Year** (إنشاء سنة الرواتب التالية) — rolls a brand-new year (and its periods) forward automatically, so payroll admins don't rebuild the calendar from scratch every year.
 

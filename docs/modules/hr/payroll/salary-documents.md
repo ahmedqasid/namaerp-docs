@@ -176,6 +176,19 @@ The document carries **no accounting logic of its own**. Instead, it posts **lin
 Beyond the per-component postings, a salary document's term can additionally allocate the labor cost as a **contracting cost** — a **Contracting Cost Debit / Contracting Cost Credit** (مدين / دائن تكلفة المقاولات) pair configured on the document term — for organizations that carry employee time onto project/contract costing. This is an add-on to the main component-driven posting, not a replacement for it, and only applies when the contracting module is in use.
 :::
 
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Please select period* — «من فضلك اختر الفترة» | **Collect Employees** was pressed with **HR Period** empty. | Choose the period first. |
+| *You Must Fill Salary Generation Range* — «يجب ملء حقل مجال إصدار الرواتب» | The sheet's term has **Salary Range Must be Specified** ticked and no **Salary Generation Range** is chosen. | Choose a range, or untick the option on the term. |
+| *There are {0} out of {1} employees already have salary documents for period {2}* — «يوجد {0} موظف من اصل {1} لديهم سندات رواتب بالفعل لهذه الفترة {2}» | Not a refusal — the sheet is telling you how many of the employees it found were left out because they already have a document for this period **and** this issuance. | Nothing, if that is what you expect. If it is not, check whether you are on the same issuance as the earlier run. |
+| *Hr period {0} is closed* — «فترة الرواتب {0} حالتها مغلقة» | The HR period is closed, and closing an HR period stops every payroll document that names it — sheets and payslips alike. | Reopen the period on [HR Years and Periods](/modules/hr/setup/hr-years-and-periods), run what you need, close it again. |
+| *The Employee {0} is not working* — «الموظف {0} ليس على رأس العمل» | The employee's state is not *Working* and they did not qualify as partially working for this period. | If they should be paid, correct the state history so the change falls inside the period; the collection rules above describe exactly what counts. |
+| *The employee {0} already has another salary document for the same period* — «الموظف {0} لديه سند راتب اخر على نفس الفترة» | A payslip already exists for that employee, period and issuance — drafts included. | Find and edit the existing document instead of making a second one. |
+| *Cannot Apply two documents of same type on {0} on the same period* — «لا يمكن حفظ مستندين للموظف {0} على نفس فترة الرواتب» | A second HR document of the same type is being saved for the same employee and payroll period. | Edit the existing one. |
+| *Can not regenerate revised salary document {0}* — «لا يمكن إعادة إصدار سند الراتب {0} الذي تمت مراجته» · *Can not regenerate revised salary sheet {0}* — «لا يمكن إعادة إصدار سجل الرواتب {0} الذي تمت مراجعته» | Regeneration was attempted on a document or sheet that carries a revision sign-off. | Unrevise it first — see [Revise and Unrevise](/platform/revise-and-unrevise). |
+
 ## Related pages
 
 - **[How Salary Is Calculated](../concepts/hr-salary-engine.md)** — the full five-step pipeline that leads up to this document.

@@ -158,3 +158,12 @@ When attempting to save a document in a period, the system decides to allow or b
 ::: details Caching
 The rules for "Fiscal Year Status Update" and "Ignore Closed Periods" are cached in memory to improve performance. The cache is cleared automatically whenever any of these records or the General Settings are modified, so changes take effect immediately without restarting.
 :::
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Can not have transactions on the closed period {0}* — «{0} لا يمكن إجراء معاملات في الفترة المغلقة» | The document's value date falls in a period that is closed for you — either closed at the base level, or closed for your party by a Fiscal Year Status Update rule. | Move the value date into an open period, reopen the period, or grant an Ignore Closed Periods exception for the party or the document type. |
+| *Can not delete transactions on closed periods* — «لا يمكن حذف مستندات في فترة مغلقة» | Deleting a document whose value date sits in a closed period. Deletion is checked the same way as saving. | Reopen the period or grant the exception, then delete. |
+| *Value Date {0} is not in the range of the fiscal period: [{1} - {2}]* — «التاريخ الفعلي {0} خارج نطاق تواريخ الفترة المالية [{1} - {2}]» | The fiscal period named on the document does not contain the value date. This is not a closing rule — the two simply disagree. | Correct the value date, or let the document pick its own period again. |
+| *Could not find a fiscal period for the date {0}, please define a fiscal year or period* — «لم يمكن العثور على فترة مالية للتاريخ {0} - يرجي تعريف سنة مالية او فترة مالية لهذا التاريخ» | No fiscal period covers that date at all — commonly a recurring document rolling into a year nobody has defined yet. | Define the fiscal year and its periods for that date. |

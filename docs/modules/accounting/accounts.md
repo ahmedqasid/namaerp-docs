@@ -48,7 +48,7 @@ The part that makes this screen pivotal for support is the set of flags (checkbo
 
 - **System Account** — marks an account whose balance the system builds by itself, and locks it against manual entry: a journal entry, receipt/payment voucher, bank transfer or inter-company transfer naming it is refused with *"The Account … Can Be Used Only By The System"*. Documents generated automatically are unaffected. Three things can reopen it — a module option per document type, the flag below, or a dated exception record; all three are on [System Accounts & Transaction Exceptions](./system-accounts-and-exceptions.md).
 - **Allow System Account In Opening** — a companion to the flag above: it lets the account be used manually in any period that is **not** a Normal one (opening, adjustment, closing), so opening balances and year-end adjustments can be recorded on it while it stays locked during the year.
-- **Prevent Changing Account Balance Nature** — blocks a transaction that would flip the account's balance to its unnatural side (e.g., making a cash balance credit). A safeguard against errors.
+- **Prevent Changing Account Balance Nature** — blocks a transaction that would flip the account's balance to its unnatural side (e.g., making a cash balance credit). A safeguard against errors. The refusal names the balance the document would have produced: *The balance of account {0} will become {1}, You can not change the natural side of the account balance from Debit to Credit* — « رصيد الحساب {0} سيكون {1}, فلذلك لا يمكن تغيير طبيعه رصيد الحساب من مدين الي دائن » — with a *from credit to debit* twin and a dated variant ending *on {2}*.
 - **Track Debt Ages** — enables debt-age tracking for this account, a prerequisite for the account appearing in debt-age reports.
 - **Do Not Auto-Include In Exchange Rate Update** — excludes the account from periodic foreign-currency revaluation.
 - **Use Transaction Local Currency** — makes the account keep its value in the transaction's local currency.
@@ -60,8 +60,24 @@ The part that makes this screen pivotal for support is the set of flags (checkbo
 If you use financial budgets, the **Budget Exceeded Behavior** and **Prevent Save If No Budget** fields determine how the system reacts when spending exceeds its budget:
 
 - **Allow** — records the transaction and tolerates a silent overrun.
-- **Prevent Saving** — rejects the over-budget transaction.
-- **Request Approval** — halts the transaction pending approval.
+- **Prevent Saving** — rejects the over-budget transaction with *The account {0} has a budget {1}, and this document will exceed the budget because it will it make the balance {2}* — «موازنة الحساب {0} قيمتها {1} و هذا السند سيتعدي الموازنة حيث أنه سيجعل الرصيد {2}».
+- **Request Approval** — halts the transaction pending approval. This route needs three things in place, and each has its own refusal when it is not: the accounting-configuration option (*You must enable the option {0} in accounting configuration to be able to use request approval when budget is exceeded*), an approval definition that matches the document (*The document {0} exceeded the budget and no appropriate approval definition was found* — «المستند {0} تعدي الموازنة و لم يجد النظام تعريف موافقة مناسب ليتم الموافقة علي تعدي الموازنة»), and **exactly one** such definition — two matching definitions stop the save with *…should be approved by the approval definition {1}, but it also should be approved using the approval definition {2}. This is a conflict and the system can not decide which to choose*.
+
+## When an account is closed to transactions by date
+
+A separate file, **Prevent Accounts Transactions**, closes an account or a subsidiary to movement for a
+date range — it is not a flag on the account itself, which is why nothing on this screen explains the
+refusal. Three messages come from it, and all three name the file so you know where to look:
+
+| Message | Why |
+|---|---|
+| *You can not add or edit any transaction on The Account {0} on the date {1} , please review Prevent Accounts Transactions file* — «لا يمكن تعديل أو إضافة أي حركة علي الحساب {0} في تاريخ {1} ، راجع ملف منع الحركات علي الحسابات» | A Prevent Accounts Transactions record covers that account and that date. |
+| *You can not add or edit any transaction on The Subsidiary {0} on the date {1} , please review Prevent Accounts Transactions file* — «لا يمكن تعديل أو إضافة أي حركة علي الذمة {0} في تاريخ {1} ،راجع ملف منع الحركات علي الحسابات» | The same block written against a subsidiary — a customer, supplier or employee — rather than the account. |
+| *You can not do any transaction on The Subsidiary {0} now , please review Prevent Accounts Transactions file* — «لا يمكن عمل اي حركة علي الذمة {0} الاّن ، راجع ملف من حركات الحسابات» | The block on that subsidiary has no date range, so it applies whatever the document's date. |
+
+The fix is always the same: open the Prevent Accounts Transactions record, and either narrow its date
+range or remove the account or subsidiary from it. Nothing on the account or on the security profile
+overrides it.
 
 ## Actions on this screen
 

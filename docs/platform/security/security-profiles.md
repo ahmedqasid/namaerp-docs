@@ -187,3 +187,20 @@ The last page is view-only: a list of all users currently assigned this profile,
 ::: warning Changes Take Effect at Next Login
 Permission data is loaded with the session. Users typically pick up security profile changes at their next login — keep this in mind during testing.
 :::
+
+## Messages you may see
+
+A permission refusal always names the thing it checked, and that tells you which table to open.
+
+| Message | Which setting refused it | What to do |
+|---|---|---|
+| *You do not have the authority {1} on entity {0}* — «لا توجد لديك الصلاحية {1} على النوع {0}» | **Standard Security Lines**. `{1}` is the authority itself — Insert, Update, Delete, View, Commit, Revise and the rest — and `{0}` is the entity type. | Find the row covering that entity type and tick that authority. If several rows could match, the most specific one wins, which is the trap explained in [the permissions FAQ](/admin/troubleshooting/general-faq#How-Can-Permissions-Be-Assigned-to-All-Record-Types-in-Nama-ERP-in-a-Flexible-and-Fast-Way-Without-Adding-a-Row-for-Each-Type). |
+| *The user {0} does not have the capability {1} on the type {2}* — «المستخدم {0} ليس لديه الصلاحية {1} للنوع {2}» | **Custom Capabilities**, not the standard grid. The named capability is one of the per-screen actions, so ticking Update will not help. | Add the capability for that type on the Custom Capabilities page. |
+| *The user {0} level ({1}) does not include the entity type {2}* — «السمتخدم {0} يتبع المستوي {1} و هو غير مسموح له بحفظ السجلات من النوع {2}» | Neither grid — this is the **User Level**, which comes from the licence and is checked before any profile row. A profile cannot grant past it. | See [Users and Login](/platform/security/users-and-login#User-Level). Moving the user to a level that covers the type is the only route, and the levels available are the ones your licence defines. |
+| *Current User {0} Cannot Recommit Records, Please Review Security Profile Options* — «المستخدم الحالي لا يستطيع إعادة حفظ الملفات برجاء مراجعة إختيارات ملف الصلاحيات» | The **Allow Record Recommiting** switch in *Reprocessing Controls* above — one of the four that are on by default and are often removed from ordinary roles. | Tick it on the profile, or have someone whose profile keeps it do the recommit. |
+| *Current User {0} Cannot Rereplicate Records, Please Review Security Profile Options* — «المستخدم الحالي لا يستطيع إعادة مزامنة الملفات برجاء مراجعة إختيارات ملف الصلاحيات» | The re-syncing switch in the same group. | As above. |
+| *{0} can not be deleted because current user dos not have the authority for deleting drafts* — «لا يمكن حذف {0} لأن المستخدم الحالى لا يملك صلاحية حذف المسودات» | Deleting a draft is its **own** authority, separate from Delete. Granting Delete does not grant it. | Tick the draft-delete authority on the row for that entity type. |
+| *{0} can not be deleted because current user is not the creator of this draft* — «لا يمكن حذف {0} لأن المستخدم الحالى ليس هو منشئ المستند» · *You can not delete the record {0} because you did not create it* — «لا يمكنك حذف السجل {0} حيث أنك لست منشئ السجل» · *You can not edit the record {0} because you did not create it* — «لا يمكنك تعديل السجل {0} حيث أنك لست منشئ السجل» | The authority is granted, but only for the user's **own** records — see [Record-Level Security](/platform/security/record-level-security). | Widen the row beyond own-records, or add the user to *Treat Users as Creator* for the real creator. |
+
+Remember that a profile change is picked up at the **next login**, so a user who has just been granted
+an authority will keep seeing the same refusal until they sign in again.

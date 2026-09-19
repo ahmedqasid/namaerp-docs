@@ -939,3 +939,27 @@ When **enabled**, this option creates an Actions History record for **each indiv
 - **Final Completion Record**: Still creates the standard `Approval` record when workflow completes
 - **User Context**: Captures who made each decision and when
 :::
+
+## Messages you may see
+
+Refusals raised while a record is in an approval cycle:
+
+| Message | Why | What to do |
+|---|---|---|
+| *Can not edit while under Approval* — «لا يمكن التعديل أثناء الموافقات» · *Can not edit while under Approval for step {0}* — «لا يمكن التعديل أثناء انتظار الموافقة للخطوة {0}» | The record has an open approval case and you do not hold the edit-under-approval capability, or the step's policy forbids it. | Finish or cancel the approval, or use **Allow Modify While Under Approval** with the right per-step policy and the capability. |
+| *The employee {0} can not approve the step {1} in record {2}, so he also can not edit while under approval* — «الموظف {0} لا يمكنه الموافقة على  الخطوة {1} في السجل {2} لذلك لا يمكنه التعديل أثناء انتظار الموافقة» | The step's policy is **Allow For Authorized And Can Approve**, and this person is not an approver of the step currently waiting. | Let one of that step's approvers make the change, or relax the policy to **Allow For Authorized Users**. |
+| *Object is in approval cycle, can not commit any new changes unless approval is finished* — «السجل بانتظار موافقة. لا يمكن حفظ أي تعديلات إلى أن يتم انهاء الموافقات» | A commit was attempted on a record whose approval is still open. The variant ending *…but you can save it as draft* means the draft route is still available. | Wait for the decision, or save as a draft where the message offers it. |
+| *Object is in approval cycle, can not delete unless approval is finished* — «السجل بانتظار موافقة. لا يمكن الحذف إلى أن يتم انهاء الموافقات» | Deleting a record with an open approval case. | Complete or cancel the approval first. |
+| *Record {0} is being approved* — «السجل {0} خاضع لموافقة حاليا» | Revising or a similar operation was attempted mid-cycle. | Wait for the approval to finish. |
+| *Current user can not delete {0} after approval* — «لا يمكن للمستخدم الحالي حذف {0} بعد الموافقة» | The record is approved and your security profile does not allow deleting approved records. | Ask someone whose profile permits it, or cancel the record instead of deleting it. |
+| *Reject can be used only with documents and requests - use Return with master files* — «يمكن استعمال الرفض مع المستندات و الطلبات فقط - في الملفات قم باستعمال قرار الإرجاع» | **Reject** was pressed on a master file. | Use **Return** — master files are handed back, not rejected. |
+
+Refusals raised while saving the Approval Definition itself:
+
+| Message | Why | What to do |
+|---|---|---|
+| *Approval definition must at least have one step* — «تعريف سير العمل يجب أن يحتوي على خطوة واحدة على الأقل» | The steps grid is empty. | Add a step. |
+| *Must specify when to use the approval. (with insert, delete, update, etc)* — «يجب تحديد حالة علي الأقل يتم استخدام سير العمل معها (عند الانشاء أو الحذف ... إلخ)» | None of the *use with* switches is ticked, so the definition would never fire. | Tick at least one of insert, update, delete and the rest. |
+| *Duplicate step sequence : {0}* — «مسلسل خطوة مكرر : {0}» | Two steps carry the same sequence number. | Renumber one of them. |
+| *Approval Definition priority repeated before in definition {0}* — «أولوية تعريف سير العمل مكررة مسبقا في تعريف آخر {0}» | Another definition for the same entity already uses that priority, so the order between them would be undefined. | Give this one a different priority. |
+| *Modify while under approval policy should be {0} or empty, as allow modify while under approval is not checked* — «سياسة التعديل أثناء الموافقة يجب أن تكون {0} أو فارغة لأن اوبشن التعديل أثناء الموافقة غير مفعل» | A per-step modify policy was chosen while the global **Allow Modify While Under Approval** is off. | Enable the global option, or clear the step's policy. |

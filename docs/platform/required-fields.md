@@ -256,6 +256,13 @@ grid rather than at a column inside it means the grid may not be left empty.
 **When Query** that identifies the serialised lines, and **Lines Should Match** ticked so the other
 lines are left alone.
 
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Field {0} is required, can not be empty* — «لا يمكن ترك {0} فارغا» | A field this screen requires is empty. The same message is used whether the rule came from this screen, from the field's own definition, or from the product's built-in checks — the name in the message is the field, not the rule. | Fill the field. If you do not think it should be required, search this screen's three grids for its field id before looking anywhere else. |
+| *Error while validating required field {0} with condition {1},query {2}, required fields {3}* — «خطأ عند التحقق من الحقل المطلوب {0} للشرط {1} الاستعلام {2} لملف الحقول المطلوبة {3}» | A conditional line could not be evaluated — almost always a **When Query** that will not run. The rule is not skipped quietly: the save fails for everyone the line applies to. | The message names the field, the criteria, the query and the Required Fields record that holds the broken line, and the error panel can take you straight to it. Fix or clear the query. |
+
 ## Related pages
 
 - [Input Rules and Limits](/platform/fields-and-entities-settings/fields-settings-input-validation) — patterns, lengths and picklists for values that *are* entered.

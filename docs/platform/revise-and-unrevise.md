@@ -11,11 +11,11 @@ If you need decisions and routing, use [approvals](/platform/approvals/approvals
 
 ## What happens when you revise a record
 
-The record must be **committed** first. A draft cannot be revised — the system will tell you the record is a draft — and a record sitting in an approval cycle cannot be revised either, because its content is not final yet.
+The record must be **committed** first. A draft cannot be revised — the refusal is *The record {0} is draft, you can not revise draft records* — and a record sitting in an approval cycle cannot be revised either, because its content is not final yet: *Record {0} is being approved*.
 
 Once you revise, three things happen:
 
-1. **The record locks.** Any attempt to edit or delete it is refused with a message saying the record is revised. Correcting a revised record means unrevising it first.
+1. **The record locks.** Any attempt to edit or delete it is refused with *Can not operate on revised record {0}*. Correcting a revised record means unrevising it first.
 2. **The revise level goes up by one.** Most installations use a single level, so one revise is all it takes. Where more than one check is required, the record climbs L1 → L2 → L3 as each person signs off.
 3. **The event is recorded.** The record remembers who revised it, and the action history keeps a permanent line for each revise and unrevise, including the level it applied to.
 
@@ -159,3 +159,19 @@ Revising and unrevising are proper events in the system, and other features can 
 - **Notifications** can be raised on the revise and unrevise events, which is the usual way to tell the next step's owner that something is waiting for them.
 - **Criteria-based validations** can be written to run specifically at revise and unrevise time, letting you block a sign-off on a record that fails a last-minute check.
 - **The action history** keeps its own permanent record of every revise and unrevise with the level involved — independent of the revision case, and available even for entities with no detailed revision rule.
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Can not operate on revised record {0}* — «لا يمكن التعامل مع السجل {0} لانه تمت مراجعته» | You tried to edit or delete a record that carries a sign-off. | Unrevise it, make the correction, revise it again. |
+| *Record {0} is revised* — «السجل {0} تمت مراجعته» | **Revise** was pressed on a record that is already at the highest level its rule allows — one level where nothing else is configured. | Nothing to do; the record is fully signed off. To raise the ceiling, give the entity more levels in its Detailed Revision Settings. |
+| *Record {0} is not revised* — «السجل {0} لم تتم مراجعته» | **Unrevise** was pressed on a record with no sign-off on it. | Nothing to do — there is nothing to take back. |
+| *Record {0} is draft* — «السجل {0} لا يزال مسودة» · *The record {0} is draft, you can not revise draft records* | Revising was attempted on a record that has never been committed. | Commit the record first. |
+| *Record {0} is being approved* — «السجل {0} خاضع لموافقة حاليا» | The record is in an open approval cycle, so its content is not final. | Let the approval finish, then revise. |
+| *You do not have the authority to perform the operation {0} on the entity {1}.* — «لا توجد لديك الصلاحية للعملية {0} على السجل {1}» | Your security profile has no **Revise** capability for this entity type at the level you are trying to reach. The check is per level — L1 may be granted and L2 not. | Ask for the capability, or let the person named for that step sign off. |
+| *You can not change capabilities of revised entity {0}* — «لا يمكنك تعديل صلاحية السجل {0} حيث تمت مراجعته» | Security capabilities were edited on a revised security record. | Unrevise it first. |
+| *Document {0} can not be cancelled because it is revised* — «المستند {0} لا يمكن إلغاؤه لأنه تمت مراجعته» | A Document Cancel Document names a revised document. | Unrevise the document, then cancel it. |
+
+*The record {0} is draft, you can not revise draft records* has no Arabic translation, so it appears
+in English even on an Arabic screen.

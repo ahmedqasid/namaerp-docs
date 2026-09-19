@@ -59,7 +59,12 @@ which codes by formula without a group.
 
 A book also belongs to a **legal entity**, and unlike most records it may not be left as *Any*. The
 only exception is the handful of document types that are genuinely global (they exist above any one
-company); for everything else, choosing a real legal entity is enforced at save.
+company); for everything else, choosing a real legal entity is enforced at save — a document that
+reaches the save with no legal entity is refused with "Legal entity can not be Null in transactions"
+(whose Arabic reads « لايمكن حفظ المستند على الشركة عام »). And the legal entity must itself carry a
+ledger: if it does not, the document is refused with "Please assign ledger to the legal entity" —
+«فضلاً قم بتحديد دفتر حسابات في الشركة» — which is a setup gap on the company record, not anything
+wrong with the book.
 
 ## How a number is built
 
