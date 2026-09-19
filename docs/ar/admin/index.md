@@ -14,6 +14,7 @@ title: إدارة النظام
 
 <LandingGrid>
   <LandingCard icon="🩺" title="استكشاف الأخطاء وإصلاحها" link="/ar/admin/troubleshooting/" details="تشخيص توقف النظام وعدم استجابته، مع أسئلة شائعة عامة وأخرى عن أخطاء قاعدة البيانات في مكان واحد." />
+  <LandingCard icon="🚨" title="الأخطاء الحرجة عند الدخول" link="/ar/admin/troubleshooting/critical-errors.md" details="قائمة فحوص الصحة الحمراء التي تظهر عند الدخول: كل فحص وما يرفعه وما تفعله تجاهه." />
   <LandingCard icon="⏳" title="توقف النظام أو عدم استجابته" link="/ar/admin/troubleshooting/troubleshooting-system-hanging.md" details="اكتشف سبب تجمّد النظام أو توقفه عن الاستجابة وكيفية استعادته." />
   <LandingCard icon="❓" title="أسئلة عامة" link="/ar/admin/troubleshooting/general-faq.md" details="إجابات عن الأسئلة اليومية التي يطرحها مديرو النظام أثناء تشغيل نظام نما." />
   <LandingCard icon="🗄️" title="أسئلة شائعة عن أخطاء قاعدة البيانات" link="/ar/admin/troubleshooting/database-error-related-faq.md" details="أخطاء قاعدة البيانات الشائعة وكيفية حلّها." />

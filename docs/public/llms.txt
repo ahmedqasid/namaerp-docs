@@ -33,6 +33,9 @@
 - [Preventing a Record From Being Used](https://docs.namasoft.com/platform/prevent-usage.html): An item is withdrawn from the catalogue.
 - [Document Books](https://docs.namasoft.com/platform/document-books.html): Every document in Nama — every sales invoice, stock issue, receipt voucher, journal entry — has to belong to a document book. - entities: DocumentBook - menu: Basic → Settings → Document Book
 - [Document Cancel Document](https://docs.namasoft.com/platform/document-cancel-document.html): Sooner or later somebody commits a document they should not have. - entities: DocumentCancelDocument - menu: Basic → Documents → Document Cancel Document
+- [The Life of a Document: Draft, Commit, Approval, Revise, Cancel](https://docs.namasoft.com/platform/document-lifecycle.html): Every screen in Nama has a Save button and a Draft button, and every document in the system moves through the same short life: it is started as a draft, committed into a real document, possibly routed... - entities: DocumentFile
+- [Why a Record Will Not Save or Delete](https://docs.namasoft.com/platform/why-a-record-will-not-save-or-delete.html): "Why can't I delete this?" is the most-asked question in any ERP, and Nama answers it with a short message that names the rule but not the way out. - entities: DocumentFile, MasterFile
+- [Messages and Refusals](https://docs.namasoft.com/platform/messages-and-refusals.html): A customer pastes a sentence into a ticket — "You do not have the authority Delete on entity SalesInvoice" — and asks what to do about it. - entities: EntityHelp - menu: Administration → Other → Entity Help
 - [Master Groups](https://docs.namasoft.com/platform/master-groups.html): Document books number documents. - entities: MasterGroup - menu: Basic → Settings → Group
 - [Customers, Suppliers and Other Parties](https://docs.namasoft.com/platform/customers-suppliers-and-parties.html): Almost every document in the system points at somebody. - entities: Customer, Supplier, Contact, ThirdParty, UpdateCustomerInfo, ModifyCustomerInfoReq - menu: Sales → Master Files → Customer
 - [Accounting Side Config](https://docs.namasoft.com/platform/accounting-side-config.html): Every document that reaches the general ledger describes its lines the same way: which account to hit, whose subsidiary (portfolio) account to use, which cost-centre dimensions to carry, and what... - entities: AccountingSideConfig - menu: Basic → Settings → Accounting Side Config
@@ -1121,6 +1124,7 @@
 ### Troubleshooting
 
 - [Troubleshooting](https://docs.namasoft.com/admin/troubleshooting/)
+- [Critical Errors at Login](https://docs.namasoft.com/admin/troubleshooting/critical-errors.html): A user signs in and, before anything else, a stack of red messages appears: There are 3 failed requests…, Backup folder … does not exist…, Database transaction isolation level is not correct….
 - [Troubleshooting System Hanging or Unresponsiveness](https://docs.namasoft.com/admin/troubleshooting/troubleshooting-system-hanging.html): When your Nama ERP system becomes unresponsive, slow, or appears to hang, the most effective diagnostic tool is a thread dump (also called a stack dump).
 - [General FAQ](https://docs.namasoft.com/admin/troubleshooting/general-faq.html): This can be resolved by setting an appropriate number in MaxRecordsPerPageForListViews inside the General Settings.
 - [Database Related Errors FAQ](https://docs.namasoft.com/admin/troubleshooting/database-error-related-faq.html): The following log excerpt was observed:

@@ -63,7 +63,7 @@ gated.
 Filling in the folder does not schedule anything. Your database backup still has to be created by SQL Server's own maintenance plan or whatever tool you use; this setting only tells Nama where to look at the result.
 :::
 
-The check runs when the server starts and repeats every hour, and it can raise one of three messages on the critical errors list: the folder was never filled in, the folder is filled in but the server cannot reach it, or the folder is reachable but holds nothing from today or yesterday. Each message links straight to the **Backup Folder** field, so clicking it opens this screen with the field already in focus. [What to do about each one](/admin/troubleshooting/general-faq#Error-Backup-folder-is-not-configured-does-not-exist-or-holds-no-recent-backup) is covered in the troubleshooting FAQ.
+The check runs when the server starts and repeats every hour, and it can raise one of three messages on the critical errors list: the folder was never filled in, the folder is filled in but the server cannot reach it, or the folder is reachable but holds nothing from today or yesterday. Each message links straight to the **Backup Folder** field, so clicking it opens this screen with the field already in focus. [What to do about each one](/admin/troubleshooting/critical-errors#Backups) is covered with the rest of the critical errors.
 
 ::: tip Point it at a path the server's service account can reach
 The folder is resolved by the application server process, not by your browser. A local path such as `D:/backup` is straightforward; a network share works too, but the Windows account Tomcat runs as must have access to it — a share that opens fine in your own Explorer window is still unreachable if the service runs as a local account.

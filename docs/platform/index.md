@@ -14,6 +14,9 @@ How every record in the system is numbered, evidenced and tracked — the mechan
 documents and master files alike.
 
 <LandingGrid>
+  <LandingCard icon="🔄" title="The Life of a Document" link="/platform/document-lifecycle.md" details="Draft, commit, approval, revise, cancel — the states every document passes through and what each one allows." />
+  <LandingCard icon="🚫" title="Why a Record Will Not Save or Delete" link="/platform/why-a-record-will-not-save-or-delete.md" details="Every delete and edit refusal in the order the system checks them, including the used-mark on books and parties and the hidden action that clears it." />
+  <LandingCard icon="💬" title="Messages and Refusals" link="/platform/messages-and-refusals.md" details="The messages any screen can raise — permissions, licence, periods, budgets — and where the answer to each one lives." />
   <LandingCard icon="🔢" title="Document Books" link="/platform/document-books.md" details="The numbering series every document draws its number from — prefixes, serials, yearly resets, and the behaviour a book imposes on its documents." />
   <LandingCard icon="↩️" title="Document Cancel Document" link="/platform/document-cancel-document.md" details="The only way to take a committed document back — what it reverses, what refuses to be cancelled, and how to restore one as a draft." />
   <LandingCard icon="🗂️" title="Master Groups" link="/platform/master-groups.md" details="The master-file twin of a document book — it codes customers, items and the rest, and files them into the tree beside every list." />

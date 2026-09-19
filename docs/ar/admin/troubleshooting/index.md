@@ -1,6 +1,7 @@
 <div class="ignore-in-full-text-search">
 
 # استكشاف الأخطاء وإصلاحها
+  - [الأخطاء الحرجة عند الدخول](/ar/admin/troubleshooting/critical-errors.md)
   - [استكشاف أخطاء توقف النظام أو عدم استجابته (Troubleshooting System Hanging or Unresponsiveness)](/ar/admin/troubleshooting/troubleshooting-system-hanging.md)
   - [أسئلة عامة](/ar/admin/troubleshooting/general-faq.md)
   - [Database Related Errors FAQ](/ar/admin/troubleshooting/database-error-related-faq.md)

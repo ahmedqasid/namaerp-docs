@@ -14,6 +14,7 @@ When the system misbehaves, start here. These pages walk through diagnosing hang
 
 <LandingGrid>
   <LandingCard icon="🩺" title="Troubleshooting" link="/admin/troubleshooting/" details="Diagnose system hangs and unresponsiveness, plus general and database-error FAQs all in one place." />
+  <LandingCard icon="🚨" title="Critical Errors at Login" link="/admin/troubleshooting/critical-errors.md" details="The red list of health checks shown at login: every check, what raises it, and what to do about it." />
   <LandingCard icon="⏳" title="System Hanging or Unresponsiveness" link="/admin/troubleshooting/troubleshooting-system-hanging.md" details="Track down why the system freezes or stops responding and how to recover." />
   <LandingCard icon="❓" title="General FAQ" link="/admin/troubleshooting/general-faq.md" details="Answers to the everyday questions administrators ask about running Nama ERP." />
   <LandingCard icon="🗄️" title="Database Related Errors FAQ" link="/admin/troubleshooting/database-error-related-faq.md" details="Common database errors and how to resolve them." />

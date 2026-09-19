@@ -139,118 +139,12 @@ Therefore, when attempting to load a list that includes this column for a file t
 
 Remove the `valueDate` column from the visible columns in this general modification (For All Screens or All Files), or specify the screen type precisely so that this modification is not applied to files that do not contain this field.
 
-##  Warnings When Logging Into the System
+## Warnings When Logging Into the System
 
-### Error: `There are fiscal years with AllowCostProcessingWithClosingEntry set to TRUE`
-
-### Cause of the Problem:
-
-This error occurs when some fiscal years have the option **"Allow cost, quantity, and entry processing after the closing entry"** enabled.
-
-### Steps to Resolve:
-
-1. Open the **Fiscal Years** screen.
-2. Find each fiscal year that has this option enabled.
-3. **Uncheck** the "Allow cost, quantity, and entry processing after the closing entry" checkbox.
-4. Click **Save**.
-
-### What Does This Option Do?
-
-By default, the system prevents **any changes to accounting entries** on dates prior to the company's **closing entry** date.
-
-However, when this option is enabled:
-
-* Modifications are allowed after the closing entry.
-* This **changes the results of financial statements** after closing, which is **not recommended** and requires **careful review** before use.
-
-::: danger Important
-We recommend keeping this option disabled for all fiscal years, except in special cases and with the approval of financial management.
-:::
-
-::: tip Important Note
-Please perform a Refresh Critical Errors from the System Utilities page after correcting these errors.
-:::
-
-## Error: `There are X user notifications which exceeds the limit of Y, this may affect system performance`
-
-This warning appears when the number of notifications in the system exceeds the maximum allowed limit (default 10,000 notifications).
-
-### Solution: Create a Scheduled Task to Delete Old Notifications
-
-Create a scheduled task of type Action to automatically delete notifications older than 25 days.
-
-You can import the task directly using the following JSON:
-
-```json
-{
-  "scheduleType" : "Action",
-  "scheduleInfo" : {
-    "timeMinute" : "30",
-    "timeHour" : "2"
-  },
-  "hourInfo" : {
-    "runOnHour0230" : true
-  },
-  "sendAsMail" : true,
-  "className" : "com.namasoft.infor.domainbase.util.actions.EADeleteNotificationsByDuration",
-  "title1" : "Duration Days (default is 25 days)",
-  "title2" : "Delete Type (all, readonly) - Default is all",
-  "actionDescription" : "Deletes notifications older than specified number of days. Delete type: 'readonly' deletes only viewed notifications, 'all' deletes all notifications."
-}
-```
-
-In this example, the task will run daily at 2:30 AM and delete all notifications older than 25 days.
-
-#### Task Options:
-* **Duration Days**: Number of days - notifications older than this number will be deleted (default 25 days)
-* **Delete Type**:
-  * `all` - Delete all old notifications (default)
-  * `readonly` - Delete only read notifications
-
-### Changing the Maximum Notification Limit
-
-If you want to change the default maximum limit (10,000) instead of deleting notifications, you can do so through the General Settings:
-<GlobalConfigOption option-code="value.maxUserNotificationCount" />
-
-::: tip Important Note
-Please perform a Refresh Critical Errors from the System Utilities page after correcting this error.
-:::
-
-## Error: Backup folder is not configured, does not exist, or holds no recent backup
-
-Three related messages come from the same check — the one that makes sure a fresh database backup actually exists:
-
-* `Backup folder is not configured in general settings, please fill the Backup Folder field`
-* `Backup folder {0} does not exist or is not accessible`
-* `There is no backup file from today or yesterday in the backup folder {0}`
-
-Each of them links straight to the setting it is about, so clicking the message opens General Settings with the **Backup Folder** field in focus:
-<GlobalConfigOption option-code="value.info.backupFolder" />
-
-### What the Check Looks For
-
-Nama reads the folder you name in **Backup Folder**, plus up to two levels of sub-folders beneath it, and looks for a file ending in `.bak` or `.dbak` that is either named with today's or yesterday's date in `YYYYMMDD` form, or was last modified since the start of yesterday. If it finds one, no message is raised. The check runs at server start-up and repeats every hour.
-
-### Steps to Resolve
-
-1. **First message** — the field is empty. Open the **Attachments and Storage** tab of General Settings and fill in **Backup Folder** with the path your backup job writes to.
-2. **Second message** — the path is filled in but the server cannot get to it. Remember the path is resolved by the application server, not by your own machine: check the spelling, and for a network share check that the Windows account Tomcat runs as can actually open it.
-3. **Third message** — the folder is reachable but empty of recent files. This is the message that matters most: it usually means the backup job itself stopped running or started failing. Check the SQL Server maintenance plan (or whichever tool takes your backups) and look at its history for errors, then confirm it writes into this folder with a `.bak` or `.dbak` extension.
-
-::: danger Do not silence this one lightly
-The third message is exactly the warning you want on the day a server dies. If it appears, treat it as a broken backup until you have proven otherwise — do not switch the check off to make it go away.
-:::
-
-### When Nama Cannot See Your Backups
-
-Some sites back up in a way the server has no view of — a storage-level snapshot, a managed cloud database, or an agent that ships files straight off the machine. There the check has nothing to find and would raise a permanent false alarm, so turn it off with:
-<GlobalConfigOption option-code="value.info.doNotCheckForBackupExistence" />
-
-The full description of both settings lives in [Attachments and Storage](/platform/global-config/global-config-attachments#Database-backup).
-
-::: tip Important Note
-Please perform a Refresh Critical Errors from the System Utilities page after correcting this error, or wait for the hourly refresh.
-:::
+The red list of messages that greets some users at login is the **critical errors** list — health
+checks the server runs on itself. Every check it can raise, what causes it and what to do about it,
+including the fiscal-year processing option, the notification limit and the backup folder, is on its
+own page: [Critical Errors at Login](/admin/troubleshooting/critical-errors).
 
 ## I Want to Make a Text Field Convert to a Link So I Can Enter a Website URL, with a Button Appearing Next to the Field That Opens the Link When Clicked
 
