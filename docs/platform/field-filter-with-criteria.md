@@ -13,7 +13,7 @@ For example:
 ## How to Define a Field Filter with Criteria
 
 1. **Create a Criteria Record**
-    - In the *Criteria Definition* file, define the condition you want to apply (e.g., non-service items).
+    - In the [Criteria Definition](/platform/criteria-definitions) file, define the condition you want to apply (e.g., non-service items).
 
 2. **Create a Field Filter Record**
     - Open the **Field Filter with Criteria** screen and create a new record.

@@ -629,7 +629,7 @@ type,In,Type1|Type2|Type3,AND;
   - مثال: `customer.code,Equal,CUST001,AND;`
 
 ::: tip بناء المعايير
-استخدم شاشة **Criteria Definition** في نما ERP لبناء شروط الفلتر بصرياً، ثم انقر **Convert to Text** للحصول على التمثيل النصي للاستخدام في الواجهة البرمجية.
+استخدم شاشة [تعريف المعايير](/ar/platform/criteria-definitions) (Criteria Definition) في نما ERP لبناء شروط الفلتر بصرياً، ثم انقر **Convert to Text** للحصول على التمثيل النصي للاستخدام في الواجهة البرمجية.
 :::
 
 ### صيغة الترتيب

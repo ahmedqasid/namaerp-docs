@@ -69,7 +69,7 @@ entities: [ScreenModifier, QuickFilterCriteria]
    - **Show Count**: فعّل هذا الخيار لعرض عدد السجلات
    - **Max Button Count**: حدد الحد الأقصى لعدد الأزرار (عادةً 5-10)
    - **Remove**: ضع علامة هنا لإخفاء/إزالة مجموعة فلتر سريع (مفيد للتجاوز عند الإرث من إعدادات أخرى)
-   - **Quick Filter Values Criteria**: اختر Criteria Definition لتصفية القيم التي تظهر في أزرار الفلتر السريع
+   - **Quick Filter Values Criteria**: اختر [تعريف معايير](/ar/platform/criteria-definitions) لتصفية القيم التي تظهر في أزرار الفلتر السريع
    - **Quick Filter Values Dynamic Criteria**: أدخل نص المعايير مباشرة لتصفية القيم المعروضة (يستخدم نفس صياغة [Text Criteria](../text-criteria-guide.md))
 
 ##### تصفية قيم الفلتر السريع

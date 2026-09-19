@@ -629,7 +629,7 @@ type,In,Type1|Type2|Type3,AND;
   - Example: `customer.code,Equal,CUST001,AND;`
 
 ::: tip Building Criteria
-Use the **Criteria Definition** screen in Nama ERP to visually build filter conditions, then click **Convert to Text** to get the text representation for API use.
+Use the [Criteria Definition](/platform/criteria-definitions) screen in Nama ERP to visually build filter conditions, then click **Convert to Text** to get the text representation for API use.
 :::
 
 ### Order By Format

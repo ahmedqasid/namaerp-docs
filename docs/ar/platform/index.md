@@ -59,6 +59,8 @@ title: الخصائص العامة للنظام
   <LandingCard icon="⏳" title="المعالجة في الخلفية" link="/ar/platform/background-processing/" details="الطوابير التي تنفّذ آثار المستندات وترسل رسائلك وتشغّل تقاريرك — وأين تنظر حين يتعثّر أحدها في صمت." />
   <LandingCard icon="🔁" title="المستندات الدورية" link="/ar/platform/recurring-documents.md" details="أعد إنتاج مستند نموذجي على إيقاع ثابت — تلقائيًا وفق جدول أو دفعة عند الطلب." />
   <LandingCard icon="🧱" title="الكيانات الافتراضية" link="/ar/platform/virtual-entity-guide.md" details="وحدات SQL قابلة لإعادة الاستخدام تُغذّي التقارير ولوحات المعلومات." />
+  <LandingCard icon="🧮" title="تعريف المعايير" link="/ar/platform/criteria-definitions.md" details="الفلتر المحفوظ باسم الذي تشير إليه الموافقات والتنبيهات والمسارات والحقول المطلوبة وحقول المرجع — كيف تبنيه، وكيف تختبره، وأين يُستعمل." />
+  <LandingCard icon="🗃️" title="قوائم الأنواع" link="/ar/platform/entity-type-lists.md" details="قائمة شاشات واحدة باسم، ليطبَّق الإعداد الواحد على عائلة شاشات كاملة — وزر الإضافة من مجموعة المنيو الذي يبنيها لك." />
   <LandingCard icon="🔎" title="فلتر الحقل بالمعايير" link="/ar/platform/field-filter-with-criteria.md" details="قيّد ما يمكن لحقل المرجع اختياره باستخدام المعايير — مع أسئلة شائعة عن فلترة الحقول." />
   <LandingCard icon="❓" title="أسئلة شائعة حول فلترة الحقول" link="/ar/platform/field-filter-faq.md" details="إجابات عملية عن أكثر أسئلة الفلترة تكرارًا — الدوران على سطور التفاصيل، والفلترة بقيمة موجودة في الشاشة نفسها، والأخطاء التي تجعل الفلتر لا يعيد شيئًا." />
   <LandingCard icon="📝" title="معايير من المحلل النصي" link="/ar/platform/text-criteria-guide.md" details="اكتب المعايير كنص عادي ودع المحلل يحوّلها إلى فلاتر." />

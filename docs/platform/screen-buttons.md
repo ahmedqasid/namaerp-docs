@@ -132,7 +132,7 @@ Delete Selected Records, Prevent Usage and Allow Usage all apply to the ticked r
 records if draft* commits a batch of drafts in one pass. The three export items are worth separating
 in your head: **Export Selected** takes the ticked rows, **Export Page** takes the page you are
 looking at, and **Export All Records** takes the whole result set. **Create List View Criteria** takes the filter
-you have just built on the list and opens a new **Criteria Definition** in a pop-up, already carrying
+you have just built on the list and opens a new [Criteria Definition](/platform/criteria-definitions) in a pop-up, already carrying
 that filter, already set to this entity type and already ticked as usable in list views — so the
 search you assembled by hand becomes a named filter everyone can pick. With no filter set it answers
 *"Please Specify Criteria"* and does nothing.

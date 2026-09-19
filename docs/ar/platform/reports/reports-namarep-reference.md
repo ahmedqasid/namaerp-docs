@@ -396,7 +396,7 @@ fieldID,operator,value,logic;
 **روابط المنطق:** `AND`، `OR` — **التواريخ:** `dd-MM-yyyy` — **المراجع:** `id:entityType:code` والكود اختياري
 
 ::: tip دع النظام يكتب المعايير لك
-ابنِ الشروط بصرياً في شاشة **Criteria Definition**، ثم استخدم **Convert to Text**. والناتج قالب يعمل تلصقه ثم تجعله ديناميكياً بـ `tempo(...)`.
+ابنِ الشروط بصرياً في شاشة [تعريف المعايير](/ar/platform/criteria-definitions) (Criteria Definition)، ثم استخدم **Convert to Text**. والناتج قالب يعمل تلصقه ثم تجعله ديناميكياً بـ `tempo(...)`.
 :::
 
 ## إنشاء السجلات من التقرير

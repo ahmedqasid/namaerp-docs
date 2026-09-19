@@ -1,3 +1,6 @@
+---
+entities: [CriteriaDefinition]
+---
 # Criteria from Text Parser (Text Criteria Guide)
 
 Nama ERP provides a flexible text-based filtering mechanism that allows users to define filter criteria using a simple, structured format.
@@ -239,19 +242,22 @@ You can also calculate dates relative to today:
 
 ### User Context Values
 
-These dynamic values reference the current logged-in user:
+These tokens are replaced with values taken from the session the criteria is evaluated for. Unlike
+the date values above they are written in braces, not with a `$`:
 
 | Value | Description |
 |-------|-------------|
-| `$currentuserid` | ID of the current logged-in user |
-| `$currentempid` | ID of the employee linked to the current user |
+| `{loginUserId}` | ID of the current logged-in user — `{loginUserCode}`, `{loginUserName1}` and `{loginUserName2}` also exist |
+| `{loginEmployeeId}` | ID of the employee linked to that user |
+| `{loginLegalEntityId}` | The legal entity the user is logged in with — the same `…Id` / `…Code` / `…Name1` / `…Name2` set exists for `loginBranch`, `loginSector`, `loginDepartment` and `loginAnalysisSet` |
+| `{loginLanguage}` | The language of the session |
 
 ### Dynamic Values Example
 
 ```csv
 date1,GreaterThanOrEqual,$monthStart(),AND;
 date1,LessThanOrEqual,$monthEnd(),AND;
-createdBy.id,Equal,$currentuserid,AND;
+createdBy.id,Equal,{loginUserId},AND;
 dueDate,LessThanOrEqual,$todayPlusDays(30),AND;
 ```
 
@@ -261,7 +267,7 @@ This example filters records where:
 * `dueDate` is within the next 30 days
 
 ::: tip
-You can use the screen **Criteria Definition** to visually build the required filter conditions through the system interface.
+You can use the screen [Criteria Definition](/platform/criteria-definitions) to visually build the required filter conditions through the system interface.
 Once you've defined the desired criteria using the UI, simply click the **Convert to Text** button to generate the equivalent text-based representation.
 This text can then be used directly in APIs or automation scripts.
 :::

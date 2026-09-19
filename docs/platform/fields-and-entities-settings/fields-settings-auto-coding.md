@@ -45,7 +45,7 @@ condition columns of its own.
 |---|---|
 | For Type | The single entity type the line codes, e.g. Customer or Warehouse. |
 | Entity List | A reusable named list of entity types, so one line can cover several files at once. |
-| Criteria Definition | A saved criteria record; the line only runs when the record being saved matches it. |
+| Criteria Definition | A saved [Criteria Definition](/platform/criteria-definitions) record; the line only runs when the record being saved matches it. |
 | Reversed Criteria Definition | The opposite: the line is skipped when the record matches this criteria. |
 | Apply When Query | A query; the line only runs when the query returns a result for the record being saved. |
 | Do Not Apply When Query | The opposite: the line is skipped when this query returns a result. |

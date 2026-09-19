@@ -221,7 +221,7 @@ When **enabled**:
 
 ### Conditional Approvals
 
-Use **Criteria Definition** and **Apply When Query** to create sophisticated approval triggers:
+Use a [Criteria Definition](/platform/criteria-definitions) and **Apply When Query** to create sophisticated approval triggers:
 
 ```sql
 -- Example: Approve invoices above 50,000 SAR

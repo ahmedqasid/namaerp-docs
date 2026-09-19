@@ -1,3 +1,6 @@
+---
+entities: [CriteriaDefinition]
+---
 # معايير من المحلل النصي (دليل معايير النص)
 
 يوفر نظام نما ERP آلية مرنة للتصفية النصية تتيح للمستخدمين تعريف معايير الفلترة باستخدام صيغة بسيطة ومنظمة.
@@ -239,19 +242,22 @@ section.code,Equal,00,AND;
 
 ### قيم سياق المستخدم
 
-هذه القيم الديناميكية تُشير إلى المستخدم الحالي المسجّل دخوله:
+هذه الرموز تُستبدل بقيم من الجلسة التي تُقيَّم لها المعايير. وهي — بخلاف قيم التواريخ أعلاه — تُكتب
+بين قوسين معقوفين لا بعلامة `$`:
 
 | القيمة | الوصف |
 |-------|-------------|
-| `$currentuserid` | معرّف المستخدم الحالي المسجّل دخوله |
-| `$currentempid` | معرّف الموظف المرتبط بالمستخدم الحالي |
+| `{loginUserId}` | معرّف المستخدم المسجّل دخوله — وهناك كذلك `{loginUserCode}` و`{loginUserName1}` و`{loginUserName2}` |
+| `{loginEmployeeId}` | معرّف الموظف المرتبط بذلك المستخدم |
+| `{loginLegalEntityId}` | الشركة التي دخل بها المستخدم — ونفس المجموعة `…Id` و`…Code` و`…Name1` و`…Name2` موجودة لـ `loginBranch` و`loginSector` و`loginDepartment` و`loginAnalysisSet` |
+| `{loginLanguage}` | لغة الجلسة |
 
 ### مثال على القيم الديناميكية
 
 ```csv
 date1,GreaterThanOrEqual,$monthStart(),AND;
 date1,LessThanOrEqual,$monthEnd(),AND;
-createdBy.id,Equal,$currentuserid,AND;
+createdBy.id,Equal,{loginUserId},AND;
 dueDate,LessThanOrEqual,$todayPlusDays(30),AND;
 ```
 
@@ -261,7 +267,7 @@ dueDate,LessThanOrEqual,$todayPlusDays(30),AND;
 * `dueDate` خلال الـ 30 يومًا القادمة
 
 ::: tip
-يمكنك استخدام شاشة **Criteria Definition** لبناء شروط الفلترة المطلوبة بصريًا عبر واجهة النظام.
-بعد تعريف المعايير المطلوبة من خلال واجهة المستخدم، اضغط على زر **Convert to Text** لتوليد التمثيل النصي المكافئ.
+يمكنك استخدام شاشة [تعريف معايير](/ar/platform/criteria-definitions) لبناء شروط الفلترة المطلوبة بصريًا عبر واجهة النظام.
+وبعد بناء المعايير التي تريدها، اضغط زر **تحويل الي نص** لتوليد التمثيل النصي المكافئ.
 يمكن بعد ذلك استخدام هذا النص مباشرةً في APIs أو سكريبتات الأتمتة.
 :::

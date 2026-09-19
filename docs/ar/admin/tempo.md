@@ -1656,7 +1656,7 @@ You have unpaid invoices. Click below to view them:
 ```
 
 ::: tip
-يمكنك استخدام شاشة **Criteria Definition** لبناء شروط التصفية بشكل مرئي، ثم النقر على **Convert to Text** للحصول على التنسيق النصي للاستخدام في قوالب Tempo.
+يمكنك استخدام شاشة [تعريف المعايير](/ar/platform/criteria-definitions) (Criteria Definition) لبناء شروط التصفية بشكل مرئي، ثم النقر على **Convert to Text** للحصول على التنسيق النصي للاستخدام في قوالب Tempo.
 :::
 
 ---

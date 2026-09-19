@@ -70,7 +70,7 @@ Quick Filters are configured through the Screen Modifier system, which allows cu
    - **Show Count**: Enable to display record counts
    - **Max Button Count**: Set maximum number of buttons (typically 5-10)
    - **Remove**: Check this to hide/remove a quick filter group (useful for overriding inherited configurations)
-   - **Quick Filter Values Criteria**: Select a Criteria Definition to filter which values appear in the quick filter buttons
+   - **Quick Filter Values Criteria**: Select a [Criteria Definition](/platform/criteria-definitions) to filter which values appear in the quick filter buttons
    - **Quick Filter Values Dynamic Criteria**: Enter dynamic criteria text to filter which values are shown (uses the same syntax as [Text Criteria](../text-criteria-guide.md))
 
 ##### Filtering Quick Filter Values

@@ -50,7 +50,7 @@ The previous grid narrows **which types** a generic field can hold. This one nar
 | For Type | The entity type the line applies to. |
 | Entity List | A named list of entity types, so one line covers several at once. |
 | On Field | The reference field whose lookup is being filtered. |
-| Criteria Definition | A saved, fixed rule that the offered records must satisfy. |
+| Criteria Definition | A saved, fixed rule — a [Criteria Definition](/platform/criteria-definitions) that the offered records must satisfy. |
 | Dynamic Tempo Criteria | A rule written in Tempo that can read the record being edited. |
 | Filtered Type | On a generic reference field, restricts the filter to one of the types it can hold. |
 

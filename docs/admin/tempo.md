@@ -1656,7 +1656,7 @@ For dashboards where you need just the URL:
 ```
 
 ::: tip
-You can use the **Criteria Definition** screen to visually build filter conditions, then click **Convert to Text** to get the text format for use in Tempo templates.
+You can use the [Criteria Definition](/platform/criteria-definitions) screen to visually build filter conditions, then click **Convert to Text** to get the text format for use in Tempo templates.
 :::
 
 ---

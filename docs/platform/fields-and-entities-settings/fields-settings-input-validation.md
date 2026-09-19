@@ -52,7 +52,7 @@ and the value either matches the pattern or it is rejected.
 | Allow Alpha | Untick to forbid anything that is not a digit — useful for numeric-only identifiers. |
 | Prefix | The value must start with this text. |
 | Suffix | The value must end with this text. |
-| Criteria Definition | The rule only fires for records that match this criteria — see below. |
+| Criteria Definition | The rule only fires for records that match this saved [Criteria Definition](/platform/criteria-definitions) — see below. |
 | Apply When Query | The rule only fires when this query matches — see below. |
 | Letter Case Type | `All`, `Lower Case`, or `Upper Case`. Rejects values containing the wrong case. |
 | Text Language | `All`, `Only Arabic`, or `Only English`. Rejects values written in the other script. |
