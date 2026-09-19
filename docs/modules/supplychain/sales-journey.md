@@ -15,6 +15,20 @@ Not every sale passes through all these steps (cash sales skip most of them!), b
 
 ![Sales order list in NaMa ERP](../../ar/modules/supplychain/images/sales/sales-order-list-en.png)
 
+## Before the journey starts: the customer file
+
+Every document below points at a customer, and inherits that customer's price list, tax plan,
+accounts, salesman and payment terms — so the file is worth getting right before the first quotation.
+It is documented under
+[Customers, Suppliers and Other Parties](/platform/customers-suppliers-and-parties).
+
+**Credit control deserves a word of warning.** The customer file carries a credit limit, a payment
+period and *Forbid Billing* / *Forbid Ordering* ticks, and it is natural to read those as a brake on
+the journey. They are not: nothing in the shipped product stops an order or an invoice because a
+customer is over their limit. If your implementation needs that brake, it is built with
+[Criteria Based Validation](/platform/criteria-based-validation#Block-a-sale-that-exceeds-the-customers-credit-limit),
+where the query is written out in full.
+
 ## Step One: The Customer Inquiry (SalesQuotationRequest)
 
 Every sale begins with interest. The **Sales Quotation Request** records the customer's inquiry: "We're interested in 100 office chairs, can you give us a price?" It captures the customer's details, the requested items and quantities, delivery requirements, and any special requirements.

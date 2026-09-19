@@ -25,6 +25,39 @@ The most important parts of the main page:
 
 Like any master file, the user record itself carries the five dimensions (company, branch, department, sector, analysis group) — these define the broadest scope the user can work within. The **Login Dimensions** set and the alternative login dimensions table define what the user acts as in each session. The full story is in [Record-Level Security](/platform/security/record-level-security.md).
 
+## Self-service user requests
+
+Users do not have to be created by hand. **Basic → Documents → User Add Request** is a document that
+asks for one, so the request can be reviewed, approved and kept on file instead of arriving as a
+phone call — which is how a customer or a supplier gets a portal login.
+
+The request carries only what a requester can reasonably know: the **Login Id**, the Arabic and
+English user name, the e-mail and phone number, the preferred language, the dimensions the user
+should work in, and an **Added User Type** — *Customer*, *Supplier*, *Contractor* or *Employee*.
+
+Pressing **Add User** on the request creates the real user, and three things are decided for you at
+that moment:
+
+- The new user's code comes from the **User Coding Group** on the request's *Term Config*, so
+  requested users are numbered by the same rules as everything else.
+- The **Security Profile** is looked up in the *Term Config*'s grid by matching the **Added User
+  Type** — that is how "a customer login" and "a contractor login" end up with different
+  permissions without anybody choosing a profile by hand. If the type has no row in that grid, the
+  user is created with no profile at all.
+- The login id, names, e-mail and dimensions are copied across, and the created user is written back
+  onto the request in **Created User**, so you can always get from the request to the user it made.
+
+Two refusals are worth recognising:
+
+| Message | Why |
+|---|---|
+| *User login id {0} is already existing* | A committed user already uses that login id. Login ids are unique system-wide; drafts do not count. |
+| *You do not have the authority Commit on entity User* | Pressing **Add User** needs commit authority on the User screen itself. Being able to save the request is not enough — the request is a request, not a permission. |
+
+The parallel screens for changing an existing party's own data — *Modify Customer Info Request* and
+its supplier and contractor siblings — are described under
+[requests raised from the portal](/platform/customers-suppliers-and-parties#Requests-raised-from-the-portal).
+
 ## User-Level Permission Overrides
 
 The user screen repeats the permission tables you know from the Security Profile — and user rows always take precedence over profile rows when the scope matches:

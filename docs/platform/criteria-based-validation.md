@@ -407,6 +407,59 @@ select top 1 code from PurchaseInvoice e where e.manualRef1 = {manualRef1} and e
 
 - **Message**: *This manual reference is already used by invoice {code}.*
 
+### Block a sale that exceeds the customer's credit limit
+
+The credit limit on the customer file is recorded but never enforced by the product itself — see
+[Credit limits](/platform/customers-suppliers-and-parties#Credit-limits----what-the-system-does-and-what-it-does-not).
+This validator is how the block is actually built, and it is the most frequently asked-for rule on
+this screen.
+
+- **Target Type**: `SalesInvoice`
+- **Validate with**: Insert, Update
+- **Then Query**:
+
+```sql
+select case when {customer.limitValue} > 0
+             and coalesce(sum(l.debitLocalAmount - l.creditLocalAmount), 0) + {money.remaining}
+                 > {customer.limitValue}
+            then 0 else 1 end
+from Customer c
+left join ledgertransline l
+       on l.subsidiaryId = c.id and l.account_id = c.mainAccount_id and l.originId <> {id}
+where c.id = {customer.id}
+```
+
+- **Error Message Content Query**:
+
+```sql
+select c.limitValue, c.paymentPeriod from Customer c where c.id = {customer.id}
+```
+
+- **Message**: *This invoice takes the customer past a credit limit of {limitValue}.*
+
+Reading it back: the query adds up the customer's movement on their subsidiary account — debits
+minus credits, which is what they owe — and adds **`{money.remaining}`**, the unpaid part of the
+invoice being saved. If the total goes over the limit, the *Then* half returns 0 and the save is
+refused.
+
+Three details make the difference between a rule that works and one that annoys everybody:
+
+- **`{customer.limitValue} > 0` is the exemption.** A customer with no limit is not checked at all,
+  which is how you let cash customers and exempt accounts through — leave their limit at zero.
+- **`l.originId <> {id}` excludes the invoice's own entries.** Without it, re-saving an invoice that
+  is already processed counts its amount twice and the customer is refused for a debt they took on
+  with this very invoice.
+- **Only the main account is counted.** If the customer's debt is spread over several accounts,
+  widen the join instead:
+
+```sql
+and l.account_id in (coalesce(c.mainAccount_id, 0x1), coalesce(c.account1_id, 0x1))
+```
+
+If the house rule is a warning rather than a refusal — the salesman may proceed, but somebody should
+know — set **Validator Type** to *Warning* or *Confirm* and the same query starts asking instead of
+blocking.
+
 ### Block a change after a point of no return
 
 Once the invoice has been reported to the tax authority, the customer is frozen. Shown in full
