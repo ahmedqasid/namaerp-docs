@@ -84,6 +84,8 @@ title: الخصائص العامة للنظام
 <LandingGrid>
   <LandingCard icon="🖲️" title="الأزرار الموجودة في كل شاشة" link="/ar/platform/screen-buttons.md" details="أشرطة الأدوات الثلاثة التي تشترك فيها كل شاشة — شريطا التحرير والقائمة، وقائمة المزيد، وأزرار الجدول — ولماذا يغيب زر أحياناً." />
   <LandingCard icon="📝" title="الملحوظات والأجندة ومهام العمل" link="/ar/platform/remarks-and-agenda.md" details="ملحوظات تُرفق بأي سجل، وأجندة الموظف التي يكتب فيها أمر الإضافة إلى الاجندة، ومهام العمل المسنَدة إلى شخص." />
+  <LandingCard icon="🚪" title="النماذج — باب الخروج الآمن" link="/ar/platform/form-documents.md" details="ستة عشر مستندًا فارغًا عن عمد تحوّلها إلى ما يحتاجه عميل واحد بعينه — ومتى تلجأ إلى فريق التطوير بدلًا من ذلك." />
+  <LandingCard icon="🗄️" title="الملفات الرئيسية الاحتياطية" link="/ar/platform/spare-master-files.md" details="الفكرة نفسها للملفات لا للمستندات — خمس ذمم احتياطية ترحّل لدفتر الأستاذ، وعائلة الملحوظات." />
   <LandingCard icon="🧩" title="قوالب القيم الافتراضية" link="/ar/platform/default-values-templates.md" details="مجموعات محفوظة من قيم الحقول تملأ السجل الجديد لحظة فتحه، تلقائيًا أو عند الطلب." />
   <LandingCard icon="🚫" title="منع استعمال سجل" link="/ar/platform/prevent-usage.md" details="تقاعد ملف رئيسي أو مستند فيتوقف عن الظهور في شاشات الاختيار، دون حذفه ودون المساس بتاريخه." />
   <LandingCard icon="🔗" title="روابط الأدوات المساعدة" link="/ar/platform/utils.md" details="روابط مباشرة مفيدة داخل النظام للمهام الشائعة." />

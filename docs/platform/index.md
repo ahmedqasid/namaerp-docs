@@ -85,6 +85,8 @@ Small helpers that speed up daily work.
 <LandingGrid>
   <LandingCard icon="🖲️" title="Buttons on Every Screen" link="/platform/screen-buttons.md" details="The three toolbars every screen shares — the edit and list toolbars, the More menu, and the buttons on a grid — and why a button is sometimes missing." />
   <LandingCard icon="📝" title="Remarks, Agenda and Work Tasks" link="/platform/remarks-and-agenda.md" details="Notes you can attach to any record, the per-employee agenda behind Add To Agenda, and work tasks assigned to a person." />
+  <LandingCard icon="🚪" title="Form Documents — the Escape Hatch" link="/platform/form-documents.md" details="Sixteen deliberately empty documents you can turn into whatever one-off thing a single customer needs — and when to call development instead." />
+  <LandingCard icon="🗄️" title="Spare Master Files" link="/platform/spare-master-files.md" details="The same escape hatch for files rather than documents — five spare subsidiaries that post to the ledger, and the remarks family." />
   <LandingCard icon="🧩" title="Default Values Templates" link="/platform/default-values-templates.md" details="Saved sets of field values that fill in a new record the moment it is opened, automatically or on demand." />
   <LandingCard icon="🚫" title="Preventing a Record From Being Used" link="/platform/prevent-usage.md" details="Retire a master file or document so it stops appearing in the pickers, without deleting it or touching its history." />
   <LandingCard icon="🔗" title="Utility Links" link="/platform/utils.md" details="Handy direct links into the system for common tasks." />

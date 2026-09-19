@@ -27,6 +27,8 @@
 - [Platform Features](https://docs.namasoft.com/platform/): Every Nama ERP module — accounting, supply chain, HR — is built on the same platform.
 - [Buttons on Every Screen](https://docs.namasoft.com/platform/screen-buttons.html): Nama has hundreds of screens, and almost none of them have their own buttons.
 - [Remarks, Agenda and Work Tasks](https://docs.namasoft.com/platform/remarks-and-agenda.html): Sooner or later somebody needs to write something down against a record. - entities: Remark, DetailedRemark, MeetingRemark, WorkTask, EmployeeAgenda, RemarkType
+- [Form Documents — the Escape Hatch](https://docs.namasoft.com/platform/form-documents.html): Every so often a customer asks for a document that exists nowhere else in the world. - entities: FormDoc1, FormDoc2, FormDoc3 - menu: Basic → Remarks → Form Document 1
+- [Spare Master Files](https://docs.namasoft.com/platform/spare-master-files.html): Form documents solve the problem of a customer needing a document nobody else needs. - entities: Subsidiary1, SubsidiaryClass, DetailedRemark, MeetingRemark, Remark, RemarkType - menu: Basic → Remarks → Subsidiary 1
 - [Default Values Templates](https://docs.namasoft.com/platform/default-values-templates.html): Most data entry is repetition. - entities: DefaultValuesTemplate - menu: Administration → Display Customization → Default Values Template
 - [Preventing a Record From Being Used](https://docs.namasoft.com/platform/prevent-usage.html): An item is withdrawn from the catalogue.
 - [Document Books](https://docs.namasoft.com/platform/document-books.html): Every document in Nama — every sales invoice, stock issue, receipt voucher, journal entry — has to belong to a document book. - entities: DocumentBook - menu: Basic → Settings → Document Book
