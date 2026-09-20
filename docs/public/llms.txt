@@ -385,7 +385,7 @@
 - [Human Resources](https://docs.namasoft.com/modules/hr/): The HR module runs the full employee lifecycle in Nama ERP — from the day someone is hired to the day they leave, and every payslip in between.
 - [Attendance and Departure Formulas](https://docs.namasoft.com/modules/hr/attendance-machine-formula.html): Most employees record attendance and departure with a fingerprint on a dedicated time attendance machine. - entities: TimeAttendance
 - [Ignoring Overlapping Attendance and Departure Lines](https://docs.namasoft.com/modules/hr/ignore-overlapping-attendance.html): In day-to-day operations, data coming from fingerprint machines is not always complete. - entities: TimeAttendance - menu: Payroll → Time Attendance → Time Attendance
-- [Frequently Asked Questions — Payroll and Human Resources Module](https://docs.namasoft.com/modules/hr/human-resources-faq.html): If an employee arrives later than the scheduled time (for example, they were due at 8:00 AM but arrived at 10:00 AM) and they have a valid excuse, the system can exclude this delay from deductions or...
+- [Frequently Asked Questions — Payroll and Human Resources Module](https://docs.namasoft.com/modules/hr/human-resources-faq.html): Three questions that come up often. - entities: LeavePermission, SalaryDocument, SalarySheet
 - [Employee Services (Vehicles, Transport & Meals)](https://docs.namasoft.com/modules/hr/employee-services.html): Beyond salary, most companies run a handful of side benefits for their staff — a car to do the job with, a bus to get to the site, a hot meal at the canteen. - entities: CarAction, CarProblem, CarActionRequest, CarInfoUpdater, CarInsurancePolicy, CarInsuranceOfferDoc, CarInsuranceAddingDoc, CarInsuranceRemovingDoc, CarInsuranceInstallmentProofDoc, PickupPlan, MealType, MealsDetails, MealDeliveryPlan
 
 #### Core Concepts
@@ -397,6 +397,7 @@
 #### Setup
 
 - [Setup](https://docs.namasoft.com/modules/hr/setup/)
+- [HR Configuration](https://docs.namasoft.com/modules/hr/setup/hr-configuration.html): Everything the payroll engine does that is not written on a document is written here. - entities: ConfigEntry - menu: Payroll → Settings → Human Resource Settings
 - [HR Years, Periods & Salary Issuance](https://docs.namasoft.com/modules/hr/setup/hr-years-and-periods.html): Before any salary can be calculated, Nama needs to know two things: which time slice the run belongs to, and which pay stream it belongs to. - entities: HRYear, HRPeriod, HRSalaryIssuance
 - [HR Calendar, Holidays & Weekends](https://docs.namasoft.com/modules/hr/setup/hr-calendar-and-holidays.html): Every attendance rollup, every vacation-day count, and every payroll figure in Nama ultimately answers one question: was this a working day, a weekly rest day, or an official holiday? Three settings... - entities: HRCalendar, HRHolidays
 - [Employee HR Information](https://docs.namasoft.com/modules/hr/setup/employee-hr-information.html): Once someone joins the company, their record splits naturally into two layers. - entities: EmployeeHRInfo, EmployementInformation - menu: Payroll → Main → Employee HR Information
@@ -411,6 +412,15 @@
 - [Annual Increases](https://docs.namasoft.com/modules/hr/payroll/hr-annual-increases.html): Salaries don't stay still. - entities: AnnualIncreasesDoc - menu: Payroll → Main → Annual Increases Document
 - [Salary Blocking & Partial Payment](https://docs.namasoft.com/modules/hr/payroll/salary-blocking.html): Sometimes a salary shouldn't be paid out — at least not yet, and not in full. - entities: SalaryBlockRule, SalaryBlockDocument, SalaryUnBlockDocument, PartialSalaryPayment
 
+#### Document Terms
+
+- [Document Terms](https://docs.namasoft.com/modules/hr/document-terms/)
+- [Salary and Dues Document Terms](https://docs.namasoft.com/modules/hr/document-terms/hr-terms-salary-and-dues.html): A salary document knows everything about the month it pays for. - entities: SalaryDocument, SalarySheet, DailySalary, DuesLiquidationDoc, AggrDuesLiquidationDoc, AnnualIncreasesDoc, EmployeeProvisionsOpening, EmployeeProvisionsRecalc, AggrEmpProvisionsRecalc - menu: Basic → Settings → Document Term
+- [Attendance and Vacation Document Terms](https://docs.namasoft.com/modules/hr/document-terms/hr-terms-attendance-and-vacations.html): Vacation and attendance documents rarely post anything by themselves — a vacation does not move money, it moves a balance, and the money follows later on a salary document. - entities: VacationDocument, AggregatedVacationDocument, AggregatedVacationStartingDoc, MultiEmpVacation, VacationCompensation, AggregatedVacationCompensation, AggregatedLeavePermission, AggregatedMissionDocument, HolidaysRestBalanceDoc - menu: Basic → Settings → Document Term
+- [Loan, Reward and Penalty Document Terms](https://docs.namasoft.com/modules/hr/document-terms/hr-terms-loans-rewards-and-penalties.html): These documents all move money that is not salary — an advance paid out, an instalment collected, a bonus granted, a fine deducted — so unlike the vacation family, most of them post, and their terms... - entities: HRLoanDocument, AggHRLoanDocument, HRLoanPaymentDocument, HRLoanReliefDocument, AggHRLoanInstallReschedule, RewardAndPenaltieDocument, AggrRewardAndPenaltieDoc, HOPenaltyDocument - menu: Basic → Settings → Document Term
+- [Employment and Government Relations Document Terms](https://docs.namasoft.com/modules/hr/document-terms/hr-terms-employment-and-government.html): These are the documents that change who somebody is rather than what they are paid: the offer that hires them, the update that changes their salary or their department, the relocation, the... - entities: JobOffer, CandidateJobOffer, UpdateEmployeeInfo, AggrUpdateEmpInfo, EmployeeRelocate, AggFiringDocument, AggFiringRequest, HODefinitionLetter, AggrResidenceRenewReq, AggrHOSponsorshipTransferDoc, AggrHOExitReEntryVisaReq - menu: Basic → Settings → Document Term
+- [Insurance Document Terms](https://docs.namasoft.com/modules/hr/document-terms/hr-terms-insurance.html): Two insurance products live in the HR module and they are not related to each other. - entities: EmployeeHealthInsurance, HealthInsuranceUpgrade, EmpHealthInsurDelete, HealthInsuranceClaimDoc, HealthInsuranceCredence, CarInsurancePolicy, CarInsuranceAddingDoc, CarInsuranceRemovingDoc, CarInsuranceInstallmentProofDoc - menu: Basic → Settings → Document Term
+
 #### Time & Attendance
 
 - [Time & Attendance](https://docs.namasoft.com/modules/hr/attendance/)
@@ -418,6 +428,7 @@
 - [Time Attendance](https://docs.namasoft.com/modules/hr/attendance/time-attendance.html): An Attendance Plan and Shift tells Nama what an employee's day is supposed to look like. - entities: TimeAttendance, ElectronicAttendance, ElectronicAttendanceZone
 - [Attendance Machines](https://docs.namasoft.com/modules/hr/attendance/attendance-machines.html): Raw punch data can reach Nama in one of two ways. - entities: AttendanceMachineConfig - menu: Payroll → Time Attendance → Attendance Machine Config
 - [Leave Permissions & Missions](https://docs.namasoft.com/modules/hr/attendance/leave-permissions-and-missions.html): Not every departure from the schedule needs a full vacation. - entities: LeavePermission, MissionDocument, LeavePermissionConfiguration, LeaveReason
+- [Overtime and Lateness](https://docs.namasoft.com/modules/hr/attendance/overtime-and-lateness.html): Two punches and a shift produce a surprising number of arguments. - entities: TimeAttendance, AttendancePlan, PerformanceIndicator
 
 #### Vacations & Leaves
 

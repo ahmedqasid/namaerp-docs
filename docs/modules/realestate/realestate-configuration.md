@@ -10,7 +10,7 @@ Most of what the Real Estate module does is decided per document book, on the do
 Open it from the Real Estate menu's **Settings** group, or from **Administration > Settings > System Settings** and pick the entry whose code is `modulerealestate` (**Real estate Configurations**). It is a single page with one group of eight options followed by three grids.
 
 ::: info One set per database
-There is exactly **one** Real Estate settings record, and it applies to everything. Nama's settings mechanism generally allows a second record narrowed to a legal entity (شركة), a branch or a sector — but the Real Estate module never asks for a dimension-weighted match: every read is a plain "give me the module settings". So a second, narrower record would simply be ignored. **Configure it once; there is no per-legal-entity override.**
+There is exactly **one** Real Estate settings record, and it applies to everything. Every system settings record in Nama is a single global record for the whole database; the configuration group, type and dimensions on its header are the remains of a per-legal-entity design that was never adopted, so a second, narrower record would simply be ignored. **Configure it once; there is no per-legal-entity override.**
 
 The screen is not licence-gated either: if the `realestate` licence is present, the whole screen is there, including the options for parts of the module you may not have licensed.
 :::

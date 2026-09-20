@@ -5,5 +5,6 @@
   - [Time Attendance](/modules/hr/attendance/time-attendance.md)
   - [Attendance Machines](/modules/hr/attendance/attendance-machines.md)
   - [Leave Permissions & Missions](/modules/hr/attendance/leave-permissions-and-missions.md)
+  - [Overtime and Lateness](/modules/hr/attendance/overtime-and-lateness.md)
 
 </div>

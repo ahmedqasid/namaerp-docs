@@ -15,6 +15,8 @@ title: الموارد البشرية
 <LandingGrid>
   <LandingCard icon="🧩" title="المفاهيم الأساسية" link="/ar/modules/hr/concepts/" details="الفرق بين الطلب والمستند والمستند المُجمَّع، وخطوات الأداء الخمس التي تقف خلف كل حساب راتب." />
   <LandingCard icon="⚙️" title="الإعداد الأساسي" link="/ar/modules/hr/setup/" details="السنوات والفترات الخاصة بالموارد البشرية، والتقويم والعطلات، والسجلّ الرئيسي لبيانات الموظف." />
+  <LandingCard icon="🎛️" title="إعدادات الموارد البشرية" link="/ar/modules/hr/setup/hr-configuration.md" details="نحو مئة وخمسين إعدادًا للموديول، مجموعة بحسب ما تغيّره: مقسوم الشهر، وقواعد الإجازات، وخصم أيام عدم العمل، والحضور والوقت الإضافي." />
+  <LandingCard icon="🧾" title="توجيهات المستندات" link="/ar/modules/hr/document-terms/" details="توجيهات مستندات الموارد البشرية الستة والأربعين: في أي حسابات يؤثر كل مستند، وأي دفتر وتوجيه توزّعه المستندات المجمعة." />
 </LandingGrid>
 
 ## الرواتب والحضور
@@ -24,6 +26,7 @@ title: الموارد البشرية
 <LandingGrid>
   <LandingCard icon="💰" title="الرواتب" link="/ar/modules/hr/payroll/" details="عناصر الراتب، ومعادلات الحساب، والهياكل، ومستندات الرواتب، والزيادات السنوية، وحجز الرواتب." />
   <LandingCard icon="🕐" title="الحضور والإنصراف" link="/ar/modules/hr/attendance/" details="خطط الحضور والورديات، تسجيل البصمات، ماكينات الحضور، وأذونات الخروج القصيرة والمأموريات." />
+  <LandingCard icon="⏱️" title="الوقت الإضافي والتأخير" link="/ar/modules/hr/attendance/overtime-and-lateness.md" details="كيف يُقاس وقت اليوم الإضافي والتأخير والانصراف المبكر والبصمات الناقصة، والإعدادات التي تغيّر كل جواب." />
   <LandingCard icon="🧮" title="معادلات الحضور والانصراف" link="/ar/modules/hr/attendance-machine-formula.md" details="كيف تُعلّم النظام قراءة ملف ماكينة بصمة بعينها — سطر الرموز الذي يصف أعمدة الملف وصيغ التاريخ والوقت فيه." />
   <LandingCard icon="🔀" title="تجاهل سطور الحضور المتقاطعة" link="/ar/modules/hr/ignore-overlapping-attendance.md" details="ماذا تفعل حين يعطي ملف البصمة للموظف قراءات متداخلة أو متعارضة، وكيف تجعل النظام يتخطاها." />
   <LandingCard icon="🏖️" title="الأجازات" link="/ar/modules/hr/vacations/" details="أنواع الأجازات وأرصدتها، مسار الطلب إلى المستند، التعويض والتحويل، وتغيير حالة الموظف." />

@@ -15,6 +15,8 @@ The two ideas every other page builds on, and the setup that has to exist first.
 <LandingGrid>
   <LandingCard icon="🧩" title="Core Concepts" link="/modules/hr/concepts/" details="Requests vs. documents vs. aggregated documents, and the five-step pipeline behind every salary calculation." />
   <LandingCard icon="⚙️" title="Setup" link="/modules/hr/setup/" details="HR years and periods, the calendar and holidays, and the employee HR information master record." />
+  <LandingCard icon="🎛️" title="HR Configuration" link="/modules/hr/setup/hr-configuration.md" details="The module's ~150 settings, grouped by what they change — the month divisor, vacation rules, absence deductions, attendance and overtime." />
+  <LandingCard icon="🧾" title="Document Terms" link="/modules/hr/document-terms/" details="The 46 HR document terms: which accounts each document posts to, and which book and term the aggregated documents hand out." />
 </LandingGrid>
 
 ## Payroll & Time
@@ -24,6 +26,7 @@ The salary engine itself, and the attendance, leave, loan and discipline data th
 <LandingGrid>
   <LandingCard icon="💰" title="Payroll" link="/modules/hr/payroll/" details="Salary components, calculation formulas, structures, salary documents, annual increases and salary blocking." />
   <LandingCard icon="🕐" title="Time & Attendance" link="/modules/hr/attendance/" details="Attendance plans and shifts, recording punches, attendance machines, and short leave permissions and missions." />
+  <LandingCard icon="⏱️" title="Overtime and Lateness" link="/modules/hr/attendance/overtime-and-lateness.md" details="How the day's overtime, lateness, early leave and missing punches are measured, and the settings that change each answer." />
   <LandingCard icon="🧮" title="Attendance and Departure Formulas" link="/modules/hr/attendance-machine-formula.md" details="Teaching the system to read one particular fingerprint machine's export file — the token line that describes its columns, date and time formats." />
   <LandingCard icon="🔀" title="Ignoring Overlapping Attendance Lines" link="/modules/hr/ignore-overlapping-attendance.md" details="What to do when a fingerprint file gives an employee readings that overlap or contradict each other, and how to have the system skip them." />
   <LandingCard icon="🏖️" title="Vacations & Leaves" link="/modules/hr/vacations/" details="Vacation types and balances, the request-to-document flow, compensation and transfer, and changing an employee's state." />
