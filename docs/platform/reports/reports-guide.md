@@ -568,7 +568,7 @@ Two things escape the rewrite. A date prompt declared as a `list` is never touch
 
 - **Never** — leave the user's answer alone.
 - **Always** — replace it with the login dimension every time, so the prompt becomes decoration.
-- **When Not Public** — replace it *unless* the user is logged into a composite dimension and answered with that dimension itself or one of the dimensions beneath it. A user logged into the public dimension is never overridden. This is the setting for letting the manager of a composite branch report across the branches underneath it, and no further.
+- **When Not Public** — replace it *unless* the user is logged into a composite dimension and answered with that dimension itself or one of the dimensions beneath it. A user logged into the public dimension is never overridden. This is the setting for letting the manager of a [composite branch](/platform/dimensions-and-composite-dimensions) report across the branches underneath it, and no further.
 
 ## Publishing several variants of one report
 

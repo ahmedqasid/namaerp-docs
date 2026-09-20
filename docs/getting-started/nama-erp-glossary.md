@@ -60,7 +60,7 @@ first; it explains the two or three ideas the rest of this vocabulary hangs off.
 
 | Term | What it means |
 |---|---|
-| **Dimensions** — المحددات | The five fields that answer "which part of the business does this belong to?" — legal entity, sector, branch, department and analysis set. Almost every record carries all five, and they drive security, reporting and account structure — see [Dimensions](/platform/global-config/global-config-dimensions). |
+| **Dimensions** — المحددات | The five fields that answer "which part of the business does this belong to?" — legal entity, sector, branch, department and analysis set. Almost every record carries all five, and they drive security, reporting and account structure — see [Dimensions and Composite Dimensions](/platform/dimensions-and-composite-dimensions). |
 | **Legal Entity** — الشركة | The company. It is the only dimension that cannot be switched off, and every record belongs to one — or to none, which makes it **public**. |
 | **Sector / Branch / Department / Analysis Set** — القطاع / الفرع / الإدارة / المجموعة التحليلية | The four optional dimensions. Each can be switched off entirely if the business does not use it, and each can be made a security boundary as well as a reporting axis. |
 | **Public record** | A record saved with no legal entity. Depending on configuration it is either visible from every legal entity or hidden from all of them — which is the usual explanation for "why can't he see this item?". |

@@ -5,7 +5,7 @@ menu: Accounting → Settings → Account Distribution
 
 # Dimensions, Cost Centers & Distribution
 
-An account answers "what" — cash, sales, salaries. **Dimensions** answer everything else: *which* branch, *which* department, *which* cost center, *which* project. They're the extra coordinates carried on every ledger line, and they're what turn a flat trial balance into reports you can slice by branch, by sector, by cost center. This page explains the dimension set, how accounts can restrict which dimensions they accept, and how **account distribution** spreads a value across them automatically.
+An account answers "what" — cash, sales, salaries. **Dimensions** answer everything else: *which* branch, *which* department, *which* cost center, *which* project. They're the extra coordinates carried on every ledger line, and they're what turn a flat trial balance into reports you can slice by branch, by sector, by cost center. This page explains the dimension set as the ledger sees it, how accounts can restrict which dimensions they accept, and how **account distribution** spreads a value across them automatically. The five master files themselves — where a branch or a cost centre is created, and the composite dimension that stands for several at once — are in [Dimensions and Composite Dimensions](/platform/dimensions-and-composite-dimensions).
 
 ## The dimension set
 

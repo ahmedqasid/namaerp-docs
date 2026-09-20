@@ -12,7 +12,7 @@ Granting a user *list view* access to sales invoices answers the question "can t
 
 ## Dimensions
 
-Almost every record in Nama carries five organizational dimensions:
+Almost every record in Nama carries five organizational dimensions — the master files themselves, and the composite dimension that stands for several of them, are covered in [Dimensions and Composite Dimensions](/platform/dimensions-and-composite-dimensions):
 
 | Dimension | English |
 |---|---|

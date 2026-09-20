@@ -107,7 +107,7 @@ A **Main Account** plus five numbered accounts. This is what lets a project act 
 
 ### Dimensions
 
-Legal entity, sector, branch, department and analysis set — the ordinary Nama dimensions, carried by everything the project touches.
+Legal entity, sector, branch, department and analysis set — the ordinary Nama dimensions, carried by everything the project touches. See [Dimensions and Composite Dimensions](/platform/dimensions-and-composite-dimensions) for what the five are and how one is created.
 
 ## Page 2 — Milestones
 

@@ -8,6 +8,8 @@ Many of the accounting module's behaviors aren't coded — they're **configured*
 
 ## Dimensions in details
 
+The five dimensions themselves — and the composite dimension — are covered in [Dimensions and Composite Dimensions](/platform/dimensions-and-composite-dimensions).
+
 | Option | Effect |
 |---|---|
 | Show branch / department / analysis set / sector in details | Show each dimension at the document line level, not just the header. |

@@ -112,7 +112,7 @@ these:
   carrying that profile gets the form; point it at a master group and every user in the group does.
   Leave it empty and the form serves everyone.
 - **Dimensions** — the same five dimensions again, this time as a match rather than a filter, and
-  slightly more forgiving: a composite dimension on the form that *contains* the record's dimension
+  slightly more forgiving: a [composite dimension](/platform/dimensions-and-composite-dimensions) on the form that *contains* the record's dimension
   counts as a match, so a form set to a branch group covers every branch inside it.
 - **Menu Code** — a form carrying a menu code is taken only when the print request arrives with the
   same code. Almost all forms leave this empty.

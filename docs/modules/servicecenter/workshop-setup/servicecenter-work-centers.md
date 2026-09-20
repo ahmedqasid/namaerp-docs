@@ -83,7 +83,7 @@ Fill the grid if you want the file to describe the shop honestly for a human rea
 
 ### Dimensions
 
-The standard block — Legal Entity (الشركة), Branch (الفرع), Sector (القطاع), Department (الإدارة) and Analysis Set (المجموعة التحليلية) — files the work center in the organisation.
+The standard block — Legal Entity (الشركة), Branch (الفرع), Sector (القطاع), Department (الإدارة) and Analysis Set (المجموعة التحليلية) — files the work center in the organisation. See [Dimensions and Composite Dimensions](/platform/dimensions-and-composite-dimensions) for what the five are and how one is created.
 
 ### The Job Orders Tab
 

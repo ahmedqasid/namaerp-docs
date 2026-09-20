@@ -110,7 +110,7 @@ The maintainable parts of the machine — spindle, control unit, coolant pump �
 
 ### Dimensions
 
-The five dimensions — Legal Entity (الشركة), Analysis set (المجموعة التحليلية), Branch (الفرع), Sector (القطاع), Department (الإدارة). They say which company and which part of the business owns the asset, and whether a ledger line takes its dimension from the asset or from the document is a module setting. A transfer document rewrites them.
+The [five dimensions](/platform/dimensions-and-composite-dimensions) — Legal Entity (الشركة), Analysis set (المجموعة التحليلية), Branch (الفرع), Sector (القطاع), Department (الإدارة). They say which company and which part of the business owns the asset, and whether a ledger line takes its dimension from the asset or from the document is a module setting. A transfer document rewrites them.
 
 When the Contracting module is installed, a **Contracting Cost Effects** group appears with a debit and a credit side, read by the depreciation document when its term is set to take the contracting cost sides from the asset.
 

@@ -7,7 +7,7 @@ menu: Administration → Settings → System Settings
 
 Dimensions are how Nama answers "which part of the business does this record belong to?". There are five of them — legal entity, sector, branch, department and analysis set — and almost every record in the system carries all five. They drive security (who may see a record), reporting (how figures are grouped), and account structure.
 
-This tab decides which of them your installation actually uses, how strictly the system enforces that a document's dimensions agree with each other, and how the dimensions map onto account codes.
+The five master files themselves are covered in [Dimensions and Composite Dimensions](/platform/dimensions-and-composite-dimensions). This tab decides which of them your installation actually uses, how strictly the system enforces that a document's dimensions agree with each other, and how the dimensions map onto account codes.
 
 ![Dimensions tab](../../ar/platform/global-config/images/gc-dimensions-en.png)
 

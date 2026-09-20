@@ -132,7 +132,7 @@ the two debits add up on the buyer's balance. If they point at different account
 shows the net and the tax sits somewhere else.
 :::
 
-Finally, the **Dimensions** group (المحددات) carries the legal entity, analysis set, branch, sector
+Finally, the **[Dimensions](/platform/dimensions-and-composite-dimensions)** group (المحددات) carries the legal entity, analysis set, branch, sector
 and department. Whether the ledger entry takes its dimensions from here or from the asset record is
 a term setting, so if your disposals are landing in the wrong branch, that is the switch to look at.
 

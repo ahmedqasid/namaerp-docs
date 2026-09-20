@@ -60,7 +60,7 @@ You reach it at **Accounting → Master Files → System Accounts Transactions E
 The window is matched against the document's **Value Date**, not the date it was entered. A document with no value date matches no exception at all.
 :::
 
-The **Dimensions** block (Legal Entity, Branch, Sector, Department, Analysis Set) is the standard master-file block, but be aware that **it does not narrow the exception**. The engine reads every saved exception record regardless of dimensions and matches only on what is in the details grid. If you want an exception limited to one company's books, express that through the **Book** or **Term** column, not through the Legal Entity on the header.
+The **[Dimensions](/platform/dimensions-and-composite-dimensions)** block (Legal Entity, Branch, Sector, Department, Analysis Set) is the standard master-file block, but be aware that **it does not narrow the exception**. The engine reads every saved exception record regardless of dimensions and matches only on what is in the details grid. If you want an exception limited to one company's books, express that through the **Book** or **Term** column, not through the Legal Entity on the header.
 
 ### The details grid
 
